@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Analyze flight delay data by using Hive on Linux-based HDInsight
 
-Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, and how to  export the data to Azure SQL Database using Sqoop.
+Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, and how to export the data to Azure SQL Database by using Sqoop.
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -57,7 +57,7 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
     ```
 
-    Replace **FILENAME** with the name of the .zip file. Replace **USERNAME** with the SSH login for the HDInsight cluster. Replace **CLUSTERNAME** with the name of the HDInsight cluster.
+    Replace *FILENAME* with the name of the .zip file. Replace *USERNAME* with the SSH login for the HDInsight cluster. Replace *CLUSTERNAME* with the name of the HDInsight cluster.
 
    > [!NOTE]
    > If you use a password to authenticate your SSH login, you're prompted for the password. If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
@@ -68,7 +68,7 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 
     For more information, see [Connect to HDInsight (Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Use the following to unzip the .zip file:
+3. Use the following command to unzip the .zip file:
 
     ```
     unzip FILENAME.zip
@@ -164,7 +164,7 @@ Use the following steps to import data from the .csv file into a Hive table name
     ```
 
    > [!NOTE]
-   > In this example, `localhost` is used since you're connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
+   > In this example, `localhost` is used because you're connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
 
 4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
@@ -190,9 +190,9 @@ Use the following steps to import data from the .csv file into a Hive table name
 
 ## Create a SQL database
 
-If you already have a SQL database, you must get the server name. To find the server name in the [Azure portal](https://portal.azure.com), select **SQL Databases**, and then filter on the name of the database you choose to use. The server name is listed in the **SERVER** column.
+If you already have a SQL database, you must get the server name. To find the server name in the [Azure portal](https://portal.azure.com), select **SQL Databases**, and then filter on the name of the database that you choose to use. The server name is listed in the **SERVER** column.
 
-If you don't already have a SQL database, use the information in [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md) to create one. Save the server name used for the database.
+If you don't already have a SQL database, use the information in [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md) to create one. Save the server name that's used for the database.
 
 ## Create a SQL database table
 
@@ -208,7 +208,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. After the install finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
+3. After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
