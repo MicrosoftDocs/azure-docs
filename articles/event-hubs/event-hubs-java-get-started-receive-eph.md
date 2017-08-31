@@ -236,7 +236,7 @@ You can learn more about Event Hubs by visiting the following links:
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Azure Storage account]: ../storage/common/storage-create-storage-account.md
 [Azure portal]: https://portal.azure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
