@@ -39,7 +39,6 @@ To fix this issue:
 * Make sure that the correct Azure directory is selected by clicking your account at the top right.
 
   ![Select the directory at the top right of the Azure portal](./media/billing-no-subscriptions-found/directory-switch.png)
-
 * If the right Azure directory is selected but you still receive the error message, [have your account added as an Owner](billing-add-change-azure-subscription-administrator.md).
 
 ### Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)
@@ -47,9 +46,7 @@ To fix this issue:
 Check whether the account that you used is the Account Administrator. To verify who the Account Administrator is, follow these steps:
 
 1. Sign in to the [Subscriptions view in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-
 1. Select the subscription you want to check, and then look under **Settings**.
-
 1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
 
 ## Need help? Contact support.

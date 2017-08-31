@@ -38,35 +38,27 @@ To associate the Office 365 tenant to the Azure subscription, follow these steps
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with the service administrator credentials.
 
     ![Screenshot of Azure sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
-
 2. In the left pane, select **ACTIVE DIRECTORY**. You shouldn't see the Office 365 tenant. If you see it, skip to [Step 2: Change the directory associated with the Azure subscription](#Step2).
    
    ![Screenshot of Active Directory entry](./media/billing-add-office-365-tenant-to-azure-subscription/s35-classic-portal-active-directory-entry.png)
-
 3. Select **NEW** > **DIRECTORY** > **CUSTOM CREATE**.
    
     ![Screenshot of Azure Active Directory custom create](./media/billing-add-office-365-tenant-to-azure-subscription/s37-aad-custom-create.png)
-   
 4. On the **Add directory** page, under **DIRECTORY**, select **Use existing directory**. Then select **I am ready to be signed out now**, and select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
    
     ![Screenshot of "Use existing directory"](./media/billing-add-office-365-tenant-to-azure-subscription/s39_add-directory-use-existing.png)
-   
 5. After you are signed out, sign in with the global administrator’s credentials of your Office 365 tenant.
    
     ![Screenshot of Office 365 global administrator sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s310_sign-in-global-admin-office-365.png)
-   
 6. Select **Continue**.
    
     ![Screenshot of verification](./media/billing-add-office-365-tenant-to-azure-subscription/s311_use-contoso-directory-azure-verify.png)
-   
 7. Select **Sign out now**.
    
     ![Screenshot of sign-out](./media/billing-add-office-365-tenant-to-azure-subscription/s312_use-contoso-directory-azure-confirm-and-sign-out.png)
-   
 8. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with the service administrator credentials.
    
     ![Screenshot of Azure sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
-   
 9. You should see your Office 365 tenant in the dashboard.
    
     ![Screenshot of dashboard](./media/billing-add-office-365-tenant-to-azure-subscription/s314_office-365-tenant-appear-in-azure.png)
@@ -76,21 +68,17 @@ To associate the Office 365 tenant to the Azure subscription, follow these steps
 1. Select **Settings**.
    
     ![Screenshot of Azure classic portal settings icon](./media/billing-add-office-365-tenant-to-azure-subscription/s315_azure-classic-portal-settings-icon.png)
-   
 2. Select your Azure subscription, and then select **EDIT DIRECTORY**.
 
     ![Screenshot of Azure subscription edit directory](./media/billing-add-office-365-tenant-to-azure-subscription/s316_azure-subscription-edit-directory.png)
-   
 3. Select **Next** ![Next icon](./media/billing-add-office-365-tenant-to-azure-subscription/s317_next-icon.png).
    
     ![Screenshot of "Change the associated directory"](./media/billing-add-office-365-tenant-to-azure-subscription/s318_azure-change-associated-directory.png)
-   
 4. Review the affected accounts. All co-administrators and [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) users with assigned access in the existing resource groups are removed. The warning you receive only mentions the removal of co-administrators.
       
     ![Screenshot that shows the co-administrator accounts to be removed.](./media/billing-add-office-365-tenant-to-azure-subscription/s322_azure-confirm-directory-mapping.png)
    
     ![Screenshot that shows an example user account to be removed.](./media/billing-add-office-365-tenant-to-azure-subscription/s325_assigned-users-removed-resource-groups.png)
-   
 5. Select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
 ### Step 3: Add your Office 365 organizational accounts as admins to the Azure subscription
