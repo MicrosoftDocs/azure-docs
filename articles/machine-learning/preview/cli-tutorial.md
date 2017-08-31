@@ -14,7 +14,7 @@ ms.date: 08/31/2017
 ---
 
 # Tutorial: Iris Classification (on the command-line interface)
-In this tutorial, you learn to use the Azure Machine Learning preview features to: 
+In this tutorial, you learn to use the following Azure Machine Learning preview features on the command-line interface (CLI): 
 > [!div class="checklist"]
 > * Setting up an experimentation account, creating workspace
 > * Creating projects
@@ -46,7 +46,7 @@ PATH=/Users/$USER/Library/Caches/AmlWorkbench/Python/bin:$PATH
 To make the change permanent, you can use SETX for Windows. For Mac, you can use setenv.
 
 ## Step 1. CLI context
-The first step is to open the CLI from the AMLWorkbench App. Doing so will make sure we use the right python environment and we have the CLI accessible. 
+The first step is to open the CLI from the AMLWorkbench App, setting up environment variable to be configured for you. 
 
 We then need to set the right context in your CLI to access and manage Azure resources.
 ```
@@ -113,8 +113,7 @@ Example:
 az ml project create --name 8_21_3 --workspace ahmetw --account ahmetexp --resource-group ahmet --path c:\Users\ahgyger\Documents\Vienna_Demo\ --repo https://ahgyger.visualstudio.com/vienna/_git/8_21 --template-url http://github.com/hning86/ViennaSample-Iris
 ```
 ## Step 2.2 (optional) Share a workspace with co-worker. 
-To give access to a co-worker. 
-You need to use the real email address of the co-worker, not an alias. 
+To give access to a co-worker, give the email address of the co-worker, not an alias. 
 
 ```
 # Get the workspace ID
@@ -189,14 +188,14 @@ az ml experiment submit --run-configuration remotevm --project c:\Users\ahgyger\
 ```
 
 ## Step 5. Execute multiple iterations of iris_sklearn.py with a descending regularization rate. 
-With some creativity, it's quite simple to put together a python script that will try different regularization rate. 
+With some creativity, it's simple to put together a python script that tries different regularization rate. 
 (You might have to edit the file to point to the right project path.)
 ```
 python run.py
 ```
 
 ## Step 6. View run history
-Below command will list all the previous runs executed. 
+Following commands list the previous runs executed. 
 
 ```
 az ml history list
@@ -215,7 +214,7 @@ To view the artifacts created by a previous run, we can use the info command of 
 ```
 az ml history info --run <run id>
 ```
-To download the artifacts from a run, you can simply use below command:
+To download the artifacts from a run, you can use the following command:
 ```
 az ml history info --run <run id> --artifacts <artifact location>
 ```
@@ -242,7 +241,7 @@ az ml hostacct create -n <hosting account name> -l eastus2 -g <resource group> -
 
 
 ## Step 10. Create an operationalization environment
-At this point we will change our focus to operationalization. To operationalize a trained model (that we serialize into a pickle file) we need to create an linux DSVM. 
+At this point, we change our focus to operationalization. To operationalize a trained model (that we serialize into a pickle file), we need to create a linux DSVM. 
 ```
 # Deploy a linux DSVM (should be doable from local...)
 ```
@@ -250,7 +249,7 @@ At this point we will change our focus to operationalization. To operationalize 
 ## Deleting all the resources 
 Let's complete this tutorial by deleting all the resources we have created, unless you want to keep working on it! 
 
-To do so, we simply delete the resource group holding all our resources. 
+To do so, we delete the resource group holding all our resources. 
 ```
 az group delete --name ahmet
 ```
@@ -266,5 +265,5 @@ In this tutorial, you have learned to use the Azure Machine Learning preview fea
 > * Deploying a web-service to score new data
 
 
-Next, learn how to use manage your model, review this tutorial: 
+Next, learn how to manage your model, review this tutorial: 
 [Another Tutorial](model-management-overview.md) 
