@@ -2,8 +2,8 @@
 title: Azure CLI Script-Scale for Machine Learning Server  | Microsoft Docs
 description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
 services: machine-learning
-author: yourgithubalias
-ms.author: yourmsftalias
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
