@@ -13,9 +13,8 @@ ms.topic: article
 ms.date: 08/31/2017
 ---
 
-# Tutorial: Iris Classification (on the command line interface)
-In this tutorial, we will show you the basics of using Project "Vienna" to create a model and operationalize it into a web service.
-In this tutorial, you will learn to use the Azure Machine Learning preview features to 
+# Tutorial: Iris Classification (on the command-line interface)
+In this tutorial, you learn to use the Azure Machine Learning preview features to: 
 > [!div class="checklist"]
 > * Setting up an experimentation account, creating workspace
 > * Creating projects
@@ -28,11 +27,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
  
 ## Step 0. Getting started
-By default, Vienna CLI is accessible from the shell opened from the Vienna Application (File > Open Command-Line Interface). If you would like to have it available in another terminal shell, you will need to update your environment variable. 
+By default, Vienna CLI is accessible from the shell opened from the Vienna Application (File > Open Command-Line Interface). If you would like to have it available in another terminal shell, you need to update your environment variable. 
 
 ### Enabling Vienna CLI in any terminal shell
-To enable AZ ML CLI commands to be available in any terminal environment (it requires to have Vienna already installed), enter one of the command below.
-This will also work from your favorite IDE terminal... 
+To enable AZ ML CLI commands to be available in any terminal environment (it requires to have Vienna already installed), enter one of the following commands:
+This step works from your favorite IDE terminal. 
 
 ```
 # For Windows Shell
@@ -44,12 +43,12 @@ $env:Path = $env:LOCALAPPDATA+"\amlworkbench\Python;"+$env:LOCALAPPDATA+"\amlwor
 # For Mac Shell
 PATH=/Users/$USER/Library/Caches/AmlWorkbench/Python/bin:$PATH
 ```
-To make the change permananent, you can use SETX for Windows. For Mac, you can use setenv.
+To make the change permanent, you can use SETX for Windows. For Mac, you can use setenv.
 
 ## Step 1. CLI context
 The first step is to open the CLI from the AMLWorkbench App. Doing so will make sure we use the right python environment and we have the CLI accessible. 
 
-We then need to set the right context in your CLI, to access and manage Azure resources.
+We then need to set the right context in your CLI to access and manage Azure resources.
 ```
 # Authenticate to Azure
 az login
@@ -65,7 +64,7 @@ az account set -s d128f140-94e6-4175-87a7-954b9d27db16
 ```
 
 ## Step 2. Create a new Vienna project.
-We will start by creating a new Experimentation account and a new workspace. 
+We start by creating a new Experimentation account and a new workspace. 
 
 ```
 # Create a new ARM resource group
@@ -103,7 +102,7 @@ az ml project create --name 8_21_2 --workspace ahmetw --account ahmetexp --resou
 ```
 
 ## Step 2.1b (optional) Create a new project from an online template
-In this example, we will use a template from a git hub project and use it when creating our new project. 
+In this example, we use a template from a git hub project and use it when creating our new project. 
 ```
 # Create a new project from a template
 az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <path to project folder> --template-url <template url>
@@ -176,10 +175,8 @@ az ml computetarget attach --name remotevm --address 40.123.47.223 --username ah
 az ml experiment submit -c local iris_sklearn.py
 ```
 
-> Do we actually need to prepare the local environment? Will it pip-install the dependencies? 
-
 ## Step 4.b (optional) Execute the sample on the remote VM (on Docker)
-Once we have validated that the samples works correctly locally, we can train on our VM. 
+Once we have validated that the sample works correctly locally, we can train on our VM. 
 The first time is going to be slower, given that we need to pull the docker image and, create and configure the container. 
 ```
 az ml experiment submit --run-configuration <compute context name> --project <path to project> <path to project>\iris_sklearn.py
@@ -191,8 +188,8 @@ Example
 az ml experiment submit --run-configuration remotevm --project c:\Users\ahgyger\Documents\Vienna_Demo\8_21_2 c:\Users\ahgyger\Documents\Vienna_Demo\8_21_2\iris_sklearn.py
 ```
 
-## Step 5. Execute multiple iteration of iris_sklearn.py with a descending regularization rate. 
-With a little bit of creativity, it's quite simple to put together a python script that will try different regularization rate. 
+## Step 5. Execute multiple iterations of iris_sklearn.py with a descending regularization rate. 
+With some creativity, it's quite simple to put together a python script that will try different regularization rate. 
 (You might have to edit the file to point to the right project path.)
 ```
 python run.py
