@@ -29,9 +29,9 @@ This capability is useful when you want to:
 * Integrate the connector installation and registration as part of another procedure.
 * Create a standard server image that contains the connector bits but is not registered.
 
-For the [Application Proxy connector](application-proxy-understand-connectors.md) to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
+For the [Application Proxy connector](application-proxy-understand-connectors.md) to work, it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
 
-There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD. T
+There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD. 
 
 ## Install the connector
 Use the following steps to install the connector without registering it:
