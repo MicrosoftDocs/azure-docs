@@ -36,13 +36,13 @@ integration solution.
 
 ## Flow vs. Logic Apps
 We can discuss Microsoft Flow and Azure Logic Apps together because they are both *configuration-first* 
-integration services, which makes it easy to build processes and workflows and integrate with various SaaS and enterprise applications. 
+integration services. They make it easy to build processes and workflows and integrate with various SaaS and enterprise applications. 
 
 * Flow is built on top of Logic Apps
 * They have the same workflow designer
 * [Connectors](../connectors/apis-list.md) that work in one can also work in the other
 
-Flows empowers any office worker to perform simple integrations (for example, get SMS for important emails) without going through 
+Flow empowers any office worker to perform simple integrations (for example, get SMS for important emails) without going through 
 developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (for example, B2B processes) 
 where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in 
 complexity over time. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
@@ -102,10 +102,11 @@ The following table summarizes the differences between Functions and WebJobs:
 | JavaScript |supported |supported |
 
 Whether to use Functions or WebJobs ultimately depends on what you're already doing with App Service. If you have an App Service 
-app for which you want to run code snippets, and you want to manage them together in the same DevOps environment, you 
-should use WebJobs. If you want to run code snippets for other Azure services or even 3rd-party apps, or if you want to 
-manage your integration code snippets separately from your App Service apps, or if you want to call your code snippets from a 
-Logic app, you should take advantage of all the improvements in Functions.  
+app for which you want to run code snippets, and you want to manage them together in the same DevOps environment, use WebJobs. In the following scenarios, use Functions.
+
+* You want to run code snippets for other Azure services or 3rd-party apps.
+* You want to manage your integration code separately from your App Service apps.
+* You want to call your code snippets from a Logic app. 
 
 <a name="together"></a>
 
