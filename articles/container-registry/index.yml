@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Container Registry Documentation
+metadata:
+  title: Azure Container Registry Documentation - Tutorials | Microsoft Docs
+  description: Learn how to use Container Registry to store and manage images for all types of container deployments. Tutorials, REST API reference, and other documentation show you how to create and maintain container registries with this managed Docker registry service.
+  services: container-registry
+  author: czeumault
+  manager: carolz
+  ms.service: container-registry
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: Learn how to use Container Registry to store and manage images for all types of container deployments. Tutorials, REST API reference, and other documentation show you how to create and maintain container registries with this managed Docker registry service.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy an Azure Container Registry.'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/container-instances/media/container-instances.svg
+      text: Create container instance
+      href: /azure/container-instances/container-instances-quickstart
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Container Registry to store and manage images for all types of container deployments. Tutorials, REST API reference, and other documentation show you how to create and maintain container registries with this managed Docker registry service.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">ACR with Container Instances</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">ACR with Container Service</a>
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Azure CLI
+      html: <p><a href="/cli/azure/container">Azure CLI 2.0</a></p>
