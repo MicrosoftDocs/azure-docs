@@ -42,15 +42,15 @@ Azure Functions is a great solution for processing data, integrating systems, wo
 
 Functions provides templates to get you started with key scenarios, including the following:
 
-* **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this function for image resizing.
-* **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios.
-* **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks.
-* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a webhook or API function](functions-create-a-web-hook-or-api-function.md).
-* **HTTPTrigger** - Trigger the execution of your code by using an HTTP request.
-* **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create an Azure Function that binds to an Azure service](functions-create-an-azure-connected-function.md).
-* **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premises services by listening to message queues. 
-* **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premises services by subscribing to topics. 
+* **HTTPTrigger** - Trigger the execution of your code by using an HTTP request. For an example, see [Create your first function in the Azure portal](functions-create-generic-webhook-triggered-function.md).
 * **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create an event processing function](functions-create-an-event-processing-function.md).
+* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a function triggered by a GitHub webhook](functions-create-a-web-hook-or-api-function.md).
+* **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks. For an example, see [Create a function triggered by a generic webhook](functions-create-generic-webhook-triggered-function.md).
+* **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this function for image resizing. For more information, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
+* **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create an Azure Function that binds to an Azure service](functions-create-an-azure-connected-function.md).
+* **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. For more information, see [Azure Functions Event Hubs bindings](functions-bindings-event-hubs.md).
+* **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premises services by listening to message queues. For more information, see [Azure Functions Service Bus bindings](functions-bindings-service-bus.md).
+* **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premises services by subscribing to topics. For more information, see [Azure Functions Service Bus bindings](functions-bindings-service-bus.md).
 
 Azure Functions supports *triggers*, which are ways to start execution of your code, and *bindings*, which are ways to simplify coding for input and output data. For a detailed description of the triggers and bindings that Azure Functions provides, see [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md).
 
@@ -68,7 +68,7 @@ Azure Functions integrates with various Azure and 3rd-party services. These serv
 * Twilio (SMS messages)
 
 ## <a name="pricing"></a>How much does Functions cost?
-Azure Functions has two kinds of pricing plans, choose the one that best fits your needs: 
+Azure Functions has two kinds of pricing plans. Choose the one that best fits your needs: 
 
 * **Consumption plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. 
 * **App Service plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. 
@@ -85,5 +85,5 @@ Full pricing details are available on the [Functions Pricing page](https://azure
 * [How to scale Azure Functions](functions-scale.md)  
   Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
 * [Learn more about Azure App Service](../app-service/app-service-value-prop-what-is.md)  
-  Azure Functions leverages the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
+  Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics. 
 
