@@ -13,10 +13,12 @@
 # [With Azure ML](http://aka.ms/datascienceprocess)
 
 # How To
-## Set up tools and utilities
-### [Set up environments](environment-setup.md)
-### [Set up virtual machines](virtual-machines.md)
+## [Set up data science environments](environment-setup.md)
+### [Azure storage accounts](storage-create-storage-account)
 ### [Customize Hadoop](customize-hadoop-cluster.md)
+### [Azure Machine Learning workspace](../studio/create-workspace.md)
+## [Set up virtual machines](virtual-machines.md)
+
 ## Analyze business needs
 ### [Technical needs](plan-your-environment.md)
 ### [Identify your scenario](plan-sample-scenarios.md)
@@ -33,6 +35,7 @@
 #### [Load into hive tables](move-hive-tables.md)
 #### [Load from on-prem SQL](move-sql-azure-adf.md)
 #### [Load fromSQL partition tables](parallel-load-sql-partitioned-tables.md)
+
 ### Explore and visualize data
 #### [Prepare data](prepare-data.md)
 #### Explore data
@@ -40,23 +43,27 @@
 ##### [Use Pandas](explore-data-blob.md)
 ##### [Use SQL VM](explore-data-sql-server.md)
 ##### [Use Hive tables](explore-data-hive-tables.md)
+
 #### Sample data
 ##### [Overview](sample-data.md)
 ##### [Use blob storage](sample-data-blob.md)
 ##### [Use SQL Server](sample-data-sql-server.md)
 ##### [Use Hive tables](sample-data-hive.md)
+
 #### Process data
 ##### [Access with Python](python-data-access.md)
 ##### [Process blob data](data-blob.md)
 ##### [Use Azure Data Lake](data-lake-walkthrough.md)
 ##### [Use SQL VM](sql-server-virtual-machine.md)
 ##### [Use data pipeline](automated-data-pipeline-cheat-sheet.md)
+
 #### Process data with Spark
 ##### [Overview](spark-overview.md)
 ##### [Explore data](spark-data-exploration-modeling.md)
 ##### [Score models](spark-model-consumption.md)
 ##### [Advanced data exploration](spark-advanced-data-exploration-modeling.md)
 ##### [Use Scala and Spark](scala-walkthrough.md)
+
 ## Develop models
 ### Engineer and select features
 #### [Overview](create-features.md)
@@ -64,12 +71,14 @@
 #### [Use SQL+Python](create-features-sql-server.md)
 #### [Use Hive queries](create-features-hive.md)
 #### [TDSP feature selection](select-features.md)
+
 ## Examples
 ### End-to-end scenarios
 #### [Use Hadoop clusters](hive-walkthrough.md)
 #### [Use Hadoop with 1TB](hive-criteo-walkthrough.md)
 #### [Use SQL Server](sql-walkthrough.md)
 #### [Use SQL Data Warehouse](sqldw-walkthrough.md)
+
 # Reference
 # Related
 ## Cortana Intelligence Partner Solutions
