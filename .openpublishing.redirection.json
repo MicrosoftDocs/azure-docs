@@ -10133,6 +10133,31 @@
             "source_path": "articles/azure-functions/functions-api-definition-getting-started.md",
             "redirect_url": "/azure/azure-functions/functions-openapi-definition",
             "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-azureadjoin-user-frx.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-frx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-registered-devices-windows10-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-cli-samples.md",
+            "redirect_url": "/azure/batch/batch-cli-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
+            "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
+            "redirect_document_id": false
         }
     ]
 }

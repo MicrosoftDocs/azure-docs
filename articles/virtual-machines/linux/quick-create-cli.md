@@ -103,7 +103,7 @@ With NGINX installed and port 80 now open on your VM from the Internet - you can
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

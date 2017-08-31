@@ -29,10 +29,6 @@
     href: https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Contact us
-    href: https://azure.microsoft.com/overview/sales-number/
   - name: External and community content
     href: text-analytics-resource-external-community.md
   - name: FAQ
