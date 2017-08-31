@@ -25,14 +25,14 @@ If you've installed Azure Tools for Microsoft Visual Studio, you can view blob, 
 
 To view Server Explorer in Visual Studio, on the menu bar, select **View** > **Server Explorer**. The **Storage** node shows all of the storage accounts that exist under each Azure subscription or certificate that you're connected to. If your storage account doesn't appear, you can add it by following the instructions [later in this topic](#add-storage-accounts-by-using-server-explorer).
 
-Starting in Azure SDK 2.7, you can also use the new Cloud Explorer to view and manage your Azure resources. For more information, see [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).
+Starting in Azure SDK 2.7, you can also use Cloud Explorer to view and manage your Azure resources. For more information, see [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).
 
 ## View and manage storage resources in Visual Studio
 Server Explorer automatically shows a list of blobs, queues, and tables in your storage emulator account. The storage emulator account is listed in Server Explorer under the **Storage** node as the **Development** node.
 
 To see the storage emulator account’s resources, expand the **Development** node. If the storage emulator hasn’t been started when you expand the **Development** node, it will automatically start. This can take several seconds. You can continue to work in other areas of Visual Studio while the storage emulator starts.
 
-To view resources in a storage account, expand the storage account’s node in Server Explorer. The following sub-nodes appear:
+To view resources in a storage account, expand the storage account’s node in Server Explorer. The following subnodes appear:
 
 * **Blobs**
 * **Queues**
@@ -44,7 +44,7 @@ The **Blobs** node displays a list of containers for the selected storage accoun
 ### To create a blob container
 1. Open the shortcut menu for the **Blobs** node, and then select **Create Blob Container**.
 2. In the **Create Blob Container** dialog box, enter the name of the new container.  
-3. Select Enter on your keyboard, or you can click or tap outside of the name field to save the blob container.
+3. Select Enter on your keyboard, or you can click or tap outside the name field to save the blob container.
    
    > [!NOTE]
    > The blob container name must begin with a number (0-9) or lowercase letter (a-z).
@@ -63,41 +63,42 @@ When you view the contents of a blob container, it appears on a tab known as the
   
 You can perform the following operations on blobs by using the buttons in the upper-right corner of the blob container view:
   
-* Enter a filter value and apply it
-* Refresh the list of blobs in the container
-* Upload a file
-* Delete a blob
+* Enter a filter value and apply it.
+* Refresh the list of blobs in the container.
+* Upload a file.
+* Delete a blob.
     
   > [!NOTE]
   > Deleting a file from a blob container doesn’t delete the underlying file. It only removes it from the blob container.
   > 
   > 
-* Open a blob
-* Save a blob to the local computer
+* Open a blob.
+* Save a blob to the local computer.
 
 ### To create a folder or subfolder in a blob container
 1. Choose the blob container in Cloud Explorer. In the container window, select the **Upload Blob** button.
    
-    ![Uploading a file into a blob folder](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 2. In the **Upload New File** dialog box, select the **Browse** button to specify the file that you want to upload, and then enter a folder name in the **Folder (optional)** box.
    
-    You can add subfolders in container folders by following the same step. If you don’t specify a folder name, the file will be uploaded to the top level of the blob container. The file appears in the specified folder in the container.
+   ![Uploading a file into a blob folder](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
+    
+   You can add subfolders in container folders by following the same step. If you don’t specify a folder name, the file is uploaded to the top level of the blob container. The file appears in the specified folder in the container.
    
-    ![Folder added to a blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
-3. Double-click the folder or select Enter to see the contents of the folder. When you’re in the container’s folder, you can go back to the root of the container by selecting the **Open Parent Directory** (up arrow) button.
+   ![Folder added to a blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
+3. Double-click the folder or select Enter to see the contents of the folder. When you’re in the container’s folder, you can go back to the root of the container by selecting the **Open Parent Directory** (arrow) button.
 
 ### To delete a container folder
 * Delete all the files in the folder.
   
 > [!NOTE]
-> Because folders in blob containers are virtual folders, you can’t create an empty folder, nor can you delete a folder to delete its file contents. You have to delete the entire contents of a folder to delete the folder.
+> Because folders in blob containers are virtual folders, you can’t create an empty folder. You also can't delete a folder to delete its file contents. You have to delete the entire contents of a folder to delete the folder itself.
 > 
 > 
 
 ### To filter blobs in a container
 You can filter the blobs that are displayed by specifying a common prefix.
 
-For example, if you enter the prefix **hello** in the filter text box and then select the **Execute** (**!**)button, only blobs that begin with "hello" appear.
+For example, if you enter the prefix **hello** in the filter text box and then select the **Execute** (**!**) button, only blobs that begin with "hello" appear.
 
 ![Filter text box](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
@@ -116,7 +117,7 @@ The progress of a blob download appears in the **Azure Activity Log** window.
   
 The blob opens in the default editor for that file type. If the operating system recognizes the file type, the file opens in a locally installed application. Otherwise, you're prompted to choose an application that’s appropriate for the file type of the blob. The local file that’s created when you download a blob is marked as read-only.
   
-Blob data is cached locally and checked against the blob's last modified time in Azure Blob storage. If the blob has been updated since it was last downloaded, it's downloaded again. Otherwise, the blob is loaded from the local disk. 
+Blob data is cached locally and checked against the blob's last-modified time in Azure Blob storage. If the blob has been updated since it was last downloaded, it's downloaded again. Otherwise, the blob is loaded from the local disk. 
 
 By default, a blob is downloaded to a temporary directory. To download blobs to a specific directory, open the shortcut menu for the selected blob names and select **Save As**. When you save a blob in this manner, the blob file is not opened, and the local file is created with read/write attributes.
 
@@ -145,10 +146,10 @@ When you develop a cloud service that uses queues, you might want to use Visual 
 
 In Server Explorer, you can view the queues in a storage account, create and delete queues, open a queue to view its messages, and add messages to a queue. When you open a queue for viewing, you can view the individual messages, and you can perform the following actions on the queue by using the buttons in the upper-left corner:
 
-* Refresh the view of the queue
-* Add a message to the queue
-* Dequeue the topmost message
-* Clear the entire queue
+* Refresh the view of the queue.
+* Add a message to the queue.
+* Dequeue the topmost message.
+* Clear the entire queue.
 
 The following image shows a queue that contains two messages:
 
@@ -171,7 +172,7 @@ Azure Table storage stores large amounts of structured data. The service is a No
 ### To view table data
 1. In Cloud Explorer, open the **Azure** node, and then open the **Storage** node.
 2. Open the storage account node that you are interested in, and then open the **Tables** node to see a list of tables for the storage account.
-3. Open the shortcut menu for a table and then select **View Table**.
+3. Open the shortcut menu for a table, and then select **View Table**.
    
     ![An Azure table in Solution Explorer](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
@@ -218,58 +219,62 @@ The following illustration shows an example of a valid filter string:
 ![Filter string](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
 ## Refresh storage data
-When Server Explorer connects to or gets data from a storage account, the operation might take up to a minute to finish. If it can’t connect, the operation might time out. While data is retrieved, you can continue to work in other parts of Visual Studio. To cancel the operation if it’s taking too long, select the **Stop Refresh** button on the Server Explorer toolbar.
+When Server Explorer connects to or gets data from a storage account, the operation might take up to a minute to finish. If Server Explorer can’t connect, the operation might time out. While data is retrieved, you can continue to work in other parts of Visual Studio. To cancel the operation if it’s taking too long, select the **Stop Refresh** button on the Server Explorer toolbar.
 
 ### To refresh blob container data
-* Select the **Blobs** node beneath **Storage** and select the **Refresh** button on the Server Explorer toolbar.
+* Select the **Blobs** node beneath **Storage**, and then select the **Refresh** button on the Server Explorer toolbar.
 * To refresh the list of blobs that is displayed, select the **Execute** button.
 
 ### To refresh table data
-* Select the **Tables** node beneath **Storage** and select the **Refresh** button.
+* Select the **Tables** node beneath **Storage**, and then select the **Refresh** button on the Server Explorer toolbar.
 * To refresh the list of entities that is displayed in Table Designer, select the **Execute** button in Table Designer.
 
 ### To refresh queue data
-* Select the **Queues** node, and then select the **Refresh** button.
+* Select the **Queues** node beneath **Storage**, and then select the **Refresh** button on the Server Explorer toolbar.
 
 ### To refresh all items in a storage account
 * Choose the account name, and then select the **Refresh** button on the Server Explorer toolbar.
 
 ## Add storage accounts by using Server Explorer
-There are two ways to add storage accounts by using Server Explorer. You can create a new storage account in your Azure subscription, or you can attach an existing storage account.
+There are two ways to add storage accounts by using Server Explorer. You can create a storage account in your Azure subscription, or you can attach an existing storage account.
 
-### To create a new storage account by using Server Explorer
+### To create a storage account by using Server Explorer
 1. In Server Explorer, open the shortcut menu for the **Storage** node, and then select **Create Storage Account**.
    
-    ![Create a new Azure storage account](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
-2. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
+2. In the **Create Storage Account** dialog box, select or enter the following information:
    
    * The Azure subscription to which you want to add the storage account.
-   * The name you want to use for the new storage account.
+   * The name that you want to use for the new storage account.
    * The region or affinity group (such as West US or East Asia).
-   * The type of replication you want to use for the storage account, such as Geo-Redundant.
+   * The type of replication you want to use for the storage account, such as locally redundant.
+
+   ![Create an Azure storage account](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
+
 3. Select **Create**.
    
-    The new storage account appears in the **Storage** list in Solution Explorer.
+The new storage account appears in the **Storage** list in Solution Explorer.
 
 ### To attach an existing storage account by using Server Explorer
 1. In Server Explorer, open the shortcut menu for the Azure **Storage** node, and then select **Attach External Storage**.
    
     ![Adding an existing storage account](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766039.png)
-2. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
+2. In the **Create Storage Account** dialog box, select or enter the following information:
    
-   * The name of the existing storage account you want to attach. You can enter a name or select it from the list.
-   * The key for the selected storage account. This value is typically provided for you when you select a storage account. If you want Visual Studio to remember the storage account key, select the Remember account key box.
-   * The protocol to use to connect to the storage account, such as HTTP, HTTPS, or a custom endpoint. See [How to Configure Connection Strings](https://msdn.microsoft.com/library/azure/ee758697.aspx) for more information about custom endpoints.
+   * The name of the existing storage account that you want to attach.
+   * The key for the selected storage account. This value is typically provided for you when you select a storage account. If you want Visual Studio to remember the storage account key, select the **Remember account key** check box.
+   * The protocol to use to connect to the storage account, such as HTTP, HTTPS, or a custom endpoint. For more information about custom endpoints, see [How to Configure Connection Strings](https://msdn.microsoft.com/library/azure/ee758697.aspx).
 
 ### To view the secondary endpoints
-If you created a storage account using the **Read-Access Geo Redundant** replication option, you can view its secondary endpoints:
+If you created a storage account by using the **Read-Access Geo Redundant** replication option, you can view its secondary endpoints:
 
 * Open the shortcut menu for the account name, and then select **Properties**.
   
-    ![Storage secondary endpoints](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
+![Storage secondary endpoints](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
 
 ### To remove a storage account from Server Explorer
-* In Server Explorer, open the shortcut menu for the account name, and then select **Delete**. If you delete a storage account, any saved key information for that account is also removed.
+* In Server Explorer, open the shortcut menu for the account name, and then select **Delete**. 
+
+If you delete a storage account, any saved key information for that account is also removed.
   
 > [!NOTE]
 > If you delete a storage account from Server Explorer, it doesn’t affect your storage account or any data that it contains. It simply removes the reference from Server Explorer. To permanently delete a storage account, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
