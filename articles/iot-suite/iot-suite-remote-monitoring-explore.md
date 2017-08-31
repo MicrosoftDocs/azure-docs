@@ -72,13 +72,13 @@ Operators at Contoso know the thresholds that determine whether a device is work
 | Hot cargo temperature | Alerts if truck's cargo temperature is higher than normal (> 45 F)                 | Warning  | Trucks              |
 | Stopped elevator      | Alerts if elevator stops completely, vibration level (<0.1 mm>)                    | Warning  | Elevators           |
 
-## Operate the Contoso sample deployment
+### Operate the Contoso sample deployment
 
-You have now seen the initial setup in the Contoso sample. The following sections describe four scenarios in the Contoso sample where an operator must analyze real-time data and decide how to act.
+You have now seen the initial setup in the Contoso sample. The following sections describe three scenarios in the Contoso sample that illustrate how an operator might use the preconfigured solution.
 
-### Respond to a pressure alarm
+## Respond to a pressure alarm
 
-This scenario shows how an operator identifies and responds to an alarm that's triggered by a chiller device. The chiller is located in Redmond, in building 43, floor 2.
+This scenario shows you how to identify and respond to an alarm that's triggered by a chiller device. The chiller is located in Redmond, in building 43, floor 2.
 
 As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller.
 
@@ -116,7 +116,7 @@ You have now identified the issue that triggered the alarm and the associated de
 
     <!-- Insert screenshot -->
 
-Finally, you confirm that the telemetry values from the chiller are back to normal.
+Finally, confirm that the telemetry values from the chiller are back to normal.
 
 1. Navigate to the dashbaoard to view the alarms grid.
 
@@ -124,37 +124,105 @@ Finally, you confirm that the telemetry values from the chiller are back to norm
 
 1. To close the incident, navigate to the **Maintenance** page, select the alarm and set the status to **Closed**:
 
-<!-- Insert screenshot -->
+    <!-- Insert screenshot -->
 
-### Respond to a temperature alarm
+## Update device firmware
 
-This scenario shows how an operator investigates a temperature alarm. Contoso is running a test for a new field device, tagged as **Test 2**, which could be causing the alarm. Contoso is using prototyping devices for the test. Contoso wants to test if devices with a high temperature can self-heal by using a method to start a cooling system remotely. To perform the test, Contoso provisions a device with a higher than normal temperature to trigger an alarm. To investigate, the operator at Contoso:
+Contoso is testing a new type of device in the field. As part of the testing cycle, you need to ensure that device firmware updates work correctly. The following steps show you how to use the remote monitoring solution to update the firmware on multiple devices.
 
-Sees alarm status.
+You can use the devices page to perform all the necessary device management tasks. Start by filtering for all prototyping devices:
 
-Clicks to see device details
+1. Navigate to the devices page. Choose the **Prototyping** filter in the **Filters** drop-down:
 
-In this case, operator knows what to do directly, so they go to the devices page to act on the device directly.
+    <!-- Insert screenshot -->
 
-Operator applies decrease temperature method (new cooling system they are testing).
+    > [!TIP]
+    > Click **Manage** to manage the available filters.
 
-Problem is fixed. Show normal dashboard.
+1. Select one of the prototyping devices:
 
-### Solve a field incident
+    <!-- Insert screenshot -->
 
-In this scenario, Contoso has multiple trucks traveling in the Seattle area. Each truck has different cargo.
+1. Click the **Schedule** button and then choose **Firmware update**:
 
-To see the different tags that represent the cargo type, show the trucks in the map, and point to devices details.
+    <!-- Insert screenshot -->
 
-One of the trucks has raised a warning for high temperature. Show T and alarm as a warning, not as critical.
+1. Enter values for **Job name** and **Firmware URL**. Schedule the job to run now:
 
-Operator goes to devices page and lowers T so the cargo is now safe.
+    <!-- Insert screenshot -->
 
-### Fix equipment remotely
+1. Click **Apply** and note how many devices the job affects:
 
-In this scenario, an elevator is stopped in building 1 on the Redmond campus. The operator at Contoso knows the elevator is stationary because of an alarm that shows vibration has stopped completely.
+    <!-- Insert screenshot -->
 
-A technician evaluates the potential problem, decides to update the firmware version and then restart the elevator. With the new firmware patch, the elevator now works.
+You can use the **Maintenance** page to track the job as it runs.
+
+1. Navigate to the **Maintenance** page and click **System status**:
+
+    <!-- Insert screenshot -->
+
+1. Locate the event related to the job you created and verify that the firmware update process was initiated correctly:
+
+    <!-- Insert screenshot -->
+
+You can create a filter to verify the firmware version update correctly.
+
+1. Navigate to the Devices page and select **Manage filters**:
+
+    <!-- Insert screenshot -->
+
+1. Create a group that includes only devices with the new firmware version:
+
+    <!-- Insert screenshot -->
+
+1. Return to the **Devices** page and verify that the device has the new firmware version:
+
+    <!-- Insert screenshot -->
+
+## Organize your assets
+
+Contoso has two different teams for field service activities:
+
+* The Smart Building team manages chillers, elevators, and engines.
+* The Smart Vehicle team manages trucks and prototyping devices.
+
+To make it easier as an operator to organaize and mange your devices, you want to tag them with the appropriate team name.
+
+You can create custom tag names to use with devices.
+
+1. To display all the devices, navigate to the **Devices** page and choose the **All** filter:
+
+    <!-- Insert screenshot -->
+
+1. Select the **Trucks** and **Prototyping** devices. Then choose **Tag**:
+
+    <!-- Insert screenshot -->
+
+1. In the **Tag** menu, create a new tag called **FieldService** with a value **ConnectedVehicle**. Then click **Save**:
+
+    <!-- Insert screenshot -->
+
+1. Select the **Chiller**, **Elevator**, and **Engine** devices. Then choose **Tag**:
+
+    <!-- Insert screenshot -->
+
+1. In the **Tag** menu, create a new tag called **FieldService** with a value **SmartBuilding**. Then click **Save**:
+
+    <!-- Insert screenshot -->
+
+You can use the custom tag values to create filters.
+
+1. On the **Devices** page, choose **Manage filters**:
+
+    <!-- Insert screenshot -->
+
+1. Create a new group that uses the tag name **FieldService** and value **SmartBuilding**. Save the filter as **Smart Building**:
+
+    <!-- Insert screenshot -->
+
+1. Create a new group that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicleg**:
+
+    <!-- Insert screenshot -->
 
 ## Next steps
 
