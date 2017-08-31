@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Create a Linux virtual machine with the Azure Stack portal
 
-Azure Stack virtual machines can be created through the Azure Stack portal. This method provides a browser-based user interface to create and configure a virtual machines and all related resources. This Quickstart show you how to quickly create a Linux virtual machine and install a web server on it.
+Azure Stack virtual machines can be created through the Azure Stack portal. This method provides a browser-based user interface to create and configure a virtual machine and all related resources. This Quickstart shows you how to quickly create a Linux virtual machine and install a web server on it.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ Azure Stack virtual machines can be created through the Azure Stack portal. This
    The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, ensure that the Azure Stack operator has downloaded the **Ubuntu Server 16.04 LT** image by using the steps described in the [Download marketplace items](azure-stack-download-azure-marketplace-item.md) topic.
 * **Access to an SSH client**
 
-   If you are using the Azure Stack Development Kit (ASDK), you may not have access to an SSH client in your environment. If this is the case, you can choose amoung several packages that include an SSH client. For example, you can install PuTTY which includes an SSH client and SSH key generarator (puttygen.exe). For more information about possible options, see the following releated Azure article: [How to Use SSH keys with Windows on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   If you are using the Azure Stack Development Kit (ASDK), you may not have access to an SSH client in your environment. If this is the case, you can choose among several packages that include an SSH client. For example, you can install PuTTY that includes an SSH client and SSH key generator (puttygen.exe). For more information about possible options, see the following related Azure article: [How to Use SSH keys with Windows on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    This Quickstart uses PuTTY to generate the SSH keys and to connect to the Linux virtual machine. To download and install PuTTY, go to [http://www.putty.org/](http://www.putty.org).
 
@@ -34,7 +34,7 @@ You need an SSH key pair to complete this Quickstart. If you have an existing SS
 
    ![puttygen.exe](media/azure-stack-quick-linux-portal/Putty01.PNG)
 
-3. Move your mouse cursor within the PuTTY Key Generator window to complete the key generation process.
+3. To complete the key generation process, move your mouse cursor within the PuTTY Key Generator window.
 4. When the key generation completes, click **Save public key** and **Save private key** to save your public and private keys to files.
 
    ![PuTTY keys](media/azure-stack-quick-linux-portal/Putty02.PNG)
@@ -117,7 +117,7 @@ A Network security group (NSG) secures inbound and outbound traffic. When a virt
 
 ## View the NGINX welcome page
 
-With NGINX installed, and port 80 open on your vitual machine, the web server can now be accessed at the virtaul machine's public IP address. The public IP address can be found on the virtual machine's Overview page in the Azure Stack portal.
+With NGINX installed, and port 80 open on your virtual machine, the web server can now be accessed at the virtual machine's public IP address. The public IP address can be found on the virtual machine's Overview page in the Azure Stack portal.
 
 Open a web browser, and browse to ```http://<public IP address>```.
 
