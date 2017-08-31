@@ -15,7 +15,7 @@
 
 # How To
 ## [Set up data science environments](environment-setup.md)
-### [Azure storage accounts](storage-create-storage-account)
+### [Azure storage accounts](../../storage/common/storage-create-storage-account.md)
 ### [Customize Hadoop](customize-hadoop-cluster.md)
 ### [Azure Machine Learning workspace](../studio/create-workspace.md)
 ### [Set up virtual machines](virtual-machines.md)
