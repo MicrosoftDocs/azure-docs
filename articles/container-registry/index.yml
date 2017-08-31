@@ -25,7 +25,7 @@ sections:
     items:
     - image:
         src: /azure/container-registry/media/index/container-registry.svg
-      text: Create container instance
+      text: Azure CLI
       href: /azure/container-registry/container-registry-get-started-azure-cli
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
@@ -39,8 +39,7 @@ sections:
   items:
   - type: paragraph
     text: Learn how to use Azure Container Registry with Azure Container Instances and Azure Container Service.
-  - type: list
-    style: ordered
+  - type: paragraph
     items:
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">ACR with Container Instances</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">ACR with Container Service</a>
