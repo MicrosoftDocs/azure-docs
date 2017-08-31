@@ -596,7 +596,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 
 Congratulations! You've configured a custom Docker image for an Azure web app on Linux.
 
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]
+[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
 ## Next Steps ##
 
