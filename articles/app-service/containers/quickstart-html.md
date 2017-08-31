@@ -72,7 +72,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 You’ve created an empty new web app in a Linux container, with git deployment enabled.
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 13, done.
