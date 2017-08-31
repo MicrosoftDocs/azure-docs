@@ -32,7 +32,7 @@ If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/pl
 
 ## Cancel subscription using the Azure portal
 
-1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Select your subscription from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 1. Select the subscription that you want to cancel and click **Cancel subscription**.
 
@@ -48,7 +48,7 @@ After that, your services are disabled. That means your virtual machines are de-
 
 If you cancel in the middle of a billing period, we send the final bill on your typical invoice date after the period ends. 
 
-After you cancel your subscription, we wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+We wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## Reactivate subscription
 

@@ -34,11 +34,11 @@ In the Account Center, you can add a new credit card, update an existing credit 
 
 1. On the right side of the page, select **Manage payment methods**.
 
-![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/changesub_new.png)
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/changesub_new.png)
 
 1. Select “+” to add a card.
 
-![Screenshot that shows the edit option next to the payment method.]
+    ![Screenshot that shows the edit option next to the payment method.](./media/billing-how-to-change-credit-card/editcard_new.png)
 
 1. Enter credit or debit card details.
 
@@ -102,13 +102,13 @@ Unfortunately, if your subscriptions are already using the same card, it's not p
 
 ### How do I make payments?
 
-* If you set up a credit card or a debit card as your payment method, we automatically charge your card after each billing period. You don't need to do anything.
+If you set up a credit card or a debit card as your payment method, we automatically charge your card after each billing period. You don't need to do anything.
 
-* If you're [paying by invoice](billing-how-to-pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
+If you're [paying by invoice](billing-how-to-pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
 
 ### How do I make a one-time payment?
 
-Unfortunately, we don't currently support one-time payment for credit or debit cards. 
+Unfortunately, Azure currently doesn't support one-time payments for credit or debit cards. 
 
 ## Need help? Contact support
 

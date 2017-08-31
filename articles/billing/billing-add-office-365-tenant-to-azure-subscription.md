@@ -95,7 +95,7 @@ To associate the Office 365 tenant to the Azure subscription, follow these steps
 
 ### Step 3: Add your Office 365 organizational accounts as admins to the Azure subscription
    
-To add an admin to your Azure subscription, see[Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md)
+To add an admin to your Azure subscription, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md)
 
 ## Need help? Contact support.
 

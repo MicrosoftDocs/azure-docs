@@ -34,7 +34,7 @@ You can change the payment method for your Azure subscription to invoice by subm
 
 1. Select **Billing** as the issue type, select the subscription for which you want to pay by invoice, select a support plan, and then select **Next**.
 
-1. In the **Problem** blade, select **Pay by Invoice** in the **Problem Type** box.
+1. Select **Pay by Invoice** in the **Problem Type** box.
 
 1. Enter the following information in the **Details** box, and then select **Next**.
 

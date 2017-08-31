@@ -25,15 +25,16 @@ You might have your Azure subscription disabled because you reached your spendin
 
 ## You reached your spending limit
 
-When your usage exhausts the monthly amounts included with your subscription, we disable your service for the remainder of that billing period. Your service is disabled to protect you from accidentally incurring charges for usage beyond the amount included with your subscription. You can remove the spending limit and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
+When your usage exhausts the monthly amounts included with your subscription, we disable your service for the remainder of that billing period. Your service is disabled to protect you from accidentally incurring charges for usage beyond the amount included with your subscription. To remove your spending limit, see [Remove the spending limit in Account Center](billing-spending-limit.md#remove).
 
-To remove your spending limit, see [Remove the spending limit in Account Center](billing-spending-limit.md#remove)
+> [!NOTE] 
+> If you have a Free Trial subscription and you remove the spending limit, your subscription converts to Pay-As-You-Go at the end of the Free Trial.
 
-If you have a Free Trial subscription and you remove the spending limit, your subscription converts to Pay-As-You-Go at the end of the Free Trial.
+To monitor and manage billing activity for Azure, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md) and [Set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md).
 
 ## Your bill is past due
 
-To resolve past due balance, see [Resolve past due balance for your Azure subscription after getting an email from Azure](billing-azure-subscription-past-due-balance.md#how-to-resolve-the-issue).
+To resolve past due balance, see [Resolve past due balance for your Azure subscription after getting an email from Azure](billing-azure-subscription-past-due-balance.md).
 
 ## The bill exceeds your credit card limit
 
@@ -49,7 +50,7 @@ If you're the Account Administrator and accidentally canceled a Pay-As-You-Go su
 
 1. Click **Reactivate**.
 
-![Screenshot that shows reactivate links on the right pane](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+    ![Screenshot that shows reactivate links on the right pane](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
 For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 

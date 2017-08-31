@@ -22,7 +22,7 @@ ms.author: genli
 
 As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer, you can switch your Azure subscription to another offer in the [Account Center](https://account.windowsazure.com/Subscriptions). For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). 
 
-**Want to upgrade from [Free Trial](https://azure.microsoft.com/free/)?** See [upgrade to Pay-As-You-Go](billing-upgrade-azure-subscription.md).
+**Just want to upgrade from Free Trial?** See [upgrade to Pay-As-You-Go](billing-upgrade-azure-subscription.md).
 
 ## What's supported:
 

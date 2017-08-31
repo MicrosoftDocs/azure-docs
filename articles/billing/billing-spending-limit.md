@@ -29,7 +29,7 @@ When your usage results in charges that exhaust the monthly amounts included wit
 
 For example, when you spend all the credit included with your subscription, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. The data in your storage accounts and databases are available in a read-only manner.
 
-At the beginning of the next billing period, if your subscription offer includes credits over multiple months, your subscription will be re-enabled automatically. Then you can redeploy your Cloud Services and have full access to your storage accounts and databases.
+At the beginning of the next billing period, if your subscription offer includes credits over multiple months, your subscription would be re-enabled automatically. Then you can redeploy your Cloud Services and have full access to your storage accounts and databases.
 
 We send email notifications when you hit the spending limit for your subscription. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions), and you see notifications about subscriptions that have reached the spending limit.
 
@@ -66,15 +66,15 @@ The spending limit could prevent you from deploying or using certain third-party
 
 - You have services that cannot be disrupted.
 
-- You have services and resources with settings like virtual IP addresses that you don't want to lose. These settings are lost when the services and resources are deallocated.
+- You have services and resources with settings like virtual IP addresses that you don't want to lose. These settings are lost when the services and resources are de-allocated.
 
 ### How do I turn on the spending limit after removing it?
 
 The spending limit is ever only turned on automatically. Unfortunately, there's no option to turn it on yourself after it's been removed. Make sure you select the **Remove spending limit for the current billing period** option if you're worried about the limit not turning back on.
 
-### How do I set a customer spending limit?
+### How do I set a custom spending limit?
 
-We don't have custom spend limits today. However, you can opt-in to [use billing alerts to control your spend](billing-set-up-alerts.md).
+We don't have custom spend limits today. However, you can opt in to [use billing alerts to control your spend](billing-set-up-alerts.md).
 
 ### Does the spending limit prevent all charges from Azure?
 

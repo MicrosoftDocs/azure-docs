@@ -22,7 +22,7 @@ ms.author: genli
 
 If your payment isn't received or if we can't process your payment, you might get an email or see an alert in the Account Center or Azure portal. The message might be like:
 
-**We have been unable to charge your credit card for your subscription. To prevent any service interruptions, please update your payment information.**
+    **We have been unable to charge your credit card for your subscription. To prevent any service interruptions, please update your payment information.**
 
 Follow the steps in the article to resolve the past due balance.
 

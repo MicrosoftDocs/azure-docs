@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go
 
-Upgrade your [Free Trial](https://azure.microsoft.com/free/) or [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) subscription to [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) from the Azure Account Portal. Upgrading does not cost any money by itself, and you will only be charged for the services you use.
+Upgrade your [Free Trial](https://azure.microsoft.com/free/) or [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) subscription to [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) in the Azure Account Center.
 
 1. Sign in to the [Azure Account Portal](https://account.windowsazure.com/subscriptions).
 
@@ -33,4 +33,4 @@ Upgrade your [Free Trial](https://azure.microsoft.com/free/) or [Microsoft Imagi
    
     ![Screenshot that shows what to select to confirm that you want to upgrade your subscription](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-After you confirm the upgrade, you still get to keep your trial credit until the end of the trial term.
+Upgrading does not cost any money by itself; you're only be charged for the services you use. After you confirm the upgrade, you still get to keep your trial credit until the end of the trial term.
