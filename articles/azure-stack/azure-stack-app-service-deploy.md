@@ -51,11 +51,11 @@ This first script works with the Azure Stack certificate authority to create the
 | API SSL certificate | api.appservice.local.AzureStack.external.pfx |
 | Publisher SSL certificate | ftp.appservice.local.AzureStack.external.pfx |
 
-If you use a different domain suffix, your certificate files won’t use *local.AzureStack.external*. Instead, your cusotm domain information will be used.
+If you use a different domain suffix, your certificate files won’t use *local.AzureStack.external*. Instead, your custom domain information is used.
 
 To create the certificates, follow these steps:
 
-1. On the Azure Stack host, open a PowerShell session as as azurestack\AzureStackAdmin.
+1. On the Azure Stack host, open a PowerShell session as azurestack\AzureStackAdmin.
 
 2.	Run the **Create-AppServiceCerts.ps1** script from the folder where you extracted the helper scripts. The script creates three certificates that App Service needs.
 
@@ -80,7 +80,7 @@ Installing the App Service resource provider into your Azure Stack environment c
 
 To deploy App Service resource provider, follow these steps:
 
-1. Run appservice.exe as as an administrator (azurestack\AzureStackAdmin).
+1. Run appservice.exe as an administrator (azurestack\AzureStackAdmin).
 
 2. Click **Deploy App Service on your Azure Stack cloud**.
 
@@ -90,7 +90,7 @@ To deploy App Service resource provider, follow these steps:
 
 4. Review and accept the third-party license terms and then click **Next**.
 
-5. Make sure that the App Service cloud configuration information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix mycloud.com, your Azure Stack Admin ARM Endpoint must change to management.mycloud.com. After you confirm your information, click **Next**.
+5. Make sure that the App Service cloud configuration information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix mycloud.com, your endpoint must change to management.mycloud.com. After you confirm your information, click **Next**.
 
     ![App Service on Azure Stack App Service cloud configuration][2]
 
@@ -108,14 +108,14 @@ To deploy App Service resource provider, follow these steps:
 
 7. Enter the information for your file share and then click **Next**. need screen cap
 
-8. On the next page: need screencap
+8. On the next page: need screen cap
     1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity.
     2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
-    3. In the **Identity Application certificate password** box, enter the password for the certificate. This is the password that you made note of when you used the script to create the certificates.
+    3. In the **Identity Application certificate password** box, enter the password for the certificate. This password is the one that you made note of when you used the script to create the certificates.
     4. In the **Azure Resource Manager root certificate file** box, enter (or browse to) the location of the certificate file.
     5. Click **Next**.
 
-9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must also provide the password for each certificate. These are the certificates that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-required-certificates). Click **Next** after entering all the information.
+9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must also provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-required-certificates). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
@@ -125,7 +125,7 @@ To deploy App Service resource provider, follow these steps:
 
     If you used a different domain suffix when you created the certificates, your certificate file names don’t use *local.AzureStack.external*. Instead, use your custom domain information.
     
-    need screencap
+    need screen cap
 
 10. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
 
@@ -142,7 +142,7 @@ To deploy App Service resource provider, follow these steps:
     ![App Service on Azure Stack role configuration][6]
 
     > [!NOTE]
-    > In the technical previews, the App Service resource provider installer also deploys a Standard A1 instance to operate as a simple file server to support Azure Resource Manager. This remains for a single-node development kit. For production workloads, at general availability the App Service installer enables the use of a high-availability file server.
+    > In the technical previews, the App Service resource provider installer also deploys a Standard A1 instance to operate as a simple file server to support Azure Resource Manager. This instance remains for a single-node development kit. For production workloads, at general availability the App Service installer enables the use of a high-availability file server.
 
 12. Choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
@@ -261,7 +261,7 @@ Follow these steps:
 | CertificateFilePath | Mandatory | Null | Path to the identity application certificate file generated earlier |
 | CertificatePassword | Mandatory | Null | Password used to protect the certificate private key |
 | DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix |
-| AdfsMachineName | Optional | Ignore in the case of Azure AD deployment, but required in AD FS deployment. AD FS machine name, for example, AzS-ADFS01.azurestack.local |
+| AdfsMachineName | Optional | Ignored for Azure AD deployments, but required in AD FS deployment. AD FS machine name, for example, AzS-ADFS01.azurestack.local |
 
 ## Configure an AD FS service principal for virtual machine scale set integration on Worker tiers and SSO for the Azure Functions portal and advanced developer tools
 
