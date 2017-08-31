@@ -13,37 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 08/29/2017
 ms.author: sngun
 
 ---
-# Install and configure CLI for use with Azure Stack
+# Install and configure CLI for the Azure Stack user's environment
 
 In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
 
-## Export the Azure Stack CA root certificate
+## Prerequisites
 
-If you are using CLI from a virtual machine that is running within the Azure Stack Development Kit environment, the Azure Stack root certificate is already installed within the virtual machine so you can directly retrieve. Whereas if you are use CLI from a workstation outside the development kit, you must export the Azure Stack CA root certificate from the development kit and add it to the Python certificate store of your development workstation(external Linux or Mac platform). 
+Before you can use CLI to manage Azure Stack resources, make sure that the following are available to you:
 
-Sign in to your development kit and run the following script to export the Azure Stack root certificate in PEM format:
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Cerficate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
-
+* Get the [Azure Stack CA root certificate](azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) from your Azure Stack operator. 
+* Get the [virtual machine aliases endpoint](azure-stack-cli-admin.md#set-up-the-virtual-machine-aliases-endpoint) from your Azure Stack operator.
+ 
 ## Install CLI
 
 Next you should sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
@@ -56,13 +40,13 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 ## Trust the Azure Stack CA root certificate
 
-To trust the Azure Stack CA root certificate, you should append it to the existing python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command:
+To trust the Azure Stack CA root certificate, you should append it to the existing python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, the certificate is already available within the virtual machine. So you need to run the following bash command to append the certificate to the Python certificate:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
 ```
 
-If you are running CLI from a machine outside the Azure Sack environment, you must first set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md). Now copy the PEM certificate that you exported earlier onto your development workstation and run the following commands depending on your development workstation's OS,:
+If you are running CLI from a machine outside the Azure Sack environment, you must first set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md). Now copy the PEM certificate that you received from your Azure Stack operator onto your development workstation and run the following commands depending on your development workstation's OS:
 
 ### Linux
 
@@ -107,32 +91,11 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## Set up the virtual machine aliases endpoint
-
-Before users can create virtual machines by using CLI, the cloud administrator should set up a publicly accessible endpoint that contains virtual machine image aliases and register this endpoint with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose. Cloud administrators must download the image to the Azure Stack marketplace before they add it to image aliases endpoint.
-   
-For example, Azure contains uses following URI: 
-https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace.
-
 ## Connect to Azure Stack
 
 Use the following steps to connect to Azure Stack:
 
-1. Register your Azure Stack environment by running the az cloud register command.
-   
-   a. To register the **cloud administrative** environment, use:
-
-   ```azurecli
-   az cloud register \ 
-     -n AzureStackAdmin \ 
-     --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
-     --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
-     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
-     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-   ```
-
-   b. To register the **user** environment, use:
+1. Register the Azure Stack user environment by running the az cloud register command. Make sure that you get the URI of the virtual machine image aliases document and register it with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose.
 
    ```azurecli
    az cloud register \ 
@@ -144,36 +107,23 @@ Use the following steps to connect to Azure Stack:
      --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
-2. Set the active environment by using the following commands:
-
-   a. For the **cloud administrative** environment, use:
-
-   ```azurecli
-   az cloud set \
-     -n AzureStackAdmin
-   ```
-
-   b. For the **user** environment, use:
+2. Set the active environment and update your environment configuration to use the Azure Stack specific API version profile:
 
    ```azurecli
    az cloud set \
      -n AzureStackUser
-   ```
 
-3. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
-
-   ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+3. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
    * Sign in as a **user**: You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
 
    ```azurecli
    az login \
-     -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+     -u <Active directory user account. For example: username@<aadtenant>.onmicrosoft.com> \
      --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
    ```
 
