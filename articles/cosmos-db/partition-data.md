@@ -19,9 +19,9 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# How to partition and scale in Azure Cosmos DB
+# Partition and scale in Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a global distributed, multimodel database service designed to help you achieve fast, predictable performance. It scales seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB. It also describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multimodel database service designed to help you achieve fast, predictable performance. It scales seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB. It also describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
 
 Partitioning and partition keys are discussed in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Shireesh Thota:
 
@@ -29,9 +29,9 @@ Partitioning and partition keys are discussed in this Azure Friday video with Sc
 > 
 
 ## Partitioning in Azure Cosmos DB
-In Azure Cosmos DB, you can store and query schema-less data with order-of-millisecond response times at any scale. Azure Cosmos DB provides containers for storing data called *collections (for documents), graphs, or tables*. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and the provisioned throughput of the container. Every partition in Azure Cosmos DB has a fixed amount of SSD-backed storage associated with it and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
+In Azure Cosmos DB, you can store and query schema-less data with order-of-millisecond response times at any scale. Azure Cosmos DB provides containers for storing data called *collections* (for documents), *graphs*, or *tables*. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and the provisioned throughput of the container. Every partition in Azure Cosmos DB has a fixed amount of SSD-backed storage associated with it and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
 
-![Horizontal](./media/introduction/azure-cosmos-db-partitioning.png) 
+![Resource partitioning](./media/introduction/azure-cosmos-db-partitioning.png) 
 
 Partitioning is transparent to your application. Azure Cosmos DB supports fast reads and writes, queries, transactional logic, consistency levels, and fine-grained access control via methods/APIs to a single container resource. The service handles distributing data across partitions and routing query requests to the right partition. 
 
@@ -173,7 +173,7 @@ For more information, see [Gremlin support for Azure Cosmos DB](gremlin-support.
 ## Design for partitioning
 To scale effectively with Azure Cosmos DB, you need to pick a good partition key when you create your container. There are two main considerations for choosing a partition key:
 
-* **Boundary for query and transactions.** Your choice of partition key should balance the need to enable the use of transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you could set the same partition key for all your items, but this option might limit the scalability of your solution. At the other extreme, you could assign a unique partition key for each item. This choice would be highly scalable, but it would prevent you from using cross-document transactions via stored procedures and triggers. An ideal partition key enables you to use efficient queries and has sufficient cardinality to ensure your solution is scalable. 
+* **Boundary for query and transactions.** Your choice of partition key should balance the need to enable the use of transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you can set the same partition key for all your items, but this option might limit the scalability of your solution. At the other extreme, you can assign a unique partition key for each item. This choice is highly scalable, but it prevents you from using cross-document transactions via stored procedures and triggers. An ideal partition key enables you to use efficient queries and has sufficient cardinality to ensure your solution is scalable. 
 * **No storage and performance bottlenecks.** It's important to pick a property that allows writes to be distributed across various distinct values. Requests to the same partition key can't exceed the throughput of a single partition and are throttled. So it's important to pick a partition key that doesn't result in "hot spots" within your application. Because all the data for a single partition key must be stored within a partition, you should avoid partition keys that have high volumes of data for the same value. 
 
 Let's look at a few real-world scenarios and good partition keys for each:
@@ -187,15 +187,15 @@ In some use cases, like IoT and user profiles, the partition key might be the sa
 ### Partitioning and logging/time-series data
 One of the common use cases of Azure Cosmos DB is for logging and telemetry. It's important to pick a good partition key, because you might need to read/write vast volumes of data. The choice depends on your read-and-write rates and the kinds of queries you expect to run. Here are some tips on how to choose a good partition key:
 
-* If your use case involves a small rate of writes accumulating over a long time and you need to query by ranges of time stamps and other filters, use a rollup of the time stamp. For example, a good approach is to use date as a partition key. This approach allows you to query over all the data for a date from a single partition. 
-* If your workload is written heavy, which is more common, use a partition key that's not based on time stamp. With this approach, Azure Cosmos DB can distribute writes evenly across various partitions. Here, a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
-* A third approach is a hybrid one where you have multiple containers, one for each day/month, and the partition key is a granular property like hostname. This approach has the benefit that you can set different throughput based on the time window. For example, the container for the current month is provisioned with higher throughput because it serves reads and writes. Previous months are provisioned with lower throughput because they only serve reads.
+* If your use case involves a small rate of writes accumulating over a long time and you need to query by ranges of time stamps and other filters, use a rollup of the time stamp. For example, a good approach is to use date as a partition key. With this approach, you can query over all the data for a date from a single partition. 
+* If your workload is written heavy, which is more common, use a partition key that's not based on time stamp. With this approach, Azure Cosmos DB can distribute writes evenly across various partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
+* Another approach is a hybrid one where you have multiple containers, one for each day/month, and the partition key is a granular property like hostname. This approach has the benefit that you can set different throughput based on the time window. For example, the container for the current month is provisioned with higher throughput because it serves reads and writes. Previous months are provisioned with lower throughput because they only serve reads.
 
 ### Partitioning and multitenancy
 If you're implementing a multitenant application by using Azure Cosmos DB, there are two popular patterns: one partition key per tenant and one container per tenant. Here are the pros and cons for each:
 
 * **One partition key per tenant.** In this model, tenants are collocated within a single container. But queries and inserts for items within a single tenant can be performed against a single partition. You can also implement transactional logic across all items within a tenant. Because multiple tenants share a container, you can save storage and throughput costs by pooling resources for tenants within a single container rather than provisioning extra headroom for each tenant. The drawback is that you don't have performance isolation per tenant. Performance/throughput increases apply to the entire container vs. targeted increases for tenants.
-* **One container per tenant.** In this model, each tenant has its own container, and you can reserve performance per tenant. With Azure Cosmos DB's new provisioning pricing, this model is more cost-effective for multitenant applications with a few tenants.
+* **One container per tenant.** In this model, each tenant has its own container, and you can reserve performance per tenant. With the Azure Cosmos DB new provisioning pricing, this model is more cost-effective for multitenant applications with a few tenants.
 
 You can also use a combination/tiered approach that collocates small tenants and migrates larger tenants to their own container.
 

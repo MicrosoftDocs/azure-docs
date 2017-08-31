@@ -22,7 +22,7 @@ ms.author: denlee
 
 Azure Cosmos DB is the globally distributed multimodel database service from Microsoft. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick-start article demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph by using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driver.  
+This Quick Start article demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph by using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driver.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Before you can run this sample, you must have the following prerequisites:
 
 Now let's clone a Graph API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a Git terminal window, such as Git Bash, and change (via `cd` command) to a working directory.  
+1. Open a Git terminal window, such as Git Bash, and change (via `cd` command) to a working directory.
 
 2. Run the following command to clone the sample repository: 
 
@@ -123,7 +123,7 @@ module.exports = config;
 
 ## Run the console app
 
-1. Open a terminal window and change (via `cd` command) to the installation directory for the package.json file that's included in the project.  
+1. Open a terminal window and change (via `cd` command) to the installation directory for the package.json file that's included in the project.
 
 2. Run `npm install` to install the required npm modules, including `gremlin`.
 
@@ -155,4 +155,4 @@ If you do not plan to continue using this app, delete all resources that you cre
 In this article, you learned how to create an Azure Cosmos DB account, create a graph by using Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic by using Gremlin. 
 
 > [!div class="nextstepaction"]
-> [Query using Gremlin](tutorial-query-graph.md)
+> [Query by using Gremlin](tutorial-query-graph.md)

@@ -40,7 +40,7 @@ The Azure Cosmos DB Graph API provides:
 - Elastic scaling of storage and throughput with less than 10 ms read latencies and less than 15 ms at the 99th percentile.
 - Automatic indexing with instant query availability.
 - Tunable consistency levels.
-- Comprehensive SLAs, including 99.99 percent availability.
+- Comprehensive SLAs, including 99.99% availability.
 
 To query Azure Cosmos DB, you can use the [Apache TinkerPop](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), or other TinkerPop-compatible graph systems like [Apache Spark GraphX](spark-connector-graph.md).
 
@@ -62,7 +62,7 @@ Graphs offer a novel and powerful data modeling technique. But this fact by itse
 You can combine the fast traversals that graph databases provide with graph algorithms, like depth-first search, breadth-first search, and Dijkstra's algorithm, to solve problems in various domains like social networking, content management, geospatial, and recommendations.
 
 ## Planet-scale graphs with Azure Cosmos DB
-Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and support for the TinkerPop standard.  
+Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and support for the TinkerPop standard.
 
 ![Azure Cosmos DB graph architecture](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
@@ -78,7 +78,7 @@ Azure Cosmos DB offers the following differentiated capabilities when compared t
 
 * Fast queries and traversals with familiar Gremlin syntax
 
- Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax. Azure Cosmos DB utilizes a highly concurrent, lock-free, log-structured indexing technology to automatically index all content. This capability enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query graphs using Gremlin](gremlin-support.md).
+ Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax. Azure Cosmos DB utilizes a highly concurrent, lock-free, log-structured indexing technology to automatically index all content. This capability enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query graphs by using Gremlin](gremlin-support.md).
 
 * Fully managed
 
@@ -140,4 +140,4 @@ Here are some scenarios where graph support of Azure Cosmos DB can be used:
 To learn more about graph support in Azure Cosmos DB, see:
 
 * Get started with the [Azure Cosmos DB graph tutorial](create-graph-dotnet.md).
-* Learn about how to [query graphs in Azure Cosmos DB using Gremlin](gremlin-support.md).
+* Learn about how to [query graphs in Azure Cosmos DB by using Gremlin](gremlin-support.md).
