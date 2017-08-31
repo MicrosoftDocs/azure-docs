@@ -22,7 +22,7 @@ This document walks through the structure of an Azure dashboard, using the follo
 
 ![sample dashboard](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Since shared [Azure dashboards are resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), this dashboard can be represented as JSON.  The JSON below represents the dashboard visualized above.
+Since shared [Azure dashboards are resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
 
 ```json
 
@@ -301,10 +301,10 @@ The name is the segment of the resource Id that does not include the subscriptio
 All dashboards are of type __Microsoft.Portal/dashboards__.
 
 ### The location property
-Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that will store the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
 
 ### The tags property
-Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. For dashboards, there is one special tag called __hidden-title__. If your dashboard has this property populated then it will be used as the display name for your dashboard in the portal. Azure resource Ids cannot be renamed, but tags can. This effectively gives you a way to have a renamable display name for your dashboard.
+Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. For dashboards, there is one special tag called __hidden-title__. If your dashboard has this property populated, then it is used as the display name for your dashboard in the portal. Azure resource Ids cannot be renamed, but tags can. This tag gives you a way to have a renamable display name for your dashboard.
 
 `"tags": { "hidden-title": "Created via API" }`
 
@@ -312,33 +312,33 @@ Tags are a common feature of Azure resources that let you organize your resource
 The properties object contains two properties, __lenses__ and __metadata__. The __lenses__ property contains information about the tiles (a.k.a. parts) on the dashboard.  The __metadata__ property is there for potential future features.
 
 ### The lenses property
-The __lenses__ property contains the dashboard. Note that the lenses object in this example contains a single property called “0”. This represents a grouping concept that’s not currently implemented in dashboards. For now, all of your dashboards will have this single property on the lens object, again, called “0”.
+The __lenses__ property contains the dashboard. Note that the lenses object in this example contains a single property called “0”. Lenses are a grouping concept that is not currently implemented in dashboards. For now, all of your dashboards have this single property on the lens object, again, called “0”.
 
 ### The lens object
-The object underneath the “0” contains two properties, __order__ and __parts__.  In the current version of dashboards, __order__ will always be 0. The __parts__ property contains an object the defines the individual parts (a.k.a. tiles) on the dashboard.
+The object underneath the “0” contains two properties, __order__ and __parts__.  In the current version of dashboards, __order__ is always 0. The __parts__ property contains an object that defines the individual parts (a.k.a. tiles) on the dashboard.
 
-The __parts__ object contains a property for each part, where the name of the property is a number. This number is not particularly significant. 
+The __parts__ object contains a property for each part, where the name of the property is a number. This number is not significant. 
 
 ### The part object
 Each individual part object has a __position__, and __metadata__.
 
 ### The position object
-The __position__ property contains the size and location information for the part expressed as __x__, __y__, __rowSpan__, and __colSpan__¸ The values are in terms of grid units. These grid units are visible when the dashboard is in the customize mode as shown here. If you wanted a tile to be 2 grid units wide, 1 grid unit tall, and located in the top left corner of the dashboard then you would look like this:
+The __position__ property contains the size and location information for the part expressed as __x__, __y__, __rowSpan__, and __colSpan__. The values are in terms of grid units. These grid units are visible when the dashboard is in the customize mode as shown here. If you want a tile to have a width of two grid units, a height of one grid unit, and a location in the top left corner of the dashboard then the position obejct looks like this:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
 ![grid-units](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### The metadata object
-Each part has a metadata property, an object has only 1 required property called __type__. This string tells the portal which tile to show. Our example dashboard uses these types of tiles:
+Each part has a metadata property, an object has only one required property called __type__. This string tells the portal which tile to show. Our example dashboard uses these types of tiles:
 
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Used to show monitoring metrics
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Used to show with text or images with basic formatting for lists, links, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Used to show videos from YouTube, Channel9, and any other type of video that will work in an html video tag.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Used to show videos from YouTube, Channel9, and any other type of video that works in an html video tag.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Used to show the name and status of an Azure virtual machine.
 
-Each type of part will have its own configuration. The possible configuration properties are called __inputs__, __settings__, and __asset__. 
+Each type of part has its own configuration. The possible configuration properties are called __inputs__, __settings__, and __asset__. 
 
 ### The inputs object
 The inputs object generally contains information that binds a tile to a resource instance.  The virtual machine part in our sample dashboard contains a single input that uses the Azure resource id to express the binding.  This resource id format is consistent across all Azure resources.
@@ -388,7 +388,7 @@ The metrics chart part has a single input that expresses the resource to bind to
 ```
 
 ### The settings object
-The settings object contains the configurable elements of a part.  In our sample dashboard the Markdown part uses settings to store the custom markdown content as well as a configurable title and subtitle.
+The settings object contains the configurable elements of a part.  In our sample dashboard, the Markdown part uses settings to store the custom markdown content as well as a configurable title and subtitle.
 
 ```json
 "settings": 
@@ -426,6 +426,6 @@ Similarly, the video tile has its own settings that contain a pointer to the vid
 ```
 
 ### The asset object
-Tiles that are bound to 1st class manageable portal objects (called assets) have this relationship expressed via the asset object.  In our example dashboard the virtual machine tile contains this asset description.  The __idInputName__ property tells the portal that the id input will contain the unique identifier for the asset, in this case the resource id. Most Azure resource types have assets defined in the portal ecosystem.
+Tiles that are bound to first class manageable portal objects (called assets) have this relationship expressed via the asset object.  In our example dashboard, the virtual machine tile contains this asset description.  The __idInputName__ property tells the portal that the id input contains the unique identifier for the asset, in this case the resource id. Most Azure resource types have assets defined in the portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`
