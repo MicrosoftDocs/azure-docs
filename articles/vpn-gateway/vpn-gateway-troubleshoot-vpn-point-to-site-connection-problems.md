@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/23/2017
+ms.date: 08/23/2017
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -34,9 +34,17 @@ This problem occurs if the client certificate is missing from **Certificates - C
 
 ### Solution
 
-Make sure that the client certificate is installed in the following location of the Certificates store (Certmgr.msc):
- 
-**Certificates - Current User\Personal\Certificates**
+To resolve this problem, follow these steps:
+
+1. Make sure that the following certificates are in the correct location:
+
+    | Certificate | Location |
+    | ------------- | ------------- |
+    | AzureClient.pfx  | Current User\Personal\Certificates |
+    | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+
+2. Go to Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
 For more information about how to install the client certificate, see [Generate and export certificates for point-to-site connections](vpn-gateway-certificates-point-to-site.md).
 
