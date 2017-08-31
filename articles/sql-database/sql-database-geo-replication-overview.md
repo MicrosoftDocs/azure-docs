@@ -170,7 +170,7 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 | [Get Replication Link](/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Delete Replication Link](/rest/api/sql/databases/delete) | Deletes a database replication link. Cannot be done during failover. |
-| [Create or Update Failover Group]/rest/api/sql/failovergroups/createorupdate) | Creates or updates a failover group |
+| [Create or Update Failover Group](/rest/api/sql/failovergroups/createorupdate) | Creates or updates a failover group |
 | [Delete Failover Group](/rest/api/sql/failovergroups/delete) | Removes the failover group from the server |
 | [Failover (Planned)](/rest/api/sql/failovergroups/failover) | Fails over from the current primary server to this server. |
 | [Force Failover Allow Data Loss](/rest/api/sql/failovergroups/forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
