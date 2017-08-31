@@ -16,9 +16,9 @@
     - name: 1 - Create container image
       href: container-instances-tutorial-prepare-app.md
     - name: 2 - Create container registry
-      href: container-instances-tutorial-prepare-acr.md    
+      href: container-instances-tutorial-prepare-acr.md
     - name: 3 - Deploy app
-      href: container-instances-tutorial-deploy-app.md    
+      href: container-instances-tutorial-deploy-app.md
 - name: Concepts
   items:
   - name: Relationship to orchestrators
@@ -33,6 +33,8 @@
     href: container-instances-mounting-azure-files-volume.md
   - name: Deploy from Azure Container Registry
     href: container-instances-using-azure-container-registry.md
+  - name: Deploy run-to-completion containers
+    href: container-instances-restart-policy.md
   - name: Troubleshoot deployments to Azure Container Instances
     href: container-instances-troubleshooting.md
 - name: Reference
