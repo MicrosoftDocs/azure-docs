@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # Sign-in activity report error codes in the Azure Active Directory portal

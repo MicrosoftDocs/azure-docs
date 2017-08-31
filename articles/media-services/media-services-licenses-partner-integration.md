@@ -4,7 +4,7 @@ description: This article describes how you can use Azure Media Services (AMS) t
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 5bcad5a4-c0bb-4871-9cce-808a913c53e6
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/20/2017
 ms.author: juliako
 
 ---

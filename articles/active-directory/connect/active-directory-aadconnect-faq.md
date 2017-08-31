@@ -28,7 +28,7 @@ It is only supported to install Azure AD Connect using the installation wizard. 
 With the builds from February 2016, this is supported.
 
 **Q: Does the AD DS health agent work on server core?**  
-Yes. After installing the agent, you can complete the registration process using the following PowerShell commandlet: 
+Yes. After installing the agent, you can complete the registration process using the following PowerShell cmdlet: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 

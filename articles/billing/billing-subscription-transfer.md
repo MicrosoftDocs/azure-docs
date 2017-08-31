@@ -92,9 +92,15 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 1. Update credentials associated with this subscription's services including:
 
    * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+<<<<<<< HEAD
 
    * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md)
 
+=======
+   
+   * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
+   
+>>>>>>> 149343361081aaa21484e38bc9dcea939ec4cc02
    * Remote Access credentials for services like Azure Virtual Machines. 
 
 1. [Update billing alerts for this subscription](billing-set-up-alerts.md) at the [Azure Account Center](https://account.windowsazure.com/Subscriptions). 
@@ -134,7 +140,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
   If the subscription is transferred to another tenant, the users associated with the previous tenant lose access to the subscription. Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms, including:
 
   * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../cloud-services/cloud-services-certs-create.md).
-  * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+  * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
   * Remote Access credentials for services like Azure Virtual Machines.
 
  If the recipient needs to restrict access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/24/2017
+ms.date: 08/14/2017
 ms.author: shlo
 
 ---
@@ -126,8 +126,10 @@ If you are using an on-demand cluster that is created by the Data Factory servic
     {
         "type": "HDInsightOnDemandLinkedService",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
-            "timeToLive": "00:01:00",
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "linkedServiceName": "LinkedService-SampleData",
             "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
         }

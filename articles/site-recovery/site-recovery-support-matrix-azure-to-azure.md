@@ -69,12 +69,15 @@ The below support is applicable for any workload running on the mentioned OS.
 
 #### Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
-- CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
 - SUSE Linux Enterprise Server 11 SP3
+- SUSE Linux Enterprise Server 11 SP4
+
+(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.)
 
 >[!NOTE]
 >
@@ -86,7 +89,9 @@ The below support is applicable for any workload running on the mentioned OS.
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic to 3.13.0-121-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-81-generic |
+14.04 LTS | 9.11 | 3.13.0-24-generic to 3.13.0-125-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-83-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic to 4.4.0-81-generic,<br/>4.8.0-34-generic to 4.8.0-56-generic,<br/>4.10.0-14-generic to 4.10.0-24-generic |
+16.04 LTS | 9.11 | 4.4.0-21-generic to 4.4.0-83-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-27-generic |
 
 ## Supported file systems and guest storage configurations on Azure virtual machines running Linux OS
 
@@ -102,7 +107,7 @@ You can replicate and recover VMs between any two regions within the same geogra
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
 Europe | UK West, UK South, North Europe, West Europe
-Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West
+Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 Australia	| Australia East, Australia Southeast
 
 >[!NOTE]
@@ -127,10 +132,10 @@ VMs migrated using Site Recovery | Supported | If it is a VMware/Physical machin
 
 **Configuration** | **Supported/Not supported** | **Remarks**
 --- | --- | ---
-Maximum OS disk size | 1023 GB | Refer to [Disks used by VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
-Maximum data disk size | 1023 GB | Refer to [Disks used by VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Maximum OS disk size | 1023 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximum data disk size | 1023 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Number of data disks | Upto 64 as supported by a specific Azure VM size | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
-Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk) for more details.
+Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) for more details.
 Data change rate on the disk | Maximum of 6 MBps per disk | If the average data change rate on the disk is beyond 6 MBps continuously, replication will not catch up. However, if it is an occasional data burst and the data change rate is greater than 6 MBps for some time and comes down, replication will catch up. In this case, you might see slightly delayed recovery points.
 Disks on standard storage accounts | Supported |
 Disks on premium storage accounts | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk to ensure you have the same storage configuration in target region
@@ -144,11 +149,11 @@ Exclude disk | Not supported|	Temporary disk is excluded by default.
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
-ZRS | Supported |  
+ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 
 >[!IMPORTANT]
-> Ensure that you follow the [storage guidance](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required storage accounts based on the source configuration. If you customize and select your own settings, ensure you follow the (../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) as your source VMs.
+> Ensure that you follow the [storage guidance](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required storage accounts based on the source configuration. If you customize and select your own settings, ensure you follow the (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) as your source VMs.
 
 ## Support for Network configuration
 **Configuration** | **Supported/Not supported** | **Remarks**

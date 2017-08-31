@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/19/2017
 ms.author: larryfr
 
 ---
@@ -42,7 +42,7 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 2. Use the following command to install FreeTDS:
 
     ```bash
-    sudo apt install --assume-yes install freetds-dev freetds-bin
+    sudo apt --assume-yes install freetds-dev freetds-bin
     ```
 
     FreeTDS is used in several steps to connect to SQL Database.
@@ -105,28 +105,33 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 1. From the SSH connection to the cluster, use the following command to verify that Sqoop can see your SQL Database:
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> -P
     ```
+    When prompted, enter the password for the SQL Database login.
 
     This command returns a list of databases, including the **sqooptest** database that you created earlier.
 
 2. To export data from **hivesampletable** to the **mobiledata** table, use the following command:
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
     ```
 
-    This command instructs Sqoop to connect to the **sqooptest** database. Sqoop then exports data from **wasbs:///hive/warehouse/hivesampletable** to the **mobiledata** table.
+    This command instructs Sqoop to connect to the **sqooptest** database. Sqoop then exports data from **wasb:///hive/warehouse/hivesampletable** to the **mobiledata** table.
+
+    > [!IMPORTANT]
+    > Use `wasb:///` if the default storage for your cluster is an Azure Storage account. Use `adl:///` if it is an Azure Data Lake Store.
 
 3. After the command completes, use the following command to connect to the database using TSQL:
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P -p 1433 -D sqooptest
     ```
 
     Once connected, use the following statements to verify that the data was exported to the **mobiledata** table:
 
     ```sql
+    SET ROWCOUNT 50;
     SELECT * FROM mobiledata
     GO
     ```
@@ -135,10 +140,10 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 
 ## Sqoop import
 
-1. Use the following command to import data from the **mobiledata** table in SQL Database, to the **wasbs:///tutorials/usesqoop/importeddata** directory on HDInsight:
+1. Use the following command to import data from the **mobiledata** table in SQL Database, to the **wasb:///tutorials/usesqoop/importeddata** directory on HDInsight:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
@@ -155,10 +160,7 @@ You can also use Sqoop to import and export data from SQL Server, either in your
 
 * Both HDInsight and SQL Server must be on the same Azure Virtual Network.
 
-    When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
-
-  > [!NOTE]
-  > When using a **point-to-site** virtual network, SQL Server must be running the VPN client configuration application. The VPN client is available from the **Dashboard** of your Azure virtual network configuration.
+    For an example, see the [Connect HDInsight to your on-premises network](./connect-on-premises-network.md) document.
 
     For more information on using HDInsight with an Azure Virtual Network, see the [Extend HDInsight with Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) document.
 
@@ -188,7 +190,7 @@ You can also use Sqoop to import and export data from SQL Server, either in your
 * When connecting to the SQL Server from HDInsight, you may have to use the IP address of the SQL Server. For example:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## Limitations

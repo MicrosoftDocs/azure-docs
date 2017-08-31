@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: asteen
 
 ---
 # Managing Applications with Azure Active Directory

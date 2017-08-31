@@ -4,7 +4,7 @@ description: This topic shows how to use .NET to encode an asset and generate th
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
@@ -204,6 +204,8 @@ The following code example uses Media Services .NET SDK to perform the following
 * Create an output asset that will contain the encoded asset.
 * Add an event handler to check the job progress.
 * Submit the job.
+
+See the [Media Services development with .NET](media-services-dotnet-how-to-use.md) topic for directions on how to set up your dev environment.
 
 	    using System;
 	    using System.Configuration;

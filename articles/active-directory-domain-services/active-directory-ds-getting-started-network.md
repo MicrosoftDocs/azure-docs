@@ -13,15 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure portal (Preview)
-
-> [!div class="op_single_selector"]
-> * [PREVIEW - Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started-network.md)
-> * [Enable Azure AD Domain Services using the Azure classic portal](active-directory-ds-getting-started-create-group.md)
 
 
 ## Before you begin
@@ -33,12 +29,12 @@ The next configuration task is to create an Azure virtual network and a dedicate
 
 1. Click **Virtual network** to select a virtual network.
 2. On the **Choose virtual network** blade, you see all existing virtual networks. You see only the virtual networks that belong to the resource group and Azure location you have selected on the **Basics** wizard page.
-
-3. Choose the virtual network in which Azure AD Domain Services should be enabled. Click **Create new**, if you prefer to create a new virtual network. We highly recommend using a dedicated subnet for Azure AD Domain Services. If you pick an existing virtual network, [create a dedicated subnet using the virtual networks extension](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) and then pick that subnet. 
+3. Choose the virtual network in which Azure AD Domain Services should be enabled. You can either pick an existing virtual network or create a new one.
+4. **Create virtual network:** Click **Create new** to create a new virtual network. We highly recommend using a dedicated subnet for Azure AD Domain Services. For example, create a subnet with the name 'DomainServices', making it easy for other administrators to understand what is deployed within the subnet. Click **OK** when you're done.
 
     ![Pick virtual network](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
-4. Click **Subnet** to pick the dedicated subnet in this virtual network, within which to enable your new managed domain. In the **Create subnet** blade, specify a name for the subnet, and click **OK** when you're done. For example, create a subnet with the name 'DomainServices', making it easy for other administrators to understand what is deployed within the subnet.
+5. **Existing virtual network:** If you plan to pick an existing virtual network, [create a dedicated subnet using the virtual networks extension](../virtual-network/virtual-networks-create-vnet-arm-pportal.md), and then pick that subnet. Click **Virtual Network** to select the existing virtual network. Click **Subnet** to pick the dedicated subnet in your existing virtual network, within which to enable your new managed domain. Click **OK** when you're done.
 
     ![Pick subnet within the virtual network](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 
@@ -49,7 +45,7 @@ The next configuration task is to create an Azure virtual network and a dedicate
   3. Ensure that the subnet you've selected has sufficient available address space - at least 3-5 available IP addresses.
   >
 
-5. When you are done, click **OK** to move on to the **Administrator group** page of the wizard.
+6. When you are done, click **OK** to move on to the **Administrator group** page of the wizard.
 
 
 ## Next step

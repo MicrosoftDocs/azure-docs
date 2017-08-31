@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Vulnerabilities detected by Azure Active Directory Identity Protection

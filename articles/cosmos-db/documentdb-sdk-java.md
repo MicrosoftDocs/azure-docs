@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB Java API, SDK & Resources | Microsoft Docs
-description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
+title: 'Azure Cosmos DB: DocumentDB Java API, SDK & Resources | Microsoft Docs'
+description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB DocumentDB Java SDK.
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB Java SDK: Release notes and resources
+# Azure Cosmos DB: DocumentDB Java SDK release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -42,15 +42,18 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](documentdb-java-application.md)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-java-application.md)</td></tr>
 
 <tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## Release Notes
 
+### <a name="1.12.0"/>1.12.0
+* Critical bug fixes to request processing during partition splits.
+* Fixed an issue with the Strong and BoundedStaleness consistency levels.
+
 ### <a name="1.11.0"/>1.11.0
-* Added support for Request Unit per Minute (RU/m) feature.
 * Added support for a new consistency level called ConsistentPrefix.
 * Fixed a bug in reading collection in session mode.
 
@@ -155,7 +158,7 @@ New features and functionality and optimizations are only added to the current S
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
-> All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** will be retired on **February 29, 2016**.
+> All versions of the DocumentDB SDK for Java prior to version **1.0.0** will be retired on **February 29, 2016**.
 > 
 > 
 
@@ -163,6 +166,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |July 11, 2017 |--- |
 | [1.11.0](#1.11.0) |May 10, 2017 |--- |
 | [1.10.0](#1.10.0) |March 11, 2017 |--- |
 | [1.9.6](#1.9.6) |February 21, 2017 |--- |

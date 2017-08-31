@@ -16,6 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: calebb
+ms.custom: oldportal
 
 ---
 # Conditional access in the Azure classic portal

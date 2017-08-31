@@ -95,6 +95,6 @@ If you need to hardcode the location in your template, provide the name of one o
 }
 ```
 
-## Next Steps
+## Next steps
 * For recommendations about how to create templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 

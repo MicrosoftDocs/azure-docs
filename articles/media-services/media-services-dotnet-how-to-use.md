@@ -4,7 +4,7 @@ description: Learn about the prerequisites for Media Services using the Media Se
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/23/2017
 ms.author: juliako
 
 ---
@@ -59,7 +59,10 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
    
 	Set the values that are needed to connect to the Media Services API. For more information, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-	If you are using [user authentication](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) your config file will probably have values for your Azure AD tenant domain and the AMS REST API endpoint:
+	If you are using [user authentication](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) your config file will probably have values for your Azure AD tenant domain and the AMS REST API endpoint.
+	
+	>[!Important]
+	>Most code samples in the Azure Media Services documentation set, use a user (interactive) type of authentication to connect to the AMS API. This authentication method will work well for management or monitoring native apps: mobile apps, Windows apps, and Console applications. This authentication method is not suitable for server, web services, APIs type of applications.  For more information, see [Access the AMS API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...
@@ -73,8 +76,12 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
 10. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
 		   
 		using System;
-		using Microsoft.WindowsAzure.MediaServices.Client;
 		using System.Configuration;
+		using System.IO;
+		using Microsoft.WindowsAzure.MediaServices.Client;
+		using System.Threading;
+		using System.Collections.Generic;
+		using System.Linq;
 
 At this point, you are ready to start developing a Media Services application.    
 

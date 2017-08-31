@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # How to use the Azure Active Directory Power BI Content Pack
@@ -143,4 +144,6 @@ As soon as the new version of the content pack is working, you can remove the ol
 Check out our [troubleshooting guide](active-directory-reporting-troubleshoot-content-pack.md). For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
 
+## Next steps
 
+For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).
