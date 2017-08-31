@@ -56,7 +56,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     Let's take a look at the files that were created and updated. 
 
-3. In Visual Studio Code, in the **Explorer** pane, navigate to the new **src\client\app** folder and open the new **heroes.component.ts** file created by step 2. This file was typescript component file was created by the previous command.
+3. In Visual Studio Code, in the **Explorer** pane, navigate to the new **src\client\app** folder and open the new **heroes.component.ts** file created by step 2. This TypeScript component file was created by the previous command.
 
     > [!TIP]
     > If the app folder doesn't display in Visual Studio Code, enter CMD + SHIFT P on a Mac or Ctrl + Shift + P on Windows to open the Command Palette, and then type *Reload Window* to pick up the system change.
@@ -89,7 +89,9 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     to reference the new HTML file.
  
     > [!TIP]
-    > You can use John Papa's Angular Essentials extentions and snippets for Visual Studio Code to speed up your development. Click the **Extensions** button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type *angular essentials* in the search box and then click **Install**, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). After installing click the **Reload** button to use the new extensions.
+    > You can use John Papa's Angular Essentials extentions and snippets for Visual Studio Code to speed up your development. 
+    > Click the **Extensions** button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type *angular essentials* in the search box and then click **Install**, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
+    > After installing click the **Reload** button to use the new extensions.
     >
     > ![Angular Essentials extension](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
@@ -541,7 +543,7 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 In this part of the tutorial, you've done the following:
 
 > [!div class="checklist"]
-> * Built the Angular UI and tested the app locally
+> * Built the Angular UI
 > * Tested the app locally
 
 You can proceed to the next part of the tutorial to create an Azure Cosmos DB account.

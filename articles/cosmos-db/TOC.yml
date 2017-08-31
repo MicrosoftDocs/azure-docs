@@ -210,9 +210,9 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
-      - name: MEAN.js tutorial series
+      - name: Angular tutorial series
         items:
-        - name: Part 2 - Create app
+        - name: Part 2 - Create Node app
           href: tutorial-develop-mongodb-nodejs-part2.md
         - name: Part 3 - Add Angular UI
           href: tutorial-develop-mongodb-nodejs-part3.md

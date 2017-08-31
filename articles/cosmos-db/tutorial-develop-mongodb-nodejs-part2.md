@@ -24,7 +24,7 @@ This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-
 Part 2 of the tutorial builds on [the introduction](tutorial-develop-mongodb-nodejs.md) and covers the following tasks:
 
 > [!div class="checklist"]
-> * Install the Angular CLI and Typescript
+> * Install the Angular CLI and TypeScript
 > * Create a new project using Angular
 > * Build out the app using the Express framework
 > * Test the app in Postman
@@ -42,7 +42,7 @@ This tutorial also requires:
 * [Postman](https://www.getpostman.com/)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite code editor.
 
-## Install the Angular CLI and Typescript
+## Install the Angular CLI and TypeScript
 
 1. Open a Windows Command Prompt or Mac Terminal window and install the Angular CLI.
 
@@ -50,22 +50,21 @@ This tutorial also requires:
     npm install -g @angular/cli
     ```
 
-2. Install Typescript by entering the following command in the prompt. 
+2. Install TypeScript by entering the following command in the prompt. 
 
-    ```
+    ```bash
     npm install -g typescript
     ```
 
 ## Use the Angular CLI to create a new project
 
-1. At the command prompt, change to the folder where you want to create your new project, then run the following command. This command creates a new folder and project named angular-cosmosdb and installs the AngularJS components required for a new app. It also installs the source code in src/client folder (-sd src/client), uses the minimal setup (--minimal), and specifies that the project uses a CSS-like syntax (--style scss).
+1. At the command prompt, change to the folder where you want to create your new project, then run the following command. This command creates a new folder and project named angular-cosmosdb and installs the Angular components required for a new app. It also installs the source code in src/client folder (-sd src/client), uses the minimal setup (--minimal), and specifies that the project uses a CSS-like syntax (--style scss).
 
     ```bash
     ng new angular-cosmosdb -sd src/client --minimal --style scss
     ```
 
 2. Once the command completes, change directories into the src/client folder.
- and open the folder in Visual Studio Code.
 
     ```bash
     cd angular-cosmosdb
@@ -80,7 +79,9 @@ This tutorial also requires:
 ## Build out the app using the Express framework
 
 1. In Visual Studio Code, in the **Explorer** pane, right-click the **src** folder, click **New Folder**, and name the new folder *server*.
+
 2. In the **Explorer** pane, right-click the **server** folder, click **New File**, and name the new file *index.js*.
+
 3. Back at the command prompt, use the following command to install the body parser to help parse the json bodies as they're passed in through the APIs.
 
     ```bash
@@ -89,14 +90,13 @@ This tutorial also requires:
 
 4. In Visual Studio Code, copy the following code into the index.js file. This code:
     * Creates Express
-    * Pulls in the body-parser
+    * Pulls in the body-parser and uses it for URL encoding
     * Uses a built-in feature called path
     * Sets root variables to make it easier to find where our code is located
     * Sets up a port
     * Cranks up Express
     * Tells the app how to use the middleware that were going to be using to serve up the server
-    * Uses the body-parser for URL encoding
-    * Serves everything that's in the dist folder so all that's going to be static content, so use express.static in the dist folder
+    * Serves everything that's in the dist folder so all that's going to be static content
     * Serves up the actual application, and does a get on anything that falls through to pass up and serve to index.html
     * Cranks up server with app.listen
     * Uses a lamba to ensure the port is alive
