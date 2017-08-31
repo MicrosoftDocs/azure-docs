@@ -80,7 +80,7 @@ You can now connect to the VM with SSH in the Azure Cloud Shell or from your loc
 ssh 52.174.34.95
 ```
 
-Once logged in to the VM, you can install and configuration applications. When you are finished, you close the SSH session as normal:
+Once logged in to the VM, you can install and configure applications. When you are finished, you close the SSH session as normal:
 
 ```bash
 exit
