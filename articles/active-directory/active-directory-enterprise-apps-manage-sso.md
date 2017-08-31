@@ -1,6 +1,7 @@
 ---
-title: Single sign-on management for enterprise apps in the Azure Active Directory | Microsoft Docs
-description: Learn how to manage single sign on for enterprise apps using the Azure Active Directory
+title: Single sign-on management for enterprise apps in Azure Active Directory | Microsoft Docs
+description: Manage single sign-on settings for enterprise apps within your organization from Azure Active Directory application gallery
+
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -20,10 +21,6 @@ ms.reviewer: asmalser
 
 ---
 # Managing single sign-on for enterprise apps
-> [!div class="op_single_selector"]
-> * [Azure portal](active-directory-enterprise-apps-manage-sso.md)
-> * [Azure classic portal](active-directory-sso-integrate-saas-apps.md)
-> 
 
 This article describes how to use the [Azure portal](https://portal.azure.com) to manage single sign-on settings for enterprise applications. Enterprise apps are apps that are deployed and used within your organization. This article applies particularly to apps that were added from the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
