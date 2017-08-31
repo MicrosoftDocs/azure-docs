@@ -149,7 +149,7 @@ The same calculation applies to static resource classes.
 ## Concurrency slot consumption  
 SQL Data Warehouse grants more memory to queries running in higher resource classes. Memory is a fixed resource.  Therefore, the more memory allocated per query, the fewer concurrent queries can execute. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.  
 
-### Allocation and consumption of concurrency slots  
+### Allocation and consumption of concurrency slots for dynamic resource classes  
 | DWU | Maximum concurrent queries | Concurrency slots allocated | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -165,7 +165,7 @@ SQL Data Warehouse grants more memory to queries running in higher resource clas
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### Allocation and consumption of concurrency slots for static resource classes
+### Allocation and consumption of concurrency slots for static resource classes  
 | DWU | Maximum concurrent queries | Concurrency slots allocated |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |
