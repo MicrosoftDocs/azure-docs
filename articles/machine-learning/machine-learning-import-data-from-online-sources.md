@@ -52,7 +52,7 @@ Note that because this training data is accessed while your experiment is runnin
 > Generally, any Azure storage accounts that you might have created before this service option became available should not be affected. 
 > If you need to create a new account, select **Classic** for the Deployment model, or use Resource manager and select **General purpose** rather than **Blob storage** for **Account kind**. 
 > 
-> For more information, see [Azure Blob Storage: Hot and Cool Storage Tiers](../storage/storage-blob-storage-tiers.md).
+> For more information, see [Azure Blob Storage: Hot and Cool Storage Tiers](../storage/blobs/storage-blob-storage-tiers.md).
 > 
 > 
 

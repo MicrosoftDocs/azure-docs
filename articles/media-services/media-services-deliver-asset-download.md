@@ -4,7 +4,7 @@ description: Learn about to download assets to your computer. Code samples are w
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
