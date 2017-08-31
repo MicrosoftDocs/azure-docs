@@ -24,7 +24,7 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 ## Create an Azure Machine Learning Server
 1. Fill in the details:
 
-   ![This is a screenshot](media/doc-template-quickstart/1-machine-learning-image.png)
+   ![This image is a screenshot. Put alt-text here.](media/doc-template-quickstart/1-machine-learning-image.png)
 
 This table is the kind of table to use following a screenshot to describe how to fill in the form seen in the screenshot. 
 
