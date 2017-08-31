@@ -19,7 +19,7 @@ ms.reviewer: jairoc
 ---
 # Azure Active Directory conditional access for virtual private network connectivity - preview
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal), you can fine-tune how authorized users can access your resources. Azure AD conditional access for virtual private network (VPN) connectivity enables you to use conditional access to protect your VPN connections.
+With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can fine-tune how authorized users can access your resources. Azure AD conditional access for virtual private network (VPN) connectivity enables you to use conditional access to protect your VPN connections.
 
 
 
