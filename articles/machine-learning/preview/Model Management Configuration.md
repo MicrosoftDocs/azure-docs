@@ -12,28 +12,158 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ---
-# Model Management Setup and Configuration
+# Model Management Setup
 
 ## Overview
-## System requirements
+This docuemnt gets you started with using Azure ML Model Management to deploy and manage your machine learning models. 
 
-### Supported OS
-### Environment Considerations
-Where you can do it from Vienna workbench, DSVM, other VMs
+Using Azure ML Model Management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, Tensorflow, CNTK, or Python. 
 
-## Setting up the environment 
+By the end of this document, you should be able to have your model management environment set up and ready for deploying your machine learning models.
 
-### Local
-What it means
-How it works
-Command and what gets provisioned
-### Cluster
-What it means
-How it works
-Command and what gets provisioned
+## What you need to get started
+To get the most out of this guide, you should have owner access to an Azure subscription that you can deploy your models to.
+The CLI comes pre-installed on the Azure ML Workbench and on Azure DSVMs [https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview].
 
-## Setting up the account
-What it means
-How it works
-How to create it
-How to set it
+## Using the CLI
+To use the CLIs form the Workbench, click File -> Open CommandLine Interface. 
+On a DSVM, open a command prompt. And type az ml -h to see the options. For more details on the commands, use the --help flag.
+
+On all other systems, you would have to install the CLIs.
+
+### Installing (or updating) on Windows
+
+Install Python from https://www.python.org/. Ensure that you have selected to install pip.
+
+Open a command prompt using Run As Administrator and run the following commands:
+
+`
+pip install azure-cli
+`
+
+`
+pip install azure-cli-ml
+`       
+NOTE: If you have an earlier version, uninstall it first using the following command:
+
+`
+pip uninstall azure-cli-ml
+` 
+
+### Installing (or updating) on Linux
+Run the following command from the command line, and follow the prompts:
+
+`wget -q https://raw.githubusercontent.com/Azure/Machine-Learning-Operationalization/master/scripts/amlupdate.sh -O - | sudo bash -`
+
+`sudo /opt/microsoft/azureml/initial_setup.sh`
+
+NOTE: Log out and log back in to your SSH session for the changes to take effect.
+NOTE: You can use the previous commands to update an earlier version of the CLIs on the DSVM.
+
+## Deploying your model
+Use the CLIs to deploy models as web services. The web services can be deployed locally or to a cluster.
+
+Start with a local deployment, validate that your model and code work, then deploy to a cluster for production scale use.
+
+To start, you need to set up your deployment environment. The environment setup is a one time task. Once the setup is complete, you can reuse the environment for subsequent deployments. See the following section for more detail.
+
+NOTE: When completing the environment setup:
+
+- You are prompted to sign in to Azure. To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the provided code to authenticate.
+- During the authentication process, you are prompted for an account to authenticate with. Important: Select an account that has a valid Azure subscription and sufficient permissions to create resources in the account.
+- When the log-in is complete, your subscription information is presented and you are prompted whether you wish to continue with the selected account.
+
+### Environment Setup
+#### Local deployment (Windows and Linux)
+To deploy and test your web service on the local machine, set up a local environment using the following command:
+
+`az ml env setup -n <your environment name>`
+
+The local environment setup command creates the following resources in your subscription:
+- A resource group
+- A storage account
+- An Azure Container Registry (ACR)
+- Application insights
+
+In local mode only, the setup command saves a file in your home directory that contains the environment setting parameters to configure your environment. 
+
+Ensure these variables are set by typing the following command before continuing with deployment:
+
+`az ml env local`
+`az ml env show`
+
+##### Windows
+At the completion of the setup, the environment variables are saved to:
+
+C:\users\<user name>\.amlenvrc
+
+At the beginning of any new session, you can open the file in a text editor, copy the commands, and run them at the command prompt. Doing that sets the environment variables.
+
+To set them permanently, open your **Control Panel** and click **System**. Next, click **Advanced System Settings** and select the **Advanced** tab. Click **Environment Variables** and add each of the variables to the Systems variables.
+
+##### Linux
+At the completion of the setup, the environment variables are saved to:
+
+~/.amlenvrc
+
+To start with the deployment, *Source* the file to set up your environment variables:
+
+`source ~/.amlenvrc`
+
+To always set these variables when you log in, copy the export commands into your ".bashrc" file:
+
+`cat < ~/.amlenvrc >> ~/.bashrc`
+
+#### Cluster deployment (Windows and Linux)
+Cluster deployment can be used in high scale scenarios. It sets up an ACS cluster with Kubernetes as the orchestrator. The ACS cluster can be scaled out to handle larger throughput.
+
+To deploy your web service to a production environment, first set up the environment using the following command:
+
+`az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus]`
+
+
+The cluster environment setup command creates the following resources in your subscription:
+- A resource group
+- A storage account
+- An Azure Container Registry (ACR)
+- A Kubernetes deployment on an Azure Container Service (ACS) cluster
+- Application insights
+
+The resource group, storage account, and ACR are created quickly. The ACS deployment can take up to 20 minutes. 
+
+Once the setup command has finished setting up the resource group, storage account, and ACR, it outputs environment variables.
+
+NOTE: If you do not supply a -c parameter when you call the environment setup, the environment is configured in local only mode. 
+
+After setup is complete, you need to set the environment to be used for this deployment.
+
+`az ml env set --cluster-name [environment name] -g [resource group]`
+
+Cluster name: the name used when setting up the environment
+Resource group name: the name you specified for the setup command previously. Or if you didn't specify it at time of setup, it was created and returned in the output of the setup command.
+
+Note that after the environment is created, for subsequent deployments, you only need to use the set command above to reuse it.
+
+### Create an Account
+An account is required for deploying models. You need to do this once per account, and can reuse the same account in multiple deployments.
+
+To create a new account, use the following command:
+
+`az ml account modelmanagement create -l [Azure region, e.g. eastus2] -n [your account name] -g [resource group name: existing] --sku-instances 1 --sku-name S1`
+
+To use an existing account, use the following command:
+
+`az ml account modelmanagement set -n [your account name] -g [resource group it was created in]`
+
+### Deploy your model
+You are now ready to deploy your saved model as a web service. 
+
+`az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py]`
+
+### Next Steps
+Try one of many samples in the Gallery.
+
+
+
+
+
