@@ -46,7 +46,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create a recovery services vault
 
-A [Recovery Services vault](backup-azure-recovery-services-vault-overview) is a container that holds the recovery points for the items being backed up. A Recovery Services vault is an Azure resource that can be deployed and managed as part of an Azure resource group.
+A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a container that holds the recovery points for the items being backed up. A Recovery Services vault is an Azure resource that can be deployed and managed as part of an Azure resource group.
 
 ### Register the provider
 The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription.
@@ -122,7 +122,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 <!---1. A simple of list of articles that link to logical next steps.  This is probalby a tutorial that is a superset of this QuickStart. Include no more than 3 next steps.--->
 
 *EXAMPLE 1:*
-[Use PowerShell to restore virtual machines from backup](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Use PowerShell to restore virtual machines from backup](backup-azure-vms-automation.md#restore-an-azure-vm)
 
 [Use Azure portal to back up Azure VMs](backup-azure-arm-vms.md)
 
