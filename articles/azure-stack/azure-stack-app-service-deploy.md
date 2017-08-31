@@ -24,7 +24,7 @@ As an Azure Stack cloud operator, you can give your users the ability to create 
 To add the App Service resource provider to your Azure Stack deployment, you must complete three top-level tasks:
 
 1.	Download and extract the installation and helper files.
-2.	Create required certificates.
+2.	Create the required certificates.
 3.	Run the appservice.exe installer file.
 
 ## Download and extract the installation and helper files
@@ -131,7 +131,7 @@ To deploy App Service resource provider, follow these steps:
 
 11. Review the role instance and SKU options. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
-    | Role | Default instances | Default SKU | Notes |
+    | Role | Recommended minimum instances | Recommended minimum SKU | Notes |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 Core, 1792 MB) | Manages and maintains the health of the App Service cloud. |
     | Management | 1 | Standard_A2 - (2 Cores, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
