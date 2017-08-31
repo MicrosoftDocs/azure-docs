@@ -246,7 +246,7 @@ public static class QueueFunctions
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
-    public static void QueueTrigger([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
+    public static void Run([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
     }
