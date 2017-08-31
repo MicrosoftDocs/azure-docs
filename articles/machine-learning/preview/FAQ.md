@@ -52,11 +52,11 @@ We currently support Python only. We are working on R integration and expect to 
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning for Spark?**
 
-A: MMLSpark provides deep learning and data science tools for Apache Spark, including seamless integration of Spark Machine Learning pipelines with Microsoft Cognitive Toolkit (CNTK) and OpenCV, enabling you to quickly create powerful, highly-scalable predictive and analytical models for large image and text data sets. MMLSpark is available under an open-source license and is included in AML Workbench as a set of consumable models and algorithms.  For more information on MMLSpark, please visit our product documentation. 
+A: MMLSpark provides deep learning and data science tools for Apache Spark, with emphasis on productivity,ease of experimentation and state-of-the-art algorithms. It includes seamless integration of Spark Machine Learning pipelines with Microsoft Cognitive Toolkit (CNTK) and OpenCV, enabling you to quickly create powerful, highly-scalable predictive and analytical models for large image and text data sets. MMLSpark is available under an open-source license and is included in AML Workbench as a set of consumable models and algorithms.  For more information on MMLSpark, please visit our product documentation. 
 
 **Which versions of Spark are supported by the new tools and services? Top section**
 
-AML Workbench currently includes and supports MMLSpark 2.11.
+AML Workbench currently includes and supports MMLSpark version 0.8, which is compatible with Apache Spark 2.1. You also have an option to use GPU-enabled Docker image of MMLSpark 0.8 on Linux virtual machines.
 
 ##Experimentation Service
 
@@ -67,10 +67,6 @@ Our new Experimentation Service is a managed Azure service that allows data scie
 **What is a “model”?**
 
 A model is an experimentation run that has been promoted to the Vienna hosting account for model management. A model that is registered in the hosting account is counted against your plan. An model updated through re-training or a different version is counted against your included quantities.
-
-**What is an experiment?**
-
-A: lorem ipsum
 
 **How will I be charged for the Experimentation Service?**
 
@@ -126,21 +122,9 @@ You can use the returned path to deploy the image as a web service on any docker
 
 Yes, the By using GPUs, you can accelerate the training time of deep neural network models significantly. In this document, you'll learn how to configure Vienna to use GPU-based Data Science Virtual Machine (DSVM) as execution target. While in principle it is possible to use GPUs on any Linux machine, the DSVM comes with the required drivers and libraries pre-installed, making the set-up much easier. Make sure you have installed Vienna app + CLI properly before you follow the below steps. Yes for experimentation but not model management. You can use models trained on GPU for inferencing on CPUs.
 
-**Which compliance and security standards do you support?**
-
-Lorem ipsum
-
-**Do you support Virtual Networks?**
-
-Lorem ipsum
-
-**Do you support asynchronous batch in model deployment?**
-
-No
-
 **Do you support retraining of deployed models?**
 
-Yes
+Yes,you can deploy multiple versions of the same model and the Model Management Service will support  service updates for all updated models and images.
 
 ##Workbench
 
@@ -187,10 +171,13 @@ A: The current version of Jupyter included with Workbench will launch a Python 3
 **Which file formats are currently supported for data ingestion in Workbench?**
 
 The data preparation tools in Workbench currently support ingestion from the following formats: 
-- CSV files 
-- TSV files
+- Delimited files such as CSV, TSV, etc.  
+- Fixed width files
+- Plain text files
 - Excel (.xls/xlsx)
-- JSON File
+- JSON files
+- Parquet files 
+- Custom files (scripts)
 If your solution requires data ingestion from additional sources, Python code can be used to... 
 
 **Which data storage locations are currently supported?**
@@ -199,9 +186,8 @@ For public preview, Workbench will support data ingestion from:
 - Local hard drive or mapped network storage location
 - Azure BLOB or Azure Storage (requires an Azure subscription)
 - Azure Data Lake or Azure Data Lake Storage (requires an Azure subscription)
-
-**Are there limitations on the size of the data set for data wrangling, training or scoring?** 
-Lorem ipsum  
+- Azure SQL Server
+- Microsoft SQL Server
 
 
 **You’ve mentioned advanced data wrangling and data preparation capabilities. What kinds of data transformations are available?**
@@ -216,7 +202,7 @@ A: No, neither the new services nor the Workbench impose any data limitations. H
 
 **What algorithms are supported in AML Workbench?**
 
-Our preview products and services include the best of the open source community and offer support for a wide range of algorithms and libraries including TensorFlow, scikit-learn, and Spark. Workbench also includes the Microsoft RevoScalePy package and the Microsoft Cognitive Toolkit. Through these libraries, you can take advantage of sophisticated algorithms and production readers used in products like Skype, Cortana, Bing, and Xbox. For a current list of supported algorithms, please check our technical documentation.
+Our preview products and services include the best of the open source community and offer support for a wide range of algorithms and libraries including TensorFlow, scikit-learn, Apache Spark, and the Microsoft Cognitive Toolkit. Workbench also includes the Microsoft RevoScalePy package.
 
 **How does Azure Machine Learning relate to the Microsoft Cognitive Toolkit?**
 
