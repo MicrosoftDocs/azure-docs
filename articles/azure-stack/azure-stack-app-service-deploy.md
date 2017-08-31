@@ -43,9 +43,19 @@ To add the App Service resource provider to your Azure Stack deployment, you mus
    
 ## Create the required certificates
 
-This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the Azure Stack host and ensure that you're running PowerShell as azurestack\AzureStackAdmin.
+This first script works with the Azure Stack certificate authority to create these three certificates that are needed by App Service. 
 
-1. Open a PowerShell session as as azurestack\AzureStackAdmin.
+| Certificate | Certificate file name example |
+| --- | --- |
+| Default SSL certificate | \_.appservice.local.AzureStack.external.pfx |
+| API SSL certificate | api.appservice.local.AzureStack.external.pfx |
+| Publisher SSL certificate | ftp.appservice.local.AzureStack.external.pfx |
+
+If you use a different domain suffix, your certificate files won’t use *local.AzureStack.external*. Instead, your cusotm domain information will be used.
+
+To create the certificates, follow these steps:
+
+1. On the Azure Stack host, open a PowerShell session as as azurestack\AzureStackAdmin.
 
 2.	Run the **Create-AppServiceCerts.ps1** script from the folder where you extracted the helper scripts. The script creates three certificates that App Service needs.
 
@@ -84,68 +94,77 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service on Azure Stack App Service cloud configuration][2]
 
-6. On the Azure App Service cloud configuration page:
+6. On the next page:
     1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         - If you're using Azure Active Directory (Azure AD), you must enter your Azure AD admin account and password. Click **Sign In**. You *must* enter the Azure AD account that you provided when you deployed Azure Stack.
         - If you're using Active Directory Federation Services (AD FS), you must provide your admin account, for example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select your subscription.
-    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying. For example, select **local**.
+    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
     4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
     5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
     6. Click **Next**.
 
     ![App Service on Azure Stack subscription selection][3]
 
-9. WRONG On the next page:
-    3. Enter the SQL Server details for the service instance that's used to host the App Service resource provider databases.
-    4. Click **Next**. The installer validates the SQL connection properties.
+9. Enter the information for your file share and then click **Next**. need screen cap
 
-    ![App Service on Azure Stack Resource Group, storage, and SQL Server information][4]
+10. On the next page: need screencap
+    1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity.
+    2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
+    3. In the **Identity Application certificate password** box, enter the password for the certificate. This is the password that you made note of when you used the script to create the certificates.
+    4. In the **Azure Resource Manager root certificate file** box, enter (or browse to) the location of the certificate file.
+    5. Click **Next**.
 
-12. Click the **Browse** button next to the **App Service default SSL certificate file** box. Go to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps). If you specified a different location and domain suffix when you created the certificate, select the corresponding certificate.
+11. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must also provide the password for each certificate. These are the certificates that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-required-certificates). Click **Next** after entering all the information.
 
-13. Enter the certificate password that you set when you created the certificate.
+    | Box | Certificate file name example |
+    | --- | --- |
+    | **App Service default SSL certificate file** | \_.appservice.local.AzureStack.external.pfx |
+    | **App Service API SSL certificate file** | api.appservice.local.AzureStack.external.pfx |
+    | **App Service Publisher SSL certificate file** | ftp.appservice.local.AzureStack.external.pfx |
 
-14. Click the **Browse** button next to the **Resource provider SSL certificate file** box. Go to the **api.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps). If you specified a different location and domain suffix when you created certificates, select the corresponding certificate.
+    If you use a different domain suffix when you created the certificates, your certificate file names won’t use *local.AzureStack.external*. Instead, your cusotm domain information will be used.
+    
+    need screencap
 
-15. Enter the certificate password that you set when you created the certificate.
+12. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
 
-16. Click the **Browse** button next to the **Resource provider root certificate file** box. Go to the **AzureStackCertificationAuthority** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
+13. Review the role instance and SKU options. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
-17. Click **Next**. The installer verifies the certificate password provided.
-
-    ![App Service on Azure Stack certificate details][5]
-
-18. Review the App Service role configuration. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
-
-    - **Controller**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The Controller role is responsible for managing and maintaining the health of the App Service cloud.
-    - **Management**: By default, one Standard A2 instance is selected. To provide failover, we recommend two instances. The Management role is responsible for the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service.
-    - **Publisher**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The Publisher role is responsible for publishing content via FTP and web deployment.
-    - **FrontEnd**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The FrontEnd role is responsible for routing requests to App Service applications.
-    - **Shared Worker**: By default, one Standard A1 instance is selected, but you might want to add more. As an administrator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. The Shared Worker role is responsible for hosting web, mobile, or API applications and Azure Functions apps.
+    | Role | Default instances | Default SKU | Notes |
+    | --- | --- | --- | --- |
+    | Controller | 1 | Standard_A1 - (1 Core, 1792 MB) | Manages and maintains the health of the App Service cloud. |
+    | Management | 1 | Standard_A2 - (2 Cores, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
+    | Publisher | 1 | Standard_A1 - (1 Core, 1792 MB) | Publishes content via FTP and web deployment. |
+    | FrontEnd | 1 | Standard_A1 - (1 Core, 1792 MB) | Routes requests to App Service applications. |
+    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web, mobile, or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
 
     ![App Service on Azure Stack role configuration][6]
 
     > [!NOTE]
     > In the technical previews, the App Service resource provider installer also deploys a Standard A1 instance to operate as a simple file server to support Azure Resource Manager. This remains for a single-node development kit. For production workloads, at general availability the App Service installer enables the use of a high-availability file server.
 
-19. Choose your deployment **Windows Server 2016** VM image from those available in the compute resource provider for the App Service cloud. Click **Next**.
+14. Choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
     ![App Service on Azure Stack VM image selection][7]
 
-20. Enter a user name and password for the Worker roles configured in the App Service cloud. Enter a user name and password for all other App Service roles. Click **Next**.
+15. On the next page:
+     1. Enter the Worker Role virtual machine administrator user name and password.
+     2. Enter the Other Roles virtual machine administrator user name and password.
+     3. Click **Next**.
 
     ![App Service on Azure Stack credential entry][8]
 
-21. On the summary screen, verify the selections you made. To make changes, go back through the screens and modify your selections. If the configuration is how you want it, select the check box. To start the deployment, click **Next**.
+16. On the summary page:
+    1. Verify the selections you made. To make changes, use the **Previous** buttons to visit previous pages.
+    2. If the configurations are correct, select the check box.
+    3. To start the deployment, click **Next**.
 
     ![App Service on Azure Stack selection summary][9]
 
-22. Track the installation progress. App Service on Azure Stack takes about 45 to 60 minutes to deploy based on the default selections.
+17. You can track the installation progress on the next page. After the install successfully finishes, click **Exit**.
 
     ![App Service on Azure Stack installation progress][10]
-
-23. After the installer successfully finishes, click **Exit**.
 
 ## Validate the App Service on Azure Stack installation
 
