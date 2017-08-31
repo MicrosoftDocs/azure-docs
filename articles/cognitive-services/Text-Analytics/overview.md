@@ -93,7 +93,7 @@ Rate limiting exists at a rate of 100 calls per minute. Note that you can submit
 
 First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign up necessary.
 
-When you are ready to call the API diretly, continue with these links:
+When you are ready to call the API directly, continue with these links:
 
 + [Sign up](text-analytics-howto-signup.md) for an access key and review the steps for [calling the API](text-analytics-howto-call-api.md).
 
