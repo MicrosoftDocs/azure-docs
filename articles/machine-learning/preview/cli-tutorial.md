@@ -240,6 +240,7 @@ az ml hostacct create -n <hosting account name> -l eastus2 -g <resource group> -
 
 
 
+
 ## Step 10. Create an operationalization environment
 At this point we will change our focus to operationalization. To operationalize a trained model (that we serialize into a pickle file) we need to create an linux DSVM. 
 ```
