@@ -2023,7 +2023,7 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
  Here is the result set.  
   
 ```  
-[{"$1": "ab", "$2": "ab"}]  
+[{"$1": "a", "$2": "ab"}]  
 ```  
   
 ####  <a name="bk_length"></a> LENGTH  
