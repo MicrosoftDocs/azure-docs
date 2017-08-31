@@ -53,6 +53,8 @@
       href: azure-stack-manage-portals.md
     - name: Connect to Azure Stack
       href: azure-stack-connect-azure-stack.md
+    - name: Enable CLI for users
+      href: azure-stack-cli-admin.md
     - name: Set up management environment
       items:
       - name: Install PowerShell
@@ -63,8 +65,6 @@
         href: azure-stack-powershell-configure-admin.md
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
-      - name: Install and configure CLI
-        href: azure-stack-connect-cli.md
     - name: Manage updates
       href: azure-stack-updates.md
     - name: Monitor health and alerts
