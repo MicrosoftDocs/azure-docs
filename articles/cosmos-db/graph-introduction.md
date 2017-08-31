@@ -27,7 +27,7 @@ ms.author: denlee
 
 Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multimodel and supports document, key-value, graph, and columnar data models.
 
-We recommend getting started by watching the following video, where Kirill Gavrylyuk explains how to get started with graphs on Azure Cosmos DB:
+We recommend that you watch the following video, where Kirill Gavrylyuk explains how to get started with graphs on Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
 > 

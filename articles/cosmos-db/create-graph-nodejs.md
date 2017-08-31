@@ -56,7 +56,7 @@ Now let's clone a Graph API app from GitHub, set the connection string, and run 
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `app.js` file, and you'll find the following lines of code. 
+Let's make a quick review of what's happening in the app. Open the `app.js` file, and you see the following lines of code. 
 
 * The Gremlin client is created.
 
@@ -148,6 +148,7 @@ Try completing `g.V()` with `.has('firstName', 'Thomas')` to test the filter. No
 If you do not plan to continue using this app, delete all resources that you created in this article by doing the following: 
 
 1. In the Azure portal, on the left navigation menu, select **Resource groups**. Then select the name of the resource that you created. 
+
 2. On your resource group page, select **Delete**. Type the name of the resource to be deleted, and then select **Delete**.
 
 ## Next steps
