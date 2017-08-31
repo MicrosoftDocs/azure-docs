@@ -170,6 +170,10 @@ Approved client apps for this setting are:
 - Microsoft Word
 
 
+These apps support Microsoft Intune mobile application management (MAM).
+
+
+
 ## Next steps
 
 - For an overview of conditional access, see [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
