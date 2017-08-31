@@ -24,15 +24,23 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/container-instances/media/index/container-registry.svg
+        src: /azure/container-registry/media/index/container-registry.svg
       text: Create container instance
-      href: /azure/container-instances/container-instances-quickstart
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-registry/container-registry-get-started-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Azure Container Registry allows you to store and manage images for all types of container deployments. Learn how to use Azure Container Registry with these quickstarts, tutorials, and samples.
+    text: Learn how to use Azure Container Registry with Azure Container Instances and Azure Container Service.
   - type: list
-    style: ordered
+    style:
     items:
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">ACR with Container Instances</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">ACR with Container Service</a>
@@ -44,6 +52,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/container">Azure CLI 2.0</a></p>
+      html: <p><a href="/cli/azure/acr">Azure CLI 2.0</a></p>
     - title: REST
       html: <p><a href="/rest/api/containerregistry">REST API Reference</a></p>
