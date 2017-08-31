@@ -28,7 +28,7 @@ If your internet browser page hangs, try each of the following steps until you c
 
 * Use a different internet browser.
 
-* Use the privte browsing mode for your browser. For Internet Explorer:
+* Use the private browsing mode for your browser. For Internet Explorer:
   
   A. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
   
@@ -44,7 +44,7 @@ To resolve the issue, try one of the following methods:
 
 * Reset the Internet Explorer settings to revert any personal settings that you’ve made. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
 
-* Use the privte browsing mode for your browser. For Internet Explorer:
+* Use the private browsing mode for your browser. For Internet Explorer:
   
   A. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
   

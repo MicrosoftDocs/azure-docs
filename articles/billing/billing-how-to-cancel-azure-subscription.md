@@ -44,7 +44,7 @@ If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/pl
 
 Once you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation show in the portal.
 
-After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only.
+After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
 
 If you cancel in the middle of a billing period, we send the final bill on your typical invoice date after the period ends. 
 
