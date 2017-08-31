@@ -20,7 +20,7 @@ Azure Machine Learning is a fully managed Azure service that allows you to creat
 
 **How do I get started with the preview?**
 
-The easiest way to get started is to sign up for an Azure Machine Learning Experimentation Service in  Azure. From the portal, you can also download our free Workbench application or sign up for a Model Management account. In addition, you can visit our documentation site for How-To articles, videos, demo code and more. 
+The easiest way to get started is to sign up for the Experimentation Service in Azure. From the portal, you can also download our free Workbench application or sign up for a Model Management account. In addition, you can visit our documentation site for How-To articles, videos, demo code and more. 
 
 **I do not have an Azure subscription. Can I still try the new services?**
 
@@ -36,7 +36,7 @@ More regions and markets will be added as we develop the product.
 
 **What other Azure services are required?**
 
-Azure Machine Learning has been designed with GIT integration to support versioning, collaboration, and reproducibility. GIT integration is enabled via Visual Studio Team Services and a VSTS account is required. Additional Azure services used include Azure Blob Storage, Azure Container Registry, and Azure Container Service.
+Azure Machine Learning has been designed with GIT integration to support versioning, collaboration, and reproducibility. GIT integration is enabled via Visual Studio Team Services and a VSTS account is required. Additional services include Azure Blob Storage, Azure Container Registry, and Azure Container Service.
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning Services in SQL Server 2017?**	
 
@@ -52,13 +52,13 @@ A: MMLSpark provides deep learning and data science tools for Apache Spark, with
 
 **Which versions of Spark are supported by the new tools and services? Top section**
 
-AML Workbench currently includes and supports MMLSpark version 0.8, which is compatible with Apache Spark 2.1. You also have an option to use GPU-enabled Docker image of MMLSpark 0.8 on Linux virtual machines.
+Workbench currently includes and supports MMLSpark version 0.8, which is compatible with Apache Spark 2.1. You also have an option to use GPU-enabled Docker image of MMLSpark 0.8 on Linux virtual machines.
 
-##Experimentation Service
+## Experimentation Service
 
 **What is the Azure Machine Learning Experimentation Service?**
 
-Our new Experimentation Service is a managed Azure service that allows data scientists to take experimentation to the next level. Experiments can be built locally or in the cloud. Rapidly prototype on a desktop, then scale to virtual machines or Spark clusters. Azure VMs with the latest GPU technology allow you to engage in deep learning quickly and effectively. We’ve also included deep integration with Git so you can plug easily into existing workflows for code tracking, configuration, and collaboration. 
+The Experimentation Service is a managed Azure service that takes machine learning experimentation to the next level. Experiments can be built locally or in the cloud. Rapidly prototype on a desktop, then scale to virtual machines or Spark clusters. Azure VMs with the latest GPU technology allow you to engage in deep learning quickly and effectively. We’ve also included deep integration with Git so you can plug easily into existing workflows for code tracking, configuration, and collaboration. 
 
 **How will I be charged for the Experimentation Service?**
 
@@ -66,7 +66,7 @@ The first two users associated with your Azure Machine Learning Experimentation 
 
 **Will I be charged based on how many experiments I run?**
 
-No, the Experimentation Service allows as many experiments as you need and charges only based on the number of users. Experimentation compute resources are charged separately. We encourage you to perform multiple experiments, for example evaluating the performance of various algorithms on a data set or iteratively tweaking algorithm parameters.  
+No, the Experimentation Service allows as many experiments as you need and charges only based on the number of users. Experimentation compute resources are charged separately. We encourage you to perform multiple experiments so you can find the best fitting model for your solution.   
 
 **What specific kinds of compute and storage resources can I use?**
 
