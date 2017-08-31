@@ -30,9 +30,9 @@ For details on the cost management reports, see [Azure portal cost management](h
 ## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
 If there is a charge on your invoice that you want more details
 on, there are a couple of options.
-
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
+</div>
 For more details, please see the following information.
 
 ### Option 1: Review your invoice and compare the usage and costs with the detailed usage CSV file
