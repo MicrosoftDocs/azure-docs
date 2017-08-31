@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -129,10 +129,8 @@ The connector makes outbound SSL-based connections by using the CONNECT method. 
 >[!NOTE]
 >When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
 
-To ensure that the Service Bus traffic is also sent through the outbound proxy server, do not allow the connector to connect to the Azure services for ports 9350, 9352, and 5671.
-
 #### SSL inspection
-Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic.
+Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during SSL inspection. 
 
 ## Troubleshoot connector proxy problems and service connectivity issues
 Now you should see all traffic flowing through the proxy. If you have problems, the following troubleshooting information should help.

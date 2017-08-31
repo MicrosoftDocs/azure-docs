@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -20,9 +20,9 @@ ms.custom: it-pro
 
 # How to enable native client apps to interact with proxy Applications
 
-In addition to web applications, Azure Active Directory Application Proxy can also be used to publish native client apps. Native client apps differ from web apps because they are installed on a device, while web apps are accessed through a browser. 
+In addition to web applications, Azure Active Directory Application Proxy can also be used to publish native client apps that are configured with the Azure AD Authentication Library (ADAL). Native client apps differ from web apps because they are installed on a device, while web apps are accessed through a browser. 
 
-Application Proxy supports native client apps by accepting Azure AD issued tokens. The Application Proxy service performs authentication on behalf of the users. This solution does not use application tokens for authentication. 
+Application Proxy supports native client apps by accepting Azure AD issued tokens sent in the header. The Application Proxy service performs authentication on behalf of the users. This solution does not use application tokens for authentication. 
 
 ![Relationship between end users, Azure Active Directory, and published applications](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
