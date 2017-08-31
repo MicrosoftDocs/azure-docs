@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Choose between Flow, Logic Apps, Functions, and WebJobs
 This article compares and contrasts the following services in the Microsoft cloud, which can all solve integration 
-problems and automation of business processes:
+problems and automate business processes:
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
@@ -28,9 +28,8 @@ problems and automation of business processes:
 * [Azure App Service WebJobs](../app-service-web/web-sites-create-web-jobs.md)
 
 All these services are useful when "gluing" together disparate systems. They can all define input, actions, 
-conditions, and output. You can run each of them on a schedule or trigger. However, each service adds a unique set of 
-value, and comparing them is not a question of "Which service is the best?" but one of "Which service is best suited 
-for this situation?" Often, a combination of these services is the best way to rapidly build a scalable, full featured 
+conditions, and output. You can run each of them on a schedule or trigger. However, each service has unique advantages, and comparing them is not a question of "Which service is the best?" but one of "Which service is best suited 
+for this situation?" Often, a combination of these services is the best way to rapidly build a scalable, full-featured 
 integration solution.
 
 <a name="flow"></a>
@@ -43,10 +42,10 @@ integration services, which makes it easy to build processes and workflows and i
 * They have the same workflow designer
 * [Connectors](../connectors/apis-list.md) that work in one can also work in the other
 
-Flows empowers any office worker to perform simple integrations (e.g. get SMS for important emails) without going through 
-developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (e.g. B2B processes) 
+Flows empowers any office worker to perform simple integrations (for example, get SMS for important emails) without going through 
+developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (for example, B2B processes) 
 where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in 
-complexity overtime. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
+complexity over time. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
 
 The following table helps you determine whether Flow or Logic Apps is best for a given integration.
 
@@ -113,13 +112,13 @@ Logic app, you should take advantage of all the improvements in Functions.
 ## Flow, Logic Apps, and Functions together
 As previously mentioned, which service is best suited to you depends on your situation. 
 
-* For simple business optimization, then use Flow.
+* For simple business optimization, use Flow.
 * If your integration scenario is too advanced for Flow, or you need DevOps capabilities and security compliances, then use Logic Apps.
 * If a step in your integration scenario requires highly custom transformation or specialized code, then write a 
-  function app, and then trigger a function as an action in your logic app.
+  function and trigger the function as an action in your logic app.
 
 You can call a logic app in a flow. You can also call a function in a logic app, and a logic app in a function. 
-The integration between Flow, Logic Apps, and Functions continue to improve overtime. You can 
+The integration between Flow, Logic Apps, and Functions continues to improve over time. You can 
 build something in one service and use it in the other services. Therefore, any investment you make in these three 
 technologies is worthwhile.
 
