@@ -47,10 +47,7 @@ To start the streaming endpoint:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Settings** > **Streaming endpoints**. 
-3. Select the default streaming endpoint. 
-
-	The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
-
+3. Select the default streaming endpoint. The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
 4. Select the **Start** icon.
 5. Select the **Save** button.
 
@@ -88,7 +85,7 @@ To encode your content by using Media Encoder Standard in the Azure portal:
    To help you manage your resources, you can edit the name of the output asset and the name of the job.
    
    ![Encode assets](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Select **Create**
+5. Select **Create**.
 
 ### Monitor encoding job progress
 To monitor the progress of the encoding job, at the top of the page, select **Settings**, and then select **Jobs**.
