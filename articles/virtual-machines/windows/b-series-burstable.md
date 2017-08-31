@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/29/2017
+ms.date: 08/31/2017
 ms.author: jonbeck
 
 ---

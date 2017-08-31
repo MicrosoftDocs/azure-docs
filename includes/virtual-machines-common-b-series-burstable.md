@@ -8,9 +8,9 @@
 > - Asia Pacific - Southeast
 
 
-The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance 100% of the core. This VM size provides you the choice of 10%-135% of an Intel® Broadwell E5-2673 v4 2.3 GHz, or an Intel® Haswell 2.4 GHz E5-2673 v3 processor core.
+The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance 100% of the core. This VM size provides you the choice of 10%-135% of a processory core (Intel® Broadwell E5-2673 v4 2.3 GHz or an Intel® Haswell 2.4 GHz E5-2673 v3).
 
-The B-series VMs are ideal for workloads that do not need the full performance of the CPU for large amounts of time, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and then it builds up credits when the VM is utilizing less than its base performance. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the CPU Core when your application requires the higher CPU performance.
+The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and then it builds up credits when the VM is utilizing less than its base performance. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the CPU Core when your application requires the higher CPU performance.
 
 The B-series comes in the following 6 VM sizes:
 
@@ -29,7 +29,7 @@ The B-series comes in the following 6 VM sizes:
 ## Q & A about this preview
 
 ### Q: How can I participate in this preview?
-**A**: Request quota for the B-series in the supported region that you would like to the B-series.  After your quota has been approved then you can use the portal or the APIs to do your deployment as you normally would. For more information, see [Resource Manager core quota increase requests](../articles/azure-supportability/resource-manager-core-quotas-request.md)
+**A**: Request quota for the B-series in one of the supported regions.  After your quota has been approved then you can use the portal or the APIs to do your deployment as you normally would. For more information, see [Resource Manager core quota increase requests](../articles/azure-supportability/resource-manager-core-quotas-request.md)
 
 ### Q: How do you get 135% baseline performance from a VM?
 **A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size.  i.e. if your application leverages 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
