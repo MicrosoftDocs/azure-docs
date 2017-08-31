@@ -28,9 +28,9 @@ Every Azure AD directory comes with an initial domain name in the form of *domai
 ## How do I add a domain name?
 1. Sign in to the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that's a global admin for the directory.
 2. On the left, select **Domain names**.
-3. On ***directory-name* - Domain names**, select the **Add domain name** command.
+3. On ***directory-name* - Domain names**, select **Add**.
    
-   ![Selecting the Add command](./media/active-directory-domains-add-azure-portal/add-command.png)
+   ![Select the Add command](./media/active-directory-domains-add-azure-portal/add-command.png)
 5. On **Domain name**, enter the name of your custom domain in the box, such as 'contoso.com', and then select **Add Domain**. Be sure to include the .com, .net, or other top-level extension.
 6. On ***domainname*** (that is, your new domain name is the title), gather the DNS entry information that you must use to verify the custom domain name in Azure AD.
    
@@ -52,10 +52,10 @@ A domain name can be verified only after the DNS records have propagated. This p
 
 1. Sign in to the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that's a global admin for the directory.
 2. On the left, select **Domain names**.
-3. On ***directory-name* - Domain names**, select the **Add domain name** command.
-
+3. On ***directory-name* - Domain names**, select the **Add domain name** command. 
+  ![Select the Add command](./media/active-directory-domains-add-azure-portal/add-command.png)
 3. On ***directory-name* - Domain names**, select the unverified domain name that you want to verify.
-4. On ***domainname*** (that is, your new domain name is the title), select **Verify** to complete the verification.
+4. On ***domainname*** (that is, the selected domain name is the title), select **Verify** to complete the verification.
 
 Now you can [assign user names that include your custom domain name](active-directory-users-create-azure-portal.md). You can create cloud-based user accounts, or update previously synchronized on-premises user account information, using your custom domain name. You can also change synchronized user account domain suffix information using [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) or the [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
