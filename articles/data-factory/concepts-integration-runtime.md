@@ -17,4 +17,10 @@ ms.author: shlo
 
 ---
 
-# Integration runtime in Azure Data Factory 
+# Integration runtime in Azure Data Factory
+
+## Managed-elastic integration runtime
+
+## Managed-dedicated integration runtime 
+
+## Self-hosted integration runtime

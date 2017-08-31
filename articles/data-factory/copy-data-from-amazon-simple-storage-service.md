@@ -1,6 +1,6 @@
 ---
-title: Move data from Amazon Simple Storage Service by using Data Factory | Microsoft Docs
-description: Learn about how to move data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
+title: Copy data from Amazon Simple Storage Service using Azure Data Factory | Microsoft Docs
+description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: jhubbard
@@ -9,7 +9,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/30/2017
 ms.author: jingwang
 
 ---
@@ -19,7 +19,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported scenarios
 
-You can copy data from any supported source data store to Azure Data Lake Store, or copy data from Azure Data Lake Store to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from any supported source data store to Azure Data Lake Store, or copy data from Azure Data Lake Store to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Amazon S3 connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
