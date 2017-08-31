@@ -13,21 +13,27 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/3/2017
+ms.date: 8/31/2017
 ms.author: anwestg
 
 ---
 # Add an App Service resource provider to Azure Stack
 
-If you want to enable your tenants to create web, mobile, and API applications with their Azure Stack subscription, you must add an [Azure App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment. Follow the steps in this article.
+As an Azure Stack cloud operator, you can give your users the ability to create web, mobile, and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
-## Download the required components
+To add the App Service resource provider to your Azure Stack deployment, you must complete three top-level tasks:
+
+1.	Download and extract the installation and helper files.
+2.	Create required certificates.
+3.	Run the appservice.exe installer file.
+
+## Download and extract the installation and helper files
 
 1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
 
 2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
 
-3. Extract the files from the helper scripts zip file. The following files and folder structure appear:
+3. Extract the files from the helper scripts zip file:
 
    - Create-AppServiceCerts.ps1
    - Create-IdentityApp.ps1
@@ -35,13 +41,15 @@ If you want to enable your tenants to create web, mobile, and API applications w
       - AzureStack.Identity.psm1
       - GraphAPI.psm1
    
-## Create certificates required by App Service on Azure Stack
+## Create the required certificates
 
 This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the Azure Stack host and ensure that you're running PowerShell as azurestack\AzureStackAdmin.
 
-1. In a PowerShell session running as azurestack\AzureStackAdmin, execute the **Create-AppServiceCerts.ps1** script from the folder where you extracted the helper scripts. The script creates three certificates in the same folder as the create certificates script that App Service needs.
+1. Open a PowerShell session as as azurestack\AzureStackAdmin.
 
-2. Enter a password to secure the .pfx files, and make a note of it. You will need to enter it in the App Service on Azure Stack installer.
+2.	Run the **Create-AppServiceCerts.ps1** script from the folder where you extracted the helper scripts. The script creates three certificates that App Service needs.
+
+3.	To secure the .pfx files, enter a password. Make a note of the password. It is needed for the App Service on Azure Stack installer process.
 
 ### Create-AppServiceCerts.ps1 parameters
 
@@ -51,59 +59,46 @@ This first script works with the Azure Stack certificate authority to create thr
 | DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix |
 | CertificateAuthority | Required | AzS-CA01.azurestack.local | Certificate authority endpoint |
 
-## Use the installer to download and install App Service on Azure Stack
+## Install the App Service resource provider
 
-The appservice.exe installer will:
+Installing the App Service resource provider into your Azure Stack environment can take up to an hour. During this process, the installer will:
 
-* Prompt you to accept the Microsoft and third-party Software License Terms.
-* Collect Azure Stack deployment information.
 * Create a blob container in the specified Azure Stack storage account.
-* Download the files needed to install the App Service resource provider.
-* Prepare the installation to deploy the App Service resource provider in the Azure Stack environment.
-* Upload the files to the App Service storage account.
-* Deploy the App Service resource provider.
 * Create a DNS zone and entries for App Service.
 * Register the App Service resource provider.
 * Register the App Service gallery items.
 
-The following steps guide you through the installation stages.
+To deploy App Service resource provider, follow these steps:
 
-> [!NOTE]
-> You *must* use an elevated account (local or domain administrator) to run the installer. If you sign in as azurestack\azurestackuser, you're prompted for elevated credentials.
-
-1. Run appservice.exe as azurestack\AzureStackAdmin.
+1. Run appservice.exe as as an administrator (azurestack\AzureStackAdmin).
 
 2. Click **Deploy App Service on your Azure Stack cloud**.
 
     ![App Service on Azure Stack installer][1]
 
-3. Review and accept the Microsoft Software Prerelease License Terms, and click **Next**.
+3. Review and accept the Microsoft Software Prerelease License Terms and then click **Next**.
 
-4. Review and accept the third-party license terms, and click **Next**.
+4. Review and accept the third-party license terms and then click **Next**.
 
-5. Review the App Service cloud configuration information, and click **Next**.
+5. Make sure that the App Service cloud configuration information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix mycloud.com, your Azure Stack Admin ARM Endpoint must change to management.mycloud.com. After you confirm your information, click **Next**.
 
     ![App Service on Azure Stack App Service cloud configuration][2]
 
-    > [!NOTE]
-    > The App Service on Azure Stack installer provides the default values for a one-node Azure Stack installation. If you customized options when you deployed Azure Stack (for example, the domain suffix), you need to edit the values in this window accordingly. For example, if you use the domain suffix mycloud.com, your admin Azure Resource Manager endpoint needs to change to adminmanagement.[region].mycloud.com.
-
-6. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
-
-   - If you're using Azure Active Directory (Azure AD), you must enter your Azure AD admin account and password. Click **Sign In**. You *must* enter the Azure AD account that you provided when you deployed Azure Stack.
-   - If you're using Active Directory Federation Services (AD FS), you must provide your admin account, for example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
-
-7. Select your subscription in the **Azure Stack Subscriptions** box.
-
-8. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying. For example, select **local**. Click **Next**.
+6. On the Azure App Service cloud configuration page:
+    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
+        - If you're using Azure Active Directory (Azure AD), you must enter your Azure AD admin account and password. Click **Sign In**. You *must* enter the Azure AD account that you provided when you deployed Azure Stack.
+        - If you're using Active Directory Federation Services (AD FS), you must provide your admin account, for example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
+    2. In the **Azure Stack Subscriptions** box, select your subscription.
+    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying. For example, select **local**.
+    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
+    5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
+    6. Click **Next**.
 
     ![App Service on Azure Stack subscription selection][3]
 
-9. Enter the **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
-
-10. Enter the **Storage Account Name** you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
-
-11. Enter the SQL Server details for the instance that's used to host the App Service resource provider databases. Click **Next**, and the installer validates the SQL connection properties.
+9. WRONG On the next page:
+    3. Enter the SQL Server details for the service instance that's used to host the App Service resource provider databases.
+    4. Click **Next**. The installer validates the SQL connection properties.
 
     ![App Service on Azure Stack Resource Group, storage, and SQL Server information][4]
 
