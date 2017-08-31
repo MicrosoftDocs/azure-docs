@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://api.spaceiq.com/saml/<instanceid>/callback`
 
 	> [!NOTE] 
-	> Reply URL value is not real. Update the value with the actual    Reply URL, which is explained later in the tutorial.
+	> Update these values with the actual Reply URL and identifier which is explained later in the tutorial.
  
 4. On the **SAML Signing Certificate** section, click **(Certificate Base64)** and then save the certificate file on your computer.
 
