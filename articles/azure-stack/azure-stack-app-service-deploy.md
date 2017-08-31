@@ -106,16 +106,16 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service on Azure Stack subscription selection][3]
 
-9. Enter the information for your file share and then click **Next**. need screen cap
+7. Enter the information for your file share and then click **Next**. need screen cap
 
-10. On the next page: need screencap
+8. On the next page: need screencap
     1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity.
     2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
     3. In the **Identity Application certificate password** box, enter the password for the certificate. This is the password that you made note of when you used the script to create the certificates.
     4. In the **Azure Resource Manager root certificate file** box, enter (or browse to) the location of the certificate file.
     5. Click **Next**.
 
-11. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must also provide the password for each certificate. These are the certificates that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-required-certificates). Click **Next** after entering all the information.
+9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must also provide the password for each certificate. These are the certificates that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-required-certificates). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
@@ -123,13 +123,13 @@ To deploy App Service resource provider, follow these steps:
     | **App Service API SSL certificate file** | api.appservice.local.AzureStack.external.pfx |
     | **App Service Publisher SSL certificate file** | ftp.appservice.local.AzureStack.external.pfx |
 
-    If you use a different domain suffix when you created the certificates, your certificate file names won’t use *local.AzureStack.external*. Instead, your cusotm domain information will be used.
+    If you used a different domain suffix when you created the certificates, your certificate file names don’t use *local.AzureStack.external*. Instead, use your custom domain information.
     
     need screencap
 
-12. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
+10. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
 
-13. Review the role instance and SKU options. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
+11. Review the role instance and SKU options. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
     | Role | Default instances | Default SKU | Notes |
     | --- | --- | --- | --- |
@@ -144,25 +144,25 @@ To deploy App Service resource provider, follow these steps:
     > [!NOTE]
     > In the technical previews, the App Service resource provider installer also deploys a Standard A1 instance to operate as a simple file server to support Azure Resource Manager. This remains for a single-node development kit. For production workloads, at general availability the App Service installer enables the use of a high-availability file server.
 
-14. Choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
+12. Choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
     ![App Service on Azure Stack VM image selection][7]
 
-15. On the next page:
+13. On the next page:
      1. Enter the Worker Role virtual machine administrator user name and password.
      2. Enter the Other Roles virtual machine administrator user name and password.
      3. Click **Next**.
 
     ![App Service on Azure Stack credential entry][8]
 
-16. On the summary page:
+14. On the summary page:
     1. Verify the selections you made. To make changes, use the **Previous** buttons to visit previous pages.
     2. If the configurations are correct, select the check box.
     3. To start the deployment, click **Next**.
 
     ![App Service on Azure Stack selection summary][9]
 
-17. You can track the installation progress on the next page. After the install successfully finishes, click **Exit**.
+15. You can track the installation progress on the next page. After the install successfully finishes, click **Exit**.
 
     ![App Service on Azure Stack installation progress][10]
 
