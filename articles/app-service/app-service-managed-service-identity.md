@@ -44,26 +44,25 @@ This tells Azure to create and manage the identity for your application.
 
 For example, a web app might look like the following:
 ```json
-  {
-            "apiVersion": "2016-08-01",
-            "type": "Microsoft.Web/sites",
-            "name": "[variables('appName')]",
-            "location": "[resourceGroup().location]",
-            "identity": {
-                "type": "SystemAssigned"
-            },
-            "properties": {
-                "name": "[variables('appName')]",
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-                "hostingEnvironment": "",
-		        "clientAffinityEnabled": false,
-		        "alwaysOn": true
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
-            ]
-
-        }
+{
+    "apiVersion": "2016-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "properties": {
+        "name": "[variables('appName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "hostingEnvironment": "",
+        "clientAffinityEnabled": false,
+        "alwaysOn": true
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+    ]
+}
 ```
 
 When the site is created, it has the following additional properties:
@@ -91,7 +90,7 @@ For .NET applications and functions, the simplest way to work with a managed ser
 
 1. Add a reference to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet package to your application.
 
-2. Add a "AzureServicesAuthConnectionString" application setting to your Azure resource with the value `AuthenticateAs=App;`
+2. Add a "AzureServicesAuthConnectionString" application setting to your Azure resource with the value `AuthenticateAs=App;`.
 
 > ![TIP]
 >  For local development, set your local version of this setting to `AuthenticateAs=User;User=VisualStudioAccount`. This allows you to test your code locally using the permissions granted to your individual account.
