@@ -73,7 +73,7 @@ No, the Experimentation Service allows as many experiments as you need and charg
 The Experimentation service can execute your experiments on local machines (direct or Docker-based), Azure virtual machines, and HDInsight. The service also accesses an Azure Blob Storage account for storing execution outputs and can leverage a Visual Studio Team Service account for version-control and Git storage. Note that you will be billed independently for any consumed compute and storage resources, based upon their individual pricing.  
 
 
-##Model Management Service
+## Model Management Service
 
 **What is the Azure Machine Learning Model Management Service?**
 
@@ -116,7 +116,7 @@ You can use the returned path to deploy the image as a web service on any docker
 
 Yes, you can deploy multiple versions of the same model. The Model Management Service will support  service updates for all updated models and images.
 
-##Workbench
+## Workbench
 
 **What is the Azure Machine Learning Workbench?**
 
@@ -156,7 +156,7 @@ A: The current version of Jupyter included with Workbench launches a Python 3 ke
 - Local Python
 - Python in local Docker
 
-##Data Formats and Capabilities
+## Data Formats and Capabilities
 
 **Which file formats are currently supported for data ingestion in Workbench?**
 
@@ -188,7 +188,7 @@ For public preview, Workbench supports “Derive Column by Example”, “Split 
 
 A: No, the new services do not impose any data limitations. However, there are limitations introduced by the environment in which you are performing your data preparation, model training, experimentation, or deployment. For example, if you are targeting a local environment for training, you are limited by the available space in your hard drive. Alternatively, if you are targeting HDInsight, you are limited by any associated size or compute restraints. 
 
-##Algorithms and Libraries
+## Algorithms and Libraries
 
 **What algorithms are supported in AML Workbench?**
 
@@ -198,7 +198,7 @@ Our preview products and services include the best of the open source community.
 
 The Microsoft Cognitive Toolkit is available under an open-source license and is one of many frameworks supported by our new tools and services. CNTK is a unified deep-learning toolkit that allows you to consume and combine popular machine learning models including Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence, and Recurrent Networks. For more information on Microsoft Cognitive Toolkit, visit our product documentation. 
 
-##Pricing and Billing
+## Pricing and Billing
 
 **Are you charging for Azure Machine Learning during preview?**	
 
@@ -231,7 +231,7 @@ Bills are produced daily. For billing purposes, a day commences at midnight UTC.
 - Azure Stream Analytics 
 For further details, or to view a sample bill, visit our pricing page. 
 
-##Support and Training
+## Support and Training
 
 **Where can I get training for Azure Machine Learning?**
 
