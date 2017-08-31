@@ -196,7 +196,13 @@ Approved client apps for this setting are:
 
 - These apps support Microsoft Intune mobile application management (MAM).
 
-- Only IOS and Android are supported today with the control 
+- This requirement:
+
+    - Only supports IOS and Android as selected [device platforms condition](#device-platforms-condition) 
+
+    - Does not support **Browser** as selected [client app condition](#client-apps-condition) 
+    
+    - Supersedes the **Mobile apps and desktop clients** [client app condition](#client-apps-condition) if it is selected  
 
 
 ## Next steps
