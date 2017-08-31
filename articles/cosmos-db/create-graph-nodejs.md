@@ -103,7 +103,7 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![The Azure portal Keys blade](./media/create-graph-nodejs/keys.png)
+   ![Azure portal "Keys" blade](./media/create-graph-nodejs/keys.png)
 
 4. Enter the database name, and graph (container) name for the value of config.database and config.collection. 
 
