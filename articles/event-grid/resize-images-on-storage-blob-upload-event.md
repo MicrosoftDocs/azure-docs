@@ -215,7 +215,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## Deploy the sample app from the GitHub repository
 
-App Service supports several ways to deploy content to a web app. In this tutorial, you  deploy the web app from a public GitHub sample repository: <https://github.com/Azure-Samples/integration-image-resize-web-app>. Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
+App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a public GitHub sample repository: <https://github.com/Azure-Samples/integration-image-resize-web-app>. Configure a one-time GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
 
 ```azurecli-interactive
 az webapp deployment source config --name <web_app>  \
@@ -227,7 +227,7 @@ az webapp deployment source config --name <web_app>  \
 
 The sample web app uses the Azure Storage SDK to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the application settings for the web app. Add application settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command.
 
-In the following command, `<blob_storage_account>` is the name of your Blob storage account and `<blob_storage_key>` is the associated key. 
+In the following command, `<blob_storage_account>` is the name of your Blob storage account and `<blob_storage_key>` is the associated key. You obtained this key during a previous step.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -236,26 +236,27 @@ AzureStorageConfig__ImageContainer=images  \
 AzureStorageConfig__ThumbnailContainer=thumbs \
 AzureStorageConfig__AccountKey=<blob_storage_key> 
 ```
-After the web app is deployed and configured, you can test the entire image upload and resizing functionality in the app.  
 
 ## Enable CORS access from the web app
 
-The web app requests images from a private storage container using shared access signatures. To enable requests from the app, you must add a cross-origin resource sharing (CORS) exception for the web app. Add an origin with the [az storage cors add](/cli/azure/storage/cors#add) command.
+The web app uses a JavaScript client to download thumbnail images from blob storage. For more information about the web app architecture, see the [sample readme](https://github.com/Azure-Samples/integration-image-resize-web-app/blob/master/README.md). To enable JavaScript requests from the web app, you must add a cross-origin resource sharing (CORS) exception for the web app. Add an origin with the [az storage cors add](/cli/azure/storage/cors#add) command.
 
 In the following command, `<blob_storage_account>` is the name of your Blob storage account.
 
 ```azurecli-interactive
-az storage cors add --methods {GET} --exposed-headers content-length \
+az storage cors add --methods GET --exposed-headers content-length \
 --allowed-headers "*" --origins "*.azurewebsites.net" --services b \
 --account-name <blob_storage_account> 
 ```
+After the web app is deployed and configured, you can test the entire image upload and resizing functionality in the app.
+
 ## Test the sample app
 
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net>`.
 
 Click the **Upload photos** region to select and upload a file. 
 
-Notice that a thumbnail copy of the uploaded image is displayed in the **Generated thumbnails** carousel. 
+Notice that a thumbnail copy of the uploaded image is displayed in the **Generated thumbnails** carousel. This image was resized by the function, added to the thumbs container, and downloaded by the web client. 
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
