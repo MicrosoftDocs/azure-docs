@@ -68,7 +68,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [App Service: API Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
-| Media Services | Yes | Yes |
+| [Media Services](doucmentation-government-services-media.md) | Yes | Yes |
 
 ## [Databases](documentation-government-services-database.md)
 
@@ -80,12 +80,18 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
 
-## [Intelligence + Analytics](documentation-government-services-intelligenceandanalytics.md)
+## [Data + Analytics](documentation-government-services-datandanalytics.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | [HDInsight](documentation-government-services-intelligenceandanalytics.md) | Yes | Yes |
 | [Power BI Pro](documentation-government-services-intelligenceandanalytics.md) | No | No (Office 365 admin portal) |
+
+## [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md)  
+
+| Service | Resource Manager enabled | Portal |
+| --- | --- | --- |
+| [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) | Yes | No |
 
 ## [Internet of Things](documentation-government-services-iot-hub.md)
 
