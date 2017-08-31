@@ -20,28 +20,28 @@ ms.author: LADocs; stepsic
 
 # Deploy and call custom APIs from logic app workflows
 
-After you [create custom API endpoints](./logic-apps-create-api-app.md) 
-that provide actions or triggers for use in logic apps workflows, 
-you must deploy your APIs before you can call them. 
-And although you can call any API from a logic app, 
-for the best experience, add [Swagger metadata](http://swagger.io/specification/) 
-that describes your API's operations and parameters. 
-This Swagger file helps your API work better and integrate more easily with logic apps.
-
+After you [create custom APIs](./logic-apps-create-api-app.md) 
+for use in logic app workflows, you must deploy your APIs before you can call them. 
 You can deploy your APIs as [web apps](../app-service-web/app-service-web-overview.md), 
 but consider deploying your APIs as [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
-which can make your job easier when you build, host, and consume APIs 
+which make your job easier when you build, host, and consume APIs 
 in the cloud and on premises. You don't have to change any code in your 
-APIs -- just deploy your code to an API app. You can host your APIs on 
+APIs - just deploy your code to an API app. You can host your APIs on 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md), 
-a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
-and most scalable ways for API hosting.
+a platform-as-a-service (PaaS) offering that provides highly scalable, 
+easy API hosting.
+
+Although you can call any API from a logic app, 
+for the best experience, add [OpenAPI (previously Swagger) metadata](http://swagger.io/specification/) 
+that describes your API's operations and parameters. 
+This OpenAPI file helps your API integrate more easily 
+and work better with logic apps.
 
 ## Deploy your API as a web app or API app
 
 Before you can call your custom API from a logic app, 
 deploy your API as a web app or API app to Azure App Service. 
-Also, to make your Swagger document readable by the Logic App Designer, 
+Also, to make your OpenAPI file readable by the Logic Apps Designer, 
 set the API definition properties and turn on 
 [cross-origin resource sharing (CORS)](../app-service-api/app-service-api-cors-consume-javascript.md#corsconfig) 
 for your web app or API app.
@@ -52,12 +52,12 @@ select your web app or API app.
 2. In the app menu that opens, 
 under **API**, choose **API definition**. 
 Set the **API definition location** 
-to the URL for your swagger.json file.
+to the URL for your OpenAPI swagger.json file.
 
    Usually, the URL appears in this format: 
    `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
-   ![Link to Swagger file for your custom API](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
+   ![Link to OpenAPI file for your custom API](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
 3. Under **API**, choose **CORS**. 
 Set the CORS policy for **Allowed origins** to **'*'** (allow all).
@@ -77,13 +77,13 @@ After you set up the API definition properties and CORS,
 your custom API's triggers and actions should be available 
 for you to include in your logic app workflow. 
 
-*  To view websites that have Swagger URLs, 
+*  To view websites that have OpenAPI URLs, 
 you can browse your subscription websites in the Logic Apps Designer.
 
-*  To view available actions and inputs by pointing at a Swagger document, 
+*  To view available actions and inputs by pointing at an OpenAPI document, 
 use the [HTTP + Swagger action](../connectors/connectors-native-http-swagger.md).
 
-*  To call any API, including APIs that don't have or expose a Swagger document, 
+*  To call any API, including APIs that don't have or expose an OpenAPI document, 
 you can always create a request with the [HTTP action](../connectors/connectors-native-http.md).
 
 ## Next steps

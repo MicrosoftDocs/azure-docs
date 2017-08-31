@@ -101,8 +101,8 @@ actions and triggers for your custom connector.
 
       | Option or setting | Format | Description | 
       | ----------------- | ------ | ----------- | 
-      | **Upload Icon** | *png-or-jpg-file-under-1-MB* | Provide the icon that represents your connector. | 
-      | **Icon background color** | *hexadecimal-color-code* | Shows a color behind your icon. Provide the hexadecimal code for that color. For example, #007ee5 represents the color blue. | 
+      | **Upload Icon** | *png-or-jpg-file-under-1-MB* | <ul><li>An icon that represents your connector <li>Color: Preferably a white logo against a color background. <li>Dimensions: A ~160 pixel logo inside a 230 pixel square</ul> | 
+      | **Icon background color** | *icon-brand-color-hexadecimal-code* | <ul><li>The color behind your icon that matches the background color in your icon file. <li>Format: Hexadecimal. For example, #007ee5 represents the color blue. | 
       | **Description** | *connector-description* | Provide a short description for your connector. | 
       | **Host** | *connector-host* | Provide the host domain for your Web API. | 
       | **Base URL** | *connector-base-URL* | Provide the base URL for your Web API. | 

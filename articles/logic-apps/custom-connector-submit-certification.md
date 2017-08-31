@@ -42,12 +42,11 @@ To apply for certification, follow these steps:
 
    1. [Submit your nomination](https://go.microsoft.com/fwlink/?linkid=848754).
 
-   2. Sign the mutual Non-Disclosure Agreement 
-   and Partner Agreement that you receive. 
-   We require these signed contracts to proceed. 
-   We can then check whether your app meets the certification criteria. 
+   2. Sign the mutual Non-Disclosure Agreement and Partner Agreement that you receive. 
+   Microsoft requires these signed contracts before proceeding. 
+   We can then check whether your connector meets the certification criteria. 
    
-   3. If your connector is approved, we notify you along 
+   3. If your connector is approved, Microsoft notifies you 
    with instructions for onboarding.
     
 2. **Review**
