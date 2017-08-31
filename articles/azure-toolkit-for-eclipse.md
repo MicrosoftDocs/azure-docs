@@ -1,5 +1,5 @@
 ---
-title: Azure Toolkit for Eclipse | Microsoft Docs
+title: Azure Toolkit for Eclipse
 description: Learn about the Azure Toolkit for Eclipse.
 services: ''
 documentationcenter: java

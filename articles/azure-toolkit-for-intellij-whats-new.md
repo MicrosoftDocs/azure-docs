@@ -1,5 +1,5 @@
 ---
-title: What's New in the Azure Toolkit for IntelliJ | Microsoft Docs
+title: What's New in the Azure Toolkit for IntelliJ
 description: Learn about the latest features in the Azure Toolkit for IntelliJ.
 services: ''
 documentationcenter: java
@@ -17,14 +17,15 @@ ms.date: 08/20/2017
 ms.author: robmcm;asirveda;martinsawicki
 
 ---
-# What's New in the Azure Toolkit for IntelliJ
-## Azure Toolkit for IntelliJ releases
+# What's new in the Azure Toolkit for IntelliJ
+
 This article contains information on the various releases and latest updates to the Azure Toolkit for IntelliJ.
 
 > [!NOTE]
 > There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse].
 > 
 > 
+## Azure Toolkit for IntelliJ releases
 
 ### August 18, 2017
 The Azure Toolkit for IntelliJ - August 2017 release includes the following enhancements:

@@ -1,7 +1,7 @@
 ---
 title: Run a Hello World web app in a Linux container by using the Azure Toolkit for IntelliJ
 description: Learn how to create a basic Hello World web app in a Linux container and publish it to Azure by using the Azure Toolkit for IntelliJ.
-services: ''
+services: app-service\web
 documentationcenter: java
 author: rmcmurray
 manager: routlaw

@@ -1,5 +1,5 @@
 ---
-title: Azure Toolkit for IntelliJ | Microsoft Docs
+title: Azure Toolkit for IntelliJ
 description: Learn about the Azure Toolkit for IntelliJ.
 services: ''
 documentationcenter: java
