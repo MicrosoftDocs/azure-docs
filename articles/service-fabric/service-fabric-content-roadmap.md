@@ -89,7 +89,10 @@ By default, Service Fabric deploys and activates services as processes. Service 
 Built on top of Reliable Services, the [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built in communication for actors and pre-set state persistence and scale-out configurations.
 
 ### ASP.NET Core
-Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) as a first class programming model for building web and API applications
+Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) as a first class programming model for building web and API applications.  ASP.NET Core can be used in two different ways in Service Fabric:
+
+- Hosted as a guest executable. This is primarily used to run existing ASP.NET Core applications on Service Fabric with no code changes.
+- Run inside a Reliable Service. This allows better integration with the Service Fabric runtime and allows stateful ASP.NET Core services.
 
 ### Guest executables
 A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbitrary executable (written in any language) hosted on a Service Fabric cluster alongside other services. Guest executables do not integrate directly with Service Fabric APIs. However they still benefit from features the platform offers, such as custom health and load reporting and service discoverability by calling REST APIs. They also have full application lifecycle support. 
