@@ -24,7 +24,9 @@ This topic provides you with support information for the following items of a co
 
 - Cloud apps assignments
 
-- Client apps conditions
+- Client apps condition
+
+- Device platform condition 
 
 - Approved client app requirement 
 
@@ -73,7 +75,7 @@ In addition to the Microsoft cloud apps, you can assign a conditional access pol
 - Applications that use Azure AD Application Proxy. 
 
 
-## Client apps conditions 
+## Client apps condition 
 
 When you configure a conditional access policy, you can set a [client apps condition](active-directory-conditional-access-azure-portal.md#client-apps). The client apps condition enables you to grant or block access when an access attempt was made from these types of client apps:
 
@@ -81,6 +83,26 @@ When you configure a conditional access policy, you can set a [client apps condi
 - Mobile apps and desktop apps
 
 ![Control](./media/active-directory-conditional-access-technical-reference/03.png)
+
+
+## Device platforms condition
+
+In a conditional access policy, you can configure the device platform condition to tie the policy to the operating system that is running on a client.
+
+![Control](./media/active-directory-conditional-access-technical-reference/41.png)
+
+Azure AD conditional access supports the following device platforms:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS (preview)
+
 
 
 ### Supported browsers 
@@ -170,8 +192,11 @@ Approved client apps for this setting are:
 - Microsoft Word
 
 
-These apps support Microsoft Intune mobile application management (MAM).
+**Remarks:**
 
+- These apps support Microsoft Intune mobile application management (MAM).
+
+- Only IOS and Android are supported today with the control 
 
 
 ## Next steps
