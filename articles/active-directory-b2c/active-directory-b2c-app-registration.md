@@ -38,7 +38,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the Global Administra
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-## Choose next steps based on your application type:
+## Choose next steps based on your application type
 
 * [Register a web application](#register-a-web-app)
 * [Register a web API](#register-a-web-api)
