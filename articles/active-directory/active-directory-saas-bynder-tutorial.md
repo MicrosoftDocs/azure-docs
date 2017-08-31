@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_samlbase.png)
 
-3. On the **Bynder Domain and URLs** section, perform the following steps:
+3. On the **Bynder Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Bynder Domain and URLs single sign-on information](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_url.png)
 
@@ -110,18 +110,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.getbynder.com/sso/SAML/authenticate/`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Bynder Client support team](https://www.bynder.com/en/support/) to get these values. 
+4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	![Bynder Domain and URLs single sign-on information](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_url1.png)
+
+	In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.getbynder.com/login/`
+
+	> [!NOTE] 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Bynder Client support team](https://www.bynder.com/en/support/) to get these values. 
+
+5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_certificate.png) 
 
-5. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-bynder-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **Bynder** side, you need to send the downloaded **Metadata XML** to [Bynder support team](https://www.bynder.com/en/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Bynder** side, you need to send the downloaded **Metadata XML** to [Bynder support team](https://www.bynder.com/en/support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
