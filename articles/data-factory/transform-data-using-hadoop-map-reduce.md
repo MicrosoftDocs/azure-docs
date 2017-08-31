@@ -64,8 +64,8 @@ See [Pig](transform-data-using-hadoop-pig.md) and [Hive](transform-data-using-ha
 | linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes      |
 | className         | Name of the Class to be executed         | Yes      |
 | jarLinkedService  | Reference to an Azure Storage Linked Service used to store the Jar files. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
-| jarFilePath       | Provide the path to the Jar files stored in above mentioned Azure Storage. The file name is case-sensitive. | Yes      |
-| jarlibs           | Provide the path to the Jar library files referenced by the job stored in above mentioned Azure Storage. The file name is case-sensitive. | No       |
+| jarFilePath       | Provide the path to the Jar files stored in the Azure Storage referred by jarLinkedService. The file name is case-sensitive. | Yes      |
+| jarlibs           | Provide the path to the Jar library files referenced by the job stored in the Azure Storage referred by jarLinkedService. The file name is case-sensitive. | No       |
 | getDebugInfo      | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by jarLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments         | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines           | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
