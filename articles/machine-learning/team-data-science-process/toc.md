@@ -1,7 +1,8 @@
 
 # [Overview](overview.md)
 # [Lifecycle](lifecycle.md)
-# [Walkthroughs](walkthroughs.md)
+## [With Azure ML](http://aka.ms/datascienceprocess)
+# [Example walkthroughs](walkthroughs.md)
 ##[Spark with PySpark and Scala](walkthroughs-spark.md)
 ### [Explore data](spark-data-exploration-modeling.md)
 ### [Score models](spark-model-consumption.md)
@@ -10,20 +11,20 @@
 ##[U-SQL with Azure Data Lake](walkthroughs-azure-data-lake.md)
 ##[R, Python and T-SQL with SQL Server](walkthroughs-sql-server.md)
 ##[T-SQL and Python with SQL DW](walkthroughs-sql-data-warehouse.md)
-# [With Azure ML](http://aka.ms/datascienceprocess)
+
 
 # How To
 ## [Set up data science environments](environment-setup.md)
 ### [Azure storage accounts](storage-create-storage-account)
 ### [Customize Hadoop](customize-hadoop-cluster.md)
 ### [Azure Machine Learning workspace](../studio/create-workspace.md)
-## [Set up virtual machines](virtual-machines.md)
+### [Set up virtual machines](virtual-machines.md)
 
 ## Analyze business needs
-### [Technical needs](plan-your-environment.md)
-### [Identify your scenario](plan-sample-scenarios.md)
+### [Identify your scenario](plan-your-environment.md)
+
 ## Acquire and understand data
-### Load data into storage
+### Manage data logistics
 #### [Overview](ingest-data.md)
 #### [Blob storage](move-azure-blob.md)
 #### [Use Storage Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
@@ -56,8 +57,7 @@
 ##### [Use Azure Data Lake](data-lake-walkthrough.md)
 ##### [Use SQL VM](sql-server-virtual-machine.md)
 ##### [Use data pipeline](automated-data-pipeline-cheat-sheet.md)
-
-#### Process data with Spark
+##### [Process data with Spark](spark-data-exploration-modeling.md)
 ##### [Overview](spark-overview.md)
 ##### [Explore data](spark-data-exploration-modeling.md)
 ##### [Score models](spark-model-consumption.md)
@@ -65,21 +65,21 @@
 ##### [Use Scala and Spark](scala-walkthrough.md)
 
 ## Develop models
-### Engineer and select features
+### Engineer features
 #### [Overview](create-features.md)
 #### [Use Pandas](create-features-blob.md)
 #### [Use SQL+Python](create-features-sql-server.md)
 #### [Use Hive queries](create-features-hive.md)
-#### [TDSP feature selection](select-features.md)
+### [Select features](select-features.md)
 
-## Examples
-### End-to-end scenarios
-#### [Use Hadoop clusters](hive-walkthrough.md)
-#### [Use Hadoop with 1TB](hive-criteo-walkthrough.md)
-#### [Use SQL Server](sql-walkthrough.md)
-#### [Use SQL Data Warehouse](sqldw-walkthrough.md)
+### Create and train models
+#### [Choose algorithms](../studio/algorithm-choice.md)
+#### [Algorithm cheat sheet](machine-learning-algorithm-cheat-sheet.md)
 
-# Reference
+## Deploy models
+### [With a web service](machine-learning-publish-a-machine-learning-web-service.md)
+### [Consume a web service](machine-learning-consume-web-services.md)
+
 # Related
 ## Cortana Intelligence Partner Solutions
 ### [Cortana Intelligence publishing guide](cortana-intelligence-appsource-publishing-guide.md)
@@ -96,6 +96,7 @@
 ##### [Overview](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
