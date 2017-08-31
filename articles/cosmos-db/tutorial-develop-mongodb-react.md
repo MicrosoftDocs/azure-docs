@@ -32,7 +32,7 @@ This multi-part tutorial covers the following tasks:
 > * Build the UI with React
 > * Create an Azure Cosmos DB account using the Azure portal
 > * Use Mongoose to connect to Azure Cosmos DB
-> * Add React, Create, Update and Delete operations to the app
+> * Add React, Create, Update, and Delete operations to the app
 
 ## Introduction 
 
@@ -48,7 +48,7 @@ This video shows how set up the Express and React in the same project. Burke the
 
 ## Build the UI
 
-This video shows how to create a the application's user interface (UI) with React. 
+This video shows how to create the application's user interface (UI) with React. 
 
 > [!VIDEO https://www.youtube.com/embed/SzHzX0fTUUQ]
 
