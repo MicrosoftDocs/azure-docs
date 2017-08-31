@@ -87,17 +87,17 @@ Text Analytics accepts raw text data. The service currently sets a limit of 10 K
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
-Rate limiting exists at a rate of 100 calls per minute. Note that you can submit a large quantities of documents in a single call (up to 1000 documents). 
+Rate limiting exists at a rate of 100 calls per minute. Note that you can submit large quantities of documents in a single call (up to 1000 documents). 
 
 ## Next steps
 
-First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign up necessary.
+First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign-up necessary.
 
 When you are ready to call the API directly, continue with these links:
 
 + [Sign up](text-analytics-howto-signup.md) for an access key and review the steps for [calling the API](text-analytics-howto-call-api.md).
 
-+ [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
++ [Quickstart](quick-start.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
 + [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. The documentation supports embedded calls so that you can call the API from each documentation page.
 
