@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 
 ---
 # Azure Active Directory Conditional Access technical reference
@@ -25,6 +25,8 @@ This topic provides you with support information for the following items of a co
 - Cloud apps assignments
 
 - Client apps conditions
+
+- Approved client app requirement 
 
 
 
@@ -139,15 +141,33 @@ The following mobile apps and desktop clients support conditional access for Off
 
 
 
+## Approved client app requirement 
 
+When you configure a conditional access policy, you can select the requirement to grant access only if a connection attempt was made by an approved client app. 
 
+![Control](./media/active-directory-conditional-access-technical-reference/21.png)
 
+Approved client apps for this setting are:
 
+- Microsoft Excel
 
+- Microsoft OneDrive
 
+- Microsoft Outlook
 
+- Microsoft OneNote
 
+- Microsoft PowerPoint
 
+- Microsoft SharePoint
+
+- Microsoft Skype for Business
+
+- Microsoft Teams
+
+- Microsoft Visio
+
+- Microsoft Word
 
 
 ## Next steps
