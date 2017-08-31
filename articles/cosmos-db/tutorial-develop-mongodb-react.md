@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/31/2017
+ms.date: 09/01/2017
 ms.author: mimig
 ms.custom: mvc
 
@@ -28,7 +28,7 @@ This multi-part tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Introduction
-> * Setup the Project
+> * Setup the project
 > * Build the UI with React
 > * Create an Azure Cosmos DB account using the Azure portal
 > * Use Mongoose to connect to Azure Cosmos DB
