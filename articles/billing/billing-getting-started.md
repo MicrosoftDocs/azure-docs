@@ -120,7 +120,7 @@ After you get your services running, regularly check how much they're costing yo
 
 2. Select your subscription you want to see. You might only have one to select.
 
-3. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top). Wait 24 hours after you add a service for the data to populate.
+3. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top). Wait 24 hours after you add a service for the data to populate.  
     
     ![Screenshot of burn rate and breakdown in the Azure portal](./media/billing-getting-started/burn-rate.PNG)
 
@@ -139,6 +139,19 @@ After you get your services running, regularly check how much they're costing yo
     ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/costhistory.PNG)
 
 We recommend that you check the costs you see with the estimates you saw when you selected the services. If the costs wildly differ from estimates, double check the pricing plan (A1 vs A0 VM, for example) that you've selected for your resources. 
+
+### More about Enterprise Agreement cost views on subscriptions (Public Preview) 
+
+Enterprise cost views for subscriptions are in a Public Preview and there are a couple items to note:
+- Subscription costs are based on usage and do not account for commitment credits, discounts, or taxes
+- There is a delay from when data is updated within the Enterprise portal to when the data will show within the Azure portal. 
+    - This delay could be up to, but not limited to, 24-48 hours 
+- Authentication
+    - There are a couple settings within the **Enterprise Portal** that could stop cost from being seen within the Azure portal.
+        - AO view charges: If an enrollment has this setting turned off, users will not see costs on the subscriptions. 
+        - DA view charges: If an enrollment has department costs views turned off, then those users who are identified as department administrators will not be able to view any costs. 
+        - Partner Markup: If your enrollment was purchased through a partner and this partner has disabled costs, then users will not be able to see those costs within the Azure portal. 
+    - When these settings are updated within the Enterprise Portal, there is a 15 minute delay before the Azure portal will be updated.
 
 #### View costs for all your subscriptions in the Billing blade
 
