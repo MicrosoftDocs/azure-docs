@@ -67,7 +67,7 @@ We have provided a client application that will generate sample incoming call me
 
 The following example will generate 1,000 events with a 20 percent probability of fraud over the course of two hours.
 
-    telcodatagen.exe 1000 .2 2
+    telcodatagen.exe 1000 2 2
 
 You will see records being sent to your event hub. Some key fields that we will be using in this real-time fraud detection application are defined here:
 
