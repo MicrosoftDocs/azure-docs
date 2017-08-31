@@ -27,7 +27,6 @@ For the most current list of services, see the [Products available by region](ht
 
 In the following tables, services that are specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md). Services that are specified as available in the portal can be managed in the [Azure Government portal](https://portal.azure.us/). 
 
-
 ## [Compute](documentation-government-compute.md)
 
 | Service | Resource Manager enabled | Portal |
@@ -37,7 +36,6 @@ In the following tables, services that are specified as Azure Resource Manager e
 | Cloud Services | Yes | Yes |
 | Service Fabric | Yes | Yes |
 | Virtual Machine Scale Sets | Yes | Yes |
-
 
 ## [Networking](documentation-government-networking.md)
 
@@ -63,7 +61,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
 | [Import/Export](documentation-government-services-storage.md#azure-importexport) | Yes | Yes |
 
-## [Web and mobile](documentation-government-services-webandmobile.md)
+## [Web + Mobile](documentation-government-services-webandmobile.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -113,7 +111,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | Yes |
 | Multi-Factory Authentication | Yes | Yes |
 
-## [Monitoring and management](documentation-government-services-monitoringandmanagement.md)
+## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
