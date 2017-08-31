@@ -1,4 +1,4 @@
-In the Cloud Shell, create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
+In the Cloud Shell, create a [web app](../articles/app-service/containers/app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
 The runtime in the following command is set to `NODE|8.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
