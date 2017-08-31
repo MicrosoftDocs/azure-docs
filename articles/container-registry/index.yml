@@ -40,7 +40,7 @@ sections:
   - type: paragraph
     text: Learn how to use Azure Container Registry with Azure Container Instances and Azure Container Service.
   - type: list
-    style:
+    style: ordered
     items:
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">ACR with Container Instances</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">ACR with Container Service</a>
