@@ -67,7 +67,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     ![Open the app-module.ts file](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-    Now that you have your Heroes component, create a new file for the heroes component HTML. Because we created a minimal app, the HTML was meant to go in the same file as the typescript file, but we want to break it out and create a separate file.
+    Now that you have your Heroes component, create a new file for the heroes component HTML. Because we created a minimal app, the HTML was meant to go in the same file as the TypeScript file, but we want to break it out and create a separate file.
 
 5. In the **Explorer** pane, right-click the **app** folder, click **New File**, and name the new file *heroes.component.html*.
 
@@ -93,7 +93,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     >
     > ![Angular Essentials extension](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
-7. Go back to the **heroes.component.html** file and copy in this code. The `<div>` is the container for the entire page, and then inside we've got a list of items, and we're going to need to have heroes models, which we need to create so that when you click on one you can select it and edit it or delete it in the UI. Then in the HTML we've got some styling so you know which one has been selected. There's also an edit area so that you can add a new hero or edit an existing one. 
+7. Go back to the **heroes.component.html** file and copy in this code. The `<div>` is the container for the entire page. Inside of the container there is a list of heroes which we need to create so that when you click on one you can select it and edit it or delete it in the UI. Then in the HTML we've got some styling so you know which one has been selected. There's also an edit area so that you can add a new hero or edit an existing one. 
 
     ```html
     <div>
@@ -132,7 +132,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     </div>
     ```
 
-8. Now that we've got the HTML in place we need to add to the heroes.component.ts file so we can interact with the template. The new code added to heroes.component.ts below adds some models and hero flags for a list of heroes. Then it fills in the constructor, gets some heroes, and initializes the hero service component to go get all the data. You can copy the following code over the existing code in heroes.component.ts.
+8. Now that we've got the HTML in place, we need to add it to the **heroes.component.ts** file so we can interact with the template. The new code added to **heroes.component.ts** below adds the template to our component file. A constructor has been added that gets some heroes, and initializes the hero service component to go get all the data. This code also adds all of the necessary methods for handling events in the UI. You can copy the following code over the existing code in **heroes.component.ts**. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -220,7 +220,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 1. In the Explorer pane, open the **src/client/styles.scss** file.
 
-2. Copy the following code into the styles.scss file, replacing the existing content of the file.
+2. Copy the following code into the **styles.scss** file, replacing the existing content of the file.
 
     ```css
     /* You can add global styles to this file, and also import other style files */
@@ -379,21 +379,21 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Display the component
 
-Now that we have the component set, how do we get it to show up on the screen? Let's modify the default components in app.component.ts.
+Now that we have the component, how do we get it to show up on the screen? Let's modify the default components in **app.component.ts**.
 
 1. In the Explorer pane, open **client/app/app.component.ts**.
 
-2. In lines 6 through 8, change the title to Heroes, and then put the name of the component we created in heroes.components.ts (app-heroes) to refer to that new component. The template section should now look like the following: 
+2. In lines 6 through 8, change the title to Heroes, and then put the name of the component we created in **heroes.components.ts** (app-heroes) to refer to that new component. The template section should now look like the following: 
 
     ```ts
     template: `
       <h1>Heroes</h1>
       <div class="header-bar"></div>
       <app-heroes></app-heroes>
-      `,)
+    `,
     ```
 
-3. There are other components in heroes.components.ts that we're referring to, like the Hero component, so we need to go create that, too. In the Angular CLI command prompt, use the following command to create a hero model and a file named hero.ts, where g=generate, cl=class, and hero=name of class.
+3. There are other components in **heroes.components.ts** that we're referring to, like the Hero component, so we need to go create that, too. In the Angular CLI command prompt, use the following command to create a hero model and a file named **hero.ts**, where g=generate, cl=class, and hero=name of class.
 
     ```bash
     ng g cl hero
@@ -411,10 +411,10 @@ Now that we have the component set, how do we get it to show up on the screen? L
 5. In **hero.ts**, replace the content of the file with the following code, which adds a Hero class with an ID, a name, and a saying. 
 
     ```ts
-    export class Hero {
-    id: number;
-    name: string;
-    saying: string;
+      export class Hero {
+      id: number;
+      name: string;
+      saying: string;
     }
     ```
 
@@ -436,13 +436,13 @@ Now that we have the component set, how do we get it to show up on the screen? L
 
 ## Create the Service
 
-1. In the Angular CLI command prompt, enter the following command to create a hero service in app.module.ts, where g=generate, s=service, hero=name of service, -m=put in app.module.
+1. In the Angular CLI command prompt, enter the following command to create a hero service in **app.module.ts**, where g=generate, s=service, hero=name of service, -m=put in app.module.
 
     ```bash
     ng g s hero -m app.module
     ```
 
-    The output states that hero.service.ts was created and app.module.ts was updated.
+    The output states that **hero.service.ts** was created and **app.module.ts** was updated.
   
     ```bash
     installing service
