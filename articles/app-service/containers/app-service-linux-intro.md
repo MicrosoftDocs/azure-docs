@@ -20,7 +20,7 @@ ms.author: naziml;wesmc
 ---
 # Introduction to Azure Web App on Linux
 
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
 ## Overview
 [Web App](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use Web App on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported. 
