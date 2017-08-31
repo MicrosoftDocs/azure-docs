@@ -140,18 +140,16 @@ After you get your services running, regularly check how much they're costing yo
 
 We recommend that you check the costs you see with the estimates you saw when you selected the services. If the costs wildly differ from estimates, double check the pricing plan (A1 vs A0 VM, for example) that you've selected for your resources. 
 
-### More about Enterprise Agreement cost views on subscriptions (Public Preview) 
+#### More about Enterprise Agreement cost views (Public Preview) 
 
-Enterprise cost views for subscriptions are in a Public Preview and there are a couple items to note:
-- Subscription costs are based on usage and do not account for commitment credits, discounts, or taxes
-- There is a delay from when data is updated within the Enterprise portal to when the data will show within the Azure portal. 
-    - This delay could be up to, but not limited to, 24-48 hours 
-- Authentication
-    - There are a couple settings within the **Enterprise Portal** that could stop cost from being seen within the Azure portal.
-        - AO view charges: If an enrollment has this setting turned off, users will not see costs on the subscriptions. 
-        - DA view charges: If an enrollment has department costs views turned off, then those users who are identified as department administrators will not be able to view any costs. 
-        - Partner Markup: If your enrollment was purchased through a partner and this partner has disabled costs, then users will not be able to see those costs within the Azure portal. 
-    - When these settings are updated within the Enterprise Portal, there is a 15 minute delay before the Azure portal will be updated.
+Enterprise cost views are currently in Public Preview. Items to note:
+- Subscription costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level. 
+- Amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal.  
+- If you are not seeing costs, it might be due to one of the following reasons:
+    - You are an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs. 
+    - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
+    - You purchased Azure through a channel partner, and the partner has not released pricing information.  
+- When settings related to cost access are updated within the Enterprise portal, there can be a delay of a few minutes before the changes are reflected in the Azure portal.
 
 #### View costs for all your subscriptions in the Billing blade
 
