@@ -51,7 +51,7 @@ This first script works with the Azure Stack certificate authority to create the
 | API SSL certificate | api.appservice.local.AzureStack.external.pfx |
 | Publisher SSL certificate | ftp.appservice.local.AzureStack.external.pfx |
 
-If you use a different domain suffix, your certificate files won’t use *local.AzureStack.external*. Instead, your custom domain information is used.
+If you use a different domain suffix, your certificate files doesn't use *local.AzureStack.external*. Instead, your custom domain information is used.
 
 To create the certificates, follow these steps:
 
@@ -96,8 +96,8 @@ To deploy App Service resource provider, follow these steps:
 
 6. On the next page:
     1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
-        - If you're using Azure Active Directory (Azure AD), you must enter your Azure AD admin account and password. Click **Sign In**. You *must* enter the Azure AD account that you provided when you deployed Azure Stack.
-        - If you're using Active Directory Federation Services (AD FS), you must provide your admin account, for example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
+        - If you're using Azure Active Directory (Azure AD), enter your Azure AD admin account and password. Click **Sign In**. You *must* enter the Azure AD account that you provided when you deployed Azure Stack.
+        - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select your subscription.
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
     4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
@@ -310,7 +310,7 @@ Follow these steps:
 
 ## Test drive App Service on Azure Stack
 
-After you deploy and register the App Service resource provider, test it to make sure that tenants can deploy web, mobile, and API apps.
+After you deploy and register the App Service resource provider, test it to make sure that users can deploy web, mobile, and API apps.
 
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
