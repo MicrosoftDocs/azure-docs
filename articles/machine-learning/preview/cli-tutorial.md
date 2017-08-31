@@ -237,8 +237,6 @@ az ml asset download --link-file <URL to link file (generate during promote step
 ```
 az ml hostacct create -n <hosting account name> -l eastus2 -g <resource group> --sku-name <S1 | S2 | S3> --sku-tier Standard
 ```
-> Not working:
-> Do we have a CLI command for this or is this only through Ibiza? 
 
 
 
