@@ -65,6 +65,11 @@ The procedure steps set the 'DefaultSiteHQ' as the default site connection for f
 
 Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
+> [!IMPORTANT]
+> Installing the latest version of the PowerShell cmdlets is required in order to get the latest version of the GatewaySKUs. Otherwise, you will receive validation errors when running some of the cmdlets.
+>
+>
+
 ### To log in
 
 [!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
