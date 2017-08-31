@@ -1,6 +1,6 @@
 ---
-title: Transform data using Hadoop Streaming Activity - Azure | Microsoft Docs
-description: Learn how you can use the Hadoop Streaming Activity in an Azure data factory to transform data by running Hadoop Streaming programs on an on-demand/your own HDInsight cluster.
+title: Transform data using Hadoop Streaming Activity in Azure Data Factory | Microsoft Docs
+description: Explains how to use Hadoop Streaming Activity in Azure Data Factory to transform data by running Hadoop Streaming programs on a Hadoop cluster. 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -73,15 +73,13 @@ The HDInsight Streaming Activity in a Data Factory [pipeline](concepts-pipelines
 | mapper            | Specifies the name of the mapper executable | Yes      |
 | reducer           | Specifies the name of the reducer executable | Yes      |
 | combiner          | Specifies the name of the combiner executable | No       |
-| fileLinkedService | Reference to an Azure Storage Linked Service used to store the Mapper, Combiner, and Reducer programs to be executed. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
-| filePath          | Provide an array of path to the Mapper, Combiner, and Reducer programs stored in the Azure Storage (fileLinkedService). The path is case-sensitive. | Yes      |
+| fileLinkedService | Reference to an Azure Storage Linked Service used to store the Mapper, Combiner and Reducer programs to be executed. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
+| filePath          | Provide an array of path to the Mapper, Combiner and Reducer programs stored in above mentioned Azure Storage. The path is case-sensitive. | Yes      |
 | input             | Specifies the WASB path to the input file for the Mapper. | Yes      |
 | output            | Specifies the WASB path to the output file for the Reducer. | Yes      |
 | getDebugInfo      | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by scriptLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments         | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
-| defines           | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
-
-> 
+| defines           | Specify parameters as key/value pairs for referencing within the Hive script. | No       | 
 
 ## See Also
 * [Hive Activity](transform-data-using-hadoop-hive.md)
