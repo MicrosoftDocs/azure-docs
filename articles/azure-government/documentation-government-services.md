@@ -113,13 +113,6 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | Yes |
 | Multi-Factory Authentication | Yes | Yes |
 
-## Intelligence and analytics
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| Power BI | Yes | No |
-| HDInsight | Yes | Yes |
-
 ## [Monitoring and management](documentation-government-services-monitoringandmanagement.md)
 
 | Service | Resource Manager enabled | Portal |
