@@ -21,7 +21,7 @@ ms.custom: mvc
 > [!WARNING]
 > This tutorial requires Event Grid functionality that is currently in a reduced-access preview. To be able to successfully complete this topic, you must first [request access to Blob storage events](#request-storage-access).  
 >
->After access is granted, an email is sent to the primary email address on your subscription. If you don't have access to that email account, you can also [check your approval status](#check-access-status) from the Azure CLI.  
+>After access is granted, an email is sent to the user who requested access. You can also [check your approval status](#check-access-status) from the Azure CLI.  
 >
 >After you have confirmed that your subscription has been granted access to Blob storage events, you can [complete the rest of this tutorial](#create-rg). 
 
@@ -94,7 +94,7 @@ Storage account names must be between 3 and 24 characters in length and may cont
 > [!IMPORTANT]
 > Event subscriptions for blob storage are currently only supported for Blob storage accounts. Because of this, you must create two accounts: a Blob storage account used by the sample app to store images and thumbnails, and a general storage account required by Azure Functions.  
 >
->You are currently also restricted to Blob storage accounts in the West Central US and West US regions. 
+>You are also currently restricted to Blob storage accounts in the West Central US region. 
 
 In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder. 
 
