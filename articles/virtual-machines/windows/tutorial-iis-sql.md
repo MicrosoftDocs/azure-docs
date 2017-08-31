@@ -132,9 +132,8 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 Connect to the VM using the IP address by typing the following at PowerShell prompt on your local computer:
 
 ```powershell
-mstsc /v:$pip.IpAddress
+mstsc /v:($pip.IpAddress)
 ```
-
 
 Open a PowerShell prompt inside the VM and run the following cmdlets to install IIS and the .NET Core SDK.
 
@@ -146,18 +145,19 @@ New-Item -ItemType Directory c:\temp
 Install-WindowsFeature web-server -IncludeManagementTools
 
 # Download and install the .NET Core SDK on the VM.
-Invoke-WebRequest https://download.microsoft.com/download/0/F/D/0FD852A4-7EA1-4E2A-983A-0484AC19B92C/dotnet-sdk-2.0.0-win-x64.exe -outfile c:\temp\dotnet-sdk-2.0.0-win-x64.exe 
-Start-Process c:\temp\dotnet-sdk-2.0.0-win-x64.exe -ArgumentList '/quiet' -Wait
+Invoke-WebRequest https://go.microsoft.com/fwlink/?linkid=848827 -outfile c:\temp\dotnet-dev-win-x64.1.0.4.exe 
+Start-Process c:\temp\dotnet-dev-win-x64.1.0.4.exe -ArgumentList '/quiet' -Wait
 
-Invoke-WebRequest https://aka.ms/dotnetcore.2.0.0-windowshosting -outfile c:\temp\DotNetCore.2.0.0-WindowsHosting.exe
-Start-Process c:\temp\DotNetCore.2.0.0-WindowsHosting.exe -ArgumentList '/quiet' -Wait
+Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkId=817246 -outfile c:\temp\DotNetCore.WindowsHosting.exe
+Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
+
 ```
 
 This process may take a while. 
 
 ## Optional: Install a sample .NET application
 
-Use the custom script extension to install a sample app from GitHub. We pass the path to a configuration file into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. To configure the .Net application on the VM, we need to provide the full path to the SQL server instance, the user name, and password to the script. 
+Use the custom script extension to install a sample app from GitHub. We pass the path to a [configuration file](https://raw.githubusercontent.com/MicrosoftDocs/MusicStoreSample/master/support-scripts/create-music-store.ps1) into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. To configure the .Net application on the VM, we need to provide the full path to the SQL server instance, the user name, and password to the script. 
 
 ```powershell
 $sqlfqdn = ($sqlserver + '.database.windows.net')
@@ -169,6 +169,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
     -Name MusicStoreExtension
 ```
 
+For more information on how to use the Custom Script Extension, see [How to customize a Windows virtual machine in Azure](tutorial-automate-vm-deployment.md).
 
 ## Test the application
 
