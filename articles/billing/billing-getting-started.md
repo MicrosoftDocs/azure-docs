@@ -23,11 +23,13 @@ experimental_id: "a2b2579c-cd2e-41"
 
 # Prevent unexpected costs with Azure billing and cost management
 
-When you sign up for Azure, there are several things you can do to get a better idea of your spend. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), when you select the subscription, you can see your current cost breakdown and burn rate. You can also [download past invoices and detail usage files](billing-download-azure-invoice-daily-usage-date.md). If you want to group costs for resources used for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md). 
+When you sign up for Azure, there are several things you can do to get a better idea of your spend. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), when you select the subscription, you can see your current cost breakdown and burn rate. You can also [download past invoices and detail usage files](billing-download-azure-invoice-daily-usage-date.md) for most offer types. If you want to group costs for resources used for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md). 
 
 For more information about your daily usage, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-If your subscription is through an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship, then many features in this article don't apply to you. Instead, we have a different set of tools that you can use for cost management. See [Additional resources for EA, CSP, and Sponsorship](#other-offers).
+If your subscription is through a Cloud Solution Provider (CSP) or Azure Sponsorship, then many features in this article don't apply to you. Instead, we have a different set of tools that you can use for cost management. See [Additional resources for EA, CSP, and Sponsorship](#other-offers).
+
+If your subscription is an Enterprise Agreement (EA), the spending limit, billing alerts, and invoice guidence below will not pertain to you. 
 
 If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark, then learn about [spending limits](#spending-limit) to avoid having your subscription unexpectantly disabled. 
 
@@ -140,7 +142,7 @@ We recommend that you check the costs you see with the estimates you saw when yo
 
 #### View costs for all your subscriptions in the Billing blade
 
-If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
+If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). EA aggregate views are currently not in the Billing blade on the Azure portal.  
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -158,7 +160,7 @@ For more information, see [Advisor Cost recommendations](../advisor/advisor-cost
 
 ### <a name="invoice-and-usage"></a> Get your invoice and detail usage after your first billing period
 
-After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. You can also opt in to have your invoice emailed to you. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. You can also opt in to have your invoice emailed to you. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. If you have an EA subscription, the enrollment administrator will receive the invoice via email as it is not available within the Azure portal. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ![Screenshot of a .pdf invoice](./media/billing-getting-started/invoice.png)
 
