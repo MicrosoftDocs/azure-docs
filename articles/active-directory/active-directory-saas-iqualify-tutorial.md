@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 09/04/2017
 ms.author: jeedes
 
 ---
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![Configure Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb.png)
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, select **user..userprincipalname**  as **User Identifier** and for each row shown in the table below, perform the following steps:
+6. In the **User Attributes** section on the **Single sign-on** dialog  perform the following steps for each row shown in the table below:
     
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
@@ -159,7 +159,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	e. Repeat steps "a" through "d" for the next table rows. 
 
 	> [!Note]
-	> Repeating steps "a" through "d" for the person_id attribute is **Optional**
+	> Repeating steps "a" through "d" for the **person_id** attribute is **Optional**
 
 7. On the **SAML Signing Certificate** section, click **Certificate (Base 64)** and then save the certificate file on your computer.
 
