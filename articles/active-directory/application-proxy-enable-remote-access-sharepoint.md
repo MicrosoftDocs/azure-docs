@@ -150,7 +150,7 @@ To configure the KCD, repeat the following steps for each connector machine:
 
 5. Click the **Add** button, click **Users or Computers**, and locate the service account.
 
-  ![Adding the SPN for the service account](./media/application-proxy-remote-sharepoint/remote-sharepoint-users-computers.png)
+  ![Adding the SPN for the service account](./media/application-proxy-remote-sharepoint/users-computers.png)
 
 6. In the list of SPNs, select the one that you created earlier for the service account.
 7. Click **OK**. Click **OK** again to save the changes.
