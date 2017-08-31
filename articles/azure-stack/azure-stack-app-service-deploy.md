@@ -106,9 +106,9 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service on Azure Stack subscription selection][3]
 
-7. Enter the information for your file share and then click **Next**. need screen cap
+7. Enter the information for your file share and then click **Next**.
 
-8. On the next page: need screen cap
+8. On the next page:
     1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity.
     2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
     3. In the **Identity Application certificate password** box, enter the password for the certificate. This password is the one that you made note of when you used the script to create the certificates.
@@ -124,8 +124,6 @@ To deploy App Service resource provider, follow these steps:
     | **App Service Publisher SSL certificate file** | ftp.appservice.local.AzureStack.external.pfx |
 
     If you used a different domain suffix when you created the certificates, your certificate file names don’t use *local.AzureStack.external*. Instead, use your custom domain information.
-    
-    need screen cap
 
 10. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
 
