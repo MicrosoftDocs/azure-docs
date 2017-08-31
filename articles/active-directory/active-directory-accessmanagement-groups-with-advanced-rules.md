@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 
 ---
 
@@ -191,6 +192,7 @@ Allowed operators
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
+
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## Multi-value properties
@@ -242,7 +244,8 @@ An example of a rule that uses a custom attribute is
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
+The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name. 
+Currently we do not support multi-value attributes synchronized from on premises Active Directory. 
 
 ## "Direct Reports" Rule
 You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership will be adjusted automatically.
