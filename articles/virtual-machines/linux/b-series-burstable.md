@@ -1,25 +1,25 @@
 ---
 title: B-series Azure Linux VM sizes| Microsoft Docs
-description: Describes the B-Series of burstable VM sizes.
-services: virtual-machines-windows
+description: Describes the B-series of burstable Azure VM sizes.
+services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
 manager: timlt
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/29/2017
+ms.date: 08/30/2017
 ms.author: jonbeck
 
 ---
 
-# B-series burstable virtual machine sizes
+# B-series burstable virtual machine sizes (preview)
 
 [!INCLUDE [virtual-machines-common-b-series-burstable](../../../includes/virtual-machines-common-b-series-burstable.md)]
 
