@@ -21,9 +21,9 @@ ms.author: tarcher
 
 You can [create custom artifacts](devtest-lab-artifact-author.md) for the VMs in your lab, or [use Azure Resource Manager templates to create a custom test environment](devtest-lab-create-environment-from-arm.md). You must add a private Git repository for the artifacts or Resource Manager templates that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services](https://visualstudio.com).
 
-We offer a [Github repository of artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) that you can deploy as-is, or you can customize them for your labs. When you customize or create an artifact, you can't store the artifact in the public repository. You must create your own private repo for custom artifacts and for artifacts that you create. 
+We offer a [GitHub repository of artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) that you can deploy as-is, or you can customize them for your labs. When you customize or create an artifact, you can't store the artifact in the public repository. You must create your own private repo for custom artifacts and for artifacts that you create. 
 
-When you create a VM, you can save the Resource Manager template, customize it, if you want, and then use it later to create more VMs. You must create your own private repository to store your custom Resource Manager templates.  
+When you create a VM, you can save the Resource Manager template, customize it if you want, and then use it later to create more VMs. You must create your own private repository to store your custom Resource Manager templates.  
 
 * To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
 * To learn how to create a Team Services project that has a Git repository, see [Connect to Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
