@@ -93,30 +93,12 @@ To associate the Office 365 tenant to the Azure subscription, follow these steps
    
 5. Select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
-### Step 3: Add your Office 365 organizational accounts as co-administrators to the Azure Active Directory tenant
+### Step 3: Add your Office 365 organizational accounts as admins to the Azure subscription
    
-1. Select the **ADMINISTRATORS** tab, and then select **ADD**.
-   
-    ![Screenshot of Azure classic portal settings administrators tab](./media/billing-add-office-365-tenant-to-azure-subscription/s319_azure-classic-portal-settings-administrators.png)
-   
-2. Enter an organizational account of your Office 365 tenant, select the Azure subscription, and then select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
-   
-    ![Screenshot of Azure add co-administrator dialog box](./media/billing-add-office-365-tenant-to-azure-subscription/s320_azure-add-co-administrator.png)
-   
-3. Go back to the **ADMINISTRATORS** tab. You should see the organizational account displayed as co-administrator.
-   
-    ![Screenshot of administrators tab](./media/billing-add-office-365-tenant-to-azure-subscription/s321_azure-co-administrator-added.png)
-4.  Test access to Azure with the co-administrator account.
-   
-    a. Sign out of the Azure classic portal.
-   
-    b. Open the [Azure portal](https://portal.azure.com/).
-   
-    c. Enter the credentials of the co-administrator, and then select **Sign in**.
-   
-    ![Screenshot of Azure sign-in page](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
+To add an admin to your Azure subscription, see[Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md)
 
 ## Need help? Contact support.
+
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 

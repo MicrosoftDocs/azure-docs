@@ -14,11 +14,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 08/30/2017
 ms.author: genli
 ---
 
 # No subscriptions found error in Azure portal or Azure account center
+
 You might receive a "No subscriptions found" error message when you try to sign in to the [Azure portal](https://portal.azure.com/) or the [Azure account center](https://account.windowsazure.com/Subscriptions). This article provides a solution for this problem.
 
 ## Symptom
@@ -27,11 +28,9 @@ When you try to sign in to the [Azure portal](https://portal.azure.com/) or the 
 
 ## Cause
 
-This problem occurs if your account doesn’t have sufficient permissions. 
+This problem occurs if you selected at the wrong directory, or if your account doesn’t have sufficient permissions. 
 
 ## Solution
-
-Make sure that you log in as the correct administrator. An Account Administrator can access only the Account Center. Service Administrators (SA) and Co-Administrators (CA) have access permission only to the Azure portal or the Azure classic portal.
 
 ### Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)
 
@@ -48,9 +47,13 @@ To fix this issue:
 Check whether the account that you used is the Account Administrator. To verify who the Account Administrator is, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **Subscription**.
-3. Select the subscription that you want to check, and then select **Settings**.
-4. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
+
+1. On the Hub menu, select **Subscription**.
+
+1. Select the subscription that you want to check, and then select **Settings**.
+
+1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
 
 ## Need help? Contact support.
+
 If you still need help, [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly. 
