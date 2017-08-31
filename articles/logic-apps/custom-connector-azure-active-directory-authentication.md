@@ -136,7 +136,7 @@ adds delegated access to the Web API protected by the first Azure AD app.
 1. Return to the **App registrations** list, 
 and choose **+ New application registration** again.
 
-   ![Choose "App registrations", "+ New application registration"](./media/custom-connector-azure-active-directory-authentication/add-app-registrations.png)
+   ![Choose "App registrations", "+ New application registration"](./media/custom-connector-azure-active-directory-authentication/add-app-registrations2.png)
 
 2. Under **Create**, provide the details for your second Azure AD app 
 as described in the table, then choose **Create**. 
