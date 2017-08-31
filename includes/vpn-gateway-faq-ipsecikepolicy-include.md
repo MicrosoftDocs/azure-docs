@@ -1,14 +1,14 @@
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
-Custom IPsec/IKE policy is supported on Azure **VpnGw1, VpnGw2, VpnGw3, Standard**, and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+Custom IPsec/IKE policy is supported on Azure **VpnGw1, VpnGw2, VpnGw3, Standard**, and **HighPerformance** VPN gateways. The **Basic** SKU is **not** supported.
 
 ### How many policies can I specify on a connection?
 You can only specify ***one*** policy combination for a given connection.
 
-### Can I specify a partial policy on a connection? (E.g., only IKE algorithms but not IPsec)
+### Can I specify a partial policy on a connection? (for example, only IKE algorithms, but not IPsec)
 No, you must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.
 
 ### What are the algorithms and key strengths supported in the custom policy?
-The table below lists the supported cryptographic algorithms and key strengths configurable by the customers. You must select one option for every field.
+The following table lists the supported cryptographic algorithms and key strengths configurable by the customers. You must select one option for every field.
 
 | **IPsec/IKEv2**  | **Options**                                                                   |
 | ---              | ---                                                                           |
@@ -23,11 +23,11 @@ The table below lists the supported cryptographic algorithms and key strengths c
 |                  |                                                                               |
 
 > [!IMPORTANT]
-> 1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group **14** in IKE and IPsec PFS. Please see [Diffie-Hellman Groups](#DH) for the complete mappings.
+> 1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group **14** in IKE and IPsec PFS. See [Diffie-Hellman Groups](#DH) for the complete mappings.
 > 2. For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
 > 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
-> 4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5hrs) and 102400000 KBytes (102GB) are used.
-> 5. UsePolicyBasedTrafficSelector is an option parameter on the connection. Please see the next FAQ item for "UsePolicyBasedTrafficSelectors"
+> 4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102GB) are used.
+> 5. UsePolicyBasedTrafficSelector is an option parameter on the connection. See the next FAQ item for "UsePolicyBasedTrafficSelectors"
 
 ### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
 Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:
@@ -48,7 +48,7 @@ If you enable **UsePolicyBasedTrafficSelectors**, you need to ensure your VPN de
 * 10.2.0.0/16 <====> 192.168.0.0/16
 * 10.2.0.0/16 <====> 172.16.0.0/16
 
-Refer to [Connect multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details on how to use this option.
+For more information, see [Connect multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name ="DH"></a>Which Diffie-Hellman Groups are supported?
 The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and IPsec (PFSGroup):
@@ -63,25 +63,25 @@ The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and 
 | 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
 |                           |                          |              |                |
 
-Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
+For more information, see [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114).
 
 ### Does the custom policy replace the default IPsec/IKE policy sets for Azure VPN gateways?
 Yes, once a custom policy is specified on a connection, Azure VPN gateway will only use the policy on the connection, both as IKE initiator and IKE responder.
 
 ### If I remove a custom IPsec/IKE policy, does the connection become unprotected?
-No, the connection will still be protected by IPsec/IKE. Once you remove the custom policy from a connection, the Azure VPN gateway will revert back to the [default list of IPsec/IKE proposals](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) and re-start the IKE handshake again with your on-premises VPN device.
+No, the connection will still be protected by IPsec/IKE. Once you remove the custom policy from a connection, the Azure VPN gateway reverts back to the [default list of IPsec/IKE proposals](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) and restart the IKE handshake again with your on-premises VPN device.
 
 ### Would adding or updating an IPsec/IKE policy disrupt my VPN connection?
-Yes, it could cause a small disruption (a few seconds) as the Azure VPN gateway will tear down the existing connection and re-start the IKE handshake to re-establish the IPsec tunnel with the new cryptographic algorithms and parameters. Please ensure your on-premises VPN device is also configured with the matching algorithms and key strengths to minimize the disruption.
+Yes, it could cause a small disruption (a few seconds) as the Azure VPN gateway tears down the existing connection and restarts the IKE handshake to re-establish the IPsec tunnel with the new cryptographic algorithms and parameters. Ensure your on-premises VPN device is also configured with the matching algorithms and key strengths to minimize the disruption.
 
 ### Can I use different policies on different connections?
-Yes. Custom policy is applied on a per-connection basis. You can create and apply different IPsec/IKE policies on different connections. You can also choose to apply custom policies on a subset of connections. The remaining ones will use the Azure default IPsec/IKE policy sets.
+Yes. Custom policy is applied on a per-connection basis. You can create and apply different IPsec/IKE policies on different connections. You can also choose to apply custom policies on a subset of connections. The remaining ones use the Azure default IPsec/IKE policy sets.
 
 ### Can I use the custom policy on VNet-to-VNet connection as well?
 Yes, you can apply custom policy on both IPsec cross-premises connections or VNet-to-VNet connections.
 
 ### Do I need to specify the same policy on both VNet-to-VNet connection resources?
-Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one for each direction. You need to ensure both connection resources have the same policy, othereise the VNet-to-VNet connection will not establish.
+Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one for each direction. Make sure both connection resources have the same policy, otherwise the VNet-to-VNet connection won't establish.
 
 ### Does custom IPsec/IKE policy work on ExpressRoute connection?
 No. IPsec/IKE policy only works on S2S VPN and VNet-to-VNet connections via the Azure VPN gateways.
