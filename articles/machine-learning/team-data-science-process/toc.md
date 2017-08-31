@@ -1,19 +1,17 @@
-# Overview
-## Team Data Science Process
-### [Overview](overview.md)
-### [Lifecycle](lifecycle.md)
-### [Walkthroughs](walkthroughs.md)
-####[Spark with PySpark and Scala](walkthroughs-spark.md)
-##### [Explore data](spark-data-exploration-modeling.md)
-##### [Score models](spark-model-consumption.md)
-##### [Advanced data exploration](spark-advanced-data-exploration-modeling.md)
-####[Hive with HDInsight Hadoop](walkthroughs-hdinsight-hadoop.md)
-####[U-SQL with Azure Data Lake](walkthroughs-azure-data-lake.md)
-####[R, Python and T-SQL with SQL Server](walkthroughs-sql-server.md)
-####[T-SQL and Python with SQL DW](walkthroughs-sql-data-warehouse.md)
 
-### [With Azure ML](http://aka.ms/datascienceprocess)
-# Get Started
+# [Overview](overview.md)
+# [Lifecycle](lifecycle.md)
+# [Walkthroughs](walkthroughs.md)
+##[Spark with PySpark and Scala](walkthroughs-spark.md)
+### [Explore data](spark-data-exploration-modeling.md)
+### [Score models](spark-model-consumption.md)
+### [Advanced data exploration](spark-advanced-data-exploration-modeling.md)
+##[Hive with HDInsight Hadoop](walkthroughs-hdinsight-hadoop.md)
+##[U-SQL with Azure Data Lake](walkthroughs-azure-data-lake.md)
+##[R, Python and T-SQL with SQL Server](walkthroughs-sql-server.md)
+##[T-SQL and Python with SQL DW](walkthroughs-sql-data-warehouse.md)
+# [With Azure ML](http://aka.ms/datascienceprocess)
+
 # How To
 ## Set up tools and utilities
 ### [Set up environments](environment-setup.md)
