@@ -1,5 +1,5 @@
 - name: Azure Container Registry
-  href: ./index.md
+  href: ./index.yml
 - name: Overview
   items:
   - name: About Container Registry
