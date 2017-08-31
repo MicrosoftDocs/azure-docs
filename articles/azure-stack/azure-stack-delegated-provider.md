@@ -43,7 +43,7 @@ involved:
 * The **cloud operator** manages the Azure Stack
   infrastructure, creates an offer template, and delegates others to
   offer it to their users.
-* The delegated cloud administrators are called **delegated providers**. They can
+* The delegated Azure Stack operators are called **delegated providers**. They can
   belong to other organizations (such as other Azure Active
   Directory tenants).
 * **Users** sign up for the offers and use them for managing their
@@ -54,8 +54,8 @@ delegation.
 
 1. **Identify the delegated providers** by subscribing them to an
    offer based on a plan that contains only the subscriptions service.
-   Users who subscribe to this offer acquire some of the cloud
-   administrator’s capabilities, including the ability to extend offers
+   Users who subscribe to this offer acquire some of the Azure Stack
+   operator’s capabilities, including the ability to extend offers
    and sign users up for them.
 2. **Delegate an offer to the delegated provider**, this offer functions as
    a template for what the delegated provider can offer. The delegated
