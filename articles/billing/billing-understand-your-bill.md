@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 
 ---
@@ -27,10 +27,13 @@ For detailed terms and descriptions of your invoice and detailed daily usage fil
 
 For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
-
 ## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
 If there is a charge on your invoice that you want more details
 on, there are a couple of options.
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
+
+For more details, please see the following information.
 
 ### Option 1: Review your invoice and compare the usage and costs with the detailed usage CSV file
 
