@@ -114,7 +114,9 @@ identities flow appropriately between your service and any clients.
 
    ![Authentication type](./media/logic-apps-custom-connector-register/security.png)
 
-   * Your OpenAPI file automatically populates this section, 
+   * When you upload an OpenAPI file, the registration wizard 
+   automatically detects the authentication type that your Web API uses, 
+   and automatically populates the **Security** section, 
    based on the `securityDefinitions` object in that file. 
    Here's an OAuth2.0 example:
 
@@ -135,21 +137,21 @@ identities flow appropriately between your service and any clients.
    such as OAuth 2.0 or Basic.
 
    * If your OpenAPI file didn't populate the authentication type and properties, 
-   choose **Edit** so you can add this information. In this example, 
-   the OpenAPI file uses an Azure AD app for connector authentication, 
-   and provides information about the connector's Azure AD app here, for example:
-
-     | Property | Value | Description | 
-     | -------- | ----- | ----------- | 
+   choose **Edit** so you can add this information. 
+   
+     In this tutorial, you previously created Azure AD apps for your Web API 
+     and for your connector, so now you can provide the application ID and client key 
+     information that you previously saved:
+    
+     | Setting | Suggested value | Description | 
+     | ------- | ----- | ----------- | 
      | **Authentication type** | OAuth 2.0 | | 
      | **Identity Provider** | Azure Active Directory | | 
      | **Client id** | *application-ID-for-connector-Azure-AD-app* | The application ID that you previously saved for your connector's Azure AD app | 
      | **Client secret** | *client-key-for-connector-Azure-AD-app* | The client key for your connector's Azure AD app | 
+     | **Login URL** | `https://login.windows.net` | | 
      | **Resource URL** | `https://management.core.windows.net/` | Make sure that you add the URL exactly as specified, including trailing slash. | 
      |||| 
-
-   * To set up Azure Active Directory (Azure AD) authentication, 
-   see [Set up authentication for your connector with Azure AD](../logic-apps/custom-connector-azure-active-directory-authentication.md).
 
 7. To save your connector after entering the security information, 
 at the top of the page, choose **Update connector**, 

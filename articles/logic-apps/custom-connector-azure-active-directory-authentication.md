@@ -201,13 +201,13 @@ Under **Delegated permissions**, choose **Access Azure Service Management as org
 
    !["Add API access" menu > "Done"](./media/custom-connector-azure-active-directory-authentication/add-api-access4-done.png)
 
-8. Now add a *client key*, or "secret", for your Azure AD app. 
+8. Now generate a *client key*, or "secret", for your connector's Azure AD app. 
 
    1. Back on the **Settings** menu, choose **Keys**. 
    Provide a name for your key with 16 or fewer characters, 
    select an expiration period, and then choose **Save**.
 
-      ![Add a key](./media/custom-connector-azure-active-directory-authentication/add-key.png)
+      ![Create a client key](./media/custom-connector-azure-active-directory-authentication/add-key.png)
 
    2. When your generated key appears, **immediately copy and save that key somewhere 
    safe for later use**. *You can't retrieve the key after you close the **Keys** page.*
@@ -216,46 +216,52 @@ Under **Delegated permissions**, choose **Access Azure Service Management as org
 
 9. After saving your key, you can safely close the **Settings** menu.
 
-## 3. Add authentication to your Web API app
+## 3. Add Azure AD authentication to your Web API app
 
-Now turn on authentication for your Web API with your first Azure AD app.
+Now turn on authentication for your Web API with your first Azure AD app. 
+For more information, learn [how to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 1. In the [Azure portal](https://portal.azure.com), 
 find your Web API app that you previously published in 
 [Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md).
 
-2. Under **Settings**, choose **Authentication / Authorization**.
+2. Under **Settings**, choose **Authentication / Authorization**. 
 
-3. Turn on **App Service Authentication**, 
-and select **Azure Active Directory**. 
-On the next menu, choose **Express**.  
+   1. Under **App Service Authentication**, choose **On**.
+   2. For **Action to take when request is not authenticated**, 
+   select **Log in with Azure Active Directory**.
+   3. For **Authentication Providers**, select **Azure Active Directory**. 
 
-4. Now select the Azure AD app that your Web API app uses for authentication. 
-Choose **Select Existing AD App** > **Azure AD App**. 
+   ![Choose "Authentication / Authorization"](./media/custom-connector-azure-active-directory-authentication/web-api-app-authentication.png)
 
-5. Under **Azure AD Applications**, select the **webAPI** Azure AD 
-app that you created earlier. Choose **OK** until you return 
-to the **Authentication / Authorization** page.
+3. On the **Azure Active Directory Settings** page:
+
+   1. Under **Management mode**, choose **Express**.
+
+   2. Now select the Azure AD app that your Web API app uses for authentication. 
+   Choose **Select Existing AD App** > **Azure AD App**.
+
+   3. Under **Azure AD Applications**, select the Azure AD app 
+   that you created earlier for your Web API app. 
+   
+   4. Choose **OK** until you return to the **Authentication / Authorization** page.
+
+   For example:
+
+   ![Choose the Azure AD app that represents your Web API app](./media/custom-connector-azure-active-directory-authentication/web-api-app-select-azure-ad-app.png)
 
 6. On the **Authentication / Authorization** page, 
 choose **Save**.
 
+   ![Save authentication settings](./media/custom-connector-azure-active-directory-authentication/web-api-app-azure-ad-app-save.png)
+
    Now your Web API app can use Azure AD for authentication.
 
-7. Set up Azure AD authentication for your connector as described here:
+## 4. Set up Azure AD authentication in your Web API's OpenAPI file
 
-   | Setting | Suggested value | Description | 
-   | ------- | --------------- | ----------- | 
-   | **Client ID** | *application-ID-for-connector-Azure-AD-app* | The application ID that you previously saved for your connector's Azure AD app | 
-   | **Secret** | *client-key-for-connector-Azure-AD-app* | The client key for your connector's Azure AD app | 
-   | **Login URL** | `https://login.windows.net` | | 
-   | **ResourceUri** | *application-ID-for-Web-API-Azure-AD-app* | The application ID that you previously saved for your Web API's Azure AD app | 
-   |||| 
-
-## 4. Set up your OpenAPI document to use Azure AD authentication
-
-In your OpenAPI document, add the `securityDefintions` object and 
-Azure AD authentication for your Web API app under the `host` property. 
+Open the OpenAPI file for your Web API app 
+so that you can add the `securityDefintions` object and 
+Azure AD authentication under the `host` property. 
 Here's an example that shows the `host` property and `securityDefinitions` object:
 
 ``` json
@@ -277,6 +283,7 @@ Here's an example that shows the `host` property and `securityDefinitions` objec
 
 // Your OpenAPI document continues here...
 ```
+Now you're ready to create and register your custom connector.
 
 ## Next steps
 
