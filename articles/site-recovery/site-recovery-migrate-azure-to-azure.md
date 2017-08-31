@@ -22,7 +22,7 @@ ms.author: raynew
 Welcome to Azure Site Recovery! Use this article if you want to migrate Azure VMs between Azure regions.
 >[!NOTE]
 >
-> For replicating Azure VMs to another region for disaster recovery and migration needs, refer to [this document](site-recovery-azure-to-azure.md) Site Recovery replication for Azure virtual machines is currently in preview.
+> For replicating Azure VMs to another region for disaster recovery and migration needs, refer to [this document](site-recovery-azure-to-azure.md). Site Recovery replication for Azure virtual machines is currently in preview.
 
 Before you start, note that:
 
@@ -41,12 +41,10 @@ Here's what you need for this deployment:
 This section describes the deployment steps in the new Azure portal.
 
 1. [Create a vault](site-recovery-azure-to-azure.md#create-a-recovery-services-vault).
-2. [Enable replication](site-recovery-azure-to-azure.md). Enable replication for the VMs you want to migrate, and choose Azure as source.
-
->[!NOTE]
->
-> Currently, Azure VMs using managed disks are not supported. You can use "Physical to Azure" option in [this document](site-recovery-vmware-to-azure.md) to migrate VMs with managed disks.
-
+2. [Enable replication](site-recovery-azure-to-azure.md) for the VMs you want to migrate, and choose Azure as source.
+  >[!NOTE]
+  >
+  > Currently, native replication of Azure VMs using managed disks are not supported. You can use "Physical to Azure" option in [this document](site-recovery-vmware-to-azure.md) to migrate VMs with managed disks.
 3. [Run a failover](site-recovery-failover.md). After initial replication is complete, you can run a failover from one Azure region to another. Optionally, you can create a recovery plan and run a failover, to migrate multiple virtual machines between regions. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
 
 ## Next steps

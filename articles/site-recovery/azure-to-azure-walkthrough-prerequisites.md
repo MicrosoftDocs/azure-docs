@@ -33,7 +33,7 @@ After you've reviewed the [architecture](azure-to-azure-walkthrough-architecture
 
 ## Support recommendations
 
-Review the table below. Get a full list of support requirements in the [support matrix](site-recovery-support-matrix-azure-to-azure.md)
+Review the table below. Get a full list of support requirements in the [support matrix.](site-recovery-support-matrix-azure-to-azure.md)
 
 **Component** | **Requirement**
 --- | ---

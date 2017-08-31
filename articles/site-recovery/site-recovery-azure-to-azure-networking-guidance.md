@@ -102,6 +102,10 @@ If you are using any IP-based firewall proxy or NSG rules to control outbound co
    West US 2 | 52.183.45.166 | 13.66.228.204
    UK West | 51.141.3.203 | 51.141.14.113
    UK South | 51.140.43.158 | 51.140.189.52
+   UK South 2 | 13.87.37.4| 13.87.34.139
+   UK North | 51.142.209.167 | 13.87.102.68
+   Korea Central | 52.231.28.253 | 52.231.32.85
+   Korea South | 52.231.298.185 | 52.231.200.144
 
 ## Sample NSG configuration
 This section explains the steps to configure NSG rules so that Site Recovery replication can work on a virtual machine. If you are using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules for all the required IP ranges.
