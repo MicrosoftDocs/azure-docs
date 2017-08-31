@@ -298,6 +298,16 @@
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
+    items:
+      - name: Blobs
+        tocHref: /azure/storage/blobs/
+        topicHref: /azure/storage/blobs/storage-blobs-introduction
+      - name: Files
+        tocHref: /azure/storage/files/
+        topicHref: /azure/storage/files/storage-files-introduction 
+      - name: Queues
+        tocHref: /azure/storage/queues/
+        topicHref: /azure/storage/queues/storage-queues-introduction
   - name: StorSimple
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/

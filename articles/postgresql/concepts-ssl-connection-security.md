@@ -6,7 +6,7 @@ author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: jhubbard
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
