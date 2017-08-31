@@ -50,35 +50,35 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 2. Now create a new file in your **server** folder called **mongo.js**. In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *mongo.js*. In this file, you add all of your connection info for the Azure Cosmos DB database.
 
 3. Copy the following code into mongo.js. This code:
-    * Requires Mongoose.
-    * Overrides the Mongo promise to use the basic promise that's built into ES6 or ES2015 and above.
-    * Calls on an env file that lets you set up certain things based on whether you're in staging, prod, or dev. We will create that file soon.
-    * Includes our MongoDB connection string, which will be set in the env file.
-    * Creates a connect function that calls Mongoose.
+   * Requires Mongoose.
+   * Overrides the Mongo promise to use the basic promise that's built into ES6 or ES2015 and above.
+   * Calls on an env file that lets you set up certain things based on whether you're in staging, prod, or dev. We will create that file soon.
+   * Includes our MongoDB connection string, which will be set in the env file.
+   * Creates a connect function that calls Mongoose.
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
-     * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
-     */
-    mongoose.Promise = global.Promise;
+   ```javascript
+   const mongoose = require('mongoose');
+   /**
+    * Set to Node.js native promises
+    * Per http://mongoosejs.com/docs/promises.html
+    */
+   mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+   const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+   // eslint-disable-next-line max-len
+   const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
 
-    function connect() {
-     mongoose.set('debug', true);
-     return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+   function connect() {
+    mongoose.set('debug', true);
+    return mongoose.connect(mongoUri, { useMongoClient: true });
+   }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+   module.exports = {
+     connect,
+     mongoose
+   };
+   ```
 4. In the Explorer pane, right-click the **server** folder, click **New Folder**, and name the new folder **env**.
 
 5. In the Explorer pane, right-click the **env** folder, click **New File**, and name the new file *environment.js*.
@@ -125,67 +125,67 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *hero.model.js*.
 
 2. Copy the following code into hero.model.js. This code:
-    * Requires Mongoose.
-    * Creates a new schema with an ID, name, and saying, and pull it in.
-    * Creates a model using the schema.
-    * Exports the model. 
-    * Name the collection Heroes (instead of Heros, which would be the default name of the collection based on Mongoose plural naming rules).
+   * Requires Mongoose.
+   * Creates a new schema with an ID, name, and saying, and pull it in.
+   * Creates a model using the schema.
+   * Exports the model. 
+   * Names the collection Heroes (instead of Heros, which would be the default name of the collection based on Mongoose plural naming rules).
 
-    ```javascript
-    const mongoose = require('mongoose');
+   ```javascript
+   const mongoose = require('mongoose');
 
-    const Schema = mongoose.Schema;
+   const Schema = mongoose.Schema;
 
-    const heroSchema = new Schema(
-      {
-        id: { type: Number, required: true, unique: true },
-        name: String,
-        saying: String
-      },
-      {
-        collection: 'Heroes'
-      }
-    );
+   const heroSchema = new Schema(
+     {
+       id: { type: Number, required: true, unique: true },
+       name: String,
+       saying: String
+     },
+     {
+       collection: 'Heroes'
+     }
+   );
 
-    const Hero = mongoose.model('Hero', heroSchema);
+   const Hero = mongoose.model('Hero', heroSchema);
 
-    module.exports = Hero;
-    ```
+   module.exports = Hero;
+   ```
 
 ## Create a Hero service
 
 1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *hero.service.js*.
 
 2. Copy the following code into hero.service.js. This code:
-    * Gets the model you just created
-    * Connects to the database
-    * Creates a docquery variable that uses the hero.find method to define a query that returns all heroes.
-    * Runs a query with the docquery.exec with a promise to get a list of all heroes, where the response status is 200. 
-    * If the status is 500, sends back the error message
-    * Because we're using modules, it get the heroes. 
+   * Gets the model you just created
+   * Connects to the database
+   * Creates a docquery variable that uses the hero.find method to define a query that returns all heroes.
+   * Runs a query with the docquery.exec with a promise to get a list of all heroes, where the response status is 200. 
+   * If the status is 500, sends back the error message
+   * Because we're using modules, it get the heroes. 
 
-    ```javascript
-    const Hero = require('./hero.model');
+   ```javascript
+   const Hero = require('./hero.model');
 
-    require('./mongo').connect();
+   require('./mongo').connect();
 
-    function getHeroes() {
-      const docquery = Hero.find({});
-      docquery
-        .exec()
-        .then(heroes => {
-          res.status(200).json(heroes);
-        })
-        .catch(error => {
-          res.status(500).send(error);
-          return;
-        });
-    }
+   function getHeroes() {
+     const docquery = Hero.find({});
+     docquery
+       .exec()
+       .then(heroes => {
+         res.status(200).json(heroes);
+       })
+       .catch(error => {
+         res.status(500).send(error);
+         return;
+       });
+   }
 
-    module.exports = {
-      getHeroes
-    };
-    ```
+   module.exports = {
+     getHeroes
+   };
+   ```
 
 ## Add the hero service to routes.js
 
@@ -226,7 +226,13 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Next steps
 
-In this part of the tutorial, you've learned how to use Mongoose APIs to connect your heroes app to Azure Cosmos DB and we've added the get heroes functionality to the app.
+In this part of the tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Used Mongoose APIs to connect your heroes app to Azure Cosmos DB 
+> * Added the get heroes functionality to the app
+
+You can proceed to the next part of the tutorial to add Post, Put, and Delete functions to the app.
 
 > [!div class="nextstepaction"]
 > [Add Post, Put, and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)

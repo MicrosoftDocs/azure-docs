@@ -538,7 +538,13 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
 ## Next steps
 
-In this part of the tutorial, you've learned how to build the Angular UI and test the app locally. 
+In this part of the tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Built the Angular UI and tested the app locally
+> * Tested the app locally
+
+You can proceed to the next part of the tutorial to create an Azure Cosmos DB account.
 
 > [!div class="nextstepaction"]
 > [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-mongodb-nodejs-part4.md)
