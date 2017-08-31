@@ -20,7 +20,7 @@ The following table includes links to sample Azure CLI scripts for Azure Machine
 | Sample topic | Link |
 |---|---|
 |**Create a Machine Learning workspace**||
-| [Create a Machine Learning workspace](.) | Azure CLI script that creates a Machine Learning workspace. |
+| [Create a Machine Learning workspace](./sample-scripts-azure-cli.md) | Azure CLI script that creates a Machine Learning workspace. |
 |**Create a Machine Learning workspace**||
-| [Create a Machine Learning workspace](.) | Azure CLI script that creates a Machine Learning workspace. |
+| [Create a Machine Learning workspace](./sample-scripts-azure-cli.md) | Azure CLI script that creates a Machine Learning workspace. |
 |||

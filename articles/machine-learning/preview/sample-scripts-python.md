@@ -20,7 +20,7 @@ The following table includes links to sample Python scripts for interacting with
 | Sample topic | Link |
 |---|---|
 |**Create a Machine Learning workspace**||
-| [Create a Machine Learning workspace](.) | Python script that creates a Machine Learning workspace. |
+| [Create a Machine Learning workspace](./sample-scripts-python.md) | Python script that creates a Machine Learning workspace. |
 |**Create a Machine Learning workspace**||
-| [Create a Machine Learning workspace](.) | Python script that creates a Machine Learning workspace. |
+| [Create a Machine Learning workspace](./sample-scripts-python.md) | Python script that creates a Machine Learning workspace. |
 |||

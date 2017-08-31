@@ -15,7 +15,7 @@ ms.date: 08/28/2017
 
 Azure Machine Learning Model Management enables enterprises and users to manage and deploy machine-learning workflows and models as Docker containerized web services. 
 
-The Azure Machine Learning Model Management provides capability for model versioning, tracking models in the production, and deploying models in production. It allows deploying models as web service across various targets including local, on-prem, IoT edge device as Docker container) or an [Azure Container Service](https://azure.microsoft.com/services/container-service/) based cluster. The Azure Machine Learning Model Management also provides automated model retraining, and capturing model telemetry for actionable insights.  
+Azure Machine Learning Model Management provides capability for model versioning, tracking models in the production, and deploying models in production. It allows deploying models as web service across various targets including local, on-prem, IoT edge device as Docker container) or an [Azure Container Service](https://azure.microsoft.com/services/container-service/) based cluster. The Azure Machine Learning Model Management also provides automated model retraining, and capturing model telemetry for actionable insights.  
 
 The Azure Machine Learning Model Management deploys models into production by creating a Linux-based Docker container that includes model and all encompassing dependencies. It adds web service front end required for REST Endpoint with necessary authentication, load balancing, and encryption.  
 
