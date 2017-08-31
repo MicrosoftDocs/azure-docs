@@ -14,11 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
 
 ---
 # Create attribute-based rules for dynamic group membership in Azure Active Directory
@@ -281,7 +281,7 @@ You can also create a rule that selects device objects for membership in a group
  deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Personal, Company | (device.deviceOwnership -eq "Company")
+ deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
  domainName | any string value | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple Device Enrollment Profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
