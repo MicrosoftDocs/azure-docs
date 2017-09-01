@@ -28,6 +28,8 @@ To build an application that accepts consumer sign-up and sign-in, you first nee
 
 Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same location. If you edit the B2C applications using PowerShell or another portal, they become unsupported and do not work with Azure AD B2C. See details in the [faulted apps](#faulted-apps) section. 
 
+This article uses examples that will help you get started with our samples. You can learn more about these samples in the subsequent articles.
+
 ## Navigate to B2C settings
 
 Log in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. 
@@ -36,13 +38,13 @@ Log in to the [Azure portal](https://portal.azure.com/) as the Global Administra
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Choose next steps based on the application type you are registering:
+## Choose next steps based on your application type
 
 * [Register a web application](#register-a-web-app)
 * [Register a web API](#register-a-web-api)
 * [Register a mobile or native application](#register-a-mobile-or-native-app)
  
-## Register a web app
+### Register a web app
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -56,7 +58,7 @@ If your web application calls a web API secured by Azure AD B2C, perform these s
 
 [Jump to **next steps**](#next-steps)
 
-## Register a web API
+### Register a web API
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -64,7 +66,7 @@ Click **Published scopes** to add more scopes as necessary. By default, the "use
 
 [Jump to **next steps**](#next-steps)
 
-## Register a mobile or native app
+### Register a mobile or native app
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
