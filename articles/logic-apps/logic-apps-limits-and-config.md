@@ -44,7 +44,7 @@ Following are limits for a single HTTP request and/or connector call.
 
 |Name|Limit|Notes|
 |----|----|----|
-|Retry attempts|30| Default is 4. Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry attempts|90| Default is 4. Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retry max delay|1 day|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retry min delay|5 sec|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
