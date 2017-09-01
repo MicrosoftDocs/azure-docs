@@ -19,7 +19,9 @@ ms.author: anwestg
 ---
 # Add an App Service resource provider to a disconnected Azure Stack environment secured by AD FS
 
-By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is not connected to the internet and secured by Active Directory Federation Services (AD FS). 
+By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is:
+- not connected to the internet
+- secured by Active Directory Federation Services (AD FS). 
 
 To add the App Service resource provider to your offline Azure Stack deployment, you must complete three top-level tasks:
 
@@ -31,7 +33,7 @@ To add the App Service resource provider to your offline Azure Stack deployment,
 
 ## Download the required components
 
-Before getting started on the offline Azure Stack enviornment, you must download the installation and helper files from the internet.
+Before getting started on the offline Azure Stack environment, you must download the installation and helper files from the internet.
 
 1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
 
@@ -149,7 +151,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
 ## Test drive App Service on Azure Stack
 
-After you deploy and register the App Service resource provider, test it to make sure that tenants can deploy web, mobile, and API apps.
+After you install App Service resource provider, test it to make sure that users can deploy web, mobile, and API apps.
 
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see  [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
@@ -157,7 +159,7 @@ After you deploy and register the App Service resource provider, test it to make
 
 You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
 
-As of the third technical preview, to create web, mobile, and API apps you must use the tenant portal and have a tenant subscription.  
+To create web, mobile, and API apps you must use the tenant portal and have a tenant subscription.  
 
 1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
 
