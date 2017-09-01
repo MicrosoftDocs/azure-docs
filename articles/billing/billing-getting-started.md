@@ -90,7 +90,7 @@ Typically when you add a service in the Azure portal, there's a view that shows 
 
 ![Example: an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/vm-size-cost.PNG)
 
-### <a name="tags"></a> Add tags to your resources to group your billing data
+### <a name="tags"></a> Group your billing data by adding tags to your resources 
 
 You can use tags to group billing data for supported services. For example, if you run several VMs for different teams, then you can use tags to categorize costs by cost center (HR, marketing, finance) or environment (production, pre-production, test). 
 
@@ -161,7 +161,7 @@ For more information, see [Advisor Cost recommendations](../advisor/advisor-cost
 
 ### <a name="invoice-and-usage"></a> Get your invoice and detail usage after your first billing period
 
-After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. You can also opt in to have your invoice emailed to you. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. If you have an EA subscription, the enrollment administrator will receive the invoice via email as it is not available within the Azure portal. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. You can also opt in to have your invoice emailed to you. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. If you have an EA subscription, the enrollment administrator receives the invoice via email as it is not available within the Azure portal. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ![Screenshot of a .pdf invoice](./media/billing-getting-started/invoice.png)
 
@@ -173,7 +173,7 @@ The tags that you set earlier show up in the detail usage .csv files:
 
 Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
 
-## <a name="EA"></a> Public preview of Enterprise Agreement cost views  
+## <a name="EA"></a> Preview Enterprise Agreement cost views within Azure Portal 
 
 Enterprise cost views are currently in Public Preview. Items to note:
 - Subscription costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level. 
@@ -183,7 +183,7 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
 - When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
-- Spending limit, billing alerts, and invoice guidance does not pertain to EA Subscriptions.
+- Spending limit, billing alerts, and invoice guidance do not pertain to EA Subscriptions.
 
 ## <a name="other-offers"></a> Additional resources for EA, CSP, and Sponsorship
 
