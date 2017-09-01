@@ -12,7 +12,7 @@ ms.date: 08/30/2017
 ---
 # Azure ML Workbench Concepts
 
-Welcome to the Azure Machine Learning Workbench. This document defines high-level concepts that you’ll need to understand before you being using Workbench and its services. 
+Welcome to the Azure Machine Learning Workbench. This document defines high-level concepts that you need to understand before using Workbench and its services. 
 
 **Azure Machine Learning Experimentation Service?**
 
@@ -20,22 +20,21 @@ The Experimentation Service is a managed Azure service that takes machine learni
 
 **Azure Machine Learning Model Management Service?**
 
-The Model Management Service is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. GIT repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to Azure VMs, Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters.  
-
-**Model?**
-
-A model is an experimentation run that has been promoted to the Vienna hosting account for model management. A model that is registered in the hosting account is counted against your plan, including models updated through retraining or version iteration.
+The Model Management Service is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. GIT repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to Azure VMs, Spark HDInsight, or Kubernetes-orchestrated Azure Container Service clusters.  
 
 **Model** 
-In Azure Machine Learning, models refer to the product of a machine learning experiment. They are recipes that, when applied correctly to data, result in a predicted value. Models are comprised of an algorithm and a set of coefficients that describe the shape of your data. The Experimentation Service stores models (and other assets) in a GIT repository and can be deployed to production and used to generate predictions. Models can be deployed on local machines or to Azure VMs (both batch and real-time), or scaled to Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters. Via Docker, models can even be deployed to IoT Edge. Once in production, models can be monitored for performance and data drift, and retrained as required. 
+In Azure Machine Learning, models refer to the product of a machine learning experiment. They are recipes that, when applied correctly to data, result in a predicted value. Models are composed of an algorithm and a set of coefficients that describe the shape of your data. The Experimentation Service stores models (and other assets) in a GIT repository. Models can be deployed to production and used to generate predictions. Models can be deployed on local machines or to Azure VMs. You can also scale your models to Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters. Via Docker, models can even be deployed to IoT Edge. Once in production, models can be monitored for performance and data drift, and retrained as required. A model that is registered in the hosting account is counted against your plan, including models updated through retraining or version iteration.
 
 **Algorithm**
 An algorithm is a procedure for solving a mathematical problem in a finite number of steps. 
 
 **Subscriptions**
-An Azure subscription grants you access to Azure services and the Azure Platform Management Portal. An Azure subscription has two parts: 1) an account, through which resource usage is reported and services are billed; and 2) the subscription itself, which governs access to and use of the Azure services. Azure Machine Learning requires that each user have a valid Azure subscription, and that all users have sufficient permissions to create resources in that subscription. The reason for this is that AML directly employs several Azure services including Visual Studio Team Services, Azure Blob Storage, and Azure Key Vault. These services are used to track and manage machine learning code and models using Github and Visual Studio. 
+An Azure subscription grants you access to Azure services and the Azure Platform Management Portal. An Azure subscription has two parts: 
+- An account, through which resource usage is reported and services are billed; and 
+- The subscription itself, which governs access to and use of the Azure services. 
+Azure Machine Learning requires that each user have a valid Azure subscription. Users must also have  sufficient permissions within that subscription to create resources. The reason for this is that AML directly employs several Azure services including Visual Studio Team Services, Azure Blob Storage, and Azure Key Vault. These services are used to track and manage machine learning code and models using Github and Visual Studio. 
 
-Note: During our Public Preview period, your subscription must have access to Azure resources in ‘EAST US 2’ or ‘West Central US’ since Azure Machine Learning is deployed in only these regions. 
+Note: During Public Preview, your subscription must have access to Azure resources in ‘EAST US 2’ or ‘West Central US’. Azure Machine Learning is currently deployed only in these regions. 
 
 ## Experimentation Service Concepts
 
@@ -90,9 +89,6 @@ An execution target is the run time environment that you have selected for your 
 **Run**
 The Experimentation Service defines a run as the execution of a given file in an environment. Run status is available in the Workbench UI. 
 
-**Job**
-
-**Asset**
 
 ## Model Management Concepts
 
