@@ -1,68 +1,76 @@
 ---
-title: Create private Docker registry - Azure portal | Microsoft Docs
-description: Get started creating and managing private Docker container registries with the Azure portal
+title: Quickstart - Create a private Docker registry in Azure | Microsoft Docs
+description: Quickly learn to create a private Docker container registry with the Azure portal.
 services: container-registry
 documentationcenter: ''
-author: stevelas
-manager: balans
-editor: dlepow
+author: mmacy
+manager: timlt
+editor: tysonn
 tags: ''
 keywords: ''
 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
+ms.assetid:
 ms.service: container-registry
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
-ms.author: stevelas
-ms.custom: H1Hack27Feb2017
+ms.date: 09/04/2017
+ms.author: marsma
+ms.custom:
 ---
 
-# Create a private Docker container registry using the Azure portal
-Use the Azure portal to create a container registry and manage its settings. You can also create and manage container registries using the [Azure CLI 2.0 commands](container-registry-get-started-azure-cli.md), [Azure PowerShell](container-registry-get-started-powershell.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
+# Create an Container Registry with the Azure portal
 
-For background and concepts, see [the overview](container-registry-intro.md).
+An Azure Container Registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this Quickstart, you create a a Container Registry with the Azure portal.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Log in to Azure
+
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a container registry
-1. In the [Azure portal](https://portal.azure.com), click **+ New**.
-2. Search the marketplace for **Azure container registry**.
-3. Select **Azure Container Registry**, with publisher **Microsoft**.
-    ![Container Registry service in Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
-4. Click **Create**. The **Azure Container Registry** blade appears.
 
-    ![Container registry settings](./media/container-registry-get-started-portal/container-registry-settings.png)
-5. In the **Azure Container Registry** blade, enter the following information. Click **Create** when you are done.
+1. Select the **New** > **Containers** > **Azure Container Registry**.
 
-    a. **Registry name**: A globally unique top-level domain name for your specific registry. In this example, the registry name is *myRegistry01*, but substitute a unique name of your own. The name can contain only letters and numbers.
+   ![Creating a container registry in the Azure portal][qs-portal-01]
 
-    b. **Resource group**: Select an existing [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one.
+2. Select **Create**.
 
-    c. **Location**: Select an Azure datacenter location where the service is [available](https://azure.microsoft.com/regions/services/), such as **South Central US**.
+   ![Creating a container registry in the Azure portal][qs-portal-02]
 
-    d. **Admin user**: If you want, enable an admin user to access the registry. You can change this setting after creating the registry.
+3. Enter the following values in the ... text boxes. Leave the other values at their defaults, then click **OK**.
 
-      > [!IMPORTANT]
-      > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md).
-      >
+   * .
+   * .
+   * .
 
-    e. **Storage account**: Use the default setting to create a [storage account](../storage/common/storage-introduction.md), or select an existing storage account in the same location. Currently Premium Storage is not supported.
+   ![Creating a container registry in the Azure portal][qs-portal-03]
 
-## Manage registry settings
-After creating the registry, find the registry settings by starting at the **Container Registries** blade in the portal. For example, you might need the settings to log in to your registry, or you might want to enable or disable the admin user.
+4. Step 4
 
-1. On the **Container Registries** blade, click the name of your registry.
+   ![Creating a container registry in the Azure portal][qs-portal-04]
 
-    ![Container registry blade](./media/container-registry-get-started-portal/container-registry-blade.png)
-2. To manage access settings, click **Access key**.
+5. Step 5
 
-    ![Container registry access](./media/container-registry-get-started-portal/container-registry-access.png)
-3. Note the following settings:
+   ![Creating a container registry in the Azure portal][qs-portal-05]
 
-   * **Login server** - The fully qualified name you use to log in to the registry. In this example, it is `myregistry01.azurecr.io`.
-   * **Admin user** - Toggle to enable or disable the registry's admin user account.
-   * **Username** and **Password** - The credentials of the admin user account (if enabled) you can use to log in to the registry. You can optionally regenerate the passwords. Two passwords are created so that you can maintain connections to the registry by using one password while you regenerate the other password. To authenticate with a service principal instead, see [Authenticate with a private Docker container registry](container-registry-authentication.md).
+6. Step 6
+
+   ![Creating a container registry in the Azure portal][qs-portal-06]
 
 ## Next steps
-* [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
+
+In this Quickstart, you created an Azure Container Registy with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
+
+> [!div class="nextstepaction"]
+> [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)
+
+<!-- IMAGES -->
+[qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
+[qs-portal-02]: ./media/container-registry-get-started-portal/qs-portal-02.png
+[qs-portal-03]: ./media/container-registry-get-started-portal/qs-portal-03.png
+[qs-portal-04]: ./media/container-registry-get-started-portal/qs-portal-04.png
+[qs-portal-05]: ./media/container-registry-get-started-portal/qs-portal-05.png
+[qs-portal-06]: ./media/container-registry-get-started-portal/qs-portal-06.png
