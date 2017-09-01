@@ -100,7 +100,7 @@ so that we can help with your requirements.
 
 ### Logic app definition limits
 
-These limits apply to a a single logic app definition.
+These limits apply to a single logic app definition.
 
 |Name|Limit|Notes|
 |----|-----|-----|
