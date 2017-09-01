@@ -83,7 +83,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** I'm using my own custom container. I don't want the platform to mount an SMB share to the `/home/`.
 
-**A:** You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `false`. This will prevent container restarts when the platform storage goes through a change. Note that your `/home/` directory will no longer be shared across scale instances, and files written there will not be persisted across restarts
+**A:** You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `false`. This will prevent container restarts when the platform storage goes through a change. Note that your `/home/` directory will no longer be shared across scale instances, and files written there will not be persisted across restarts.
 
 **Q:** My custom container takes a long time to start, and the platform restart the container before it finishes starting up.
 
