@@ -29,7 +29,7 @@ You can download your invoice from the [Azure portal](https://portal.azure.com/#
 ## Get your invoice in email (.pdf)
 You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
 
-1. Select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt-in for each subscription you own. Click **Invoices** then **Email my invoice**. 
+1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt-in for each subscription you own. Click **Invoices** then **Email my invoice**. 
 
     ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -45,7 +45,7 @@ If you don't get an email after following the steps, make sure your email addres
 
 ## Download invoice from Azure portal (.pdf)
 
-1. Select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal as [an user with access to invoices](billing-manage-access.md).
+1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal as [a user with access to invoices](billing-manage-access.md).
 
 2. Select **Invoices**. 
 
@@ -97,7 +97,7 @@ There could be several reasons that you don't see an invoice:
 
 - The invoice isn't generated yet. Wait until the end of the billing period.
 
-- If you're not the Account Administrator, older invoices may not be avaialbe to you.
+- If you're not the Account Administrator, older invoices may not be available to you.
 
 ## Need help? Contact support.
 If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
