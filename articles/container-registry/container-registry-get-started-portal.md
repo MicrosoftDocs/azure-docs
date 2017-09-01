@@ -36,22 +36,22 @@ Log in to the Azure portal at http://portal.azure.com.
 
    ![Creating a container registry in the Azure portal][qs-portal-01]
 
-2. Select **Create** to start the configuration of your new container registry.
+1. Select **Create** to start the configuration of your new container registry.
 
    ![Creating a container registry in the Azure portal][qs-portal-02]
 
-3. Enter the following values in the **Registry name** and **Resource group** text boxes. Leave the other values at their defaults, then click **Create**.
+1. Enter the following values in the **Registry name** and **Resource group** text boxes. Leave the other values at their defaults, then click **Create**.
 
    * **Registry name**: A unique name for your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
    * **Resource group**: `myResourceGroup`
 
    ![Creating a container registry in the Azure portal][qs-portal-03]
 
-4. When the **Deployment succeeded** message appears, select the Container Registry in the portal, then select **Access Keys**.
+1. When the **Deployment succeeded** message appears, select the Container Registry in the portal, then select **Access keys**.
 
    ![Creating a container registry in the Azure portal][qs-portal-05]
 
-6. Under **Admin user**, select **Enabled**. Take note of the following values:
+1. Under **Admin user**, select **Enabled**. Take note of the following values:
 
    * Login server
    * Username
@@ -70,12 +70,12 @@ In order to push an image to your registry, you need to have one on your local m
 Now that you've pulled an image from Docker hub, you're ready to push it to your Azure Container Registry.
 
 1. Tag image
-2. Push image
+1. Push image
 
 ## List the images in your container registry
 
 1. List images
-2. List tags
+1. List tags
 
 ## Clean up resources
 
