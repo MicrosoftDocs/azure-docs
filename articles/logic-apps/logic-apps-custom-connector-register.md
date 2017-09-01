@@ -20,7 +20,8 @@ ms.author: LADocs; estfan
 # Register custom connectors in Azure Logic Apps
 
 After you build your REST API, set up authentication, 
-and get your OpenAPI definition file, you're ready to register your connector. 
+and get your OpenAPI definition file or a Postman collection, 
+you're ready to register your connector. 
 
 ## Prerequisites
 
@@ -30,9 +31,10 @@ To register your custom connector, you need these items:
 such as the name, Azure subscription, Azure resource group, 
 and location that you want to use
 
-* An OpenAPI (Swagger) file that describes your API. 
-For this tutorial, you can use the 
-[sample Azure Resources Manager OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json).
+* An OpenAPI (Swagger) file or a Postman collection that describes your API
+
+  For this tutorial, you can use the 
+  [sample Azure Resources Manager OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json).
 
 * An icon that represents your connector
 
@@ -101,24 +103,24 @@ actions and triggers for your custom connector.
 
       | Option or setting | Format | Description | 
       | ----------------- | ------ | ----------- | 
-      | **Upload Icon** | *png-or-jpg-file-under-1-MB* | <li>An icon that represents your connector <li>Color: Preferably a white logo against a color background. <li>Dimensions: A ~160 pixel logo inside a 230 pixel square | 
-      | **Icon background color** | *icon-brand-color-hexadecimal-code* | <li>The color behind your icon that matches the background color in your icon file. <li>Format: Hexadecimal. For example, #007ee5 represents the color blue. | 
+      | **Upload Icon** | *png-or-jpg-file-under-1-MB* | An icon that represents your connector <p>Color: Preferably a white logo against a color background. <p>Dimensions: A ~160 pixel logo inside a 230 pixel square | 
+      | **Icon background color** | *icon-brand-color-hexadecimal-code* | <p>The color behind your icon that matches the background color in your icon file. <p>Format: Hexadecimal. For example, #007ee5 represents the color blue. | 
       | **Description** | *connector-description* | Provide a short description for your connector. | 
       | **Host** | *connector-host* | Provide the host domain for your Web API. | 
       | **Base URL** | *connector-base-URL* | Provide the base URL for your Web API. | 
       |||| 
 
-6. Now choose **Security** so you can review or select the authentication 
+6. Now choose **Security** so you can review or describe the authentication 
 that your connector uses. Authentication makes sure that your users' 
 identities flow appropriately between your service and any clients.
 
    ![Authentication type](./media/logic-apps-custom-connector-register/security.png)
 
-   * When you upload an OpenAPI file, the registration wizard 
+   * If you upload an OpenAPI file, the registration wizard 
    automatically detects the authentication type that your Web API uses, 
-   and automatically populates the **Security** section, 
-   based on the `securityDefinitions` object in that file. 
-   Here's an OAuth2.0 example:
+   and automatically populates the **Security** section in the wizard, 
+   based on the `securityDefinitions` object in that file. For example, 
+   here's a section that specifies using OAuth2.0:
 
      ``` json
      "securityDefinitions": {
@@ -132,19 +134,15 @@ identities flow appropriately between your service and any clients.
      },
      ```
 
-   * A Postman collection automatically populates the authentication 
-   type *only* when you use the supported authentication types, 
-   such as OAuth 2.0 or Basic.
-
    * If your OpenAPI file didn't populate the authentication type and properties, 
-   choose **Edit** so you can add this information. 
+     choose **Edit** so you can add this information. 
    
-     In this tutorial, you previously created Azure AD apps for your Web API 
-     and for your connector, so now you can provide the application ID and client key 
-     information that you previously saved:
+     For example, if you previously [set up Azure AD authentication in this tutorial](../logic-apps/custom-connector-azure-active-directory-authentication.md), 
+     you created Azure AD apps for securing your Web API and your connector. 
+     So now you can provide the application ID and client key that you previously saved:
     
      | Setting | Suggested value | Description | 
-     | ------- | ----- | ----------- | 
+     | ------- | --------------- | ----------- | 
      | **Authentication type** | OAuth 2.0 | | 
      | **Identity Provider** | Azure Active Directory | | 
      | **Client id** | *application-ID-for-connector-Azure-AD-app* | The application ID that you previously saved for your connector's Azure AD app | 
@@ -152,6 +150,10 @@ identities flow appropriately between your service and any clients.
      | **Login URL** | `https://login.windows.net` | | 
      | **Resource URL** | `https://management.core.windows.net/` | Make sure that you add the URL exactly as specified, including trailing slash. | 
      |||| 
+
+   * A Postman collection, which automatically generates an OpenAPI file for you, 
+   automatically populates the authentication type *only* when you 
+   use the supported authentication types, such as OAuth 2.0 or Basic.
 
 7. To save your connector after entering the security information, 
 at the top of the page, choose **Update connector**, 
@@ -168,16 +170,21 @@ the actions that users can add to their workflows.
 
    ![Connector definition](./media/logic-apps-custom-connector-register/definition.png)
 
-   To edit existing actions or add new actions, 
+9. Optionally, if you want to edit the existing actions or add new actions, 
    continue with these steps:
 
    1. To add an action that didn't exist in your OpenAPI file or Postman collection, 
-   choose **New action**. 
+   under **Actions**, choose **New action**. 
 
-   2. Under **General**, provide the name, description, ID, and visibility for your operation.
-
-      > [!TIP]
-      > Make sure that your description ends with a period.
+   2. Under **General**, provide this information for the action:
+   
+      | Setting | Suggested value | Description | 
+      | ------- | --------------- | ----------- | 
+      | **Summary** | *operation-name* | The title for this action | 
+      | **Description** | *operation-description* | The description for this action. <p>**Tip**: Make sure that your description ends with a period. |
+      | **Operation ID** | *operation-identifier* | A unique name for identifying this action. Use camel case, for example: "GetPullRequest"  |
+      |**Visibility**| **none**, **advanced**, **internal**, **important** | The user-facing visibility for this action. For more information, see [OpenAPI extensions](../logic-apps/custom-connector-openapi-extensions.md#visibility) |
+      ||||
 
    3. In the **Request** section, choose **Import from sample**. 
 
@@ -203,7 +210,7 @@ the actions that users can add to their workflows.
    5. To finish the request definition, choose **Import**. 
    Define the response in the same way.
 
-9. After you define all your actions, 
+10. After you define all your actions, 
 choose **Create** so you can deploy your connector.
 
 Congratulations! Now when you create a logic app, 

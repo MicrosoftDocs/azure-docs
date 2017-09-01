@@ -19,15 +19,19 @@ ms.author: LADocs; estfan
 
 # Custom connectors overview
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), [Microsoft Flow](https://flow.microsoft.com), 
-and [Microsoft PowerApps](https://powerapps.microsoft.com) 
-help you build workflows or apps without code. But sometimes, 
-you might need to extend these services' capabilities, 
-so that they can support your users' business and productivity needs.
+Without writing any code, you can build workflows or apps with 
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), 
+[Microsoft Flow](https://flow.microsoft.com), 
+or [Microsoft PowerApps](https://powerapps.microsoft.com). 
+To help you integrate your data and business processes, 
+these services offer [100+ connectors](../connectors/apis-list), 
+not only for Microsoft services and products like Azure and SQL Server, 
+but other services too, like GitHub, Salesforce, Twitter, and more. 
 
-For more tailored scenarios, you can build *custom connectors* 
-so that your users can build workflows or apps for integrating their 
-data and business processes with prebuilt triggers and actions. 
+Sometimes though, you might want to call APIs, services, 
+and systems that aren't available as prebuilt connectors. 
+To support more tailored scenarios for your users' business and productivity needs, 
+you can build *custom connectors* with their own triggers and actions.
 Custom connectors expand the integrations, reach, discoverability, 
 and use for your service or product, which can help increase and accelerate customer adoption.
 
@@ -37,9 +41,8 @@ that API through the custom connector:
 
 ![Conceptual overview for Microsoft Cognitive Services API, custom connector, and logic app](./media/custom-connector-overview/custom-connector-conceptual.png)
 
-This overview outlines the general high-level tasks for creating, 
-securing, registering, and using plus optionally sharing or certifying 
-your connectors:
+This overview outlines the general high-level tasks for creating, securing, 
+registering, and using plus optionally sharing or certifying your connectors:
 
 ![Custom connector authoring steps](./media/custom-connector-overview/authoring-steps.png)
 
@@ -56,9 +59,9 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
 * Any item here:
 
   * An [OpenAPI 2.0 file](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md), 
-  previously known as Swagger, in JSON format
+  previously known as Swagger
   * A URL to an OpenAPI definition
-  * A [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
+  * A [Postman collection](../logic-apps/custom-connector-api-postman-collection.md) 
   for your API 
 
   If you don't have any of these items, 
@@ -81,21 +84,22 @@ we recommend one of these platforms:
 * [Azure API Apps](https://azure.microsoft.com/services/app-service/api/)
 
 For example, this tutorial shows 
-[how to build a custom connector from a Web API](../logic-apps/custom-connector-build-web-api-app-tutorial.md).
+[how to build a custom connector from a Web API](../logic-apps/custom-connector-build-web-api-app-tutorial.md). 
 
 ## 2. Secure your API
 
-To secure calls to your API, you can set up Azure Active Directory (Azure AD) 
-authentication in the Azure portal so you don't have to update your code. 
-Or, you can require and enforce authentication through your API's code. 
-You can use these authentication standards for your APIs:
+You can use these authentication standards for your APIs and connectors:
 
    * [OAuth 2.0](https://oauth.net/2/), including 
    [Azure Active Directory](https://azure.microsoft.com/develop/identity/) 
    or specific services, such as Dropbox, GitHub, and SalesForce
    * Generic OAuth 2.0
-   * API Key
-   * Basic authentication
+   * [Basic authentication](https://swagger.io/docs/specification/authentication/basic-authentication/)
+   * [API Key](https://swagger.io/docs/specification/authentication/api-keys/)
+
+You can set up Azure Active Directory (Azure AD) authentication for your API 
+in the Azure portal so you don't have to implement authentication through code. 
+Or, you can require and enforce authentication through your API's code. 
 
 For more information, follow the appropriate tutorials:
 
@@ -108,11 +112,10 @@ For more information, follow the appropriate tutorials:
 Assuming that your API has some type of authenticated access, 
 you need to describe your API's interface and operations so that 
 Logic Apps, Flow, or PowerApps can communicate with your API.
-use one of these industry standard definitions:
+Use one of these industry standard definitions:
 
-* An [OpenAPI 2.0 file](https://swagger.io/). 
-You can start by building with an existing OpenAPI file, 
-or you can import a [Postman collection](https://www.getpostman.com/docs/collections). 
+* An [OpenAPI 2.0 file](https://swagger.io/) 
+  You can start by building with an existing OpenAPI file.
 
   If you're new to OpenAPI, 
   visit [Getting started with Swagger](http://swagger.io/getting-started/) 
@@ -121,7 +124,7 @@ or you can import a [Postman collection](https://www.getpostman.com/docs/collect
   [Text Analytics API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/export?DocumentFormat=Swagger&ApiName=Azure). 
 
 * A Postman collection, 
-which automatically generates the OpenAPI file for you. 
+which automatically generates an OpenAPI file for you. 
 When you don't already have an OpenAPI file 
 and don't want to create one, you can still easily 
 create a custom connector by using a Postman collection.
@@ -185,17 +188,17 @@ in the same way that you call operations for Microsoft-managed connectors.
 
 You can share your connector with users in your organization in the same way 
 that you share resources in Logic Apps, Flow, or PowerApps. 
+Although sharing is optional, you might have scenarios where 
+you want to share your connectors with other users.
+
 Registered but uncertified custom connectors work like 
 Microsoft-managed connectors, but are visible and available 
 *only* to the connector's author and users who have the same 
 Azure Active Directory tenant and Azure subscription 
 for logic apps in the region where those apps are deployed. 
-Although sharing is optional, you might have scenarios where 
-you want to share your connectors with other users.
-
-To share your connector with external users outside these boundaries, 
-for example, with all Logic Apps, Flow, and PowerApps users, 
-[submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
+The next step discusses how you can share your connector 
+with external users outside these boundaries, 
+for example, with all Logic Apps, Flow, and PowerApps users.
 
 > [!IMPORTANT]
 > If you share a connector, others might start to depend on that connector. 

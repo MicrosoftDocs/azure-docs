@@ -65,6 +65,8 @@ Example: "This operation triggers when a new event is added to the calendar",
 
 !["description" for each operation or entity](./media/custom-connector-openapi-extensions/description.png)
 
+<a name="visibility"></a>
+
 ## x-ms-visibility
 
 Specifies the user-facing visibility for an entity. </br>

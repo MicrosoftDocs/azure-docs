@@ -22,7 +22,7 @@ ms.author: LADocs; estfan
 To make developing [custom APIs](../logic-apps/logic-apps-create-api-app.md) 
 and [custom connectors](../logic-apps/custom-connector-overview.md) 
 faster and easier, you can create [Postman](https://www.getpostman.com/) collections, 
-rather OpenAPI documents, for describing your APIs and connectors. 
+rather than OpenAPI documents, for describing your APIs and connectors. 
 Postman collections help you organize and group related API requests. 
 For example, you can use Postman when creating connectors 
 for Azure Logic Apps, Microsoft Flow, or Microsoft PowerApps. 
@@ -43,7 +43,7 @@ you can start with a [free Azure account](https://azure.microsoft.com/free/).
 Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * If you have an Azure subscription, sign up for the Text Analytics APIs by completing 
-[Task 1 here](../cognitive-services/text-analytics/quick-start.md). 
+[Task 1 here](../cognitive-services/text-analytics/text-analytics-howto-signup.md). 
 
 ## Create a Postman collection
 
@@ -113,7 +113,11 @@ for your API endpoint. For more information, see the Postman's
 2. After you've checked that your request works, 
 save your request to a Postman collection. 
 
-   1. Under **Save Request**, provide a **Request Name** 
+   1. Choose **Save**. 
+      
+      ![Choose "Save"](./media/custom-connector-api-postman-collection/06a-save-request.png)
+ 
+   2. Under **Save Request**, provide a **Request Name** 
    and optionally, a **Request description**. 
 
       > [!NOTE]
@@ -121,11 +125,11 @@ save your request to a Postman collection.
       > So, make sure that you provide the same values that 
       > you later use for your custom API's operation summary and description.
 
-   2. Choose **+ Create Collection** and provide a collection name. 
+   3. Choose **+ Create Collection** and provide a collection name. 
    Choose the check mark, which creates a collection folder, 
    then choose **Save to *your-Postman-collection-name***.
 
-      ![Save request](./media/custom-connector-api-postman-collection/06-save-request.png)
+      ![Save request](./media/custom-connector-api-postman-collection/06b-save-request.png)
 
 ### Save the request response
 
@@ -153,6 +157,9 @@ any additional requests and responses.
 2. Choose the **Collection v1** export format, 
 and browse to the location where you want to save the JSON file.
 
+   > [!NOTE]
+   > Currently, only V1 works for custom connectors.
+
    ![Choose export format: "Collection v1"](./media/custom-connector-api-postman-collection/09-export-format.png)
    
 You can now use this Postman collection for creating custom APIs and connectors. 
@@ -163,7 +170,7 @@ Flow, or PowerApps.
 > If you create a custom connector from a Postman collection, 
 > make sure that you remove the `Content-type` header from actions and triggers. 
 > The target service, for example, Flow, automatically adds this header. 
-> Also, remove authentication headers that you defined in the `Security` section, 
+> Also, remove authentication headers in the `securityDefintions` section, 
 > from actions and triggers.
 
 ## Next steps
