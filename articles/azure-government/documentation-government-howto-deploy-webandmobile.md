@@ -29,7 +29,7 @@ This article describes how to deploy an Azure App Services app (API App, Web App
 * Run the app in Visual Studio to make sure it works locally.
 > [!NOTE] 
 > 
-> If using the sample application, complete the "Use Swagger API metadata and UI" section to run app in Visual Studio. 
+> If using the sample application, complete the ["Use Swagger API metadata and UI"](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui) section to run the app in Visual Studio. 
 >  
 
 ## Deploy to Azure Government
