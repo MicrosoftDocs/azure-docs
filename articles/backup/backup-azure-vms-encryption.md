@@ -27,10 +27,11 @@ This article talks about steps to backup and restore virtual machines using Azur
  * It is supported for both Windows and Linux virtual machines using Azure Disk Encryption, which leverages the industry standard BitLocker feature of Windows and DM-Crypt feature of Linux to provide encryption of disks. <br>
  * The following table captures supported scenarios for BitLocker Encryption Key (BEK)  only and Key Encryption Key (KEK) encrypted VMs.
  
+ 
    |  | BEK + KEK VMs | BEK only VMs |
    | --- | --- | --- |
-   | Non-managed VMs  | Yes | Yes  |
-   | Managed VMs  | Yes | No  |
+   | **Non-managed VMs**  | Yes | Yes  |
+   | **Managed VMs**  | Yes | No  |
 
 ## Prerequisites
 1. Virtual machine has been encrypted using [Azure Disk Encryption](../security/azure-security-disk-encryption.md). 
