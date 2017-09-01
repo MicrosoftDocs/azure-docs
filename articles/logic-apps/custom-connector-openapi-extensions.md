@@ -24,7 +24,8 @@ or Microsoft PowerApps, you must provide an OpenAPI definition file,
 which is a language-agnostic machine-readable document that describes 
 your API's operations and parameters. 
 Along with OpenAPI's out-of-the-box functionality, you can also 
-include these OpenAPI extensions when you create custom connectors: 
+include these OpenAPI extensions when you create custom connectors 
+for Logic Apps and Flow:
 
 * `summary`
 * `x-ms-summary`
