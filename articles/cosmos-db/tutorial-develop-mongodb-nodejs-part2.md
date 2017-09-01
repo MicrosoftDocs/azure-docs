@@ -19,7 +19,7 @@ ms.author: mimig
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connects it to your Azure Cosmos DB database.
+This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
 
 Part 2 of the tutorial builds on [the introduction](tutorial-develop-mongodb-nodejs.md) and covers the following tasks:
 
@@ -58,7 +58,7 @@ This tutorial also requires:
 
 ## Use the Angular CLI to create a new project
 
-1. At the command prompt, change to the folder where you want to create your new project, then run the following command. This command creates a new folder and project named angular-cosmosdb and installs the Angular components required for a new app. It also installs the source code in src/client folder (-sd src/client), uses the minimal setup (--minimal), and specifies that the project uses a CSS-like syntax (--style scss).
+1. At the command prompt, change to the folder where you want to create your new project, then run the following command. This command creates a new folder and project named angular-cosmosdb and installs the Angular components required for a new app. It also installs the source code in src/client folder (-sd src/client), uses the minimal setup (--minimal), and specifies that the project uses Sass (a CSS-like syntax with the flag --style scss).
 
     ```bash
     ng new angular-cosmosdb -sd src/client --minimal --style scss
@@ -76,30 +76,30 @@ This tutorial also requires:
     code .
     ```
 
-## Build out the app using the Express framework
+## Build the app using the Express framework
 
 1. In Visual Studio Code, in the **Explorer** pane, right-click the **src** folder, click **New Folder**, and name the new folder *server*.
 
 2. In the **Explorer** pane, right-click the **server** folder, click **New File**, and name the new file *index.js*.
 
-3. Back at the command prompt, use the following command to install the body parser to help parse the json bodies as they're passed in through the APIs.
+3. Back at the command prompt, use the following command to install the body parser. This helps our app parse the JSON data that are passed in through the APIs.
 
     ```bash
     npm i express body-parser --save
     ```
 
 4. In Visual Studio Code, copy the following code into the index.js file. This code:
-    * Creates Express
-    * Pulls in the body-parser and uses it for URL encoding
+    * References Express
+    * Pulls in the body-parser for reading JSON data in the body of requests
     * Uses a built-in feature called path
     * Sets root variables to make it easier to find where our code is located
     * Sets up a port
     * Cranks up Express
     * Tells the app how to use the middleware that were going to be using to serve up the server
-    * Serves everything that's in the dist folder so all that's going to be static content
-    * Serves up the actual application, and does a get on anything that falls through to pass up and serve to index.html
-    * Cranks up server with app.listen
-    * Uses a lamba to ensure the port is alive
+    * Serves everything that's in the dist folder, which will be the static content
+    * Serves up the application, and serves index.html for any GET requests not found on the server (for deep links)
+    * Starts the server with app.listen
+    * Uses an arow function to log that the port is alive
     
    ```node
    const express = require('express');
@@ -125,9 +125,9 @@ This tutorial also requires:
 5. In Visual Studio Code, in the **Explorer** pane, right-click the **server** folder, and then click **New file**. Name the new file *routes.js*. 
 
 6. Copy the following code into **routes.js**. This code:
-   * Refers to the Express router
+   * References the Express router
    * Gets the heroes
-   * Sends back the json for a defined hero
+   * Sends back the JSON for a defined hero
 
    ```node
    const express = require('express');
