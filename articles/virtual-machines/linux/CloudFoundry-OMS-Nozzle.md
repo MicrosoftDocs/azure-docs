@@ -1,6 +1,6 @@
 ﻿---
-title: Deploy Azure Log Analytics Nozzle for Cloud Foundry | Microsoft Docs
-description: How to deploy Azure Log Analytics nozzle and use it to monitor the Cloud Foundry system health and performance metrics
+title: Deploy Azure Log Analytics Nozzle for Cloud Foundry Monitoring| Microsoft Docs
+description: Step by step guidance on deploy Cloud Foundry loggregator nozzle for Azure Log Analytics, config Azure Log Analytics and OMS console, and use these tools to monitor the Cloud Foundry system health and performance metrics.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -20,15 +20,13 @@ ms.author: ningk
 
 
 # Background
-[Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) is a service in Microsoft [Operations Management Suite](https://docs.microsoft.com/en-us/azure/operations-management-suite/) (OMS), it helps you collect and analyze data that is generated from your cloud and on-premises environments.
+[Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) is a service in Microsoft [Operations Management Suite](https://docs.microsoft.com/en-us/azure/operations-management-suite/) (OMS). It helps you collect and analyze data that is generated from your cloud and on-premises environments.
 
-The Microsoft Azure Log Analytics Nozzle is a Cloud Foundry component, which forwards metrics from the [Cloud Foundry Loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) Firehose to Azure Log Analytics. 
-
-With Azure Log Analytics Nozzle (the Nozzle) release, you are able to collect, view, analyze your Cloud Foundry system health and performance metrics, across multiple deployments. 
+The Microsoft Azure Log Analytics Nozzle (the Nozzle) is a Cloud Foundry component, which forwards metrics from the [Cloud Foundry Loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) Firehose to Azure Log Analytics. With the Nozzle, you are able to collect, view, analyze your Cloud Foundry system health and performance metrics, across multiple deployments. 
 
 In this document, you learn how to deploy the Nozzle to your Cloud Foundry environment, then access the data from the Azure Log Analytics OMS console.
 
-# Prerequisites
+## Prerequisites
 ### 1. Deploy a CF or PCF environment in Azure
 You can use the Nozzle with either an open source Cloud Foundry (CF) deployment or a Pivotal Cloud Foundry (PCF) deployment.
 
@@ -36,41 +34,41 @@ You can use the Nozzle with either an open source Cloud Foundry (CF) deployment 
 
 * [Deploy Pivotal Cloud Foundry on Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
 
-### 2. Install CF CLIs and CF User Account Authentication(UAA) Command-Line Client on your dev box
+### 2. Install the CF command-line tools for deploying the Nozzle
 The Nozzle runs as an application in CF environment, you need CF CLI to deploy the application. 
-The Nozzle needs access permission to the loggregator firehose and the Cloud Controller, you need UAA command-line client to create and configure the user.
+It also needs access permission to the loggregator firehose and the Cloud Controller, you need UAA command-line client to create and configure the user.
 
 * [Install Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
 * [Install Cloud Foundry UAA Command-Line Client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md) 
-> Note you need Rubygems in order to install UAA command-Line Client.
+Make sure Rubygems is installed before setting up UAA command-Line Client.
 
 ### 3. Create an OMS Workspace in Azure
 You can create the OMS workspace manually, and load the pre-configured OMS views and alerts after you finished the Nozzle deployment.
 
-1.	In the Azure portal, search the list of services in the Marketplace for Log Analytics, and then select Log Analytics.
+1. In the Azure portal, search the list of services in the Marketplace for Log Analytics, and then select Log Analytics.
 
-2.	Click Create, then select choices for the following items:
-- OMS Workspace - Type a name for your workspace.
-- Subscription - If you have multiple subscriptions, choose the same one with your CF deployment.
-- Resource group - You can create a new resource group, or use the same one with your CF deployment.
-- Location
-- Pricing tier - Click OK to complete. 
-> For more information, see [Get started with Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started)
+2. Click Create, then select choices for the following items:
+-OMS Workspace - Type a name for your workspace.
+-Subscription - If you have multiple subscriptions, choose the same one with your CF deployment.
+-Resource group - You can create a new resource group, or use the same one with your CF deployment.
+-Location
+-Pricing tier - Click OK to complete. 
+> For more information, see [Get started with Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
 
 
 # Deploy 
-### 1. Deploy the Nozzle as a PCF Ops Manager tile
+### Deploy the Nozzle as a PCF Ops Manager tile
 If you've deployed PCF via Ops Manager, follow these steps to [Install and Configure the Nozzle for PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html), the Nozzle is installed as a tile with Ops manager.
 
-### 2. Deploy the Nozzle as an App to Cloud Foundry
+### Deploy the Nozzle as an App to Cloud Foundry
 If you are not using PCF Ops Manager, you need to push the Nozzle as an application.
 1. Log in to your CF deployment as an admin through CF CLI. 
 -On your Dev box, run following command:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
-> Note "SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
+> "SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
 > "CF_User" is the CF admin name. You may retrieve the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
      
 2. Create a CF user and grant required privileges 
@@ -82,7 +80,7 @@ cf create-user ${FIREHOSE_USER} ${FIREHOSE_USER_PASSWORD}
 uaac member add cloud_controller.admin ${FIREHOSE_USER}
 uaac member add doppler.firehose ${FIREHOSE_USER}
 ```
-> See step 1 on how to retrieve the CF system domain path. You need to provide the user name and password for the firehose user. 
+> "SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file.
 
 3. Download the latest Azure Log Analytics Nozzle release
 -On your Dev box, run following command:
@@ -112,17 +110,16 @@ LOG_EVENT_COUNT           : If true, the total count of events that the nozzle h
 LOG_EVENT_COUNT_INTERVAL  : The time interval of logging event count to OMS Log Analytics, default is 60s.
 ```
 
-### 3.Push the app from your dev box
+### 3. Push the app from your dev box
 Make sure you are under the folder "oms-log-analytics-firehose-nozzle", run:
 ```
 cf push
 ```
 
-
 # Validate the Nozzle installation
 ### From Apps Manager (For PCF)
-1. Log in to Ops Manager, make sure the tile is installed successfully. 
-2. Log in to Apps Manager, browse to the space where you have created for the Nozzle, check the status of the application.
+1. Log in to Ops Manager, make sure the tile is displayed on the installation dashboard.
+2. Log in to Apps Manager, make sure the space you have created for the Nozzle is listed on the usage report, and the status is normal.
 
 ### From Dev Box
 On you Dev box CF CLI window, type:
@@ -134,11 +131,11 @@ Make sure the OMS nozzle application is running.
 
 # View the data in OMS Portal
 ### 1. Import OMS View
-From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, select one of the omsview files, for example, Cloud Foundry.omsview, and save the view. Now a **Tile** is displayed on the main OMS Overview page. Click the **Tile**, it shows visualized metrics.
+From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, select one of the omsview files, for example, *Cloud Foundry.omsview*, and save the view. Now a **Tile** is displayed on the main OMS Overview page. Click the **Tile**, it shows visualized metrics.
 
 Operators could customize these views or create new views through **View Designer**.
 
-> Note the "Cloud Foundry.omsview" is a preview version of Cloud Foundry OMS view template, a fully configured default template is in progress, please send your suggestions and feedback to the [Issue Section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
+The *"Cloud Foundry.omsview"* is a preview version of Cloud Foundry OMS view template, a fully configured default template is in progress, please send your suggestions and feedback to the [Issue Section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
 ### 2. <a name="alert">Create Alert rules</a>
 For the process of creating alert rules in OMS Log Analytics, refer to this [article](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts).
@@ -158,12 +155,12 @@ Operators could customize the queries and threshold values as needed. Following 
 
 
 # Scaling the Nozzle
-### 1. Scaling Nozzle
+### Scaling Nozzle
 We recommend operators to start with at least two instances of the nozzle. The firehose distributes the workload across all instances of the nozzle. 
 To make sure the nozzle can keep up with the data traffic from the firehose, the operator should set up the **slowConsumerAlert** alert listed in the "Create Alert Rules" section; once alerted, follow the [guidance for slow nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed. 
 To scale up the nozzle, use Apps Manager or the CF CLI to increase the instance numbers or memory/disk resources for the nozzle.
 
-### 2. Scaling Loggregator
+### Scaling Loggregator
 Loggregator sends **LGR** log message to indicate problems with the logging process. The operator can monitor the alert to determine whether the loggregator needs to be scaled up.
 To scale up the loggregator, the operator can either increase Doppler buffer size or add additional Doppler server instances in the CF manifest, for details, check [the guidance for scaling the Loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
@@ -183,7 +180,7 @@ On your CF CLI window, type:
 cf delete <App Name> -r
 ```
 
-> Note if you remove the Nozzle, the data in OMS portal is not automatically removed, it expires based on your OMS log analytics retention setting.
+If you remove the Nozzle, the data in OMS portal is not automatically removed, it expires based on your OMS log analytics retention setting.
 
 
 # Support and Feedback
