@@ -23,7 +23,7 @@ ms.custom: mvc
 This tutorial shows how to set up the cloud for automatic device provisioning using the Device Provisioning Service (DPS). In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Use the Azure portal to create a DPS and get the scope ID
+> * Use the Azure portal to create a DPS and get the ID scope
 > * Create an IoT hub
 > * Link the IoT hub to DPS
 > * Set the allocation policy on the DPS
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Create a DPS and get the scope ID
+## Create a DPS and get the ID scope
 
 Follow these steps to create a new DPS.
 
@@ -53,7 +53,7 @@ Follow these steps to create a new DPS.
    ![Enter basic information about your DPS in the portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)
 
 5. Click **Create**.
-6. The *scope ID* is used to identify registration IDs, and provides a guarantee that the registration ID is unique. To obtain this value, click **Overview** to open the **Essentials** page for the DPS. Copy the **Origin namespace** value, which is used as the scope ID, to a temporary location for later use.
+6. The *ID scope* is used to identify registration IDs, and provides a guarantee that the registration ID is unique. To obtain this value, click **Overview** to open the **Essentials** page for the DPS. Copy the **ID Scope** value to a temporary location for later use.
 7. Also make a note of the **Service endpoint** value, or copy it to a temporary location for later use. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -94,7 +94,7 @@ Other tutorials in this collection build upon this tutorial. If you plan to cont
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Use the Azure portal to create a DPS and get the scope ID
+> * Use the Azure portal to create a DPS and get the ID scope
 > * Create an IoT hub
 > * Link the IoT hub to DPS
 > * Set the allocation policy on the DPS

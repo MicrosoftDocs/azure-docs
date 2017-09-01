@@ -21,6 +21,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Concepts
   items:
+  - name: Regions and availability
+    href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
   - name: Container groups
