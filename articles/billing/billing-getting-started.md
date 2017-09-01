@@ -29,7 +29,7 @@ For more information about your daily usage, see [Understand your bill for Micro
 
 If your subscription is through a Cloud Solution Provider (CSP) or Azure Sponsorship, then many features in this article don't apply to you. Instead, we have a different set of tools that you can use for cost management. See [Additional resources for EA, CSP, and Sponsorship](#other-offers).
 
-If your subscription is an Enterprise Agreement (EA), the spending limit, billing alerts, and invoice guidance does not pertain to you. 
+If your subscription is an Enterprise Agreement (EA), the public preview for seeing your costs in the Azure portal is now live. There are [a couple items to know about](#EA) as some of the features listed in this article do not pertain to you.   
 
 If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark, then learn about [spending limits](#spending-limit) to avoid having your subscription unexpectantly disabled. 
 
@@ -173,7 +173,7 @@ The tags that you set earlier show up in the detail usage .csv files:
 
 Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
 
-## More about Enterprise Agreement cost views (Public Preview) 
+## <a name="EA"></a> Public preview of Enterprise Agreement cost views  
 
 Enterprise cost views are currently in Public Preview. Items to note:
 - Subscription costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level. 
@@ -183,6 +183,7 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
 - When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
+- Spending limit, billing alerts, and invoice guidance does not pertain to EA Subscriptions.
 
 ## <a name="other-offers"></a> Additional resources for EA, CSP, and Sponsorship
 
