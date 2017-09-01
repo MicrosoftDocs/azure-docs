@@ -8,6 +8,7 @@
 ## [Batch .NET tutorial](batch-dotnet-get-started.md)
 ## [Batch Python tutorial](batch-python-tutorial.md)
 ## [Batch Node.js tutorial](batch-nodejs-get-started.md)
+## [Batch Rendering service](batch-rendering-service.md)
 # How To
 ## Develop
 ### [Application packages](batch-application-packages.md)
@@ -17,6 +18,8 @@
 #### [Azure AD with Batch Management](batch-aad-auth-management.md)
 ### [Compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
+### [Count tasks by state](batch-get-task-counts.md)
+### [Create a pool with a custom image](batch-custom-images.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
@@ -37,7 +40,6 @@
 #### [Add an application](./scripts/batch-cli-sample-add-application.md)
 #### [Manage pools](./scripts/batch-cli-sample-manage-pool.md)
 #### [Run a job and tasks](./scripts/batch-cli-sample-run-job.md)
-
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)

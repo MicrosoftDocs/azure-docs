@@ -3,7 +3,7 @@ title: Overview of the Azure Compute Unit | Microsoft Docs
 description: Overview of the concept of the Azure compute units for Windows. The ACU provides a way of comparing CPU performance across Azure SKUs.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 
 ---
 

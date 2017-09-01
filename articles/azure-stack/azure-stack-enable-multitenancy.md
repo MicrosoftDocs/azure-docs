@@ -31,14 +31,14 @@ This guide provides the steps required, in the context of this scenario, to conf
 There are a few pre-requisites to account for before you configure multi-tenancy in Azure Stack:
   
  - You and Mary must coordinate administrative steps across both the directory Azure Stack is installed in (Contoso), and the guest directory (Fabrikam).  
- - Make sure you've [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure.md) PowerShell for Azure Stack.
+ - Make sure you've [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure-admin.md) PowerShell for Azure Stack.
  - [Download the Azure Stack Tools](azure-stack-powershell-download.md), and import the Connect and Identity modules:
 
     ````PowerShell
         Import-Module .\Connect\AzureStack.Connect.psm1
         Import-Module .\Identity\AzureStack.Identity.psm1
     ```` 
- - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) access to Azure Stack. 
+ - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) access to Azure Stack. 
 
 ## Configure Azure Stack directory
 In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure AD directory tenants.
@@ -47,7 +47,7 @@ In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure
 Next, onboard the Guest Directory Tenant (Fabrikam) to Azure Stack.  This step configures Azure Resource Manager to accept users and service principals from the guest directory tenant.
 
 ````PowerShell
-$adminARMEndpoint = https://adminmanagement.local.azurestack.external
+$adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack directory
 $azureStackDirectoryTenant = "contoso.onmicrosoft.com"

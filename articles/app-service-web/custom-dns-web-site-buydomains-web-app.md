@@ -3,8 +3,8 @@ title: Buy a custom domain name for Azure Web Apps
 description: Learn how to buy a custom domain name with a web app in Azure App Service.
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
-ms.author: robmcm
+ms.date: 08/17/2016
+ms.author: cephalin
 
 ---
 # Buy a custom domain name for Azure Web Apps
 
 App Service domains (preview) are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure Web Apps](app-service-web-overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure Web Apps.
 
-This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps); for Cloud Services, see 
+This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps). For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). For Cloud Services, see 
 [Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## Prerequisites
@@ -56,7 +56,7 @@ The app's current tier is highlighted by a blue border. Check to make sure that 
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-If the App Service plan is not **Free**, close the **Choose your pricing tier** page and skip to [Map a CNAME record](#cname).
+If the App Service plan is not **Free**, close the **Choose your pricing tier** page and skip to [Buy the domain](#buy-the-domain).
 
 ### Scale up the App Service plan
 

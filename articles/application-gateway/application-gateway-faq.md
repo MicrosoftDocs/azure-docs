@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 
 ---
@@ -128,11 +128,15 @@ Micro service architecture is supported. You would need multiple http settings c
 
 **Q. Do custom probes support wildcards/regex on response data?**
 
-Custom probes do not support wildcard or regex on response data.
+Custom probes do not support wildcard or regex on response data. 
 
 **Q. How are rules processed?**
 
-Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules. By configuring multi-site listeners first, this configuration reduces the chance that traffic is routed to the inappropriate backend. This routing issue can occur as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
+Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
+
+**Q. How are rules processed?**
+
+Rules are processed in the order they are created. It is recommended that multi-site rules are configured before basic rules. By configuring multi-site listeners first, this configuration reduces the chance that traffic is routed to the inappropriate backend. This routing issue can occur as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
 
 **Q. What does the Host field for custom probes signify?**
 
@@ -182,45 +186,55 @@ Self signed certs, CA certs, and wild-card certs are supported. EV certs are not
 
 **Q. What are the current cipher suites supported by Application Gateway?**
 
-The following are the current cipher suites supported in order of priority.
+The following are the current cipher suites supported by application gateway. Visit: [Configure SSL policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md) to learn how to customize SSL options.
 
-TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
-
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
-
-TLS_RSA_WITH_AES_256_GCM_SHA384
-
-TLS_RSA_WITH_AES_128_GCM_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA256
-
-TLS_RSA_WITH_AES_128_CBC_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA
-
-TLS_RSA_WITH_AES_128_CBC_SHA
-
-TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_AES_256_GCM_SHA384
+- TLS_RSA_WITH_AES_128_GCM_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA256
+- TLS_RSA_WITH_AES_128_CBC_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA
+- TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 **Q. Does Application Gateway also support re-encryption of traffic to the backend?**
 
-Yes, Applicated Gateway supports SSL offload, and end to end SSL, which re-encrypts the traffic to the backend.
+Yes, Application Gateway supports SSL offload, and end to end SSL, which re-encrypts the traffic to the backend.
 
 **Q. Can I configure SSL policy to control SSL Protocol versions?**
 
 Yes, you can configure Application Gateway to deny TLS1.0, TLS1.1, and TLS1.2. SSL 2.0 and 3.0 are already disabled by default and are not configurable.
 
-**Q. Can I configure SSL policy to control cipher suites?**
+**Q. Can I configure cipher suites and policy order?**
 
-No, not currently.
+Yes, [configuration of cipher suites](application-gateway-ssl-policy-overview.md) is supported. When defining a custom policy, at least one of the following cipher suites must be enabled. Application gateway uses SHA256 to for backend management.
+
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_256_CBC_SHA256
+* TLS_RSA_WITH_AES_128_CBC_SHA256
 
 **Q. How many SSL certificates are supported?**
 

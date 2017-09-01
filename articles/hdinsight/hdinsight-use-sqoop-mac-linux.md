@@ -42,7 +42,7 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 2. Use the following command to install FreeTDS:
 
     ```bash
-    sudo apt install --assume-yes install freetds-dev freetds-bin
+    sudo apt --assume-yes install freetds-dev freetds-bin
     ```
 
     FreeTDS is used in several steps to connect to SQL Database.

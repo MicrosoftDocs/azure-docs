@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 08/15/2017
 ms.author: jgao
 
 ---
 # Run Hive queries using HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Learn how to submit Hive queries using HDInsight .NET SDK.
+Learn how to submit Hive queries using HDInsight .NET SDK. You write a C# program to submit a Hive query for listing Hive tables, and display the results.
 
 > [!NOTE]
 > The steps in this article must be performed from a Windows client. For information on using a Linux, OS X, or Unix client to work with Hive, use the tab selector shown on the top of the article.
@@ -32,7 +32,7 @@ Learn how to submit Hive queries using HDInsight .NET SDK.
 ## Prerequisites
 Before you begin this article, you must have the following items:
 
-* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
 ## Submit Hive queries using HDInsight .NET SDK

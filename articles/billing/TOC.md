@@ -32,6 +32,7 @@
 ### [Sign-up issues](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Declined card](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Sign-in issues](billing-cannot-login-subscription.md)
+### [No subscriptions found](billing-no-subscriptions-found.md)
 
 # Reference
 ## [API Overview](billing-usage-rate-card-overview.md)

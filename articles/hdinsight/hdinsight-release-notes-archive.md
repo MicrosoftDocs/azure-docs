@@ -27,11 +27,32 @@ This article provides information about the **older** Azure HDInsight release up
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
 
+
+## Notes for 08/30/2016 release of HDInsight
+The full version numbers for Linux-based HDInsight clusters deployed with this release:
+
+| HDI | HDI cluster version | HDP | HDP Build | Ambari Build |
+| --- | --- | --- | --- | --- |
+| 3.2 |3.2.1000.0.8268980 |2.2 |2.2.9.1-19 |2.2.1.12-4 |
+| 3.3 |3.3.1000.0.8268980 |2.3 |2.3.3.1-25 |2.2.1.12-4 |
+| 3.4 |3.4.1000.0.8269383 |2.4 |2.4.2.4-5 |2.2.1.12-4 |
+
+The full version numbers for Windows-based HDInsight clusters deployed with this release:
+
+| HDI | HDI cluster version | HDP | HDP Build |
+| --- | --- | --- | --- |
+| 2.1 |2.1.10.1033.2559206 |1.3 |1.3.12.0-01795 |
+| 3.0 |3.0.6.1033.2559206 |2.0 |2.0.13.0-2117 |
+| 3.1 |3.1.4.1033.2559206 |2.1 |2.1.16.0-2374 |
+| 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
+| 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
+
+
 ## 08/17/2016 - Release of R Server on HDInsight
 * R Server 8.0.5 - mainly a bug fix release. See the [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) for more info.
 * AzureML package on the edge node - [this R package](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) enables R models to be published and consumed as an Azure ML web service.  See the ["Operationalize a Model"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) section of our ["Overview of R Server on HDInsight"](hdinsight-hadoop-r-server-overview.md) article for more info.
 * Linux dependencies of the [top 100 most popular R packages](https://github.com/metacran/cranlogs) - these Linux package dependencies are now pre-installed.
-* Option to use the CRAN repo when adding R packages to the data nodes. For more information, see ["Get started using R Server on HDInsight"](hdinsight-hadoop-r-server-get-started.md) article for more information.
+* Option to use the CRAN repo when adding R packages to the data nodes. For more information, see ["Get started using R Server on HDInsight"](hdinsight-hadoop-r-server-get-started.md).
 * Improved the reliability of R Server provisioning when clusters are created.
 
 ## Notes for 08/01/2016 release of HDInsight
@@ -166,7 +187,7 @@ This release contains the following updates:
 | Livy Crash Recovery |Provides job status resiliency for any job submitted through Livy |Reliability |Spark on Linux |N/A |
 | Jupyter Content HA |Provides the ability to save and load Jupyter notebook contents to and from the storage account associated with the cluster. For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Notebooks |Spark on Linux |N/A |
 | Removal of hiveContext in Jupyter Notebooks |Use `%%sql` magic instead of `%%hive` magic. SqlContext is equivalent to hiveContext. For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md) |Notebooks |Spark clusters on Linux |N/A |
-| Deprecation of older Spark versions |Older version Spark 1.3.1 will be removed from the service on 5/31 |Service |Spark clusters on Windows |N/A |
+| Deprecation of older Spark versions |Older version Spark 1.3.1 was removed from the service on 5/31 |Service |Spark clusters on Windows |N/A |
 
 ## Notes for 03/29/2016 release of HDInsight
 The full version numbers for HDInsight clusters deployed with this release:
@@ -186,8 +207,8 @@ This release contains the following updates:
 | Title | Description | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 | --- | --- | --- | --- | --- |
 | Added HDInsight 3.4 version and updated HDP versions for all HDInsight clusters |With this release, we have added HDInsight v3.4 (based on HDP 2.4) and have also updated other HDP versions. HDP 2.4 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md). |Service |All Linux clusters |N/A |
-| HDInsight Premium |HDInsight is now available in two categories - Standard and Premium. HDInsight Premium is currently in Preview and available only for Hadoop and Spark clusters on Linux. For more information see [here](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). |Service |Hadoop and Spark on Linux |N/A |
-| Microsoft R Server |HDInsight Premium provides Microsoft R Server that can be included with Hadoop and Spark clusters on Linux. For more information see [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md). |Service |Hadoop and Spark on Linux |N/A |
+| HDInsight Premium |HDInsight is now available in two categories - Standard and Premium. HDInsight Premium is currently in Preview and available only for Hadoop and Spark clusters on Linux. For more information, see [here](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). |Service |Hadoop and Spark on Linux |N/A |
+| Microsoft R Server |HDInsight Premium provides Microsoft R Server that can be included with Hadoop and Spark clusters on Linux. For more information, see [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md). |Service |Hadoop and Spark on Linux |N/A |
 | Spark 1.6.0 |HDInsight 3.4 clusters now include Spark 1.6.0 |Service |Spark clusters on Linux |N/A |
 | Jupyter notebook enhancements |Jupyter notebooks available with Spark clusters now provide additional Spark kernels. They also include enhancements like use of %%magic, auto-visualization, and integration with Python visualization libraries (such as matplotlib). For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Service |Spark clusters on Linux |N/A |
 
@@ -311,7 +332,7 @@ This release contains the following updates:
 | Title | Description | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 | --- | --- | --- | --- | --- |
 | Default HDP version changed to HDP 2.2 |The default version for HDInsight Windows clusters is changed to HDP 2.2. HDInsight version 3.2 (HDP 2.2) has been generally available in since February 2015. This change only flips the default cluster version, when an explicit selection has not been made while provisioning the cluster using the Azure portal, PowerShell cmdlets, or the SDK. |Service |All |N/A |
-| Changes in VM name format for deploying multiple HDInsight on Linux clusters in a single Virtual Network |Support for deploying multiple HDInsight Linux clusters in a single virtual network is being added in this release. As part of this, the format of virtual machine names in the cluster has changed from headnode\*, workernode\* and zookeepernode\* to hn\*, wn\*, and zk\* respectively. It is not a recommended practice to take a direct dependency on the format of virtual machine names, since this is subject to change. Please use "hostname -f" on the local machine or Ambari APIs to determine the list of hosts, and the mapping of components to hosts. You can find more info at [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) and [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). |Service |HDInsight clusters on Linux |N/A |
+| Changes in VM name format for deploying multiple HDInsight on Linux clusters in a single Virtual Network |Support for deploying multiple HDInsight Linux clusters in a single virtual network is being added in this release. As part of update, the format of virtual machine names in the cluster has changed from headnode\*, workernode\* and zookeepernode\* to hn\*, wn\*, and zk\* respectively. It is not a recommended practice to take a direct dependency on the format of virtual machine names, since this is subject to change. Use "hostname -f" on the local machine or Ambari APIs to determine the list of hosts, and the mapping of components to hosts. You can find more info at [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) and [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). |Service |HDInsight clusters on Linux |N/A |
 | Configuration changes |For HDInsight 3.1 clusters, the following configurations are now enabled: <ul><li>tez.yarn.ats.enabled and yarn.log.server.url. This enables the Application Timeline Server and the Log server to be able to serve out logs.</li></ul>For HDInsight 3.2 clusters, the following configurations have been modified: <ul><li>mapreduce.fileoutputcommitter.algorithm.version has been set to 2. This enables use of the V2 version of the FileOutputCommitter.</li></ul> |Service |All |N/A |
 
 ## Notes for 09/09/2015 release of HDInsight
@@ -342,7 +363,7 @@ This release contains the following updates:
 
 | Title | Description | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 | --- | --- | --- | --- | --- |
-| Fix Spark cluster node re-imaging workflow |Fixed a bug that was causing Spark cluster nodes to not recover after re-image |Service |Spark |N/A |
+| Fix Spark cluster node reimaging workflow |Fixed a bug that was causing Spark cluster nodes to not recover after reimage |Service |Spark |N/A |
 
 ## Notes for 07/31/2015 release of HDInsight
 The full version numbers for HDInsight clusters deployed with this release:
@@ -537,7 +558,7 @@ This release contains the following updates:
 </tr>
 <tr>
 <td>Change to Default Yarn Container Memory Configuration</td>
-<td>In this update, the default available memory to YARN containers (yarn.nodemanager.resource.memory-mb and yarn.scheduler.maximum-allocation-mb), launched by Node Manager, is increased to 5632MB. Previously this was reduced to 4608MB, but based on various job runs, the new value must offer better reliability and performance to most jobs, hence is a better default. As usual, if you have critical dependency on this memory configuration, please set it explicitly while creating the cluster.</td>
+<td>In this update, the default available memory to YARN containers (yarn.nodemanager.resource.memory-mb and yarn.scheduler.maximum-allocation-mb), launched by Node Manager, is increased to 5632MB. Previously this was reduced to 4608MB, but based on various job runs, the new value must offer better reliability and performance to most jobs, hence is a better default. As usual, if you have critical dependency on this memory configuration, set it explicitly while creating the cluster.</td>
 <td>HDP</td>
 <td>All cluster types</td>
 <td>N/A</td>
@@ -573,7 +594,7 @@ This release contains the following updates:
 </tr>
 <tr>
 <td>SCP.NET EventHub Support</td>
-<td>The updated cluster packages for HDInsight Storm bring new features to SCP.NET. You will now have access to new APIs in topology builder that make it easier to use EventHubSpout or Java Spouts. You must update your SCP.NET client SDK to work with new clusters as the contracts have been updated. For details on the new APIs, usage and release notes (including bug fixes) please refer to the Readme included in the SCP.NET NuGet package.</td>
+<td>The updated cluster packages for HDInsight Storm bring new features to SCP.NET. You now have access to new APIs in topology builder that make it easier to use EventHubSpout or Java Spouts. You must update your SCP.NET client SDK to work with new clusters as the contracts have been updated. For details on the new APIs, usage and release notes (including bug fixes) refer to the Readme included in the SCP.NET NuGet package.</td>
 <td>VS Tooling</td>
 <td>Storm HDInsight 3.2 clusters</td>
 <td>N/A</td>
@@ -645,7 +666,7 @@ This release contains the following updates:
 </tr>
 <tr>
 <td>Tez bug fixes</td>
-<td>Fixes for Apache TEZ 2214 and TEZ 1923 are included in this release of HDI 3.2. These are specifically needed for certain Hive queries on Tez which require to shuffle a significant amount of data.
+<td>Fixes for Apache TEZ 2214 and TEZ 1923 are included in this release of HDI 3.2. These are needed for certain Hive queries on Tez which require to shuffle a significant amount of data.
 </td>
 <td>HDP</td>
 <td>Hadoop</td>
@@ -782,8 +803,7 @@ jar. This is purely a packaging change and does not contain any changes to behav
 </tr>
 <tr>
 <td>Jar File Name updates in HDInsight 3.2</td>
-<td>This update to HDInsight version 3.2 contains several bug fixes, and a few internal jars packaged as part of HDP have been upgraded. Note that these JAR files
-are internal to the HDP package and not for direct use by customer applications. Applications should package their own version of the JARs so that an upgrade to the HDP internal JARs do not break customer applications.</td>
+<td>This update to HDInsight version 3.2 contains several bug fixes, and a few internal jars packaged as part of HDP have been upgraded. These JAR filesare internal to the HDP package and not for direct use by customer applications. Applications should package their own version of the JARs so that an upgrade to the HDP internal JARs do not break customer applications.</td>
 <td>HDP</td>
 <td>All</td>
 <td>N/A</td>
@@ -799,7 +819,7 @@ The full version numbers for HDInsight clusters deployed with this release:
 * HDInsight        3.2.3.488.1375841    (HDP-2.2.10.0-2340 - unchanged)
 * SDK            1.5.0                (unchanged)
 
-This release contains the following update.
+This release contains the following update:
 
 <table border="1">
 <tr>
@@ -841,21 +861,21 @@ This release contains the following updates:
 </tr>
 <tr>
 <td>HDInsight 3.2 clusters</td>
-<td>Hadoop 2.6/HDP2.2 is available with HDInsight 3.2 clusters. It contains major updates to all of the open-source components. For more details, see What's new in HDInsight and <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a>.</td>
+<td>Hadoop 2.6/HDP2.2 is available with HDInsight 3.2 clusters. It contains major updates to all of the open-source components. For more information, see What's new in HDInsight and <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a>.</td>
 <td>Open-source software</td>
 <td>All</td>
 <td>N/A</td>
 </tr>
 <tr>
 <td>HDInsight on Linux (Preview)</td>
-<td>Clusters can be deployed running on Ubuntu Linux. For more details, see Get Started with HDInsight on Linux.</td>
+<td>Clusters can be deployed running on Ubuntu Linux. For more information, see Get Started with HDInsight on Linux.</td>
 <td>Service</td>
 <td>Hadoop</td>
 <td>N/A</td>
 </tr>
 <tr>
 <td>Storm General Availability</td>
-<td>Apache Storm clusters are generally available. For more details, see Get started using Storm in HDInsight.</td>
+<td>Apache Storm clusters are generally available. For more information, see Get started using Storm in HDInsight.</td>
 <td>Service</td>
 <td>Storm</td>
 <td>N/A</td>
@@ -952,7 +972,7 @@ The full version numbers for HDInsight clusters deployed with this release:
 * HDInsight     3.1.2.455.1309616    (HDP 2.1.9.0-2196 -  unchanged)
 * SDK            N/A
 
-This release contains the following update.
+This release contains the following update:
 
 <table border="1">
 
@@ -1020,7 +1040,7 @@ The full version numbers for HDInsight clusters deployed with this release are:
 * HDInsight     3.0.6.420.1246783    (HDP version unchanged)
 * HDInsight     3.1.1.420.1246783    (HDP version unchanged)
 
-This release contains the following update.
+This release contains the following update:
 
 <table border="1">
 <tr>
@@ -1040,7 +1060,7 @@ This release contains the following update.
 </table>
 
 ## Notes for 12/18/2014 release of HDInsight
-This release contains the following component update.
+This release contains the following component update:
 
 <table border="1">
 <tr>
@@ -1067,7 +1087,7 @@ The full version numbers for HDInsight clusters deployed with this release are:
 * HDInsight     3.1.1.406.1221105    (HDP 2.1.9.0-2196)
 * HDInsight SDK N/A
 
-This release contains the following component updates.
+This release contains the following component updates:
 
 <table border="1">
 <tr>
@@ -1079,7 +1099,7 @@ This release contains the following component updates.
 </tr>
 <tr>
 <td>Bug fix: Intermittent error while adding large numbers of partitions to a table in a Hive DDL </td>
-<td><p>If there is an intermittent connection error with the Hive metastore database when adding a lot of partitions to a Hive table, the Hive DDL can fail. The following statement will be seen in the Hive error log if this failure occurs: </p><p>"ERROR [main]: ql.Driver (SessionState.java:printError(547)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:java.lang.RuntimeException: commitTransaction was called but openTransactionCalls = 0. This probably indicates that there are unbalanced calls to openTransaction/commitTransaction)"</p></td>
+<td><p>If there is an intermittent connection error with the Hive metastore database when adding a lot of partitions to a Hive table, the Hive DDL can fail. The following statement isseen in the Hive error log if this failure occurs: </p><p>"ERROR [main]: ql.Driver (SessionState.java:printError(547)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:java.lang.RuntimeException: commitTransaction was called but openTransactionCalls = 0. This probably indicates that there are unbalanced calls to openTransaction/commitTransaction)"</p></td>
 <td>Hive</td>
 <td>Hadoop, Hbase</td>
 <td>HIVE-482 (This is an internal JIRA, so it cannot be quoted externally. Noted here for reference.)</td>
@@ -1115,7 +1135,7 @@ The full version numbers for HDInsight clusters deployed with this release are:
 * HDInsight 3.1.1.382.1169709 (no change from 11/14/2014)
 * HDInsight SDK 1.4.0
 
-This release contains the following component updates.
+This release contains the following component updates:
 
 <table border="1">
 <tr><th>Title</th><th>Description</th><th>Component</th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
@@ -1167,7 +1187,7 @@ This release contains the following new features, component updates, and bug fix
 <p>**Solutions that work on your data**:<br>
 We've created jobs for some of the most common data analysis scenarios to provide a starting point for creating your own solutions. You can use your data with the job to see how it works. Then when you are ready, use what you have learned to create a solution that is modeled after the prebuilt job.</p>
 <p>**Solutions that work on sample data**:<br>
-Learn how to work with HDInsight by walking through some basic scenarios (such as analyzing web logs and sensor data). You will learn how to use HDInsight to analyze such data and how you can connect other applications and services to this data. Visualizing data by connecting to Microsoft Excel provides an example of the power of this approach.</p></td>
+Learn how to work with HDInsight by walking through some basic scenarios (such as analyzing web logs and sensor data). You learn how to use HDInsight to analyze such data and how you can connect other applications and services to this data. Visualizing data by connecting to Microsoft Excel provides an example of the power of this approach.</p></td>
 <td>Query console</td>
 <td>Hadoop</td>
 <td>N/A</td>
@@ -1182,7 +1202,7 @@ Learn how to work with HDInsight by walking through some basic scenarios (such a
 </table>
 
 > [!NOTE]
-> To demonstrate the new capabilities made available by cluster customization, the procedures using Script Action to install Spark and R modules on a cluster have been documented. For further information, see:
+> To demonstrate the new capabilities made available by cluster customization, the procedures using Script Action to install Spark and R modules on a cluster have been documented. For more information, see:
 
 * [Install and use Spark 1.0 on HDInsight clusters](hdinsight-hadoop-spark-install.md)
 * [Install and use R on HDInsight Hadoop clusters](hdinsight-hadoop-r-scripts.md)
@@ -1195,7 +1215,7 @@ The full version numbers for HDInsight clusters that deployed with this release 
 * HDInsight 3.0    3.0.5.374.1153876
 * HDInsight 3.1    3.1.1.374.1153876
 
-This release contains the following component updates.
+This release contains the following component updates:
 
 <table border="1">
 <tr><th>Title</th><th>Description</th><th>Component</th><th>Cluster Type</th><th>JIRA (if applicable)</th></tr>
@@ -1239,7 +1259,7 @@ This hotfix release fixed a memory leak in Templeton that affected the heavy use
 
 * When using Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field returns the fully qualified domain name (FQDN) of the node instead of only the host name. For example, instead of returning "**headnode0**", you get the FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**". This change was required to facilitate scenarios where multiple cluster types (such as HBase and Hadoop) can be deployed in one virtual network. This happens, for example, when using HBase as a back-end platform for Hadoop.
 
-* We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not adequately account for the guidance for the number of CPU cores being deployed. These new memory settings should provide better defaults (as per Hortonworks recommendations). To change these, please refer to the SDK reference documentation about changing cluster configuration. The new memory settings that are used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically.)
+* We have provided new memory settings for the default deployment of the HDInsight cluster. Previous default memory settings did not adequately account for the guidance for the number of CPU cores being deployed. These new memory settings should provide better defaults (as per Hortonworks recommendations). To change these, refer to the SDK reference documentation about changing cluster configuration. The new memory settings that are used by the default 4 CPU core (8 container) HDInsight cluster are itemized in the following table. (The values used prior to this release are also provided parenthetically.)
 
 <table border="1">
 <tr><th>Component</th><th>Memory Allocation</th></tr>
@@ -1293,7 +1313,7 @@ These compatibility issues are resolved in the latest versions of the HDInsight 
   * East Asia
   * North Central US
   * South Central US
-* HDInsight version 1.6 (HDP 1.1 and Hadoop 1.0.3) and HDInsight version 2.1 (HDP1.3 and Hadoop 1.2) are being removed from the Azure portal. You can continue to create Hadoop clusters for these versions by using the Azure PowerShell cmdlet, [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) or by using the [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). Please refer to the [HDInsight component versioning](hdinsight-component-versioning.md) page for more information.
+* HDInsight version 1.6 (HDP 1.1 and Hadoop 1.0.3) and HDInsight version 2.1 (HDP1.3 and Hadoop 1.2) are being removed from the Azure portal. You can continue to create Hadoop clusters for these versions by using the Azure PowerShell cmdlet, [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) or by using the [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). For more information, see [HDInsight component versioning](hdinsight-component-versioning.md).
 * Hortonworks Data Platform (HDP) changes in this release:
 
 <table border="1">
@@ -1329,7 +1349,7 @@ Tez is not enabled by default for Hive queries. To use it, you must opt in. You 
 
 Hortonworks has published a detailed breakdown of Hive query performance enhancements with Tez as delivered in standard benchmarks. For details, see [Benchmarking Apache Hive 13 for Enterprise Hadoop](http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/).
 
-For more details about using Hive with Tez, see [Hive on Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez).
+For more information, see [Hive on Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez).
 
 ### Global availability
 With the release of HDInsight on Hadoop 2.2, Microsoft has made HDInsight available in all major geographies where Azure is available. Specifically, the west Europe and southeast Asia datacenters have been brought online. This enables customers to locate clusters in a datacenter that is close and potentially in a zone of similar compliance requirements.
@@ -1337,7 +1357,7 @@ With the release of HDInsight on Hadoop 2.2, Microsoft has made HDInsight availa
 ### Dos & Don'ts between cluster versions
 **Oozie metastores used with an HDInsight 3.1 cluster are not backward compatible with HDInsight 2.1 clusters, and they cannot be used with this previous version**.
 
-A custom Oozie metastore database deployed with an HDInsight 3.1 cluster cannot be reused with an HDInsight 2.1 cluster. This is the case even if the metastore originated with an HDInsight 2.1 cluster. This scenario is not supported because the metastore schema gets upgraded when used with an  HDInsight 3.1 cluster, so it is no longer compatible with the metastore required by the HDInsight 2.1 clusters. Any attempt to reuse an Oozie metastore that has been used with an HDInsight 3.1 cluster will render the HDInsight 2.1 cluster useless.
+A custom Oozie metastore database deployed with an HDInsight 3.1 cluster cannot be reused with an HDInsight 2.1 cluster. This is the case even if the metastore originated with an HDInsight 2.1 cluster. This scenario is not supported because the metastore schema gets upgraded when used with an  HDInsight 3.1 cluster, so it is no longer compatible with the metastore required by the HDInsight 2.1 clusters. Any attempt to reuse an Oozie metastore that has been used with an HDInsight 3.1 cluster render the HDInsight 2.1 cluster useless.
 
 **Oozie metastores cannot be shared across clusters.**
 
