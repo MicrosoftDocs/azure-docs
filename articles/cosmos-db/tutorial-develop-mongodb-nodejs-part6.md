@@ -1,6 +1,6 @@
 ---
-title: "MongoDB, AngularJS, and Node.js tutorial for Azure - Part 6 | Microsoft Docs"
-description: Part 6 of the tutorial series on creating a MongoDB app with AngularJS and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB
+title: "MongoDB, Angular, and Node tutorial for Azure - Part 6 | Microsoft Docs"
+description: Part 6 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -44,27 +44,27 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     Let's start by coding up the hero service. 
 
 2. Copy the following code into **hero.service.js** after the `getHeroes` function and before `module.exports`. This code:  
-    * Uses the hero model to post a new hero.
-    * Checks the responses to see if there's an error and returns a status value of 500.
+   * Uses the hero model to post a new hero.
+   * Checks the responses to see if there's an error and returns a status value of 500.
 
-    ```javascript
-    function postHero(req, res) {
-      const originalHero = { id: req.body.id, name: req.body.name, saying: req.body.saying };
-      const hero = new Hero(originalHero);
-      hero.save(error => {
-        if (checkServerError(res, error)) return;
-        res.status(201).json(hero);
-        console.log('Hero created successfully!');
-      });
-    }
+   ```javascript
+   function postHero(req, res) {
+     const originalHero = { id: req.body.id, name: req.body.name, saying: req.body.saying };
+     const hero = new Hero(originalHero);
+     hero.save(error => {
+       if (checkServerError(res, error)) return;
+       res.status(201).json(hero);
+       console.log('Hero created successfully!');
+     });
+   }
 
-    function checkServerError(res, error) {
-      if (error) {
-        res.status(500).send(error);
-        return error;
-      }
-    }
-    ```
+   function checkServerError(res, error) {
+     if (error) {
+       res.status(500).send(error);
+       return error;
+     }
+   }
+   ```
 
 3. In **hero.service.js**, update the `module.exports` to include the new `postHero` function. 
 
@@ -110,53 +110,52 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     ```
 
 2. Copy the following code into **hero.service.js** after the `checkServerError` function. This code:
+   * Creates the `put` and `delete` functions
+   * Performs a check on whether the hero was found
+   * Performs error handling 
 
-    * Creates the `put` and `delete` functions
-    * Performs a check on whether the hero was found
-    * Performs error handling 
+   ```javascript
+   function putHero(req, res) {
+     const originalHero = {
+       id: parseInt(req.params.id, 10),
+       name: req.body.name,
+       saying: req.body.saying
+     };
+     Hero.findOne({ id: originalHero.id }, (error, hero) => {
+       if (checkServerError(res, error)) return;
+       if (!checkFound(res, hero)) return;
 
-    ```javascript
-    function putHero(req, res) {
-      const originalHero = {
-        id: parseInt(req.params.id, 10),
-        name: req.body.name,
-        saying: req.body.saying
-      };
-      Hero.findOne({ id: originalHero.id }, (error, hero) => {
-        if (checkServerError(res, error)) return;
-        if (!checkFound(res, hero)) return;
+      hero.name = originalHero.name;
+       hero.saying = originalHero.saying;
+       hero.save(error => {
+         if (checkServerError(res, error)) return;
+         res.status(200).json(hero);
+         console.log('Hero updated successfully!');
+       });
+     });
+   }
 
-       hero.name = originalHero.name;
-        hero.saying = originalHero.saying;
-        hero.save(error => {
-          if (checkServerError(res, error)) return;
-          res.status(200).json(hero);
-          console.log('Hero updated successfully!');
-        });
-      });
-    }
+   function deleteHero(req, res) {
+     const id = parseInt(req.params.id, 10);
+     Hero.findOneAndRemove({ id: id })
+       .then(hero => {
+         if (!checkFound(res, hero)) return;
+         res.status(200).json(hero);
+         console.log('Hero deleted successfully!');
+       })
+       .catch(error => {
+         if (checkServerError(res, error)) return;
+       });
+   }
 
-    function deleteHero(req, res) {
-      const id = parseInt(req.params.id, 10);
-      Hero.findOneAndRemove({ id: id })
-        .then(hero => {
-          if (!checkFound(res, hero)) return;
-          res.status(200).json(hero);
-          console.log('Hero deleted successfully!');
-        })
-        .catch(error => {
-          if (checkServerError(res, error)) return;
-        });
-    }
-
-    function checkFound(res, hero) {
-      if (!hero) {
-        res.status(404).send('Hero not found.');
-        return;
-      }
-      return hero;
-    }
-    ```
+   function checkFound(res, hero) {
+     if (!hero) {
+       res.status(404).send('Hero not found.');
+       return;
+     }
+     return hero;
+   }
+   ```
 
 3. In **hero.service.js**, export the new modules:
 
@@ -187,7 +186,10 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Next steps
 
-In this part of the tutorial, you've learned how to add (Post), update (Put), and delete heroes from the app. 
+In this part of the tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Added Post, Put, and Delete functions to the app 
 
 The final installment of this multi-part tutorial, which involves globally replicating your data, is coming soon. Check back for updates. 
 

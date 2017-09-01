@@ -1,6 +1,6 @@
 ---
-title: "MongoDB, AngularJS, and Node.js tutorial for Azure | Microsoft Docs"
-description: Learn how to create a MongoDB app with AngularJS and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB with this video based tutorial series.
+title: "MongoDB, Angular, and Node tutorial for Azure | Microsoft Docs"
+description: Learn how to create a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB with this video based tutorial series.
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -39,7 +39,12 @@ This multi-part tutorial covers the following tasks:
 
 ## Next steps
 
-In this part of the tutorial, you've seen an overview of the steps you follow to create a MEAN.js app with Azure Cosmos DB. 
+In this part of the tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Seen an overview of the steps to create a MEAN.js app with Azure Cosmos DB. 
+
+You can proceed to the next part of the tutorial to create the Node.js Express app.
 
 > [!div class="nextstepaction"]
 > [Create a Node.js Express app with the Angular CLI](tutorial-develop-mongodb-nodejs-part2.md)
