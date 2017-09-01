@@ -29,6 +29,7 @@ ms.author: eslesar
 This tutorial walks you through the creation of a [Python runbook](automation-runbook-types.md#python-runbooks) in Azure Automation. We start with a simple runbook that we test and publish while we explain how to track the status of the runbook job. Then we modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Lastly, we make the runbook more robust by adding runbook parameters.
 
 ## Prerequisites
+
 To complete this tutorial, you need the following:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
@@ -96,6 +97,11 @@ In our case, we don't have a published version yet because we just created the r
 
 We've tested and published our runbook, but so far it doesn't do anything useful. We want to have it manage Azure resources.
 To manage Azure resources, the script has to authenticate using the credentials from your [Automation account](automation-offering-get-started.md).
+
+> [!NOTE]
+> The Automation account must have been created with the service principal feature for there to be a runas certificate.
+> If your automation account was not created with the service principal, you can authenticate by using the method described at
+> [Authenticate with the Azure Management Libraries for Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate).
 
 1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-Python pane.
 1. Add the following code to authenticate to Azure by using the :
@@ -167,7 +173,7 @@ Test and run the runbook again to see that it starts the VM.
 The runbook currently uses hard-coded values for the names of the Resource Group and the VM.
 Now let's add code that gets these values from input parameters.
 
-We use the `Sys.argv` variable to get the parameter values.
+We use the `sys.argv` variable to get the parameter values.
 Add the following code to the runbook immediately after the other `import` statements:
 
 ```python
@@ -210,3 +216,4 @@ Click **OK** to start the runbook. The runbook runs and starts the VM that you s
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 * To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
+* To learn about developing for Azure with Python, see [Azure for Python developers](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
