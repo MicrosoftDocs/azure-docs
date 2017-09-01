@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 
 ---
@@ -29,6 +29,11 @@ available, download version 2. That's the most current file format.
 
 Usage charges are the total **monthly** charges on a subscription. The
 usage charges don’t take into account any credits or discounts.
+
+
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## Detailed terms and descriptions of your detailed usage file
 The following sections describe the important terms shown in version 2
