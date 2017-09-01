@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 07/05/2017
 ms.author: thmullan;jackr
 
 ---
@@ -25,7 +25,7 @@ This article walks through the basics of securing the data tier of an applicatio
 For a complete overview of security features available on all flavors of SQL, see the [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589). Additional information is also available in the [Security and Azure SQL Database technical white paper](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## Protect data
-SQL Database secures you data by providing encryption for data in motion using [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest using [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), and for data in use using [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+SQL Database secures you data by providing encryption for data in motion using [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest using [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), and for data in use using [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure Classic Portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. 
@@ -39,7 +39,7 @@ For other ways to encrypt your data, consider:
 SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking. For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal](../active-directory/role-based-access-control-configure.md).
+> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal](../active-directory/role-based-access-control-what-is.md).
 >
 
 ### Firewall and firewall rules

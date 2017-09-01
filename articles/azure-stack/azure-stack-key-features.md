@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2017
+ms.date: 7/10/2017
 ms.author: helaw
 
 ---
@@ -21,17 +21,15 @@ ms.author: helaw
 If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
 
 ## Personas
-There are two varieties of users for Microsoft Azure Stack, the cloud administrator (provider) and the tenant (consumer).
+There are two varieties of users for Microsoft Azure Stack, the cloud operator (provider) and the tenant (consumer).
 
-* A **cloud administrator** can configure Azure Stack and manage offers, plans, services, quotas, and pricing to provide resources for their tenants.  Cloud administrators also manage capacity and respond to alerts.  
+* A **cloud operator** can configure Azure Stack and manage offers, plans, services, quotas, and pricing to provide resources for their tenants.  Cloud operators also manage capacity and respond to alerts.  
 * A **tenant** (also referred to as a user) consumes services that the cloud administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
 
 ## Portal
 The primary methods of interacting with Microsoft Azure Stack are the administrator portal, user portal, and PowerShell.
 
-![](media/azure-stack-key-features/image3.png)
-
-The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud administrator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
+The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud operator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
 
 ## Identity 
 Azure Stack uses either Azure Active Directory (AAD) or Active Directory Federation Services (AD FS) as an identity provider.  
@@ -40,9 +38,9 @@ Azure Stack uses either Azure Active Directory (AAD) or Active Directory Federat
 Azure Active Directory is Microsoft's cloud-based, multi-tenant identity provider.  Most hybrid scenarios use Azure Active Directory as the identity store.
 
 ### Active Directory Federation Services
-You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Technical Preview 3 supports the following AD FS scenarios:
+You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Development Kit supports the following AD FS scenarios:
 
-- Sign in to the POC deployment by using AD FS.
+- Sign in to the deployment by using AD FS.
 - Create a virtual machine with secrets in Key Vault
 - Create a vault for storing/accessing secrets
 - Create custom RBAC roles in subscription
@@ -60,7 +58,7 @@ In Azure Stack, services are delivered to tenants using regions, subscriptions, 
 Example hierarchy of a tenant’s subscriptions to offers, each with varying plans and services.
 
 ### Regions
-Azure Stack regions are a basic element of scale and management. An organization may have multiple regions with resources available in each region. Regions may also have different service offerings available. In Azure Stack TP3, only a single region is supported, and is automatically named *local*.
+Azure Stack regions are a basic element of scale and management. An organization may have multiple regions with resources available in each region. Regions may also have different service offerings available. In Azure Stack Development Kit, only a single region is supported, and is automatically named *local*.
 
 ### Services
 Microsoft Azure Stack enables providers to deliver a wide variety of services and applications, such as virtual machines, SQL Server databases, SharePoint, Exchange, and more.
@@ -107,7 +105,7 @@ The Compute Resource Provider (CRP) allows Azure Stack tenants to create their o
 The Network Resource Provider (NRP) delivers a series of Software Defined Networking (SDN) and Network Function Virtualization (NFV) features for the private cloud.  You can use the NRP to create resources like software load balancers, public IPs, network security groups, virtual networks.
 
 ### Storage RP
-The Storage RP delivers four Azure-consistent storage services: blob, table, queue, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+The Storage RP delivers four Azure-consistent storage services: blob, table, queue, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 #### Blob storage
 Blob storage stores any data set. A blob can be any type of text or binary data, such as a document, media file, or application installer. Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data. Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
@@ -131,8 +129,8 @@ Azure RBAC has three basic roles that apply to all resource types: Owner, Contri
 ## Usage data
 Microsoft Azure Stack collects and aggregates usage data across all resource providers, and transmits it to Azure for processing by Azure commerce. The usage data collected on Azure Stack can be viewed via a REST API. There is an Azure-consistent Tenant API as well as Provider and Delegated Provider APIs to get usage data across all tenant subscriptions. This data can be used to integrate with an external tool or service for billing or chargeback. Once usage has been processed by Azure commerce, it can be viewed in the Azure billing portal.
 
-## In-development build of Azure Stack POC
-In-development builds let early-adopters evaluate the most recent version of the Azure Stack POC. They’re incremental builds based on the most recent major release. While major versions will continue to be released every few months, the in-development builds will release intermittently between the major releases.
+## In-development build of Azure Stack Development Kit
+In-development builds let early-adopters evaluate the most recent version of the Azure Stack Development Kit. They’re incremental builds based on the most recent major release. While major versions will continue to be released every few months, the in-development builds will release intermittently between the major releases.
 
 In-development builds will provide the following benefits:
 - Bug fixes
@@ -140,5 +138,5 @@ In-development builds will provide the following benefits:
 - Other improvements
 
 ## Next steps
-[Deploy Azure Stack Technical Preview 3 (POC)](azure-stack-deploy.md)
+[Deploy Azure Stack Development Kit](azure-stack-deploy.md)
 

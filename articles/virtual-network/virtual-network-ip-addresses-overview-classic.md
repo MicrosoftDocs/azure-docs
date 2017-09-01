@@ -29,7 +29,7 @@ Private IP addresses are used for communication within an Azure virtual network 
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use Resource Manager. Learn about IP addresses in Resource Manager by reading the [IP addresses](virtual-network-ip-addresses-overview-arm.md) article.
 
 ## Public IP addresses
-Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
+Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/common/storage-introduction.md).
 
 A public IP address is associated with the following resource types:
 
@@ -174,5 +174,5 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 |  |***Internal load balancer (ILB)*** |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) | |
 
 ## Next steps
-* [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the classic portal.
+* [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the Azure portal.
 

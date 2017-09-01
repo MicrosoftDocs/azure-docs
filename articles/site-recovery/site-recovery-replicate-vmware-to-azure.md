@@ -28,7 +28,7 @@ This article describes how to set up replication of virtual machines running on 
 
 The article assumes that you have already
 
-1.  [Setup on-premise source environment](site-recovery-set-up-vmware-to-azure.md)
+1.  [Setup on-premises source environment](site-recovery-set-up-vmware-to-azure.md)
 2.  [Setup target environment in Azure](site-recovery-prepare-target-vmware-to-azure.md)
 
 
@@ -58,7 +58,7 @@ When replicating VMware virtual machines, note that:
 7. Select the Azure storage account you want to use for replicating data. Note that:
 
    * You can select a premium or standard storage account. If you select a premium account, you'll need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
-   * If you want to use a different storage account than those you have, you can create one*PLaceholder LInk for creating storage account using resource manager which will be covered in getting started*. To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model, you do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
+   * If you want to use a different storage account than those you have, you can create one*PLaceholder LInk for creating storage account using resource manager which will be covered in getting started*. To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model, you do that [in the Azure portal](../storage/common/storage-create-storage-account.md).
 
 8. Select the Azure network and subnet to which Azure VMs will connect, when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network using Resource Manager, click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
 

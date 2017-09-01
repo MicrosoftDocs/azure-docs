@@ -6,7 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 
 ---
 # Password writeback overview
 
-Password writeback allows you to configure Azure AD to write passwords back to you on-premises Active Directory. It removes the need to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory Editions](active-directory-editions.md).
+Password writeback allows you to configure Azure AD to write passwords back to your on-premises Active Directory. It removes the need to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory Editions](active-directory-editions.md).
 
-Password writeback provides the following features
+Password writeback provides the following features:
 
 * **Zero delay feedback** - Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet policy or was not able to be reset or changed for any reason.
 * **Supports resetting passwords for users using AD FS or other federation technologies** - With password writeback, as long as the federated user accounts are synchronized into your Azure AD tenant, they are able to manage their on-premises AD passwords from the cloud.

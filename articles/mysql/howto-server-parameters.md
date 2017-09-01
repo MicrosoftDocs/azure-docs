@@ -25,6 +25,7 @@ Log in to the Azure portal, then click your Azure Database for MySQL server name
 
 The following table lists the currently supported server parameters. The parameters can be configured according to your application requirements.
 
+> [!div class="mx-tableFixed"]
 |Parameter Name|Default Value|Range|Description|
 |---|---|---|---|
 |binlog_group_commit_sync_delay|1000|0, 11-1000000|Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.|

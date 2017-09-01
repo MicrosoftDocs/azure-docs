@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/26/2017
+ms.date: 07/24/2017
 ms.author: steveesp
 
 ---
@@ -24,7 +24,7 @@ Azure virtual machines (VM) have default network settings that can be further op
 
 ## Windows VM
 
-A VM using Receive Side Scaling (RSS) can reach higher maximal throughput than a VM without RSS. RSS may be disabled by default in a Windows VM. Complete the following steps to determine whether RSS is enabled and to enable it if it's disabled.
+If your Windows VM is supported with [Accelerated Networking](virtual-network-create-vm-accelerated-networking.md), enabling that feature would be the optimal configuration for throughput. For all other Windows VMs, using Receive Side Scaling (RSS) can reach higher maximal throughput than a VM without RSS. RSS may be disabled by default in a Windows VM. Complete the following steps to determine whether RSS is enabled and to enable it if it's disabled.
 
 1. Enter the `Get-NetAdapterRss` PowerShell command to see if RSS is enabled for a network adapter. In the following example output returned from the `Get-NetAdapterRss`, RSS is not enabled.
 
@@ -53,7 +53,7 @@ RSS is always enabled by default in an Azure Linux VM. Linux kernels released si
 
 ### Ubuntu
 
-In order to get the optimization, first update to the latest supported version, as of January 2017, which is:
+In order to get the optimization, first update to the latest supported version, as of June 2017, which is:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -73,10 +73,28 @@ apt-get -y upgrade
 Optional command:
 
 `apt-get -y dist-upgrade`
+#### Ubuntu Azure Preview kernel
+> [!WARNING]
+> This Azure Linux Preview kernel may not have the same level of availability and reliability as Marketplace images and kernels that are in general
+> availability release. The feature is not supported, may have constrained capabilities, and may not be as reliable as the default kernel. Do not use this kernel for production workloads.
+
+Significant throughput performance can be achieved by installing the proposed Azure Linux kernel. To try this kernel, add this line to /etc/apt/sources.list
+
+```bash
+#add this to the end of /etc/apt/sources.list (requires elevation)
+deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+```
+
+Then run these commands as root.
+```bash
+apt-get update
+apt-get install "linux-azure"
+reboot
+```
 
 ### CentOS
 
-In order to get the optimization, first update to the latest supported version, as of May 2017, which is:
+In order to get the optimization, first update to the latest supported version, as of July 2017, which is:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -84,7 +102,7 @@ In order to get the optimization, first update to the latest supported version, 
 "Version": "latest"
 ```
 After the update is complete, install the latest Linux Integration Services (LIS).
-The throughput optimization is in LIS, starting from 4.2. Enter the following
+The throughput optimization is in LIS, starting from 4.2.2-2. Enter the following
 commands to install LIS:
 
 ```bash
@@ -95,26 +113,26 @@ sudo yum install microsoft-hyper-v
 
 ### Red Hat
 
-In order to get the optimization, first update to the latest supported version, as of January 2017, which is:
+In order to get the optimization, first update to the latest supported version, as of July 2017, which is:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7.3"
-"Version": "7.3.20161104"
+"Version": "7.3.2017071923"
 ```
 After the update is complete, install the latest Linux Integration Services (LIS).
-The throughput optimization is in LIS, starting from 4.1.3. Enter the following commands to download and install LIS:
+The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
 
 ```bash
-mkdir lis4.1.3
-cd lis4.1.3
-wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
-tar xvzf lis-rpms-4.1.3.tar.gz
+mkdir lis4.2.2-2
+cd lis4.2.2-2
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+tar xvzf lis-rpms-4.2.2-2.tar.gz
 cd LISISO
-install.sh #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if prior LIS was previously installed
 ```
 
-Learn more about Linux Integration Services Version 4.1 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=51612).
+Learn more about Linux Integration Services Version 4.2 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## Next steps
 * Now that the VM is optimized, see the result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.

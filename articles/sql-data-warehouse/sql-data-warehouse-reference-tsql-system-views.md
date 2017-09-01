@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 06/01/2017
+ms.date: 07/12/2017
 ms.author: kevin;barbkess
 
 ---
@@ -34,6 +34,7 @@ ms.author: kevin;barbkess
 * [sys.pdw_nodes_partitions](http://msdn.microsoft.com/library/mt203908.aspx)
 * [sys.pdw_nodes_pdw_physical_databases](http://msdn.microsoft.com/library/mt203897.aspx)
 * [sys.pdw_nodes_tables](http://msdn.microsoft.com/library/mt203886.aspx)
+* [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 

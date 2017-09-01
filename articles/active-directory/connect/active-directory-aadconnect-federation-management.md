@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/4/2016
-ms.author: anandy
+ms.date: 07/18/2017
+ms.author: billmath
 
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
@@ -172,6 +172,9 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 5. Click **Next**. The **Ready to configure** page shows the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 
    ![Ready to configure](media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
+
+> [!NOTE]
+> Users from the added federated domain must be synchronized before they will be able to login to Azure AD.
 
 ## AD FS customization
 The following sections provide details about some of the common tasks that you might have to perform when you customize your AD FS sign-in page.

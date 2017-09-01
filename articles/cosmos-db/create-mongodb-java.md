@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig

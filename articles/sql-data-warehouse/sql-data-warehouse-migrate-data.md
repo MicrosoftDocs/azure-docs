@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 10/31/2016
+ms.date: 06/29/2017
 ms.author: joeyong;barbkess
 
 ---
@@ -182,7 +182,7 @@ For more development tips, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: ../storage/storage-use-azcopy.md
+[AZCopy]:../storage/common/storage-use-azcopy.md
 [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md 
 [ADF samples]: ../data-factory/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md

@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 07/18/2017
 ms.author: adegeo
 
 ---
@@ -106,4 +106,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## Additional resources
 
 [How to Configure Cloud Services](cloud-services-how-to-configure.md)
-[Cloud services FAQ - Remote Desktop](cloud-services-faq.md#remote-desktop)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md)

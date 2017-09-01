@@ -1,5 +1,5 @@
 1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
-2. In the left menu, click **New**, click **Databases**, and then click **Azure Cosmos DB**.
+2. In the left menu, click **New**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
    
    ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -9,7 +9,7 @@
        
     In this quick start we'll be programming against the MongoDB API so you'll choose **MongoDB** as you fill out the form. But if you have graph data for a social media app, document data from a catalog app, or key/value (table) data, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
 
-    Fill out the New account blade using the information in the screenshot as a guide . You will choose unique values as you set up your account so your values will not match the screenshot exactly
+    Fill out the **New account** blade using the information in the table as a guide.
  
     ![Screen shot of the New Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
    

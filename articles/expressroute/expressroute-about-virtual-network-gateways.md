@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
 
 ---
@@ -23,7 +23,7 @@ A virtual network gateway is used to send network traffic between Azure virtual 
 
 When you create a virtual network gateway, you specify several settings. One of the required settings specifies whether the gateway will be used for ExpressRoute or Site-to-Site VPN traffic. In the Resource Manager deployment model, the setting is '-GatewayType'.
 
-When network traffic is sent on a dedicated private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway. When network traffic is sent encrypted across the public Internet, you use the gateway type 'Vpn'. This is referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway. 
+When network traffic is sent on a private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway. When network traffic is sent encrypted across the public Internet, you use the gateway type 'Vpn'. This is referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway.
 
 Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType Vpn, and one that uses -GatewayType ExpressRoute. This article focuses on the ExpressRoute virtual network gateway.
 

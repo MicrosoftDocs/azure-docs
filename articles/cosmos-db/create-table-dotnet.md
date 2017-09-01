@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/21/2017
+ms.date: 06/22/2017
 ms.author: arramac
 
 ---
@@ -98,26 +98,18 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app.
+Now we'll update the connection string information so your app can talk to Azure Cosmos DB. 
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**. You'll use the copy buttons on the right side of the screen to copy the **ACCOUNT NAME**, **ENDPOINT** and **ACCOUNT KEY** into the app.config file in the next step.
+1. In Visual Studio, open the app.config file. 
+
+2. In the [Azure portal](http://portal.azure.com/), in the Azure Cosmos DB left navigation menu, click **Connection String**. Then in the new pane click the copy button for the connection string. 
 
     ![View and copy the Endpoint and Account Key in the Connection String pane](./media/create-table-dotnet/keys.png)
 
-2. In Visual Studio, open the app.config file. 
-
-3. Copy your **ACCOUNT NAME** from the portal and make it the value of the AccountName in the PremiumStorageConnection string value in app.config. 
+3. Paste the value into the app.config file as the value of the PremiumStorageConnectionString. 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
-
-4. Then copy your **ACCOUNT KEY** value from the portal and make it the value of the AccountKey in PremiumStorageConnectionString. 
-
-    `AccountKey=AUTHKEY`
-
-5. Finally, copy your **ENDPOINT** from the portal and make it the value of the TableEndpoint of the PremiumStorageConnectionString.
-
-    `TableEndpoint=https://COSMOSDB.documents.azure.com`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`    
 
     You can leave the StandardStorageConnectionString as is.
 

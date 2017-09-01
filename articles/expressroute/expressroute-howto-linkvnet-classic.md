@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Link a virtual network to an ExpressRoute circuit: PowerShell: classic: Azure | Microsoft Docs'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the classic deployment model and PowerShell.
 services: expressroute
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 06/28/2017
 ms.author: ganesr
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Classic - PowerShell](expressroute-howto-linkvnet-classic.md)
-> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> 
-> 
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
+> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
+>
 
 This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the classic deployment model and PowerShell. Virtual networks can either be in the same subscription or can be part of another subscription.
 
@@ -155,6 +155,10 @@ The circuit user can run the following cmdlet to redeem a link authorization:
     State VnetName
     ----- --------
     Provisioned SalesVNET1
+
+Run this command in the newly linked subscription for the virtual network:
+
+    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

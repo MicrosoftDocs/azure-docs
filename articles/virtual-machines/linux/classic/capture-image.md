@@ -53,9 +53,13 @@ These steps assume that you've already created an Azure VM using the Classic dep
 4. Type **Exit** to close the SSH client.
 
    > [!NOTE]
-   > The remaining steps assume you have already [installed the Azure CLI](../../../cli-install-nodejs.md) on your client computer. All the following steps can also be done in the [Azure classic portal][Azure classic portal].
+   > The remaining steps assume you have already [installed the Azure CLI](../../../cli-install-nodejs.md) on your client computer. All the following steps can also be done in the [Azure portal](http://portal.azure.com).
 
 5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](../../../xplat-cli-connect.md).
+
+   > [!NOTE]
+   > In the Azure portal, log in to the portal.
+
 6. Make sure you are in Service Management mode:
 
     ```azurecli
@@ -67,9 +71,11 @@ These steps assume that you've already created an Azure VM using the Classic dep
     ```azurecli
     azure vm shutdown myVM
     ```
+   If needed, you can view a list all the VMs created in your subscription by using `azure vm list`
 
    > [!NOTE]
-   > You can view a list all the VMs created in your subscription by using `azure vm list`
+   > If you're using the Azure portal, select the VM and click **Stop** to
+   > shut down the VM.
 
 8. When the VM is stopped, capture the image. The following example captures the VM named `myVM` and creates a generalized image named `myNewVM`:
 
@@ -78,6 +84,9 @@ These steps assume that you've already created an Azure VM using the Classic dep
     ```
 
     The `-t` subcommand deletes the original virtual machine.
+
+    > [!NOTE]
+    > In the Azure portal, you can capture an image by selecting **Image** from the hub menu. You need to supply the following information for the image: name, resource group, location, operating system type, and storage blob path.
 
 9. The new image is now available in the list of images that can be used to configure any new VM. You can view it with the command:
 
@@ -92,11 +101,10 @@ These steps assume that you've already created an Azure VM using the Classic dep
 ## Next steps
 The image is ready to be used to create VMs. You can use the Azure CLI command `azure vm create` and supply the image name you created. For more information, see [Using the Azure CLI with Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-Alternatively, use the [Azure classic portal][Azure classic portal] to create a custom VM by using the **From Gallery** method and selecting the image you created. For more information, see [How to Create a Custom VM][How to Create a Custom Virtual Machine].
+Alternatively, use the [Azure portal](http://portal.azure.com) to create a custom VM by using the **Image** method and selecting the image you created. For more information, see [How to Create a Custom VM][How to Create a Custom Virtual Machine].
 
 **See also:** [Azure Linux Agent User Guide](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
+ms.date: 08/02/2017
 ms.author: billmath
 
 ---
@@ -122,10 +122,10 @@ The Matching across forests feature allows you to define how users from your AD 
 | Setting | Description |
 | --- | --- |
 | [Users are only represented once across all forests](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |All users are created as individual objects in Azure AD. The objects are not joined in the metaverse. |
-| [Mail attribute](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |This option joins users and contacts if the mail attribute has the same value in different forests. Use this option when your contacts have been created using GALSync. |
+| [Mail attribute](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |This option joins users and contacts if the mail attribute has the same value in different forests. Use this option when your contacts have been created using GALSync. If this option is chosen, User objects whose Mail attribute aren't populated will not be synchronized to Azure AD. |
 | [ObjectSID and msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |This option joins an enabled user in an account forest with a disabled user in a resource forest. In Exchange, this configuration is known as a linked mailbox. This option can also be used if you only use Lync and Exchange is not present in the resource forest. |
 | sAMAccountName and MailNickName |This option joins on attributes where it is expected the sign-in ID for the user can be found. |
-| A specific attribute |This option allows you to select your own attribute. **Limitation:** Make sure to pick an attribute that already can be found in the metaverse. If you pick a custom attribute (not in the metaverse), the wizard cannot complete. |
+| A specific attribute |This option allows you to select your own attribute. If this option is chosen, User objects whose (selected) attribute aren't populated will not be synchronized to Azure AD. **Limitation:** Make sure to pick an attribute that already can be found in the metaverse. If you pick a custom attribute (not in the metaverse), the wizard cannot complete. |
 
 #### Select how users should be identified with Azure AD - Source Anchor
 The attribute sourceAnchor is an attribute that is immutable during the lifetime of a user object. It is the primary key linking the on-premises user with the user in Azure AD.
@@ -275,6 +275,9 @@ The AD FS service requires a domain service account to authenticate users and lo
 
 If you selected Group Managed Service Account and this feature has never been used in Active Directory, you are prompted for Enterprise Admin credentials. These credentials are used to initiate the key store and enable the feature in Active Directory.
 
+> [!NOTE]
+> Azure AD Connect performs a check to detect if the AD FS service is already registered as a SPN in the domain.  AD DS will not allow duplicate SPN’s to be registered at once.  If a duplicate SPN is found, you will not be able to proceed further until the SPN is removed.
+
 ![AD FS Service Account](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
 ### Select the Azure AD domain that you wish to federate
@@ -313,6 +316,15 @@ For more information, see [Staging mode](active-directory-aadconnectsync-operati
 
 ### Verify your federation configuration
 Azure AD Connect verifies the DNS settings for you when you click the Verify button.
+
+**Intranet connectivity checks**
+
+* Resolve federation FQDN: Azure AD Connect checks if the  federation FQDN can be resolved by DNS to ensure connectivity. If Azure AD Connect cannot resolve the FQDN, the verification will fail. Ensure that a DNS record is present for the federation service FQDN in order to successfully complete the verification.
+* DNS A record: Azure AD Connect checks if there is an A record for your federation service. In the absence of an A record, the verification will fail. Create an A record and not CNAME record for your federation FQDN in order to successfully complete the verification.
+
+**Extranet connectivity checks**
+
+* Resolve federation FQDN: Azure AD Connect checks if the  federation FQDN can be resolved by DNS to ensure connectivity.
 
 ![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

@@ -27,7 +27,7 @@ ms.custom: H1Hack27Feb2017
 >
 >
 
-Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
+Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](../storage/common/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
 ![Batch solution workflow (basic)][11]<br/>
 
@@ -37,7 +37,7 @@ This article assumes that you have a working knowledge of Python and familiarity
 ### Accounts
 * **Azure account**: If you don't already have an Azure subscription, [create a free Azure account][azure_free_account].
 * **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](batch-account-create-portal.md).
-* **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* **Storage account**: See [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
 ### Code sample
 The Python tutorial [code sample][github_article_samples] is one of the many Batch code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download all the samples by clicking **Clone or download > Download ZIP** on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, the two scripts for this tutorial are found in the `article_samples` directory:
@@ -56,7 +56,7 @@ You must install the dependencies for the [cryptography][crypto] library, requir
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
 
-    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+    `yum update && yum install -y gcc openssl-devel libffi-devel python-devel`
 * SLES/OpenSUSE
 
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 ![Create containers in Azure Storage][1]
 <br/>
 
-Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
+Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage):
 
 * **application**: This container will store the Python script run by the tasks, *python_tutorial_task.py*.
 * **input**: Tasks will download the data files to process from the *input* container.
@@ -178,7 +178,7 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 Once the containers have been created, the application can now upload the files that will be used by the tasks.
 
 > [!TIP]
-> [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
+> [How to use Azure Blob storage from Python](../storage/blobs/storage-python-how-to-use-blob-storage.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
 >
 >
 
@@ -272,7 +272,7 @@ Shared access signatures are strings that provide secure access to containers an
 * **Container shared access signature**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, *python_tutorial_task.py* uses a container shared access signature that provides write access to the container. The `get_container_sas_token` function in *python_tutorial_client.py* obtains the container's shared access signature, which is then passed as a command-line argument to the tasks. Step #5, [Add tasks to a job](#step-5-add-tasks-to-job), discusses the usage of the container SAS.
 
 > [!TIP]
-> Check out the two-part series on shared access signatures, [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
+> Check out the two-part series on shared access signatures, [Part 1: Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a SAS with the Blob service](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 >
 >
 

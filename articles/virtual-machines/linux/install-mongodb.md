@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/14/2017
+ms.date: 06/23/2017
 ms.author: iainfou
 
 ---
@@ -34,7 +34,7 @@ Create a resource group with [az group create](/cli/azure/group#create). The fol
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVM* with a user named *azureuser* using SSH public key authentication, and a public DNS entry of *mypublicdns*:
+Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVM* with a user named *azureuser* using SSH public key authentication
 
 ```azurecli
 az vm create \
@@ -42,20 +42,13 @@ az vm create \
     --name myVM \
     --image CentOS \
     --admin-username azureuser \
-    --generate-ssh-keys \
-    --public-ip-address-dns-name mypublicdns
+    --generate-ssh-keys
 ```
 
-Log on to the VM using the public DNS address of your VM. You can view the public DNS address with [az vm show](/cli/azure/vm#show):
-
-```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
-```
-
-SSH to your VM using your own username and public DNS address:
+SSH to the VM using your own username and the `publicIpAddress` listed in the output from the previous step:
 
 ```bash
-ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+ssh azureuser@<publicIpAddress>
 ```
 
 To add the installation sources for MongoDB, create a **yum** repository file as follows:
@@ -223,6 +216,8 @@ az group deployment show \
 
 ## Next steps
 In these examples, you connect to the MongoDB instance locally from the VM. If you want to connect to the MongoDB instance from another VM or network, ensure the appropriate [Network Security Group rules are created](nsg-quickstart.md).
+
+These examples deploy the core MongoDB environment for development purposes. Apply the required security configuration options for your environment. For more information, see the [MongoDB security docs](https://docs.mongodb.com/manual/security/).
 
 For more information about creating using templates, see the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 

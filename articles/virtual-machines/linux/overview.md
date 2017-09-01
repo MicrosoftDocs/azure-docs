@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
@@ -34,7 +34,7 @@ We announced an industry leading single instance virtual machine Service Level A
 
 Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../../storage/storage-managed-disks-overview.md).
+You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../windows/managed-disks-overview.md).
 
 ## Azure Virtual Machines & Instances
 Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You will find distributions such as Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD, and more in the Azure Marketplace. We actively work with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) list.
@@ -55,7 +55,7 @@ Here are some basic guidelines for selecting a VM size from one of our series (A
 
 Note: DS-series and GS-series VMs have access to Premium Storage - our SSD backed high-performance, low-latency storage for I/O intensive workloads. Premium Storage is available in certain regions. For details, see:
 
-* [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/storage-premium-storage.md)
+* [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/common/storage-premium-storage.md)
 
 ## Automation
 To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
@@ -95,7 +95,7 @@ To begin using Azure you need an Azure account, the Azure CLI installed, and a p
 The first step in using the Azure Cloud is to sign up for an Azure account.  Go to the [Azure Account Signup](https://azure.microsoft.com/pricing/free-trial/) page to get started.
 
 ### Install the CLI
-With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](/cli/azure/install)on your Mac or Linux workstation.
+With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](/cli/azure/install-azure-cli) on your Mac or Linux workstation.
 
 ### Create an SSH key pair
 Now you have an Azure account, the Azure web portal, and the Azure CLI.  The next step is to create an SSH key pair that is used to SSH into Linux without using a password.  [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to enable password-less logins and better security.
@@ -113,11 +113,9 @@ Creating a Linux VM in the Azure web portal is a way to easily point and click t
 ### Login using SSH without a password
 The VM is now running on Azure and you are ready to log in.  Using passwords to log in via SSH is insecure and time consuming.  Using SSH keys is the most secure way and also the quickest way to login.  When you create you Linux VM via the portal or the CLI, you have two authentication choices.  If you choose a password for SSH, Azure configures the VM to allow logins via passwords.  If you chose to use an SSH public key, Azure configures the VM to only allow logins via SSH keys and disables password logins. To secure your Linux VM by only allowing SSH key logins, use the SSH public key option during the VM creation in the portal or CLI.
 
-* [Disable SSH passwords on your Linux VM by configuring SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## Related Azure components
 ## Storage
-* [Introduction to Microsoft Azure Storage](../../storage/storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -130,7 +128,7 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 ## Containers
 * [Virtual Machines and Containers in Azure](containers.md)
 * [Azure Container Service introduction](../../container-service/container-service-intro.md)
-* [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
+* [Deploy an Azure Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## Next steps
 You now have an overview of Linux on Azure.  The next step is to dive in and create a few VMs!

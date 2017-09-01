@@ -3,8 +3,8 @@ title: Manage Azure Data Lake Analytics using Azure Java SDK | Microsoft Docs
 description: Use Azure Data Lake Analytics Java SDK to develop applications
 services: data-lake-analytics
 documentationcenter: ''
-author: saveenr
-manager: saveenr
+author: matt1883
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
@@ -22,7 +22,7 @@ ms.author: saveenr
 In this tutorial, you develop a Java console application that performs common operations for Azure Data Lake.
 
 ## Prerequisites
-* **Java Development Kit (JDK) 8**** (using Java version 1.8).
+* **Java Development Kit (JDK) 8** (using Java version 1.8).
 * **IntelliJ** or another suitable Java development environment. The instructions in this document use IntelliJ.
 * Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). The Reply URI and Key is available from the portal once you have the application created and key generated.
 

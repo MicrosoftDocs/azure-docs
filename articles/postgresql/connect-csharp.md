@@ -1,16 +1,16 @@
 ---
 title: 'Connect to Azure Database for PostgreSQL from C# | Microsoft Docs'
-description: This quickstart provides a C# (.Net) code sample you can use to connect and query data from Azure Database for PostgreSQL.
+description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: csharp
-ms.topic: article
-ms.date: 05/31/2017
+ms.topic: quickstart
+ms.date: 06/23/2017
 ---
 
 # Azure Database for PostgreSQL: Use .NET (C#) to connect and query data
@@ -22,45 +22,12 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
 
 You also need to:
-- Install [.Net Framework](https://www.microsoft.com/net/download)
-- Install [Visual Studio](https://www.visualstudio.com/downloads/)
-- Install [Npgsql](http://www.npgsql.org/doc/index.html) 
-
-## Install Visual Studio and .NET
-The steps in this section assume that you are familiar with developing using .NET.
-
-### **Windows .NET framework and .NET core**
-Visual Studio 2017 Community is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
-
-1. Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-2. Run the installer and follow the installation prompts to complete the installation.
-
-### **Mac OS**
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?linkid=843444). This installer installs the tools and put them on your PATH so you can run dotnet from the Console
-
-### **Linux (Ubuntu)**
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
+- Install [.NET Framework](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
+- Install [Visual Studio](https://www.visualstudio.com/downloads/) or Visual Studio Code to type and edit code.
+- Install [Npgsql](http://www.npgsql.org/doc/index.html) library as described below.
 
 ## Install Npgsql references into your Visual Studio solution
-To connect from the C# application to PostgreSQL, use the open source ADO.Net library called Npgsql. NuGet helps download and manage the references easily.
+To connect from the C# application to PostgreSQL, use the open source ADO.NET library called Npgsql. NuGet helps download and manage the references easily.
 
 1. Create a new C# solution, or open an existing one: 
    - Within Visual Studio, create a solution, by clicking File menu **New** > **Project**.
@@ -113,7 +80,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSL Mode=Prefer; Trust Server Certificate=true",
                     Host,
                     User,
                     DBname,

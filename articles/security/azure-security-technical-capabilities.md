@@ -414,7 +414,7 @@ With OMS, you can manage any instance in any cloud, including on-premises, Azure
 
 ![Log analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
-This method allows you to consolidate data from a variety of sources, so you can combine data from your Azure services with your existing on-premise environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
+This method allows you to consolidate data from a variety of sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
 ### Azure security center
 

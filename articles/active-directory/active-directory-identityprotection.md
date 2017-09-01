@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 08/15/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection
@@ -77,7 +78,7 @@ To load balance the management activities around your Identity Protection implem
 | :--                          | ---                                |  ---   |
 | Global administrator         | Full access to Identity Protection, Onboard Identity Protection| |
 | Security administrator       | Full access to Identity Protection | Onboard Identity Protection,  reset passwords for a user |
-| Security reader              | Ready-only access to Identity Protection | Onboard Identity Protection, remidiate users, configiger policies,  reset passwords |
+| Security reader              | Ready-only access to Identity Protection | Onboard Identity Protection, remidiate users, configure policies,  reset passwords |
 
 
 
@@ -117,7 +118,8 @@ The following sections provide you with more details and the steps that are rela
 
 ## Risky sign-ins
 
-Aure Active Directory detects some [risk event types](active-directory-reporting-risk-events.md#risk-event-types) in real-time. All real-time risk events that have been detected during a sign-in of a user contribute to a logical concept called *risky sign-in*. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account. The lifecycle of a risky sign-in ends when a user signs out.
+Azure Active Directory detects [risk event types](active-directory-reporting-risk-events.md#risk-event-types) in real-time and offline. Each risk event that has been detected for a sign-in of a user contributes to a logical concept called risky sign-in. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account.
+
 
 ### Sign-in risk level
 
@@ -207,7 +209,7 @@ For an overview of the related user experience, see:
 
 ## Users flagged for risk
 
-All [risk events](active-directory-identity-protection-risk-events.md) that were detected by Azure Active Directory for a user contribute to a logical concept called *users flagged for risk*. A *user flag for risk* or *risky user* is an indicator for a user account that might have been compromised.   
+All active [risk events](active-directory-identity-protection-risk-events.md) that were detected by Azure Active Directory for a user contribute to a logical concept called user risk. A user flagged for risk is an indicator for a user account that might have been compromised.
 
 ![Users flagged for risk](./media/active-directory-identityprotection/1200.png)
 

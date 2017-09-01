@@ -76,7 +76,7 @@ Open a node.js command prompt, and run the bot: `node app.js`.
 ## Next steps
 
 * Try to improve your LUIS app's performance by continuing to [add](Add-example-utterances.md) and [label utterances](Label-Suggested-Utterances.md).
-* Try adding additional [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly-used patterns specific to your domain.
+* Try adding additional [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly used patterns specific to your domain.
 
 <!-- Links -->
 [EmulatorDownload]: https://github.com/Microsoft/BotFramework-Emulator

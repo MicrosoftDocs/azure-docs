@@ -6,7 +6,7 @@ metadata:
   title: Azure Stack Documentation - Tutorials, API Reference
   description: Learn how to use Azure Stack preview to deliver Azure services from your datacenter. Learn and demonstrate features from a proof of concept environment.
   services: azure-stack
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: azure-stack
   ms.tgt_pltfrm: na
@@ -15,7 +15,7 @@ metadata:
   ms.date: 04/28/2017
   ms.author: carolz
 abstract:
-  description: Microsoft Azure Stack technical preview is a hybrid cloud platform that lets you provide Azure services from your datacenter. Learn how to deploy Azure Stack and offer services with our quickstart and tutorials.
+  description: Microsoft Azure Stack is a hybrid cloud platform that lets you provide Azure services from your datacenter. Learn how to deploy Azure Stack and offer services with our quickstart and tutorials.
 sections:
 - title: Quickstart
   items:
@@ -46,4 +46,4 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/azure/overview?view=azurestackps-1.2.9">PowerShell</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>

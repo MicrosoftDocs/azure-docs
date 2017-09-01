@@ -58,3 +58,9 @@ Although you cannot enable the OneDrive for Business sync agent in RemoteApp, yo
 ## Copy files by using drive redirection
 If you have enabled [drive redirection](remoteapp-redirection.md), you have already created a mapped drive for your users. In this case, they can zip their files on the redirected drive and then save them to their local PC.
 
+## How administrators can export data
+
+Administers for Azure RemoteApp can export all user profile disks (UPD) for all collections within a subscription to Azure Storage using Azure PowerShell cmdlet, Export-AzureRemoteAppUserDisk.  There is no ability to select individual UPD's.  When the PowerShell command is executed, each user disk will be a 50gb in fixed disk size and be exported to Azure storage.  Costs of Azure storage will incur immediately for this storage.  When running this command ensure there are no sessions otherwise the export will fail.
+
+UPD's for domain joined Azure RemoteApp deployments can only be used again in an RDS deployment, non-domain joined deployments cannot be used.  If these disks will be used in an RDS deployment we recommend to use our [automated scripts](https://github.com/arcadiahlyy/aramigration) that will export, convert, and import the UPD's into an RDS deployment.
+

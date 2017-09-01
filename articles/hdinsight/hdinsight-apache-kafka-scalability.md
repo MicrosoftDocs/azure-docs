@@ -21,7 +21,7 @@ ms.author: larryfr
 
 Learn how to configure the number of managed disks used by Apache Kafka on HDInsight.
 
-Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight cluster. Since Kafka is very I/O heavy, [Azure Managed Disks](../storage/storage-managed-disks-overview.md) is used to provide high throughput and provide more storage per node. If traditional virtual hard drives (VHD) were used for Kafka, each node is limited to 1 TB. With managed disks, you can use multiple disks to achieve 16 TB for each node in the cluster.
+Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight cluster. Since Kafka is very I/O heavy, [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) is used to provide high throughput and provide more storage per node. If traditional virtual hard drives (VHD) were used for Kafka, each node is limited to 1 TB. With managed disks, you can use multiple disks to achieve 16 TB for each node in the cluster.
 
 The following diagram provides a comparison between Kafka on HDInsight before managed disks, and Kafka on HDInsight with managed disks:
 
@@ -61,4 +61,4 @@ For more information on working with Kafka on HDInsight, see the following docum
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
 
-* [HDInsight blog on managed disks with Kafka](https://azure.microsoft.com/blog/announcing-hdinsight-kafka-public-preview-with-azure-managed-disks)
+* [HDInsight blog on managed disks with Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

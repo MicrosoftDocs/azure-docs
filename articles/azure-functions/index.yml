@@ -8,7 +8,7 @@ metadata:
   services: functions
   author: czeumault
   manager: carolz
-  ms.service: virtual-machines\linux
+  ms.service: functions
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -61,7 +61,7 @@ sections:
     - image: 
         src: /media/logos/logo_visual-studio.svg
       text:  Visual Studio
-      href: /azure-functions/function-create-your-first-function-visual-studio
+      href: /azure/azure-functions/functions-create-your-first-function-visual-studio
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

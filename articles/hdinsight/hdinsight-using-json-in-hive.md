@@ -57,7 +57,7 @@ Learn how to process and analyze JSON files using Hive in HDInsight. The followi
         ]
     }
 
-The file can be found at wasbs://processjson@hditutorialdata.blob.core.windows.net/. For more information on using Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
+The file can be found at wasb://processjson@hditutorialdata.blob.core.windows.net/. For more information on using Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
 
 In this tutorial, you use the Hive console.  For instructions of opening the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md).
 
@@ -81,7 +81,7 @@ The methods listed in the next section require the JSON document in a single row
 
     SELECT * FROM StudentsOneLine
 
-The raw JSON file is located at **wasbs://processjson@hditutorialdata.blob.core.windows.net/**. The *StudentsRaw* Hive table points to the raw unflattened JSON document.
+The raw JSON file is located at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. The *StudentsRaw* Hive table points to the raw unflattened JSON document.
 
 The *StudentsOneLine* Hive table stores the data in the HDInsight default file system under the */json/students/* path.
 
@@ -157,7 +157,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
       ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
 2. Install [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
    
-    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The following screenshot shows you how to do this.
+    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The following screenshot shows you how to do this.
    
     ![Setting up Maven][image-hdi-hivejson-maven]
 3. Clone the project from [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github site. You can do this by clicking on the “Download Zip” button as shown in the following screenshot.

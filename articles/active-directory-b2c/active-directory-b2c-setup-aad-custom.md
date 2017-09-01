@@ -215,4 +215,4 @@ Test the custom policy that you just uploaded by opening its blade and clicking 
 
 ## Next steps
 
-Provide feedback to AADB2CPreview@microsoft.com.
+Provide feedback to [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).

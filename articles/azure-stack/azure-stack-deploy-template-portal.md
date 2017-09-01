@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/10/2017
 ms.author: helaw
 
 ---
 # Deploy templates using the Azure Stack portal
-Use the portal to deploy Azure Resource Manager templates to the Azure Stack POC.
+Use the portal to deploy Azure Resource Manager templates to the Azure Stack development kit.
 
 Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
 

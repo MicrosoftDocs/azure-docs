@@ -46,6 +46,10 @@
 ### [Configure using Git](api-management-configuration-repository-git.md)
 ### [Monitor using Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Use role-based access control](api-management-role-based-access-control.md)
+### Integrate with Service Fabric
+#### [Overview](../service-fabric/service-fabric-api-management-overview.md)
+#### [Quick start](../service-fabric/service-fabric-api-management-quick-start.md)
+
 # Reference
 ## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
@@ -81,6 +85,7 @@
 ## [Consume SOAP WCF services over HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Provide RBAC-like access using the REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Service updates](https://azure.microsoft.com/updates/?product=api-management)
 ## [Set up PostMan to call API Management APIs](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)

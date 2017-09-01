@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: chrande, glenga
+ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
@@ -276,7 +276,7 @@ The following steps let you include packages in your function app:
 2. Click **Debug Console** > **CMD**.
 
 3. Go to `D:\home\site\wwwroot`, and then drag your package.json file to the **wwwroot** folder at the top half of the page.  
-    You can upload files to your function app in other ways also. For more information, see [How to update function app files](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+    You can upload files to your function app in other ways also. For more information, see [How to update function app files](functions-reference.md#fileupdate). 
 
 4. After the package.json file is uploaded, run the `npm install` command in the **Kudu remote execution console**.  
     This action downloads the packages indicated in the package.json file and restarts the function app.

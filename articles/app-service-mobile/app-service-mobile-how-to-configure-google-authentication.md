@@ -4,7 +4,7 @@ description: Learn how to configure Google authentication for your App Services 
 services: app-service
 documentationcenter: ''
 author: mattchenderson
-manager: adrianha
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
@@ -33,8 +33,8 @@ To complete the procedure in this topic, you must have a Google account that has
 6. Paste the App Service **URL** you copied earlier into **Authorized JavaScript Origins**, then paste your redirect URI into **Authorized Redirect URI**. The redirect URI is the URL of your application appended with the path, */.auth/login/google/callback*. For example, `https://contoso.azurewebsites.net/.auth/login/google/callback`. Make sure that you are using the HTTPS scheme. Then click **Create**.
 7. On the next screen, make a note of the values of the client ID and client secret.
 
-    > [AZURE.IMPORTANT]
-    The client secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+    > [!IMPORTANT]
+    > The client secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
 
 ## <a name="secrets"> </a>Add Google information to your application

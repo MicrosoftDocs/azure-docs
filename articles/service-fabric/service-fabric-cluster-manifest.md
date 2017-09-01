@@ -3,7 +3,7 @@ title: Configure your Azure Service Fabric standalone cluster | Microsoft Docs
 description: Learn how to configure your standalone or private Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
-ms.author: ryanwi
+ms.author: dekapur
 
 ---
 # Configuration settings for standalone Windows cluster
 This article describes how to configure a standalone Service Fabric cluster using the ***ClusterConfig.JSON*** file. You can use this file to specify information such as the Service Fabric nodes and their IP addresses, different types of nodes on the cluster, the security configurations as well as the network topology in terms of fault/upgrade domains, for your standalone cluster.
 
-When you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), a few samples of the ClusterConfig.JSON file are downloaded to your work machine. The samples having *DevCluster* in their names will help you create a cluster with all three nodes on the same machine, like logical nodes. Out of these, at least one node must be marked as a primary node. This cluster is useful for a development or test environment and is not supported as a production cluster. The samples having *MultiMachine* in their names, will help you create a production quality cluster, with each node on a separate machine. The number of primary nodes for these cluster will be based on the [reliability level](#reliability).
+When you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), a few samples of the ClusterConfig.JSON file are downloaded to your work machine. The samples having *DevCluster* in their names will help you create a cluster with all three nodes on the same machine, like logical nodes. Out of these, at least one node must be marked as a primary node. This cluster is useful for a development or test environment and is not supported as a production cluster. The samples having *MultiMachine* in their names, will help you create a production quality cluster, with each node on a separate machine.
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* and *ClusterConfig.Unsecure.MultiMachine.JSON* show how to create an unsecured test or production cluster respectively. 
 2. *ClusterConfig.Windows.DevCluster.JSON* and  *ClusterConfig.Windows.MultiMachine.JSON* show how to create test or production cluster, secured using [Windows security](service-fabric-windows-cluster-windows-security.md).
@@ -78,15 +78,7 @@ The **properties** section in the ClusterConfig.JSON is used to configure the cl
 <a id="reliability"></a>
 
 ### Reliability
-The **reliabilityLevel** section defines the number of copies of the system services that can run on the primary nodes of the cluster. This increases the reliability of these services and hence the cluster. You can set this variable to either *Bronze*, *Silver*, *Gold* or *Platinum* for 3, 5, 7 or 9 copies of these services respectively. See an example below.
-
-    "reliabilityLevel": "Bronze",
-
-Note that since a primary node runs a single copy of the system services, you would need a minimum of 3 primary nodes for *Bronze*, 5 for *Silver*, 7 for *Gold* and 9 for *Platinum* reliability levels.
-
-If you don't specify the reliabilityLevel property in your clusterConfig.json, our system will calculate the most optimized reliabilityLevel for you based on the number of "Primary NodeType" nodes that you have. For example, if you have 4 primary nodes, the reliabilityLevel will be set to Bronze, if you have 5 such nodes, the reliabilityLevel will be set to Silver. In the near future, we will be removing the option to configure your reliability level, since the cluster will automatically detect and use the optimal reliability level.
-
-ReliabilityLevel is upgradable. You can create a clusterConfig.json v2 and scale up and down by a [Standalone Cluster Configuration Upgrade](service-fabric-cluster-upgrade-windows-server.md). Your can also upgrade to a clusterConfig.json v2 in which it doesn't specify reliabilityLevel so that the reliabilityLevel will be automatically calculated. 
+The concept of **reliabilityLevel** defines the number of replicas or instances of the Service Fabric system services that can run on the primary nodes of the cluster. It determines the reliability of these services and hence the cluster. The value is calcuated by the system at cluster creation and upgrade time.
 
 ### Diagnostics
 The **diagnosticsStore** section allows you to configure parameters to enable diagnostics and troubleshooting node or cluster failures, as shown in the following snippet. 
@@ -145,7 +137,7 @@ The **nodeTypes** section describes the type of the nodes that your cluster has.
         "isPrimary": true
     }]
 
-The **name** is the friendly name for this particular node type. To create a node of this node type, assign its friendly name to the **nodeTypeRef** variable for that node, as mentioned [above](#clusternodes). For each node type, define the connection endpoints that will be used. You can choose any port number for these connection endpoints, as long as they do not conflict with any other endpoints in this cluster. In a multi-node cluster, there will be one or more primary nodes (i.e. **isPrimary** set to *true*), depending on the [**reliabilityLevel**](#reliability). Read [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md) for information on **nodeTypes** and **reliabilityLevel** values, and to know what are primary and the non-primary node types. 
+The **name** is the friendly name for this particular node type. To create a node of this node type, assign its friendly name to the **nodeTypeRef** variable for that node, as mentioned [above](#clusternodes). For each node type, define the connection endpoints that will be used. You can choose any port number for these connection endpoints, as long as they do not conflict with any other endpoints in this cluster. In a multi-node cluster, there will be one or more primary nodes (i.e. **isPrimary** set to *true*), depending on the [**reliabilityLevel**](#reliability). Read [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md) for information on **nodeTypes** and **reliabilityLevel**, and to know what are primary and the non-primary node types. 
 
 #### Endpoints used to configure the node types
 * *clientConnectionEndpointPort* is the port used by the client to connect to the cluster, when using the client APIs. 

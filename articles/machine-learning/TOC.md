@@ -3,9 +3,18 @@
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [Overview](http://aka.ms/datascienceprocess)
-### [Lifecycle](data-science-process-overview.md)
+### [Overview](data-science-process-overview.md)
+### [Lifecycle](data-science-process-lifecycle.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
+####[Spark with PySpark and Scala](data-science-process-walkthroughs-spark.md)
+##### [Explore data](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Score models](machine-learning-data-science-spark-model-consumption.md)
+##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[Hive with HDInsight Hadoop](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[U-SQL with Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
+####[R, Python and T-SQL with SQL Server](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL and Python with SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
+### [With Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [What's the Studio?](machine-learning-what-is-ml-studio.md)
@@ -99,12 +108,6 @@
 ##### [Use Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [Use SQL VM](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Use data pipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Process data with Spark
-##### [Overview](machine-learning-data-science-spark-overview.md)
-##### [Explore data](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Score models](machine-learning-data-science-spark-model-consumption.md)
-##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Use Scala and Spark](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Develop models
 ### Engineer and select features
@@ -165,14 +168,11 @@
 ### [Sample experiments](machine-learning-sample-experiments.md)
 ### [Sample datasets](machine-learning-use-sample-datasets.md)
 ### [Customer churn example](machine-learning-azure-ml-customer-churn-scenario.md)
-### End-to-end scenarios
-#### [Use Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
-#### [Use Hadoop with 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-#### [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # Reference
 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell module (New)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -193,6 +193,10 @@
 ### [Collections](machine-learning-gallery-collections.md)
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
 
+## Cortana Intelligence Partner Solutions
+### [Cortana Intelligence publishing guide](cortana-intelligence-appsource-publishing-guide.md)
+### [Cortana Intelligence solution evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
 ### APIs
 #### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
@@ -211,6 +215,7 @@
 
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

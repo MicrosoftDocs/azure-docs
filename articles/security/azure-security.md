@@ -159,7 +159,7 @@ A [shared access signature (SAS)](https://docs.microsoft.com/azure/storage/stora
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
 -	[Transport-level encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), such as [SMB 3.0 encryption](https://docs.microsoft.com/azure/storage/storage-security-guide) for [Azure File Shares](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-files).
+-	[Wire encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), such as [SMB 3.0 encryption](https://docs.microsoft.com/azure/storage/storage-security-guide) for [Azure File shares](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-files).
 
 -	Client-side encryption, to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 

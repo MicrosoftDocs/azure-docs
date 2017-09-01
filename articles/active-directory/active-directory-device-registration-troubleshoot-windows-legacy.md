@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients 
