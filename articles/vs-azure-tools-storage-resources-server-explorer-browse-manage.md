@@ -17,7 +17,7 @@ ms.date: 8/24/2017
 ms.author: kraigb
 
 ---
-# Browse and Manage storage resources by using Server Explorer
+# Browse and manage storage resources by using Server Explorer
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
 ## Overview
@@ -127,7 +127,7 @@ By default, a blob is downloaded to a temporary directory. To download blobs to 
 You can choose one or more files to upload, and you can upload files of any type. The **Azure Activity Log** window shows the progress of the upload. For more information about how to work with blob data, see [How to use Azure Blob storage in .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
 
 ### To view logs transferred to blobs
-If you are using Azure Diagnostics to log data from your Azure application and you have transferred logs to your storage account, you’ll see containers that were created by Azure for these logs. Viewing these logs in Server Explorer is an easy way to identify problems with your application, especially if it’s been deployed to Azure. 
+If you are using Azure Diagnostics to log data from your Azure application and you have transferred logs to your storage account, you’ll see containers that Azure created for these logs. Viewing these logs in Server Explorer is an easy way to identify problems with your application, especially if it’s been deployed to Azure. 
 
 For more information about Azure Diagnostics, see [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx).
 
@@ -282,5 +282,5 @@ If you delete a storage account, any saved key information for that account is a
 > 
 
 ## Next steps
-To learn more about how use Azure storage services, see [Accessing the Azure Storage Services](https://msdn.microsoft.com/library/azure/ee405490.aspx).
+To learn more about how to use Azure storage services, see [Accessing the Azure Storage Services](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
