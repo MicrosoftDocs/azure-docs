@@ -32,8 +32,29 @@ Visual Studio 2017 requires a configuration file for Visual Studio to connect to
 >
 >
 
-For more information on the Visual Studio Extension, please refer to the [announcement blog post](https://blogs.msdn.microsoft.com/azuregov/2017/04/05/introducing-the-azure-environment-selector-visual-studio-extension/).  
+The Visual Studio extension enables you to quickly and easily switch between Azure environments. You install this like any other extension in Visual Studio: Tools – Extension and Updates…
+Then click the “Online” tab on the left to search for extensions online and search for “azure environment selector”. Then click to Download or Install:
 
+![download1](./media/documentation-government-get-started-connect-with-vs extension1.png)   
+
+Once you restart Visual Studio, the extension will be installed. When you click the “Tools” menu item, you will find an “Azure Environment Selector” item in the menu:
+
+![download2](./media/documentation-government-get-started-connect-with-vs extension2.png)
+
+Click the menu item and you will see the Azure Environment Selector dialog:
+
+![download3](./media/documentation-government-get-started-connect-with-vs extension3.png)
+
+Use the dropdown to select a different environment, in this case Azure Government:
+
+![download4](./media/documentation-government-get-started-connect-with-vs extension4.png)
+
+From here you can restart Visual Studio and the change will take effect. Once Visual Studio restarts, you will now be able to connect to other environments with VS tools such as the Cloud Explorer (shown below connected to Azure Government), Server Explorer, the main Visual Studio login, and the Visual Studio Solution Explorer.
+
+![download5](./media/documentation-government-get-started-connect-with-vs extension5.png)
+
+This [short video](https://channel9.msdn.com/blogs/Azure-Government/Azure-Environment-Selector-Visual-Studio-Extension) shows the extension in action – walking you through installation and showing how easy it is to connect to Azure Government: 
+ 
 ### Manually configuring your target 
 #### Manually creating a configuration file for Azure Government 
 Create a file named **AadProvider.Configuration.json** with the following content:
