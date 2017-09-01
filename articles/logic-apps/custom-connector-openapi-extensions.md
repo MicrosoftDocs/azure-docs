@@ -45,14 +45,39 @@ Example: "When an event is added to calendar" or "Send an email"
 
 !["summary" for each operation](./media/custom-connector-openapi-extensions/summary.png)
 
+``` json
+"actions" {
+  "Send_an_email": {
+    /// Other action properties here...
+    "summary": "Send an email",
+    /// Other action properties here...
+  }
+},
+```
+
 ## x-ms-summary
 
 Specifies the title for an entity. </br>
 Applies to: Parameters, Response Schema </br>
 Recommended: Use *title case* for `x-ms-summary`. </br>
-Example: "Calendar ID", "Event Description", and so on
+Example: "Calendar ID", "Subject", "Event Description", and so on
 
 !["x-ms-summary" for each entity](./media/custom-connector-openapi-extensions/x-ms-summary.png)
+
+``` json
+"actions" {
+  "Send_an_email": {
+    /// Other action properties here...
+    "parameters": [ 
+      {
+        /// Other parameters here...
+        "x-ms-summary": "Subject",
+        /// Other parameters here...
+      }
+    ]
+  }
+},
+```
 
 ## description
 
@@ -64,6 +89,15 @@ Example: "This operation triggers when a new event is added to the calendar",
 "Specify the subject of the mail.", and so on
 
 !["description" for each operation or entity](./media/custom-connector-openapi-extensions/description.png)
+
+``` json
+"actions" {
+  "Send_an_email": {
+     "description": "Specify the subject of the email",
+     /// Other action properties here...
+  }
+},
+```
 
 <a name="visibility"></a>
 
@@ -86,6 +120,25 @@ are hiding `advanced` operations and parameters.
 
 !["x-ms-visibility" for showing or hiding operations and parameters](./media/custom-connector-openapi-extensions/x-ms-visibility.png)
 
+``` json
+"actions" {
+  "Send_an_email": {
+     /// Other action properties here...
+     "parameters:": [
+         {
+           "name": "message-priority",
+           "type": "string",
+           "description": "The message priority, for example: low, medium, high",
+           "x-ms-summary": "Send Email"
+           "x-ms-visibility": "advanced",
+           /// Other parameter properties here
+         }
+     ]
+     /// Other action properties here...
+  },
+},
+```
+
 ## x-ms-dynamic-values
 
 Shows a populated list for the user so they can 
@@ -95,6 +148,31 @@ How to use: Add the `x-ms-dynamic-values` object
 to the parameter's definition. For example, see this [OpenAPI sample](https://procsi.blob.core.windows.net/blog-images/sampleDynamicSwagger.json).
 
 !["x-ms-dynamic-values" for showing lists](./media/custom-connector-openapi-extensions/x-ms-dynamic-values.png)
+
+``` json
+"/api/lists/{listID-dynamic}": {
+    "get": {
+        "description": "Get items from a single list - uses dynamic values and outputs dynamic schema",
+        "summary": "Gets items from the selected list",
+        "operationID": "GetListItems",
+        "parameters": [
+           {
+             "name": "listID-dynamic",
+             "type": "string",
+             "in": "path",
+             "description": "Select the list from where you want outputs",
+             "required": true,
+             "x-ms-summary": "Select List",
+             "x-ms-dynamic-values": {
+                "operationID": "GetLists",
+                "value-path": "id",
+                "value-title": "name"
+             }
+           }
+        ]
+    }
+}
+```
 
 ### Properties for x-ms-dynamic-values
 
