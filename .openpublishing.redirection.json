@@ -3780,6 +3780,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
+            "redirect_url": "/azure/sql-database/sql-database-performance-guidance",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-point-in-time-restore-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-recovery-using-backups",
             "redirect_document_id": false
@@ -9943,6 +9948,11 @@
             "source_path": "articles/storage/vs-storage-webjobs-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-webjobs-getting-started-queues",
             "redirect_document_id": false
+        },
+                {
+            "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
+            "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
+            "redirect_document_id": false                        
         },
         {
             "source_path": "articles/storage/vs-storage-webjobs-getting-started-tables.md",
