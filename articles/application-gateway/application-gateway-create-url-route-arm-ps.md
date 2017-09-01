@@ -24,7 +24,7 @@ ms.author: gwallace
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 > * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 
-Path-based routing associates routes based on the URL path of an HTTP request. It checks whether there is a route to a back-end pool configured for the URL presented in the application gateway, and then sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
+Path-based routing associates routes based on the URL path of an HTTP request. It checks whether there is a route to a back-end pool configured for the URL presented in the application gateway, and then it sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
 Azure Application Gateway has two rule types: basic routing and path-based routing. Basic provides round-robin service for the back-end pools. Path-based routing, in addition to round-robin distribution, also uses the path pattern of the request URL to choose the back-end pool.
 
@@ -32,7 +32,7 @@ Azure Application Gateway has two rule types: basic routing and path-based routi
 
 In the following example, Application Gateway serves traffic for contoso.com with two back-end server pools: a video server pool and an image server pool.
 
-Requests for http://contoso.com/image* are routed to the image server pool (pool1), and requests for http://contoso.com/video* are routed to the video server pool (pool2). If none of the path patterns match, a default server pool (pool1) is selected.
+Requests for http://contoso.com/image* are routed to the image server pool (**pool1**), and requests for http://contoso.com/video* are routed to the video server pool (**pool2**). If none of the path patterns match, a default server pool (**pool1**) is selected.
 
 ![Url route](./media/application-gateway-create-url-route-arm-ps/figure1.png)
 
@@ -40,13 +40,13 @@ Requests for http://contoso.com/image* are routed to the image server pool (pool
 
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. Create a virtual network and subnet for an application gateway. Make sure that no virtual machines or cloud deployments use that subnet. The application gateway must be by itself in a virtual network subnet.
-3. Make sure that the servers added to the back-end pool for the application gateway exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
+3. Make sure that the servers added to the back-end pool for the application gateway exist, or that they have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 ## Requirements to create an application gateway
 
 * **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or  be a public IP/VIP.
-* **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-* **Front-end port:** This port is the public port that's opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
+* **Back-end server pool settings:** Such as port, protocol, and cookie-based affinity. These are tied to a pool and applied to all servers within the pool.
+* **Front-end port:** The public port that's opened on the application gateway. Traffic hits this port, and then redirects to one of the back-end servers.
 * **Listener:** The listener has a front-end port, a protocol (Http or Https, which are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 * **Rule:** The rule binds the listener and the back-end server pool and defines to which pool the traffic should be directed when it hits a listener.
 
@@ -56,7 +56,7 @@ The difference between using Azure Classic and Azure Resource Manager is the ord
 
 With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
-Here are the steps needed to create an application gateway:
+Follow these steps to create an application gateway:
 
 1. Create a resource group for Resource Manager.
 2. Create a virtual network, subnet, and public IP for the application gateway.
@@ -101,13 +101,13 @@ Create a resource group (skip this step if you're using an existing resource gro
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US"
 ```
 
-Alternatively, you can also create tags for a resource group for an application gateway:
+Alternatively, you can create tags for a resource group for an application gateway:
 
 ```powershell
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway URL routing"} 
 ```
 
-Azure Resource Manager requires that resource groups specify a location, which is used as the default location for all resources in that group. Make sure that all commands to create an application gateway use the same resource group.
+Azure Resource Manager requires that resource groups specify a default location, which is used for all resources in that group. Make sure that all commands to create an application gateway use the same resource group.
 
 In the preceding example, we created a resource group called "appgw-RG" and location "West US".
 
@@ -147,7 +147,7 @@ $subnet=$vnet.Subnets[0]
 
 ## Create a public IP address for the front-end configuration
 
-Create a public IP resource **publicIP01** in resource group **appgw-rg** for the West US region. Application Gateway can use a public IP address, an internal IP address, or both to receive requests for load balancing.  This example uses only a public IP address. In the following example, no DNS name is configured for creating the public IP address.  This is because Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
+Create a public IP resource **publicIP01** in resource group **appgw-rg** for the West US region. Application Gateway can use a public IP address, an internal IP address, or both to receive requests for load balancing.  This example uses only a public IP address. In the following example, no DNS name is configured for creating the public IP address, because Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, create a CNAME record to point to the automatically generated DNS name for the public IP address.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -157,7 +157,7 @@ An IP address is assigned to the application gateway when the service starts.
 
 ## Create the application gateway configuration
 
-All configuration items must be set up before you create the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
+All configuration items must be set up before you create the application gateway. The following steps create the configuration items needed for an application gateway resource.
 
 ### Step 1
 
@@ -169,7 +169,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 
 ### Step 2
 
-Configure the back-end IP address pool named **pool01** and **pool2** with IP addresses for **pool1** and **pool2**. These are the IP addresses of the resources that host the web application to be protected by the application gateway. These back-end pool members are all validated to be healthy by either basic or custom probes. Traffic is then routed to them when requests come into the application gateway. Back-end pools can be used by multiple rules within the application gateway, which means one back-end pool can be used for multiple web applications that reside on the same host.
+Configure the back-end IP address pool named **pool1** and **pool2** with IP addresses for **pool1** and **pool2**. These are the IP addresses of the resources that host the web application to be protected by the application gateway. These back-end pool members are all validated to be healthy by either basic or custom probes. Traffic is then routed to them when requests come into the application gateway. Back-end pools can be used by multiple rules within the application gateway, which means one back-end pool can be used for multiple web applications that reside on the same host.
 
 ```powershell
 $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
@@ -181,7 +181,7 @@ In this example, there are two back-end pools to route network traffic based on 
 
 ### Step 3
 
-Configure application gateway settings **poolsetting01** and **poolsetting02** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own back-end pool setting.  Back-end HTTP settings are used by rules to route traffic to the correct back-end pool members. This determines the protocol and port that's used when sending traffic to the back-end pool members. Cookie-based sessions are also determined by the back-end HTTP settings. If enabled, cookie-based session affinity sends traffic to the same back end as previous requests for each packet.
+Configure application gateway settings **poolsetting01** and **poolsetting02** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own settings.  Back-end HTTP settings are used by rules to route traffic to the correct back-end pool members. This determines the protocol and port that's used when sending traffic to the back-end pool members. Cookie-based sessions are also determined by the back-end HTTP settings. If enabled, cookie-based session affinity sends traffic to the same back end as previous requests for each packet.
 
 ```powershell
 $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
@@ -207,7 +207,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
 
 ### Step 6
 
-Configure the listener. This step configures the listener for the public IP address and port used to receive incoming network traffic. The following example takes the previously configured front-end IP configuration,  front-end port configuration, and a protocol (http or https), and configures the listener. In this example, the listener listens to HTTP traffic on port 80 on the public IP address that was created earlier.
+Configure the listener for the public IP address and port used to receive incoming network traffic. The following example takes the previously configured front-end IP configuration, front-end port configuration, and a protocol (Http or Https, which are case-sensitive), and configures the listener. In this example, the listener listens to HTTP traffic on port 80 on the public IP address that was created earlier.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
