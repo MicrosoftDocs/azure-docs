@@ -3,7 +3,7 @@ title: Migrate SQL Server DB to Azure SQL Database | Microsoft Docs
 description: Learn to migrate your SQL Server database to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 tags: ''
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 06/27/2017
-ms.author: janeng
+ms.date: 09/01/2017
+ms.author: carlrab
 
 ---
 
