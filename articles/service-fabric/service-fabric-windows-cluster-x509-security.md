@@ -3,7 +3,7 @@ title: Secure an Azure Service Fabric cluster on Windows using certs | Microsoft
 description: This article describes how to secure communication within the standalone or private cluster as well as between clients and the cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
-ms.author: ryanwi
+ms.author: dekapur
 
 ---
 # Secure a standalone cluster on Windows using X.509 certificates
@@ -35,10 +35,26 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
+        },        
+        "ClusterCertificateCommonNames": {
+            "CommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]"
+            }
+            ],
+            "X509StoreName": "My"
         },
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ServerCertificateCommonNames": {
+            "CommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]"
+            }
+            ],
             "X509StoreName": "My"
         },
         "ClientCertificateThumbprints": [
@@ -62,6 +78,14 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
+        },
+        "ReverseProxyCertificateCommonNames": {
+            "CommonNames": [
+                {
+                "CertificateCommonName": "[CertificateCommonName]"
+                }
+            ],
+            "X509StoreName": "My"
         }
     }
 },
@@ -79,13 +103,16 @@ The following table lists the certificates that you will need on your cluster se
 
 | **CertificateInformation Setting** | **Description** |
 | --- | --- |
-| ClusterCertificate |This certificate is required to secure the communication between the nodes on a cluster. You can use two different certificates, a primary and a secondary for upgrade. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables. |
-| ServerCertificate |This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for *ClusterCertificate* and *ServerCertificate*. You can use two different server certificates, a primary and a secondary for upgrade. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables. |
+| ClusterCertificate |Recommended for test environment. This certificate is required to secure the communication between the nodes on a cluster. You can use two different certificates, a primary and a secondary for upgrade. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables. |
+| ClusterCertificateCommonNames |Recommended for production environment. This certificate is required to secure the communication between the nodes on a cluster. You can use one or two cluster certificate common names. |
+| ServerCertificate |Recommended for test environment. This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for *ClusterCertificate* and *ServerCertificate*. You can use two different server certificates, a primary and a secondary for upgrade. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables. |
+| ServerCertificateCommonNames |Recommended for production environment. This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for *ClusterCertificateCommonNames* and *ServerCertificateCommonNames*. You can use one or two server certificate common names. |
 | ClientCertificateThumbprints |This is a set of certificates that you want to install on the authenticated clients. You can have a number of different client certificates installed on the machines that you want to allow access to the cluster. Set the thumbprint of each certificate in the **CertificateThumbprint** variable. If you set the **IsAdmin** to *true*, then the client with this certificate installed on it can do administrator management activities on the cluster. If the **IsAdmin** is *false*, the client with this certificate can only perform the actions allowed for user access rights, typically read-only. For more information on roles read [Role based access control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |Set the common name of the first client certificate for the **CertificateCommonName**. The **CertificateIssuerThumbprint** is the thumbprint for the issuer of this certificate. Read [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx) to know more about common names and the issuer. |
-| ReverseProxyCertificate |This is an optional certificate that can be specified if you want to secure your [Reverse Proxy](service-fabric-reverseproxy.md). Make sure reverseProxyEndpointPort is set in nodeTypes if you are using this certificate. |
+| ReverseProxyCertificate |Recommended for test environment. This is an optional certificate that can be specified if you want to secure your [Reverse Proxy](service-fabric-reverseproxy.md). Make sure reverseProxyEndpointPort is set in nodeTypes if you are using this certificate. |
+| ReverseProxyCertificateCommonNames |Recommended for production environment. This is an optional certificate that can be specified if you want to secure your [Reverse Proxy](service-fabric-reverseproxy.md). Make sure reverseProxyEndpointPort is set in nodeTypes if you are using this certificate. |
 
-Here is example cluster configuration where the Cluster, Server, and Client certificates have been provided.
+Here is example cluster configuration where the Cluster, Server, and Client certificates have been provided. Please note that for cluster/ server/ reverseProxy certificates, thumbprint and common name are not allowed to be configured together for the same cert type.
 
  ```JSON
  {
@@ -127,13 +154,21 @@ Here is example cluster configuration where the Cluster, Server, and Client cert
             "ClusterCredentialType": "X509",
             "ServerCredentialType": "X509",
             "CertificateInformation": {
-                "ClusterCertificate": {
-                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
-                    "X509StoreName": "My"
+                "ClusterCertificateCommonNames": {
+                  "CommonNames": [
+                    {
+                      "CertificateCommonName": "myClusterCertCommonName"
+                    }
+                  ],
+                  "X509StoreName": "My"
                 },
-                "ServerCertificate": {
-                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
-                    "X509StoreName": "My"
+                "ServerCertificateCommonNames": {
+                  "CommonNames": [
+                    {
+                      "CertificateCommonName": "myServerCertCommonName"
+                    }
+                  ],
+                  "X509StoreName": "My"
                 },
                 "ClientCertificateThumbprints": [{
                     "CertificateThumbprint": "c4 c18 8e aa a8 58 77 98 65 f8 61 4a 0d da 4c 13 c5 a1 37 6e",
@@ -176,6 +211,10 @@ Here is example cluster configuration where the Cluster, Server, and Client cert
     }
 }
  ```
+
+## Certificate roll over
+When using certificate common name instead of thumbprint, certificate roll over doesn't require cluster configuration upgrade.
+If certificate roll over involves issuer roll over, please keep the old issuer cert in the cert store at least 2 hours after installing the new issuer cert.
 
 ## Acquire the X.509 certificates
 To secure communication within the cluster, you will first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you will need to obtain and install certificates for the client machines.

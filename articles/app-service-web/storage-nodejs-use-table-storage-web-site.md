@@ -4,8 +4,8 @@ description: This tutorial teaches you how to use the Azure Table service to sto
 tags: azure-portal
 services: app-service\web, storage
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: ''
 
 ms.assetid: 029e6f46-f586-4309-adbf-71c7b8d537d4
@@ -14,8 +14,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
+ms.date: 08/17/2016
+ms.author: tarcher
 
 ---
 # Node.js web app using the Azure Table Service

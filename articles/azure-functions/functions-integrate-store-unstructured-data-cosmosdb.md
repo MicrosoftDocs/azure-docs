@@ -4,7 +4,7 @@ description: Store unstructured data using Azure Functions and Cosmos DB
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, Cosmos DB, dynamic compute, serverless architecture
@@ -12,11 +12,11 @@ keywords: azure functions, functions, event processing, Cosmos DB, dynamic compu
 ms.assetid: 
 ms.service: functions
 ms.devlang: csharp
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/28/2017
-ms.author: rachelap, glenga
+ms.date: 08/03/2017
+ms.author: glenga
 ms.custom: mvc
 ---
 # Store unstructured data using Azure Functions and Cosmos DB
@@ -124,9 +124,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
     ![Search for the Cosmos DB service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Select the database you created, then select **Data Explorer**.
-
-3. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata. 
+2. Select the database you created, then select **Data Explorer**. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata. 
 
     ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ---
 
@@ -23,14 +23,23 @@ This article helps you find troubleshooting information about common issues rega
 ## Known issues
 
 - If you are synchronizing 30 or more AD forests, you can't enable Seamless SSO using Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-azure-ad-seamless-sso) the feature on your tenant.
-- Adding Azure AD service URLs (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) to the "Trusted sites" zone instead of the "Local intranet" zone blocks users from signing in.
-- Seamless SSO doesn't work in private browsing mode on Firefox.
+- Adding Azure AD service URLs (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) to the "Trusted sites" zone instead of the "Local intranet" zone **blocks users from signing in**.
+- Seamless SSO doesn't work in private browsing mode on Firefox and Edge. And also on Internet Explorer when Enhanced Protection mode is turned on.
+
+>[!IMPORTANT]
+>We recently rolled back support for Edge to investigate customer-reported issues.
+
+## Check status of the feature
+
+Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check status by going to the **Azure AD Connect** blade on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+
+![Azure Active Directory admin center - Azure AD Connect blade](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## Sign-in failure reasons on the Azure Active Directory admin center
 
 A good place to start troubleshooting user sign-in issues with Seamless SSO is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
+![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
 
 Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
@@ -75,7 +84,7 @@ If success auditing is enabled on your Domain Controller, then every time a user
 	</QueryList>
 ```
 
-## Manual reset of Azure AD Seamless SSO
+## Manual reset of the feature
 
 If troubleshooting didn't help, you can manually reset the feature on your tenant. Follow these steps on the on-premises server where you are running Azure AD Connect:
 

@@ -80,7 +80,8 @@ Here are the list of the Service Fabric versions that are supported and their su
 | 5.3.* |Less than or equal to version  2.3 |February 24, 2017 |
 | 5.4.* |Less than or equal to version  2.4 |May 10,2017     |
 | 5.5.* |Less than or equal to version  2.5 |August 10,2017    |
-| 5.6.* |Less than or equal to version  2.6 |Current version and so no end date
+| 5.6.* |Less than or equal to version  2.6 |October 13,2017    |
+| 5.7.* |Less than or equal to version  2.7 |Current version and so no end date
 
 <a id="previewversion"></a>
 ## Service Fabric Preview Versions - unsupported for production use.

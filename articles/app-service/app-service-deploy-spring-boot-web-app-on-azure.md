@@ -4,7 +4,7 @@ description: This tutorial will guide developers through the steps to deploy the
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 
 ---
@@ -188,15 +188,13 @@ The following steps will walk you through the steps to deploy your Spring Boot w
 
    ![Browse Sample App][SB02]
 
-## Next Steps
+## Next steps
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Running a Spring Boot Application on Linux in the Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
+* [Deploy a Spring Boot Application on Linux in the Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
-
-## Additional Resources
+* [Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 

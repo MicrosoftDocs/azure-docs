@@ -1,7 +1,18 @@
 ---
-layout: LandingPage
 title: Service Bus Relay Documentation
 description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date:  03/14/2017
+ms.author: carolz
+---
 ---
 # Service Bus Relay Documentation
 Learn how Azure Relay service facilitates hybrid applications between on-premises and cloud environments within a corporate enterprise network and the public cloud, without having to open a firewall connection or require intrusive changes to a corporate network infrastructure.
@@ -26,7 +37,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -108,8 +119,8 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Samples</h3>
-                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">Service Bus Relay Samples</a></p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -120,9 +131,8 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/overview/azure/service-bus-relay">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -133,8 +143,8 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Other</h3>
-                        <p><a href="service-bus-relay-port-settings.md">Port settings</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">REST API Reference</a></p>
                    </div>
                 </div>
             </div>

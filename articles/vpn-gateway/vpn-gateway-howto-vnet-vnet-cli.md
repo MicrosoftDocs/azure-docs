@@ -40,7 +40,7 @@ VNet-to-VNet communication can be combined with multi-site configurations. This 
 
 ![About connections](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### Why connect virtual networks?
+### <a name="why"></a>Why connect virtual networks?
 
 You may want to connect virtual networks for the following reasons:
 
@@ -181,11 +181,11 @@ We use the following values in the examples:
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### Step 4 - Create the connections
+### <a name="createconnect"></a>Step 4 - Create the connections
 
 You now have two VNets with VPN gateways. The next step is to create VPN gateway connections between the virtual network gateways. If you used the examples above, your VNet gateways are in different resource groups. When gateways are in different resource groups, you need to identify and specify the resource IDs for each gateway when making a connection. If your VNets are in the same resource group, you can use the [second set of instructions](#samerg) because you don't need to specify the resource IDs.
 
-### To connect VNets that reside in different resource groups
+### <a name="diffrg"></a>To connect VNets that reside in different resource groups
 
 1. Get the Resource ID of VNet1GW from the output of the following command:
 
@@ -318,7 +318,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### Step 8 - Create the connections
+### <a name="connections5"></a>Step 8 - Create the connections
 
 We split this step into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
 
@@ -362,7 +362,7 @@ We split this step into two CLI sessions marked as **[Subscription 1]**, and **[
 [!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>VNet-to-VNet FAQ
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## Next steps
 

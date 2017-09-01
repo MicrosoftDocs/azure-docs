@@ -20,7 +20,7 @@ ms.author: nachandr
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-The patch orchestration application is a Azure Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime.
+The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime.
 
 The patch orchestration app provides the following:
 
@@ -66,9 +66,14 @@ The patch orchestration app requires the repair manager system service to be ena
 
 Azure clusters in the silver durability tier have the repair manager service enabled by default. Azure clusters in the gold durability tier might or might not have the repair manager service enabled, depending on when those clusters were created. Azure clusters in the bronze durability tier, by default, do not have the repair manager service enabled. If the service is already enabled, you can see it running in the system services section in the Service Fabric Explorer.
 
-You can use the [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) to enable the repair manager service on new and existing Service Fabric clusters. Get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Resource Manager template. 
+##### Azure portal
+You can enable repair manager from Azure portal at the time of setting up of cluster. Select `Include Repair Manager` option under `Add on features` at the time of Cluster configuration.
+![Image of Enabling Repair Manager from Azure portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-To enable the repair manager service:
+##### Azure Resource Manager template
+Alternatively you can use the [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) to enable the repair manager service on new and existing Service Fabric clusters. Get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Resource Manager template. 
+
+To enable the repair manager service using [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
 1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource, as shown in the following snippet. If it is different, then you need to update the `apiVersion` to the value `2017-07-01-preview`:
 
@@ -131,10 +136,11 @@ Automatic Windows updates might lead to availability loss because multiple clust
 
 ### Optional: Enable Azure Diagnostics
 
-Logs for the patch orchestration app collect locally on each of the cluster nodes. 
-Additionally for clusters running Service Fabric runtime version `5.6.220.9494` and above, logs would be collected as part of Service Fabric logs.
+Clusters running Service Fabric runtime version `5.6.220.9494` and above collect patch orchestration app logs as part of Service Fabric logs.
+You can skip this step if your cluster is running on Service Fabric runtime version `5.6.220.9494` and above.
 
-For clusters running Service Fabric runtime version less than `5.6.220.9494`, we recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
+For clusters running Service Fabric runtime version less than `5.6.220.9494`, logs for the patch orchestration app are collected locally on each of the cluster nodes.
+We recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
 
 For information on enabling Azure Diagnostics, see [Collect logs by using Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
 
@@ -294,7 +300,7 @@ For clusters running Service Fabric runtime version less than `5.6.220.9494`, lo
 
 #### Locally on each node
 
-Logs are collected locally on each Service Fabric cluster node. The location to access the logs is
+Logs are collected locally on each Service Fabric cluster node if Service Fabric runtime version is less than `5.6.220.9494`. The location to access the logs is
 \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
 
 For example, if Service Fabric is installed on drive D, the path is D:\\PatchOrchestrationApplication\\logs.
@@ -355,6 +361,10 @@ A. The time needed by the patch orchestration app is mostly dependent on the fol
 - The average time needed to download and install an update, which should not exceed a couple of hours.
 - The performance of the VM and network bandwidth.
 
+Q. **Why do I see some updates in Windows Update results obtained via REST api's, but not under the Windows Update history on machine?**
+
+A. Some product updates need to be checked in their respective update/patch history. Eg: Windows Defender updates do not show up in Windows Update history on Windows Server 2016.
+
 ## Disclaimers
 
 - The patch orchestration app accepts the End-User License Agreement of Windows Update on behalf of the user. Optionally, the setting can be turned off in the configuration of the application.
@@ -392,3 +402,17 @@ In such a case, a warning-level health report is generated against the Node Agen
 A faulty Windows update can bring down the health of an application or cluster on a particular node or upgrade domain. The patch orchestration app discontinues any subsequent Windows Update operation until the cluster is healthy again.
 
 An administrator must intervene and determine why the application or cluster became unhealthy due to Windows Update.
+
+## Release Notes :
+
+### Version 1.1.0
+- Public release
+
+### Version 1.1.1
+- Fixed a bug in SetupEntryPoint of NodeAgentService that prevented installation of NodeAgentNTService.
+
+### Version 1.2.0 (Latest)
+
+- Bug fixes around system restart workflow.
+- Bug fix in creation of RM tasks due to which health check during preparing repair tasks wasn't happening as expected.
+- Changed the startup mode for windows service POANodeSvc from auto to delayed-auto.
