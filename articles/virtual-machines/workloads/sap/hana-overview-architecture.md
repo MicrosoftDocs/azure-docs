@@ -189,15 +189,15 @@ You get the idea. There certainly are other variations as well.
 ### Using SAP HANA Data Tiering and Extension nodes
 SAP supports a Data Tiering model for SAP BW of different SAP NetWeaver releases and SAP BW/4HANA. Details in regards to this Data Tiering model can be found in this document and blog referenced in this document by SAP:
 [SAP BW/4HANA AND SAP BW ON HANA WITH SAP HANA EXTENSION NODES](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
-With HANA Large Instances, you can leverage option #1 of SAP HANA Extension Node as detailed in this FAQ document. Option #2 configurations can be set up with the following HANA Large Instance SKUs: S72m, S192, S192m, S384 and S384m.  
-Looking at the documentation the advantage might not be visible immediately. But looking into the SAP sizing guidelines, you can see an advantage by using option #1 and option #2 extension nodes. Here an example:
+With HANA Large Instances, you can use option-1 configuration of SAP HANA Extension Nodes as detailed in this FAQ and SAP blog documents. Option-2 configurations can be set up with the following HANA Large Instance SKUs: S72m, S192, S192m, S384 and S384m.  
+Looking at the documentation the advantage might not be visible immediately. But looking into the SAP sizing guidelines, you can see an advantage by using option-1 and option-2 SAP HANA extension nodes. Here an example:
 
-- HANA sizing guidelines usually require double the amount of data volume as memory. So, when you are running your HANA instance with the hot data, you usually only have 50% or less of the memory filled with data. The remainder of the memory is ideally held for SAP HANA doing its work.
-- That means in a HANA Large Instance S192 unit with 2TB of RAM, running a SAP BW database, you only have 1TB as data volume.
-- If you use an additional HANA Extension Node of option #1, also a S192 HANA Large Instance SKU, it would give you an additional 2TB capacity for data volume. In the option #2 configuration even and additional 4TB for warm data volume. Compared to the hot node, the full memory capacity of the 'warm' extension node can be used for data storing for option #1 and double the memory can be used for data volume in option #2.
-- As a result you end up with a capacity of three TB for your data and a hot-to-warm ratio of 1:2 for option #1 and a 1:4 ratio in option #2.
+- SAP HANA sizing guidelines usually require double the amount of data volume as memory. So, when you are running your SAP HANA instance with the hot data, you usually only have 50% or less of the memory filled with data. The remainder of the memory is ideally held for SAP HANA doing its work.
+- That means in a HANA Large Instance S192 unit with two TB of memory, running a SAP BW database, you only have one TB as data volume.
+- If you use an additional SAP HANA Extension Node of option-1, also a S192 HANA Large Instance SKU, it would give you an additional two TB capacity for data volume. In the option-2 configuration even and additional four TB for warm data volume. Compared to the hot node, the full memory capacity of the 'warm' extension node can be used for data storing for option-1 and double the memory can be used for data volume in option-2 SAP HANA extension node configuration.
+- As a result you end up with a capacity of three TB for your data and a hot-to-warm ratio of 1:2 for option-1 and five TB of data and a 1:4 ratio in option-2 extension node configuration.
 
-However, be aware that the higher the data volume compared to the memory, the higher the chances are that the warm data you are asking for is stored on disk storage
+However, be aware that the higher the data volume compared to the memory, the higher the chances are that the warm data you are asking for is stored on disk storage.
 
 
 ## Operations model and responsibilities
