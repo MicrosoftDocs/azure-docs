@@ -24,7 +24,7 @@ Without writing any code, you can build workflows or apps with
 [Microsoft Flow](https://flow.microsoft.com), 
 or [Microsoft PowerApps](https://powerapps.microsoft.com). 
 To help you integrate your data and business processes, 
-these services offer [100+ connectors](../connectors/apis-list), 
+these services offer [100+ connectors](../connectors/apis-list.md), 
 not only for Microsoft services and products like Azure and SQL Server, 
 but other services too, like GitHub, Salesforce, Twitter, and more. 
 
