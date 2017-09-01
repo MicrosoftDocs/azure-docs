@@ -21,10 +21,6 @@ ms.author: LADocs; estfan
 
 ## Requirements
 
-**Q:** I'm not an ISV, so can I still build a connector? </br>
-**A:** If you want to certify and publicly release a connector, 
-you must either own the underlying service or present explicit rights to use the API.
-
 **Q:** Can I build a connector without REST APIs? </br>
 **A:** No, to build a connector, you must support stable HTTP REST APIs 
 for your service. 
@@ -37,9 +33,12 @@ such as Azure App Service for hosting, API Management, and more.
 **Q:** What authentication types are supported? </br>
 **A:** You can use these supported authentication standards:
 
-* OAuth2.0, which includes Azure Active Directory
-* API Key
-* Basic Authentication
+* [OAuth 2.0](https://oauth.net/2/), including 
+[Azure Active Directory](https://azure.microsoft.com/develop/identity/) 
+or specific services, such as Dropbox, GitHub, and SalesForce
+* Generic OAuth 2.0
+* [Basic authentication](https://swagger.io/docs/specification/authentication/basic-authentication/)
+* [API Key](https://swagger.io/docs/specification/authentication/api-keys/)
 
 ## Triggers
 
@@ -50,12 +49,20 @@ If you want to request other patterns for implementation,
 contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com) 
 with more details about your API.
 
+## Certification
+
+**Q**: I'm not a Microsoft partner or Independent Software Vendor (ISV). 
+Can I still create connectors? </br>
+**A**: Yes, you can register these connectors for internal use in your organization, but if you want to certify and publicly release a connector, 
+you must either own the underlying service or present explicit 
+rights to use the API.
+
 ## Other
 
 **Q:** My APIs use a dynamic host. How do I implement them with OpenAPI? </br>
 **A:** Custom connectors don't support dynamic hosts. 
 Instead, use a static host for development and testing purposes. 
-If you submit your connector for certification, 
+If you want to certify your connector, 
 ask your Microsoft contact about dynamic implementation.
 
 **Q:** Do you support Postman Collection V2? </br>

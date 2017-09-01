@@ -34,6 +34,11 @@ and approval for publishing.
 | Availability and uptime | Your app has at least 99.9% uptime. | Recommended | 
 |||| 
 
+Also, if you're not a Microsoft partner or Independent Software Vendor (ISV), 
+and you want to certify and publicly release a connector, 
+you must either own the underlying service or present explicit 
+rights to use the API.
+
 ## Nominate and submit your connector to Microsoft for certification
 
 To apply for certification, follow these steps:
