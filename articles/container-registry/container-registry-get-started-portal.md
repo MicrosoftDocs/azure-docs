@@ -65,7 +65,7 @@ Log in to the Azure portal at http://portal.azure.com.
 In this Quickstart, you created an Azure Container Registy with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)
+> [Azure Container Instances tutorials](../container-instances/container-instances-tutorial-prepare-app.md)
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
