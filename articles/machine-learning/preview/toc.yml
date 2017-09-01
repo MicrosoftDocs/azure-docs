@@ -49,26 +49,23 @@
     - name: (Set up an Experimentation account)
     - name: (Configure execution targets)
     - name: (Use Jupyter notebooks)
+    - name: How to Use GPU from Workbench
+      href: how-to-use-gpu.md
   - name: Acquire and understand data
     items:
     - name: (Prepare your data)
   - name: Develop and manage models
     items:
     - name: (Track run history and model metrics)
-    - name: (Use the MMLSpark library)
+    - name: Use the MMLSpark library
+      href: how-to-use-mmlspark.md
   - name: Operationalize models
     items:
     - name: (Use Model Management Service with CLI)
     - name: (Consume a service with CLI)
   - name: (Use AZ ML CLI from the command line)
   - name: (Use a Git repo for source control)
-  - name: To Sort
-    items:
-    - name: How to Use GPU
-      href: how-to-use-gpu.md
-    - name: How to Use MMLSpark
-      href: how-to-use-mmlspark.md
-  - name: MVC Template
+  - name: MVC template
     href: doc-template-how-to.md
 - name: Reference
   items:
