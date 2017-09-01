@@ -1,11 +1,11 @@
 ---
 title: Device concepts in Azure device provisioning | Microsoft Docs
-description: Describes device provisioning concepts specific to devices with DPS and IoT Hub
+description: Describes device provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 08/22/2017
+ms.date: 09/01/2017
 ms.topic: article
 ms.service: iot-dps
 
@@ -20,9 +20,7 @@ ms.custom: mvc
 
 IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service you can provision millions of devices in a secure and scalable manner.
 
-Device provisioning is a two part process. The first part is establishing the initial connection between the device and the IoT solution by *registering* the device. The second part is applying the proper *configuration* to the device based on the specific requirements of the solution it was registered to. Only once both those two steps have been completed can you say that the device has been fully *provisioned*. The provisioning service automates these both steps to provide a seamless provisioning experience for the device.
-
-This article gives an overview of the *device* concepts involved in device provisioning. This article is most relevant to personas involved in the [manufacture step](about-iot-dps.md#manufacture-step) of getting a device ready for deployment.
+This article gives an overview of the *device* concepts involved in device provisioning. This article is most relevant to personas involved in the [manufacturing step](about-iot-dps.md#manufacturing-step) of getting a device ready for deployment.
 
 ## Attestation mechanism
 
