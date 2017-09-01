@@ -46,19 +46,42 @@ This pipeline contains two activities: **Look up** and **Copy**.
                 "name": "LookupActivity",
                 "type": "Lookup",
                 "typeProperties": {
-                    "dataset": { "referenceName": "LookupDataset", "type": "DatasetReference" }
+                    "dataset": { 
+                        "referenceName": "LookupDataset", 
+                        "type": "DatasetReference" 
+                    }
                 }
             },
             {
                 "name": "CopyActivity",
                 "type": "Copy",
                 "typeProperties": {
-                    "source": { "type": "SqlSource", "sqlReaderQuery": "select * from @{activity('LookupActivity').output.tableName}" },
-                    "sink": { "type": "BlobSink" }
+                    "source": { 
+                        "type": "SqlSource", 
+                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.tableName}" 
+                    },
+                    "sink": { 
+                        "type": "BlobSink" 
+                    }
                 },                
-                "dependsOn": [ { "activity": "LookupActivity", "dependencyConditions": [ "Succeeded" ] } ],
-                "inputs": [ { "referenceName": "SourceDataset", "type": "DatasetReference" } ],
-                "outputs": [ { "referenceName": "SinkDataset", "type": "DatasetReference" } ]
+                "dependsOn": [ 
+                    { 
+                        "activity": "LookupActivity", 
+                        "dependencyConditions": [ "Succeeded" ] 
+                    }
+                 ],
+                "inputs": [ 
+                    { 
+                        "referenceName": "SourceDataset", 
+                        "type": "DatasetReference" 
+                    } 
+                ],
+                "outputs": [ 
+                    { 
+                        "referenceName": "SinkDataset", 
+                        "type": "DatasetReference" 
+                    } 
+                ]
             }
         ]
 	}
@@ -168,9 +191,40 @@ This Azure SQL database contains the data to be copied to the blob storage.
 }
 ```
 
+### sourcetable.json
+
+#### Set of objects
+
+```json
+{
+  "Id": "1",
+  "tableName": "Table1",
+}
+{
+   "Id": "2",
+  "tableName": "Table2",
+}
+```
+#### Array of objects
+
+```json
+[ 
+    {
+        "Id": "1",
+          "tableName": "Table1",
+    }
+    {
+        "Id": "2",
+        "tableName": "Table2",
+    }
+]
+```
+
+
+
 ## Type properties
 Name | Description | Type | Required
 ---- | ----------- | ---- | --------
 dataset | The dataset attribute is to provide the dataset reference for the lookup. Currently, the supported dataset types are:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | key/value pair | Yes
 source | Dataset-specific source properties, same as copy activity source | Key/value pair | No
-firstRowOnly | Returns first row or all rows | boolean | No
+firstRowOnly | Returns first row or all rows. | boolean | No
