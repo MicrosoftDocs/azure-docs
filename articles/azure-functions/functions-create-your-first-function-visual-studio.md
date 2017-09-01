@@ -1,4 +1,3 @@
-
 ---
 title: Create your first function in Azure using Visual Studio | Microsoft Docs
 description: Create and publish a simple HTTP triggered function to Azure by using Azure Functions Tools for Visual Studio. 
