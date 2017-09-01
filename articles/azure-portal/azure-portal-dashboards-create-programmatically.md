@@ -7,7 +7,6 @@ author: adamab
 manager: timlt
 editor: tysonn
 
-ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: multiple
 ms.devlang: NA
 ms.topic: article
@@ -33,6 +32,8 @@ Regardless of which tool you use, you need to construct a JSON representation of
 
 The most practical way to build up this JSON document is to use [the portal](https://portal.azure.com/) to interactively add and position your tiles. You then export the JSON. Finally, you create a template from the result for later use in scripts, programs, and deployment tools.
 
+## Create a dashboard
+
 To create a new dashboard, use the New dashboard command on the portal’s main screen.
 
 ![new dashboard command](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
@@ -45,6 +46,8 @@ You can then use the tile gallery to find and add tiles. Tiles are added by drag
 ### Fixed sizes via context menu
 ![sizes context menu](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
 
+## Share the dashboard
+
 After you have configured the dashboard to your liking the next steps are to publish the dashboard (using the Share command) and then use the resource explorer to fetch the JSON.
 
 ![share command](./media/azure-portal-dashboards-create-programmatically/share-command.png)
@@ -52,6 +55,8 @@ After you have configured the dashboard to your liking the next steps are to pub
 Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) to the subscription and resource group that you choose.
 
 ![sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
+
+## Fetch the JSON representation of the dashboard
 
 Publishing only takes a few seconds.  When it’s done, the next step is to go to the [Resource Explorer](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) to fetch the JSON.
 
@@ -61,9 +66,9 @@ From the resource explorer, navigate to the subscription and resource group that
 
 ![resource explorer json](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json.png)
 
-The next step is to create a template from this JSON so that it can be reused programmatically with the appropriate resource management APIs, command-line tools, or within the portal.
+## Create a template from the JSON
 
-## Basic Dashboard Templating
+The next step is to create a template from this JSON so that it can be reused programmatically with the appropriate resource management APIs, command-line tools, or within the portal.
 
 It is not necessary to fully understand the dashboard JSON structure to create a template. In most cases, you want to preserve the structure and configuration of each tile, and then parameterize the set of Azure resources they’re pointing to. Look at your exported JSON dashboard and find all occurrences of Azure resource Ids. Our example dashboard has multiple tiles that all point at a single Azure virtual machine. That’s because our dashboard only looks at this single resource. If you search the sample json (included at the end of the document) for “/subscriptions”, you find several occurrences of this Id.
 
@@ -73,7 +78,7 @@ To publish this dashboard for any virtual machine in the future you need to para
 
 There are two flavors of APIs that create resources in Azure. [Imperative APIs](https://docs.microsoft.com/en-us/rest/api/resources/resources) that create one resource at a time, and a [template-based deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) system that can orchestrate the creation of multiple, dependent resources with a single API call. The latter natively supports parameterization and templating so we use it for our example.
 
-## Create a dashboard using a template deployment
+## Programmatically create a dashboard from your template using a template deployment
 
 Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy as well as the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the [template language](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment and does not work if used with the imperative APIs discussed earlier.
 
