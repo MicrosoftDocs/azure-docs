@@ -10150,6 +10150,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/batch/batch-cli-samples.md",
+            "redirect_url": "/azure/batch/batch-cli-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false

@@ -52,7 +52,7 @@ az group create --name myRGNetwork --location eastus
 
 ### Create virtual network
 
-Us the [az network vnet create](/cli/azure/network/vnet#create) command to create a virtual network. In this example, the network is named *mvVnet* and is given an address prefix of *10.0.0.0/16*. A subnet is also created with a name of *mySubnetFrontEnd* and a prefix of *10.0.1.0/24*. Later in this tutorial a front-end VM is connected to this subnet. 
+Use the [az network vnet create](/cli/azure/network/vnet#create) command to create a virtual network. In this example, the network is named *mvVnet* and is given an address prefix of *10.0.0.0/16*. A subnet is also created with a name of *mySubnetFrontEnd* and a prefix of *10.0.1.0/24*. Later in this tutorial a front-end VM is connected to this subnet. 
 
 ```azurecli-interactive 
 az network vnet create \
