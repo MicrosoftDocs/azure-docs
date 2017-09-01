@@ -94,6 +94,9 @@ This creates a node configuration named `TestConfig.WebServer` in your Automatio
 
 ## Register a VM to be managed by DSC
 
+You can use Azure Automation DSC to manage Azure VMs (both Classic and Resource Manager), on-premises VMs, Linux machines, AWS VMs, and on-premises physical machines. In this topic, we cover how to register only Azure Resource Manager VMs.
+For information about registering other types of machines, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
+
 Call the `Register-AzureRmAutomationDscNode` cmdlet to register your VM with Azure Automation DSC.
 
 ```powershell
@@ -104,7 +107,25 @@ This registers the specified VM as a DSC node in your Azure Automation account.
 
 ### Specify configuration mode settings
 
-When you register a VM as a managed node, you can also specify 
+When you register a VM as a managed node, you can also specify properties of the configuration.
+For example, you can specify that the state of the machine is to be applied only once (DSC does not attempt to apply the configuration after the initial check)
+by specifying `ApplyOnly` as the value of the **ConfigurationMode** property:
+
+```powershell
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationMode 'ApplyOnly'
+```
+
+You can also specify how often DSC checks the configuration state by using the **ConfigurationModeFrequencyMins** property:
+
+```powershell
+# Run a DSC check every 60 minutes
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationModeFrequencyMins 60
+```
+
+For more information about setting configuration properties for a managed node, see
+[Register-AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-4.3.1&viewFallbackFrom=azurermps-4.2.0).
+
+For more information about DSC configuration settings, see [Configuring the Local Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig).
 
 ## Assign a node configuration to a managed node
 
