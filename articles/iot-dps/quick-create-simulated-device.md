@@ -14,8 +14,6 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ---
-<!-- Under review
--->
 
 # Create and provision a simulated device
 

@@ -16,8 +16,6 @@ ms.custom: mvc
 
 ---
 
-<!-- Under review
--->
 
 # Provision devices across load-balanced IoT hubs
 

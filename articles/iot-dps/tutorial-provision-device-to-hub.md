@@ -14,8 +14,6 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ---
-<!-- Under review
--->
 
 # Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service
 

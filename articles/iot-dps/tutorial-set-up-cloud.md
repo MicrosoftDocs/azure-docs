@@ -15,8 +15,6 @@ ms.devlang: na
 ms.custom: mvc
 
 ---
-<!-- Under review
--->
 
 # Set up cloud for device provisioning
 

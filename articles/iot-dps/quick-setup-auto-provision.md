@@ -14,8 +14,6 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ---
-<!-- Under review
--->
 
 # Set up IoT Hub Device Provisioning Service with the Azure portal
 
