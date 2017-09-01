@@ -45,7 +45,7 @@ Need for a string pass in the last week of August or when portal is ready.
  - a few other portal strings might also change. 
 -->
 
-## Create a new tenant for IoT device provisioning service
+## Create a new instance for IoT device provisioning service
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
