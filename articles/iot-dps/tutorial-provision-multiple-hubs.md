@@ -79,8 +79,8 @@ In this tutorial, you learned how to:
 > * Set the DPS allocation policy to **even distribution**
 > * Link the new IoT hub to DPS
 
-Advance to the next tutorial to learn how to 
-<!-- Replace this .md
+<!-- Advance to the next tutorial to learn how to 
+ Replace this .md
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 -->
