@@ -135,7 +135,7 @@ are hiding `advanced` operations and parameters.
          }
      ]
      /// Other action properties here...
-  },
+  }
 },
 ```
 
@@ -148,31 +148,6 @@ How to use: Add the `x-ms-dynamic-values` object
 to the parameter's definition. For example, see this [OpenAPI sample](https://procsi.blob.core.windows.net/blog-images/sampleDynamicSwagger.json).
 
 !["x-ms-dynamic-values" for showing lists](./media/custom-connector-openapi-extensions/x-ms-dynamic-values.png)
-
-``` json
-"/api/lists/{listID-dynamic}": {
-    "get": {
-        "description": "Get items from a single list - uses dynamic values and outputs dynamic schema",
-        "summary": "Gets items from the selected list",
-        "operationID": "GetListItems",
-        "parameters": [
-           {
-             "name": "listID-dynamic",
-             "type": "string",
-             "in": "path",
-             "description": "Select the list from where you want outputs",
-             "required": true,
-             "x-ms-summary": "Select List",
-             "x-ms-dynamic-values": {
-                "operationID": "GetLists",
-                "value-path": "id",
-                "value-title": "name"
-             }
-           }
-        ]
-    }
-}
-```
 
 ### Properties for x-ms-dynamic-values
 
