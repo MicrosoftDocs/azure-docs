@@ -46,7 +46,7 @@ Point-to-Site connections do not require a VPN device or an on-premises public-f
 
 For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
 
-## Before beginning
+## Before you begin
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 * Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
