@@ -27,10 +27,10 @@ This article describes troubleshooting information that's relevant to using Azur
 
 **Monitoring Agent (MonAgent\*.exe processes)**: Monitors, collects, and transfers the diagnostics data.  
 
-## Log/artifact Paths
+## Log/artifact paths
 Following are the paths to some important logs and artifacts. We refer to this information throughout the rest of the document:
 
-### Cloud Services
+### Cloud services
 | Artifact | Path |
 | --- | --- |
 | **Azure Diagnostics configuration file** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
@@ -143,13 +143,13 @@ If you have verified that the data is getting captured locally but you still don
 
 - Verify that the provided storage account is correct. Make sure you don't have network restrictions that  prevent the components from reaching public storage endpoints. One way to do that is to remote desktop into the machine, and then try to write something to the same storage account yourself.
 
-- Finally, you can look at what failures are being reported by Monitoring Agent. Monitoring agent writes its logs in `maeventtable.tsf`, which is located in [the local store for diagnostics data](#log-artifacts-path). Follow the instructions in the [Local log extraction](#local-log-extraction) section for opening this file. Then try to determine if there are `errors` that indicate failures reading to local files writing to storage.
+- Finally, you can look at what failures are being reported by the monitoring Agent. The monitoring agent writes its logs in `maeventtable.tsf`, which is located in [the local store for diagnostics data](#log-artifacts-path). Follow the instructions in the [Local log extraction](#local-log-extraction) section for opening this file. Then try to determine if there are `errors` that indicate failures reading to local files writing to storage.
 
 ### Capturing and archiving logs
 If you are thinking about contacting support, the first thing they might ask you is to collect logs from your machine. You can save time by doing that yourself. Run the `CollectGuestLogs.exe` utility at [Log collection utility path](#log-artifacts-path) and it generates a zip file with all relevant Azure logs in the same folder.
 
 ## Diagnostics data tables not found
-The tables in Azure storage that hold ETW events are named using the following code:
+The tables in Azure storage that hold ETW events are named by using the following code:
 
 ```C#
         if (String.IsNullOrEmpty(eventDestination)) {
@@ -211,16 +211,16 @@ This code generates four tables:
 
 ## References
 
-### How to check Diagnostics Extension Configuration
+### How to check Diagnostics extension configuration
 The easiest way to check your extension configuration is to go to [Azure Resource Explorer](http://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
 
 Alternatively, remote desktop into the machine and look at the Azure Diagnostics Configuration file that's described in the [Log artifacts path section](#log-artifacts-path).
 
 In either case, search for **Microsoft.Azure.Diagnostics**, and then for the **xmlCfg** or **WadCfg** field. 
 
-If you're searching on a virtual machine, if the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML, and is base64 encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
+If you're searching on a virtual machine, if the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML, and is base64-encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
-For the Cloud Service role, if you pick the configuration from disk, the data is base64-encoded so you need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
+For the cloud service role, if you pick the configuration from disk, the data is base64-encoded so you need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
 ### Azure Diagnostics plugin exit codes
 The plugin returns the following exit codes:
@@ -229,7 +229,7 @@ The plugin returns the following exit codes:
 | --- | --- |
 | 0 |Success. |
 | -1 |Generic Error. |
-| -2 |Unable to load the rcf file.<p>This internal error should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM. |
+| -2 |Unable to load the rcf file.<p>This internal error should only happen if the guest agent plugin launcher is manually invoked incorrectly on the VM. |
 | -3 |Cannot load the Diagnostics configuration file.<p><p>Solution: Caused by a configuration file not passing schema validation. The solution is to provide a configuration file that complies with the schema. |
 | -4 |Another instance of the monitoring agent Diagnostics is already using the local resource directory.<p><p>Solution: Specify a different value for **LocalResourceDirectory**. |
 | -6 |The guest agent plugin launcher attempted to launch Diagnostics with an invalid command line.<p><p>This internal error should only happen if the guest agent plugin launcher is manually invoked incorrectly on the VM. |
@@ -237,10 +237,10 @@ The plugin returns the following exit codes:
 | -11 |The guest agent was unable to create the process responsible for launching and monitoring the monitoring agent.<p><p>Solution: Verify that sufficient system resources are available to launch new processes.<p> |
 | -101 |Invalid arguments when calling the Diagnostics plugin.<p><p>This internal error should only happen if the guest agent plugin launcher is manually invoked incorrectly on the VM. |
 | -102 |The plugin process is unable to initialize itself.<p><p>Solution: Verify that sufficient system resources are available to launch new processes. |
-| -103 |The plugin process is unable to initialize itself. Specifically it is unable to create the logger object.<p><p>Solution: Verify that sufficient system resources are available to launch new processes. |
-| -104 |Unable to load the rcf file provided by the guest agent.<p><p>This internal error should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM. |
-| -105 |The Diagnostics plugin cannot open the Diagnostics configuration file.<p><p>This internal error should only happen if the Diagnostics plugin is manually invoked, incorrectly, on the VM. |
-| -106 |Cannot read the Diagnostics configuration file.<p><p>Solution: Caused by a configuration file not passing schema validation. <br><br>Solution: Provide a configuration file that complies with the schema. For more information, see [How to check Diagnostics Extension Configuration](#how-to-check-diagnostics-extension-configuration). |
+| -103 |The plugin process is unable to initialize itself. Specifically, it is unable to create the logger object.<p><p>Solution: Verify that sufficient system resources are available to launch new processes. |
+| -104 |Unable to load the rcf file provided by the guest agent.<p><p>This internal error should only happen if the guest agent plugin launcher is manually invoked incorrectly on the VM. |
+| -105 |The Diagnostics plugin cannot open the Diagnostics configuration file.<p><p>This internal error should only happen if the Diagnostics plugin is manually invoked incorrectly on the VM. |
+| -106 |Cannot read the Diagnostics configuration file.<p><p>Caused by a configuration file not passing schema validation. <br><br>Solution: Provide a configuration file that complies with the schema. For more information, see [How to check Diagnostics Extension Configuration](#how-to-check-diagnostics-extension-configuration). |
 | -107 |The resource directory pass to the monitoring agent is invalid.<p><p>This internal error should only happen if the monitoring agent is manually invoked incorrectly on the VM.</p> |
 | -108 |Unable to convert the Diagnostics configuration file into the monitoring agent configuration file.<p><p>This internal error should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file. |
 | -110 |General Diagnostics configuration error.<p><p>This internal error should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file. |
@@ -263,7 +263,7 @@ A new file called `<relevantLogFile>.csv` is created in the same path as the cor
 >[!NOTE]
 > The following information applies mostly to cloud services unless you have configured the DiagnosticsMonitorTraceListener on an application that's running on your IaaS VM. 
 
-- Make sure the DiagnosticMonitorTraceListener is configured in the web.config or app.config.  This is configured by default in cloud service projects. However, some customers comment it out, which causes the trace statements to not be collected by diagnostics. 
+- Make sure the **DiagnosticMonitorTraceListener** is configured in the web.config or app.config.  This is configured by default in cloud service projects. However, some customers comment it out, which causes the trace statements to not be collected by diagnostics. 
 
 - If logs are not getting written from the **OnStart** or **Run** method, make sure the **DiagnosticMonitorTraceListener** is in the app.config.  By default it is in the web.config, but that only applies to code running within w3wp.exe. So you need it in app.config to capture traces that are running in WaIISHost.exe.
 
@@ -276,9 +276,9 @@ Here is a list of known issues with known mitigations:
 
 **1. .NET 4.5 dependency:**
 
-WAD has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for cloud services as well as all official azure Virtual Machine base images have .NET 4.5 or higher installed. 
+WAD has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for cloud services, as well as all official images that are based on Azure virtual machines, have .NET 4.5 or higher installed. 
 
-It is still possible to land in a situation where you try to run WAD on a machine that doesn't have .NET 4.5 or above. This happens when you create your machine off of an old image or snapshot, or when you bring your own custom disk.
+It is still possible encounter a situation where you try to run WAD on a machine that doesn't have .NET 4.5 or above. This happens when you create your machine off of an old image or snapshot, or when you bring your own custom disk.
 
 This generally manifests as an exit code **255** when running **DiagnosticsPluginLauncher.exe.** Failure happens due to the following unhandled exception: 
 ```
@@ -291,7 +291,8 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 The portal experience in the virtual machines shows certain performance counters by default. If you don't see the performance counters, and you know that the data is getting generated because it is available in storage, check the following:
 
-- Whether the data in storage has counter names in English. If the counter names are not in English, portal metric chart won't able to recognize it.
+- Whether the data in storage has counter names in English. If the counter names are not in English, the portal metric chart won't able to recognize it.
+
 - If you are using wild cards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter.
 
-**Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel > Region > Administrative > Copy Settings.** Then deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account. Also make sure you do not use wild cards if you want portal to be your primary consumption experience.
+**Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel > Region > Administrative > Copy Settings.** Next, deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account. Also make sure you do not use wild cards if you want portal to be your primary consumption experience.
