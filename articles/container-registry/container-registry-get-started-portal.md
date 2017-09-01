@@ -47,7 +47,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
    ![Creating a container registry in the Azure portal][qs-portal-03]
 
-4. Step 4
+4. When you receive the
 
    ![Creating a container registry in the Azure portal][qs-portal-04]
 
@@ -58,6 +58,26 @@ Log in to the Azure portal at http://portal.azure.com.
 6. Step 6
 
    ![Creating a container registry in the Azure portal][qs-portal-06]
+
+## Push an image to the registry
+
+1. Find the login server for your registry in the Container Registry overview. Note this value as you'll need it in the next step.
+
+   ![Creating a container registry in the Azure portal][qs-portal-07]
+
+2. Tag image
+3. Push image
+
+## List images in the registry
+
+1. List images
+2. List tags
+
+## Clean up resources
+
+When no longer needed, delete the **myResourceGroup** resource group. Doing so will delete resource group and all related resources, including the container registry you created earlier.
+
+![Creating a container registry in the Azure portal][qs-portal-08]
 
 ## Next steps
 
@@ -73,3 +93,5 @@ In this Quickstart, you created an Azure Container Registy with the Azure portal
 [qs-portal-04]: ./media/container-registry-get-started-portal/qs-portal-04.png
 [qs-portal-05]: ./media/container-registry-get-started-portal/qs-portal-05.png
 [qs-portal-06]: ./media/container-registry-get-started-portal/qs-portal-06.png
+[qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
+[qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
