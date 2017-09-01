@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Suite remote monitoring | Microsoft Docs 
-description: This tutorial uses the simulated scenario created when you deploy the remote monitoring preconfigured solution for the first time to introduce the main scenarios enabled by the solution.
+description: This tutorial uses simulated scenarios to introduce the remote monitoring preconfigured solution. These scenarios are created when you deploy the remote monitoring preconfigured solution for the first time.
 services: ''
 suite: iot-suite
 author: dominicbetts
@@ -18,13 +18,13 @@ ms.workload: NA
 
 This tutorial shows you how to access the key capabilities of the remote monitoring solution using the solution dashboard. To introduce these capabilities, the tutorial showcases common customer scenarios using a simulated IoT application for a company called Contoso. This tutorial helps you understand the typical IoT scenarios the remote monitoring solution provides out-of-the-box.
 
-In this tutorial, you learn to:
+In this tutorial, you learn how to:
 
 >[!div class="checklist"]
 > * Visualize and filter devices on the dashboard
-> * Use simulated devices 
-> * Analyze device-triggered alarms
-> * Troubleshoot and remediate device issues
+> * Respond to an alarm
+> * Update the firmware in your devices
+> * Organize your assets
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ This scenario shows you how to identify and respond to an alarm that's triggered
 
 As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller.
 
-1. On the **Dashboard** page, in the **Alarm Status** grid, you can see the **Chiller presssure too high** alarm. The chiller is also highlighted on the map:
+1. On the **Dashboard** page, in the **Alarm Status** grid, you can see the **Chiller pressure too high** alarm. The chiller is also highlighted on the map:
 
     <!-- Insert screenshot -->
 
@@ -122,7 +122,7 @@ Finally, confirm that the telemetry values from the chiller are back to normal.
 
 1. View the device telemetry for the original alarm and confirm that is back to normal.
 
-1. To close the incident, navigate to the **Maintenance** page, select the alarm and set the status to **Closed**:
+1. To close the incident, navigate to the **Maintenance** page, select the alarm, and set the status to **Closed**:
 
     <!-- Insert screenshot -->
 
@@ -161,7 +161,7 @@ You can use the **Maintenance** page to track the job as it runs.
 
     <!-- Insert screenshot -->
 
-1. Locate the event related to the job you created and verify that the firmware update process was initiated correctly:
+1. Locate the event related to the job you created. Verify that the firmware update process was initiated correctly:
 
     <!-- Insert screenshot -->
 
@@ -186,7 +186,7 @@ Contoso has two different teams for field service activities:
 * The Smart Building team manages chillers, elevators, and engines.
 * The Smart Vehicle team manages trucks and prototyping devices.
 
-To make it easier as an operator to organaize and mange your devices, you want to tag them with the appropriate team name.
+To make it easier as an operator to organize and manage your devices, you want to tag them with the appropriate team name.
 
 You can create custom tag names to use with devices.
 
@@ -220,7 +220,7 @@ You can use the custom tag values to create filters.
 
     <!-- Insert screenshot -->
 
-1. Create a new group that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicleg**:
+1. Create a new group that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicle**:
 
     <!-- Insert screenshot -->
 
@@ -230,9 +230,9 @@ In this tutorial, you learned to:
 
 >[!div class="checklist"]
 > * Visualize and filter devices on the dashboard
-> * Use simulated devices 
-> * Analyze device-triggered alarms
-> * Troubleshoot and remediate device issues
+> * Respond to an alarm
+> * Update the firmware in your devices
+> * Organize your assets
 
 Now that you have explored the remote monitoring solution, the suggested next steps are to learn about the advanced features of the remote monitoring solution:
 
