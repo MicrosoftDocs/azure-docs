@@ -96,7 +96,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 If you find a **negative** exit code, refer to the [exit code table](#azure-diagnostics-plugin-exit-codes) in the [References section](#references).
 
 ## Diagnostics data is not logged to Azure Storage
-Determine if none of data is appearing or only some of the data is not appearing.
+Determine if none of the data is appearing or some of the data is appearing.
 
 ### Diagnostics infrastructure Logs
 Diagnostics logs all errors in the Diagnostics infrastructure logs. Make sure you have enabled the [capture of Diagnostics infrastructure logs in your configuration](#how-to-check-diagnostics-extension-configuration). Then you can quickly look for any relevant errors that appear in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
@@ -106,7 +106,7 @@ The most common reason that event data doesn't appear at all is that the storage
 
 Solution: Correct your Diagnostics configuration and reinstall Diagnostics.
 
-If the storage account is configured correctly, remote desktop into the machine and verify that DiagnosticsPlugin.exe and MonAgentCore.exe are running. If they aren't running, follow the steps in [Azure Diagnostics is not starting](#azure-diagnostics-is-not-starting). 
+If the storage account is configured correctly, remote access into the machine and verify that DiagnosticsPlugin.exe and MonAgentCore.exe are running. If they aren't running, follow the steps in [Azure Diagnostics is not starting](#azure-diagnostics-is-not-starting). 
 
 If the processes are running, go to [Is data getting captured locally?](#is-data-getting-captured-locally) and follow the instructions there.
 
@@ -119,18 +119,18 @@ The Diagnostics configuration contains instructions for a particular type of dat
 #### Is the host generating data?
 - **Performance counters**: Open perfmon and check the counter.
 
-- **Trace logs**:  Remote desktop into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
+- **Trace logs**:  Remote access into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
 If you don't see trace logs being generated, see [More about trace logs missing](#more-about-trace-logs-missing).
 
-- **ETW traces**: Remote desktop into the VM and install PerfView.  In PerfView, run **File > User Command > Listen etwprovder1 > etwprovider2,** and so on. The **Listen** command is case-sensitive and that there cannot be spaces between the comma-separated list of ETW providers. If the command fails to run, you can select the **Log** button in the bottom-right of the Perfview tool to see what  attempted to run and what the result was.  Assuming the input is correct, a new window pops up. In a few seconds, you begin seeing ETW traces.
+- **ETW traces**: Remote access into the VM and install PerfView.  In PerfView, run **File > User Command > Listen etwprovder1 > etwprovider2,** and so on. The **Listen** command is case-sensitive and that there cannot be spaces between the comma-separated list of ETW providers. If the command fails to run, you can select the **Log** button in the bottom-right of the Perfview tool to see what  attempted to run and what the result was.  Assuming the input is correct, a new window pops up. In a few seconds, you begin seeing ETW traces.
 
-- **Event logs**: Remote desktop into the VM. Open `Event Viewer`, and then ensure that the events exist.
+- **Event logs**: Remote access into the VM. Open `Event Viewer`, and then ensure that the events exist.
 
 #### Is data getting captured locally?
 Next, make sure the data is getting captured locally.
-The data is locally stored in `*.tsf` files in [the local store for diagnostics data](#log-artifacts-path). Different kinds of logs get collected in different `.tsf` files. The names are similar to the table names in azure storage. 
+The data is locally stored in `*.tsf` files in [the local store for diagnostics data](#log-artifacts-path). Different kinds of logs get collected in different `.tsf` files. The names are similar to the table names in Azure Storage. 
 
-For example, `Performance Counters` get collected in `PerformanceCountersTable.tsf`. Event logs get collected in `WindowsEventLogsTable.tsf`. Use the instructions in the [Local Log Extraction](#local-log-extraction) section to open the local collection files and make sure you see them getting collected on disk.
+For example, `Performance Counters` get collected in `PerformanceCountersTable.tsf`. Event logs get collected in `WindowsEventLogsTable.tsf`. Use the instructions in the [Local log extraction](#local-log-extraction) section to open the local collection files and verify that you see them getting collected on disk.
 
 If you don't see logs getting collected locally, and have already verified that the host is generating data, you likely have a configuration issue. Review your configuration carefully. 
 
@@ -141,12 +141,12 @@ If you have verified that the data is getting captured locally but you still don
 
 - Verify that you have provided a correct storage account, and that you haven't rolled over keys for the given storage account. For Azure Cloud Services, sometimes we see that people don't update `useDevelopmentStorage=true`.
 
-- Verify that the provided storage account is correct. Make sure you don't have network restrictions that  prevent the components from reaching public storage endpoints. One way to do that is to remote desktop into the machine, and then try to write something to the same storage account yourself.
+- Verify that the provided storage account is correct. Make sure you don't have network restrictions that  prevent the components from reaching public storage endpoints. One way to do that is to remote access into the machine, and then try to write something to the same storage account yourself.
 
 - Finally, you can look at what failures are being reported by the monitoring Agent. The monitoring agent writes its logs in `maeventtable.tsf`, which is located in [the local store for diagnostics data](#log-artifacts-path). Follow the instructions in the [Local log extraction](#local-log-extraction) section for opening this file. Then try to determine if there are `errors` that indicate failures reading to local files writing to storage.
 
 ### Capturing and archiving logs
-If you are thinking about contacting support, the first thing they might ask you is to collect logs from your machine. You can save time by doing that yourself. Run the `CollectGuestLogs.exe` utility at [Log collection utility path](#log-artifacts-path) and it generates a zip file with all relevant Azure logs in the same folder.
+If you are thinking about contacting support, the first thing they might ask you is to collect logs from your machine. You can save time by doing that yourself. Run the `CollectGuestLogs.exe` utility at [Log collection utility path](#log-artifacts-path). It generates a .zip file with all relevant Azure logs in the same folder.
 
 ## Diagnostics data tables not found
 The tables in Azure storage that hold ETW events are named by using the following code:
@@ -218,9 +218,9 @@ Alternatively, remote desktop into the machine and look at the Azure Diagnostics
 
 In either case, search for **Microsoft.Azure.Diagnostics**, and then for the **xmlCfg** or **WadCfg** field. 
 
-If you're searching on a virtual machine, if the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML, and is base64-encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
+If you're searching on a virtual machine and the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML, and is base64-encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
-For the cloud service role, if you pick the configuration from disk, the data is base64-encoded so you need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
+For the cloud service role, if you pick the configuration from disk, the data is base64-encoded, so you need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
 ### Azure Diagnostics plugin exit codes
 The plugin returns the following exit codes:
