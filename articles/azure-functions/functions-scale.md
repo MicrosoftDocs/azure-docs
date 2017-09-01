@@ -21,7 +21,7 @@ ms.author: glenga
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Functions hosting plan comparison
+# Azure Functions hosting plans comparison
 
 ## Introduction
 
