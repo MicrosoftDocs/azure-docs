@@ -47,7 +47,7 @@ This first script works with the Azure Stack certificate authority to create the
 | API SSL certificate | api.appservice.local.AzureStack.external.pfx |
 | Publisher SSL certificate | ftp.appservice.local.AzureStack.external.pfx |
 
-If you use a different domain suffix, your certificate files doesn't use *local.AzureStack.external*. Instead, your custom domain information is used.
+If you use a different domain suffix, your certificate files don't use *local.AzureStack.external*. Instead, your custom domain information is used.
 
 To create the certificates, follow these steps:
 
