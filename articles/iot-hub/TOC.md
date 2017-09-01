@@ -5,7 +5,7 @@
 
 # [Get Started](iot-hub-get-started.md)
 
-## Setup your device
+## Set up your device
 ### [Simulate a device on your PC](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
@@ -15,8 +15,11 @@
 ### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [Use a physical device](iot-hub-get-started-physical.md)
+#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
+
+#### [MXChip IoT DevKit with Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +87,7 @@
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +107,7 @@
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Manage
 ### Create an IoT hub 
 #### [Use the portal](iot-hub-create-through-portal.md)
@@ -150,6 +155,7 @@
 #### [Native module host](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
@@ -173,13 +179,14 @@
 # Resources
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
 ## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

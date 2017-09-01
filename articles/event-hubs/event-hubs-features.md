@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 08/17/2017
 ms.author: sethm
 
 ---
@@ -50,7 +50,7 @@ You don't have to create publisher names ahead of time, but they must match the 
 
 ## Capture
 
-[Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and archive it to a Blob storage account of your choice. You can enable Capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, which is used to store the captured data. Captured data is written in the Apache Avro format.
+[Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and save it to your choice of either a Blob storage account, or an Azure Data Lake Service account. You can enable Capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, or Azure Data Lake Service account, which is used to store the captured data. Captured data is written in the Apache Avro format.
 
 ## Partitions
 
@@ -117,7 +117,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 
 ### Common consumer tasks
 
-All Event Hubs consumers connect via an AMQP 1.0 session and state-aware bidirectional communication channel. Each partition has an AMQP 1.0 session that facilitates the transport of events segregated by partition.
+All Event Hubs consumers connect via an AMQP 1.0 session, a state-aware bidirectional communication channel. Each partition has an AMQP 1.0 session that facilitates the transport of events segregated by partition.
 
 #### Connect to a partition
 
@@ -147,7 +147,7 @@ The throughput capacity of Event Hubs is controlled by *throughput units*. Throu
 * Ingress: Up to 1 MB per second or 1000 events per second (whichever comes first)
 * Egress: Up to 2 MB per second
 
-Beyond the capacity of the purchased throughput units, ingress is throttled and a [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) is returned. Egress does not produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** blade of the namespaces in the [Azure portal](https://portal.azure.com). You can also manage throughput units programmatically using the [Event Hubs APIs](event-hubs-api-overview.md).
+Beyond the capacity of the purchased throughput units, ingress is throttled and a [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) is returned. Egress does not produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** blade of the namespaces in the [Azure portal](https://portal.azure.com). You can also manage throughput units programmatically using the [Event Hubs APIs](event-hubs-api-overview.md).
 
 Throughput units are billed per hour and are pre-purchased. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for an Event Hubs namespace and are shared across all Event Hubs in the namespace.
 
@@ -165,7 +165,7 @@ For more information about Event Hubs, visit the following links:
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
-* [Sample applications that use Event Hubs][]
+* [Event Hubs samples][]
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
-[Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Event Hubs samples]: https://github.com/Azure/azure-event-hubs/tree/master/samples

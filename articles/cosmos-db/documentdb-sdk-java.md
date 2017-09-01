@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB: DocumentDB Java API, SDK & Resources | Microsoft Docs
+title: 'Azure Cosmos DB: DocumentDB Java API, SDK & Resources | Microsoft Docs'
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB DocumentDB Java SDK.
 services: cosmos-db
 documentationcenter: java
@@ -54,7 +54,6 @@ ms.custom: H1Hack27Feb2017
 * Fixed an issue with the Strong and BoundedStaleness consistency levels.
 
 ### <a name="1.11.0"/>1.11.0
-* Added support for Request Unit per Minute (RU/m) feature.
 * Added support for a new consistency level called ConsistentPrefix.
 * Fixed a bug in reading collection in session mode.
 

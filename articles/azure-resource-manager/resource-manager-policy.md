@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 08/02/2017
 ms.author: tomfitz
 
 ---
 # Resource policy overview
-Resource policies enable you to establish conventions for resources in your organization. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed, or you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
+Resource policies enable you to establish conventions for resources in your organization. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed. Or, you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
 
 There are two concepts to understand about policies:
 
@@ -35,7 +35,7 @@ Policies are evaluated when creating and updating resources (PUT and PATCH opera
 > 
 
 ## How is it different from RBAC?
-There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on **user** actions at different scopes. For example, you are added to the contributor role for a resource group at the desired scope, so you can make changes to that resource group. Policy focuses on **resource** properties during deployment. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system. 
+There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on **user** actions at different scopes. For example, you are added to the contributor role for a resource group at the desired scope, so you can make changes to that resource group. Policy focuses on **resource** properties during deployment. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system. 
 
 To use policies, you must be authenticated through RBAC. Specifically, your account needs the:
 
@@ -190,7 +190,7 @@ The condition evaluates whether a **field** meets certain criteria. The supporte
 
 When using the **like** condition, you can provide a wildcard (*) in the value.
 
-When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Set naming convention](#set-naming-convention).
+When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Apply resource policies for names and text](resource-manager-policy-naming-convention.md).
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  
@@ -228,7 +228,7 @@ The value can be either a string or a JSON format object.
 
 ## Aliases
 
-You use property aliases to access specific properties for a resource type. 
+You use property aliases to access specific properties for a resource type. Aliases enable you to restrict what values or conditions are permitted for a property on a resource. Each alias maps to paths in different API versions for a given resource type. During policy evaluation, the policy engine gets the property path for that API version.
 
 **Microsoft.Cache/Redis**
 
@@ -260,6 +260,7 @@ You use property aliases to access specific properties for a resource type.
 
 | Alias | Description |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | Set the identifier of the image used to create the virtual machine. |
 | Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
@@ -284,6 +285,7 @@ You use property aliases to access specific properties for a resource type.
 
 | Alias | Description |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | Set the identifier of the image used to create the virtual machine. |
 | Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/11/2017
 ms.author: helaw
 ms.custom: mvc
 ---
@@ -42,7 +42,7 @@ This topic also assumes that you have some knowledge of Azure and Azure Stack. I
 
 ### Azure Stack
  - [Deploy Azure Stack](azure-stack-run-powershell-script.md).  The installation usually takes a few hours to complete, so plan accordingly.
- - Deploy [SQL](azure-stack-sql-resource-provider-deploy.md) and [App Service](azure-stack-app-service-deploy.md) PaaS services to Azure Stack.
+ - Deploy [App Service](azure-stack-app-service-deploy.md) PaaS services to Azure Stack.
  - Create a Web App and configure it for [FTP publishing](azure-stack-app-service-enable-ftp.md).  Make note of the new Web App URL, as it is used later.  
 
 ### Developer tools

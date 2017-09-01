@@ -26,7 +26,7 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
-      text: Linux
+      text: Create a Kubernetes cluster
       href: /azure/container-service/kubernetes/container-service-kubernetes-walkthrough
 - title: Step-by-Step Tutorials
   items:

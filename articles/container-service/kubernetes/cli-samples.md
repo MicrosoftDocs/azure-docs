@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Azure CLI Samples for Azure Container Service

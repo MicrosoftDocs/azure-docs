@@ -4,7 +4,7 @@ description: The Azure Media Motion Detector media processor (MP) enables you to
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: milanga;juliako;
 
 ---
@@ -160,7 +160,7 @@ The following is a JSON output example
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Creates a job with a video motion detection task based on a configuration file that contains the following json preset. 
+2. Create a job with a video motion detection task based on a configuration file that contains the following json preset. 
    
         {
           "Version": "1.0",
@@ -189,7 +189,7 @@ The following program shows how to:
             ]
           }
         }
-3. Downloads the output JSON files. 
+3. Download the output JSON files. 
 
 #### Create and configure a Visual Studio project
 

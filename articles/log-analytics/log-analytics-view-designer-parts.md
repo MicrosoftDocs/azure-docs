@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
 
 ---
@@ -23,7 +23,10 @@ The View Designer in Log Analytics allows you to create custom views in the OMS 
 Other articles available for View Designer are:
 
 * [View Designer](log-analytics-view-designer.md) - Overview of the View Designer and procedures for creating and editing custom views.
-* [Tile reference](log-analytics-view-designer-tiles.md) - Reference of the settings for each of the tiles available to use in your custom views. 
+* [Tile reference](log-analytics-view-designer-tiles.md) - Reference of the settings for each of the tiles available to use in your custom views.
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078).  Any views that were created before the workspace was upgraded will be automtically converted.
 
 The following table describes the different types of tiles available in the View Designer.  The sections below describe each tile type in detail and their properties.
 
@@ -304,7 +307,7 @@ The following sections describe settings common to several visualization parts.
 ### <a name="name-value-separator">Name & Value Separator</a>
 Single character delimiter if you want to parse the text property from a list query into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.
 
-For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. 
+For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*.
 
 ### <a name="navigation-query">Navigation query</a>
 Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.
@@ -339,4 +342,3 @@ The following table describes the settings for tresholds.
 
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to support the queries in visualization parts.
-

@@ -167,7 +167,11 @@ and choose **Create**.
 
    ![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-8. Select the dynamic content fields that you want to use, 
+8. Switch to raw inputs by clicking on the icon in upper right corner.
+
+   ![Switch to raw inputs](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+
+9. Select Body from the dynamic content picker, 
 and save the logic app.
 
    ![Dynamic content fields](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
@@ -219,7 +223,7 @@ from the list, and choose **Create**.
 
 7. Search on **EDIFACT**, and select **EDIFACT - Add or update control numbers**.   
 
-   ![Add or update control numbers](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Add or update control numbers](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. To connect an action to a secondary region integration account, 
 select **Change connection** > **Add new connection** for a 
@@ -229,10 +233,14 @@ and choose **Create**.
 
    ![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-9. Select the dynamic content fields that you want, 
+9. Switch to raw inputs by clicking on the icon in upper right corner.
+
+   ![Switch to raw inputs](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+
+10. Select Body from the dynamic content picker, 
 and save the logic app.   
 
-   ![Dynamic content fields](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn5.png)
+   ![Dynamic content fields](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
    Based on the time interval, the trigger polls the 
    primary region received control number table and pulls the new records.
@@ -284,7 +292,7 @@ or **Second** with an interval.
 
    ![New step, Add an action](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
-6. Search on **AS2**, and select **AS2 - Add or update a MIC**.  
+6. Search on **AS2**, and select **AS2 - Add or update MIC contents**.  
 
    ![MIC addition or update](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
@@ -296,7 +304,11 @@ and choose **Create**.
 
    ![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
-8. Select the dynamic content fields that you want, and save the logic app.   
+8. Switch to raw inputs by clicking on the icon in upper right corner.
+
+   ![Switch to raw inputs](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2rawinputs.png)
+
+9. Select Body from the dynamic content picker, and save the logic app.   
 
    ![Dynamic content](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 

@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 08/31/2017
 ms.author: magoedte;sngun
 
 ---
@@ -50,7 +50,7 @@ We'll start by creating a simple runbook that outputs the text *Hello World*.
 ## Step 2 - Add code to the runbook
 You can either type code directly into the runbook, or you can select cmdlets, runbooks, and assets from the Library control and have them added to the runbook with any related parameters. For this walkthrough, we type directly in the runbook.
 
-1. Our runbook is currently empty, type *Write-Output "Hello World."*.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
+1. Our runbook is currently empty, type *Write-Output "Hello World."* in the body of the script.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
 2. Save the runbook by clicking **Save**.<br><br> ![Save Button](media/automation-first-runbook-textual-powershell/automation-runbook-edit-controls-save.png)  
 
 ## Step 3 - Test the runbook

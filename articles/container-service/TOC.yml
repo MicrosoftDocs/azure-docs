@@ -5,4 +5,6 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=containers
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
