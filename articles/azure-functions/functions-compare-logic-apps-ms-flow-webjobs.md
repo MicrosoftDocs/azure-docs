@@ -123,7 +123,7 @@ The integration between Flow, Logic Apps, and Functions continues to improve ove
 build something in one service and use it in the other services. Therefore, any investment you make in these three 
 technologies is worthwhile.
 
-## Next Steps
+## Next steps
 Get started with each of the services by creating your first flow, logic app, function app, or WebJob. Click any of the following links:
 
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
