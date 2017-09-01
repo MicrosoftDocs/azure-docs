@@ -465,7 +465,7 @@ In this scenario:
 
 - Review your device-based conditional access policies
 
-- Migrate them to to the Azure portal 
+- Migrate them to the Azure portal 
 
 - Add mobile application management conditional access policies
 
