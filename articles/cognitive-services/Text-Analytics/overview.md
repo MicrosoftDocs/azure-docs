@@ -62,7 +62,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | English     | `en` | ✔ | ✔ | 
 | Spanish     | `es` | ✔ | ✔ | 
 | Finnish     | `fi` | ✔ \* |  | 
-| French      | `fr` | ✔ | ✔ \* | 
+| French      | `fr` | ✔ | ✔  | 
 | Japanese    | `ja` |  | ✔ |   |
 | Italian     | `it` | ✔ \* |  | 
 | Dutch       | `nl` | ✔ \* |  | 
