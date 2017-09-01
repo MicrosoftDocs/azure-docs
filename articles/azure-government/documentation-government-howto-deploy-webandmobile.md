@@ -27,10 +27,11 @@ This article describes how to deploy an Azure App Services app (API App, Web App
 ## Open App project in Visual Studio
 * Open existing app solution\project in Visual Studio, create a project by following [these instructions] (../app-service-web/app-service-web-get-started-dotnet.md), or download sample app by following [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
 * Run the app in Visual Studio to make sure it works locally.
-> [!NOTE] 
+
+> [!NOTE]
 > If using the sample application, complete the ["Use Swagger API metadata and UI"](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui) section to run the app in Visual Studio. 
->  
->
+> 
+> 
 
 ## Deploy to Azure Government
 * Once **Visual Studio is configured to connect to Azure Government account** (already done in prerequisites section), instructions to deploy to app services are exactly same as for Azure Public.
