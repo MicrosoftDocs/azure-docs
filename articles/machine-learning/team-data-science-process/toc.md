@@ -74,11 +74,11 @@
 
 ### Create and train models
 #### [Choose algorithms](../studio/algorithm-choice.md)
-#### [Algorithm cheat sheet](machine-learning-algorithm-cheat-sheet.md)
+#### [Algorithm cheat sheet](../studio/algorithm-cheat-sheet.md)
 
 ## Deploy models
-### [With a web service](machine-learning-publish-a-machine-learning-web-service.md)
-### [Consume a web service](machine-learning-consume-web-services.md)
+### [With a web service](../studio/publish-a-machine-learning-web-service.md)
+### [Consume a web service](../studio/consume-web-services.md)
 
 # Related
 ## Cortana Intelligence Partner Solutions
