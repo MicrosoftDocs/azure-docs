@@ -1,6 +1,6 @@
 ---
-title: Set up device for IoT DPS | Microsoft Docs
-description: Set up device to provision via IoT DPS during manufacturing process
+title: Set up device for IoT Hub Device Provisioning Service | Microsoft Docs
+description: Set up device to provision via IoT DHub Device Provisioning ServicePS during manufacturing process
 services: iot-dps
 keywords: 
 author: dsk-2015
@@ -15,39 +15,39 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Set up a device to provision using Azure IoT DPS
+# Set up a device to provision using Azure IoT Hub Device Provisioning Service
 
-In the previous tutorial, you learned how to set up the Azure IoT DPS to automatically provision your devices to your IoT hub. This tutorial provides guidance for setting up your device during the manufacturing process, so that you can configure the IoT DPS for your device based on its [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), and the device can connect to the IoT DPS when it boots for the first time. This tutorial discusses the processes to:
+In the previous tutorial, you learned how to set up the Azure IoT Hub Device Provisioning Service to automatically provision your devices to your IoT hub. This tutorial provides guidance for setting up your device during the manufacturing process, so that you can configure the Device Provisioning Service for your device based on its [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), and the device can connect to your Device Provisioning service when it boots for the first time. This tutorial discusses the processes to:
 
 > [!div class="checklist"]
 > * Select a Hardware Security Module
 > * Implement security mechanism
 > * Extract the security artifacts
-> * Set up DPS configuration on the device
+> * Set up Device Provisioning Service configuration on the device
 
 ## Prerequisites
 
-Before proceeding, create your DPS and hub setup using the instructions mentioned in the tutorial [Set up cloud for DPS in portal](./tutorial-set-up-cloud.md).
+Before proceeding, create your Device Provisioning Service instance and an IoT hub using the instructions mentioned in the tutorial [Set up cloud for device provisioning](./tutorial-set-up-cloud.md).
 
 
 ## Select a Hardware Security Module
 
-[Azure IoT DPS client SDK](https://github.com/Azure/azure-iot-device-auth/tree/master/dps_client) provides support for two types of Hardware Security Modules: 
+[Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-device-auth/tree/master/dps_client) provides support for two types of Hardware Security Modules: 
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
-    - TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually in DPS via the portal. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
+    - TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually to Device Provisioning Service via the portal. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
 
 - X.509 based hardware security modules. 
-    - X.509 based HSMs are relatively newer chips, with work currently progressing within Microsoft on RIoT or DICE chips which implement the X.509 certificates. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the DPS client SDK supports an X.509 device simulator. 
+    - X.509 based HSMs are relatively newer chips, with work currently progressing within Microsoft on RIoT or DICE chips which implement the X.509 certificates. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
 
-As a device manufacturer, you need to select hardware security modules/chips that are based on either one of the preceding types. Other types of HSMs are not currently supported in the DPS client SDK.   
+As a device manufacturer, you need to select hardware security modules/chips that are based on either one of the preceding types. Other types of HSMs are not currently supported in the Device Provisioning Service client SDK.   
 
 
 ## Implement security mechanism
 
-The Azure DPS Client SDK helps implement the selected security mechanism in software. The following steps show how to use the SDK for the selected HSM chip:
+The Device Provisioning Service Client SDK helps implement the selected security mechanism in software. The following steps show how to use the SDK for the selected HSM chip:
 
-1. If you followed the [Quick start to create simulated device](./quick-create-simulated-device.md), you have the setup ready to build the SDK. If not, follow the first four steps from the section titled [Prepare the development environment](./quick-create-simulated-device.md#setupdevbox). These steps clone the github repo for the DPS Client SDK as well as install the `cmake` build tool. 
+1. If you followed the [Quick start to create simulated device](./quick-create-simulated-device.md), you have the setup ready to build the SDK. If not, follow the first four steps from the section titled [Prepare the development environment](./quick-create-simulated-device.md#setupdevbox). These steps clone the github repo for the Device Provisioning Service Client SDK as well as install the `cmake` build tool. 
 
 1. Build the SDK for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
     - For TPM devices:
@@ -97,25 +97,25 @@ Once you build the SDK for your selected HSM, make sure the following functions 
     ```
   The SDK built for X.509 flow has default implementations for the X.509 simulator.
 
-These APIs interact with your chip to extract the security artifacts from the device after it boots. The DPS Client SDK uses these security artifacts for verifying registration with the DPS service.
+These APIs interact with your chip to extract the security artifacts from the device after it boots. The Device Provisioning Service Client SDK uses these security artifacts for verifying registration with your Device Provisioning service.
 
 
-## Set up DPS configuration on the device
+## Set up Device Provisioning Service configuration on the device
 
-The last step in the device manufacturing process is to write an application that uses the DPS client SDK to register the device with the DPS service. The DPS client incorporates the following APIs for your applications to use:
+The last step in the device manufacturing process is to write an application that uses the Device Provisioning Service client SDK to register the device with the service. This SDK provides the following APIs for your applications to use:
 
 ```C
 typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
 DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
-void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub DPS module.
-DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with DPS
-void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the DPS service and calls any user callbacks that are required.
+void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub Device Provisioning Service module.
+DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with Device Provisioning Service
+void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
 ```
 
-Remember to initialize the variables `dps_uri` and `dps_scope_id` as mentioned in the [Simulate first boot sequence for the device section of this quick start](./quick-create-simulated-device.md#firstbootsequence), before using them. These *DPS URI* allows the DPS client registration API `DPS_Client_LL_Create` connect to the right DPS service. The *Scope ID* is generated by the DPS service and provides uniqueness guarantee. It is immutable and used to uniquely identify the registration IDs. Similarly, the `iothub_uri` allows the IoT Hub client registration API `IoTHubClient_LL_CreateFromDeviceAuth` to connect with the right IoT hub. 
+Remember to initialize the variables `dps_uri` and `dps_scope_id` as mentioned in the [Simulate first boot sequence for the device section of this quick start](./quick-create-simulated-device.md#firstbootsequence), before using them. These *DPS URI* allows the Device Provisioning client registration API `DPS_Client_LL_Create` connect to the right Device Provisioning Service instance. The *Scope ID* is generated by the service and provides uniqueness guarantee. It is immutable and used to uniquely identify the registration IDs. Similarly, the `iothub_uri` allows the IoT Hub client registration API `IoTHubClient_LL_CreateFromDeviceAuth` to connect with the right IoT hub. 
 
 
-These APIs help your device to connect and register with the DPS service when it boots up, get the information about your IoT hub and then connect to your IoT hub. The file `dps_client/samples/dps_client_sample/dps_client_sample.c` shows how to use these APIs. In general, you need to create the following framework for the client registration:
+These APIs help your device to connect and register with the Device Provisioning Service when it boots up, get the information about your IoT hub and then connect to your IoT hub. The file `dps_client/samples/dps_client_sample/dps_client_sample.c` shows how to use these APIs. In general, you need to create the following framework for the client registration:
 
 ```C
 static const char* dps_uri = "[device provisioning uri]";
@@ -150,13 +150,13 @@ int main()
 }
 ```
 
-You may choose to polish your DPS registration application using a simulated device at first, using a test DPS setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. Do not start the device yet, you need to [enroll the device with the DPS service](./tutorial-provision-device-to-hub.md#enrolldevice) before starting the device. See the next steps below to learn this process. 
+You may choose to refine your Device Provisioning Service client registration application using a simulated device at first, using a test service setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. Do not start the device yet, you need to [enroll the device with the Device Provisioning Service](./tutorial-provision-device-to-hub.md#enrolldevice) before starting the device. See the next steps below to learn this process. 
 
 ## Clean up resources
 
-At this point, you might have set up the DPS and IoT Hub services in the portal. If you wish to abandon the DPS device provisioning setup, and/or delay using any of these services, we recommend shutting them down to avoid incurring unnecessary costs.
+At this point, you might have set up the Device Provisioning and IoT Hub services in the portal. If you wish to abandon the device provisioning setup, and/or delay using any of these services, we recommend shutting them down to avoid incurring unnecessary costs.
 
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your DPS service. At the top of the **All resources** blade, click **Delete**.  
+1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. At the top of the **All resources** blade, click **Delete**.  
 1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
 
 
@@ -167,9 +167,9 @@ In this tutorial, you learned how to:
 > * Select a Hardware Security Module
 > * Implement security mechanism
 > * Extract the security artifacts
-> * Set up DPS configuration on the device
+> * Set up Device Provisioning Service configuration on the device
 
-Advance to the next tutorial to learn how to provision the device to your IoT hub by enrolling it to IoT DPS for auto-provisioning.
+Advance to the next tutorial to learn how to provision the device to your IoT hub by enrolling it to Azure IoT Hub Device Provisioning Service for auto-provisioning.
 
 > [!div class="nextstepaction"]
 > [Provision the device to your IoT hub](tutorial-provision-device-to-hub.md)
