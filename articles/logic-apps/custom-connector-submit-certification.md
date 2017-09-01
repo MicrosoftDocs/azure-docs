@@ -47,6 +47,10 @@ To apply for certification, follow these steps:
 
    1. [Submit your nomination](https://go.microsoft.com/fwlink/?linkid=848754).
 
+      1. At the bottom of the page, choose **Contact us**.
+      2. Fill the form, and select **Questions on ISV connector program and co-marketing**.
+      3. Choose **Submit**.
+
    2. Sign the mutual Non-Disclosure Agreement and Partner Agreement that you receive. 
    Microsoft requires these signed contracts before proceeding. 
    We can then check whether your connector meets the certification criteria. 
