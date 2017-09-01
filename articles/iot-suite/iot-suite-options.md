@@ -25,7 +25,7 @@ Compare IoT solution options, replaces existing "What is IoT Suite?" article.-->
 
 # Azure IoT options
 
-The article [Azure and Internet of Things](iot-suite-overview.md) describes a typical IoT architecture with the following layers:
+The article [Azure and Internet of Things](iot-suite-what-is-azure-iot.md.md) describes a typical IoT architecture with the following layers:
 
 * Device connectivity
 * Data processing and analytics

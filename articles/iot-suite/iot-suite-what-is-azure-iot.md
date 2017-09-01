@@ -22,7 +22,7 @@ ms.author: dobett
 
 ## Next steps
 
-Now that you have learned about the typical IoT Architecture, explore the different implementation options using Microsoft Azure IoT products in [Microsoft Azure IoT options](iot-suite-overview.md).
+Now that you have learned about the typical IoT Architecture, explore the different implementation options using Microsoft Azure IoT products in [Microsoft Azure IoT options](iot-suite-options.md).
 
 To find out more about the individual Azure IoT services, see:
 
