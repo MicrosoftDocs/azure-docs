@@ -17,7 +17,6 @@ Create an IoT hub for your simulated device app to connect to. The following ste
    1. In **Location**, select the location to host your IoT hub. For this tutorial, choose your nearest location.
 1. When you have chosen your IoT hub configuration options, click **Create**.  It can take a few minutes for Azure to create your IoT hub. To check the status, you can monitor the progress on the Startboard or in the Notifications panel.
    
-    ![New IoT hub status][3]
 1. When the IoT hub has been created successfully, click the new tile for your IoT hub in the Azure portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
    
     ![New IoT hub blade][4]
@@ -28,7 +27,6 @@ Create an IoT hub for your simulated device app to connect to. The following ste
 <!-- Images. -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-get-started-create-hub/create-iot-hub3.png
 [4]: ./media/iot-hub-get-started-create-hub/create-iot-hub4.png
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
