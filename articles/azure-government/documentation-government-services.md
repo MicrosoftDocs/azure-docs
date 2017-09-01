@@ -68,7 +68,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [App Service: API Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
-| [Media Services](doucmentation-government-services-media.md) | Yes | Yes |
+| [Media Services](documentation-government-services-media.md) | Yes | Yes |
 
 ## [Databases](documentation-government-services-database.md)
 
@@ -80,7 +80,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
 
-## [Data + Analytics](documentation-government-services-datandanalytics.md)
+## [Data + Analytics](documentation-government-services-dataandanalytics.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
