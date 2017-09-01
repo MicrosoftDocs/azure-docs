@@ -74,7 +74,7 @@ To configure your SharePoint site for Kerberos authentication:
 5. In the **Edit Authentication** dialog box, scroll down until you see **Claims Authentication Types**. Ensure that both **Enable Windows Authentication** and **Integrated Windows Authentication** are selected.
 6. In the drop-down box for the Integrated Windows Authentication field, make sure that **Negotiate (Kerberos)** is selected.
 
-  ![Edit Authentication dialog box](./media/application-proxy-remote-sharepoint/remote-sharepoint-service-edit-authentication.png)
+  ![Edit Authentication dialog box](./media/application-proxy-remote-sharepoint/service-edit-authentication.png)
 
 7. At the bottom of the **Edit Authentication** dialog box, click **Save**.
 
