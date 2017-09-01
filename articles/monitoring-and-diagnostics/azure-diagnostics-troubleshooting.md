@@ -36,7 +36,7 @@ Following are the paths to some important logs and artifacts. We refer to these 
 | **Azure Diagnostics configuration file** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Log files** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
 | **Local store for diagnostics data** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
-| **Monitoring Agent configuration file** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Monitoring agent configuration file** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure Diagnostics extension package** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Log collection utility path** | %SystemDrive%\Packages\GuestAgent\ |
 | **MonAgentHost log file** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
@@ -47,7 +47,7 @@ Following are the paths to some important logs and artifacts. We refer to these 
 | **Azure Diagnostics configuration file** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Log files** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
 | **Local store for diagnostics data** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
-| **Monitoring Agent configuration file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Monitoring agent configuration file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Status file** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure Diagnostics extension package** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Log collection utility path** | C:\WindowsAzure\Packages |
@@ -60,7 +60,7 @@ Here, the **PartitionKey** of the table is the resource ID, virtual machine, or 
 
 If the resource ID is incorrect, check **Diagnostics Configuration > Metrics > ResourceId** to see if the resource ID is set correctly.
 
-If there's no data for the specific metric, check **Diagnostics Configuration -> PerformanceCounter** to see if the metric (performance counter) is included. We enable the following counters by default:
+If there's no data for the specific metric, check **Diagnostics Configuration > PerformanceCounter** to see if the metric (performance counter) is included. We enable the following counters by default:
 - \Processor(_Total)\% Processor Time
 - \Memory\Available Bytes
 - \ASP.NET Applications(__Total__)\Requests/Sec
@@ -84,7 +84,7 @@ If the configuration is set correctly but you still can't see the metric data, u
 
 
 ## Azure Diagnostics isn't starting
-For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files from the location of the log files that were provided earlier. 
+For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files in the log files location that was provided earlier. 
 
 If these logs indicate `Monitoring Agent not reporting success after launch`, it means there was a failure launching MonAgentHost.exe. Look at the logs for that in the location indicated for `MonAgentHost log file` in the section above.
 
@@ -96,7 +96,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 If you find a **negative** exit code, refer to the [exit code table](#azure-diagnostics-plugin-exit-codes) in the [References section](#references).
 
 ## Diagnostics data is not logged to Azure Storage
-Determine if no data is appearing or only some of the data is not appearing.
+Determine if none of data is appearing or only some of the data is not appearing.
 
 ### Diagnostics infrastructure Logs
 Diagnostics logs all errors in the Diagnostics infrastructure logs. Make sure you have enabled the [capture of Diagnostics infrastructure logs in your configuration](#how-to-check-diagnostics-extension-configuration). Then you can quickly look for any relevant errors that appear in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
