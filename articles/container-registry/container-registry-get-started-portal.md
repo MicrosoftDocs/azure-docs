@@ -36,15 +36,14 @@ Log in to the Azure portal at http://portal.azure.com.
 
    ![Creating a container registry in the Azure portal][qs-portal-01]
 
-2. Select **Create**.
+2. Select **Create** to start the configuration of your new container registry.
 
    ![Creating a container registry in the Azure portal][qs-portal-02]
 
-3. Enter the following values in the ... text boxes. Leave the other values at their defaults, then click **OK**.
+3. Enter the following values in the **Registry name** and **Resource group** text boxes. Leave the other values at their defaults, then click **Create**.
 
-   * .
-   * .
-   * .
+   * **Registry name**: A unique name for your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+   * **Resource group**: `myResourceGroup`
 
    ![Creating a container registry in the Azure portal][qs-portal-03]
 
