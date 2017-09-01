@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to set up your first Device Provisioning service and provision a simulated device to your IoT hub.'
+    text: 'Learn how to set up your first Device Provisioning Service instance and provision a simulated device to your IoT hub.'
   - type: list
     style: icon48
     items: 
