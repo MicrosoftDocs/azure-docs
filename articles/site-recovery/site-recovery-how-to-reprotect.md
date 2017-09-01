@@ -246,5 +246,11 @@ This can happen due to two reasons
 
 To resolve this issue you can select a different master target server on a different host, so that the reprotect will create the machine on a different host, where the names do not collide. You can also vMotion the master target to a different host where the name collision will not happen.
 
+### Error code 78093
+
+*The VM is not running, in a hung state or not accessible.*
+
+To reprotect a failed over virtual machine back to on-premises, you need the Azure virtual machine running. This is so that the mobility service registers with the configuration server on-premises and can start replicating by communicating with the process server. If the machine is on an incorrect network or in not running (hung state or shutdown), then the configuration server cannot reach the mobility service in the virtual machine to begin the reprotect. You can restart the virtual machine so that it can start communicating back on-premises. Restart the reprotect job after starting the Azure virtual machine
+
 
 
