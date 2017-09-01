@@ -224,7 +224,7 @@ before Microsoft can publish your connector. Learn
 Microsoft actively monitors this account for developer questions and problems, 
 and routes them to the appropriate team. 
 
-For frequently asked questions, see the [Custom connector FAQ](../logic-apps/custom-connector-faq.md)
+* For frequently asked questions, see the [Custom connector FAQ](../logic-apps/custom-connector-faq.md)
 
 ## Next steps
 
