@@ -55,9 +55,8 @@ Each preconfigured solution is a complete, end-to-end implementation that can us
 <!-- Add a GitHub link here for the source code? -->
 You can download the complete source code to customize and extend the solutions to meet your specific IoT requirements.
 
-Links: 
-Java https://github.com/Azure/azure-iot-pcs-remote-monitoring-java 
-.Net https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet 
+* [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
 
 > [!NOTE]
 > To deploy one of the preconfigured solutions and learn more about how to customize them, visit [Microsoft Azure IoT Suite](https://www.azureiotsuite.com/).
@@ -95,12 +94,12 @@ When you deploy a preconfigured solution, the provisioning process configures a 
 | - | -------------------- | ---------------------- | ----------------- |
 | IoT Hub              | Yes |     | Yes |
 | Event Hubs           |     | Yes |     |
-| Time Series Insights |  |     | Yes |
+| Time Series Insights |     |     | Yes |
 | Container Services   | Yes |     | Yes |
 | Stream Analytics     |     | Yes |     |
 | Web Apps             |     | Yes | Yes |
-| Doc DB             | Yes    | Yes | Yes | <!-- Pending confirmation for PM and CF-->
-| Azure Tables             |     | Yes | Yes |
+| Doc DB               | Yes | Yes | Yes | <!-- Pending confirmation for PM and CF-->
+| Azure Tables         |     | Yes | Yes |
 
 * [Azure IoT Hub](../iot-hub/index.md). This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices](../iot-hub/iot-hub-device-management-overview.md). For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
 * [Azure Event Hubs](../event-hubs/index.md). This service provides high-volume event ingestion to the cloud. See [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).

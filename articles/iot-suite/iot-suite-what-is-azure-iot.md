@@ -20,26 +20,12 @@ ms.author: dobett
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## Next
+## Next steps
 
-Now that you have learned about the typical IoT Architecture, explore the different implementation options using Microsoft Azure IoT products in the next article. (Insert link to Microsoft Azurte IoT options)
+Now that you have learned about the typical IoT Architecture, explore the different implementation options using Microsoft Azure IoT products in [Microsoft Azure IoT options](iot-suite-options.md).
 
-* [Microsoft Azure IoT options][lnk-iotoptions]
+To find out more about the individual Azure IoT services, see:
 
-You can also check the additional documents:
-
-* [What is Azure IoT Suite?][lnk-whatarepreconfigured]
-* [What is Microsoft IoT Central?][lnk-whatarepreconfigured]
-* [What is Azure IoT Hub?][lnk-whatarepreconfigured]
-
-[lnk-whatissuite]: iot-suite-overview.md
-[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
-
-[lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
-[Azure Stream Analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
-[Azure storage]: https://azure.microsoft.com/documentation/services/storage/
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-connected-factory]: iot-suite-connected-factory-overview.md
+* [What is Azure IoT Suite?](iot-suite-what-are-preconfigured-solutions.md)
+* [What is Microsoft IoT Central?](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)
+* [What is Azure IoT Hub?](../iot-hub/iot-hub-what-is-iot-hub.md)
