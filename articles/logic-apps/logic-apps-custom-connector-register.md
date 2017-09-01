@@ -230,6 +230,15 @@ To share your connector with external users outside these boundaries,
 for example, with all Logic Apps, Flow, and PowerApps users, 
 [submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
+## FAQ
+
+**Q:** Is there a limit on how many connectors that I can create? </br>
+**A:** Yes, for each Azure subscription, you can create up to 1,000 connectors.
+
+**Q:** Is there a limit on how many requests that users can make with a custom connector? </br>
+**A:** Yes, for each connection that's created by a custom connector, 
+you can make up to 500 requests per minute.
+
 ## Get support
 
 * For support with development and onboarding, 
@@ -243,12 +252,6 @@ visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-U
 
 * To help improve Logic Apps, vote on or submit ideas at the 
 [Logic Apps user feedback site](http://aka.ms/logicapps-wish). 
-
-## FAQ
-
-**Q:** Is there a limit on how many requests that users can make with a custom connector? </br>
-**A:** Yes, for each connection that's created by a custom connector, 
-you can make up to 500 requests per minute.
 
 ## Next steps
 

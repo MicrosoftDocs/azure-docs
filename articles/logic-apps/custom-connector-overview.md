@@ -219,7 +219,9 @@ before Microsoft can publish your connector. Learn
 * For support with onboarding and development, email 
 [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com). 
 Microsoft actively monitors this account for developer questions and problems, 
-and routes them to the appropriate team.
+and routes them to the appropriate team. 
+
+For frequently asked questions, see the [Custom connector FAQ](../logic-apps/custom-connector-faq.md)
 
 ## Next steps
 
@@ -227,4 +229,3 @@ and routes them to the appropriate team.
 * [Set up authentication for custom connectors](../logic-apps/custom-connector-azure-active-directory-authentication.md)
 * [Describe custom connectors with Postman collections](../logic-apps/custom-connector-api-postman-collection.md)
 * [Submit custom connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md)
-* [Custom connector FAQ](../logic-apps/custom-connector-faq.md)

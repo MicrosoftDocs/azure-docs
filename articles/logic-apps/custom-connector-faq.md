@@ -55,7 +55,8 @@ with more details about your API.
 **Q:** My APIs use a dynamic host. How do I implement them with OpenAPI? </br>
 **A:** Custom connectors don't support dynamic hosts. 
 Instead, use a static host for development and testing purposes. 
-During submission, talk to your Microsoft contact regarding the dynamic implementation.
+If you submit your connector for certification, 
+ask your Microsoft contact about dynamic implementation.
 
 **Q:** Do you support Postman Collection V2? </br>
 **A:** No, only Postman Collection V1 is currently supported.
