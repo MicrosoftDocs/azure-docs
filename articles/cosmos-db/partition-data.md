@@ -47,7 +47,7 @@ The semantics for partition keys are slightly different to match the semantics o
 
 | API | Partition key | Row key |
 | --- | --- | --- |
-| DocumentDB | Custom partition key path | Fixed `id` | 
+| Azure Cosmos DB | Custom partition key path | Fixed `id` | 
 | MongoDB | Custom shared key  | Fixed `_id` | 
 | Graph | Custom partition key property | Fixed `id` | 
 | Table | Fixed `PartitionKey` | Fixed `RowKey` | 
@@ -72,8 +72,8 @@ Azure Cosmos DB is designed for predictable performance. When you create a conta
 ## Work with the Azure Cosmos DB APIs
 You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
 
-### DocumentDB API
-The following sample shows how to create a container (collection) by using the DocumentDB API. For more information, see [Partitioning with DocumentDB API](partition-data.md).
+### Azure Cosmos DB API
+The following sample shows how to create a container (collection) by using the Azure Cosmos DB API. 
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
