@@ -19,7 +19,7 @@ ms.author: mimig
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 5: Use Mongoose to connect to Azure Cosmos DB
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and the connect it to your Azure Cosmos DB database. 
+This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
 
 Part 5 of the tutorial builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.md) and covers the following tasks:
 
@@ -51,7 +51,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 3. Copy the following code into **mongo.js**. This code:
     * Requires Mongoose.
-    * Overrides the Mongo promise to use the basic promise that's built into ES6 or ES2015 and above.
+    * Overrides the Mongo promise to use the basic promise that's built into ES6/ES2015 and above.
     * Calls on an env file that lets you set up certain things based on whether you're in staging, prod, or dev. We will create that file soon.
     * Includes our MongoDB connection string, which will be set in the env file.
     * Creates a connect function that calls Mongoose.
@@ -98,7 +98,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Get the connection string information
 
-1. In **environment.js**, change the value of `cosmosPort` to 10255.
+1. In **environment.js**, change the value of `cosmosPort` to 10255. (You can find your Cosmos DB port the Azure Portal)
 
     ```javascript
     const cosmosPort = 10255;
@@ -124,7 +124,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 2. Copy the following code into **hero.model.js**. This code:
    * Requires Mongoose.
-   * Creates a new schema with an ID, name, and saying, and pull it in.
+   * Creates a new schema with an ID, name, and saying.
    * Creates a model using the schema.
    * Exports the model. 
    * Name the collection Heroes (instead of Heros, which would be the default name of the collection based on Mongoose plural naming rules).
@@ -216,7 +216,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 1. Now lets run the app again. In Visual Studio Code, save all your changes, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) on the left side, then click the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-3. Now lets flip over to the browser, open the Developer tools and the Network tab, then navigate to localhost:3000, and there's our application.
+3. Now lets flip over to the browser, open the Developer tools and the Network tab, then navigate to http://localhost:3000, and there's our application.
 
     ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
