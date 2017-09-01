@@ -38,7 +38,7 @@ az login
 ```
 
 > [!NOTE]
-> You can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter for simple Azure AD setups/scenarios. However, if you have configured Azure AD for federation you'll need to use `az login` and go through the device login flow.
+> The above login command is recommended, but for simple Azure AD setups/scenarios you can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter. However, if you have configured Azure AD for federation you'll need to use `az login` and go through the device login flow. 
 
 To confirm the cloud has correctly been set to AzureUSGovernment, run this command:
 
