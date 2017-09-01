@@ -58,7 +58,7 @@ Azure Diagnostics provides metric data that can be displayed in the Azure portal
 
 Here, the **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
 
-If the resource ID is incorrect, check **Diagnostics Configuration -> Metrics -> ResourceId** to see if the resource ID is set correctly.
+If the resource ID is incorrect, check **Diagnostics Configuration > Metrics > ResourceId** to see if the resource ID is set correctly.
 
 If there's no data for the specific metric, check **Diagnostics Configuration -> PerformanceCounter** to see if the metric (performance counter) is included. We enable the following counters by default:
 - \Processor(_Total)\% Processor Time
@@ -84,7 +84,7 @@ If the configuration is set correctly but you still can't see the metric data, u
 
 
 ## Azure Diagnostics isn't starting
-For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files from the location of the log files that are provided earlier. 
+For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files from the location of the log files that were provided earlier. 
 
 If these logs indicate `Monitoring Agent not reporting success after launch`, it means there was a failure launching MonAgentHost.exe. Look at the logs for that in the location indicated for `MonAgentHost log file` in the section above.
 
@@ -99,10 +99,10 @@ If you find a **negative** exit code, refer to the [exit code table](#azure-diag
 Determine if no data is appearing or only some of the data is not appearing.
 
 ### Diagnostics infrastructure Logs
-Diagnostics logs all errors in the Diagnostics infrastructure logs. Make sure you have enabled ([how to?](#how-to-check-diagnostics-extension-configuration)) the capture of Diagnostics infrastructure logs in your configuration. Then you can quickly look for any relevant errors that appear in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
+Diagnostics logs all errors in the Diagnostics infrastructure logs. Make sure you have enabled the [capture of Diagnostics infrastructure logs in your configuration](#how-to-check-diagnostics-extension-configuration). Then you can quickly look for any relevant errors that appear in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
 
 ### No data is appearing
-The most common reason that event data doesn't appearing at all is incorrectly defined storage account information.
+The most common reason that event data doesn't appear at all is that the storage account information is defined incorrectly.
 
 Solution: Correct your Diagnostics configuration and reinstall Diagnostics.
 
@@ -137,7 +137,7 @@ If you don't see logs getting collected locally, and have already verified that 
 Also review the configuration that was generated for MonitoringAgent [MaConfig.xml](#log-artifacts-path). Verify that there is a section that describes the relevant log source, and that it is not lost in translation between the Diagnostics configuration and the monitoring agent configuration.
 
 #### Is data getting transferred?
-If you have verified the data is getting captured locally but you still don't see it in your storage account, take the following steps: 
+If you have verified that the data is getting captured locally but you still don't see it in your storage account, take the following steps: 
 
 - First and foremost, make sure that you have provided a correct storage account, and that you haven't rolled over keys for the given storage account. For Azure Cloud Services, sometimes we see that people don't update `useDevelopmentStorage=true`.
 
@@ -287,7 +287,7 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 **Mitigation:** Install .NET 4.5 or higher on your machine.
 
-**2. Performance Counters data available in storage but not showing in portal**
+**2. Performance counters data available in storage but not showing in portal**
 
 The portal experience in the virtual machines shows certain performance counters by default. If you don't see the performance counters, and you know that the data is getting generated because it is available in storage, check the following:
 
