@@ -1,5 +1,5 @@
 ---
-title: How to Use GPU Machine Learning | Microsoft Docs
+title: How to Use GPU for Azure Machine Learning | Microsoft Docs
 description: This article describes how to use Graphical Processing Units (GPU) to train deep neural networks in Azure Machine Learning Workbench.
 services: machine-learning
 author: rastala
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/01/2017
 ---
-# How to Use GPU from Azure Machine Learning Workbench
-You can use Graphical Processing Unit (GPU) hardware to handle the intensive processing that happens when training deep neural network models in Azure Machine Learning.
+# How to use GPU from Azure Machine Learning Workbench
+You can use Graphical Processing Unit (GPU) hardware to handle the intensive processing that happens when training certain deep neural network models in Azure Machine Learning. By using GPUs, you can accelerate the training time of deep neural network models significantly. 
 
-By using GPUs, you can accelerate the training time of deep neural network models significantly. In this document, you learn how to configure AML Workbench to use GPU-based  [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM) as execution target. While in principle it is possible to use GPUs on any Linux machine, the DSVM comes with the required drivers and libraries pre-installed, making the set-up much easier. 
+In this document, you learn how to configure AML Workbench to use GPU-based  [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM) as execution target. While in principle it is possible to use GPUs on any Linux machine, the DSVM comes with the required drivers and libraries pre-installed, making the set-up much easier. 
 
 ## Prerequisites
 To step through this how-to guide, you need to:
@@ -29,8 +29,8 @@ You can execute directly on a GPU-enabled Windows computer that has required dri
 
 ## Create a Ubuntu-based Linux Data Science Virtual Machine in Azure
 1. Open your web browser and go to the [Azure portal](https://portal.azure.com)
-2. Select + New on the left. 
-3. Search for "Data Science Virtual Machine for Linux (Ubuntu)" 
+2. Select **+ New** on the left of the portal.
+3. Search for "Data Science Virtual Machine for Linux (Ubuntu)" in the marketplace.
 4. Click **Create** to create an Ubuntu DSVM. 
 5. Fill in the basics form with the requested values. 
 When selecting the location for your VM, note that GPU VMs are only available in some Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/en-us/regions/services/).
@@ -101,7 +101,7 @@ You are now ready to run your Python scripts. You can run them within the AML Wo
 az ml experiment submit -c my_dsvm my_tensorflow_or_cntk_script.py
 ```
  
-To verify that the GPU is used, you can examine the run output. You should see something like the following:
+To verify that the GPU is used, examine the run output to see something like the following:
 
 ```
 name: Tesla K80
