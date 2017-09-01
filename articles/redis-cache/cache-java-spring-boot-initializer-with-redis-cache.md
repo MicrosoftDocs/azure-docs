@@ -22,9 +22,9 @@ ms.author: robmcm;zhijzhao;yidon
 
 ## Overview
 
-The **[Spring Framework]** is an open-source solution which helps Java developers create enterprise-level applications. One of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
+The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
 
-This article walks you through creating a Redis cache using the Azure portal, then using the **Spring Initializr** to create a custom application, and then creating a Java web application which stores and retrieves data using your Redis cache.
+This article walks you through creating a Redis cache using the Azure portal, then using the **Spring Initializr** to create a custom application, and then creating a Java web application that stores and retrieves data using your Redis cache.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
    ![Azure portal][AZ04]
 
-1. When the page which contains the list of properties for your cache is displayed, click **Access keys** and copy your access keys for your cache.
+1. When the page that contains the list of properties for your cache is displayed, click **Access keys** and copy your access keys for your cache.
 
    ![Azure portal][AZ05]
 
@@ -114,6 +114,11 @@ The following prerequisites are required in order to follow the steps in this ar
    ```
 
    ![Editing the application.properties file][RE02]
+
+   > [!NOTE]
+   >
+   > If you were using a different Redis client like Jedis that enables SSL, you would specify port 6380 in your *application.properties* file. For more information, see [How to use Azure Redis Cache with Java][Redis Cache with Java].
+   >
 
 1. Save and close the *application.properties* file.
 
