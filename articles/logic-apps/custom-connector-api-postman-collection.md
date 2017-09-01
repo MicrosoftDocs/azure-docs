@@ -171,3 +171,4 @@ Flow, or PowerApps.
 * [Logic Apps: Register custom connectors](../logic-apps/logic-apps-custom-connector-register.md)
 * [Flow: Register your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)
 * [PowerApps: Register your connector](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector)
+* [Custom connector FAQ](../logic-apps/custom-connector-faq.md)

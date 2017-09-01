@@ -288,3 +288,4 @@ Now you're ready to create and register your custom connector.
 ## Next steps
 
 * [Register your connector](../logic-apps/logic-apps-custom-connector-register.md)
+* [Custom connector FAQ](../logic-apps/custom-connector-faq.md)

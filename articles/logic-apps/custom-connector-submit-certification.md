@@ -78,3 +78,8 @@ To apply for certification, follow these steps:
     listing your connector as a "standard" connector that's 
     available to all users with Office 365 Enterprise plans. 
     For more details, ask your nomination contact.
+
+## Next steps
+
+* [Custom connector FAQ](../logic-apps/custom-connector-faq.md)
+* [Custom connector overview](../logic-apps/custom-connector-overview.md)

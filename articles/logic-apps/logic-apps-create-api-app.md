@@ -1,6 +1,6 @@
 ---
 title: Create web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
-description: Create web APIs & REST APIS to  call your APIs, services, or systems from logic app workflows for system integrations
+description: Create web APIs & REST APIs to  call your APIs, services, or systems from logic app workflows for system integrations
 keywords: web APIs, REST APIs, workflows, system integrations
 services: logic-apps
 author: jeffhollan
@@ -21,9 +21,9 @@ ms.author: LADocs; jehollan
 # Create custom APIs that you can call from logic app workflows
 
 Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
-that you can use in logic app workflows, you might want to call APIs, systems, 
-and services that aren't available as connectors. You can create your own 
-custom APIs that provide actions and triggers to use in logic apps. 
+that you can use in logic app workflows, you might want to call APIs, 
+systems, and services that aren't available as connectors. 
+You can create your own APIs that provide actions and triggers to use in logic apps. 
 Here are other reasons why you might want to create your own APIs 
 that you can call from logic app workflows:
 
@@ -40,9 +40,10 @@ This topic describes common patterns that you can follow
 for building actions and triggers in your API, 
 based on the behavior that you want your API to provide.
 
-You can host your APIs on [Azure App Service](../app-service/app-service-value-prop-what-is.md), 
-a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
-and most scalable ways for API hosting. 
+You can host your APIs on 
+[Azure App Service](../app-service/app-service-value-prop-what-is.md), 
+a platform-as-a-service (PaaS) offering that provides highly scalable, 
+easy API hosting.
 
 > [!TIP] 
 > Although you can deploy your APIs as 
@@ -51,7 +52,7 @@ and most scalable ways for API hosting.
 > [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
 > which can make your job easier when you build, host, and consume APIs 
 > in the cloud and on premises. You don't have to change any code in your 
-> APIs -- just deploy your code to an API app. Learn how to 
+> APIs - just deploy your code to an API app. Learn how to 
 > [build API apps created with ASP.NET](../app-service-api/app-service-api-dotnet-get-started.md), 
 > [Java](../app-service-api/app-service-api-java-api-app.md), 
 > or [Node.js](../app-service-api/app-service-api-nodejs-api-app.md). 

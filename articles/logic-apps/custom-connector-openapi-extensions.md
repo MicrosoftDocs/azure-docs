@@ -96,7 +96,7 @@ to the parameter's definition. For example, see this [OpenAPI sample](https://pr
 ### Properties for x-ms-dynamic-values
 
 | Name | Required or optional | Description | 
-| :--- | :------------------- | :---------- | 
+| ---- | -------------------- | ----------- | 
 | **operationID** | Required | The operation to call for populating the list | 
 | **value-path** | Required | A path string in the object inside `value-collection` that refers to the parameter value. </br>If `value-collection` isn't specified, the response is evaluated as an array. | 
 | **value-title** | Optional |A path string in the object inside `value-collection` that refers to the value's description. </br>If `value-collection` isn't specified, the response is evaluated as an array. | 
@@ -177,7 +177,7 @@ In this version, the user selects "Food":
 ### Properties for x-ms-dynamic-schema
 
 | Name | Required or optional | Description | 
-| :--- | :------------------- | :---------- | 
+| ---- | -------------------- | ----------- | 
 | **operationID** | Required | The operation to call for fetching the schema | 
 | **parameters** | Required | An object whose properties specify the input parameters required to invoke a dynamic-schema operation | 
 | **value-path** |Optional | A path string that refers to the property that has the schema. </br>If not specified, the response is assumed to contain the schema in the root object's properties. | 

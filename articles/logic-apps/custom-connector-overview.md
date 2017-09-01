@@ -45,8 +45,7 @@ your connectors:
 
 ## Prerequisites
 
-To build your custom connector from end-to-end, 
-you need these items:
+To build your connector from start to finish, you need these items:
 
 * An Azure subscription. If you don't have a subscription, 
 you can start with a [free Azure account](https://azure.microsoft.com/free/). 
@@ -91,8 +90,9 @@ authentication in the Azure portal so you don't have to update your code.
 Or, you can require and enforce authentication through your API's code. 
 You can use these authentication standards for your APIs:
 
-   * [OAuth 2.0](https://oauth.net/2/), including [Azure Active Directory](https://azure.microsoft.com/develop/identity/) or specific services, 
-   such as Dropbox, Facebook, and SalesForce
+   * [OAuth 2.0](https://oauth.net/2/), including 
+   [Azure Active Directory](https://azure.microsoft.com/develop/identity/) 
+   or specific services, such as Dropbox, GitHub, and SalesForce
    * Generic OAuth 2.0
    * API Key
    * Basic authentication
@@ -227,3 +227,4 @@ and routes them to the appropriate team.
 * [Set up authentication for custom connectors](../logic-apps/custom-connector-azure-active-directory-authentication.md)
 * [Describe custom connectors with Postman collections](../logic-apps/custom-connector-api-postman-collection.md)
 * [Submit custom connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md)
+* [Custom connector FAQ](../logic-apps/custom-connector-faq.md)

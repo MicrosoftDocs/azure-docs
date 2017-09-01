@@ -83,7 +83,7 @@ make the changes you want, and choose **Create**.
    | **Web App Name** | *custom-web-api-app-name* or the default name | Enter the name for your Web API app, which is used in your app's URL, for example: http://*web-api-app-name*. | 
    | **Subscription** | *Azure-subscription-name* | Select the Azure subscription that you want to use. | 
    | **Resource Group** | *Azure-resource-group-name* | Select an existing Azure resource group, or if you haven't already, create a resource group. <p>**Note**: An Azure resource group organizes Azure resources in your Azure subscription. | 
-   | **App Service Plan** | *App-Service-plan-name*| Select an existing App Service plan, or if you haven't already, create a plan. | 
+   | **App Service Plan** | *App-Service-plan-name* | Select an existing App Service plan, or if you haven't already, create a plan. | 
    |||| 
 
    If you create an App Service Plan, specify these settings:
@@ -99,7 +99,7 @@ make the changes you want, and choose **Create**.
 
    | Setting | Suggested value | Description | 
    | ------- | --------------- | ----------- | 
-   | **Resource Type** | *Azure-resource-type*|Select and set up any additional resources required by your app. | 
+   | **Resource Type** | *Azure-resource-type* |Select and set up any additional resources required by your app. | 
    |||| 
 
 6. After Visual Studio deploys your project, 
