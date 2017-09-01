@@ -41,49 +41,48 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Use Mongoose to connect to Azure Cosmos DB
 
-1. In a Windows Command Prompt or Mac Terminal window, pull in the Mongoose API, which is an API normally used to talk to MongoDB by using the following command:
+1. Install the mongoose npm module, which is an API normally used to talk to MongoDB.
 
     ```bash
     npm i mongoose --save
     ```
 
-2. Now create a new file in your **server** folder called **mongo.js**. In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *mongo.js*. In this file, you add all of your connection info for the Azure Cosmos DB database.
+2. Now create a new file in your **server** folder called **mongo.js**. In this file, you add all of your connection info for the Azure Cosmos DB database.
 
-3. Copy the following code into mongo.js. This code:
-   * Requires Mongoose.
-   * Overrides the Mongo promise to use the basic promise that's built into ES6 or ES2015 and above.
-   * Calls on an env file that lets you set up certain things based on whether you're in staging, prod, or dev. We will create that file soon.
-   * Includes our MongoDB connection string, which will be set in the env file.
-   * Creates a connect function that calls Mongoose.
+3. Copy the following code into **mongo.js**. This code:
+    * Requires Mongoose.
+    * Overrides the Mongo promise to use the basic promise that's built into ES6 or ES2015 and above.
+    * Calls on an env file that lets you set up certain things based on whether you're in staging, prod, or dev. We will create that file soon.
+    * Includes our MongoDB connection string, which will be set in the env file.
+    * Creates a connect function that calls Mongoose.
 
-   ```javascript
-   const mongoose = require('mongoose');
-   /**
-    * Set to Node.js native promises
-    * Per http://mongoosejs.com/docs/promises.html
-    */
-   mongoose.Promise = global.Promise;
+    ```javascript
+    const mongoose = require('mongoose');
+    /**
+     * Set to Node.js native promises
+     * Per http://mongoosejs.com/docs/promises.html
+     */
+    mongoose.Promise = global.Promise;
 
-   const env = require('./env/environment');
+    const env = require('./env/environment');
 
-   // eslint-disable-next-line max-len
-   const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+    // eslint-disable-next-line max-len
+    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
 
-   function connect() {
-    mongoose.set('debug', true);
-    return mongoose.connect(mongoUri, { useMongoClient: true });
-   }
+    function connect() {
+     mongoose.set('debug', true);
+     return mongoose.connect(mongoUri, { useMongoClient: true });
+    }
 
-   module.exports = {
-     connect,
-     mongoose
-   };
-   ```
-4. In the Explorer pane, right-click the **server** folder, click **New Folder**, and name the new folder **env**.
+    module.exports = {
+      connect,
+      mongoose
+    };
+    ```
+    
+4. In the Explorer pane, create a folder under **server** called **environment** and in the **environment** folder create a new file called **environment.js**.
 
-5. In the Explorer pane, right-click the **env** folder, click **New File**, and name the new file *environment.js*.
-
-6. From the mongo.js file, we know we need to include the dbName, the key, and the cosmosPort, so copy the following code into **environment.js**.
+5. From the mongo.js file, we know we need to include the `dbName`, the `key`, and the `cosmosPort`, so copy the following code into **environment.js**.
 
     ```javascript
     const cosmosPort = 1234; // replace with your port
@@ -99,37 +98,36 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Get the connection string information
 
-1. In **environment.js**, change the value of cosmosPort to 10255.
+1. In **environment.js**, change the value of `cosmosPort` to 10255.
 
-   ```javascript
-   const cosmosPort = 10255;
-   ```
+    ```javascript
+    const cosmosPort = 10255;
+    ```
 
-2. In **environment.js**, change the value of dbName to the Azure Cosmos DB account name you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). This is the `<my-cosmosdb-acct>` name from [Step 4](tutorial-develop-mongodb-nodejs-part5.md). 
+2. In **environment.js**, change the value of `dbName` to the name of the Azure Cosmos DB account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). 
 
 3. Retrieve the primary key for the Azure Cosmos DB account by using the following CLI command in the terminal window: 
 
     ```azure-cli-interactive
-    az cosmosdb list-keys --name <my-cosmosdb-acct> -g <my-resource-group>
+    az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
-    * Substitute your own Azure Cosmos DB account name where you see the `<my-cosmosdb-acct>` placeholder. This is the account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md).
-    * Substitute your own resource group name where you see the `<my-resource-group>` placeholder. This is the account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). 
+    * `<cosmosdb-name>` is the name of the Azure Cosmos DB account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md).
 
-4. Copy the primary key value from the terminal window into the environment.js window into the `key` value. The value and the dbName value should be surrounded by double quotes in environment.js.
+4. Copy the primary key into the environment.js file as the `key` value.
 
     Your app now has all the information it needs to connect to Azure Cosmos DB. This information can also be retrieved in the portal. For more information, see [Get the MongoDB connection string to customize](connect-mongodb-account.md#GetCustomConnection). The Username in the portal equates to the dbName in environments.js. 
 
 ## Create a Hero model
 
-1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *hero.model.js*.
+1.  In the Explorer pane, create the file file **hero.model.js** under the **server** folder.
 
-2. Copy the following code into hero.model.js. This code:
+2. Copy the following code into **hero.model.js**. This code:
    * Requires Mongoose.
    * Creates a new schema with an ID, name, and saying, and pull it in.
    * Creates a model using the schema.
    * Exports the model. 
-   * Names the collection Heroes (instead of Heros, which would be the default name of the collection based on Mongoose plural naming rules).
+   * Name the collection Heroes (instead of Heros, which would be the default name of the collection based on Mongoose plural naming rules).
 
    ```javascript
    const mongoose = require('mongoose');
@@ -154,9 +152,9 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Create a Hero service
 
-1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *hero.service.js*.
+1.  In the Explorer pane, create the file file **hero.service.js** under the **server** folder.
 
-2. Copy the following code into hero.service.js. This code:
+2. Copy the following code into **hero.service.js**. This code:
    * Gets the model you just created
    * Connects to the database
    * Creates a docquery variable that uses the hero.find method to define a query that returns all heroes.
@@ -189,7 +187,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Add the hero service to routes.js
 
-1. In Visual Studio Code, in **routes.js**, comment out the res.send function that sends the sample hero data and add a line to call the heroService.getHeroes function instead.
+1. In Visual Studio Code, in **routes.js**, comment out the `res.send` function that sends the sample hero data and add a line to call the `heroService.getHeroes` function instead.
 
     ```javascript
     router.get('/heroes', (req, res) => {
@@ -200,19 +198,19 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     });
     ```
 
-2. In **routes.js** add a const on line 3 to get the hero service:
+2. In **routes.js** require the hero service:
 
     ```javascript
     const heroService = require('./hero.service'); 
     ```
 
-3. In **hero.service.js**, update the getHeroes function on line 5 to take the request and response as parameters as follows:
+3. In **hero.service.js**, update the getHeroes function to take the `req` and `res` parameters as follows:
 
     ```javascript
     function getHeroes(req, res) {
     ```
 
-    Let's take a minute to review and walk through the call chain here. First we come into the index, which sets up the node server, and notice that's setting up and defining our routes. Our routes.js file then talks to the hero service and tells it to go get our functions like getHeroes and pass the request and response. Here hero.service.js is going to grab the model and connect to Mongo, and then it's going to execute getHeroes when we call it, and return back a response of 200. Then it bubbles back out through the chain. 
+    Let's take a minute to review and walk through the call chain here. First we come into the `index.js`, which sets up the node server, and notice that's setting up and defining our routes. Our routes.js file then talks to the hero service and tells it to go get our functions like getHeroes and pass the request and response. Here hero.service.js is going to grab the model and connect to Mongo, and then it's going to execute getHeroes when we call it, and return back a response of 200. Then it bubbles back out through the chain. 
 
 ## Run the app
 
