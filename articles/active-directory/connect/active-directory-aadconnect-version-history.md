@@ -36,7 +36,7 @@ Status: To be released
 ### Azure AD Connect
 
 #### Known issues
-* There is a known issue with Azure AD Connect Upgrade that is affecting customers who have enabled [Seamless Single Sign-On](active-directory-aadconnect-sso). After Azure AD Connect is upgraded, the feature appears as disabled in the wizard, even though the feature remains enabled. A fix for this issue will be provided in future release. Customers who are concerned about this display issue can manually fix it by enabling Seamless Single Sign-On in the wizard.
+* There is a known issue with Azure AD Connect Upgrade that is affecting customers who have enabled [Seamless Single Sign-On](active-directory-aadconnect-sso.md). After Azure AD Connect is upgraded, the feature appears as disabled in the wizard, even though the feature remains enabled. A fix for this issue will be provided in future release. Customers who are concerned about this display issue can manually fix it by enabling Seamless Single Sign-On in the wizard.
 
 #### Fixed issues
 * Fixed an issue that caused Azure AD Connect to fail installation if the on-premises AD forest has NTLM disabled. The issue is due to Azure AD Connect wizard not providing fully qualified credentials when creating the security contexts required for Kerberos authentication. This causes Kerberos authentication to fail and Azure AD Connect wizard to fall back to using NTLM.
@@ -74,7 +74,7 @@ Status: To be released
 
 ### Seamless Single Sign-On
 #### Fixed issues
-* Fixed an issue that caused Azure AD Connect wizard to return an error if you try to enable [Seamless Single Sign-On](active-directory-aadconnect-sso). The error message is *“Configuration of Microsoft Azure AD Connect Authentication Agent failed.”* This issue affects existing customers who had manually upgraded the preview version of the Authentication Agents for [Pass-through Authentication](active-directory-aadconnect-sso) based on the steps described in this [article](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents).
+* Fixed an issue that caused Azure AD Connect wizard to return an error if you try to enable [Seamless Single Sign-On](active-directory-aadconnect-sso.md). The error message is *“Configuration of Microsoft Azure AD Connect Authentication Agent failed.”* This issue affects existing customers who had manually upgraded the preview version of the Authentication Agents for [Pass-through Authentication](active-directory-aadconnect-sso.md) based on the steps described in this [article](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
 
 
 ## 1.1.561.0
