@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory conditional access for virtual private network connectivity - preview| Microsoft Docs
+title: Azure Active Directory conditional access for virtual private network connectivity (preview)| Microsoft Docs
 description: 'Learn how Azure Active Directory conditional access for virtual private network connectivity works. '
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 
 ---
-# Azure Active Directory conditional access for virtual private network connectivity - preview
+# Azure Active Directory conditional access for virtual private network connectivity (preview)
 
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can fine-tune how authorized users can access your resources. Azure AD conditional access for virtual private network (VPN) connectivity enables you to use conditional access to protect your VPN connections.
 
@@ -70,29 +70,29 @@ connection.
 
     ![VPN connectivity](./media/active-directory-conditional-access-vpn-connectivity-windows10/01.png)
 
-3. On the **Azure Active Directory** blade, in the **Manage** section, click **Conditional access**.
+3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
 
     ![VPN connectivity](./media/active-directory-conditional-access-azure-portal-get-started/02.png)
 
-4. On the **Conditional access** blade, in the **Manage** section, click **VPN connectivity (preview)**.
+4. On the **Conditional access** page, in the **Manage** section, click **VPN connectivity (preview)**.
 
     ![VPN connectivity](./media/active-directory-conditional-access-vpn-connectivity-windows10/03.png)
 
-5. On the **VPN connectivity** blade, click **New certificate**.
+5. On the **VPN connectivity** page, click **New certificate**.
 
     ![VPN connectivity](./media/active-directory-conditional-access-vpn-connectivity-windows10/04.png)
 
-6. On the **New** blade, perform the following steps:
+6. On the **New** page, perform the following steps:
 
     ![VPN connectivity](./media/active-directory-conditional-access-vpn-connectivity-windows10/05.png)
 
     a. As **duration**, select **1 year**.
 
-    b. As **Primary**, selsect **Yes**.
+    b. As **Primary**, select **Yes**.
 
     c. Click **Create**.
 
-7. On the VPN connectivity blade, click **Download certificate**.
+7. On the VPN connectivity page, click **Download certificate**.
 
 
 At this point, you are ready to deploy you newly created certificate to your VPN server. On your VPN Server, you need to add the downloaded certificate as a *trusted root CA for VPN authentication*.
@@ -115,11 +115,11 @@ This section provides you with instructions for configuring your conditional acc
 
 **To configure the conditional access policy:** 
 
-1. On the **Conditional Access** blade, to open the **New** blade, in the toolbar on the top, click **Add**.
+1. On the **Conditional Access** page, in the toolbar on the top, click **Add**.
 
     ![Conditional access](./media/active-directory-conditional-access-vpn-connectivity-windows10/07.png)
 
-2. On the **New** blade, in the **Name** textbox, type a name for your policy, for example, **VPN policy**.
+2. On the **New** page, in the **Name** textbox, type a name for your policy, for example, **VPN policy**.
 
     ![Conditional access](./media/active-directory-conditional-access-vpn-connectivity-windows10/08.png)
 
@@ -127,7 +127,7 @@ This section provides you with instructions for configuring your conditional acc
 
     ![Conditional access](./media/active-directory-conditional-access-vpn-connectivity-windows10/09.png)
 
-6. On the **Users and groups** blade, perform the following steps:
+6. On the **Users and groups** page, perform the following steps:
 
     ![Conditional access](./media/active-directory-conditional-access-vpn-connectivity-windows10/10.png)
 
@@ -135,30 +135,30 @@ This section provides you with instructions for configuring your conditional acc
 
     b. Click **Select**.
 
-    c. On the **Select** blade, select your test user, and then click **Select**.
+    c. On the **Select** page, select your test user, and then click **Select**.
 
-    d. On the **Users and groups** blade, click **Done**.
+    d. On the **Users and groups** page, click **Done**.
 
-7. On the **New** blade, perform the following steps.
+7. On the **New** page, perform the following steps.
 
     ![Conditional access](./media/active-directory-conditional-access-vpn-connectivity-windows10/11.png)
 
     a. In the **Assignments** section, click **Cloud apps**.
 
-    b. On the **Cloud apps** blade, click **Select apps**, and then click **Select**.
+    b. On the **Cloud apps** page, click **Select apps**, and then click **Select**.
 
-    c. On the **Select** blade, in the **Applications** textbox, type **vpn**.
+    c. On the **Select** page, in the **Applications** textbox, type **vpn**.
 
     d. Select **VPN Server**.
 
     e. Click **Select**.
 
 
-13. On the **New** blade, to open the **Grant** blade, in the **Controls** section, click **Grant**.
+13. On the **New** page, to open the **Grant** page, in the **Controls** section, click **Grant**.
 
     ![Conditional access](./media/active-directory-conditional-access-azure-portal-get-started/13.png)
 
-14. On the **Grant** blade, perform the following steps:
+14. On the **Grant** page, perform the following steps:
 
     ![Conditional access](./media/active-directory-conditional-access-azure-portal-get-started/14.png)
 
@@ -166,11 +166,11 @@ This section provides you with instructions for configuring your conditional acc
 
     b. Click **Select**.
 
-15. On the **New** blade, under **Enable policy**, click **On**.
+15. On the **New** page, under **Enable policy**, click **On**.
 
     ![Conditional access](./media/active-directory-conditional-access-azure-portal-get-started/15.png)
 
-16. On the **New** blade, click **Create**.
+16. On the **New** page, click **Create**.
 
 
 
