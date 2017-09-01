@@ -1,4 +1,5 @@
 - name: Overview
+  href: index.md
   items:
   - name: About Azure IoT DPS
     href: about-iot-dps.md
