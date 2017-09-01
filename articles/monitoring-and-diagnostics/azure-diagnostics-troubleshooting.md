@@ -28,7 +28,7 @@ This article describes troubleshooting information that's relevant to using Azur
 **Monitoring Agent (MonAgent\*.exe processes)**: Monitors, collects, and transfers the diagnostics data.  
 
 ## Log/artifact Paths
-Following are the paths to some important logs and artifacts. We refer to these throughout the rest of the document:
+Following are the paths to some important logs and artifacts. We refer to this information throughout the rest of the document:
 
 ### Cloud Services
 | Artifact | Path |
@@ -53,7 +53,7 @@ Following are the paths to some important logs and artifacts. We refer to these 
 | **Log collection utility path** | C:\WindowsAzure\Packages |
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
-## Metric data doesn't appear in in Azure portal
+## Metric data doesn't appear in Azure portal
 Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there. 
 
 Here, the **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
@@ -86,7 +86,7 @@ If the configuration is set correctly but you still can't see the metric data, u
 ## Azure Diagnostics isn't starting
 For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files in the log files location that was provided earlier. 
 
-If these logs indicate `Monitoring Agent not reporting success after launch`, it means there was a failure launching MonAgentHost.exe. Look at the logs for that in the location indicated for `MonAgentHost log file` in the section above.
+If these logs indicate `Monitoring Agent not reporting success after launch`, it means there was a failure launching MonAgentHost.exe. Look at the logs in the location that's indicated for `MonAgentHost log file` in the previous section.
 
 The last line of the log files contains the exit code.  
 
@@ -111,7 +111,7 @@ If the storage account is configured correctly, remote desktop into the machine 
 If the processes are running, go to [Is data getting captured locally?](#is-data-getting-captured-locally) and follow the instructions there.
 
 ### Part of the data is missing
-If you are getting some data but not all, this means that the data collection/transfer pipeline is set correctly. Follow the subsections here to narrow down the issue:
+If you are getting some data but not all, it means that the data collection/transfer pipeline is set correctly. Follow the subsections here to narrow down the issue:
 
 #### Is the collection configured? 
 The Diagnostics configuration contains instructions for a particular type of data to be collected. [Review your configuration](#how-to-check-diagnostics-extension-configuration) to verify that you are only looking for data that you've configured for the collection.
@@ -122,7 +122,7 @@ The Diagnostics configuration contains instructions for a particular type of dat
 - **Trace logs**:  Remote desktop into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
 If you don't see trace logs being generated, see [More about trace logs missing](#more-about-trace-logs-missing).
 
-- **ETW traces**: Remote desktop into the VM and install PerfView.  In PerfView, run **File > User Command > Listen etwprovder1 > etwprovider2,** and so on. Note that the **Listen** command is case-sensitive and that there cannot be spaces between the comma-separated list of ETW providers.  If the command fails to run, you can select the **Log** button in the bottom-right of the Perfview tool to see what  attempted to run and what the result was.  Assuming the input is correct, a new window pops up. In a few seconds, you begin seeing ETW traces.
+- **ETW traces**: Remote desktop into the VM and install PerfView.  In PerfView, run **File > User Command > Listen etwprovder1 > etwprovider2,** and so on. The **Listen** command is case-sensitive and that there cannot be spaces between the comma-separated list of ETW providers. If the command fails to run, you can select the **Log** button in the bottom-right of the Perfview tool to see what  attempted to run and what the result was.  Assuming the input is correct, a new window pops up. In a few seconds, you begin seeing ETW traces.
 
 - **Event logs**: Remote desktop into the VM. Open `Event Viewer`, and then ensure that the events exist.
 
@@ -134,12 +134,12 @@ For example, `Performance Counters` get collected in `PerformanceCountersTable.t
 
 If you don't see logs getting collected locally, and have already verified that the host is generating data, you likely have a configuration issue. Review your configuration carefully. 
 
-Also review the configuration that was generated for MonitoringAgent [MaConfig.xml](#log-artifacts-path). Verify that there is a section that describes the relevant log source, and that it is not lost in translation between the Diagnostics configuration and the monitoring agent configuration.
+Also review the configuration that was generated for MonitoringAgent [MaConfig.xml](#log-artifacts-path). Verify that there is a section that describes the relevant log source. Then verify that it is not lost in translation between the Diagnostics configuration and the monitoring agent configuration.
 
 #### Is data getting transferred?
 If you have verified that the data is getting captured locally but you still don't see it in your storage account, take the following steps: 
 
-- First and foremost, make sure that you have provided a correct storage account, and that you haven't rolled over keys for the given storage account. For Azure Cloud Services, sometimes we see that people don't update `useDevelopmentStorage=true`.
+- Verify that you have provided a correct storage account, and that you haven't rolled over keys for the given storage account. For Azure Cloud Services, sometimes we see that people don't update `useDevelopmentStorage=true`.
 
 - Verify that the provided storage account is correct. Make sure you don't have network restrictions that  prevent the components from reaching public storage endpoints. One way to do that is to remote desktop into the machine, and then try to write something to the same storage account yourself.
 
@@ -220,7 +220,7 @@ In either case, search for **Microsoft.Azure.Diagnostics**, and then for the **x
 
 If you're searching on a virtual machine, if the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML, and is base64 encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
-For the Cloud Service role, if you pick the configuration from disk, the data is base64-encoded so you’ll need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
+For the Cloud Service role, if you pick the configuration from disk, the data is base64-encoded so you need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
 ### Azure Diagnostics plugin exit codes
 The plugin returns the following exit codes:
@@ -253,23 +253,23 @@ The monitoring agent collects logs and artifacts as `.tsf` files. The `.tsf` fil
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
-A new file called `<relevantLogFile>.csv` will be created in the same path as the corresponding `.tsf` file.
+A new file called `<relevantLogFile>.csv` is created in the same path as the corresponding `.tsf` file.
 
 >[!NOTE] 
-> You only need to run this utility against the main .tsf file (for example, PerformanceCountersTable.tsf). The accompanying files (for example, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) will automatically be processed.
+> You only need to run this utility against the main .tsf file (for example, PerformanceCountersTable.tsf). The accompanying files (for example, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) are automatically processed.
 
 ### More about missing trace logs 
 
 >[!NOTE]
 > The following information applies mostly to cloud services unless you have configured the DiagnosticsMonitorTraceListener on an application that's running on your IaaS VM. 
 
-- Make sure the DiagnosticMonitorTraceListener is configured in the web.config or app.config.  This is configured by default in cloud service projects, but some customers comment it out, which causes the trace statements to not be collected by diagnostics. 
+- Make sure the DiagnosticMonitorTraceListener is configured in the web.config or app.config.  This is configured by default in cloud service projects. However, some customers comment it out, which causes the trace statements to not be collected by diagnostics. 
 
-- If logs are not getting written from the **OnStart** or **Run** method, make sure the **DiagnosticMonitorTraceListener** is in the app.config.  By default it is in the web.config, but that only applies to code running within w3wp.exe; so you need it in app.config to capture traces that are running in WaIISHost.exe.
+- If logs are not getting written from the **OnStart** or **Run** method, make sure the **DiagnosticMonitorTraceListener** is in the app.config.  By default it is in the web.config, but that only applies to code running within w3wp.exe. So you need it in app.config to capture traces that are running in WaIISHost.exe.
 
-- Make sure you are using **Diagnostics.Trace.TraceXXX** instead of **Diagnostics.Debug.WriteXXX.** The Debug statements will be removed from a release build.
+- Make sure you are using **Diagnostics.Trace.TraceXXX** instead of **Diagnostics.Debug.WriteXXX.** The Debug statements are removed from a release build.
 
-- Make sure the compiled code actually has the **Diagnostics.Trace lines** (use Reflector, ildasm or ILSpy to verify).  **Diagnostics.Trace** commands are removed from the compiled binary unless you use the TRACE conditional compilation symbol. This is a common problem that occurs when you're using msbuild to build a project.   
+- Make sure the compiled code actually has the **Diagnostics.Trace lines** (use Reflector, ildasm, or ILSpy to verify). **Diagnostics.Trace** commands are removed from the compiled binary unless you use the TRACE conditional compilation symbol. This is a common problem that occurs when you're using msbuild to build a project.   
 
 ## Known Issues and mitigations
 Here is a list of known issues with known mitigations:
@@ -278,7 +278,7 @@ Here is a list of known issues with known mitigations:
 
 WAD has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for cloud services as well as all official azure Virtual Machine base images have .NET 4.5 or higher installed. 
 
-It is still possible, however, to land in a situation where you try to run WAD on a machine that doesn't have .NET 4.5 or above. This happens when you create your machine off of an old image or snapshot, or when your bring your own custom disk.
+It is still possible to land in a situation where you try to run WAD on a machine that doesn't have .NET 4.5 or above. This happens when you create your machine off of an old image or snapshot, or when you bring your own custom disk.
 
 This generally manifests as an exit code **255** when running **DiagnosticsPluginLauncher.exe.** Failure happens due to the following unhandled exception: 
 ```
