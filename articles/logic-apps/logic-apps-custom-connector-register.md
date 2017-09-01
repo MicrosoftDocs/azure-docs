@@ -246,14 +246,9 @@ visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-U
 
 ## FAQ
 
-**=======NEED INFO=========**
-
-**Q:** Is there a limit on how many connectors I create? </br>
-**A:** Yes, see the [Logic Apps pricing page](**=======NEED INFO=========**).
-
 **Q:** Is there a limit on how many requests that users can make with a custom connector? </br>
 **A:** Yes, for each connection that's created by a custom connector, 
-you can make up to 500 requests per minute. **=======CONFIRM=========**
+you can make up to 500 requests per minute.
 
 ## Next steps
 
