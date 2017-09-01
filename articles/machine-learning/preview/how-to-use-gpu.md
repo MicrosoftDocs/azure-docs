@@ -1,6 +1,6 @@
 ---
 title: How to Use GPU Machine Learning | Microsoft Docs
-description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
+description: This article describes how to use Graphical Processing Units (GPU) to train deep neural networks in Azure Machine Learning Workbench.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -9,9 +9,10 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/32/2017
+ms.date: 09/01/2017
 ---
 # How to Use GPU from Azure Machine Learning Workbench
+You can use Graphical Processing Unit (GPU) hardware to handle the intensive processing that happens when training deep neural network models in Azure Machine Learning.
 
 By using GPUs, you can accelerate the training time of deep neural network models significantly. In this document, you learn how to configure AML Workbench to use GPU-based  [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM) as execution target. While in principle it is possible to use GPUs on any Linux machine, the DSVM comes with the required drivers and libraries pre-installed, making the set-up much easier. 
 
@@ -22,30 +23,36 @@ To step through this how-to guide, you need to:
 ## Execute on Local Windows Computer with GPU
 You can execute directly on a GPU-enabled Windows computer that has required drivers and libraries installed. For example, you can use GPU-enabled Windows DSVM. Otherwise, read the following instructions to set up a GPU-enabled Docker image on Linux DSVM.
 
-From AML Workbench, go to _File_ and _Open Command Prompt_. From command line, install GPU-enabled deep learning framework such as CNTK or TensorFlow. Then choose "local" as compute target. 
+1. Open AML Workbench. go to **File** and **Open Command Prompt**. 
+2. From command line, install GPU-enabled deep learning framework such as CNTK or TensorFlow. 
+3. Then choose "local" as compute target. 
 
-## Create a Ubuntu-based Linux DSVM 
-Go to Azure portal, select +New, and search for "Data Science Virtual Machine for Linux (Ubuntu)" to create an Ubuntu DSVM. 
- 
-When selecting the location for your VM, note that GPU VMs are only available in some Azure regions, for example, _South Central US_ has it. See [compute products available by region](https://azure.microsoft.com/en-us/regions/services/).
- 
-Then when configuring VM size, select one of the NC-prefixed VMs. They are the GPU-enabled ones. Finish creating the VM, and take note of its IP address. You can learn more about GPU-enabled VM sizes [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
- 
+## Create a Ubuntu-based Linux Data Science Virtual Machine in Azure
+1. Open your web browser and go to the [Azure portal](https://portal.azure.com)
+2. Select + New on the left. 
+3. Search for "Data Science Virtual Machine for Linux (Ubuntu)" 
+4. Click **Create** to create an Ubuntu DSVM. 
+5. Fill in the basics form with the requested values. 
+When selecting the location for your VM, note that GPU VMs are only available in some Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/en-us/regions/services/).
+Click OK to save the Basics information.
+6. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, since those are the GPU-enabled ones.  Click **View All** to see the full list as needed.
+   Learn more about GPU-enabled VM sizes [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+7. Finish the remaining settings and review the purchase information. Click Purchase to Create the VM. Take note of the IP address allocated to the virtual machine. 
+
 ## Open AML Workbench, and create a new project. 
 You can use the _Classifying MNIST using TensorFlow_ example, or the _Classifying MNIST dataset with CNTK_ example.
- 
+
 ## Create a new compute context
+Launch the command line or bash shell. Enter the following AZ CLI command. Replace the placeholder text from the example below with your own values for the name, address, username, and password parameters. 
 
-Open CLI window, and enter the following command:
+```azurecli
+az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password"
+```
 
-```
-$ az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password"
-```
+## Configure AML Workbench to access the GPU
+Go back to the project and open **files view**, and hit the **Refresh** button. Now you see two new configuration files `my\_dsvm.compute` and `my\_dsvm.runconfig`.
  
-## Configure AML Workbench to access GPU
-Go back to the project and open _files view_, and hit the _Refresh_ button. You should now see two new configuration files _my\_dsvm.compute_ and _my\_dsvm.runconfig_.
- 
-Open file named _my\_dsvm.compute_. Change the _baseDockerImage_ to _microsoft/mmlspark:gpu_ and add a line _nvidiaDocker: true_ to the end. So the file should have these two lines:
+Open the file named _my\_dsvm.compute_. Change the _baseDockerImage_ to _microsoft/mmlspark:gpu_ and add a line _nvidiaDocker: true_ to the end. So the file should have these two lines:
  
 ```
 baseDockerImage: microsoft/mmlspark:gpu
@@ -88,10 +95,10 @@ dependencies:
 ```
 
 ## Execute
-You are now ready to run your Python scripts now in the AML Workbench using the _my_dsvm_ context, or you can launch it from CLI:
+You are now ready to run your Python scripts. You can run them within the AML Workbench using the _my_dsvm_ context, or you can launch it from the command line:
  
-```
-$ az ml experiment submit -c my_dsvm my_tensorflow_or_cntk_script.py
+```azurecli
+az ml experiment submit -c my_dsvm my_tensorflow_or_cntk_script.py
 ```
  
 To verify that the GPU is used, you can examine the run output. You should see something like the following:
@@ -104,7 +111,7 @@ Total memory: 11.17GiB
 Free memory: 11.11GiB
 ```
 
-Congratulations! Your script just harness the power of GPU through Docker container!
+Congratulations! Your script just harnessed the power of GPU through a Docker container!
 
 ## Next steps
 See an example of using GPU to accelerate deep neural network training at Azure ML Gallery.
