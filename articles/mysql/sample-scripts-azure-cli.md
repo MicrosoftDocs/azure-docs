@@ -6,9 +6,9 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
-ms.topic: article
+ms.topic: sample
 ms.custom: mvc
 ms.date: 05/10/2017
 ---
