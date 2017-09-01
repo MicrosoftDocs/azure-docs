@@ -10,11 +10,12 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
-ms.author: ryanwi, mikhegn
+ms.author: ryanwi
+ms.custom: mvc
 
 ---
 

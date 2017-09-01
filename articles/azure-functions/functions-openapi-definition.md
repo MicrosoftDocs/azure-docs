@@ -13,10 +13,10 @@ ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/25/2017
 ms.author: mblythe; glenga
-ms.custom: ''
+ms.custom: mvc
 ---
 
 # Create an OpenAPI definition for a function
