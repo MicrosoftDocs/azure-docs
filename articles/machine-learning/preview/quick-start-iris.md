@@ -18,7 +18,7 @@ ms.date: 09/01/2017
 In this tutorial, we take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
 ## Step 1. Provision and Install Azure Machine Learning Workbench
-Follow the [installation guide](Installation.md) to provision Azure resources and install Azure ML Workbench app.
+Follow the installation guide to provision Azure resources and install Azure ML Workbench app.
 
 ## Step 2. Create a New Project with _Classifying Iris_ Sample Template 
 Launch the Azure ML Workbench desktop app. Click on _File_ --> _New Project_ (or click on the "+" sign in the project list pane). Fill in the project name, and the directory the project is going to be created in. The project description is optional but helpful. Choose the default "My Projects" workgroup, and then select the _Classifying Iris_ sample project as the project template. 
