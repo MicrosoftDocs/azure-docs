@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 08/22/2017
+ms.date: 09/01/2017
 ms.topic: article
 ms.service: iot-dps
 
