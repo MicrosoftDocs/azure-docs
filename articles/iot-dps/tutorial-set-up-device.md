@@ -1,6 +1,6 @@
 ---
 title: Set up device for IoT Hub Device Provisioning Service | Microsoft Docs
-description: Set up device to provision via IoT DHub Device Provisioning ServicePS during manufacturing process
+description: Set up device to provision via IoT Hub Device Provisioning Service during the device manufacturing process
 services: iot-dps
 keywords: 
 author: dsk-2015
@@ -97,7 +97,7 @@ Once you build the SDK for your selected HSM, make sure the following functions 
     ```
   The SDK built for X.509 flow has default implementations for the X.509 simulator.
 
-These APIs interact with your chip to extract the security artifacts from the device after it boots. The Device Provisioning Service Client SDK uses these security artifacts for verifying registration with your Device Provisioning service.
+These APIs interact with your chip to extract the security artifacts from the device after it boots. The client SDK uses these security artifacts for verifying registration with your Device Provisioning service.
 
 
 ## Set up Device Provisioning Service configuration on the device

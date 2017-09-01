@@ -28,7 +28,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. Download and install the [CMake build system](https://cmake.org/download/).
 
-3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, included the **Git Bash**, the command-line app that you will use to interact with your local Git repository.. 
+3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, included the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
 4. Open a command prompt or Git Bash. Clone the github repo for device simulation code sample:
     
