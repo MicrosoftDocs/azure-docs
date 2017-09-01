@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Suite remote monitoring | Microsoft Docs 
-description: This tutorial uses the simulated scenario created when you deploy the remote monitoring preconfigured solution for the first time to introduce the main scenarios enabled by the solution.
+description: This tutorial uses simulated scenarios to introduce the remote monitoring preconfigured solution. These scenarios are created when you deploy the remote monitoring preconfigured solution for the first time.
 services: ''
 suite: iot-suite
 author: dominicbetts
@@ -18,13 +18,13 @@ ms.workload: NA
 
 This tutorial shows you how to access the key capabilities of the remote monitoring solution using the solution dashboard. To introduce these capabilities, the tutorial showcases common customer scenarios using a simulated IoT application for a company called Contoso. This tutorial helps you understand the typical IoT scenarios the remote monitoring solution provides out-of-the-box.
 
-In this tutorial, you learn to:
+In this tutorial, you learn how to:
 
 >[!div class="checklist"]
 > * Visualize and filter devices on the dashboard
-> * Use simulated devices 
-> * Analyze device-triggered alarms
-> * Troubleshoot and remediate device issues
+> * Respond to an alarm
+> * Update the firmware in your devices
+> * Organize your assets
 
 ## Prerequisites
 
@@ -72,53 +72,157 @@ Operators at Contoso know the thresholds that determine whether a device is work
 | Hot cargo temperature | Alerts if truck's cargo temperature is higher than normal (> 45 F)                 | Warning  | Trucks              |
 | Stopped elevator      | Alerts if elevator stops completely, vibration level (<0.1 mm>)                    | Warning  | Elevators           |
 
-## Operate the Contoso sample deployment
+### Operate the Contoso sample deployment
 
-You have now seen the initial setup in the Contoso sample. The following sections describe four scenarios in the Contoso sample where an operator must analyze real-time data and decide how to act.
+You have now seen the initial setup in the Contoso sample. The following sections describe three scenarios in the Contoso sample that illustrate how an operator might use the preconfigured solution.
 
-### Respond to a pressure alarm
+## Respond to a pressure alarm
 
-This scenario shows how an operator identifies the alarm that's triggered by a chiller. The chiller is located in Redmond in building 43, floor 2.
+This scenario shows you how to identify and respond to an alarm that's triggered by a chiller device. The chiller is located in Redmond, in building 43, floor 2.
 
-Clicks on device details and sees the telemetry for pressure.
+As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller.
 
-Goes to maintenance dashboard to see rule.
+1. On the **Dashboard** page, in the **Alarm Status** grid, you can see the **Chiller pressure too high** alarm. The chiller is also highlighted on the map:
 
-Examines associated rule, actions, and devices.
+    <!-- Insert screenshot -->
 
-Acts on device and uses the release valve method.
+1. To view the device details and telemetry, click the highlighted chiller on the map. The telemetry shows a pressure spike:
 
-Device works properly. Go to the dashboard to see it.
+    <!-- Insert screenshot -->
 
-### Respond to a temperature alarm
+1. Close **Device details** and click **...** next to the alarm in the alarm grid. To navigate to the rule definition, select **Maintenance**.
 
-This scenario shows how an operator investigates a temperature alarm. Contoso is running a test for a new field device, tagged as **Test 2**, which could be causing the alarm. Contoso is using prototyping devices for the test. Contoso wants to test if devices with a high temperature can self-heal by using a method to start a cooling system remotely. To perform the test, Contoso provisions a device with a higher than normal temperature to trigger an alarm. To investigate, the operator at Contoso:
+On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alarm.
 
-Sees alarm status.
+1. You can see the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
 
-Clicks to see device details
+    <!-- Insert screenshot -->
 
-In this case, operator knows what to do directly, so they go to the devices page to act on the device directly.
+1. The first alarm in the list is the most recent one. Click this alarm to view the associated devices and telemetry. The telemetry shows a pressure spike for the chiller:
 
-Operator applies decrease temperature method (new cooling system they are testing).
+    <!-- Insert screenshot -->
 
-Problem is fixed. Show normal dashboard.
+You have now identified the issue that triggered the alarm and the associated device. As an operator, the next steps are to acknowledge the alarm and mitigate the issue.
 
-### Solve a field incident
+1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledge**. Then select the affected chiller:
 
-In this scenario, Contoso has multiple trucks traveling in the Seattle area. Each truck has different cargo.
+    <!-- Insert screenshot -->
 
-To see the different tags that represent the cargo type, show the trucks in the map, and point to devices details.
+1. To act on the chiller, select **Schedule** in the upper-right panel. Select **Valve pressure release**, add a job name **Chiller pressure release**, do not add a time range. These settings create a job that executes immediately:
 
-One of the trucks has raised a warning for high temperature. Show T and alarm as a warning, not as critical.
+    <!-- Insert screenshot -->
 
-Operator goes to devices page and lowers T so the cargo is now safe.
+1. To view the job status, return to the **Maintenance** page and view the list of events. You can see the job has run to release the valve pressure on the chiller:
 
-### Fix equipment remotely
+    <!-- Insert screenshot -->
 
-In this scenario, an elevator is stopped in building 1 on the Redmond campus. The operator at Contoso knows the elevator is stationary because of an alarm that shows vibration has stopped completely.
+Finally, confirm that the telemetry values from the chiller are back to normal.
 
-A technician evaluates the potential problem, decides to update the firmware version and then restart the elevator. With the new firmware patch, the elevator now works.
+1. To view the alarms grid, navigate to the **Dashboard** page.
+
+1. View the device telemetry for the original alarm and confirm that is back to normal.
+
+1. To close the incident, navigate to the **Maintenance** page, select the alarm, and set the status to **Closed**:
+
+    <!-- Insert screenshot -->
+
+## Update device firmware
+
+Contoso is testing a new type of device in the field. As part of the testing cycle, you need to ensure that device firmware updates work correctly. The following steps show you how to use the remote monitoring solution to update the firmware on multiple devices.
+
+You can use the **Devices** page to perform all the necessary device management tasks. Start by filtering for all prototyping devices:
+
+1. Navigate to the **Devices** page. Choose the **Prototyping** filter in the **Filters** drop-down:
+
+    <!-- Insert screenshot -->
+
+    > [!TIP]
+    > Click **Manage** to manage the available filters.
+
+1. Select one of the prototyping devices:
+
+    <!-- Insert screenshot -->
+
+1. Click the **Schedule** button and then choose **Firmware update**:
+
+    <!-- Insert screenshot -->
+
+1. Enter values for **Job name** and **Firmware URL**. Schedule the job to run now:
+
+    <!-- Insert screenshot -->
+
+1. Click **Apply** and note how many devices the job affects:
+
+    <!-- Insert screenshot -->
+
+You can use the **Maintenance** page to track the job as it runs.
+
+1. Navigate to the **Maintenance** page and click **System status**:
+
+    <!-- Insert screenshot -->
+
+1. Locate the event related to the job you created. Verify that the firmware update process was initiated correctly:
+
+    <!-- Insert screenshot -->
+
+You can create a filter to verify the firmware version update correctly.
+
+1. To create a filter, navigate to the **Devices** page and select **Manage**:
+
+    <!-- Insert screenshot -->
+
+1. Create a group that includes only devices with the new firmware version:
+
+    <!-- Insert screenshot -->
+
+1. Return to the **Devices** page and verify that the device has the new firmware version:
+
+    <!-- Insert screenshot -->
+
+## Organize your assets
+
+Contoso has two different teams for field service activities:
+
+* The Smart Building team manages chillers, elevators, and engines.
+* The Smart Vehicle team manages trucks and prototyping devices.
+
+To make it easier as an operator to organize and manage your devices, you want to tag them with the appropriate team name.
+
+You can create custom tag names to use with devices.
+
+1. To display all the devices, navigate to the **Devices** page and choose the **All** filter:
+
+    <!-- Insert screenshot -->
+
+1. Select the **Trucks** and **Prototyping** devices. Then choose **Tag**:
+
+    <!-- Insert screenshot -->
+
+1. In the **Tag** menu, create a new tag called **FieldService** with a value **ConnectedVehicle**. Then click **Save**:
+
+    <!-- Insert screenshot -->
+
+1. Select the **Chiller**, **Elevator**, and **Engine** devices. Then choose **Tag**:
+
+    <!-- Insert screenshot -->
+
+1. In the **Tag** menu, create a new tag called **FieldService** with a value **SmartBuilding**. Then click **Save**:
+
+    <!-- Insert screenshot -->
+
+You can use the custom tag values to create filters.
+
+1. On the **Devices** page, choose **Manage filters**:
+
+    <!-- Insert screenshot -->
+
+1. Create a new group that uses the tag name **FieldService** and value **SmartBuilding**. Save the filter as **Smart Building**:
+
+    <!-- Insert screenshot -->
+
+1. Create a new group that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicle**:
+
+    <!-- Insert screenshot -->
 
 ## Next steps
 
@@ -126,9 +230,9 @@ In this tutorial, you learned to:
 
 >[!div class="checklist"]
 > * Visualize and filter devices on the dashboard
-> * Use simulated devices 
-> * Analyze device-triggered alarms
-> * Troubleshoot and remediate device issues
+> * Respond to an alarm
+> * Update the firmware in your devices
+> * Organize your assets
 
 Now that you have explored the remote monitoring solution, the suggested next steps are to learn about the advanced features of the remote monitoring solution:
 
