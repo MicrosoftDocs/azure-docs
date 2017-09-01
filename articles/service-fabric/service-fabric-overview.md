@@ -10,11 +10,12 @@ editor: masnider
 ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: mfussell
+ms.custom: mvc
 
 ---
 # Overview of Azure Service Fabric
