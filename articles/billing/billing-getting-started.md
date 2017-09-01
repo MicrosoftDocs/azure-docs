@@ -29,7 +29,7 @@ For more information about your daily usage, see [Understand your bill for Micro
 
 If your subscription is through a Cloud Solution Provider (CSP) or Azure Sponsorship, then many features in this article don't apply to you. Instead, we have a different set of tools that you can use for cost management. See [Additional resources for EA, CSP, and Sponsorship](#other-offers).
 
-If your subscription is an Enterprise Agreement (EA), the spending limit, billing alerts, and invoice guidence below will not pertain to you. 
+If your subscription is an Enterprise Agreement (EA), the spending limit, billing alerts, and invoice guidance does not pertain to you. 
 
 If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark, then learn about [spending limits](#spending-limit) to avoid having your subscription unexpectantly disabled. 
 
@@ -47,7 +47,7 @@ For more information, see [pricing FAQ](https://azure.microsoft.com/pricing/faq/
 
 Viewing costs require [subscriptions-level access to billing information](billing-manage-access.md), but only the Account admin can access the [Account Center](https://account.windowsazure.com/Home/Index), change billing info, and manage subscriptions. The Account admin is the person who went through the sign-up process. For more information, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
 
-To see if you're the Account admin, go to the [Subscriptions blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're ok. If it says something else like *Owner*, then you don't have full privileges.
+To see if you're the Account admin, go to the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're ok. If it says something else like *Owner*, then you don't have full privileges.
 
 ![Screenshot of your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
@@ -116,11 +116,11 @@ For more cost-cutting features for your development and test environments, check
 
 After you get your services running, regularly check how much they're costing you. You can see the current spend and burn rate in Azure portal. 
 
-1. Visit the [Subscriptions blade in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 2. Select your subscription you want to see. You might only have one to select.
 
-3. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top). Wait 24 hours after you add a service for the data to populate.  
+3. You should see the cost breakdown and burn rate in the popup page. It may not be supported for your offer (a warning would be displayed near the top). Wait 24 hours after you add a service for the data to populate.  
     
     ![Screenshot of burn rate and breakdown in the Azure portal](./media/billing-getting-started/burn-rate.PNG)
 
@@ -134,7 +134,7 @@ After you get your services running, regularly check how much they're costing yo
 
 6. You can filter by different properties like [tags](#tags), resource group, and timespan. Click **Apply** to confirm the filters and **Download** to export the view to a Comma-Separated Values (.csv) file.
 
-7. Click a resource to see spend history and how much it was costing you each day.
+7. Click a resource to view spend history and how much it was costing you each day.
 
     ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/costhistory.PNG)
 
@@ -149,11 +149,11 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You are an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs. 
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
-- When settings related to cost access are updated within the Enterprise portal, there can be a delay of a few minutes before the changes are reflected in the Azure portal.
+- When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
 
-#### View costs for all your subscriptions in the Billing blade
+#### View costs for all your subscriptions in the Billing page
 
-If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). EA aggregate views are currently not in the Billing blade on the Azure portal.  
+If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all your subscriptions in the [Billing page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). EA aggregate views are currently not in the Billing page on the Azure portal.  
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
