@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/24/2017
 ms.author: nitinme
 
 ---
@@ -168,15 +168,6 @@ For installation instructions, see [Install Azure Toolkit for IntelliJ](../azure
 ## Run or debug a Spark Scala application on an HDInsight Spark cluster
 We also recommend another way of submitting the Spark application to the cluster. You can do so by setting the parameters in the **Run/Debug configurations** IDE. For more information, see [Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
-## Choose Azure Data Lake Store as Spark Scala application storage
-To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. 
-
-![Interactive option at sign-in](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-interactive.png)
-
-If you select **Automated** mode, you get the following error:
-
-![Sign-in error](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-error.png)
-
 ## Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ
 You can perform various operations by using Azure Toolkit for IntelliJ.
 
@@ -302,6 +293,13 @@ These errors happen because the heap size is not large enough for Spark to run. 
     -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
 
 ![Adding options to the "VM options" box in IntelliJ](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
+
+## FAQ
+To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you can get an error.
+
+![interative-signin](./media/hdinsight-apache-spark-intellij-tool-plugin/interative-signin.png)
+
+Now, we resolved it. You can choose an Azure Data Lake Cluster to submit your application with any sign-in method.
 
 ## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.

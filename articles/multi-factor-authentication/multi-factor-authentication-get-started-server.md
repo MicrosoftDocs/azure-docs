@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
@@ -49,7 +49,7 @@ Make sure the server  that you're using for Azure Multi-Factor Authentication me
 | Azure Multi-Factor Authentication Server Requirements | Description |
 |:--- |:--- |
 | Hardware |<li>200 MB of hard disk space</li><li>x32 or x64 capable processor</li><li>1 GB or greater RAM</li> |
-| Software |<li>Windows Server 2008 or greater if the host is a server OS</li><li>Windows 7 or greater if the host is a client OS</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, all editions</li><li>Windows 8, all editions</li><li>Windows 7, all editions</li><li>Windows Vista, all editions, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
 
 ### Azure MFA Server Components
 
@@ -104,7 +104,7 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 
 9. Keep this page open as we will refer to it after running the installer.
 
-## Install and Configure the Azure Multi-Factor Authentication Server
+## Install and configure the Azure Multi-Factor Authentication Server
 
 Now that you have downloaded the server you can install and configure it. Be sure that the server you are installing it on meets requirements listed in the planning section.
 
@@ -145,6 +145,7 @@ Now that the server is installed you will want to add users. You can choose to c
 2. At the bottom, select **Import from Active Directory**.
 3. Now you can either search for individual users or search the AD directory for OUs with users in them.  In this case, we specify the users OU.
 4. Highlight all the users on the right and click **Import**.  You should receive a pop-up telling you that you were successful.  Close the import window.
+
    ![MFA Server user import](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ### Automated synchronization with Active Directory

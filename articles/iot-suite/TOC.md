@@ -1,6 +1,6 @@
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
-## [Azure IoT Hub, Suite, and Central](iot-suite-overview.md)
+## [Azure IoT Hub, Suite, and Central](iot-suite-options.md)
 ## [Preconfigured solutions overview](iot-suite-what-are-preconfigured-solutions.md)
 
 # Get Started
@@ -61,4 +61,5 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
+## [Connected factory FAQ](iot-suite-faq-cf.md)
 ## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

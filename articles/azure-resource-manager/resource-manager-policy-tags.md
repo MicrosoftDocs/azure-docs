@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 08/24/2017
 ms.author: tomfitz
 
 ---
@@ -21,7 +21,7 @@ ms.author: tomfitz
 
 This topic provides common policy rules you can apply to ensure consistent use of tags on resources.
 
-Applying a tag policy to a resource group or subscription with existing resources does not retroactively apply the policy to those resources. To enforce the policies on those resources, trigger an update to the existing resources, as shown in [Trigger updates to existing resources](#trigger-updates-to-existing-resources).
+Applying a tag policy to a resource group or subscription with existing resources does not retroactively apply the policy to those resources. To enforce the policies on those resources, trigger an update to the existing resources. This article includes a PowerShell example for triggering an update.
 
 ## Ensure all resources in a resource group have a tag/value
 
