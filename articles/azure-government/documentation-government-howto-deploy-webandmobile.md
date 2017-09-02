@@ -25,7 +25,7 @@ This article describes how to deploy an Azure App Services app (API App, Web App
 * Follow [these instructions] (documentation-government-get-started-connect-with-vs.md) to configure Visual Studio to connect to Azure Government account.
 
 ## Open App project in Visual Studio
-If you have an existing app solution\project in Visual Studio you can create a project by following [these instructions] (../app-service-web/app-service-web-get-started-dotnet.md).
+If you have an existing app solution\project in Visual Studio, you can create a project by following [these instructions] (../app-service-web/app-service-web-get-started-dotnet.md).
 
 If not, download a sample app by following [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
 
