@@ -157,7 +157,7 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
---settings BLOB_STORAGE_CONNECTION=$storageConnectionString 
+--settings myblobstorage_STORAGE=$storageConnectionString 
 ```
 
 You can now deploy a function code project to this function app.
@@ -245,7 +245,7 @@ In the following command, `<blob_storage_account>` is the name of your Blob stor
 
 ```azurecli-interactive
 az storage cors add --methods GET --exposed-headers content-length \
---allowed-headers "*" --origins "*.azurewebsites.net" --services b \
+--allowed-headers "*" --origins "*" --services b \
 --account-name <blob_storage_account> 
 ```
 After the web app is deployed and configured, you can test the entire image upload and resizing functionality in the app.
