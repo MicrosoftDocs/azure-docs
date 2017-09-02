@@ -21,7 +21,7 @@ ms.author: bwren
 
 Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It shows you detailed profiles of live requests that were served by your app, and highlights the 'hot path' that is using the most time. It automatically selects examples that have different response times. The profiler uses various techniques to minimize overhead.
 
-The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier. 
+The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier.
 
 <a id="installation"></a>
 ## Enable the profiler
@@ -56,7 +56,7 @@ If you use WebDeploy to deploy changes to your web application, ensure that you 
 
 ### Using profiler with Azure VMs and Compute resources (preview)
 
-When you [enable Application Insights for Azure app services at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatically available. (If you already enabled Application Insights for the resource, you might need to update to the lates version through the **Configure** wizard.)
+When you [enable Application Insights for Azure app services at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatically available. (If you already enabled Application Insights for the resource, you might need to update to the latest version through the **Configure** wizard.)
 
 There is a [preview version of the Profiler for Azure Compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
