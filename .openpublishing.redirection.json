@@ -28,7 +28,7 @@
             "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
             "redirect_url": "/azure/sql-database/sql-database-performance-guidance",
             "redirect_document_id": false
-        }
+        },
         {
             "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
             "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
