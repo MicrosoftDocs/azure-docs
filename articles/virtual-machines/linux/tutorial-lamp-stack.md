@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: danlep
 
