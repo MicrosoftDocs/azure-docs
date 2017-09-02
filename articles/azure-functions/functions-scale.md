@@ -1,13 +1,13 @@
 ---
-title: Azure Functions Consumption and App Service plans | Microsoft Docs
-description: Understand how Azure Functions scales to meet the needs of your event-driven workloads.
+title: Azure Functions hosting plans comparison | Microsoft Docs
+description: Learn how to choose between Azure Functions Consumption plan and App Service plan.
 services: functions
 documentationcenter: na
 author: lindydonna
 manager: cfowler
 editor: ''
 tags: ''
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
+keywords: azure functions, functions,  consumption plan, app service plan, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
@@ -21,7 +21,7 @@ ms.author: glenga
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Functions Consumption and App Service plans 
+# Azure Functions hosting plans comparison
 
 ## Introduction
 
