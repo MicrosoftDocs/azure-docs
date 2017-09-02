@@ -46,7 +46,7 @@ Follow the installation guide to provision Azure resources and install Azure ML 
 5. Repeat the previous steps 2-4 a few times. Each time, use different argument values ranging from 10 to 0.001. This value is used as regularization rate of the logistic regression algorithm in the _iris_sklearn.py_ script.
 
 ## View Run History
-1. Navigate to the Run History view, and click on **iris_sklearn.py**. This opens the run history list view of all runs executed on **iris_sklearn.py**. 
+1. Navigate to the Run History view, and click on **iris_sklearn.py**.The run history list view opens and displays of all runs executed on **iris_sklearn.py**. 
 
 2. Notice the top metrics, some default graphs, and a list of metrics for each run.
 
@@ -57,7 +57,7 @@ Follow the installation guide to provision Azure resources and install Azure ML 
 ## Explore further
 Now you have got a taste of the Azure ML Workbench execution experience, explore further using this sample project. 
 
-1. Open the _iris.sklearn.py_ file and read the code to understand the logic. Pay particular attention to the following:
+1. To better understand the logic, open the **iris.sklearn.py** file and read the python code . Pay particular attention to the following code sections:
    - Invoke _iris_ DataPrep package
    - Logging statements
    - Serialization and de-serialization the scikit-learn model
