@@ -23,7 +23,7 @@ ms.author: zakramer
 To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in Azure Public, it is mostly the same.  
 
 ## Azure CLI 2.0
-There are multiple ways to [install the Azure CLI v2](https://docs.microsoft.com/cli/azure/install-az-cli2).  
+There are multiple ways to [install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).  
 
 To connect to Azure Government, you set the cloud:
 
@@ -38,7 +38,9 @@ az login
 ```
 
 > [!NOTE]
-> The above login command is recommended, but for simple Azure AD setups/scenarios you can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter. However, if you have configured Azure AD for federation you'll need to use `az login` and go through the device login flow. 
+> The above login command is recommended, but for simple Azure AD setups/scenarios you can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter. 
+> However, if you have configured Azure AD for federation you need to use `az login` and go through the device login flow. 
+>
 
 To confirm the cloud has correctly been set to AzureUSGovernment, run this command:
 
