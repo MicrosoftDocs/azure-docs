@@ -8,7 +8,7 @@
 ## [5. Customer Acceptance](lifecycle-acceptance.md)
 ## [With Azure ML](http://aka.ms/datascienceprocess)
 
-# [Example walkthroughs](walkthroughs.md)
+# [Examples](walkthroughs.md)
 ##[Spark with PySpark and Scala](walkthroughs-spark.md)
 ### [Explore data](spark-data-exploration-modeling.md)
 ### [Score models](spark-model-consumption.md)
