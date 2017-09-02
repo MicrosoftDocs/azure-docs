@@ -5,7 +5,7 @@ metakeywords: azure sql database performance monitoring recommendation
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: jan-eng
+author: CarlRabeler
 
 ms.assetid: 
 ms.service: sql-database
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2017
-ms.author: janeng
+ms.author: carlrab
 
 ---
 # Troubleshoot performance issues and optimize your database
