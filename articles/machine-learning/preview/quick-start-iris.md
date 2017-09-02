@@ -57,7 +57,7 @@ Follow the installation guide to provision Azure resources and install Azure ML 
 ## Explore further
 Now you have got a taste of the Azure ML Workbench execution experience, explore further using this sample project. 
 
-1. To better understand the logic, open the **iris.sklearn.py** file and read the python code . Pay particular attention to the following code sections:
+1. To better understand the logic, open the **iris.sklearn.py** file and read the python code. Pay particular attention to the following code sections:
    - Invoke _iris_ DataPrep package
    - Logging statements
    - Serialization and de-serialization the scikit-learn model
