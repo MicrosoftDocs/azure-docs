@@ -61,6 +61,10 @@ From here you can restart Visual Studio and the change will take effect. Once Vi
 This [short video](https://channel9.msdn.com/blogs/Azure-Government/Azure-Environment-Selector-Visual-Studio-Extension) shows the extension in action – walking you through installation and showing how easy it is to connect to Azure Government. 
  
 ### Manually configuring your target 
+>[!NOTE] 
+>If you have successfully completed the extension installation above, you do not need to complete this section.
+>
+>
 #### Manually creating a configuration file for Azure Government 
 Create a file named **AadProvider.Configuration.json** with the following content:
 
