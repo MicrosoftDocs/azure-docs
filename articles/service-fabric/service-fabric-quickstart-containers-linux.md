@@ -23,7 +23,18 @@ ms.author: ryanwi
 > * [Windows](service-fabric-quickstart-containers.md)
 > * [Linux](service-fabric-quickstart-containers-linux.md)
 
-Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a prebuilt Docker container image in a Service Fabric application.
+Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
+
+Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a prebuilt Docker container image in a Service Fabric application. When you're finished, you'll have a running Nginx container.
+
+![Nginx][nginx]
+
+In this quickstart, you learn how to:
+> [!div class="checklist"]
+> * Package a Docker image container
+> * Configure communication
+> * Build and package the Service Fabric application
+> * Deploy the container application
 
 ## Prerequisites
 A development computer running:
