@@ -16,6 +16,8 @@
   - name: (Create a model with CLI)
   - name: Set up model management
     href: model-management-configuration.md
+  - name: Iris Quickstart
+    href: quick-start-iris.md
   - name: MVC template
     href: doc-template-quickstart.md
 - name: Tutorials
