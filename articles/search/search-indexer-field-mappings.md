@@ -81,18 +81,46 @@ These functions are currently supported:
 ### base64Encode
 Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded.
 
-There are two ways to handle Base64 padding characters: either to replace them or to just drop them. If you don't specify `parameters`, the default value of `useHttpServerUtilityUrlTokenEncode` is `true`, and replaces the padding characters with the number of padding characters. If you want to drop the padding characters instead, set `useHttpServerUtilityUrlTokenEncode` to `false` in `parameters`.
+If you have access to [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) you can simply leave out `parameters` for the mapping function, which defaults `useHttpServerUtilityUrlTokenEncode` to `true`.
 
 #### Sample use case
-Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the Lookup API, for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function.
+Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document), for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function. Then you can map between the document key and source key using HttpServerUtility.UrlTokenEncode and HttpServerUtility.UrlTokenDecode.
 
 #### Example
 ```JSON
 
 "fieldMappings" : [
   {
-    "sourceFieldName" : "Path",
-    "targetFieldName" : "UrlSafePath",
+    "sourceFieldName" : "SourceKey",
+    "targetFieldName" : "IndexKey",
+    "mappingFunction" : { "name" : "base64Encode" }
+  }]
+```
+
+<a name="base64table"></a>
+
+If you are not using the .NET Framework (e.g. JavaScript or Python), then you should set `useHttpServerUtilityUrlTokenEncode` to `false`. You may need additional processing of your base64 encoded key to be consistent with the `mappingFunction` output.
+
+The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 function, apply that function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
+
+| Encoding | Base64 encode output | Additional processing |
+| --- | --- | --- |
+| Base64 with padding | `MDA+MDA/MDA=` | Use URL-safe characters and remove padding |
+| Base64 without padding | `MDA+MDA/MDA` | Use URL-safe characters |
+| URL-safe base64 with padding | `MDA-MDA_MDA=` | Remove padding |
+| URL-safe base64 without padding | `MDA-MDA_MDA` | None |
+
+
+#### Sample use case
+You want to build a user interface around your Search service and make Lookup API calls using JavaScript. A source document with key `00>00?00` will be added to the index with key `MDA-MDA_MDA`. When looking up the document, you must use `MDA-MDA_MDA` as the document key.
+
+#### Example
+```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "SourceKey",
+    "targetFieldName" : "IndexKey",
     "mappingFunction" : { "name" : "base64Encode", "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false } }
   }]
 ```
@@ -102,12 +130,14 @@ Only URL-safe characters can appear in an Azure Search document key (because cus
 ### base64Decode
 Performs Base64 decoding of the input string. The input is assumed to a *URL-safe* Base64-encoded string.
 
-You must ensure the decoding `parameters` matches how your input was encoded. `useHttpServerUtilityUrlTokenDecode` of decoding `parameters` should have the same value as the `useHttpServerUtilityUrlTokenEncode` of encoding `parameters`. The default value of `useHttpServerUtilityUrlTokenDecode` is `true`.
+You must ensure the decoding `parameters` match how your input was encoded.
 
-If your input was not encoded with field mappings, then you likely want to set `useHttpServerUtilityUrlTokenDecode` to `false`.
+If you don't specify any `parameters` then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`, and your input must be encoded using HttpServerUtility.UrlTokenEncode.
+
+If you set `useHttpServerUtilityUrlTokenDecode` to `false` then the input must be encoded as URL-safe base64 without padding. See [above table](#base64table) for details.
 
 #### Sample use case
-Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding to represent arbitrary Unicode strings in blob custom metadata. However, to make search meaningful, you can use this function to turn the encoded data back into "regular" strings when populating your search index.  
+Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding to represent arbitrary UTF-8 strings in blob custom metadata. However, to make search meaningful, you can use this function to turn the encoded data back into "regular" strings when populating your search index.
 
 #### Example
 ```JSON
