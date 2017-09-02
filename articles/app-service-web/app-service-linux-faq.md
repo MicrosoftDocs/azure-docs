@@ -45,7 +45,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?
 
-**A:** Yes, you can do that through the SCM site, check the following article for more information [SSH support for Web App on Linux](./app-service-linux-ssh-support.md)
+**A:** Yes, you can do that through the SCM site.
 
 **Q:** I want to create a Linux App Service plane through SDK or an ARM template, how can I achieve this?
 
@@ -135,6 +135,10 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 ## Next steps
 * [What is Azure Web App on Linux?](app-service-linux-intro.md)
+<<<<<<< HEAD
+* [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
+=======
 * [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md)
+>>>>>>> 74ef9facd25a120355a293545bc18d85ec2b41c4
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
 * [Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
