@@ -24,6 +24,10 @@ No. The virtual networks can be in the same or different Azure regions (location
 
 No.
 
+### Can I use VNet-to-VNet to connect virtual networks in separate Azure instances? 
+
+No. VNet-to-VNet supports connecting virtual networks within the same Azure instance. For example, you can’t create  a connection between public Azure and the Chinese / German / US Gov Azure instances. For these scenarios, consider using a Site-to-Site VPN connection.
+
 ### Can I use VNet-to-VNet along with multi-site connections?
 
 Yes. Virtual network connectivity can be used simultaneously with multi-site VPNs.
