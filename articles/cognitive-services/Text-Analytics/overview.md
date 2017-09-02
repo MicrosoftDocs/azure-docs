@@ -57,19 +57,19 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Language    | Language code | Sentiment | Key phrases |
 |:----------- |:----:|:----:|:----:|
 | Danish      | `da` | ✔ \* |  |
+| Dutch       | `nl` | ✔ \* |  | 
+| English     | `en` | ✔ | ✔ | 
+| Finnish     | `fi` | ✔ \* |  | 
+| French      | `fr` | ✔ | ✔  | 
 | German       | `de` | ✔ \* | ✔ |
 | Greek       | `el` | ✔ \* |  |
-| English     | `en` | ✔ | ✔ | 
-| Spanish     | `es` | ✔ | ✔ | 
-| Finnish     | `fi` | ✔ \* |  | 
-| French      | `fr` | ✔ | ✔ \* | 
-| Japanese    | `ja` |  | ✔ |   |
 | Italian     | `it` | ✔ \* |  | 
-| Dutch       | `nl` | ✔ \* |  | 
+| Japanese    | `ja` |  | ✔ |   |
 | Norwegian   | `no` | ✔ \* |  | 
 | Polish      | `pl` | ✔ \* |  | 
 | Portuguese  | `pt` | ✔ |  | 
 | Russian     | `ru` | ✔ \* |  | 
+| Spanish     | `es` | ✔ | ✔ | 
 | Swedish     | `sv` | ✔ \* |  | 
 | Turkish     | `tr` | ✔ \* |  | 
 

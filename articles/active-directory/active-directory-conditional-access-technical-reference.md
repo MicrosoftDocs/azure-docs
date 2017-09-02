@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 
 ---
 # Azure Active Directory Conditional Access technical reference
@@ -24,7 +24,11 @@ This topic provides you with support information for the following items of a co
 
 - Cloud apps assignments
 
-- Client apps conditions
+- Device platform condition 
+
+- Client apps condition
+
+- Approved client app requirement 
 
 
 
@@ -71,7 +75,27 @@ In addition to the Microsoft cloud apps, you can assign a conditional access pol
 - Applications that use Azure AD Application Proxy. 
 
 
-## Client apps conditions 
+## Device platforms condition
+
+In a conditional access policy, you can configure the device platform condition to tie the policy to the operating system that is running on a client.
+
+![Control](./media/active-directory-conditional-access-technical-reference/41.png)
+
+Azure AD conditional access supports the following device platforms:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS (preview)
+
+
+
+## Client apps condition 
 
 When you configure a conditional access policy, you can set a [client apps condition](active-directory-conditional-access-azure-portal.md#client-apps). The client apps condition enables you to grant or block access when an access attempt was made from these types of client apps:
 
@@ -79,7 +103,6 @@ When you configure a conditional access policy, you can set a [client apps condi
 - Mobile apps and desktop apps
 
 ![Control](./media/active-directory-conditional-access-technical-reference/03.png)
-
 
 ### Supported browsers 
 
@@ -120,11 +143,11 @@ The following mobile apps and desktop clients support conditional access for Off
 
 
 | Client apps| Target Service| Platform |
-| :-- | --- | --- |
+| --- | --- | --- |
 | MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service| Android and iOS|
 | Azure Remote app| Azure Remote App service| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
 | Dynamics CRM app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, and Android|
-| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, MAC OS X, iOS, Android, WP, and web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS/Android and MAC OSX|
+| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS and Android|
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Outlook mobile app| Office 365 Exchange Online| iOS|
@@ -139,15 +162,46 @@ The following mobile apps and desktop clients support conditional access for Off
 
 
 
+## Approved client app requirement 
+
+When you configure a conditional access policy, you can select the requirement to grant access only if a connection attempt was made by an approved client app. 
+
+![Control](./media/active-directory-conditional-access-technical-reference/21.png)
+
+Approved client apps for this setting are:
+
+- Microsoft Excel
+
+- Microsoft OneDrive
+
+- Microsoft Outlook
+
+- Microsoft OneNote
+
+- Microsoft PowerPoint
+
+- Microsoft SharePoint
+
+- Microsoft Skype for Business
+
+- Microsoft Teams
+
+- Microsoft Visio
+
+- Microsoft Word
 
 
+**Remarks:**
 
+- These apps support Microsoft Intune mobile application management (MAM).
 
+- This requirement:
 
+    - Only supports IOS and Android as selected [device platforms condition](#device-platforms-condition) 
 
-
-
-
+    - Does not support **Browser** as selected [client app condition](#supported-browsers) 
+    
+    - Supersedes the **Mobile apps and desktop clients** [client app condition](#supported-mobile-apps-and-desktop-clients) if it is selected  
 
 
 ## Next steps
