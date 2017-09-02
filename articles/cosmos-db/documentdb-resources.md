@@ -93,7 +93,7 @@ Resources such as database accounts, databases, collections, users, permissions,
         </tr>
         <tr>
             <td valign="top"><p>id</p></td>
-            <td valign="top"><p>System generated</p></td>
+            <td valign="top"><p>Either</p></td>
             <td valign="top"><p>User defined unique name of the resource (with the same partition key value). If the user does not specify an id, an id will be system generated</p></td>
         </tr>
     </tbody>
