@@ -29,7 +29,7 @@ Some situations where field mappings are useful:
 ## Setting up field mappings
 You can add field mappings when creating a new indexer using the [Create Indexer](https://msdn.microsoft.com/library/azure/dn946899.aspx) API. You can manage field mappings on an indexing indexer using the [Update Indexer](https://msdn.microsoft.com/library/azure/dn946892.aspx) API.
 
-A field mapping consists of 3 parts:
+A field mapping consists of three parts:
 
 1. A `sourceFieldName`, which represents a field in your data source. This property is required.
 2. An optional `targetFieldName`, which represents a field in your search index. If omitted, the same name as in the data source is used.
@@ -81,7 +81,7 @@ These functions are currently supported:
 ### base64Encode
 Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded.
 
-If you have access to [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) you can simply leave out `parameters` for the mapping function, which defaults `useHttpServerUtilityUrlTokenEncode` to `true`.
+If you have access to [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) you can just leave out `parameters` for the mapping function, which defaults `useHttpServerUtilityUrlTokenEncode` to `true`.
 
 #### Sample use case
 Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document), for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function. Then you can map between the document key and source key using HttpServerUtility.UrlTokenEncode and HttpServerUtility.UrlTokenDecode.
@@ -99,7 +99,7 @@ Only URL-safe characters can appear in an Azure Search document key (because cus
 
 <a name="base64table"></a>
 
-If you are not using the .NET Framework (e.g. JavaScript or Python), then you should set `useHttpServerUtilityUrlTokenEncode` to `false`. You may need additional processing of your base64 encoded key to be consistent with the `mappingFunction` output.
+If you are not using the .NET Framework (for example JavaScript or Python), then you should set `useHttpServerUtilityUrlTokenEncode` to `false`. You may need additional processing of your base64 encoded key to be consistent with the `mappingFunction` output.
 
 The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 function, apply that function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
 
@@ -132,7 +132,7 @@ Performs Base64 decoding of the input string. The input is assumed to a *URL-saf
 
 You must ensure the decoding `parameters` match how your input was encoded.
 
-If you don't specify any `parameters` then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`, and your input must be encoded using HttpServerUtility.UrlTokenEncode.
+If you don't specify any `parameters`, then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`, and your input must be encoded using HttpServerUtility.UrlTokenEncode.
 
 If you set `useHttpServerUtilityUrlTokenDecode` to `false` then the input must be encoded as URL-safe base64 without padding. See [above table](#base64table) for details.
 
@@ -155,7 +155,7 @@ Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding t
 ### extractTokenAtPosition
 Splits a string field using the specified delimiter, and picks the token at the specified position in the resulting split.
 
-For example, if the input is `Jane Doe`, the `delimiter` is `" "`(space) and the `position` is 0, the result is `Jane`; if the `position` is 1, the result is `Doe`. If the position refers to a token that doesn't exist, an error will be returned.
+For example, if the input is `Jane Doe`, the `delimiter` is `" "`(space) and the `position` is 0, the result is `Jane`; if the `position` is 1, the result is `Doe`. If the position refers to a token that doesn't exist, an error is returned.
 
 #### Sample use case
 Your data source contains a `PersonName` field, and you want to index it as two separate `FirstName` and `LastName` fields. You can use this function to split the input using the space character as the delimiter.
@@ -185,7 +185,7 @@ Your data source contains a `PersonName` field, and you want to index it as two 
 ### jsonArrayToStringCollection
 Transforms a string formatted as a JSON array of strings into a string array that can be used to populate a `Collection(Edm.String)` field in the index.
 
-For example, if the input string is `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `red`, `white` and `blue`. For input values that cannot be parsed as JSON string arrays, an error will be returned.
+For example, if the input string is `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `red`, `white`, and `blue`. For input values that cannot be parsed as JSON string arrays, an error is returned.
 
 #### Sample use case
 Azure SQL database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure Search. To populate string collection fields, format your source data as a JSON string array and use this function.
