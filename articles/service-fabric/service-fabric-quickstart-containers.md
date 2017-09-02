@@ -88,15 +88,15 @@ For information about creating your own cluster, see [Create your first Service 
 ### Deploy the application using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
-1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
+Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-    ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
+![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the Party Cluster, the Connection Endpoint is provided in the browser. - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the Party Cluster, the Connection Endpoint is provided in the browser. - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
-3. Open a browser and type in the cluster address - for example, `http://winh1x87d1d.westus.cloudapp.azure.com`. You should now see the application running in the cluster in Azure.
+Open a browser and type in the cluster address - for example, `http://winh1x87d1d.westus.cloudapp.azure.com`. You should now see the application running in the cluster in Azure.
 
-Open a browser and navigate to http://mysfcluster.southcentralus.cloudapp.azure.com:80. You should see the IIS default web page:
+Open a browser and navigate to http://winh1x87d1d.westus.cloudapp.azure.com:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]
 
 ## Complete example Service Fabric application and service manifests
