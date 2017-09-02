@@ -1,11 +1,11 @@
 
 # [Overview](overview.md)
 # [Lifecycle](lifecycle.md)
-## [1.Business Understanding](lifecycle-business-understanding.md)
-## [2.Data Acquisition and Understanding](lifecycle-data.md)
-## [3.Modeling](lifecycle-modeling.md)
-## [4.Deployment](lifecycle-deployment.md)
-## [5.Customer Acceptance](lifecycle-acceptance.md)
+## [1. Business Understanding](lifecycle-business-understanding.md)
+## [2. Data Acquisition and Understanding](lifecycle-data.md)
+## [3. Modeling](lifecycle-modeling.md)
+## [4. Deployment](lifecycle-deployment.md)
+## [5. Customer Acceptance](lifecycle-acceptance.md)
 ## [With Azure ML](http://aka.ms/datascienceprocess)
 
 # [Example walkthroughs](walkthroughs.md)
