@@ -53,11 +53,11 @@ Once you have a set of models that perform well, they can be operationalized for
 
 Here are links to each step in the lifecycle of the Team Data Science Process:
 
-* [1.Business Understanding](lifecycle-business-understanding.md)
-* [2.Data Acquisition and Understanding](lifecycle-data.md)
-* [3.Modeling](lifecycle-modeling.md)
-* [4.Deployment](lifecycle-deployment.md)
-* [5.Customer Acceptance](lifecycle-acceptance.md)
+* [1. Business Understanding](lifecycle-business-understanding.md)
+* [2. Data Acquisition and Understanding](lifecycle-data.md)
+* [3. Modeling](lifecycle-modeling.md)
+* [4. Deployment](lifecycle-deployment.md)
+* [5. Customer Acceptance](lifecycle-acceptance.md)
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
