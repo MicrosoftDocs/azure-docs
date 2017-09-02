@@ -1535,6 +1535,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/resource-manager-troubleshoot-deployments-rest.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-update.md",
             "redirect_url": "/azure/architecture/building-blocks/extending-templates/update-resource",
             "redirect_document_id": false
