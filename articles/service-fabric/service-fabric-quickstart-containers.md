@@ -23,7 +23,18 @@ ms.author: ryanwi
 > * [Windows](service-fabric-quickstart-containers.md)
 > * [Linux](service-fabric-quickstart-containers-linux.md)
 
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a prebuilt Docker container image in a Service Fabric application.
+Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
+
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a pre-built Docker container image in a Service Fabric application. When you're finished, you'll have a running Windows Server 2016 Nano Server and IIS container.
+
+![IIS default web page][iis-default]
+
+Using this application you learn how to:
+> [!div class="checklist"]
+> * Package a Docker image container
+> * Configure communication
+> * Build and package the Service Fabric application
+> * Deploy the container application
 
 ## Prerequisites
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
@@ -67,92 +78,26 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 
 A full ApplicationManifest.xml example file is provided at the end of this article.
 
-## Create a cluster
-A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Open a PowerShell window and create a test cluster with a single node.  Later, you'll deploy your container application onto this test cluster.  You can find your Azure subscription ID in the [Azure portal](http://portal.azure.com).
+## Deploy the application to Azure
+To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
 
-```powershell
-Login-AzureRmAccount
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).
 
-Select-AzureRmSubscription -SubscriptionId "SubscriptionID"
+For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
-$clusterloc="SouthCentralUS"
-$groupname="mysfclustergroup"
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$certfolder="c:\mycertificates\"
-$clustername = "mysfcluster"
-$vmpassword = "VmPassword#1234" | ConvertTo-SecureString -AsPlainText -Force
-$subname="$clustername.$clusterloc.cloudapp.azure.com"    
-$clustersize=1 
+### Deploy the application using Visual Studio
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname `
-    -Location $clusterloc -ClusterSize $clustersize -VmPassword $vmpassword `
-    -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
-    -OS WindowsServer2016DatacenterwithContainers 
+    ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-$pfxfile = (Get-ChildItem $certfolder -Recurse -Include "*.pfx" | Select-Object -First 1).Name
-  
-$certfilepath=$certfolder+$pfxfile    
-$thumbprint = (Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath $certfilepath `
-        -Password $certpwd).Thumbprint
+2. Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the Party Cluster, the Connection Endpoint is provided in the browser. - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
-Write-Host "Cluster connection endpoint: " $subname":19000"
-Write-Host "Certificate thumbprint: " $thumbprint
-```
-
-Take note of the cluster connection endpoint and the certificate thumbprint, you'll need this info in the following step.
-
-## Build and package the Service Fabric application
-Save all changes in your files. To package your application, right-click on **MyFirstContainer** in Solution Explorer and select **Package**. 
-
-## Deploy the container application
-To publish your application, right-click on **MyFirstContainer** in **Solution Explorer** and select **Publish**.  In the publish diaglog, enter "mysfcluster.southcentralus.cloudapp.azure.com:19000" as the **Connection Endpoint**.  Select **Advanced Connection Properties** and enter the certificate thumbprint.  Click **Publish**.
-
-![Publish application][publish-dialog]
+3. Open a browser and type in the cluster address - for example, `http://winh1x87d1d.westus.cloudapp.azure.com`. You should now see the application running in the cluster in Azure.
 
 Open a browser and navigate to http://mysfcluster.southcentralus.cloudapp.azure.com:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]
-
-## Clean up
-You continue to incur charges while the cluster is running, consider deleting your cluster.
-
-### Delete the cluster
-A cluster is made up of other Azure resources in addition to the cluster resource itself. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
-
-```powershell
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId "Subcription ID"
-
-$groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
-```
-### Remove the certificate from your local store
-You can also remove the certificate from your local store.  Open a PowerShell window as Administrator and run the following:
-
-```powershell
-# Access MY store of CurrentUser profile 
-$store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","CurrentUser")
-$store.Open("ReadWrite")
-
-# Find the cert we want to delete.
-$cert = $store.Certificates.Find("FindByThumbprint",$thumbprint,$FALSE)[0]
-
-if ($cert -ne $null)
-{
-# Found the cert. Delete it (need admin permissions to do this).
-$store.Remove($cert)
-
-Write-Host "Certificate with thumbprint" $thumbprint "has been deleted"
-}
-else
-{
-# Didn't find the cert. Exit.
-Write-Host "Certificate with thumbprint" $thumbprint "could not be found"
-}
-
-$store.Close()
-```
 
 ## Complete example Service Fabric application and service manifests
 Here are the complete service and application manifests used in this quick start.
@@ -240,6 +185,13 @@ Here are the complete service and application manifests used in this quick start
 ```
 
 ## Next steps
+In this quickstart, you learned how to:
+> [!div class="checklist"]
+> * Package a Docker image container
+> * Configure communication
+> * Build and package the Service Fabric application
+> * Deploy the container application
+
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
