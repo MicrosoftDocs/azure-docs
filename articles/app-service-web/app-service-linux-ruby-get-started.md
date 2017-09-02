@@ -4,8 +4,8 @@ description: Learn to create Ruby apps with Azure web wpp on Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: erikre
+author: SyntaxC4
+manager: cfowler
 editor: ''
 
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
-ms.author: wesmc;rachelap
+ms.date: 08/29/2017
+ms.author: cfowler
 ---
 # Create a Ruby App with Web Apps on Linux 
 
@@ -58,7 +58,16 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 
 ## Modify app to display welcome message
 
-Modify the application so it displays a welcome message. Change the application's controller so it returns the message as HTML to the browser. 
+Modify the application so it displays a welcome message. First, you must setup a route by modifying the *~/workspace/ruby-docs-hello-world/config/routes.rb* file to include a route named `hello`.
+    
+  ```ruby
+  Rails.application.routes.draw do
+      #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+      root 'application#hello'
+  end
+  ```
+
+Change the application's controller so it returns the message as HTML to the browser. 
 
 Open *~/workspace/hello-world/app/controllers/application_controller.rb* for editing. Modify the `ApplicationController` class to look like the following code sample:
 
@@ -79,6 +88,12 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 ## Create a Ruby web app on Azure
 
+A resource group is required to contain the assets needed for your web app. To create a resource group, use the [az group create]() command.
+
+```azurecli-interactive
+az group create --location westeurop --name myResourceGroup
+```
+
 Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command to create an app service plan for your web app. 
  
 ```azurecli-interactive
@@ -91,26 +106,18 @@ Next, issue the [az webapp create](https://docs.microsoft.com/cli/azure/webapp) 
   az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
 ```
 
+The output from the command reveals information about the newly created web app as well as the deployment URL. It should look similar to the following sample. Copy the URL for later use in this tutorial.
+
+```bash
+https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+```
+
 Once the web app is created, an **Overview** page is available to view. Navigate to it. The following splash page is displayed:
 
 ![Splash page](./media/app-service-linux-ruby-get-started/splash-page.png)
 
 
 ## Deploy your application
-
-Use Git to deploy the Ruby application to Azure. The web app already has a Git deployment configured. You can retrieve the deployment URL by issuing an [az webapp deployment](https://docs.microsoft.com/cli/azure/webapp/deployment) command.  
-
-```bash
-az webapp deployment source show --name <app name> --resource-group myResourceGroup
-```
-
-Notice that the Git URL has the following form based on your web app name:
-
-```bash
-https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
-```
-
-[!INCLUDE [Clean-up section](../../includes/configure-deployment-user-no-h.md)]
 
 Run the following commands to deploy the local application to your Azure website:
 
@@ -146,7 +153,7 @@ az webapp restart --name <app name> --resource-group myResourceGroup
 Navigate to your site and verify the results.
 
 ```bash
-http://<your web app name>.azurewebsites.net
+http://<app name>.azurewebsites.net
 ```
 ![updated web app](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
 
