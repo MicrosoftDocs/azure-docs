@@ -26,7 +26,7 @@ Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) supports 
 
 * You can attach managed data disks to the scale set.
 
-* With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 100 VMs if based on a custom image.
+* With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 300 VMs if based on a custom image.
 
 ## Get started
 
