@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
@@ -198,7 +198,7 @@ exit
 
 Once a VM has been deployed, the operating system disk or any attached data disks can be increased in size. Increasing the size of a disk is beneficial when needing more storage space or a higher level of performance (P10, P20, P30). Note, disks cannot be decreased in size.
 
-Before increasing disk size, the Id or name of the disk is needed. Use the [az disk list](/cli/azure/vm/disk#list) command to return all disks in a resource group. Take note of the disk name that you would like to resize.
+Before increasing disk size, the Id or name of the disk is needed. Use the [az disk list](/cli/azure/disk#az_disk_list) command to return all disks in a resource group. Take note of the disk name that you would like to resize.
 
 ```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table

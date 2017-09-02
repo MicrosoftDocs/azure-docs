@@ -49,7 +49,7 @@
     href: functions-cli-samples.md
 - name: Concepts
   items:
-  - name: Consumption and App Service plans
+  - name: Hosting plans comparison
     href: functions-scale.md
   - name: Triggers and bindings
     href: functions-triggers-bindings.md
