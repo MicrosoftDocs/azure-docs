@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
