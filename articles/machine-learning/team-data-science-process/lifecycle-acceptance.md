@@ -1,6 +1,6 @@
 ---
 title: Customer acceptance stage of Team Data Science Process Lifecycle - Azure | Microsoft Docs
-description: description: The goals, tasks, and deliverables for the customer acceptance stage of your data science projects.
+description: The goals, tasks, and deliverables for the customer acceptance stage of your data science projects.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
