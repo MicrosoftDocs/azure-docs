@@ -18,6 +18,8 @@ ms.custom: cda
 
 # 20 days of Azure Cosmos DB tips
 
+![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips.png)
+
 If you've seen the 20 days of Azure Cosmos DB tips on [twitter](https://twitter.com/AzureCosmosDB) and LinkedIn, you may wish they were all available in one place. Well, here they are!
 
 Visit this page daily for a new tip from September 5th - September 25th!
@@ -26,5 +28,7 @@ Visit this page daily for a new tip from September 5th - September 25th!
 
 What #cosmosdb can do today 🚀 - multi-model, low latency, elastic scaleout , precise consistency - all for your globally distributed app [https://aka.ms/ubw007](https://aka.ms/ubw007)
 
-> [!VIDEO https://www.youtube.com/embed/vlZRP0mDabM]
+[![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/AzureCosmosDB/status/903842783638700032)   [![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6309260110623580160)
+
+
 
