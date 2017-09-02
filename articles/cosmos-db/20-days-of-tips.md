@@ -26,9 +26,10 @@ Visit this page daily for a new tip from September 5th - September 25th!
 
 ## Tip #1
 
-What #cosmosdb can do today 🚀 - multi-model, low latency, elastic scaleout , precise consistency - all for your globally distributed app [https://aka.ms/ubw007](https://aka.ms/ubw007)
+T-4 until "20 days of #Azure #CosmosDB tips" by @simona_cotin 
+A new #CosmosDB tip DAILY from Sept 5th - 25th! Don't miss it!
 
-[![Learn a new Azure Cosmos DB tip each day](https://twitter.com/intent/retweet?tweet_id=903842783638700032)   [![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6309260110623580160)
+[![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/intent/retweet?tweet_id=903842783638700032)   [![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.linkedin.com/feed/update/urn%3Ali%3Aactivity%3A6309260110623580160&title=&summary=&source=)
 
 
 
