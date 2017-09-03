@@ -122,7 +122,7 @@
       - name: Ruby Web App on Linux
         href: app-service-linux-ruby-get-started.md
       - name: Node.js Web App on Linux
-        href: app-service-linux-using-nodejs-pm2.md
+        href: app-service-linux-get-started-node.md
       - name: .NET Core Web App on Linux
         href: app-service-linux-using-dotnetcore.md
       - name: Custom Docker Web App on Linux

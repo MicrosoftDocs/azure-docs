@@ -1,6 +1,6 @@
 ---
-title: Create a Node.js web app on Linux | Microsoft Docs
-description: Deploy your first Node.js Hello World in App Service Web App in minutes. 
+title: Create a Node.js Azure Web Apps on Linux | Microsoft Docs
+description: Deploy your first Node.js Hello World in App Service Web Apps in minutes. 
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 08/20/2017
 ms.author: cfowler
 ---
-# Create a Node.js Application on Web App
+# Create a Node.js application on Web Apps on Linux
 
-This quickstart tutorial walks through how to develop and deploy a Node.js app to Azure. In this tutorial, you learn how to run the app using a Linux-based Azure App Service. Then you create and configure the new web app  using the Azure CLI. Finally, you use Git to deploy your Node.js app to Azure.
+This quickstart tutorial walks through how to develop and deploy a Node.js app to Azure. In this tutorial, you learn how to run the app using a Linux-based Azure App Service. Then you create and configure the new web apps using the Azure CLI. Finally, you use Git to deploy your Node.js app to Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -42,9 +42,6 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 cd nodejs-docs-hello-world
 ```
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
 ## Run the app locally
 
 Run the application locally by opening a terminal window and using the `npm start` command.
@@ -65,13 +62,7 @@ The sample displays a "Hello World" message.
 
 In your terminal window, press `Ctrl+C` to exit the web server.
 
-## Log in to Azure
-
-We are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host our Node.js app in Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
-```azurecli-interactive
-az login
-```
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
@@ -102,6 +93,7 @@ The following example creates an App Service Plan on Linux workers named `quickS
 ```azurecli-interactive
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
+
 When the App Service Plan has been created, the Azure CLI shows information similar to the following example.
 
 ```json
@@ -124,7 +116,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app.
 
-In the following command, substitute your own unique app name where you see the <app_name> placeholder. The <app_name> is used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. Since this is a Node.js app, the `runtime` parameter is set to "node|8.1". You can later map any custom DNS entry to the web app before you expose it to your users.
+In the following command, substitute your own unique app name where you see the <app_name> placeholder. The <app_name> is used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. Since this is a Node.js app, the `runtime` parameter is set to `node|8.1`. You can later map any custom DNS entry to the web app before you expose it to your users.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --plan quickStartPlan --resource-group myResourceGroup --runtime "node|8.1"
@@ -162,7 +154,7 @@ We’ve now created an empty new web app in Azure. Let’s now configure our web
 
 ## Configure local git deployment
 
-You can deploy to your web app in a variety of ways including FTP, local Git and GitHub, Visual Studio Team Services, or Bitbucket.
+You can deploy to your web app in a variety of ways including FTP, local git and GitHub, Visual Studio Team Services, or Bitbucket.
 
 Use the [az webapp deployment source](/cli/azure/webapp/deployment/source#config-local-git) command to configure local git access to the web app.
 
@@ -176,9 +168,9 @@ Copy the output from the terminal as it is used in the next step.
 https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 ```
 
-## Push to Azure from Git
+## Push to Azure from git
 
-Add an Azure remote to your local Git repository.
+Add an Azure remote to your local git repository.
 
 ```bash
 git remote add azure <paste-previous-command-output-here>
@@ -190,7 +182,7 @@ Push to the Azure remote to deploy your application. You are prompted for the pa
 git push azure master
 ```
 
-During deployment, Azure App Service communicates it's progress with Git.
+During deployment, Azure App Service communicates it's progress with git.
 
 ```bash
 Counting objects: 23, done.
@@ -244,7 +236,7 @@ Using a local text editor, open the `index.js` file within the Node.js app, and 
 response.end("Hello Azure!");
 ```
 
-Commit your changes in git, then push the code changes to Azure.
+Commit your changes, then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"
@@ -263,7 +255,7 @@ From the left menu, select **App Service**, then select the name of your Azure w
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
-You have landed in your web app's page. 
+You have landed in your web app's page.
 
 By default, your web app displays its **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks such as browse, stop, start, restart, and delete. The tabs on the left side of the page shows more configuration pages you can open.
 
