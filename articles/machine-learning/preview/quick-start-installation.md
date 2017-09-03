@@ -40,6 +40,7 @@ $ /Applications/Python\ 3.6/Install\ Certificates.command
 
 ## Provisioning
 <!-- This section is to be completed by Chhavi. -->
+Content coming soon...
 
 ## Installation
 You can install Azure Machine Learning Workbench on your Windows or macOS computer.
