@@ -31,7 +31,7 @@ Actual disk replacement steps will vary based on your original equipment manufac
 ## Review disk alert information
 When a disk fails, you receive an alert that tells you that connectivity has been lost to a physical disk. 
 
- ![Alert showing connectivity lost to physical disk](media/azure-stack-replace-disk\DiskAlert.png)
+ ![Alert showing connectivity lost to physical disk](media/azure-stack-replace-disk/DiskAlert.png)
 
 If you open the alert, the alert description contains the scale unit node and the exact physical slot location for the disk that you must replace. Azure Stack further helps you to identify the failed disk by using LED indicator capabilities.
 
@@ -58,13 +58,13 @@ After you replace the disk, Azure Stack automatically discovers the new disk and
     ````PowerShell
         Get-VirtualDisk -CimSession s-cluster
     ````
-   ![Powershell output of Get-VirtualDisk command](media/azure-stack-replace-disk\GetVirtualDiskOutput.png)
+   ![Powershell output of Get-VirtualDisk command](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Run the following command to view current storage job status:
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ````
-      ![Powershell output of Get-StorageJob command](media/azure-stack-replace-disk\GetStorageJobOutput.png)
+      ![Powershell output of Get-StorageJob command](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 ## Troubleshoot virtual disk repair
 

@@ -76,7 +76,7 @@
     - name: Replace hardware
       items:
       - name: Replace disk
-      href: azure-stack-replace-disk.md
+        href: azure-stack-replace-disk.md
   - name: Security & compliance
     items:
     - name: Manage RBAC
