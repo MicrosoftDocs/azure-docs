@@ -47,10 +47,10 @@ You can install Azure Machine Learning Workbench on your Windows or macOS comput
 ### Remove prior installations
 When a new release becomes available, Azure ML Workbench auto-updates on its own over the existing installation. It is generally unnecessary to remove prior installations. But in case you want to clean up and start a fresh install, you can run the following scripts: 
 
-* Windows command line: [cleanup_win.cmd](../Scripts/cleanup_win.cmd). 
-* Windows PowerShell: [cleanup_win.ps1](../Scripts/cleanup_win.ps1). 
+* Windows command line: [cleanup_win.cmd](scripts/quick-start-installation/cleanup_win.cmd). 
+* Windows PowerShell: [cleanup_win.ps1](scripts/quick-start-installation/cleanup_win.ps1). 
   * Note, you may need to execute "_Set-ExecutionPolicy Unrestricted_" in a privilege-elevated PowerShell window before you can run the downloaded PowerShell script.
-* macOS: [cleanup_mac.sh](../Scripts/cleanup_mac.sh)
+* macOS: [cleanup_mac.sh](scripts/quick-start-installation/cleanup_mac.sh)
   * You may need to execute "_chmod a+x ./cleanup_mac.sh_" before you can run the downloaded script.
 
 >Note: to run these clean-up scripts, you might need elevated privileges. Also, these scripts do not delete your existing projects.
