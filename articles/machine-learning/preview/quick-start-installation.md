@@ -167,6 +167,6 @@ Docker is needed if you want to execute scripts in a local Docker container, or 
 >Note on Windows, Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
 
 ## Next Steps
-- Get a quick tour of Azure ML Workbench with _Iris QuickStart_.
-- Walk through an extensive tutorial _Classifying Iris_.
-- Learn about Azure ML Workbench data preparation capabilities through the _Wrangling Bike Share Dataset_ tutorial.
+- Get a quick tour of Azure ML Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
+- Walk through an extensive tutorial [_Classifying Iris_](doc-template-tutorial.md).
+- Learn about Azure ML Workbench data preparation capabilities through the [_Wrangling Bike Share Dataset_](doc-template-tutorial.md) tutorial.
