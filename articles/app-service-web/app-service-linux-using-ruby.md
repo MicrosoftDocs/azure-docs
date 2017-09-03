@@ -18,7 +18,6 @@ ms.date: 02/16/2017
 ms.author: aelnably;wesmc
 
 ---
-
 # Using Ruby in Web App on Linux #
 
 With the latest update to our backend, we introduced support for Ruby v.2.3. By setting the configuration of your Linux web app, you can change the application stack.

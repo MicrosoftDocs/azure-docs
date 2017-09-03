@@ -21,8 +21,6 @@ ms.author: aelnably
 
 # Manage Web App on Linux using Azure CLI
 
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
-
 Using the commands in this article you are able to create and manage a Web App on Linux using Azure CLI 2.0.
 You can start using the new version of the CLI in two ways:
 

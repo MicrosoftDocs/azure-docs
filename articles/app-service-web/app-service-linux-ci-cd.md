@@ -20,8 +20,6 @@ ms.author: aelnably;wesmc
 ---
 # Continuous deployment with Azure Web App on Linux
 
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
-
 In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
 ## Step 1 - Sign in to Azure

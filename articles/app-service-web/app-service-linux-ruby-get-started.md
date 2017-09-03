@@ -17,9 +17,7 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: cfowler
 ---
-# Create a Ruby App with Web Apps on Linux 
-
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+# Create a Ruby App with Web Apps on Linux
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
 

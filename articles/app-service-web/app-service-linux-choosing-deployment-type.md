@@ -5,7 +5,7 @@ keywords: azure app service, web app, linux, oss
 services: app-service
 documentationCenter: ''
 authors: nickwalk
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 
@@ -18,9 +18,7 @@ ms.date: 07/14/2017
 ms.author: nickwalk
 
 ---
-# Custom image or built-in platform image? 
-
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+# Custom image or built-in platform image?
 
 [Web App for Containers](app-service-linux-intro.md) offers two different paths to getting your application published to the web:
  - **Custom image deployment**: "Dockerize" your app into a Docker image that contains all of your files and dependencies in a ready-to-run package.
