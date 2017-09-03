@@ -17,7 +17,7 @@ ms.author: heidist
 
 # Analyzers in Azure Search
 
-An *analyzer* is a component of [full text search processing](search-lucene-query-architecture.md) responsible for text-to-token conversions for both indexing and query workloads. During indexing, an analyzer transforms text into tokenized terms, which are written to the index. At query time, an analyzer performs the same transformations (text into tokenized terms), but this time for a read operation by the query engine. 
+An *analyzer* is a component of [full text search processing](search-lucene-query-architecture.md) responsible for text-to-token conversions for both indexing and query workloads. During indexing, an analyzer transforms text into tokenized terms, which are written to the index. At query time, an analyzer performs the same transformations (text into tokenized terms), but this time for read operations during queries. 
 
 The following transformations are typical during analysis:
 
@@ -26,7 +26,7 @@ The following transformations are typical during analysis:
 + Terms are lower-cased.
 + Words are reduced to root forms so that a match can be found regardless of tense.
 
-Azure Search provides a default analyzer. You can override it on a field-by-field basis with alternative choices. The purpose of this article is to explain the range of available choices and provide best practices for adding an analyzer to your search operations.
+Azure Search provides a default analyzer. You can override it on a field-by-field basis with alternative choices. The purpose of this article is to describe the range of choices and provide best practices for adding an analyzer to your search operations.
 
 ## How analysis fits into full text search processing
 
@@ -34,25 +34,21 @@ Analyzers operate on term inputs passed in by the query parser, and return analy
 
  ![Lucene query architecture diagram in Azure Search][1]
 
-Analyzers are used only on a single term query or a phrase query. Analysis doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. For those query types, terms are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
+Analyzers are used only on a single term query or a phrase query. Analyzer are not used for query types with incomplete terms – prefix query, wildcard query, regex query – or on fuzzy queries. For those query types, terms are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
 
 ## Supported analyzers
 
 The following list describes which analyzers are supported in Azure Search.
 
-+ [Standard Lucene analyzer]() is the default, used automatically for indexing and queries. No specification or configuration is required. This general purpose analyzers performs well for most languages and scenarios.
-
-+ Predefined analyzers are offered as a finished product, with no configuration or customization allowed. There are two types:
-
-  Specialized (language agnostic) for specific challenges or edge cases requiring a solution. The collection of analyzers include the following: Asciifolding, Keyword, Pattern, Simple, Stop, Whitespace.
-
-  [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) provide rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers.
-
-+ [Custom](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) is a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).
+| Category | Description |
+|----------|-------------|
+| [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Used automatically for indexing and queries. No specification or configuration is required. This general purpose analyzers performs well for most languages and scenarios.|
+| Predefined analyzers | Offered as a finished product to be used as-is with no configuration or customization allowed. <br/>There are two types:<br/><br/>Specialized (language agnostic) for specific challenges or edge cases requiring a solution. The collection of analyzers include the following: <br/>[Asciifolding](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html), <br/>[Keyword](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), <br/>[Pattern](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html), <br/>[Simple](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html), <br/>[Stop](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html), <br/>[Whitespace](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html).<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) provide rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+|[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | A user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 ## How to specify analyzer
 
-To use a predefined analyzer, set the `analyzer` property to the name of a target analyzer on a field definition in the index.
+To use a predefined analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 To use a custom analyzer, first create an `analyzer definition` in the index with a specific configuration: one tokenizer and optional filters. Next, set the `analyzer` property to the custom analyzer you defined. 
 
@@ -74,7 +70,7 @@ Overriding the standard analyzer requires an index rebuild. If possible, decide 
 
 ### Compare analyzers side-by-side
 
-We recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The response consists of tokenized terms, as generated by a specific analyzer for text you provide.
+We recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The response consists of tokenized terms, as generated by a specific analyzer for text you provide. 
 
 > [!Tip]
 > The [Search Analyzer Demo](http://alice.unearth.ai/) shows a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. For each search input you provide, results from each analyzer are displayed in adjacent panes.
@@ -87,16 +83,16 @@ We recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchs
 
 + Learn how to apply [language-specific lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
-+ [Configure custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) for either minimal processing or specialized processing on specific fields.
++ [Configure custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) for either minimal processing or specialized processing on individual fields.
 
-+ [Compare standard and English analyzers](http://alice.unearth.ai/)) side-by-side on this demo web site. 
++ [Compare standard and English analyzers](http://alice.unearth.ai/) side-by-side on this demo web site. 
 
 ## See also
 
  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
- [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)  
+ [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
  [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
- [Handle search results](https://docs.microsoft.com/azure/search/search-pagination-page-layout)  
+ [Handle search results](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png
