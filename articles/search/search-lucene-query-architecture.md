@@ -386,10 +386,10 @@ This article explored full text search in the context of Azure Search. We hope i
 
 ## See also
 
-  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
-  [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)  
-  [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
-  [Handle search results](https://docs.microsoft.com/azure/search/search-pagination-page-layout)  
+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)  
+ [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ [Handle search results](https://docs.microsoft.com/azure/search/search-pagination-page-layout)  
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png
