@@ -10163,6 +10163,16 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-ruby.md",
+            "redirect_url": "/azure/app-service-web/app-service-linux-ruby-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
+            "redirect_url": "/azure/app-service-web/app-service-linux-get-started-node",
+            "redirect_document_id": false
         }
     ]
 }

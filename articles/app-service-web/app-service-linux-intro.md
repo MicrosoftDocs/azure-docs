@@ -21,7 +21,8 @@ ms.author: naziml;wesmc
 # Introduction to Azure Web App on Linux
 
 ## Overview
-[Web App](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use Web App on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported. 
+
+[Web App](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use Web App on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported.
 
 ### Languages
 
@@ -91,7 +92,6 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
-* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure App Service Web App on Linux](app-service-linux-using-dotnetcore.md)
 * [Using Ruby in Azure App Service Web App on Linux](app-service-linux-ruby-get-started.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)

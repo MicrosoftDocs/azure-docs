@@ -82,14 +82,11 @@ For the Webhook URL, you need to provide the URL obtained from **Step 3**
 When the image gets updated, the web app get updated automatically with the new image.
 
 ## Next steps
+
 * [What is Azure Web App on Linux?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)
 * [Using Ruby in Azure Web App on Linux](app-service-linux-ruby-get-started.md)
 * [How to use a custom Docker image for Azure Web App on Linux](./app-service-linux-using-custom-docker-image.md)
-* [Azure App Service Web App on Linux FAQ](./app-service-linux-faq.md) 
+* [Azure App Service Web App on Linux FAQ](./app-service-linux-faq.md)
 * [Manage Web App on Linux using Azure CLI 2.0](./app-service-linux-cli.md)
-
-
-
