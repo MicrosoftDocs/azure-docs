@@ -26,12 +26,12 @@ This article describes the general process to replace a physical disk in Azure S
 
 You can use this procedure for integrated systems, and for development kit deployments that have hot-swappable disks.
 
-Actual disk replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. Please see your vendor’s field replaceable unit (FRU) documentation for detailed steps that are specific to your system. 
+Actual disk replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor’s field replaceable unit (FRU) documentation for detailed steps that are specific to your system. 
 
 ## Review disk alert information
 When a disk fails, you receive an alert that tells you that connectivity has been lost to a physical disk. 
 
- ![Alert showing connectivity lost to physical disk](media/DiskAlert.png)
+ ![Alert showing connectivity lost to physical disk](media/azure-stack-replace-disk\DiskAlert.png)
 
 If you open the alert, the alert description contains the scale unit node and the exact physical slot location for the disk that you must replace. Azure Stack further helps you to identify the failed disk by using LED indicator capabilities.
 
@@ -45,12 +45,12 @@ After you replace the disk, Azure Stack automatically discovers the new disk and
  
  ## Check the status of virtual disk repair
  
- After you replace the disk, you can monitor the virtual disk health status and repair job progress by using the privileged endpoint. To do this, follow these steps from any computer that has network connectivity to the privileged endpoint.
+ After you replace the disk, you can monitor the virtual disk health status and repair job progress by using the privileged endpoint. Follow these steps from any computer that has network connectivity to the privileged endpoint.
 
 1. Open a Windows PowerShell session and connect to the privileged endpoint.
     ````PowerShell
         $cred = Get-Credential
-        Enter-PSSession -ComputerName <IP Address of ERCS>`
+        Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```` 
   
@@ -58,13 +58,13 @@ After you replace the disk, Azure Stack automatically discovers the new disk and
     ````PowerShell
         Get-VirtualDisk -CimSession s-cluster
     ````
-   ![Powershell output of Get-VirtualDisk command](media/GetVirtualDiskOutput.png)
+   ![Powershell output of Get-VirtualDisk command](media/azure-stack-replace-disk\GetVirtualDiskOutput.png)
 
 3. Run the following command to view current storage job status:
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ````
-      ![Powershell output of Get-StorageJob command](media/GetStorageJobOutput.png)
+      ![Powershell output of Get-StorageJob command](media/azure-stack-replace-disk\GetStorageJobOutput.png)
 
 ## Troubleshoot virtual disk repair
 
