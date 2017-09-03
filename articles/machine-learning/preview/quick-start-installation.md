@@ -31,7 +31,7 @@ In order to use Azure Machine Learning preview features, you need to do two thin
 * Access to Azure Container Service (ACS) Kubernetes cluster for scale-out deployment.
 
 ### Special Note for macOS Users
-Ensure that you run this [shell script](../Scripts/install_openssl.sh) to brew-install the latest OpenSSL libraries, and configure links before proceeding with the installation.
+Ensure that you run this [shell script](scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries, and configure links before proceeding with the installation.
 
 If you are using Python greater than 3.5, you need to execute this command to enable installing the right certificates.
 ```bash
