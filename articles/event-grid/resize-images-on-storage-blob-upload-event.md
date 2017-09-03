@@ -26,7 +26,7 @@ ms.custom: mvc
 >After you have confirmed that your subscription has been granted access to Blob storage events, you can [complete the rest of this tutorial](#create-rg). 
 
 
-![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 In this tutorial, you learn how to:
 
@@ -148,7 +148,7 @@ Now you must configure the function app to connect to blob storage.
 
 ## Configure the function app
 
-The function needs the connection string to connect to the blob storage account. In this case, `<blob_storage_account>` is the name of the Blob storage account you created. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. Add this connection string to the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
+The function needs the connection string to connect to the blob storage account. In this case, `<blob_storage_account>` is the name of the Blob storage account you created. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. The thumbnail image container name must also be set to `thumbs`. Add these application settings in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -157,7 +157,11 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
---settings myblobstorage_STORAGE=$storageConnectionString 
+--settings AzureWebJobsmyblobstorage_STORAGE=$storageConnectionString 
+
+az functionapp config appsettings set --name <function_app> \
+--resource-group myResourceGroup \
+--settings myContainerName=thumbs
 ```
 
 You can now deploy a function code project to this function app.
