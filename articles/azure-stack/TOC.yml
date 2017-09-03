@@ -73,6 +73,10 @@
       href: azure-stack-manage-storage-accounts.md
     - name: Manage Windows Azure Pack VMs
       href: azure-stack-manage-windows-azure-pack.md
+    - name: Replace hardware
+      items:
+      - name: Replace disk
+      href: azure-stack-replace-disk.md
   - name: Security & compliance
     items:
     - name: Manage RBAC
