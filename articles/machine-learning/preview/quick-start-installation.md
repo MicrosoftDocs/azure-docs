@@ -148,12 +148,12 @@ Azure ML Workbench can run experiments in various compute targets. To leverage t
 * Execute on your local **Windows or macOS computer**
     * There is no additional requirements.
 * Execute in a **local Docker container**
-    * You must have Docker engine installed and running.
+    * You must have Docker engine installed and running. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
 * Execute in a **Docker container on a remote Linux machine**
-    * You must have SSH access (username and password) to that machine, and you must have Docker engine installed and running on that machine.
-    * We recommend you create a Ubuntu-based DSVM (Data Science Virtual Machine) on Azure, which has Docker pre-installed so it is ready go.
-* Execute in an **HDInsight cluster**
-    * You must have SSH access (username and password) to the head node of that HDInsight for Apache Spark cluster.
+    * You must have SSH access (username and password) to that Linux VM, and you must have Docker engine installed and running on that machine.
+    * We recommend you [create a Ubuntu-based DSVM (Data Science Virtual Machine) on Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-dsvm-ubuntu-intro), which has Docker pre-installed so it is ready go.
+* Execute in an **HDInsight Spark cluster**
+    * You must have SSH access (username and password) to the head node of that HDInsight Spark cluster. Here are the instructions on [provisioning a HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 #### Special Note on Docker for Windows 
 Docker is needed if you want to execute scripts in a local Docker container, or deploy model via a containerized web service locally. Since it is a technology born in Linux, it can be a little challenging to work with on Windows. Make sure you follow these instructions:
