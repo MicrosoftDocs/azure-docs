@@ -140,6 +140,7 @@ You can find out the build number of the installed app by clicking on the Help m
 
 ![version number](media/quick-start-installation/version.png)
 
+### Success
 You have now successfully installed the Workbench desktop app and command-line interface. Follow the [Iris Quickstart](quick-start-iris.md) to get a quick tour of the Azure ML preview features experience.
 
 ### Install Optional Components
