@@ -39,8 +39,6 @@ In a terminal window, run the following command to clone the sample app reposito
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 ```
 
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
-
 ## Run the application locally
 
 Run the rails server in order for the application to work. Change to the *hello-world* directory, and the `rails server` command starts the server.

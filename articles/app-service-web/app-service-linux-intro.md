@@ -89,6 +89,7 @@ To log the `stdout` and `stderr` from your container, you need to enable **Docke
 You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
 
 ## Next steps
+
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
