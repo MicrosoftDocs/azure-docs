@@ -369,7 +369,7 @@ jobs that actually started running and then failed.
 $jobs | Where-Object { $_.StartTime -ne $null }
 ```
 
-### Analyzing a list of jobs
+## Analyzing a list of jobs
 
 Use the `Group-Object` cmdlet to analyze a list of jobs.
 
