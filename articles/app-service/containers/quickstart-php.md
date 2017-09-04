@@ -71,15 +71,13 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ## Create a web app
 
-Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
 
-The runtime in the following command is set to `PHP|7.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+Browse to the site to see your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "PHP|7.1" --deployment-local-git
+```bash
+http://<app name>.azurewebsites.net
 ```
-
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
 
 ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 

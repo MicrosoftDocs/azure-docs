@@ -38,7 +38,7 @@ What you learn how to:
 To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
-1. [Install Node.js and NPM](https://nodejs.org/)
+1. [Install Node.js v6.0 or above and NPM](https://nodejs.org/)
 1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
@@ -84,7 +84,7 @@ npm install
 npm start
 ```
 
-When the app is fully loaded, you see something similar to the following message:
+Ignore the config.domain warning. When the app is fully loaded, you see something similar to the following message:
 
 ```
 --
@@ -127,10 +127,7 @@ In the Cloud Shell, create a Cosmos DB account with the [az cosmosdb create](/cl
 In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb_name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.com/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
 
 ```azurecli-interactive
-az cosmosdb create \
-    --name <cosmosdb_name> \
-    --resource-group myResourceGroup \
-    --kind MongoDB
+az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 The *--kind MongoDB* parameter enables MongoDB client connections.
@@ -181,20 +178,16 @@ Copy the value of `primaryMasterKey`. You need this information in the next step
 <a name="devconfig"></a>
 ### Configure the connection string in your Node.js application
 
-In your local MEAN.js repository, open _config/env/production.js_.
+In your local MEAN.js repository, in the _config/env/_ folder, create a file named _local-production.js_. _.gitignore_ is configured to keep this file out of the repository. 
 
-In the `db` object, update the value of `uri`:
-
-* Replace the two *\<cosmosdb_name>* placeholders with your Cosmos DB database name.
-* Replace the *\<primary_master_key>* placeholder with the key you copied in the previous step.
-
-The following code shows the `db` object:
+Copy the following code into it. Be sure to replace the two *\<cosmosdb_name>* placeholders with your Cosmos DB database name, and replace the *\<primary_master_key>* placeholder with the key you copied in the previous step.
 
 ```javascript
-db: {
-  uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
-  ...
-},
+module.exports = {
+  db: {
+    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
+  }
+};
 ```
 
 The `ssl=true` option is required because [Cosmos DB requires SSL](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
@@ -209,7 +202,7 @@ In a local terminal window, run the following command to minify and bundle scrip
 gulp prod
 ```
 
-In a local terminal window, run the following command to use the connection string you configured in _config/env/production.js_.
+In a local terminal window, run the following command to use the connection string you configured in _config/env/production.js_. Ignore the certificate error and the config.domain warning.
 
 ```bash
 NODE_ENV=production node server.js
@@ -238,6 +231,10 @@ In the terminal, stop Node.js by typing `Ctrl+C`.
 
 In this step, you deploy your MongoDB-connected Node.js application to Azure App Service.
 
+### Configure local git deployment 
+
+[!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
+
 ### Create an App Service plan
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
@@ -248,28 +245,19 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 ### Configure an environment variable
 
-Earlier in the tutorial, you hardcoded the database connection string in _config/env/production.js_. In keeping with security best practice, you want to keep this sensitive data out of your Git repository. For your app running in Azure, you'll use an environment variable instead.
+Since _config/env/local-production.js_ is not in the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
 
-In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. 
+To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. 
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
 ```azurecli-interactive
-az webapp config appsettings update \
-    --name <app_name> \
-    --resource-group myResourceGroup \
-    --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
 In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
 
-In the local terminal window, undo your changes to _config/env/production.js_ with the following command:
-
-```bash
-git checkout -- .
-```
-
-In your local MEAN.js repository, open _config/env/production.js_ again. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
+In your local MEAN.js repository, open _config/env/production.js_ again, which has production-environment specific configuration. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
 
 ```javascript
 db: {
@@ -277,10 +265,6 @@ db: {
   ...
 },
 ```
-
-### Configure local git deployment 
-
-[!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
 ### Push to Azure from Git
 
@@ -459,20 +443,6 @@ Once the `git push` is complete, navigate to your Azure web app and try out the 
 ![Model and database changes published to Azure](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 If you added any articles earlier, you still can see them. Existing data in your Cosmos DB is not lost. Also, your updates to the data schema and leaves your existing data intact.
-
-## Stream diagnostic logs 
-
-While your Node.js application runs in Azure App Service, you can get the console logs piped to the Cloud Shell. That way, you can get the same diagnostic messages to help you debug application errors.
-
-To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log#tail) command in the Cloud Shell.
-
-```azurecli-interactive
-az webapp log tail --name <app_name> --resource-group myResourceGroup
-``` 
-
-Once log streaming has started, refresh your Azure web app in the browser to get some web traffic. You now see console logs piped to your terminal.
-
-Stop log streaming at any time by typing `Ctrl+C` in the Cloud Shell. 
 
 ## Manage your Azure web app
 

@@ -16,8 +16,6 @@
     href: quickstart-nodejs.md
   - name: Create Ruby app
     href: quickstart-ruby.md
-  - name: Create static HTML site
-    href: quickstart-html.md
 - name: Tutorials
   items:
   - name: 1 - App with DB

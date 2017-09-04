@@ -159,12 +159,7 @@ Create a server in Azure Database for MySQL (Preview) with the [az mysql server 
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
 ```azurecli-interactive
-az mysql server create \
-    --name <mysql_server_name> \
-    --resource-group myResourceGroup \
-    --location "North Europe" \
-    --admin-user adminuser \
-    --admin-password MySQLAzure2017
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -187,12 +182,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) command.
 
 ```azurecli-interactive
-az mysql server firewall-rule create \
-    --name allIPs \
-    --server <mysql_server_name> \
-    --resource-group myResourceGroup \
-    --start-ip-address 0.0.0.0 \
-    --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -327,40 +317,26 @@ Your app is ready to be deployed.
 
 In this step, you deploy the MySQL-connected PHP application to Azure App Service.
 
+### Configure a deployment user
+
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
+
 ### Create an App Service plan
 
 [!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 ### Create a web app
 
-[!INCLUDE [Create web app no h](../../../includes/app-service-web-create-web-app-no-h.md)]
-
-### Set the PHP version
-
-Set the PHP version that the application requires by using the [az webapp config set](/cli/azure/webapp/config#set) command.
-
-The following command sets the PHP version to _7.0_.
-
-```azurecli-interactive
-az webapp config set \
-    --name <app_name> \
-    --resource-group myResourceGroup \
-    --php-version 7.0
-```
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
 
 ### Configure database settings
-
-As pointed out previously, you can connect to your Azure MySQL database using environment variables in App Service.
 
 In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command.
 
 The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;mysql_server_name>_.
 
 ```azurecli-interactive
-az webapp config appsettings set \
-    --name <app_name> \
-    --resource-group myResourceGroup \
-    --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
 You can use the PHP [getenv](http://www.php.net/manual/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
@@ -389,10 +365,7 @@ php artisan key:generate --show
 Set the application key in the App Service web app by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
-az webapp config appsettings set \
-    --name <app_name> \
-    --resource-group myResourceGroup \
-    --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
 `APP_DEBUG="true"` tells Laravel to return debugging information when the deployed web app encounters errors. When running a production application, set it to `false`, which is more secure.
@@ -404,25 +377,10 @@ Set the virtual application path for the web app. This step is required because 
 Set the virtual application path by using the [az resource update](/cli/azure/resource#update) command. Replace the _&lt;appname>_ placeholder.
 
 ```azurecli-interactive
-az resource update \
-    --name web \
-    --resource-group myResourceGroup \
-    --namespace Microsoft.Web \
-    --resource-type config \
-    --parent sites/<app_name> \
-    --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" \
-    --api-version 2015-06-01
+az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
 By default, Azure App Service points the root virtual application path (_/_) to the root directory of the deployed application files (_sites\wwwroot_).
-
-### Configure a deployment user
-
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
-
-### Configure local Git deployment
-
-[!INCLUDE [Configure local git](../../../includes/app-service-web-configure-local-git-no-h.md)]
 
 ### Push to Azure from Git
 
@@ -614,29 +572,6 @@ Once the `git push` is complete, navigate to the Azure web app and test the new 
 ![Model and database changes published to Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
-
-## Stream diagnostic logs
-
-While the PHP application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
-
-To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log#tail) command.
-
-```azurecli-interactive
-az webapp log tail \
-    --name <app_name> \
-    --resource-group myResourceGroup
-```
-
-Once log streaming has started, refresh the Azure web app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
-
-To stop log streaming at anytime, type `Ctrl`+`C`.
-
-> [!TIP]
-> A PHP application can use the standard [error_log()](http://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.
->
-> As a web framework, [Laravel uses Monolog](https://laravel.com/docs/5.4/errors) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
->
->
 
 ## Manage the Azure web app
 

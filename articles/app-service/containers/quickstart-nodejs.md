@@ -87,8 +87,6 @@ http://<app name>.azurewebsites.net
 
 ![Empty web app page](media/quickstart-nodejs/app-service-web-service-created.png)
 
-You’ve created an empty new web app in a Linux container, with git deployment enabled.
-
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash

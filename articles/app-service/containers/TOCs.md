@@ -7,7 +7,6 @@
 ## [Create PHP app](quickstart-php.md)
 ## [Create Node.js app](quickstart-nodejs.md)
 ## [Create Ruby app](quickstart-ruby.md)
-## [Create static HTML site](quickstart-html.md)
 
 # Tutorials
 ## 1 - App with DB
