@@ -25,9 +25,6 @@ For this scenario, you create two Azure Active Directory (Azure AD) apps -
 one Azure AD app secures your Web API, while the other Azure AD app 
 secures your connector registration and adds delegated access. 
 
-> [!IMPORTANT]
-> Both Azure AD apps must exist in the same directory.
-
 This tutorial uses the Azure Resource Manager API as an example. 
 Azure Resource Manager helps you manage the components for a solution 
 that you've built in Azure, such as databases, virtual machines, and web apps. 
@@ -132,6 +129,9 @@ Enter this URL, then choose **Save**.
 
 Your second Azure AD app secures your custom connector registration and 
 adds delegated access to the Web API protected by the first Azure AD app. 
+
+> [!IMPORTANT]
+> Make sure that both your Azure AD apps exist in the same directory.
 
 1. Return to the **App registrations** list, 
 and choose **+ New application registration** again.
