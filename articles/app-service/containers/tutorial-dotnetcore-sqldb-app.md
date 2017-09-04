@@ -53,7 +53,7 @@ In the terminal window, `cd` to a working directory.
 Run the following commands to clone the sample repository and change to its root.
 
 ```bash
-git clone https://github.com/cephalin/dotnetcore-sqldb-tutorial
+git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
 cd dotnetcore-sqldb-tutorial
 ```
 

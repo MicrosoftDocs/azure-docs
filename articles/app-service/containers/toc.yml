@@ -21,6 +21,7 @@
   - name: 1 - App with DB
     items:
     - name: .NET Core with SQL DB
+      href: tutorial-dotnetcore-sqldb-app.md 
     - name: PHP with MySQL
       href: tutorial-php-mysql-app.md 
     - name: Node.js with MongoDB
