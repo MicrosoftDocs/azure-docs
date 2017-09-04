@@ -14,7 +14,7 @@
 ##[Project Lead](project-lead-tasks.md)
 ##[Individual Contributor](project-ic-tasks.md)
 
-# [Project execution](project-exectution.md)
+# [Project execution](project-execution.md)
 
 # [Examples](walkthroughs.md)
 ##[Spark with PySpark and Scala](walkthroughs-spark.md)

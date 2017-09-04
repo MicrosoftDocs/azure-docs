@@ -20,7 +20,7 @@ ms.author: bradsev;
 
 # Group Manager tasks
 
-This topic outlines the tasks that a Group Mnager is expected to complete for hist/her data science organization. The objective is to establish collaborative group environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This topic outlines the tasks that a Group Manager is expected to complete for hist/her data science organization. The objective is to establish collaborative group environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
 The **Group Manager** is the manager of the entire data science unit in an enterprise. A data science unit may have multiple teams, each of which is working on multiple data science projects in distinct business verticals. A Group Manager may delegate their tasks to a surrogate, but the tasks associated with the role are the same. There are six main tasks as shown in the following diagram:
 
@@ -30,13 +30,13 @@ The **Group Manager** is the manager of the entire data science unit in an enter
 >[AZURE.NOTE] We outline the steps needed to set up a TDSP group environment using VSTS in the instructions that follow. We specify how to accomplish these tasks with VSTS because that is how we implement TDSP at Microsoft. If another code hosting platform is used for your group, the tasks that need to be completed by the group manager generally do not change. But the way to complete these tasks is going to be different.
 
 1. Set up **Visual Studio Team Services (VSTS) server** for the group.
-2. Create an **group team project** on Visual Studio Team Services server (for VSTS users)
+2. Create a **group team project** on Visual Studio Team Services server (for VSTS users)
 3. Create the **GroupProjectTemplate** repository
 4. Create the **GroupUtilities** repository
 5. Seed the **GroupProjectTemplate** and **GroupUtilities** repositories for the VSTS server with content from the TDSP repositories.
 6. Set up the **security controls** for team members to access to the GroupProjectTemplate and GroupUtilities repositories.
 
-Each of the above steps are described in detail. But first, we familiarize you with the abbreviations and discuss the pre-requisites for working with repositories.
+Each of the preceding steps is described in detail. But first, we familiarize you with the abbreviations and discuss the pre-requisites for working with repositories.
 
 ### Abbreviations for repositories and directories
 
@@ -52,7 +52,7 @@ This tutorial uses abbreviated names for repositories and directories. These def
 ### Pre-requisites for cloning repositories and checking code in and out
  
 - Git must be installed on your machine. If you are using a Data Science Virtual Machine (DSVM), Git has been pre-installed and you are good to go. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).  
-- If you are using a **Windows DSVM**, you need to have [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the README.md file, scroll down to the **Download and Install** section and click the *latest installer*. This takes you to the latest installer page. Download the .exe installer from here and run it. 
+- If you are using a **Windows DSVM**, you need to have [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the README.md file, scroll down to the **Download and Install** section and click the *latest installer*. This step takes you to the latest installer page. Download the .exe installer from here and run it. 
 - If you are using **Linux DSVM**, create an SSH public key on your DSVM and add it to your group VSTS server. For more information about SSH, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
 
 
@@ -60,8 +60,8 @@ This tutorial uses abbreviated names for repositories and directories. These def
 
 The VSTS server hosts the following repositories:
 
-- **group common repositories**: General purpose repositories that can be adopted by multiple teams within a group for multiple data science projects. For example, the *GroupProjectTemplate* and *GroupUtilities* repositories.
-- **team repositories**:  Repositories for specific teams within a group. These are repositories specific for a team's need, and can be adopted by multiple projects executed by that team, but not general enough to be useful to multiple teams within a data science group. 
+- **group common repositories**: General-purpose repositories that can be adopted by multiple teams within a group for multiple data science projects. For example, the *GroupProjectTemplate* and *GroupUtilities* repositories.
+- **team repositories**:  Repositories for specific teams within a group. These repositories are specific for a team's need, and can be adopted by multiple projects executed by that team, but not general enough to be useful to multiple teams within a data science group. 
 - **project repositories**: Repositories available for specific projects. Such repositories may not be general enough to be useful to multiple projects performed by a team, and to multiple teams in a data science group.
 
 
@@ -110,7 +110,7 @@ The **GroupCommon** page (*https://\<servername\>.visualstudio.com/GroupCommon*)
 
 To create the **GroupUtilities** (R2) repository under VSTS server:
 
-- Click **New repository** on the **Version Control** tab of your team project to open the **Create a new repository** wizard. 
+- To open the **Create a new repository** wizard, click **New repository** on the **Version Control** tab of your team project. 
 
 ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png) 
 
@@ -130,7 +130,7 @@ The setup of the repositories for the VSTS group server consists of two tasks:
 - Rename the default **GroupCommon** repository***GroupProjectTemplate***.
 - Create the **GroupUtilities** repository on the VSTS server under team project **GroupCommon**. 
 
-Instructions for the first task are contained in this section after remarks on naming conventions or our repositories and directories. The instructions for the second task are contained in the followning section for step 4.
+Instructions for the first task are contained in this section after remarks on naming conventions or our repositories and directories. The instructions for the second task are contained in the following section for step 4.
 
 ### Rename the default GroupCommon repository
 
@@ -140,7 +140,7 @@ To rename the default **GroupCommon** repository as *GroupProjectTemplate* (refe
 
 ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
 		
-- Click **GroupCommon** on the top left corner (highlighted with a red box in the following figure) on the Git repository page of **GroupCommon** and select **Manage repositories** (highlighted with a green box in the following figure). This brings up the **CONTROL PANEL**. 
+- Click **GroupCommon** on the top left corner (highlighted with a red box in the following figure) on the Git repository page of **GroupCommon** and select **Manage repositories** (highlighted with a green box in the following figure). This  procedure brings up the **CONTROL PANEL**. 
 - Select the **Version Control** tab of your team project. 
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
@@ -197,7 +197,7 @@ In this step, you clone the GroupProjectTemplate repository (R1) and GroupUtilit
 
 - To get the URLs of the R1 and R2 repositories, go to your **GroupCommon** home page on VSTS. This usually has the URL *https://\<Your VSTS Server Name\>.visualstudio.com/GroupCommon*. 
 - Click **CODE**. 
-- Choose the **GroupProjectTemplate** and **GroupUtilities** repositories, copy and save each of the URLs (HTTPS for Windows; SSH for Linux) from the **Clone URL** element, in turn, for use in the following scripts:  
+- Choose the **GroupProjectTemplate** and **GroupUtilities** repositories. Copy and save each of the URLs (HTTPS for Windows; SSH for Linux) from the **Clone URL** element, in turn, for use in the following scripts:  
 
 ![15](./media/group-manager-tasks/find_https_ssh_2.PNG)
 
@@ -228,7 +228,7 @@ Here are the Windows and Linux scripts:
 
 ### Seed your GroupProjectTemplate (LR1) and GroupUtilities (LR2)
 
-Next, in your local machine, we need to copy the content of ProjectTemplate and Utilities directories (except the metadata in the .git directories) under GitRepos\TDSPCommon to your GroupProjectTemplate and GroupUtilities directories under **GitRepos\GroupCommon**. Here are the two tasks to complete in this step:
+Next, in your local machine, copy the content of ProjectTemplate and Utilities directories (except the metadata in the .git directories) under GitRepos\TDSPCommon to your GroupProjectTemplate and GroupUtilities directories under **GitRepos\GroupCommon**. Here are the two tasks to complete in this step:
 
 - Copy the files in GitRepos\TDSPCommon\ProjectTemplate (**LG1**) to GitRepos\GroupCommon\GroupProjectTemplate (**LR1**) 
 - Copy the files in GitRepos\TDSPCommon\Utilities (**LG2** to GitRepos\GroupCommon\Utilities (**LR2**). 
