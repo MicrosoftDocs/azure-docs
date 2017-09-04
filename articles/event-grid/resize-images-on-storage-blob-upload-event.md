@@ -264,6 +264,15 @@ Notice that a thumbnail copy of the uploaded image is displayed in the **Generat
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
+## Clean up resources
+
+After you are complete, you can remove the resources you created. Use the following command to delete all resources created by this tutorial:
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+Type `y` when prompted.
+
 ## Next Steps
 
 In this tutorial, you learned how to:
@@ -276,7 +285,5 @@ In this tutorial, you learned how to:
 > * Deploy a web app to Azure
 > * Enable a CORS origin in Storage
 
-Advance to the next tutorial to learn how to do something even better.
-
-> [!div class="nextstepaction"]
-> 
++ To learn more about Event Grid, see [An introduction to Azure Event Grid](overview.md). 
++ To try another tutorial that features Azure Functions, see [Create a function that integrates with Azure Logic Apps]([](..\azure-functions\functions-twitter-email.md)). 
