@@ -9,10 +9,10 @@
 ## [With Azure ML](http://aka.ms/datascienceprocess)
 
 # [Roles and tasks](roles-tasks.md)
-##[Group Manager]()
+##[Group Manager](group-manager-tasks.md)
 ##[Team Lead](team-lead-tasks.md)
-##[Project Lead](Project Lead)
-##[Individual Contributor](Individual Contributor)
+##[Project Lead](project-lead-tasks.md)
+##[Individual Contributor](project-ic-tasks.md)
 
 # [Project execution](project-exectution.md)
 

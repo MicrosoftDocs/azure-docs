@@ -20,7 +20,7 @@ ms.author: bradsev;
 
 # Platforms and tools for data science team projects
 
-Microsoft provides a full spectrum of data and analytics services/resources, for cloud or on premise platforms, to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
+Microsoft provides a full spectrum of data and analytics services and resources for both cloud or on-premise platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
 The data and analytics services available to data science teams using the TDSP include:
 
@@ -47,7 +47,7 @@ The data science virtual machine offered on both Windows and Linux by Microsoft,
 
 It also includes **ML and AI tools** like CNTK (an Open Source Deep Learning toolkit from Microsoft), xgboost, mxnet and Vowpal Wabbit.
 
-Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. You need to choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
+Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
 
 For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) on the Azure marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
@@ -58,21 +58,21 @@ To learn how to execute some of the common data science tasks on the DSVM effici
 
 Apache Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. The Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and for graph computations. Spark is also compatible with Azure Blob storage (WASB), so your existing data stored in Azure can easily be processed using Spark.
 
-When you create a Spark cluster in HDInsight, you create Azure compute resources with Spark installed and configured. It takes about ten minutes to create a Spark cluster in HDInsight. Store the data to be processed in Azure Blob storage. For information on using Azure Blob Storage with a cluster, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-use-blob-storage).
+When you create a Spark cluster in HDInsight, you create Azure compute resources with Spark installed and configured. It takes about 10 minutes to create a Spark cluster in HDInsight. Store the data to be processed in Azure Blob storage. For information on using Azure Blob Storage with a cluster, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-use-blob-storage).
 
 TDSP team from Microsoft has published two end-to-end walkthroughs on how to use Azure HDInsight Spark Clusters to build data science solutions, one using Python and the other Scala. For more information on Azure HDInsight **Spark Clusters**, see [Overview: Apache Spark on HDInsight Linux](https://azure.microsoft.com/documentation/articles/hdinsight-apache-spark-overview). To learn how to build a data science solution using **Python** on an Azure HDInsight Spark Cluster, see [Overview of Data Science using Spark on Azure HDInsight](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-spark-overview). To learn how to build a data science solution using **Scala** on an Azure HDInsight Spark Cluster, see [Data Science using Scala and Spark on Azure](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-scala-walkthrough). 
 
 
 ##  Azure SQL Data Warehouse
 
-Azure SQL Data Warehouse allows you to scale compute easily and in seconds, without over-provisioning or over-paying. It also offers the unique option to pause compute, giving you the freedom to better manage your cloud costs. This makes it possible to bring all your data into Azure SQL Data Warehouse, where storage costs are minimal, and then to run compute only on the parts of datasets that you want to analyze. 
+Azure SQL Data Warehouse allows you to scale compute resources easily and in seconds, without over-provisioning or over-paying. It also offers the unique option to pause the use of compute resources, giving you the freedom to better manage your cloud costs. The ability to deploy scalable compute resources makes it possible to bring all your data into Azure SQL Data Warehouse. Storage costs are minimal and you can run compute only on the parts of datasets that you want to analyze. 
 
 For more information on Azure SQL Data Warehouse, see the [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) website. To learn how to build end-to-end advanced analytics solutions with SQL Data Warehouse, see [The Team Data Science Process in action: using SQL Data Warehouse](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sqldw-walkthrough).
 
 
 ## Azure Data Lake
 
-Azure data lake is as an enterprise wide repository of every type of data collected in a single location, prior to any formal requirements or schema being imposed. This allows every type of data to be kept in a data lake, regardless of its size or structure or how fast it is ingested. Organizations can then use Hadoop or advanced analytics to find patterns in these data lakes. Data lakes can also serve as a repository for lower-cost data preparation before curating the data and moving it into a data warehouse.
+Azure data lake is as an enterprise-wide repository of every type of data collected in a single location, prior to any formal requirements or schema being imposed. This flexibility allows every type of data to be kept in a data lake, regardless of its size or structure or how fast it is ingested. Organizations can then use Hadoop or advanced analytics to find patterns in these data lakes. Data lakes can also serve as a repository for lower-cost data preparation before curating the data and moving it into a data warehouse.
 
 For more information on Azure Data Lake, see [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). To learn how to build a scalable end-to-end data science solution with Azure Data Lake, see [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-data-lake-walkthrough)
 
@@ -81,11 +81,11 @@ For more information on Azure Data Lake, see [Introducing Azure Data Lake](https
 
 Apache Hive is a data warehouse system for Hadoop, which enables data summarization, querying, and the analysis of data using HiveQL, a query language similar to SQL. Hive can be used to interactively explore your data or to create reusable batch processing jobs.
 
-Hive allows you to project structure on largely unstructured data. After you define the structure, you can use Hive to query that data in an Hadoop cluster without having to use, or even know, Java or MapReduce. HiveQL (the Hive query language) allows you to write queries with statements that are similar to T-SQL.
+Hive allows you to project structure on largely unstructured data. After you define the structure, you can use Hive to query that data in a Hadoop cluster without having to use, or even know, Java or MapReduce. HiveQL (the Hive query language) allows you to write queries with statements that are similar to T-SQL.
 
 For data scientists, Hive can run Python User-Defined Functions (UDFs) in Hive queries to process records. This ability extends the capability of Hive queries in data analysis considerably. Specifically, it allows data scientists to conduct scalable feature engineering in languages they are mostly familiar with: the SQL-like HiveQL and Python. 
 
-For more information on Azure HDInsight Hive Clusters, see [Use Hive and HiveQL with Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-use-hive). To learn how to build a scalable end to end data science solution with Azure HDInsight Hive Clusters, see [The Team Data Science Process in action: using HDInsight Hadoop clusters](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-hive-walkthrough).
+For more information on Azure HDInsight Hive Clusters, see [Use Hive and HiveQL with Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-use-hive). To learn how to build a scalable end-to-end data science solution with Azure HDInsight Hive Clusters, see [The Team Data Science Process in action: using HDInsight Hadoop clusters](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-hive-walkthrough).
 
 
 ## Azure File Storage 
