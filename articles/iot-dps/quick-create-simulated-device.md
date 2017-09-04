@@ -68,6 +68,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
+   On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
 <a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
@@ -85,7 +86,9 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     static const char* dps_scope_id = "[dps scope id]";
     ```
 
-4. Right-click the **dps_client_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.
+4. Right-click the **dps_client_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
+
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
 
 ## Clean up resources
