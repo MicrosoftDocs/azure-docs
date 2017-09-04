@@ -4,7 +4,7 @@
 # Tutorials
 ## [Deploy CF App to Azure](/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app)
 ## [CloudFoundry on Azure](/azure/virtual-machines/linux/cloudfoundry-get-started)
-## [Deploy Log Analytics Nozzle for CF](/azure/virtual-machines/linux/CloudFoundry-OMS-Nozzle)
+## [Deploy CF OMS Nozzle](/azure/virtual-machines/linux/CloudFoundry-OMS-Nozzle)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Cloud Foundry site](https://docs.cloudfoundry.org/)

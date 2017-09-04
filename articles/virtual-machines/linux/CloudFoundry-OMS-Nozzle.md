@@ -7,7 +7,7 @@ author: ningk
 manager: timlt
 editor: ''
 tags: Cloud-Foundry
-keywords: ''
+keywords: 'Cloud Foundry on Azure', 'OMS Nozzle', 'Azure log analytics Nozzle', "Cloud Foundry monitoring on Azure'
 
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -80,18 +80,19 @@ If you've deployed PCF via Ops Manager, follow these steps to [Install and Confi
 
 If you are not using PCF Ops Manager, you need to push the Nozzle as an application.
 
-1. Log in to your CF deployment as an admin through CF CLI
+#### Log in to your CF deployment as an admin through CF CLI
 
--On your Dev box, run following command:
+On your Dev box, run following command:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
+
 > "SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
 > "CF_User" is the CF admin name. You may retrieve the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
 
-2. Create a CF user and grant required privileges
+#### Create a CF user and grant required privileges
 
--On your Dev box, run following commands:
+On your Dev box, run following commands:
 ```
 uaac target https://uaa.${SYSTEM_DOMAIN} --skip-ssl-validation
 uaac token client get admin
@@ -99,19 +100,21 @@ cf create-user ${FIREHOSE_USER} ${FIREHOSE_USER_PASSWORD}
 uaac member add cloud_controller.admin ${FIREHOSE_USER}
 uaac member add doppler.firehose ${FIREHOSE_USER}
 ```
+
 > "SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file.
 
-3. Download the latest Azure Log Analytics Nozzle release
+#### Download the latest Azure Log Analytics Nozzle release
 
--On your Dev box, run following command:
+On your Dev box, run following command:
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
 ```
 
-4. Set environment variables in "manifest.yml" in your current directory
+#### Set environment variables in "manifest.yml" in your current directory
 
--This is the app manifest for the Nozzle, you need to replace the value with your specific OMS workspace information.
+This is the app manifest for the Nozzle, you need to replace the value with your specific OMS workspace information.
+
 ```
 OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, click "Settings", click "connected sources"
 OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, click "Settings", click "connected sources"
@@ -131,7 +134,7 @@ LOG_EVENT_COUNT           : If true, the total count of events that the nozzle h
 LOG_EVENT_COUNT_INTERVAL  : The time interval of logging event count to OMS Log Analytics, default is 60s.
 ```
 
-### 3. Push the app from your dev box
+### Push the app from your dev box
 
 Make sure you are under the folder "oms-log-analytics-firehose-nozzle", run:
 ```
@@ -163,7 +166,7 @@ Operators could customize these views or create new views through **View Designe
 
 The *"Cloud Foundry.omsview"* is a preview version of Cloud Foundry OMS view template, a fully configured default template is in progress, please send your suggestions and feedback to the [Issue Section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
-### 2. <a name="alert">Create Alert rules</a>
+### 2. Create Alert rules
 
 For the process of creating alert rules in OMS Log Analytics, refer to this [article](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts).
 
