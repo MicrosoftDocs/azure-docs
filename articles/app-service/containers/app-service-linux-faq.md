@@ -77,13 +77,13 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 ## Custom containers
 
-**Q:** I'm using my own custom container. My app resides in the `\home\` directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?
+**Q:** I'm using my own custom container. My app resides in the `/home/` directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?
 
-**A:** We mount an SMB share to the `\home\` directory. This will override any content that's there.
+**A:** We mount an SMB share to the `/home/` directory. This will override any content that's there.
 
-**Q:** I'm using my own custom container. I don't want the platform to mount an SMB share to the `\home\`.
+**Q:** I'm using my own custom container. I don't want the platform to mount an SMB share to the `/home/`.
 
-**A:** You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `false`.
+**A:** You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `false`. This will prevent container restarts when the platform storage goes through a change. Note that your `/home/` directory will no longer be shared across scale instances, and files written there will not be persisted across restarts.
 
 **Q:** My custom container takes a long time to start, and the platform restart the container before it finishes starting up.
 
