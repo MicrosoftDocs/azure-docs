@@ -80,7 +80,7 @@ To run queries, we use sample data that is by default available in the storage a
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID') 
 
         # Parse the data and create a schema
         hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
