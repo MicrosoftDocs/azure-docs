@@ -1,6 +1,6 @@
 ---
 title: Secure custom connectors with Azure AD - Azure Logic Apps | Microsoft Docs
-description: Add authentication to your connector with Azure Active Directory (Azure AD)
+description: Add security and authentication to your API and connector with Azure Active Directory (Azure AD)
 author: ecfan
 manager: anneta
 editor: 
@@ -17,7 +17,7 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Set up authentication for your connector with Azure Active Directory (Azure AD)
+# Add security to your API and connector with Azure Active Directory (Azure AD)
 
 To secure calls between your API and custom connector, 
 add Azure AD authentication to your Web API and your connector. 
