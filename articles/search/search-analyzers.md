@@ -26,7 +26,7 @@ The following transformations are typical during analysis:
 + Terms are lower-cased.
 + Words are reduced to root forms so that a match can be found regardless of tense.
 
-Azure Search provides a default analyzer. You can override it on a field-by-field basis with alternative choices. The purpose of this article is to describe the range of choices and provide best practices for adding an analyzer to your search operations.
+Azure Search provides a default analyzer. You can override it on a field-by-field basis with alternative choices. The purpose of this article is to describe the range of choices and provide best practices for adding an analyzer to your search operations. It also shows example analyzer configurations for key scenarios.
 
 ## How analysis fits into full text search processing
 
