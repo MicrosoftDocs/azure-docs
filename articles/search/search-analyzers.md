@@ -75,6 +75,168 @@ We recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchs
 > [!Tip]
 > The [Search Analyzer Demo](http://alice.unearth.ai/) shows a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. For each search input you provide, results from each analyzer are displayed in adjacent panes.
 
+## Examples
+
+The examples below show analyzer definitions for a few key scenarios.
+
+<a name="Example1"></a>
+### Example 1: Custom options
+
+This example illustrates an analyzer definition with custom options. Custom options for char filters, tokenizers, and token filters are specified separately as named constructs, and then referenced in the analyzer definition. Predefined elements are used as-is and simply referenced by name.
+
+Walking through this example:
+
+* Analyzers are a property of the field class for a searchable field.
+* A custom analyzer is part of an index definition. It might be minimally customized (for example, customizing a single option in one filter) or customized in multiple places.
+* In this case, the custom analyzer is "my_analyzer" which in turn uses a customized standard tokenizer "my_standard_tokenizer" and two token filters: lowercase and customized asciifolding filter "my_asciifolding".
+* It also defines a custom  "map_dash" char filter to replace all dashes with underscores before tokenization (the standard tokenizer breaks on dash but not on underscore).
+
+~~~~
+  {
+     "name":"myindex",
+     "fields":[
+        {
+           "name":"id",
+           "type":"Edm.String",
+           "key":true,
+           "searchable":false
+        },
+        {
+           "name":"text",
+           "type":"Edm.String",
+           "searchable":true,
+           "analyzer":"my_analyzer"
+        }
+     ],
+     "analyzers":[
+        {
+           "name":"my_analyzer",
+           "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+           "charFilters":[
+              "map_dash"
+           ],
+           "tokenizer":"my_standard_tokenizer",
+           "tokenFilters":[
+              "my_asciifolding",
+              "lowercase"
+           ]
+        }
+     ],
+     "charFilters":[
+        {
+           "name":"map_dash",
+           "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
+           "mappings":["-=>_"]
+        }
+     ],
+     "tokenizers":[
+        {
+           "name":"my_standard_tokenizer",
+           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizer",
+           "maxTokenLength":20
+        }
+     ],
+     "tokenFilters":[
+        {
+           "name":"my_asciifolding",
+           "@odata.type":"#Microsoft.Azure.Search.AsciiFoldingTokenFilter",
+           "preserveOriginal":true
+        }
+     ]
+  }
+~~~~
+
+<a name="Example2"></a>
+### Example 2: Override the default analyzer
+
+The Standard analyzer is the default. Suppose you want to replace the default with a different predefined analyzer, such as the pattern analyzer. If you are not setting custom options, you only need to specify it by name in the field definition.
+
+The "analyzer" element overrides the Standard analyzer on a field-by-field basis. There is no global override. In this example, `text1` uses the pattern analyzer and `text2`, which doesn't specify an analyzer, uses the default.
+
+~~~~
+  {
+     "name":"myindex",
+     "fields":[
+        {
+           "name":"id",
+           "type":"Edm.String",
+           "key":true,
+           "searchable":false
+        },
+        {
+           "name":"text1",
+           "type":"Edm.String",
+           "searchable":true,
+           "analyzer":"pattern"
+        },
+        {
+           "name":"text2",
+           "type":"Edm.String",
+           "searchable":true
+        }
+     ]
+  }
+~~~~
+
+<a name="Example3"></a>
+### Example 3: Different analyzers for indexing and search operations
+
+The preview APIs include additional index attributes for specifying different analyzers for indexing and search. The `searchAnalyzer` and `indexAnalyzer` attributes must be specified as a pair, replacing the single `analyzer` attribute.
+
+
+~~~~
+  {
+     "name":"myindex",
+     "fields":[
+        {
+           "name":"id",
+           "type":"Edm.String",
+           "key":true,
+           "searchable":false
+        },
+        {
+           "name":"text",
+           "type":"Edm.String",
+           "searchable":true,
+           "indexAnalyzer":"whitespace",
+           "searchAnalyzer":"simple"
+        },
+     ],
+  }
+~~~~
+
+<a name="Example4"></a>
+### Example 4: Language analyzer
+
+Fields containing strings in different languages can use a language analyzer, while other fields retain the default (or use some other predefined or custom analyzer). If you use a language analyzer, it must be used for both indexing and search operations. Fields that use a language analyzer cannot have different analyzers for indexing and search.
+
+~~~~
+  {
+     "name":"myindex",
+     "fields":[
+        {
+           "name":"id",
+           "type":"Edm.String",
+           "key":true,
+           "searchable":false
+        },
+        {
+           "name":"text",
+           "type":"Edm.String",
+           "searchable":true,
+           "IndexAnalyzer":"whitespace",
+           "searchAnalyzer":"simple"
+        },
+        {
+           "name":"text_fr",
+           "type":"Edm.String",
+           "searchable":true,
+           "analyzer":"fr.lucene"
+        }
+     ],
+  }
+~~~~
+
 ## Next steps
 
 + Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that are somewhat counter-intuitive on the surface. 
