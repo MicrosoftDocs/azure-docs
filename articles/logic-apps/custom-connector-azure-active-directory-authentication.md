@@ -209,8 +209,8 @@ Under **Delegated permissions**, choose **Access Azure Service Management as org
 
       ![Create a client key](./media/custom-connector-azure-active-directory-authentication/add-key.png)
 
-   2. When your generated key appears, **immediately copy and save that key somewhere 
-   safe for later use**. *You can't retrieve the key after you close the **Keys** page.*
+   2. When your generated key appears, **make sure that you copy 
+   and save this key somewhere safe** before you leave the **Keys** page.
     
       ![Manually copy and save your key](./media/custom-connector-azure-active-directory-authentication/save-key.png)
 
