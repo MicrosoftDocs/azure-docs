@@ -151,6 +151,8 @@ These limits apply to B2B protocols.
 |EDIFACT|50 MB|Applies to decode and encode|
 ||||
 
+<a name="configuration"></a>
+
 ## Configuration: IP Addresses
 
 ### Logic Apps service
