@@ -130,16 +130,16 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 		ssh-keygen
 		cat .ssh/id_rsa.pub
 
-![](./media/resources/resources-1-generate_ssh.png)
+![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copy the entire ssh key including *ssh-rsa*. 
 - Log in to your VSTS server. 
 - Click **<Your Name\>** at the top right corner of the page and click **security**. 
 	
-	![](./media/resources/resources-2-user-setting.png)
+	![](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Click **SSH public keys**, and click **+Add**. 
 
-	![](./media/resources/resources-3-add-ssh.png)
+	![](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Paste the ssh key just copied into the text box and save.
