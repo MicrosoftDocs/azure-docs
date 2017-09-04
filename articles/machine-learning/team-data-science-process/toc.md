@@ -8,6 +8,14 @@
 ## [5. Customer Acceptance](lifecycle-acceptance.md)
 ## [With Azure ML](http://aka.ms/datascienceprocess)
 
+# [Roles and tasks](roles-tasks.md)
+##[Group Manager]()
+##[Team Lead](team-lead-tasks.md)
+##[Project Lead](Project Lead)
+##[Individual Contributor](Individual Contributor)
+
+# [Project execution](project-exectution.md)
+
 # [Examples](walkthroughs.md)
 ##[Spark with PySpark and Scala](walkthroughs-spark.md)
 ### [Explore data](spark-data-exploration-modeling.md)
@@ -22,6 +30,7 @@
 # How To
 ## [Set up data science environments](environment-setup.md)
 ### [Azure storage accounts](../../storage/common/storage-create-storage-account.md)
+###[Platforms and tools](platforms-and-tools.md)
 ### [Customize Hadoop](customize-hadoop-cluster.md)
 ### [Azure Machine Learning workspace](../studio/create-workspace.md)
 ### [Set up virtual machines](virtual-machines.md)
