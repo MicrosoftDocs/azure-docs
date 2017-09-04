@@ -47,9 +47,7 @@ You must have the following:
 	> You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
 	> 
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-	> 
-
-   
+	>   
 
 3. Create a new notebook. Click **New**, and then click **Spark**.
    
@@ -83,7 +81,7 @@ You must have the following:
 
 7. Run the code cell with the `%%configure` magic. This will configure the underlying Livy session to use the package you provided. In the subsequent cells in the notebook, you can now use the package, as shown below.
    
-        val df = sqlContext.read.format("com.databricks.spark.csv").
+        val df = spark.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
