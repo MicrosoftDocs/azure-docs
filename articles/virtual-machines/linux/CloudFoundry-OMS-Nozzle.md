@@ -19,7 +19,7 @@ ms.date: 07/22/2017
 ms.author: ningk
 ---
 
-# Deploy Azure Log Analytics Nozzle for Cloud Foundry Monitoring
+# Deploy Azure Log Analytics Nozzle for Cloud Foundry System Monitoring
 
 ## Background
 
