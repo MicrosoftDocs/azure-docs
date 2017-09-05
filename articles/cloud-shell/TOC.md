@@ -2,13 +2,13 @@
 
 # Quickstart
 ## [Quickstart for Bash](quickstart.md)
-## [Quickstart for PowerShell](quickstart-PS.md)
+## [Quickstart for PowerShell](powershell-quickstart.md)
 
 # Concepts
 ## [Bash Features & Tools](features.md)
 ## [PowerShell Features & Tools](powershell-features.md)
 ## [Limitations](limitations.md)
-## [Troubleshooting](TODO)
+## [Troubleshooting](troubleshooting.md)
 
 # How-to
 ## [Persisting storage](persisting-shell-storage.md)

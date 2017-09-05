@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/1/2017
+ms.date: 09/5/2017
 ms.author: juluk
 ---
 
 # Features and Tools for Bash in Azure Cloud Shell
 
-[!include[](features-introblock.md)]
+[!include [features-introblock](<features-introblock.md)]
 
 > [!TIP]
 > [PowerShell in Azure Cloud Shell](powershell-features.md) is also available.

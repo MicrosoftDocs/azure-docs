@@ -13,17 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08 /28/2017
+ms.date: 09/05/2017
 ms.author: juluk
 ---
 
 # Features and Tools for PowerShell in Azure Cloud Shell
-Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
 
-Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
-
-Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. 
-Since Cloud Shell is built for interactive sessions, shells automatically terminate after 20 minutes of shell inactivity.
+[!include [features-introblock](<features-introblock.md)]
 
 > [!TIP]
 > [Bash in Azure Cloud Shell](features.md) is also available.
@@ -74,5 +70,5 @@ Once completed Cloud Shell will automatically attach your storage for all future
 [Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage.md)
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart-PS.md) <br>
+[Cloud Shell Quickstart](powershell-quickstart.md) <br>
 [Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
