@@ -16,7 +16,7 @@ ms.custom: mvc
 
 ---
 
-# How to manage device enrollments 
+# How to manage device enrollments in the IoT Hub Device Provisioning Service
 
 A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Azure IoT Hub Device Provisioning Service. The enrollment record contains the initial desired configuration for the device(s) as part of that enrollment, including the desired IoT hub. This article shows you how to manage device enrollments for your provisioning service.
 

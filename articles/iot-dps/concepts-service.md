@@ -1,11 +1,11 @@
 ---
-title: Service concepts in device provisioning | Microsoft Docs
+title: Service concepts in Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Describes service provisioning concepts specific to devices with DPS and IoT Hub
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/01/2017
+ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
 
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 ---
 
-# Service concepts
+# IoT Hub Device Provisioning Service concepts
 
 IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service, you can provision millions of devices in a secure and scalable manner.
 
@@ -35,8 +35,6 @@ The device provisioning endpoint is the central endpoint all devices talk to for
 ## Linked IoT hubs
 
 Device Provisioning Service can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to Device Provisioning Service gives the service read/write permissions to the IoT hub's device registry; with the link, Device Provisioning Service can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your provisioning service.
-
-[TODO: picture of how to link a hub]
 
 ## Allocation policy
 

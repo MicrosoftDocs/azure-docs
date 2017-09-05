@@ -36,18 +36,21 @@
     - name: Manage device enrollments
       href: how-to-manage-enrollments.md
 - name: Reference
+  items:
+  - name: REST
+    href: /rest/api/iot-dps/
 - name: Related
   items:
   - name: Azure IoT Hub
-    href: https://azure.microsoft.com/documentation/suites/iot-hub/
+    href: https://azure.microsoft.com/services/iot-hub/
   - name: Azure IoT Suite
-    href: https://azure.microsoft.com/documentation/suites/iot-suite/
+    href: /azure/iot-suite/
   - name: Azure Event Hubs
-    href: https://azure.microsoft.com/documentation/services/event-hubs/
+    href: https://azure.microsoft.com/services/event-hubs/
   - name: Stream Analytics
-    href: https://azure.microsoft.com/documentation/services/stream-analytics/
+    href: https://azure.microsoft.com/services/stream-analytics/
   - name: Machine Learning
-    href: https://azure.microsoft.com/documentation/services/machine-learning/
+    href: https://azure.microsoft.com/services/machine-learning/
 - name: Resources
   items:
   - name: Azure Certified for IoT device catalog
@@ -56,7 +59,7 @@
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=internet-of-things
-  - name: DeviceExplorer tool
+  - name: Device Explorer tool
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics

@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 08/22/2017
+ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
 
@@ -94,7 +94,7 @@ The Device Provisioning Service is available in East US, West Europe, and Southe
 * [Azure Regions](https://azure.microsoft.com/regions/)
 
 ## Availability
-We maintain best-effort availability of the service during the public preview. There is no Service Level Agreement during public preview. The full [Azure SLA](https://azure.microsoft.com/en-us/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
+We maintain best-effort availability of the service during the public preview. There is no Service Level Agreement during public preview. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
 ## Quotas
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
