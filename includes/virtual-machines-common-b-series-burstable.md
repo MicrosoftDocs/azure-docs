@@ -40,7 +40,7 @@ The B-series comes in the following 6 VM sizes:
 ### Q: How can I monitor my credit balance and consumption
 **A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics)
+For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics,md)
 
 ### Q: Which regions can I access the preview from?
 **A**:  The B-series preview will be available in the following regions:
