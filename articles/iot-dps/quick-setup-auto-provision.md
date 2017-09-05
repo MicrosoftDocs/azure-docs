@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 08/15/2017
+ms.date: 09/05/2017
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -39,21 +39,15 @@ Log in to the [Azure portal](https://portal.azure.com/).
 4. Once the IoT hub is successfully deployed, the hub summary blade automatically opens.
 
 
-<!--
-Need for a string pass in the last week of August or when portal is ready. 
- - a single instance of the DPS might not be called a tenant. Nicole is finding out from Leandro the acceptable terms to use. 
- - a few other portal strings might also change. 
--->
-
 ## Create a new instance for IoT device provisioning service
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
 2. *Search the Marketplace* for **Device provisioning service**. Select **IoT Device Provisioning Service (preview)** and click the **Create** button. 
 
-3. **Name** your Device Provisioning Service instance. Select the subscription that would be used for this tenant, and name a new or existing resource group. Select the location. When complete, click **Create**.
+3. **Name** your Device Provisioning Service instance. Select the subscription that would be used for this instance, and name a new or existing resource group. Select the location. When complete, click **Create**.
 
-    ![Enter basic information about your DPS tenant in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+    ![Enter basic information about your DPS instance in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. Once the service is successfully deployed, its summary blade automatically opens.
 
@@ -66,7 +60,7 @@ Need for a string pass in the last week of August or when portal is ready.
 
 3. In the **Add link to IoT hub or pool** portal blade, select either the current subscription or enter the name and connection string for another subscription. Select *IoT hub* as the **Resource type** and select the name of the hub from the drop-down list. When complete, click **Save**. 
 
-    ![Link the hub name to link to the DPS tenant in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+    ![Link the hub name to link to the DPS instance in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Now you should see the selected hub under the **Linked IoT hubs** blade. 
 

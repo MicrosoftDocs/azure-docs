@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 08/30/2017
+ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
 
