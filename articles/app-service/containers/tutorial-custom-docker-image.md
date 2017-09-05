@@ -434,13 +434,13 @@ RUN chmod 755 /bin/init_container.sh
 CMD ["/bin/init_container.sh"]
 ```
 
-You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, start by opening a browser and navigate to `https://<app name>.scm.azurewebsites.net/webssh/host`. You are then redirected to a page displaying an interactive console. Issue the `top` command at the prompt. 
+You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, start by opening a browser and navigate to `https://<app name>.scm.azurewebsites.net/webssh/host`. You are then redirected to a page displaying an interactive console. Issue the `top` command at the prompt.
 
 ```bash
 top
 ```
 
-The `top` command exposes all running processes in a container.  
+The `top` command exposes all running processes in a container.
 
 ```bash
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
@@ -575,7 +575,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Run the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#set) command. This command assigns the custom Docker image to the web app. Notice that you need a URL that is in the format `https://{your-registry-username}.azurecr.io`. Additionally, the web app needs the user name and password obtained in a previous step in order to access the container registry. 
+Run the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#set) command. This command assigns the custom Docker image to the web app. Notice that you need a URL that is in the format `https://{your-registry-username}.azurecr.io`. Additionally, the web app needs the user name and password obtained in a previous step in order to access the container registry.
 
 ```azurecli-interactive
 az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
