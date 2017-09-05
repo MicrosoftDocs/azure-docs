@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/06/2017
 ---
 # This is the H1 and the article title that shows on the web
 
