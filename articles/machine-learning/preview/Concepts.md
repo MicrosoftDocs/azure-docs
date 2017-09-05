@@ -10,105 +10,54 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017 
 ---
-# Azure ML Concepts
 
-Welcome to the Azure Machine Learning Workbench. This document defines high-level concepts that you need to understand before using Workbench and its services. 
+# Azure Machine Learning Workbench: Concepts
 
-## General Concepts
+## Introduction
 
-**Azure Machine Learning Experimentation Service**
+Welcome to the Azure Machine Learning Workbench. Workbench is a code-first, extensible machine learning application available for Windows and Mac. You can use the Workbench application to manage your machine learning experiments from start to finish, including:
+- Data connection, import, preparation, and wrangling 
+- Notebook and IDE integration
+- Collaboration and sharing
+- Model creation, lineage and version control
+- Model scoring, statistics and comparison
+- Registration, deployment, monitoring and retraining of production models
 
-The Experimentation Service is a managed Azure service that takes machine learning experimentation to the next level. Experiments can be built locally or in the cloud. Rapidly prototype on a desktop, then scale to virtual machines or Spark clusters. Azure VMs with the latest GPU technology allow you to engage in deep learning quickly and effectively. We’ve also included deep integration with Git so you can plug easily into existing workflows for code tracking, configuration, and collaboration. 
+In order to better understand Workbench, there are few concepts you'll need to understand. The first is that Workbench is  Workbench is the companion application for our new Experimentation and Model Management Services, currently in Preview. 
 
-**Azure Machine Learning Model Management Service**
+The Experimentation Service is a managed Azure service that allows you to build, test and compare machine learning models locally or in the cloud. Both the Experimentation Service and Workbench have been designed as open data science platforms:  Spark, CNTK, TensorFlow, scikit-learn and a few other libraries have been installed by default, but you can use any open source or proprietary Python library in your solution. The service and the application use Docker for scale and reproducibility. You can prototype on a desktop, and then scale to virtual machines or Spark clusters using containers. The Experimentation Service and Workbench are integrated by default with Visual Studio and Git Hub. The integration enables collaboration as well as data and model history, lineage, and back-ups. Workbench is not an IDE, but we've made it easy for you to integrate with your favorite data science IDE including Jupyter Notebooks or Visual Studio Code.   
 
-The Model Management Service is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. GIT repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to Azure VMs, Spark HDInsight, or Kubernetes-orchestrated Azure Container Service clusters.  
+The Model Management Service is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. The service uses the same GIT repository designated by the Experimentation Service for model versioning and lineage. It uses Docker images to manage and deploy models reliably to local machines, Azure, or to IoT edge devices. When you deploy a new model, the service creates a Linux-based Docker container that includes the model and all encompassing dependencies. The container is then registered with Azure Container Registry. In the case of cloud deployments, the Docker image is pushed to Azure Container Service. For cluster deployments, Kubernetes is used to manage and load balance across containers. 
 
-**Model** 
+## Getting Around the Workbench UI
 
-In Azure Machine Learning, models refer to the product of a machine learning experiment. They are recipes that, when applied correctly to data, result in a predicted value. Models are composed of an algorithm and a set of coefficients that describe the shape of your data. The Experimentation Service stores models (and other assets) in a GIT repository. Models can be deployed to production and used to generate predictions. Models can be deployed on local machines or to Azure VMs. You can also scale your models to Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters. Via Docker, models can even be deployed to IoT Edge. Once in production, models can be monitored for performance and data drift, and retrained as required. A model that is registered in the hosting account is counted against your plan, including models updated through retraining or version iteration.
-
-**Algorithm**
-
-An algorithm is a procedure for solving a mathematical problem in a finite number of steps. 
-
-**Subscription**
-
-An Azure subscription grants you access to Azure services and the Azure Platform Management Portal. An Azure subscription has two parts: 
-- An account, through which resource usage is reported and services are billed; and 
-- The subscription itself, which governs access to and use of the Azure services. 
-Azure Machine Learning requires that each user have a valid Azure subscription. Users must also have  sufficient permissions within that subscription to create resources. The reason for this is that AML directly employs several Azure services including Visual Studio Team Services, Azure Blob Storage, and Azure Key Vault. These services are used to track and manage machine learning code and models using Github and Visual Studio. 
-
-Note: During Public Preview, your subscription must have access to Azure resources in ‘EAST US 2’ or ‘West Central US’. Azure Machine Learning is currently deployed only in these regions. 
-
-## Experimentation Service Concepts
-
-**Experiment**
-
-The concept of ‘an experiment’ is one of the pillars of Azure Machine Learning. Machine Learning experiments are code or scripts that define the data, the data pipeline, the algorithm, and the execution of your solution. Experiments are managed via the Experimentation Service--a managed Azure service that allows you to run machine learning experiments locally or in the cloud. Using the Experimentation Service, you can leverage deep learning algorithms in your experiments quickly and effectively. Currently, Azure Machine Learning supports Python or PySpark experiments but we anticipate adding support for R shortly. 
-
-**Team**
-
-In Azure Machine Learning Workbench, a 'Team' is the top-level resource. It contains your work spaces, projects, and project assets. A 'Team' is associated with an Azure Resource Group. Teams contain 'Members' who can gain access to the work groups, projects, and assets associated with a Team. 
-
-**Work Group**
-
-A Work Group is the primary (and only) component of sharing in the Experimentation Service or Workbench. A Work Group allows for the grouping of projects and is a security boundary for access. Additionally, Work Groups are the container for Data Sources and Environments common across projects. 
-
-**Project**
-
-An Azure Machine Learning Project is a logical container that contains all the work being done for a given solution. Projects are mapped to a single file system folder. Project folders are backed up GIT   repositories and published to your Experimentation Service for sharing and collaboration.  
-
-**Environment**
-
-In Azure Machine Learning, an environment denotes a set of Azure resources that are available for experiment execution or model deployment. Environments must be provisioned to your Experimentation Service. This can be done via the CLI or through the Workbench UI. When you provision a new environment, the Experimentation Service creates a number of Azure resources in your subscription including:
-- A storage account
-- An Azure Container Registry entry 
-- A Kubernetes ACS cluster
-- An App Insights account for user logs 
-
-Environments behave differently depending on their context and Work Group:  
-- Local Work Group: All the connection information is stored on the desktop  
-- Cloud Work Group: the environment uses KeyVault for safe storage of connection information   
+Workbench has been built with a few key concepts in mind. You'll need to understand these to navigate through the UI. These include:
 
 
-## Workbench and Data Concepts
+- **Team** In Azure Machine Learning Workbench, a 'Team' is the top-level resource. It contains your work spaces, projects, and project assets. A 'Team' is associated with an Azure Resource Group. Teams contain 'Members' who can gain access to the work groups, projects, and assets associated with a Team. 
 
-**Azure Machine Learning Workbench**
 
-Workbench is a code-first, extensible machine learning application built for professional data scientists. Available for Windows and Mac, Workbench provides overview, management, and control for machine learning solutions. Workbench includes access to cutting edge AI frameworks from both Microsoft and the open source community. We've included the most popular data science toolkits, including TensorFlow, Microsoft Cognitive Toolkit, Spark ML, scikit-learn, and more. We’ve also enabled integration with popular data science IDEs such as Jupyter notebooks, PyCharm, and Visual Studio Code. Workbench has built-in data preparation capabilities to rapidly sample, understand, and prepare data, whether structured or unstructured. Our new data preparation tool, called PROSE, is built on cutting-edge technology from Microsoft Research.  
+- **Work Group** A Work Group is the primary (and only) component for sharing in Workbench. You can group projects within a Work Group and can think of the Work Group as a security boundary for your project and project assets.  
 
-**Data connection**
 
-A data connection is an Azure Machine Learning object that stores access information needed to connect to a particular data source.
-  
-**Data Source**
+- **Project** In Azure Machine Learning Project is the logical container for all the work being done in a given solution. Projects are mapped to a single file system folder. Project folders are backed up GIT repositories and published to your Experimentation Service for sharing and collaboration.  
 
-A data source describes both the origin of your data and information on how that data should be retrieved. A data source includes relevant metadata description as well as the query/command needed to retrieve a data set.
+
+- **Subscription** An Azure subscription grants you access to Azure services and the Azure Platform Management Portal. Because Azure Machine Learning is deeply integrated with Visual Studio Team Services, Azure Blob Storage, Azure Key Vault, and other Azure services, Workbench requires that each user have a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources. Note: During Public Preview, your subscription must have access to Azure resources in ‘EAST US 2’ or ‘West Central US’. Azure Machine Learning is currently deployed only in these regions.
  
-**Data Set**
 
-A dataset is data that has materialized in memory, a file, or a table. It is a direct handle to the data or the rectangular data itself. 
+- **Model** In Azure Machine Learning, models refer to the product of a machine learning experiment. They are recipes that, when applied correctly to data, result in a predicted value. Models are composed of an algorithm and a set of coefficients that describe the shape of your data. The Experimentation Service stores models (and other assets) in a GIT repository. Models can be deployed to production and used to generate predictions. Models can be deployed on local machines or to Azure VMs. You can also scale your models to Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters. Via Docker, models can even be deployed to IoT Edge. Once in production, models can be monitored for performance and data drift, and retrained as required. A model that is registered in the hosting account is counted against your plan, including models updated through retraining or version iteration.
 
-**Data Flow**
 
- A DataFlow is a collection of data preparation steps in Azure Machine Learning. The Workbench reads data from a DataSource and uses .prep files as containers for multiple DataFlows. 
+- **Experiment** The concept of ‘an experiment’ is one of the pillars of Azure Machine Learning. Machine Learning experiments are code or scripts that define the data, the data pipeline, the algorithm, and the execution of your solution. Experiments are managed via the Experimentation Service--a managed Azure service that allows you to run machine learning experiments locally or in the cloud. Using the Experimentation Service, you can leverage deep learning algorithms in your experiments quickly and effectively. Currently, Azure Machine Learning supports Python or PySpark experiments but we anticipate adding support for R shortly. 
 
-**Compute Context**
+- **Environment** In Azure Machine Learning, an environment denotes a set of Azure resources that are available for experiment execution or model deployment. Environments must be provisioned to your Experimentation Service. This can be done via the CLI or through the Workbench UI. When you provision a new environment, the Experimentation Service creates a number of Azure resources in your subscription including: a storage account, an Azure Container Registry entry, a Kubernetes ACS cluster, and an App Insights account for user logs.  
 
-Local, Cloud, Clustered
 
-**Execution Target** 
+- **Execution Target** An execution target is the run time environment that you have selected for your experiment. The Experimentation Service allows you to execute a Python/PySpark script either locally or in the cloud. Execution options include local Python (3.5.2), Conda Python environments inside Docker containers (local or remote), or HDInsight Spark clusters on Azure.
 
-An execution target is the run time environment that you have selected for your experiment. The Experimentation Service allows you to execute a Python/PySpark script either locally or in the cloud. Execution options are: 
-- Python (3.5.2) on your local computer 
-- Conida Python environment inside of a Docker container on local computer
-- Condo Python environment inside of a Docker container on a remote Linux machine, for example, an Ubuntu-based DSVM on Azure
-- A Spark cluster such as Spark for HDInsight Spark on Azure
  
-**Run**
-
-The Experimentation Service defines a run as the execution of a given file in an environment. Run status is available in the Workbench UI. 
+- **Run** The Experimentation Service defines a run as the execution of a given file in an environment. Run status is available in the Workbench UI. 
 
 
 ## Model Management Concepts
