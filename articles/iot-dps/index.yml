@@ -38,8 +38,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Set up cloud</a>
-    - html: <a href="/azure/iot-dps/tutorial-set-up-device">Set up device</a>
-    - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Provision a device to a hub</a>
-    - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Provision devices to multiple hubs</a>
+    - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Configure cloud resources</a>
+    - html: <a href="/azure/iot-dps/tutorial-set-up-device">Set up your device to connect to Azure</a>
+    - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Provision devices to a single IoT hub</a>
+    - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Provision devices to multiple, load-balanced IoT hubs</a>
 
