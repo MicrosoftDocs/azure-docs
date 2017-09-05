@@ -59,17 +59,20 @@ In this example, set these properties to every week.
 
    ![Set interval and frequency](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-4. For more options, such as a start date and time, specific days, 
-hours, or minutes, choose **Show advanced options**. 
+4. For more options, choose **Show advanced options**. 
 
    ![More options](./media/connectors-native-recurrence/recurrence-trigger-more-options.png)
 
-   For example, you could specify that your logic app 
-   doesn't start running until two weeks from today, 
-   supposing that today is September 4, 2017.
-
+   Here, you can set up an advance date and time for starting your workflow. 
+   You can also specify the days of the week, 
+   and the times for when to run your workflow. 
+   
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
+   For example, you could specify that your logic app 
+   doesn't start running until two weeks from today, 
+   supposing that today is September 4, 2017. 
+   
    If you set advanced options for days or times, 
    the trigger shows you a preview for your specified recurrence. 
    For example, this trigger runs weekly, on each Monday, at 10:30 AM, 
