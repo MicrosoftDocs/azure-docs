@@ -43,8 +43,10 @@ Use the HTTP trigger settings as specified in the table.
 | Allowed HTTP methods | Selected methods | Determines what HTTP methods may be used to invoke this function |
 | Selected HTTP methods | GET | Allows only selected HTTP methods to be used to invoke this function |
 | Route template | /hello | Determines what route is used to invoke this function |
+| Authorization Level | Anonymous | Optional: Makes your function accessible without an API key |
 
-Note that you did not include the `/api` base path prefix in the route template, as this is handled by a global setting.
+> [!NOTE] 
+> Note that you did not include the `/api` base path prefix in the route template, as this is handled by a global setting.
 
 Click **Save**.
 
@@ -120,6 +122,14 @@ The `%HELLO_HOST%` syntax will reference the app setting you created earlier. Th
 Click **Create**.
 
 You can try out your new proxy by copying the Proxy URL and testing it in the browser or with your favorite HTTP client.
+
+For an anonymous function use
+
+`https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+
+For a function with authorization use
+
+`https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
 
 ## Create a mock API
 
