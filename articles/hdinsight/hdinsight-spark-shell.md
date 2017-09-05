@@ -20,7 +20,7 @@ ms.author: nitinme
 ---
 # Run Spark from the Spark Shell
 
-An interactive Spark Shell provides a REPL (read, execute, print loop) environment for running Spark commands one at a time and seeing the results. This is useful for development and debugging. Spark provides one shell for each of its supported languages: Scala, Python, and R.
+An interactive Spark Shell provides a REPL (read-execute-print loop) environment for running Spark commands one at a time and seeing the results. This process is useful for development and debugging. Spark provides one shell for each of its supported languages: Scala, Python, and R.
 
 ## Get to a Spark Shell with SSH
 
@@ -64,7 +64,7 @@ The Spark Shell command (`spark-shell`, `pyspark`, or `sparkR`) supports many co
 
 | switch | description | example |
 | --- | --- | --- |
-| --master MASTER_URL | Specifies the master URL. In HDInsight this value is always `yarn`. | `--master yarn`|
+| --master MASTER_URL | Specifies the master URL. In HDInsight, this value is always `yarn`. | `--master yarn`|
 | --jars JAR_LIST | Comma-separated list of local jars to include on the driver and executor classpaths. In HDInsight, this list is composed of paths to the default filesystem in Azure Storage or Data Lake Store. | `--jars /path/to/examples.jar` |
 | --packages MAVEN_COORDS | Comma-separated list of maven coordinates of jars to include on the driver and executor classpaths. Searches the local maven repo, then maven central, then any additional remote repositories specified with `--repositories`. The format for the coordinates is *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | For Python only, a comma-separated list of .zip, .egg, or .py files to place on the PYTHONPATH. | `--pyfiles "samples.py"` |
