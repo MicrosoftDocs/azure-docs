@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 07/13/2017
 ms.author: bwren
 
 ---
@@ -158,8 +158,8 @@ If you then submitted the following entry, before the record type was created, L
 ## Data limits
 There are some constraints around the data posted to the Log Analytics Data collection API.
 
-* Maximum of 30 MB per post to Log Analytics Data Collector API. This is a size limit for a single post. If the data from a single post that exceeds 30 MB, you should split the data up to smaller sized chunks and send them concurrently. 
-* Maximum of 32 KB limit for field values. If the field value is greater than 32 KB, the data will be truncated. 
+* Maximum of 30 MB per post to Log Analytics Data Collector API. This is a size limit for a single post. If the data from a single post that exceeds 30 MB, you should split the data up to smaller sized chunks and send them concurrently.
+* Maximum of 32 KB limit for field values. If the field value is greater than 32 KB, the data will be truncated.
 * Recommended maximum number of fields for a given type is 50. This is a practical limit from a usability and search experience perspective.  
 
 ## Return codes
@@ -187,6 +187,11 @@ This table lists the complete set of status codes that the service might return:
 
 ## Query data
 To query data submitted by the Log Analytics HTTP Data Collector API, search for records with **Type** that is equal to the **LogType** value that you specified, appended with **_CL**. For example, if you used **MyCustomLog**, then you'd return all records with **Type=MyCustomLog_CL**.
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+
+> `MyCustomLog_CL`
 
 ## Sample requests
 In the next sections, you'll find samples of how to submit data to the Log Analytics HTTP Data Collector API by using different programming languages.
@@ -319,7 +324,7 @@ namespace OIAPIExample
 			string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
 			string hashedString = BuildSignature(stringToHash, sharedKey);
 			string signature = "SharedKey " + customerId + ":" + hashedString;
-	
+
 			PostData(signature, datestring, json);
 		}
 
@@ -340,20 +345,20 @@ namespace OIAPIExample
 		public static void PostData(string signature, string date, string json)
 		{
 			try
-			{ 
+			{
 				string url = "https://" + customerId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
-	
+
 				System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
 				client.DefaultRequestHeaders.Add("Accept", "application/json");
 				client.DefaultRequestHeaders.Add("Log-Type", LogName);
 				client.DefaultRequestHeaders.Add("Authorization", signature);
 				client.DefaultRequestHeaders.Add("x-ms-date", date);
 				client.DefaultRequestHeaders.Add("time-generated-field", TimeStampField);
-	
+
 				System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
 				httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 				Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);
-	
+
 				System.Net.Http.HttpContent responseContent = response.Result.Content;
 				string result = responseContent.ReadAsStringAsync().Result;
 				Console.WriteLine("Return Result: " + result);

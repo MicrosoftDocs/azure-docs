@@ -31,12 +31,23 @@
 #### [IIS logs](log-analytics-data-sources-iis-logs.md)
 #### [Custom logs](log-analytics-data-sources-custom-logs.md)
 #### [Custom fields](log-analytics-custom-fields.md)
+
 ## Query data
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
 #### [Regular expressions](log-analytics-log-searches-regex.md)
 ### [Take action from search results](log-analytics-log-search-takeaction.md)
 ### [Computer groups](log-analytics-computer-groups.md)
+
+## New log search
+### [Upgrade your workspace](log-analytics-log-search-upgrade.md)
+### [FAQ](log-analytics-log-search-faq.md)
+### [Log searches overview](log-analytics-log-search-new.md)
+### [Log search portals](log-analytics-log-search-portals.md)
+#### [Use the log search portal](log-analytics-log-search-log-search-portal.md)
+### [Transitioning from legacy language](log-analytics-log-search-transition.md)
+### [Flow connector](log-analytics-flow-tutorial.md)
+
 ## Analyze data
 ### [Dashboards](log-analytics-dashboards.md)
 ### [View Designer](log-analytics-view-designer.md)
@@ -74,9 +85,11 @@
 ### [Malware Assessment](log-analytics-malware.md)
 ### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 ### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SCOM Assessment](log-analytics-scom-assessment.md)
 ### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
-### [Service Fabric](log-analytics-service-fabric.md)
+### [Service Fabric with PowerShell](log-analytics-service-fabric.md)
+#### [Service Fabric with Azure Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 ### [Service Map](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SQL Assessment](log-analytics-sql-assessment.md)
 ### [Surface Hub](log-analytics-surface-hubs.md)
@@ -101,5 +114,6 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

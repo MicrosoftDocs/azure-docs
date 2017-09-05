@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
 
 ---
@@ -53,7 +53,12 @@ The next step is to create a workspace.
 4. Select a workspace to see its details in the Azure portal.       
     ![workspace details](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## 3 Add solutions and solution offerings
+## 3 Upgrade workspace to new log search
+A new Log Analytics query language has been released and in order to take advantage of it, you need to convert your workspace.  If the region your workspace is hosted in has been upgraded, you should see a purple banner across the top of your workspace inviting you to convert. The upgrade is completely voluntary and does not impact your experience working with Log Analytics and any solutions you add.  
+
+For further information to understand the benefits, considerations, and process to upgrade, see [Upgrading Azure Log Analytics to new log search](log-analytics-log-search-upgrade.md).  
+
+## 4 Add solutions and solution offerings
 
 Next, add management solutions and solution offerings. Management solutions are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area. A solution offering is a bundle of management solutions.
 
@@ -89,11 +94,11 @@ Next, create a simple virtual machine in Azure. After you create a VM, onboard t
 
 - Follow the directions at [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md) to connect the VM to Log Analytics using the Azure portal.
 
-## 5 View and act on data
+## 6 View and act on data
 
 Previously, you enabled the Activity Log Analytics solution and the Security & Compliance and Automation & Control service offerings. Next, we start looking at data collected by solutions and results in log searches.
 
-To start, look at data that is displayed from within solutions. Then, look at some log searches that are accessed from log searches. Log searches allow you to combine and correlate any machine data from multiple sources within your environment. For more information, see [Log searches in Log Analytics](log-analytics-log-searches.md). Lastly, take act on data that we find using the OMS portal, which is outside of the Azure portal.
+To start, look at data that is displayed from within solutions. Then, look at some log searches that are accessed from log searches. Log searches allow you to combine and correlate any machine data from multiple sources within your environment. For more information, see [Log searches in Log Analytics](log-analytics-log-searches.md) or if you converted your workspace to the new query language, see [understanding log searches in Log Analytics](log-analytics-log-search-new.md). 
 
 ### To view Antimalware data
 

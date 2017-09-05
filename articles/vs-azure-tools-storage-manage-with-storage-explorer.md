@@ -3,18 +3,18 @@ title: Get started with Storage Explorer (Preview) | Microsoft Docs
 description: Manage Azure storage resources with Storage Explorer (Preview)
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/17/2017
-ms.author: tarcher
+ms.date: 07/17/2017
+ms.author: kraigb
 
 ---
 # Get started with Storage Explorer (Preview)
@@ -152,7 +152,7 @@ To attach to an external storage account, you need the account's name and key. T
 2. In the confirmation message, select **Yes** to confirm the detachment from the external storage account.
 
 ## Attach a storage account by using an SAS
-An [SAS](storage/storage-dotnet-shared-access-signature-part-1.md) lets the admin of an Azure subscription grant temporary access to a storage account without having to provide Azure subscription credentials.
+An [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) lets the admin of an Azure subscription grant temporary access to a storage account without having to provide Azure subscription credentials.
 
 To illustrate this scenario, let's say that UserA is an admin of an Azure subscription, and UserA wants to allow UserB to access a storage account for a limited time with certain permissions:
 

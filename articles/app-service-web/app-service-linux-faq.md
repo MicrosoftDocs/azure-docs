@@ -4,7 +4,7 @@ description: Azure App Service Web App on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss
 services: app-service
 documentationCenter: ''
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: ''
 
@@ -47,11 +47,15 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **A:** Yes, you can do that through the SCM site, check the following article for more information [SSH support for Web App on Linux](./app-service-linux-ssh-support.md)
 
+**Q:** I want to create a Linux App Service plane through SDK or an ARM template, how can I achieve this?
+
+**A:** You need to set the `reserved` field of the app service to `true`.
+
 ## Continuous integration/deployment
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
-**A:** To set up continuous integration/deployment for DockerHub images by check the following article [Docker Hub Continuous Deployment with Web App on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+**A:** To set up continuous integration/deployment for Azure Container Registry or DockerHub images by check the following article [Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Q:** Do you support staging environments?
 
@@ -59,7 +63,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Can I use **web deploy** to deploy my web app?
 
-**A:** Yes, you need to set an app setting called `UseWebDeployScm` to `false`.
+**A:** Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to `false`.
 
 ## Language support
 
@@ -73,9 +77,17 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 ## Custom containers
 
-**Q:** I'm using my own custom container. My app resides in the `\home\` directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?
+**Q:** I'm using my own custom container. My app resides in the `/home/` directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?
 
-**A:** We mount an SMB share to the `\home\` directory. This will override any content that's there.
+**A:** We mount an SMB share to the `/home/` directory. This will override any content that's there.
+
+**Q:** I'm using my own custom container. I don't want the platform to mount an SMB share to the `/home/`.
+
+**A:** You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `false`. This will prevent container restarts when the platform storage goes through a change. Note that your `/home/` directory will no longer be shared across scale instances, and files written there will not be persisted across restarts.
+
+**Q:** My custom container takes a long time to start, and the platform restart the container before it finishes starting up.
+
+**A:** You can configure the time the platform will wait before restarting your container. This can be done by setting the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the desired value in seconds. The default is 230 seconds, and the max is 600 seconds.
 
 **Q:** What is the format for private registry server url?
 
@@ -99,7 +111,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** My custom container listens to a port other than port 80. How can I configure my app to route the requests to that port?
 
-**A:** We have auto port detection, also you can specify an application setting called **PORT**, and give it the value of the expected port number.
+**A:** We have auto port detection, also you can specify an application setting called **WEBSITES_PORT**, and give it the value of the expected port number. Previously the platform was using `PORT` app setting, we are planning to deprecate the use this app setting and move to using `WEBSITES_PORT` exclusively.
 
 **Q:** Do I need to implement HTTPS in my custom container.
 
@@ -123,7 +135,6 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 ## Next steps
 * [What is Azure Web App on Linux?](app-service-linux-intro.md)
-* [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
-* [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
+* [Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)

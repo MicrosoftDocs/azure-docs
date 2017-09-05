@@ -40,7 +40,7 @@
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
-## [Integrate Azure DNS with Azure resources](dns-custom-domain.md)
+## [Custom domains for Azure resources](dns-custom-domain.md)
 ## Troubleshoot
 ### [Troubleshooting guide](dns-troubleshoot.md)
 
@@ -69,4 +69,5 @@
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Pricing](https://azure.microsoft.com/pricing/details/dns/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=dns)

@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
+ms.custom: mvc
 
 ---
 # DC/OS container management through the Marathon REST API

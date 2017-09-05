@@ -89,6 +89,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](https://azure.microsoft.com/updates/?product=automation)
 ## [Service updates](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)

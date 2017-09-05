@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/9/2017
+ms.date: 7/28/2017
 ms.author: helaw
 
 ---
@@ -23,7 +23,7 @@ The Azure Stack Policy module allows you to configure an Azure subscription with
 ## Install the module
 1. Install the required version of the AzureRM PowerShell module, as described in Step1 of [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).   
 2. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md)  
-3. [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)
+3. [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure-user.md)
 
 4. Import the AzureStack.Policy.psm1 module:
 

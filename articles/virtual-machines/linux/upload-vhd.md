@@ -87,7 +87,7 @@ You can upload a customized VHD that you have running on a local machine or that
 Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](/cli/azure/group#create).
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location:
-[Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md)
+[Azure Managed Disks overview](../windows/managed-disks-overview.md)
 ```azurecli
 az group create \
     --name myResourceGroup \
@@ -110,7 +110,7 @@ az storage account create \
 ```
 
 ### List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#list).
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#list).
 
 View the access keys for the storage account you created:
 
@@ -162,7 +162,7 @@ Uploading the VHD may take a while.
 ### Create a managed disk
 
 
-Create a managed disk from the VHD using [az disk create](/cli/azure/disk/create). The following example creates a managed disk named *myManagedDisk* from the VHD you uploaded to your named storage account and container:
+Create a managed disk from the VHD using [az disk create](/cli/azure/disk#create). The following example creates a managed disk named *myManagedDisk* from the VHD you uploaded to your named storage account and container:
 
 ```azurecli
 az disk create \

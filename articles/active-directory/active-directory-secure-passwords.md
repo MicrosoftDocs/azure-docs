@@ -1,19 +1,19 @@
 ---
 title: Azure AD tiered password security | Microsoft Docs
-description: Explains how Azure AD enforces strong passwords and protects users passwords from cyber criminals, 
+description: Explains how Azure AD enforces strong passwords and protects users passwords from cyber criminals,
 services: active-directory
 documentationcenter: ''
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
 
-ms.assetid: 
+ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: joflore
+ms.date: 08/28/2017
+ms.author: barlan
 
 ---
 # A multi-tiered approach to Azure AD password security
@@ -21,9 +21,9 @@ ms.author: joflore
 This article discusses some best practices you can follow as a user or as an administrator to protect your Azure Active Directory (Azure AD) or Microsoft Account.
 
  > [!NOTE]
- > Azure AD administrators can reset user passwords using the guidance in the article [Reset the password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
  >
- > Users can reset their own password using the guidance in the article [Help I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md).
+ > Azure AD administrators can reset user passwords using the guidance in the article [Reset the password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
  >
 
 ## Password requirements
@@ -82,5 +82,3 @@ For information about password reset in Azure Active Directory, see the topic [A
 * [How to update your own password](active-directory-passwords-update-your-own-password.md)
 * [The fundamentals of Azure identity management](fundamentals-identity.md)
 * [Report on password reset activity](active-directory-passwords-reporting.md)
-
-

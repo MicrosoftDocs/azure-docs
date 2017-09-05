@@ -2,19 +2,21 @@
 title: Language Understanding Intelligent Services (LUIS) in Azure Frequently Asked Questions | Microsoft Docs
 description:  A list of Frequently Asked Questions about Language Understanding Intelligent Services (LUIS)
 services: cognitive-services
-author: cahann
+author: DeniseMak
 manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 07/19/2017
+ms.author: v-demak
 ---
 # Language Understanding Intelligent Services (LUIS) Frequently Asked Questions
 
 This article contains answers to some frequently asked questions about LUIS.
 
+## How do I interpret LUIS scores? 
+Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 does not necessarily mean LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
 ## I want to build a LUIS app with more than 80 intents. What should I do?
 
@@ -30,7 +32,6 @@ When your system receives an utterance, you can use a variety of techniques to d
 Consider the following tradeoffs when deciding which approach you use with multiple LUIS apps:
 * **Saving suggested utterances for training** Your LUIS apps get a performance boost when you label the user utterances it receives, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
 * **Calling LUIS apps in parallel instead of in series** It is a common to design a system to reduce to the number of REST API calls that happen in series to improve responsiveness. If you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call them in parallel by sending all the requests asynchronously. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
-
 
 
 ## I want to build an app in LUIS with more than 30 entities. What should I do?
@@ -74,15 +75,16 @@ This is an indication that there is some discrepancy between your labels and the
 3.	You might need to change the names of the intents and entities or leave them as they are.
 4.	Import the app afterwards to have an LUIS app in the target language
 
+## How do I download a log of user utterances?
+By default, utterances from users are logged. To download a log of utterances that users sent to your LUIS app, click the download icon in the entry for your app in **My Apps**. This log is in comma-separated value (CSV) format.
+
+## How can I disable logging of utterances?
+* You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, note that this will disable your LUIS app's ability to suggest utterances or improve performance based on user queries. If you set `log=false` due to data privacy concerns be aware that you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
+
 ## How can I delete data from LUIS? 
 
 * If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
 * If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
-* You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, note that this will disable your LUIS app's ability to suggest utterances or improve performance based on user queries. If you set `log=false` due to data privacy concerns be aware that you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
-
-<!-- What does it mean to delete an utterance? 
-Deleting an account -all apps, all utterances deleted, 60 days retention
-Turning off logging-->
 
 ## Next steps
 

@@ -30,5 +30,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Samples](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)
