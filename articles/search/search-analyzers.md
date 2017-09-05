@@ -243,7 +243,7 @@ Fields containing strings in different languages can use a language analyzer, wh
 
 ## Next steps
 
-+ Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain common and edge case results that might intially appear as counter-intuitive on the surface, but make sense once you understand the processing pipeline.
++ Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain common and edge-case query results.
 
 + Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 
