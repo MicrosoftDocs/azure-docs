@@ -54,7 +54,7 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
 2. On each field for which you want to use the analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). Valid values include a predefined analyzer, a language analyzer, or a custom analyzer previously defined in the index schema.
 
- Optionally, you can instead specify different analyzers on a field for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
+ Alternatively, instead of one `analyzer` property, you can set different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
 
 3. Rebuild the index to invoke the new text processing behaviors.
 
@@ -243,7 +243,7 @@ Fields containing strings in different languages can use a language analyzer, wh
 
 ## Next steps
 
-+ Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that might seem counter-intuitive on the surface. 
++ Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain common and edge case results that might intially appear as counter-intuitive on the surface, but make sense once you understand the processing pipeline.
 
 + Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 
