@@ -1,10 +1,10 @@
 ---
-title: Provision the Microsoft Data Science Virtual Machine | Microsoft Docs
+title: Provision the Windows Data Science Virtual Machine on Azure | Microsoft Docs
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,11 +12,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 09/04/2017
 ms.author: bradsev
 
 ---
-# Provision the Microsoft Data Science Virtual Machine
+# Provision the Windows Data Science Virtual Machine on Azure
 The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
 * Microsoft R Server Developer Edition

@@ -1,11 +1,11 @@
 ---
-title: What is a Data Science Virtual Machine? | Microsoft Docs
-description: How to get started doing key analytics scenarios with Data Science Virtual Machines.
+title: Introduction to Azure Data Science Virtual Machine for Linux and Windows | Microsoft Docs
+description: Key analytics scenarios and components for Windows and Linux Data Science Virtual Machines.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
@@ -14,11 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 09/04/2017
 ms.author: gokuma;bradsev
 
 ---
-# Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows
+
+# Introduction to Azure Data Science Virtual Machine for Linux and Windows
+
 The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. It is available on Windows Server and on Linux. We offer Windows edition of DSVM on Server 2016 and Server 2012. We offer Linux edition of the DSVM on Ubuntu 16.04 LTS and on OpenLogic 7.2 CentOS-based Linux distributions. 
 
 This topic discusses what you can do with the Data Science VM, outlines some of the key scenarios for using the VM, itemizes the key features available on the Windows and Linux versions, and provides instructions on how to get started using them.

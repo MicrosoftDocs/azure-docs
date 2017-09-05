@@ -1,10 +1,10 @@
 ---
-title: Provision the Linux Data Science Virtual Machine | Microsoft Docs
+title: Provision a Linux (CentOS) Data Science Virtual Machine on Azure | Microsoft Docs
 description: Configure and create a Linux Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 09/04/2017
 ms.author: bradsev
 
 ---
-# Provision the Linux Data Science Virtual Machine
+# Provision the Linux Data Science Virtual Machine on Azure
 The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine that comes with a collection of pre-installed tools. These tools are commonly used for doing data analytics and machine learning. The key software components included are:
 
 * Operating System: Linux CentOS distribution.

@@ -1,10 +1,10 @@
 ---
-title: Provision the Data Science Virtual Machine For Linux (Ubuntu) on Azure | Microsoft Docs
+title: Provision a Linux (Ubuntu) Data Science Virtual Machine on Azure | Microsoft Docs
 description: Configure and create a Data Science Virtual Machine For Linux (Ubuntu) on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -13,11 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 09/04/2017
 ms.author: bradsev
 
 ---
+
 # Provision the Data Science Virtual Machine for Linux (Ubuntu)
+
 The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with deep learning on Azure. Deep learning tools include:
 
   * [Caffe](http://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity

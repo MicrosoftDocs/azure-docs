@@ -5,13 +5,13 @@ metadata:
   title: Azure Data Science Virtual Machine Documentation
   description: Learn how to use the Data Science Virtual Machine.
   services: machine-learning
-  author: carolz
-  manager: carolz
+  author: bradsev
+  manager: cgronlun
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/24/2017
-  ms.author: carolz
+  ms.date: 09/04/2017
+  ms.author: bradsev
 abstract:
-  description: The Data Science Virtual Machine is a ...
+  description: The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. 

@@ -1,28 +1,33 @@
-- name: Data Science VM Documentation
 - name: Overview
+  href: virtual-machine-overview.md
 - name: Get Started
+  items:
+  - name: With Windows DSVM
+    href: get-started-windows-dsvm
+  - name: With Linux DSVM
+    href: get-started-linux-dsvm
 - name: How To
   items:
   - name: Set up tools and utilities
     items:
     - name: Set up a virtual machine
       items:
-      - name: DS VM overview
-        href: virtual-machine-overview.md
-      - name: How to use the DS VM
-        href: vm-do-ten-things.md
-      - name: Provision the DS VM
+      - name: Provision a Windows DSVM
         href: provision-vm.md
-      - name: Set up Azure VM
-        href: setup-virtual-machine.md
-      - name: Set up SQL VM
-        href: setup-sql-server-virtual-machine.md
-      - name: Provision Linux VM
+      - name: Use a Windows DSVM
+        href: vm-do-ten-things.md
+      - name: Provision a Linux CentOS DSVM
         href: linux-dsvm-intro.md
-      - name: Use Linux VM
+      - name: Provision a Linux Ubuntu DSVM
+        href: dsvm-ubuntu-intro.md
+      - name: Use a Linux DSVM
         href: linux-dsvm-walkthrough.md
-- name: Reference
 - name: Related
+  items:
+  - name: Set up VM as IPython server
+    href: setup-virtual-machine.md
+  - name: Set up SQL VM as IPython server
+    href: setup-sql-server-virtual-machine.md
 - name: Resources
   items:
   - name: Azure Roadmap
