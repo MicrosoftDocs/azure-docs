@@ -1,8 +1,22 @@
 
 # [Overview](overview.md)
 # [Lifecycle](lifecycle.md)
+## [1. Business Understanding](lifecycle-business-understanding.md)
+## [2. Data Acquisition and Understanding](lifecycle-data.md)
+## [3. Modeling](lifecycle-modeling.md)
+## [4. Deployment](lifecycle-deployment.md)
+## [5. Customer Acceptance](lifecycle-acceptance.md)
 ## [With Azure ML](http://aka.ms/datascienceprocess)
-# [Example walkthroughs](walkthroughs.md)
+
+# [Roles and tasks](roles-tasks.md)
+##[Group Manager](group-manager-tasks.md)
+##[Team Lead](team-lead-tasks.md)
+##[Project Lead](project-lead-tasks.md)
+##[Individual Contributor](project-ic-tasks.md)
+
+# [Project execution](project-execution.md)
+
+# [Examples](walkthroughs.md)
 ##[Spark with PySpark and Scala](walkthroughs-spark.md)
 ### [Explore data](spark-data-exploration-modeling.md)
 ### [Score models](spark-model-consumption.md)
@@ -16,6 +30,7 @@
 # How To
 ## [Set up data science environments](environment-setup.md)
 ### [Azure storage accounts](../../storage/common/storage-create-storage-account.md)
+###[Platforms and tools](platforms-and-tools.md)
 ### [Customize Hadoop](customize-hadoop-cluster.md)
 ### [Azure Machine Learning workspace](../studio/create-workspace.md)
 ### [Set up virtual machines](virtual-machines.md)
@@ -81,25 +96,36 @@
 ### [Consume a web service](../studio/consume-web-services.md)
 
 # Related
+
+## [Microsoft Cognitive Toolkit - CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/)
+
 ## Cortana Intelligence Partner Solutions
+###[Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com)
 ### [Cortana Intelligence publishing guide](cortana-intelligence-appsource-publishing-guide.md)
 ### [Cortana Intelligence solution evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
+
 ### APIs
 #### [Anomaly detection](apps-anomaly-detection-api.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+
 #### Predictive maintenance
 ##### [Overview](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Architecture](cortana-analytics-architecture-predictive-maintenance.md)
 ##### [Technical guide](cortana-analytics-technical-guide-predictive-maintenance.md)
+
 #### Vehicle telemetry
 ##### [Overview](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Blog](http://blogs.technet.com/b/machinelearning/)
+
+##[TDSP Tools and Utilities GitHub](https://github.com/Azure/Azure-TDSP-Utilities)
+###[Latest Rev of Utilities for Microsoft Team Data Science Process](https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/)
+
+## [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)

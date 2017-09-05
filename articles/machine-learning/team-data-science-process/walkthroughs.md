@@ -19,9 +19,7 @@ ms.author: bradsev
 ---
 # Walkthroughs executing the Team Data Science Process
 
-These **end-to-end walkthroughs** demonstrate the steps in the Team Data Science Process for specific scenarios. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an **intelligent application**. The walkthroughs are grouped by **platform** that they use. The following menu links to these examples:
-
-[!INCLUDE [tdsp-walkthroughs-by-platform](../../../includes/tdsp-walkthroughs-by-platform.md)]
+These **end-to-end walkthroughs** demonstrate the steps in the Team Data Science Process for specific scenarios. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an **intelligent application**. The walkthroughs are grouped by **platform** that they use.
 
 
 ## Walkthrough descriptions
