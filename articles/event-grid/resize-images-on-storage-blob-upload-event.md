@@ -221,7 +221,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## Deploy the sample app from the GitHub repository
 
-App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from this [sample GitHub repository](https://github.com/Azure-Samples/integration-image-resize-web-app)  . Configure a one-time GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
+App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from this [sample GitHub repository](https://github.com/Azure-Samples/integration-image-resize-web-app). Configure a one-time GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
 
 ```azurecli-interactive
 az webapp deployment source config --name <web_app>  \
@@ -268,7 +268,7 @@ Notice that a thumbnail copy of the uploaded image is displayed in the **Generat
 
 ## Clean up resources
 
-After you are complete, you can remove the resources you created. Use the following command to delete all resources created by this tutorial:
+After you complete this topic, you can remove the resources you created. Use the following command to delete all resources created by this tutorial:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
