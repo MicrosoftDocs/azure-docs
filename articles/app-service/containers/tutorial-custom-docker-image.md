@@ -459,7 +459,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 
 Congratulations! You've configured a custom Docker image for an Azure Web App for Containers.
 
-## Push a Docker image to Private Registry
+## Push a Docker image to Private Registry (Optional)
 
 Azure Container Registry is a managed Docker service from Azure for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Azure app service containers. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
 
@@ -549,7 +549,7 @@ Listing the images in the registry confirms that `mydockerimage` is in the regis
 ]
 ```
 
-## Configure Web App to use Docker container from a Private Registry
+## Configure Web App to use Docker container from a Private Registry (Optional)
 
 You can configure web apps on Linux so that they run a container stored in the Azure Container Registry. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
 
