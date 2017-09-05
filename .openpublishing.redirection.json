@@ -1450,11 +1450,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service-web/app-service-linux-using-custom-docker-image.md",
-            "redirect_url": "/azure/app-service/containers/quickstart-custom-docker-image",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md",
             "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
             "redirect_document_id": false
