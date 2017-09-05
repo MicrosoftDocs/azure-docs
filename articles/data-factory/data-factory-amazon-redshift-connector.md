@@ -102,7 +102,7 @@ For this sample use case, copy activity will firstly unload data from Amazon Red
 
 ```json
 {
-    "name": "Sample copy activity",
+    "name": "CopyFromRedshiftToSQLDW",
     "type": "Copy",
     "typeProperties": {
         "source": {
