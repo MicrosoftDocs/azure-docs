@@ -155,7 +155,7 @@ A registry is an application that hosts images and provides services image and c
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). -->
 
 > [!NOTE]
-> Pushing to a Private Docker Registry? See [Push a Docker image to Private Registry](#push-a-docker-image-to-private-registry).
+> Pushing to a Private Docker Registry? See the optional instructions to [Push a Docker image to Private Registry](#push-a-docker-image-to-private-registry-optional).
 
 <!--## [Docker Hub](#tab/docker-hub)-->
 
@@ -319,7 +319,7 @@ The [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) comma
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
 > [!NOTE]
-> Deploying from a Private Docker Registry? See [Configure Web App to use Docker container from a Private Registry](#configure-web-app-to-use-docker-container-from-a-private-registry).
+> Deploying from a Private Docker Registry? See the optional instructions to [Configure Web App to use Docker container from a Private Registry](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 
