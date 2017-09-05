@@ -137,7 +137,7 @@ az ml env setup -l <Azure region, e.g. eastus2> -n <environmnet name>
 # set the environment to be used
 az ml env set -n <environment name created above> -g <resource group name it was created in>
 ```
-You can sse the set account and set env commands if you create, or have, more than one.
+>Note: You can use the set account and set env commands if you create, or have, more than one.
 
 ### Check your build number
 You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
