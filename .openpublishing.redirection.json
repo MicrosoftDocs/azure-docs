@@ -1406,67 +1406,67 @@
         },
         {
             "source_path": "articles/app-service/app-service-linux-readme.md",
-            "redirect_url": "azure/app-service/containers/app-service-linux-intro",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-ci-cd.md",
-            "redirect_url": "azure/app-service/containers/app-service-linux-ci-cd",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-ci-cd",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-cli.md",
-            "redirect_url": "azure/app-service/containers/app-service-linux-cli",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-cli",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-faq.md",
-            "redirect_url": "azure/app-service/containers/app-service-linux-faq",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-faq",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-intro.md",
-            "redirect_url": "azure/app-service/containers/app-service-linux-intro",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-ssh-support.md",
-            "redirect_url": "azure/app-service/containers/app-service-linux-ssh-support",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-ssh-support",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
-            "redirect_url": "azure/app-service/containers/app-service-linux-using-nodejs-pm2",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-using-nodejs-pm2",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-using-ruby.md",
-            "redirect_url": "azure/app-service/containers/quickstart-ruby",
+            "redirect_url": "/azure/app-service/containers/quickstart-ruby",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-ruby-get-started.md",
-            "redirect_url": "azure/app-service/containers/quickstart-ruby",
+            "redirect_url": "/azure/app-service/containers/quickstart-ruby",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-using-dotnetcore.md",
-            "redirect_url": "azure/app-service/containers/quickstart-dotnetcore",
+            "redirect_url": "/azure/app-service/containers/quickstart-dotnetcore",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-using-custom-docker-image.md",
-            "redirect_url": "azure/app-service/containers/tutorial-custom-docker-image",
+            "redirect_url": "/azure/app-service/containers/tutorial-custom-docker-image",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md",
-            "redirect_url": "azure/app-service/containers/tutorial-docker-python-postgresql-app",
+            "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-changes-existing-services.md",
-            "redirect_url": "azure/app-service-web/app-service-web-overview",
+            "redirect_url": "/azure/app-service-web/app-service-web-overview",
             "redirect_document_id": false
         },
         {
@@ -1476,22 +1476,22 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-app-azure-resource-manager-powershell.md",
-            "redirect_url": "azure/app-service/app-service-web/app-service-powershell-samples",
+            "redirect_url": "/azure/app-service/app-service-web/app-service-powershell-samples",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-app-azure-resource-manager-xplat-cli.md",
-            "redirect_url": "azure/app-service/app-service-web/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/app-service-web/app-service-cli-samples",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-arm-from-github-provision.md",
-            "redirect_url": "azure/app-service/containers/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/containers/app-service-cli-samples",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-arm-with-msdeploy-provision.md",
-            "redirect_url": "azure/app-service/containers/app-service-cli-samples",
+            "redirect_url": "/azure/app-service/containers/app-service-cli-samples",
             "redirect_document_id": false
         },
         {
@@ -1501,27 +1501,27 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-get-started-2.md",
-            "redirect_url": "azure/app-service-web/app-service-web-tutorial-custom-domain",
+            "redirect_url": "/azure/app-service-web/app-service-web-tutorial-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-get-started-dotnet-portal.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-dotnet",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-dotnet",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-get-started-php-portal.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-php",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-test-in-production-get-start.md",
-            "redirect_url": "azure/app-service-web/web-sites-staged-publishing",
+            "redirect_url": "/azure/app-service-web/web-sites-staged-publishing",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/automation-manage-web-app.md",
-            "redirect_url": "azure/app-service-web/app-service-cli-samples",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
             "redirect_document_id": false
         },
         {
@@ -1531,37 +1531,37 @@
         },
         {
             "source_path": "articles/app-service-web/java-create-azure-website-using-java-sdk.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-java",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-java",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/storage-nodejs-use-table-storage-web-site.md",
-            "redirect_url": "azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app",
+            "redirect_url": "/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/websites-csm-backup.md",
-            "redirect_url": "azure/app-service-web/web-sites-backup",
+            "redirect_url": "/azure/app-service-web/web-sites-backup",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-session-state-caching.md",
-            "redirect_url": "azure/redis-cache/cache-aspnet-session-state-provider",
+            "redirect_url": "/azure/redis-cache/cache-aspnet-session-state-provider",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-enterprise-offerings.md",
-            "redirect_url": "azure/app-service-web/app-service-web-overview",
+            "redirect_url": "/azure/app-service-web/app-service-web-overview",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-hybrid-connection-get-started.md",
-            "redirect_url": "azure/app-service/app-service-hybrid-connections",
+            "redirect_url": "/azure/app-service/app-service-hybrid-connections",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-manage-azure-website.md",
-            "redirect_url": "azure/app-service-web/web-sites-scale",
+            "redirect_url": "/azure/app-service-web/web-sites-scale",
             "redirect_document_id": false
         },
         {
@@ -1571,77 +1571,77 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-nodejs-chat-app-socketio.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-nodejs",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-nodejs",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-nodejs-iojs.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-nodejs",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-nodejs",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-php-convert-wordpress-multisite.md",
-            "redirect_url": "azure/app-service-web/web-sites-php-enterprise-wordpress",
+            "redirect_url": "/azure/app-service-web/web-sites-php-enterprise-wordpress",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-php-mysql-deploy-use-ftp.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-php",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-php-mysql-deploy-use-git.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-php",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-php-sql-database-deploy-use-git.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-php",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-php-web-site-gallery.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-php",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-bottle-app.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-django-app.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-flask-app.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-bottle-table-storage.md",
-            "redirect_url": "azure/app-service-webapp-service-web-get-started-python/",
+            "redirect_url": "/azure/app-service-webapp-service-web-get-started-python/",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-django-mysql.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-django-sql.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-flask-table-storage.md",
-            "redirect_url": "azure/app-service-web/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-security.md",
-            "redirect_url": "azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/app-service-authentication-overview",
             "redirect_document_id": false
         },
         {
