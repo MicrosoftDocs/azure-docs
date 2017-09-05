@@ -54,7 +54,7 @@ Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 The name of the registry must be unique. In the following example *myContainerRegistry007* is used. Update this to a unique value. 
 
 ```azurecli
-az acr create --name myContainerRegistry1  --resource-group myResourceGroup --sku Basic
+az acr create --name myContainerRegistry1  --resource-group myResourceGroup --admin-enabled --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
@@ -84,7 +84,7 @@ When the registry is created, the output is similar to the following:
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
 
 ```azurecli-interactive
-az acr login --name myAzureContainerRegistry1
+az acr login --name myContainerRegistry1
 ```
 
 The command returns a 'Login Succeeded' message once completed.
@@ -94,7 +94,7 @@ The command returns a 'Login Succeeded' message once completed.
 To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull are pre-created image from Docker Hub.
 
 ```bash
-docker pull microsoft/azure-vote-front
+docker pull microsoft/azure-vote-front:redis-v1
 ```
 
 The image will need to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
@@ -106,27 +106,42 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Tag the image using the [docker tag]() command. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```
-docker tag microsoft/azure-vote-front acrLoginServer/azure-vote-front
+docker tag microsoft/azure-vote-front:redis-v1 acrLoginServer/azure-vote-front:redis-v1
 ```
 
 Finally, use [Docker push]() to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```
-docker push acrLoginServer/azure-vote-front
+docker push acrLoginServer/azure-vote-front:redis-v1
 ```
 
 ## List container images
 
-The following example lists the repositories in a registry, in JSON (JavaScript Object Notation) format:
+The following example lists the repositories in a registry:
 
 ```azurecli
-az acr repository list -n myContainerRegistry1 -o json
+az acr repository list -n myContainerRegistry1 -o table
 ```
 
-The following example lists the tags on the **samples/nginx** repository, in JSON format:
+Output:
+
+```json
+Result
+----------------
+azure-vote-front
+```
+
+The following example lists the tags on the **azure-vote-front** repository.
 
 ```azurecli
-az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n myContainerRegistry1 --repository azure-vote-front -o table
+```
+
+Output:
+
+```Result
+--------
+redis-v1
 ```
 
 ## Clean up resources
