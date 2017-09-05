@@ -10170,6 +10170,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
+            "redirect_url": "/azure/virtual-machines/windows/agent-user-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/restart-resize-error-troubleshooting.md",
+            "redirect_url": "/azure/virtual-machines/linux/troubleshoot-deploy-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/virtual-machines-windows-sizes-storage.md",
+            "redirect_url": "/azure/virtual-machines/windows/sizes-storage",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
