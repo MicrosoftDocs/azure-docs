@@ -112,7 +112,7 @@ docker tag microsoft/aci-helloworld acrLoginServer/aci-helloworld:v1
 Finally, use [Docker push]() to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```
-docker push acrLoginServer/azure-vote-front:redis-v1
+docker push acrLoginServer/aci-helloworld:v1
 ```
 
 ## List container images
@@ -131,10 +131,10 @@ Result
 aci-helloworld
 ```
 
-The following example lists the tags on the **azure-vote-front** repository.
+The following example lists the tags on the **aci-helloworld** repository.
 
 ```azurecli
-az acr repository show-tags -n myContainerRegistry1 --repository azure-vote-front -o table
+az acr repository show-tags -n myContainerRegistry1 --repository aci-helloworld -o table
 ```
 
 Output:
