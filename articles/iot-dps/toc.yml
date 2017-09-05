@@ -1,7 +1,6 @@
 - name: Azure IoT Hub Device Provisioning Service Documentation 
   href: index.yml
 - name: Overview
-  href: index.yml
   items:
   - name: About Azure IoT DPS
     href: about-iot-dps.md
