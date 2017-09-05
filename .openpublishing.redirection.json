@@ -10413,6 +10413,11 @@
             "source_path": "articles/app-service-web/app-service-linux-choosing-deployment-type.md",
             "redirect_url": "/azure/app-service/containers/choosing-deployment-type",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-custom-docker-image.md",
+            "redirect_url": "/azure/app-service/containers/custom-docker-image",
+            "redirect_document_id": false
         }
     ]
 }

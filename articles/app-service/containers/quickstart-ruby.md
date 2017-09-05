@@ -29,7 +29,7 @@ ms.author: cfowler
 * [Git](https://git-scm.com/downloads).
 * An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -80,7 +80,7 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 ![Hello World configured](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
 
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a Ruby web app on Azure
 
@@ -158,8 +158,7 @@ http://<app name>.azurewebsites.net
 > While the app is restarting, attempting to browse the site results in an HTTP status code `Error 503 Server unavailable`. It may take a few minutes to fully restart.
 >
 
-[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
-
+[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## Next steps
 
