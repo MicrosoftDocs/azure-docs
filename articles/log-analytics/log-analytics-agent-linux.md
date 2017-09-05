@@ -79,7 +79,7 @@ mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. In
 docker-cimprov | 1.0.0 | Docker provider for OMI. Installed if Docker is detected.
 
 ### Compatibility with System Center Operations Manager
-The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. If you install the OMS Agent for Linux on a system currently managed by Operations Manager, it the OMI and SCX packages on the computer to a newer version. In this release, the OMS and System Center 2016 - Operations Manager/Operations Manager 2012 R2 agents for Linux are compatible. 
+The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. If you install the OMS Agent for Linux on a system currently managed by Operations Manager, it upgrades the OMI and SCX packages on the computer to a newer version. In this release, the OMS and System Center 2016 - Operations Manager/Operations Manager 2012 R2 agents for Linux are compatible. 
 
 > [!NOTE]
 > System Center 2012 SP1 and earlier versions are currently not compatible or supported with the OMS Agent for Linux.<br>
