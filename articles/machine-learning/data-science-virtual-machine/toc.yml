@@ -8,23 +8,21 @@
     href: get-started-linux-dsvm.md
 - name: How To
   items:
-  - name: Set up a virtual machine
-    items:
-    - name: Provision a Windows DSVM
-      href: provision-vm.md
-    - name: Use a Windows DSVM
-      href: vm-do-ten-things.md
-    - name: Provision a Linux CentOS DSVM
-      href: linux-dsvm-intro.md
-    - name: Provision a Linux Ubuntu DSVM
-      href: dsvm-ubuntu-intro.md
-    - name: Use a Linux DSVM
-      href: linux-dsvm-walkthrough.md
+  - name: Provision a Windows DSVM
+    href: provision-vm.md
+  - name: Use a Windows DSVM
+    href: vm-do-ten-things.md
+  - name: Provision a Linux CentOS DSVM
+    href: linux-dsvm-intro.md
+  - name: Provision a Linux Ubuntu DSVM
+    href: dsvm-ubuntu-intro.md
+  - name: Use a Linux DSVM
+    href: linux-dsvm-walkthrough.md
 - name: Related
   items:
-  - name: Set up VM as IPython server
+  - name: Set up a VM as IPython server
     href: setup-virtual-machine.md
-  - name: Set up SQL VM as IPython server
+  - name: Set up a SQL VM as IPython server
     href: setup-sql-server-virtual-machine.md
 - name: Resources
   items:
