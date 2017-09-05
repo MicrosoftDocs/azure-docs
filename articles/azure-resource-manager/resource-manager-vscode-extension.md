@@ -97,15 +97,15 @@ Save this file as **azuredeploy.json** to a local folder.
 
 ## Install the extension
 
-In VS Code, select **Extensions**.
+1. In VS Code, select **Extensions**.
 
-![Select extensions](./media/resource-manager-vscode-extension/select-extensions.png)
+   ![Select extensions](./media/resource-manager-vscode-extension/select-extensions.png)
 
-Search for **Azure Resource Manager Tools** and select **Install**.
+2. Search for **Azure Resource Manager Tools** and select **Install**.
 
-![Install extension](./media/resource-manager-vscode-extension/install-extension.png)
+   ![Install extension](./media/resource-manager-vscode-extension/install-extension.png)
 
-To finish the extension installation, select **Reload**.
+3. To finish the extension installation, select **Reload**.
 
 ## Edit template
 

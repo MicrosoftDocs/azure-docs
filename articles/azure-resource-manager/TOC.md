@@ -7,7 +7,7 @@
 
 # Get started
 ## [Create and deploy template](resource-manager-create-first-template.md)
-## [Edit template with VS Code Extension](resource-manager-vscode-extension.md)
+## [VS Code extension for templates](resource-manager-vscode-extension.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
