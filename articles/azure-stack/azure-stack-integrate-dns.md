@@ -11,7 +11,7 @@ keywords:
 ---
 
 # Azure Stack datacenter integration - DNS
-To be able to access Azure Stack endpoints (```portal```, ```adminportal```, ```management```, ```adminmanagement```, etc.)  from outside Azure Stack, you need to integrate the Azure Stack DNS services with the DNS servers that host the DNS zones you want to use in Azure Stack.
+To be able to access Azure Stack endpoints (`portal`, `adminportal`, `management`, `adminmanagement`, etc.)  from outside Azure Stack, you need to integrate the Azure Stack DNS services with the DNS servers that host the DNS zones you want to use in Azure Stack.
 
 ## Azure Stack DNS namespace
 You are required to provide some important information related to DNS when you deploy Azure Stack.
@@ -23,25 +23,25 @@ You are required to provide some important information related to DNS when you d
 |External Domain Name|The name of the zone you want to use for your Azure Stack deployment.|cloud.fabrikam.com|
 |Internal Domain Name|The name of the internal zone that is used for infrastructure services in Azure Stack.  It is Directory Service-integrated and private (not reachable from outside the Azure Stack deployment).|azurestack.local|
 |DNS Forwarder|DNS servers that are used to forward DNS queries, DNS zones and records that are hosted outside Azure Stack, either on the corporate intranet or public internet.|10.57.175.34, 8.8.8.8|
-|Naming Prefix (Optional)|The naming prefix you want your Azure Stack infrastructure role instance machine names to have.  If not provided, the default is ```AZS```.|```azs```|
+|Naming Prefix (Optional)|The naming prefix you want your Azure Stack infrastructure role instance machine names to have.  If not provided, the default is `azs`.|`azs`|
 
 The fully qualified domain name (FQDN) of your Azure Stack deployment and endpoints is the combination of the Region parameter and the External Domain Name parameter. Using the values from the examples in the previous table, the FQDN for this Azure Stack deployment would be the following name:
 
-```east.cloud.fabrikam.com```
+`east.cloud.fabrikam.com`
 
-As such, examples of some of the endpoints for this deployment would look like this:
+As such, examples of some of the endpoints for this deployment would look like the following URLs:
 
-```https://portal.east.cloud.fabrikam.com```
+`https://portal.east.cloud.fabrikam.com`
 
-```https://adminportal.east.cloud.fabrikam.com```
+`https://adminportal.east.cloud.fabrikam.com`
 
-To use this example DNS namespace for an Azure Stack deployment, the following conditions are required :
+To use this example DNS namespace for an Azure Stack deployment, the following conditions are required:
 
-- The zone ```fabrikam.com``` is registered either with a domain registrar, an internal corporate DNS servers, or both, depending on your name resolution requirements.
-- The child domain ```cloud.fabrikam.com``` exists under the zone ```fabrikam.com```.
-- The DNS servers that host the zones ```fabrikam.com``` and ```cloud.fabrikam.com``` can be reached from the Azure Stack deployment.
+- The zone `fabrikam.com` is registered either with a domain registrar, an internal corporate DNS server, or both, depending on your name resolution requirements.
+- The child domain `cloud.fabrikam.com` exists under the zone `fabrikam.com`.
+- The DNS servers that host the zones `fabrikam.com` and `cloud.fabrikam.com` can be reached from the Azure Stack deployment.
 
-To be able to resolve DNS names for Azure Stack endpoints and instances from outside Azure Stack, you’ll need to integrate the DNS servers that host the external DNS zone for Azure Stack with the DNS servers that host the parent zone you want to use.
+To be able to resolve DNS names for Azure Stack endpoints and instances from outside Azure Stack, you need to integrate the DNS servers that host the external DNS zone for Azure Stack with the DNS servers that host the parent zone you want to use.
 
 
 ## Resolution and delegation
@@ -57,11 +57,11 @@ Azure Stack includes both authoritative and recursive DNS servers. The recursive
 
 ## Resolving external DNS names from Azure Stack
 
-To resolve DNS names for endpoints outside Azure Stack (for example: www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For deployment, DNS servers that Azure Stack will forward requests to are required in the Deployment Worksheet (in the DNS Forwarder field). You should provide at least two servers in this field for fault tolerance.  Without these values,  Azure Stack deployment will fail.
+To resolve DNS names for endpoints outside Azure Stack (for example: www.bing.com), you need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For deployment, DNS servers that Azure Stack forwards requests to are required in the Deployment Worksheet (in the DNS Forwarder field). Provide at least two servers in this field for fault tolerance. Without these values, Azure Stack deployment fails.
 
 ### Adding DNS forwarding servers after deployment
 
-You may find that you want to register additional DNS servers if you or your ISP updates your DNS infrastructure. To add DNS servers to forward recursive requests, you must use the privileged endpoint.
+If you or your ISP updates your DNS infrastructure, you might want to register additional DNS servers. To add DNS servers to forward recursive requests, you must use the privileged endpoint.
 
 For this procedure, use a computer in your datacenter network that can communicate with the privileged endpoint in Azure Stack.
 
@@ -72,7 +72,7 @@ For this procedure, use a computer in your datacenter network that can communica
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred
    ```
 
-2. After you connect to the privileged endpoint, run the following PowerShell command. Substitute the sample values provided below with your domain name and IP addresses of the DNS servers you want to use.
+2. After you connect to the privileged endpoint, run the following PowerShell command. Substitute the sample values provided with your domain name and IP addresses of the DNS servers you want to use.
 
    ```
    Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses “192.168.1.1”,”192.168.1.2”
@@ -81,31 +81,31 @@ For this procedure, use a computer in your datacenter network that can communica
 After you run this command, Azure Stack services and user virtual machines that use Azure Stack DNS will be able to resolve the names of Azure Stack endpoints such as the portal and API endpoints, and any public IP addresses that have a DNS name label.
 
 ## Resolving Azure Stack DNS names from outside Azure Stack
-The authoritative servers are the ones that hold the external DNS zone information, and any user-created zones. You’ll need to integrate with these servers to enable zone delegation or conditional forwarding to resolve Azure Stack DNS names from outside Azure Stack.
+The authoritative servers are the ones that hold the external DNS zone information, and any user-created zones. Integrate with these servers to enable zone delegation or conditional forwarding to resolve Azure Stack DNS names from outside Azure Stack.
 
 ## Obtaining the DNS Servers external endpoint information
 
-To integrate your Azure Stack deployment with your DNS infrastructure, you’ll need the following information:
+To integrate your Azure Stack deployment with your DNS infrastructure, you need the following information:
 
 - DNS server FQDNs
 - DNS server IP addresses
 
 The FQDNs for the Azure Stack DNS servers have the following format:
 
-```<NAMINGPREFIX>-ns01.<REGION>.<EXTERNALDOMAINNAME>```
+`<NAMINGPREFIX>-ns01.<REGION>.<EXTERNALDOMAINNAME>`
 
-```<NAMINGPREFIX>-ns02.<REGION>.<EXTERNALDOMAINNAME>```
+`<NAMINGPREFIX>-ns02.<REGION>.<EXTERNALDOMAINNAME>`
 
-Using these sample values, the FQDNs for the DNS servers would look like this:
+Using the sample values, the FQDNs for the DNS servers are:
 
-```azs-ns01.east.cloud.fabrikam.com```
+`azs-ns01.east.cloud.fabrikam.com`
 
-```azs-ns02.east.cloud.fabrikam.com```
+`azs-ns02.east.cloud.fabrikam.com`
 
 
-This information is also created at the end of all Azure Stack deployments in a file named ```AzureStackStampDeploymentInfo.json```. This file is located in the ```C:\CloudDeployment\logs``` folder of the Deployment virtual machine. If you’re not sure what values were used for your Azure Stack deployment, you can get the values from here.
+This information is also created at the end of all Azure Stack deployments in a file named `AzureStackStampDeploymentInfo.json`. This file is located in the `C:\CloudDeployment\logs` folder of the Deployment virtual machine. If you’re not sure what values were used for your Azure Stack deployment, you can get the values from here.
 
-If the Deployment virtual machine is no longer available or is inaccessible, you can obtain the values by connecting to the privileged endpoint and running the ```Get-AzureStackInfo``` PowerShell cmdlet. For more information about the privileged endpoint, see (insert link to article here).
+If the Deployment virtual machine is no longer available or is inaccessible, you can obtain the values by connecting to the privileged endpoint and running the `Get-AzureStackInfo` PowerShell cmdlet. For more information about the privileged endpoint, see (insert link to article here).
 
 ## Setting up conditional forwarding to Azure Stack
 
@@ -117,8 +117,8 @@ In scenarios where you specified your external Azure Stack DNS Zone to look like
 
 Example:
 
-- Corporate DNS Domain Name: ```contoso.com```
-- Azure Stack External DNS Domain Name: ```azurestack.contoso.com```
+- Corporate DNS Domain Name: `contoso.com`
+- Azure Stack External DNS Domain Name: `azurestack.contoso.com`
 
 ## Delegating the external DNS zone to Azure Stack
 
