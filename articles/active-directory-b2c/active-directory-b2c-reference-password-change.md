@@ -19,7 +19,7 @@ ms.author: vigunase
 # Azure Active Directory B2C: Configure password change in custom policies  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-With the password change feature, signed-in consumers (using local accounts) can change their passwords without having to prove their authenticity by email verification as described in the [self-service password reset flow.](active-directory-b2c-reference-sspr.md) If the session expires by the time the consumer gets to password change flow, user will be prompted to sign-in again. 
+With the password change feature, signed-in consumers (using local accounts) can change their passwords without having to prove their authenticity by email verification as described in the [self-service password reset flow.](active-directory-b2c-reference-sspr.md) If the session expires by the time the consumer gets to password change flow, user is prompted to sign in again. 
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ The overall structure of your custom policy must include a `ClaimsSchema`and def
 
 The purpose of these elements is as follows:
 
-- The `ClaimsSchema` defines which claim is being validated.  In this case the 'old password' will be validated. 
+- The `ClaimsSchema` defines which claim is being validated.  In this case, the 'old password' will be validated. 
 
 ## Add a password change claims provider with its supporting elements
 
@@ -59,7 +59,7 @@ The following password change claims provider will
 
 ![img](images/passwordchange.jpg)
 
-Please add the following claims provider to your extensions policy. 
+Add the following claims provider to your extensions policy. 
 
 ```XML
 <ClaimsProviders>
@@ -187,11 +187,7 @@ Next, update the relying party (RP) file that initiates the user journey that yo
 2. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with a unique value. This is the name of your policy (for example, PasswordChange).
 3. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the `Id` of the new user journey that you created (for example, PasswordChange).
 4. Save your changes, and then upload the file.
-5. To test the custom policy that you just uploaded, in the Azure portal, go to the policy blade, and then click **Run now**.
-
-
-
-Alternatively, the sample policy files (trust framework extensions and relying party) for password change can be found in [github](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
+5. To test the custom policy that you uploaded, in the Azure portal, go to the policy blade, and then click **Run now**.
 
 
 
