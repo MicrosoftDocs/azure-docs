@@ -96,7 +96,7 @@ Alternatively, you can also use type **RelationalSource** (which includes Amazon
 
 **Example: Copy data from Amazon Redshift to Azure SQL Data Warehouse using UNLOAD, staged copy and PolyBase**
 
-For this example use case, copy activity will firstly unload data from Amazon Redshift to Amazon S3 configured in "redshiftUnloadSettings", then copy data from Amazon S3 to Azure Blob specified in "stagingSettings", lastly use PolyBase to load data into SQL Data Warehouse. All the interim format will be handled by copy activity automatically.
+For this sample use case, copy activity will firstly unload data from Amazon Redshift to Amazon S3 as configured in "redshiftUnloadSettings", then copy data from Amazon S3 to Azure Blob as specified in "stagingSettings", lastly use PolyBase to load data into SQL Data Warehouse. All the interim format will be handled by copy activity automatically.
 
 ![Redshift to SQL DW copy workflow](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
 
@@ -121,7 +121,8 @@ For this example use case, copy activity will firstly unload data from Amazon Re
         "stagingSettings": {
             "linkedServiceName": "AzureStorageLinkedService",
             "path": "adfstagingcopydata"
-        }
+        },
+        "cloudDataMovementUnits": 32
         .....
     }
 }
