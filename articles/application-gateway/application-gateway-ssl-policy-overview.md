@@ -20,13 +20,13 @@ ms.author: amsriva
 
 # Application Gateway SSL policy overview
 
-Azure Application Gateway enables you to centralize SSL certificate management and reduce encryption and decryption overhead from a back-end server farm. This centralized SSL handling also lets you specify a central SSL policy suited to your organizational security requirements. This helps you meet both compliance requirements as well as security guidelines and recommended practices.
+You can use Azure Application Gateway to centralize SSL certificate management and reduce encryption and decryption overhead from a back-end server farm. This centralized SSL handling also lets you specify a central SSL policy that's suited to your organizational security requirements. This helps you meet compliance requirements as well as security guidelines and recommended practices.
 
-The SSL policy includes control of the SSL protocol version as well as the cipher suites and the order ciphers are used during an SSL handshake. Application Gateway offers two mechanisms to enable customers to control SSL policy. You can use either  a predefined policy or a custom policy.
+The SSL policy includes control of the SSL protocol version as well as the cipher suites and the order in which ciphers are used during an SSL handshake. Application Gateway offers two mechanisms for controlling SSL policy. You can use either  a predefined policy or a custom policy.
 
 ## Predefined SSL policy
 
-Application Gateway has three predefined security policies. You can configure your gateway with any of these policies to get the appropriate level of security. The policy names are annotated by the year and month in which they were configured. Each policy offers different SSL protocol versions and cipher suites. We recommend that you use the newest SSL policies to ensure the best SSL security. Application Gateway lets users choose from one of the following predefined policies:
+Application Gateway has three predefined security policies. You can configure your gateway with any of these policies to get the appropriate level of security. The policy names are annotated by the year and month in which they were configured. Each policy offers different SSL protocol versions and cipher suites. We recommend that you use the newest SSL policies to ensure the best SSL security.
 
 ### AppGwSslPolicy20150501
 
@@ -61,7 +61,7 @@ If a predefined SSL policy needs to be configured for your requirements, you mus
  
 ### SSL protocol versions
 
-* SSL 2.0 and 3.0 are disabled by default for all Application Gateways. These protocol versions are not configurable.
+* SSL 2.0 and 3.0 are disabled by default for all application gateways. These protocol versions are not configurable.
 * A custom SSL policy gives you the option to select any one of the following three protocols as the minimum SSL protocol version for your gateway: TLSv1_0, TLSv1_1, and TLSv1_2.
 * If no SSL policy is defined, all three protocols (TLSv1_0, TLSv1_1, and TLSv1_2) are enabled.
 
@@ -69,7 +69,6 @@ If a predefined SSL policy needs to be configured for your requirements, you mus
 
 Application Gateway supports the following cipher suites from which you can choose your custom policy. The ordering of the cipher suites determines the priority order during SSL negotiation.
 
-Available cipher suites:
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
