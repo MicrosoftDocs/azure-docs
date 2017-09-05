@@ -56,12 +56,6 @@
     href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: How-To guides
   items:
-  - name: Configure runtime
-    items:
-    - name: PHP on Windows
-      href: ../../app-service-web/web-sites-php-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Python
-      href: ../../app-service-web/web-sites-python-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Configure application
     items:
     - name: Use app settings
@@ -108,7 +102,6 @@
         href: ../../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Authenticate with Twitter
         href: ../../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Enable HSTS
     - name: Configure TLS mutual authentication
       href: ../../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Scale app
