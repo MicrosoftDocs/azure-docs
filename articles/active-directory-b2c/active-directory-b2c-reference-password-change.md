@@ -191,6 +191,10 @@ Next, update the relying party (RP) file that initiates the user journey that yo
 
 
 
+Alternatively, the sample policy files (trust framework extensions and relying party) for password change can be found in [github](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
+
+
+
 
 
 
