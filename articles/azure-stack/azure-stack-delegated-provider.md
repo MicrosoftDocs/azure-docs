@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 08/25/2017
 ms.author: alfredop
 
 ---
@@ -43,7 +43,7 @@ involved:
 * The **cloud operator** manages the Azure Stack
   infrastructure, creates an offer template, and delegates others to
   offer it to their users.
-* The delegated cloud administrators are called **delegated providers**. They can
+* The delegated Azure Stack operators are called **delegated providers**. They can
   belong to other organizations (such as other Azure Active
   Directory tenants).
 * **Users** sign up for the offers and use them for managing their
@@ -54,10 +54,10 @@ delegation.
 
 1. **Identify the delegated providers** by subscribing them to an
    offer based on a plan that contains only the subscriptions service.
-   Users who subscribe to this offer acquire some of the cloud
-   administrator’s capabilities, including the ability to extend offers
+   Users who subscribe to this offer acquire some of the Azure Stack
+   operator’s capabilities, including the ability to extend offers
    and sign users up for them.
-2. Delegate an offer to the delegated provider. This offer functions as
+2. **Delegate an offer to the delegated provider**, this offer functions as
    a template for what the delegated provider can offer. The delegated
    provider is now able to take the offer, choose a name for it (but
    not change its services and quotas), and offer it to customers.
@@ -75,8 +75,8 @@ delegate an offer to the delegated provider. The delegated provider is
 now able to take the offer, rename it (but not change its substance),
 and offer it to its customers.
 
-To establish a delegated provider, delegate an offer, and verify that
-users can sign up for it, The following sections describe this process.
+The following sections describe how to establish a delegated provider, delegate an offer, and verify that
+users can sign up for it.
 
 ## Set up roles
 

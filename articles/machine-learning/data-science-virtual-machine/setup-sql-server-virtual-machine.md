@@ -4,7 +4,7 @@ description: Set up a Data Science Virtual Machine with SQL Server and IPython S
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 1fd6014a-d180-4558-b4eb-d9b5a331a99f
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 09/04/2017
 ms.author: xibingao;bradsev
 
 ---

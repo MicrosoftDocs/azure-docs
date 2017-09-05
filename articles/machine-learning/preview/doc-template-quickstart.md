@@ -2,8 +2,8 @@
 title: Quickstart article for Machine Learning Server | Microsoft Docs
 description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
 services: machine-learning
-author: yourgithubalias
-ms.author: yourmsftalias
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -24,7 +24,7 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 ## Create an Azure Machine Learning Server
 1. Fill in the details:
 
-   ![This is a screenshot](media/doc-template-quickstart/1-machine-learning-image.png)
+   ![This image is a screenshot. Put alt-text here.](media/doc-template-quickstart/1-machine-learning-image.png)
 
 This table is the kind of table to use following a screenshot to describe how to fill in the form seen in the screenshot. 
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/04/2017
 ms.author: bradsev
 
 ---
@@ -22,9 +22,7 @@ ms.author: bradsev
 
 These walkthroughs use U-SQL with Azure Data Lake to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an introduction to Azure Data Lake, see [Overview of Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md).
 
-Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use: 
-
-[!INCLUDE [tdsp-walkthroughs-by-platform](../../../includes/tdsp-walkthroughs-by-platform.md)]
+Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use. See [Walkthroughs executing the Team Data Science Process](walkthroughs.md) for an itemization of these examples.
 
 
 ## Predict taxi tips using U-SQL with Azure Data Lake
