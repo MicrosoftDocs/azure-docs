@@ -18,7 +18,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ---
 
-# How to enable native client apps to interact with proxy Applications
+# How to enable native client apps to interact with proxy applications
 
 In addition to web applications, Azure Active Directory Application Proxy can also be used to publish native client apps that are configured with the Azure AD Authentication Library (ADAL). Native client apps differ from web apps because they are installed on a device, while web apps are accessed through a browser. 
 
