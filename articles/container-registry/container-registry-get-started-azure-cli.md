@@ -73,7 +73,7 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-## Log in to ACR instance
+## Log in to ACR
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
 
@@ -83,16 +83,9 @@ az acr login --name myAzureContainerRegistry1
 
 The command returns a 'Login Succeeded' message once completed.
 
-## Use Azure Container Registry
+## Push image to ACR
 
-### List container images
-
-Use the `az acr` CLI commands to query the images and tags in a repository.
-
-> [!NOTE]
-> Currently, Container Registry does not support the `docker search` command to query for images and tags.
-
-### List repositories
+## List container images
 
 The following example lists the repositories in a registry, in JSON (JavaScript Object Notation) format:
 
@@ -100,13 +93,15 @@ The following example lists the repositories in a registry, in JSON (JavaScript 
 az acr repository list -n myContainerRegistry1 -o json
 ```
 
-### List tags
+## List image tags
 
 The following example lists the tags on the **samples/nginx** repository, in JSON format:
 
 ```azurecli
 az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
 ```
+
+## Delete container registry
 
 ## Next steps
 
