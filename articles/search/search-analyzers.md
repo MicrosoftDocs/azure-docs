@@ -42,7 +42,7 @@ The following list describes which analyzers are supported in Azure Search.
 
 | Category | Description |
 |----------|-------------|
-| [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Used automatically for indexing and queries. No specification or configuration is required. This general purpose analyzer performs well for most languages and scenarios.|
+| [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Used automatically for indexing and queries. No specification or configuration is required. This general-purpose analyzer performs well for most languages and scenarios.|
 | [Predefined analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types:<br/><br/>Specialized (language agnostic) analyzers for text inputs requiring specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) provide rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | A user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
@@ -50,9 +50,9 @@ The following list describes which analyzers are supported in Azure Search.
 
 1. For custom analyzers only, create an `analyzer` definition the index. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Custom Analyzers > Create](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
-2. On each field for which you want to use the analzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). The target analyzer is a predefined analyzer, a language analyzer, or a custom analyzer you previously defined in the index.
+2. On each field for which you want to use the analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). The target analyzer is a predefined analyzer, a language analyzer, or a custom analyzer you previously defined in the index.
 
- Optionally, you can instead specify different anlayzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
+ Optionally, you can instead specify different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
 
 3. Rebuild the index to invoke the new text processing behaviors.
 
@@ -89,8 +89,8 @@ This example illustrates an analyzer definition with custom options. Custom opti
 Walking through this example:
 
 * Analyzers are a property of the field class for a searchable field.
-* A custom analyzer is part of an index definition. It might be minimally customized (for example, customizing a single option in one filter) or customized in multiple places.
-* In this case, the custom analyzer is "my_analyzer" which in turn uses a customized standard tokenizer "my_standard_tokenizer" and two token filters: lowercase and customized asciifolding filter "my_asciifolding".
+* A custom analyzer is part of an index definition. It might be lightly customized (for example, customizing a single option in one filter) or customized in multiple places.
+* In this case, the custom analyzer is "my_analyzer", which in turn uses a customized standard tokenizer "my_standard_tokenizer" and two token filters: lowercase and customized asciifolding filter "my_asciifolding".
 * It also defines a custom  "map_dash" char filter to replace all dashes with underscores before tokenization (the standard tokenizer breaks on dash but not on underscore).
 
 ~~~~
@@ -241,7 +241,7 @@ Fields containing strings in different languages can use a language analyzer, wh
 
 ## Next steps
 
-+ Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that are somewhat counter-intuitive on the surface. 
++ Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that might seem counter-intuitive on the surface. 
 
 + Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 
