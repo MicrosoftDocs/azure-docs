@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 04/18/2017
+ms.date: 08/01/2017
 ms.author: larryfr
 
 ---
@@ -279,7 +279,7 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
 6. To configure the interface that Kafka listens on, enter `listeners` in the __Filter__ field on the upper right.
 
-7. To configure Kafka to listen on all network interfaces, change the value in the __listeners__ field to `PLAINTEXT://0.0.0.0:92092`.
+7. To configure Kafka to listen on all network interfaces, change the value in the __listeners__ field to `PLAINTEXT://0.0.0.0:9092`.
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
@@ -297,7 +297,7 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
 ### Connect to the VPN gateway
 
-To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate) document.
+To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) document.
 
 ## <a id="python-client"></a> Example: Python client
 
@@ -338,7 +338,8 @@ To validate connectivity to Kafka, use the following steps to create and run a P
   ```python
   from kafka import KafkaProducer
   # Replace the `ip_address` entries with the IP address of your worker nodes
-  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2','kafka_broker_3','kafka_broker_4'])
+  # NOTE: you don't need the full list of worker nodes, just one or two.
+  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
   for _ in range(50):
       producer.send('testtopic', b'test message')
   ```
@@ -357,9 +358,10 @@ To validate connectivity to Kafka, use the following steps to create and run a P
    ```python
    from kafka import KafkaConsumer
    # Replace the `ip_address` entries with the IP address of your worker nodes
+   # Again, you only need one or two, not the full list.
    # Note: auto_offset_reset='earliest' resets the starting offset to the beginning
    #       of the topic
-   consumer = KafkaConsumer(bootstrap_servers=['kafka_broker_1','kafka_broker_2','kafka_broker_3','kafka_broker_4'],auto_offset_reset='earliest')
+   consumer = KafkaConsumer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'],auto_offset_reset='earliest')
    consumer.subscribe(['testtopic'])
    for msg in consumer:
      print (msg)

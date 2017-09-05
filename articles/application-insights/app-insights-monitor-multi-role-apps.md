@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights support for multiple components, microservices, and containers | Microsoft Docs
 description: Monitoring apps that consist of multiple components or roles for performance and usage.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Monitor multi-component applications with Application Insights (preview)
@@ -25,7 +25,9 @@ We use 'component' here to mean any functioning part of a large application. For
 
 ### Sharing a single Application Insights resource 
 
-The key technique here is to send telemetry from every component in your application to the same Application Insights resource, but use the `cloud_RoleName` property to distinguish components when necessary. 
+The key technique here is to send telemetry from every component in your application to the same Application Insights resource, but use the `cloud_RoleName` property to distinguish components when necessary. The Application Insights SDK adds the `cloud_RoleName` property to the telemetry components emit. For example, the SDK will add a web site name, or service role name to the `cloud_RoleName` property. You can override this value with a telemetryinitializer. The Application Map uses the `cloud_RoleName` property to identify the components on the map.
+
+For more information about how do override the `cloud_RoleName` property see [Add properties: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
 In some cases, this may not be appropriate, and you may prefer to use separate resources for different groups of components. For example, you might need to use different resources for management or billing purposes. Using separate resources means that you don't see all the components displayed on a single Application Map; and that you can't query across components in [Analytics](app-insights-analytics.md). You also have to set up the separate resources.
 

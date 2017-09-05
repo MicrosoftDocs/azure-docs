@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 07/20/2017
 ms.author: pullabhk;markgal
 
 ---
-# Recover files from Azure virtual machine backup (Preview)
+# Recover files from Azure virtual machine backup
 
 Azure backup provides the capability to restore [Azure VMs and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups. Now this article explains how you can recover items such as files and folders from an Azure VM backup.
 
@@ -30,7 +30,7 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
 1. Sign into the [Azure portal](http://portal.Azure.com). Find the relevant Recovery services vault and the required backup item.
 
-2. On the Backup Item blade, click **File Recovery (Preview)**
+2. On the Backup Item blade, click **File Recovery**
 
     ![Open Recovery Services vault backup item](./media/backup-azure-restore-files-from-vm/open-vault-item.png)
 
@@ -44,13 +44,19 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
   The executable/script creates a connection between the local computer and the specified recovery point.
 
-5. On the computer where you want to recover the files, run the executable/script. You must run it with Administrator credentials. If you run the script on a computer with restricted access, ensure there is access to:
+5. You need a password to run the downloaded script/executable. You can copy the password from the portal using the copy button beside the generated password
 
-    - go.microsoft.com
+    ![Generated password](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
+
+6. On the computer where you want to recover the files, run the executable/script. You must run it with Administrator credentials. If you run the script on a computer with restricted access, ensure there is access to:
+
+    - download.microsoft.com
     - Azure endpoints used for Azure VM backups
     - outbound port 3260
 
    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If those do not exist on the machine where it is run, it asks for permission to install the relevant components and installs them upon consent.
+   
+   Enter the password copied from the portal when prompted. Once the valid password is entered the scripts connects to the recovery point.
       
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/executable-output.png)
     

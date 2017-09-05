@@ -1,6 +1,6 @@
 ---
 title: Use MongoDB APIs to build an Azure Cosmos DB app | Microsoft Docs
-description: A tutorial that creates an online database using the DocumentDB APIs for MongoDB.
+description: A tutorial that creates an online database using the Azure Cosmos DB APIs for MongoDB.
 keywords: mongodb examples
 services: cosmos-db
 author: AndrewHoh
@@ -44,7 +44,7 @@ To use this example, you must:
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {
@@ -122,7 +122,7 @@ To use this example, you must:
 2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](connect-mongodb-account.md)):
    
     ```nodejs
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**

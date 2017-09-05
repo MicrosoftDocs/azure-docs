@@ -26,7 +26,7 @@ Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) supports 
 
 * You can attach managed data disks to the scale set.
 
-* With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 100 VMs if based on a custom image.
+* With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 300 VMs if based on a custom image.
 
 ## Get started
 
@@ -41,7 +41,7 @@ Alternatively, you could look in the [Azure Quickstart Templates GitHub repo](ht
 
 ## Next steps
 
-For more information on managed disks in general, see [this article](../storage/storage-managed-disks-overview.md).
+For more information on managed disks in general, see [this article](../virtual-machines/windows/managed-disks-overview.md).
 
 To see how to convert a Resource Manager template to provision scale sets with managed disks, see [this article](./virtual-machine-scale-sets-convert-template-to-md.md). The same modifications to the Resource Manager templates apply to the Azure REST API as well.
 

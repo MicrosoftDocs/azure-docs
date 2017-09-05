@@ -70,7 +70,7 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
     a. In the **Name** textbox, type `Reporting API application`.
 
-    b. As **Application type**, select `Web app / API`.
+    b. As **Application type**, select **Web app / API**.
 
     c. In the **Sign-on URL** textbox, type `https://localhost`.
 

@@ -32,7 +32,7 @@ You can upload service certificates to Azure classic portal either using the Azu
 Service certificates can be managed separately from your services, and may be managed by different individuals. For example, a developer may upload a service package that refers to a certificate that an IT manager has previously uploaded to Azure. An IT manager can manage and renew that certificate (changing the configuration of the service) without needing to upload a new service package. Updating without a new service package is possible because the logical name, store name, and location of the certificate is in the service definition file and while the certificate thumbprint is specified in the service configuration file. To update the certificate, it's only necessary to upload a new certificate and change the thumbprint value in the service configuration file.
 
 >[!Note]
->The [Cloud Services FAQ](cloud-services-faq.md#certificates) article has some helpful information about certificates.
+>The [Cloud Services FAQ](cloud-services-faq.md) article has some helpful information about certificates.
 
 ## What are management certificates?
 Management certificates allow you to authenticate with the classic deployment model. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. These are not really related to cloud services. 

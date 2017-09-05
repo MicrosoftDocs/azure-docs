@@ -4,7 +4,7 @@ description: 'This topic describes how to set up a Channel that receives a singl
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
 
 ---

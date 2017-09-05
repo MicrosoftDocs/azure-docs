@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/26/2017
 ms.author: sstein
 
 ---
@@ -49,7 +49,9 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 Deploy the Wingtip SaaS app:
 
-1. Clicking the **Deploy to Azure** button opens the Azure portal to the Wingtip SaaS deployment template. The template requires two parameter values; a name for a new resource group, and a user name that distinguishes this deployment from other deployments of the Wingtip SaaS app. The next step provides details for setting these values. Make sure to note the exact values that you use, because you will need to enter them into a configuration file later.
+1. Clicking the **Deploy to Azure** button opens the Azure portal to the Wingtip SaaS deployment template. The template requires two parameter values; a name for a new resource group, and a user name that distinguishes this deployment from other deployments of the Wingtip SaaS app. The next step provides details for setting these values.
+
+   Make sure to note the exact values that you use, because you will need to enter them into a configuration file later.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -58,7 +60,7 @@ Deploy the Wingtip SaaS app:
     > [!IMPORTANT]
     > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group**, and do not use existing resource groups, servers, or pools. Do not use this application, or any resources it creates, for production. Delete this resource group when you are finished with the application to stop related billing.
 
-    * **Resource group** - Select **Create new** and provide a **Name** and **Location**.
+    * **Resource group** - Select **Create new** and provide a **Name** for the resource group. Select a **Location** from the drop-down list.
     * **User** - Some resources require names that are globally unique. To ensure uniqueness, each time you deploy the application provide a value to differentiate resources you create, from resources created by any other deployment of the Wingtip application. It’s recommended to use a short **User** name, such as your initials plus a number (for example, *bg1*), and then use that in the resource group name (for example, *wingtip-bg1*). The **User** parameter can only contain letters, numbers, and hyphens (no spaces). The first and last character must be a letter or a number (all lowercase is recommended).
 
 
@@ -104,7 +106,7 @@ The app showcases venues, such as concert halls, jazz clubs, sports clubs, that 
 
 A central **Events Hub** provides a list of tenant URLs specific to your deployment.
 
-1. Open the _Events Hub_: http://events.wtp.&lt;USER&gt;.trafficmanager.net (replace with your deployment's user name):
+1. Open the _Events Hub_ in your web browser: http://events.wtp.&lt;USER&gt;.trafficmanager.net (replace with your deployment's user name):
 
     ![events hub](media/sql-database-saas-tutorial/events-hub.png)
 
@@ -125,7 +127,7 @@ Now that the app is deployed, let’s put it to work! The *Demo-LoadGenerator* P
 1. Press **F5** to run the script and start the load generator (leave the default parameter values for now).
 
 > [!IMPORTANT]
-> The load generator is running as a series of jobs in your local PowerShell session. The *Demo-LoadGenerator.ps1* script kicks off the actual load generator script, which runs as a foreground task plus a series of background load-generation jobs. A load-generator job is invoked for each database registered in the catalog. The jobs are running in your local PowerShell session, so closing the PowerShell session stops all jobs. If you suspend your machine, load generation is paused and will resume when you wake up your machine.
+> To run other scripts, open a new PowerShell ISE window. The load generator is running as a series of jobs in your local PowerShell session. The *Demo-LoadGenerator.ps1* script kicks off the actual load generator script, which runs as a foreground task plus a series of background load-generation jobs. A load-generator job is invoked for each database registered in the catalog. The jobs are running in your local PowerShell session, so closing the PowerShell session stops all jobs. If you suspend your machine, load generation is paused and will resume when you wake up your machine.
 
 Once the load generator invokes load-generation jobs for each tenant, the foreground task remains in a job-invoking state, where it starts additional background jobs for any new tenants that are subsequently provisioned. You can use *Ctrl-C* or press the *Stop* button to stop the foreground task, but existing background jobs will continue generating load on each database. If you need to monitor and control the background jobs, use *Get-Job*, *Receive-Job* and *Stop-Job*. While the foreground task is running you cannot use the same PowerShell session to execute other scripts. To run other scripts, open a new PowerShell ISE window.
 
@@ -155,11 +157,11 @@ Refresh the *Events Hub* and the new tenant now appears in the list.
 
 Now that you've started running a load against the collection of tenants, let’s look at some of the resources that were deployed:
 
-1. In the [Azure portal](http://portal.azure.com), open the **catalog-&lt;USER&gt;** server. The catalog server contains two databases. The **tenantcatalog**, and the **basetenantdb** (an empty *golden* or template database that is copied to create new tenants).
+1. In the [Azure portal](http://portal.azure.com), browse to your list of SQL servers and open the **catalog-&lt;USER&gt;** server. The catalog server contains two databases. The **tenantcatalog**, and the **basetenantdb** (an empty *golden* or template database that is copied to create new tenants).
 
    ![databases](./media/sql-database-saas-tutorial/databases.png)
 
-1. Open the **tenants1-&lt;USER&gt;** server that holds the tenant databases. Each tenant database is an _Elastic Standard_ database in a 50 eDTU standard pool. Also notice there is a _Red Maple Racing_ database, the tenant database you provisioned previously.
+1. Go back to your list of SQL servers and open the **tenants1-&lt;USER&gt;** server that holds the tenant databases. Each tenant database is an _Elastic Standard_ database in a 50 eDTU standard pool. Also notice there is a _Red Maple Racing_ database, the tenant database you provisioned previously.
 
    ![server](./media/sql-database-saas-tutorial/server.png)
 

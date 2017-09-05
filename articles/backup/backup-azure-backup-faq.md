@@ -1,7 +1,7 @@
 
 ---
 title: Azure Backup FAQ | Microsoft Docs
-description: 'Answers to common questions about: Recovery Services vault, what it can backup, how it works, encryption, and limits.'
+description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,9 +14,9 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 3/10/2017
-ms.author: markgal;giridham;arunak;trinadhk;
+ms.topic: article
+ms.date: 7/21/2017
+ms.author: markgal;arunak;trinadhk;
 
 ---
 # Questions about the Azure Backup service
@@ -49,14 +49,22 @@ Unfortunately no, you can't migrate the contents of a Backup vault to a Recovery
 Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
 
 1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
-2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
-3. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. For detailed information on backing up a VM to a Recovery Services vault, see the article, [Protect Azure VMs with a Recovery Services vault](backup-azure-vms-first-look-arm.md).
+2. Delete the backup/snapshot extension from the VM.
+3. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
+4. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. For detailed information on backing up a VM to a Recovery Services vault, see the article, [Protect Azure VMs with a Recovery Services vault](backup-azure-vms-first-look-arm.md).
 
 ## Azure Backup agent
 Detailed list of questions are present in [FAQ on Azure file-folder backup](backup-azure-file-folder-backup-faq.md)
 
 ## Azure VM backup
 Detailed list of questions are present in [FAQ on Azure VM backup](backup-azure-vm-backup-faq.md)
+
+## Back up VMware servers
+
+### Can I back up VMware vCenter servers to Azure?
+
+Yes. You can use Azure Backup Server to back up VMware vCenter and ESXi to Azure. For information on the supported VMware version, see the article, [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). For step-by-step instructions, see [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
+
 
 ## Azure Backup Server and System Center Data Protection Manager
 ### Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server? <br/>

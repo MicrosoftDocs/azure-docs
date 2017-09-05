@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
+ms.reviewer: elisol
 
 ---
 # Understanding the Azure Active Directory application manifest

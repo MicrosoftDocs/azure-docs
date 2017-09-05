@@ -3,7 +3,7 @@ title: Azure Managed Application create UI definition functions | Microsoft Docs
 description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 
 ---
 # CreateUiDefinition functions
@@ -782,6 +782,6 @@ The following example returns `"1991-01-01T00:59:59.000Z"`:
 "[addHours('1990-12-31T23:59:59Z', 1)]"
 ```
 
-## Next Steps
+## Next steps
 * For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
 

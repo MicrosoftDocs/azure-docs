@@ -19,6 +19,8 @@
     items:
     - name: Timer
       href: functions-create-scheduled-function.md
+    - name: Generic webhook
+      href: functions-create-generic-webhook-triggered-function.md
     - name: GitHub webhook
       href: functions-create-github-webhook-triggered-function.md
     - name: Blob storage
@@ -37,13 +39,17 @@
     href: functions-twitter-email.md
   - name: 2 - Create a serverless API
     href: functions-create-serverless-api.md
+  - name: 3 - Create an OpenAPI definition
+    href: functions-openapi-definition.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
   - name: Azure CLI
     href: functions-cli-samples.md
 - name: Concepts
   items:
-  - name: Consumption and App Service plans
+  - name: Hosting plans comparison
     href: functions-scale.md
   - name: Triggers and bindings
     href: functions-triggers-bindings.md
@@ -95,6 +101,8 @@
       href: functions-api-definition-getting-started.md    
     - name: Export to PowerApps and Microsoft Flow
       href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Call a function from PowerApps
+      href: functions-powerapps-scenario.md
 - name: Reference
   items:
   - name: Bindings
@@ -107,6 +115,8 @@
       href: functions-bindings-event-hubs.md
     - name: External file
       href: functions-bindings-external-file.md
+    - name: External table
+      href: functions-bindings-external-table.md
     - name: HTTP and webhooks
       href: functions-bindings-http-webhook.md
     - name: Mobile Apps
@@ -130,9 +140,11 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: MSDN forum

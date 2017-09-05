@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
 
@@ -118,7 +118,7 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
    In [this example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) of this approach, [Azure Container Service](https://azure.microsoft.com/services/container-service/) deploys a cluster based on scale sets with a container orchestrator.
 
 ## Scale set performance and scale guidance
-* A scale set supports up to 1,000 VMs. If you create and upload your own custom VM images, the limit is 100. For considerations in using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).
+* A scale set supports up to 1,000 VMs. If you create and upload your own custom VM images, the limit is 300. For considerations in using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).
 * You do not have to pre-create Azure storage accounts to use scale sets. Scale sets support Azure managed disks, which negate performance concerns about the number of disks per storage account. For more information, see [Azure virtual machine scale sets and managed disks](virtual-machine-scale-sets-managed-disks.md).
 * Consider using Azure Premium Storage instead of Azure Storage for faster, more predictable VM provisioning times and improved I/O performance.
 * The core quota in the region in which you are deploying limits the number of VMs you can create. You might need to contact Customer Support to increase your compute quota limit, even if you have a high limit of cores for use with Azure Cloud Services today. To query your quota, run this Azure CLI command: `azure vm list-usage`. Or, run this PowerShell command: `Get-AzureRmVMUsage`.
@@ -126,7 +126,7 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 ## Frequently asked questions for scale sets
 **Q.** How many VMs can I have in a scale set?
 
-**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 100 VMs based on custom images. 
+**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 300 VMs based on custom images. 
 
 **Q.** Are data disks supported within scale sets?
 
