@@ -50,12 +50,12 @@ There are two distinct steps in the deployment process of a device in which the 
 * The **manufacturing step** in which the device is created and prepared at the factory, and
 * The **cloud setup step** in which the Device Provisioning Service is configured for automated provisioning.
 
-Both these steps fit in seamlessly with existing manufacturing and deployment processes. Device Provisioning Service even simplifies some deployment processes that involve a lot of manual work to get connection information onto the device.
+Both these steps fit in seamlessly with existing manufacturing and deployment processes. The Device Provisioning Service even simplifies some deployment processes that involve a lot of manual work to get connection information onto the device.
 
 ### Manufacturing step
 This step is all about what happens on the manufacturing line. The roles involved in this step include silicon designer, silicon manufacturer, integrator and/or the end manufacturer of the device. This step is concerned with creating the hardware itself.
 
-Device Provisioning Service does not introduce a new step in the manufacturing process; rather, it ties into the existing step that installs the initial software and (ideally) the HSM on the device. Instead of creating a device ID in this step, the device is simply programmed with the provisioning service information so it calls the provisioning service to get its connection info/IoT solution assignment when it is switched on.
+The Device Provisioning Service does not introduce a new step in the manufacturing process; rather, it ties into the existing step that installs the initial software and (ideally) the HSM on the device. Instead of creating a device ID in this step, the device is simply programmed with the provisioning service information so it calls the provisioning service to get its connection info/IoT solution assignment when it is switched on.
 
 Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. This could be as simple as confirming that all devices have an X.509 certificate generated from a root CA provided by the device deployer/operator, to extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
 
@@ -79,17 +79,17 @@ The Device Provisioning Service has many features which make it ideal for provis
 
 * **Secure attestation** support for both X.509 and TPM-based identities.
 * **Enrollment list** containing the complete record of devices/groups of devices that may at some point register. The enrollment list contains information about the desired configuration of the device once it registers, and it can be updated at any time.
-* **Multiple allocation policies** to control how Device Provisioning Service assigns devices to IoT hubs in support of your scenarios.
+* **Multiple allocation policies** to control how the Device Provisioning Service assigns devices to IoT hubs in support of your scenarios.
 * **Monitoring and diagnostics logs** to make sure everything is working properly.
-* **Multi-hub support** which allows Device Provisioning Service to assign devices to more than one IoT hub. Device Provisioning Service can talk to hubs across multiple Azure subscriptions.
+* **Multi-hub support** which allows the Device Provisioning Service to assign devices to more than one IoT hub. The Device Provisioning Service can talk to hubs across multiple Azure subscriptions.
 
 You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
 
 ## Cross-platform support
-Device Provisioning Service, like all Azure IoT services, works cross-platform with a variety of operating systems. The public preview supports a limited set of languages/protocols supported, though many more will be available when Device Provisioning Service is generally available. For the public preview, Device Provisioning Service only supports HTTPS connections for both device and service operations. The device SDK is in C, and the service SDK is in C#.
+The Device Provisioning Service, like all Azure IoT services, works cross-platform with a variety of operating systems. The public preview supports a limited set of languages/protocols supported, though many more will be available when the Device Provisioning Service is generally available. For the public preview, the Device Provisioning Service only supports HTTPS connections for both device and service operations. The device SDK is in C, and the service SDK is in C#.
 
 ## Regions
-Device Provisioning Service is available in East US, West Europe, and Southeast Asia for the public preview. We maintain an updated list of existing and newly announced regions for all services.
+The Device Provisioning Service is available in East US, West Europe, and Southeast Asia for the public preview. We maintain an updated list of existing and newly announced regions for all services.
 
 * [Azure Regions](https://azure.microsoft.com/regions/)
 
