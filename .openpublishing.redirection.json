@@ -1486,12 +1486,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-arm-from-github-provision.md",
-            "redirect_url": "/azure/app-service/containers/app-service-cli-samples",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-arm-with-msdeploy-provision.md",
-            "redirect_url": "/azure/app-service/containers/app-service-cli-samples",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
             "redirect_document_id": false
         },
         {
