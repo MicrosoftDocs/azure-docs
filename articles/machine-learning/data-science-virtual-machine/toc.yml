@@ -1,5 +1,3 @@
-- name: Overview
-  href: virtual-machine-overview.md
 - name: Get Started
   items:
   - name: With Windows DSVM
