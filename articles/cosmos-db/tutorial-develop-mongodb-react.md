@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 09/01/2017
+ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
 
@@ -54,7 +54,9 @@ This video shows how set up the Express and React in the same project. Burke the
 
 ## Build the UI
 
-This video shows how to create the application's user interface (UI) with React. **Note: The CSS referenced in this video can be found [here](https://github.com/Azure-Samples/react-cosmosdb/blob/master/src/index.css).**
+This video shows how to create the application's user interface (UI) with React. 
+
+> [!NOTE] The CSS referenced in this video can be found in the [react-cosmosdb GitHub repo](https://github.com/Azure-Samples/react-cosmosdb/blob/master/src/index.css).
 
 > [!VIDEO https://www.youtube.com/embed/SzHzX0fTUUQ]
 
