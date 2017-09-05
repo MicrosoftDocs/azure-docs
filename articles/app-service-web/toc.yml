@@ -125,6 +125,8 @@
         href: app-service-linux-get-started-node.md
       - name: .NET Core Web App on Linux
         href: app-service-linux-using-dotnetcore.md
+      - name: Java Web App on Linux
+        href: azure-toolkit-for-intellij-hello-world-web-app-linux.md
       - name: Custom Docker Web App on Linux
         href: app-service-linux-using-custom-docker-image.md
       - name: Continuous Deployment
