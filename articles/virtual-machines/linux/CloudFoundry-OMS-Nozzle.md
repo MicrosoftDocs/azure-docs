@@ -7,7 +7,6 @@ author: ningk
 manager: timlt
 editor: ''
 tags: Cloud-Foundry
-keywords: 'Cloud Foundry on Azure', 'OMS Nozzle', 'Azure log analytics Nozzle', "Cloud Foundry monitoring on Azure'
 
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -70,7 +69,7 @@ You can create the OMS workspace manually, and load the pre-configured OMS views
 
 You can create the OMS workspace, load the Pre-configured OMS views and alerts, all through the [Azure OMS Log Analytics Solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution)
 
-## Deploy
+## Deploy the Nozzle
 
 ### Deploy the Nozzle as a PCF Ops Manager tile
 
