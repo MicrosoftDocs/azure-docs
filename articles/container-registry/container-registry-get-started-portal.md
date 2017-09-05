@@ -28,6 +28,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Log in to Azure
 
+Log in to the Azure portal at http://portal.azure.com.
+
+## Create a container registry
+
 Select the **New** > **Containers** > **Azure Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
