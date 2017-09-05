@@ -85,7 +85,6 @@ When the image gets updated, the web app get updated automatically with the new 
 
 ## Next steps
 * [What is Azure Web App on Linux?](./app-service-linux-intro.md)
-* [Creating Apps in Azure Web App on Linux](./app-service-linux-how-to-create-web-app.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)

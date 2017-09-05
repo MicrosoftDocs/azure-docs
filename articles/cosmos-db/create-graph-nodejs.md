@@ -13,8 +13,8 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 07/14/2017
+ms.topic: quickstart
+ms.date: 08/29/2017
 ms.author: denlee
 
 ---
@@ -22,11 +22,7 @@ ms.author: denlee
 
 Azure Cosmos DB is the globally distributed multi-model database service from Microsoft. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick-start article demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph by using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) driver.  
-
-> [!NOTE]
-> The npm module `gremlin-secure` is a modified version of `gremlin` module, with support for SSL and SASL required for connecting with Azure Cosmos DB. Source code is available on [GitHub](https://github.com/CosmosDB/gremlin-javascript).
->
+This quick-start article demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph by using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driver.  
 
 ## Prerequisites
 
@@ -129,7 +125,7 @@ module.exports = config;
 
 1. Open a terminal window and change (via `cd` command) to the installation directory for the package.json file that's included in the project.  
 
-2. Run `npm install` to install the required npm modules, including `gremlin-secure`.
+2. Run `npm install` to install the required npm modules, including `gremlin`.
 
 3. Run `node app.js` in a terminal to start your node application.
 
