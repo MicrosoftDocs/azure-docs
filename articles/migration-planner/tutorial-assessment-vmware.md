@@ -216,7 +216,7 @@ Check group dependencies as follows:
 
 ## Create and view an assessment
 
-When groups are in place, you can create an assessment. Learn more about [what's in an assessment](migration-planner-overview.md#what-do-assessments-provide), and [how assessments are calculated](assessment-calculation.md).
+When groups are in place, you can create an assessment. 
 
 1. In the project dashboard, click **Groups**, and select the group you want to assess.
 2. Click **Create Assessment**. 
