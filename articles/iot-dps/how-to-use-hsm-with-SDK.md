@@ -16,7 +16,7 @@ ms.custom: mvc
 ---
 
 # How to use different Hardware Security Module with Device Provisioning Service Client SDK
-These steps show how to use different [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) with Device Provisioning Service (DPS) Client SDK in C using phyical device and simulator.  DPS supports two authentication mode: X509 and Trusted Platform Module (TPM).
+These steps show how to use different [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) with Device Provisioning Service (DPS) Client SDK in C using physical device and simulator.  DPS supports two authentication mode: X509 and Trusted Platform Module (TPM).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Information regarding hardware with DICE can be found [here](https://azure.micro
 
 ### Use X509 with hardware
 
-DPS can be used with X509 on other hardware.  An interface between hardware and the SDK is needed to establish connection.  Talk to you HSM manufacturer for information on the interface.
+DPS can be used with X509 on other hardware.  An interface between hardware and the SDK is needed to establish connection.  Talk to your HSM manufacturer for information on the interface.
 
 ### Use TPM
 
@@ -50,7 +50,7 @@ cmake -Ddps_auth_type=tpm ..
 
 ### Use TPM with simulator
 
-If you don't have a device with TPM chips, you can use a simualtor for development purpose on Windows OS.  Run the following command to enable TPM authentication and run the TPM simulator:
+If you don't have a device with TPM chips, you can use a simulator for development purpose on Windows OS.  Run the following command to enable TPM authentication and run the TPM simulator:
 
 ```
 cmake -Ddps_auth_type=tpm_simulator ..
@@ -130,10 +130,10 @@ cmake -Ddps_auth_type=tpm_simulator ..
         ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
         ```
 2. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
-    - TPM: On the DPS summary blade, select **Manage enrollments**. Select **Invidual Enrollments** tab and click the **Add** button at the top. Select **TPM** as the identity attestation *Mechanism*, and enter the *Registration Id* and *Endorsement key* as required by the blade. Once complete, click the **Save** button. 
+    - TPM: On the DPS summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **TPM** as the identity attestation *Mechanism*, and enter the *Registration Id* and *Endorsement key* as required by the blade. Once complete, click the **Save** button. 
         ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
    
-   - X509 Individual Enrollment: On the DPS summary blade, select **Manage enrollments**. Select **Invidual Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, upload the signer certificate as required by the blade. Once complete, click the **Save** button. 
+   - X509 Individual Enrollment: On the DPS summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, upload the signer certificate as required by the blade. Once complete, click the **Save** button. 
    - X509 Group Enrollment: On the DPS summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the root CA certificate as required by the blade. Once complete, click the **Save** button. 
 
 ## Simulate first boot sequence for the device
@@ -175,4 +175,4 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this quick start, you’ve learnt how to use different authentication modes supported by DPS and provision simulated and physical device to your IoT hub using Azure IoT Hub Device Provisioning Service. 
+In this quick start, you’ve learned how to use different authentication modes supported by DPS and provision simulated and physical device to your IoT hub using Azure IoT Hub Device Provisioning Service. 
