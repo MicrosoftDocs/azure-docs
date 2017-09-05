@@ -31,14 +31,14 @@ Access a Spark Shell on HDInsight by connecting to the primary head node of the 
 You can get the complete SSH command for your cluster from the Azure portal:
 
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the blade for your HDInsight Spark cluster.
+2. Navigate to the pane for your HDInsight Spark cluster.
 3. Select Secure Shell (SSH).
 
-    ![HDInsight blade in Azure portal](./media/hdinsight-spark-shell/hdinsight-spark-blade.png)
+    ![HDInsight pane in Azure portal](./media/hdinsight-spark-shell/hdinsight-spark-blade.png)
 
 4. Copy the displayed SSH command and run it in your terminal.
 
-    ![HDInsight SSH blade in Azure portal](./media/hdinsight-spark-shell/hdinsight-spark-ssh-blade.png)
+    ![HDInsight SSH pane in Azure portal](./media/hdinsight-spark-shell/hdinsight-spark-ssh-blade.png)
 
 For details on using SSH to connect to HDInsight, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
