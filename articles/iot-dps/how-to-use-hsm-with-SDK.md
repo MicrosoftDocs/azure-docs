@@ -1,17 +1,17 @@
 ---
-title: Azure - How to use different HSM with DPS Client SDK | Microsoft Docs
-description: Azure - How to use different HSM with physical devices and simulators with Device Provisioning Service Client SDK
+title: Azure How to - Use different HSM with DPS Client SDK | Microsoft Docs
+description: Azure How to - Use different HSM with physical devices and simulators with Device Provisioning Service Client SDK
 services: iot-dps 
 keywords: 
-author: 
+author: yzhong94
 ms.author: yizhon
 ms.date: 08/28/2017
-ms.topic: 
+ms.topic: hero-article
 ms.service: iot-dps
 
-documentationcenter: 
+documentationcenter: ''
 manager: 
-ms.devlang: 
+ms.devlang: na
 ms.custom: mvc
 ---
 
@@ -20,25 +20,7 @@ These steps show how to use different [Hardware Security Module (HSM)](https://a
 
 ## Prerequisites
 
-Prepare the development environment (can be a link or copy the instructions over)
-
-1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
-
-2. Download and install the [CMake build system](https://cmake.org/download/).
-
-3. Open a command prompt and clone the github repo for device simulation code sample:
-    
-    ```
-    git clone https://github.com/Azure/azure-iot-device-auth.git --recursive
-    ```
-
-4. Create a folder in your local copy of this github repo for CMake build process. 
-
-    ```
-    cd azure-iot-device-auth
-    mkdir cmake
-    cd cmake
-    ```
+Prepare the development environment according to the section titled "Prepare the development environment" in this [quick start](./quick-create-simulated-device.md) guide.
 
 ## Enable authentication with different HSM
 
@@ -148,11 +130,11 @@ cmake -Ddps_auth_type=tpm_simulator ..
         ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
         ```
 2. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
-    a. TPM: On the DPS summary blade, select **Manage enrollments**. Select **Invidual Enrollments** tab and click the **Add** button at the top. Select **TPM** as the identity attestation *Mechanism*, and enter the *Registration Id* and *Endorsement key* as required by the blade. Once complete, click the **Save** button. 
-
+    - TPM: On the DPS summary blade, select **Manage enrollments**. Select **Invidual Enrollments** tab and click the **Add** button at the top. Select **TPM** as the identity attestation *Mechanism*, and enter the *Registration Id* and *Endorsement key* as required by the blade. Once complete, click the **Save** button. 
         ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
-    b. X509 Individual Enrollment: On the DPS summary blade, select **Manage enrollments**. Select **Invidual Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, upload the signer certificate as required by the blade. Once complete, click the **Save** button. 
-    c. X509 Group Enrollment: On the DPS summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the root CA certificate as required by the blade. Once complete, click the **Save** button. 
+   
+   - X509 Individual Enrollment: On the DPS summary blade, select **Manage enrollments**. Select **Invidual Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, upload the signer certificate as required by the blade. Once complete, click the **Save** button. 
+   - X509 Group Enrollment: On the DPS summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the root CA certificate as required by the blade. Once complete, click the **Save** button. 
 
 ## Simulate first boot sequence for the device
 
