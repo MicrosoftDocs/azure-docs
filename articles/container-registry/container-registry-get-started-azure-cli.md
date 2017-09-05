@@ -79,15 +79,6 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-Several different registry sku’s are available, choose one appropriate to your needs.
-
-| Sku | Description | Notes |
-|---|---|---|
-| Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions. |
-| Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Managed_Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-
 ## Log in to ACR
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
