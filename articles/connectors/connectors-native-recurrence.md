@@ -24,7 +24,7 @@ To repeat tasks based on a schedule,
 create a logic app workflow that starts the **Schedule - Recurrence** trigger. 
 That way, your logic app runs and then repeats after each time interval passes. 
 
-For example, you can schedule tasks like these:
+For example, you can create logic apps that schedule and run workflows like these tasks:
 
 * Email a summary of all tweets with a specific hashtag within the past week.
 * Schedule a workflow that runs a SQL stored procedure every day.
@@ -65,8 +65,8 @@ hours, or minutes, choose **Show advanced options**.
    ![More options](./media/connectors-native-recurrence/recurrence-trigger-more-options.png)
 
    For example, you could specify that your logic app 
-   doesn't start running until 2 weeks from today, 
-   supposing that today is 2017-09-04T15:00:00Z.
+   doesn't start running until two weeks from today, 
+   supposing that today is September 4, 2017.
 
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
