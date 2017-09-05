@@ -128,7 +128,10 @@ Let's also create resources needed for deploying and managing your model.
 az ml account modelmanagement create -l <Azure region: e.g. eastus2> -n <environment name> -g <resource group name> --sku-instances <number of SKUs for billing: e.g. 1> --sku-name <name of the billing SKU: e.g. S1>
 
 # create a new Model Management environment for local web service deployment
-az ml env setup --cluster-name raymondenv0821 -l eastus2
+az ml env setup -l <Azure region, e.g. eastus2> -n <environmnet name>
+
+# set the environment to be used
+az ml env set -n <environment name created above> -g <resource group name it was created in>
 ```
 
 After Experimentation account is created, close the current instance of Workbench, then relaunch it. You should be dropped into the newly created Experimentation account.
