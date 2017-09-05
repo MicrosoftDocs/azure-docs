@@ -123,12 +123,12 @@ It is a good idea to also create a new Workspace where your Projects can live. Y
 # <workspace name>: name of the workspace
 # <resource group>: previously created resource group
 # <experimentation account name>  existing Experimentation account name
-$ az ml workspace create -n <workspace name> -g <resource group name> -a <experimenation account name>
+$ az ml workspace create -n <workspace name> -g <resource group name> -a <experimentation account name>
 ```
 
 Let's also create resources needed for deploying and managing your models. 
 >Note: Docker is required for running web services on your local machine.
-```
+```bash
 # create a new Model Management Account
 az ml account modelmanagement create -l <Azure region: e.g. eastus2> -n <environment name> -g <resource group name> --sku-instances <number of SKUs for billing: e.g. 1> --sku-name <name of the billing SKU: e.g. S1>
 
