@@ -29,8 +29,8 @@
     href: app-service-web-tutorial-nodejs-mongodb-app.md
   - name: 1 - PHP with MySQL
     href: app-service-web-tutorial-php-mysql.md 
-  - name: 1 - Python with PostgreSQL
-    href: app-service-web-tutorial-docker-python-postgresql-app.md
+  - name: 1 - Java with MySQL
+    href: app-service-web-tutorial-java-mysql.md
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate

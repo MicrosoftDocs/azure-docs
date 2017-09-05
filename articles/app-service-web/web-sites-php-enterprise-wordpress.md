@@ -228,7 +228,7 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [import]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressbackup]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressdbbackup]: http://codex.wordpress.org/Backing_Up_Your_Database
-[createwordpress]: web-sites-php-web-site-gallery.md
+[createwordpress]: https://portal.azure.com/#create/WordPress.WordPress
 [velvet]: https://wordpress.org/plugins/velvet-blues-update-urls/
 [mgmtportal]: https://portal.azure.com/
 [wordpressbackup]: http://codex.wordpress.org/WordPress_Backups
