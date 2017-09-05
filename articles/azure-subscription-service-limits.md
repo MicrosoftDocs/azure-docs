@@ -228,7 +228,7 @@ To learn more about limits on a more granular level, such as document size, quer
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
 ### IoT Hub Device Provisioning Service limits
-[!INCLUE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
+[!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
 
 ### Data Factory limits
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
