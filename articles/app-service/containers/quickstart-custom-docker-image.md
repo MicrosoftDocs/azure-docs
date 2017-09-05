@@ -39,6 +39,8 @@ Create a [web app](../../app-service-web/app-service-web-overview.md) in the `my
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
 ```
 
+In the preceding command, `--deployment-container-image-name` points to the public Docker Hub image [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). You can inspect its content at [https://github.com/rachelappel/docker-image](https://github.com/rachelappel/docker-image).
+
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
 ```json
