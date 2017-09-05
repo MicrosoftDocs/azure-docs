@@ -18,14 +18,14 @@
     href: model-management-configuration.md
   - name: Iris quickstart
     href: quick-start-iris.md
-  - name: [MVC template]
+  - name: MVC template (temporary)
     href: doc-template-quickstart.md
 - name: Tutorials
   items:
   - name: (Bike Share Forecast)
   - name: Iris tutorial Azure CLI
     href: tutorial-iris-azure-cli.md
-  - name: [MVC template]
+  - name: MVC template (temporary)
     href: doc-template-tutorial.md
 - name: Samples
   items:
@@ -33,7 +33,7 @@
     href: sample-scripts-azure-cli.md
   - name: Python
     href: sample-scripts-python.md
-  - name: [MVC template]
+  - name: MVC template (temporary)
     href: scripts/doc-template-sample.md
 - name: Concepts
   items:
@@ -42,7 +42,7 @@
   - name: Model Management overview
     href: model-management-overview.md 
   - name: (Operationalization overview)
-  - name: [MVC template]
+  - name: MVC template (temporary)
     href: doc-template-concepts.md
 - name: How-to guides
   items:
@@ -67,7 +67,7 @@
     - name: (Consume a service with CLI)
   - name: (Use AZ ML CLI from the command line)
   - name: (Use a Git repo for source control)
-  - name: [MVC template]
+  - name: MVC template (temporary)
     href: doc-template-how-to.md
 - name: Reference
   items:
