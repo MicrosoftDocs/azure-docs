@@ -47,6 +47,7 @@ The name of the registry must be unique. In the following example *myContainerRe
 Several different registry sku’s are available, choose one appropriate to your needs.
 
 | Sku | Description | Notes |
+|---|---|---|
 | Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions.|
 | Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 | Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
