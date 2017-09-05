@@ -1435,11 +1435,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
-            "redirect_url": "/azure/app-service/containers/app-service-linux-using-nodejs-pm2",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/app-service-web/app-service-linux-using-ruby.md",
             "redirect_url": "/azure/app-service/containers/quickstart-ruby",
             "redirect_document_id": false
