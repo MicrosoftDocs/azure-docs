@@ -40,9 +40,9 @@ az group create --name myResourceGroup --location westcentralus
 
 ## Create a container registry
 
-Azure Container Registry is available in several different sku’s. When deploying an ACR instance, choose a sku that matches your image management needs.
+Azure Container Registry is available in several different SKU’s. When deploying an ACR instance, choose a SKU that matches your image management needs. The basic SKU is used in this example because it is available in all regions. 
 
-| Sku | Description | Notes |
+| SKU | Description | Notes |
 |---|---|---|
 | Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions. |
 | Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
@@ -94,7 +94,7 @@ The command returns a 'Login Succeeded' message once completed.
 To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull are pre-created image from Docker Hub.
 
 ```bash
-docker pull microsoft/azure-vote-front:redis-v1
+docker pull microsoft/aci-helloworld
 ```
 
 The image will need to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
@@ -106,7 +106,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Tag the image using the [docker tag]() command. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```
-docker tag microsoft/azure-vote-front:redis-v1 acrLoginServer/azure-vote-front:redis-v1
+docker tag microsoft/aci-helloworld acrLoginServer/aci-helloworld:v1
 ```
 
 Finally, use [Docker push]() to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
@@ -128,7 +128,7 @@ Output:
 ```json
 Result
 ----------------
-azure-vote-front
+aci-helloworld
 ```
 
 The following example lists the tags on the **azure-vote-front** repository.
@@ -141,7 +141,7 @@ Output:
 
 ```Result
 --------
-redis-v1
+v1
 ```
 
 ## Clean up resources
