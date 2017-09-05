@@ -138,7 +138,6 @@ az ml env setup -l <Azure region, e.g. eastus2> -n <environmnet name>
 # set the environment to be used
 az ml env set -n <environment name created above> -g <resource group name it was created in>
 ```
->Note: You can use the set account and set env commands if you create, or have, more than one.
 
 ### Check your build number
 You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
@@ -159,6 +158,8 @@ Azure ML Workbench can run experiments in various compute targets. To leverage t
     * We recommend you [create a Ubuntu-based DSVM (Data Science Virtual Machine) on Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-dsvm-ubuntu-intro), which has Docker pre-installed so it is ready go.
 * Execute in an **HDInsight Spark cluster**
     * You must have SSH access (username and password) to the head node of that HDInsight Spark cluster. Here are the instructions on [provisioning a HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+* Deploy a web service to run locally on your machine
+    * This requires a local Docker installation. See the link above.
 
 #### Special Note on Docker for Windows 
 Docker is needed if you want to execute scripts in a local Docker container, or deploy model via a containerized web service locally. Since it is a technology born in Linux, it can be a little challenging to work with on Windows. Make sure you follow these instructions:
