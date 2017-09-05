@@ -17,7 +17,7 @@
   - name: Create Ruby app
     href: quickstart-ruby.md
   - name: Deploy custom Docker image
-    href: tutorial-custom-docker-image.md
+    href: quickstart-custom-docker-image.md
 - name: Tutorials
   items:
   - name: 1 - App with DB

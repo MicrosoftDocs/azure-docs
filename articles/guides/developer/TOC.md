@@ -25,7 +25,7 @@
 ### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Create an Azure connected function](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [Docker deploy web app on Linux](../../app-service/containers/tutorial-custom-docker-image.md) 
+## [Docker deploy web app on Linux](../../app-service/containers/quickstart-custom-docker-image.md) 
 
 # Samples
 ## Azure CLI

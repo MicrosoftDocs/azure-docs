@@ -87,7 +87,7 @@ When the image gets updated, the web app get updated automatically with the new 
 * [Using PM2 Configuration for Node.js in Azure Web Apps for Containers](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web Apps for Containers](quickstart-dotnetcore.md)
 * [Using Ruby in Azure Web Apps for Containers](quickstart-ruby.md)
-* [How to use a custom Docker image for Azure Web Apps for Containers](tutorial-custom-docker-image.md)
+* [How to use a custom Docker image for Azure Web Apps for Containers](quickstart-custom-docker-image.md)
 * [Azure App Service Web Apps for Containers FAQ](./app-service-linux-faq.md) 
 * [Manage Web Apps for Containers using Azure CLI 2.0](./app-service-linux-cli.md)
 
