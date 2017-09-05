@@ -20,7 +20,7 @@ ms.custom: cda
 
 ![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips-header.png)
 
-If you've seen the 20 days of Azure Cosmos DB tips by Simona Cotin on [twitter](https://twitter.com/simona_cotin) and [LinkedIn](https://www.linkedin.com/in/simona-cotin-2ba8747/), you may wish they were all available in one place. Well, here they are!
+If you've seen the 20 days of Azure Cosmos DB tips by Simona Cotin on [twitter](https://twitter.com/simona_cotin) and [LinkedIn](https://www.linkedin.com/in/simona-cotin-2ba8747/detail/recent-activity/shares/), you may wish they were all available in one place. Well, here they are!
 
 Visit this page daily for a new tip from September 5th - September 29th!
 
