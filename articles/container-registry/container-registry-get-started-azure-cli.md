@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location westcentralus
 
 ## Create a container registry
 
-Azure Container Registry is available in several different SKU’s. When deploying an ACR instance, choose a SKU that matches your image management needs. The basic SKU is used in this example because it is available in all regions. 
+Azure Container Registry is available in several different SKU’s. When deploying an ACR instance, choose a SKU that matches your image management needs. In this Quickstart, we select Classic due to its availability in all regions.
 
 | SKU | Description | Notes |
 |---|---|---|
