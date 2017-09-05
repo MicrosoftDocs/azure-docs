@@ -26,7 +26,7 @@ Azure Container Registry is a managed Docker container registry service used for
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -43,15 +43,6 @@ az group create --name myResourceGroup --location westcentralus
 Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 
 The name of the registry must be unique. In the following example *myContainerRegistry007* is used. Update this to a unique value. 
-
-Several different registry sku’s are available, choose one appropriate to your needs.
-
-| Sku | Description | Notes |
-|---|---|---|
-| Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions. |
-| Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Managed_Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 
 ```azurecli
 az acr create --name myContainerRegistry1  --resource-group myResourceGroup --sku Basic
@@ -78,6 +69,15 @@ When the registry is created, the output is similar to the following:
   "type": "Microsoft.ContainerRegistry/registries"
 }
 ```
+
+Several different registry sku’s are available, choose one appropriate to your needs.
+
+| Sku | Description | Notes |
+|---|---|---|
+| Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions. |
+| Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+| Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+| Managed_Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 
 ## Log in to ACR
 
@@ -107,6 +107,7 @@ Tag the image using the [docker tag]() command. Replace *acrLoginServer* with th
 
 ```
 docker tag microsoft/azure-vote-front acrLoginServer/azure-vote-front
+```
 
 Finally, use [Docker push]() to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
 
@@ -129,6 +130,12 @@ az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -
 ```
 
 ## Clean up resources
+
+When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, ACR instance, and all container images.
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
 
 ## Next steps
 
