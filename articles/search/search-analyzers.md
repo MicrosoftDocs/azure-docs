@@ -43,27 +43,28 @@ The following list describes which analyzers are supported in Azure Search.
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Used automatically for indexing and queries. No specification or configuration is required. This general purpose analyzer performs well for most languages and scenarios.|
-| Predefined analyzers | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types:<br/><br/>Specialized (language agnostic) analyzers for text inputs requiring specialized processing or minimal processing. Reference documentation for the following analyzers can be found at [Predefined Analyzer Reference](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable): 
-**Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) provide rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| [Predefined analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types:<br/><br/>Specialized (language agnostic) analyzers for text inputs requiring specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) provide rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | A user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 ## How to specify analyzer
 
-To use a predefined analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+1. For custom analyzers only, create an `analyzer` definition the index. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Custom Analyzers > Create](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
-To use a custom analyzer, first create an `analyzer definition` in the index with a specific configuration: one tokenizer and optional filters. Next, set the `analyzer` property to the custom analyzer you defined. 
+2. On each field for which you want to use the analzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). The target analyzer is a predefined analyzer, a language analyzer, or a custom analyzer you previously defined in the index.
 
-Rebuild the index to invoke the new analysis.
+ Optionally, you can instead specify different anlayzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
+
+3. Rebuild the index to invoke the new text processing behaviors.
 
 ## Best practices
 
 This section provides advice on how to work with analyzers more efficiently.
 
-### One analyzer for read-write unless you need specific behaviors
+### One analyzer for read-write unless you have specific requirements
 
-Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching. 
+Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching. If `analyzer` is unspecified, the default Standard Lucene analyzer is used.
 
-A general rule is to use the same analyzer for both, unless specific requirements dictate otherwise. Typically, it's desirable if the analyzer creating the token is the same one used to find tokens later during query time. 
+A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Typically, it's more efficient if the analyzer creating the token is the same one used to find tokens later during query time. 
 
 ### Test during active development
 
