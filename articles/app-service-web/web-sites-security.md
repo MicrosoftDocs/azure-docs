@@ -33,7 +33,7 @@ through vigorous compliance and checks on a continuous basis to make sure that:
 * Communication of secrets (e.g. connection strings) between your App Service app and other Azure resources (e.g. SQL Database) in a resource group stays within Azure and doesn't cross any network boundaries. Secrets are 
   always encrypted.
 * All communication between your App Service app and external resources, such as PowerShell management, command-line interface, Azure SDKs, REST APIs, and hybrid connections, are properly encrypted.
-* 24-hour threat management protects App Service resources from malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats. 
+* 24-hour threat management protects App Service resources (except that customer content) from malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats. 
 
 For more information on infrastructure and platform security in Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
