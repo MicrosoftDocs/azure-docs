@@ -28,7 +28,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. Download and install the [CMake build system](https://cmake.org/download/).
 
-3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, included the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
+3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
 4. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
     
@@ -79,11 +79,11 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. In Visual Studio on your machine, select the sample project named **dps_client_sample** and open the file **dps_client_sample.c**.
 
-3. Assign the _Global device endpoint_ value to the `dps_uri` variable. Assign the _ID Scope_ value to the `dps_scope_id` variable. 
+3. Assign the _ID Scope_ value to the `dps_scope_id` variable. Notice that the `dps_uri` variable has the same value as the _Global device endpoint_. 
 
     ```c
-    static const char* dps_uri = "[device provisioning uri]";
-    static const char* dps_scope_id = "[dps scope id]";
+    static const char* dps_uri = "global.df.azure-devices-provisioning-int.net";
+    static const char* dps_scope_id = "[DPS Id Scope]";
     ```
 
 4. Right-click the **dps_client_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
