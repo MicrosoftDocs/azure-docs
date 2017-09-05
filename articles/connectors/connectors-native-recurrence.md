@@ -1,6 +1,6 @@
 ---
-title: Run recurring scheduled tasks - Azure Logic Apps | Microsoft Docs
-description: Create workflows that run repeating scheduled tasks with the recurrence trigger in logic apps
+title: Create recurring scheduled tasks - Azure Logic Apps | Microsoft Docs
+description: Create workflows that run repeat scheduled tasks with the recurrence trigger in logic apps
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
@@ -18,7 +18,7 @@ ms.date: 09/05/2017
 ms.author: LADocs; jehollan; astay
 ---
 
-# Create, run, and repeat scheduled tasks with the recurrence trigger
+# Create and run recurring scheduled tasks with logic apps
 
 To repeat tasks based on an interval, or schedule repeating tasks in advance, 
 create a logic app workflow that starts with the **Schedule - Recurrence** trigger. 
