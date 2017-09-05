@@ -27,7 +27,7 @@ To support a Bring Your Own Device (BYOD) scenario, you can accomplish your secu
 
 ## Before you begin
 
-To register a Windows 10 device, the device registration service must be set up for registering devices. In addition to permissions to register devices in your Azure AD tenant, you can register only a number of devices that is smaller than the maximum specified in your Azure AD settings. For more information, see [Configure device settings](device-management-azure-portal.md#configure-device-settings).
+To register a Windows 10 device, the device registration service must be set up for registering devices. You also must have the required permissions to register devices in your Azure AD tenant. In addition, you can register only a number of devices that is smaller than the maximum specified in your Azure AD settings. For more information, see [Configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 ## What you should know
 
@@ -35,7 +35,7 @@ When you register a device, note the following:
 
 - Windows registers the device in the organization’s directory in Azure AD.
 - You might be required to pass a multi-factor authentication challenge. Your IT admin can set up this challenge.
-- Azure AD checks whether the device requires mobile device management enrollment. It enrolls the device, if applicable.
+- Azure AD checks to determine whether the device requires mobile device management enrollment. It enrolls the device, if applicable.
 - Windows redirects managed users to the desktop through the automatic sign-in.
 - Federated users are redirected to a Windows sign-in page, on which the user enters their credentials.
 
