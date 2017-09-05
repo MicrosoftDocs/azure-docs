@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Web App on Linux | Microsoft Docs
-description: Learn about Azure Web App on Linux.
+title: Introduction to Azure Web Apps for Containers | Microsoft Docs
+description: Learn about Azure Web Apps for Containers.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
@@ -18,12 +18,9 @@ ms.date: 02/16/2017
 ms.author: naziml;wesmc
 
 ---
-# Introduction to Azure Web App on Linux
+# Introduction to Azure Web Apps for Containers
 
-[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
-
-## Overview
-[Web App](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use Web App on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported. 
+[Web App](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use Web Apps for Containers to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported. 
 
 ### Languages
 
@@ -57,7 +54,7 @@ ms.author: naziml;wesmc
 * Customers can scale web apps up and down by changing the tier of their [App Service plan](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## Limitations
-The Azure portal shows only features that currently work for Web App on Linux. As we enable more features, they will become visible on the portal.
+The Azure portal shows only features that currently work for Web Apps for Containers. As we enable more features, they will become visible on the portal.
 
 Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
 
@@ -73,10 +70,10 @@ This public preview is currently only available in the following regions:
 
 Check the [Azure Status Dashboard](https://azure.microsoft.com/status) to see when additonal regions become available.
 
-Web App on Linux is only supported with [Basic, Standard, and Premium](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) tier. The following are also important restrictions for Web App on Linux:
+Web Apps for Containers is only supported with [Basic, Standard, and Premium](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) tier. The following are also important restrictions for Web Apps for Containers:
 
-* You cannot create Web App on Linux in an App Service plan already hosting non-Linux Web Apps.
-* When creating Web App on Linux in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different region than the existing App Service plan.
+* You cannot create Web Apps for Containers in an App Service plan already hosting non-Linux Web Apps.
+* When creating Web Apps for Containers in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different region than the existing App Service plan.
 
 ## Troubleshooting ##
 
@@ -92,14 +89,14 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [How to use a custom Docker image for Azure Web App on Linux](tutorial-custom-docker-image.md)
-* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
-* [Using .NET Core in Azure App Service Web App on Linux](quickstart-dotnetcore.md)
-* [Using Ruby in Azure App Service Web App on Linux](quickstart-ruby.md)
-* [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
-* [SSH support for Azure Web App on Linux](app-service-linux-ssh-support.md)
+* [How to use a custom Docker image for Azure Web Apps for Containers](tutorial-custom-docker-image.md)
+* [Using PM2 Configuration for Node.js in Azure Web Apps for Containers](app-service-linux-using-nodejs-pm2.md)
+* [Using .NET Core in Azure App Service Web Apps for Containers](quickstart-dotnetcore.md)
+* [Using Ruby in Azure App Service Web Apps for Containers](quickstart-ruby.md)
+* [Azure App Service Web Apps for Containers FAQ](app-service-linux-faq.md)
+* [SSH support for Azure Web Apps for Containers](app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
+* [Docker Hub Continuous Deployment with Azure Web Apps for Containers](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

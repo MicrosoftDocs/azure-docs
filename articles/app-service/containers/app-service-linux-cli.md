@@ -1,6 +1,6 @@
 ---
-title: Manage Web App on Linux using Azure CLI 2.0 | Microsoft Docs
-description: Manage Web App on Linux using Azure CLI.
+title: Manage Web Apps for Containers using Azure CLI 2.0 | Microsoft Docs
+description: Manage Web Apps for Containers using Azure CLI.
 keywords: azure app service, web app, cli, linux, oss
 services: app-service
 documentationCenter: ''
@@ -19,11 +19,9 @@ ms.author: aelnably
 
 ---
 
-# Manage Web App on Linux using Azure CLI
+# Manage Web Apps for Containers using Azure CLI
 
-[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
-
-Using the commands in this article you are able to create and manage a Web App on Linux using Azure CLI 2.0.
+Using the commands in this article you are able to create and manage a Web Apps for Containers using Azure CLI 2.0.
 You can start using the new version of the CLI in two ways:
 
 * [Installing Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
@@ -54,7 +52,7 @@ To activate the Docker container logging, you can use the following command:
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
  
-## Change the custom Docker container for an existing Web App on Linux App
+## Change the custom Docker container for an existing Web Apps for Containers App
 
 To change a previously created app, from the current Docker image to a new image, you can use the following command:
 
@@ -78,15 +76,15 @@ With the following command you can enable the CD functionality, and get the webh
 az webapp deployment container config -n sname -g rgname -e true
 ``` 
 
-## Create a Web App on Linux App using one of our built-in runtime frameworks
+## Create a Web Apps for Containers App using one of our built-in runtime frameworks
 
-To create a PHP 5.6 Web App on Linux App that, you can use the following command.
+To create a PHP 5.6 Web Apps for Containers App that, you can use the following command.
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
 ``` 
 
-## Change framework version for an existing Web App on Linux App
+## Change framework version for an existing Web Apps for Containers App
 
 To change a previously created app, from the current framework version to Node.js 6.11, you can use the following command:
 
@@ -104,8 +102,8 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 
 ## Next steps
-* [What is Azure Web App on Linux?](app-service-linux-intro.md)
+* [What is Azure Web Apps for Containers?](app-service-linux-intro.md)
 * [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (Preview)](../../cloud-shell/overview.md)
 * [Set up staging environments in Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continuous Deployment with Azure Web App on Linux](app-service-linux-ci-cd.md)
+* [Continuous Deployment with Azure Web Apps for Containers](app-service-linux-ci-cd.md)

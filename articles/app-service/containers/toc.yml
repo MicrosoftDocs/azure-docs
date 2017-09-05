@@ -16,7 +16,7 @@
     href: quickstart-nodejs.md
   - name: Create Ruby app
     href: quickstart-ruby.md
-  - name: Use custom Docker image
+  - name: Deploy custom Docker image
     href: tutorial-custom-docker-image.md
 - name: Tutorials
   items:

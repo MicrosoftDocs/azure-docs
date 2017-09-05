@@ -1,6 +1,6 @@
 ---
-title: SSH support for Azure App Service Web App on Linux | Microsoft Docs
-description: Learn about using SSH with Azure Web App on Linux.
+title: SSH support for Azure App Service Web Apps for Containers | Microsoft Docs
+description: Learn about using SSH with Azure Web Apps for Containers.
 keywords: azure app service, web app, linux, oss
 services: app-service
 documentationcenter: ''
@@ -18,15 +18,11 @@ ms.date: 04/25/2017
 ms.author: wesmc
 
 ---
-# SSH support for Azure Web App on Linux
-
-[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
-
-## Overview
+# SSH support for Azure Web Apps for Containers
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) is a cryptographic network protocol for using network services securely. It is most commonly used to log into a system remotely securely from a command-line and execute administrative commands remotely.
 
-Web App on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
+Web Apps for Containers provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
 
 ![Runtime Stacks](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -107,11 +103,11 @@ These steps are are shown in the Azure App Service repository as an example [her
 
 
 ## Next steps
-See the following links for more information regarding Web App on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+See the following links for more information regarding Web Apps for Containers. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [How to use a custom Docker image for Azure Web App on Linux](tutorial-custom-docker-image.md)
-* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
-* [Using .NET Core in Azure Web App on Linux](quickstart-dotnetcore.md)
-* [Using Ruby in Azure Web App on Linux](quickstart-ruby.md)
-* [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
+* [How to use a custom Docker image for Azure Web Apps for Containers](tutorial-custom-docker-image.md)
+* [Using PM2 Configuration for Node.js in Azure Web Apps for Containers](app-service-linux-using-nodejs-pm2.md)
+* [Using .NET Core in Azure Web Apps for Containers](quickstart-dotnetcore.md)
+* [Using Ruby in Azure Web Apps for Containers](quickstart-ruby.md)
+* [Azure App Service Web Apps for Containers FAQ](app-service-linux-faq.md)
 

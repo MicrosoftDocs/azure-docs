@@ -1,6 +1,6 @@
 ---
-title: Continuous Deployment with Azure Web App on Linux | Microsoft Docs
-description: How to setup continuous deployment in Azure Web App on Linux.
+title: Continuous Deployment with Azure Web Apps for Containers | Microsoft Docs
+description: How to setup continuous deployment in Azure Web Apps for Containers.
 keywords: azure app service, linux, oss, acr
 services: app-service
 documentationcenter: ''
@@ -18,9 +18,7 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Continuous deployment with Azure Web App on Linux
-
-[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
+# Continuous deployment with Azure Web Apps for Containers
 
 In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
@@ -84,14 +82,14 @@ For the Webhook URL, you need to provide the URL obtained from **Step 3**
 When the image gets updated, the web app get updated automatically with the new image.
 
 ## Next steps
-* [What is Azure Web App on Linux?](./app-service-linux-intro.md)
+* [What is Azure Web Apps for Containers?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
-* [Using .NET Core in Azure Web App on Linux](quickstart-dotnetcore.md)
-* [Using Ruby in Azure Web App on Linux](quickstart-ruby.md)
-* [How to use a custom Docker image for Azure Web App on Linux](tutorial-custom-docker-image.md)
-* [Azure App Service Web App on Linux FAQ](./app-service-linux-faq.md) 
-* [Manage Web App on Linux using Azure CLI 2.0](./app-service-linux-cli.md)
+* [Using PM2 Configuration for Node.js in Azure Web Apps for Containers](app-service-linux-using-nodejs-pm2.md)
+* [Using .NET Core in Azure Web Apps for Containers](quickstart-dotnetcore.md)
+* [Using Ruby in Azure Web Apps for Containers](quickstart-ruby.md)
+* [How to use a custom Docker image for Azure Web Apps for Containers](tutorial-custom-docker-image.md)
+* [Azure App Service Web Apps for Containers FAQ](./app-service-linux-faq.md) 
+* [Manage Web Apps for Containers using Azure CLI 2.0](./app-service-linux-cli.md)
 
 
 
