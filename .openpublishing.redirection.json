@@ -1476,12 +1476,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-app-azure-resource-manager-powershell.md",
-            "redirect_url": "/azure/app-service/app-service-web/app-service-powershell-samples",
+            "redirect_url": "/azure/app-service-web/app-service-powershell-samples",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-app-azure-resource-manager-xplat-cli.md",
-            "redirect_url": "/azure/app-service/app-service-web/app-service-cli-samples",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
             "redirect_document_id": false
         },
         {
