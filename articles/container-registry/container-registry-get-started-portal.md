@@ -28,54 +28,78 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Select the **New** > **Containers** > **Azure Container Registry**.
 
-## Create a container registry
+![Creating a container registry in the Azure portal][qs-portal-01]
 
-1. Select the **New** > **Containers** > **Azure Container Registry**.
+Enter the following values in the **Registry name** and **Resource group** text boxes, and select the specified **SKU** from the drop-down. Leave the other values at their defaults, then click **Create**.
 
-   ![Creating a container registry in the Azure portal][qs-portal-01]
+* **Registry name**: A unique name for your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+* **Resource group**: `myResourceGroup`
+* **SKU**: Classic
 
-1. Select **Create** to start the configuration of your new container registry.
+   Azure Container Registry is available in several different SKUs. When deploying an ACR instance, choose a SKU that matches your image management needs. In this Quickstart, we select Classic due to its availability in all regions.
 
-   ![Creating a container registry in the Azure portal][qs-portal-02]
+   | SKU | Description | Notes |
+   |---|---|---|
+   | Classic | Limited capability and images stored in an Azure Storage account. Avaliable in all regions. |
+   | Basic | Advanced capabilities such as managed storage and Webhooks. Preview in limited regions. |
+   | Standard | Advanced capabilities such as managed storage and Webhooks. Preview in limited regions. |
+   | Premium | Advanced capabilities such as managed storage and Webhooks. Preview in limited regions.
 
-1. Enter the following values in the **Registry name** and **Resource group** text boxes. Leave the other values at their defaults, then click **Create**.
+![Creating a container registry in the Azure portal][qs-portal-03]
 
-   * **Registry name**: A unique name for your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
-   * **Resource group**: `myResourceGroup`
+When the **Deployment succeeded** message appears, select the container registry in the portal, then select **Access keys**.
 
-   ![Creating a container registry in the Azure portal][qs-portal-03]
+![Creating a container registry in the Azure portal][qs-portal-05]
 
-1. When the **Deployment succeeded** message appears, select the Container Registry in the portal, then select **Access keys**.
+Under **Admin user**, select **Enabled**. Take note of the following values:
 
-   ![Creating a container registry in the Azure portal][qs-portal-05]
+* Login server
+* Username
+* password
 
-1. Under **Admin user**, select **Enabled**. Take note of the following values:
+You use these values in the following steps while working with your registry with the Docker CLI.
 
-   * Login server
-   * Username
-   * password
+![Creating a container registry in the Azure portal][qs-portal-06]
 
-   You use these values in the following steps while working with your registry with the Docker CLI.
+## Log in to ACR
 
-   ![Creating a container registry in the Azure portal][qs-portal-06]
+Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command. Replace the username, password, and login server values with those you noted from in the previous step.
 
-## Pull an image from Docker hub
+```
+docker login --username <username> --password <password> <login server>
+```
 
-In order to push an image to your registry, you need to have one on your local machine.
+The command returns a 'Login Succeeded' message once completed.
 
-## Push the image to Azure Container Registry
+## Push image to ACR
 
-Now that you've pulled an image from Docker hub, you're ready to push it to your Azure Container Registry.
+To push an image to your Azure Container Registry, you must first have an image. If needed, run the following command to pull an existing image from Docker Hub.
 
-1. Tag image
-1. Push image
+```bash
+docker pull microsoft/aci-helloworld
+```
 
-## List the images in your container registry
+Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
 
-1. List images
-1. List tags
+```
+docker tag microsoft/aci-helloworld:v1 acrLoginServer/aci-helloworld:v1
+```
+
+Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
+
+```
+docker push acrLoginServer/aci-helloworld:v1
+```
+
+## List container images
+
+To list the images in your ACR instance, navigate to your registry in the portal and select **Repositories**, then the repository you just created with `docker push`. The images in the repository appear under **TAGS**.
+
+In this example, we select the **aci-helloworld** repository.
+
+![Creating a container registry in the Azure portal][qs-portal-09]
 
 ## Clean up resources
 
