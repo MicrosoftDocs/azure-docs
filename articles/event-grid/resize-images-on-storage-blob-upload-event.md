@@ -10,7 +10,7 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/05/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -168,7 +168,7 @@ You can now deploy a function code project to this function app.
 
 ## Deploy the function code 
 
-The C# function that performs image resizing is available in a public GitHub repo: <https://github.com/Azure-Samples/function-image-upload-resize>. Deploy to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
+The C# function that performs image resizing is available in this [sample GitHub repository](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions project code to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
 
 In the following command, `<function_app>` is the same function app you created in the previous script.
 
@@ -178,7 +178,9 @@ az functionapp deployment source config --name <function_app> \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-The function code is deployed directly from the public sample repo. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
+This function is triggered by an event subscription to a Blob created event. The data passed to the trigger includes the URL of the blob, which is used in a Blob storage input binding. The function generates a thumbnail image and writes the resulting stream to a separate container in Blob storage. To learn more about this function, see the [readme file in the sample repository](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
+ 
+The function project code is deployed directly from the public sample repo. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
 ## Create an event subscription in Event Grid
 
@@ -219,7 +221,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## Deploy the sample app from the GitHub repository
 
-App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a public GitHub sample repository: <https://github.com/Azure-Samples/integration-image-resize-web-app>. Configure a one-time GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
+App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from this [sample GitHub repository](https://github.com/Azure-Samples/integration-image-resize-web-app)  . Configure a one-time GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
 
 ```azurecli-interactive
 az webapp deployment source config --name <web_app>  \
@@ -286,4 +288,4 @@ In this tutorial, you learned how to:
 > * Enable a CORS origin in Storage
 
 + To learn more about Event Grid, see [An introduction to Azure Event Grid](overview.md). 
-+ To try another tutorial that features Azure Functions, see [Create a function that integrates with Azure Logic Apps]([](..\azure-functions\functions-twitter-email.md)). 
++ To try another tutorial that features Azure Functions, see [Create a function that integrates with Azure Logic Apps](..\azure-functions\functions-twitter-email.md). 
