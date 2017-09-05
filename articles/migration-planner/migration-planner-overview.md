@@ -40,8 +40,6 @@ Migration Planner helps you to assess the following:
 - **Monthly costs**: The estimated cost for running the machines in Azure.
 - **Machine list**: A list of the machines included in the assessment, and a sumary of their suitability for Azure, Azure size recommendations, and performance usage data. 
 
-  ![Sample assessment](./media/migration-planner-overview/sample-assessment.png)
-
 ### What's included in an assessment
 
 Migration Planner bases an assessment on a number of values, including:
@@ -49,9 +47,9 @@ Migration Planner bases an assessment on a number of values, including:
 **Location**: By default Migration Planner assumes the Azure location to which you want to migrate is the ocation in which you create the Migration Planner project.  
 **Storage redundancy**: The type of storage that the Azure VMs will use after migration. Currently Migration Planner supports [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) only.
 **Plans**: Migration Planner takes into account whether you're enrolled in the [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) software assurance plan, and whether you have any Azure offers that should be applied. Only the [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer is currently available.
-**Pricing**: Migration Planner takes [Azure VM tier pricing](../virtual-machines/windows/sizes-general.md) into account, to meet your exact requirements. By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.<br/><br/> Billing is currently in US dollars only.
+**Pricing**: Migration Planner takes [Azure VM tier pricing](../virtual-machines/windows/sizes-general.md) into account, to meet your exact requirements. By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used. Billing is currently in US dollars only.
 **Size**: Migration Planner recommends a size for Azure VMs after migration, based on on-premises machines sizes. 
-**Performance and comfort**:  By default, Migration Planner uses a time span of a month for evaluating performance history for on-premises machines, with a 95% percentile value. Assessment also considers a comfort values for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, normally a 10-core VM with 20% utilization will result in a 2-core VM. But if it has a comfort factor of 2.0, the result will be a 4-core VM.<br/><br/> The default setting is 1.3.
+**Performance and comfort**:  By default, Migration Planner uses a time span of a month for evaluating performance history for on-premises machines, with a 95% percentile value. Assessment also considers a comfort values for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, normally a 10-core VM with 20% utilization will result in a 2-core VM. But if it has a comfort factor of 2.0, the result will be a 4-core VM. The default setting is 1.3.
 
 
 ## How does Migration Planner work?
