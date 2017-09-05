@@ -20,6 +20,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
+            "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
+            "redirect_document_id": false                        
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
+            "redirect_url": "/azure/sql-database/sql-database-performance-guidance",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
             "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
             "redirect_document_id": false
@@ -1531,6 +1541,11 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-deployments-rest.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/resource-manager-troubleshoot-deployments-rest.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
             "redirect_document_id": false
         },
@@ -10147,6 +10162,11 @@
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
             "redirect_url": "/azure/active-directory/device-management-azuread-registered-devices-windows10-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-cli-samples.md",
+            "redirect_url": "/azure/batch/batch-cli-get-started",
             "redirect_document_id": false
         },
         {
