@@ -4,7 +4,7 @@ The following table lists the limits that apply to IoT Hub Device Provisioning S
 | --- | --- |
 | Maximum Device Provisioning Services per Azure subscription | 10 |
 | Maximum number of enrollments | 10,000 |
-| Maximum number of egistrations | 10,000 |
+| Maximum number of registrations | 10,000 |
 | Maximum number of enrollment groups | 100 |
 | Maximum number of CAs | 10 |
 
