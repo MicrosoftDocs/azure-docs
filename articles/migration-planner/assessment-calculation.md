@@ -25,7 +25,7 @@ Post any comments or questions at the bottom of this article.
 
 ## Overview
 
-When you run an assessment with Migration Planner, it performs an Azure suitability analysis, performance-based sizing estimations, and monthly cost estimations.
+When you run an assessment, Migration Planner performs an Azure suitability analysis, performance-based sizing estimations, and monthly cost estimations.
 
 
 
