@@ -162,6 +162,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 The output from the preceding example is:
