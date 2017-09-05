@@ -85,26 +85,39 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## Download the Azure Multi-Factor Authentication Server
+## Download the MFA Server - Public preview
+
+Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
+2. Select **Active Directory** > **Multi-Factor Authentication**.
+3. Select **Server settings**.
+4. Select **Download** and follow the instructions on the download page to save the installer. 
+5. Keep this page open as we will refer to it after running the installer.
+
+
+## Download the MFA Server
+
+Follow these steps to download the Azure Multi-Factor Authentication Server from the
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. On the left, select **Active Directory**
-3. Click **Users and groups**
-4. Click **All users**
-5. Click **Multi-Factor Authentication**
+3. Select **Users and groups**
+4. Select **All users**
+5. Select **Multi-Factor Authentication**
 6. Under **multi-factor authentication** section, select **service settings**
 
    ![Service settings page](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
 6. On the services settings page, at the bottom of the screen click **Go to the portal**. A new page opens.
-7. Click **Downloads**.
+7. Select **Downloads**.
 8. Click the **Download** link and save the installer.
 
    ![Download MFA Server](./media/multi-factor-authentication-get-started-server/download4.png)
 
 9. Keep this page open as we will refer to it after running the installer.
 
-## Install and configure the Azure Multi-Factor Authentication Server
+## Install and configure the MFA Server
 
 Now that you have downloaded the server you can install and configure it. Be sure that the server you are installing it on meets requirements listed in the planning section.
 
