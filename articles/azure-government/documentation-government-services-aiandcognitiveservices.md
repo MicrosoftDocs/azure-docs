@@ -38,12 +38,26 @@ The following variations exist for Computer Vision API from Commercial Azure:
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/vision/v1.0/
 - Available SKUs: F0, S0, S1
 
+Please use PowerShell/ARM/Rest calls to provision accounts and retrieve account keys. An example is below:
+
+```PowerShell
+New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'your-computer-vision-api' -Type ComputerVision -SkuName S0 -Location 'usgovvirginia' 
+Get-AzureRmCognitiveServicesAccountKey -Name your-computer-vision-api -ResourceGroupName 'rg-name' 
+```
+
 For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
  
 ##### Face API
 The following variations exist for Face API from Commercial Azure:
 - Endpoint: https://virginia.api.cognitive.microsoft.us/face/v1.0/
 - Available SKUs: F0, S0
+
+Please use PowerShell/ARM/Rest calls to provision accounts and retrieve account keys. An example is below:
+
+```PowerShell
+New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'your-face-api' -Type Face -SkuName S0 -Location 'usgovvirginia' 
+Get-AzureRmCognitiveServicesAccountKey -Name your-face-api -ResourceGroupName 'rg-name' 
+```
  
 For more information, please see [public documentation](../cognitive-services/Face/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
@@ -68,6 +82,13 @@ The following variations exist for Translator Text API from Commercial Azure:
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
 - Available SKUs: F0, S1, S2, S3, S4
 - Translator Hub, Web Widget, and Collaboration Translation Framework (CTF) are not supported.
+
+Please use PowerShell/ARM/Rest calls to provision accounts and retrieve account keys. An example is below:
+
+```PowerShell
+New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'im-text-translator' -Type TextTranslation -SkuName S4 -Location 'usgovvirginia' 
+Get-AzureRmCognitiveServicesAccountKey -Name im-text-translator -ResourceGroupName 'resource-group-name' 
+```
  
 For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](http://docs.microsofttranslator.com/text-translate.html) for Translator Text API.
 
