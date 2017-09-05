@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 * [Docker](https://docs.docker.com/get-started/#setup)
 * A [Docker Hub account](https://docs.docker.com/docker-id/)
 
-[!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure-Samples/use-custom-docker-image.git
 cd use-custom-docker-image
 ```
 
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 ## Build the image from the Docker file
 
@@ -612,7 +612,7 @@ The command reveals output similar to the following JSON string, showing that th
 ]
 ```
 
-[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## Next Steps
 

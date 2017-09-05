@@ -21,7 +21,7 @@ ms.author: cfowler
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
 
-![Hello-world](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ rails server
 
 Using your web browser, navigate to `http://localhost:3000` to test the app locally.
 
-![Hello-world](./media/app-service-linux-ruby-get-started/hello-world.png)
+![Hello-world](./media/quickstart-ruby/hello-world.png)
 
 ## Modify app to display welcome message
 
@@ -78,7 +78,7 @@ Open *~/workspace/hello-world/app/controllers/application_controller.rb* for edi
 
 Your app is now configured. Using your web browser, navigate to `http://localhost:3000` to confirm the root landing page.
 
-![Hello World configured](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
+![Hello World configured](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
@@ -110,7 +110,7 @@ https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
 
 Once the web app is created, an **Overview** page is available to view. Navigate to it. The following splash page is displayed:
 
-![Splash page](./media/app-service-linux-ruby-get-started/splash-page.png)
+![Splash page](./media/quickstart-ruby/splash-page.png)
 
 
 ## Deploy your application
@@ -152,7 +152,7 @@ Navigate to your site and verify the results.
 http://<app name>.azurewebsites.net
 ```
 
-![updated web app](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
+![updated web app](./media/quickstart-ruby/hello-world-updated.png)
 
 > [!NOTE]
 > While the app is restarting, attempting to browse the site results in an HTTP status code `Error 503 Server unavailable`. It may take a few minutes to fully restart.
