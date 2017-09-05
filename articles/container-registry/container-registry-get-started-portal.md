@@ -38,16 +38,16 @@ Enter the following values in the **Registry name** and **Resource group** text 
 * **Resource group**: `myResourceGroup`
 * **SKU**: Classic
 
-   Azure Container Registry is available in several different SKUs. When deploying an ACR instance, choose a SKU that matches your image management needs. In this Quickstart, we select Classic due to its availability in all regions.
-
-   | SKU | Description | Notes |
-   |---|---|---|
-   | Classic | Limited capability and images stored in an Azure Storage account. Avaliable in all regions. |
-   | Basic | Advanced capabilities such as managed storage and Webhooks. Preview in limited regions. |
-   | Standard | Advanced capabilities such as managed storage and Webhooks. Preview in limited regions. |
-   | Premium | Advanced capabilities such as managed storage and Webhooks. Preview in limited regions.
-
 ![Creating a container registry in the Azure portal][qs-portal-03]
+
+Azure Container Registry is available in several different SKUs. When deploying an ACR instance, choose a SKU that matches your image management needs. In this Quickstart, we select Classic due to its availability in all regions.
+
+| SKU | Description | Notes |
+|---|---|---|
+| Classic | Limited capability and images stored in an Azure Storage account. | Avaliable in all regions. |
+| Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+| Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+| Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 
 When the **Deployment succeeded** message appears, select the container registry in the portal, then select **Access keys**.
 
@@ -84,7 +84,7 @@ docker pull microsoft/aci-helloworld
 Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```
-docker tag microsoft/aci-helloworld:v1 acrLoginServer/aci-helloworld:v1
+docker tag microsoft/aci-helloworld acrLoginServer/aci-helloworld:v1
 ```
 
 Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
