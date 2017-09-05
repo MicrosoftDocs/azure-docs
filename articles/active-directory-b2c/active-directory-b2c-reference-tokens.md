@@ -1,11 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: Token reference | Microsoft Docs'
+title: 'Token reference - Azure AD B2C | Microsoft Docs'
 description: The types of tokens issued in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: dstrockis
-manager: mbaldwin
-editor: ''
+author: parakhj
+manager: krassk
+editor: parakhj
 
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
@@ -13,26 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
-ms.author: dastrock
+ms.date: 08/16/2017
+ms.author: parakhj
 
 ---
 # Azure AD B2C: Token reference
+
 Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each [authentication flow](active-directory-b2c-apps.md). This document describes the format, security characteristics, and contents of each type of token.
 
 ## Types of tokens
 Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2c-reference-protocols.md), which makes use of both access tokens and refresh tokens. It also supports authentication and sign-in via [OpenID Connect](active-directory-b2c-reference-protocols.md), which introduces a third type of token: the ID token. Each of these tokens is represented as a bearer token.
 
-A bearer token is a lightweight security token that grants the "bearer" access to a protected resource. The bearer is any party that can present the token. Azure AD must first authenticate a party before it can receive a bearer token. But if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. Some security tokens have a built-in mechanism for preventing unauthorized parties from using them, but bearer tokens do not have this mechanism. They must be transported in a secure channel, such as transport layer security (HTTPS).
+A bearer token is a lightweight security token that grants the "bearer" access to a protected resource. The bearer is any party that can present the token. Azure AD B2C must first authenticate a party before it can receive a bearer token. But if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. Some security tokens have a built-in mechanism for preventing unauthorized parties from using them, but bearer tokens do not have this mechanism. They must be transported in a secure channel, such as transport layer security (HTTPS).
 
 If a bearer token is transmitted outside a secure channel, a malicious party can use a man-in-the-middle attack to acquire the token and use it to gain unauthorized access to a protected resource. The same security principles apply when bearer tokens are stored or cached for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner.
 
 For additional security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-Many of the tokens that Azure AD B2C issues are implemented as JSON web tokens (JWTs). A JWT is a compact, URL-safe means of transferring information between two parties. JWTs contain information known as claims. These are assertions of information about the bearer and the subject of the token. The claims in JWTs are JSON objects that are encoded and serialized for transmission. Because the JWTs issued by Azure AD B2C are signed but not encrypted, you can easily inspect the contents of a JWT to debug it. Several tools are available that can do this, including [calebb.net](http://calebb.net). For more information about JWTs, refer to [JWT specifications](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Many of the tokens that Azure AD B2C issues are implemented as JSON web tokens (JWTs). A JWT is a compact, URL-safe means of transferring information between two parties. JWTs contain information known as claims. These are assertions of information about the bearer and the subject of the token. The claims in JWTs are JSON objects that are encoded and serialized for transmission. Because the JWTs issued by Azure AD B2C are signed but not encrypted, you can easily inspect the contents of a JWT to debug it. Several tools are available that can do this, including [jwt.ms](https://jwt.ms). For more information about JWTs, refer to [JWT specifications](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### ID tokens
-An ID token is a form of security token that your app receives from the Azure AD B2C `authorize` and `token` endpoints. ID tokens are represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify users in your app. When ID tokens are acquired from the `authorize` endpoint, they are often used to sign in users to web applications. When ID tokens are acquired from the `token` endpoint, they can be sent in HTTP requests during communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They are commonly used to display account information or to make access control decisions in an app.  
+
+An ID token is a form of security token that your app receives from the Azure AD B2C `/authorize` and `/token` endpoints. ID tokens are represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify users in your app. When ID tokens are acquired from the `/authorize` endpoint, they are done so using the [implicit flow](active-directory-b2c-reference-spa.md), which is often used for users signing into to javascript based web applications. When ID tokens are acquired from the `/token` endpoint, they are done so using the [confidential code flow](active-directory-b2c-reference-oidc.md), which keeps the token hidden from the browser. This allows the token to be securely sent in HTTP requests for communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They are commonly used to display account information or to make access control decisions in an app.  
 
 ID tokens are signed, but they are not currently encrypted. When your app or API receives an ID token, it must [validate the signature](#token-validation) to prove that the token is authentic. Your app or API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an app can vary, but your app must perform some [common claim validations](#token-validation) in every scenario.
 
@@ -55,14 +57,16 @@ CQhoFA
 ```
 
 ### Access tokens
-An access token is also a form of security token that your app receives from the Azure AD B2C `authorize` and `token` endpoints. Access tokens are also represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify the granted permissions to your APIs. Access tokens are signed, but they are not currently encrypted. Access tokens should be used to provide access to APIs and resource servers. Learn more about how to [use access tokens](active-directory-b2c-access-tokens.md). 
+
+An access token is also a form of security token that your app receives from the Azure AD B2C `/authorize` and `/token` endpoints. Access tokens are also represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify the granted permissions to your APIs. Access tokens are signed, but they are not currently encrypted. Access tokens should be used to provide access to APIs and resource servers. Learn more about how to [use access tokens](active-directory-b2c-access-tokens.md). 
 
 When your API receives an access token, it must [validate the signature](#token-validation) to prove that the token is authentic. Your API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an app can vary, but your app must perform some [common claim validations](#token-validation) in every scenario.
 
 ### Claims in ID and access tokens
+
 When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [policies](active-directory-b2c-reference-policies.md) to send certain sets of user data in claims that your app requires for its operations. These claims can include standard properties such as the user's `displayName` and `emailAddress`. They can also include [custom user attributes](active-directory-b2c-reference-custom-attr.md) that you can define in your B2C directory. Every ID and access token that you receive contains a certain set of security-related claims. Your applications can use these claims to securely authenticate users and requests.
 
-Note that the claims in ID tokens are not returned in any particular order. In addition, new claims can be introduced in ID tokens at any time. Your app should not break as new claims are introduced. Here are the claims that you expect to exist in ID and access tokens issued by Azure AD B2C. Any additional claims are determined by policies. For practice, try inspecting the claims in the sample ID token by pasting it into [calebb.net](http://calebb.net). Further details can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
+Note that the claims in ID tokens are not returned in any particular order. In addition, new claims can be introduced in ID tokens at any time. Your app should not break as new claims are introduced. Here are the claims that you expect to exist in ID and access tokens issued by Azure AD B2C. Any additional claims are determined by policies. For practice, try inspecting the claims in the sample ID token by pasting it into [jwt.ms](https://jwt.ms). Further details can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
 | Name | Claim | Example value | Description |
 | --- | --- | --- | --- |

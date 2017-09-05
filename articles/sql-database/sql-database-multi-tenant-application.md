@@ -3,7 +3,7 @@ title: Implement multi-tenant SaaS application with Azure SQL Database | Microso
 description: Implement multi-tenant SaaS application with Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: 'AyoOlubeko'
+author: CarlRabeler
 manager: 'jhubbard'
 editor: 'monicar'
 tags: ''
@@ -12,11 +12,11 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,scale out apps
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/08/2017
-ms.author: 'AyoOlubek'
+ms.author: carlrab
 
 ---
 
