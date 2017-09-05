@@ -42,9 +42,9 @@ Currently the following limitations apply:
 
 ## Common issues
 
-**Issue**: The collector can't connect to the project using the project ID and key I copied
-from the portal,
-**Solution**: Make sure you've copied and pasted the right information. To troubleshoot, install the Mirosoft Monitoring Agent as follows:
+**The collector can't connect to the project using the project ID and key I copied
+from the portal**
+Make sure you've copied and pasted the right information. To troubleshoot, install the Mirosoft Monitoring Agent as follows:
     1. On the collector VM, install the agent.
     2. In setup, on the **Welcome** page, click **Next**. On the **License Terms** page, click **I Agree** to accept the license.
     3. In **Destination Folder**, keep or modify the default installation folder > **Next**.
@@ -53,19 +53,19 @@ from the portal,
 from the portal. Click **Next**.
     6. Check if the agent can connect to the project. If it can't check the values. If it can but the collector can't, contact support.
 
-**Issue**: I installed the agent as described in the previous issue, but when I connect to the project I get a date and time synchronization error.
-**Solution**: The server clock might be out-of-synchronization with the current time by more than five
+**I installed the agent as described in the previous issue, but when I connect to the project I get a date and time synchronization error.**
+The server clock might be out-of-synchronization with the current time by more than five
 minutes. Change the clock time on the collector VM to match the
 current time, as follows:
 
-    1. Open an admin command prompt on the VM.
-    2. Run w32tm /tz,  to check the time zone.
-    3. Run w32tm /resync,  to synchronize the time.
+1. Open an admin command prompt on the VM.
+2. Run w32tm /tz,  to check the time zone.
+3. Run w32tm /resync,  to synchronize the time.
 
 
-**Issue**: My project key has “==” symbols towards the end. These are encoded to other
-alphanumeric characters by the collector. Is this expected?
-**Solution**: Yes, every project key ends with “==”. The collector
+**My project key has “==” symbols towards the end. These are encoded to other
+alphanumeric characters by the collector. Is this expected?**
+Yes, every project key ends with “==”. The collector
 encrypts the project key before processing it.
 
 
