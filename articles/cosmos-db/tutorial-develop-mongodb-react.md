@@ -56,7 +56,8 @@ This video shows how set up the Express and React in the same project. Burke the
 
 This video shows how to create the application's user interface (UI) with React. 
 
-> [!NOTE] The CSS referenced in this video can be found in the [react-cosmosdb GitHub repo](https://github.com/Azure-Samples/react-cosmosdb/blob/master/src/index.css).
+> [!NOTE]
+> The CSS referenced in this video can be found in the [react-cosmosdb GitHub repo](https://github.com/Azure-Samples/react-cosmosdb/blob/master/src/index.css).
 
 > [!VIDEO https://www.youtube.com/embed/SzHzX0fTUUQ]
 
@@ -102,7 +103,7 @@ In this tutorial, you've learned how to:
 > * Test the app using Postman
 > * Run the application and add heroes to the database
 
-The final installment of this multi-part tutorial, which involves deploying the application and globally replicating your data, is coming soon. Check back for updates. 
+Check back for an additional video in this tutorial series that will cover deploying the application and globally replicating your data.
 
 You can proceed to the next tutorial and learn how to import MongoDB data into Azure Cosmos DB.  
 
