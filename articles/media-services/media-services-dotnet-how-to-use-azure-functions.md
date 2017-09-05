@@ -336,6 +336,11 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 To test your function, you need to upload an MP4 file into the **input** container of the storage account that you specified in the connection string.  
 
+1. Select the storage account that you specified in the **StorageConnection** environment variable.
+2. Click **Blobs**.
+3. Click **+ Container**. Name the container **input**.
+4. Press **Upload** and browse to an .mp4 file that you want to upload.
+
 ## Next steps
 
 At this point, you are ready to start developing a Media Services application. 
