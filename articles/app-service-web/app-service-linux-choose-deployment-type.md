@@ -1,5 +1,5 @@
 ---
-title: Web App for Containers Deployment - Custom image or built-in platform image?  | Microsoft Docs
+title: Azure Web App for Containers Deployment - Custom image or built-in platform image?  | Microsoft Docs
 description: How to decide between custom Docker container deployment and a built-in application framework
 keywords: azure app service, web app, linux, oss
 services: app-service
@@ -18,7 +18,7 @@ ms.date: 07/14/2017
 ms.author: nickwalk
 
 ---
-# Custom image or built-in platform image? 
+# Azure Web App for Containers deployments: Custom image or built-in platform image? 
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
