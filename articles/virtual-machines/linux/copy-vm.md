@@ -56,7 +56,7 @@ process creates a specialized VHD as a Managed Disk that contains the same confi
 settings as the source VM.
 
 For more information about Azure Managed Disks, see [Azure Managed Disks
-overview](../../storage/storage-managed-disks-overview.md). 
+overview](../windows/managed-disks-overview.md). 
 
 1.  List each VM and the name of its OS disk with [az vm
     list](/cli/azure/vm#list). The following example lists all VMs in the

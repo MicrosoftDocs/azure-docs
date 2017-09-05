@@ -3,8 +3,8 @@ title: Using the Visual Studio Publish Azure Application Wizard | Microsoft Docs
 description: Learn how to configure the various settings in the Visual Studio Publish Azure Application Wizard
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Using the Visual Studio Publish Azure Application Wizard

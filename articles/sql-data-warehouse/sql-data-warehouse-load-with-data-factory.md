@@ -33,7 +33,7 @@ You can use Azure Data Factory to load data into Azure SQL Data Warehouse from a
 
 - You need an online **SQL Data Warehouse**. If you do not already have a data warehouse, learn how to [Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
 
-- You need an **Azure Storage Account**. If you do not already have a storage account, learn how to [Create a storage account](../storage/storage-create-storage-account.md). For best performance, locate the storage account and the data warehouse in the same Azure region.
+- You need an **Azure Storage Account**. If you do not already have a storage account, learn how to [Create a storage account](../storage/common/storage-create-storage-account.md). For best performance, locate the storage account and the data warehouse in the same Azure region.
 
 ## Configure a data factory
 1. Log in to the [Azure portal][].

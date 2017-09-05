@@ -46,7 +46,7 @@ Point-to-Site connections do not require a VPN device or an on-premises public-f
 
 For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
 
-## Before beginning
+## Before you begin
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 * Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
@@ -240,6 +240,8 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
   ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
+#### Troubleshooting P2S connections
+
 [!INCLUDE [client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>10. Verify your connection
@@ -408,7 +410,7 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 
 ## <a name="faq"></a>Point-to-Site FAQ
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).

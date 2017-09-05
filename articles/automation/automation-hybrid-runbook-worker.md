@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/05/2017
+ms.date: 08/21/2017
 ms.author: magoedte;bwren
 ---
 
@@ -130,20 +130,6 @@ Use the **-Verbose** switch with **Add-HybridRunbookWorker** to receive detailed
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment.  These modules are not automatically deployed to on-premises computers though, so you must install them manually.  The exception is the Azure module, which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.
 
 Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you most likely need to install the modules that support these resources.  You can refer to [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx) for information on installing Windows PowerShell modules.  Modules that are installed must be in a location referenced by PSModulePath environment variable so that they are automatically imported by the Hybrid worker.  For further information, see [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
-
-## Installing Linux Hybrid Runbook Worker
-To install and configure a Hybrid Runbook Worker on Linux is very straight forward procedure to manually install and configure the role.  It requires enabling the **Automation Hybrid Worker** solution in your OMS workspace and then running a set of commands to register the computer as a worker and add it to a new or existing group. 
-
-1.	Enable the “Automation Hybrid Worker” solution in OMS. This can be done by either:
-
-   1. From the Solutions Gallery in the [OMS portal](https://mms.microsoft.com) enable the **Automation Hybrid Worker** solution
-   2. Run the following cmdlet:
-
-        ```$null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
-        ```
-2.	Run the following command with the proper parameters (endpoint and key can be taken from the portal from the automation account linked to the workspace used in the steps above):
-sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <automationsharedkey> --groupname <hybridgroupname> -e <automationendpoint>
-
 
 ## Removing Hybrid Runbook Worker 
 You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements.  To remove a Hybrid Runbook Worker from an on-premises computer, perform the following steps.
