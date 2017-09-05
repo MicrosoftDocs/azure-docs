@@ -34,6 +34,12 @@ This multi-part tutorial covers the following tasks:
 > * Use Mongoose to connect to Azure Cosmos DB
 > * Add React, Create, Update, and Delete operations to the app
 
+## Prerequisites
+* [Node.js](https://www.nodejs.org)
+
+### Finished Project
+Get the completed application [from GitHub](https://github.com/Azure-Samples/react-cosmosdb).
+
 ## Introduction 
 
 In this video, Burke Holland gives an introduction to Azure Cosmos DB and walks you through the app that is created in this video series. 
@@ -48,7 +54,7 @@ This video shows how set up the Express and React in the same project. Burke the
 
 ## Build the UI
 
-This video shows how to create the application's user interface (UI) with React. 
+This video shows how to create the application's user interface (UI) with React. **Note: The CSS referenced in this video can be found [here](https://github.com/Azure-Samples/react-cosmosdb/blob/master/src/index.css).**
 
 > [!VIDEO https://www.youtube.com/embed/SzHzX0fTUUQ]
 
