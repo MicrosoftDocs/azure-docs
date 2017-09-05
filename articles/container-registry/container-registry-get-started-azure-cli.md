@@ -42,10 +42,15 @@ az group create --name myResourceGroup --location westcentralus
 
 Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 
-> [!NOTE]
-> When you create a registry, specify a globally unique top-level domain name, containing only letters and numbers.
+The name of the registry must be unique. In the following example *myContainerRegistry007* is used. Update this to a unique value. 
 
- The registry name in the example is *myContainerRegistry1*, substitute a unique name of your own.
+Several different registry sku’s are available, choose one appropriate to your needs.
+
+| Sku | Description | Notes |
+| Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions.|
+| Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+| Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+| Managed_Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 
 ```azurecli
 az acr create --name myContainerRegistry1  --resource-group myResourceGroup --sku Basic
@@ -84,6 +89,29 @@ az acr login --name myAzureContainerRegistry1
 The command returns a 'Login Succeeded' message once completed.
 
 ## Push image to ACR
+
+To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull are pre-created image from Docker Hub.
+
+```bash
+docker pull microsoft/azure-vote-front
+```
+
+The image will need to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
+
+```bash
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+```
+
+Tag the image using the [docker tag]() command. Replace *acrLoginServer* with the login server name of your ACR instance.
+
+```
+docker tag microsoft/azure-vote-front acrLoginServer/azure-vote-front
+
+Finally, use [Docker push]() to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
+
+```
+docker push acrLoginServer/azure-vote-front
+```
 
 ## List container images
 
