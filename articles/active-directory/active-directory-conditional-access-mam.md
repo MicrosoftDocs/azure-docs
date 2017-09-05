@@ -21,7 +21,7 @@ ms.reviewer: spunukol
 ---
 # Conditional access with mobile app management in Azure Active Directory  
 
-Azure Active Directory (Azure AD) mobile app management conditional access in the Azure portal combined with Intune app protection policies help restrict access to applications in the cloud such Exchange Online with mobile clients that support protection of company data on devices. This support allows devices that are not enrolled for management in Intune using device-based conditional access to still protect company data by creating a policy that allows only mobile apps such as Microsoft Outlook app that support Intune app protection policies to access an O365 service like Exchange Online. 
+Azure Active Directory (Azure AD) app-based conditional access in the Azure portal combined with Intune app protection policies help restrict access to cloud apps to mobile apps that support Intune app protection, for example restricting access to Exchange Online to the Outlook app. This support allows devices that are not enrolled for management by Intune MDM to still protect company data.   
 
 Mobile app management conditional access allows you to combine with other policies such as device-based conditional access policies to provide flexibility in how to protect data for both personal and corporate devices. 
 
