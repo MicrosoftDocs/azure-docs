@@ -45,7 +45,7 @@ The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generato
 
 To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.  
 
-Name your application "MyFirstContainer". 
+Name your application "MyFirstContainer" and name the application service "MyContainerService."
 
 Provide the container image name "nginx:latest" (the [nginx container image](https://hub.docker.com/r/_/nginx/) on Docker Hub). 
 
@@ -56,7 +56,7 @@ Specify an instance count of "1".
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
 ## Configure communication and container port-to-host port mapping
-Configure an HTTP endpoint so clients can communicate with your service.  In the ServiceManifest.xml file, declare an endpoint resource in the **ServiceManifest** element and add the protocol, port, and name. For this quick start, the service listens on port 80: 
+Configure an HTTP endpoint so clients can communicate with your service.  Open the *./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xml file* and declare an endpoint resource in the **ServiceManifest** element.  Add the protocol, port, and name. For this quick start, the service listens on port 80: 
 
 ```xml
 <Resources>
