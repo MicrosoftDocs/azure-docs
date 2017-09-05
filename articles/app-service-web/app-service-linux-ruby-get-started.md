@@ -47,8 +47,8 @@ Run the rails server in order for the application to work. Change to the *hello-
 cd hello-world\bin
 rails server
 ```
-	
-Using your web browser, navigate to `http://localhost:3000` to test the app locally.	
+
+Using your web browser, navigate to `http://localhost:3000` to test the app locally.
 
 ![Hello-world](./media/app-service-linux-ruby-get-started/hello-world.png)
 
@@ -69,7 +69,7 @@ Open *~/workspace/hello-world/app/controllers/application_controller.rb* for edi
 
   ```ruby
   class ApplicationController > ActionController :: base
-    protect_from_forgery with: :exception 
+    protect_from_forgery with: :exception
     def hello
       render html: "Hello, world from Azure Web App on Linux!"
     end
@@ -90,8 +90,8 @@ A resource group is required to contain the assets needed for your web app. To c
 az group create --location westeurop --name myResourceGroup
 ```
 
-Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command to create an app service plan for your web app. 
- 
+Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command to create an app service plan for your web app.
+
 ```azurecli-interactive
   az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
@@ -151,6 +151,7 @@ Navigate to your site and verify the results.
 ```bash
 http://<app name>.azurewebsites.net
 ```
+
 ![updated web app](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
 
 > [!NOTE]
