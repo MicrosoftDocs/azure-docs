@@ -90,9 +90,12 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
  
     > [!TIP]
     > You can use John Papa's Angular Essentials extentions and snippets for Visual Studio Code to speed up your development. 
-    > Click the **Extensions** button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type *angular essentials* in the search box and then click **Install**, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
-    > After installing click the **Reload** button to use the new extensions.
-    >
+    > 1. Click the **Extensions** button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png).
+    > 2. Type *angular essentials* in the search box.
+    > 3. Click **Install**. 
+    > 4. Click the **Reload** button to use the new extensions.
+    > or
+    > Download from [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
     > ![Angular Essentials extension](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
 7. Go back to the **heroes.component.html** file and copy in this code. The `<div>` is the container for the entire page. Inside of the container there is a list of heroes which we need to create so that when you click on one you can select it and edit it or delete it in the UI. Then in the HTML we've got some styling so you know which one has been selected. There's also an edit area so that you can add a new hero or edit an existing one. 
