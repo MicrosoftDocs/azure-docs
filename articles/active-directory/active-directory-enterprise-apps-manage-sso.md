@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2017
+ms.date: 09/05/2017
 ms.author: curtand
 ms.reviewer: asmalser
 
