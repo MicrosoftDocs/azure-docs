@@ -19,13 +19,15 @@ ms.author: raynew
 ---
 # Modify assessment values for VMware VM migration
 
-[Azure Migration Planner](migration-planner-overview.md) runs assessments for migration to Azure using default settings. After running an assessment, follow the instructions in this article if you want to modify those defaults.
+[Azure Migration Planner](migration-planner-overview.md) runs assessments for migration to Azure using default settings.
+
+After running an assessment, follow the instructions in this article if you want to modify those defaults.
 
 Post any comments or questions at the bottom of this article.
 
 ## Edit assessment values
 
-1. In **Assessments**, select the assessment, and click **Settings**.
+1. In the Migration Planner project > **Assessments**, select the assessment, and click **Settings**.
 2. In the **Settings** tab, modify the values in accordance with the table below.
 
 ## Assessment values
