@@ -97,4 +97,4 @@ Costs are displayed in the currency specified in the assessment settings. Curren
 
 ## Next steps
 
-Learn about [assessment settings](migration-planner-overview.md#assessment-customization)
+[Set up an assessment](tutorial-assessment-vmware.md)
