@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Create and provision a simulated device using IoT Hub Device Provisioning Service
 
-These steps show how to create a simulated device on your development machine, run the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) simulator, and use the code sample to connect this device with the Device Provisioning Service and your IoT hub. 
+These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
