@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 09/06/2017
 ms.author: jingwang
 
 ---
@@ -107,9 +107,9 @@ For this sample use case, copy activity will firstly unload data from Amazon Red
     "typeProperties": {
         "source": {
             "type": "AmazonRedshiftSource",
-            "query": "select * from \"msrsperftest\".\"public\".\"threesmall\"",
+            "query": "select * from MyTable",
             "redshiftUnloadSettings": {
-                "s3LinkedServiceName":"myS3Storage",
+                "s3LinkedServiceName":"MyAmazonS3StorageLinkedService",
                 "bucketName": "bucketForUnload"
             }
         },
@@ -119,7 +119,7 @@ For this sample use case, copy activity will firstly unload data from Amazon Red
         },
         "enableStaging": true,
         "stagingSettings": {
-            "linkedServiceName": "AzureStorageLinkedService",
+            "linkedServiceName": "MyAzureStorageLinkedService",
             "path": "adfstagingcopydata"
         },
         "cloudDataMovementUnits": 32
