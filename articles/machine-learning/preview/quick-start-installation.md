@@ -114,6 +114,8 @@ $ az ml account experimentation create -n <experimentation account name> -g <res
 
 After Experimentation account is created, close the current instance of Workbench, then relaunch it. You should be dropped into the newly created Experimentation account.
 
+If you happen to be a member of more than one Experimentation accounts, you can switch among Experimentation accounts by clicking on your account picture at the lower left corner of the app.
+
 It is a good idea to also create a new Workspace where your Projects can live. You can use commands below.
 
 ```bash
@@ -135,9 +137,7 @@ az ml env setup -l <Azure region, e.g. eastus2> -n <environmnet name>
 # set the environment to be used
 az ml env set -n <environment name created above> -g <resource group name it was created in>
 ```
-
-
-If you happen to be a member of more than one Experimentation accounts, you can switch among Experimentation accounts by clicking on your account picture at the lower left corner of the app.
+You can sse the set account and set env commands if you create, or have, more than one.
 
 ### Check your build number
 You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
