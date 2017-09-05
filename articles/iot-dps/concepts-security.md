@@ -1,11 +1,11 @@
 ---
 title: Security concepts in device provisioning | Microsoft Docs
-description: Describes security provisioning concepts specific to devices with DPS and IoT Hub
+description: Describes security provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 08/22/2017
+ms.date: 09/01/2017
 ms.topic: article
 ms.service: iot-dps
 
@@ -18,26 +18,22 @@ ms.custom: mvc
 
 # Security concepts in device provisioning
 
-IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With IoT DPS you can provision millions of devices in a secure and scalable manner.
-
-Device provisioning  is a two part process. The first part is establishing the initial connection between the device and the IoT solution by *registering* the device. The second part is applying the proper *configuration* to the device based on the specific requirements of the solution it was registered to. Only once both those two steps have been completed can I say that the device has been fully *provisioned*. IoT DPS automates these both steps to provide a seamless provisioning experience for the device.
-
-This article gives an overview of the *security* concepts involved in device provisioning. This article is relevant to all personas involved in getting a device ready for deployment.
+IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service you can provision millions of devices in a secure and scalable manner. This article gives an overview of the *security* concepts involved in device provisioning. This article is relevant to all personas involved in getting a device ready for deployment.
 
 ## Attestation mechanism
 
-The attestation mechanism is the method used for confirming a device's identity. The attestation mechanism is also relevant to the enrollment list, which tells the DPS which method of attestation to use with a given device.
+The attestation mechanism is the method used for confirming a device's identity. The attestation mechanism is also relevant to the enrollment list, which tells the provisioning service which method of attestation to use with a given device.
 
 > [!NOTE]
 > IoT Hub uses "authentication scheme" for a similar concept in that service.
 
-DPS supports two forms of attestation:
+Device Provisioning Service supports two forms of attestation:
 * **X.509 certificates** based on the standard X.509 certificate authentication flow.
 * **SAS tokens** based on a nonce challenge using the TPM standard for keys. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## Hardware security module
 
-The hardware security module, or HSM, is used for secure, hardware-based storage of device secrets, and is the most secure form of secret storage. Both X.509 certificates and SAS tokens can be stored in the HSM. HSMs can be used with both attestation mechanisms the DPS supports.
+The hardware security module, or HSM, is used for secure, hardware-based storage of device secrets, and is the most secure form of secret storage. Both X.509 certificates and SAS tokens can be stored in the HSM. HSMs can be used with both attestation mechanisms the provisioning supports.
 
 > [!TIP]
 > We strongly recommend using an HSM with devices to securely store secrets on your devices.
@@ -46,7 +42,7 @@ Device secrets may also be stored in software (memory), but it is a less secure 
 
 ## Trusted Platform Module (TPM)
 
-TPM can refer to a standard for securely storing keys used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based. Learn more about [TPMs and TPM attestation](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). DPS only supports TPM 2.0.
+TPM can refer to a standard for securely storing keys used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based. Learn more about [TPMs and TPM attestation](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Device Provisioning Service only supports TPM 2.0.
 
 ## Endorsement key
 
