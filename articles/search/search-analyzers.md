@@ -43,16 +43,18 @@ The following list describes which analyzers are supported in Azure Search.
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Used automatically for indexing and queries. No specification or configuration is required. This general-purpose analyzer performs well for most languages and scenarios.|
-| [Predefined analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types:<br/><br/>Specialized (language agnostic) analyzers for text inputs requiring specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) provide rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| Predefined analyzers | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no customization. <br/><br/>[Specialized (language agnostic) analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) for text inputs requiring specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) provide rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | A user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
+
+You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use alternative options documented in [Predefined Analyzer Reference](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Only a few of the predefined analyzers have options that you can set. As with any customization, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
 
 ## How to specify analyzer
 
 1. For custom analyzers only, create an `analyzer` definition the index. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Custom Analyzers > Create](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
-2. On each field for which you want to use the analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). The target analyzer is a predefined analyzer, a language analyzer, or a custom analyzer you previously defined in the index.
+2. On each field for which you want to use the analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). Valid values include a predefined analyzer, a language analyzer, or a custom analyzer previously defined in the index schema.
 
- Optionally, you can instead specify different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
+ Optionally, you can instead specify different analyzers on a field for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
 
 3. Rebuild the index to invoke the new text processing behaviors.
 
