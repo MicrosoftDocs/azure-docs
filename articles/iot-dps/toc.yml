@@ -1,26 +1,26 @@
-- name: Overview
+- name: Azure IoT Hub Device Provisioning Service Documentation 
   href: index.yml
+- name: Overview
   items:
   - name: About Azure IoT DPS
     href: about-iot-dps.md
-- name: Get Started
+- name: Quickstarts
+  expanded: true
   items:
-  - name: Quickstarts
-    items:
-    - name: Setup auto provisioning
-      href: quick-setup-auto-provision.md
-    - name: Create simulated device
-      href: quick-create-simulated-device.md
-  - name: Tutorials
-    items:
-    - name: 1 - Set up cloud
-      href: tutorial-set-up-cloud.md
-    - name: 2 - Set up device
-      href: tutorial-set-up-device.md
-    - name: 3 - Provision a device to a hub
-      href: tutorial-provision-device-to-hub.md
-    - name: 4 - Provision devices to multiple hubs
-      href: tutorial-provision-multiple-hubs.md
+  - name: Set up auto provisioning
+    href: quick-setup-auto-provision.md
+  - name: Create simulated device
+    href: quick-create-simulated-device.md
+- name: Tutorials
+  items:
+  - name: 1 - Configure cloud resources
+    href: tutorial-set-up-cloud.md
+  - name: 2 - Set up your device to connect to Azure
+    href: tutorial-set-up-device.md
+  - name: 3 - Provision devices to a single IoT hub
+    href: tutorial-provision-device-to-hub.md
+  - name: 4 - Provision devices to multiple, load-balanced IoT hubs
+    href: tutorial-provision-multiple-hubs.md
 - name: How To
   items:
   - name: Concepts
