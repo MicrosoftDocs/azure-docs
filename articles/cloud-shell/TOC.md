@@ -1,12 +1,14 @@
 # [Overview](overview.md)
 
 # Quickstart
-## [Bash Quickstart](quickstart.md)
-## [PowerShell Quickstart](quickstart-PS.md)
+## [Quickstart for Bash](quickstart.md)
+## [Quickstart for PowerShell](quickstart-PS.md)
 
 # Concepts
-## [Features & Tools](features.md)
+## [Bash Features & Tools](features.md)
+## [PowerShell Features & Tools](powershell-features.md)
 ## [Limitations](limitations.md)
+## [Troubleshooting](TODO)
 
 # How-to
 ## [Persisting storage](persisting-shell-storage.md)
@@ -16,6 +18,7 @@
 
 # Reference
 ## [Azure CLI 2.0](/cli/azure) 
+
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)

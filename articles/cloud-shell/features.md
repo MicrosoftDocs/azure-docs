@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell (Preview) features | Microsoft Docs
-description: Overview of features of Azure Cloud Shell
+title: Bash in Azure Cloud Shell (Preview) features | Microsoft Docs
+description: Overview of features of Bash in Azure Cloud Shell
 services: 
 documentationcenter: ''
 author: jluk
@@ -13,49 +13,38 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08 /28/2017
+ms.date: 09/1/2017
 ms.author: juluk
 ---
 
-# Features and Tools for Azure Cloud Shell
-Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
+# Features and Tools for Bash in Azure Cloud Shell
 
-Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
+[!include[<features-introblock>](features-introblock.md)]
 
-Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. 
-Since Cloud Shell is built for interactive sessions, shells automatically terminate after 20 minutes of shell inactivity.
+> [!TIP]
+> [PowerShell in Azure Cloud Shell](powershell-features.md) is also available.
 
-[TODO] Additionally, the PowerShell experience will provide:
-
-- **Azure namespace** capability to let you easily discover and navigate all Azure resources.
-
-- **Interaction with VMs** to enable seamless management into the guest VMs.
-
-- **Extensible model** to import additional cmdlets and ability to run any executable.
-
+## Bash in Cloud Shell
 ### Tools
-|**Category**   |**Bash**   | **PowerShell** |
-|---|---|---|
-|Shell interpreter|Bash<br> sh               | |
-|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)     | AzureRM (3.8) modules<br> Azure CLI 2.0  |
-|Text editors           |vim<br> nano<br> emacs       | vim                                      |
-|Package Manager | | PowerShellGet<br> PackageManagement      |
-|Source control         |git                    | git |
+|Category   |Name   |
+|---|---|
+|Linux shell interpreter|Bash<br> sh               |
+|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)     |
+|Text editors           |vim<br> nano<br> emacs       |
+|Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
 |Containers             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Draft](https://github.com/Azure/draft)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Databases              |MySQL client<br> PostgreSql client<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli)      |
-|Test tools      | | Pester                                   |
+|Databases              |MySQL client<br> PostgreSql client<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Other                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> |
 
 ### Language support
-|**Language**   |**Bash**   | **PowerShell** |
-|---|---|---|
-|.NET       |1.01       | 4.6        |
-|Go         |1.7        | |
-|Java       |1.8        | |
-|Node.js    |6.9.4      | 6.10       |
-|PowerShell |           |5.1        |
-|Python     |2.7 and 3.5 (default)| 2.7        |
+|Language   |Version   |
+|---|---|
+|.NET       |1.01       |
+|Go         |1.7        |
+|Java       |1.8        |
+|Node.js    |6.9.4      |
+|Python     |2.7 and 3.5 (default)|
 
 ## Secure automatic authentication
 Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
