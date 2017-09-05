@@ -93,15 +93,13 @@ The following example lists the repositories in a registry, in JSON (JavaScript 
 az acr repository list -n myContainerRegistry1 -o json
 ```
 
-## List image tags
-
 The following example lists the tags on the **samples/nginx** repository, in JSON format:
 
 ```azurecli
 az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
 ```
 
-## Delete container registry
+## Clean up resources
 
 ## Next steps
 
