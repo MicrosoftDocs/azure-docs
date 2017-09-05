@@ -1,6 +1,6 @@
 ---
-title: How to manage device enrollments for DPS | Microsoft Docs
-description: How to manage device enrollments for your DPS service in Azure Portal
+title: How to manage device enrollments for Azure IoT Hub | Microsoft Docs
+description: How to manage device enrollments for your DPS service in the Azure Portal
 services: iot-dps
 keywords: 
 author: dsk-2015
@@ -29,7 +29,7 @@ There are two ways you can enroll your devices with the provisioning service:
 
 You can create an enrollment group in the portal for a group of devices using the following steps.
 
-    1. Log in to Azure portal and click **All resources** from the left hand menu.
+    1. Log in to the Azure portal and click **All resources** from the left hand menu.
     2. Click the Device Provisioning service you want to enroll your device to from the list of resources.
     3. In your provisioning service, click **Manage enrollments**, then select **Enrollment Groups** tab.
     4. Click the **Add** button at the top, and enter the information required for the enrollment list entry. Upload the root certificate for the group of devices. 
@@ -42,7 +42,7 @@ You can create an enrollment group in the portal for a group of devices using th
 
 You can create an individual enrollment in the portal using the following steps. 
 
-    1. Log in to Azure portal and click **All resources** from the left hand menu.
+    1. Log in to the Azure portal and click **All resources** from the left hand menu.
     2. Click the Device Provisioning service you want to enroll your device to from the list of resources.
     3. In your provisioning service, click **Manage enrollments**, then select **Individual Enrollments** tab.
     4. Click the **Add** button at the top. 

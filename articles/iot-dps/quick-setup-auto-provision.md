@@ -1,6 +1,6 @@
 ---
-title: Set up Device Provisioning in Portal | Microsoft Docs
-description: Azure Quick Start - Set up Azure IoT Hub Device Provisioning Service in Azure Portal
+title: Set up Device Provisioning in the Azure portal | Microsoft Docs
+description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service in the Azure Portal
 services: iot-dps
 keywords: 
 author: dsk-2015
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Set up IoT Hub Device Provisioning Service with the Azure portal
+# Set up the IoT Hub Device Provisioning Service with the Azure portal
 
 These steps show how to set up the Azure cloud resources in the portal for provisioning your devices. This includes creating your IoT hub, creating a new IoT Hub Device Provisioning Service and linking the two services together. 
 
@@ -39,11 +39,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 4. Once the IoT hub is successfully deployed, the hub summary blade automatically opens.
 
 
-## Create a new instance for IoT device provisioning service
+## Create a new instance for the IoT device provisioning service
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. *Search the Marketplace* for **Device provisioning service**. Select **IoT Device Provisioning Service (preview)** and click the **Create** button. 
+2. *Search the Marketplace* for the **Device provisioning service**. Select **IoT Device Provisioning Service (preview)** and click the **Create** button. 
 
 3. **Name** your Device Provisioning Service instance. Select the subscription that would be used for this instance, and name a new or existing resource group. Select the location. When complete, click **Create**.
 
@@ -68,14 +68,14 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+Other Quickstarts in this collection build upon this Quickstart. If you plan to continue on to work with subsequent Quickstarts or with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart in the Azure portal.
 
 1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. At the top of the **All resources** blade, click **Delete**.  
 2. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
 
 ## Next steps
 
-In this quick start, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this set up to provision a simulated device, continue to the quick start for creating simulated device.
+In this Quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this set up to provision a simulated device, continue to the Quickstart for creating simulated device.
 
 > [!div class="nextstepaction"]
-> [Quick start to create simulated device](./quick-create-simulated-device.md)
+> [Quickstart to create simulated device](./quick-create-simulated-device.md)

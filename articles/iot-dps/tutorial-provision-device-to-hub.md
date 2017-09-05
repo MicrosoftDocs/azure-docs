@@ -1,5 +1,5 @@
 ---
-title: Provision device to an IoT hub using Device Provisioning Service | Microsoft Docs
+title: Provision a device using Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service
 services: iot-dps
 keywords: 
