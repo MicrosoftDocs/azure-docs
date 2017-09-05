@@ -28,14 +28,10 @@ Visit this page daily for a new tip from September 5th - September 29th!
 
 What is #cosmosdb? The best NoSQL db that you’re not using! https://aka.ms/ubw007
 
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905083120487022593)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6310849010374631425/)
+
 > [!VIDEO https://youtu.be/cGxO995iakM] 
 
-[![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/intent/retweet?tweet_id=903842783638700032)   [![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.linkedin.com/feed/update/urn%3Ali%3Aactivity%3A6309260110623580160&title=&summary=&source=)
-
-<a class="twitter-grid"
-  href="https://twitter.com/TwitterDev/timelines/539487832448843776">
-National Park Tweets
-</a>
 
 
 
