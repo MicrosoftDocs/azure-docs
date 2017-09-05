@@ -78,7 +78,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     };
     ```
 
-4. In **routes.js**, add a router for the `post` function after the `get` router. This router will post one hero at a time. Structuring the router file this way cleanly shows you all of the available API endpoints and leaves the real work to the **hero.service.js** file.
+4. In **routes.js**, add a router for the `post` function after the `get` router. This router posts one hero at a time. Structuring the router file this way cleanly shows you all of the available API endpoints and leaves the real work to the **hero.service.js** file.
 
     ```javascript
     router.post('/hero', (req, res) => {
