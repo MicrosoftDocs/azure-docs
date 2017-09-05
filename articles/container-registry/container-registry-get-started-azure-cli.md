@@ -48,7 +48,7 @@ Several different registry sku’s are available, choose one appropriate to your
 
 | Sku | Description | Notes |
 |---|---|---|
-| Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions.|
+| Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions. |
 | Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 | Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 | Managed_Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
