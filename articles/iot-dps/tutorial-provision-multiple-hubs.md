@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: sethmanheim
 ms.author: sethm
-ms.date: 08/15/2017
+ms.date: 09/01/2017
 ms.topic: tutorial
 ms.service: iot-dps
 
@@ -39,7 +39,7 @@ Follow the steps in the [Provision device to a hub](tutorial-provision-device-to
 
 ## Add an enrollment list entry to the second device
 
-The enrollment list tells the DPS which method of attestation (the method for confirming a device identity) it is using with the device. The next step is to add an enrollment list entry to the second device. 
+The enrollment list tells the DPS which method of attestation (the method for confirming a device identity) it is using with the device. The next step is to add an enrollment list entry for the second device. 
 
 1. In the page for your DPS, click **Manage enrollments**. The **Add enrollment list entry** page appears. 
 2. At the top of the page, click **Add**.
@@ -79,8 +79,8 @@ In this tutorial, you learned how to:
 > * Set the DPS allocation policy to **even distribution**
 > * Link the new IoT hub to DPS
 
-Advance to the next tutorial to learn how to 
-<!-- Replace this .md
+<!-- Advance to the next tutorial to learn how to 
+ Replace this .md
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 -->

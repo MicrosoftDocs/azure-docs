@@ -48,7 +48,7 @@ Follow these steps to create a new Device Provisioning Service instance.
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |   
 
-   ![Enter basic information about your DPS in the portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)
+   ![Enter basic information about your DPS in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Click **Create**.
 6. The *ID scope* is used to identify registration IDs, and provides a guarantee that the registration ID is unique. To obtain this value, click **Overview** to open the **Essentials** page for the Device Provisioning Service. Copy the **ID Scope** value to a temporary location for later use.
@@ -68,7 +68,7 @@ The next step is to link the Device Provisioning Service and IoT hub so that the
 4. In the **Add link to IoT hub** page, use the radio buttons to specify whether the linked IoT hub is located in the current subscription, or in a different subscription. Then, choose the name of the IoT hub from the **IoT hub** box.
 5. Click **Save**.
 
-   ![Link the hub name to link to the DPS in the portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)
+   ![Link the hub name to link to the DPS in the portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## Set the allocation policy on the Device Provisioning Service
 
