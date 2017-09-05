@@ -3,7 +3,7 @@ title: Azure Cloud Shell (Preview) troubleshooting | Microsoft Docs
 description: Troubleshooting of Azure Cloud Shell
 services: 
 documentationcenter: ''
-author: damaerte
+author: maertendMSFT
 manager: angelc
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: damaerte
+ms.author: maertendMSFT
 ---
 
 # Troubleshooting Azure Cloud Shell
