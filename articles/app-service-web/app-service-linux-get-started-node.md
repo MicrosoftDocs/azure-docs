@@ -4,7 +4,7 @@ description: Deploy your first Node.js Hello World in App Service Web Apps in mi
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
