@@ -1,0 +1,77 @@
+---
+title: Use an Interactive Spark Shell in HDInsight | Microsoft Docs
+description: 'An interactive Spark Shell provides a read-execute-print process for running Spark commands one at a time and seeing the results.'
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: maxluk
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 
+ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2017
+ms.author: nitinme
+---
+# Run Spark from the Spark Shell
+
+An interactive Spark Shell provides a REPL (read, execute, print loop) environment for running Spark commands one at a time and seeing the results. This is useful for development and debugging. Spark provides one shell for each of its supported languages, Scala, Python, and R.
+
+## Get to a Spark Shell with SSH
+
+Access a Spark Shell on HDInsight by connecting to the primary head node of the cluster using SSH:
+
+     ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
+
+You can get the complete SSH command for your cluster from the Azure Portal:
+
+1. Log into the [Azure Portal](https://portal.azure.com).
+2. Navigate to the blade for your HDInsight Spark cluster.
+3. Select Secure Shell (SSH).
+
+    ![HDInsight Blade in Azure Portal](./media/hdinsight-spark-shell/hdinsight-spark-blade.png)
+
+4. Copy the displayed SSH commmand and run it in your terminal.
+
+    ![HDInsight SSH Blade in Azure Portal](./media/hdinsight-spark-shell/hdinsight-spark-ssh-blade.png)
+
+For details on using SSH to connect to HDInsight, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+## Run a Spark Shell
+
+Spark provides shells for Scala (spark-shell), Python (pyspark) and R (sparkR). In your SSH session to the head node of your HDInsight cluster, enter one of the following commands:
+
+    ./bin/spark-shell
+    ./bin/pyspark
+    ./bin/sparkR
+
+Now you can enter Spark commands in the appropriate language.
+
+## SparkSession and SparkContext instances
+
+By default when you run the Spark Shell, instances of SparkSession and SparkContext are automatically instantiated for you.
+
+To access the SparkSession instance, enter `spark`. To access the SparkContext instance, enter `sc`.
+
+## Important shell parameters
+
+The Spark Shell command (`spark-shell`, `pyspark`, or `sparkR`) supports many command line parameters. Run the Spark Shell with the switch `--help` to see a full list of parameters. Note that some of these parameters may only apply to `spark-submit`, which the Spark Shell wraps.
+
+| switch | description | example |
+| --- | --- | --- |
+| --master MASTER_URL | Specifies the master URL. In HDInsight this should always be the value `yarn`. | `--master yarn`|
+| --jars JAR_LIST | Comma-separated list of local jars to include on the driver and executor classpaths. In HDInsight, these are paths to the default filesytem in Azure Storage or Data Lake Store. | `--jars /path/to/examples.jar` |
+| --packages MAVEN_COORDS | Comma-separated list of maven coordinates of jars to include on the driver and executor classpaths. Will search the local maven repo, then maven central, then any additional remote repositories specified with `--repositories`. The format for the coordinates is *groupId:artifactId:version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| --py-files LIST | For Python only, a comma-separated list of .zip, .egg, or .py files to place on the PYTHONPATH. | `--pyfiles "samples.py"` |
+
+## Next steps
+
+- See [Use Spark with HDInsight](hdinsight-spark-with-hdinsight.md) for an overview.
+- See [Use Spark SQL with HDInsight](hdinsight-spark-sql-with-hdinsight.md) to write applications that use DataFrames from SparkSQL.
+- See [What is Spark Structured Streaming?](hdinsight-spark-streaming-overview.md) to write applications that process streaming data with Spark.
+
