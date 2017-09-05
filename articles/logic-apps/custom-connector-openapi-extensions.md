@@ -93,7 +93,7 @@ Example: "This operation triggers when a new event is added to the calendar",
 ``` json
 "actions" {
   "Send_an_email": {
-     "description": "Specify the subject of the email",
+     "description": "Specify the subject of the mail",
      /// Other action properties here...
   }
 },
@@ -126,11 +126,11 @@ are hiding `advanced` operations and parameters.
      /// Other action properties here...
      "parameters:": [
          {
-           "name": "message-priority",
+           "name": "Subject",
            "type": "string",
-           "description": "The message priority, for example: low, medium, high",
-           "x-ms-summary": "Send Email"
-           "x-ms-visibility": "advanced",
+           "description": "Specify the subject of the mail",
+           "x-ms-summary": "Subject",
+           "x-ms-visibility": "important",
            /// Other parameter properties here
          }
      ]
@@ -283,4 +283,3 @@ Here's an example for a dynamic response:
 * [Describe your custom APIs and connectors](../logic-apps/custom-connector-api-postman-collection.md)
 * [Logic Apps: Register your connector](../logic-apps/logic-apps-custom-connector-register.md)
 * [Flow: Register your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)
-
