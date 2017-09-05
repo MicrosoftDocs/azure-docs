@@ -120,10 +120,10 @@ It is a good idea to also create a new Workspace where your Projects can live. Y
 
 ```bash
 # Create a new workspace
-# <workspace name>: name of the workspace
-# <resource group>: previously created resource group
-# <experimentation account name>  existing Experimentation account name
-$ az ml workspace create -n <workspace name> -g <resource group name> -a <experimentation account name>
+# -n: name of the workspace
+# -g: resource group name
+# -a: Experimentation account name
+$ az ml workspace create -n myWS -g myRG -a myExpAcct
 ```
 
 Let's also create resources needed for deploying and managing your models. 
