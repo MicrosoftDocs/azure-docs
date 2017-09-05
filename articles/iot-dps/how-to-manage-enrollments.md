@@ -27,7 +27,7 @@ There are two ways you can enroll your devices with the provisioning service:
 
 1. An **Enrollment group** is an entry for a group of devices that share a common attestation mechanism of X.509 certificates, signed by the same root CA. We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant. Note that you can only enroll devices that use the X.509 attestation mechanism as *enrollment groups*. 
 
-You can create an enrollment group in the portal for a group of devices using the following steps.
+    You can create an enrollment group in the portal for a group of devices using the following steps.
 
     1. Log in to the Azure portal and click **All resources** from the left hand menu.
     2. Click the Device Provisioning service you want to enroll your device to from the list of resources.
@@ -38,9 +38,9 @@ You can create an enrollment group in the portal for a group of devices using th
         ![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)
 
     
-1. An **Individual enrollment** is an entry for a single device that may register. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
+2. An **Individual enrollment** is an entry for a single device that may register. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
 
-You can create an individual enrollment in the portal using the following steps. 
+    You can create an individual enrollment in the portal using the following steps. 
 
     1. Log in to the Azure portal and click **All resources** from the left hand menu.
     2. Click the Device Provisioning service you want to enroll your device to from the list of resources.
