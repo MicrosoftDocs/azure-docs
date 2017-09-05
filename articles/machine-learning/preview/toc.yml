@@ -8,12 +8,7 @@
     href: what-are-preview-features.md
 - name: Quickstarts
   items:
-  - name: (Install Workbench)
-  - name: (Create a model)
-  - name: (Run a model in Docker)
-  - name: (Run a model with Python)
-  - name: (Operationalize a model)
-  - name: (Create a model with CLI)
+  - name: (Installation)
   - name: Set up Model Management
     href: model-management-configuration.md
   - name: Iris quickstart
@@ -22,7 +17,9 @@
     href: doc-template-quickstart.md
 - name: Tutorials
   items:
-  - name: (Bike Share Forecast)
+  - name: (Bike Share Forecast - Data preparation)
+  - name: (Bike Share Forecast - Experimentation)
+  - name: (Bike Share Forecast - Operationalization)
   - name: Iris tutorial Azure CLI
     href: tutorial-iris-azure-cli.md
   - name: MVC template (temporary)
@@ -37,7 +34,7 @@
     href: scripts/doc-template-sample.md
 - name: Concepts
   items:
-  - name: ML Workbench overview
+  - name: Machine Learning Workbench overview
     href: what-is-ml-workbench.md
   - name: Model Management overview
     href: model-management-overview.md 
@@ -55,6 +52,7 @@
       href: how-to-use-gpu.md
   - name: Acquire and understand data
     items:
+    - name: (Work with large datasets)
     - name: (Prepare your data)
   - name: Develop and manage models
     items:
