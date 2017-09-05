@@ -51,6 +51,8 @@
       href: tutorial-develop-documentdb-dotnet.md
     - name: MongoDB
       href: tutorial-develop-mongodb.md
+    - name: MongoDB with React
+      href: tutorial-develop-mongodb-react.md
     - name: Table
       href: tutorial-develop-table-dotnet.md
     - name: Graph
