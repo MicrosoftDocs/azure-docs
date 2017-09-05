@@ -108,6 +108,16 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 
 **A:** Yes, you can perform an update or patch a Red Hat Linux VM. For more information, see [Applying updates to an encrypted Azure IaaS Red Hat VM by using the yum update](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
 
+**Q:** What is the recommended Azure disk encryption workflow for Linux?
+
+**A:** The following workflow is recommended to have the best results on Linux:
+* Start from the unmodified stock gallery image corresponding to the desired OS distro and version
+* Back up any mounted drives that will be encrypted.  This permits recovery in case of failure, for example if the VM is rebooted before encryption has completed.
+* Encrypt (can take multiple hours or even days depending on vm characteristics and size of any attached data disks)
+* Customize, and add software to the image as needed.
+
+If this workflow is not possible, relying on [Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
+
 **Q:** Where can I go to ask questions or provide feedback?
 
 **A:** You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
