@@ -14,8 +14,6 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-
-
 # Test your solution with simulated devices
 
 Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
@@ -65,6 +63,8 @@ To follow this tutorial, you need a deployed instance of the remote monitoring s
 
 If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
 
+<!-- Dominic please this use as your reference https://github.com/Azure/device-simulation-dotnet/wiki/Device-Models -->
+
 ## Understand the device simulation service
 
 <!-- Provide detailed steps here -->
@@ -73,13 +73,19 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 <!-- Provide detailed steps here -->
 
+Modify an existing one and provide a new ligthbulb device twin model.
+
 ## Simulate custom device behavior
 
 <!-- Provide detailed steps here -->
 
+Modify an existing one and provide a new lightbulb behavior function.
+
 ## Add a new device type to the dashboard
 
 <!-- Provide detailed steps here -->
+
+How to modify the UX so it pulls the information about the new device type. I believe today is hardcoded so we may have to do this post MVP.
 
 ## Next steps
 
