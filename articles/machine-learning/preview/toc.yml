@@ -14,18 +14,18 @@
   - name: (Run a model with Python)
   - name: (Operationalize a model)
   - name: (Create a model with CLI)
-  - name: Set up model management
+  - name: Set up Model Management
     href: model-management-configuration.md
-  - name: Iris Quickstart
+  - name: Iris quickstart
     href: quick-start-iris.md
-  - name: MVC template
+  - name: [MVC template]
     href: doc-template-quickstart.md
 - name: Tutorials
   items:
   - name: (Bike Share Forecast)
-  - name: Iris Tutorial Azure CLI
+  - name: Iris tutorial Azure CLI
     href: tutorial-iris-azure-cli.md
-  - name: MVC template
+  - name: [MVC template]
     href: doc-template-tutorial.md
 - name: Samples
   items:
@@ -33,25 +33,25 @@
     href: sample-scripts-azure-cli.md
   - name: Python
     href: sample-scripts-python.md
-  - name: MVC template
+  - name: [MVC template]
     href: scripts/doc-template-sample.md
 - name: Concepts
   items:
   - name: ML Workbench overview
     href: what-is-ml-workbench.md
-  - name: Model management overview
+  - name: Model Management overview
     href: model-management-overview.md 
   - name: (Operationalization overview)
-  - name: MVC template
+  - name: [MVC template]
     href: doc-template-concepts.md
 - name: How-to guides
   items:
-  - name: Set Up and Configure Environment
+  - name: Set up and configure environment
     items:
     - name: (Set up an Experimentation account)
     - name: (Configure execution targets)
     - name: (Use Jupyter notebooks)
-    - name: How to Use GPU from Workbench
+    - name: How to use GPU from Workbench
       href: how-to-use-gpu.md
   - name: Acquire and understand data
     items:
@@ -67,7 +67,7 @@
     - name: (Consume a service with CLI)
   - name: (Use AZ ML CLI from the command line)
   - name: (Use a Git repo for source control)
-  - name: MVC template
+  - name: [MVC template]
     href: doc-template-how-to.md
 - name: Reference
   items:
@@ -76,6 +76,6 @@
     href: model-management-api-reference.md
 - name: Resources
   items:
-  - name: (Known Issues and Troubleshooting)
-  - name: (Release Notes)
-  - name: (Frequently Asked Questions)
+  - name: (Known issues and troubleshooting)
+  - name: (Release notes)
+  - name: (Frequently asked questions)
