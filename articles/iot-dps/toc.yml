@@ -7,7 +7,7 @@
   items:
   - name: Quickstarts
     items:
-    - name: Setup auto provisioning
+    - name: Set up auto provisioning
       href: quick-setup-auto-provision.md
     - name: Create simulated device
       href: quick-create-simulated-device.md
