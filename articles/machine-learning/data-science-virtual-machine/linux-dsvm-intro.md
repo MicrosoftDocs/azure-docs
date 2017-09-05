@@ -105,7 +105,7 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 > 
 > 
 
-## <a name=x2go-client></a>Installing and configuring X2Go client
+## Installing and configuring X2Go client
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
