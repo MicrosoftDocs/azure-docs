@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/01/2017
+ms.date: 09/05/2017
 ms.author: ryanwi
 
 ---
@@ -88,14 +88,20 @@ The Service Fabric Yeoman templates include a build script for [Gradle](https://
 cd MyFirstContainer
 gradle
 ```
+## Create a cluster
+To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
 
-## Deploy the application
-Once the application is built, you can deploy it to the local cluster using the XPlat CLI.
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).  Take note of the connection endpoint, which you use in the following step.
 
-Connect to the local Service Fabric cluster.
+For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
+
+## Deploy the application to Azure
+Once the application is built, you can deploy it to the Azure cluster using the Service Fabric CLI.
+
+Connect to the Service Fabric cluster in Azure.
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://lnxt10vkfz6.westus.cloudapp.azure.com:19080
 ```
 
 Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
@@ -104,14 +110,16 @@ Use the install script provided in the template to copy the application package 
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X). Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+Open a browser and navigate to Service Fabric Explorer at http://lnxt10vkfz6.westus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
 
-Connect to the running container.  Open a web browser pointing to the IP address returned on port 80, for example "http://localhost:80". You should see the nginx welcome page display in the browser.
+![Service Fabric Explorer][sfx]
+
+Connect to the running container.  Open a web browser pointing to the IP address returned on port 80, for example "lnxt10vkfz6.westus.cloudapp.azure.com:80". You should see the nginx welcome page display in the browser.
 
 ![Nginx][nginx]
 
 ## Clean up
-Use the uninstall script provided in the template to delete the application instance from the local development cluster and unregister the application type.
+Use the uninstall script provided in the template to delete the application instance from the cluster and unregister the application type.
 
 ```bash
 ./uninstall.sh
@@ -189,5 +197,6 @@ Here are the complete service and application manifests used in this quick start
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 * Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 
+[sfx]: ./media/service-fabric-quickstart-containers-linux/SFX.png
 [nginx]: ./media/service-fabric-quickstart-containers-linux/nginx.png
 [sf-yeoman]: ./media/service-fabric-quickstart-containers-linux/YoSF.png

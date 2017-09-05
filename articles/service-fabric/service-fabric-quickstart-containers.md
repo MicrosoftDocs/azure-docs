@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/01/2017
+ms.date: 09/05/2017
 ms.author: ryanwi
 
 ---
@@ -78,14 +78,14 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 
 A full ApplicationManifest.xml example file is provided at the end of this article.
 
-## Deploy the application to Azure
+## Create a cluster
 To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).  Take note of the connection endpoint, which you use in the following step.
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
-### Deploy the application using Visual Studio
+## Deploy the application to Azure using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
 Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
