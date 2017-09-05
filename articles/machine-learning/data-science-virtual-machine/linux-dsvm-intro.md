@@ -1,5 +1,5 @@
 ---
-title: Provision a Linux (CentOS) Data Science Virtual Machine on Azure | Microsoft Docs
+title: Provision a Linux CentOS Data Science Virtual Machine on Azure | Microsoft Docs
 description: Configure and create a Linux Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
@@ -17,7 +17,8 @@ ms.date: 09/04/2017
 ms.author: bradsev
 
 ---
-# Provision the Linux Data Science Virtual Machine on Azure
+# Provision a Linux CentOS Data Science Virtual Machine on Azure
+
 The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine that comes with a collection of pre-installed tools. These tools are commonly used for doing data analytics and machine learning. The key software components included are:
 
 * Operating System: Linux CentOS distribution.
@@ -104,7 +105,7 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 > 
 > 
 
-## Installing and configuring X2Go client
+## <a name=x2go-client></a>Installing and configuring X2Go client
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    

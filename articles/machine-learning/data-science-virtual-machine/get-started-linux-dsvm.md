@@ -30,10 +30,10 @@ The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’
 * Click the **Get it now** button.
 * Sign in to the VM from an SSH client, such as Putty or SSH Command, using the credentials you specified when you created the VM.
 * In the shell prompt, enter dsvm-more-info.
-* For a graphical desktop, download the X2Go client for your client platform [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) and follow the instructions in the Linux Data Science VM document [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* For a graphical desktop, download the X2Go client for your client platform [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) and follow the instructions in the Linux Data Science VM document [Installing and configuring X2Go client](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 
 ## Next steps
 
-* For more information on how to run specific tools available on the Linux version, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
+* For more information on how to run specific tools available on the Linux version, see [Provision a Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, see [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md).
 

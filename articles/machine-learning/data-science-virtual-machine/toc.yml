@@ -3,9 +3,9 @@
 - name: Get Started
   items:
   - name: With Windows DSVM
-    href: get-started-windows-dsvm
+    href: get-started-windows-dsvm.md
   - name: With Linux DSVM
-    href: get-started-linux-dsvm
+    href: get-started-linux-dsvm.md
 - name: How To
   items:
   - name: Set up tools and utilities
