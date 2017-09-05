@@ -194,5 +194,5 @@ In this part of the tutorial, you've done the following:
 > [!div class="checklist"]
 > * Added Post, Put, and Delete functions to the app 
 
-Check back for an additional video in this tutorial series that will cover globally replicating your data.
+Check back soon for additional videos in this tutorial series.
 

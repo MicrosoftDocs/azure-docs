@@ -27,13 +27,13 @@ This article will discuss how to use Azure reporting services and technologies t
 
 A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, Adriatic, and Baltic seas, as well as the British Isles. To help these efforts, it has acquired several smaller cruise lines based in Italy, Germany, Denmark and the U.K.
 
-The company uses Microsoft Azure for processing and storage of corporate data. This includes personal identifiable information such as names, addresses, phone numbers, and credit card information of its global customer base. It also includes traditional Human Resources information such as addresses, phone numbers, tax identification numbers and medical information about company employees in all locations. The cruise line also maintains a large database of reward and loyalty program members that includes personal information to track relationships with current and past customers.
+The company uses Microsoft Azure for processing and storage of corporate data. This includes personal identifiable information such as names, addresses, phone numbers, and credit card information of its global customer base. It also includes traditional Human Resources information such as addresses, phone numbers, tax identification numbers and other information about company employees in all locations. The cruise line also maintains a large database of reward and loyalty program members that includes personal information to track relationships with current and past customers.
 
 Corporate employees access the network from the company’s remote offices and travel agents located around the world have access to some company resources.
 
 ## Problem statement
 
-The company must protect the privacy of employees’ and customers’ personal data through a multi-layered security strategy that uses Azure management and security features to impose strict controls on access to and processing of personal data, and must be able to demonstrate its protective measures to internal and external auditors.
+The company must protect the privacy of customers' and employees’ and personal data through a multi-layered security strategy that uses Azure management and security features to impose strict controls on access to and processing of personal data, and must be able to demonstrate its protective measures to internal and external auditors.
 
 ## Company goal
 

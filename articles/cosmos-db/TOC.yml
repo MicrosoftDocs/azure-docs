@@ -53,6 +53,8 @@
       href: tutorial-develop-mongodb.md
     - name: MongoDB with Angular
       href: tutorial-develop-mongodb-nodejs.md
+    - name: MongoDB with React
+      href: tutorial-develop-mongodb-react.md
     - name: Table
       href: tutorial-develop-table-dotnet.md
     - name: Graph

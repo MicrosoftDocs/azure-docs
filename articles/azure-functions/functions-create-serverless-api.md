@@ -3,7 +3,7 @@ title: Create a serverless API using Azure Functions | Microsoft Docs
 description: How to create a serverless API using Azure Functions
 services: functions
 author: mattchenderson
-manager: erikre
+manager: cfowler
 
 ms.service: functions
 ms.tgt_pltfrm: na
