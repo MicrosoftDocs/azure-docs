@@ -3,7 +3,7 @@ title: Installation Quickstart for Machine Learning Server | Microsoft Docs
 description: This Quickstart shows how to provision Azure Machine Learning resources, and how to install Azure Machine Learning Workbench
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, raymondl
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -122,13 +122,13 @@ After creating a new Experimentation Account, it is a good idea to also create a
 $ az ml workspace create -n <workspace name> -g <resource group name> -a <experimenation account name>
 ```
 
-Let's also create resources needed for deploy and manage your model.
+Let's also create resources needed for deploying and managing your model.
 ```
-# create a new model management account
+# create a new Model Management Account
+az ml account modelmanagement create -l <Azure region: e.g. eastus2> -n <environment name> -g <resource group name> --sku-instances <number of SKUs for billing: e.g. 1> --sku-name <name of the billing SKU: e.g. S1>
 
-
-# create a new ML compute environment
-
+# create a new Model Management environment for local web service deployment
+az ml env setup --cluster-name raymondenv0821 -l eastus2
 ```
 
 After Experimentation account is created, close the current instance of Workbench, then relaunch it. You should be dropped into the newly created Experimentation account.
