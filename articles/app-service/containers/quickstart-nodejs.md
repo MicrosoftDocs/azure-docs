@@ -18,8 +18,6 @@ ms.author: cfowler;cephalin
 ---
 # Create a Node.js web app in a Linux container in Azure
 
-[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
-
 [Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)

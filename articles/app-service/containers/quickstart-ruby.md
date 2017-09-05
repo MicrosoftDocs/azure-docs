@@ -19,8 +19,6 @@ ms.author: wesmc;rachelap;cephalin
 ---
 # Create a Ruby web app in a Linux container in Azure
 
-[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
-
 [Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows you how to you deploy a basic Ruby on Rails app to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Ruby code to the web app.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)

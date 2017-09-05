@@ -19,8 +19,6 @@ ms.custom: mvc
 ---
 # Create a PHP web app in a Linux container in Azure
 
-[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
-
 [Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
 
 ![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)

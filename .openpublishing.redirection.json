@@ -1495,6 +1495,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service-web/app-service-web-arm-with-sql-database-provision.md",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-web/app-service-web-create-web-app-from-marketplace.md",
             "redirect_url": "https://portal.azure.com/#create/hub",
             "redirect_document_id": false
