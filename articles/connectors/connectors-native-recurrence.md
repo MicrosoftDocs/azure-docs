@@ -20,12 +20,12 @@ ms.author: LADocs; jehollan; astay
 
 # Create and run recurring scheduled tasks with logic apps
 
-To repeat tasks based on an interval, or schedule repeating tasks in advance, 
+To repeat tasks based on an interval, or event schedule these tasks in advance, 
 create a logic app workflow that starts with the **Schedule - Recurrence** trigger. 
 That way, your logic app runs and repeats after each specified time interval. 
 
-For example, you can create logic apps that schedule 
-and run workflows like these tasks:
+For example, you can create logic apps that 
+schedule and run workflows for these tasks:
 
 * Email a summary of all tweets with a specific hashtag within the past week.
 * Schedule a workflow that runs a SQL stored procedure every day.
@@ -56,7 +56,7 @@ select the **Schedule - Recurrence** trigger.
    Now this trigger is the first step in your logic app.
 
 3. Set the interval and frequency for the recurrence. 
-In this example, set these properties to every week. 
+In this example, set these properties to run the workflow every week. 
 
    ![Set interval and frequency](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
@@ -64,20 +64,18 @@ In this example, set these properties to every week.
 
    ![More options](./media/connectors-native-recurrence/recurrence-trigger-more-options.png)
 
-   Here, you can set up an advance date and time for starting your workflow. 
-   You can also specify the days of the week, 
-   and the times for when to run your workflow. 
+   Here, you can set up a date and time in advance for starting your workflow. 
+   You can also specify the days of the week and the times for when to run your workflow. 
    
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
    For example, you could specify that your logic app 
    doesn't start running until two weeks from today, 
    supposing that today is September 4, 2017. 
-   
-   If you set advanced options for days or times, 
+   If you select options for days or times, 
    the trigger shows you a preview for your specified recurrence. 
-   For example, this trigger runs weekly, on each Monday, at 10:30 AM, 
-   12:30 PM, and 2:30 PM.
+   For example, this trigger runs weekly, on each Monday, 
+   at 10:30 AM, 12:30 PM, and 2:30 PM.
 
    ![Advanced scheduling example](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
 
@@ -93,7 +91,7 @@ You can configure these properties for the recurrence trigger.
 | **Start time** | startTime | No | The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | **On these days** | weekDays | No | Select one or more days of the week when you want to run the workflow: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday` | 
 | **At these hours** | hours | No | Select one or more hours for the times of day when you want to run the workflow. For example, "10", "12" and "14" are 10 AM, 12 PM, and 2 PM. | 
-| **At these minutes** | minutes | No | Select one or minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
+| **At these minutes** | minutes | No | Select one or more minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
 ||||| 
 
 ## Next steps
