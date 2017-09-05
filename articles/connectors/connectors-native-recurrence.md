@@ -20,9 +20,9 @@ ms.author: LADocs; jehollan; astay
 
 # Create, schedule, and run recurring tasks with the recurrence trigger
 
-To repeat tasks based on a schedule, 
-create a logic app workflow that starts the **Schedule - Recurrence** trigger. 
-That way, your logic app runs and then repeats after each time interval passes. 
+To repeat tasks based on an interval, or schedule recurring tasks in advance, 
+create a logic app workflow that starts with the **Schedule - Recurrence** trigger. 
+That way, your logic app runs and repeats after each time interval passes. 
 
 For example, you can create logic apps that schedule and run workflows like these tasks:
 
