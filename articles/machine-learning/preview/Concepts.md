@@ -10,9 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ---
-# Azure ML Workbench Concepts
+# Azure ML Concepts
 
 Welcome to the Azure Machine Learning Workbench. This document defines high-level concepts that you need to understand before using Workbench and its services. 
+
+## General Concepts
 
 **Azure Machine Learning Experimentation Service**
 
@@ -47,7 +49,7 @@ The concept of ‘an experiment’ is one of the pillars of Azure Machine Learni
 
 **Team**
 
-In Azure Machine Learning Workbench, a 'Team' is the top level resource. It contains your work spaces,projects, and project assets. A 'Team' is associated with an Azure Resource Group. Teams contain 'Members' who can gain access to the work groups, projects and assets associated with a Team. 
+In Azure Machine Learning Workbench, a 'Team' is the top-level resource. It contains your work spaces, projects, and project assets. A 'Team' is associated with an Azure Resource Group. Teams contain 'Members' who can gain access to the work groups, projects, and assets associated with a Team. 
 
 **Work Group**
 
@@ -70,9 +72,9 @@ Environments behave differently depending on their context and Work Group:
 - Cloud Work Group: the environment uses KeyVault for safe storage of connection information   
 
 
-## Workbench Concepts
+## Workbench and Data Concepts
 
-**Azure Machine Learning Workbench?**
+**Azure Machine Learning Workbench**
 
 Workbench is a code-first, extensible machine learning application built for professional data scientists. Available for Windows and Mac, Workbench provides overview, management, and control for machine learning solutions. Workbench includes access to cutting edge AI frameworks from both Microsoft and the open source community. We've included the most popular data science toolkits, including TensorFlow, Microsoft Cognitive Toolkit, Spark ML, scikit-learn, and more. We’ve also enabled integration with popular data science IDEs such as Jupyter notebooks, PyCharm, and Visual Studio Code. Workbench has built-in data preparation capabilities to rapidly sample, understand, and prepare data, whether structured or unstructured. Our new data preparation tool, called PROSE, is built on cutting-edge technology from Microsoft Research.  
 
@@ -90,7 +92,7 @@ A dataset is data that has materialized in memory, a file, or a table. It is a d
 
 **Data Flow**
 
- A DataFlow is a collection of data preparation steps in Azure Machine Learning. The Workbench reads data from a DataSource and uses .dprep files as containers for multiple DataFlows. 
+ A DataFlow is a collection of data preparation steps in Azure Machine Learning. The Workbench reads data from a DataSource and uses .prep files as containers for multiple DataFlows. 
 
 **Compute Context**
 
@@ -101,7 +103,7 @@ Local, Cloud, Clustered
 An execution target is the run time environment that you have selected for your experiment. The Experimentation Service allows you to execute a Python/PySpark script either locally or in the cloud. Execution options are: 
 - Python (3.5.2) on your local computer 
 - Conida Python environment inside of a Docker container on local computer
-- Conda Python environment inside of a Docker container on a remote Linux machine, e.g. an Ubuntu-based DSVM on Azure
+- Condo Python environment inside of a Docker container on a remote Linux machine, for example, an Ubuntu-based DSVM on Azure
 - A Spark cluster such as Spark for HDInsight Spark on Azure
  
 **Run**
@@ -115,7 +117,7 @@ The Experimentation Service defines a run as the execution of a given file in an
 
 A model is the output of a training process and is the application of a machine learning algorithm to training data. The Model Management service enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. ‘Managed’ models have been registered with an Azure Machine Learning Model Management account. As an example, consider a scenario where you are trying to forecast sales. During the experimentation phase, you generate many models by using different data sets or algorithms. You have generated four models with varying accuracies but choose to register only the model with the highest accuracy. The model that is registered becomes your first managed model.
  
-**Deployment?**
+**Deployment**
 
 The Model Management service allows you to deploy models as packaged web service containers in Azure. These web services can be invoked using REST APIs. Each web service is counted as a single deployment, and the total number of active deployments are counted towards your plan. Using the sales forecasting example, when you deploy your best performing model, your plan is incremented by one deployment. If you then retrain and deploy another version, you have two deployments. If you determine that the newer model is better, and delete the original, your deployment count is decremented by one.  
 
@@ -129,5 +131,5 @@ You can use manifests from the previous step to generate (and regenerate) Docker
 
 **Retraining**
 
-The Model Management Service provides APIs to retrain models, and to update existing deployments with new versions. Following the data science workflow, you can recreate a model in your experimentation environment and register it with the Model Management Service. From there, you can update your  existing deployment environment with the new model using a single UPDATE command from the CLI. The UPDATE method does not change a deployment's API URL or key. Dependent applications will work without any code changes, and will begin receiving new predictions with the new model as soon as it is deployed.
+The Model Management Service provides APIs to retrain models, and to update existing deployments with new versions. Following the data science workflow, you can recreate a model in your experimentation environment and register it with the Model Management Service. From there, you can update your  existing deployment environment with the new model using a single UPDATE command from the CLI. The UPDATE method does not change a deployment's API URL or key. Dependent applications work without any code changes, and begin receiving new predictions with the new model as soon as it is deployed.
 
