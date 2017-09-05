@@ -8,7 +8,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 08/30/2017 
 ---
 # Frequently Asked Questions
 
