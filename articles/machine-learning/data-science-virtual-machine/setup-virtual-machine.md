@@ -4,7 +4,7 @@ description: Set up an Azure Virtual Machine for use in a data science environme
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 818617c1-048e-49c2-b941-f9a983f93998
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 09/04/2017
 ms.author: xibingao;bradsev
 
 ---

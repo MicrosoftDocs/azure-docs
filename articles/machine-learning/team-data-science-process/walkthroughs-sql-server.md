@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/04/2017
 ms.author: bradsev
 
 ---
@@ -22,9 +22,7 @@ ms.author: bradsev
 
 These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python Services to do predictive analytics. R and Python code is deployed in stored procedures. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). 
 
-Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use: 
-
-[!INCLUDE [tdsp-walkthroughs-by-platform](../../../includes/tdsp-walkthroughs-by-platform.md)]
+Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use. See [Walkthroughs executing the Team Data Science Process](walkthroughs.md) for an itemization of these examples.
 
 
 ## Predict taxi tips using Python and SQL queries with SQL Server 
