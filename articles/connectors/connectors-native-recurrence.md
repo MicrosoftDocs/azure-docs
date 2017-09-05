@@ -60,8 +60,9 @@ In this example, set these properties to run the workflow every week.
 
    ![Set interval and frequency](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-4. For more options, choose **Show advanced options**. 
-You can then set up a date and time in advance for starting your workflow.    
+4. To specify an advance date and time for starting your workflow, 
+to select the timezone for your workflow, or to select specific times 
+or days for running your workflow, choose **Show advanced options**. 
 
    ![More options](./media/connectors-native-recurrence/recurrence-trigger-more-options.png)
 
