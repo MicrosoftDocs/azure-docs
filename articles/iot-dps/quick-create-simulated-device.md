@@ -1,11 +1,11 @@
 ---
-title: Provision a simulated device to IoT Hub | Microsoft Docs
-description: Azure Quick Start - Create and provision a simulated device using Azure IoT Hub Device Provisioning Service
+title: Provision a simulated device to Azure IoT Hub | Microsoft Docs
+description: Azure Quickstart - Create and provision a simulated device using Azure IoT Hub Device Provisioning Service
 services: iot-dps 
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 08/18/2017
+ms.date: 09/05/2017
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Create and provision a simulated device using IoT Hub Device Provisioning Service
 
-These steps show how to create a simulated device on your development machine, run the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) simulator, and use the code sample to connect this device with the Device Provisioning Service and your IoT hub. 
+These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
@@ -28,15 +28,15 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. Download and install the [CMake build system](https://cmake.org/download/).
 
-3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, included the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
+3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-4. Open a command prompt or Git Bash. Clone the github repo for device simulation code sample:
+4. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-device-auth.git --recursive
     ```
 
-5. Create a folder in your local copy of this github repo for CMake build process. 
+5. Create a folder in your local copy of this GitHub repo for CMake build process. 
 
     ```cmd/sh
     cd azure-iot-device-auth
@@ -50,7 +50,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     cmake -Ddps_auth_type=tpm_simulator ..
     ```
 
-7. In a separate command prompt, navigate to the github root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this quick start guide. 
+7. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-device-auth\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
@@ -68,6 +68,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
+   On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
 <a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
@@ -78,19 +79,21 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. In Visual Studio on your machine, select the sample project named **dps_client_sample** and open the file **dps_client_sample.c**.
 
-3. Assign the _Global device endpoint_ value to the `dps_uri` variable. Assign the _ID Scope_ value to the `dps_scope_id` variable. 
+3. Assign the _ID Scope_ value to the `dps_scope_id` variable. Notice that the `dps_uri` variable has the same value as the _Global device endpoint_. 
 
     ```c
-    static const char* dps_uri = "[device provisioning uri]";
-    static const char* dps_scope_id = "[dps scope id]";
+    static const char* dps_uri = "global.df.azure-devices-provisioning-int.net";
+    static const char* dps_scope_id = "[DPS Id Scope]";
     ```
 
-4. Right-click the **dps_client_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.
+4. Right-click the **dps_client_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
+
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
 
 ## Clean up resources
 
-If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start.
+If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Close the device client sample output window on your machine.
 1. Close the TPM simulator window on your machine.
@@ -99,7 +102,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this quick start, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for Device Provisioning Service setup in the Azure portal. 
+In this Quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
