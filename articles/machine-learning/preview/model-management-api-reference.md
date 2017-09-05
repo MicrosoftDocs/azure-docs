@@ -18,10 +18,10 @@ For environment set up information, see [Hosting Account getting started]().
 
 The Hosting Account API implements the following operations:
 
-- Create or Update Hosting Account
-- Patch Hosting Account
-- Get Hosting Account
-- Delete Hosting Account
+- Create or Update Model Management Account
+- Patch Model Management Account
+- Get Model Management Account
+- Delete Model Management Account
 - Get Available Operations
 
 ## Create or Update Hosting Account
@@ -42,7 +42,7 @@ If the hosting account does not exist in current location, it is created. If the
 
 | Property | Description |
 |--------------------|--------------------|
-| subscriptionId | **Requiequired**. The name of the resource group. |
+| subscriptionId | **Required**. The name of the resource group. |
 | hostingAccountName | **Required**. The name of the hosting account. Follow Resource Manager resource name pattern. Unique per resource group. |
 | api-version | **Required**. Version of the API to be used with the request. The current version is ``. |
 
