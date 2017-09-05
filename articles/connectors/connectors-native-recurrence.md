@@ -1,10 +1,10 @@
 ---
-title: Add the recurrence trigger in logic apps | Microsoft Docs
-description: Overview of the recurrence trigger, and how to use it with an Azure logic app.
-services: ''
+title: Run recurring scheduled tasks - Azure Logic Apps | Microsoft Docs
+description: Create workflows that run recurring scheduled tasks by using the recurrence trigger in logic apps
+services: logic-apps
 documentationcenter: ''
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -14,47 +14,84 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2016
-ms.author: jehollan
-
+ms.date: 09/05/2017
+ms.author: LADocs; jehollan
 ---
-# Get started with the recurrence trigger
-By using the recurrence trigger, you can create powerful workflows in the cloud.
 
-For example, you can:
+# Create, schedule, and run recurring tasks with the recurrence trigger
 
-* Schedule a workflow to run a SQL stored procedure every day.
-* Email a summary of all tweets within the last week about a certain hashtag.
+To repeat tasks based on a schedule, 
+create a logic app workflow that starts the **Schedule - Recurrence** trigger. 
+That way, your logic app runs and then repeats after each time interval passes. 
 
-To get started using the recurrence trigger in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+For example, you can schedule tasks like these:
 
-## Use a recurrence trigger
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+* Email a summary of all tweets with a specific hashtag within the past week.
+* Schedule a workflow that runs a SQL stored procedure every day.
 
-Here’s an example sequence of how to set up a recurrence trigger in a logic app:
+## Prerequisites
 
-1. Add the **Recurrence** trigger as the first step in a logic app.
-2. Fill in the parameters for the recurrence interval.
+* An Azure subscription. If you don't have a subscription, 
+you can [start with a free Azure account](https://azure.microsoft.com/free/). 
+Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-The logic app now starts a run after each interval of time.
+* Basic knowledge about creating logic apps. 
+Learn [how to create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
 
-![HTTP trigger](./media/connectors-native-recurrence/using-trigger.png)
+## Add a recurrence trigger that starts your logic app workflow
+
+A [*trigger*](../connectors/connectors-overview.md) is an 
+event that you use to start a logic app workflow.
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+Create a blank logic app. 
+
+2. After Logic Apps Designer appears, in the search box, 
+enter "recurrence" as your filter. From the results, 
+select the **Schedule - Recurrence** trigger. 
+
+   ![Schedule - Recurrence trigger](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+
+   Now this trigger is the first step in your logic app.
+
+3. Set the interval and frequency for the recurrence. 
+In this example, set these properties to every week. 
+
+   ![Set interval and frequency](./media/connectors-native-recurrence/recurrence-trigger-details.png)
+
+4. For more options, such as a start date and time, specific days, 
+hours, or minutes, choose **Show advanced options**. 
+
+   ![More options](./media/connectors-native-recurrence/recurrence-trigger-more-options.png)
+
+   For example, you could specify that your logic app 
+   doesn't start running until 2 weeks from today, 
+   supposing that today is 2017-09-04T15:00:00Z.
+
+   ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
+
+   If you set advanced options for days or times, 
+   the trigger shows you a preview for your specified recurrence. 
+   For example, this trigger runs weekly, on each Monday, at 10:30 AM, 
+   12:30 PM, and 2:30 PM.
+
+   ![Advanced scheduling example](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
 
 ## Trigger details
-The recurrence trigger has the following properties that you can configure.
 
-It fires a logic app after a specified time interval.
-A * means that it is a required field.
+You can configure these properties for the recurrence trigger.
 
-| Display name | Property name | Description |
-| --- | --- | --- |
-| Frequency* |frequency |The unit of time: `Second`, `Minute`, `Hour`, `Day`, or `Year`. |
-| Interval* |interval |The interval of the given frequency for the recurrence. |
-| Time Zone |timeZone |If a start time is provided without a UTC offset, this time zone will be used. |
-| Start time |startTime |The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). |
-
-<br>
+| Display name | Property name | Required | Description | 
+| ------------ | ------------- | -------- | ----------- | 
+| **Frequency** | frequency | Yes | The unit of time: `Second`, `Minute`, `Hour`, `Day`, `Week`, or `Month` | 
+| **Interval** | interval | Yes | The frequency interval for the recurrence | 
+| **Time zone** | timeZone | No | If you provide a start time without a UTC offset, this time zone is used. | 
+| **Start time** | startTime | No | The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| **On these days** | weekDays | No | Select one or more days of the week when you want to run the workflow: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday` | 
+| **At these hours** | hours | No | Select one or more hours for the times of day when you want to run the workflow. For example, "10", "12" and "14" are 10 AM, 12 PM, and 2 PM. | 
+| **At these minutes** | minutes | No | Select one or minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
+||||| 
 
 ## Next steps
-Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
+[Connectors](../connectors/apis-list.md)
