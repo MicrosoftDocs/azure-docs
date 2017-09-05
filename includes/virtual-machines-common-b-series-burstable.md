@@ -10,7 +10,7 @@
 
 The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance 100% of the core. This VM size provides you the choice of 10%-135% of a processor core (Intel® Broadwell E5-2673 v4 2.3 GHz or an Intel® Haswell 2.4 GHz E5-2673 v3).
 
-The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and then it builds up credits when the VM is utilizing less than its base performance. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the CPU Core when your application requires the higher CPU performance.
+The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and then it builds up credits when the VM is using less than its base performance. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the CPU Core when your application requires the higher CPU performance.
 
 The B-series comes in the following six VM sizes:
 
@@ -55,8 +55,8 @@ After the preview has completed we will release the B-series to all remaining re
 **A**: Yes, all B-series sizes support Premium Storage data disks.   
 	
 ### Q: How do I accumulate credits?
-**A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base performance level
+**A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is using the CPU more than its base performance level
 
-For example, a VM with a base performance level of 20% that is currently utilizing 10% of a CPU will begin to build credits in the credit bank.
+For example, a VM with a base performance level of 20% that is currently using 10% of a CPU will begin to build credits in the credit bank.
 
 
