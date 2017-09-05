@@ -74,11 +74,13 @@ Get started by creating a new Migration Planner project.
 4. Select an existing resource group, or create a new one.
 5. Specify an Azure location in which to create the project, then click **Create**
 
+    ![Migration Planner project](./media/tutorial-assessment-vmware/project-1.png)
+
 > [!NOTE]
 > This preview supports only the West Central US location for a project. However, you can
 assess your machines for a different target Azure location.
 
-    ![Migration Planner project](./media/tutorial-assessment-vmware/project-1.png)
+    
 
 
 ## Download and verify the collector appliance
@@ -176,12 +178,10 @@ If you're using tagging in vCenter, Migration Planner automatically gathers VMs 
 
     ![Group VMs](./media/tutorial-assessment-vmware/group-1.png)
 
-
 > [!NOTE]
 > You can also group machines on the dashboard > **Machines** > **Group Machines**.
 
 
-    - 
 ### Verify group dependencies (optional)
 
 If you didn't verify dependencies for specific machines before adding them to a group, you can optionally verify group dependencies, to help you create groups with a high level of confidence.
