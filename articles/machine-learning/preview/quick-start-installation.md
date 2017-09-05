@@ -112,7 +112,9 @@ $ az ml account experimentation create -n <experimentation account name> -g <res
 ```
 >Note the new Azure Storage Account auto-created will all carry the same name as the Experimentation account name.
 
-After creating a new Experimentation Account, it is a good idea to also create a new Workspace where your Projects can live. You can use commands below.
+After Experimentation account is created, close the current instance of Workbench, then relaunch it. You should be dropped into the newly created Experimentation account.
+
+It is a good idea to also create a new Workspace where your Projects can live. You can use commands below.
 
 ```bash
 # Create a new workspace
@@ -122,7 +124,7 @@ After creating a new Experimentation Account, it is a good idea to also create a
 $ az ml workspace create -n <workspace name> -g <resource group name> -a <experimenation account name>
 ```
 
-Let's also create resources needed for deploying and managing your model.
+Let's also create resources needed for deploying and managing your models.
 ```
 # create a new Model Management Account
 az ml account modelmanagement create -l <Azure region: e.g. eastus2> -n <environment name> -g <resource group name> --sku-instances <number of SKUs for billing: e.g. 1> --sku-name <name of the billing SKU: e.g. S1>
@@ -134,7 +136,6 @@ az ml env setup -l <Azure region, e.g. eastus2> -n <environmnet name>
 az ml env set -n <environment name created above> -g <resource group name it was created in>
 ```
 
-After Experimentation account is created, close the current instance of Workbench, then relaunch it. You should be dropped into the newly created Experimentation account.
 
 If you happen to be a member of more than one Experimentation accounts, you can switch among Experimentation accounts by clicking on your account picture at the lower left corner of the app.
 
