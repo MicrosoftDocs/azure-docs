@@ -99,3 +99,4 @@ In this Quickstart, you created an Azure Container Registy with the Azure portal
 [qs-portal-06]: ./media/container-registry-get-started-portal/qs-portal-06.png
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
+[qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
