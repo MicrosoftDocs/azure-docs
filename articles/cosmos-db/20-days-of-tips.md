@@ -20,19 +20,22 @@ ms.custom: cda
 
 ![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips.png)
 
-If you've seen the 20 days of Azure Cosmos DB tips on [twitter](https://twitter.com/AzureCosmosDB) and [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6309260110623580160), you may wish they were all available in one place. Well, here they are!
+If you've seen the 20 days of Azure Cosmos DB tips by Simona Cotin on [twitter](https://twitter.com/simona_cotin) and [LinkedIn](https://www.linkedin.com/in/simona-cotin-2ba8747/), you may wish they were all available in one place. Well, here they are!
 
-Visit this page daily for a new tip from September 5th - September 25th!
+Visit this page daily for a new tip from September 5th - September 29th!
 
 ## Tip #1
 
-T-4 until "20 days of #Azure #CosmosDB tips" by @simona_cotin 
-A new #CosmosDB tip DAILY from Sept 5th - 25th! Don't miss it!
+What is #cosmosdb? The best NoSQL db that you’re not using! https://aka.ms/ubw007
+
+> [!VIDEO https://youtu.be/cGxO995iakM] 
 
 [![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/intent/retweet?tweet_id=903842783638700032)   [![Learn a new Azure Cosmos DB tip each day](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.linkedin.com/feed/update/urn%3Ali%3Aactivity%3A6309260110623580160&title=&summary=&source=)
 
-<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-<script type="IN/Share" data-url="https://www.linkedin.com/feed/update/urn:li:activity:6309260110623580160" data-counter="top"></script>
+<a class="twitter-grid"
+  href="https://twitter.com/TwitterDev/timelines/539487832448843776">
+National Park Tweets
+</a>
 
 
 
