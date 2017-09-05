@@ -35,7 +35,7 @@ The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine im
   * CUDA, cuDNN, and the NVIDIA driver
   * Many sample Jupyter notebooks
 
-All libraries are the GPU versions, though they will also run on the CPU.
+All libraries are the GPU versions, though they also run on the CPU.
 
 The Data Science Virtual Machine for Linux also contains popular tools for data science and development activities, including:
 
@@ -96,7 +96,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
    
    c. **Settings**:
    
-   * **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**. GPU VMs require a Standard disk.
+   * **Disk Type**: Choose **Premium** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard**. GPU VMs require a Standard disk.
    * **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
    * **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
    
@@ -114,12 +114,12 @@ The provisioning should take about 5-10 minutes. The status of the provisioning 
 After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
 > [!NOTE]
-> The X2Go client performed significantly better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
+> The X2Go client performed better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
 > 
 > 
 
 ## Installing and configuring X2Go client
-The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client:
+The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
@@ -139,7 +139,7 @@ After you sign in to the VM by using either the SSH client or XFCE graphical des
 #### CNTK
 The Microsoft Cognitive Toolki - also known as CNTK - is an open source, deep learning toolkit. Python bindings are available in the root and py35 Conda environments. It also has a command-line tool (cntk) that is already in the PATH.
 
-Sample Python notebooks are available in JupyterHub. To run a basic sample at the command line, execute the following commands in the shell:
+Sample Python notebooks are available in JupyterHub. To run a basic sample at the command-line, execute the following commands in the shell:
 
     cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
     cntk configFile=lr_bs.cntk makeMode=false command=Train
@@ -157,7 +157,7 @@ Caffe2 is a deep learning framework from Facebook that is built on Caffe. It is 
 Some example notebooks are available in JupyterHub.
 
 #### H2O
-H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. To start H2O from the commandline  run `java -jar /dsvm/tools/h2o/current/h2o.jar`; there are various [command line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you may like to configure. The Flow Web UI can be accessed by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
+H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. To start H2O from the command-line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`; there are various [command line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you may like to configure. The Flow Web UI can be accessed by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
 
 #### Keras
 Keras is a high-level neural network API in Python that is capable of running on top of either Tensorflow or Theano. It is available in the root and py35 Python environments. 
@@ -185,7 +185,7 @@ Torch is a scientific computing framework with wide support for machine learning
 PyTorch is also available in the root Anaconda environment. Examples are in /dsvm/samples/pytorch.
 
 ### Microsoft R Server
-R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the VM has Microsoft R Server (MRS) with the Microsoft R Open (MRO) and Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100 percent compatible with CRAN-R, and any of the R libraries published in CRAN can be installed on the MRO. MRS gives you scaling and operationalization of R models into web services. You can edit your R programs in one of the default editors, like RStudio, vi, or Emacs. If you are using the Emacs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within the Emacs editor, has been pre-installed.
+R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the VM has Microsoft R Server (MRS) with the Microsoft R Open (MRO) and Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100 percent compatible with CRAN-R, and any of the R libraries published in CRAN can be installed on the MRO. MRS gives you scaling and operationalization of R models into web services. You can edit your R programs in one of the default editors, like RStudio, vi, or Emacs. If you prefer using the Emacs editor, it has been pre-installed. The Emacs package ESS (Emacs Speaks Statistics) simplifies working with R files within the Emacs editor.
 
 To launch R console, you just type **R** in the shell. This takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi, and then run the scripts within R. With RStudio, you have a full graphical IDE environment to develop your R program.
 
@@ -196,7 +196,7 @@ For development using Python, Anaconda Python distribution 2.7 and 3.5 has been 
 
 Since we have both Python 2.7 and 3.5, you need to specifically activate the desired Python version (conda environment) you want to work on in the current session. The activation process sets the PATH variable to the desired version of Python.
 
-To activate the Python 2.7 conda environment, run the following from the shell:
+To activate the Python 2.7 conda environment, run the following command from the shell:
 
     source /anaconda/bin/activate root
 
@@ -237,7 +237,7 @@ You can access the Jupyter notebook server from any host. Just type *https://\<V
 We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux user name and password. You can create a new notebook by selecting **New**, and then the appropriate language kernel. If you don't see the **New** button, click the **Jupyter** icon on the top left to go to the home page of the notebook server.
 
 ### Apache Spark Standalone 
-A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally first before testing and deploying on large clusters. You can run PySpark programs through the Jupyter kernel. When you open Jupyter and click the "New" button you will see a list of available kernels. The "Spark - Python" is the PySpark kernel that will let you build Spark applications using Python language. You can also use a Python IDE like PyCharm or Spyder to build you Spark program. Since, this is a standalone  instance, the Spark stack runs within the calling client program. This makes it faster and easier to troubleshoot issues compared to developing on a Spark cluster. 
+A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally first before testing and deploying on large clusters. You can run PySpark programs through the Jupyter kernel. When you open Jupyter, click the **New** button and you should see a list of available kernels. The "Spark - Python" is the PySpark kernel that lets you build Spark applications using Python language. You can also use a Python IDE like PyCharm or Spyder to build you Spark program. Since, this is a standalone  instance, the Spark stack runs within the calling client program. This makes it faster and easier to troubleshoot issues compared to developing on a Spark cluster. 
 
 A sample PySpark notebook is provided on Jupyter that you can find in the "SparkML" directory under the home directory of Jupyter ($HOME/notebooks/SparkML/pySpark). 
 
@@ -332,7 +332,7 @@ The VM comes with a few machine learning tools and algorithms that have been pre
 * **xgboost**: A tool that provides optimized, boosted tree algorithms.
 * **Rattle**: An R-based graphical tool for easy data exploration and modeling.
 * **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries by using the `pip install` command.
-* **LightGBM**: A fast, distributed, high performance gradient boosting framework based on decision tree algorithms.
+* **LightGBM**: A fast, distributed, high-performance gradient boosting framework based on decision tree algorithms.
 * **R**: A rich library of machine learning functions is available for R. Some of the libraries that are pre-installed are lm, glm, randomForest, rpart. Other libraries can be installed by running:
   
         install.packages(<lib name>)
@@ -342,7 +342,7 @@ Here is some additional information about the first three machine learning tools
 #### Vowpal Wabbit
 Vowpal Wabbit is a machine learning system that uses techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
 
-To run the tool on a very basic example, do the following:
+To run the tool on a basic example, do the following:
 
     cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
     cd vwdemo

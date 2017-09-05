@@ -50,7 +50,7 @@ Data scientists use various tools to complete these tasks. It can be quite time 
 
 The Linux Data Science Virtual Machine can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and node.js that are also pre-installed.
 
-There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace ](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 ## Other Versions of the Data Science Virtual Machine
 An [Ubuntu](dsvm-ubuntu-intro.md) image is also available, with many of the same tools as the CentOS image plus deep learning frameworks. A [Windows](provision-vm.md) image is available as well.
@@ -59,7 +59,7 @@ An [Ubuntu](dsvm-ubuntu-intro.md) image is also available, with many of the same
 Before you can create a Linux Data Science Virtual Machine, you must have the following:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
-* **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM, if you do not want to use an existing account.
+* **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, if you do not want to use an existing account, the storage account can be created as part of the process of creating the VM.
 
 ## Create your Linux Data Science Virtual Machine
 Here are the steps to create an instance of the Linux Data Science Virtual Machine:
@@ -83,7 +83,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
    
    c. **Settings**:
    
-   * **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**.
+   * **Disk Type**: Choose **Premium** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard**.
    * **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
    * **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
    
@@ -115,7 +115,7 @@ The Linux VM is already provisioned with X2Go server and ready to accept client 
      * **Login**: User name on the Linux VM.
      * **SSH Port**: Leave it at 22, the default value.
      * **Session Type**: Change the value to XFCE. Currently the Linux VM only supports XFCE desktop.
-   * **Media tab**: You can turn off sound support and client printing if you don't need to use them.
+   * **Media tab**: If you don't need to use sound support and client printing, you can turn them off.
    * **Shared folders**: If you want directories from your client machines mounted on the Linux VM, add the client machine directories that you want to share with the VM on this tab.
 
 After you sign in to the VM by using either the SSH client or XFCE graphical desktop through the X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE, you can see applications menu shortcuts and desktop icons for many of the tools.
@@ -133,13 +133,13 @@ For development using Python, Anaconda Python distribution 2.7 and 3.5 has been 
 
 Since we have both Python 2.7 and 3.5, you need to specifically activate the desired Python version (conda environment) you want to work on in the current session. The activation process sets the PATH variable to the desired version of Python.
 
-To activate the Python 2.7 conda environment, run the following from the shell:
+To activate the Python 2.7 conda environment, run the following command from the shell:
 
     source /anaconda/bin/activate root
 
 Python 2.7 is installed at */anaconda/bin*.
 
-To activate the Python 3.5 conda environment , run the following from the shell:
+To activate the Python 3.5 conda environment, run the following from the shell:
 
     source /anaconda/bin/activate py35
 
@@ -174,7 +174,7 @@ You can access the Jupyter notebook server from any host. Just type *https://\<V
 We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux user name and password. You can create a new notebook by selecting **New**, and then the appropriate language kernel. If you don't see the **New** button, click the **Jupyter** icon on the top left to go to the home page of the notebook server.
 
 ### Apache Spark Standalone 
-A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally first before testing and deploying on large clusters. You can run PySpark programs through the Jupyter kernel. When you open Jupyter and click the "New" button you should see a list of available kernels. The "Spark - Python" is the PySpark kernel that lets you build Spark applications using Python language. You can also use a Python IDE like PyCharm or Spyder to build you Spark program. Since, this is a standalone  instance, the Spark stack runs within the calling client program. This makes it faster and easier to troubleshoot issues compared to developing on a Spark cluster. 
+A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally first before testing and deploying on large clusters. You can run PySpark programs through the Jupyter kernel. When you open Jupyter and click the **New** button, you should see a list of available kernels. The "Spark - Python" is the PySpark kernel that lets you build Spark applications using Python language. You can also use a Python IDE like PyCharm or Spyder to build you Spark program. Since, this is a standalone  instance, the Spark stack runs within the calling client program. This makes it faster and easier to troubleshoot issues compared to developing on a Spark cluster. 
 
 A sample PySpark notebook is provided on Jupyter that you can find in the "SparkML" directory under the home directory of Jupyter ($HOME/notebooks/SparkML/pySpark). 
 
@@ -194,7 +194,7 @@ You can stop the Hadoop related services when you dont need them by running ````
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 ### IDEs and editors
-You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit, PyCharm, RStudio,Eclipse  and IntelliJ. gEdit, Eclipse, IntelliJ, RStudio and PyCharm are graphical editors, and need you to be signed in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
+You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse, and IntelliJ. gEdit, Eclipse, IntelliJ, RStudio and PyCharm are graphical editors, and need you to be signed in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
 
 **VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](http://ess.r-project.org/).
 
@@ -297,7 +297,7 @@ For more information, see the CNTK section of [GitHub](https://github.com/Micros
 #### Vowpal Wabbit
 Vowpal Wabbit is a machine learning system that uses techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
 
-To run the tool on a very basic example, do the following:
+To run the tool on a basic example, do the following:
 
     cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
     cd vwdemo
