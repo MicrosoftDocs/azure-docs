@@ -25,8 +25,12 @@ Azure Government is continually expanding its services. These services are deplo
 
 For the most current list of services, see the [Products available by region](https://azure.microsoft.com/regions/services/) page. 
 
-In the following tables, services that are specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md). Services that are specified as available in the portal can be managed in the [Azure Government portal](https://portal.azure.us/). 
+In the following tables, services that are specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md). 
 
+> [!NOTE]
+> Services that are specified as available in the "Portal" column can be managed in the [Azure Government portal](https://portal.azure.us/). 
+>
+>
 
 ## [Compute](documentation-government-compute.md)
 
@@ -36,7 +40,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | Batch | Yes | Yes |
 | Cloud Services | Yes | Yes |
 | Service Fabric | Yes | Yes |
-
+| Virtual Machine Scale Sets | Yes | Yes |
 
 ## [Networking](documentation-government-networking.md)
 
@@ -50,8 +54,6 @@ In the following tables, services that are specified as Azure Resource Manager e
 | Application Gateway | Yes | Yes |
 | ExpressRoute | Yes | Yes |
 
-
-
 ## [Storage](documentation-government-services-storage.md)
 
 | Service | Resource Manager enabled | Portal |
@@ -64,17 +66,14 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
 | [Import/Export](documentation-government-services-storage.md#azure-importexport) | Yes | Yes |
 
-
-
-## [Web and mobile](documentation-government-services-webandmobile.md)
+## [Web + Mobile](documentation-government-services-webandmobile.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [App Service: API Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
-| Media Services | Yes | Yes |
-
+| [Media Services](documentation-government-services-media.md) | Yes | Yes |
 
 ## [Databases](documentation-government-services-database.md)
 
@@ -86,14 +85,18 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
 
-
-## [Intelligence and analytics](documentation-government-services-intelligenceandanalytics.md)
+## [Data + Analytics](documentation-government-services-dataandanalytics.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | [HDInsight](documentation-government-services-intelligenceandanalytics.md) | Yes | Yes |
 | [Power BI Pro](documentation-government-services-intelligenceandanalytics.md) | No | No (Office 365 admin portal) |
 
+## [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md)  
+
+| Service | Resource Manager enabled | Portal |
+| --- | --- | --- |
+| [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) | Yes | No |
 
 ## [Internet of Things](documentation-government-services-iot-hub.md)
 
@@ -103,8 +106,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | Event Hubs | Yes | Yes |
 | Notification Hubs | No | No (go to the [Azure classic portal](https://manage.windowsazure.us/)) |
 
-
-## Enterprise integration
+## Enterprise Integration
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -112,27 +114,15 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
 
-
-
-## [Security and identity](documentation-government-services-securityandidentity.md)
+## [Security + Identity](documentation-government-services-securityandidentity.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | Azure Active Directory | Yes | Yes |
-| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | No |
-| Multi-Factor Authentication | Yes | Yes |
+| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | Yes |
+| Multi-Factory Authentication | Yes | Yes |
 
-
-## Intelligence and analytics
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| Power BI | Yes | No |
-| HDInsight | Yes | Yes |
-
-
-
-## [Monitoring and management](documentation-government-services-monitoringandmanagement.md)
+## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -140,11 +130,8 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Backup](documentation-government-services-backup.md) | Yes | Yes |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | Yes | Yes |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | Yes | Yes |
-| Scheduler | Yes | No |
-| Monitor and Diagnostics | Yes | Yes |
-
-
-
+| Scheduler | Yes | Yes |
+| [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | Yes | Yes |
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/).
