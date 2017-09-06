@@ -67,6 +67,14 @@ New-AzureRmSqlServer -ResourceGroupName $resourceGroup `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
+Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows access through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. 
+
+```powershell
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
+    -ServerName $sqlserver `
+    -FirewallRuleName "AllowSome" -StartIpAddress 0.0.0.0 -EndIpAddress 0.0.0.0
+```
+
 Create an empty database named **musicstore** for an application to store data.
 
 ```powershell
@@ -150,6 +158,7 @@ Start-Process c:\temp\dotnet-dev-win-x64.1.0.4.exe -ArgumentList '/quiet' -Wait
 
 Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkId=817246 -outfile c:\temp\DotNetCore.WindowsHosting.exe
 Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
+
 
 ```
 
