@@ -1,9 +1,10 @@
 ---
-title: Single sign-on management for enterprise apps in the Azure Active Directory | Microsoft Docs
-description: Learn how to manage single sign on for enterprise apps using the Azure Active Directory
+title: Single sign-on management for enterprise apps in Azure Active Directory | Microsoft Docs
+description: Manage single sign-on settings for enterprise apps within your organization from Azure Active Directory application gallery
+
 services: active-directory
 documentationcenter: ''
-author: asmalser
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,15 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
-ms.author: asmalser
+ms.date: 09/05/2017
+ms.author: curtand
+ms.reviewer: asmalser
+
 
 ---
 # Managing single sign-on for enterprise apps
-> [!div class="op_single_selector"]
-> * [Azure portal](active-directory-enterprise-apps-manage-sso.md)
-> * [Azure classic portal](active-directory-sso-integrate-saas-apps.md)
-> 
 
 This article describes how to use the [Azure portal](https://portal.azure.com) to manage single sign-on settings for enterprise applications. Enterprise apps are apps that are deployed and used within your organization. This article applies particularly to apps that were added from the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
@@ -30,31 +29,33 @@ All enterprise apps that are set up for single sign-on can be viewed and managed
 
 ![Enterprise Applications blade][1]
 
-Select **All applications** to view a list of all apps that have been configured. Selecting an app loads the resource blade for that app, where reports can be viewed for that app and a variety of settings can be managed.
+Select **All applications** to view a list of all apps that have been configured. Selecting an app displays the resources for that app, where reports can be viewed for that app and a variety of settings can be managed.
 
 To manage single sign-on settings, select **Single sign-on**.
 
 ![Application resource blade][2]
 
 ## Single sign-on modes
-The **Single sign-on** blade begins with a **Mode** menu, which allows the single sign-on mode to be configured. The available options include:
+**Single sign-on** begins with a **Mode** menu, which allows the single sign-on mode to be configured. The available options include:
 
-* **SAML-based sign on** - This option is available if the application supports full federated single sign-on with Azure Active Directory using the SAML 2.0 protocol.
-* **Password-based sign on** - This option is available if Azure AD supports password form filling for this application.
-* **Linked sign on** - Formerly known as "Existing single sign-on", this option allows administrators to place a link to this application in their user's Azure AD Access Panel or Office 365 application launcher.
+* **SAML-based sign-on** - This option is available if the application supports full federated single sign-on with Azure Active Directory using the SAML 2.0 protocol.
+* **Password-based sign-on** - This option is available if Azure AD supports password form filling for this application.
+* **Linked sign-on** - Formerly known as "Existing single sign-on", this option allows administrators to place a link to this application in their user's Azure AD Access Panel or Office 365 application launcher.
 
 For more information about these modes, see [How does single sign-on with Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## SAML-based sign-on
-The **SAML-based sign on** option displays a blade that is divided in four sections:
+The **SAML-based sign-on** option is divided in four sections:
 
 ### Domains and URLs
 This is where all details about the application's domain and URLs are added to your Azure AD directory. All inputs required to make single sign-on work app are displayed directly on the screen, whereas all optional inputs can be viewed by selecting the **Show advanced URL settings** checkbox. The full list of supported inputs includes:
 
-* **Sign On URL** – Where the user goes to sign-in to this application. If the application is configured to perform service provider-initiated single sign on, then when a user navigates to this URL, the service provider does the necessary redirection to Azure AD to authenticate and sign the user in. If this field is populated, then Azure AD will use this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is omitted, then Azure AD instead performs identity provider -initiated sign on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL.
-* **Identifier** - This URI should uniquely identify the application for which single sign on is being configured. This is the value that Azure AD sends back to application as the Audience parameter of the SAML token, and the application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application.
+* **sign-on URL** – Where the user goes to sign in to the application. If the application is configured to perform service-provider-initiated single sign-on, when a user opens this URL, the service provider redirects to Azure AD to authenticate and sign the user in. 
+  * If this field is populated, then Azure AD uses the URL to start the application from Office 365 and the Azure AD Access Panel.
+  * If this field is omitted, then Azure AD instead performs identity-provider-initiated sign-on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL.
+* **Identifier** - This URI should uniquely identify the application for which single sign-on is being configured. This is the value that Azure AD sends back to application as the Audience parameter of the SAML token, and the application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application.
 * **Reply URL** - The reply URL is where the application expects to receive the SAML token. This is also referred to as the Assertion Consumer Service (ACS) URL. After these have been entered, click Next to proceed to the next screen. This screen provides information about what needs to be configured on the application side to enable it to accept a SAML token from Azure AD.
-* **Relay State** -  The relay state is an optional parameter that can help tell the application where to redirect the user after authentication is completed. Typically the value is a valid URL at the application, however some applications use this field differently (see the app's single sign on documentation for details). The ability to set the relay state is a new feature that is unique to the new Azure portal.
+* **Relay State** -  The relay state is an optional parameter that can help tell the application where to redirect the user after authentication is completed. Typically the value is a valid URL at the application, however some applications use this field differently (see the app's single sign-on documentation for details). The ability to set the relay state is a new feature that is unique to the new Azure portal.
 
 ### User Attributes
 This is where admins can view and edit the attributes that are sent in the SAML token that Azure AD issues to the application each time users sign in.
@@ -76,12 +77,12 @@ The **Configure Application** fly-out menu provides new concise, embedded instru
 
 ![Embedded docs][3]
 
-## Password-based sign on
+## Password-based sign-on
 If supported for the application, selecting the password-based SSO mode and selecting **Save** instantly configures it to do password-based SSO. For more information about deploying password-based SSO, see [How does single sign-on with Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Password-based sign on][4]
+![Password-based sign-on][4]
 
-## Linked sign on
+## Linked sign-on
 If supported for the application, selecting the linked SSO mode allows you to enter the URL that you want the Azure AD Access Panel or Office 365 to redirect to when users click on this app. For more information about linked SSO (formerly known as "existing SSO"), see [How does single sign-on with Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Linked sign-on][5]

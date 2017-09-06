@@ -14,7 +14,7 @@ To create a namespace:
 8. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
 ### Obtain the management credentials
-Creating a new namespace will automatically generate an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that grants full control over all aspects of the namespace. Refer to [Service Bus authentication and authorization][Service Bus authentication and authorization] for how to create further rules with more constrained rights for regular senders and receivers. To copy the initial rule, follow these steps: 
+Creating a new namespace will automatically generate an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that grants full control over all aspects of the namespace. Refer to [Service Bus authentication and authorization](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) for how to create further rules with more constrained rights for regular senders and receivers. To copy the initial rule, follow these steps: 
 
 1. In the list of namespaces, click the newly created namespace name.
 2. In the namespace blade, click **Shared access policies**.
@@ -33,4 +33,3 @@ Creating a new namespace will automatically generate an initial Shared Access Si
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 [Azure portal]: https://portal.azure.com
-[Service Bus authentication and authorization]: ./service-bus-authentication-and-authorization.md
