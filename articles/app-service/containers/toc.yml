@@ -14,6 +14,8 @@
     href: quickstart-php.md
   - name: Create Node.js app
     href: quickstart-nodejs.md
+  - name: Create Java app
+    href: ../../azure-toolkit-for-intellij-hello-world-web-app-linux.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Create Ruby app
     href: quickstart-ruby.md
   - name: Deploy custom Docker image
@@ -30,6 +32,8 @@
       href: tutorial-nodejs-mongodb-app.md
     - name: Python custom container with PostgreSQL
       href: tutorial-docker-python-postgresql-app.md
+  - name: 1 - Custom Docker image
+    href: tutorial-custom-docker-image.md
   - name: 2 - Map Custom Domain
     href: ../../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: 3 - Bind SSL Certificate
@@ -54,14 +58,10 @@
     href: ../app-service-environment/intro.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authentication and authorization
     href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Choose deployment type
+    href: choose-deployment-type.md
 - name: How-To guides
   items:
-  - name: Configure runtime
-    items:
-    - name: PHP on Windows
-      href: ../../app-service-web/web-sites-php-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Python
-      href: ../../app-service-web/web-sites-python-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Configure application
     items:
     - name: Use app settings
@@ -108,7 +108,6 @@
         href: ../../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Authenticate with Twitter
         href: ../../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Enable HSTS
     - name: Configure TLS mutual authentication
       href: ../../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Scale app

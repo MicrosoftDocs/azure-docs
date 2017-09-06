@@ -1435,11 +1435,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
-            "redirect_url": "/azure/app-service/containers/app-service-linux-using-nodejs-pm2",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/app-service-web/app-service-linux-using-ruby.md",
             "redirect_url": "/azure/app-service/containers/quickstart-ruby",
             "redirect_document_id": false
@@ -1452,11 +1447,6 @@
         {
             "source_path": "articles/app-service-web/app-service-linux-using-dotnetcore.md",
             "redirect_url": "/azure/app-service/containers/quickstart-dotnetcore",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/app-service-web/app-service-linux-using-custom-docker-image.md",
-            "redirect_url": "/azure/app-service/containers/quickstart-custom-docker-image",
             "redirect_document_id": false
         },
         {
@@ -10407,6 +10397,26 @@
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-choosing-deployment-type.md",
+            "redirect_url": "/azure/app-service/containers/choosing-deployment-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-custom-docker-image.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-custom-docker-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-get-started-node.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
             "redirect_document_id": false
         }
     ]

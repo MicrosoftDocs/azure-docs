@@ -28,15 +28,15 @@ Web Apps for Containers provides SSH support into the app container with each of
 
 You can also use SSH with your custom Docker images by including the SSH server as part of the image and configuring it as described in this topic.
 
-
-
 ## Making a client connection
 
-To make an SSH client connection, the main site must be started. 
+To make an SSH client connection, the main site must be started.
 
 Paste the Source Control Management (SCM) endpoint for your web app into your browser using the following form:
 
-		https://<your sitename>.scm.azurewebsites.net/webssh/host
+```bash
+https://<your sitename>.scm.azurewebsites.net/webssh/host
+```
 
 If you are not already authenticated, you are required to authenticate with your Azure subscription to connect.
 
@@ -45,69 +45,65 @@ If you are not already authenticated, you are required to authenticate with your
 
 ## SSH support with custom Docker images
 
-In order for a custom Docker image to support SSH communication between the container and the client in the Azure portal, perform the following steps for your Docker image. 
+In order for a custom Docker image to support SSH communication between the container and the client in the Azure portal, perform the following steps for your Docker image.
 
 These steps are are shown in the Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Include the `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`. 
 
-	> [!NOTE] 
-	> This configuration does not allow external connections to the container. SSH can only
-	> be accessed via the Kudu / SCM Site, which is authenticated using the publishing
-	> credentials.
+    > [!NOTE]
+    > This configuration does not allow external connections to the container. SSH can only
+    > be accessed via the Kudu / SCM Site, which is authenticated using the publishing
+    > credentials.
+    
+    ```docker
+    # ------------------------
+    # SSH Server support
+    # ------------------------
+    RUN apt-get update \
+    	&& apt-get install -y --no-install-recommends openssh-server \
+    	&& echo "root:Docker!" | chpasswd
+    ```
 
-	```docker
-	# ------------------------
-	# SSH Server support
-	# ------------------------
-	RUN apt-get update \ 
-	  && apt-get install -y --no-install-recommends openssh-server \
-	  && echo "root:Docker!" | chpasswd
-	``` 
+1. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
 
-2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+    > [!NOTE]
+    > The *sshd_config* file must include the following or the connection fails: 
+    > * `Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.
+    
+    ```docker
+    COPY sshd_config /etc/ssh/
+    ```
 
-	> [!NOTE] 
-	> The *sshd_config* file must include the following or the connection fails: 
-	> * `Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.
-	> * `MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.
+1. Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal only port accessible only by containers within the bridge network of a private virtual network.
 
-	```docker
-	COPY sshd_config /etc/ssh/
-	```
+    ```docker
+    EXPOSE 2222 80
+    ```
 
+1. Make sure to start the ssh service. The example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) uses a shell script in */bin* directory.
 
-3. Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal only port accessible only by containers within the bridge network of a private virtual network.
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
 
-	```docker
-	EXPOSE 2222 80
-	```
+The Dockerfile uses the [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd) to run the script.
 
-4. Make sure to start the ssh service. The example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) uses a shell script in */bin* directory.
-
-	```bash
-	#!/bin/bash
-	service ssh start
-	```
-
-	The Dockerfile uses the [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd) to run the script.
-
-	```docker
-	COPY init_container.sh /bin/
-	  ...
-	RUN chmod 755 /bin/init_container.sh 
-	  ...		
-	CMD ["/bin/init_container.sh"]
-	```
-
-
+    ```docker
+    COPY init_container.sh /bin/
+    ...
+    RUN chmod 755 /bin/init_container.sh
+    ...
+    CMD ["/bin/init_container.sh"]
+    ```
 
 ## Next steps
+
 See the following links for more information regarding Web Apps for Containers. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [How to use a custom Docker image for Azure Web Apps for Containers](quickstart-custom-docker-image.md)
-* [Using PM2 Configuration for Node.js in Azure Web Apps for Containers](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web Apps for Containers](quickstart-dotnetcore.md)
 * [Using Ruby in Azure Web Apps for Containers](quickstart-ruby.md)
 * [Azure App Service Web Apps for Containers FAQ](app-service-linux-faq.md)
-

@@ -20,9 +20,9 @@ ms.author: naziml;wesmc
 ---
 # Introduction to Azure Web Apps for Containers
 
-[Web App](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use Web Apps for Containers to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported. 
+[Web App](../../app-service-web/app-service-web-overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use Web Apps for Containers to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported.
 
-### Languages
+## Languages
 
 |Node.js|PHP|.NET Core|Ruby|
 |:------------------:|:---:|:---------:|:----:|
@@ -30,52 +30,45 @@ ms.author: naziml;wesmc
 |6.2, 6.6, 6.9-6.11|7.0|||
 |8.0-8.1||||
 
-### Deployments
+## Deployments
 
 * FTP
 * Local Git
 * GitHub
 * Bitbucket
 
-### DevOps
+## DevOps
 
 * Staging environments
-* [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) and DockerHub CI/CD
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) and DockerHub CI/CD
 
-### Console, Publishing, and Debugging
+## Console, Publishing, and Debugging
 
 * Environments
 * Deployments
 * Basic console
 * SSH
 
-### Scaling
+## Scaling
 
-* Customers can scale web apps up and down by changing the tier of their [App Service plan](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
+* Customers can scale web apps up and down by changing the tier of their [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
+
+## Locations
+
+Check the [Azure Status Dashboard](https://azure.microsoft.com/status).
 
 ## Limitations
+
 The Azure portal shows only features that currently work for Web Apps for Containers. As we enable more features, they will become visible on the portal.
 
 Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
 
-This public preview is currently only available in the following regions:
-
-|Americas|Asia Pacific|Europe|
-|:----------------:|:--------------:|:------------:|
-|Brazil South|Australia East|North Europe|
-|East US|East Asia|West Europe|
-|North Central US|Japan East||
-|South Central US|South India||
-|West US|Southeast Asia||
-
-Check the [Azure Status Dashboard](https://azure.microsoft.com/status) to see when additonal regions become available.
-
-Web Apps for Containers is only supported with [Basic, Standard, and Premium](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) tier. The following are also important restrictions for Web Apps for Containers:
+Web Apps for Containers is only supported with [Basic and Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. The following are also important restrictions for Web Apps for Containers:
 
 * You cannot create Web Apps for Containers in an App Service plan already hosting non-Linux Web Apps.
 * When creating Web Apps for Containers in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different region than the existing App Service plan.
 
-## Troubleshooting ##
+## Troubleshooting
 
 When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP.
 To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **Diagnostics Logs**.
@@ -87,10 +80,10 @@ To log the `stdout` and `stderr` from your container, you need to enable **Docke
 You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
 
 ## Next steps
+
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [How to use a custom Docker image for Azure Web Apps for Containers](quickstart-custom-docker-image.md)
-* [Using PM2 Configuration for Node.js in Azure Web Apps for Containers](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure App Service Web Apps for Containers](quickstart-dotnetcore.md)
 * [Using Ruby in Azure App Service Web Apps for Containers](quickstart-ruby.md)
 * [Azure App Service Web Apps for Containers FAQ](app-service-linux-faq.md)

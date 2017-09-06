@@ -4,6 +4,8 @@
   items:
   - name: About Web Apps
     href: app-service-web-overview.md
+  - name: About Web Apps for Containers
+    href: ../app-service/containers/app-service-linux-intro.md
   - name: Compare hosting options
     href: choose-web-site-cloud-service-vm.md
 - name: Quickstarts

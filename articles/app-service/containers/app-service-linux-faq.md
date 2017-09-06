@@ -18,7 +18,6 @@ ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 
 ---
-
 # Azure App Service Web Apps for Containers FAQ
 
 With the release of Web Apps for Containers, we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
@@ -42,7 +41,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?
 
-**A:** Yes, you can do that through the SCM site, check the following article for more information [SSH support for Web Apps for Containers](./app-service-linux-ssh-support.md)
+**A:** Yes, you can do that through the SCM site.
 
 **Q:** I want to create a Linux App Service plane through SDK or an ARM template, how can I achieve this?
 
@@ -131,7 +130,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 **A:** You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps-uservoice). Add "[Linux]" to the title of your idea.
 
 ## Next steps
+
 * [What is Azure Web Apps for Containers?](app-service-linux-intro.md)
-* [SSH support for Azure Web Apps for Containers](./app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Continuous Deployment with Azure Web Apps for Containers](./app-service-linux-ci-cd.md)

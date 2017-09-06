@@ -82,14 +82,11 @@ For the Webhook URL, you need to provide the URL obtained from **Step 3**
 When the image gets updated, the web app get updated automatically with the new image.
 
 ## Next steps
+
 * [What is Azure Web Apps for Containers?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Using PM2 Configuration for Node.js in Azure Web Apps for Containers](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web Apps for Containers](quickstart-dotnetcore.md)
 * [Using Ruby in Azure Web Apps for Containers](quickstart-ruby.md)
 * [How to use a custom Docker image for Azure Web Apps for Containers](quickstart-custom-docker-image.md)
 * [Azure App Service Web Apps for Containers FAQ](./app-service-linux-faq.md) 
 * [Manage Web Apps for Containers using Azure CLI 2.0](./app-service-linux-cli.md)
-
-
-
