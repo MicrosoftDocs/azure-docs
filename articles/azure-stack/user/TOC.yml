@@ -26,7 +26,7 @@
 - name: How-to guides
   items:
   - name: Use the portal
-    href: azure-stack-use-portals.md
+    href: azure-stack-use-portal.md
   - name: Security & compliance
     items:
     - name: Manage RBAC

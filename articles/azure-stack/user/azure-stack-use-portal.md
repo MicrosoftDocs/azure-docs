@@ -46,10 +46,10 @@ If you don’t already have a subscription, the first thing you need to do is su
 
 ## Learn how to use available services
 
-If you need guidance for how to use the services available to you, there may be different options available to you.
+If you need guidance for how to use available services, there may be different options available to you.
 
 - Your organization or service provider may provide their own documentation. This is especially true if they offer customized services or apps.
-- Third-party apps will have their own documentation.
+- Third-party apps have their own documentation.
 - For Azure-consistent services, we strongly recommend that you first review the Azure Stack documentation. To access the Azure Stack user documentation, click the Help icon, and then click **Help + support**.
  
     ![Screenshot of the Help and support option in the UI](media/azure-stack-use-portal/HelpAndSupport.png)
