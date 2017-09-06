@@ -1,6 +1,6 @@
 ---
-title: Create recurring scheduled tasks - Azure Logic Apps | Microsoft Docs
-description: Create workflows that run repeat scheduled tasks with the recurrence trigger in logic apps
+title: Run recurring scheduled tasks - Azure Logic Apps | Microsoft Docs
+description: Create workflows that run scheduled workloads at regular intervals with the recurrence trigger in logic apps
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
@@ -18,14 +18,13 @@ ms.date: 09/05/2017
 ms.author: LADocs; jehollan; astay
 ---
 
-# Create and run recurring scheduled tasks with logic apps
+# Create, schedule, and run recurring tasks with logic apps
 
-To repeat tasks based on an interval, or schedule recurring tasks in advance, 
-create a logic app workflow that starts with the **Schedule - Recurrence** trigger. 
-That way, your logic app runs and repeats after each specified time interval. 
-
-For example, you can create logic apps that 
-schedule and run workflows for these tasks:
+To schedule and run workflows at regular intervals, 
+create a logic app that starts with the **Schedule - Recurrence** trigger. 
+A [*trigger*](../connectors/connectors-overview.md) is an event that 
+you use to start a logic app workflow. For example, 
+you can schedule and run recurring workloads for these tasks:
 
 * Email a summary of all tweets with a specific hashtag within the past week.
 * Schedule a workflow that runs a SQL stored procedure every day.
@@ -39,10 +38,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 * Basic knowledge about creating logic apps. 
 Learn [how to create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
 
-## Add a recurrence trigger that starts your logic app workflow
-
-A [*trigger*](../connectors/connectors-overview.md) is an 
-event that you use to start a logic app workflow.
+## Add a recurrence trigger for starting your logic app workflow
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 Create a blank logic app. 
@@ -53,10 +49,10 @@ select the **Schedule - Recurrence** trigger.
 
    ![Schedule - Recurrence trigger](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
-   Now this trigger is the first step in your logic app.
+   This trigger is now the first step in your logic app.
 
 3. Set the interval and frequency for the recurrence. 
-In this example, set these properties to run the workflow every week. 
+In this example, set these properties to run your workflow every week. 
 
    ![Set interval and frequency](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
@@ -84,6 +80,9 @@ choose **Show advanced options** so that you can:
    at 10:30 AM, 12:30 PM, and 2:30 PM.
 
    ![Advanced scheduling example](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
+
+5. Now build your remaining workflow with actions or workflow control statements. 
+For more actions that you can add, see [Connectors](../connectors/apis-list.md).
 
 ## Trigger details
 
