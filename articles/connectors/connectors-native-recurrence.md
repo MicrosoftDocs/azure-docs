@@ -35,8 +35,8 @@ you can schedule and run recurring workloads for these tasks:
 you can [start with a free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Basic knowledge about creating logic apps. 
-Learn [how to create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md) 
 
 ## Add a recurrence trigger for starting your logic app workflow
 
