@@ -25,10 +25,10 @@ In order to use Azure Machine Learning preview features, you need to do two thin
 * Windows 10, Windows server 2016, and macOS Sierra (or newer) are supported operating systems for the Azure ML Workbench desktop app and command-line interface (CLI).
 
 ### Optional Requirements:
-* Local Docker engine for running dev/test locally.
+* Local Docker engine for running dev/test scenarios locally.
 * Access to Unbutu Linux VM for scale-up computation.
 * Access to HDInsight for Spark cluster for scale-out computation.
-* Access to Azure Container Service (ACS) Kubernetes cluster for scale-out deployment.
+* Access to Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
 
 ### Special Note for macOS Users
 Ensure that you run this [shell script](scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries, and configure links before proceeding with the installation.
@@ -39,8 +39,11 @@ $ /Applications/Python\ 3.6/Install\ Certificates.command
 ```
 
 ## Provisioning
-<!-- This section is to be completed by Chhavi. -->
-Content coming soon...
+Launch the Azure portal by browsing to http://portal.azure.com. Log in to Azure. Click on +New and search for Machine Learning. Look for ML Experimentation (preview) in the search results. Click on ML Experimentation (preview) to get started with creating your Machine Learning Experimentation account. As part of the Experimentation account creation, you will also be asked to create an Azure storage account, or supply an existing one, for storing Run outputs and other data.
+
+As part of the Experimentation account creation experience, you have an option of also creating the Machine Learning Model Management account. You will need this resource when you are ready to deploy and manage your models as real-time web services. It is recommended that you create this when creating the Experimentation Account.
+
+NOTE: Some note about pricing associated for public preview should go in here.
 
 ## Installation
 You can install Azure Machine Learning Workbench on your Windows or macOS computer.
@@ -127,19 +130,20 @@ $ az ml workspace create -n myWS -g myRG -a myExpAcct
 ```
 
 Let's also create resources needed for deploying and managing your models. 
->Note: Docker is required for running web services on your local machine.
+>Note: Docker engine ust be installed and running if you want to deploy the web service locally.
+
 ```bash
 # create a new Model Management Account
-az ml account modelmanagement create -l <Azure region: e.g. eastus2> -n <environment name> -g <resource group name> --sku-instances <number of SKUs for billing: e.g. 1> --sku-name <name of the billing SKU: e.g. S1>
+$ az ml account modelmanagement create -l <Azure region: e.g. eastus2> -n <environment name> -g <resource group name> --sku-instances <number of SKUs for billing: e.g. 1> --sku-name <name of the billing SKU: e.g. S1>
 
 # create a new Model Management environment for local web service deployment
-az ml env setup -l <Azure region, e.g. eastus2> -n <environmnet name>
+$ az ml env setup -l <Azure region, e.g. eastus2> -n <environmnet name>
 
 # set the environment to be used
-az ml env set -n <environment name created above> -g <resource group name it was created in>
+$ az ml env set -n <environment name created above> -g <resource group name it was created in>
 ```
 
-### Check your build number
+### Check Your Build number
 You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
 
 ![version number](media/quick-start-installation/version.png)
