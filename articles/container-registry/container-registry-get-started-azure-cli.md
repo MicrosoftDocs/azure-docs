@@ -3,9 +3,9 @@ title: Create private Docker container registry - Azure CLI | Microsoft Docs
 description: Get started creating and managing private Docker container registries with the Azure CLI 2.0
 services: container-registry
 documentationcenter: ''
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: ''
 keywords: ''
 
@@ -15,8 +15,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 09/06/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -24,9 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating a Azure Container Registry instance using the Azure CLI.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -46,15 +44,15 @@ Azure Container Registry is available in several different SKU’s. When deployi
 |---|---|---|
 | Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions. |
 | Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 | Managed_Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+| Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 
 Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 
-The name of the registry must be unique. In the following example *myContainerRegistry007* is used. Update this to a unique value. 
+The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value. 
 
 ```azurecli
-az acr create --name myContainerRegistry1  --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
@@ -65,8 +63,8 @@ When the registry is created, the output is similar to the following:
   "creationDate": "2017-06-29T04:50:28.607134+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry1",
   "location": "westcentralus",
-  "loginServer": "mycontainerregistry1.azurecr.io",
-  "name": "myContainerRegistry1",
+  "loginServer": "mycontainerregistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",
   "sku": {
@@ -79,12 +77,14 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
+Throughout the rest of this Quickstart, we use `<acrname>` as a placeholder for the container registry name that you chose.
+
 ## Log in to ACR
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
 
 ```azurecli-interactive
-az acr login --name myContainerRegistry1
+az acr login --name <acrname>
 ```
 
 The command returns a 'Login Succeeded' message once completed.
@@ -103,16 +103,16 @@ The image will need to be tagged with the ACR login server name. Run the followi
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tag the image using the [docker tag]() command. Replace *acrLoginServer* with the login server name of your ACR instance.
+Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```
-docker tag microsoft/aci-helloworld acrLoginServer/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Finally, use [Docker push]() to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
+Finally, use [Docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```
-docker push acrLoginServer/aci-helloworld:v1
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
 ## List container images
@@ -120,7 +120,7 @@ docker push acrLoginServer/aci-helloworld:v1
 The following example lists the repositories in a registry:
 
 ```azurecli
-az acr repository list -n myContainerRegistry1 -o table
+az acr repository list -n <acrname> -o table
 ```
 
 Output:
@@ -134,7 +134,7 @@ aci-helloworld
 The following example lists the tags on the **aci-helloworld** repository.
 
 ```azurecli
-az acr repository show-tags -n myContainerRegistry1 --repository aci-helloworld -o table
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
 ```
 
 Output:
