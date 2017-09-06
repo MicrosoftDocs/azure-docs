@@ -27,7 +27,7 @@
 | **Others** |[Generic HTTP](../articles/data-factory/connector-http.md) |✓ | |
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |✓ | |
 | &nbsp; |[Generic ODBC](../articles/data-factory/connector-odbc.md)* |✓ | |
-| &nbsp; |[Salesforce](../articles/data-factory/v1/connector-salesforce.md) |✓ | |
+| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ | |
 | &nbsp; |[Web Table (table from HTML)](../articles/data-factory/connector-web-table.md) |✓ | |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md)* |✓ | | |
 

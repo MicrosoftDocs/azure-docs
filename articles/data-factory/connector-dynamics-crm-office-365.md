@@ -40,7 +40,7 @@ Specifically, this Dynamics connector supports below Dynamics versions and authe
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](link) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Dynamics.
 
@@ -245,7 +245,7 @@ To copy data from Dynamics, set the source type in the copy activity to **Dynami
 
 ## Data type mapping for Dynamics
 
-When copying data from Dynamics, the following mappings are used from Dynamics data types to Azure Data Factory interim data types. See [Schema and data type mappings](link) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from Dynamics, the following mappings are used from Dynamics data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-schemas.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 Configure the corresponding ADF data type in dataset structure based on your source Dynamics data type using below mapping table:
 

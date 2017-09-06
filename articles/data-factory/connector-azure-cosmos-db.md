@@ -35,7 +35,7 @@ To copy documents as-is to/from JSON files or another Cosmos DB collection, see 
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](link) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Cosmos DB.
 
@@ -67,7 +67,7 @@ The following properties are supported for Azure Cosmos DB linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md.md) article. This section provides a list of properties supported by Azure Cosmos DB dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Cosmos DB dataset.
 
 To copy data from/to Azure Cosmos DB, set the type property of the dataset to **DocumentDbCollection**. The following properties are supported:
 
