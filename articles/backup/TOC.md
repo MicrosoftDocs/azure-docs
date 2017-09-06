@@ -7,6 +7,7 @@
 ## [Back up Windows Server or Windows computers](backup-try-azure-backup-in-10-mins.md)
 ## [Back up VMware servers](backup-azure-backup-server-vmware.md)
 ## [Back up VMs - PowerShell](quick-backup-vm-powershell.md)
+## [Back up Azure VMs at scale](tutorial-backup-azure-vm.md)
 
 # How to
 
