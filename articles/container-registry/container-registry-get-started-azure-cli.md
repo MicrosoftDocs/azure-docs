@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 # Create a container registry using the Azure CLI
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating a Azure Container Registry instance using the Azure CLI.
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
 
 This Quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -44,7 +44,7 @@ Azure Container Registry is available in several different SKUs. When deploying 
 
 | SKU | Description | Notes |
 |---|---|---|
-| Basic | Limited capability and images stored in an Azure storage account. | Avaliable in all regions. |
+| Basic | Limited capability and images stored in an Azure storage account. | Available in all regions. |
 | Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 | Managed_Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 | Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
@@ -99,7 +99,7 @@ To push an image to an Azure Container registry, you must first have an image. I
 docker pull microsoft/aci-helloworld
 ```
 
-The image will need to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
+The image needs to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
 
 ```bash
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -156,7 +156,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this Quickstart, you created an Azure Container Registy with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this Quickstart, you created an Azure Container Registry with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
