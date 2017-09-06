@@ -154,8 +154,6 @@ Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
 
 2. Replace all instances of `IdentityExperienceFrameworkAppId` with the application ID of the Identity Experience Framework application as described in [Getting started](active-directory-b2c-get-started-custom.md). Here is an example:
 
-   XMLKopioi
-
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
