@@ -131,6 +131,8 @@
         href: app-service-linux-ssh-support.md
       - name: Continuous Deployment
         href: app-service-linux-ci-cd.md
+      - name: Deployment Type - Custom Image or Built-In?
+        href: app-service-linux-choose-deployment-type.md
       - name: Web App on Linux FAQ
         href: app-service-linux-faq.md
   - name: Deploy to Azure
