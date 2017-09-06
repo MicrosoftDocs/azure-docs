@@ -35,6 +35,8 @@
     items:
     - name: Manage device enrollments
       href: how-to-manage-enrollments.md
+    - name: Use different HSM with DPS Client SDK 
+      href: how-to-use-hsm-with-SDK.md
 - name: Reference
 - name: Related
   items:
