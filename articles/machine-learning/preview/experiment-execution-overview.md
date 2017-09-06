@@ -104,5 +104,5 @@ Azure ML Workbench prepares and manages execution environment on HDInsight clust
 
 >Supported configuration is HDInsight Spark clusters running Linux-Ubuntu with Python/PySpark 3.5.2 and Spark 2.1.10+.
 
-_Overview of HDInsight-based execution for a PySpark script
+_Overview of HDInsight-based execution for a PySpark script_
 ![](media/experiment-execution-overview/hdinsight-run.png)
