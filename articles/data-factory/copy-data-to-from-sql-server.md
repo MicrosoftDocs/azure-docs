@@ -130,7 +130,7 @@ To copy data from/to SQL Server database, set the type property of the dataset t
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by SQL Server source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by SQL Server source and sink.
 
 ### SQL Server as source
 

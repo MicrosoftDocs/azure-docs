@@ -98,7 +98,7 @@ To copy data from/to Azure SQL Data Warehouse, set the type property of the data
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure SQL Data Warehouse source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure SQL Data Warehouse source and sink.
 
 ### Azure SQL Data Warehouse as source
 
