@@ -39,7 +39,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 4. Once the IoT hub is successfully deployed, the hub summary blade automatically opens.
 
 
-## Create a new instance for the IoT device provisioning service
+## Create a new instance for the IoT Hub Device Provisioning Service
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 

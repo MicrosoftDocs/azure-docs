@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/01/2017
+ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
 
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 ---
 
-# Device concepts
+# IoT Hub Device Provisioning Service device concepts
 
 IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service you can provision millions of devices in a secure and scalable manner.
 

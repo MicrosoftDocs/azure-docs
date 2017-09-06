@@ -1,11 +1,11 @@
 ---
-title: Use DPS to provision devices across load balanced IoT hubs | Microsoft Docs
+title: Use Azure IoT Hub Device Provisioning Service to provision devices across load balanced IoT hubs | Microsoft Docs
 description: DPS automatic device provisioning across load balanced IoT hubs in Azure Portal
 services: iot-dps
 keywords: 
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/01/2017
+ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 
