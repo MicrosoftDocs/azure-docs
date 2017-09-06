@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Application Gateway by using URL routing rules | Microsoft Docs
+title: Create an application gateway by using URL routing rules | Microsoft Docs
 description: This page provides instructions to create and configure an Azure Application Gateway by using URL routing rules.
 documentationcenter: na
 services: application-gateway
@@ -17,16 +17,16 @@ ms.date: 04/03/2017
 ms.author: gwallace
 
 ---
-# Create an Azure Application Gateway by using path-based routing
+# Create an application gateway by using path-based routing
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 > * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 
-Path-based routing associates routes based on the URL path of an HTTP request. It checks whether there is a route to a back-end pool configured for the URL presented in the application gateway, and then it sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
+Path-based routing associates routes based on the URL path of an HTTP request. It checks whether there's a route to a back-end pool configured for the URL presented in the application gateway, and then it sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
-Azure Application Gateway has two rule types: basic routing and path-based routing. Basic provides round-robin service for the back-end pools. Path-based routing, in addition to round-robin distribution, also uses the path pattern of the request URL to choose the back-end pool.
+Application Gateway has two rule types: basic routing and path-based routing. Basic provides round-robin service for the back-end pools. Path-based routing, in addition to round-robin distribution, also uses the path pattern of the request URL to choose the back-end pool.
 
 ## Scenario
 
@@ -44,15 +44,15 @@ Requests for http://contoso.com/image* are routed to the image server pool (**po
 
 ## Requirements to create an application gateway
 
-* **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or  be a public IP/VIP.
-* **Back-end server pool settings:** Such as port, protocol, and cookie-based affinity. These are tied to a pool and applied to all servers within the pool.
-* **Front-end port:** The public port that's opened on the application gateway. Traffic hits this port, and then redirects to one of the back-end servers.
-* **Listener:** The listener has a front-end port, a protocol (Http or Https, which are case-sensitive), and the SSL certificate name (if configuring SSL offload).
-* **Rule:** The rule binds the listener and the back-end server pool and defines to which pool the traffic should be directed when it hits a listener.
+* **Back-end server pool**: The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or  be a public IP/VIP.
+* **Back-end server pool settings**: Such as port, protocol, and cookie-based affinity. These are tied to a pool and applied to all servers within the pool.
+* **Front-end port**: The public port that's opened on the application gateway. Traffic hits this port, and then redirects to one of the back-end servers.
+* **Listener**: The listener has a front-end port, a protocol (Http or Https, which are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+* **Rule**: The rule binds the listener and the back-end server pool and defines to which pool the traffic should be directed when it hits a listener.
 
 ## Create an application gateway
 
-The difference between using Azure Classic and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
+The difference between using the Azure classic portal and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
 
 With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
@@ -65,7 +65,7 @@ Follow these steps to create an application gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure that you use the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Make sure that you use the latest version of Azure PowerShell. Find more info at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Step 1
 
@@ -95,7 +95,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### Step 4
 
-Create a resource group (skip this step if you're using an existing resource group).
+Create a resource group. (Skip this step if you're using an existing resource group.)
 
 ```powershell
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US"
@@ -109,7 +109,7 @@ $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Ta
 
 Azure Resource Manager requires that resource groups specify a default location, which is used for all resources in that group. Make sure that all commands to create an application gateway use the same resource group.
 
-In the preceding example, we created a resource group called "appgw-RG" and location "West US".
+In the preceding example, we created a resource group called "appgw-RG" and used the location "West US."
 
 > [!NOTE]
 > If you need to configure a custom probe for your application gateway, go to [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). See [
@@ -169,7 +169,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 
 ### Step 2
 
-Configure the back-end IP address pool named **pool1** and **pool2** with IP addresses for **pool1** and **pool2**. These are the IP addresses of the resources that host the web application to be protected by the application gateway. These back-end pool members are all validated to be healthy by either basic or custom probes. Traffic is then routed to them when requests come into the application gateway. Back-end pools can be used by multiple rules within the application gateway, which means one back-end pool can be used for multiple web applications that reside on the same host.
+Configure the back-end IP address pool named **pool1** and **pool2** with IP addresses for **pool1** and **pool2**. These are the IP addresses of the resources that host the web application to be protected by the application gateway. These back-end pool members are all validated to be healthy by either basic or custom probes. Traffic is then routed to them when requests come into the application gateway. Back-end pools can be used by multiple rules within the application gateway. This means one back-end pool can be used for multiple web applications that reside on the same host.
 
 ```powershell
 $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
@@ -177,11 +177,11 @@ $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIP
 $pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.47, 134.170.189.222, 134.170.186.51
 ```
 
-In this example, there are two back-end pools to route network traffic based on the URL path. One pool receives traffic from the URL path "/video", and the other pool receives traffic from the path "/image". Replace the preceding IP addresses to add your own application IP address endpoints. 
+In this example, two back-end pools route network traffic based on the URL path. One pool receives traffic from the URL path "/video," and the other pool receives traffic from the path "/image." Replace the preceding IP addresses to add your own application IP address endpoints. 
 
 ### Step 3
 
-Configure application gateway settings **poolsetting01** and **poolsetting02** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own settings.  Back-end HTTP settings are used by rules to route traffic to the correct back-end pool members. This determines the protocol and port that's used when sending traffic to the back-end pool members. Cookie-based sessions are also determined by the back-end HTTP settings. If enabled, cookie-based session affinity sends traffic to the same back end as previous requests for each packet.
+Configure application gateway settings **poolsetting01** and **poolsetting02** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own settings.  Rules use back-end HTTP settings to route traffic to the correct back-end pool members. This determines the protocol and port that's used when sending traffic to the back-end pool members. Cookie-based sessions are also determined by the back-end HTTP settings. If enabled, cookie-based session affinity sends traffic to the same back end as previous requests for each packet.
 
 ```powershell
 $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
@@ -191,7 +191,7 @@ $poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetti
 
 ### Step 4
 
-Configure the front-end IP with public IP endpoints. The front-end IP configuration object is used by a listener to relate the outward-facing IP address with the listener.
+Configure the front-end IP with public IP endpoints. A listener uses the front-end IP configuration object to relate the outward-facing IP address with the listener.
 
 ```powershell
 $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
@@ -199,7 +199,7 @@ $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -
 
 ### Step 5
 
-Configure the front-end port for an application gateway. The front-end port configuration object is used by a listener to define what port the application gateway listens for traffic on the listener.
+Configure the front-end port for an application gateway. The listener uses the front-end port configuration object to define what port the application gateway listens for traffic on the listener.
 
 ```powershell
 $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
@@ -218,7 +218,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 Configure URL rule paths for the back-end pools. This step configures the relative path used by Application Gateway and defines the mapping between the URL path and the back-end pool that's assigned to handle the incoming traffic.
 
 > [!IMPORTANT]
-> Each path must start with a "/", and an asterisk is only allowed at the end. Valid examples are /xyz, /xyz*, or /xyz/*. The string fed to the path matcher does not include any text after the first "?" or "#", and those characters are not allowed. 
+> Each path must start with a "/," and an asterisk is only allowed at the end. Valid examples are /xyz, /xyz*, or /xyz/*. The string fed to the path matcher does not include any text after the first "?" or "#," and those characters are not allowed. 
 
 The following example creates two rules: one for an "/image/" path routing traffic to back-end **pool1**, and another for a "/video/" path routing traffic to back-end **pool2**. These rules ensure that traffic for each set of URLs is routed to the back end. For example, http://contoso.com/image/figure1.jpg goes to **pool1** and http://contoso.com/video/example.mp4 goes to **pool2**.
 
@@ -228,7 +228,7 @@ $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -
 $videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
 ```
 
-If the path doesn't match any of the pre-defined path rules, the rule path map configuration also configures a default back-end address pool. For example, http://contoso.com/shoppingcart/test.html goes to **pool1** as it is defined as the default pool for unmatched traffic.
+If the path doesn't match any of the pre-defined path rules, the rule path map configuration also configures a default back-end address pool. For example, http://contoso.com/shoppingcart/test.html goes to **pool1** because it is defined as the default pool for unmatched traffic.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
@@ -260,9 +260,9 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## Get an application gateway DNS name
 
-After the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. For more information, see [Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
+After you've created the gateway, you'll configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name, which is not friendly. To ensure customers can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. For more information, see [Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-To configure the front-end IP CNAME record, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record. The use of A records is not recommended since the VIP might change on restart of Application Gateway.
+To configure the front-end IP CNAME record, retrieve details of the application gateway and its associated IP/DNS name by using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record. We don't recommend the use of A records because the VIP might change on restart of Application Gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
