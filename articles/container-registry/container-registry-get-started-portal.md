@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/04/2017
+ms.date: 09/11/2017
 ms.author: marsma
 ms.custom:
 ---
@@ -28,15 +28,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 ## Create a container registry
 
-Select the **New** > **Containers** > **Azure Container Registry**.
+Select **New** > **Containers** > **Azure Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named `myResourceGroup`, and for **SKU**, select "Classic."
+Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named `myResourceGroup`, and for **SKU**, select "Classic." Select **Create** to deploy the ACR instance.
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
@@ -53,7 +53,7 @@ When the **Deployment succeeded** message appears, select the container registry
 
 ![Creating a container registry in the Azure portal][qs-portal-05]
 
-Under **Admin user**, select **Enabled**. Take note of the following values:
+Under **Admin user**, select **Enable**. Take note of the following values:
 
 * Login server
 * Username
@@ -65,7 +65,7 @@ You use these values in the following steps while working with your registry wit
 
 ## Log in to ACR
 
-Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command. Replace the username, password, and login server values with those you noted from in the previous step.
+Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command. Replace the username, password, and login server values with those you noted in the previous step.
 
 ```
 docker login --username <username> --password <password> <login server>
@@ -81,7 +81,7 @@ To push an image to your Azure Container Registry, you must first have an image.
 docker pull microsoft/aci-helloworld
 ```
 
-Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name you recorded earlier.
 
 ```
 docker tag microsoft/aci-helloworld acrLoginServer/aci-helloworld:v1
@@ -93,11 +93,24 @@ Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/
 docker push acrLoginServer/aci-helloworld:v1
 ```
 
+Output from a successful `docker push` command is similar to:
+
+```
+The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
+7c701b1aeecd: Pushed
+c4332f071aa2: Pushed
+0607e25cc175: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+```
+
 ## List container images
 
-To list the images in your ACR instance, navigate to your registry in the portal and select **Repositories**, then the repository you just created with `docker push`. The images in the repository appear under **TAGS**.
+To list the images in your ACR instance, navigate to your registry in the portal and select **Repositories**, then the repository you just created with `docker push`.
 
-In this example, we select the **aci-helloworld** repository.
+In this example, we select the **aci-helloworld** repository, and we can see the `v1`-tagged image under **TAGS**.
 
 ![Creating a container registry in the Azure portal][qs-portal-09]
 
