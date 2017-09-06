@@ -140,7 +140,7 @@ To copy data from Dynamics, set the type property of the dataset to **DynamicsEn
 | entityName | The logical name of the entity to retrieve. | No (if "query" in activity source is specified) |
 
 > [!IMPORNANT]
-> **The "structure" section in dataset is required for Dynamics**, which defines column name and data type for Dynamics data that you want to copy over. Learn more from [dataset structure](concepts-datasets-linked-services.md#structure) and the [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
+> **The "structure" section in dataset is required for Dynamics**, which defines column name and data type for Dynamics data that you want to copy over. Learn more from [dataset structure](concepts-datasets-linked-services.md#dataset-structure) and the [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
 
 **Example:**
 
