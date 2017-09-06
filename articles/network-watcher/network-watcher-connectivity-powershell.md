@@ -159,7 +159,7 @@ Hops             : [
 
 ## Validate routing issues
 
-The example checks connectivity between a virtual machine and a remote endpoint.This example requires that you have Network Watcher enabled in the region containing the source VM.  
+The example checks connectivity between a virtual machine and a remote endpoint. This example requires that you have Network Watcher enabled in the region containing the source VM.  
 
 ### Example
 
