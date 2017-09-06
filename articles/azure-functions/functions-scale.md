@@ -53,7 +53,7 @@ The Consumption plan is the default and offers the following benefits:
 
 ## App Service plan
 
-In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, and Premium SKUs, similar to Web Apps. Dedicated VMs are allocated to your App Service apps, which means the functions host is always running.
+In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, Premium, and Isolated SKUs, similar to Web Apps. Dedicated VMs are allocated to your App Service apps, which means the functions host is always running.
 
 Consider an App Service plan in the following cases:
 - You have existing, underutilized VMs that are already running other App Service instances.
@@ -93,7 +93,7 @@ When you use the Consumption hosting plan, function code files are stored on Azu
 
 ### Runtime scaling
 
-Azure Functions uses a component called the *scale controller* to monitor the rate of events and determine whether to scale out or scale down. The scale controller uses heuristics for each trigger type. For example, when you're using an Azure Queue storage trigger, it scales based on the queue length and the age of the oldest queue message.
+Azure Functions uses a component called the *scale controller* to monitor the rate of events and determine whether to scale out or scale in. The scale controller uses heuristics for each trigger type. For example, when you're using an Azure Queue storage trigger, it scales based on the queue length and the age of the oldest queue message.
 
 The unit of scale is the function app. When the function app is scaled out, more resources are allocated to run multiple instances of the Azure Functions host. Conversely, as compute demand is reduced, the scale controller removes function host instances. The number of instances is eventually scaled down to zero when no functions are running within a function app.
 
@@ -101,7 +101,7 @@ The unit of scale is the function app. When the function app is scaled out, more
 
 ### Billing model
 
-Billing for the Consumption plan is described in detail on the [Azure Functions pricing page]. Usage is aggregated at the function app level and counts only the time that function code is running. The following are units for billing: 
+Billing for the Consumption plan is described in detail on the [Azure Functions pricing page]. Usage is aggregated at the function app level and counts only the time that function code is executed. The following are units for billing: 
 * **Resource consumption in gigabyte-seconds (GB-s)**. Computed as a combination of memory size and execution time for all functions within a function app. 
 * **Executions**. Counted each time a function is executed in response to an event, triggered by a binding.
 
