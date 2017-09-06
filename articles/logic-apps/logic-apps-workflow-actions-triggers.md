@@ -155,13 +155,13 @@ The inputs object takes the set of parameters required to construct an HTTP call
 |authentication|No|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Beyond scheduler, there is one more supported property: `authority` By default, this value is `https://login.windows.net` when not specified, but you can use a different audience like `https://login.windows\-ppe.net`|Object|  
   
 The HTTP trigger requires the HTTP API to conform with a specific pattern to work well with your logic app. 
-It requires the following fields:  
+It recognizes the following properties:  
   
-|Response|Description|  
-|------------|---------------|  
-|Status code|Status code 200 \(OK\) to cause a run. Any other status code doesn't cause a run.|  
-|Retry\-after header|Number of seconds until the logic app polls the endpoint again.|  
-|Location header|The URL to call on the next polling interval. If not specified, the original URL is used.|  
+|Response|Required|Description|  
+|------------|------------|---------------|  
+|Status code|Yes|Status code 200 \(OK\) to cause a run. Any other status code doesn't cause a run.|  
+|Retry\-after header|No|Number of seconds until the logic app polls the endpoint again.|  
+|Location header|No|The URL to call on the next polling interval. If not specified, the original URL is used.|  
   
 Here are some examples of different behaviors for different types of requests:  
   
