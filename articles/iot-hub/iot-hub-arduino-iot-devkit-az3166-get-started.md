@@ -79,7 +79,7 @@ Now, use another Wi-Fi enabled device (computer or mobile phone) to connect to t
 
 ### Configure Wi-Fi for the DevKit
 
-Open the IP address shown on the DevKit screen on your computer or mobile phone browser, select the Wi-Fi network that you want the DevKit to connect to, and then type the password. Click **Connect**.
+Open the IP address shown on the DevKit screen on your computer or mobile phone browser, select the Wi-Fi network that you want the DevKit to connect to, and then type the password. Select **Connect**.
 
 ![Password box and Connect button](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-portal.png)
 
@@ -211,7 +211,7 @@ Download and install [Visual Studio Code for macOS](https://code.visualstudio.co
 
 #### Install the VS Code extension for Arduino
 
-You can install Azure Marketplace extensions directly in Visual Studio Code. Click the extensions icon in the left pane, search for **Arduino**, and then select **Install**:
+You can install Azure Marketplace extensions directly in Visual Studio Code. Select the extensions icon in the left pane, search for **Arduino**, and then select **Install**:
 
 ![Finding an Arduino extension](media/iot-hub-arduino-devkit-az3166-get-started/installation-extensions-mac.png)
 
@@ -221,7 +221,7 @@ Add the DevKit board by using Board Manager in Visual Studio Code.
 
 1. Use Cmd+Shift+P to open the command palette, type **Arduino**, and then find and select **Arduino: Board Manager**.
 
-2. Click **Additional URLs** at the lower right.
+2. Select **Additional URLs** at the lower right.
    ![Additional URLs link](media/iot-hub-arduino-devkit-az3166-get-started/installation-additional-urls-mac.png)
 
 3. In the settings.json file, add a line at the bottom of the **USER SETTINGS** pane and save.
@@ -284,7 +284,7 @@ The DevKit reboots and starts running the code.
 
 ## Test the project
 
-In VS Code, click the power plug icon on the status bar to open Serial Monitor.
+In VS Code, select the power plug icon on the status bar to open Serial Monitor.
 
 The sample application is running successfully when you see the following results:
 
