@@ -1,0 +1,50 @@
+- name: Overview
+  items:
+  - name: Managed Service Identity
+    href: /azure/active-directory/active-directory-msi-overview
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Configure MSI - Portal
+    items:
+    - name: Windows VM
+      href: /azure/active-directory/active-directory-msi-qs-configure-portal-windows-vm
+  - name: Configure MSI - PowerShell
+    items:
+    - name: Windows VM
+      href: /azure/active-directory/active-directory-msi-qs-configure-powershell-windows-vm
+  - name: Configure MSI - Azure CLI
+    items:
+    - name: Windows VM
+      href: /azure/active-directory/active-directory-msi-qs-configure-cli-windows-vm    
+  - name: Configure MSI - Template
+    items:
+    - name: Windows VM
+      href: /azure/active-directory/active-directory-msi-qs-configure-template-windows-vm      
+- name: Tutorials
+  items:
+  - name: Use VM MSI to access Azure Resource Manager
+    items:
+    - name: Windows
+      href: /azure/active-directory
+    - name: Linux
+      href: /azure/active-directory
+  - name: Use VM MSI to access Azure storage
+    href: /azure/active-directory
+  - name: Use VM MSI to access non-AAD resource
+    href: /azure/active-directory
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: /azure/active-directory/active-directory-msi-cli-samples
+  - name: Code samples
+    href: /azure/active-directory/active-directory-msi-code-samples
+  - name: PowerShell
+    href: /azure/active-directory/active-directory-msi-powershell-samples
+- name: Concepts
+- name: How-To guides
+  items:
+  - name: How to use a Managed Service Identity
+    href: /azure/active-directory
+- name: Reference
+- name: Resources
