@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.date: 09/05/2017
 ---
 
-# Deploying the Iris trained model as a web service
+# Quick-start: Deploying the Iris Classifier Model as a Web Service
 In this quick-start, you deploy the Iris model you trained in the [previous step](quick-start-iris.md).
 
 >Note you must have Docker engine installed locally and running in order to follow these steps.

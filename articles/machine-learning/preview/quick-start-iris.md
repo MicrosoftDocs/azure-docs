@@ -68,4 +68,5 @@ Now you have got a taste of the Azure ML Workbench execution experience, explore
 1. Open the _iris_ DataPrep package from **Data View**, and explore the data preparation editor.
 
 ## Next Steps
-Follow the more detailed and advanced tutorial: [Bike Share Forecasting](./doc-template-tutorial.md)
+- Try operationalize the model.pkl model in the [next quick-start](quick-start-iris-mms.md).
+- Follow the more detailed and advanced tutorial: [Bike Share Forecasting](./doc-template-tutorial.md)
