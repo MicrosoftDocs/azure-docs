@@ -677,7 +677,7 @@ The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 | xml |Xml |
 
 ## Mapping source to sink columns
-To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-copy-activity-map-columns.md).
 
 ## Repeatable copy
 When copying data to SQL Server Database, the copy activity appends data to the sink table by default. To perform an UPSERT instead,  See [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) article. 

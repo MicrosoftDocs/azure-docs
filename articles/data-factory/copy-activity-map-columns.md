@@ -34,7 +34,7 @@ If you want to read from a text file or write to a text file, set the `type` pro
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable char that may not likely exists in your data. For example, specify "\u0001", which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use a Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
+| columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable char that may not likely exist in your data. For example, specify "\u0001", which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use a Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
 | rowDelimiter |The character used to separate rows in a file. |Only one character is allowed. The **default** value is any of the following values on read: **["\r\n", "\r", "\n"]** and **"\r\n"** on write. |No |
 | escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. |No |
 | quoteChar |The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. |No |
@@ -226,7 +226,7 @@ and you want to copy it into an Azure SQL table in the following format, by extr
 
 The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Map source dataset columns to destination dataset columns](map-columns.md) section for more details.
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Map source dataset columns to destination dataset columns](copy-activity-map-columns.md) section for more details.
 - `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. To copy data from array, you can use **array[x].property** to extract value of the given property from the xth object, or you can use **array[*].property** to find the value from any object containing such property.
 
 ```json
@@ -300,7 +300,7 @@ and you want to copy it into an Azure SQL table in the following format, by flat
 
 The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Map source dataset columns to destination dataset columns](map-columns.md) section for more details.
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Map source dataset columns to destination dataset columns](copy-activity-map-columns.md) section for more details.
 - `jsonNodeReference` indicates to iterate and extract data from the objects with the same pattern under **array** orderlines.
 - `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. In this example, "ordernumber", "orderdate" and "city" are under root object with JSON path starting with "$.", while "order_pd" and "order_price" are defined with path derived from the array element without "$.".
 

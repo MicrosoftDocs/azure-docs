@@ -343,7 +343,7 @@ The following mappings are used when Copy Activity converts the data from a DB2 
 | Char |String |
 
 ## Map source to sink columns
-To learn how to map columns in the source dataset to columns in the sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+To learn how to map columns in the source dataset to columns in the sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-copy-activity-map-columns.md).
 
 ## Repeatable reads from relational sources
 When you copy data from a relational data store, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure the retry **policy** property for a dataset to rerun a slice when a failure occurs. Make sure that the same data is read no matter how many times the slice is rerun, and regardless of how you rerun the slice. For more information, see [Repeatable reads from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).

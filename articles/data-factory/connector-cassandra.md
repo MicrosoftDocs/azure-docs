@@ -157,7 +157,7 @@ To copy data from Cassandra, set the source type in the copy activity to **Cassa
 
 ## Data type mapping for Cassandra
 
-When copying data from Cassandra, the following mappings are used from Cassandra data types to Azure Data Factory interim data types. See [Schema and data type mappings](map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from Cassandra, the following mappings are used from Cassandra data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Cassandra data type | Data factory interim data type |
 |:--- |:--- |

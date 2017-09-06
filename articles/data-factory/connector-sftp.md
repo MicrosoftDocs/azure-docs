@@ -48,7 +48,7 @@ The following properties are supported for SFTP linked service:
 | port | Port on which the SFTP server is listening.<br/>Allowed values are: integer, defualt value is **22**. |No |
 | skipHostKeyValidation | Specify whether to skip host key validation.<br/>Allowed values are: **true**, **false** (default).  | No |
 | hostKeyFingerprint | Specify the finger print of the host key. | Yes if the "skipHostKeyValidation" is set to false.  |
-| authenticationType | Specify authentication type.<br/>Allowed value are: **Basic**, **SshPublicKey**. Refer to [Using basic authentication](#using-basic-authentication) and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |
+| authenticationType | Specify authentication type.<br/>Allowed values are: **Basic**, **SshPublicKey**. Refer to [Using basic authentication](#using-basic-authentication) and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |
 
 ### Using basic authentication
 
@@ -94,7 +94,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 | passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. | Yes if the private key file is protected by a pass phrase. |
 
 > [!NOTE]
-> SFTP connector only support OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
+> SFTP connector supports only OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
 
 **Example 1: SshPublicKey authentication using private key filePath**
 

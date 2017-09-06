@@ -45,7 +45,7 @@ The following properties are supported for FTP linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **FtpServer**. | Yes |
 | host | Specify the name or IP address of the FTP server. | Yes |
-| port | Specify the port on which the FTP server is listening.<br/>Allowed values are: integer, defualt value is **21**. | No |
+| port | Specify the port on which the FTP server is listening.<br/>Allowed values are: integer, default value is **21**. | No |
 | enableSsl | Specify whether to use FTP over an SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
 | authenticationType | Specify the authentication type.<br/>Allowed values are: **Basic**, **Anonymous** | Yes |
