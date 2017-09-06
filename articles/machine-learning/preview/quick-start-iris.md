@@ -19,19 +19,19 @@ In this Quickstart, we take a quick tour of Azure Machine Learning preview featu
 ## Provision and Install Azure Machine Learning Workbench
 Follow the installation guide to provision Azure resources and install Azure ML Workbench app.
 
-## Create a New Project with _Classifying Iris_ Sample Template 
+## Create a New Project with `Classifying Iris` Sample Template 
 1. Launch the Azure ML Workbench desktop app. 
 
-2. Click on **File** --> **New Project** (or click on the "+" sign in the project list pane). 
+2. Click on **File** --> **New Project** (or click on the **+** sign in the project list pane). 
 
-3. Fill in the **project name**, and the **directory** the project is going to be created in. The **project description** is optional but helpful. Choose the default **My Projects** workgroup, and then select the **Classifying Iris** sample project as the project template.
+3. Fill in the **project name**, and the **directory** the project is going to be created in. The **project description** is optional but helpful. Choose the default `My Projects` workgroup, and then select the `Classifying Iris` sample project as the project template.
 
 <!--![New Project](media/quick-start-iris/new_project.png)-->
 4. Optionally, you can fill in the Git repo text field with the URL of a Git repo that lives in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must exist, and is empty with no master branch. Adding a Git repo now lets you enable roaming and sharing scenarios later.
 
 5. Click on the **Create** button to create the project. After a few seconds, the new project is created and opened.
 
-## Run iris_sklearn.py Python Script
+## Run `iris_sklearn.py` Python Script
 
 1. Now you should see the project dashboard. Select **local** as the execution target, and **iris_sklearn.py** as the script to run.
 
