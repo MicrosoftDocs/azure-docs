@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: curtand
-ms.reviewer: jsnow
+ms.reviewer: piotrci
 ms.custom: it-pro;
 
 ---
