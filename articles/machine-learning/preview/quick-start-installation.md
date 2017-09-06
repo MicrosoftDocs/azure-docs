@@ -22,7 +22,11 @@ In order to use Azure Machine Learning preview features, you need to do two thin
 ## Prerequisites
 ### Mandatory Requirements:
 * Access to an Azure subscription where you have sufficient permissions to create Azure resources. Minimally, you need to be a Contributor of the subscription, or Contributor of a Resource Group in the subscription.
-* Windows 10, Windows server 2016, and macOS Sierra (or newer) are supported operating systems for the Azure ML Workbench desktop app and command-line interface (CLI).
+* Supported operating systems for the Azure ML Workbench:
+    * Windows 10
+    * Windows server 2016
+    * macOS Sierra (or newer)
+>Note model management CLI tools are also supported on Linux.
 
 ### Optional Requirements:
 * Local Docker engine for running dev/test scenarios locally.
@@ -39,16 +43,18 @@ $ /Applications/Python\ 3.6/Install\ Certificates.command
 ```
 
 ## Provisioning
-Launch the Azure portal by browsing to http://portal.azure.com. Log in to Azure. Click on +New and search for Machine Learning. Look for ML Experimentation (preview) in the search results. Click on ML Experimentation (preview) to get started with creating your Machine Learning Experimentation account. As part of the Experimentation account creation, you will also be asked to create an Azure storage account, or supply an existing one, for storing Run outputs and other data.
+Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on _+ New_ and search for _Machine Learning_. Look for _ML Experimentation (preview)_ in the search results. Click on _ML Experimentation (preview)_ to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or supply an existing one, for storing Run outputs and other data.
 
-As part of the Experimentation account creation experience, you have an option of also creating the Machine Learning Model Management account. You will need this resource when you are ready to deploy and manage your models as real-time web services. It is recommended that you create this when creating the Experimentation Account.
+As part of the Experimentation account creation experience, you have an option of also creating the _Machine Learning Model Management account_. You need this resource when you are ready to deploy and manage your models as real-time web services. It is recommended that you create the Model Management account along with the Experimentation account.
 
-NOTE: Some note about pricing associated for public preview should go in here.
+<!--
+>NOTE: Some note about pricing associated for public preview should go in here.
+-->
 
 ## Installation
 You can install Azure Machine Learning Workbench on your Windows or macOS computer.
 ### Remove prior installations
-When a new release becomes available, Azure ML Workbench auto-updates on its own over the existing installation. It is generally unnecessary to remove prior installations. But in case you want to clean up and start a fresh install, you can run the following scripts: 
+When a new release becomes available, Azure ML Workbench auto-updates on its own over the existing installation. It is usually unnecessary to remove prior installations. But in case you want to clean up and start a fresh install, you can run the following scripts: 
 
 * Windows command line: [cleanup_win.cmd](scripts/quick-start-installation/cleanup_win.cmd). 
 * Windows PowerShell: [cleanup_win.ps1](scripts/quick-start-installation/cleanup_win.ps1). 
@@ -133,14 +139,23 @@ Let's also create resources needed for deploying and managing your models.
 >Note: Docker engine ust be installed and running if you want to deploy the web service locally.
 
 ```bash
-# create a new Model Management Account
-$ az ml account modelmanagement create -l <Azure region: e.g. eastus2> -n <environment name> -g <resource group name> --sku-instances <number of SKUs for billing: e.g. 1> --sku-name <name of the billing SKU: e.g. S1>
+# Create a new Model Management Account
+# -l: Azure region
+# -n: environment name
+# -g: Azure resource group name
+# --sku-instance: number of skus
+# --sku-name: the sku name
+$ az ml account modelmanagement create -l eastus2 -n myenv -g mygroup --sku-instances 1 --sku-name S1
 
-# create a new Model Management environment for local web service deployment
-$ az ml env setup -l <Azure region, e.g. eastus2> -n <environmnet name>
+# Create a new Model Management environment for local web service deployment
+# -l: Azure region
+# -n: environment name
+$ az ml env setup -l eastus2 -n myenv
 
-# set the environment to be used
-$ az ml env set -n <environment name created above> -g <resource group name it was created in>
+# Set the environment to be used
+# -n: environment name
+# -g: Azure resource group name
+$ az ml env set -n myenv -g mygroup
 ```
 
 ### Check Your Build number
@@ -159,18 +174,18 @@ Azure ML Workbench can run experiments in various compute targets. To leverage t
     * You must have Docker engine installed and running. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
 * Execute in a **Docker container on a remote Linux machine**
     * You must have SSH access (username and password) to that Linux VM, and you must have Docker engine installed and running on that machine.
-    * We recommend you [create a Ubuntu-based DSVM (Data Science Virtual Machine) on Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-dsvm-ubuntu-intro), which has Docker pre-installed so it is ready go.
+    * We recommend you [create a Ubuntu-based DSVM (Data Science Virtual Machine) on Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-dsvm-ubuntu-intro), which has Docker pre-installed so it is ready to go.
 * Execute in an **HDInsight Spark cluster**
     * You must have SSH access (username and password) to the head node of that HDInsight Spark cluster. Here are the instructions on [provisioning a HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 * Deploy a web service to run locally on your machine
-    * This requires a local Docker installation. See the link above.
+    * This requires a local Docker installation. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
 
 #### Special Note on Docker for Windows 
 Docker is needed if you want to execute scripts in a local Docker container, or deploy model via a containerized web service locally. Since it is a technology born in Linux, it can be a little challenging to work with on Windows. Make sure you follow these instructions:
 - Only Windows 10 is supported for running Docker for Windows.
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and have it up and running.
 - Make sure your Docker engine is running in [Linux Container mode](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
-- Optionally, for better execution performance please share C drive (or whichever drive the system %temp% folder is) in the Docker for Windows configuration.
+- Optionally, for better execution performance, share C drive (or whichever drive the system %temp% folder is) in the Docker for Windows configuration.
  
 ![Share C drive](media/quick-start-installation/share_c.png)
 
