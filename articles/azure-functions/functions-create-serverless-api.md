@@ -32,29 +32,29 @@ Open the Azure portal. To do this, sign in to [https://portal.azure.com](https:/
 
 By default, your HTTP-triggered function is configured to accept any HTTP method. There is also a default URL of the form `http://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>`. If you followed the quickstart, then `<funcname>` probably looks something like "HttpTriggerJS1". In this section, you will modify the function to respond only to GET requests against `/api/hello` route instead. 
 
-Navigate to your function in the Azure portal. Select **Integrate** in the left navigation.
+1. Navigate to your function in the Azure portal. Select **Integrate** in the left navigation.
 
-![Customizing an HTTP function](./media/functions-create-serverless-api/customizing-http.png)
+    ![Customizing an HTTP function](./media/functions-create-serverless-api/customizing-http.png)
 
-Use the HTTP trigger settings as specified in the table.
+1. Use the HTTP trigger settings as specified in the table.
 
-| Field | Sample value | Description |
-|---|---|---|
-| Allowed HTTP methods | Selected methods | Determines what HTTP methods may be used to invoke this function |
-| Selected HTTP methods | GET | Allows only selected HTTP methods to be used to invoke this function |
-| Route template | /hello | Determines what route is used to invoke this function |
-| Authorization Level | Anonymous | Optional: Makes your function accessible without an API key |
+    | Field | Sample value | Description |
+    |---|---|---|
+    | Allowed HTTP methods | Selected methods | Determines what HTTP methods may be used to invoke this function |
+    | Selected HTTP methods | GET | Allows only selected HTTP methods to be used to invoke this function |
+    | Route template | /hello | Determines what route is used to invoke this function |
+    | Authorization Level | Anonymous | Optional: Makes your function accessible without an API key |
 
-> [!NOTE] 
-> Note that you did not include the `/api` base path prefix in the route template, as this is handled by a global setting.
+    > [!NOTE] 
+    > Note that you did not include the `/api` base path prefix in the route template, as this is handled by a global setting.
 
-Click **Save**.
+1. Click **Save**.
 
 You can learn more about customizing HTTP functions in [Azure Functions HTTP and webhook bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
 
 ### Test your API
 
-1. Next, test your function to see it working with the new API surface.
+Next, test your function to see it working with the new API surface.
 1. Navigate back to the development page by clicking on the function's name in the left navigation.
 1. Click **Get function URL** and copy the URL. You should see that it uses the `/api/hello` route now.
 1. Copy the URL into a new browser tab or your preferred REST client. Browsers will use GET by default.
@@ -85,27 +85,21 @@ Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azu
 1. Select **Settings**. Then toggle **Enable Azure Functions Proxies (preview)** to "On".
 1. Select **Platform Settings** and choose **Application Settings**.
 1. Scroll down to **App settings** and create a new setting with key "HELLO_HOST". Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This is part of the URL that you copied earlier when testing your HTTP function. You'll reference this setting in the configuration later.
-
-> [!NOTE] 
-> App settings are recommended for the host configuration to prevent a hard-coded environment dependency for the proxy. Using app settings means that you can move the proxy configuration between environments, and the environment-specific app settings will be applied.
-
-Click **Save**.
+    > [!NOTE] 
+    > App settings are recommended for the host configuration to prevent a hard-coded environment dependency for the proxy. Using app settings means that you can move the proxy configuration between environments, and the environment-specific app settings will be applied.
+1. Click **Save**.
 
 ### Creating a proxy on the frontend
 
 1. Navigate back to your frontend function app in the portal.
 1. In the left-hand navigation, click the plus sign '+' next to "Proxies (preview)".
-
     ![Creating a proxy](./media/functions-create-serverless-api/creating-proxy.png)
-
 1. Use proxy settings as specified in the table.
-
     | Field | Sample value | Description |
     |---|---|---|
     | Name | HelloProxy | A friendly name used only for management |
     | Route template | /api/hello | Determines what route is used to invoke this proxy |
     | Backend URL | https://%HELLO_HOST%/api/hello | Specifies the endpoint to which the request should be proxied |
-
 1. Note that Proxies does not provide the `/api` base path prefix, and this must be included in the route template.
 1. The `%HELLO_HOST%` syntax will reference the app setting you created earlier. The resolved URL will point to your original function.
 1. Click **Create**.
