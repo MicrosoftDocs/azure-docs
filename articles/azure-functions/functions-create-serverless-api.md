@@ -110,9 +110,9 @@ Click **Save**.
 1. The `%HELLO_HOST%` syntax will reference the app setting you created earlier. The resolved URL will point to your original function.
 1. Click **Create**.
 1. You can try out your new proxy by copying the Proxy URL and testing it in the browser or with your favorite HTTP client.
-    1. For an anonymous function use
+    1. For an anonymous function use:
         1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
-    1. For a function with authorization use
+    1. For a function with authorization use:
         1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
 
 ## Create a mock API
