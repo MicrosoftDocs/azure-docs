@@ -30,7 +30,7 @@ When you use basic settings and select only a subscription, Cloud Shell creates 
 * Storage account: `cs-uniqueGuid`
 * File share: `cs-<user>-<domain>-com-uniqueGuid`
 
-![The Subscription setting](media/basic-storage.png)
+![The Subscription setting](media/persisting-shell-storage/basic-storage.png)
 
 The file share mounts as `clouddrive` in your `$Home` directory. The file share is also used to store a 5-GB image that's created for you and that automatically updates and persists your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions.
 
@@ -38,7 +38,7 @@ The file share mounts as `clouddrive` in your `$Home` directory. The file share 
 
 By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage and geo-redundant storage accounts.
 
-![The Resource group setting](media/advanced-storage.png)
+![The Resource group setting](media/persisting-shell-storage/advanced-storage.png)
 
 ### Restrict resource creation with an Azure resource policy
 Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) that are triggered by this specific tag.
@@ -54,7 +54,7 @@ Cloud Shell persists files through both of the following methods:
 
 ## Use the `clouddrive` command
 With Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that's mounted to Cloud Shell.
-![Running the "clouddrive" command](media/clouddrive-h.png)
+![Running the "clouddrive" command](media/persisting-shell-storage/clouddrive-h.png)
 
 ## Mount a new `clouddrive`
 
@@ -86,7 +86,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 
 To view more details, run `clouddrive mount -h`, as shown here:
 
-![Running the `clouddrive mount`command](media/mount-h.png)
+![Running the `clouddrive mount`command](media/persisting-shell-storage/mount-h.png)
 
 ## Unmount `clouddrive`
 You can unmount a file share that's mounted to Cloud Shell at any time. However, because Cloud Shell requires a mounted file share, you will be prompted to create and mount a new file share at the next session if it has been removed.
@@ -99,7 +99,7 @@ Your file share will continue to exist unless you delete it manually. Cloud Shel
 
 To view more details, run `clouddrive unmount -h`, as shown here:
 
-![Running the `clouddrive unmount`command](media/unmount-h.png)
+![Running the `clouddrive unmount`command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
 > Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell will erase your `$Home` directory disk image and any files in your file share. This action cannot be undone.

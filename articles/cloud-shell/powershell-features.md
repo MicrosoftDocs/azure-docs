@@ -30,15 +30,18 @@ The PowerShell experience in Azure Cloud Shell will provide the same benefits as
 
 - **Azure namespace** capability to let you easily discover and navigate all Azure resources.
 
-    ![](media/powershell-features/navigation.gif)
+> [!NOTE]
+> [TODO: replace old gif]
 
 - **Interaction with VMs** to enable seamless management into the guest VMs.
 
-    ![](media/powershell-features/vminteraction.gif)
+> [!NOTE]
+> [TODO: replace old gif]
 
 - **Extensible model** to import additional cmdlets and ability to run any executable.
 
-    ![](media/powershell-features/tools.gif)
+> [!NOTE]
+> [TODO: replace old gif]
 
 ## Tools
 
