@@ -42,7 +42,7 @@ Once **Visual Studio is configured to connect to Azure Government account** (alr
 To deploy the app, follow [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#createapiapp).
 
 Once the app has been successfully deployed to Azure Government, the url should end with "azurewebsites.us"(as shown below).  
-![success screenshot](./media/documentation-government-howto-deploy-webandmobile screenshot1.png)  
+![success screenshot](./media/documentation-government-howto-deploy-webandmobile-screenshot1.png)  
 
 ### References
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio] (../app-service-web/app-service-web-get-started-dotnet.md)
