@@ -38,7 +38,6 @@ Ctrl+C and Ctrl+V do not function as copy/paste shortcuts in Cloud Shell on Wind
 
 Right-click copy-and-paste options are also available, but right-click function is subject to browser-specific clipboard access. 
 
-
 ## Bash Specific Limitations
 ### Editing .bashrc
 Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud Shell. 

@@ -157,7 +157,7 @@ You can run `Install-Module` to install modules from the [PowerShellGallery.com]
 
 ## Get-Help
 
-Type `Get-Help` to get information about PowerShell in Azure cloud shell.
+Type `Get-Help` to get information about PowerShell in Azure Cloud Shell.
 
 ```powershell
 PS Azure:\> Get-Help
