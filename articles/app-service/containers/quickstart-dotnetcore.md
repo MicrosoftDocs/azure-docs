@@ -21,7 +21,7 @@ ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
 
 [Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
 
-![Web Apps for Containers][10]
+![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
 You can follow the steps below using a Mac, Windows, or Linux machine. 
 
