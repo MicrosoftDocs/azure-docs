@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: aurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Update an application in Kubernetes
@@ -66,7 +67,7 @@ SHOWHOST = 'false'
 Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up --build -d
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml up --build -d
 ```
 
 ## Test application locally

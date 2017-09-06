@@ -1,11 +1,10 @@
 ---
 title: Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Microsoft Docs
-description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature. 
+description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: barlanmsft
 manager: femila
-editor: librown
 
 ms.assetid: ''
 ms.service: multi-factor-authentication
@@ -13,38 +12,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
-ms.author: kgremban
+ms.date: 08/12/2017
+ms.author: barlan
+ms.reviewer: librown
 ms.custom: end-user
 ---
 # Sign in with your phone, not your password
 
-The Microsoft Authenticator app helps you keep your accounts secure by performing two-step verification after you enter your password. But did you know that it can replace the password for your personal Microsoft account entirely? 
+The Microsoft Authenticator app helps you keep your accounts secure by performing two-step verification after you enter your password. But did you know that it can replace the password for your personal Microsoft account entirely?
 
-This feature is available on iOS and Android devices, and works with personal Microsoft accounts. 
+This feature is available on iOS and Android devices, and works with personal Microsoft accounts.
 
 ## How it works
 
-Many of you use the Microsoft Authenticator app for two-step verification when you sign in to your Microsoft account. You type your password, then go to the app to either approve a notification or get a verification code. With phone sign-in, you skip the password and do all of your identity verification on your phone. This still works like two-step verification which asks for a thing you know and a thing you have. The phone is still the thing you have, but now we ask for you to enter your phone's PIN or biometric key as the thing you know. 
+Many of you use the Microsoft Authenticator app for two-step verification when you sign in to your Microsoft account. You type your password, then go to the app to either approve a notification or get a verification code. With phone sign-in, you skip the password and do all of your identity verification on your phone. Because phone sign-in is a type of two-step verification, you still need to provide a thing you know and a thing you have to verify your identity. The phone is still the thing you have, and your phone's PIN or biometric key is the thing you know.
 
 ## How to get started
 
-To sign in to your personal Microsoft account with your phone, follow these steps: 
+To sign in to your personal Microsoft account with your phone, follow these steps:
 
-1. Enable phone sign-in for your account. 
+1. Enable phone sign-in for your account.
 
   - If you don't have the Microsoft Authenticator app yet, install and add your personal Microsoft account according to the steps on the [Microsoft Authenticator page](microsoft-authenticator-app-how-to.md). Newly added accounts are automatically enabled, so you're good to go.
 
-  - If you already use Microsoft Authenticator for two-step verification, select your account from the app home page, and select **Enable phone sign-in from the drop-down menu".
+  - If you already use Microsoft Authenticator for two-step verification, select your account from the app home page, and select **Enable phone sign-in** from the drop-down menu.
 
-  >[!NOTE] 
-  >To protect your account, we require a PIN or biometric lock on your device. If you keep your phone unlocked, the app will pop up a request asking you to set up a lock before enabling phone sign-in. 
+  >[!NOTE]
+  >To protect your account, we require a PIN or biometric lock on your device. If you keep your phone unlocked, the app pops up a request asking you to set up a lock before enabling phone sign-in.
 
-3. Most pages where you would normally enter your Microsoft account password have a link that says **Use an app instead**. Select this to sign in with your phone. 
+3. Most pages where you would normally enter your Microsoft account password have a link that says **Use an app instead**. Select this link to sign in with your phone.
 
 4. Microsoft sends a notification to your phone. Approve the notification to sign in to your account.   
 
-## FAQ 
+## FAQ
 
 ### How is signing in with my phone more secure than typing a password?  
 
@@ -56,19 +56,19 @@ The key used is similar to the keys used in Windows Hello and the FIDO Alliance 
 
 Today, the phone sign-in feature only works with web apps and services that are powered by personal Microsoft accounts, iOS or Android apps that use a personal Microsoft account, and apps on Windows 10 that use a personal Microsoft account. When you sign in to one of these web sites or apps, on the page where you usually enter your password there's a link that says **Use an app instead**. 
 
-Phone sign-in can't be used to unlock a Windows PC, XBOX, or any desktop versions of Microsoft apps such as Office apps at this time. 
+Phone sign-in can't be used to unlock a Windows PC, XBOX, or any desktop versions of Microsoft apps such as Office apps at this time.
  
 ### Does this replace two-step verification? Should I turn it off?   
 
-Sometimes. We're working on expanding the scope of phone sign-in, but for now there are still places in the Microsoft ecosystem that don't support it. In those places, we're still using two-step verification for secure sign-in. For that reason, no, you shouldn't turn two-step verification off for your account. 
+Sometimes. We're working on expanding the scope of phone sign-in, but for now there are still places in the Microsoft ecosystem that don't support it. In those places, we're still using two-step verification for secure sign-in. For that reason, no, you shouldn't turn off two-step verification for your account.
  
-### Okay, if I keep two-step verification turned on for my account, will I have to approve two notifications?
+### Okay, if I keep two-step verification turned on for my account, do I have to approve two notifications?
 
 No, you won't. Signing in to your Microsoft account with your phone counts as two-step verification. Instead of typing in your password, then approving a notification you prove your identity by knowing how to unlock your phone, and then approving a notification. We won't send you a second notification to approve.
 
 ### What if I lose my phone or don’t have it with me, how can I access my account?  
 
-You can always click **Use a password instead** on the sign-in page to switch back to using your password. Keep in mind that if you use two-step verification, you will still need a second method to verify your sign-in. That's why we strongly encourage you to make sure that you have extra, up-to-date security info on your account. You can manage your security info at https://account.live.com/proofs/manage. 
+You can always click **Use a password instead** on the sign-in page to switch back to using your password. Keep in mind that if you use two-step verification, you still need a second method to verify your sign-in. That's why we strongly encourage you to make sure that you have extra, up-to-date security info on your account. You can manage your security info at https://account.live.com/proofs/manage.
  
 ### How do I stop using this feature and go back to entering my password?
 

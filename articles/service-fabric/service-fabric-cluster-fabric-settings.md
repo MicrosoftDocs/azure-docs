@@ -275,10 +275,10 @@ Here are the Fabric settings that you can customize:
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 |IsEnabled |Bool, default is false | Enables/Disables the HttpApplicationGateway. HttpApplicationGateway is disabled by default and this config needs to be set to enable it. |
-|NumberOfParallelOperations | Uint, default is 1000 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
-|DefaultHttpRequestTimeout |Time in seconds. default is 60 |Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
+|NumberOfParallelOperations | Uint, default is 5000 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
+|DefaultHttpRequestTimeout |Time in seconds. default is 120 |Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
 |ResolveServiceBackoffInterval |Time in seconds, default is 5 |Specify timespan in seconds.  Gives the default back-off interval before retrying a failed resolve service operation. |
-|BodyChunkSize |Uint, default is 4096 |  Gives the size of for the chunk in bytes used to read the body. |
+|BodyChunkSize |Uint, default is 16384 |  Gives the size of for the chunk in bytes used to read the body. |
 |GatewayAuthCredentialType |string, default is "None" | Indicates the type of security credentials to use at the http app gateway endpoint Valid values are "None/X509. |
 |GatewayX509CertificateStoreName |string, default is "My" | Name of X.509 certificate store that contains certificate for http app gateway. |
 |GatewayX509CertificateFindType |string, default is "FindByThumbprint" | Indicates how to search for certificate in the store specified by GatewayX509CertificateStoreName Supported value: FindByThumbprint; FindBySubjectName. |

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: briz
 
 ---
@@ -85,7 +85,7 @@ IoT Hub enables the following set of device management patterns.  The [device ma
     ![Device management reporting progress and status pattern graphic][img-report_progress_pattern]
 
 ## Next Steps
-The capabilities, patterns, and code libraries that IoT Hub provides for device management, enable you to create IoT applications that fulfill enterprise IoT operator requirements within in each device lifecycle stage.
+The capabilities, patterns, and code libraries that IoT Hub provides for device management, enable you to create IoT applications that fulfill enterprise IoT operator requirements within each device lifecycle stage.
 
 To continue learning about the device management features in IoT Hub, see the [Get started with device management][lnk-get-started] tutorial.
 

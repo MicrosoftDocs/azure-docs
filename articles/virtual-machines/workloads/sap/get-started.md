@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 08/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -230,14 +230,14 @@ ms.custom: H1Hack27Feb2017
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/storage-premium-storage.md
-[storage-redundancy]:../../../storage/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/storage-scalability-targets.md
-[storage-use-azcopy]:../../../storage/storage-use-azcopy.md
+[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-redundancy]:../../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
@@ -345,7 +345,7 @@ Title: Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
 
 Summary: This guide covers information that is useful in establishing monitoring of your SAP HANA on Azure environment as well as additional troubleshooting information. 
 
-Updated: December 2016
+Updated: August 2017
 
 [This document can be found here](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -473,12 +473,12 @@ Updated: June 2017
 
 [This guide can be found here][dbms-guide]
 
-### Using Azure as DR site for an SAP on-premise landscape
-Title: SAP NetWeaver: Building a Hyper-V & Microsoft Azure–based Disaster Recovery Solution 
+### Using Azure Site Recovery for SAP workload
+Title: SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery 
 
-Summary: This document describes the way how Azure can be used as disaster recovery location for an on-premise SAP landscape using Azure Site Recovery Services. Azure Site Recovery Services are described in a first step. The second step documents the design to use Azure Site Recovery Services to replicate SAP NetWeaver systems into Azure for the purpose of disaster recovery. 
+Summary: This document describes the way how Azure Site Recovery services can be used for the purpose of handling disaster recovery scenarios. Cases where Azure is used as disaster recovery location for an on-premise SAP landscape using Azure Site Recovery Services. Another scenario described in the document is the Aure-to-Azure (A2A) disaster recovery case and how it is managed with Azure Site Recovery.  
 
-Updated: February 2016
+Updated: August 2017
 
 [This guide can be found here](http://aka.ms/asr-sap)
 

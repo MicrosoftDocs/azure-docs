@@ -57,11 +57,18 @@ An ASE inbound access dependency is:
 
 | Use | From | To |
 |-----|------|----|
-| Management | Internet | ASE subnet: 454, 455 |
+| Management | App Service management addresses | ASE subnet: 454, 455 |
 |  ASE internal communication | ASE subnet: All ports | ASE subnet: All ports
-|  Allow Azure load balancer inbound | Azure load balancer | Any
+|  Allow Azure load balancer inbound | Azure load balancer | ASE subnet: All ports
+|  App assigned IP addresses | App assigned addresses | ASE subnet: All ports
 
-The inbound traffic provides command and control of the ASE in addition to system monitoring. The source IPs for this traffic aren't constant. The network security configuration needs to allow access from all IPs on ports 454 and 455.
+The inbound traffic provides command and control of the ASE in addition to system monitoring. The source IPs for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from all IPs on ports 454 and 455.
+
+Within the ASE subnet there are many ports used for internal component communication and they can change.  This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
+
+For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE then you need to take into account the normal app access ports.  If you are using app assigned addresses you need to open it to all ports.  When an address is assigned to a specific app, then the load balancer will use ports that are not known of in advance to send HTTP and HTTPS traffic to the ASE.
+
+If you are using app assigned IP addresses you need to allow traffic from the IPs assigned to your apps to the ASE subnet.
 
 For outbound access, an ASE depends on multiple external systems. Those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. An ASE has the following outbound dependencies:
 
@@ -92,13 +99,13 @@ In addition to the ASE functional dependencies, there are a few extra items rela
 
 -   Web jobs
 -   Functions
--   Logstream
+-   Log streaming
 -   Kudu
 -   Extensions
 -   Process Explorer
 -   Console
 
-When you use an ILB ASE, the SCM site isn't internet accessible from outside the VNet. When your app is hosted on an ILB ASE, the capabilities that can't reach the SCM site are grayed out in the Azure portal.
+When you use an ILB ASE, the SCM site isn't internet accessible from outside the VNet. When your app is hosted on an ILB ASE, some capabilities will not work from the portal.  
 
 Many of those capabilities that depend upon the SCM site are also available directly in the Kudu console. You can connect to it directly rather than by using the portal. If your app is hosted in an ILB ASE, use your publishing credentials to sign in. The URL to access the SCM site of an app hosted in an ILB ASE has the following format: 
 
@@ -108,9 +115,13 @@ Many of those capabilities that depend upon the SCM site are also available dire
 
 If your ILB ASE is the domain name *contoso.net* and your app name is *testapp*, the app is reached at *testapp.contoso.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.net*.
 
+## Functions and Web jobs ##
+
+Both Functions and Web jobs depend on the SCM site but are supported for use in the portal, even if your apps are in an ILB ASE, so long as your browser can reach the SCM site.  If you are using a self-signed certificate with your ILB ASE, you will need to enable your browser to trust that certificate.  For IE and Edge that means the certificate has to be in the computer trust store.  If you are using Chrome then that means you accepted the certificate in the browser earlier by presumably hitting the scm site directly.  The best solution is to use a commercial certificate that is in the browser chain of trust.  
+
 ## ASE IP addresses ##
 
-An ASE has more than a few IP addresses to be aware of. They are:
+An ASE has a few IP addresses to be aware of. They are:
 
 - **Public inbound IP address**: Used for app traffic in an External ASE, and management traffic in both an External ASE and an ILB ASE.
 - **Outbound public IP**: Used as the "from" IP for outbound connections from the ASE that leave the VNet, which aren't routed down a VPN.
@@ -175,8 +186,7 @@ If you make these two changes, internet-destined traffic that originates from th
 > [!IMPORTANT]
 > The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
 >
-
-ASEs aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure IP address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the ASE's subnet are force tunneled to a customer's on-premises network infrastructure. This network flow is currently not supported with ASEs. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path.
+> ASEs aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure IP address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the ASE's subnet are force tunneled to a customer's on-premises network infrastructure. This network flow is currently not supported with ASEs. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path.
 
 To create a UDR, follow these steps:
 
@@ -240,3 +250,4 @@ To deploy your ASE into a VNet that's integrated with ExpressRoute, preconfigure
 [AppDeploy]: ../../app-service-web/web-sites-deploy.md
 [ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[ASEManagement]: ./management-addresses.md

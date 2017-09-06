@@ -54,7 +54,6 @@ ms.custom: H1Hack27Feb2017
 * Fixed an issue with the Strong and BoundedStaleness consistency levels.
 
 ### <a name="1.11.0"/>1.11.0
-* Added support for Request Unit per Minute (RU/m) feature.
 * Added support for a new consistency level called ConsistentPrefix.
 * Fixed a bug in reading collection in session mode.
 
