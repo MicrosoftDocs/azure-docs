@@ -2,7 +2,7 @@
 title: Azure Virtual Machine Scale Sets Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Virtual Machine Scale Sets to create auto-scaling Windows or Linux VMs for big compute, big data, and containerized solutions.
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
