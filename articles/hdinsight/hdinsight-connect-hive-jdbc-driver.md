@@ -42,7 +42,7 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 
 ## JDBC connection string
 
-JDBC connections to an HDInsight cluster on Azure are made over 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following is an example connection string:
+JDBC connections to an HDInsight cluster on Azure are made over 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following connection string shows the format to use for HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -91,11 +91,11 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
             ![Remote Desktop icon](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. On the Remote Desktop blade, use the **Connect** button to connect to the cluster. If the Remote Desktop is not enabled, use the form to provide a user name and password, then select **Enable** to enable Remote Desktop for the cluster.
+        2. On the Remote Desktop section, use the **Connect** button to connect to the cluster. If the Remote Desktop is not enabled, use the form to provide a user name and password, then select **Enable** to enable Remote Desktop for the cluster.
 
-            ![Remote desktop blade](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
+            ![Remote desktop section](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
-            After selecting **Connect**, a .rdp file is downloaded. Use this file to launch the Remote Desktop client. When prompted, use the user name and password you entered for Remote Desktop access.
+            After selecting **Connect**, a .RDP file is downloaded. Use this file to launch the Remote Desktop client. When prompted, use the user name and password you entered for Remote Desktop access.
 
         3. Once connected, copy the following files from the Remote Desktop session to your local machine. Put them in a local directory named `hivedriver`.
 
@@ -137,7 +137,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     * **Driver**: Use the dropdown to select the **Hive** driver
 
-    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+    * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
@@ -177,7 +177,7 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**Cause**: This error is caused by a mismatch in the version of the commons-codec.jar file used by SQuirreL and the one required by the Hive JDBC components.
+**Cause**: This error is caused by an older version commons-codec.jar file included with SQuirreL.
 
 **Resolution**: To fix this error, use the following steps:
 
