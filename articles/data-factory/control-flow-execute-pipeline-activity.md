@@ -67,8 +67,8 @@ waitOnCompletion | Defines whether activity execution waits for the dependent pi
 ## Sample
 This scenario has two pipelines:
 
-- **Master pipeline** - This pipeline has one Execute Pipeline activity that calls the invoked pipeline. The master pipeline takes two parameters: masterSourceBlobContainer, masterSinkBlobContainer.
-- **Invoked pipeline** - This pipeline has one Copy activity that copies data from an Azure Blob source to Azure Blob sink. The invoked pipeline takes two parameters: sourceBlobContainer, sinkBlobContainer.
+- **Master pipeline** - This pipeline has one Execute Pipeline activity that calls the invoked pipeline. The master pipeline takes two parameters: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
+- **Invoked pipeline** - This pipeline has one Copy activity that copies data from an Azure Blob source to Azure Blob sink. The invoked pipeline takes two parameters: `sourceBlobContainer`, `sinkBlobContainer`.
 
 ### Master pipeline definition
 

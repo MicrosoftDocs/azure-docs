@@ -17,7 +17,7 @@ ms.author: shlo
 
 ---
 # ForEach activity in Azure Data Factory
-The ForEach Activity defines a repeating control flow in your pipeline. This activity is used for iterating over a collection and execute specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.
+The ForEach Activity defines a repeating control flow in your pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.
 
 ## Syntax
 The properties are described later in this article. The items property is the collection and each item in the collection is referred to by using the `@item()` as shown in the following syntax:  
@@ -67,17 +67,15 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the for-each activity. | String | Yes
 type | Must be set to **ForEach** | String | Yes
-isSequential | Specifies whether the loop should be executed sequentially or in parallel (maximum of 20 loop iterations can be executed at once in parallel). For example, if you have a ForEach Activity iterating over a Copy Activity with 10 different source and sink datasets with "is Sequential" set to False, all copies execute at once. Default is False. <br/><br/> If "isSequential" is set to False, ensure that there is a correct configuration to run multiple executables. Otherwise,this property should be used with caution to avoid incurring write conflicts. For more information, see [Parallel execution](#parallel-execution) section. | Boolean | No. Default is False.
+isSequential | Specifies whether the loop should be executed sequentially or in parallel.  Maximum of 20 loop iterations can be executed at once in parallel). For example, if you have a for each activity iterating over a copy activity with 10 different source and sink datasets with **isSequential** set to False, all copies are executed at once. Default is False. <br/><br/> If "isSequential" is set to False, ensure that there is a correct configuration to run multiple executables. Otherwise, this property should be used with caution to avoid incurring write conflicts. For more information, see [Parallel execution](#parallel-execution) section. | Boolean | No. Default is False.
 Items | An expression that returns a JSON Array to be iterated over. | Expression (which returns a JSON Array) | Yes
 Activities | The activities to be executed. | List of Activities | Yes
 
 ## Parallel execution
-If **isSequential** is set to false, the activity iterates in parallel with a maximum of 20 concurrent iterations. The configuration should be used with caution if at any point the ForEach activity is looping and writing to the same file path or table concurrently. In summary, this may cause a problem at the "lowest-level" for a file definition. If writing concurrently to the same folder but to different files, this approach is fine. If writing concurrently to the exact same file, this approach most likely causes a problem.
-
-For example, if parallel copies run on the same destination file in Azure Blob, this might result in concurrent write errors. In general, we advise parallel copy to the same destination low-level table only if it is SQL Server, and even then, only with the correct schema and primary key configurations.
+If **isSequential** is set to false, the activity iterates in parallel with a maximum of 20 concurrent iterations. This setting should be used with caution. If the concurrent iterations are writing to the same folder but to different files, this approach is fine. If the concurrent iterations are writing concurrently to the exact same file, this approach most likely cause an error. 
 
 ## Iteration expression language
-In the ForEach activity, provide an array to be iterated over for the property **items**." Use `@item()` to iterate over a single enumeration in ForEach activity. For example, an array, [1, 2, 3], is passed into **items**, `@item()`  returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration.
+In the ForEach activity, provide an array to be iterated over for the property **items**." Use `@item()` to iterate over a single enumeration in ForEach activity. For example, if **items** is an array: [1, 2, 3], `@item()` returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration.
 
 ## Iterating over a single activity
 **Scenario:** Copy from the same source file in Azure Blob to multiple destination files in Azure Blob.
@@ -183,7 +181,7 @@ In the ForEach activity, provide an array to be iterated over for the property *
 ```
 
 ## Iterate over multiple activities
-If iterating over multiple activities (i.e. you want the ForEach to iterate over a Copy Activity and Http Activity), we recommend that you abstract out multiple activities into a separate pipeline and calling [ExecutePipeline activity](control-flow-execute-pipeline-activity.md) on that pipeline within the ForEach activity. 
+It's possible to iterate over multiple activities (for example: copy and web activities) in a ForEach activity. In this scenario, we recommend that you abstract out multiple activities into a separate pipeline. Then, you can use the [ExecutePipeline activity](control-flow-execute-pipeline-activity.md) in the pipeline with ForEach activity to invoke the separate pipeline with multiple activities. 
 
 
 ### Syntax

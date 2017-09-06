@@ -64,7 +64,7 @@ name | Name of the web activity | String | Yes
 type | Must be set to **WebActivity**. | String | Yes
 method | Rest API method for the target endpoint. | String. <br/><br/>Supported Types: "GET", "POST", "PUT" | Yes
 url | Target endpoint and path | String (or expression with resultType of string) | Yes
-headers | Headers that will be sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | String (or expression with resultType of string) | Yes, Content-type header is required `"headers":{ "Content-Type":"application/json"}`.
+headers | Headers that are sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | String (or expression with resultType of string) | Yes, Content-type header is required `"headers":{ "Content-Type":"application/json"}`.
 body | Represents the payload that is sent to the endpoint. Required for POST/PUT methods.  | String (or expression with resultType of string). <br/><br/>See the schema of the request payload in [Request payload schema](#request-payload-schema) section. | No
 authentication | Authentication method used for calling the endpoint. Supported Types are "Basic, or ClientCertificate." For more information, see [Authentication](#authentication) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No
 datasets | List of datasets passed to the endpoint. | Array of dataset references. Can be an empty array. | Yes
@@ -90,7 +90,7 @@ Specify user name and password to use with the basic authentication.
 ```
 
 ### Client certificate
-Specifiy base64-encoded contents of a PFX file and the password. 
+Specify base64-encoded contents of a PFX file and the password. 
 
 ```json
 "authentication":{  
@@ -100,7 +100,7 @@ Specifiy base64-encoded contents of a PFX file and the password.
 }
 ```
 ## Request payload schema
-When you use the POST/PUT method, the body property represents the payload that will be sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload: 
+When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload: 
 
 ```json
 {  
@@ -128,7 +128,7 @@ When you use the POST/PUT method, the body property represents the payload that 
 ```
 
 ## Example
-In this example, the web activity in the pipeline calls a REST end point. It passes an Azure SQL linked service and an Azure SQL dataset to the endpoint. The REST end points uses the Azure SQL connection string to connect to the Azure SQL server and returns the name of the instance of SQL server. 
+In this example, the web activity in the pipeline calls a REST end point. It passes an Azure SQL linked service and an Azure SQL dataset to the endpoint. The REST end point uses the Azure SQL connection string to connect to the Azure SQL server and returns the name of the instance of SQL server. 
 
 ### Pipeline definition
 
