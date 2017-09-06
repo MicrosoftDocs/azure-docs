@@ -35,10 +35,6 @@
     items:
     - name: Manage device enrollments
       href: how-to-manage-enrollments.md
-- name: Reference
-  items:
-  - name: REST
-    href: /rest/api/iot-dps/
 - name: Related
   items:
   - name: Azure IoT Hub
