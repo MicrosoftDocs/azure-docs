@@ -28,7 +28,6 @@
       href: tutorial-php-mysql-app.md 
     - name: Node.js with MongoDB
       href: tutorial-nodejs-mongodb-app.md
-    - name: Ruby with MySQL
     - name: Python custom container with PostgreSQL
       href: tutorial-docker-python-postgresql-app.md
   - name: 2 - Map Custom Domain
