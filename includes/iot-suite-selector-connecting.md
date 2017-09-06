@@ -3,13 +3,13 @@
 > * [C on Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
 > * [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 
-In this tutorial, you implement a device that sends the following telemetry to the remote monitoring [preconfigured solution](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
+In this tutorial, you implement a **Chiller** device that sends the following telemetry to the remote monitoring [preconfigured solution](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
 
 * Temperature
 * Pressure
 * Humidity
 
-For simplicity, the code generates sample telemetry values. You could extend the sample by connecting real sensors to your device and sending real telemetry.
+For simplicity, the code generates sample telemetry values for the **Chiller**. You could extend the sample by connecting real sensors to your device and sending real telemetry.
 
 The sample device also:
 
@@ -25,7 +25,7 @@ Before you write any code for your device, you must provision your remote monito
 
 ### Provision your remote monitoring preconfigured solution
 
-The device you create in this tutorial sends data to an instance of the [remote monitoring](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, see [Deploy the remote monitoring preconfigured solution](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+The **Chiller** device you create in this tutorial sends data to an instance of the [remote monitoring](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, see [Deploy the remote monitoring preconfigured solution](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
 When the provisioning process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 
@@ -40,20 +40,25 @@ For a device to connect to the preconfigured solution, it must identify itself t
 
 To add a device to your remote monitoring solution, complete the following steps on the **Devices** page in the solution:
 
-1. Choose **Add new devices**.
+1. Choose **Provision**, and then choose **Physical** as the **Device type**:
 
     <!-- TODO Add screenshot here -->
 
-1. In the **Provision a new device** panel, choose **Manual**.
+1. Choose the **Chiller** device type in the **Select type** drop-down. Enter **Physical-chiller** as the device ID prefix. Leave the other fields with default values:
 
     <!-- TODO Add screenshot here -->
 
-1. Enter a Device ID such as `mydevice` and then click **Create** to provision the device.
+    > [!NOTE]
+    > You are using the built-in **Chiller** device type. You can upload a JSON file to define a custom device type.
+
+1. Make a note of the **Device ID** and **Primary key** values. You use these values when you add code to connect your device to the solution. <!-- TODO - Where do you find the IoT Hub name?? -->
 
     <!-- TODO Add screenshot here -->
 
-1. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key). Your client application needs these values to connect to the remote monitoring solution.
+You have now provisioned a physical **Chiller** device in the remote monitoring preconfigured solution. In the following sections, you implement the client application that uses the device credentials to connect to your solution.
 
-    <!-- TODO Add screenshot here -->
+The client application implements the built-in **Chiller** device model. A preconfigured solution device model specifies the following about a device:
 
-You have now provisioned a device in the remote monitoring preconfigured solution. In the follwing sections, you implement the client application that uses the device credentials to connect to your solution.
+* The properties the device reports to the solution. For example, a **Chiller** device reports information about its firmware and location.
+* The types of telemetry the device sends to the solution. For example, a **Chiller** device sends temperature, humidity, and pressure values.
+* The methods you can schedule from the solution to run on the device. For example, a **Chiller** device must implement **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease**, and **IncreasePressuree** methods.

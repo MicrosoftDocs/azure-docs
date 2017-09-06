@@ -69,11 +69,11 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 1. To define some property values, add the following variables:
 
     ```nodejs
-    var temperatureSchema = 'physical-chiller-temperature;v1';
-    var humiditySchema = 'physical-chiller-humidity;v1';
-    var pressureSchema = 'physical-chiller-pressure;v1';
+    var temperatureSchema = 'chiller-temperature;v1';
+    var humiditySchema = 'chiller-humidity;v1';
+    var pressureSchema = 'chiller-pressure;v1';
     var interval = "00:00:05";
-    var deviceType = "Physical-Chiller";
+    var deviceType = "Chiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
     var deviceLocation = "Building 44";

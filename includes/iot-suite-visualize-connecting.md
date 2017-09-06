@@ -1,32 +1,41 @@
 ## View device telemetry
 
-You can view the telemetry sent from your device on the **Dashboard** page in the solution.
+You can view the telemetry sent from your device on the **Devices** page in the solution.
 
-1. Choose **Dashboard** to return to the dashboard, choose your device in the **Choose devices** drop-down to view its telemetry:
+1. Select the device you provisioned in the list of devices on the **Devices** page. A panel displays information about your device including a plot of the device telemetry:
 
     <!-- Insert screenshot here -->
 
-1. View the live telemetry from your device in the chart.
+1. Choose **Humidity** to change the telemetry display:
+
+    <!-- Insert screenshot here -->
+
+1. To view diagnostic information about your device, choose **Display diagnostics**:
+
+    <!-- Insert screenshot here -->
 
 ## Act on your device
 
-To invoke methods on your devices through IoT Hub, use the **Devices** page in the remote monitoring solution. For example, in the remote monitoring solution you can invoke a method to simulate rebooting a device.
+To invoke methods on your devices, use the **Devices** page in the remote monitoring solution. For example, in the remote monitoring solution **Chiller** devices implement a **Reboot** method.
 
-1. Choose **Devices** to navigate to the **Devices** page.
+1. Choose **Devices** to navigate to the **Devices** page in the solution.
 
-1. Select your device in the list:
+1. Select the device you provisioned in the list of devices on the **Devices** page:
 
     <!-- Insert screenshot here -->
 
-1. Choose **Act on devices**.
+1. To display a list of the methods you can call on your device, choose **Schedule**. To schedule a method to run on multiple devices, you can select multiple devices in the list. The **Schedule** panel shows the types of method common to all the devices you selected.
 
-1. Choose **Reboot** and then **Act**:
+1. Choose **Reboot** and set the job name to **Reboot physical chiller**:
 
     <!-- Insert screenshot here -->
 
 1. A message displays in the console running your device code when the device handles the method:
 
     <!-- Insert screenshot here -->
+
+> [!NOTE]
+> To track the status of the job in the solution, choose **View**.
 
 ## Next steps
 
