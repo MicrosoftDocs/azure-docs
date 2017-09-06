@@ -234,16 +234,13 @@ You can monitor the deployment progress by using the Configuration Manager conso
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
 6. Copy the following files to the **MobSvcLinux** folder on your network share:
-* Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz
-* Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz
-* Microsoft-ASR_UA\*OL6-64\*release.tar.gz
-* Microsoft-ASR_UA\*RHEL5-64\*release.tar.gz
-* Microsoft-ASR_UA\*RHEL6-64\*release.tar.gz
-* Microsoft-ASR_UA\*RHEL7-64\*release.tar.gz
-* Microsoft-ASR_UA\*SLES11-SP3-64\*release.tar.gz
-* Microsoft-ASR_UA\*SLES11-SP4-64\*release.tar.gz
-* Microsoft-ASR_UA\*UBUNTU-14.04-64\*release.tar.gz
-* Microsoft-ASR_UA\*UBUNTU-16.04-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
+
 
 7. Copy the following code, and save it as **install_linux.sh** into the **MobSvcLinux** folder.
    > [!NOTE]
