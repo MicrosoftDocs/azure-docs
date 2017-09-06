@@ -16,7 +16,15 @@
   items:
   - name: Classifying Iris
     href: tutorial-classifying-iris.md
-  - name: (Bike Share Forecast - Data preparation)
+  - name: Bike Share Forecast - Data preparation
+    href: tutorial-bikeshare-dataprep.md
+  - name: (Bike Share Forecast - Experimentation)
+  - name: Bike Share Forecast - Operationalization
+    href: tutorial-bikerental-operationalization.md
+  - name: Iris tutorial Azure CLI
+    href: tutorial-iris-azure-cli.md
+  - name: MVC template (temporary)
+    href: doc-template-tutorial.md
 - name: Samples
   items:
   - name: Azure CLI 2.0
