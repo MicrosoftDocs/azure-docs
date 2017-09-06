@@ -112,12 +112,14 @@ From here, you have two options, you can create a new Azure resource group, or u
 ```bash
 # Create a new Azure resource group
 # Note the currently supported Azure regions are: eastus2, and westcentralus
-$ az group create --name <resource group name> --location <Azure region name>
+# -n: Azure resource group name
+# -l: Azure region
+$ az group create -n mygroup -location eastus2
 
 # Create a new Experimentation account
-# <resource group>: previously created resource group
-# <Experimentation account name>: The Experimentation Account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-$ az ml account experimentation create -n <experimentation account name> -g <resource group name>
+# -g: Azure resource group
+# -a: Experimentation Account name. It must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+$ az ml account experimentation create -n myexpacct -g mygroup
 ```
 >Note the new Azure Storage Account auto-created will all carry the same name as the Experimentation account name.
 
@@ -132,7 +134,7 @@ It is a good idea to also create a new Workspace where your Projects can live. Y
 # -n: name of the workspace
 # -g: resource group name
 # -a: Experimentation account name
-$ az ml workspace create -n myWS -g myRG -a myExpAcct
+$ az ml workspace create -n myWS -g mygroup -a myexpacct
 ```
 
 Let's also create resources needed for deploying and managing your models. 
@@ -143,7 +145,7 @@ Let's also create resources needed for deploying and managing your models.
 # -l: Azure region
 # -n: environment name
 # -g: Azure resource group name
-# --sku-instance: number of skus
+# --sku-instance: number of skus included.
 # --sku-name: the sku name
 $ az ml account modelmanagement create -l eastus2 -n myenv -g mygroup --sku-instances 1 --sku-name S1
 
