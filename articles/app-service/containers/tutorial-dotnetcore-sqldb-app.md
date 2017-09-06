@@ -65,7 +65,7 @@ Run the following commands to install the required packages, run database migrat
 
 ```bash
 dotnet restore
-dotnet df database update
+dotnet ef database update
 dotnet run
 ```
 
@@ -81,7 +81,7 @@ To stop .NET Core at any time, press `Ctrl+C` in the terminal.
 
 In this step, you create a SQL Database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
-For SQL Database, this tutorial uses [Azure SQL DatabaseB](/azure/sql-database/). 
+For SQL Database, this tutorial uses [Azure SQL Database](/azure/sql-database/). 
 
 ### Create a resource group
 
@@ -91,7 +91,7 @@ For SQL Database, this tutorial uses [Azure SQL DatabaseB](/azure/sql-database/)
 
 In the Cloud Shell, create a SQL Database logical server with the [az sql server create](/cli/azure/sql/server#create) command.
 
-In the following command, substitute a unique SQL Database name for the *\<server_name>* placeholder. This name is used as the part of the SQL Database endpoint, `<server_name>.database.windows.net`, so the name needs to be unique across all logical servers in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long. Also, replace *\<db_username>* and *\<db_password>* with a username and password of your choice. 
+Replace the *\<server_name>* placeholder with a unique SQL Database name. This name is used as the part of the SQL Database endpoint, `<server_name>.database.windows.net`, so the name needs to be unique across all logical servers in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long. Also, replace *\<db_username>* and *\<db_password>* with a username and password of your choice. 
 
 
 ```azurecli-interactive
@@ -168,7 +168,7 @@ To set connection strings for your Azure app, use the [az webapp config appsetti
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Next, set `ASPNETCORE_ENVIRONMENT` app setting to _Production_. This setting lets you know whether you are running in Azure, because you use SQLLite for your development environment and SQL Database for your Azure environment. 
+Next, set `ASPNETCORE_ENVIRONMENT` app setting to _Production_. This setting lets you know whether you are running in Azure, because you use SQLLite for your local development environment and SQL Database for your Azure environment. 
 
 The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your Azure web app. Replace the *\<app_name>* placeholder.
 
