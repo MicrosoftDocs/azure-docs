@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
 ms.service: multi-factor-authentication
@@ -13,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2017
+ms.date: 09/06/2017
 ms.author: kgremban
+ms.reviewer: alexwe
 
 ---
 # Choose the Azure Multi-Factor Authentication solution for you
@@ -22,7 +22,7 @@ Because there are several flavors of Azure Multi-Factor Authentication (MFA), we
 
 * [What am I trying to secure](#what-am-i-trying-to-secure)
 * [Where are the users located](#where-are-the-users-located)
-* [What features do I need?](#what-featured-do-i-need)
+* [What features do I need?](#what-features-do-i-need)
 
 The following sections provide guidance on determining each of these answers.
 
