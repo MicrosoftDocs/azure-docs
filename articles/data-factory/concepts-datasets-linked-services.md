@@ -64,18 +64,63 @@ A dataset in Data Factory is defined in JSON format as follows:
 ```
 The following table describes properties in the above JSON:
 
-Property	Description	Required	Default
-name	Name of the dataset. See Azure Data Factory - Naming rules for naming rules.	Yes	NA
-type	Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). 
- 
-For details, see Dataset type.
-Yes	NA
-structure	Schema of the dataset.
- 
-For details, see Dataset structure.
-No	NA
-typeProperties	The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see Dataset type.
-Yes	NA
+Property | Description | Required | Default
+-------- | ----------- | -------- | -------
+name | Name of the dataset. | See [Azure Data Factory - Naming rules](naming-rules.md). | Yes | NA
+type | Type of the dataset. | Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-types). | Yes | NA
+structure | Schema of the dataset. | For details, see [Dataset structure](#dataset-structure). | No | NA
+typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes | NA
+
+## Dataset example
+In the following example, the dataset represents a table named MyTable in a SQL database.
+
+```json
+{
+    "name": "DatasetSample",
+    "properties": {
+        "type": "AzureSqlTable",
+        "linkedServiceName": {
+                "referenceName": "MyAzureSqlLinkedService",
+                 "type": "LinkedServiceReference",
+        },
+        "typeProperties":
+        {
+            "tableName": "MyTable"
+        },
+    }
+}
+
+```
+Note the following points:
+
+- type is set to AzureSqlTable.
+- tableName type property (specific to AzureSqlTable type) is set to MyTable.
+- linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the next JSON snippet.
+
+## Linked service example
+AzureSqlLinkedService is defined as follows:
+
+```json
+{
+    "name": "AzureSqlLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "description": "",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
+        }
+    }
+}
+```
+In the preceding JSON snippet:
+
+- **type** is set to AzureSqlDatabase.
+- **connectionString** type property specifies information to connect to a SQL database.
+
+As you can see, the linked service defines how to connect to a SQL database. The dataset defines what table is used as an input and output for the activity in a pipeline.
+
+## Dataset type
+There are many different types of datasets, depending on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
 
 
 

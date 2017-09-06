@@ -15,7 +15,7 @@ ms.author: jingwang
 
 # Supported file formats and compression codecs in Azure Data Factory
 
-*This topic applies to the following connectors: [Amazon S3](copy-data-from-amazon-simple-storage-service.md), [Azure Blob](copy-data-to-from-azure-blob-storage.md), [Azure Data Lake Store](copy-data-to-from-azure-datalake-store.md), [File System](copy-data-to-from-file-system.md), [FTP](copy-data-from-ftp-server.md), [HDFS](copy-data-from-hadoop-distributed-file-system.md), [HTTP](copy-data-from-http-end-point.md), and [SFTP](copy-data-from-sftp-server.md).*
+*This topic applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-datalake-store.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hadoop-distributed-file-system.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
 
 If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. If you want to **parse or generate files with a specific format**, Azure Data Factory supports the following file format types:
 
@@ -78,7 +78,7 @@ To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar`
 
 ## JSON format
 
-To **import/export a JSON file as-is into/from Azure Cosmos DB**, see Import/export JSON documents section in [Move data to/from Azure Cosmos DB](copy-data-to-from-azure-cosmos-db.md) article.
+To **import/export a JSON file as-is into/from Azure Cosmos DB**, see Import/export JSON documents section in [Move data to/from Azure Cosmos DB](connector-azure-cosmos-db.md) article.
 
 If you want to parse the JSON files or write the data in JSON format, set the `type` property in the `format` section to **JsonFormat**. You can also specify the following **optional** properties in the `format` section. See [JsonFormat example](#jsonformat-example) section on how to configure.
 
@@ -506,11 +506,11 @@ The **compression** section has two properties:
 
 See the following articles for file-based data stores supported by Azure Data Factory:
 
-- [Azure Blob Storage connector](copy-data-to-from-azure-blob-storage.md)
-- [Azure Data Lake Store connector](copy-data-to-from-azure-datalake-store.md)
-- [Amazon S3 connector](copy-data-from-amazon-simple-storage-service.md)
-- [File System connector](copy-data-to-from-file-system.md)
-- [FTP connector](copy-data-from-ftp-server.md)
-- [SFTP connector](copy-data-from-sftp-server.md)
-- [HDFS connector](copy-data-from-hadoop-distributed-file-system.md)
-- [HTTP connector](copy-data-from-http-end-point.md)
+- [Azure Blob Storage connector](connector-azure-blob-storage.md)
+- [Azure Data Lake Store connector](connector-azure-datalake-store.md)
+- [Amazon S3 connector](connector-amazon-simple-storage-service.md)
+- [File System connector](connector-file-system.md)
+- [FTP connector](connector-ftp.md)
+- [SFTP connector](connector-sftp.md)
+- [HDFS connector](connector-hadoop-distributed-file-system.md)
+- [HTTP connector](connector-http.md)

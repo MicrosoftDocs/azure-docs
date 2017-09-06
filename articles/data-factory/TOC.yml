@@ -46,7 +46,7 @@
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
   - name: Datasets
-    href: concepts-datasets.md
+    href: concepts-datasets-linked-services.md
   - name: Linked services
     href: concepts-linked-services.md
   - name: Triggers
@@ -67,77 +67,75 @@
       href: connect-to-data-stores.md
       items: 
       - name: Amazon Redshift
-        href: copy-data-from-amazon-redshift.md
+        href: connector-amazon-redshift.md
       - name: Amazon S3
-        href: copy-data-from-amazon-simple-storage-service.md
+        href: connector-amazon-simple-storage-service.md
       - name: Azure Blob Storage
-        href: copy-data-to-from-azure-blob-storage.md
+        href: connector-azure-blob-storage.md
       - name: Azure Cosmos DB
-        href: copy-data-to-from-azure-cosmos-db.md
+        href: connector-azure-cosmos-db.md
       - name: Azure Data Lake Store
-        href: copy-data-to-from-azure-datalake-store.md
+        href: connector-azure-datalake-store.md
       - name: Azure Search
-        href: copy-data-to-azure-search-index.md
+        href: connector-azure-search.md
       - name: Azure SQL DB
-        href: copy-data-to-from-azure-sql-database.md
+        href: connector-azure-sql-database.md
       - name: Azure SQL Data Warehouse
-        href: copy-data-to-from-azure-sql-data-warehouse.md
+        href: connector-azure-sql-data-warehouse.md
       - name: Azure Table Storage
-        href: copy-data-to-from-azure-table-storage.md
+        href: connector-azure-table-storage.md
       - name: Cassandra
-        href: copy-data-from-cassandra.md
+        href: connector-cassandra.md
       - name: DB2
-        href: copy-data-from-cassandra.md
+        href: connector-db2.md
       - name: Dynamics (CRM & 365)
-        href: copy-data-from-dynamics-crm-office-365.md
+        href: connector-dynamics-crm-office-365.md
       - name: File System
-        href: copy-data-to-from-file-system.md
+        href: connector-file-system.md
       - name: FTP
-        href: copy-data-from-ftp-server.md
+        href: connector-ftp.md
       - name: HDFS
-        href: copy-data-from-hadoop-distributed-file-system.md
+        href: connector-hadoop-distributed-file-system.md
       - name: HTTP
-        href: copy-data-from-http-end-point.md
+        href: connector-http.md
       - name: MongoDB
-        href: copy-data-from-mongodb.md
+        href: connector-mongodb.md
       - name: MySQL
-        href: copy-data-from-mysql.md
+        href: connector-mysql.md
       - name: OData
-        href: copy-data-from-odata-sources.md
+        href: connector-odata.md
       - name: ODBC
-        href: copy-data-from-odbc-sources.md
+        href: connector-odbc.md
       - name: Oracle
-        href: copy-data-from-odbc-sources.md
+        href: connector-odbc.md
       - name: PostgreSQL
-        href: copy-data-from-postgresql.md
+        href: connector-postgresql.md
       - name: Salesforce
-        href: copy-data-from-salesforce.md
+        href: connector-salesforce.md
       - name: SAP Business Warehouse
-        href: copy-data-from-sap-business-warehouse.md
+        href: connector-sap-business-warehouse.md
       - name: SAP HANA
-        href: copy-data-from-sap-hana.md
+        href: connector-sap-hana.md
       - name: SFTP
-        href: copy-data-from-sftp-server.md
+        href: connector-sftp.md
       - name: SQL Server
-        href: copy-data-to-from-sql-server.md
+        href: connector-sql-server.md
       - name: Sybase
-        href: copy-data-from-sybase.md
+        href: connector-sybase.md
       - name: Teradata
-        href: copy-data-from-teradata.md
+        href: connector-teradata.md
       - name: WebTable
-        href: copy-data-from-web-table.md
+        href: connector-web-table.md
       - name: Performance and tuning
         href: copy-activity-performance.md
       - name: Fault tolerance
         href: copy-activity-fault-tolerance.md
       - name: Security considerations
         href: copy-activity-security-considerations.md
-      - name: Format support
-        href: copy-activity-format-support.md
+      - name: Format and compression support
+        href: supported-file-formats-and-compression-codecs.md. 
       - name: Schema mapping
         href: copy-activity-map-schemas.md
-      - name: Invoke a stored procedure
-        href: copy-activity-invoke-stored-procedure.md
       - name: Incremental copy
         href: copy-data-incrementally-using-copy-activity.md
   - name: Transform data

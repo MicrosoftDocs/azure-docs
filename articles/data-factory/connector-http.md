@@ -30,7 +30,7 @@ Specifically, this HTTP connector supports:
 - Retrieving data using the following authentications: **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**.
 - Copying the HTTP response as-is or parsing it with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
-The difference between this connector and the [Web table connector](copy-data-from-web-table.md) is that the latter is used to extract table content from web HTML page.
+The difference between this connector and the [Web table connector](connector-web-table.md) is that the latter is used to extract table content from web HTML page.
 
 ## Getting started
 
@@ -145,7 +145,7 @@ If you use "certThumbprint" for authentication and the certificate is installed 
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets.md) article. This section provides a list of properties supported by HTTP dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by HTTP dataset.
 
 To copy data from HTTP, set the type property of the dataset to **HttpFile**. The following properties are supported:
 

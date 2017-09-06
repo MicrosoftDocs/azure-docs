@@ -85,7 +85,7 @@ The following properties are supported for Sybase linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets.md) article. This section provides a list of properties supported by Sybase dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Sybase dataset.
 
 To copy data from Sybase, set the type property of the dataset to **RelationalTable**. The following properties are supported:
 
@@ -160,5 +160,5 @@ To copy data from Sybase, set the source type in the copy activity to **Relation
 
 When copying data from Sybase, the following mappings are used from Sybase data types to Azure Data Factory interim data types. See [Schema and data type mappings](map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Factory interim data types, see [Azure SQL Database Connector - data type mapping](copy-data-to-from-azure-sql-database.md#data-type-mapping-for-azure-sql-database) section.
+Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Factory interim data types, see [Azure SQL Database Connector - data type mapping](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) section.
 
