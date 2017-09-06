@@ -73,7 +73,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Do you support Composer as a dependency manager for PHP apps?
 
-**A:** Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.json file) and will trigger a composer install for you.
+**A:** Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.lock file) and will trigger a composer install for you.
 
 ## Custom containers
 
