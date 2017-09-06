@@ -35,13 +35,13 @@ Known resolutions for issues in Azure Cloud Shell:
       > Note: Untagging the storage account doesn't remove any data and it will still exist in your subscription
 
       4.	Log back using [PowerShell Private Preview link](https://aka.ms/PSCloudPreview) and launch the Cloud Shell (PowerShell) 
-      > Note: You will have to [Restart Cloud Shell](media/recycle.png) for PowerShell instance
+      > Note: You will have to [Restart Cloud Shell](media/troubleshooting/recycle.png) for PowerShell instance
 
-### An error about [MissingSubscriptionRegistration](media/storageRP-error.jpg) occurs during persistent storage creation
+### An error about [MissingSubscriptionRegistration](media/troubleshooting/storageRP-error.jpg) occurs during persistent storage creation
   - **Details**: The selected subscription does not have Storage RP registered.
   - **Resolution**: [Register your Storage resource provider](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound)
 
-### During first use initialization, an [Unknown Error](media/startup_unknown_error.jpg) occurs
+### During first use initialization, an [Unknown Error](media/troubleshooting/startup_unknown_error.jpg) occurs
 
   - **Details**: During first use, the console may hang and display the message, "Sorry, something went wrong: Unknown Error".
   - **Resolution**: There are two ways to resolve this issue.
@@ -51,11 +51,11 @@ Known resolutions for issues in Azure Cloud Shell:
 ### For a given user only one shell can be active
   - **Details**: If the user launches Bash shell first and shortly opens PowerShell, it would connect back to the Bash shell with blue background.
   Similarly, if the user launches PowerShell first and shortly opens Bash shell, it would connect back to PowerShell instance with black background.
-  - **Resolution**: Restart the shell by clicking [Restart Cloud Shell](media/recycle.png) in the shell IFrame (refreshing the browser tab does not work).
+  - **Resolution**: Restart the shell by clicking [Restart Cloud Shell](media/troubleshooting/recycle.png) in the shell IFrame (refreshing the browser tab does not work).
 
 ### Automatic Azure authentication limit
   - **Details**: The authentication is active only for an hour due to a limitation in processing the Azure authentication token.
-  - **Resolution**: Restart the shell by clicking [Restart Cloud Shell](media/recycle.png) in the shell IFrame (refreshing the browser tab does not work).
+  - **Resolution**: Restart the shell by clicking [Restart Cloud Shell](media/troubleshooting/recycle.png) in the shell IFrame (refreshing the browser tab does not work).
 
 ### Get-Help -online does not open the help page
   - **Details**: If a user types `Get-Help Find-Module -online`, one sees an error message such as:\

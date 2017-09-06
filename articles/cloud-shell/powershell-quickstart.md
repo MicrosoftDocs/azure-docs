@@ -8,11 +8,11 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 ## Start cloud shell
 
 1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal <br>
-![](media/shell-icon.png)
+![](media/powershell-quickstart/shell-icon.png)
 
 2. Select the PowerShell environment from the drop-down on the left-hand side of shell window <br>
 
-![](media/Environment-PS.png)
+![](media/powershell-quickstart/Environment-PS.png)
 
 3. Select PowerShell
 

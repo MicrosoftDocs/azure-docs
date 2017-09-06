@@ -26,7 +26,7 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 
 ## Start Cloud Shell
 1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
-![](media/shell-icon.png)
+![](media/quickstart/shell-icon.png)
 2. Select a subscription to create a storage account and Azure file share
 3. Select "Create storage"
 
@@ -35,7 +35,7 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 
 ### Select the Bash Environment
 1. Select the environment drop down from the the left hand side of shell window <br>
-![](media/Environment-Bash.png)
+![](media/quickstart/Environment-Bash.png)
 2. Select Bash
 
 ### Set your subscription
@@ -64,10 +64,10 @@ Your username on this VM will be your username used in Cloud Shell ($User@Azure:
 1. Search for your VM name in the Azure portal search bar
 2. Click "Connect" and run: `ssh username@ipaddress`
 
-![](media/sshcmd-copy.png)
+![](media/quickstart/sshcmd-copy.png)
 
 Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. <br>
-![](media/ubuntu-welcome.png)
+![](media/quickstart/ubuntu-welcome.png)
 
 ## Cleaning up 
 Delete your resource group and any resources within it: <br>

@@ -19,7 +19,7 @@ ms.author: juluk
 # Overview of Azure Cloud Shell (Preview)
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
 
-![](media/overview-pic.png)
+![](media/overview/overview-pic.png)
 
 ## Features
 ### Browser-based shell experience
@@ -38,7 +38,7 @@ Cloud Shell machines are temporary and as a result require an Azure file share t
 On first launch Cloud Shell prompts to create a resource group, storage account, and file share on your behalf. This is a one-time step and will be automatically attached for all sessions. 
 
 #### Create new storage
-![](media/basic-storage.png)
+![](media/overview/basic-storage.png)
 
 A locally-redundant storage (LRS) account can be created on your behalf with an Azure file share containing a default 5-GB disk image. The file share mounts as `clouddrive` for file share interaction with the disk image being used to sync and persist your $Home directory. Regular storage costs apply.
 
@@ -51,7 +51,7 @@ Three resources will be created on your behalf:
 > All files in your $Home directory such as SSH keys are persisted in your user disk image stored in your mounted file share. Apply best practices when saving files in your $Home directory and mounted file share.
 
 #### Use existing resources
-![](media/advanced-storage.png)
+![](media/overview/advanced-storage.png)
 
 An advanced option is also provided allowing you to associate existing resources to Cloud Shell. When presented with the storage setup prompt, click "Show advanced settings" to select additional options. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally-redundant storage accounts.
 
