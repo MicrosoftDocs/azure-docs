@@ -3,7 +3,7 @@ title: Understand creating UI definition for Azure Managed Applications | Micros
 description: Describes how to create UI definitions for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 
 ---
 # Getting started with CreateUiDefinition
