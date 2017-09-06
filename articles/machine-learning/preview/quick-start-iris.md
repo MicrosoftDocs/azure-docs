@@ -43,7 +43,7 @@ Follow the installation guide to provision Azure resources and install Azure ML 
 
    Now you have successfully executed a Python script in Azure ML Workbench.
 
-5. Repeat the previous steps 2-4 a few times. Each time, use different argument values ranging from 10 to 0.001. This value is used as regularization rate of the logistic regression algorithm in the _iris_sklearn.py_ script.
+5. Repeat the previous steps 2-4 a few times. Each time, use different argument values ranging from `10` to `0.001`. This value is used as regularization rate of the logistic regression algorithm in the `iris_sklearn.py` script.
 
 ## View Run History
 1. Navigate to the Run History view, and click on **iris_sklearn.py**.The run history list view opens and displays of all runs executed on **iris_sklearn.py**. 
@@ -57,16 +57,16 @@ Follow the installation guide to provision Azure resources and install Azure ML 
 ## Explore further
 Now you have got a taste of the Azure ML Workbench execution experience, explore further using this sample project. 
 
-1. To better understand the logic, open the **iris.sklearn.py** file and read the python code. Pay particular attention to the following code sections:
-   - Invoke _iris_ DataPrep package
+1. To better understand the logic, open the `iris_sklearn.py` file and read the python code. Pay particular attention to the following code sections:
+   - Invoke `iris` DataPrep package
    - Logging statements
-   - Serialization and de-serialization the scikit-learn model
-   - Plot an image using _matplotlib_ and save it as png file
+   - Serialization and de-serialization the `scikit-learn` model
+   - Plot an image using `matplotlib` and save it as png file
 
-2. Open the _iris_ data source from **Data View** and explore the _Iris.csv_ raw dataset.
+2. Open the `iris` data source from **Data View** and explore the `Iris.csv` raw dataset.
 
-1. Open the _iris_ DataPrep package from **Data View**, and explore the data preparation editor.
+3. Open the `iris` data prep package from **Data View**, and explore the data preparation editor.
 
 ## Next Steps
-- Try operationalize the model.pkl model in the [next quick-start](quick-start-iris-mms.md).
+- Try operationalize the `model.pkl` model in the [next quick-start](quick-start-iris-mms.md).
 - Follow the more detailed and advanced tutorial: [Bike Share Forecasting](./doc-template-tutorial.md)
