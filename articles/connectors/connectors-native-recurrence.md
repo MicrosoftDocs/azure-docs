@@ -44,8 +44,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 Create a blank logic app. 
 
 2. After Logic Apps Designer appears, in the search box, 
-enter "recurrence" as your filter. From the results, 
-select the **Schedule - Recurrence** trigger. 
+enter "recurrence" as your filter. Select the **Schedule - Recurrence** trigger. 
 
    ![Schedule - Recurrence trigger](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
@@ -94,9 +93,9 @@ You can configure these properties for the recurrence trigger.
 | **Interval** | interval | Yes | The frequency interval for the recurrence | 
 | **Time zone** | timeZone | No | If you provide a start time without a UTC offset, this time zone is used. | 
 | **Start time** | startTime | No | The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| **On these days** | weekDays | No | Select one or more days of the week when you want to run the workflow: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday` | 
-| **At these hours** | hours | No | Select one or more hours for the times of day when you want to run the workflow. For example, "10", "12" and "14" are 10 AM, 12 PM, and 2 PM. | 
-| **At these minutes** | minutes | No | Select one or more minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
+| **On these days** | weekDays | No | When you select `Week`, you can select one or more days of the week when you want to run the workflow: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday` | 
+| **At these hours** | hours | No | When you select `Day`, you can select one or more hours for the times of day when you want to run the workflow. For example, "10", "12" and "14" are 10 AM, 12 PM, and 2 PM. | 
+| **At these minutes** | minutes | No | When you select `Day`, you can select one or more minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
 ||||| 
 
 ## Next steps
