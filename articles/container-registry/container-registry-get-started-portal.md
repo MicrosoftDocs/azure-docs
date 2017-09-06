@@ -26,6 +26,8 @@ An Azure Container Registry is a private Docker registry in Azure where you can 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+To complete this Quickstart, you must have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+
 ## Log in to Azure
 
 Log in to the Azure portal at https://portal.azure.com.
@@ -81,16 +83,16 @@ To push an image to your Azure Container Registry, you must first have an image.
 docker pull microsoft/aci-helloworld
 ```
 
-Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name you recorded earlier.
+Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *login server* with the login server name you recorded earlier.
 
 ```
-docker tag microsoft/aci-helloworld acrLoginServer/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
-Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
+Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *login server* with the login server name of your ACR instance.
 
 ```
-docker push acrLoginServer/aci-helloworld:v1
+docker push <login server>/aci-helloworld:v1
 ```
 
 Output from a successful `docker push` command is similar to:
@@ -116,7 +118,7 @@ In this example, we select the **aci-helloworld** repository, and we can see the
 
 ## Clean up resources
 
-When no longer needed, delete the **myResourceGroup** resource group. Doing so will delete the resource group and all related resources, including the container registry you created earlier.
+When no longer needed, delete the **myResourceGroup** resource group. Doing so will delete the resource group, ACR instance, and all container images.
 
 ![Creating a container registry in the Azure portal][qs-portal-08]
 
