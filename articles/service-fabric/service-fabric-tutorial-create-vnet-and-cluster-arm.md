@@ -58,12 +58,22 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
+```azurecli
+az login
+az account set --subscription <guid>
+```
+
 ## Create a resource group
 Create a new resource group for your deployment and give it a name and a location.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location westus
+New-AzureRmResourceGroup -Name $ResourceGroupName -Location centralus
+```
+
+```azurecli
+ResourceGroupName = "sfclustertutorialgroup"
+az group create --name $ResourceGroupName --location "Central US"
 ```
 
 ## Deploy the network topology
@@ -80,6 +90,15 @@ Use the following PowerShell command to deploy the Resource Manager template and
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
 ```
+
+```azurecli
+az group deployment create \
+    --name VnetDeployment \
+    --resource-group $ResourceGroupName \
+    --template-file network.json \
+    --parameters @network.parameters.json
+```
+
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## Create a key vault and upload a certificate
 The Service Fabric cluster Resource Manager template in the next step is configured to create a secure cluster with certificate security. The certificate is used to secure node-to-node communication for your cluster and to manage user access to your Service Fabric cluster. API Management also uses this certificate to access the Service Fabric Naming Service for service discovery. This requires having a certificate in Key Vault for cluster security.
@@ -190,6 +209,14 @@ Use the following PowerShell command to deploy the Resource Manager template and
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
 ```
 
+```azurecli
+az group deployment create \
+    --name ClusterDeployment \
+    --resource-group $ResourceGroupName \
+    --template-file cluster.json \
+    --parameters @cluster.parameters.json
+```
+
 ## Modify the certificate & access Service Fabric Explorer 
 
 1. Double-click the certificate to open the Certificate Import Wizard.
@@ -226,6 +253,11 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.clou
           -StoreLocation CurrentUser -StoreName My
 ```
 
+```azurecli
+sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 \
+--cert ./client.crt --key ./keyfile.key
+```
+
 Check that you are connected and the cluster is healthy using the [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet.
 
 ```powershell
@@ -244,6 +276,14 @@ Select-AzureRmSubscription -SubscriptionId "Subcription ID"
 
 $ResourceGroupName = "sfclustertutorialgroup"
 Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
+```
+
+```azurecli
+az login
+az account set --subscription <guid>
+
+ResourceGroupName = "sfclustertutorialgroup"
+az group delete --name $ResourceGroupName
 ```
 
 ## Next steps
