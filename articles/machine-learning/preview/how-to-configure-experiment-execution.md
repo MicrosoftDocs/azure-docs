@@ -1,28 +1,3 @@
-# Overview of Azure ML Experiment Execution Service
-Azure ML experiment execution service enables data scientists to execute their experiments using Azure ML's execution and run management capabilities. It provides a framework for agile experimentation with fast iterations starting with local runs and an easy path for scaling up to other environments such as a powerful, remote Data Science VM with GPUs or a powerful HDInsight Cluster running Spark.
-
-Experiment Execution Service is built for providing reproducable and consistent runs of your experiments by helping you manage your compute targets, execution environments, and run configurations and lets you move between different environments easily with its run management and execution capabilities. 
-
-Users can choose to execute a Python or PySpark script in an Azure ML Workbench project either locally or at scale in the cloud. Users can run their scripst on: 
-
-* A Python (3.5.2) environment on your local computer installed by Azure ML Workbench.
-* A conda Python environment inside of a Docker container on local computer
-* A conda Python environment inside of a Docker container on a remote Linux machine such as an [Ubuntu-based DSVM on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
-* [HDInsight for Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) on Azure
-
->Azure ML Execution Service currently supports Python 3.5.2 and Spark 2.1.11 as Python and Spark runtime versions, respectively. 
-
-
-## Key Concepts Azure ML Experiment Execution
-It is important to understand the following concepts in Azure ML experiment execution.
-### Compute Target
-Compute target is the resource that is provisioned or assigned to execute user's program such as user's desktop, a remove VM, or a cluster. Compute target is addressable and accessible by the user (or the admin) for further configuration and deployment. 
-### 
-
-
-* Execution Environment defines the run time and the dependencies 
-
-
 # Configuring Execution Targets
 
 >Azure ML Execution Service currently supports Python 3.5.2 and Spark 2.1.x as Python and Spark runtime versions, respectively. 
