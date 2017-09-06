@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-<!-- This article may not be needed for public preview -->
+<!-- CONFIRMED: CONTENT ON THIS CAN BE PROVIDED ON CONNECTING A PHYSICAL DEVICE DOC-->
 # Device connectivity
 
 This article discusses issues to consider when you connect devices to your remote monitoring preconfigured solution.
