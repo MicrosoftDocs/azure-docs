@@ -34,15 +34,13 @@ Please make sure you have the following:
 
 ## Create an Azure Cosmos DB account
 
-Let's start by creating an Azure Cosmos DB account in the Azure portal or in our connected service tool.
+Let's start by [creating an Azure Cosmos DB account](create-documentdb-dotnet.md) in the Azure portal or in our connected service tool.
 
 > [!TIP]
 > * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
 > * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
 >
 >
-
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Set up your Visual Studio solution
 1. Open **Visual Studio** on your computer.
@@ -52,8 +50,10 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal or in our
 
 ## Add Connected service and add account
 1. Right click on Project node, select **Add** / **Connected Service** or click **Project** menu, select **Add Connected Service**.
+
     ![Screen shot of the Add Connected Service window](./media/connected-service/connected-service-add-connectedservice-rightclick.png)
 2. In the connected service page, click **Connected Services** / **Azure CosmosDB** to open **Azure CosmosDB** page.
+
     ![Screen shot of the Azure CosmosDB window](./media/connected-service/connected-service-choose-azure-cosmosdb.png)
 3. click down arrow to sign in for the first time or add an Account. After sign in, All CosmosDB accounts will be shown in the blank area. Choose one CosmosDB account to add to your project.
     ![Screen shot of the Sign in and listed db account window](./media/connected-service/connected-service-add-db-account.png)
@@ -75,8 +75,33 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal or in our
 Complete the fields on the **Create CosmosDB Account** blade, using the information in the following screenshot as a guide. When you set up your account, choose unique values that do not match those in the screenshot. 
         ![The new Azure Cosmos DB blade](./media/connected-service/connected-service-create-new-account.png)
         
-3. Click ***Create** to craete the account.
+3. Click **Create** to craete the account.
 
+After open Data Explorer, we can create documents, stored procedures, UDFs, and triggers to perform server-side business logic.
+## Create and Delete database
+
+## Create and Delete Colletion
+Choose **Create Collectio**, and then provide the following information to fill the chart, after that, click **OK**.
+Refresh your account to check the collection you created.
+
+## Create and Delete documents
+Click **Documents** to open document in the right pane.
+Click **Create Document** to new a document, edit in the right pane, save or discard the document.
+
+## Document Filter
+Edit filter first, then apply filter, for example, “SELECT * FROM c WHERE c.id = “2” ”
+
+## Create and Delete Stored Procedure
+Create a new stored procedure, edit in the right pane, save or discard the stored procedure.
+Refresh the left tree to check the completed stored procedure, right-click to edit or delete it.
+
+## Create and Delete Triggers
+Create a new trigger, edit in the right pane, save or discard the trigger.
+Refresh the left tree to check the completed trigger, right-click to edit or delete it.
+
+## Create and Delete User Defined Function
+create a new UDF, edit in the right pane, save or discard the UDF.
+Refresh the left tree to check the completed UDF, right-click to edit or delete it.
 
 ## Next steps
 
