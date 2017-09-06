@@ -5,12 +5,15 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/15/2017
+ms.date: 9/25/2017
 ms.author: victorh
 keywords:
 ---
 
 # Azure Stack datacenter integration - publish endpoints
+
+*Applies to: Azure Stack integrated systems*
+
 Azure Stack sets up various endpoints (VIPs - virtual IP addresses) for its infrastructure roles. These VIPs are allocated from the public IP address pool. Each VIP is secured with an access control list (ACL) in the software-defined network layer. ACLs are also used across the physical switches (TORs and BMC) to further harden the solution. A DNS entry is created for each endpoint in the external DNS zone that was specified at deployment time.
 
 
@@ -77,9 +80,11 @@ In an edge deployment, Azure Stack is deployed directly behind the edge router (
 
 Typically, public routable IP addresses are specified for the public VIP pool at deployment time in an edge deployment. This scenario enables a user to experience the full self-controlled cloud experience like in a public cloud like Azure.
 
+### Using NAT
+
 Although not recommended because of the overhead, you could use Network Address Translation (NAT) for publishing endpoints. For endpoint publishing that is fully controlled by users, this requires a NAT rule per user VIP that contains all ports a user might use.
 
-Be aware that Azure does not support setting up a VPN tunnel to an endpoint using NAT in a hybrid cloud scenario with Azure.
+Another consideration is that Azure does not support setting up a VPN tunnel to an endpoint using NAT in a hybrid cloud scenario with Azure.
 
 ## Enterprise/intranet/perimeter network firewall scenario
 
@@ -89,11 +94,13 @@ In an enterprise/intranet/perimeter deployment, Azure Stack is deployed beyond a
 
 If public routable IP addresses have been specified for the public VIP pool of Azure Stack, these addresses logically belong to the perimeter network and require publishing rules at the primary firewall.
 
+### Using NAT
+
 If non-public routable IP addresses are used for the public VIP pool of Azure Stack, NAT is used at the secondary firewall to publish Azure Stack endpoints. In this scenario, you need to configure the publishing rules on the primary firewall beyond the edge, and on the secondary firewall. Consider the following points if you want to use NAT:
 
 - NAT adds overhead when managing firewall rules because users control their own endpoints and their own publishing rules in the software-defined networking (SDN) stack. Users must contact the Azure Stack operator to get their VIPs published, and to update the port list.
 - While NAT usage limits the user experience, it gives full control to the operator over publishing requests.
-- For hybrid cloud scenarios with Azure, understand that Azure does not support setting up a VPN tunnel to an endpoint using NAT.
+- For hybrid cloud scenarios with Azure, consider that Azure does not support setting up a VPN tunnel to an endpoint using NAT.
 
 
 ## Next steps
