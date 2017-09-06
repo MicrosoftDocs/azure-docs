@@ -109,7 +109,7 @@ In this article, you learn about various Azure DevTest Labs features used to mee
    | Task | What you learn |
    | --- | --- |
    | [Define lab policies](devtest-lab-set-lab-policy.md) |Control costs by setting policies in the lab. |
-   | [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when testing is complete.|
+   | [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when testing is complete.|
 
 1. **Add a virtual network to a Lab** 
    
@@ -143,7 +143,7 @@ In this article, you learn about various Azure DevTest Labs features used to mee
    
    | Task | What you learn |
    | --- | --- |
-   | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
+   | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
