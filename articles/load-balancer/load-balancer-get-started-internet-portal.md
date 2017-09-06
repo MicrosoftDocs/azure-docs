@@ -60,7 +60,7 @@ You can get more information about load balancer components with Azure Resource 
 3. In the **Create load balancer** blade, type a name for your load balancer. Here it is called **myLoadBalancer**.
 4. Under **Type**, select **Public**.
 5. Under **Public IP address**, create a new public IP called **myPublicIP**.
-6. Under Resource Group, select **myRG**. Then select an appropriate **Location**, and then click **OK**. The load balancer will then start to deploy and will take a few minutes to successfully complete deployment.
+6. Under Resource Group, select **myRG**. Then select an appropriate **Location**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
 
     ![Updating resource group of load balancer](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -80,7 +80,7 @@ You can get more information about load balancer components with Azure Resource 
     Under Settings of your load balancer, select Probes. Then click **Add** located at the top of the blade.
 
     There are two ways to configure a probe: HTTP or TCP. This example shows HTTP, but TCP can be configured in a similar manner.
-    Update the necessary information. As mentioned, **myLoadBalancer** will load balance traffic on Port 80. The path selected is HealthProbe.aspx, Interval is 15 seconds, and Unhealthy threshold is 2. Once finished, click **OK** to create the probe.
+    Update the necessary information. As mentioned, **myLoadBalancer** load balances traffic on Port 80. The path selected is HealthProbe.aspx, Interval is 15 seconds, and Unhealthy threshold is 2. Once finished, click **OK** to create the probe.
 
     Hover your pointer over the 'i' icon to learn more about these individual configurations and how they can be changed to cater to your requirements.
 
