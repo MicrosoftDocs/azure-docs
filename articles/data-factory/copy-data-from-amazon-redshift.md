@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/06/2017
 ms.author: jingwang
 
 ---
@@ -27,7 +27,7 @@ You can copy data from Amazon Redshift to any supported sink data store. For a l
 Specifically, this Amazon Redshift connector supports retrieving data from Redshift using query or built-in Redshift UNLOAD support.
 
 > [!TIP]
-> To achieve best performance when copy large amount of data from Redshift, consider to use the built-in Redshift UNLOAD through Amazon S3. See [Use UNLOAD to copy data from Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) section with details.
+> To achieve the best performance when copying large amounts of data from Redshift, consider using the built-in Redshift UNLOAD through Amazon S3. See [Use UNLOAD to copy data from Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) section for details.
 
 ## Prerequisites
 
@@ -141,9 +141,11 @@ Learn more on how to use UNLOAD to copy data from Amazon Redshift efficiently fr
 
 ## Use UNLOAD to copy data from Amazon Redshift
 
-[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a way provided by Amazon Redshift, which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is a way recommended by Amazon for copying large data set from Redshift.
+[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a mechanism provided by Amazon Redshift, which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is the way recommended by Amazon for copying large data set from Redshift.
 
 **Example: copy data from Amazon Redshift to Azure SQL Data Warehouse using UNLOAD, staged copy and PolyBase**
+
+For this sample use case, copy activity firstly unload data from Amazon Redshift to Amazon S3 as configured in "redshiftUnloadSettings", then copy data from Amazon S3 to Azure Blob as specified in "stagingSettings", lastly use PolyBase to load data into SQL Data Warehouse. All the interim format is handled by copy activity properly.
 
 ![Redshift to SQL DW copy workflow](media\copy-data-from-amazon-redshift\redshift-to-sql-dw-copy-workflow.png)
 
@@ -167,7 +169,7 @@ Learn more on how to use UNLOAD to copy data from Amazon Redshift efficiently fr
         "typeProperties": {
             "source": {
                 "type": "AmazonRedshiftSource",
-                "query": "select * from \"msrsperftest\".\"public\".\"threesmall\"",
+                "query": "select * from MyTable",
                 "redshiftUnloadSettings": {
                     "s3LinkedServiceName": {
                         "referenceName": "AmazonS3LinkedService",
@@ -184,7 +186,8 @@ Learn more on how to use UNLOAD to copy data from Amazon Redshift efficiently fr
             "stagingSettings": {
                 "linkedServiceName": "AzureStorageLinkedService",
                 "path": "adfstagingcopydata"
-            }
+            },
+            "cloudDataMovementUnits": 32
         }
     }
 ]
@@ -208,4 +211,3 @@ When copying data from Teradata, the following mappings are used from Teradata d
 | TEXT |String |
 | TIMESTAMP |DateTime |
 | VARCHAR |String |
-
