@@ -58,7 +58,8 @@ These questions are key to planning your storage and processing environments, ea
 2. **How is your data formatted?** For Example:
    
    * Comma-separated (CSV) or tab-separated (TSV) flat files
-   * Compressed or uncompressed
+
+* Compressed or uncompressed
    * Azure blobs
    * Hadoop Hive tables
    * SQL Server tables
@@ -99,6 +100,7 @@ There are lots of options here depending on what languages and development envir
    * [Anaconda](https://www.continuum.io/why-anaconda)
    * [Jupyter notebooks](http://jupyter.org/)
    * [Microsoft Power BI](http://powerbi.microsoft.com)
+   * [Azure Notebooks](http://notebooks.azure.com)
 
 ## Identify your advanced analytics scenario
 Once you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
