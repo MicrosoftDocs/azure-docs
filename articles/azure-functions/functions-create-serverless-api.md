@@ -85,8 +85,10 @@ Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azu
 1. Select **Settings**. Then toggle **Enable Azure Functions Proxies (preview)** to "On".
 1. Select **Platform Settings** and choose **Application Settings**.
 1. Scroll down to **App settings** and create a new setting with key "HELLO_HOST". Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This is part of the URL that you copied earlier when testing your HTTP function. You'll reference this setting in the configuration later.
+
     > [!NOTE] 
     > App settings are recommended for the host configuration to prevent a hard-coded environment dependency for the proxy. Using app settings means that you can move the proxy configuration between environments, and the environment-specific app settings will be applied.
+
 1. Click **Save**.
 
 ### Creating a proxy on the frontend
