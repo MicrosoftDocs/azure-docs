@@ -161,8 +161,8 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
             val sc = new SparkContext(conf)
 
             SparkSample.executeJob(sc,
-                                   "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-                                   "wasbs:///HVACOut")
+                                   "wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+                                   "wasb:///HVACOut")
           }
         }
 
@@ -195,20 +195,20 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
            val conf = new SparkConf().setAppName("SparkSample")
                                      .setMaster("yarn-client")
                                      .set("spark.yarn.am.extraJavaOptions", "-Dhdp.version=2.4")
-                                     .set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
+                                     .set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
                                      .setJars(Seq("""C:\workspace\IdeaProjects\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
                                      .set("spark.hadoop.validateOutputSpecs", "false")
            val sc = new SparkContext(conf)
 
            SparkSample.executeJob(sc,
-             "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-             "wasbs:///HVACOut")
+             "wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+             "wasb:///HVACOut")
          }
         }
 
      Couple of important things to note here:
 
-   * For `.set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, make sure the Spark assembly JAR is available on the cluster storage at the specified path.
+   * For `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, make sure the Spark assembly JAR is available on the cluster storage at the specified path.
    * For `setJars`, specify the location where the artifact jar will be created. Typically it is `<Your IntelliJ project directory>\out\<project name>_DefaultArtifact\default_artifact.jar`.
 12. In the `RemoteClusterDebugging` class, right-click the `test` keyword and select **Create RemoteClusterDebugging Configuration**.
 

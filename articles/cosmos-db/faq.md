@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2017
+ms.date: 07/31/2017
 ms.author: mimig
 
 ---
@@ -40,6 +40,12 @@ Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applicatio
 A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
 
 You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to refers to a DocumentDB API collection, Graph API graph, MongoDB API collection, and Table API table. 
+
+### How does Azure Cosmos DB support various data models such as key/value, columnar, document and graph?
+
+Key/value (table), columnar, document and graph data models are all natively supported because of the ARS (atoms, records and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (DocumentDB, MongoDB, Table, and Graph APIs) and others specific to additional data models will be available in the future.
+
+Azure Cosmos DB has a schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, tree) which decouple the storage layout from the index and query processing subsystems. Cosmos DB also has the ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2) making it uniquely capable of supporting multiple data models natively.
 
 ### Is Azure Cosmos DB HIPAA compliant?
 Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
@@ -168,12 +174,16 @@ Yes, the [Windows Azure Storage Premium Table (Preview) SDK](https://www.nuget.o
 ### How do I provide feedback about the SDK or bugs?
 You can share your feedback in any of the following ways:
 
-* [Uservoice](https://feedback.azure.com/forums/263030-documentdb)
+* [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 * [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
 
 ### What is the connection string that I need to use to connect to the Table API (Preview)?
-The connection string is `DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com`. You can get the connection string from the Keys page in the Azure portal. 
+The connection string is:
+```
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com
+```
+You can get the connection string from the Keys page in the Azure portal. 
 
 ### How do I override the config settings for the request options in the new Table API (Preview)?
 For information about config settings, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You can change the settings by adding them to app.config in the appSettings section in the client application.
@@ -214,7 +224,7 @@ Yes, you can connect by creating two separate instances of the CloudTableClient,
 To take advantage of the new Table API offering on your existing Table storage data, contact [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
 
 ### What is the roadmap for this service, and when will you offer other standard Table API functionality?
-We plan to add support for SAS tokens, ServiceContext, Stats, Client side Encryption, Analytics and other features as we proceed toward GA. You can give us feedback on [Uservoice](https://feedback.azure.com/forums/263030-documentdb). 
+We plan to add support for SAS tokens, ServiceContext, Stats, Client side Encryption, Analytics and other features as we proceed toward GA. You can give us feedback on [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api). 
 
 ### How is expansion of the storage size done for this service if, for example, I start with *n* GB of data and my data will grow to 1 TB over time? 
 Azure Cosmos DB is designed to provide unlimited storage via the use of horizontal scaling. The service can monitor and effectively increase your storage. 
@@ -226,7 +236,11 @@ You can use the Table API (Preview) **Metrics** pane to monitor requests and sto
 You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner). In general, you can represent your entity as JSON and provide the numbers for your operations. 
 
 ### Can I use the new Table API (Preview) SDK locally with the emulator?
-Yes, you can use the Table API (Preview) with the local emulator when you use the new SDK. To download new emulator, go to [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md). The StorageConnectionString value in app.config needs to be `DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
+Yes, you can use the Table API (Preview) with the local emulator when you use the new SDK. To download new emulator, go to [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md). The StorageConnectionString value in app.config needs to be:
+
+```
+DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
+```
 
 ### Can my existing application work with the Table API (Preview)? 
 The surface area of the new Table API (Preview) is compatible with the existing Azure standard table SDK across the create, delete, update, and query operations in the .NET API. Ensure that you have a row key, because the Table API (Preview) requires both a partition key and a row key. We also plan to add more SDK support as we proceed toward GA of this service offering.

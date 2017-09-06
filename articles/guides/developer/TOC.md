@@ -112,5 +112,6 @@
 # Resources
 ## [Azure regions](https://azure.microsoft.com/regions/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Samples](https://azure.microsoft.com/resources/samples/)
 ## [Videos](https://azure.microsoft.com/resources/videos/home/)

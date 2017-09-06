@@ -52,7 +52,8 @@ Developers used to need to do the following practices with a storage account key
 //create storage account using connection string containing account name 
 // and the storage key 
 
-var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));var blobClient = storageAccount.CreateCloudBlobClient();
+var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+var blobClient = storageAccount.CreateCloudBlobClient();
  ```
  
 ### After Azure Key Vault Storage Keys 
@@ -61,7 +62,7 @@ var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSett
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
--AccountName msak01 -Name blobsas1 -Protocol HttpsOrHttp -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+-AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
 //Get SAS token from Key Vault
 

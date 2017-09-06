@@ -741,6 +741,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 * Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
 * Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path].
 * Check out a different implementation of processing the "top N words" workload by using Batch in the [TopNWords][github_topnwords] sample.
+* Review the Batch .NET [release notes](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) for the latest changes in the library.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/

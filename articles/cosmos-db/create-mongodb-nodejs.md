@@ -98,6 +98,9 @@ The `--kind MongoDB` parameter enables MongoDB client connections.
 
 When the Azure Cosmos DB account is created, the Azure CLI shows information similar to the following example. 
 
+> [!NOTE]
+> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI 2.0 commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+
 ```json
 {
   "databaseAccountOfferType": "Standard",

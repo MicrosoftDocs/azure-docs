@@ -11,22 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/31/2017
 ms.author: gwallace
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
 
-Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN.
+Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
 
 ## Prerequisites
 
 In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you are able to configure the DNS records needed.
 
-You can configure a vanity or custom domain for [Azure Function Apps](#azure-function-app), [Azure IoT](#azure-iot), [Public IP addresses](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Blob storage](#blob-storage), and [Azure CDN](#azure-cdn).   
+You can configure a vanity or custom domain for [Azure Function Apps](#azure-function-app), [Azure IoT](#azure-iot), [Public IP addresses](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Blob storage](#blob-storage), and [Azure CDN](#azure-cdn).
 
 ## Azure Function App
 
+To configure a custom domain for Azure function apps, a CNAME record is created as well as configuration on the function app itself.
+ 
 Navigate to **Other** > **Function App** and select your Function App. Click **Platform features** and under **NETWORKING** click **Custom domains**.
 
 ![function app blade](./media/dns-custom-domain/functionapp.png)
@@ -51,8 +53,9 @@ On the **Add hostname** blade, enter the CNAME record in the **hostname** text f
 
 ![function apps add host name blade](./media/dns-custom-domain/functionaddhostname.png)
 
-
 ## Azure IoT
+
+Azure IoT does not have any customizations that are needed on the service itself. To use a custom domain with an IoT Hub only a CNAME record pointed to the resources is needed.
 
 Navigate to **Internet of Things** > **IoT Hub** and select your IoT hub. On the **Overview** blade, note the FQDN of the IoT hub.
 
@@ -72,6 +75,8 @@ Next, navigate to your DNS Zone and click **+ Record set**. Fill out the followi
 Once the record is created, test name resolution with the CNAME record using `nslookup`
 
 ## Public IP address
+
+To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, a CNAME record used.
 
 Navigate to **Networking** > **Public IP address**, select the Public IP resource and click **Configuration**. Notate the IP address shown.
 

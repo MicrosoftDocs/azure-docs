@@ -4,7 +4,7 @@ description: ASP.NET MVC tutorial to create an MVC web application using Azure C
 keywords: asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step
 services: cosmos-db
 documentationcenter: .net
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/25/2016
-ms.author: syamk
+ms.author: mimig
 
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB

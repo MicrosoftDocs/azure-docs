@@ -19,7 +19,8 @@ ms.author: juanpere
 ---
 # Schedule and broadcast jobs (Node)
 
-## Introduction
+[!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
+
 Azure IoT Hub is a fully managed service that enables a back-end app to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
 
 * Update desired properties

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/03/2017
 ms.author: twooley
 
 ---
@@ -105,7 +105,7 @@ Before a user can access services, they must [subscribe to an offer](azure-stack
 
 ## Where to get support
 
-For the Azure Stack Development Kit, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
+For the Azure Stack Development Kit, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this opens the forums site directly. These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
 
 ## Next steps
 

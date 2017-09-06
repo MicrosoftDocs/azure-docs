@@ -70,4 +70,5 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)

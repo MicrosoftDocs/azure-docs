@@ -109,7 +109,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
                     "stage": "Active",
                     "communicationId": "...",
                     "version": "0.1"
-                },
+                }
             }
         },
         "properties": {}

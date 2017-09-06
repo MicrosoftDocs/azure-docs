@@ -389,7 +389,7 @@ In the OMS portal, click the **Wire Data 2.0** tile to open the Wire Data dashbo
 | Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
 | Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
 
-
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Wire Data dashboard](./media/log-analytics-wire-data/wire-data-dash.png)
 

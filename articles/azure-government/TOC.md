@@ -46,4 +46,5 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Pricing](https://azure.microsoft.com/pricing/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)

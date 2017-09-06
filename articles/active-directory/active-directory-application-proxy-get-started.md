@@ -48,7 +48,7 @@ Azure AD Application Proxy is:
 ## What kind of applications work with Application Proxy?
 With Azure AD Application Proxy you can access different types of internal applications:
 
-* Web applications that use [Integrated Windows Authentication](active-directory-application-proxy-sso-using-kcd.md#sso-for-on-prem-iwa-apps-using-kcd-with-application-proxy) for authentication  
+* Web applications that use [Integrated Windows Authentication](active-directory-application-proxy-sso-using-kcd.md) for authentication  
 * Web applications that use form-based or [header-based](application-proxy-ping-access.md) access  
 * Web APIs that you want to expose to rich applications on different devices  
 * Applications hosted behind a [Remote Desktop Gateway](application-proxy-publish-remote-desktop.md)  

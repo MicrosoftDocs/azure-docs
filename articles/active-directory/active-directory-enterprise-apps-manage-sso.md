@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: asmalser
 
 ---
@@ -23,15 +23,14 @@ ms.author: asmalser
 > * [Azure classic portal](active-directory-sso-integrate-saas-apps.md)
 > 
 
-This article describes how to use the [Azure portal](https://portal.azure.com) to manage single sign-on settings for applications, particularly ones that have been added from the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+This article describes how to use the [Azure portal](https://portal.azure.com) to manage single sign-on settings for enterprise applications. Enterprise apps are apps that are deployed and used within your organization. This article applies particularly to apps that were added from the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
-## Finding your apps
 ## Finding your apps in the portal
-All applications that are configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), can be viewed and managed in the [Azure portal](https://portal.azure.com). The applications can be found in the **More Services** &gt; **Enterprise Applications** section of the portal. Enterprise apps are apps that are deployed and used within your organization.
+All enterprise apps that are set up for single sign-on can be viewed and managed in the Azure portal. The applications can be found in the **More Services** &gt; **Enterprise Applications** section of the portal. 
 
 ![Enterprise Applications blade][1]
 
-Select **All applications** to view a list of all apps that have been configured, including apps that had been added from the gallery. Selecting an app loads the resource blade for that app, where reports can be viewed for that app and a variety of settings can be managed.
+Select **All applications** to view a list of all apps that have been configured. Selecting an app loads the resource blade for that app, where reports can be viewed for that app and a variety of settings can be managed.
 
 To manage single sign-on settings, select **Single sign-on**.
 
@@ -46,7 +45,7 @@ The **Single sign-on** blade begins with a **Mode** menu, which allows the singl
 
 For more information about these modes, see [How does single sign-on with Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-## SAML-based sign on
+## SAML-based sign-on
 The **SAML-based sign on** option displays a blade that is divided in four sections:
 
 ### Domains and URLs

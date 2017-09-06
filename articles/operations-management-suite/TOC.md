@@ -29,6 +29,7 @@
 ### [Malware assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Connect security products](oms-security-connect-products.md)
+### [Web baseline assessment](oms-security-web-baseline-assessment.md)
 
 ## Use solutions
 ### [Management solutions](operations-management-suite-solutions.md)
@@ -77,3 +78,4 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

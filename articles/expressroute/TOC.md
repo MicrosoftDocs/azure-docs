@@ -32,6 +32,7 @@
 ### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configure ExpressRoute and Site-to-Site coexisting connections](expressroute-howto-coexist-resource-manager.md)
+## [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md)
 ## [Move a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrate associated virtual networks from classic to Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configure a router for ExpressRoute
@@ -67,6 +68,7 @@
 ## [Case Studies](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Networking Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Subscription and Service Limits](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)

@@ -110,7 +110,7 @@ docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
 Delete the stopped containers with the following command.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
+docker-compose -f ./azure-voting-app-redis/docker-compose.yaml rm
 ```
 
 At completion, you have a container image that contains the Azure Vote application.

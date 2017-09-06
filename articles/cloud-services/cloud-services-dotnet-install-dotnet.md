@@ -129,7 +129,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
     set "netfxinstallfile=NDP462-KB3151802-Web.exe"
     set netfxregkey="0x60632"
 
-    :NPD47
+    :NDP47
     set "netfxinstallfile=NDP47-KB3186500-Web.exe"
     set netfxregkey="0x707FE"
 

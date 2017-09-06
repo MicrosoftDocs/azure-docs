@@ -19,12 +19,12 @@ ms.author: cfreeman
 # Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language. 
+ Log Analytics query language. 
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 * **[SQL-users' cheat sheet](https://aka.ms/sql-analytics)** translates the most common idioms.
-* **[Language Reference](app-insights-analytics-reference.md)** Learn how to use all the powerful features of the Analytics query language.
+* **[Language Reference](app-insights-analytics-reference.md)** Learn how to use all the powerful features of the Log Analytics query language.
 
 
 ## Queries in Analytics
@@ -60,9 +60,9 @@ There are also powerful statistical operations:
 The language has many attractive features:
 
 
-* [Filter](app-insights-analytics-reference.md#where-operator) your raw app telemetry by any fields, including your custom properties and metrics.
-* [Join](app-insights-analytics-reference.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
-* Powerful statistical [aggregations](app-insights-analytics-reference.md#aggregations).
+* [Filter](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) your raw app telemetry by any fields, including your custom properties and metrics.
+* [Join](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* Powerful statistical [aggregations](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
 * Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
 * Immediate and powerful visualizations.
 * [Pin charts to Azure dashboards](app-insights-analytics-using.md#pin-to-dashboard).

@@ -4,7 +4,7 @@ description: This overview introduces Azure SQL Data Sync (Preview).
 services: sql-database
 documentationcenter: ''
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid: 

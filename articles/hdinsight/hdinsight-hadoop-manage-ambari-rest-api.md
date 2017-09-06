@@ -253,7 +253,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 The return value is similar to one of the following examples:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - This value indicates that the cluster is using an Azure Storage account for default storage. The `ACCOUNTNAME` value is the name of the storage account. The `CONTAINER` portion is the name of the blob container in the storage account. The container is the root of the HDFS compatible storage for the cluster.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - This value indicates that the cluster is using an Azure Storage account for default storage. The `ACCOUNTNAME` value is the name of the storage account. The `CONTAINER` portion is the name of the blob container in the storage account. The container is the root of the HDFS compatible storage for the cluster.
 
 * `adl://home` - This value indicates that the cluster is using an Azure Data Lake Store for default storage.
 

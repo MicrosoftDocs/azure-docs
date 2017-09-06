@@ -102,7 +102,7 @@ You can replicate and recover VMs between any two regions within the same geogra
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
 Europe | UK West, UK South, North Europe, West Europe
-Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West
+Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 Australia	| Australia East, Australia Southeast
 
 >[!NOTE]
@@ -144,7 +144,7 @@ Exclude disk | Not supported|	Temporary disk is excluded by default.
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
-ZRS | Supported |  
+ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 
 >[!IMPORTANT]

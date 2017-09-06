@@ -135,6 +135,8 @@
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: MSDN forum

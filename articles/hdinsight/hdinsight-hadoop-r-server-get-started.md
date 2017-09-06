@@ -369,7 +369,7 @@ Note also that the newly added users do not have root privileges in Linux system
 
 4. You can also use the WASB style addressing.
 
-	rxHadoopListFiles("wasbs:///")
+	rxHadoopListFiles("wasb:///")
 
 
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client

@@ -77,12 +77,18 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
-7. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
+7. After installation completes, copy /etc/nvidia/gridd.conf.template to a new file gridd.conf at location /etc/nvidia/
+
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+
+8. Add the following to `/etc/nvidia/gridd.conf`:
  
   ```
   IgnoreSP=TRUE
   ```
-8. Reboot the VM and proceed to verify the installation.
+9. Reboot the VM and proceed to verify the installation.
 
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
@@ -135,12 +141,18 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
   ``` 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
-7. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
+7. After installation completes, copy /etc/nvidia/gridd.conf.template to a new file gridd.conf at location /etc/nvidia/
+  
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+  
+8. Add the following to `/etc/nvidia/gridd.conf`:
  
   ```
   IgnoreSP=TRUE
   ```
-8. Reboot the VM and proceed to verify the installation.
+9. Reboot the VM and proceed to verify the installation.
 
 ### Verify driver installation
 

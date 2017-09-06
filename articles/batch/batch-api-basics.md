@@ -173,10 +173,14 @@ See the [Account](#account) section for information on setting the pool allocati
 
 To use a custom image to provision Virtual Machine pools, create your Batch account with the User Subscription pool allocation mode. With this mode, Batch pools are allocated into the subscription where the account resides. See the [Account](#account) section for information on setting the pool allocation mode when you create a Batch account.
 
-To use a custom image, you'll need to prepare the image by generalizing it. For information about preparing custom Linux images from Azure VMs, see [Capture an Azure Linux VM to use as a template](../virtual-machines/linux/capture-image-nodejs.md). For information about preparing custom Windows images from Azure VMs, see [Create custom VM images with Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). When preparing your image, keep in mind the following:
+To use a custom image, you'll need to prepare the image by generalizing it. For information about preparing custom Linux images from Azure VMs, see [Capture an Azure Linux VM to use as a template](../virtual-machines/linux/capture-image-nodejs.md). For information about preparing custom Windows images from Azure VMs, see [Create custom VM images with Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
 
-- Ensure that the base OS image you use to provision your Batch pools does not have any pre-installed Azure extensions, such as the Custom Script extension. If the image contains a pre-installed extension, Azure may encounter problems deploying the VM.
-- Ensure that the base OS image you provide uses the default temp drive, as the Batch node agent currently expects the default temp drive.
+> [!IMPORTANT]
+> When preparing your custom image, keep in mind the following:
+> - Ensure that the base OS image you use to provision your Batch pools does not have any pre-installed Azure extensions, such as the Custom Script extension. If the image contains a pre-installed extension, Azure may encounter problems deploying the VM.
+> - Ensure that the base OS image you provide uses the default temp drive, as the Batch node agent currently expects the default temp drive.
+>
+>
 
 To create a Virtual Machine Configuration pool using a custom image, you'll need one or more standard Azure Storage accounts to store your custom VHD images. Custom images are stored as blobs. To reference your custom images when you create a pool, specify the URIs of the custom image VHD blobs for the [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) property of the [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) property.
 

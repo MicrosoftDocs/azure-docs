@@ -103,7 +103,7 @@ In the following example, we show how to switch from standard to premium storage
 $rgName = 'myResourceGroup'
 $vmName = 'YourVM'
 $size = 'Standard_DS2_v2'
-$vm = Get-AzureRmVM -Name $vmName -rgName $resourceGroupName
+$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
 
 # Stop and deallocate the VM before changing the size
 Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
@@ -132,19 +132,6 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ## Troubleshooting
 
 If there is an error during conversion, or if a VM is in a failed state because of issues in a previous conversion, run the `ConvertTo-AzureRmVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
-
-
-## Managed disks and Azure Storage Service Encryption
-
-You can't use the preceding steps to convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that has ever been encrypted through [Azure Storage Service Encryption](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to copy and use unmanaged disks that have been in an encrypted storage account:
-
-1. Copy the VHD by using [AzCopy](../../storage/storage-use-azcopy.md) to a storage account that has never been enabled for Azure Storage Service Encryption.
-
-2. Use the copied VM in one of the following ways:
-
-   * Create a VM that uses managed disks and specify that VHD file during creation by using `New-AzureRmVm`.
-
-   * Attach the copied VHD by using `Add-AzureRmVmDataDisk` to a running VM that uses managed disks.
 
 
 ## Next steps

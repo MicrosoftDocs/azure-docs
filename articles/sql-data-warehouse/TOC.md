@@ -82,18 +82,22 @@
 
 ## Load
 
-### [Overview](sql-data-warehouse-overview-load.md)
-### [Sample data](sql-data-warehouse-load-sample-databases.md)
-### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
-### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### Concepts
+#### [Overview](sql-data-warehouse-overview-load.md)
+#### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
+
+### Tutorials
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### How-to guides
+#### [Sample data](sql-data-warehouse-load-sample-databases.md)
+#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+#### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## Migrate
 
@@ -144,6 +148,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)

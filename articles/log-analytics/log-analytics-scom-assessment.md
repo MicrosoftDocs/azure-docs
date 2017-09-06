@@ -218,6 +218,8 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 If you have recommendations that you want to ignore, you can create a text file that OMS uses to prevent recommendations from appearing in your assessment results.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ### To identify recommendations that you want to ignore
 
 1. Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.

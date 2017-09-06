@@ -211,6 +211,7 @@
 ## [Azure Storage client tools](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -219,6 +220,7 @@
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Using Storage Explorer (Preview) with Azure file storage](../vs-azure-tools-storage-explorer-files.md)
+### [Storage Explorer (Preview) release notes](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet packages
 ### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
 
 ---
@@ -87,8 +87,8 @@ After you have updated your sources, you can install the SDK.
 	>   [!TIP]
 	>   The following commands automate accepting the license for Service Fabric packages:
 	>   ```bash
-	>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
-	>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+	>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
+	>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
 	>   ```
 	
 2. Run the SDK setup script.

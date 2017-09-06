@@ -50,7 +50,7 @@ The following steps show you how to create a self-signed certificate using MakeC
   ```cmd
   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
   ```
-3. Create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Replace 'P2SRootCert' and 'P2SRootCert.cer' with the name that you want to use for the certificate. The certificate will be located in your 'Certificates - Current User\Personal\Certificates'.
+3. Create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Replace 'P2SRootCert' and 'P2SRootCert.cer' with the name that you want to use for the certificate. The certificate is located in your 'Certificates - Current User\Personal\Certificates'.
 
   ```cmd
   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My

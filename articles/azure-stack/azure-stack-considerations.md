@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 8/2/2017
 ms.author: twooley
 
 ---
@@ -88,4 +88,5 @@ For more detailed information about differences at a service level, see:
 
 * [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
 * [Considerations for Storage in Azure Stack](azure-stack-acs-differences.md)
+* [Considerations for Azure Stack networking](azure-stack-network-differences.md)
 
