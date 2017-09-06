@@ -20,6 +20,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
+            "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
+            "redirect_document_id": false                        
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
+            "redirect_url": "/azure/sql-database/sql-database-performance-guidance",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
             "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
             "redirect_document_id": false
@@ -1535,6 +1545,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/resource-manager-troubleshoot-deployments-rest.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-update.md",
             "redirect_url": "/azure/architecture/building-blocks/extending-templates/update-resource",
             "redirect_document_id": false
@@ -2861,6 +2876,11 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
+            "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-storm-power-bi-topology.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
         },
@@ -10147,6 +10167,26 @@
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
             "redirect_url": "/azure/active-directory/device-management-azuread-registered-devices-windows10-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-cli-samples.md",
+            "redirect_url": "/azure/batch/batch-cli-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
+            "redirect_url": "/azure/virtual-machines/windows/agent-user-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/restart-resize-error-troubleshooting.md",
+            "redirect_url": "/azure/virtual-machines/linux/troubleshoot-deploy-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/virtual-machines-windows-sizes-storage.md",
+            "redirect_url": "/azure/virtual-machines/windows/sizes-storage",
             "redirect_document_id": false
         },
         {

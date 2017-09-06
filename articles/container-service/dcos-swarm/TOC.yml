@@ -27,6 +27,8 @@
     href: container-service-security.md
 - name: How-to guides
   items:
+  - name: Create an ACS cluster
+    href: container-service-create-acs-cluster-cli.md
   - name: Connect with an ACS cluster
     href: container-service-connect.md
   - name: Scale an ACS cluster
@@ -65,12 +67,14 @@
       href: container-service-docker-swarm.md
     - name: CI/CD with Docker Swarm and VSTS
       href: container-service-docker-swarm-setup-ci-cd.md
+    - name: CI/CD with Docker Swarm (ACS Engine) and VSTS 
+      href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: Reference
   items:
   - name: Azure CLI 2.0
     href: /cli/azure/acs
   - name: REST
-    href: /rest/api/compute/containerservices
+    href: /rest/api/container-services
 - name: Resources
   items:
   - name: Azure Roadmap
