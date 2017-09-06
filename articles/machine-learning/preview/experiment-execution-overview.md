@@ -15,7 +15,7 @@ Users can run their scripst on:
 >Azure ML Execution Service currently supports Python 3.5.2 and Spark 2.1.10+ as Python and Spark runtime versions, respectively. 
 
 
-## Key Concepts Azure ML Experiment Execution
+## Key Concepts in Azure ML Experiment Execution
 It is important to understand the following concepts in Azure ML experiment execution. In the subsequent sections, we will discuss in detail how to manage these concepts. 
 ### Compute Target
 Compute target is the resource that is provisioned or assigned to execute user's program such as user's desktop, a remove VM, or a cluster. Compute target is addressable and accessible by the user (or the admin) for further configuration and deployment. Azure ML provides you the capability to create compute targets and manage them using the Workbench application, CLI, and the .compute files. 
@@ -54,7 +54,7 @@ Azure ML enables users to run their scripts directly against the Azure ML Workbe
 
 This configuration, unlike docker-based executions, is _not_ managed by Conda and the user needs to manage dependencies using their preferred tools and package managers. 
 
-
+![](media/experiment-execution-overview/localnativerun.png)
 
 
 
