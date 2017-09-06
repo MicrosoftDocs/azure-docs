@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.date: 09/01/2017
 ---
 
-# Classifying Iris Flower Dataset
+# Quickstart: Classifying Iris Flower Dataset
 In this Quickstart, we take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set). 
 
 ## Provision and Install Azure Machine Learning Workbench
