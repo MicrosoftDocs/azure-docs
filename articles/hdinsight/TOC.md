@@ -97,7 +97,6 @@
 #### [Develop C# topologies with Hadoop tools](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 #### [Process events with C# topologies](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Process events with Java topologies](hdinsight-storm-develop-java-event-hub-topology.md)
-#### [Use Power BI with a topology](hdinsight-storm-power-bi-topology.md)
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
