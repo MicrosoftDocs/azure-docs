@@ -21,20 +21,22 @@
     href: tutorial-provision-device-to-hub.md
   - name: 4 - Provision devices to multiple hubs
     href: tutorial-provision-multiple-hubs.md
-- name: How To
+- name: Concepts
   items:
-  - name: Concepts
-    items:
-    - name: Device concepts
-      href: concepts-device.md
-    - name: Service concepts
-      href: concepts-service.md
-    - name: Security concepts
-      href: concepts-security.md
-  - name: How-to guides
-    items:
-    - name: Manage device enrollments
-      href: how-to-manage-enrollments.md
+  - name: Device concepts
+    href: concepts-device.md
+  - name: Service concepts
+    href: concepts-service.md
+  - name: Security concepts
+    href: concepts-security.md
+- name: How-to guides
+  items:
+  - name: Manage device enrollments
+    href: how-to-manage-enrollments.md
+- name: Reference
+  items:
+  - name: REST
+    href: /rest/api/iot-dps
 - name: Related
   items:
   - name: Azure IoT Hub
