@@ -10,10 +10,8 @@
   items:
   - name: Provisioning and Installation
     href: quickstart-installation.md
-  - name: Iris Quickstart Part 1
-    href: quick-start-iris.md
-  - name: Iris Quickstart Part 2
-    href: quick-start-iris-mms.md
+  - name: Iris Quickstart Part
+    href: quick-start-iris.md  
 - name: Tutorials
   items:
   - name: Classifying Iris
