@@ -31,6 +31,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 > Services that are specified as available in the "Portal" column can be managed in the [Azure Government portal](https://portal.azure.us/). 
 >
 >
+
 ## [Compute](documentation-government-compute.md)
 
 | Service | Resource Manager enabled | Portal |
