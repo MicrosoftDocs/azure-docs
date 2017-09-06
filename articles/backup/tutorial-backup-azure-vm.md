@@ -6,7 +6,7 @@ documentationcenter: ''
 author: markgalioto
 manager: carmonm
 editor: ''
-keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup
+keywords: virtual machine backup; back up virtual machine; backup and disaster recovery
 
 ms.assetid: 
 ms.service: backup
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom:
 
@@ -26,7 +26,7 @@ This tutorial details how to back up Azure virtual machines to a Recovery Servic
 > [!IMPORTANT]
 > This tutorial assumes you have already created a resource group and an Azure virtual machine.
 
-## Create a recovery services vault
+## Create a Recovery Services vault
 
 A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a container that holds the recovery points for the items being backed up. A Recovery Services vault is an Azure resource that can be deployed and managed as part of an Azure resource group. In this tutorial, you create a Recovery Services vault in the same resource group as the virtual machine being protected.
 
