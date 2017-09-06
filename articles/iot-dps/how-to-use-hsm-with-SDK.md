@@ -20,7 +20,7 @@ These steps show how to use different [Hardware Security Module (HSM)](https://a
 
 ## Prerequisites
 
-Prepare the development environment according to the section titled "Prepare the development environment" in this [quick start](./quick-create-simulated-device.md) guide.
+Prepare your development environment according to the section titled "Prepare the development environment" in this [quick start](./quick-create-simulated-device.md) guide.
 
 ## Enable authentication with different HSM
 
