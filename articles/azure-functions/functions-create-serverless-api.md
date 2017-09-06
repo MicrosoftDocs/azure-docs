@@ -54,17 +54,12 @@ You can learn more about customizing HTTP functions in [Azure Functions HTTP and
 
 ### Test your API
 
-Next, test your function to see it working with the new API surface.
-
-Navigate back to the development page by clicking on the function's name in the left navigation.
-
-Click **Get function URL** and copy the URL. You should see that it uses the `/api/hello` route now.
-
-Copy the URL into a new browser tab or your preferred REST client. Browsers will use GET by default.
-
-Run the function and confirm that it is working. You may need to provide the "name" parameter as a query string to satisfy the quickstart code.
-
-You can also try calling the endpoint with another HTTP method to confirm that the function is not executed. For this, you will need to use a REST client, such as cURL, Postman, or Fiddler.
+1. Next, test your function to see it working with the new API surface.
+1. Navigate back to the development page by clicking on the function's name in the left navigation.
+1. Click **Get function URL** and copy the URL. You should see that it uses the `/api/hello` route now.
+1. Copy the URL into a new browser tab or your preferred REST client. Browsers will use GET by default.
+1. Run the function and confirm that it is working. You may need to provide the "name" parameter as a query string to satisfy the quickstart code.
+1. You can also try calling the endpoint with another HTTP method to confirm that the function is not executed. For this, you will need to use a REST client, such as cURL, Postman, or Fiddler.
 
 ## Proxies overview
 
@@ -86,13 +81,10 @@ In this section, you will create a new proxy which serves as a frontend to your 
 
 Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) to create a new function app in which you will create your proxy. This new app's URL will serve as the frontend for our API, and the function app you were previously editing will serve as a backend.
 
-Navigate to your new frontend function app in the portal.
-
-Select **Settings**. Then toggle **Enable Azure Functions Proxies (preview)** to "On".
-
-Select **Platform Settings** and choose **Application Settings**.
-
-Scroll down to **App settings** and create a new setting with key "HELLO_HOST". Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This is part of the URL that you copied earlier when testing your HTTP function. You'll reference this setting in the configuration later.
+1. Navigate to your new frontend function app in the portal.
+1. Select **Settings**. Then toggle **Enable Azure Functions Proxies (preview)** to "On".
+1. Select **Platform Settings** and choose **Application Settings**.
+1. Scroll down to **App settings** and create a new setting with key "HELLO_HOST". Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This is part of the URL that you copied earlier when testing your HTTP function. You'll reference this setting in the configuration later.
 
 > [!NOTE] 
 > App settings are recommended for the host configuration to prevent a hard-coded environment dependency for the proxy. Using app settings means that you can move the proxy configuration between environments, and the environment-specific app settings will be applied.
@@ -101,35 +93,27 @@ Click **Save**.
 
 ### Creating a proxy on the frontend
 
-Navigate back to your frontend function app in the portal.
+1. Navigate back to your frontend function app in the portal.
+1. In the left-hand navigation, click the plus sign '+' next to "Proxies (preview)".
 
-In the left-hand navigation, click the plus sign '+' next to "Proxies (preview)".
+    ![Creating a proxy](./media/functions-create-serverless-api/creating-proxy.png)
 
-![Creating a proxy](./media/functions-create-serverless-api/creating-proxy.png)
+1. Use proxy settings as specified in the table.
 
-Use proxy settings as specified in the table.
+    | Field | Sample value | Description |
+    |---|---|---|
+    | Name | HelloProxy | A friendly name used only for management |
+    | Route template | /api/hello | Determines what route is used to invoke this proxy |
+    | Backend URL | https://%HELLO_HOST%/api/hello | Specifies the endpoint to which the request should be proxied |
 
-| Field | Sample value | Description |
-|---|---|---|
-| Name | HelloProxy | A friendly name used only for management |
-| Route template | /api/hello | Determines what route is used to invoke this proxy |
-| Backend URL | https://%HELLO_HOST%/api/hello | Specifies the endpoint to which the request should be proxied |
-
-Note that Proxies does not provide the `/api` base path prefix, and this must be included in the route template.
-
-The `%HELLO_HOST%` syntax will reference the app setting you created earlier. The resolved URL will point to your original function.
-
-Click **Create**.
-
-You can try out your new proxy by copying the Proxy URL and testing it in the browser or with your favorite HTTP client.
-
-For an anonymous function use
-
-`https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
-
-For a function with authorization use
-
-`https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+1. Note that Proxies does not provide the `/api` base path prefix, and this must be included in the route template.
+1. The `%HELLO_HOST%` syntax will reference the app setting you created earlier. The resolved URL will point to your original function.
+1. Click **Create**.
+1. You can try out your new proxy by copying the Proxy URL and testing it in the browser or with your favorite HTTP client.
+    1. For an anonymous function use
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+    1. For a function with authorization use
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
 
 ## Create a mock API
 
