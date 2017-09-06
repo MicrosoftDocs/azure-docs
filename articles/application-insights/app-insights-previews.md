@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/1/2017
+ms.date: 06/01/2017
 ms.author: bwren
 
 ---
