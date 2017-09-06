@@ -133,7 +133,7 @@ Select **Prepare infrastructure** > **Target**, and specify the deployment model
 Site Recovery checks that you have one or more compatible Azure storage accounts and networks. 
 
 > [!NOTE]
-> If you're using a Premium storage account for replicated data, you need to set up an additional standard storage account to store replication logs.
+> If you're using a premium storage account for replicated data, you need to set up an additional standard storage account to store replication logs.
 
 ### Step 5: Set up replication settings
 
