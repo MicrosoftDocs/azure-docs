@@ -1,6 +1,6 @@
 ---
-title: Automate the resizing of uploaded images using Event Grid | Microsoft Docs
-description: Azure Event Grid can trigger on blob uploads in Azure Storage. You can use this to send uploaded image files to other services, such as Azure Functions, for resizing and other improvements.
+title: Use Azure Event Grid to automate resizing uploaded images | Microsoft Docs
+description: Azure Event Grid can trigger on blob uploads in Azure Storage. You can use this to send image files uploaded to Azure Storage to other services, such as Azure Functions, for resizing and other improvements.
 services: event-grid
 author: ggailey777
 manager: cfowler
@@ -14,7 +14,7 @@ ms.date: 09/05/2017
 ms.author: glenga
 ms.custom: mvc
 ---
-# Automate the resizing of uploaded images using Event Grid
+# Automate resizing uploaded images using Event Grid
 
 [Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid enables you to create subscriptions to events raised by Azure services or third-party resources.  In this article, Event Grid enables [Azure Functions](..\azure-functions\functions-overview.md) to respond to [Azure Blob storage](..\storage\blobs\storage-blobs-introduction.md) events and generate thumbnails of uploaded images. An event subscription is created against the Blob storage create event, which in turn calls a function endpoint. Data passed to the function binding from Event Grid is used to access the blob and generate the thumbnail image. You use the Azure CLI to create and configure the application topology and test it by using a sample web app.   
 
@@ -110,7 +110,7 @@ az storage account create --name <general_storage_account> \
 --location westcentralus --resource-group myResourceGroup \
 --sku Standard_LRS --kind storage
 ```
-## Create blob storage containers
+## Create Blob storage containers
 
 The app uses two containers in the Blob storage account. The _images_ container is used to upload full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
 
@@ -275,7 +275,7 @@ az group delete --name myResourceGroup
 ```
 Type `y` when prompted.
 
-## Next Steps
+## Next steps
 
 In this tutorial, you learned how to:
 
