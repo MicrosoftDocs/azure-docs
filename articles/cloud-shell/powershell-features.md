@@ -1,4 +1,4 @@
-<br> ---
+---
 title: Azure Cloud Shell (Preview) features | Microsoft Docs
 description: Overview of features of Azure Cloud Shell
 services: 
@@ -44,7 +44,7 @@ The PowerShell experience in Azure Cloud Shell will provide the same benefits as
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)<br> [Azure CLI 2.0](https://github.com/Azure/azure-cli)<br> and [1.0](https://github.com/Azure/azure-xplat-cli) |
+|Azure tools     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)<br> [Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli) |
 |Text editors    |vim<br> nano<br> emacs                   |
 |Package Manager |PowerShellGet<br> PackageManagement      |
 |Source control  |git                                      |
