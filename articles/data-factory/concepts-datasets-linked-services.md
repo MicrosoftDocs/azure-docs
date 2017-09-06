@@ -122,6 +122,75 @@ As you can see, the linked service defines how to connect to a SQL database. The
 ## Dataset type
 There are many different types of datasets, depending on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
 
+[!INCLUDE [data-factory-v2-supported-data-stores](../../../includes/data-factory-v2-supported-data-stores.md)]
 
+Data stores with * can be on-premises or on Azure infrastructure as a service (IaaS). These data stores require you to [install self-hosted integration runtime](create-self-hosted-integration-runtime.md).
 
+In the example in the previous section, the type of the dataset is set to **AzureSqlTable**. Similarly, for an Azure Blob dataset, the type of the dataset is set to **AzureBlob**, as shown in the following JSON:
+
+```json
+{
+    "name": "AzureBlobInput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": {
+                "referenceName": "MyAzureStorageLinkedService",
+                 "type": "LinkedServiceReference",
+        }, copy-data-from-http-end-point.md
+ 
+        "typeProperties": {
+            "fileName": "input.log",
+            "folderPath": "adfgetstarted/inputdata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        }
+    }
+}
+```
+## Dataset structure
+The **structure** section is optional. It defines the schema of the dataset by containing a collection of names and data types of columns. You use the structure section to provide type information that is used to convert types and map columns from the source to the destination. In the following example, the dataset has three columns: timestamp, projectname, and pageviews. They are of type String, String, and Decimal, respectively.
+
+```json
+[
+    { "name": "timestamp", "type": "String"},
+    { "name": "projectname", "type": "String"},
+    { "name": "pageviews", "type": "Decimal"}
+]
+```
+
+Each column in the structure contains the following properties:
+
+Property | Description | Required
+-------- | ----------- | --------
+name | Name of the column. | Yes
+type | Data type of the column. | No
+culture | .NET-based culture to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. The default is `en-us`. | No
+format | Format string to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. | No
+
+The following guidelines help you determine when to include structure information, and what to include in the **structure** section.
+
+- **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure table.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
+- **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink.<br/><br/> Data Factory supports the following values for providing type information in structure: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. These values are Common Language Specification (CLS)-compliant, .NET-based type values.
+
+Data Factory automatically performs type conversions when moving data from a source data store to a sink data store.
+
+## Create datasets
+You can create datasets by using one of these tools or SDKs: .NET API, PowerShell, REST API, Azure Resource Manager Template, and Azure portal. 
+
+See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
+
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
+- [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-python.md)
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-rest-api.md)
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-portal.md)
+
+## V1 vs. V2 datasets
+
+In V2: 
+- external property is not supported. It's replaced by a trigger.
+- policy and availability properties are not supported. The start time for a pipeline depends on triggers.
+- Scoped datasets (datasets defined in a pipeline) are not supported. 
 
