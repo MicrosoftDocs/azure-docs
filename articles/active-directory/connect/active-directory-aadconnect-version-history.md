@@ -31,7 +31,7 @@ Required permissions | For permissions required to apply an update, see [account
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## 1.1.614.0
-Status: To be released
+Status: September 05 2017
 
 ### Azure AD Connect
 
