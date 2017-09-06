@@ -123,12 +123,10 @@ Log Analytics is generally available in Azure Government.
 The following Log Analytics features and solutions are not currently available in Azure Government.
 
 * Solutions that are in preview in Microsoft Azure, including:
-  * Network Monitoring solution
   * Service Map
-  * Office 365 solution
   * Windows 10 Upgrade Analytics solution
   * Application Insights solution
-  * Azure Networking Analytics solution
+  * Azure Networking Security Group Analytics solution
   * Azure Automation Analytics solution
   * Key Vault Analytics solution
 * Solutions and features that require updates to on-premises software, including:
