@@ -74,7 +74,7 @@
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Password Complexity](active-directory-b2c-reference-password-complexity-custom.md)
 
-#### [**Password Change**](active-directory-b2c-reference-password-change.md)
+#### [Password Change](active-directory-b2c-reference-password-change.md)
 
 #### [Enable keep me signed in](active-directory-b2c-reference-kmsi.md)
 
