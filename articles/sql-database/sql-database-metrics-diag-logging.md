@@ -218,7 +218,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### Download metrics and logs from Azure storage
 
-See [Download metrics and diagnostic logs from Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+See [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
 
 ## 1-minute metrics
 
@@ -235,4 +235,4 @@ See [Download metrics and diagnostic logs from Azure Storage](../storage/storage
 - Read these articles to learn about event hubs:
    - [What are Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)?
    - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-- See [Download metrics and diagnostic logs from Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+- See [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
