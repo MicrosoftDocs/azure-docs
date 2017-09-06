@@ -44,8 +44,8 @@ The PowerShell experience in Azure Cloud Shell will provide the same benefits as
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |AzureRM (3.8) modules<br> Azure CLI 2.0  |
-|Text editors    |vim                                      |
+|Azure tools     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)<br> [Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli) |
+|Text editors    |vim<br> nano<br> emacs                   |
 |Package Manager |PowerShellGet<br> PackageManagement      |
 |Source control  |git                                      |
 |Test tools      |Pester                                   |
@@ -70,5 +70,5 @@ Once completed Cloud Shell will automatically attach your storage for all future
 [Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage.md)
 
 ## Next steps
-[Cloud Shell Quickstart](powershell-quickstart.md) <br>
-[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Quickstart with PowerShell in Cloud Shell](powershell-quickstart.md) <br>
+[Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>
