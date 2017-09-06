@@ -15,7 +15,7 @@ ms.author: jingwang
 
 # Supported file formats and compression codecs in Azure Data Factory
 
-*This topic applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-datalake-store.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hadoop-distributed-file-system.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
+*This topic applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-data-lake-store.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hadoop-distributed-file-system.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
 
 If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. If you want to **parse or generate files with a specific format**, Azure Data Factory supports the following file format types:
 
@@ -507,7 +507,7 @@ The **compression** section has two properties:
 See the following articles for file-based data stores supported by Azure Data Factory:
 
 - [Azure Blob Storage connector](connector-azure-blob-storage.md)
-- [Azure Data Lake Store connector](connector-azure-datalake-store.md)
+- [Azure Data Lake Store connector](connector-azure-data-lake-store.md)
 - [Amazon S3 connector](connector-amazon-simple-storage-service.md)
 - [File System connector](connector-file-system.md)
 - [FTP connector](connector-ftp.md)

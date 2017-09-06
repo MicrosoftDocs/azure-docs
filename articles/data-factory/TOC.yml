@@ -48,7 +48,7 @@
   - name: Datasets
     href: concepts-datasets-linked-services.md
   - name: Linked services
-    href: concepts-linked-services.md
+    href: concepts-datasets-linked-services.md
   - name: Triggers
     href: concepts-triggers.md 
   - name: Runtime control
@@ -75,7 +75,7 @@
       - name: Azure Cosmos DB
         href: connector-azure-cosmos-db.md
       - name: Azure Data Lake Store
-        href: connector-azure-datalake-store.md
+        href: connector-azure-data-lake-store.md
       - name: Azure Search
         href: connector-azure-search.md
       - name: Azure SQL DB
@@ -133,7 +133,7 @@
       - name: Security considerations
         href: copy-activity-security-considerations.md
       - name: Format and compression support
-        href: supported-file-formats-and-compression-codecs.md. 
+        href: supported-file-formats-and-compression-codecs.md 
       - name: Schema mapping
         href: copy-activity-map-schemas.md
       - name: Incremental copy
