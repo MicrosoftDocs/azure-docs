@@ -1,5 +1,5 @@
 ---
-title: Create a path-based rule - Azure Application Gateway - Azure portal | Microsoft Docs
+title: Create a path-based rule for an application gateway - Azure portal | Microsoft Docs
 description: Learn how to create a path-based rule for an application gateway by using the Azure portal.
 services: application-gateway
 documentationcenter: na
@@ -27,7 +27,7 @@ ms.author: gwallace
 
 With URL path-based routing, you associate routes based on the URL path of HTTP requests. It checks whether there's a route to a back-end server pool configured for the URL listed in the application gateway, and then it sends the network traffic to the defined pool. A common use for URL path-based routing is to load balance requests for different content types to different back-end server pools.
 
-Azure Application Gateways have two rule types: basic and URL path-based rules. The basic rule type provides round-robin service for the back-end pools. Path-based rules, in addition to round-robin distribution, also use the path pattern of the request URL when choosing the appropriate back-end pool.
+Application gateways have two rule types: basic and URL path-based rules. The basic rule type provides round-robin service for the back-end pools. Path-based rules, in addition to round-robin distribution, also use the path pattern of the request URL when choosing the appropriate back-end pool.
 
 ## Scenario
 
