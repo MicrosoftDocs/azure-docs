@@ -167,11 +167,11 @@ Here are some examples of different behaviors for different types of requests:
   
 |Response code|Retry\-After|Behavior|  
 |-----------------|----------------|------------|  
-|200|\(none\)|Not a valid trigger, Retry\-After is required, or else the engine never polls for the next request.|  
-|202|60|Do not trigger the workflow. The next attempt happens in one minute.|  
+|200|\(none\)|Run the workflow and check again for more contents following the defined recurrence.|  
 |200|10|Run the workflow, and check again for more content in 10 seconds.|  
-|400|\(none\)|Bad request, do not run the workflow. If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger is no longer valid.|  
-|500|\(none\)|Server error, do not run the workflow.  If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger is no longer valid.|  
+|202|60|Do not trigger the workflow. The next attempt happens in one minute subject to the defined recurrence. If the defined recurrence is less than one minute the retry-after header takes precedence. Otherwise the defined recurrence is followed.|  
+|400|\(none\)|Bad request, do not run the workflow. If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger will check again for contents following the defined recurrence.|  
+|500|\(none\)|Server error, do not run the workflow.  If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger will check again for contents following the defined recurrence.|  
   
 The outputs of an HTTP trigger look like this example:  
   
