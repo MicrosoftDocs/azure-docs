@@ -35,9 +35,9 @@ A Site Recovery-based disaster recovery solution is fully tested, certified, and
 
 Implementing disaster recovery for Dynamics AX application by using Site Recovery requires the following prerequisites:
 
-• An on-premises Dynamics AX deployment is set up.
+• Set up an on-premises Dynamics AX deployment.
 
-• A Site Recovery vault is created in an Azure subscription.
+• Create a Site Recovery vault in an Azure subscription.
 
 • If Azure is your recovery site, run the Azure Virtual Machine Readiness Assessment tool on the VMs. They must be compatible with the Azure Virtual Machines and Site Recovery services.
 
@@ -59,7 +59,7 @@ To enable the complete application replication and recovery, each component of D
 
 ### 1. Set up Active Directory and DNS replication
 
-Active Directory is required on the disaster recovery site for the Dynamics AX application to function. We recommend the following two choices based on the complexity of the customer’s on-premises environment:
+Active Directory is required on the disaster recovery site for the Dynamics AX application to function. We recommend the following two choices based on the complexity of the customer’s on-premises environment.
 
 **Option 1**
 
@@ -88,7 +88,7 @@ The following snapshot shows the protection status of Dynamics-component VMs in 
 ### 4. Configure networking
 **Configure VM compute and network settings**
 
-For the AX client and Application Object Server VMs, configure network settings in Site Recovery so that the VM networks get attached to the right disaster recovery network after failover. Ensure that the disaster recovery network for these tiers is routable to the SQL tier.
+For the Dynamics AX client and Application Object Server VMs, configure network settings in Site Recovery so that the VM networks get attached to the right disaster recovery network after failover. Ensure that the disaster recovery network for these tiers is routable to the SQL tier.
 
 You can select the VM in the replicated items to configure the network settings, as shown in the following snapshot:
 
@@ -119,19 +119,19 @@ You can create a recovery plan in Site Recovery to automate the failover process
 
     ![Recovery plan details](./media/site-recovery-dynamics-ax/recoveryplan.png)
 
-You can customize the recovery plan for the Dynamics AX application by adding the following steps. The previous snapshot shows the complete recovery plan after adding all the steps.
+You can customize the recovery plan for the Dynamics AX application by adding the following steps. The previous snapshot shows the complete recovery plan after you add all the steps.
 
 
-* **SQL Server failover steps**.
+* **SQL Server failover steps**:
 For information about recovery steps specific to SQL server, see [Replication applications with SQL Server and Azure Site Recovery](site-recovery-sql.md).
 
 * **Failover Group 1**: Fail over the Application Object Server VMs.
 Make sure that the recovery point selected is as close as possible to the database PIT, but not ahead of it.
 
 * **Script**: Add load balancer (only E-A).
-Add a script (via Azure automation) after the Application Object Server VM group comes up to add a load balancer to it. You can use a script to do this task. For more information, see [How to add a load balancer for multitier application disaster recovery](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
+Add a script (via Azure Automation) after the Application Object Server VM group comes up to add a load balancer to it. You can use a script to do this task. For more information, see [How to add a load balancer for multitier application disaster recovery](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
-* **Failover Group 2**: Fail over the AX client VMs. Fail over the web tier VMs as part of the recovery plan.
+* **Failover Group 2**: Fail over the Dynamics AX client VMs. Fail over the web tier VMs as part of the recovery plan.
 
 
 ### Perform a test failover
