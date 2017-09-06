@@ -55,7 +55,7 @@ This can be installed like any other extension in Visual Studio:
 
 From here you can restart Visual Studio and the change will take effect. Once Visual Studio restarts, you will now be able to connect to other environments with VS tools such as the Cloud Explorer (shown below connected to Azure Government), Server Explorer, the main Visual Studio login, and the Visual Studio Solution Explorer.
 
-    -   ![download5](./media/documentation-government-get-started-connect-with-vs extension5.png)
+![download5](./media/documentation-government-get-started-connect-with-vs extension5.png)
 
 This [short video](https://channel9.msdn.com/blogs/Azure-Government/Azure-Environment-Selector-Visual-Studio-Extension) shows the extension in action – walking you through installation and showing how easy it is to connect to Azure Government. 
  
