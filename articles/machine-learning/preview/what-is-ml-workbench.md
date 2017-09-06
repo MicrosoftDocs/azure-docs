@@ -16,7 +16,7 @@ ms.date: 07/13/2017
 ms.author: garye
 
 ---
-# What is Azure Machine Learning Workbench?
+# What is Azure Machine Learning Workbench? *(placeholder)*
 Microsoft Azure Machine Learning Workbench is an integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
 
 Machine Learning Studio is where data science, predictive analytics, cloud resources, and your data meet.
