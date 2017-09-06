@@ -34,7 +34,7 @@ Under the **Prevention** section, you can monitor the security state of your res
 
 
 ### Monitor compute
-When you click **Compute** tile, the **Compute** blade that opens shows three tabs:
+When you click **Compute** tile, you see three tabs:
 
 - **Overview**: monitoring and recommendations.
 - **VMs and Computers**: list all virtual machines, computers, and its current security state.
@@ -59,11 +59,11 @@ This section has a set of [recommendations for each virtual machine and computer
 > Only virtual machines that have at least one public endpoint are shown in the **Networking Health** in the **Network topology** list.
 >
 
-Each recommendation has a set of actions that you can perform after you click it. For example, if you click **Missing system updates**, the **Missing system updates** opens. It lists the virtual machines and computers that are missing patches, and the severity of the missing update as shown in the following screenshot:
+Each recommendation has a set of actions that you can perform after you click it. For example, if you click **Missing system updates**, a list of virtual machines and computers that are missing patches, and the severity of the missing update appears, as shown in the following screenshot:
 
 ![Missing system updates for virtual machines](./media/security-center-monitoring/security-center-monitoring-fig3-sep2017.png)
 
-The **Missing system updates** has a summary of critical updates in a graph format, one one for Windows, and one for Linux. The second part has a table with the following information:
+The **Missing system updates** have a summary of critical updates in a graph format, one for Windows, and one for Linux. The second part has a table with the following information:
 
 * **NAME**: Name of the missing update.
 * **NO. OF VMs & COMPUTERS**: Total number of VMs and computers that are missing this update.
@@ -82,7 +82,6 @@ To view the recommendation details, click the name of the missing update from th
 
 > [!NOTE]
 > The security recommendations here are the same as those in the **Recommendations** option. See the [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) article for more information about how to resolve recommendations. This is applicable not only for virtual machines and computers, but also for all resources that are available in the **Resource Health** tile.
->
 >
 
 #### VMs & computers section
@@ -104,22 +103,22 @@ The icon that appears under each recommendation helps you to quickly identify th
 
 ![Filter](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
 
-In the previous example, one virtual machine has a critical recommendation regarding endpoint protection. To get more information about the virtual machine, click it. A new blade that opens represents this virtual machine as shown in the following screenshot:
+In the previous example, one virtual machine has a critical recommendation regarding endpoint protection. To get more information about the virtual machine, click on it:
 
 ![Virtual machine security details](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
 
-This blade has the security details for the virtual machine or computer. At the bottom of this blade, you can see the recommended action and the severity of each issue.
+Here you see the security details for the virtual machine or computer. At the bottom you can see the recommended action and the severity of each issue.
 
 #### Cloud services section
 For cloud services, a recommendation is created when the operating system version is out of date as shown in the following screenshot:
 
 ![Health status for cloud services](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-In a scenario where you do have recommendation (which is not the case for the previous example), you need to follow the steps in the recommendation to update the operating system version. When an update is available, you will have an alert (red or orange - depends on the severity of the issue). When you click on this alert in the WebRole1 (runs Windows Server with your web app automatically deployed to IIS) or WorkerRole1 (runs Windows Server with your web app automatically deployed to IIS) rows, a new blade opens with more details about this recommendation as shown in the following screenshot:
+In a scenario where you do have recommendation (which is not the case for the previous example), you need to follow the steps in the recommendation to update the operating system version. When an update is available, you will have an alert (red or orange - depends on the severity of the issue). When you click on this alert in the WebRole1 (runs Windows Server with your web app automatically deployed to IIS) or WorkerRole1 (runs Windows Server with your web app automatically deployed to IIS) rows, you see more details about this recommendation as shown in the following screenshot:
 
 ![Cloud service details](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-To see a more prescriptive explanation about this recommendation, click **Update OS version** under the **DESCRIPTION** column. The **Update OS version (Preview)** blade opens with more details.
+To see a more prescriptive explanation about this recommendation, click **Update OS version** under the **DESCRIPTION** column. 
 
 ![Cloud services recommendations](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -129,7 +128,7 @@ When you click **Networking** tile, the **Networking** blade opens with more det
 ![Networking blade](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### Networking recommendations
-Like the virtual machine's resource health information, this blade provides a summarized list of issues at the top of the blade and a list of monitored networks on the bottom.
+Like the virtual machine's resource health information, here you see a summarized list of issues at the top, and a list of monitored networks on the bottom.
 
 The networking status breakdown section lists potential security issues and offers [recommendations](security-center-network-recommendations.md). Possible issues can include:
 
@@ -139,13 +138,11 @@ The networking status breakdown section lists potential security issues and offe
 * Restrict external access through public external endpoint
 * Healthy Internet facing endpoints
 
-When you click a recommendation, a new blade opens with more details about the recommendation as shown in the following example.
+When you click a recommendation, you see more details about the recommendation as shown in the following example:
 
-![Details for a recommendation in the Networking blade](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Details for a recommendation in the Networking](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-In this example, the **Configure Missing Network Security Groups for Subnets** blade has a list of subnets and virtual machines that are missing network security group protection. If you click the subnet to which you want to apply the network security group, another blade opens.
-
-In the **Choose network security group** blade, you can select the most appropriate network security group for the subnet, or you can create a new network security group.
+In this example, the **Configure Missing Network Security Groups for Subnets** has a list of subnets and virtual machines that are missing network security group protection. If you click the subnet to which you want to apply the network security group, you see the **Choose network security group**. Here you can select the most appropriate network security group for the subnet, or you can create a new network security group.
 
 #### Internet facing endpoints section
 In the **Internet facing endpoints** section, you can see the virtual machines that are currently configured with an Internet facing endpoint and its current status.
@@ -177,7 +174,7 @@ The bottom part of this blade has the recommendations for this virtual machine, 
 
 ### Monitor Storage & data
 
-When you click **Storage & data** in the **Prevention** section, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+When you click **Storage & data** in the **Prevention** section, the **Data Resources** opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 ![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
@@ -185,7 +182,7 @@ Under **SQL Recommendations**, You can click any recommendation and get more det
 
 ![Details about a SQL recommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-The **Enable Auditing & Threat detection on SQL databases** blade has the following information:
+The **Enable Auditing & Threat detection on SQL databases** has the following information:
 
 * A list of SQL databases
 * The server on which they are located
@@ -193,23 +190,23 @@ The **Enable Auditing & Threat detection on SQL databases** blade has the follow
 * The current state
 * The severity of the issue
 
-When you click the database to address this recommendation, the **Auditing & Threat detection** blade opens as shown in the following screen.
+When you click the database to address this recommendation, the **Auditing & Threat detection** opens as shown in the following screen.
 
-![Auditing & Threat detection blade](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Auditing & Threat detection](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 To enable auditing, select **ON** under the **Auditing** option.
 
 ### Monitor applications
 
-If your Azure workload has applications located in [virtual machines (created through Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) with exposed web ports (TCP ports 80 and 443), Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click the **Applications** tile, the **Applications** blade opens with a series of recommendations in the **Application recommendations** section. It also shows the application breakdown per host, IP/domain, and if there is a WAF solution installed:
+If your Azure workload has applications located in [virtual machines (created through Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) with exposed web ports (TCP ports 80 and 443), Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click the **Applications** tile, the **Applications** opens with a series of recommendations in the **Application recommendations** section. It also shows the application breakdown per host, IP/domain, and if there is a WAF solution installed:
 
 ![Applications security health](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
 
-Just like you did with the other recommendations, you can click in the recommendation to see more details about the issue, and how to remediate. The example shown in the following figure is an application that was identified as an unsecure web application. When you select the application that was considered not secure, another blade opens with the following option available:
+Just like you did with the other recommendations, you can click in the recommendation to see more details about the issue, and how to remediate. The example shown in the following figure is an application that was identified as an unsecure web application. When you select the application that was considered not secure, the following option is available:
 
-![Details about an app that's not secure](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Details](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-This blade will have a list of all recommendations for this application. When you click the **Add a web application firewall** recommendation, the **Add a Web Application Firewall** blade opens with options for you to install a web application firewall (WAF) from a partner as shown in the following screenshot.
+Here you have a list of all recommendations for this application. When you click the **Add a web application firewall** recommendation, the **Add a Web Application Firewall** opens with options for you to install a web application firewall (WAF) from a partner as shown in the following screenshot.
 
 ![Add Web Application Firewall dialog box](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
