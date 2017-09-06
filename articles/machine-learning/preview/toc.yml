@@ -8,15 +8,14 @@
     href: what-are-preview-features.md
 - name: Quickstarts
   items:
-  - name: (Installation)
-  - name: Set up Model Management
-    href: model-management-configuration.md
-  - name: Iris quickstart
-    href: quick-start-iris.md
-  - name: MVC template (temporary)
-    href: doc-template-quickstart.md
+  - name: Provisioning and Installation
+    href: quickstart-installation.md
+  - name: Iris Quickstart Part
+    href: quick-start-iris.md  
 - name: Tutorials
   items:
+  - name: Classifying Iris
+    href: tutorial-classifying-iris.md
   - name: Bike Share Forecast - Data preparation
     href: tutorial-bikeshare-dataprep.md
   - name: (Bike Share Forecast - Experimentation)
