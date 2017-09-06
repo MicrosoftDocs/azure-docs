@@ -72,16 +72,16 @@ Let's start by [creating an Azure Cosmos DB account](create-documentdb-dotnet.md
     ![Screen shot of the open Create CosmosDB Account entry point window](./media/connected-service/connected-service-click-new-db-account.png)
 2. On the **Create CosmosDB Account** blade, specify the configuration that you want for this Azure CosmosDB account.
 
-Complete the fields on the **Create CosmosDB Account** blade, using the information in the following screenshot as a guide. When you set up your account, choose unique values that do not match those in the screenshot. 
+* Complete the fields on the **Create CosmosDB Account** blade, using the information in the following screenshot as a guide. When you set up your account, choose unique values that do not match those in the screenshot. 
         ![The new Azure Cosmos DB blade](./media/connected-service/connected-service-create-new-account.png)
         
-3. Click **Create** to craete the account.
+3. Click **Create** to create the account.
 
 After open Data Explorer, we can create documents, stored procedures, UDFs, and triggers to perform server-side business logic.
 ## Create and Delete database
 
 ## Create and Delete Colletion
-Choose **Create Collectio**, and then provide the following information to fill the chart, after that, click **OK**.
+Choose **Create Collection**, and then provide the following information to fill the chart, after that, click **OK**.
 Refresh your account to check the collection you created.
 
 ## Create and Delete documents
@@ -100,7 +100,7 @@ Create a new trigger, edit in the right pane, save or discard the trigger.
 Refresh the left tree to check the completed trigger, right-click to edit or delete it.
 
 ## Create and Delete User Defined Function
-create a new UDF, edit in the right pane, save or discard the UDF.
+Create a new UDF, edit in the right pane, save or discard the UDF.
 Refresh the left tree to check the completed UDF, right-click to edit or delete it.
 
 ## Next steps
