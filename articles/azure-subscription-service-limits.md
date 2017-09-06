@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/01/2017
 ms.author: byvinyal
 
 ---
@@ -64,6 +64,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
+* [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics / Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
@@ -225,6 +226,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### IoT Hub limits
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
+
+### IoT Hub Device Provisioning Service limits
+[!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
 
 ### Data Factory limits
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
