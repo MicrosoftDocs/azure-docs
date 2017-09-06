@@ -23,7 +23,7 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 You can copy data from Amazon Redshift to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory currently supports moving data from Amazon Redshift to other data stores, but not for moving data from other data stores to Amazon Redshift.
 
 > [!TIP]
-> To achieve best performance when copy large amount of data from Redshift, consider to use the built-in Redshift UNLOAD through Amazon S3. See [Use UNLOAD to copy data from Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) section with details.
+> To achieve the best performance when copying large amounts of data from Redshift, consider using the built-in Redshift UNLOAD through Amazon S3. See [Use UNLOAD to copy data from Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) section for details.
 
 ## Prerequisites
 * If you are moving data to an on-premises data store, install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises machine. Then, Grant Data Management Gateway (use IP address of the machine) the access to Amazon Redshift cluster. See [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions.
@@ -81,8 +81,8 @@ When source of copy activity is of type **AmazonRedshiftSource**, the following 
 | --- | --- | --- |
 | query | Use the custom query to read data. |No (if **tableName** of **dataset** is specified) |
 | redshiftUnloadSettings | Property group when using Amazon Redshift UNLOAD. | No |
-| s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying an ADF linked service name of AwsAccessKey type. | Required under "redshiftUnloadSettings". |
-| bucketName | Indicate the S3 bucket to store the interim data. If not provided, we will auto generate. | Required under "redshiftUnloadSettings". |
+| s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying an ADF linked service name of AwsAccessKey type. | Required under "redshiftUnloadSettings" |
+| bucketName | Indicate the S3 bucket to store the interim data. If not provided, copy activity auto generates a bucket. | Required under "redshiftUnloadSettings" |
 
 Alternatively, you can also use type **RelationalSource** (which includes Amazon Redshift) with the following property in typeProperties section. Note this source type doesn't support Redshift UNLOAD.
 
@@ -92,11 +92,11 @@ Alternatively, you can also use type **RelationalSource** (which includes Amazon
 
 ## Use UNLOAD to copy data from Amazon Redshift
 
-[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a way provided by Amazon Redshift which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is a way recommended by Amazon for copying large data set from Redshift.
+[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a mechanism provided by Amazon Redshift, which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is the way recommended by Amazon for copying large data set from Redshift.
 
 **Example: Copy data from Amazon Redshift to Azure SQL Data Warehouse using UNLOAD, staged copy and PolyBase**
 
-For this sample use case, copy activity will firstly unload data from Amazon Redshift to Amazon S3 as configured in "redshiftUnloadSettings", then copy data from Amazon S3 to Azure Blob as specified in "stagingSettings", lastly use PolyBase to load data into SQL Data Warehouse. All the interim format will be handled by copy activity automatically.
+For this sample use case, copy activity firstly unload data from Amazon Redshift to Amazon S3 as configured in "redshiftUnloadSettings", then copy data from Amazon S3 to Azure Blob as specified in "stagingSettings", lastly use PolyBase to load data into SQL Data Warehouse. All the interim format is handled by copy activity properly.
 
 ![Redshift to SQL DW copy workflow](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
 
