@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/06/2017
 ms.author: jingwang
 
 ---
@@ -98,7 +98,7 @@ To copy data from/to Azure SQL Data Warehouse, set the type property of the data
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure SQL Data Warehouse source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure SQL Data Warehouse source and sink.
 
 ### Azure SQL Data Warehouse as source
 
@@ -255,8 +255,8 @@ SQL Data Warehouse PolyBase directly support Azure Blob and Azure Data Lake Stor
 
 If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore with service principal authentication**.  
-2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStore**, and the format type under `type` properties is **OrcFormat**, or **TextFormat** with the following configurations:
+1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore**.
+2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStoreFile**, and the format type under `type` properties is **OrcFormat**, or **TextFormat** with the following configurations:
 
    1. `rowDelimiter` must be **\n**.
    2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
