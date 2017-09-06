@@ -63,7 +63,7 @@ The Azure portal shows only features that currently work for Web Apps for Contai
 
 Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
 
-Web Apps for Containers is only supported with [Basic and Standard](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. The following are also important restrictions for Web Apps for Containers:
+Web Apps for Containers is only supported with [Basic and Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. The following are also important restrictions for Web Apps for Containers:
 
 * You cannot create Web Apps for Containers in an App Service plan already hosting non-Linux Web Apps.
 * When creating Web Apps for Containers in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different region than the existing App Service plan.
