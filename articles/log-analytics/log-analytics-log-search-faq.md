@@ -64,7 +64,7 @@ Prior to upgrade, when you selected a value in a chart, it would return a detail
 ## Log Search API
 
 ### Question: Does the Log Search API get updated after I upgrade?
-The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work when you upgraded your workspace.  See [https://dev.loganalytics.io/](https://dev.loganalytics.io/) for details on the new API.
+The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work when you upgraded your workspace.  See [Azure Log Analytics REST API](https://dev.loganalytics.io/) for details on the new API.
 
 
 ## Portals
