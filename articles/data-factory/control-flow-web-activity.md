@@ -64,7 +64,7 @@ name | Name of the web activity | String | Yes
 type | Must be set to **WebActivity**. | String | Yes
 method | Rest API method for the target endpoint. | String. <br/><br/>Supported Types: "GET", "POST", "PUT" | Yes
 url | Target endpoint and path | String (or expression with resultType of string) | Yes
-headers | Headers that are sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | String (or expression with resultType of string) | Yes, Content-type header is required `"headers":{ "Content-Type":"application/json"}`.
+headers | Headers that are sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | String (or expression with resultType of string) | Yes, Content-type header is required. `"headers":{ "Content-Type":"application/json"}`
 body | Represents the payload that is sent to the endpoint. Required for POST/PUT methods.  | String (or expression with resultType of string). <br/><br/>See the schema of the request payload in [Request payload schema](#request-payload-schema) section. | No
 authentication | Authentication method used for calling the endpoint. Supported Types are "Basic, or ClientCertificate." For more information, see [Authentication](#authentication) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No
 datasets | List of datasets passed to the endpoint. | Array of dataset references. Can be an empty array. | Yes
