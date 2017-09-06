@@ -122,7 +122,7 @@ As you can see, the linked service defines how to connect to a SQL database. The
 ## Dataset type
 There are many different types of datasets, depending on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
 
 Data stores with * can be on-premises or on Azure infrastructure as a service (IaaS). These data stores require you to [install self-hosted integration runtime](create-self-hosted-integration-runtime.md).
 
