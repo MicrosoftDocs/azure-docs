@@ -65,7 +65,7 @@ To pause the live telemetry display, choose **Hide subchart**. To re-enable the 
 
 ## Use the map
 
-The map displays information about the devices selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate if any **Alarms** or **Warnings** are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
+The map displays information about the devices selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
 
 <!-- TODO Check this is true -->
 If you hover the mouse pointer over a device on the map, you can view summary information that device:
@@ -80,7 +80,7 @@ To view the device details, click the device on the map. The details include:
 
 ## View alarms from your devices
 
-The map highlights the devices in the current filter with **Alarms** and **Warnings**. The **System alarms** panel displays detailed information about the most recent alarms from the devices connected to the solution:
+The map highlights the devices in the current filter with **Alarms** and **Warnings**. The **System alarms** panel displays detailed information about the most recent alarms from your devices:
 
 <!-- TODO insert screenshot -->
 
