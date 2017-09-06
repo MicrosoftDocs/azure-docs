@@ -3,7 +3,7 @@ title: Visualize Azure Network Watcher NSG flow logs using open source tools | M
 description: This page describes how to use open source tools to visualize NSG flow logs.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
