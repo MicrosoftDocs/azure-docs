@@ -18,14 +18,14 @@ ms.author: ryanwi
 
 ---
 
-# Create your first Service Fabric container application on Linux
+# Deploy a Service Fabric Linux container application on Azure
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-quickstart-containers.md)
 > * [Linux](service-fabric-quickstart-containers-linux.md)
 
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
-Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a prebuilt Docker container image in a Service Fabric application. When you're finished, you'll have a running Nginx container.
+Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a prebuilt Docker container image in a Service Fabric application. When you're finished, you'll have a running nginx container.
 
 ![Nginx][nginx]
 
@@ -34,11 +34,10 @@ In this quickstart, you learn how to:
 > * Package a Docker image container
 > * Configure communication
 > * Build and package the Service Fabric application
-> * Deploy the container application
+> * Deploy the container application to Azure
 
 ## Prerequisites
-A development computer running:
-* [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
+Install the [Service Fabric SDK, Service Fabric CLI, and the Service Fabric yeoman template generators](service-fabric-get-started-linux.md).
   
 ## Package a Docker image container with Yeoman
 The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. 
@@ -91,9 +90,11 @@ gradle
 ## Create a cluster
 To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).  Take note of the connection endpoint, which you use in the following step.
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).  
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
+
+Take note of the connection endpoint, which you use in the following step.
 
 ## Deploy the application to Azure
 Once the application is built, you can deploy it to the Azure cluster using the Service Fabric CLI.
@@ -192,6 +193,13 @@ Here are the complete service and application manifests used in this quick start
 ```
 
 ## Next steps
+In this quickstart, you learn how to:
+> [!div class="checklist"]
+> * Package a Docker image container
+> * Configure communication
+> * Build and package the Service Fabric application
+> * Deploy the container application to Azure
+
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).

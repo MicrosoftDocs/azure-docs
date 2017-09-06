@@ -1,5 +1,5 @@
 ﻿---
-title: Create an Azure Service Fabric container application | Microsoft Docs
+title: Create an Azure Service Fabric Windows container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric.  
 services: service-fabric
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 
-# Create your first Service Fabric container application on Windows
+# Deploy a Service Fabric Windows container application on Azure
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-quickstart-containers.md)
 > * [Linux](service-fabric-quickstart-containers-linux.md)
@@ -29,12 +29,12 @@ Running an existing application in a Windows container on a Service Fabric clust
 
 ![IIS default web page][iis-default]
 
-Using this application you learn how to:
+Using this quickstart you learn how to:
 > [!div class="checklist"]
 > * Package a Docker image container
 > * Configure communication
 > * Build and package the Service Fabric application
-> * Deploy the container application
+> * Deploy the container application to Azure
 
 ## Prerequisites
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
@@ -81,9 +81,11 @@ A full ApplicationManifest.xml example file is provided at the end of this artic
 ## Create a cluster
 To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).  Take note of the connection endpoint, which you use in the following step.
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).  
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
+
+Take note of the connection endpoint, which you use in the following step.  
 
 ## Deploy the application to Azure using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
@@ -93,8 +95,6 @@ Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**
 ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
 Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the Party Cluster, the Connection Endpoint is provided in the browser. - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
-
-Open a browser and type in the cluster address - for example, `http://winh1x87d1d.westus.cloudapp.azure.com`. You should now see the application running in the cluster in Azure.
 
 Open a browser and navigate to http://winh1x87d1d.westus.cloudapp.azure.com:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]
@@ -190,7 +190,7 @@ In this quickstart, you learned how to:
 > * Package a Docker image container
 > * Configure communication
 > * Build and package the Service Fabric application
-> * Deploy the container application
+> * Deploy the container application to Azure
 
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
