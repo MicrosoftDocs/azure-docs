@@ -1,4 +1,4 @@
----
+----
 title: Connect to Azure Government with Visual Studio | Microsoft Docs
 description: Information on managing your subscription in Azure Government by connecting with Visual Studio
 services: azure-government
@@ -38,24 +38,24 @@ This can be installed like any other extension in Visual Studio:
 2. Click the “Online” tab on the left to search for extensions online and search for “azure environment selector”.
 3. Download the package, as shown in the screenshot below.
 
-    -   ![download1](./media/documentation-government-get-started-connect-with-vs extension1.png)   
+    -   ![download1](./media/documentation-government-get-started-connect-with-vs-extension1.png)   
 
 4. Restart Visual Studio to complete the installation of the extension.
 5. When you click the “Tools” menu item, you will find an “Azure Environment Selector” item in the menu:
 
-    -   ![download2](./media/documentation-government-get-started-connect-with-vs extension2.png)
+    -   ![download2](./media/documentation-government-get-started-connect-with-vs-extension2.png)
 
 6. Click the menu item and you will see the Azure Environment Selector dialog:
 
-    -   ![download3](./media/documentation-government-get-started-connect-with-vs extension3.png)
+    -   ![download3](./media/documentation-government-get-started-connect-with-vs-extension3.png)
 
 7. Use the dropdown to select a different environment, in this case Azure Government:
 
-    -   ![download4](./media/documentation-government-get-started-connect-with-vs extension4.png)
+    -   ![download4](./media/documentation-government-get-started-connect-with-vs-extension4.png)
 
 From here you can restart Visual Studio and the change will take effect. Once Visual Studio restarts, you will now be able to connect to other environments with VS tools such as the Cloud Explorer (shown below connected to Azure Government), Server Explorer, the main Visual Studio login, and the Visual Studio Solution Explorer.
 
-![download5](./media/documentation-government-get-started-connect-with-vs extension5.png)
+![download5](./media/documentation-government-get-started-connect-with-vs-extension5.png)
 
 This [short video](https://channel9.msdn.com/blogs/Azure-Government/Azure-Environment-Selector-Visual-Studio-Extension) shows the extension in action – walking you through installation and showing how easy it is to connect to Azure Government. 
  
