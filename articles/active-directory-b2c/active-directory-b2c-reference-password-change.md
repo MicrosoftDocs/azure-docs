@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: vigunase
-
 ---
 # Azure Active Directory B2C: Configure password change in custom policies  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -52,7 +51,7 @@ The purpose of these elements is as follows:
 
 ## Add a password change claims provider with its supporting elements
 
-The following password change claims provider will
+Password change claims provider will
 
 1. Authenticate the user against the old password
 2. And if 'new password' matches 'confirm new password', this value is stored in B2C datastore and hence the password is successfully changed. 
@@ -68,12 +67,12 @@ Add the following claims provider to your extensions policy.
       <TechnicalProfiles>
         <TechnicalProfile Id="login-NonInteractive">
           <Metadata>
-            <Item Key="client_id">47eb20aa-e4e1-41c7-ab14-69e72bcae4a5</Item>
-            <Item Key="IdTokenAudience">f04f459f-13d5-4382-9335-87368966c0c9</Item>
+           <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+           <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
           </Metadata>
           <InputClaims>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="47eb20aa-e4e1-41c7-ab14-69e72bcae4a5" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="f04f459f-13d5-4382-9335-87368966c0c9" />
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
           </InputClaims>
         </TechnicalProfile>
         <TechnicalProfile Id="login-NonInteractive-PasswordChange">
@@ -91,8 +90,8 @@ Add the following claims provider to your extensions policy.
             <Item Key="scope">email openid</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="client_id">47eb20aa-e4e1-41c7-ab14-69e72bcae4a5</Item>
-            <Item Key="IdTokenAudience">f04f459f-13d5-4382-9335-87368966c0c9</Item>
+            <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+            <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
           </Metadata>
           <InputClaims>
             <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="username" Required="true" />
@@ -100,8 +99,8 @@ Add the following claims provider to your extensions policy.
             <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="password" />
             <InputClaim ClaimTypeReferenceId="scope" DefaultValue="openid" />
             <InputClaim ClaimTypeReferenceId="nca" PartnerClaimType="nca" DefaultValue="1" />
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="47eb20aa-e4e1-41c7-ab14-69e72bcae4a5" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="f04f459f-13d5-4382-9335-87368966c0c9" />
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
           </InputClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid" />
@@ -144,6 +143,26 @@ Add the following claims provider to your extensions policy.
     </ClaimsProvider>
   </ClaimsProviders>
 ```
+
+
+
+### Add the application IDs to your custom policy
+
+Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
+
+1. In the extensions file (TrustFrameworkExtensions.xml), find the element `<TechnicalProfile Id="login-NonInteractive">` and `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+
+2. Replace all instances of `IdentityExperienceFrameworkAppId` with the application ID of the Identity Experience Framework application as described in [Getting started](active-directory-b2c-get-started-custom.md). Here is an example:
+
+   XMLKopioi
+
+   ```
+   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   ```
+
+3. Replace all instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the Proxy Identity Experience Framework application as described in [Getting started](active-directory-b2c-get-started-custom.md).
+
+4. Save your extensions file.
 
  
 
@@ -188,6 +207,18 @@ Next, update the relying party (RP) file that initiates the user journey that yo
 3. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the `Id` of the new user journey that you created (for example, PasswordChange).
 4. Save your changes, and then upload the file.
 5. To test the custom policy that you uploaded, in the Azure portal, go to the policy blade, and then click **Run now**.
+
+
+
+
+## Link to password change sample policy
+
+You can find the sample policy here: 
+
+```
+https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change
+```
+
 
 
 
