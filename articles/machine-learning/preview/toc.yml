@@ -8,22 +8,17 @@
     href: what-are-preview-features.md
 - name: Quickstarts
   items:
-  - name: (Installation)
-  - name: Set up Model Management
-    href: model-management-configuration.md
-  - name: Iris quickstart
+  - name: Provisioning and Installation
+    href: quickstart-installation.md
+  - name: Iris Quickstart Part 1
     href: quick-start-iris.md
-  - name: MVC template (temporary)
-    href: doc-template-quickstart.md
+  - name: Iris Quickstart Part 2
+    href: quick-start-iris-mms.md
 - name: Tutorials
   items:
+  - name: Classifying Iris
+    href: tutorial-classifying-iris.md
   - name: (Bike Share Forecast - Data preparation)
-  - name: (Bike Share Forecast - Experimentation)
-  - name: (Bike Share Forecast - Operationalization)
-  - name: Iris tutorial Azure CLI
-    href: tutorial-iris-azure-cli.md
-  - name: MVC template (temporary)
-    href: doc-template-tutorial.md
 - name: Samples
   items:
   - name: Azure CLI 2.0
