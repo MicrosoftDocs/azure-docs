@@ -38,7 +38,7 @@ What you learn how to:
 To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
-1. [Install .NET Core SDK](https://www.microsoft.com/net/download/core)
+1. [Install .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
