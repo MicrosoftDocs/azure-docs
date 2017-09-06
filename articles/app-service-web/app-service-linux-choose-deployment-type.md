@@ -4,7 +4,7 @@ description: How to decide between custom Docker container deployment and a buil
 keywords: azure app service, web app, linux, oss
 services: app-service
 documentationCenter: ''
-authors: nickwalk
+author: v-thepet
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: nickwalk
+ms.author: v-thepet
 
 ---
 # Azure Web App for Containers deployments: Custom image or built-in platform image? 
