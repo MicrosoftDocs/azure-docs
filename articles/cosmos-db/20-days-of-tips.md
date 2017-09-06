@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/06/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -31,6 +31,14 @@ What is #cosmosdb? The best NoSQL db that you’re not using! [https://aka.ms/ub
 > [!VIDEO https://www.youtube.com/embed/cGxO995iakM] 
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905083120487022593)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6310849010374631425/)
+
+## Tip 2: Seeing is believing
+
+Seeing is believing. Use the #cosmosDB visual interface in the Azure portal to inspect and query your DB  [https://aka.ms/jprf75](https://aka.ms/jprf75)
+
+> [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905449095648731136)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311218673575088128)
 
 ## Next steps
 
