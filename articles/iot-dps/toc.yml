@@ -37,20 +37,10 @@
   items:
   - name: REST
     href: /rest/api/iot-dps
-- name: Related
+- name: Resources
   items:
   - name: Azure IoT Hub
     href: https://azure.microsoft.com/services/iot-hub/
-  - name: Azure IoT Suite
-    href: /azure/iot-suite/
-  - name: Azure Event Hubs
-    href: https://azure.microsoft.com/services/event-hubs/
-  - name: Stream Analytics
-    href: https://azure.microsoft.com/services/stream-analytics/
-  - name: Machine Learning
-    href: https://azure.microsoft.com/services/machine-learning/
-- name: Resources
-  items:
   - name: Azure Certified for IoT device catalog
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT Developer Center
