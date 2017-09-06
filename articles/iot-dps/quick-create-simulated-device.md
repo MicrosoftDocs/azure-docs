@@ -82,7 +82,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 3. Assign the _ID Scope_ value to the `dps_scope_id` variable. Notice that the `dps_uri` variable has the same value as the _Global device endpoint_. 
 
     ```c
-    static const char* dps_uri = "global.df.azure-devices-provisioning-int.net";
+    static const char* dps_uri = "global.azure-devices-provisioning.net";
     static const char* dps_scope_id = "[DPS Id Scope]";
     ```
 
