@@ -274,7 +274,7 @@ The following Data Factory entities are defined in the JSON template:
 * [Data pipeline with a copy activity](#data-pipeline)
 
 #### Azure Storage linked service
-The Azure Storage linked service links your Azure storage account to the data factory. In this tutorial, the same storage account is used as the default HDInsight storage account, input data storage, and output data storage. Therefore, you define only one Azure Storage linked service. In the linked service definition, you specify the name and key of your Azure storage account. See [Azure Storage linked service](../data-factory/copy-data-to-from-azure-blob-storage.md) for details about JSON properties used to define an Azure Storage linked service.
+The Azure Storage linked service links your Azure storage account to the data factory. In this tutorial, the same storage account is used as the default HDInsight storage account, input data storage, and output data storage. Therefore, you define only one Azure Storage linked service. In the linked service definition, you specify the name and key of your Azure storage account. See [Azure Storage linked service](../data-factory/connector-azure-blob-storage.md) for details about JSON properties used to define an Azure Storage linked service.
 
 ```json
 {
@@ -332,7 +332,7 @@ See [On-demand HDInsight Linked Service](../data-factory/compute-linked-services
 > As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 #### Azure blob input dataset
-In the input dataset definition, you specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](../data-factory/copy-data-to-from-azure-blob-storage.md) for details about JSON properties used to define an Azure Blob dataset.
+In the input dataset definition, you specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](../data-factory/connector-azure-blob-storage.md) for details about JSON properties used to define an Azure Blob dataset.
 
 ```json
 
@@ -374,7 +374,7 @@ Notice the following specific settings in the JSON definition:
 ```
 
 #### Azure Blob output dataset
-In the output dataset definition, you specify the names of blob container and folder that holds the output data. See [Azure Blob dataset properties](../data-factory/copy-data-to-from-azure-blob-storage.md) for details about JSON properties used to define an Azure Blob dataset.  
+In the output dataset definition, you specify the names of blob container and folder that holds the output data. See [Azure Blob dataset properties](../data-factory/connector-azure-blob-storage.md) for details about JSON properties used to define an Azure Blob dataset.  
 
 ```json
 
@@ -411,7 +411,7 @@ The folderPath specifies the path to the folder that holds the output data:
 "folderPath": "adfgetstarted/partitioneddata",
 ```
 
-The [dataset availability](../data-factory/concepts-datasets.md) setting is as follows:
+The [dataset availability](../data-factory/concepts-datasets-linked-services.md) setting is as follows:
 
 ```json
 "availability": {

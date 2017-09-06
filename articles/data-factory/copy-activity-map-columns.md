@@ -1,14 +1,17 @@
 ---
-title: Supported file formats in Azure Data Factory | Microsoft Docs
-description: 'This topic describes the file formats and compression codes that are supported by file-based connectors in Azure Data Factory.'
+title: Map columns Azure Data Factory | Microsoft Docs
+description: 'Learn how to map sorce columns to destination columns in Azure Data Factory.'
+services: data-factory
 author: linda33wj
 manager: jhubbard
 editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/21/2017
 ms.author: jingwang
 
 ---
@@ -31,7 +34,7 @@ If you want to read from a text file or write to a text file, set the `type` pro
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable character that may not  exist in your data. For example, specify "\u0001", which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use a Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
+| columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable char that may not likely exist in your data. For example, specify "\u0001", which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use a Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
 | rowDelimiter |The character used to separate rows in a file. |Only one character is allowed. The **default** value is any of the following values on read: **["\r\n", "\r", "\n"]** and **"\r\n"** on write. |No |
 | escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. |No |
 | quoteChar |The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. |No |
@@ -78,7 +81,7 @@ To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar`
 
 ## JSON format
 
-To **import/export a JSON file as-is into/from Azure Cosmos DB**, see Import/export JSON documents section in [Move data to/from Azure Cosmos DB](connector-azure-cosmos-db.md) article.
+To **import/export a JSON file as-is into/from Azure Cosmos DB**, see the Import/export JSON documents section in [Move data to/from Azure Cosmos DB](connector-azure-cosmos-db.md) article.
 
 If you want to parse the JSON files or write the data in JSON format, set the `type` property in the `format` section to **JsonFormat**. You can also specify the following **optional** properties in the `format` section. See [JsonFormat example](#jsonformat-example) section on how to configure.
 
@@ -223,8 +226,8 @@ and you want to copy it into an Azure SQL table in the following format, by extr
 
 The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. For more information, see [Map source dataset columns to destination dataset columns](copy-activity-map-columns.md).
-- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. To copy data from array, you can use `array[x].property` to extract value of the given property from the `xth` object, or you can use `array[*].property` to find the value from any object containing such property.
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Map source dataset columns to destination dataset columns](copy-activity-map-columns.md) section for more details.
+- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. To copy data from array, you can use **array[x].property** to extract value of the given property from the xth object, or you can use **array[*].property** to find the value from any object containing such property.
 
 ```json
 "properties": {
@@ -289,18 +292,17 @@ In this sample, you expect to transform one root JSON object into multiple recor
 
 and you want to copy it into an Azure SQL table in the following format, by flattening the data inside the array and cross join with the common root info:
 
-| `ordernumber` | `orderdate` | `order_pd` | `order_price` | `city` |
+| ordernumber | orderdate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
-| 01 | 20170122 | P1 | 23 | `[{"sanmateo":"No 1"}]` |
-| 01 | 20170122 | P2 | 13 | `[{"sanmateo":"No 1"}]` |
-| 01 | 20170122 | P3 | 231 | `[{"sanmateo":"No 1"}]` |
-
+| 01 | 20170122 | P1 | 23 | [{"sanmateo":"No 1"}] |
+| 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
+| 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
 The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. For more information, see [Map source dataset columns to destination dataset columns](copy-activity-map-columns.md).
-- `jsonNodeReference` indicates to iterate and extract data from the objects with the same pattern under **array** `orderlines`.
-- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. In this example, `ordernumber`, `orderdate`, and `city` are under root object with JSON path starting with `$.`, while `order_pd` and `order_price` are defined with path derived from the array element without `$.`.
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Map source dataset columns to destination dataset columns](copy-activity-map-columns.md) section for more details.
+- `jsonNodeReference` indicates to iterate and extract data from the objects with the same pattern under **array** orderlines.
+- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. In this example, "ordernumber", "orderdate" and "city" are under root object with JSON path starting with "$.", while "order_pd" and "order_price" are defined with path derived from the array element without "$.".
 
 ```json
 "properties": {
