@@ -1,6 +1,6 @@
 ---
 title: Configure end-to-end SSL with Azure Application Gateway | Microsoft Docs
-description: This article describes how to configure end-to-end SSL with Azure Application Gateway by using Azure Resource Manager PowerShell
+description: This article describes how to configure end-to-end SSL with Azure Application Gateway by using PowerShell
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -23,10 +23,10 @@ ms.author: gwallace
 
 Azure Application Gateway supports end-to-end encryption of traffic. Application Gateway terminates the SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, reencrypts the packet, and forwards the packet to the appropriate back-end server based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
 
-Application Gateway supports defining custom SSL options. It also supports disabling the following protocol versions: **TLSv1.0**, **TLSv1.1**, and **TLSv1.2**, as well defining which cipher suites to use and the order of preference. To learn more about configurable SSL options, see the [SSL Policy overview](application-gateway-SSL-policy-overview.md).
+Application Gateway supports defining custom SSL options. It also supports disabling the following protocol versions: **TLSv1.0**, **TLSv1.1**, and **TLSv1.2**, as well defining which cipher suites to use and the order of preference. To learn more about configurable SSL options, see the [SSL policy overview](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
-> SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecure and are not able to be used with Application Gateway.
+> SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecure and cannot be used with Application Gateway.
 
 ![scenario image][scenario]
 
@@ -51,7 +51,7 @@ The configuration process is described in the following sections.
 
 ## Create the resource group
 
-This section walks you through creating a resource group, that contains the application gateway.
+This section walks you through creating a resource group that contains the application gateway.
 
 
    1. Sign in to your Azure account.
@@ -68,7 +68,7 @@ This section walks you through creating a resource group, that contains the appl
    ```
 
 
-   3. Create a resource group (skip this step if you're using an existing resource group).
+   3. Create a resource group. (Skip this step if you're using an existing resource group.)
 
    ```powershell
    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
@@ -76,7 +76,7 @@ This section walks you through creating a resource group, that contains the appl
 
 ## Create a virtual network and a subnet for the application gateway
 
-The following example creates a virtual network and two subnets. One subnet is used to hold the application gateway. The other subnet is used for the back ends hosting the web application.
+The following example creates a virtual network and two subnets. One subnet is used to hold the application gateway. The other subnet is used for the back ends that host the web application.
 
 
    1. Assign an address range for the subnet to be used for the application gateway.
@@ -161,7 +161,7 @@ All configuration items are set before creating the application gateway. The fol
    ```
 
    > [!NOTE]
-   > This sample configures the certificate used for the SSL connection. The certificate needs to be in .pfx format, and the password must be between 4 to 12 characters.
+   > This sample configures the certificate used for the SSL connection. The certificate needs to be in .pfx format, and the password must be 4 to 12 characters.
 
    6. Create the HTTP listener for the application gateway. Assign the front-end IP configuration, port, and SSL certificate to use.
 
@@ -174,7 +174,7 @@ All configuration items are set before creating the application gateway. The fol
    > [!NOTE]
    > The default probe gets the public key from the *default* SSL binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. 
    
-   > If you are using host headers and Server Name Indication (SNI) on the back end, the retrieved public key might not be the intended site to which traffic flows. If in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default SSL binding on the them. If you do not do so, probes fail and the back end is not whitelisted.
+   > If you are using host headers and Server Name Indication (SNI) on the back end, the retrieved public key might not be the intended site to which traffic flows. If you're in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default SSL binding on the them. If you do not do so, probes fail and the back end is not whitelisted.
 
    ```powershell
    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -242,7 +242,7 @@ The preceding steps took you through creating an application with end-to-end SSL
 
    ```
 
-   3. Finally, update the gateway. It is important to note that this last step is a long running task. When it is done, end-to-end SSL is configured on the application gateway.
+   3. Finally, update the gateway. Note that this last step is a long-running task. When it is done, end-to-end SSL is configured on the application gateway.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway
@@ -252,7 +252,7 @@ The preceding steps took you through creating an application with end-to-end SSL
 
 After the gateway is created, the next step is to configure the front end for communication. Application Gateway requires a dynamically assigned DNS name when using a public IP, which is not friendly. To ensure end users can hit the application gateway, you can use a CNAME record to point to the public endpoint of the application gateway. For more information, see [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the **PublicIPAddress** element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record that points the two web applications to this DNS name. The use of A-records is not recommended, because the VIP can change on restart of the application gateway.
+To configure an alias, retrieve details of the application gateway and its associated IP/DNS name by using the **PublicIPAddress** element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record that points the two web applications to this DNS name. We don't recommend the use of A-records, because the VIP can change on restart of the application gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -282,6 +282,6 @@ DnsSettings              : {
 
 ## Next steps
 
-For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web Application Firewall overview](application-gateway-webapplicationfirewall-overview.md).
+For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web application firewall overview](application-gateway-webapplicationfirewall-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
