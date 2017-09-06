@@ -24,21 +24,23 @@ ms.custom: H1Hack27Feb2017
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating a Azure Container Registry instance using the Azure CLI.
 
-This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This Quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+
+You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named *myResourceGroup* in the *westcentralus* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
-az group create --name myResourceGroup --location westcentralus
+az group create --name myResourceGroup --location eastus
 ```
 
 ## Create a container registry
 
-Azure Container Registry is available in several different SKU’s. When deploying an ACR instance, choose a SKU that matches your image management needs. In this Quickstart, we select Classic due to its availability in all regions.
+Azure Container Registry is available in several different SKUs. When deploying an ACR instance, choose a SKU that matches your image management needs. In this Quickstart, we select Classic due to its availability in all regions.
 
 | SKU | Description | Notes |
 |---|---|---|
@@ -62,7 +64,7 @@ When the registry is created, the output is similar to the following:
   "adminUserEnabled": false,
   "creationDate": "2017-06-29T04:50:28.607134+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry1",
-  "location": "westcentralus",
+  "location": "eastus",
   "loginServer": "mycontainerregistry007.azurecr.io",
   "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
@@ -154,7 +156,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quick start, you've created a managed Azure Container Registry instance using the Azure CLI.
+In this Quickstart, you created an Azure Container Registy with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
-> [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
+> [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
