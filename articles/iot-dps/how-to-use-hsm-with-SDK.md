@@ -20,7 +20,7 @@ These steps show how to use different [Hardware Security Module (HSM)](https://a
 
 ## Prerequisites
 
-Prepare your development environment according to the section titled "Prepare the development environment" in this [quick start](./quick-create-simulated-device.md) guide.
+Prepare your development environment according to the section titled "Prepare the development environment" in this [quickstart](./quick-create-simulated-device.md) guide.
 
 ## Enable authentication with different HSM
 
@@ -34,7 +34,7 @@ DPS ships with a Device Identity Composition Engine (DICE) emulator that generat
 cmake -Ddps_auth_type=x509 ..
 ```
 
-Information regarding hardware with DICE can be found [here](https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-io)
+Information regarding hardware with DICE can be found [here](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)
 
 ### Use X509 with hardware
 
@@ -57,6 +57,8 @@ cmake -Ddps_auth_type=tpm_simulator ..
 ```
 
 ## Build the SDK
+You need to build the SDK prior to creating device enrollment.
+
 ### Linux
 - To build the SDK in Linux:
   ```
@@ -66,21 +68,21 @@ cmake -Ddps_auth_type=tpm_simulator ..
   cmake ..
   cmake --build .  # append '-- -j <n>' to run <n> jobs in parallel
   ```
-  > To build Debug binaries, add the corresponding CMake option to the project generation command above, e.g.:
-  > ```
-  > cmake -DCMAKE_BUILD_TYPE=Debug ..
-  > ```
+  To build Debug binaries, add the corresponding CMake option to the project generation command above, for example:
+  ```
+  cmake -DCMAKE_BUILD_TYPE=Debug ..
+  ```
 
-  > There are many CMake configuration options available for building the SDK. For example, you can disable one of the available protocol stacks by adding an argument to the CMake project generation command:
-  > ```
-  > cmake -Duse_amqp=OFF ..
-  > ```
-  > Also, you can build and run unit tests:
-  > ```
-  > cmake -Drun_unittests=ON ..
-  > cmake --build .
-  > ctest -C "debug" -V
-  > ```
+  There are many CMake configuration options available for building the SDK. For example, you can disable one of the available protocol stacks by adding an argument to the CMake project generation command:
+  ```
+  cmake -Duse_amqp=OFF ..
+  ```
+  You can also build and run unit test:
+  ```
+  cmake -Drun_unittests=ON ..
+  cmake --build .
+  ctest -C "debug" -V
+  ```
 
 ### Windows
 - To build the SDK in Windows, take the following steps to generate project files:
@@ -92,7 +94,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
     cd cmake
     cmake -G "Visual Studio 14 2015" ..
     ```
-    > This builds x86 libraries. To build for x64, modify the cmake generator argument: `cmake .. -G "Visual Studio 14 2015 Win64"`
+    This builds x86 libraries. To build for x64, modify the cmake generator argument: `cmake .. -G "Visual Studio 14 2015 Win64"`
 
 - If project generation completes successfully, you should see a Visual Studio solution file (.sln) under the `cmake` folder. To build the SDK, do one of the following:
     - Open **cmake\azure_iot_sdks.sln** in Visual Studio and build it, **OR**
@@ -100,18 +102,19 @@ cmake -Ddps_auth_type=tpm_simulator ..
     ```
     cmake --build . -- /m /p:Configuration=Release
     ```
-    > To build Debug binaries, use the corresponding MSBuild argument: `cmake --build . -- /m /p:Configuration=Debug`
+    To build Debug binaries, use the corresponding MSBuild argument: `cmake --build . -- /m /p:Configuration=Debug`
 
-    > There are many CMake configuration options available for building the SDK. For example, you can disable one of the available protocol stacks by adding an argument to the CMake project generation command:
-    > ```
-    > cmake -G "Visual Studio 14 2015" -Duse_amqp=OFF ..
-    > ```
-    > Also, you can build and run unit tests:
-    > ```
-    > cmake -G "Visual Studio 14 2015" -Drun_unittests=ON ..
-    > cmake --build . -- /m /p:Configuration=Debug
-    > ctest -C "debug" -V
-    > ```
+    There are many CMake configuration options available for building the SDK. For example, you can disable one of the available protocol stacks by adding an argument to the CMake project generation command:
+    ```
+    cmake -G "Visual Studio 14 2015" -Duse_amqp=OFF ..
+    ```
+    Also, you can build and run unit tests:
+    ```
+    cmake -G "Visual Studio 14 2015" -Drun_unittests=ON ..
+    cmake --build . -- /m /p:Configuration=Debug
+    ctest -C "debug" -V
+    ```
+  
 ### Libraries to include
 - These libraries should be included in your SDK:
     - DPS: dps_http_transport, dps_client, dps_security_client
@@ -138,7 +141,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
 
 ## Simulate first boot sequence for the device
 
-If you are using a simulator for development purpose, you can simulate the first boot sequence for the device.  Refer to this [quick start](./quick-create-simulated-device.md) guide for more details.
+If you are using a simulator for development purpose, you can simulate the first boot sequence for the device.  Refer to this [quickstart](./quick-create-simulated-device.md) guide for more details.
 
 1. In Azure portal, select the **Overview** blade for your DPS service and note down the **_Service endpoint_** and the **_Origin namespace_** values.
 
@@ -166,7 +169,7 @@ Once the device has been provisioned with DPS, this API will use the HSM authent
 
 ## Clean up resources
 
-If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start.
+If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
 2. Close the TPM simulator window on your machine if you are using TPS simulator.
@@ -175,4 +178,4 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this quick start, you’ve learned how to use different authentication modes supported by DPS and provision simulated and physical device to your IoT hub using Azure IoT Hub Device Provisioning Service. 
+In this quickstart, you’ve learned how to use different authentication modes supported by DPS and provision simulated and physical device to your IoT hub using Azure IoT Hub Device Provisioning Service. 
