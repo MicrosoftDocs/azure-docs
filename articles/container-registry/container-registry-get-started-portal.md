@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a private Docker registry in Azure | Microsoft Docs
+title: Quickstart - Create a private Docker registry in Azure with the Azure portal
 description: Quickly learn to create a private Docker container registry with the Azure portal.
 services: container-registry
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: tysonn
 tags: ''
 keywords: ''
 
-ms.assetid:
+ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
 ms.devlang: na
 ms.topic: quickstart
@@ -67,7 +67,7 @@ You use these values in the following steps while working with your registry wit
 
 ## Log in to ACR
 
-Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command. Replace the username, password, and login server values with those you noted in the previous step.
+Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command. Replace the *username*, *password*, and *login server* values with those you noted in the previous step.
 
 ```
 docker login --username <username> --password <password> <login server>
