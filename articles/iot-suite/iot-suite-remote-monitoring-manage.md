@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/05/2017
+ms.date: 09/06/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -16,17 +16,19 @@ ms.workload: NA
 
 # Manage and configure your devices
 
+The scenario in this tutorial illustrates how an operator can use the remote monitoring solution to manage and configure devices.
+
 Contoso has ordered new machinery to expand one of their facilities to increase output. While you wait for the new machinery to be delivered, you want to run a simulation to verify the behavior of your solution.
 
-This tutorial shows you how to manage the devices connected to your solution from the solution dashboard.
+To provide an extensible way to manage and configure devices, the remote monitoring solution uses IoT Hub features such as [jobs](../iot-hub/iot-hub-devguide-jobs.md) and [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To learn how a device developer implements methods on a physical device, see [Customize the remote monitoring preconfigured solution](iot-suite-remote-monitoring-customize.md).
 
 In this tutorial, you learn how to:
 
 >[!div class="checklist"]
 > * Provision a simulated device.
 > * Test the simulated device.
-> * Call device methods from the dashboard.
-> * Provision a physical device.
+> * Call device methods from the solution.
+> * Reconfigure a device.
 
 ## Prerequisites
 
@@ -36,84 +38,61 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## Provision a simulated device
 
-Navigate to the **Devices** page in the solution and then choose **Add devices**:
+Navigate to the **Devices** page in the solution and then choose **Provision**. In the **Provision** panel, choose **Simulated**:
 
 <!-- TODO insert screenshot -->
 
-Choose **Manual** and **Simulated device**. Enter a **Device ID** such as `myTestDevice`, choose **Engine** as the **Device Type**, and then choose **Create device** to create the simulated device:
+Leave the number of devices to provision set to **1**. Enter a device ID prefix such as `TestDevice`, choose **Engine** as the **Device Type**, and then choose **Apply** to create the simulated device:
 
 <!-- TODO insert screenshot -->
+
+To learn how to provision a *physical* device, see [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
 
 ## Test the simulated device
 
-To view details of your new simulated device, select it in the list of devices:
+To view details of your new simulated device, select it in the list of devices on the **Devices** page. Information about your device displays in the **Device detail** panel:
 
 <!-- TODO insert screenshot -->
 
-In **Device details**, verify your new device is sending telemetry:
+In **Device detail**, verify your new device is sending telemetry. To view the different telemetry streams from your device, choose a telemetry name such as **Coolant**:
 
 <!-- TODO insert screenshot -->
 
-The **Device details** section displays other information about the device such as the methods it supports and the metadata it sent to the solution.
+The **Device detail** panel displays other information about the device such as tag values, the methods it supports, and the properties reported by the device.
+
+To view detailed diagnostics, choose **Display diagnostics**.
 
 ## Act on a device
 
-To act on a device, select it in the list of devices and then choose **Act on device**:
+To act on a device, select it in the list of devices and then choose **Schedule**. The **Engine** device model specifies three methods a device must support:
 
 <!-- TODO insert screenshot -->
 
-In **Device details**, verify your new device is sending telemetry:
+Choose **Restart** and set the job name to **Restart engine**:
 
-<!-- TODO insert screenshot -->
+<!-- Insert screenshot here -->
 
-The **Device details** section displays other information about the device such as the methods it supports and the metadata it sent to the solution.
+To track the status of the job ion the **Maintenance** page, choose **View**:
 
-### Reboot
-
-Choose the **Reboot** task. Then verify the simulated device responds to the action:
-<!-- TODO Need to check exactly how to see the response from the device -->
-
-<!-- TODO insert screenshot -->
-
-### Firmware update
-
-Choose the **Firmware update** task. Then verify the simulated device responds to the action:
-<!-- TODO Need to check exactly how to see the response from the device -->
-
-<!-- TODO insert screenshot -->
-
-### Empty tank
-
-Choose the **Empty tank** task. Then verify the simulated device responds to the action:
-<!-- TODO Need to check exactly how to see the response from the device -->
-
-<!-- TODO insert screenshot -->
-
-### Fill tank
-
-Choose the **Fill tank** task. Then verify the simulated device responds to the action:
-<!-- TODO Need to check exactly how to see the response from the device -->
-
-<!-- TODO insert screenshot -->
+<!-- Insert screenshot here -->
 
 ### Methods in other devices
 
-Other device types support different actions. When a device first connects to the solution, it sends a list of supported actions in the reported properties.
+Other device types support different methods. The device model specifies the methods the device should support. To schedule a method to run on multiple devices, you can select multiple devices in the list on the **Devices** page. The **Schedule** panel shows the types of method common to all the devices you selected.
 
-> [!NOTE]
-> Actions are implemented as [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) in the simulated devices.
+## Reconfigure a device
 
-## Provision a physical device
+To change the configuration of a device, select it in the device list on the **Devices** page and then choose **Reconfigure**. The reconfigure panel shows the property values for the selected device that you can change:
 
-Navigate to the **Devices** page in the solution and then choose **Add devices**:
+<!-- Insert screenshot here -->
 
-<!-- TODO insert screenshot -->
+To make a change, add a name for the job, update the property values, and choose **Apply**:
 
-Choose **Manual**. Enter a **Device ID** such as `myPhysicalDevice`, choose an authentication, and then choose **Create device** to create the simulated device:
+<!-- Insert screenshot here -->
 
-<!-- TODO insert screenshot -->
+To track the status of the job ion the **Maintenance** page, choose **View**:
 
-If you choose **Symmetric key** as the authentication type, the solution can generate keys for you. Your physical device must use the **Device ID** and one of the keys to connect to the solution.
+<!-- Insert screenshot here -->
 
 ## Next steps
 
@@ -123,8 +102,8 @@ This tutorial showed you how to:
 >[!div class="checklist"]
 > * Provision a simulated device.
 > * Test the simulated device.
-> * Call device methods from the dashboard.
-> * Provision a physical device.
+> * Call device methods from the solution.
+> * Reconfigure a device.
 
 Now that you have learned how to manage your devices, the suggested next steps are to learn how to:
 
