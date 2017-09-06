@@ -292,7 +292,7 @@ You can disable/enable the auto-update feature by doing the following steps:
 
 	```PowerShell
 	.\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
-
+	```
 
 ## Configuration Manager
 Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
