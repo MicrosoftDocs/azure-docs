@@ -1,6 +1,21 @@
+---
+title: Iris Tutorial for Machine Learning Server | Microsoft Docs
+description: This full-length tutorial shows how to use Azure Machine Learning end-to-end.
+services: machine-learning
+author: hning86
+ms.author: haining
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.custom: mvc
+ms.topic: hero-article
+ms.date: 09/06/2017
+---
+
 # Tutorial: Classifying Iris
 
-In this tutorial, we show you the basics of Azure ML preview features by creating a data prepartion package, building a model and operationalizing it as a real-time web service. To make things simple, we use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set). The instructions and screenshots are created for Windows, but they are very similar, if not identical, for macOS.
+In this tutorial, we show you the basics of Azure ML preview features by creating a data preparation package, building a model and operationalizing it as a real-time web service. To make things simple, we use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set). The instructions and screenshots are created for Windows, but they are similar, if not identical, for macOS.
 
 ## Step 1. Launch Azure ML Workbench
 Follow the [installation guide](Installation.md) to install Azure ML Workbench desktop application, which also includes command-line interface (CLI). Launch the Azure ML Workbench desktop app and log in if needed.
@@ -22,7 +37,7 @@ Open the `iris.csv` file from the File View, observe that the file is a simple t
 
 ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
->Note it is not recommendded to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonostration purposes because it is tiny. For more information, please reference the [How to Deal with Large Data Files](PersistChanges.md) article.
+>Note it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to Deal with Large Data Files](PersistChanges.md) article.
 
 Under Data Explorer view, click on "+" to add a new data source. This launches the _Add Data Source_ wizard. 
 
@@ -34,7 +49,7 @@ Select the _File(s)/Directory_ option, and choose the `iris.csv` local file. Acc
 
 >Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
 
-This creates an `iris-1.dsource` file (because the sample project already comes with an `iris.dsource` file) and opens it in the _Data_ view. Note that a series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Also notice the last row of the dataset is completely empty, probably because of an extra line break in the csv file.
+This creates an `iris-1.dsource` file (because the sample project already comes with an `iris.dsource` file) and opens it in the _Data_ view. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Also notice the last row of the dataset is empty, probably because of an extra line break in the csv file.
 
 ![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
@@ -52,7 +67,7 @@ Select the `Species` column, and right-click on it and choose _Value Counts_.
 
 ![value count](media/tutorial-classifying-iris/value_count.png)
 
-This creates a histogram with 4 bars. Notice our target column has 3 distinct values, `Iris_virginica`, `Iris_versicolor`, `Iris-setosa`. And there is also one row with a `(null)` value. Let's get rid of this row by selecting the bar representing the null value, and click on the "-" filter button to remove it. 
+This creates a histogram with four bars. Notice our target column has three distinct values, `Iris_virginica`, `Iris_versicolor`, `Iris-setosa`. And there is also one row with a `(null)` value. Let's get rid of this row by selecting the bar representing the null value, and click on the "-" filter button to remove it. 
 
 ![value count](media/tutorial-classifying-iris/filter_out.png)
 
@@ -113,11 +128,11 @@ REM install matplotlib
 C:\Temp\myIris> pip install matplotlib
 ```
 
-Back in the Workbench desktop app, in the _Run Control Panel_, choose `local` as the execution environment, `iris_sklearn.py` as the script to run. Fill _Arguments_ field with a value of `0.01`. And click on the _Run_ button. Notice a job is immediately scheduled on the _Jobs_ side panel. The status of the Job goes from `Submitting`, to `Running`, and finnally `Completed` in a few seconds.
+Back in the Workbench desktop app, in the _Run Control Panel_, choose `local` as the execution environment, `iris_sklearn.py` as the script to run. Fill _Arguments_ field with a value of `0.01`. And click on the _Run_ button. Notice a job is immediately scheduled on the _Jobs_ side panel. The status of the Job goes from `Submitting`, to `Running`, and finally `Completed` in a few seconds.
 
 ![run sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
-Clicking on the job status text triggers a pop-up window that displays the standard output (stdout) of the running script. (Clicking on the script name leads you to the run detail information of that particular run which we will discuss later.) When the run is completed, the pop-up window shows the following results. Note your result might be different since we introduce some random features to the training set as you recall.
+Clicking on the job status text triggers a pop-up window that displays the standard output (stdout) of the running script. (Clicking on the script name leads you to the run detail information of that particular run which we discuss later.) When the run is completed, the pop-up window shows the following results: Note your result might be different since we introduce some random features to the training set as you recall.
 
 ```text
 Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -155,7 +170,7 @@ In Azure ML Workbench, every script execution is captured as a run history recor
 
 ![run history list view]()
 
-Observe the statitics captured across multiple runs in the graph view and the table view. Play with configurations and filter controls.
+Observe the statistics captured across multiple runs in the graph view and the table view. Play with configurations and filter controls.
 
 Now click on an individual run to see the run detail view. Notice all the statistics of the run is listed in the _Run Properties_ section. The files written into the `outputs` folder are listed in the _Output Files_ section, and can be downloaded or promoted (more on promotion later). The two plots, confusion matrix and multi-class ROC curve, are rendered in the _Output Images_ section. All the log files can also be found in the _Log Files_ section.
 
@@ -170,18 +185,18 @@ In the _Run Control Panel_, choose `docker-python` as the targeted environment, 
 
 A new job is started in the _Jobs_ pane. If you are running against Docker for the first time, it might take a few minutes to finish. Behind the scene, Azure ML Workbench downloads a base Docker image specified in the `docker-python.compute` file, starts a container based on that image, and installs Python packages specified in the `conda_dependencies.yml` file in the container. It then copies (or references, depending on run configuration) the local copy of the project folder, and then executes the `iris_sklearn.py` script. In the end, you should see the exact same result as you do when targeting `local`.
 
-The Docker base image contains a Spark instance pre-installed and configured. Thus, you can also execute a PySpark script in it. This is a simple way to develop and test your Spark program without having to go through the hassle of installating and configuring Spark yourself. 
+The Docker base image contains a Spark instance pre-installed and configured. Thus, you can also execute a PySpark script in it. This is a simple way to develop and test your Spark program without having to go through the hassle of installing and configuring Spark yourself. 
 
-Open the `iris_pyspark.py` file, read through it. This script loads the `iris.csv` data file, and uses the Logistic Regression algorithm from the Spark ML library to classify the Iris dataset. Now change the run environment to `docker-spark`, and the script to `iris_pyspark.py`, and run again. This will take a little longer since a Spark session has to be created and started inside the Docker container. You can also see the stdout is different than the stdout of `iris_pyspark.py`.
+Open the `iris_pyspark.py` file, read through it. This script loads the `iris.csv` data file, and uses the Logistic Regression algorithm from the Spark ML library to classify the Iris dataset. Now change the run environment to `docker-spark`, and the script to `iris_pyspark.py`, and run again. This takes a little longer since a Spark session has to be created and started inside the Docker container. You can also see the stdout is different than the stdout of `iris_pyspark.py`.
 
-Do a few more runs and play with different arguments. Open the `iris_pyspark.py` file to see the simple Logistic Regression model built using Spark ML library. And interact with _Job_ pane, run history list view, and run details view of your runs across differeing execution environments.
+Do a few more runs and play with different arguments. Open the `iris_pyspark.py` file to see the simple Logistic Regression model built using Spark ML library. And interact with _Job_ pane, run history list view, and run details view of your runs across different execution environments.
 
 ## Step 8. Execute Scripts in the Azure ML CLI Window
 Launch the command-line window by clicking on _File_ --> _Open Command Prompt_, noice that you are automatically placed in the project folder `C:\Temp\myIris`.
 
->Important: You **must** use the command-line window opened from Workbench to accomplish the following steps.
+>Important: You **must** use the command-line window opened from Workbench to accomplish the following steps:
 
-First, make sure you log in to Azure. (The desktop app and CLI uses independent credential cache when authenticating with Azure resources.) You will only need to do this once, until the cached token expires.
+First, make sure you log in to Azure. (The desktop app and CLI uses independent credential cache when authenticating with Azure resources.) You only need to do this once, until the cached token expires.
 
 ```batch
 REM login using aka.ms/devicelogin site.
@@ -231,7 +246,7 @@ while reg > 0.005:
     reg = reg / 2
 ```
 
-This script starts an `iris_sklearn.py` job with a _regularization rate_ of `10.0` (a ridiculously large number of course), and cut the rate to half in the following run, and so on and so forth, until the rate is no smaller than `0.005`.
+This script starts an `iris_sklearn.py` job with a _regularization rate_ of `10.0` (a ridiculously large number of course), and cut the rate to half in the following run, and so on, and so forth, until the rate is no smaller than `0.005`.
 ```
 REM Submit iris_sklearn.py multiple times with different regularization rates
 C:\Temp\myIris> python run.py
@@ -243,18 +258,18 @@ When `run.py` finishes, you might see a graph like this in your run history list
 ## Step 8a (optional). Execute in a Docker Container on a Remote Machine
 To execute your script in a Docker container on a remote Linux machine, you need to have SSH access (username and password) to that remote machine. And that remote machine must have Docker engine installed and running. The easiest way to obtain such a Linux machine is to create a [Ubuntu-based Data Science Virtual Machine (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) on Azure. (Note the CentOS-based DSVM is NOT supported.) 
 
-Once the VM is created, you can attach the VM as an execution enviornment by generating a pair of `.runconfig` and `.compute` file using the below command. Let's name the new environment `myvm`.
+Once the VM is created, you can attach the VM as an execution environment by generating a pair of `.runconfig` and `.compute` file using the below command. Let's name the new environment `myvm`.
 ```batch
 REM create myvm compute target
 C:\Temp\myIris\> az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password>
 ```
->Note the IP Address area can also be publicly addressable FQDN (fully qualified domain name), such as `vm-name.southcentralus.cloudapp.azure.com`. It will be a good practice to add FQDN to your DSVM and use it here instead of IP address, since you might turn off the VM to save cost. And next time when you start the VM, the IP address might change.
+>Note the IP Address area can also be publicly addressable FQDN (fully qualified domain name), such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add FQDN to your DSVM and use it here instead of IP address, since you might turn off the VM to save cost. And next time when you start the VM, the IP address might change.
 
 Edit the generated `myvm.runconfig` file under `aml_config` and change the Framework from default `PySpark` to `Python`:
 ```yaml
 "Framework": "Python"
 ```
->Leaving the framework setting to PySpark should also work fine. But it will be a little inefficient if you don't actually need a Spark session to run your Python script.
+>Leaving the framework setting to PySpark should also work fine. But it is a little inefficient if you don't actually need a Spark session to run your Python script.
 
 Now issue the same command as you did before in the CLI window, except this time we target _myvm_:
 ```batch
@@ -280,7 +295,7 @@ You can also try to run this script in an actual Spark cluster. If you have acce
 REM create a compute target that points to a HDI cluster
 C:\Temp\myIris\> az ml computetarget attach --name myhdi --address <cluster name>-ssh.azurehdinsight.net --username <username> --password <password> --cluster
 ```
->Note the `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is NOT `admin` which is the other user created during provisioning that allows you to access the admin web UI of the cluster. 
+>Note the `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is NOT ༖༗, which is the other user created during provisioning that allows you to access the admin web UI of the cluster. 
 
 Now issue the following command and the script should run in the HDI cluster:
 ```batch
@@ -303,7 +318,7 @@ When you executed the `iris_sklearn.py` script, the model was written to the `ou
 
 ![Download Pickle](media/tutorial-classifying-iris/download_model.png)
 
-Now, download the model file `model.pkl` and save it to the root of your  project folder. You will need it in the later steps.
+Now, download the model file `model.pkl` and save it to the root of your  project folder. You need it in the later steps.
 
 ## Step 10. Prepare for Operationalization Locally
 Local mode deployments run in Docker containers on your local computer, whether that is your desktop or a Linux VM running on Azure. You can use local mode for development and testing. The Docker engine must be running locally to complete the operationalization steps as shown in the following steps.
@@ -313,7 +328,7 @@ Let's prepare the operationalization environment. In the CLI window type the fol
 ```batch
 C:\Temp\myIris> az ml env setup -n <your new environment name> -l <Azure region, for example, eastus2>
 ```
->If you need to scale out your deployment (or if you don't have Docker engine installed locally, you can choose to deploy the web service on a cluster. In cluster mode, your service is run in the Azure Container Service (ACS). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web service deployment. Deploying to ACS allows you to scale your service as needed to meet your business needs. To deploy web service into a cluster, add the _--cluster_ flag to the set up command. For more information, enter the _--help_ flag.
+>If you need to scale out your deployment (or if you don't have Docker engine installed locally, you can choose to deploy the web service on a cluster. In cluster mode, your service is run in the Azure Container Service (ACS). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web service deployment. Deploying to ACS allows you to scale your service as needed to meet your business needs. To deploy web service into a cluster, add the _--cluster_ flag to the setup command. For more information, enter the _--help_ flag.
 
 Follow the on-screen instructions to provision an Azure Container Registry (ACR) instance and a storage account in which to store the Docker image we are about to create. After the setup is complete, set the environment variables required for operationalization using the following command: 
 
@@ -327,12 +342,12 @@ To verify that you have properly configured your operationalization environment 
 C:\Temp\myIris> az ml env local
 ```
 
-## Step 10. Create a Realtime Web Service
+## Step 10. Create a Real-time Web Service
 Now you are ready to operationalize the pickled Iris model. 
 
 To deploy the web service, you must have a model, a scoring script, and optionally a schema for the web service input data. The scoring script loads the _model.pkl_ file from the current folder and uses it to produce a new predicted Iris class. The input to the model is an array of four numbers representing the sepal length and width, and pedal length and width. 
 
-In this example, you will use a schema file to help parse the input data. To generate the scoring and schema files, simply execute the `iris_schema_gen.py` file that comes with the sample project in the command prompt using Python interpreter directly.  
+In this example, you use a schema file to help parse the input data. To generate the scoring and schema files, simply execute the `iris_schema_gen.py` file that comes with the sample project in the command prompt using Python interpreter directly.  
 
 ```batch
 C:\Temp\myIris> python iris_schema_gen.py
@@ -340,7 +355,7 @@ C:\Temp\myIris> python iris_schema_gen.py
 
 Running this file creates a `service_schema.json` file. This file contains the schema of the web service input.
 
-Now you are ready to create the real time web service:
+Now you are ready to create the real-time web service:
 ```batch
 c:\temp\myIris> az ml service create realtime -f score.py --model-file model.pkl -s service_schema.json -n irisapp -r python
 ```
@@ -350,7 +365,7 @@ To quickly explain the switches of the `az ml service create realtime` command:
 * --model-file: model file, in this case it is the pickled sklearn model
 * -r: type of model, in this case it is the python model
 
->Important: The service name (it is also the new Docker image name) must be all lower-case, otherwise you will see an error.
+>Important: The service name (it is also the new Docker image name) must be all lower-case, otherwise you see an error.
 
 When you run the command, the model and the scoring file are uploaded into an Azure service that we manage. As part of deployment process, the operationalization component uses the pickled model `model.pkl` and the scoring script `score.py` to build a Docker image named `<ACR_name>.azureacr.io/irisapp`. It then registers the image with your Azure Container Registry (ACR) service, pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container will instead be deployed into the Kubernetes cluster.)
 
@@ -373,9 +388,7 @@ To test the service, execute the returned service run command.
 ```batch
 C:\Temp\myIris> az ml service run realtime -n irisapp -d "{\"input_df\": [{\"petal length\": 1.3, \"sepal width\": 3.6, \"petal width\": 0.25, \"sepal length\": 3.0}]}"
 ```
-The output is `"2"` which is the predicted class. (Your result might be different.)  
+The output is ༖༗, which is the predicted class. (Your result might be different.)  
 
 ## Congratulations!
 Great job! You have successfully run a training script in various compute environments, created a model, serialized the model, and operationalized the model through a Docker-based web service. 
-
-Hope you enjoy this tutorial and please send us feedback through these [various feedback channels](Feedback.md).
