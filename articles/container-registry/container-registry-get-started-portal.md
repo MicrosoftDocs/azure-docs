@@ -36,11 +36,7 @@ Select the **New** > **Containers** > **Azure Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
-Enter the following values in the **Registry name** and **Resource group** text boxes, and select the specified **SKU** from the drop-down. Leave the other values at their defaults, then click **Create**.
-
-* **Registry name**: A unique name for your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
-* **Resource group**: `myResourceGroup`
-* **SKU**: Classic
+Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named `myResourceGroup`, and for **SKU**, select "Classic."
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
@@ -75,7 +71,7 @@ Before pushing and pulling container images, you must log in to the ACR instance
 docker login --username <username> --password <password> <login server>
 ```
 
-The command returns a 'Login Succeeded' message once completed.
+The command returns 'Login Succeeded' once completed.
 
 ## Push image to ACR
 
