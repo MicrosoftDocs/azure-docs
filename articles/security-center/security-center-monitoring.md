@@ -24,7 +24,7 @@ This article helps you use the monitoring capabilities in Azure Security Center 
 We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices.
 
 ## Monitoring security health
-After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center analyzes the security of your resources to identify potential vulnerabilities. Information about your network configuration is available instantly. Depending on the amount of computers that you have with the agent installed, it may take an hour or more to collect information about VMs and computer's configuration, such as security update status and operating system configuration, to become available. You can view the security state of your resources and any issues in the **Prevention** section. You can also view a list of those issues on the **Recommendations** tile.
+After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center analyzes the security of your resources to identify potential vulnerabilities. Information about your network configuration is available instantly. Depending on the number of VMs and computers that you have with the agent installed, it may take an hour or more to collect information about VMs and computer's configuration, such as security update status and operating system configuration, to become available. You can view the security state of your resources and any issues in the **Prevention** section. You can also view a list of those issues on the **Recommendations** tile.
 
 For more information about how to apply recommendations, read [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
@@ -45,25 +45,25 @@ When you click **Compute** tile, the **Compute** blade that opens shows three ta
 In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue. 
 
 #### Monitoring recommendations
-This section shows the total number of virtual machines and computers that were initialized for automatic provisioning and their current statuses. When you click this entry, the **VM Agent is missing or not responding** blade opens. 
+This section shows the total number of virtual machines and computers that were initialized for automatic provisioning and their current statuses. When you click this entry, the **VM Agent is missing or not responding** opens. 
 
 ![Missing system update by virtual machine](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
 
 #### Recommendations
-This section has a set of [recommendations for each virtual machine and computer](security-center-virtual-machine-recommendations.md) that Azure Security Center monitors. The first column lists the recommendation. The second column shows the total number of virtual machines and computers that are affected by that recommendation. The third column shows the severity of the issue as illustrated in the following screenshot.
+This section has a set of [recommendations for each virtual machine and computer](security-center-virtual-machine-recommendations.md) that Azure Security Center monitors. The first column lists the recommendation. The second column shows the total number of virtual machines and computers that are affected by that recommendation. The third column shows the severity of the issue as illustrated in the following screenshot:
 
 ![Virtual machine recommendations](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
-> Only virtual machines that have at least one public endpoint are shown in the **Networking Health** blade in the **Network topology** list.
+> Only virtual machines that have at least one public endpoint are shown in the **Networking Health** in the **Network topology** list.
 >
 
-Each recommendation has a set of actions that you can perform after you click it. For example, if you click **Missing system updates**, the **Missing system updates** blade opens. It lists the virtual machines and computers that are missing patches, and the severity of the missing update as shown in the following screenshot.
+Each recommendation has a set of actions that you can perform after you click it. For example, if you click **Missing system updates**, the **Missing system updates** opens. It lists the virtual machines and computers that are missing patches, and the severity of the missing update as shown in the following screenshot:
 
 ![Missing system updates for virtual machines](./media/security-center-monitoring/security-center-monitoring-fig3-sep2017.png)
 
-The **Missing system updates** blade has a summary of critical updates in a graph format, one one for Windows, and one for Linux. The second part of the blade has a table with the following information:
+The **Missing system updates** has a summary of critical updates in a graph format, one one for Windows, and one for Linux. The second part has a table with the following information:
 
 * **NAME**: Name of the missing update.
 * **NO. OF VMs & COMPUTERS**: Total number of VMs and computers that are missing this update.
@@ -76,12 +76,12 @@ The **Missing system updates** blade has a summary of critical updates in a grap
   * **Medium**: Non-critical or additional steps are required to complete a process or eliminate a vulnerability.
   * **Low**: A vulnerability should be addressed but does not require immediate attention. (By default, low recommendations are not presented, but you can filter on low recommendations if you want to view them.)
 
-To view the recommendation details, click the name of the missing update from the list. A new blade opens with more information.
+To view the recommendation details, click the name of the missing update from the list. 
 
 ![Missing system updates for a specific virtual machine](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
-> The security recommendations here are the same as those in the **Recommendations** blade. See the [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) article for more information about how to resolve recommendations. This is applicable not only for virtual machines and computers, but also for all resources that are available in the **Resource Health** tile.
+> The security recommendations here are the same as those in the **Recommendations** option. See the [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) article for more information about how to resolve recommendations. This is applicable not only for virtual machines and computers, but also for all resources that are available in the **Resource Health** tile.
 >
 >
 
@@ -104,7 +104,7 @@ The icon that appears under each recommendation helps you to quickly identify th
 
 ![Filter](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
 
-In the previous example, one virtual machine has a critical recommendation regarding endpoint protection. To get more information about the virtual machine, click it. A new blade that opens represents this virtual machine as shown in the following screenshot.
+In the previous example, one virtual machine has a critical recommendation regarding endpoint protection. To get more information about the virtual machine, click it. A new blade that opens represents this virtual machine as shown in the following screenshot:
 
 ![Virtual machine security details](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
 
