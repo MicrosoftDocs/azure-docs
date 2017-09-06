@@ -46,7 +46,7 @@ Azure Container Registry is available in several different SKUs. When deploying 
 
 | SKU | Description | Notes |
 |---|---|---|
-| Classic | Limited capability and images stored in an Azure Storage account. | Avaliable in all regions. |
+| Classic | Limited capability and images stored in an Azure Storage account. | Available in all regions. |
 | Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 | Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
 | Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
@@ -124,7 +124,7 @@ When no longer needed, delete the **myResourceGroup** resource group. Doing so w
 
 ## Next steps
 
-In this Quickstart, you created an Azure Container Registy with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this Quickstart, you created an Azure Container Registry with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](../container-instances/container-instances-tutorial-prepare-app.md)
