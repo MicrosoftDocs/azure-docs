@@ -14,7 +14,7 @@ ms.date: 09/05/2017
 ---
 
 # Deploying the Iris trained model as a web service
-In this quick-start, you deploy the Iris model you trained in the previous [document](quick-start-iris.md).
+In this quick-start, you deploy the Iris model you trained in the [previous step](quick-start-iris.md).
 
 >Note you must have Docker engine installed locally and running in order to follow these steps.
 
@@ -47,3 +47,7 @@ C:\Temp\myIris> az ml service create realtime --model-file model.pkl -f score.py
 ```batch
 C:\Temp\myIris> az ml service run realtime -n irisservice -d "{\"input_df\": [{3.4,4.2,5.1,3.1]}"
 ```
+
+## Next Steps
+- Go through the full-length [Classifying Iris tutorial](tutorial-classifying-iris.md).
+- Read more about the Azure ML Model Management capabilities.
