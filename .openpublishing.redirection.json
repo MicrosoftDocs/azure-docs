@@ -22,7 +22,7 @@
         {
             "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
             "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
-            "redirect_document_id": false                        
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
@@ -10048,12 +10048,12 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-device-registration-get-started.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-device-registration-faq.md",
             "redirect_url": "/azure/active-directory/device-management-faq",
@@ -10108,7 +10108,7 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-overview.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-windows10-devices-overview.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
@@ -10128,7 +10128,7 @@
             "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
             "redirect_url": "/azure/app-service-web/app-service-linux-intro",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-passwords-get-insights.md",
             "redirect_url": "/azure/active-directory/active-directory-passwords-reporting",
@@ -10154,7 +10154,7 @@
             "redirect_url": "/azure/azure-functions/functions-openapi-definition",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/active-directory/active-directory-azureadjoin-user-frx.md",
             "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-frx",
             "redirect_document_id": false
@@ -10484,7 +10484,7 @@
             "redirect_url": "/azure",
             "redirect_document_id": false
         },
-
+        {
             "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
             "redirect_url": "/azure/virtual-machines/windows/agent-user-guide",
             "redirect_document_id": false
@@ -10498,7 +10498,7 @@
             "source_path": "articles/virtual-machines/virtual-machines-windows-sizes-storage.md",
             "redirect_url": "/azure/virtual-machines/windows/sizes-storage",
             "redirect_document_id": false
-
+        },
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
