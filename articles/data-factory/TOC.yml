@@ -179,6 +179,8 @@
       href: control-flow-script-activity.md     
     - name: For Each Activity
       href: control-flow-for-each-activity.md  
+    - name: Execute Pipeline Activity
+      href: control-flow-execute-pipeline-activity.md
     - name: Expression Language         
       href: control-flow-expression-language.md
   - name: Monitor and manage
