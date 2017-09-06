@@ -250,7 +250,7 @@ The web app uses a JavaScript client to download thumbnail images from blob stor
 In the following command, `<blob_storage_account>` is the name of your Blob storage account.
 
 ```azurecli-interactive
-az storage cors add --methods GET --exposed-headers content-length \
+az storage cors add --methods GET PUT OPTION --exposed-headers content-length \
 --allowed-headers "*" --origins "*" --services b \
 --account-name <blob_storage_account> 
 ```
