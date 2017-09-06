@@ -10430,8 +10430,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service-web/app-service-linux-choosing-deployment-type.md",
-            "redirect_url": "/azure/app-service/containers/choosing-deployment-type",
+            "source_path": "articles/app-service-web/app-service-linux-choose-deployment-type.md",
+            "redirect_url": "/azure/app-service/containers/choose-deployment-type",
             "redirect_document_id": false
         },
         {
