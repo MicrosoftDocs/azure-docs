@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2017
+ms.date: 09/06/2017
 ms.author: jgao
 
 ---
@@ -137,104 +137,7 @@ The output of this script in the Hive console:
 JSON\_TUPLE uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive, which allows json\_tuple to create a virtual table by applying the UDT function to each row of the original table.  Complex JSONs become too unwieldy because of the repeated use of LATERAL VIEW. Furthermore, JSON_TUPLE cannot handle nested JSONs.
 
 ### Use custom SerDe
-SerDe is the best choice for parsing nested JSON documents, it allows you to define the JSON schema, and use the schema to parse the documents. In this tutorial, you use one of the more popular SerDe that has been developed by [Roberto Congiu](https://github.com/rcongiu).
-
-**To use the custom SerDe**
-
-1. Install [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight
-   
-   > [!WARNING]
-   > JDK 1.8 doesn't work with this SerDe.
-   > 
-   
-    After the installation is completed, add a new user environment variable **JAVA_HOME** pointing to **C:\Program Files\Java\jdk1.8.0_144** or wherever your JDK is installed.
-      
-      ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
-2. Install [Apache Maven](https://maven.apache.org/). Maven 3.5.0 was last tested.
-   
-    Add the bin folder to the Path environment variable.
-   
-    ![Setting up Maven][image-hdi-hivejson-maven]
-3. Download the [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) project.
-   
-    ![Cloning the project][image-hdi-hivejson-serde]
-
-4. Open a command prompt, and then run the following command in the folder where you downloaded the Serde package
-
-        mvn package
-
-    This command creates the jar files that you can then copy over to the cluster.
-
-5.  Go to the target folder under the root folder where you downloaded the package. Upload the json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar file to head-node of your cluster. I usually put it under the hive binary folder: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin or something similar.
-
-6: In the hive prompt, type “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”. Since in my case, the jar is in the C:\apps\dist\hive-0.13.x\bin folder, I can directly add the jar with the name as shown:
-
-    add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
-
-   ![Adding JAR to your project][image-hdi-hivejson-addjar]
-
-Now, you are ready to use the SerDe to run queries against the JSON document.
-
-The following statement creates a table with a defined schema:
-
-    DROP TABLE json_table;
-    CREATE EXTERNAL TABLE json_table (
-      StudentId string,
-      Grade int,
-      StudentDetails array<struct<
-          FirstName:string,
-          LastName:string,
-          YearJoined:int
-          >
-      >,
-      StudentClassCollection array<struct<
-          ClassId:string,
-          ClassParticipation:string,
-          ClassParticipationRank:string,
-          Score:int,
-          PerformedActivity:boolean
-          >
-      >
-    ) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
-    LOCATION '/json/students';
-
-To list the first name and last name of the student
-
-    SELECT StudentDetails.FirstName, StudentDetails.LastName FROM json_table;
-
-Here is the result from the Hive console.
-
-![SerDe Query 1][image-hdi-hivejson-serde_query1]
-
-To calculate the sum of scores of the JSON document
-
-    SELECT SUM(scores)
-    FROM json_table jt
-      lateral view explode(jt.StudentClassCollection.Score) collection as scores;
-
-The preceding query uses [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF to expand the array of scores so that they can be summed.
-
-Here is the output from the Hive console.
-
-![SerDe Query 2][image-hdi-hivejson-serde_query2]
-
-To find which subjects a given student has scored more than 80 points:
-
-    SELECT  
-      jt.StudentClassCollection.ClassId
-    FROM json_table jt
-      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
-
-The preceding query returns a Hive array unlike get\_json\_object, which returns a string.
-
-![SerDe Query 3][image-hdi-hivejson-serde_query3]
-
-If you want to skil malformed JSON, then as explained in the [wiki page](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) of this SerDe you can achieve that by typing the following code:  
-
-    ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
-
-
-
+SerDe is the best choice for parsing nested JSON documents, it allows you to define the JSON schema, and use the schema to parse the documents. For instructions, see [How to use a Custom JSON Serde with Microsoft Azure HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## Summary
 In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you only have one field to look up on – you can choose to use the Hive UDF get\_json\_object. If you have more than one key to look up on, then you can use json_tuple. If you have a nested document, then you should use the JSON SerDe.
