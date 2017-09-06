@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,load & move data
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 06/27/2017
