@@ -86,7 +86,9 @@
         href: connector-cassandra.md
       - name: DB2
         href: connector-db2.md
-      - name: Dynamics (CRM & 365)
+      - name: Dynamics 365
+        href: connector-dynamics-crm-office-365.md       
+      - name: Dynamics CRM 
         href: connector-dynamics-crm-office-365.md
       - name: File System
         href: connector-file-system.md
