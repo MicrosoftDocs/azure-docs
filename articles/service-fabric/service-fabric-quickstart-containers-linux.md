@@ -44,14 +44,14 @@ Name your application "MyFirstContainer" and name the application service "MyCon
 
 Provide the container image name "nginx:latest" (the [nginx container image](https://hub.docker.com/r/_/nginx/) on Docker Hub). 
 
-This image has a workload entry-point defined, so need to explicitly specify input commands. 
+This image has a workload entry-point defined, so you need to explicitly specify input commands. 
 
 Specify an instance count of "1".
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
 ## Configure communication and container port-to-host port mapping
-Configure an HTTP endpoint so clients can communicate with your service.  Open the *./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xml file* and declare an endpoint resource in the **ServiceManifest** element.  Add the protocol, port, and name. For this quick start, the service listens on port 80: 
+Configure an HTTP endpoint so clients can communicate with your service.  Open the *./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xml* file and declare an endpoint resource in the **ServiceManifest** element.  Add the protocol, port, and name. For this quickstart, the service listens on port 80: 
 
 ```xml
 <Resources>
@@ -66,7 +66,7 @@ Configure an HTTP endpoint so clients can communicate with your service.  Open t
 ```
 Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
 
-Map a container port to a service `Endpoint` using a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this quick start, `ContainerPort` is 80 (the container exposes port 80) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint previously defined in the service manifest).  Incoming requests to the service on port 80 are mapped to port 80 on the container.  
+Map a container port to a service `Endpoint` using a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this quickstart, `ContainerPort` is 80 (the container exposes port 80) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint previously defined in the service manifest).  Incoming requests to the service on port 80 are mapped to port 80 on the container.  
 
 ```xml
 <Policies>
@@ -84,9 +84,9 @@ cd MyFirstContainer
 gradle
 ```
 ## Create a cluster
-To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
+To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a party cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).  
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a party cluster, [follow the instructions](http://aka.ms/tryservicefabric).  
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
@@ -123,7 +123,7 @@ Use the uninstall script provided in the template to delete the application inst
 ```
 
 ## Complete example Service Fabric application and service manifests
-Here are the complete service and application manifests used in this quick start.
+Here are the complete service and application manifests used in this quickstart.
 
 ### ServiceManifest.xml
 ```xml
