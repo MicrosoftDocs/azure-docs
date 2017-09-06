@@ -126,7 +126,7 @@ Now from a development machine, or any other system with Docker installed, creat
 Create a container from the Ubuntu image.
 
 ```azurecli-interactive
-docker run ubunut --name base-image
+docker run ubuntu --name base-image
 ```
 
 Now capture the container into a new image. The image name needs to include the `loginServer` name of the container registrywith a format of `loginServer/imageName`.
