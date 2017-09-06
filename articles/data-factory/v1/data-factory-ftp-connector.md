@@ -374,7 +374,7 @@ The pipeline contains a copy activity that is configured to use the input and ou
 }
 ```
 > [!NOTE]
-> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-copy-activity-map-columns.md).
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Next steps
 See the following articles:

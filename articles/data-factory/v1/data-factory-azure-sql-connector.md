@@ -661,7 +661,7 @@ When moving data to and from Azure SQL Database, the following mappings are used
 | xml |Xml |
 
 ## Map source to sink columns
-To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-copy-activity-map-columns.md).
+To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Repeatable copy
 When copying data to SQL Server Database, the copy activity appends data to the sink table by default. To perform an UPSERT instead,  See [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) article. 

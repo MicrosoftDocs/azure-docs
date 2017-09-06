@@ -296,7 +296,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 | URL |String |
 
 > [!NOTE]
-> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-copy-activity-map-columns.md).
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
