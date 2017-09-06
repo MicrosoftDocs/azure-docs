@@ -19,7 +19,7 @@ ms.author: vigunase
 # Azure Active Directory B2C: Enable 'Keep Me Signed In'  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C now allows your web and native applications to enable the 'keep me signed in' functionality. This feature grants access to returning users to application without prompting to re-enter the username and password. This access will be revoked when the user logs out. 
+Azure AD B2C now allows your web and native applications to enable the 'keep me signed in' functionality. This feature grants access to returning users to application without prompting to reenter the username and password. This access is revoked when the user logs out. 
 
 We recommend against users checking this option on public computers. 
 
@@ -35,7 +35,7 @@ Make the following changes in your trust framework extensions policy,
 
 ## Content definition 
 
-Define a new `ContentDefinition` with ID `api.signuporsigninwithkmsi` that defines a `DataUri` `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0`. This is a machine understandable identifier that brings up a keep me signed in check box in the sign-in pages. 
+Define a new `ContentDefinition` with ID `api.signuporsigninwithkmsi` that defines a `DataUri` `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0`. This datauri is a machine understandable identifier that brings up a keep me signed in check box in the sign-in pages. 
 
 ```XML
   <BuildingBlocks>
@@ -54,9 +54,9 @@ Define a new `ContentDefinition` with ID `api.signuporsigninwithkmsi` that defin
 
 
 
-## Add a  local account sign in claims provider 
+## Add a  local account sign-in claims provider 
 
-Add the following sign in claims provider to your extensions policy. 
+Add the following sign-in claims provider to your extensions policy. 
 
 ```XML
 <ClaimsProviders>
@@ -93,11 +93,9 @@ Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
 
 4. Save your extensions file.
 
-   ​
-
 ## Create a keep me signed in enabled user journey
 
-Create a sign in/up user journey with the content defined earlier with ID `api.signuporsigninwithkmsi`. This enables the keep me signed in option. 
+Create a sign-in/up user journey with the content defined earlier with ID to enable the keep me signed in option. 
 
 ```XML
 <UserJourneys>
@@ -149,10 +147,13 @@ Next, update the relying party (RP) file that initiates the user journey that yo
 
 3. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the `Id` of the new user journey that you created (for example, SignUpOrSignInWithKmsi).
 
-4. Configure keep me signed settings in `UserJourneyBehaviors`. 
+4. Keep me signed settings is configured in `UserJourneyBehaviors`. 
 
-   1. **`KeepAliveInDays`** controls how long the user remains signed in. In the following example, keep me signed in session automatically expires after 14 days regardless of how often the user performs silent authentication. Setting `KeepAliveInDays`  value to 0 turns off keep me signed in functionality and is the default behavior if not specified. 
-   2. If **`SessionExpiryType`** is *Rolling*, then the keep me signed in session is extended by 14 days every time the user performs silent authentication. We recommend you to keep the number of days low if *Rolling* is selected. 
+5. **`KeepAliveInDays`** controls how long the user remains signed in. In the following example, keep me signed in session automatically expires after 14 days regardless of how often the user performs silent authentication. 
+
+   Setting `KeepAliveInDays`  value to 0 turns off keep me signed in functionality. By default, this value is 0.
+
+6. If **`SessionExpiryType`** is *Rolling*, then the keep me signed in session is extended by 14 days every time the user performs silent authentication.  If *Rolling* is selected, we recommend you to keep the number of days to minimum. 
 
        <RelyingParty>
        <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
@@ -175,9 +176,9 @@ Next, update the relying party (RP) file that initiates the user journey that yo
        </TechnicalProfile>
        </RelyingParty>
 
-5. Save your changes, and then upload the file.
+7. Save your changes, and then upload the file.
 
-6. To test the custom policy that you uploaded, in the Azure portal, go to the policy blade, and then click **Run now**.
+8. To test the custom policy that you uploaded, in the Azure portal, go to the policy blade, and then click **Run now**.
 
 
 ## Link to sample policy
