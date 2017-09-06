@@ -42,7 +42,7 @@ sections:
     - html: <a href="/azure/iot-dps/tutorial-set-up-device">Set up your device to connect to Azure</a>
     - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Provision devices to a single IoT hub</a>
     - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Provision devices to multiple, load-balanced IoT hubs</a>
-    - title: Reference
+- title: Reference
   items:
   - type: list
     style: cards
