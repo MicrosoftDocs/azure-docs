@@ -51,53 +51,53 @@ These steps are are shown in the Azure App Service repository as an example [her
 
 1. Include the `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`. 
 
-> [!NOTE]
-> This configuration does not allow external connections to the container. SSH can only
-> be accessed via the Kudu / SCM Site, which is authenticated using the publishing
-> credentials.
-
-```docker
-# ------------------------
-# SSH Server support
-# ------------------------
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends openssh-server \
-	&& echo "root:Docker!" | chpasswd
-```
+    > [!NOTE]
+    > This configuration does not allow external connections to the container. SSH can only
+    > be accessed via the Kudu / SCM Site, which is authenticated using the publishing
+    > credentials.
+    
+    ```docker
+    # ------------------------
+    # SSH Server support
+    # ------------------------
+    RUN apt-get update \
+    	&& apt-get install -y --no-install-recommends openssh-server \
+    	&& echo "root:Docker!" | chpasswd
+    ```
 
 1. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
 
-> [!NOTE]
-> The *sshd_config* file must include the following or the connection fails: 
-> * `Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.
-> * `MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.
-
-```docker
-COPY sshd_config /etc/ssh/
-```
+    > [!NOTE]
+    > The *sshd_config* file must include the following or the connection fails: 
+    > * `Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.
+    
+    ```docker
+    COPY sshd_config /etc/ssh/
+    ```
 
 1. Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal only port accessible only by containers within the bridge network of a private virtual network.
 
-```docker
-EXPOSE 2222 80
-```
+    ```docker
+    EXPOSE 2222 80
+    ```
 
 1. Make sure to start the ssh service. The example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) uses a shell script in */bin* directory.
 
-```bash
-#!/bin/bash
-service ssh start
-```
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
 
 The Dockerfile uses the [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd) to run the script.
 
-```docker
-COPY init_container.sh /bin/
-...
-RUN chmod 755 /bin/init_container.sh 
-...
-CMD ["/bin/init_container.sh"]
-```
+    ```docker
+    COPY init_container.sh /bin/
+    ...
+    RUN chmod 755 /bin/init_container.sh
+    ...
+    CMD ["/bin/init_container.sh"]
+    ```
 
 ## Next steps
 

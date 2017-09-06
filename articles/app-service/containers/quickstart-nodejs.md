@@ -67,15 +67,15 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
 
 Browse to the site to see your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
@@ -85,7 +85,7 @@ http://<app name>.azurewebsites.net
 
 ![Empty web app page](media/quickstart-nodejs/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 23, done.
