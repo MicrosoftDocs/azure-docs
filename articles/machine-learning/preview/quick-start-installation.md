@@ -135,7 +135,7 @@ Let's also create resources needed for deploying and managing your models.
 
 ```bash
 # Create a new Model Management Account
-# az ml account modelmanagement create -l <Azure Region location, e.g. eastus2> -n <your environment name> -g <resource gourp> --sku-instances <number of plans, default is 1> --sku-name <pricing plan for example: S1>
+$ az ml account modelmanagement create -l <Azure Region location, e.g. eastus2> -n <your environment name> -g <resource gourp> --sku-instances <number of plans, default is 1> --sku-name <pricing plan for example: S1>
 
 # Create a new Model Management environment for local web service deployment
 $ az ml env setup -l <Azure region location, e.g. eastus2> -n <environment name>
@@ -178,7 +178,7 @@ Docker is needed if you want to execute scripts in a local Docker container, or 
 
 >Note on Windows, Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
 
-### Installing (or updating) on Linux
+### Installing, or updating, the Model Management CLIs on Linux
 Run the following command from the command line, and follow the prompts:
 
 ```bash
