@@ -3,7 +3,7 @@ title: Manage packet captures with Azure Network Watcher - Azure portal | Micros
 description: This page explains how to manage the packet capture feature of Network Watcher using Azure portal
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Manage packet captures with Azure Network Watcher using the portal
