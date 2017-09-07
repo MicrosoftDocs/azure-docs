@@ -54,9 +54,9 @@ Some of the key attributes of HTTPS feature are:
 ## Step 2: Domain validation
 
 >[!IMPORTANT] 
->You must complete domain validation before HTTPS will be active on your custom domain. You have 6 business days to approve the domain. Request will be canceled with no approval within 6 business days.  
+>You must complete domain validation before HTTPS will be active on your custom domain. You have 6 business days to approve the domain. Requests with no approval will be canceled within 6 business days.  
 
-After enabling HTTPS on your custom domain, our HTTPS certificate provider DigiCert will validate ownership of your domain by contacting the registrant for your domain, based on WHOIS registrant information, via email (by default) or phone. DigiCert will also send the verification email to the below addresses. If WHOIS registrant information is private, make sure you can approve directly from one of these addresses.
+After you enable HTTPS on your custom domain, our HTTPS certificate provider DigiCert validates ownership of your domain by contacting the registrant for your domain, based on WHOIS registrant information, via email (by default) or phone. DigiCert will also send the verification email to the following addresses. If WHOIS registrant information is private, make sure you can approve directly from one of these addresses:
 
 >admin@<your-domain-name.com>
 >administrator@<your-domain-name.com>  
@@ -64,12 +64,28 @@ After enabling HTTPS on your custom domain, our HTTPS certificate provider DigiC
 >hostmaster@<your-domain-name.com>  
 >postmaster@<your-domain-name.com>
 
+The following table shows possible validation results.
+
+| Domain validation results | 
+| --- |
+| Certificate deleted |
+| Certificate successfully deployed |
+| Deleting certificate |
+| Deploying certificate to CDN POPs |
+| Domain validation succeeded |
+| Domain validation failed (customer likely declined email validation) |
+| Domain validation request expired (customer didn't respond within 6 days) |
+| Issuing certificate |
+| Domain validation email sent, waiting for your approval |
+| Submitting your request |
+| Unexpected failure while processing your request, please try again or contact support |
+
 
 Upon receiving the email, you have two verification options:
 
-1. You can approve all future orders placed through the same account for the same root domain, e.g. consoto.com. This is a recommended approach if you are planning to add additional custom domains in the future for the same root domain.
+1. You can approve all future orders placed through the same account for the same root domain, for example, consoto.com. This is a recommended approach if you are planning to add additional custom domains in the future for the same root domain.
  
-2. You can just approve the specific host name used in this request. Additional approval will be required for subsequent requests.
+2. You can approve just the specific host name used in this request. Additional approval will be required for subsequent requests.
 
 	Example email:
 	
@@ -79,7 +95,7 @@ After approval, DigiCert will add your custom domain name to the SAN certificate
 
 ## Step 3: Wait for the propagation then start using your feature
 
-After the domain name is validated it will take up to 6-8 hours for the custom domain HTTPS feature to be active. After the process is complete, the "custom HTTPS" status in the Azure portal will be set to "Enabled". HTTPS with your custom domain is now ready for your use.
+After the domain name is validated, it takes up to 6-8 hours for the custom domain HTTPS feature to be active. When the process is complete, the "custom HTTPS" status in the Azure portal is set to "Enabled." HTTPS with your custom domain is now ready for your use.
 
 ## Frequently asked questions
 
