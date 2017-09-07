@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 09/05/2017
+ms.date: 09/07/2017
 ---
 
 # Installing Azure Machine Learning preview features
@@ -112,14 +112,10 @@ From here, you have two options, you can create a new Azure resource group, or u
 ```bash
 # Create a new Azure resource group
 # Note the currently supported Azure regions are: eastus2, and westcentralus
-# -n: Azure resource group name
-# -l: Azure region
-$ az group create -n mygroup -location eastus2
+$ az group create -n <Azure resource group name> mygroup -location <Azure region location>
 
 # Create a new Experimentation account
-# -g: Azure resource group
-# -a: Experimentation Account name. It must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-$ az ml account experimentation create -n myexpacct -g mygroup
+$ az ml account experimentation create -n <experimentation acct name, 3-24 characters. numbers and lower-case only> -g <resource group>
 ```
 >Note the new Azure Storage Account auto-created will all carry the same name as the Experimentation account name.
 
@@ -131,10 +127,7 @@ It is a good idea to also create a new Workspace where your Projects can live. Y
 
 ```bash
 # Create a new workspace
-# -n: name of the workspace
-# -g: resource group name
-# -a: Experimentation account name
-$ az ml workspace create -n myWS -g mygroup -a myexpacct
+$ az ml workspace create -n <workspace name> -g <resource group> -a <Experimentation account name>
 ```
 
 Let's also create resources needed for deploying and managing your models. 
@@ -142,22 +135,13 @@ Let's also create resources needed for deploying and managing your models.
 
 ```bash
 # Create a new Model Management Account
-# -l: Azure region
-# -n: environment name
-# -g: Azure resource group name
-# --sku-instance: number of skus included.
-# --sku-name: the sku name
-$ az ml account modelmanagement create -l eastus2 -n myenv -g mygroup --sku-instances 1 --sku-name S1
+# az ml account modelmanagement create -l <Azure Region location, e.g. eastus2> -n <your environment name> -g <resource gourp> --sku-instances <number of plans, default is 1> --sku-name <pricing plan for example: S1>
 
 # Create a new Model Management environment for local web service deployment
-# -l: Azure region
-# -n: environment name
-$ az ml env setup -l eastus2 -n myenv
+$ az ml env setup -l <Azure region location, e.g. eastus2> -n <environment name>
 
 # Set the environment to be used
-# -n: environment name
-# -g: Azure resource group name
-$ az ml env set -n myenv -g mygroup
+$ az ml env set -n <environment name> -g <resource group>
 ```
 
 ### Check Your Build number
