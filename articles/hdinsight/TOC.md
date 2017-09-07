@@ -124,6 +124,7 @@
 ### [Serialize data with Avro Library](hdinsight-dotnet-avro-serialization.md)
 ### [Use C# user-defined functions](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Use Python with Hive and Pig](hdinsight-python.md)
+### [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 ## Analyze big data
 ### [Analyze using Power Query](hdinsight-connect-excel-power-query.md)
 ### [Connect Excel to Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)
