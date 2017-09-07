@@ -25,9 +25,9 @@ The following table includes links to PowerShell script samples that use Azure B
 | | |
 |---|---|
 |**Back up virtual machines**||
-| [Back up an encrypted virtual machine to Azure](../scripts/backup-powershell-sample-backup-encrypted-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Back up all data on the encrypted virtual machine.|
+| [Back up an encrypted virtual machine to Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Back up all data on the encrypted virtual machine.|
 
 |**Back up Windows Server**||
-| [Back up files and folders from Windows Server to Azure](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Back up the files and folders from an on-premises Windows Server to Azure.  |
+| [Back up files and folders from Windows Server to Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Back up the files and folders from an on-premises Windows Server to Azure.  |
 | | |
 
