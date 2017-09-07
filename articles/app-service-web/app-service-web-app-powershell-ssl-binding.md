@@ -22,8 +22,6 @@ With the release of Microsoft Azure PowerShell version 1.1.0 a new cmdlet has be
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-To learn about using Azure Resource Manager based Azure PowerShell cmdlets to manage your Web Apps check [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
-
 ## Uploading and Binding a new SSL certificate
 Scenario: The user would like to bind an SSL certificate to one of his web apps.
 
@@ -65,7 +63,6 @@ Note that if the removed SSL binding was the last binding using that certificate
     Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### References
-* [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
 * [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
-* [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
+* [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 
