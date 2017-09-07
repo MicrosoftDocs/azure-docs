@@ -11,7 +11,8 @@ ms.assetid: 57e32e51-9286-46da-9d59-31884650ba99
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
-ms.topic: articlms.tgt_pltfrm: na
+ms.topic: article
+ms.tgt_pltfrm: na
 ms.date: 09/06/2017
 ms.author: eugenesh
 ---
