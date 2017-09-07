@@ -133,8 +133,8 @@ having this step will result in a compilation error.
 - A non-partitioned query using the **ANOMALYDETECTION** function can produce results with a computation latency of about 25ms on average.
 - The latency experienced by a partitioned query varies slightly with the number of partitions, as the number of computations is higher. However, the latency is about the same as the non-partitioned case for a comparable total number of events across all partitions.
 - While reading non-real-time data, a large amount of data is ingested quickly. Processing this data is currently significantly slower. The latency in such scenarios was found to increase linearly with the number of data points in the window rather than the window size or event interval per se. To reduce the latency in non-real-time cases, consider using a smaller window size. Alternatively, consider starting your job from the current time. A few examples of latencies in a non-partitioned query: 
-    - 60 data points in the detection window can result in a latency of 10 seconds with a throughput of 3MBps. 
-    - At 600 data points, the latency can reach about 80 seconds with a throughput of 0.4MBps.
+    - At 60 data points in the detection window, a latency of 10 seconds with a throughput of 3 MBps have been observed.
+    - At 600 data points, it has been observed that the latency can reach about 80 seconds with a throughput of 0.4 MBps.
 
 ## Example
 
