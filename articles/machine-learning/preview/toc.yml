@@ -3,9 +3,10 @@
 - name: Overview
   expanded: true
   items:
-  - name: (What are the Azure Machine Learning preview features)?
+  - name: What are the Azure Machine Learning preview features?
+    href: overview-what-is-azure-ml.md
   - name: Machine Learning options at Microsoft
-    href: overview-what-are-machine-learning-options.md
+    href: oerview-what-are-machine-learning-options.md
 - name: Quickstarts
   items:
   - name: Provisioning and installation
@@ -15,11 +16,11 @@
 - name: Tutorials
   items:
   - name: Classify iris part 1 - data preparation
-    href: tutorial-classifying-iris-1.md
+    href: tutorial-classifying-iris-part-1.md
   - name: Classify iris part 2 - model building
-    href: tutorial-classifying-iris-2.md
+    href: tutorial-classifying-iris-part-2.md
   - name: Classify iris part 3 - model deployment
-    href: tutorial-classifying-iris-3.md
+    href: tutorial-classifying-iris-part-3.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md
 - name: Samples
