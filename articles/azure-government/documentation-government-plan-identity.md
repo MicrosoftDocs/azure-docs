@@ -28,7 +28,7 @@ Before determining the identity approach for your application, you need to know 
 
 |On-Premises Identity|Cloud Identity|Hybrid Identity
 |---|---|---|
-|On-Premises Identities belong to on-premises Active Directory environments that most customers use today.|Cloud identities are born, only exist in, and are managed in Azure AD.|Hybrid identities originate as on-premises identities, but become hybrid through directory synchronization to Azure AD. After directory synchronization they exist both on-premises and in the cloud...hence hybrid.|
+|On-Premises Identities belong to on-premises Active Directory environments that most customers use today.|Cloud identities are born, only exist in, and are managed in Azure AD.|Hybrid identities originate as on-premises identities, but become hybrid through directory synchronization to Azure AD. After directory synchronization they exist both on-premises and in the cloud, hence hybrid.|
 
 >[!NOTE]
 >Hybrid comes with deployment options (Synchronized Identity, Federated Identity, etc.) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [Choose a Hybrid Identity Solution](..\active-directory\choose-hybrid-identity-solution.md).
@@ -57,20 +57,25 @@ Once decided, the special consideration is where you perform your app registrati
 > Applications registered with AAD only allow sign-in from users in the AAD tenant the application was registered in. If you have multiple AAD Commercial tenants, it’s important to know which is intended to allow sign-ins from. If you intend to allow users to authenticate to the application from multiple Azure AD tenants the application must be registered in each tenant.
 >
 
-The other consideration is the identity authority URL.  You will to use the correct URL based on your chosen authority:
+The other consideration is the identity authority URL.  You need to use the correct URL based on your chosen authority:
 
 -	**AAD Commercial** = login.microsoftonline.com
 -	**AAD Government** = login.microsoftonline.us
 
 ### Applications Using Legacy (Kerberos/NTLM) Authentication Protocols
-Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. This is commonly enabled by extending the Active Directory footprint to Azure by adding domain controllers as virtual machines, shown in the following figure. This is typically done to support logins for line-of-business application and other apps that require Windows Integrated authentication.
+Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. The aim is to support logins for line-of-business application and other apps that require Windows Integrated authentication. This is commonly enabled by extending the Active Directory footprint to Azure by adding domain controllers as virtual machines, shown in the figure below: 
 
 <div align="center">
 
 ![alt text](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
 </div>
 
-The preceding figure is a simple connectivity example, using site-to-site VPN. This could easily, and more preferably, be an Azure ExpressRoute connection. The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read-Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at [Deployment Decisions and Factors for Read-Only DCs](https://msdn.microsoft.com/en-us/library/azure/jj156090.aspx#BKMK_RODC).
+
+>[!NOTE]
+>The preceding figure is a simple connectivity example, using site-to-site VPN. Azure ExpressRoute is another and more preferred connectivity option.
+>
+
+The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read-Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at [Deployment Decisions and Factors for Read-Only DCs](https://msdn.microsoft.com/en-us/library/azure/jj156090.aspx#BKMK_RODC).
 
 We have documentation covering the guidelines for deploying AD Domain Controllers and ADFS (AD Federation Services) at these links:
 
@@ -101,7 +106,7 @@ Here’s a way to find out using your browser of choice:
 ```
 
    - d. If the **tenant_region_scope** attribute’s value is **USG**, you have yourself an Azure Government tenant.
-     - **Note**: The result is a JSON file that’s automatically recognized and displayed by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer choose the save option and open it with another browser or plain text reader.
+     - **Note**: The result is a JSON file that’s automatically recognized and displayed by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
      - **Note**: The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Commercial in North America, the value would be **NA**.
 
 **If I’m an Office 365 GCC Moderate customer and want to build solutions in Azure Government do I need to have two tenants?**  
