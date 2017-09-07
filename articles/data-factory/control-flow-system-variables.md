@@ -37,3 +37,6 @@ This article describes system variables supported by Azure Data Factory. You can
 | --- | --- |
 | trigger().scheduledTime |Time when the trigger was scheduled to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable would return `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectively.|
 | trigger().startTime |Time when the trigger **actually** fired to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable might return something like this `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectively.|
+
+## Next steps
+For information about how these variables are used in expressions, see [Expression language & functions](control-flow-expression-language-functions.md). 

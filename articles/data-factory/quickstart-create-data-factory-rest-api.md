@@ -411,4 +411,26 @@ Here is the sample output:
 
 Use Azure Storage explorer to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified when creating a pipeline run.
 
+## Clean up resources
+You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group]((../azure-resource-manager/resource-group-overview.md)), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
+
+Run the following command to delete the entire resource group: 
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+```
+
+Run the following command to delete only the data factory: 
+
+```powershell
+Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
+```
+
+## Next steps
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the following tutorials to learn about using Data Factory in slightly complex scenarios. 
+
+Tutorial | Description
+-------- | -----------
+[Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
+[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-copy-onprem-data-to-cloud-dot-net.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
+[Tutorial: transform data using Spark](tutorial-transform-data-dot-net.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
 
