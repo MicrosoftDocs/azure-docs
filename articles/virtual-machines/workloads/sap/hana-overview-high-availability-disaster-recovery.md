@@ -200,11 +200,11 @@ Check to make sure that the public key was corrected as expected by changing fol
 
 ![The public key is copied by running this command](./media/hana-overview-high-availability-disaster-recovery/image2-public-key.png)
 
-At this point, contact SAP HANA on Azure Service Management and provide the public key. The service representative uses the public key to register it in the underlying storage infrastructure that is carved out for your HANA Large Instance tenant.
+At this point, contact SAP HANA on Azure Service Management and provide them with the public key. The service representative uses the public key to register it in the underlying storage infrastructure that is carved out for your HANA Large Instance tenant.
 
 ### Step 4: Create an SAP HANA user account
 
-To initiate the creation of SAP HANA snapshots, you need to create a user account in SAP HANA that the storage snapshot scripts can use. Create an SAP HANA user account within SAP HANA Studio for this purpose. This account must have the following privileges: **Backup Admin** and **Catalog Read**. In this example, the username is **SCADMIN**. The user account name created in HANA Studio is case-sensitive. Make sure to select **No** to require the user to change password on next sign in.
+To initiate the creation of SAP HANA snapshots, you need to create a user account in SAP HANA that the storage snapshot scripts can use. Create an SAP HANA user account within SAP HANA Studio for this purpose. This account must have the following privileges: **Backup Admin** and **Catalog Read**. In this example, the username is **SCADMIN**. The user account name created in HANA Studio is case-sensitive. Make sure to select **No** on require the user to change password on next sign in.
 
 ![Creating a user in HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -695,7 +695,7 @@ Snapshot created successfully.
 Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN01 "backup data drop snapshot"" ...
 HANA snapshot deletion successfully.
 ```
-You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the SAP HANA snapshots on each of the worker nodes. Then, the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted. It is initiated again from the master node.
+You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the SAP HANA snapshots on each of the worker nodes. Then, the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted. The deletion of the HANA snapshot is initiated from the master Node.
 
 
 ## Disaster recovery principles
@@ -744,7 +744,7 @@ To achieve an even better RPO in the disaster-recovery case, you can copy the HA
 5. Now you can start a transaction-log backup to restore to the latest backup that might be saved over to the DR region.
 
 ## Disaster-recovery failover procedure
-In case you want or need to failover to the DR site, you need to interact with the SAP HANA on Azure operations. In rough steps, the process so far looks like:
+In case you want or need to failover to the DR site, you need to interact with the SAP HANA on Azure operations team. In rough steps, the process so far looks like:
 
 - Since you are running a non-production instance of HANA on the disaster-recovery unit of HANA Large Instances, you need to shut down this instance. We assume that there is a dormant HANA production instance preinstalled.
 - You need to make sure that no SAP HANA processes are running. You can do this check with the following command: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. 
@@ -756,7 +756,7 @@ The output should show you the **hdbdaemon** process in a stopped state and no o
 	- After the restore, the disaster-recovery volumes are available to be mounted to the HANA Large Instance units in the disaster-recovery region.
 - The next step is to mount the disaster-recovery volumes to the HANA Large Instance unit in the disaster-recovery site. 
 - Then you can start the so far dormant SAP HANA production instance.
-- If you chose to copy transaction-log backup logs additionally to reduce the RPO time, you need to merge those transaction-log backups in to the newly mounted DR /hana/logbackups directory. Don't overwrite existing backups. Just copy newer backups that have not been replicated by the storage snapshot.
+- If you chose to copy transaction-log backup logs additionally to reduce the RPO time, you need to merge those transaction-log backups in to the newly mounted DR /hana/logbackups directory. Don't overwrite existing backups. Just copy newer backups that have not been replicated with the latest replication of a storage snapshot.
 
 The next sequence of steps involves recovering the SAP HANA production instance based on the restored storage snapshot and the transaction-log backups that are available. The steps look like:
 
@@ -785,15 +785,15 @@ In cases where the restore seems to hang at the **Finish** screen and does not c
 
 
 ### Failback from DR to a production site
-You can failback from a DR to a production site. Let's look at the case that the failover into the disaster-recovery site was caused by problems in the production Azure region and not by your need to get back lost data. Means you now were in production or a while in the disaster-recovery site. As the problems in the production site are resolved, you want to failback to your production site. Since you can't lose data, the step back into the production site involves several steps and close cooperation with SAP HANA on Azure operations. It is up to you to trigger the operations to start synchronizing back to the production site after the problems are resolved.
+You can failback from a DR to a production site. Let's look at the case that the failover into the disaster-recovery site was caused by problems in the production Azure region and not by your need to get back lost data. This means you have been running your SAP production workload for a while in the disaster-recovery site. As the problems in the production site are resolved, you want to failback to your production site. Since you can't lose data, the step back into the production site involves several steps and close cooperation with the SAP HANA on Azure operations team. It is up to you to trigger the operations team to start synchronizing back to the production site after the problems are resolved.
 
 The sequence of steps looks like:
 
-   1. SAP HANA on Azure operations gets the trigger to synchronize the production storage volumes from the disaster-recovery storage volumes, which are now representing the production state. In this state, the HANA Large Instance unit in the production site is shut down.
-   2. SAP HANA on Azure operations monitors the replication and makes sure that a catch-up is achieved before informing you as a customer.
-   3.  You need to shut down the applications that use the production HANA Instance in the disaster-recovery site. You then need to perform a HANA transaction-log backup. Then you need to stop the HANA instance running on the HANA Large Instance units in the disaster-recovery site.
-   4. After the HANA instance running in the HANA Large Instance unit in the disaster-recovery site is shut down, operations needs to manually synchronize the disk volumes again.
-   5.  SAP HANA on Azure operations starts the HANA Large Instance unit in the production site again and hands it over to you. Make sure that the SAP HANA instance is in a shutdown state at the start-up time of the HANA Large Instance unit.
+   1. The SAP HANA on Azure operations team gets the trigger to synchronize the production storage volumes from the disaster-recovery storage volumes, which are now representing the production state. In this state, the HANA Large Instance unit in the production site is shut down.
+   2. The SAP HANA on Azure operations team monitors the replication and makes sure that a catch-up is achieved before informing you as a customer.
+   3. You need to shut down the applications that use the production HANA Instance in the disaster-recovery site. You then need to perform a HANA transaction-log backup. Then you need to stop the HANA instance running on the HANA Large Instance units in the disaster-recovery site.
+   4. After the HANA instance running in the HANA Large Instance unit in the disaster-recovery site is shut down, the operations team needs to manually synchronize the disk volumes again.
+   5. The SAP HANA on Azure operations team starts the HANA Large Instance unit in the production site again and hands it over to you. Make sure that the SAP HANA instance is in a shutdown state at the start-up time of the HANA Large Instance unit.
    6. Now you need to perform the same database restore steps as you did when failing over to the disaster-recovery site previously.
 
 ### Monitoring disaster recovery replication
