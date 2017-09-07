@@ -85,9 +85,9 @@ sections:
     - html: <a href="service-fabric-architecture">Architecture</a>
     - html: <a href="service-fabric-technical-overview">Terminology</a>
 - title: Samples
+  items:
   - type: paragraph
     text: 'Find scripts for common management tasks:'
-  items:
   - type: list
     style: cards
     className: cardsD
