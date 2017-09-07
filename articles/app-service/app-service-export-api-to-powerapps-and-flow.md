@@ -13,63 +13,73 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/20/2017
-ms.author: mahender
+ms.date: 09/06/2017
+ms.author: mahender; mblythe
 
 ---
 # Exporting an Azure-hosted API to PowerApps and Microsoft Flow
 
-## Creating custom connectors for PowerApps and Microsoft Flow
+PowerApps is a service for building and using custom business apps that connect to your data and work across platforms. Microsoft Flow makes it easy to automate workflows and business processes between your favorite apps and services. Both PowerApps and Microsoft Flow come with a variety of built-in connectors to data sources such as Office 365, Dynamics 365, Salesforce, and more. However, users might also need to leverage data sources and APIs built by their organization.
 
-[PowerApps](https://powerapps.com) is a service for building and using custom business apps that connect to your data and work across platforms. [Microsoft Flow](https://flow.microsoft.com) makes it easy to automate workflows and business processes between your favorite apps and services. Both PowerApps and Microsoft Flow come with a variety of built-in connectors to data sources such as Office 365, Dynamics 365, Salesforce, and more. However, users also need to be able to leverage data sources and APIs being built by their organization.
-
-Similarly, developers that want to expose their APIs more broadly within the organization may want to make their APIs available to PowerApps and Microsoft Flow users. This topic will show you how to expose an API built with Azure App Service or Azure Functions to PowerApps and Microsoft Flow. [Azure App Service](https://azure.microsoft.com/services/app-service/) is a platform-as-a-service offering that allows developers to quickly and easily build enterprise-grade web, mobile, and API applications. [Azure Functions](https://azure.microsoft.com/services/functions/) is an event-based serverless compute solution that allows you to quickly author code that can react to other parts of your system and scale based on demand.
+Similarly, developers that want to expose their APIs more broadly within an organization can make their APIs available to PowerApps and Microsoft Flow users. This topic shows you how to export an API built with Azure Functions or Azure App Service. The exported API acts as a *custom connector*, which is used in PowerApps and Microsoft Flow just like a built-in connector.
 
 To learn more about these services, see:
+
 - [PowerApps Guided Learning](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) 
 - [Microsoft Flow Guided Learning](https://flow.microsoft.com/guided-learning/learning-introducing-flow/)
-- [What is App Service?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
-- [What is Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- [What is Azure Functions](../azure-functions/functions-overview.md)
+- [What is App Service?](../app-service/app-service-value-prop-what-is.md)
 
-## Sharing an API definition
+## Create and export an API definition
+Before exporting an API, you must describe the API using an OpenAPI definition (formerly known as a [Swagger](http://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured. PowerApps and Microsoft Flow can create custom connectors for any OpenAPI 2.0 definition. Azure Functions and Azure App Service have built-in support for creating, hosting, and managing OpenAPI definitions. For more information, see the following topics:
 
-APIs are often described using an [OpenAPI document](https://www.openapis.org/) (sometimes referred to as a "Swagger" document). This contains all of the information about what operations are available and how the data should be structured. PowerApps and Microsoft Flow can create custom connectors for any OpenAPI 2.0 document. Once a custom connector is created, it can be used in exactly the same way as one of the built-in connectors and can quickly be integrated into an application.
-
-Azure App Service and Azure Functions have [built-in support](https://docs.microsoft.com/azure/app-service-api/app-service-api-metadata) for creating, hosting, and managing an OpenAPI document. In order to create a custom connector for a web, mobile, API, or function app, PowerApps and Flow need to be given a copy of the definition.
+- [Create an OpenAPI definition for a function](../azure-functions/functions-openapi-definition.md)
+- [App Service API Apps metadata for API discovery and code generation](../app-service-api/app-service-api-metadata.md)
 
 > [!NOTE]
-> Because a copy of the API definition is being used, PowerApps and Microsoft Flow will not immediately know about updates or breaking changes to the application. If a new version of the API is made available, these steps should be repeated for the new version. 
+> Azure exports a *copy* of the API definition, so PowerApps and Microsoft Flow will not immediately know if you make changes to the application and its API definition. If you do make changes, repeat the export steps for the new version.
 
-To provide PowerApps and Microsoft Flow with the hosted API definition for your app, follow these steps:
+To export the API definition, follow these steps:
 
-1. Open the [Azure Portal](https://portal.azure.com) and navigate to your App Service or Azure Functions application.
+1. Open the [Azure Portal](https://portal.azure.com) and navigate to your Azure Functions or App Service application.
 
-    If using Azure App Service, select **API definition** from the settings list. 
+    If using Azure App Service, select **API definition** from the settings list.
+
+    [App Service API definition]()
     
-    If using Azure Functions, select your function app, and then choose **Platform features**, and then **API definition**. You could also choose to open the **API definition (preview)** tab instead.
+    If using Azure Functions, select your function app, choose **Platform features**, and then **API definition**.
 
-2. If an API definition has been provided, you will see an **Export to PowerApps + Microsoft Flow** button. Click this button to begin the export process.
+    [Azure Functions API definition]()
 
-3. Select the **Export mode**. This determines the steps you will need to follow to create a connector. App Service offers two options for providing PowerApps and Microsoft Flow with your API definition:
+2. The **Export to PowerApps + Microsoft Flow** button should be available (if not, you must first create an OpenAPI definition). Click this button to begin the export process.
 
-    **Express** lets you create the custom connector from within the Azure portal. It requires that the curent logged-in user has permission to create connectors in the target environment. This is the recommended approach if that requirement can be met. If using this mode, follow the [Express export](#express) instructions below.
+    [Export to PowerApps + Microsoft Flow]()
 
-    **Manual** lets you export a copy of the API definiton which can be imported using the PowerApps or Microsoft Flow portals. This is the recommended approach if the Azure user and the user with permission to create connectors are different people or if the connector needs to be created in another tenant. If using this mode, follow the [Manual export and import](#manual) instructions below.
+3. Select the **Export mode**:
+
+    **Express** lets you create the custom connector from within the Azure portal. It requires that you are signed into PowerApps or Microsoft Flow and have permission to create connectors in the target environment. This is the recommended approach if that requirement can be met. If using this mode, follow the [Use express export](#express) instructions below.
+
+    **Manual** lets you export the API definition, which you then import using the PowerApps or Microsoft Flow portals. This is the recommended approach if the Azure user and the user with permission to create connectors are different people or if the connector needs to be created in another tenant. If using this mode, follow the [Use manual export](#manual) instructions below.
+
+    [Export mode]()
 
 <a name="express"></a>
-## Express export
+## Use express export
 
-In this section, you will create a new custom connector from within the Azure portal. You must be logged into the tenant to which you wish to export, and you must have permission to create a custom connector in the target environment.
+To complete the export in **Express** mode, follow these steps:
 
-1. Select the environment in which you would like to create the connector. Then provide a name for your custom connector.
+1. Make sure you're signed in to the tenant to which you want to export. 
 
-2. If your API definition includes any security definitions, these will be called out in step #2. If required, provide the security configuration details needed to grant users access to your API. For more information, see [Authentication](#auth) below. 
+2. Select the environment in which you would like to create the connector. Then provide a name for your custom connector.
 
-3. Click **OK** to create your custom connector.
+3. If your API definition includes any security definitions, these will be called out in step #2. If required, provide the security configuration details needed to grant users access to your API. For more information, see [Specify authentication type](#auth) below. 
 
+4. Click **OK** to create your custom connector.
+
+For an example of using express mode with Azure Functions, see [Call a function from PowerApps](https://docs.microsoft.com/azure/azure-functions/functions-powerapps-scenario).
 
 <a name="manual"></a>
-## Manual export and import
+## Use manual export
 
 In order to create a custom connector for a web, mobile, API, or function app, two steps will be needed:
 
@@ -112,7 +122,7 @@ In this section, you will create a custom connector in PowerApps and Microsoft F
 
 
 <a name="auth"></a>
-## Authentication
+## Specify authentication type
 
 PowerApps and Microsoft Flow natively support a collection of identity providers which can be used to log in users of your custom connector. If your API requires authentication, ensure that it is captured as a _security definition_ in your OpenAPI document. During export, you will need to provide configuration values that allow PowerApps an Microsoft Flow to perform login actions.
 
