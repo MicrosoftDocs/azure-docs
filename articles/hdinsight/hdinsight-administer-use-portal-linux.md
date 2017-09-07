@@ -86,7 +86,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
     * **Tags**: Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
     * **Diagnose and solve problems**: Display troubleshooting information.
-    * **Locks**: Add lock to prevent the cluster being modified or deleted.
+    * **Locks**: Add a lock to prevent the cluster being modified or deleted.
     * **Automation script**: Display and export the Azure Resource Manager template for the cluster. Currently, you can only export the dependent Azure storage account. See [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
     * **Quick Start**:  Displays information that helps you get started using HDInsight.
     * **Tools for HDInsight**: Help information for HDInsight related tools.
@@ -108,7 +108,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     The properties are:
 
    * **Hostname**: Cluster name.
-   * **Cluster URL**. The URL for the Ambari web interface.
+   * **Cluster URL**: The URL for the Ambari web interface.
    * **Secure shell (SSH)**: The username and host name to use in accessing the cluster via SSH.
    * **Status**: One of: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, or ClusterCustomization.
    * **Region**: Azure location. For a list of supported Azure locations, see the **Region** dropdown list box on [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -123,7 +123,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Virtual network**: The name of the Virtual Network and subnet to which the cluster is deployed, if one was selected at deployment time.
 
 ## Delete clusters
-Deleting a cluster does not delete the default storage account or any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. It is recommended to use a new default Blob container when you re-create the cluster.
+Deleting a cluster does not delete the default storage account nor any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. We recommend using a new default Blob container when you re-create the cluster.
 
 1. Sign in to the [Portal][azure-portal].
 2. Click **HDInsight Clusters** from the left menu. If you don't see **HDInsight Clusters**, click **More services** first.
@@ -137,7 +137,7 @@ See also [Pause/shut down clusters](#pauseshut-down-clusters).
 You can add additional Azure Storage accounts and Azure Data Lake Store accounts after a cluster is created. For more information, see [Add additional storage accounts to HDInsight](./hdinsight-hadoop-add-storage.md).
 
 ## Scale clusters
-The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
+The cluster scaling feature allows you to change the number of worker nodes used by an Azure HDInsight cluster, without having to re-create the cluster.
 
 > [!NOTE]
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](#list-and-show-clusters).
@@ -193,7 +193,7 @@ The impact of changing the number of data nodes for each type of cluster support
 2. Click **HDInsight Clusters** from the left menu.
 3. Click the cluster you want to scale.
 3. Click **Scale Cluster**.
-4. Enter **Number of Worker nodes**. The limit on the number of cluster nodes varies among Azure subscriptions. You can contact billing support to increase the limit.  The cost information reflects the changes you have made to the number of nodes.
+4. Enter **Number of Worker nodes**. The limit on the number of cluster nodes varies between Azure subscriptions. You can contact billing support to increase the limit.  The cost information reflects the changes you have made to the number of nodes.
 
     ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
