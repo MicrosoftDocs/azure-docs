@@ -24,7 +24,7 @@
 
 
 # How-to guides
-## Get Started
+## Get started
 ### [Walkthrough of Azure Monitor](monitoring-get-started.md)
 ### [Walkthrough of autoscale](monitoring-autoscale-get-started.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor) 
@@ -49,19 +49,19 @@
 ### [Stream activity log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Create activity log alerts with Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-### [Migrate to Activity Log alerts](monitoring-migrate-management-alerts.md)
+### [Migrate to activity log alerts](monitoring-migrate-management-alerts.md)
 ## Use service notifications
 ### [View service notifications](monitoring-service-notifications.md)
 ### [Configure alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md)
 ## Use action groups
-### [Learn about webhook schema](monitoring-activity-log-alerts-webhook.md)
-### [SMS Alert behavior](monitoring-sms-alert-behavior.md)
-### [Alert Rate limiting](monitoring-alerts-rate-limiting.md)
+### [Learn about the webhook schema](monitoring-activity-log-alerts-webhook.md)
+### [SMS alert behavior](monitoring-sms-alert-behavior.md)
+### [Alert rate limiting](monitoring-alerts-rate-limiting.md)
 ### [Create action groups with Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
 ## Use diagnostic logs
 ### [Archive](monitoring-archive-diagnostic-logs.md)
 ### [Stream to Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-### [Enable Diagnostic settings using Resource Manager templates](monitoring-enable-diagnostic-logs-using-template.md)
+### [Enable diagnostic settings using Resource Manager templates](monitoring-enable-diagnostic-logs-using-template.md)
 ## Use the REST API
 ### [Walkthrough using REST API](monitoring-rest-api-walkthrough.md)
 ## Use Azure Diagnostics extension
