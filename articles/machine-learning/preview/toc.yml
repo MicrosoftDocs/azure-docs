@@ -9,7 +9,7 @@
 - name: Quickstarts
   items:
   - name: Provisioning and Installation
-    href: quickstart-installation.md
+    href: quick-start-installation.md
   - name: Iris Quickstart Part
     href: quick-start-iris.md  
 - name: Tutorials
@@ -21,8 +21,7 @@
   - name: (Bike Share Forecast - Experimentation)
   - name: Bike Share Forecast - Operationalization
     href: tutorial-bikerental-operationalization.md
-  - name: Iris tutorial Azure CLI
-    href: tutorial-iris-azure-cli.md
+  - name: (Iris tutorial Azure CLI)
   - name: MVC template (temporary)
     href: doc-template-tutorial.md
 - name: Samples
