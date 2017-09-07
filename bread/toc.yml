@@ -34,6 +34,9 @@
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
     items:
+    - name: Web Apps for Containers
+      tocHref: /azure/app-service/containers/
+      topicHref: /azure/app-service/containers/
     - name: Web Apps
       tocHref: /azure/app-service-web/
       topicHref: /azure/app-service-web/
