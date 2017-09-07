@@ -118,7 +118,7 @@ name: project_environment
 dependencies:
   - python=3.5.2
   - pip:    
-    # use the Linux build of CNTK 2.1 with 1 bit SGD and GPU support
+    # use the Linux build of CNTK 2.1 with 1-bit SGD and GPU support
     - https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
