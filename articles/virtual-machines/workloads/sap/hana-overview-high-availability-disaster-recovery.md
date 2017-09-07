@@ -234,17 +234,18 @@ hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
 ### Step 6: Get the snapshot scripts, configure the snapshots, and test the configuration and connectivity
 
 Download the most recent version of the scripts from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
-Copy the downloaded scripts and the text file to the working directory for **hdbsql**. For current HANA installations, this directory is like **/hana/shared/D01/exe/linuxx86\_64/hdb**.
-```
-azure\_hana\_backup.pl
-azure\_hana\_replication\_status.pl
-azure\_hana\_snapshot\_details.pl
-azure\_hana\_snapshot\_delelte.pl
-testHANAConnection.pl
-testStorageSnapshotConnection.pl
-removeTestStorageSnapshot.pl
-HANABackupCustomerDetails.txt
-```
+Copy the downloaded scripts and the text file to the working directory for **hdbsql**. For current HANA installations, this directory is like /hana/shared/D01/exe/linuxx86\_64/hdb. 
+``` 
+azure_hana_backup.pl 
+azure_hana_replication_status.pl 
+azure_hana_snapshot_details.pl 
+azure_hana_snapshot_delete.pl 
+testHANAConnection.pl 
+testStorageSnapshotConnection.pl 
+removeTestStorageSnapshot.pl 
+HANABackupCustomerDetails.txt 
+``` 
+
 
 Here is the purpose of the different scripts and files:
 
@@ -258,7 +259,7 @@ Here is the purpose of the different scripts and files:
       - Size of the snapshot
       - Frequency of the snapshot
       - HANA Backup ID associated with that snapshot, if relevant
-- **azure\_hana\_snapshot\_delelte.pl**: This script deletes a storage snapshot or a set of snapshots. You can use either the SAP HANA backup ID as found in HANA Studio or the storage snapshot name. Currently, the backup ID is only tied to the snapshots created for the HANA data/log/shared volumes. Otherwise, if the snapshot ID is entered, it seeks all snapshots that match the entered snapshot ID.  
+- **azure\_hana\_snapshot\_delete.pl**: This script deletes a storage snapshot or a set of snapshots. You can use either the SAP HANA backup ID as found in HANA Studio or the storage snapshot name. Currently, the backup ID is only tied to the snapshots created for the HANA data/log/shared volumes. Otherwise, if the snapshot ID is entered, it seeks all snapshots that match the entered snapshot ID.  
 - **testHANAConnection.pl**: This script tests the connection to the SAP HANA instance and is required to set up the storage snapshots.
 - **testStorageSnapshotConnection.pl**: This script has two purposes. First, to ensure that the HANA Large Instance unit that runs the scripts has access to the assigned storage virtual machine and to the storage snapshot interface of your HANA Large Instances. The second purpose is to create a temporary snapshot for the HANA instance you are testing. This script should be run for every HANA instance on a server to ensure that the backup scripts function as expected.
 - **removeTestStorageSnapshot.pl**: This script deletes the test snapshot as created with the script **testStorageSnapshotConnection.pl**. 
@@ -557,7 +558,7 @@ If you run the script with this setting, the number of snapshots, including the 
 
 If you no longer want to maintain a set of snapshots with a specific backup label **hanadaily** in the syntax examples, you can execute the script with **0** as the retention number. This removes all snapshots matching that label. However, removing all snapshots can affect the capabilities of disaster recovery.
 
-A second possibility to delete specific snapshots is to use the script `azure\_hana\_snapshot\_delelte.pl`. This script is designed to delete a snapshot or set of snapshots either by using the HANA backup ID as found in the HANA Studio or through the snapshot name itself. Currently, the backup ID is only tied to the snapshots created for the **hana** snapshot type. Snapshot backups of the type **logs** and **boot** do not perform an SAP HANA snapshot. Therefore, there is no backup ID to be found for those snapshots. If the snapshot name is entered, it looks for all snapshots on the different volumes that match the entered snapshot name. The call syntax of the script is:
+A second possibility to delete specific snapshots is to use the script `azure\_hana\_snapshot\_delete.pl`. This script is designed to delete a snapshot or set of snapshots either by using the HANA backup ID as found in the HANA Studio or through the snapshot name itself. Currently, the backup ID is only tied to the snapshots created for the **hana** snapshot type. Snapshot backups of the type **logs** and **boot** do not perform an SAP HANA snapshot. Therefore, there is no backup ID to be found for those snapshots. If the snapshot name is entered, it looks for all snapshots on the different volumes that match the entered snapshot name. The call syntax of the script is:
 
 ```
 ./azure_hana_snapshot_delete.pl 
