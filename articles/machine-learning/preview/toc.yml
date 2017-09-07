@@ -3,12 +3,14 @@
 - name: Overview
   expanded: true
   items:
-  - name: What are Azure Machine Learning preview features?
-    href: what-are-preview-features.md
+  - name: What is the Azure Machine Learning preview?
+    href: concepts.md
+  - name: Machine Learning options at Microsoft
+    href: what-are-machine-learning-options.md
 - name: Quickstarts
   items:
   - name: Provisioning and installation
-    href: quickstart-installation.md
+    href: quick-start-installation.md
   - name: Quick tour
     href: quick-start-iris.md  
 - name: Tutorials
@@ -41,9 +43,11 @@
     - name: How to use GPU from Workbench
       href: how-to-use-gpu.md    
   - name: Acquire and understand data
-    items:
-    - name: Getting Started with Data Preparation
+    items:    
+    - name: Get started with data preparation
       href: data-prep-getting-started.md
+    - name: Python extensions for data preparation
+      href: data-prep-python-extensibility-overview.md
   - name: Develop and manage models
     items:
     - name: (Use Jupyter notebooks)

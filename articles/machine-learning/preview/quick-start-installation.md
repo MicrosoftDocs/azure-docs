@@ -1,6 +1,6 @@
 ---
-title: Installation Quickstart for Machine Learning Server | Microsoft Docs
-description: This Quickstart shows how to provision Azure Machine Learning resources, and how to install Azure Machine Learning Workbench
+title: Installation quickstart for Machine Learning Server | Microsoft Docs
+description: This quickstart shows how to provision Azure Machine Learning resources, and how to install Azure Machine Learning Workbench
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib
