@@ -12,8 +12,8 @@
     href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Create a file share
     href: storage-how-to-create-file-share.md
-  - name: Azure File Sync
-    href: azure-file-sync-introduction.md
+  - name: Get started with Azure File Sync
+    href: azure-file-sync-quick-start.md
   - name: Mount on Windows
     href: storage-file-how-to-use-files-windows.md
   - name: Mount on Linux
@@ -28,11 +28,11 @@
     href: storage-how-to-use-files-cli.md
 - name: How To  
   items:
-  - name: Planning for an Azure Files deployment
+  - name: Plan
     items:
-      - name: Planning overview
+      - name: Plan for an Azure Files deployment
         href: planning-azure-files-deployment.md
-      - name: Planning for an Azure File Sync deployment
+      - name: Plan for an Azure File Sync deployment
         href: planning-azure-file-sync-deployment.md
       - name: Understanding scalability and performance
         href: azure-files-scalability-performance.md
@@ -42,7 +42,7 @@
         href: evaluting-sync-options.md
       - name: Understanding data security and encryption
         href: azure-files-data-security-encryption.md
-  - name: Deploying Azure Files
+  - name: Deploy
     items:
       - name: Azure Files deployment guide
         href: azure-files-deployment-guide.md
@@ -50,31 +50,31 @@
         href: azure-file-sync-deployment-guide.md
       - name: Configuring Azure Backup
         href: configuring-azure-backup-files.md
-  - name: Managing Azure Files
+  - name: Manage
     items: 
-      - name: Working with Azure File share metrics and diagnostics
+      - name: Work with Azure File share metrics and diagnostics
         href: azure-file-share-metrics-diagnostics.md
-      - name: Monitoring Azure File Sync health
+      - name: Monitor Azure File Sync health
         href: azure-file-sync-health-monitoring.md
-      - name: Azure File Sync network throttling
+      - name: Manage Azure File Sync network traffic
         href: azure-file-sync-network-throttling.md
-      - name: Azure File Sync register/deregister a server
+      - name: Register/deregister a server with Azure File Sync
         href: azure-file-sync-server-registration.md
-      - name: Azure File Sync add/remove a server endpoint
+      - name: Add/Remove an Azure File Sync Server Endpoint
         href: azure-file-sync-server-endpoint.md
-      - name: Azure File Sync Cloud Tiering
+      - name: Configure Azure File Sync Cloud Tiering
         href: azure-file-sync-cloud-tiering.md
-      - name: Deprovisioning Azure File Sync
+      - name: Deprovision Azure File Sync
         href: deprovisioning-azure-file-sync.md
-  - name: Troubleshooting Azure Files
+  - name: Troubleshoot
     items:
-    - name: Troubleshoot Azure Files - Windows
+    - name: Azure Files on Windows
       href: storage-troubleshoot-windows-file-connection-problems.md
-    - name: Troubleshoot Azure Files - Linux
+    - name: Azure Files on Linux
       href: storage-troubleshoot-linux-file-connection-problems.md
-    - name: Troubleshooting Azure File Sync
+    - name: Azure File Sync
       href: troubleshoot-azure-file-sync.md
-  - name: Developing for Azure Files
+  - name: Develop
     items:
     - name: Understanding concurrency
       href: understanding-concurrency.md
@@ -96,7 +96,7 @@
     href: azure-files-deploy-sftp-server.md
   - name: Deploy FTPS server
     href: azure-files-deploy-ftps-server.md
-  - name: Migrate a DFSR deployment to Azure File Sync
+  - name: Migrate to Azure File Sync from DFS Replication
     href: azure-file-sync-migrate-dfsr-deployment.md
   - name: NFS access to Azure Files with Azure File Sync
     href: azure-file-sync-nfs-endpoint.md
