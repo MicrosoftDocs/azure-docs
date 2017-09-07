@@ -41,9 +41,6 @@ To use this SAP Business Warehouse connector, you need to:
 > Put the dlls extracted from the NetWeaver RFC SDK into system32 folder.
 
 ## Getting started
-
-***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
-
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Business Warehouse connector.

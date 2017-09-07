@@ -27,9 +27,6 @@ You can copy data from any supported source data store to Azure Table, or copy d
 Specifically, this Azure Table connector supports copying data using both **account key** and **Service SAS** (Shared Access Signature) authentications.
 
 ## Get started
-
-***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
-
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Table Storage.
