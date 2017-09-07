@@ -58,7 +58,7 @@ The symbols are shortcuts for the top-level menus:
 | --------------------------------------- | ------------ |
 | **Open** | Opens a new file. |
 | **Save** | Saves the current file. |
-| **Design** | Opens **Design** view, where you can create models. |
+| **Design** | Opens the **Design** view, where you can create models. |
 | **Analyze** | Shows generated threats and their properties. |
 | **Add diagram** | Adds a new diagram (similar to new tabs in Excel). |
 | **Delete diagram** | Deletes the current diagram. |
