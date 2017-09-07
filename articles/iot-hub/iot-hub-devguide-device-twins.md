@@ -211,10 +211,6 @@ All the preceding operations require the **DeviceConnect** permission, as define
 
 The [Azure IoT device SDKs][lnk-sdks] make it easy to use the preceding operations from many languages and platforms. More information on the details of IoT Hub primitives for desired properties synchronization can be found in [Device reconnection flow][lnk-reconnection].
 
-> [!NOTE]
-> Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.
-> 
-> 
 
 ## Reference topics:
 The following reference topics provide you with more information about controlling access to your IoT hub.
