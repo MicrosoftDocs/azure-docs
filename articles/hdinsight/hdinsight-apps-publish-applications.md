@@ -26,7 +26,7 @@ HDInsight applications use the *Bring Your Own License (BYOL)* model. In a BYOL 
 
 For more information, see these HDInsight application-related articles:
 
-* [Install HDInsight applications](hdinsight-apps-install-applications.md). Learn how to install an HDInsight application in your clusters.
+* [Install HDInsight applications](hdinsight-apps-install-applications.md). Learn how to install an HDInsight application on your clusters.
 * [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). Learn how to install and test custom HDInsight applications.
 
 ## Prerequisites
@@ -35,7 +35,7 @@ To submit your custom application in the Marketplace, first, [create and test yo
 You also must register your developer account. For more information, see [Publish an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) and [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
 ## Define the application
-Two steps are involved in publishing applications to the Azure Marketplace.  First, define a *createUiDef.json* file. The createUiDef.json file indicates which clusters your application is compatible with. Then, publish the template from the Azure portal. Here's a sample createUiDef.json file:
+Two steps are involved in publishing applications in the Marketplace. First, define a *createUiDef.json* file. The createUiDef.json file indicates which clusters your application is compatible with. Then, publish the template from the Azure portal. Here's a sample createUiDef.json file:
 
     {
         "handler": "Microsoft.HDInsight",
@@ -73,13 +73,13 @@ When an application is installed on a cluster (either on an existing cluster, or
 
 The installation script must have the following characteristics:
 * The script is idempotent. Multiple calls to the script produce the same result.
-* The script is properly versioned. Use a different location for the script when you are upgrading or testing changes. This ensures that customers that are trying to install the application are not affected. 
+* The script is properly versioned. Use a different location for the script when you are upgrading or testing changes. This ensures that customers who are installing the application are not affected by your updates or testing. 
 * The script has adequate logging at each point. Usually, script logs are the only way to debug application installation issues.
 * Calls to external services or resources have adequate retries so that the installation is not affected by transient network issues.
 * If your script starts services on the nodes, services are monitored and configured to start automatically if a node reboot occurs.
 
 ## Package the application
-Create a .zip file that contains all the files that are required to install your HDInsight applications. You use the .zip file to [publish the application](#publish-application). The .zip file includes the following files:
+Create a .zip file that contains all the files that are required to install your HDInsight application. You use the .zip file to [publish the application](#publish-application). The .zip file includes the following files:
 
 * [createUiDefinition.json](#define-application)
 * mainTemplate.json (For a sample, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).)
@@ -99,7 +99,7 @@ To publish an HDInsight application:
 5. Select **Define some Topologies to get Started**. A solution template is a "parent" to all its topologies. You can define multiple topologies in one offer or solution template. When an offer is pushed to staging, it is pushed with all its topologies. 
 6. Enter a topology name, and then select **+**.
 7. Enter a new version, and then select **+**.
-8. Upload the .zip file prepared by following the steps in [Package application](#package-application).  
+8. Upload the .zip file you created when you [packaged the application](#package-application).  
 9. Select **Request Certification**. The Microsoft certification team reviews the files and certifies the topology.
 
 ## Next steps

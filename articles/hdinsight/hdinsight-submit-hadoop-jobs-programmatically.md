@@ -23,7 +23,9 @@ ms.author: jgao
 
 You can submit Hadoop jobs in Azure HDInsight by using the Microsoft .NET SDK for HDInsight, curl, or Azure PowerShell.
 
-- To learn about using the .NET SDK, see these articles:
+## Resources
+
+- **.NET SDK**:
 
   - [Create non-interactive authentication .NET applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Run Hive queries by using the HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
@@ -31,14 +33,14 @@ You can submit Hadoop jobs in Azure HDInsight by using the Microsoft .NET SDK fo
   - [Run Sqoop jobs by using the .NET SDK for Hadoop in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
   - [Run MapReduce jobs by using the HDInsight .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- To learn about using curl, see these articles:
+- **curl**:
 
   - [Run Hive queries with Hadoop in HDInsight by using curl](hdinsight-hadoop-use-hive-curl.md)
   - [Run Pig jobs with Hadoop in HDInsight by using curl](hdinsight-hadoop-use-pig-curl.md)
   - [Run Sqoop jobs with Hadoop in HDInsight by using curl](hdinsight-hadoop-use-sqoop-curl.md)
   - [Run MapReduce jobs with Hadoop in HDInsight by using curl](hdinsight-hadoop-use-mapreduce-curl.md)
 
-- To learn about using PowerShell, see these articles:
+- **PowerShell**:
 
   - [Run Hive queries by using PowerShell](hdinsight-hadoop-use-hive-powershell.md)
   - [Run Pig jobs by using PowerShell](hdinsight-hadoop-use-pig-powershell.md)

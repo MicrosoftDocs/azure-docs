@@ -27,33 +27,33 @@ An Interactive Hive cluster is different from a Hadoop cluster. It contains only
 
 > [!NOTE]
 > MapReduce, Pig, Sqoop, Oozie, and other services will be removed from this cluster type soon.
-> You can access the Hive service in the Interactive Hive cluster only via Ambari Hive View, Beeline, and Hive ODBC. You can’t access it via the Hive console, Templeton, the Azure command-line tool (Azure CLI), or Azure PowerShell. 
+> You can access the Hive service in the Interactive Hive cluster only via Ambari Hive View, Beeline, and the Microsoft Hive Open Database Connectivity (ODBC) driver (Hive ODBC). You can’t access it via the Hive console, Templeton, the Azure command-line tool (Azure CLI), or Azure PowerShell. 
 > 
 > 
 
 ## Create an Interactive Hive cluster
 You can use Interactive Hive clusters only on Linux-based clusters. For information about how to create an HDInsight cluster, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-## Execute Hive from Interactive Hive
+## Execute Hive queries from Interactive Hive
 To execute Hive queries, you have the following options:
 
 * Run Hive by using Ambari Hive View.
   
-    For the information about using Hive View, see [Use Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+    For information about using Hive View, see [Use Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Run Hive by using Beeline.
   
-    For the information about using Beeline on HDInsight, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
+    For information about using Beeline in HDInsight, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
   
     You can use Beeline from either the head node or from an empty edge node. We recommend using Beeline from an empty edge node. For information about creating an HDInsight cluster by using an empty edge node, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
-* Run Hive by using the Microsoft Hive Open Database Connectivity (ODBC) driver (Hive ODBC).
+* Run Hive by using Hive ODBC.
   
     For information about using Hive ODBC, see [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 To find the Java Database Connectivity (JDBC) connection string:
 
-1. Sign in to Ambari by using the following URL: https://\<ClusterName\>.AzureHDInsight.net.
+1. Sign in to Ambari by using the following URL: https://\<cluster name\>.AzureHDInsight.net.
 2. In the left menu, select **Hive**.
-3. To copy the URL, select the highlighted icon:
+3. To copy the URL, select the clipboard icon:
    
    ![HDInsight Hadoop Interactive Hive LLAP JDBC](./media/hdinsight-hadoop-use-interactive-hive/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
