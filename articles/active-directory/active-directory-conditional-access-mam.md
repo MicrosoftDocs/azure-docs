@@ -1,6 +1,6 @@
 ---
-title: Conditional access with mobile app management in Azure Active Directory | Microsoft Docs
-description: Learn how Conditional access with mobile app management in Azure Active Directory works.
+title: Azure Active Directory app-based conditional access | Microsoft Docs
+description: Learn how Azure Active Directory app-based conditional access works.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -14,24 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
 
 ---
-# Conditional access with mobile app management in Azure Active Directory  
+# Azure Active Directory app-based conditional access  
 
-Azure Active Directory (Azure AD) app-based conditional access in the Azure portal combined with Intune app protection policies help restrict access to cloud apps to mobile apps that support Intune app protection, for example restricting access to Exchange Online to the Outlook app. This support allows devices that are not enrolled for management by Intune MDM to still protect company data.   
+Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) app-based conditional access, you can restrict access to your cloud apps to client apps that can protect your corporate data.  
 
-Mobile app management conditional access allows you to combine with other policies such as device-based conditional access policies to provide flexibility in how to protect data for both personal and corporate devices. 
+This topic explains how Azure AD app-based conditional access works.
+
+## Overview
+
+With [Azure AD conditional access](active-directory-conditional-access-azure-portal.md), you can fine-tune how authorized users can access your resources. For example, you can limit the access to your cloud apps to trusted devices.
+
+You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data. Intune app protection policies don't require mobile-device management (MDM) solution, which enables you to protect your company’s data with or without enrolling devices in a device management solution.
+
+Azure Active Directory app-based conditional access enables you limit access to your cloud apps to client apps that support Intune app protection policies. For example, you can restrict access to Exchange Online to the Outlook app.
+
+In the conditional access terminology, these client apps are known as **approved client apps**.  
+
+
+![Conditional access](./media/active-directory-conditional-access-mam/05.png)
+
+
+For a list of approved client apps, see [approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
+You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md) to provide flexibility in how to protect data for both personal and corporate devices.
+
+ 
+
 
 ##Before you begin
 
 This topic assumes that you are familiar with:
 
+- The [approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) technical reference.
+
+
 - The basic concepts of [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - How to [configure a conditional access policy](active-directory-conditional-access-azure-portal-get-started.md).
+
+- The migration considerations
+ 
 
 
 Additionally, you might want to take a look at the [best practices for conditional access in Azure Active Directory
@@ -41,35 +69,12 @@ Additionally, you might want to take a look at the [best practices for condition
 
 ## Prerequisites
 
-1.	Before you create an app-based conditional access policy, you must have an Enterprise Mobility + Security or an Azure Active Directory premium subscription, and the users must be licensed for EMS or Azure AD. 
-2.	Before you create a new conditional access with mobile app management policy, you must review the scenarios and the migration considerations
-
-## Supported platforms
-
--	iOS
-
--	Android
-
-## Approved client applications 
-
-- Microsoft Outlook
-
-- Microsoft SharePoint
-
-- Microsoft OneDrive
-
-- Microsoft Teams
-
-- Microsoft Word
-
-- Microsoft Excel
-
-- Microsoft PowerPoint
+To create an app-based conditional access policy, you must have an Enterprise Mobility + Security or an Azure Active Directory premium subscription, and the users must be licensed for EMS or Azure AD. 
 
 
 ## Exchange Online policy 
 
-This scenario consists of a conditional access with mobile app management policy for access to Exchange Online with approved apps.
+This scenario consists of an app-based conditional access policy for access to Exchange Online.
 
 
 ### Scenario playbook
@@ -243,9 +248,9 @@ For the conditional access policy in this step, you need to configure the follow
 See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) for more information.
 
 
-## Mobile application management or compliant device policy for Exchange Online and SharePoint Online
+## App-based or compliant device policy for Exchange Online and SharePoint Online
 
-This scenario consists of a conditional access with mobile app management or compliant device policy for access to Exchange Online with approved apps.
+This scenario consists of an app-based or compliant device conditional access policy for access to Exchange Online.
 
 
 ### Scenario playbook
@@ -335,9 +340,10 @@ See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/int
 
 
 
-## Mobile application management and compliant device policy for Exchange Online and SharePoint Online
+## App-based and compliant device policy for Exchange Online and SharePoint Online
 
-This scenario consists of a conditional access with mobile app management and compliant device policy for access to Exchange Online with approved apps.
+This scenario consists of an app-based and compliant device conditional access policy for access to Exchange Online.
+
 
 ### Scenario playbook
 
@@ -433,87 +439,6 @@ For the conditional access policy in this step, you need to configure the follow
 See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) for more information.
 
 
-
-## Migration considerations
-
-If you have policies in the Azure classic portal configured, you should migrate them to the Azure portal because:
-
-
-- A user who is in an Azure classic portal policy and an Azure portal policy needs to meet the requirements in both policies 
-
-- If you don't migrate your existing policies, you will not be able to implement policies that are granting access
-
-
-## Migration from the Azure classic portal
-
-In this scenario: 
-
-- In your [Azure classic portal](https://manage.windowsazure.com), you have configured:
-
-    - SharePoint Online
-
-    ![Conditional access](./media/active-directory-conditional-access-mam/14.png)
-
-    - A device-based conditional access policy
-
-    ![Conditional access](./media/active-directory-conditional-access-mam/15.png)
-
-- You want to configure a mobile application management conditional access policy in the Azure portal 
- 
-
-### Configuration 
-
-- Review your device-based conditional access policies
-
-- Migrate them to the Azure portal 
-
-- Add mobile application management conditional access policies
-
-
-## Migrating from Intune 
-
-In this scenario:
-
-- In [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), you have a mobile application management conditional access policy for either Exchange Online or SharePoint Online configured
-
-    ![Conditional access](./media/active-directory-conditional-access-mam/15.png)
-
-- You want to migrate to using mobile application management conditional access in the Azure portal
-
-
-### Configuration 
- 
-- Review your device-based conditional access policies
-
-- Migrate them to the Azure portal 
-
-- Review you mobile application management conditional access policies configured for Exchange Online or SharePoint Online in Intune
-
-- Add the control for **Require approved applications** in addition to the device-based control 
- 
-
-## Migrating from the Azure classic portal and Intune
-
-In this scenario:
-
-- You have the following configured:
-
-    - **Azure classic portal:** Device-based conditional 
-
-    - **Intune:** Mobile application management conditional access policies 
-    
-- You want to migrate both policies to using mobile application management conditional access policies in the Azure portal
-
-
-### Configuration
-
-- Review your device-based conditional access policies
-
-- Migrate them to the Azure portal 
-
-- Review you mobile application management conditional access policy configured for Exchange Online or SharePoint Online in Intune
-
-- Add the control for **Require approved applications** in addition to the device-based 
 
 
 
