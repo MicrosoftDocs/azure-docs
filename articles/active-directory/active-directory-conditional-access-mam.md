@@ -51,9 +51,15 @@ You can combine app-based conditional access policies with other policies such a
 
 This topic assumes that you are familiar with:
 
+- The [approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) technical reference.
+
+
 - The basic concepts of [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - How to [configure a conditional access policy](active-directory-conditional-access-azure-portal-get-started.md).
+
+- The migration considerations
+ 
 
 
 Additionally, you might want to take a look at the [best practices for conditional access in Azure Active Directory
@@ -63,17 +69,12 @@ Additionally, you might want to take a look at the [best practices for condition
 
 ## Prerequisites
 
-- Before you create an app-based conditional access policy, you must have an Enterprise Mobility + Security or an Azure Active Directory premium subscription, and the users must be licensed for EMS or Azure AD. 
-
-- Before you create a new app-based conditional access policy, you must review the scenarios and the migration considerations
-
-- For support information, you should take a look at [Approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
-
+To create an app-based conditional access policy, you must have an Enterprise Mobility + Security or an Azure Active Directory premium subscription, and the users must be licensed for EMS or Azure AD. 
 
 
 ## Exchange Online policy 
 
-This scenario consists of a conditional access with mobile app management policy for access to Exchange Online with approved apps.
+This scenario consists of an app-based conditional access policy for access to Exchange Online.
 
 
 ### Scenario playbook
