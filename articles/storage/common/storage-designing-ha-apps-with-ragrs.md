@@ -169,12 +169,12 @@ You have three main options for monitoring the frequency of retries in the prima
     {
         var statusCode = retryContext.LastRequestResult.HttpStatusCode;
         if (retryContext.CurrentRetryCount >= this.maximumAttempts
-        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
-        || statusCode == 501 // Not Implemented
-        || statusCode == 505 // Version Not Supported
+            || ((statusCode >= 300 && statusCode < 500 && statusCode != 408)
+            || statusCode == 501 // Not Implemented
+            || statusCode == 505 // Version Not Supported
             ))
         {
-        // Do not retry
+            // Do not retry
             return null;
         }
 
