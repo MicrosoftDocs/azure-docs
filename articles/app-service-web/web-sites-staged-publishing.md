@@ -287,7 +287,7 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 
 ## Next Steps
 [Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introduction to App Service on Linux](./app-service-linux-intro.md)
+[Introduction to App Service on Linux](../app-service/containers/app-service-linux-intro.md)
 [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
