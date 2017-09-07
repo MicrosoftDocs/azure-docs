@@ -61,8 +61,6 @@ var azure = require('azure-storage');
 ## Set up an Azure Storage connection
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the [Azure portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service](../../app-service-web/storage-nodejs-use-table-storage-web-site.md).
-
 ## Create a container
 The **BlobService** object lets you work with containers and blobs. The following code creates a **BlobService** object. Add the following near the top of **server.js**:
 
@@ -411,18 +409,17 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ## Next steps
 For more information, see the following resources.
 
-* [Azure Storage SDK for Node API Reference][Azure Storage SDK for Node API Reference]
-* [Azure Storage Team Blog][Azure Storage Team Blog]
-* [Azure Storage SDK for Node][Azure Storage SDK for Node] repository on GitHub
-* [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/)
-* [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Azure Storage SDK for Node API Reference][Azure Storage SDK for Node API Reference]  
+* [Azure Storage Team Blog][Azure Storage Team Blog]  
+* [Azure Storage SDK for Node][Azure Storage SDK for Node] repository on GitHub  
+* [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/)  
+* [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
-[Node.js web app using the Azure Table Service](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
-[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: https://portal.azure.com
-[Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Azure portal]: https://portal.azure.com  
+[Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/  
+[Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html  
