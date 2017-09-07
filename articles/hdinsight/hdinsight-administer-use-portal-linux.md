@@ -35,11 +35,11 @@ To follow the steps in this article, you will need an **Azure subscription**. Se
    * Click **New** from the left menu to create a new cluster:
 
        ![new HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
-   * Click **HDInsight Clusters** from the left menu to list the existing clusters
+   * Click **HDInsight Clusters** from the left menu to list the existing clusters:
 
        ![Azure portal HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       If you don't see HDInsight cluster, click **More services** on the bottom of the list, and then click **HDInsight clusters** under the **Intelligence + Analytics** section.
+       If you don't see the **HDInsight clusters** button, click **More services** on the bottom of the list, and then click **HDInsight clusters** under the **Intelligence + Analytics** section.
 
 
 ## Create clusters
@@ -144,7 +144,7 @@ The cluster scaling feature allows you to change the number of worker nodes used
 >
 >
 
-The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
+The impact of changing the number of data nodes varies for each type of cluster supported by HDInsight:
 
 * Hadoop
 
