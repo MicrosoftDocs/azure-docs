@@ -48,7 +48,7 @@ that you have the following installed:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.  
 * [Python Tools for Visual Studio](https://github.com/Microsoft/PTVS/).  
