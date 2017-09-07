@@ -14,7 +14,7 @@ ms.date: 09/07/2017
 # IDE Integration with Azure ML Workbench
 
 ## Prerequisites
-To step through this how-to guide, you need one of these IDE:
+To step through this how-to guide, you need one of the following IDE:
 - [VS Code](https://code.visualstudio.com/Download)
 - [PyCharm](https://www.jetbrains.com/pycharm/download)
 
@@ -25,14 +25,14 @@ In Azure ML Workbench, click on **File** > **Configure Project IDE**.
 
 ![Configure Project IDE](/media/ide-integration/Configure.PNG)
 
-This opens a form with two fields:
+A form with two fields shows up.
 - Name: Name of the IDE. 
 - Execution Path: The path to your IDE. 
 
 ![Configure Project IDE Form](/media/ide-integration/ConfigureIDEPath.PNG)
 
 ## Open a Project with an IDE
-Once you have a project open in Azure ML Workbench, a new context menu will be activated allowing to open the project in the IDE you have previously configured. Click on **File** > **Open Project (...)** to open the project folder in the IDE and to configure the IDE embeded terminal to interact with Azure ML Command Line Interface (CLI).
+Once you have a project open in Azure ML Workbench, a new context menu is activated allowing to open the project in the IDE you have previously configured. Click on **File** > **Open Project (...)** to open the project folder in the IDE and to configure the IDE embedded terminal to interact with Azure ML Command Line Interface (CLI).
 
 ![Open Project in IDE](/media/ide-integration/Open-with-code.PNG)
 
