@@ -155,23 +155,23 @@ The inputs object takes the set of parameters required to construct an HTTP call
 |authentication|No|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Beyond scheduler, there is one more supported property: `authority` By default, this value is `https://login.windows.net` when not specified, but you can use a different audience like `https://login.windows\-ppe.net`|Object|  
   
 The HTTP trigger requires the HTTP API to conform with a specific pattern to work well with your logic app. 
-It requires the following fields:  
+It recognizes the following properties:  
   
-|Response|Description|  
-|------------|---------------|  
-|Status code|Status code 200 \(OK\) to cause a run. Any other status code doesn't cause a run.|  
-|Retry\-after header|Number of seconds until the logic app polls the endpoint again.|  
-|Location header|The URL to call on the next polling interval. If not specified, the original URL is used.|  
+|Response|Required|Description|  
+|------------|------------|---------------|  
+|Status code|Yes|Status code 200 \(OK\) to cause a run. Any other status code doesn't cause a run.|  
+|Retry\-after header|No|Number of seconds until the logic app polls the endpoint again.|  
+|Location header|No|The URL to call on the next polling interval. If not specified, the original URL is used.|  
   
 Here are some examples of different behaviors for different types of requests:  
   
 |Response code|Retry\-After|Behavior|  
 |-----------------|----------------|------------|  
-|200|\(none\)|Not a valid trigger, Retry\-After is required, or else the engine never polls for the next request.|  
-|202|60|Do not trigger the workflow. The next attempt happens in one minute.|  
+|200|\(none\)|Run the workflow and check again for more contents following the defined recurrence.|  
 |200|10|Run the workflow, and check again for more content in 10 seconds.|  
-|400|\(none\)|Bad request, do not run the workflow. If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger is no longer valid.|  
-|500|\(none\)|Server error, do not run the workflow.  If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger is no longer valid.|  
+|202|60|Do not trigger the workflow. The next attempt happens in one minute subject to the defined recurrence. If the defined recurrence is less than one minute the retry-after header takes precedence. Otherwise the defined recurrence is followed.|  
+|400|\(none\)|Bad request, do not run the workflow. If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger will check again for contents following the defined recurrence.|  
+|500|\(none\)|Server error, do not run the workflow.  If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger will check again for contents following the defined recurrence.|  
   
 The outputs of an HTTP trigger look like this example:  
   
