@@ -57,13 +57,13 @@ Once decided, the special consideration is where you perform your app registrati
 > Applications registered with AAD only allow sign-in from users in the AAD tenant the application was registered in. If you have multiple AAD Commercial tenants, it’s important to know which is intended to allow sign-ins from. If you intend to allow users to authenticate to the application from multiple Azure AD tenants the application must be registered in each tenant.
 >
 
-The other consideration is the identity authority URL.  You need to use the correct URL based on your chosen authority:
+The other consideration is the identity authority URL.  You need the correct URL based on your chosen authority:
 
 -	**AAD Commercial** = login.microsoftonline.com
 -	**AAD Government** = login.microsoftonline.us
 
 ### Applications Using Legacy (Kerberos/NTLM) Authentication Protocols
-Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. The aim is to support logins for line-of-business application and other apps that require Windows Integrated authentication. This is commonly enabled by extending the Active Directory footprint to Azure by adding domain controllers as virtual machines, shown in the figure below: 
+Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. The aim is to support logins for line-of-business application and other apps that require Windows Integrated authentication. This is commonly enabled by extending the Active Directory footprint to Azure by adding domain controllers as virtual machines, shown in the following figure: 
 
 <div align="center">
 
@@ -99,14 +99,14 @@ Here’s a way to find out using your browser of choice:
    - b.	Navigate to https://login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
      - \<domainname\> can either be the tenant name or domain name you gathered in step 1.
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-   - c.	The result should be posted back to the page in attribute/value pairs using JSON (Java Script Object Notation) format that resembles:
+   - c.	The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
 
 ```json
 {"authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize","token_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/token","token_endpoint_auth_methods_supported":["client_secret_post","private_key_jwt"],"jwks_uri":"https://login.microsoftonline.com/common/discovery/keys","response_modes_supported":["query","fragment","form_post"],"subject_types_supported":["pairwise"],"id_token_signing_alg_values_supported":["RS256"],"http_logout_supported":true,"frontchannel_logout_supported":true,"end_session_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/logout","response_types_supported":["code","id_token","code id_token","token id_token","token"],"scopes_supported":["openid"],"issuer":"https://sts.windows.net/b552ff1c-edad-4b6f-b301-5963a979bc4d/","claims_supported":["sub","iss","cloud_instance_name","cloud_instance_host_name","cloud_graph_host_name","aud","exp","iat","auth_time","acr","amr","nonce","email","given_name","family_name","nickname"],"microsoft_multi_refresh_token":true,"check_session_iframe":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/checksession","userinfo_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/openid/userinfo","tenant_region_scope":"USG","cloud_instance_name":"microsoftonline.com","cloud_graph_host_name":"graph.windows.net"}
 ```
 
    - d. If the **tenant_region_scope** attribute’s value is **USG**, you have yourself an Azure Government tenant.
-     - **Note**: The result is a JSON file that’s automatically recognized and displayed by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
+     - **Note**: The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
      - **Note**: The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Commercial in North America, the value would be **NA**.
 
 **If I’m an Office 365 GCC Moderate customer and want to build solutions in Azure Government do I need to have two tenants?**  
