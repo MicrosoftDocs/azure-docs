@@ -25,7 +25,7 @@ This article describes the servicing policy for Azure Stack integrated systems, 
 
 ## Update package types
 
-There are two types of update packages; Microsoft software updates, and updates that are specific to your original equipment manufacturer (OEM) hardware vendor, such as drivers and firmware. These updates are delivered as separate Azure Stack update packages, and are independently managed.
+There are two types of update packages for integrated systems; Microsoft software updates, and updates that are specific to your original equipment manufacturer (OEM) hardware vendor, such as drivers and firmware. These updates are delivered as separate Azure Stack update packages, and are independently managed.
 
 - **Microsoft software updates**. Microsoft is responsible for the end-to-end servicing lifecycle for the Microsoft software update packages. These packages can include the latest Windows Server security updates, non-security updates, and Azure Stack feature updates. You can download theses update packages directly from Microsoft.
 - **OEM hardware vendor-provided updates**. Azure Stack hardware partners are responsible for the end-to-end servicing lifecycle (including guidance) for the hardware-related firmware and driver update packages. In addition, Azure Stack hardware partners own and maintain guidance for all software and hardware on the hardware lifecycle host. The OEM hardware vendor hosts these update packages on their own download site.
@@ -40,13 +40,13 @@ A Microsoft update package has the following naming convention to help you easil
 
 For example, a Microsoft software update released on June 15, 2017 would have the version "1.0.170615.1".
 
-## Maintain system support
+## Keep your system under support
 
 To receive support for your system, you must keep your Azure Stack updated within a specific time interval. Our policy for deferral of Microsoft software updates is three months. If your system is more than three months out of date, you’re considered out of compliance. You must update the system to at least the minimum supported version to receive support. 
 
 Microsoft software update packages are non-cumulative, and require the previous update package as a prerequisite. If you decide to defer one or more updates, consider the overall runtime if you want to get to the latest version.
 
-The following table shows example update package releases, their prerequisite, and the minimum supported version you must be at to maintain support. The table is based on the initial release of Azure Stack integrated systems (build 1708), with the first update package release (1709) in September 2017. 
+The following table shows example update package releases, their prerequisite, and the minimum supported version that your system must be at to maintain support. The table is based on the initial release of Azure Stack integrated systems (build 1708), with the first update package release (1709) in September 2017. 
 
 | Latest Update Package (*example*) | Prerequisite | Minimum Supported Version |
 | -- | -- | -- |
