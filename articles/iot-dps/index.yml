@@ -24,11 +24,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/common/i_portal.svg
+        src: /azure/sql-database/media/index/portal.svg
       text: Set up auto provisioning
       href: /azure/iot-dps/quick-setup-auto-provision
     - image: 
-        src: /media/common/i_portal.svg
+        src: /azure/sql-database/media/index/portal.svg
       text: Create simulated device
       href: /azure/iot-dps/quick-create-simulated-device
 - title: Step-by-Step Tutorials
