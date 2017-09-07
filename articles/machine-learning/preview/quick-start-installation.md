@@ -143,6 +143,7 @@ $ az ml env setup -l <Azure region location, e.g. eastus2> -n <environment name>
 # Set the environment to be used
 $ az ml env set -n <environment name> -g <resource group>
 ```
+>Note: To deploy your web service to a cluster, use the -c option of the env setup when setting up your environment.
 
 ### Check Your Build number
 You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
@@ -176,6 +177,18 @@ Docker is needed if you want to execute scripts in a local Docker container, or 
 ![Share C drive](media/quick-start-installation/share_c.png)
 
 >Note on Windows, Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
+
+### Installing (or updating) on Linux
+Run the following command from the command line, and follow the prompts:
+
+```bash
+wget -q https://raw.githubusercontent.com/Azure/Machine-Learning-Operationalization/master/scripts/amlupdate.sh -O - | sudo bash -
+sudo /opt/microsoft/azureml/initial_setup.sh
+```
+
+> [!NOTE]
+> Log out and log back in to your SSH session for the changes to take effect.
+> You can use the previous commands to update an earlier version of the CLIs on the DSVM.
 
 ## Next Steps
 - Get a quick tour of Azure ML Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
