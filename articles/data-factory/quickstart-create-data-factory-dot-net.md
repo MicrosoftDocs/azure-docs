@@ -279,7 +279,7 @@ Build and start the application, then verify the pipeline execution.
 The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use Azure Storage explorer to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
 
 ## Clean up resources
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group]((../azure-resource-manager/resource-group-overview.md)), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
+You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group]((../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
 
 ### To delete the entire resource group including the newly created data factory:
 1.	Locate your resource group in the Azure portal. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of your resource group, such as our example **myresourcegroup**.
