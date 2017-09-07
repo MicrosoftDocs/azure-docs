@@ -9,18 +9,20 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create data factory - .NET
-    href: quickstart-create-data-factory-dot-net.md
-  - name: Create data factory - PowerShell
-    href: quickstart-create-data-factory-powershell.md
-  - name: Create data factory - Python
-    href: quickstart-create-data-factory-python.md
-  - name: Create data factory - REST   
-    href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - template
-    href: quickstart-create-data-factory-resource-manager-template.md
-  - name: Create data factory - Portal
-    href: quickstart-create-data-factory-portal.md     
+  - name: Create data factory
+    items:
+    - name: .NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Python
+      href: quickstart-create-data-factory-python.md
+    - name: REST   
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Resource Manager template
+      href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Azure Portal
+      href: quickstart-create-data-factory-portal.md     
 - name: Tutorials
   items:
   - name: 1 - Copy data in cloud
@@ -62,7 +64,6 @@
     - name: Copy Activity overview
       href: copy-activity-overview.md
     - name: Connectors
-      href: connect-to-data-stores.md
       items: 
       - name: Amazon Redshift
         href: connector-amazon-redshift.md
@@ -126,18 +127,16 @@
         href: connector-teradata.md
       - name: WebTable
         href: connector-web-table.md
-      - name: Performance and tuning
-        href: copy-activity-performance.md
-      - name: Fault tolerance
-        href: copy-activity-fault-tolerance.md
-      - name: Security considerations
-        href: copy-activity-security-considerations.md
-      - name: Format and compression support
-        href: supported-file-formats-and-compression-codecs.md 
-      - name: Schema mapping
-        href: copy-activity-map-schemas.md
-      - name: Incremental copy
-        href: copy-data-incrementally-using-copy-activity.md
+    - name: Performance and tuning
+      href: copy-activity-performance.md
+    - name: Fault tolerance
+      href: copy-activity-fault-tolerance.md
+    - name: Security considerations
+      href: copy-activity-security-considerations.md
+    - name: Format and compression support
+      href: supported-file-formats-and-compression-codecs.md 
+    - name: Schema mapping
+      href: copy-activity-map-schemas.md
   - name: Transform data
     href: transform-data.md
     items: 
