@@ -185,3 +185,6 @@
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Training and certification
+    href: azure-stack-train-and-cert.md
+
