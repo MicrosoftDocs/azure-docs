@@ -108,40 +108,39 @@ You can configure these properties for the recurrence trigger.
 | **Frequency** | frequency | Yes | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | 
 | **Interval** | interval | Yes | A positive integer that describes how often the workflow runs. For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. <p>Here are the supported maximum intervals: </br>- Monthly: 18 months </br>- Daily: 548 days </br>- Hourly: 1 to 1,000 hours </br>- Minutes: 1 to 1,000 minutes | 
 | **Time zone** | timeZone | No | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. | 
-| **Start time** | startTime | No | Provide a start time in this format: <p>YYYY-MM-DDThh:mm:ss, when you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ, when you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify either "2017-09-18T14:00:00" and select a time zone such as Pacific Time, or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any earlier than the start time. [*What are other ways to set the start date and time?*](#start-time) | 
+| **Start time** | startTime | No | Provide a start time in this format: <p>YYYY-MM-DDThh:mm:ss, when you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ, when you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify either "2017-09-18T14:00:00" and select a time zone such as Pacific Time, or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are other ways to set the start date and time?*](#start-time) | 
 | **On these days** | weekDays | No | When you select "Week", you can select one or more days of the week when you want to run the workflow: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday**, and **Sunday** | 
 | **At these hours** | hours | No | When you select "Day" or "Week", you can select one or more hours for the times of day when you want to run the workflow. For example, "10", "12" and "14" are 10 AM, 12 PM, and 2 PM. | 
 | **At these minutes** | minutes | No | When you select "Day" or "Week", you can select one or more minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
 ||||| 
 
-## JSON definition
-
-Here's an example for this trigger: 
+## JSON example
 
 ``` json
 {
-"triggers": {
-    "Recurrence": {
-        "recurrence": {
-            "frequency": "Week",
-            "interval": 1,
-            "schedule": {
-                "hours": [
-                    10,
-                    12,
-                    14
-                ],
-                "minutes": [
-                    30
-                ],
-                "weekDays": [
-                    "Monday"
-                ]
+    "triggers": {
+        "Recurrence": {
+            "recurrence": {
+                "frequency": "Week",
+                "interval": 1,
+                "schedule": {
+                    "hours": [
+                        10,
+                        12,
+                        14
+                    ],
+                    "minutes": [
+                        30
+                    ],
+                    "weekDays": [
+                        "Monday"
+                    ]
+                },
+               "startTime": "2017-09-07T14:00:00",
+               "timeZone": "Pacific Standard Time"
             },
-           "startTime": "2017-09-07T14:00:00",
-           "timeZone": "Pacific Standard Time"
-        },
-        "type": "Recurrence"
+            "type": "Recurrence"
+        }
     }
 }
 ```
@@ -150,22 +149,33 @@ Here's an example for this trigger:
 
 <a name="example-recurrences"></a>
 
-**Q:** What are other example recurrences? </br>
+**Q:** What are other example recurrence schedules? </br>
 **A:** Here are more examples:
 
-| Recurrence | Interval | Frequency | On these days | At these hours | At these minutes | 
-| ---------- | -------- | --------- | ------------- | -------------- | ---------------- |
-| Every hour during working hours | 1 | Week | Select all days except Saturday and Sunday. Available only after you select "Week" as the frequency. | Select the hours for your specific working hours | {not necessary} | 
-| Once each day on weekends | 1 | Week | Select only Saturday and Sunday. Available only after you select "Week" as the frequency. | {not necessary} | {not necessary} | 
-| Every 15 minutes on Monday every other week | 2 | Week | Select only Monday | {not necessary} | 15 | 
-||||
+| Recurrence | Interval | Frequency | Start time | On these days | At these hours | At these minutes | Note |
+| ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
+| Run at 8 AM every day | 1 | Day | {none} | {not applicable} | 8 | {not necessary} || 
+| Run at 8:30 AM every day | 1 | Day | {none} | {not applicable} | 8 | 30 || 
+| Run at 8:30 AM and 4:30 PM every day | 1 | Day | {none} | {not applicable} | 8, 16 | 30 || 
+| Run at 8:30 AM and 4:45 every day | 1 | Day | {none} | 8, 16 | 30, 45 || 
+| Run every 15 minutes | 1 | Day | {none} | {not applicable} | {not necessary} | 0, 15, 30, 45 || 
+| Run every hour | 1 | Day | {none} | {not applicable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | To control the minute portion, you can use the minutes mark, a start time, or the creation time. <p>For example, if the start time or creation time was 8:25 AM, this schedule runs at 8:25 AM, 9:25 AM, 10:25 AM, and so on. <p>This schedule is equivalent to a frequency of "Hour", an interval of one, and no schedule. However, the difference is that you can use this schedule with a different frequency and interval. For example, if frequency was "Month", the schedule runs once per month, rather than every day. | 
+| Run every hour, on the hour | 1 | Day | {none} | {not applicable} | {not necessary} | 0 | For example, 12 AM, 1 AM, 2 AM, and so on. This schedule is equivalent to a frequency of "Hour" and a start time with zero minutes. If the frequency was "Week" or "Month," this schedule respectively executes only one day per week or one day per month. | 
+| Run every 15 minutes past the hour, every hour | 1 | Day | {none} | {not applicable} | {not necessary} | 15 | For example, this schedule runs at 00:15 AM, 1:15 AM, 2:15 AM, and so on. | 
+| Run every Saturday at start time | 1 | Week | {your-start-time} | "Saturday" |  | {not necessary} || 
+| Run every week on Saturday at 5 PM | 1 | Week | "Saturday" | 17 | {not necessary} || 
+| Run every week on Tuesday, Thursday at 5 PM | 1 | Week | "Tuesday", "Thursday" | 17 | {not necessary} || 
+| Run every hour during working hours | 1 | Week | Select all days except Saturday and Sunday. Available only after you select "Week" as the frequency. | Select the hours for your specific working hours | {not necessary} || 
+| Run once every day on weekends | 1 | Week | Select only Saturday and Sunday. Available only after you select "Week" as the frequency. | {not necessary} | {not necessary} || 
+| Run every 15 minutes biweekly on Mondays only | 2 | Week | Select only Monday | {not necessary} | 0,15,30,45 || 
+|||||
 
 <a name="start-time"></a>
 
 **Q:** What are other ways for setting the start date and time? </br>
 **A:** Here's more information about how you can control the start time for this trigger:
 
-||||
+| Start time | No recurrence | Recurrence, no schedule | Recurrence with schedule |
 
 
 ## Next steps
