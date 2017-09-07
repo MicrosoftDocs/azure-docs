@@ -93,7 +93,7 @@ These steps do not modify the system installation of Python 2.7.
 
 ## CLI syntax
 
-Commands are prefixed always with `sfctl`. For general information about all the commands you can use, use `sfctl -h`. For help with a single command, use `sfctl <command> -h`.
+Commands are always prefixed with `sfctl`. For general information about all the commands you can use, use `sfctl -h`. For help with a single command, use `sfctl <command> -h`.
 
 Commands follow a repeatable structure, with the target of the command preceding the verb or the action.
 
