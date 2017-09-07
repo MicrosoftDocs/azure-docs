@@ -19,51 +19,45 @@ ms.date: 09/07/2017
 ms.author: jgao
 
 ---
-# Manage Hadoop clusters in HDInsight by using the Azure portal
+# Manage Hadoop clusters in HDInsight using the Azure portal
 
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)] 
+[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Using the [Azure portal][azure-portal], you can manage Hadoop clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools.
+Using the [Azure portal][azure-portal], you can manage Hadoop clusters in Azure HDInsight. Use the tab selector above for information on managing Hadoop clusters in HDInsight using other tools.
 
-Now let's review your options for managing and administering your HDInsight clusters in the Azure portal.
-
-**Prerequisites**
-
-Before you begin this article, you must have the following:
-
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+You will need an **Azure subscription** to follow the steps in this article. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Create clusters
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported,
-see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versioning.md). For the detailed steps to create a cluster using the Azure Portal, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md).
+HDInsight works with a wide range of Hadoop components. For the list of all components that have been verified and supported,
+see [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md) For detailed steps to create a cluster using the Azure portal, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ### Access control requirements
 
-You must specify an Azure subscription when you create an HDInsight cluster. This cluster can be created in either a new Azure Resource group or an existing Resource group. You can use the following steps to verify your permissions for creating HDInsight clusters:
+An HDInsight cluster can be created either in a new Azure Resource group or in an existing Resource group. You can use the following steps to verify your Azure subscription permissions for creating HDInsight clusters:
 
-- To use an existing resource group.
+- To use an existing resource group:
 
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Select **Resource groups** from the left menu to list the resource groups.
-    3. Select the resource group you want to use for creating your HDInsight cluster.
-    4. Select **Access control (IAM)**, and verify that you (or a group that you belong to) have at least the Contributor access to the resource group.
+    3. Select the resource group to use for creating your HDInsight cluster.
+    4. Select **Access control (IAM)**, and verify that you (or a group that you belong to) have at least Contributor access to the resource group.
 
-- To create a new resource group
+- To create a new resource group:
 
     1. Sign in to the [Azure portal](https://portal.azure.com).
-    2. Select **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
+    2. Select **Subscription** from the left menu. It has a yellow key icon. You see a list of subscriptions.
     3. Select the subscription that you use to create clusters. 
-    4. Select **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
+    4. Select **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight clusters.
 
-If you recieve the NoRegisteredProviderFound error or the MissingSubscriptionRegistration error, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
+If you receive a `NoRegisteredProviderFound` or a `MissingSubscriptionRegistration` error, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## List and show clusters
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
 2. Select **More Services** from the left menu.
 3. Search for HDInsight and select the entry that appears.
-3. In the listing, find the cluster by name. If the cluster list is long, you can use filter on the top of the page.
+3. In the listing, find the cluster by name. If the cluster list is long, you can use the filter on the top of the page.
 4. Select a cluster from the list to see the overview page:
 
     ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
@@ -98,14 +92,14 @@ If you recieve the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Data lake store access**: View the configured Azure Active Directory principal used to represent the cluster when accessing Azure Data Lake Store.
    * **New support request**: Allows you to create a support ticket with Microsoft support.
 
-6. Click **Properties**:
+6. Select **Properties**:
 
     The properties are:
 
    * **Hostname**: Cluster name.
    * **Cluster URL**: The URL for the Ambari web interface.
    * **Secure shell (SSH)**: The username and host name to use in accessing the cluster via SSH.
-   * **Status**: Include Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
+   * **Status**: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
    * **Region**: Azure location. For a list of supported Azure locations, see the **Region** dropdown list box on [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Date created**: The date the cluster was deployed.
    * **Operating system**: Either **Windows** or **Linux**.
@@ -118,17 +112,18 @@ If you recieve the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Virtual network**: The name of the Virtual Network and subnet to which the cluster is deployed, if one was selected at deployment time.
 
 ## Delete clusters
-Delete a cluster will not delete the default storage account or any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. It is recommended to use a new default Blob container when you re-create the cluster.
 
-1. Sign in to the [Portal][azure-portal].
-2. Click **HDInsight Clusters** from the left menu. If you don't see **HDInsight Clusters**, click **More services** first.
-3. Click the cluster that you want to delete.
-4. Click **Delete** from the top menu, and then follow the instructions.
+Deleting a cluster does not delete the default storage account nor any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. We recommend using a new default Blob container when you re-create the cluster.
+
+1. Sign in to the [Azure portal][azure-portal].
+2. Select **HDInsight Clusters** from the left menu. If you don't see **HDInsight Clusters**, click **More services** first.
+3. Select the cluster that you want to delete.
+4. Select **Delete** from the top menu, and then follow the instructions.
 
 See also [Pause/shut down clusters](#pauseshut-down-clusters).
 
 ## Scale clusters
-The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
+The cluster scaling feature allows you to change the number of worker nodes used by an Azure HDInsight cluster, without having to re-create the cluster.
 
 > [!NOTE]
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](#list-and-show-clusters).
@@ -158,7 +153,6 @@ The impact of changing the number of data nodes for each type of cluster support
     Rebalancing can be accomplished in two ways:
 
   * Storm web UI
-  * Command-line interface (CLI) tool
 
     Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
 
@@ -166,7 +160,8 @@ The impact of changing the number of data nodes for each type of cluster support
 
     ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
-    Here is an example how to use the CLI command to rebalance the Storm topology:
+  * Command-line interface (CLI) tool
+    Here is an example command to rebalance the Storm topology:
 
         ## Reconfigure the topology "mytopology" to use 5 worker processes,
         ## the spout "blue-spout" to use 3 executors, and
@@ -175,11 +170,11 @@ The impact of changing the number of data nodes for each type of cluster support
 
 **To scale clusters**
 
-1. Sign in to the [Portal][azure-portal].
-2. Click **HDInsight Clusters** from the left menu.
-3. Click the cluster you want to scale.
-3. Click **Scale Cluster**.
-4. Enter **Number of Worker nodes**. The limit on the number of cluster node varies among Azure subscriptions. You can contact billing support to increase the limit.  The cost information will reflect the changes you have made to the number of nodes.
+1. Sign in to the Azure portal][azure-portal].
+2. Select **HDInsight Clusters** from the left menu.
+3. Select the cluster you want to scale.
+3. Select **Scale Cluster**.
+4. Enter **Number of Worker nodes**. The limit on the number of cluster nodes varies among Azure subscriptions. You can contact billing support to increase the limit.  The cost information will reflect the changes you have made to the number of nodes.
 
     ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
@@ -209,10 +204,10 @@ You can use the Ambari Web UI to change the Cluster user password. To log into A
 >
 
 1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>azurehdinsight.net**.
-2. Click **Admin** from the top menu, and then click "Manage Ambari".
+2. Select **Admin** from the top menu, and then click "Manage Ambari".
 3. From the left menu, click **Users**.
-4. Click **Admin**.
-5. Click **Change Password**.
+4. Select **Admin**.
+5. Select **Change Password**.
 
 Ambari then changes the password on all nodes in the cluster.
 
@@ -231,8 +226,8 @@ Ambari then changes the password on all nodes in the cluster.
         usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Upload the file to a storage location that can be accessed from HDInsight using an HTTP or HTTPS address. For example, a public file store such as OneDrive or Azure Blob storage. Save the URI (HTTP or HTTPS address,) to the file, as this is needed in the next step.
 3. From the Azure portal, click **HDInsight Clusters**.
-4. Click your HDInsight cluster.
-4. Click **Script Actions**.
+4. Select your HDInsight cluster.
+4. Select **Script Actions**.
 4. From the **Script Actions** blade, select **Submit New**. When the **Submit script action** blade appears, enter the following information.
 
    | Field | Value |
@@ -260,7 +255,7 @@ By default, these services are granted for access. You can revoke/grant the acce
 **To find your Azure subscription IDs**
 
 1. Sign in to the [Portal][azure-portal].
-2. Click **Subscriptions**. Each subscription has a name and an ID.
+2. Select **Subscriptions**. Each subscription has a name and an ID.
 
 Each cluster is tied to an Azure subscription. The subscription ID is shown on the cluster **Essential** tile. See [List and show clusters](#list-and-show-clusters).
 
@@ -284,7 +279,7 @@ You cannot run Hive job directly from the Azure portal, but you can use the Hive
 2. Open Hive View as shown in the following screenshot:  
 
     ![HDInsight hive view](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
-3. Click **Query** from the top menu.
+3. Select **Query** from the top menu.
 4. Enter a Hive query in **Query Editor**, and then click **Execute**.
 
 ## Monitor jobs
@@ -294,12 +289,12 @@ See [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-mana
 Using the Azure portal, you can browse the content of the default container.
 
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
-2. Click **HDInsight Clusters** from the left menu to list the existing clusters.
-3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
-4. Click **Storage Accounts** from the cluster left menu.
-5. click a storage account.
-7. Click the **Blobs** tile.
-8. Click the default container name.
+2. Select **HDInsight Clusters** from the left menu to list the existing clusters.
+3. Select the cluster name. If the cluster list is long, you can use filter on the top of the page.
+4. Select **Storage Accounts** from the cluster left menu.
+5. Select a storage account.
+7. Select the **Blobs** tile.
+8. Select the default container name.
 
 ## Monitor cluster usage
 The **Usage** section of the HDInsight cluster blade displays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See [List and show clusters](#list-and-show-clusters).
