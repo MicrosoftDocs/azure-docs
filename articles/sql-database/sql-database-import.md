@@ -60,8 +60,6 @@ See the following SQLPackage command for a script example for how to import the 
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
-   ![sqlpackage import](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
-
 > [!IMPORTANT]
 > An Azure SQL Database logical server listens on port 1433. If you are attempting to connect to an Azure SQL Database logical server from within a corporate firewall, this port must be open in the corporate firewall for you to successfully connect.
 >
