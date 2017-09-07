@@ -22,7 +22,6 @@
 ## [Azure Diagnostics Eextension](azure-diagnostics.md)
 ## [Partner integrations](monitoring-partners.md)
 
-
 # How-to guides
 ## Get started
 ### [Walkthrough of Azure Monitor](monitoring-get-started.md)
@@ -73,28 +72,19 @@
 ## [Metrics supported](monitoring-supported-metrics.md)
 ## [Activity log event schema](monitoring-activity-log-schema.md)
 ## [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
+## [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
+### [1.0](azure-diagnostics-schema-1dot0.md)
+### [1.2](azure-diagnostics-schema-1dot2.md)
+### [1.3 and later](azure-diagnostics-schema-1dot3-and-later.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [REST](/rest/api/monitor/)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-
-
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
 
-
-
-•	How-to guides – there’s some major inconsistency in terms of capitalization here. I think unless it’s a proper service name it should be lower case (eg “Use service notifications” “Use action groups” “Send to Application Insights”)
-•	I’d reorder the reference material like this:
-o	Metrics supported
-o	Activity Log schema
-o	Diagnostic logs services/schema
-o	Diagnostic extension schema
-o	PowerShell
-o	REST
-o	.NET
 
 
 
