@@ -97,13 +97,9 @@ To set a server-level firewall rule in the Azure portal, you can either go to th
 
 The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
 
-1. To set a server-level rule from server overview page, click **Firewall** in the left-hand menu under Settings as showed in the following image: 
-
-     ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+1. To set a server-level rule from server overview page, click **Firewall** in the left-hand menu under Settings: 
 
 2. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for your current IP address.
-
-     ![set server firewall rule](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
 
 ### Transact-SQL
 | Catalog View or Stored Procedure | Level | Description |
