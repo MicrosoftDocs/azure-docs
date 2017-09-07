@@ -178,7 +178,7 @@ Docker is needed if you want to execute scripts in a local Docker container, or 
 
 >Note on Windows, Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
 
-### Installing, or updating, the Model Management CLIs on Linux
+#### Installing, or updating, the Model Management CLIs on Linux
 Run the following command from the command line, and follow the prompts:
 
 ```bash
