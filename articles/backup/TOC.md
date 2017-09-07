@@ -1,13 +1,35 @@
 ﻿
 # Overview
+
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 
-# Get started
-## [Back up Azure VMs](backup-azure-vms-first-look-arm.md)
-## [Back up Windows Server or Windows computers](backup-try-azure-backup-in-10-mins.md)
-## [Back up VMware servers](backup-azure-backup-server-vmware.md)
+# Quickstarts
+
+## [Back up VMs - Portal](backup-azure-vms-first-look-arm.md)
 ## [Back up VMs - PowerShell](quick-backup-vm-powershell.md)
+## [Back up VMs - Azure CLI](quick-backup-vm-powershell.md)
+
+
+# Tutorials
+
 ## [Back up Azure VMs at scale](tutorial-backup-azure-vm.md)
+## [Recover Azure VMs using VM templates](backup-azure-arm-restore-vms.md)
+## [Recover files from an Azure VM recovery point](backup-azure-restore-files-from-vms.md)
+## [Back up on-prem Windows Server to Azure](backup-try-azure-backup-in-10-mins.md)
+## [Recover files from Azure to an on-prem Windows Server](backup-azure-restore-windows-server.md)
+## [Back up on-prem VMware virtual machines to Azure](backup-azure-backup-server-vmware.md)
+## [Restore data from on-prem VMware virtual machines](backup-azure-alternate-dpm-server.md)
+
+# Concepts
+
+## FAQ
+### [FAQ on Recovery Services vault](backup-azure-backup-faq.md)
+### [FAQ on Azure VM backup](backup-azure-vm-backup-faq.md)
+### [FAQ on file-folder backup using Azure Backup agent](backup-azure-file-folder-backup-faq.md)
+## [Role-Based Access Control](backup-rbac-rs-vault.md)
+## [Security for hybrid backups](backup-azure-security-feature.md)
+## [Configure offline-backup](backup-azure-backup-import-export.md)
+## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
 
 # How to
 
@@ -99,17 +121,7 @@
 ### [Slow backup of files and folders in Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 ### [Troubleshoot Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 
-# Concepts
 
-## FAQ
-### [FAQ on Recovery Services vault](backup-azure-backup-faq.md)
-### [FAQ on Azure VM backup](backup-azure-vm-backup-faq.md)
-### [FAQ on file-folder backup using Azure Backup agent](backup-azure-file-folder-backup-faq.md)
-
-## [Role-Based Access Control](backup-rbac-rs-vault.md)
-## [Security for hybrid backups](backup-azure-security-feature.md)
-## [Configure offline-backup](backup-azure-backup-import-export.md)
-## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
 
 
 # Reference
