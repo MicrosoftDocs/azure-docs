@@ -20,28 +20,28 @@ ms.author: jgao
 
 ---
 # Create a non-interactive authentication .NET HDInsight application
-You can run your Microsoft .NET Azure HDInsight application either under the application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). For a sample of the interactive application, see [Connect to Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). This article shows you how to create a non-interactive authentication .NET application to connect to Azure and manage HDInsight.
+You can run your Microsoft .NET Azure HDInsight application either under the application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). This article shows you how to create a non-interactive authentication .NET application to connect to Azure and manage HDInsight. For a sample of an interactive application, see [Connect to Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 From your non-interactive .NET application, you need:
 
 * Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* The Azure Active Directory application client ID. See [Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) and [Get an application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* The Azure Active Directory application secret key. See [Get application authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) and [Get an application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* The Azure AD application secret key. See [Get application authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## Prerequisites
 * An HDInsight cluster. See the [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
-## Assign a role to an Azure AD application
-You must assign an Azure Active Directory (Azure AD) application a [role](../active-directory/role-based-access-built-in-roles.md) to grant it permissions for performing actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources it contains). In this tutorial, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)
+## Assign a role to the Azure AD application
+Assign your Azure AD application a [role](../active-directory/role-based-access-built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources it contains). In this tutorial, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
 **To add the Owner role to the Azure AD application**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left menu, select **Resource Group**.
-3. Select the resource group that contains the HDInsight cluster on which you will run your Hive query later in this tutorial. If you have a large number of resource groups, you can use the filter to find the one you want.
+3. Select the resource group that has the HDInsight cluster on which you will run your Hive query later in this tutorial. If you have a large number of resource groups, you can use the filter to find the one you want.
 4. On the resource group menu, select **Access control (IAM)**.
 5. Under **Users**, select **Add**.
-6. Follow the instruction to add the **Owner** role to your Azure AD application. When you complete it successfully, you shall see the application listed under **Users**, with the Owner role.
+6. Follow the instructions to add the **Owner** role to your Azure AD application. After you successfully add the role, the application is listed under **Users**, with the Owner role. 
 
 ## Develop an HDInsight client application
 
@@ -69,9 +69,9 @@ You must assign an Azure Active Directory (Azure AD) application a [role](../act
             {
                 private static HDInsightManagementClient _hdiManagementClient;
         
-                private static Guid SubscriptionId = new Guid("<Enter your Azure Subscription ID>");
-                private static string tenantID = "<Enter your Tenant ID (also called Directory ID)>";
-                private static string applicationID = "<Enter your Application ID>";
+                private static Guid SubscriptionId = new Guid("<Enter your Azure subscription ID>");
+                private static string tenantID = "<Enter your tenant ID (also called directory ID)>";
+                private static string applicationID = "<Enter your application ID>";
                 private static string secretKey = "<Enter the application secret key>";
         
                 private static void Main(string[] args)
@@ -99,7 +99,7 @@ You must assign an Azure Active Directory (Azure AD) application a [role](../act
                     Console.ReadLine();
                 }
 
-                /// Get the access token for a service principal and provided key                
+                /// Get the access token for a service principal and provided key.          
                 public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
                 {
                     var authFactory = new AuthenticationFactory();
@@ -120,6 +120,6 @@ You must assign an Azure Active Directory (Azure AD) application a [role](../act
 
 
 ## Next steps
-* [Create an Azure Active Directory application and service principal by using the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-* [Authenticate a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-* [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+* [Create an Azure Active Directory application and service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+* Learn how to [authenticate a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+* Learn about [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md).
