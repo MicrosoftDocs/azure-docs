@@ -248,9 +248,9 @@ For the conditional access policy in this step, you need to configure the follow
 See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) for more information.
 
 
-## Mobile application management or compliant device policy for Exchange Online and SharePoint Online
+## App-based or compliant device policy for Exchange Online and SharePoint Online
 
-This scenario consists of a conditional access with mobile app management or compliant device policy for access to Exchange Online with approved apps.
+This scenario consists of an app-based or compliant device conditional access policy for access to Exchange Online.
 
 
 ### Scenario playbook
@@ -340,9 +340,10 @@ See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/int
 
 
 
-## Mobile application management and compliant device policy for Exchange Online and SharePoint Online
+## App-based and compliant device policy for Exchange Online and SharePoint Online
 
-This scenario consists of a conditional access with mobile app management and compliant device policy for access to Exchange Online with approved apps.
+This scenario consists of an app-based and compliant device conditional access policy for access to Exchange Online.
+
 
 ### Scenario playbook
 
