@@ -47,7 +47,7 @@ Create the new ASP.NET WebAPI back end by doing the following:
 ## Authenticate clients to the WebAPI back end
 In this section, you create a new message-handler class named **AuthenticationTestHandler** for the new back end. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so that it can process all requests that come into the back end. 
 
-1. In Solution Explorer, right-click the **AppBackend** project, select **Add**, then select **Class**. 
+1. In Solution Explorer, right-click the **AppBackend** project, select **Add**, and then select **Class**. 
  
 2. Name the new class **AuthenticationTestHandler.cs**, and then select **Add** to generate the class. This class authenticates users by using *Basic Authentication* for simplicity. Your app can use any authentication scheme.
 
@@ -148,7 +148,7 @@ In this section, you add a new controller to the WebAPI back end to handle reque
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure Classic Portal](http://manage.windowsazure.com)):
+6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure classic portal](http://manage.windowsazure.com)):
    
         public class Notifications
         {
