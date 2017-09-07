@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/26/2017
+ms.date: 09/06/2017
 ms.author: jgao
 
 ---
@@ -30,7 +30,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 [SQLLine](http://sqlline.sourceforge.net/) is a command-line utility to execute SQL.
 
 ### Prerequisites
-Before you can use SQLLine, you must have the following:
+Before you can use SQLLine, you must have the following items:
 
 * **An HBase cluster in HDInsight**. For information on provision HBase cluster, see [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started].
 * **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal].
@@ -40,7 +40,7 @@ When you connect to an HBase cluster, you need to connect to one of the Zookeepe
 **To find out the Zookeeper host name**
 
 1. Open Ambari by browsing to **https://<ClusterName>.azurehdinsight.net**.
-2. Enter the HTTP (cluster) username and password to login.
+2. Enter the HTTP (cluster) username and password to log in.
 3. Click **ZooKeeper** from the left menu. You see three **ZooKeeper Server** listed.
 4. Click one of the **ZooKeeper Server** listed. On the Summary pane, find the **Hostname**. It is similar to *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
