@@ -54,7 +54,7 @@ In this section, you create an HDInsight Spark cluster using an [Azure Resource 
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled Submitting deployment for Template deployment. It takes about 20 minutes to create the cluster.
 
-If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. See [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters) for more information.
+If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 > [!NOTE]
 > This article creates a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -95,9 +95,9 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
 
 4. Click the notebook name at the top, and enter a friendly name if you want.
 
-    ![Provide a name for the Jupter notebook to run interactive Spark query from](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Provide a name for the Jupter notebook to run interactive Spark query from")
+    ![Provide a name for the Jupyter notebook to run interactive Spark query from](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Provide a name for the Jupyter notebook to run interactive Spark query from")
 
-5.  Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. In the code below `%%sql` (called the sql magic) tells Jupyter notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that is available by default on all HDInsight clusters.
+5.  Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. In the code below, `%%sql` (called the sql magic) tells Jupyter notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that is available by default on all HDInsight clusters.
 
 		%%sql
         SELECT * FROM hivesampletable LIMIT 10
@@ -123,7 +123,7 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
 
 ## Next step 
 
-In this article you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next article to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
+In this article, you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next article to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
 >[Run interactive queries on an HDInsight Spark cluster](hdinsight-apache-spark-load-data-run-query.md)
