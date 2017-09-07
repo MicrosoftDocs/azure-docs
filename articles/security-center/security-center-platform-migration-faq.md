@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 09/06/2017
 ms.author: terrylan
 
 ---
@@ -65,6 +65,41 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 **Deleting the default workspace is not recommended.** Security Center uses the default workspaces to store security data from your VMs.  If you delete a workspace, Security Center is unable to collect this data and some security recommendations and alerts are unavailable
 
 To recover, remove the Microsoft Monitoring Agent on the VMs connected to the deleted workspace. Security Center reinstalls the agent and creates new default workspaces.
+
+### How can I use my existing Log Analytics workspace?
+
+You can select an existing Log Analytics workspace to store data collected by Security Center. To use your existing Log Analytics workspace:
+
+- The workspace must be associated with your selected Azure subscription.
+- At a minimum, you must have read permissions to access the workspace.
+
+To select an existing Log Analytics workspace:
+
+1. Under **Security policy – Data Collection**, select **Use another workspace**.
+
+   ![Use another workspace][5]
+
+2. From the pull down menu, select a workspace to store collected data.
+
+   > [!NOTE]
+   > In the pull down menu, only workspaces that you have access to and are in your Azure subscription will be shown.
+   >
+   >
+
+3. Select **Save**.
+4. After selecting **Save**, you will be asked if you would like to reconfigure monitored VMs.
+
+   - Select **No** if you want the new workspace settings to **apply on new VMs only**. The new workspace settings will only apply to new agent installations; newly discovered VMs that do not have the Microsoft Monitoring Agent installed.
+   - Select **Yes** if you want the new workspace settings to **apply on all VMs**. The new workspace settings will be applied to all VMs. In addition, every VM connected to a Security Center created workspace will be reconnected to the new target workspace.
+
+   > [!NOTE]
+   > If this option is selected, you must not delete the workspace(s) created by Security Center until all VMs have been reconnected to the new target workspace. This operation will fail if a workspace is deleted too early.
+   >
+   >
+
+   - Select **Cancel** to cancel the operation.
+
+      ![Reconfigure monitored VMs][6]
 
 ### What if the Microsoft Monitoring Agent was already installed as an extension on the VM?
 Security Center does not override existing connections to user workspaces. Security Center stores security data from the VM in the workspace already connected.
@@ -155,3 +190,5 @@ To learn more about the Security Center platform migration, see
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
+[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
