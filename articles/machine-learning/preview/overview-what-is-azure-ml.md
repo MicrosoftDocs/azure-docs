@@ -34,6 +34,9 @@ The Experimentation Service is a managed Azure service that allows you to build,
 
 The Model Management Service is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. The service uses the same GIT repository designated by the Experimentation Service. Using Git, models are versioned and model lineage is tracked. The Model Management Service uses Docker to manage and deploy models reliably to local machines, Azure, or IoT edge devices. Models are deployed via Linux-based Docker containers that include the model and all encompassing dependencies. Containers are registered with Azure Container Registry and in the case of cloud deployments, pushed to Azure Container Service. For cluster deployments, Kubernetes is used to manage and load balance across containers. 
 
+The Azure Machine Learning Workbench is our companion application for the Experimentation and Model Management services. The application allows you to manage machine learning solutions through the entire data science life cycle--from data ingestion, through deployment and monitoring. Workbench is a downloadable desktop application available for Windows and MacOS. It  includes powerful, built-in data tools that learns your data preparation steps as you perform them. Project management, run history, and notebook integration are all included. We've also included the best open source machine learning frameworks including TensorFlow, Cognitive Toolkit, Spark ML, and scikit-learn. Additionally, Workbench is compatible with any Python or PySpark code and a number of popular machine learning IDEs. 
+
+
 
 
 
