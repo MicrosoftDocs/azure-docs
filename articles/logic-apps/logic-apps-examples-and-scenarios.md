@@ -59,7 +59,7 @@ Here are just a few popular trigger examples:
   * The "When an email is received" trigger lets your logic app check for 
   new email from any mail provider that's supported by Logic Apps, for example, 
   [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), 
-  [Gmail](../connectors/gmail.md), [Outlook.com](../connectors/outlook.md), and so on.
+  [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), and so on.
 
   * The ["HTTP"](../connectors/connectors-native-http.md) trigger lets your 
   logic app check a specified service endpoint by communicating over HTTP.
