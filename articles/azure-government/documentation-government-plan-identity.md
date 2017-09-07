@@ -43,7 +43,7 @@ When building any Azure application, a developer must first decide on the authen
 Based on this decision there are different considerations when building in Azure Government.
 
 ### Applications using Modern Authentication in Azure Government
-[Integrating Applications with Azure Active Directory](..\active-directory\develop\active-directory-integrating-applications.md) shows how you can use Azure AD to provide secure sign in and authorization to your applications.  This process is the same for Azure Commercial and Azure Government once you identify your identity authority.
+[Integrating Applications with Azure Active Directory](..\active-directory\develop\active-directory-integrating-applications.md) shows how you can use Azure AD to provide secure sign in and authorization to your applications.  This process is the same for Azure Commercial and Azure Government once you choose your identity authority.
 
 #### Choosing your Identity Authority
 Azure Government applications can use AAD Government identities, but can you use AAD Commercial identities to authenticate to an application hosted in Azure Government?  Yes!  Since you can use either identity authority, you will need to choose which to use:
