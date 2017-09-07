@@ -20,7 +20,7 @@ ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
 
 ---
-# Setting up Azure Active Directory for self-service group management
+# Set up Azure Active Directory for self-service group management
 Your users can create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). Users can also request security group or Office 365 group memberships, and then the owner of the group can approve or deny membership. Day-to-day control of group membership can be delegated to the people who understand the business context for that membership. Self-service group management features are available only for security groups and Office 365 groups, but not for mail-enabled security groups or distribution lists.
 
 Self-service group management currently services two essential scenarios: delegated group management and self-service group management.
@@ -30,8 +30,8 @@ Self-service group management currently services two essential scenarios: delega
 * **Self-service group management**
     An example of this scenario is two users who both have SharePoint Online sites that they set up independently. They want to give each other’s teams access to their sites. To accomplish this, they can create one group in Azure AD, and in SharePoint Online each of them selects that group to provide access to their sites. When someone wants access, they request it from the Access Panel, and after approval they get access to both SharePoint Online sites automatically. Later, one of them decides that all people accessing the site should also get access to a particular SaaS application. The administrator of the SaaS application can add access rights for the  application to the SharePoint Online site. From then on, any requests that get approved gives access to the two SharePoint Online sites and also to this SaaS application.
 
-## Making a group available for end user self-service
-1. Sign in to the [<Azure AD admin center>](https://aad.portal.azure.com) with an account that's a global admin for the directory.
+## Make a group available for user self-service
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
 2. Select **Users and groups**, and then select **Group settings**.
 3. Set **Self-service group management enabled** to **Yes**.
 4. Set **Users can create security groups** or **Users can create Office 365 groups** to **Yes**.
@@ -45,8 +45,8 @@ You can also use **Group that can manage security groups** or **Group that can m
 ## Next steps
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Integrate your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
