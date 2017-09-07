@@ -232,8 +232,6 @@ Go down to the "Add" button and click on "New Item" as shown below.
 
     ![triggerfunctioncreate2](./media/documentation-government-function6.png)
     In order to connect the trigger function to Azure Government we need to define the connection property app settings that are defined in this file. 
-
-
 5. Go to your [Azure Government portal](https://portal.azure.us) and click on "Storage Accounts" from the left side-bar. 
 
     ![triggerfunctioncreate3](./media/documentation-government-function7.png)
@@ -241,12 +239,10 @@ Go down to the "Add" button and click on "New Item" as shown below.
     Once you navigate to this section you will be able to see two Default keys: Primary and Secondary.
 
     ![triggerfunctioncreate4](./media/documentation-government-function8.png)
-
 6. Copy the Connection String for your Primary key, go back to your "local.settings.json" file and paste the string for all of the values in the "Values" parameter. Also make sure "AccountName" = your storage account name. 
 
     ![triggerfunctioncreate5](./media/documentation-government-function9.png)
     Once this has been set you can run your Timer trigger function. 
-
 ### Integrate Storage using Visual Studio
 
 You can connect to external service data from your function in Visual Studio. 
@@ -295,7 +291,6 @@ In order to connect the function to your output Queue you must create an output 
 3. On the Overview page click on the "Queues" button in order to see the different Queues. 
 
     ![triggerfunctioncreate6](./media/documentation-government-function10.png)
-
 4. Click on your Queue and you should be able to see the output of your function.
 
     ![triggerfunctioncreate7](./media/documentation-government-function11.png)
