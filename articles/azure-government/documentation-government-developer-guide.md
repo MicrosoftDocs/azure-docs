@@ -25,9 +25,22 @@ Azure Government is a separate instance of the Microsoft Azure service. It addre
 
 Microsoft provides various tools to help developers create and deploy cloud applications to the global Microsoft Azure service (“global service”) and Microsoft Azure Government services.
 
-When developers create and deploy applications to Azure Government services, as opposed to the global service, they need to know the key differences between the two services. The specific areas to understand are: setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying the applications as services to Azure Government.
+When developers create and deploy applications to Azure Government services, as opposed to the global service, they need to know the key differences between the two services. 
+The specific areas to understand are: 
 
-The information in this document summarizes the differences between the two services. It supplements the information that's available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information might also be available in other locations, such as the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"), [Azure Documentation Center](https://azure.microsoft.com/documentation/), and [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs").
+* Setting up and configuring their programming environment
+* Configuring endpoints
+* Writing applications
+* Deploying applications as services to Azure Government
+
+The information in this document summarizes the differences between the two services. 
+It supplements the information that's available through the following sources:
+
+* [Azure Government](http://www.azure.com/gov "Azure Government") site 
+* [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN
+* [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center")
+* [Azure Documentation Center](https://azure.microsoft.com/documentation/)
+* [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs")
 
 This content is intended for partners and developers who are deploying to Microsoft Azure Government.
 
@@ -35,11 +48,15 @@ This content is intended for partners and developers who are deploying to Micros
 Most of the currently available technical content assumes that applications are being developed for the global service rather than for Azure Government. For this reason, it’s important to be aware of two key differences in applications that you develop for hosting in Azure Government.
 
 * Certain services and features that are in specific regions of the global service might not be available in Azure Government.
-* Feature configurations in Azure Government might differ from those in the global service. Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Government Cloud Services environment.
+* Feature configurations in Azure Government might differ from those in the global service. 
+    -   Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Government Cloud Services environment.
 
 Currently, US Gov Virginia, US Gov Arizona, US Gov Texas and US Gov Iowa are the datacenters that support Azure Government. For current datacenters and available services, see [Products available by region](https://azure.microsoft.com/regions/services).
 
+### Quickstarts
+Navigate through the links below to get started using Azure Government.
 
+* [Login to Azure Government Portal]()
 ## Endpoint mapping
 To learn about mapping global Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
 
