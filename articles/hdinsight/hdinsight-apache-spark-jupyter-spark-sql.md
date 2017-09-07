@@ -16,13 +16,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 
 ---
 # Create an Apache Spark cluster in Azure HDInsight
 
-In this article, you learn how to create an Apache Spark cluster in Azure HDInsight. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md).
+In this article, you learn how to create an Apache Spark cluster in Azure HDInsight and then run a Spark SQL query on a Hive table. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md).
 
    ![Quickstart diagram describing steps to create an Apache Spark cluster on Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark quickstart using Apache Spark in HDInsight. Steps illustrated: create a cluster; run Spark interactive query")
 
@@ -61,9 +61,15 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
 >
 >
 
-## Run a Hive query using Spark SQL
+## Run Spark SQL statements on a Hive table
 
-When you use a Jupyter notebook configured for your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. In this section, you learn how to start a Jupyter notebook and then run a basic Hive query.
+SQL (Structured Query Language) is the most common and widely used language for querying and defining data. The founders of Spark sought to harness this knowledge, opening up the well-known data querying language to a wider audience of analysts who wish to work with data that lives on Hadoop Distributed File System (HDFS). Spark SQL is that offering. It functions as an extension to Apache Spark for processing structured data, using the familiar SQL syntax.
+
+Spark SQL supports both SQL and HiveQL as query languages. Its capabilities include binding in Python, Scala, and Java. With it, you can query data stored in many locations, such as external databases, structured data files (example: JSON), and Hive tables.
+
+### Running Spark SQL on an HDInsight cluster
+
+When you use a Jupyter notebook configured for your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. In this section, you learn how to start a Jupyter notebook and then run a basic Spark SQL query on an existing Hive table (**hivesampletable**) that is available on all HDInsight clusters.
 
 1. Open the [Azure portal](https://portal.azure.com/).
 

@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 
 ---
@@ -26,8 +26,17 @@ This article provides you with an introduction to Spark on HDInsight. <a href="h
 
 When you create a Spark cluster on HDInsight, you create Azure compute resources with Spark installed and configured. It only takes about 10 minutes to create a Spark cluster in HDInsight. The data to be processed is stored in Azure Storage or Azure Data Lake Store. See [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-**To create a Spark cluster on HDInsight**, see [QuickStart: create a Spark cluster on HDInsight and run interactive query using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
+![Spark: a unified framework](./media/hdinsight-apache-spark-overview/hdinsight-spark-overview.png)
 
+## Spark vs. traditional MapReduce
+
+What makes Spark fast? How is the architecture of Apache Spark different than traditional MapReduce, allowing it to offer better performance for data sharing?
+
+![Traditional MapReduce vs. Spark](./media/hdinsight-apache-spark-overview/mapreduce-vs-spark.png)
+
+Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, much more quickly than disk-based systems. Spark also integrates into the Scala programming language to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
+
+In Spark, data sharing between operations is faster since data is in-memory. On the other hand, Hadoop shares data through HDFS, which takes longer to process.
 
 ## What is Apache Spark on Azure HDInsight?
 Spark clusters on HDInsight offer a fully managed Spark service. Benefits of creating a Spark cluster on HDInsight are listed here.
@@ -47,6 +56,20 @@ Spark clusters on HDInsight offer a fully managed Spark service. Benefits of cre
 | Pre-loaded Anaconda libraries |Spark clusters on HDInsight come with Anaconda libraries pre-installed. [Anaconda](http://docs.continuum.io/anaconda/) provides close to 200 libraries for machine learning, data analysis, visualization, etc. |
 | Scalability |Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match workload. All HDInsight clusters allow you to change the number of nodes in the cluster. Also, Spark clusters can be dropped with no loss of data since all the data is stored in Azure Storage or Data Lake Store. |
 | 24/7 Support |Spark clusters on HDInsight come with  enterprise-level 24/7 support and an SLA of 99.9% up-time. |
+
+## Spark cluster architecture
+
+Here is the Spark cluster architecture and how it works:
+
+![Spark cluster architecture](./media/hdinsight-apache-spark-overview/spark-architecture.png)
+
+The head node has the Spark master that manages the number of applications, the apps are mapped to the Spark driver. Every app is managed by Spark master in various ways. Spark can be deployed on top of Mesos, YARN, or the Spark cluster manager, which allocates worker node resources to an application. In HDInsight, Spark runs using the YARN cluster manager. The resources in the cluster are managed by Spark master in HDInsight. That means the Spark master has knowledge of which resources, like memory, are occupied or available on the worker node.
+
+The driver runs the user's main function and executes the various parallel operations on the worker nodes. Then, the driver collects the results of the operations. The worker nodes read and write data from and to the Hadoop distributed file system (HDFS). The worker nodes also cache transformed data in-memory as Resiliant Distributed Datasets (RDDs).
+
+Once the app is created in the Spark master, the resources are allocated to the apps by Spark master, creating an execution called the Spark driver. The Spark driver also creates the SparkContext and also starts creating the RDDs. The metadata of the RDDs are stored on the Spark driver.
+
+The Spark driver connects to the Spark master and is responsible for converting an application to a directed graph (DAG) of individual tasks that get executed within an executor process on the worker nodes. Each application gets its own executor processes, which stay up for the duration of the whole application and run tasks in multiple threads.
 
 ## What are the use cases for Spark on HDInsight?
 Spark clusters in HDInsight enable the following key scenarios.
