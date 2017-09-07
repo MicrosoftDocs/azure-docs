@@ -18,7 +18,7 @@ ms.author: yuaxu
 
 ---
 # Send cross-platform notifications to users with Notification Hubs
-In a previous tutorial, [Notify users with Notification Hubs], you learned how to push notifications to all devices that are registered to a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Notification Hubs supports templates, with which you can specify how a specific device wants to receive notifications. This method simplifies sending cross-platform notifications. 
+In a previous tutorial, [Notify users with Notification Hubs], you learned how to push notifications to all devices that are registered to a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Azure Notification Hubs supports templates, with which you can specify how a specific device wants to receive notifications. This method simplifies sending cross-platform notifications. 
 
 This article demonstrates how to take advantage of templates to send, in a single request, a platform-agnostic notification that targets all platforms. For more detailed information about templates, see [Azure Notification Hubs Overview][Templates].
 
