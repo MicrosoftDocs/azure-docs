@@ -19,6 +19,7 @@
 ## Plan
 ### [Security](documentation-government-plan-security.md)
 ### [Compliance](documentation-government-plan-compliance.md)
+### [Identity](documentation-government-plan-identity.md)
 ## Manage
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
