@@ -157,11 +157,8 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
---settings AzureWebJobsmyblobstorage_STORAGE=$storageConnectionString 
-
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings myContainerName=thumbs
+--settings myblobstorage_STORAGE=$storageConnectionString \
+myContainerName=thumbs
 ```
 
 You can now deploy a function code project to this function app.
