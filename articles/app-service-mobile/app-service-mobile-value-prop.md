@@ -100,7 +100,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [autoscaling]: ../app-service-web/web-sites-scale.md
 [staging environments]: ../app-service-web/web-sites-staged-publishing.md
 [deployment options]: ../app-service-web/web-sites-deploy.md
-[hybrid connections]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[hybrid connections]: ../biztalk-services/integration-hybrid-connection-overview.md
 [virtual networks]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service environments]: ../app-service-web/app-service-app-service-environment-intro.md
