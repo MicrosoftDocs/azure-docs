@@ -75,11 +75,6 @@ Main sources for the application. Consists of 3 pages (index, about, contact) wi
 
     \app.py
 
-Local development server support. Use this to run the application locally.
-
-    \BottleWebProject.pyproj
-    \BottleWebProject.sln
-
 Project files for use with [Python Tools for Visual Studio].
 
     \ptvs_virtualenv_proxy.py
@@ -90,8 +85,8 @@ IIS proxy for virtual environments and PTVS remote debugging support.
 
 External packages needed by this application. The deployment script will pip install the packages listed in this file.
 
-    \web.2.7.config
-    \web.3.4.config
+    \web.config
+    \web.config.debug
 
 IIS configuration files. The deployment script will use the appropriate web.x.y.config and copy it as web.config.
 
@@ -120,9 +115,9 @@ The next 3 sections describe how to proceed with the web app development under 3
 
 ## Web App development - Windows - Python Tools for Visual Studio
 ### Clone the repository
-First, clone the repository using the url provided on the Azure Portal. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
+First, clone the repository using the url provided on the Azure Portal. 
 
-Open the solution file (.sln) that is included in the root of the repository.
+Create a new Bottle Web Project in Visual Studio and copy the contents from the cloned repo into this new project.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-solution-bottle.png)
 
