@@ -72,11 +72,11 @@
 # Reference
 ## [Metrics supported](monitoring-supported-metrics.md)
 ## [Activity log event schema](monitoring-activity-log-schema.md)
-## [PowerShell](/powershell/module/azurerm.insights)
-## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [REST](/rest/api/monitor/)
-
 ## [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
+## [PowerShell](/powershell/module/azurerm.insights)
+## [REST](/rest/api/monitor/)
+## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
+
 
 
 # Resources
