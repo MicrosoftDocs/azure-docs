@@ -38,6 +38,9 @@ When reviewing this alert, make sure the field Arguments Auditing Enabled appear
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
 
+> [!NOTE]
+> Watch [Alert Validation in Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) video, to see a demonstration of this feature. 
+
 ## See also
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
 
