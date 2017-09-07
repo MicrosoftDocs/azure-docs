@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -60,7 +60,7 @@ Azure Active Directory support two types of signing algorithm to sign the SAML r
 
 <!--Image references-->
 
-[1]: ./media/azure-active-directory-enterprise-apps-advance-certificate-options/saml-advance-certificate.png
-[2]: ./media/azure-active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha1.png
-[3]: ./media/azure-active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha256.png
-[4]: ./media/azure-active-directory-enterprise-apps-advance-certificate-options/saml-signing-options.png
+[1]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-advance-certificate.png
+[2]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha1.png
+[3]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha256.png
+[4]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-options.png
