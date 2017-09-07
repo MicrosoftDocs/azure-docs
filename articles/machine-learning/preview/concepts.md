@@ -1,6 +1,6 @@
 ---
-title: Machine Learning 2017 Preview FAQ | Microsoft Docs
-description: This article contains commonly asked questions and answers
+title: Conceptual overview of Azure Machine Learning preview features | Microsoft Docs
+description: A conceptual overview of the preview features of Azure Machine Learning.
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -8,7 +8,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/30/2017 
+ms.date: 09/06/2017 
 ---
 
 # Azure Machine Learning - Conceptual Overview

@@ -3,7 +3,7 @@ title: What are the Machine Learning Options in Azure? | Microsoft Docs
 description: Overview of the various machine learning tools and services available in Azure.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: mwinkle
 manager: jhubbard
 editor: cgronlun
 
@@ -11,9 +11,9 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/01/2017
-ms.author: garye
+ms.author: mwinkle
 
 ---
 # What are the machine learning options in Azure?
