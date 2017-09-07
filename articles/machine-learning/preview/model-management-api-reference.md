@@ -1,6 +1,6 @@
 ---
-title: Model Management API Reference document | Microsoft Docs
-description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
+title: Model Management API reference | Microsoft Docs
+description: The REST API reference for the Azure Machine Learning Model Management service.
 services: machine-learning
 author: get2chhavi
 ms.author: chhavib

@@ -35,9 +35,7 @@ sections:
     style: ordered
     items:
     - html: <a href="tutorial-iris-azure-cli">Iris tutorial using CLI</a>
-    - html: Bike Share Forecast - Data preparation
-    - html: Bike Share Forecast - Experimentation
-    - html: Bike Share Forecast - Operationalization
+    - html: <a href="tutorial-bikeshare-dataprep">Bike Share data preparation</a>
 
 - title: Samples
   items:

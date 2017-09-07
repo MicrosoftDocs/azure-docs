@@ -1,6 +1,6 @@
 ---
-title: Installation Quickstart for Machine Learning Server | Microsoft Docs
-description: This Quickstart shows how to provision Azure Machine Learning resources, and how to install Azure Machine Learning Workbench
+title: Installation quickstart for Machine Learning Server | Microsoft Docs
+description: This quickstart shows how to provision Azure Machine Learning resources, and how to install Azure Machine Learning Workbench
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib
@@ -75,13 +75,13 @@ When a new release becomes available, Azure ML Workbench auto-updates on its own
 Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Follow the on-screen instructions to finish the installation. Azure ML Workbench is now installed in the following directory:
 ```
 # On Windows
-C:\Users\<username>\
+C:\Users\<username>\AppData\Local\AmlWorkbench
 
 # On macOS
-/home/Users/<username>/
+/Applications/AmlWorkbench.app
  ```
 
-Click on the **Launch Azure ML Workbench** button when installation finishes to launch Workbench. If you close the instaler, you can find the shortcut on your desktop named **Azure Machine Learning Workbench**. Double-click and open it. 
+Click on the **Launch Azure ML Workbench** button when installation finishes to launch Workbench. If you close the installer, you can find the shortcut on your desktop named **Azure Machine Learning Workbench**. Double-click and open it. 
 
 Log in using the same account you used earlier to provision Azure resources. 
 
