@@ -58,27 +58,39 @@ In this example, set these properties to run your workflow every week.
 4. For more scheduling options, 
 choose **Show advanced options** so that you can: 
 
-   * Specify an advance date and time for starting your workflow. 
-   * Select the timezone for running your workflow.
-   * Select specific times or days for running your workflow. 
+   * Specify a start date and time for firing the recurrence trigger. 
+   When you specify a start date and time, you can apply a time zone too.
+
+   * Select specific times or days for running your workflow 
+   when you select the frequency "Day" or "Week".
 
    ![More options](./media/connectors-native-recurrence/recurrence-trigger-more-options.png)
 
-   If you previously selected "Week" or "Day", you can specify 
+   If you previously selected "Day" or "Week", you can specify 
    times for running your workflow. If you selected "Week", 
    you can also select days of the week for running your workflow.
    
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   For example, you could specify that your logic app 
-   doesn't start running until two weeks from today, 
+   For example, you could specify that your logic app doesn't 
+   start running until two weeks from today, 
    supposing that today is September 4, 2017. 
-   If you select options for days or times, 
-   the trigger shows you a preview for your specified recurrence. 
+   And because this example selected "Week", 
+   you can also select specific days or times. 
+   The trigger shows you a preview for your specified recurrence. 
    For example, this trigger runs weekly, on each Monday, 
    at 10:30 AM, 12:30 PM, and 2:30 PM.
 
    ![Advanced scheduling example](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
+
+   Here are more example recurrences:
+
+   | Recurrence | Interval | Frequency | On these days | At these hours | At these minutes | 
+   | ---------- | -------- | --------- | ------------- | -------------- | ---------------- |
+   | Every hour during working hours | 1 | Week | Select all days except Saturday and Sunday. Available only after you select "Week" as the frequency. | Select the hours for your specific working hours | {not necessary} | 
+   | Once each day on weekends | 1 | Week | Select only Saturday and Sunday. Available only after you select "Week" as the frequency. | {not necessary} | {not necessary} | 
+   | Every 15 minutes on Monday every other week | 2 | Week | Select only Monday | {not necessary} | 15 | 
+   ||||
 
 5. Now build your remaining workflow with actions or workflow control statements. 
 For more actions that you can add, see [Connectors](../connectors/apis-list.md).
@@ -91,8 +103,8 @@ You can configure these properties for the recurrence trigger.
 | ------------ | ------------- | -------- | ----------- | 
 | **Frequency** | frequency | Yes | The unit of time: `Second`, `Minute`, `Hour`, `Day`, `Week`, or `Month` | 
 | **Interval** | interval | Yes | The frequency interval for the recurrence | 
-| **Time zone** | timeZone | No | If you provide a start time without a UTC offset, this time zone is used. | 
-| **Start time** | startTime | No | The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| **Time zone** | timeZone | No | Applies only when you specify a **start time** and is used for start times without time zone offsets. Select the time zone that you want to apply. | 
+| **Start time** | startTime | No | Provide the start time in these formats: <p>- [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) without a time zone offset <p>- [ISO 8601 date time format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) without a time zone offset. But you can include the letter "Z", which refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time) and is necessary if you don't specify a time zone. | 
 | **On these days** | weekDays | No | When you select `Week`, you can select one or more days of the week when you want to run the workflow: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday` | 
 | **At these hours** | hours | No | When you select `Day` or `Week`, you can select one or more hours for the times of day when you want to run the workflow. For example, "10", "12" and "14" are 10 AM, 12 PM, and 2 PM. | 
 | **At these minutes** | minutes | No | When you select `Day` or `Week`, you can select one or more minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
