@@ -37,17 +37,18 @@
   items:
   - name: Set up and configure environment
     items:    
-    - name: (Configure execution targets)
-    - name: (Use Jupyter notebooks)
+    - name: (Configure execution targets)    
     - name: How to use GPU from Workbench
-      href: how-to-use-gpu.md
+      href: how-to-use-gpu.md    
   - name: Acquire and understand data
     items:
-    - name: (Work with large datasets)
-    - name: (Prepare your data)
+    - name: Getting Started with Data Preparation
+      href: data-prep-getting-started.md
   - name: Develop and manage models
     items:
+    - name: (Use Jupyter notebooks)
     - name: (Track run history and model metrics)
+    - name: (Manage data files)
     - name: Use the MMLSpark library
       href: how-to-use-mmlspark.md
   - name: Operationalize models
