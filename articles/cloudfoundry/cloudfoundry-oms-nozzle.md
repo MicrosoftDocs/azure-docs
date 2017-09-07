@@ -45,9 +45,9 @@ It also needs access permission to the loggregator firehose and the Cloud Contro
 
 * [Install Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
-* [Install Cloud Foundry UAA Command-Line Client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
+* [Install Cloud Foundry UAA command-line client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Make sure Rubygems is installed before setting up UAA command-Line Client.
+Make sure Rubygems is installed before setting up UAA command-line client.
 
 ### 3. Create an OMS workspace in Azure
 
@@ -58,7 +58,7 @@ You can create the OMS workspace manually, and load the pre-configured OMS views
 1. In the Azure portal, search the list of services in the Marketplace for Log Analytics, and then select Log Analytics.
 2. Click Create, then select choices for the following items:
 
-* OMS Workspace: Type a name for your workspace.
+* OMS workspace: Type a name for your workspace.
 * Subscription: If you have multiple subscriptions, choose the same one with your CF deployment.
 * Resource group: You can create a new resource group, or use the same one with your CF deployment.
 * Location
