@@ -63,7 +63,10 @@ The other consideration will be the identity authority URL.  You will need to us
 ### Applications Using Legacy (Kerberos/NTLM) Authentication Protocols
 Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. This is enabled by extending the on-premises Active Directory footprint to Azure by adding domain controllers as virtual machines (As shown below) to support logins for line-of-business applications/other apps that require Windows Integrated authentication.
 
-<p align="center"><img align="center" src="./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png"></img></p>
+<div align="center">
+
+![alt text](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
+</div>
 
 The figure above is a very simple connectivity example, using site-to-site VPN. This could easily, and more preferably, be an Azure ExpressRoute connection. The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at <a href="https://msdn.microsoft.com/en-us/library/azure/jj156090.aspx#BKMK_RODC">Deployment Decisions and Factors for Read-Only DCs</a>.
 
