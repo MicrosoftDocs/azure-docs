@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
@@ -234,7 +234,7 @@ In this tutorial, you configured GitHub to run a Jenkins build job on each code 
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-Follow this link to see pre-built virtual machine script samples.
+Advance to the next tutorial to learn more about how to integrate Jenkins with Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
-> [Linux virtual machine script samples](./cli-samples.md)
+> [Deploy apps with Jenkins and Team Services](tutorial-build-deploy-jenkins.md)

@@ -10,11 +10,12 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
+ms.custom: mvc
 
 ---
 
@@ -38,6 +39,13 @@ Before you begin this tutorial:
 - [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
+## Download the Voting sample application
+If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
+
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
+
 ## Set up a Party Cluster
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. For free!
 
@@ -46,16 +54,28 @@ To get access to a Party Cluster, browse to this site: http://aka.ms/tryservicef
 > [!NOTE]
 > Party clusters are not secured, so your applications and any data you put in them may be visible to others. Don't deploy anything you don't want others to see. Be sure to read over our Terms of Use for all the details.
 
-## Make your application ready for deployment
-As our ASP.NET Core web api service acts as the front end for this application and accept external traffic, we want to bind that service to a fixed and well-know port. Specifying the port in the services **ServiceManifest.xml** file.
+## Configure the listening port
+When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 80.
 
-1. In Solution Explorer, open up **WebAPIFrontEnd->PackageRoot->ServiceManifest.xml**.
-2. Change the **Port** attribute of the existing **Endpoint** element to **80** and save your changes.
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
+
+![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## Deploy the app to the Azure
 Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
 
-1. Right-click **MyApplication** in the Solution Explorer and choose **Publish**.
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**.
 
     ![Publish Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
@@ -63,7 +83,7 @@ Now that the application is ready, you can deploy it to the Party Cluster direct
 
     Once the publish has finished, you should be able to send a request to the application via a browser.
 
-3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com), add `/api/values` to the url.
+3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com).
 
     You should now see the same result as you saw when running the application locally.
 
@@ -72,21 +92,22 @@ Now that the application is ready, you can deploy it to the Party Cluster direct
 ## Remove the application from a cluster using Service Fabric Explorer
 Service Fabric Explorer is a graphical user interface to explore and manage applications in a Service Fabric cluster.
 
-To remove the application we deployed to the Party Cluster:
+To remove the application from the Party Cluster:
 
 1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. In Service Fabric Explorer, navigate to the **fabric://MyApplication** node in the treeview on the left-hand side.
+2. In Service Fabric Explorer, navigate to the **fabric://Voting** node in the treeview on the left-hand side.
 
 3. Click the **Action** button in the right-hand **Essentials** pane, and choose **Delete Application**. Confirm deleting the application instance, which removes the instance of our application running in the cluster.
 
 ![Delete Application in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
 
+## Remove the application type from a cluster using Service Fabric Explorer
 Applications are deployed as application types in a Service Fabric cluster, which enables you to have multiple instances and versions of the application running within the cluster. After having removed the running instance of our application, we can also remove the type, to complete the cleanup of the deployment.
 
 For more information about the application model in Service Fabric, see [Model an application in Service Fabric](service-fabric-application-model.md).
 
-1. Navigate to the **MyApplicationType** node in the treeview.
+1. Navigate to the **VotingType** node in the treeview.
 
 2. Click the **Action** button in the right-hand **Essentials** pane, and choose **Unprovision Type**. Confirm unprovisioning the application type.
 

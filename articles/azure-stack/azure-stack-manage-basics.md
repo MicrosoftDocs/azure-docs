@@ -58,7 +58,7 @@ Azure Stack will continue to add support for Azure services. For the projected r
 
 ## What tools do I use to manage?
  
-You can use the [administrator portal](azure-stack-manage-portals.md) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, there are preparation steps. You must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure.md) PowerShell.
+You can use the [administrator portal](azure-stack-manage-portals.md) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, there are preparation steps. You must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure-admin.md) PowerShell.
 
 Azure Stack uses Azure Resource Manager as its underlying deployment, management, and organization mechanism. If you're going to manage Azure Stack and help support users, you should learn about Resource Manager. See the [Getting Started with Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) whitepaper.
 
@@ -87,8 +87,8 @@ You'll need to let your users know how to work with services in Azure Stack, how
 
 There's information your users must understand before they use services and build apps in Azure Stack. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Make sure that your users review the following articles:
 
-- [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md)
-- [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
+- [Key considerations: Using services or building apps for Azure Stack](user/azure-stack-considerations.md)
+- [Considerations for Virtual Machines in Azure Stack](user/azure-stack-vm-considerations.md)
 - [Storage: differences and considerations](azure-stack-acs-differences-tp2.md)
 
 The information in these articles summarizes the differences between a service in Azure and Azure Stack. It supplements the information that's available for an Azure service in the global Azure documentation. 
@@ -97,7 +97,7 @@ The information in these articles summarizes the differences between a service i
 
 In a development kit environment, if a user doesn't have Remote Desktop access to the development kit host, they must configure a virtual private network (VPN) connection before they can access Azure Stack. See [Connect to Azure Stack](azure-stack-connect-azure-stack.md). 
 
-Your users will want to know how to [access the user portal ](azure-stack-manage-portals.md) or how to connect through PowerShell. If using PowerShell, users may have to register resource providers before they can use services. (A resource provider manages a service. For example, the networking resource provider manages resources such as virtual networks, network interfaces, and load balancers.) They must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure.md) PowerShell (which includes resource provider registration).
+Your users will want to know how to [access the user portal ](azure-stack-manage-portals.md) or how to connect through PowerShell. If using PowerShell, users may have to register resource providers before they can use services. (A resource provider manages a service. For example, the networking resource provider manages resources such as virtual networks, network interfaces, and load balancers.) They must [install](user/azure-stack-powershell-install.md) PowerShell, [download](user/azure-stack-powershell-download.md) additional modules, and [configure](user/azure-stack-powershell-configure-user.md) PowerShell (which includes resource provider registration).
 
 **Subscribe to an offer**
 

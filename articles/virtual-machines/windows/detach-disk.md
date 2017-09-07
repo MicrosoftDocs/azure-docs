@@ -1,4 +1,4 @@
-﻿---
+---
 title: Detach a data disk from a Windows VM - Azure| Microsoft Docs
 description: Learn to detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-windows
@@ -22,7 +22,7 @@ ms.author: cynthn
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage.
 
 > [!WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../../storage/storage-premium-storage.md#pricing-and-billing).
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../../storage/common/storage-premium-storage.md#pricing-and-billing).
 >
 >
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use PowerShell to back up and restore App Service apps
 description: Learn how to use PowerShell to back up and restore an app in Azure App Service
 services: app-service
@@ -18,18 +18,13 @@ ms.author: nicking
 
 ---
 # Use PowerShell to back up and restore App Service apps
-> [!div class="op_single_selector"]
-> * [PowerShell](app-service-powershell-backup.md)
-> * [REST API](../app-service-web/websites-csm-backup.md)
-> 
-> 
 
 Learn how to use Azure PowerShell to back up and restore [App Service apps](https://azure.microsoft.com/services/app-service/web/). For more information about web app backups, including requirements and restrictions, see [Back up a web app in Azure App Service](../app-service-web/web-sites-backup.md).
 
 ## Prerequisites
 To use PowerShell to manage your app backups, you need the following:
 
-* **A SAS URL** that allows read and write access to an Azure Storage container. See [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) for an explanation of SAS URLs. See [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) for examples of managing Azure Storage using PowerShell.
+* **A SAS URL** that allows read and write access to an Azure Storage container. See [Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) for an explanation of SAS URLs. See [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) for examples of managing Azure Storage using PowerShell.
 * **A database connection string** if you want to back up a database along with your web app.
 
 ### How to generate a SAS URL to use with the web app backup cmdlets

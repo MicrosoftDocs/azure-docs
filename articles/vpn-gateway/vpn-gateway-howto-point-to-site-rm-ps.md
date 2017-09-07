@@ -29,7 +29,9 @@ This article shows you how to create a VNet with a Point-to-Site connection in t
 >
 >
 
-A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. The P2S VPN connection is initiated from the client computer using the native Windows VPN client. Connecting clients use certificates to authenticate. 
+A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
+
+P2S uses the Secure Socket Tunneling Protocol (SSTP), which is an SSL-based VPN protocol. A P2S VPN connection is established by starting it from the client computer.
 
 ![Connect a computer to an Azure VNet - Point-to-Site connection diagram](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
@@ -44,7 +46,7 @@ Point-to-Site connections do not require a VPN device or an on-premises public-f
 
 For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
 
-## Before beginning
+## Before you begin
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 * Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
@@ -174,12 +176,12 @@ Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPN
 
 If you use self-signed certificates, they must be created using specific parameters. You can create a self-signed certificate using the instructions for [PowerShell and Windows 10](vpn-gateway-certificates-point-to-site.md), or, if you don't have Windows 10, you can use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important that you follow the steps in the instructions when generating self-signed root certificates and client certificates. Otherwise, the certificates you generate will not be compatible with P2S connections and you will receive a connection error.
 
-### <a name="cer"></a>Step 1 - Obtain the .cer file for the root certificate
+### <a name="cer"></a>1. Obtain the .cer file for the root certificate
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 
-### <a name="generate"></a>Step 2 - Generate a client certificate
+### <a name="generate"></a>2. Generate a client certificate
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -238,6 +240,8 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
   ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
+#### Troubleshooting P2S connections
+
 [!INCLUDE [client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>10. Verify your connection
@@ -266,7 +270,7 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
 You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from the root certificate can't authenticate and won't be able to connect. If you want a client to authenticate and connect, you need to install a new client certificate generated from a root certificate that is trusted (uploaded) to Azure.
 
-### To add a trusted root certificate
+### <a name="addtrustedroot"></a>To add a trusted root certificate
 
 You can add up to 20 root certificate .cer files to Azure. The following steps help you add a root certificate:
 
@@ -326,7 +330,7 @@ This method is has more steps than Method 1, but has the same result. It is incl
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-### To remove a root certificate
+### <a name="removerootcert"></a>To remove a root certificate
 
 1. Declare the variables.
 
@@ -354,7 +358,7 @@ You can revoke client certificates. The certificate revocation list allows you t
 
 The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 
-### To revoke a client certificate
+### <a name="revokeclientcert"></a>To revoke a client certificate
 
 1. Retrieve the client certificate thumbprint. For more information, see [How to retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copy the information to a text editor and remove all spaces so that it is a continuous string. This string is declared as a variable in the next step.
@@ -380,7 +384,7 @@ The common practice is to use the root certificate to manage access at team or o
   ```
 6. After the thumbprint has been added, the certificate can no longer be used to connect. Clients that try to connect using this certificate receive a message saying that the certificate is no longer valid.
 
-### To reinstate a client certificate
+### <a name="reinstateclientcert"></a>To reinstate a client certificate
 
 You can reinstate a client certificate by removing the thumbprint from the list of revoked client certificates.
 
@@ -406,7 +410,7 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 
 ## <a name="faq"></a>Point-to-Site FAQ
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
