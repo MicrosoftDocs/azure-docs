@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 
 ---
@@ -41,7 +41,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 ## Submit a Sqoop job
 
 1. Create a C# console application in Visual Studio.
-2. From the Visual Studio Package Manager Console, run the following Nuget command to import the package.
+2. From the Visual Studio Package Manager Console, run the following NuGet command to import the package.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use the following code in the Program.cs file:

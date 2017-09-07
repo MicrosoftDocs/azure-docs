@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: dobett
 
 ---
@@ -22,7 +22,7 @@ To send one-way notifications to the device app from your solution back end, sen
 
 You send cloud-to-device messages through a service-facing endpoint (**/messages/devicebound**). A device then receives the messages through a device-specific endpoint (**/devices/{deviceId}/messages/devicebound**).
 
-Each cloud-to-device message is targeted at a single device by setting the **to** property to **/devices/{deviceId}/messages/devicebound**.
+To target each cloud-to-device message at a single device, IoT Hub sets the **to** property to **/devices/{deviceId}/messages/devicebound**.
 
 Each device queue holds at most 50 cloud-to-device messages. Trying to send more messages to the same device results in an error.
 
@@ -43,17 +43,28 @@ A device can also choose to:
 
 A thread could fail to process a message without notifying IoT Hub. In this case, messages automatically transition from the **Invisible** state back to the **Enqueued** state after a *visibility (or lock) timeout*. The default value of this timeout is one minute.
 
-A message can transition between the **Enqueued** and **Invisible** states for, at most, the number of times specified in the **max delivery count** property on IoT Hub. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live][lnk-ttl]).
+The **max delivery count** property on IoT Hub determines the maximum number of times a message can transition between the **Enqueued** and **Invisible** states. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live][lnk-ttl]).
 
 The [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial] shows you how to send cloud-to-device messages from the cloud and receive them on a device.
 
-Typically, a device completes a cloud-to-device message when the loss of the message does not affect the application logic. For example, when the device has persisted the message content locally or has successfully executed an operation. The message could also carry transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can complete the cloud-to-device message after persisting the task description in local storage. Then you can notify the solution back end with one or more device-to-cloud messages at various stages of progress of the task.
+Typically, a device completes a cloud-to-device message when the loss of the message does not affect the application logic. For example, when the device has persisted the message content locally or has successfully executed an operation. The message could also carry transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can:
+
+* Complete the cloud-to-device message after persisting the task description in local storage.
+* Notify the solution back end with one or more device-to-cloud messages at various stages of progress of the task.
 
 ## Message expiration (time to live)
 
-Every cloud-to-device message has an expiration time. This time is set either by the service (in the **ExpiryTimeUtc** property), or by IoT Hub using the default *time to live* specified as an IoT Hub property. See [Cloud-to-device configuration options][lnk-c2d-configuration].
+Every cloud-to-device message has an expiration time. This time is set by one of:
 
-A common way to take advantage of message expiration and avoid sending messages to disconnected devices, is to set short time to live values. This approach achieves the same result as maintaining the device connection state, while being more efficient. When you request message acknowledgements, IoT Hub notifies you which devices are able to receive messages, and which devices are not online or have failed.
+* The **ExpiryTimeUtc** property in the service.
+* IoT Hub using the default *time to live* specified as an IoT Hub property.
+
+See [Cloud-to-device configuration options][lnk-c2d-configuration].
+
+A common way to take advantage of message expiration and avoid sending messages to disconnected devices, is to set short time to live values. This approach achieves the same result as maintaining the device connection state, while being more efficient. When you request message acknowledgements, IoT Hub notifies you which devices are:
+
+* Able to receive messages.
+* Are not online or have failed.
 
 ## Message feedback
 
@@ -61,11 +72,11 @@ When you send a cloud-to-device message, the service can request the delivery of
 
 | Ack property | Behavior |
 | ------------ | -------- |
-| **positive** | IoT Hub generates a feedback message if, and only if, the cloud-to-device message reached the **Completed** state. |
-| **negative** | IoT Hub generates a feedback message, if and only if, the cloud-to-device message reaches the **Deadlettered** state. |
+| **positive** | If the cloud-to-device message reaches the **Completed** state, IoT Hub generates a feedback message. |
+| **negative** | If the cloud-to-device message reaches the **Deadlettered** state, IoT Hub generates a feedback message. |
 | **full**     | IoT Hub generates a feedback message in either case. |
 
-If **Ack** is **full**, and you don't receive a feedback message, it means that the feedback message expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiry time is two days, which allows plenty of time to get the service running again if a failure occurs.
+If **Ack** is **full**, and you don't receive a feedback message, it means that the feedback message expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiry time is two days, which leaves time to get the service running again if a failure occurs.
 
 As explained in [Endpoints][lnk-endpoints], IoT Hub delivers feedback through a service-facing endpoint (**/messages/servicebound/feedback**) as messages. The semantics for receiving feedback are the same as for cloud-to-device messages, and have the same [Message lifecycle][lnk-lifecycle]. Whenever possible, message feedback is batched in a single message, with the following format:
 
