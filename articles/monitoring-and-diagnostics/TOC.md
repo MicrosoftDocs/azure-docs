@@ -1,7 +1,7 @@
 # Overview
 ## [Monitoring tools across Azure](monitoring-overview.md)
 ## [Azure Monitor](monitoring-overview-azure-monitor.md)
-# Quicktarts
+# Quickstarts
 
 # Tutorials
 
@@ -11,23 +11,23 @@
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 
 # Concepts
+## [Sources of monitoring data](monitoring-data-sources.md)
 ## [Metrics](monitoring-overview-metrics.md)
 ## [Alerts](monitoring-overview-alerts.md)
 ## [Autoscale](monitoring-overview-autoscale.md)
 ## [Activity log](monitoring-overview-activity-logs.md)
-## [Action Groups](monitoring-action-groups.md)
-## [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
-## [Roles Permissions and Security](monitoring-roles-permissions-security.md)
-## [Azure Diagnostics Extension](azure-diagnostics.md)
-## [Partner Integrations](monitoring-partners.md)
-## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor) 
+## [Action groups](monitoring-action-groups.md)
+## [Diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
+## [Roles permissions and security](monitoring-roles-permissions-security.md)
+## [Azure Diagnostics Eextension](azure-diagnostics.md)
+## [Partner integrations](monitoring-partners.md)
+
 
 # How-to guides
 ## Get Started
-### [Sources of monitoring data](monitoring-data-sources.md)
 ### [Walkthrough of Azure Monitor](monitoring-get-started.md)
-### [Walkthrough of Autoscale](monitoring-autoscale-get-started.md)
-
+### [Walkthrough of autoscale](monitoring-autoscale-get-started.md)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor) 
 ## Use alerts
 ### [Configure alerts in Azure portal](insights-alerts-portal.md)
 ### [Configure alerts with CLI](insights-alerts-command-line-interface.md)
@@ -50,10 +50,10 @@
 ### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Create activity log alerts with Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
 ### [Migrate to Activity Log alerts](monitoring-migrate-management-alerts.md)
-## Use Service notifications
+## Use service notifications
 ### [View service notifications](monitoring-service-notifications.md)
 ### [Configure alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md)
-## Use Action Groups
+## Use action groups
 ### [Learn about webhook schema](monitoring-activity-log-alerts-webhook.md)
 ### [SMS Alert behavior](monitoring-sms-alert-behavior.md)
 ### [Alert Rate limiting](monitoring-alerts-rate-limiting.md)
@@ -70,22 +70,31 @@
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
 
 # Reference
+## [Metrics supported](monitoring-supported-metrics.md)
+## [Activity log event schema](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
-## [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
-### [1.0](azure-diagnostics-schema-1dot0.md)
-### [1.2](azure-diagnostics-schema-1dot2.md)
-### [1.3 and later](azure-diagnostics-schema-1dot3-and-later.md)
-## [Metrics supported](monitoring-supported-metrics.md)
+
 ## [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
-## [Activity Log event schema](monitoring-activity-log-schema.md)
+
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
 
+
+
+•	How-to guides – there’s some major inconsistency in terms of capitalization here. I think unless it’s a proper service name it should be lower case (eg “Use service notifications” “Use action groups” “Send to Application Insights”)
+•	I’d reorder the reference material like this:
+o	Metrics supported
+o	Activity Log schema
+o	Diagnostic logs services/schema
+o	Diagnostic extension schema
+o	PowerShell
+o	REST
+o	.NET
 
 
 
