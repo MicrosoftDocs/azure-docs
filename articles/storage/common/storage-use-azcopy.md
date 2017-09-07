@@ -38,7 +38,7 @@ AzCopy /Source:<source> /Dest:<destination> [Options]
 
 The following examples demonstrate a variety of scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
-## Download files from Azure Blob storage
+## Download blobs from Blob storage
 
 Let's look at several ways to download blobs using AzCopy.
 
@@ -171,7 +171,7 @@ If you do not specify option `/S`, AzCopy does not upload recursively. After the
     abc1.txt
     abc2.txt
 
-### Upload blobs  matching a specific pattern
+### Upload blobs matching a specific pattern
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
@@ -214,7 +214,7 @@ If you specify `/SetContentType` without a value, AzCopy sets each blob or file'
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
 ```
 
-## Copy blobs in Azure Blob storage
+## Copy blobs in Blob storage
 
 Let's look at several ways to copy blobs from one location to another using AzCopy.
 
@@ -245,7 +245,7 @@ Note that you must have read-access geo-redundant storage enabled to access seco
 ### Copy a single blob and its snapshots from one storage account to another
 
 ```azcopy
-    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
+AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
 ```
 
 After the copy operation, the target container includes the blob and its snapshots. Assuming the blob in the example above has two snapshots, the container includes the following blob and snapshots:
@@ -275,7 +275,7 @@ AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https
 
 `/SyncCopy` might generate additional egress cost compared to asynchronous copy, the recommended approach is to use this option in an Azure VM that is in the same region as your source storage account to avoid egress cost.
 
-## Download files from Azure File storage
+## Download files from File storage
 
 Let's look at several ways to download files using AzCopy.
 
@@ -295,7 +295,7 @@ AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myf
 
 Note that empty folders are not downloaded.
 
-## Upload Files
+## Upload Files to File storage
 
 Let's look at several ways to upload files using AzCopy.
 
@@ -319,7 +319,7 @@ Note that empty folders are not uploaded.
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 ```
 
-## Copy Azure files
+## Copy files in File storage
 
 Let's look at several ways to copy files in an Azure File share using AzCopy.
 
@@ -330,7 +330,7 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:http
 ```
 When you copy a file across file shares, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
-### Copy from a file share to Blob storage
+### Copy from an Azure File share to Blob storage
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
@@ -356,7 +356,7 @@ When copying from File storage to Blob storage, the default blob type is block b
 
 Note that `/SyncCopy` might generate additional egress costs compared to asynchronous copy. The recommended approach is to use this option in the Azure VM which is in the same region as your source storage account to avoid egress cost.
 
-## Table: Export
+## Export data from Table storage
 
 Let's take a look at exporting data from Azure Table storage using AzCopy.
 
@@ -393,7 +393,7 @@ For instance, suppose AzCopy generates two data files after the user specifies o
 
 Note that the minimum possible value for option `/SplitSize` is 32MB. If the specified destination is Blob storage, AzCopy splits the data file once its sizes reaches the blob size limitation (200GB), regardless of whether option `/SplitSize` has been specified by the user.
 
-### Export table to JSON or CSV data file format
+### Export a table to JSON or CSV data file format
 
 By default, AzCopy exports tables to JSON data files. You can specify the option `/PayloadFormat:JSON|CSV` to export the tables as JSON or CSV.
 
@@ -427,7 +427,7 @@ The generated JSON data file follows the payload format for minimal metadata. Fo
 
 Note that when exporting tables to blobs, AzCopy downloads the Table entities to local temporary data files and then uploads those entities to the blob. These temporary data files are put into the journal file folder with the default path "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files' size is decided by your table entities' size and the size you specified with the option /SplitSize, although the temporary data file in local disk is deleted instantly once it has been uploaded to the blob, please make sure you have enough local disk space to store these temporary data files before they are deleted.
 
-## Table: Import
+## Import data into Table storage
 
 Let's take a look at importing data into Azure Table storage using AzCopy.
 
@@ -447,7 +447,7 @@ Note that you cannot specify option `/PKRS` in the import scenario. Unlike the e
 
 Note that AzCopy only supports importing for JSON, not CSV. AzCopy does not support table imports from user-created JSON and manifest files. Both of these files must come from an AzCopy table export. To avoid errors, please do not modify the exported JSON or manifest file.
 
-### Import entities to a table from Blob storage
+### Import entities into a table from Blob storage
 
 Assume a Blob container contains the following: A JSON file representing an Azure Table and its accompanying manifest file.
 
