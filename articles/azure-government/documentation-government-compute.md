@@ -43,8 +43,8 @@ The Azure Functions service offers much of the same functionality for the Azure 
 	> [!NOTE]
 	>The [App-Service plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
 	>
-    >
->
+	>
+	
 ### Quickstarts
 Our Quickstarts page contains a series of tutorials that guide you through getting started with Functions on Azure Government. 
 To visit this page, [click here](documentation-government-functions.md). 
