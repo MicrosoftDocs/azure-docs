@@ -24,7 +24,7 @@ ms.author: bryanla
 
 Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) if you haven't already.
 
-## Enable MSI on a new Azure VM
+## Enable MSI during creation of an Azure VM
 
 A new MSI-enabled Windows Virtual Machine resource is created in a new resource group, using the specified configuration parameters. Also note that many these cmdlets can run 30 seconds or more before returning, with the final VM creation taking several minutes to complete.
 

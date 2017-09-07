@@ -30,7 +30,7 @@ To run the CLI script examples, you have three options:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Enable MSI on a new Azure VM
+## Enable MSI during creation of an Azure VM
 
 A new MSI-enabled Windows Virtual Machine resource is created in a new resource group, using the specified configuration parameters. Also note that many these functions may run for several seconds/minutes before returning.
 

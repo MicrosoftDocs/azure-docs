@@ -22,9 +22,9 @@ ms.author: bryanla
 
 [!INCLUDE [active-directory-msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## Enable MSI on a new Azure VM
+## Enable MSI during creation of an Azure VM
 
-As of the time of this writing, enabling MSI during creation of a VM in the Azure portal is not possible. Instead, please refer to the [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) QuickStart for details on creating a VM. Then proceed to the next section for details on enabling MSI.
+As of the time of this writing, enabling MSI during creation of a VM in the Azure portal is not supported. Instead, please refer to the [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) QuickStart for details on creating a VM. Then proceed to the next section for details on enabling MSI.
 
 ## Enable MSI on an existing Azure VM
 
@@ -52,7 +52,7 @@ If you have a Virtual Machine that no longer needs an MSI:
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](../articles/active-directory/active-directory-msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity overview](../active-directory/active-directory-msi-overview.md).
 - This article is adapted from the [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) QuickStart, modified to include MSI-specific instructions. 
 
 ## Next steps

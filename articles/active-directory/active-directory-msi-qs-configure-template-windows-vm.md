@@ -34,7 +34,7 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
 
 Feel free to use any of the preceding techniques, but for purposes of demonstration in this article we use Xxxxx
 
-## Enable MSI on a new Azure VM
+## Enable MSI during creation of an Azure VM
 
 
 
@@ -53,9 +53,7 @@ Feel free to use any of the preceding techniques, but for purposes of demonstrat
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you would like to deploy the VM.
 
-2. Find the [resource group](../azure-resource-manager/resource-group-overview.md#terminology). Resource groups are used for containment and deployment of the VM and related resources. When complete, click **OK**.
-
-   ![Enter basic information about your VM](./media/active-directory-msi-qs-configure-portal-windows-vm/create-windows-vm-portal-basic-blade.png)
+2. Find the [resource group](../azure-resource-manager/resource-group-overview.md#terminology). Resource groups are used for containment and deployment of the VM and related resources. 
 
 ## Enable MSI on an existing Azure VM
 
