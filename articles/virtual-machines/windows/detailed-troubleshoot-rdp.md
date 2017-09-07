@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/25/2017
+ms.date: 09/06/2017
 ms.author: genli
 
 ---
@@ -46,6 +46,8 @@ Before proceeding to the detailed troubleshooting,
 
 * Check the status of the virtual machine in the Azure portal for any obvious issues.
 * Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* For custom images, make sure that your VHD is properly prepared prior to upload it. For more information, see [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md).
+
 
 Try reconnecting to the VM via Remote Desktop after these steps.
 

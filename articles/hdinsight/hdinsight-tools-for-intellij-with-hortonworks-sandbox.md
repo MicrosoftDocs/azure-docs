@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 
 ---
@@ -32,13 +32,13 @@ Before you begin this tutorial, you must have:
 
 - Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox running on your local environment. To configure HDP, see [Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine](hdinsight-hadoop-emulator-get-started.md). 
     >[!NOTE]
-    >HDInsight Tools for IntelliJ has been tested only with HDP 2.4. To get HDP 2.4, expand **Hortonworks Sandbox Archive** on the [Hortonworks Sandbox downloads site](http://hortonworks.com/downloads/#sandbox).
+    >HDInsight Tools for IntelliJ have been tested only with HDP 2.4. To get HDP 2.4, expand **Hortonworks Sandbox Archive** on the [Hortonworks Sandbox downloads site](http://hortonworks.com/downloads/#sandbox).
 
 - [Java Developer Kit (JDK) version 1.8 or later](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK is required by the Azure Toolkit for IntelliJ.
 
-- [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) plug-in and the [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) plug-in. HDInsight Tools for IntelliJ is available as a part of the Azure Toolkit for IntelliJ. 
+- [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) plug-in and the [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) plug-in. HDInsight Tools for IntelliJ are available as a part of the Azure Toolkit for IntelliJ. 
 
-  To install the plug-ins, do the following:
+  To install the plug-ins, do the following items:
 
   1. Open IntelliJ IDEA.
   2. On the **Welcome** screen, select **Configure**, and then select **Plugins**.
@@ -51,7 +51,7 @@ Before you begin this tutorial, you must have:
 
 In this section, you create a sample Scala project by using IntelliJ IDEA. In the next section, you link IntelliJ IDEA to the Hortonworks Sandbox (emulator) before you submit the project.
 
-1. Open IntelliJ IDEA from your workstation. In the **New Project** dialog box, do the following:
+1. Open IntelliJ IDEA from your workstation. In the **New Project** dialog box, do the  steps:
 
    a. Select **HDInsight** > **Spark on HDInsight (Scala)**.
 
@@ -64,7 +64,7 @@ In this section, you create a sample Scala project by using IntelliJ IDEA. In th
 
 2. Select **Next**.
 
-3. In the next **New Project** dialog box, do the following:
+3. In the next **New Project** dialog box, do the following steps:
 
     ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -131,7 +131,7 @@ In this section, you create a sample Scala project by using IntelliJ IDEA. In th
 
 Before you can link to a Hortonworks Sandbox (emulator), you must have an existing IntelliJ application.
 
-To link to an emulator, do the following:
+To link to an emulator, do the following steps:
 
 1. Open the project in IntelliJ.
 
