@@ -53,18 +53,22 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
 
-## <a name="request-storage-access"></a>Request access to Blob storage events
+## Enable Blob storage events
 
-At this time, you must request access to the Blob storage events feature. You request access with the `az feature register` command.
+At this time, you must request access to the Blob storage events feature. 
+
+### <a name="request-storage-access"></a>Request access to Blob storage events
+
+You request access with the `az feature register` command.
 
 > [!IMPORTANT]  
-> We are accepting Blob storage events preview participants in the order they requested to join. You might experience a delay in being granted access to this feature. We are currently processing requests submitted on August 30.
+> We are accepting Blob storage events preview participants in the order they requested to join. You might experience a delay in being granted access to this feature. We are currently processing requests submitted on August 31.
 
 ```azurecli-interactive
 az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
 
-## <a name="check-access-status"></a>Check your approval status
+### <a name="check-access-status"></a>Check your approval status
 
 You will receive an email from Microsoft notifying you that you have been granted access to Blob storage events. You can verify the status of your access request at any time with the `az feature show` command.
 
