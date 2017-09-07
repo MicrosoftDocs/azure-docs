@@ -1,20 +1,23 @@
 # Overview
 ## [About the Azure portal](../azure-portal-overview.md)
 # Tutorials
-## [DevOps with the Azure Portal](tutorial-azureportal-devops.md)
+## [DevOps with the Azure portal](tutorial-azureportal-devops.md)
 # Concepts
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Keyboard shortcuts](azure-portal-keyboard-shortcuts.md)
 ## [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+## [The structure of Azure Dashboards](azure-portal-dashboards-structure.md)
 # How-to guides
 ## Deploy
 ### [Create Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Deploy with Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
-### [Create and share Azure dashboard](azure-portal-dashboards.md)
+### [Create and share Azure dashboards](azure-portal-dashboards.md)
+### [Programmatically create Azure Dashboards](azure-portal-dashboards-create-programmatically.md)
 ## Manage
+### [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
 ### [Use portal to manage resources](../azure-resource-manager/resource-group-portal.md)
-### [Manage access with RBAC](../active-directory/role-based-access-control-configure.md)
-### [Share dashboards with RBAC](azure-portal-dashboard-share-access.md)
+### [Manage access with Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+### [Share dashboards with Role-Based Access Control](azure-portal-dashboard-share-access.md)
 ### [Use tags to organize resources](../azure-resource-manager/resource-group-using-tags.md)
 ### [Scale your resources](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Create new Azure service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
@@ -27,7 +30,7 @@
 ### [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Related
-## [Azure resource manager template functions](../azure-resource-manager/resource-group-template-functions.md)
+## [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md)
 ## [Best practices for Autoscale](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Common metrics for Autoscale](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks for Autoscale notifications](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
