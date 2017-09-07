@@ -84,9 +84,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 * Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe and Southeast Asia
 * Maximum throughput of 5K RU/s.
 * Subscriptions expire after 24 hours, and can be extended to a maximum of 48 hours total.
-
-
-
+* Azure support tickets cannot be created for Try Azure Cosmos DB accounts; however, support is provided for subscribers with existing support plans. 
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
