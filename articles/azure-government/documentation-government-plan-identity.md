@@ -81,22 +81,28 @@ Subscription administration must be performed by an identity from the directory 
 
 ##Frequently Asked Questions
 1)	How to Identify an Azure Government Tenant?
-**Answer**: Here’s a way to find out using your browser of choice:
 
-  -a.	Obtain your tenant name (e.g. contoso.onmicrosoft.com) or a domain name registered to your Azure AD tenant (e.g. contoso.gov).
-  -b.	Navigate to https://login.microsoftonline.com/<domainname>/.well-known/openid-configuration
-	-<domainname> can either be the tenant name or domain name you gathered in step 1.
-	-e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-  -c.	The result should be posted back to the page in attribute/value pairs using JSON (Java Script Object Notation) format that resembles the following:
+    **Answer**: Here’s a way to find out using your browser of choice:
+
+       a.	Obtain your tenant name (e.g. contoso.onmicrosoft.com) or a domain name registered to your Azure AD tenant (e.g. contoso.gov).
+
+       b.	Navigate to https://login.microsoftonline.com/<domainname>/.well-known/openid-configuration
+	     - <domainname> can either be the tenant name or domain name you gathered in step 1.
+	     - e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+
+       c.	The result should be posted back to the page in attribute/value pairs using JSON (Java Script Object Notation) format that resembles the following:
 
 ![alt text](./media/documentation-government-plan-identity-openid-config-json.png)
 
-  -d. If the **tenant_region_scope** attribute’s value is **USG**, you have yourself an Azure Government tenant.
+       d. If the **tenant_region_scope** attribute’s value is **USG**, you have yourself an Azure Government tenant.
+
    -	**Note**: The result is a JSON file that’s automatically recognized and displayed by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t understand the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer choose the save option and open it with another browser or plain text reader.
-   -	**Note**: The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Commercial in North America, the value would be NA.
+   -	**Note**: The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Commercial in North America, the value would be **NA**.
 
 2)	If I’m an Office 365 GCC Moderate customer and want to build solutions in Azure Government do I need to have two tenants?
-**Answer**: Yes, the AAD Government tenant is only required for your Azure Government Subscription administration.
+
+    **Answer**: Yes, the AAD Government tenant is only required for your Azure Government Subscription administration.
 
 3)	If I’m an Office 365 GCC Moderate customer that has built workloads in Azure Government, where should I authenticate from, Commercial or Government?
-**Answer**:  Please see “Choosing your Identity Authority” earlier in this article.
+
+    **Answer**:  Please see “Choosing your Identity Authority” earlier in this article.
