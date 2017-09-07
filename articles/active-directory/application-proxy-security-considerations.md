@@ -80,9 +80,11 @@ To improve the security of applications published by Azure AD Application Proxy,
 
 Applications published through Application Proxy are protected against Distributed Denial of Service (DDOS) attacks.
 
-The Application Proxy service monitors the amount of traffic attempting to reach your applications and network. If this traffic spikes or exceeds a threshold that we set, Microsoft begins to throttle requests to your network. The threshold for excessive traffic is set high, because we know that many of you are in large organizations with many users and applications. The threshold is the same for all apps, and is set higher than your average traffic volume.
+The Application Proxy service monitors the amount of traffic attempting to reach your applications and network. If the number of devices requesting remote access to your applications spikes, Microsoft throttles access to your network. 
 
-Throttling is done based on total transactions per subscription and total transactions per application. When traffic is throttled, all requests to an application are denied for a short period of time. 
+Microsoft watches traffic patterns for individual applications and for your subscription as a whole. If one applications receives higher than normal requests, then requests to access that application are denied for a short period of time. If you recieve higher than normal requests across your whole subscription, then requests to access any of your apps are denied. 
+
+This preventative measure keeps your application servers from being overloaded by remote access requests, so that your on-premises users can keep accessing their apps. 
 
 ## Under the hood
 
