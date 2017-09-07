@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/23/2017
+ms.date: 09/05/2017
 ms.author: mimig
 
 ---
@@ -41,7 +41,10 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 
 [!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
+
+> [!TIP]
+> This tutorial walks you through the steps to build the application step-by-step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
 ## Create an Azure Cosmos DB account
 
