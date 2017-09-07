@@ -36,7 +36,7 @@ sections:
     - html: <a href="tutorial-classifying-iris-part-1">Prepare data</a>
     - html: <a href="tutorial-classifying-iris-part-2">Build a model</a>
     - html: <a href:"tutorial-classifying-iris-part-3">Deploy a model</a>
-    - html: <a href="tutorial-bikeshare-dataprep">Data prep tutorial</a>
+    - html: <a href="tutorial-bikeshare-dataprep">Extended data prep tutorial</a>
 
 - title: Samples
   items:
