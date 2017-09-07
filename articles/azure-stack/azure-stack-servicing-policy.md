@@ -21,9 +21,9 @@ ms.author: twooley
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the general servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state. 
+This article describes the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state. 
 
-## Update packages
+## Update package types
 
 There are two types of update packages; Microsoft software updates, and updates that are specific to your original equipment manufacturer (OEM) hardware vendor, such as drivers and firmware. These updates are delivered as separate Azure Stack update packages, and are independently managed.
 
@@ -40,7 +40,7 @@ A Microsoft update package has the following naming convention to help you easil
 
 For example, a Microsoft software update released on June 15, 2017 would have the version "1.0.170615.1".
 
-## Keep your system under support
+## Maintain system support
 
 To receive support for your system, you must keep your Azure Stack updated within a specific time interval. Our policy for deferral of Microsoft software updates is three months. If your system is more than three months out of date, you’re considered out of compliance. You must update the system to at least the minimum supported version to receive support. 
 
@@ -48,7 +48,7 @@ Microsoft software update packages are non-cumulative, and require the previous 
 
 The following table shows example update package releases, their prerequisite, and the minimum supported version you must be at to maintain support. The table is based on the initial release of Azure Stack integrated systems (build 1708), with the first update package release (1709) in September 2017. 
 
-| Latest Update Package (example) | Prerequisite | Minimum Supported Version |
+| Latest Update Package (*example*) | Prerequisite | Minimum Supported Version |
 | -- | -- | -- |
 | 1709 | Build 1708 | N/A |
 | 1710 | 1709 | N/A |
@@ -58,8 +58,6 @@ The following table shows example update package releases, their prerequisite, a
 | 1802 | 1801 | 1711 |
 | 1803 | 1802 | 1712 |
 | 1804 | 1803 | 1801 |
-| 1805 | 1804 | 1802 |
-| etc. | etc. | etc. |
 | | | 
 
 ## Next steps
