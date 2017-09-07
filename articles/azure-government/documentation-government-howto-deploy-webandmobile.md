@@ -17,20 +17,32 @@ ms.date: 01/03/2016
 ms.author: sdubeymsft
 
 ---
-# Deploy to Azure App Services using Visual Studio 2015
-This article describes how to deploy an Azure App Services app (API App, Web App, Mobile App) to Azure Government using Visual Studio 2015.
+# Deploy to Azure App Services using Visual Studio 2017
+This article describes how to deploy an Azure App Services app (API App, Web App, Mobile App) to Azure Government using Visual Studio 2017.
 
 ## Prerequisites
-* See [Visual Studio prerequisites] (../app-service-api/app-service-api-dotnet-get-started.md#prerequisites) to install and configure Visual Studio 2015 and Azure SDK.
+* See [Visual Studio prerequisites] (../app-service-api/app-service-api-dotnet-get-started.md#prerequisites) to install and configure Visual Studio 2017 and Azure SDK.
 * Follow [these instructions] (documentation-government-get-started-connect-with-vs.md) to configure Visual Studio to connect to Azure Government account.
 
 ## Open App project in Visual Studio
-* Open existing app solution\project in Visual Studio, create a project by following [these instructions] (../app-service-web/app-service-web-get-started-dotnet.md), or download sample app by following [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
-* Run the app in Visual Studio to make sure it works locally.
+If you have an existing app solution\project in Visual Studio, you can create a project by following [these instructions] (../app-service-web/app-service-web-get-started-dotnet.md).
+
+If not, download a sample app by following [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
+
+Run the app in Visual Studio to make sure it works locally.
+
+> [!NOTE]
+> If using the sample application, complete the ["Use Swagger API metadata and UI"](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui) section to run the app in Visual Studio. 
+> 
+> 
 
 ## Deploy to Azure Government
-* Once **Visual Studio is configured to connect to Azure Government account** (already done in prerequisites section), instructions to deploy to app services are exactly same as for Azure Public.
-* To deploy the app, follow [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#createapiapp).
+Once **Visual Studio is configured to connect to Azure Government account** (already done in prerequisites section), instructions to deploy to app services are exactly same as for Azure Public.
+
+To deploy the app, follow [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#createapiapp).
+
+Once the app has been successfully deployed to Azure Government, the url should end with "azurewebsites.us"(as shown below).  
+![success screenshot](./media/documentation-government-howto-deploy-webandmobile-screenshot1.png)  
 
 ### References
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio] (../app-service-web/app-service-web-get-started-dotnet.md)
