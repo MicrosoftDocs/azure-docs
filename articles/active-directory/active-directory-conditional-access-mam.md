@@ -39,7 +39,7 @@ In the conditional access terminology, these client apps are known as **approved
 ![Conditional access](./media/active-directory-conditional-access-mam/05.png)
 
 
-For a list of approved client apps, see [approved client app requirement](active-directory-conditional-access-technical-reference#approved-client-app-requirement.md).
+For a list of approved client apps, see [approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement.md).
 
 
 You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md) to provide flexibility in how to protect data for both personal and corporate devices.
