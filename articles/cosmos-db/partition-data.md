@@ -182,7 +182,7 @@ Let's look at a few real-world scenarios and good partition keys for each:
 * If you're using Azure Cosmos DB for logging time-series data, the hostname or process ID is a good choice for partition key.
 * If you have a multitenant architecture, the tenant ID is a good choice for partition key.
 
-In some use cases, like IoT and user profiles, the partition key might be the same as your ID (document key). In others, like the time-series data, you might have a partition key that's different than the ID.
+In some use cases, like IoT and user profiles, the partition key might be the same as your ID (document key). In others, like the time-series data, you might have a partition key that's different from the ID.
 
 ### Partitioning and logging/time-series data
 One of the common use cases of Azure Cosmos DB is for logging and telemetry. It's important to pick a good partition key, because you might need to read/write vast volumes of data. The choice depends on your read-and-write rates and the kinds of queries you expect to run. Here are some tips on how to choose a good partition key:
@@ -194,8 +194,8 @@ One of the common use cases of Azure Cosmos DB is for logging and telemetry. It'
 ### Partitioning and multitenancy
 If you're implementing a multitenant application by using Azure Cosmos DB, there are two popular patterns: one partition key per tenant and one container per tenant. Here are the pros and cons for each:
 
-* **One partition key per tenant.** In this model, tenants are collocated within a single container. But queries and inserts for items within a single tenant can be performed against a single partition. You can also implement transactional logic across all items within a tenant. Because multiple tenants share a container, you can save storage and throughput costs by pooling resources for tenants within a single container rather than provisioning extra headroom for each tenant. The drawback is that you don't have performance isolation per tenant. Performance/throughput increases apply to the entire container vs. targeted increases for tenants.
-* **One container per tenant.** In this model, each tenant has its own container, and you can reserve performance per tenant. With the Azure Cosmos DB new provisioning pricing, this model is more cost-effective for multitenant applications with a few tenants.
+* **One partition key per tenant**. In this model, tenants are collocated within a single container. But queries and inserts for items within a single tenant can be performed against a single partition. You can also implement transactional logic across all items within a tenant. Because multiple tenants share a container, you can save storage and throughput costs by pooling resources for tenants within a single container rather than provisioning extra headroom for each tenant. The drawback is that you don't have performance isolation per tenant. Performance/throughput increases apply to the entire container versus targeted increases for tenants.
+* **One container per tenant**. In this model, each tenant has its own container, and you can reserve performance per tenant. With the Azure Cosmos DB new provisioning pricing, this model is more cost-effective for multitenant applications with a few tenants.
 
 You can also use a combination/tiered approach that collocates small tenants and migrates larger tenants to their own container.
 
