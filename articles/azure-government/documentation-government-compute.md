@@ -22,7 +22,7 @@ ms.author: kydeeds
 For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
-For available virtual machine sizes in Azure Government, see <a href="https://azure.microsoft.com/regions/services/">Products Available by Reigon</a>
+For available virtual machine sizes in Azure Government, see <a href="https://azure.microsoft.com/regions/services/">Products Available by Region</a>
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
@@ -43,10 +43,10 @@ The Azure Functions service offers much of the same functionality for the Azure 
 	> [!NOTE]
 	>The [App-Service plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
 	>
-    >
->
+	>
+	
 ### Quickstarts
-Our Quickstarts page contains a series of tutorials that will guide you through getting started with Functions on Azure Government. 
+Our Quickstarts page contains a series of tutorials that guide you through getting started with Functions on Azure Government. 
 To visit this page, [click here](documentation-government-functions.md). 
 
 ## Next Steps
