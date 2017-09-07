@@ -158,7 +158,7 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When deploying a web app on Linux to a Docker image.
 
-    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service-web/app-service-linux-using-custom-docker-image.md).
+    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-custom-docker-image.md).
 
 ### Authentication
 
@@ -168,7 +168,7 @@ It's crucial to not only know who is using your applications, but also to preven
 
 	>**When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
 
-    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/active-directory-developers-guide.md).
+    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/develop/active-directory-developers-guide.md).
 
 -   **App Service Authentication**: When you choose App Service to host your app, you also get built-in    authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
 

@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/25/2017
+ms.date: 09/05/2017
 ms.author: mimig
 
 ---
@@ -41,6 +41,9 @@ This tutorial also requires:
 * [Node.js](https://nodejs.org/) version 8.4.0 or above.
 * [Postman](https://www.getpostman.com/)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite code editor.
+
+> [!TIP]
+> This tutorial walks you through the steps to build the application step-by-step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
 ## Install the Angular CLI and TypeScript
 
