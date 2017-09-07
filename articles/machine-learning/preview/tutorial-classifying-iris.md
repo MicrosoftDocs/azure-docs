@@ -388,7 +388,7 @@ To test the service, execute the returned service run command.
 ```batch
 C:\Temp\myIris> az ml service run realtime -n irisapp -d "{\"input_df\": [{\"petal length\": 1.3, \"sepal width\": 3.6, \"petal width\": 0.25, \"sepal length\": 3.0}]}"
 ```
-The output is ༖༗, which is the predicted class. (Your result might be different.)  
+The output is `"2"`, which is the predicted class. (Your result might be different.)  
 
 ## Congratulations!
 Great job! You have successfully run a training script in various compute environments, created a model, serialized the model, and operationalized the model through a Docker-based web service. 
