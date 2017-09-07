@@ -156,7 +156,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this Quickstart, you created an Azure Container Registry with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this Quickstart, you created an Azure Container Registry with the Azure CLI. If you'd like to build a container image, and then deploy it to Azure Container Instances using an Azure Container Registry repository, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
