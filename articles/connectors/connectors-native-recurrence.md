@@ -58,27 +58,23 @@ In this example, set these properties to run your workflow every week.
 4. For more scheduling options, 
 choose **Show advanced options** so that you can: 
 
-   * Specify a start date and time for firing the recurrence trigger. 
-   When you specify a start date and time, you can apply a time zone too.
+   * Set a start date and time for firing the recurrence trigger. 
+   When you set the start date and time, you can apply a time zone too.
 
-   * Select specific times or days for running your workflow 
-   when you select the frequency "Day" or "Week".
+   * Select specific times or days for the recurrence 
+   when you select "Day" or "Week" for the frequency.
 
    ![More options](./media/connectors-native-recurrence/recurrence-trigger-more-options.png)
 
-   If you previously selected "Day" or "Week", you can specify 
-   times for running your workflow. If you selected "Week", 
-   you can also select days of the week for running your workflow.
+   If you selected "Day" or "Week", you can specify times for the recurrence. 
+   If you selected "Week", you can also select days of the week.
    
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   For example, you could specify that your logic app doesn't 
-   start running until two weeks from today, 
-   supposing that today is September 4, 2017. 
-   And because this example selected "Week", 
-   you can also select specific days or times. 
-   The trigger shows you a preview for your specified recurrence. 
-   For example, this trigger runs weekly, on each Monday, 
+   This example specifies that the trigger doesn't fire until two weeks from today, 
+   supposing that today is September 4, 2017. And because this example selected "Week", 
+   you can also select specific days or times. The trigger shows you a preview 
+   for your specified recurrence. For example, this trigger runs weekly, on each Monday, 
    at 10:30 AM, 12:30 PM, and 2:30 PM.
 
    ![Advanced scheduling example](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
