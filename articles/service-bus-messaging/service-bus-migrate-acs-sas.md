@@ -25,7 +25,7 @@ The ACS authorization model has long been superseded by [SAS authorization](serv
 
 SAS has the advantage in that it is not immediately dependent on another service, but can be used directly from a client without any intermediaries by giving the client access to the SAS rule name and rule key. SAS can also be easily integrated with an approach in which a client has to first pass an authorization check with another service and then is issued a token. The latter approach is similar to the ACS usage pattern, but enables issuing access tokens based on application-specific conditions that are difficult to express in ACS.
 
-For all existing applications that are dependent on ACS, we urge customers to migrate their applications to rely on SAS instead. Service Bus will stop accepting ACS tokens on or after September 15, 2018.
+For all existing applications that are dependent on ACS, we urge customers to migrate their applications to rely on SAS instead.
 
 ## Migration scenarios
 
