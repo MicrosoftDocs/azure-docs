@@ -14,7 +14,7 @@
 
 ## [Back up Azure VMs at scale](tutorial-backup-azure-vm.md)
 ## [Recover Azure VMs using VM templates](backup-azure-arm-restore-vms.md)
-## [Recover files from an Azure VM recovery point](backup-azure-restore-files-from-vms.md)
+## [Recover files from an Azure VM recovery point](backup-azure-restore-files-from-vm.md)
 ## [Back up on-prem Windows Server to Azure](backup-try-azure-backup-in-10-mins.md)
 ## [Recover files from Azure to an on-prem Windows Server](backup-azure-restore-windows-server.md)
 ## [Back up on-prem VMware virtual machines to Azure](backup-azure-backup-server-vmware.md)
