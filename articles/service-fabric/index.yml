@@ -29,16 +29,10 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg
       text: .NET
       href: https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-dotnet
-  - type: list
-    style: icon48
-    items: 
     - image: 
         src: https://docs.microsoft.com/en-us/media/logos/logo_linux.svg
       text: Linux containers
       href: https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers-linux
-  - type: list
-    style: icon48
-    items: 
     - image: 
         src: https://docs.microsoft.com/en-us/media/logos/logo_Windows.svg
       text: Windows containers
