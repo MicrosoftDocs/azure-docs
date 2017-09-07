@@ -105,7 +105,7 @@ If you have policies in the Azure classic portal configured, you should migrate 
 - If you don't migrate your existing policies, you will not be able to implement policies that are granting access
 
 
-## Migration from the Azure classic portal
+### Migration from the Azure classic portal
 
 In this scenario: 
 
@@ -122,7 +122,7 @@ In this scenario:
 - You want to configure a mobile application management conditional access policy in the Azure portal 
  
 
-### Configuration 
+#### Configuration 
 
 - Review your device-based conditional access policies
 
@@ -131,7 +131,7 @@ In this scenario:
 - Add mobile application management conditional access policies
 
 
-## Migrating from Intune 
+### Migrating from Intune 
 
 In this scenario:
 
@@ -142,7 +142,7 @@ In this scenario:
 - You want to migrate to using mobile application management conditional access in the Azure portal
 
 
-### Configuration 
+#### Configuration 
  
 - Review your device-based conditional access policies
 
@@ -153,7 +153,7 @@ In this scenario:
 - Add the control for **Require approved applications** in addition to the device-based control 
  
 
-## Migrating from the Azure classic portal and Intune
+### Migrating from the Azure classic portal and Intune
 
 In this scenario:
 
@@ -166,7 +166,7 @@ In this scenario:
 - You want to migrate both policies to using mobile application management conditional access policies in the Azure portal
 
 
-### Configuration
+#### Configuration
 
 - Review your device-based conditional access policies
 
