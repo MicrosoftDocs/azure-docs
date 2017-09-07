@@ -273,7 +273,7 @@ You have now created and deployed an ASP.NET web application that uses a hybrid 
 
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md)
+<!-- [Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md) -->
 
 [ASP.NET Identity Overview](http://www.asp.net/identity)
 

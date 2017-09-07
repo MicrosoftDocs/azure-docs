@@ -45,8 +45,8 @@ with Application Insights, but you can use New Relic or other technologies that 
 ## What you will do
 In this tutorial, you will learn how to bring the following scenarios together to test your App Service app in production:
 
-* [Route production traffic](app-service-web-test-in-production-get-start.md) to your beta app
-* [Instrument your app](../application-insights/app-insights-web-track-usage.md) to obtain useful metrics
+* Route production traffic to your beta app
+* Instrument your app to obtain useful metrics
 * Continuously deploy your beta app and track live app metrics
 * Compare metrics between the production app and the beta app to see how code changes translate to results
 
