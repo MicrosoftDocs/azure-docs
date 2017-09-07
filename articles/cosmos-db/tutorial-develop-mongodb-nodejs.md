@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/23/2017
+ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
 
@@ -33,9 +33,15 @@ This multi-part tutorial covers the following tasks:
 > * [Use Mongoose to connect to Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
 > * [Add Post, Put, and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)
 
+Want to do build this same app with React? See the [React tutorial video series](tutorial-develop-mongodb-react.md).
+
 ## Video walkthrough
 
 > [!VIDEO https://www.youtube.com/embed/vlZRP0mDabM]
+
+## Finished project 
+
+This tutorial walks you through the steps to build the application step-by-step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
 ## Next steps
 
