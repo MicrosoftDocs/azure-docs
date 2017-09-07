@@ -1,10 +1,10 @@
 ---
-title: What's New in the Azure Toolkit for IntelliJ | Microsoft Docs
+title: What's New in the Azure Toolkit for IntelliJ
 description: Learn about the latest features in the Azure Toolkit for IntelliJ.
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: 46ed791f-df59-416a-809e-f52345ad973c
@@ -13,18 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 08/20/2017
 ms.author: robmcm;asirveda;martinsawicki
 
 ---
-# What's New in the Azure Toolkit for IntelliJ
-## Azure Toolkit for IntelliJ Releases
+# What's new in the Azure Toolkit for IntelliJ
+
 This article contains information on the various releases and latest updates to the Azure Toolkit for IntelliJ.
 
 > [!NOTE]
 > There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse].
 > 
 > 
+## Azure Toolkit for IntelliJ releases
+
+### August 18, 2017
+The Azure Toolkit for IntelliJ - August 2017 release includes the following enhancements:
+
+* **Support for IntelliJ Community Edition**: The Azure Toolkit for IntelliJ now supports deploying your Maven projects to Azure App Service from IntelliJ IDEA by using either the Community Edition or Ultimate Edition.
+* **Improved Web App Workflow**: You can now run your web applications on Azure Web App with one-click experience using Azure Toolkit for IntelliJ. For more information, see [Create a Hello World web app for Azure in IntelliJ](app-service-web/app-service-web-intellij-create-hello-world-web-app.md).
+* **New Container Workflow**: You can now dockerize and run your web application on Azure Web App (Linux) via Azure Container Registry. For more information, see [Run a Hello World Maven project on Azure Web App (Linux) using IntelliJ](azure-toolkit-for-intellij-hello-world-web-app-linux.md).
+* **Redis Cache Management**: The Azure Toolkit for IntelliJ now supports managing your Redis caches from within the Azure Explorer. For more information, see [Managing Redis Caches using the Azure Explorer for IntelliJ](azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md).
 
 ### April 14, 2017
 The Azure Toolkit for IntelliJ - April 2017 release includes the following enhancements:
@@ -63,21 +72,9 @@ The Azure Toolkit for IntelliJ - April 2016 release includes the following enhan
 * **Miscellaneous usability, responsiveness and performance improvements related to Azure Web App support**. A number of performance optimizations in how the Toolkit communicates with Azure result in a more responsive UI.
 * **Ability to delete an existing Web Application container in Azure from within IntelliJ**. The Azure Toolkit for IntelliJ now allows you to delete an existing Azure Web container without leaving IntelliJ.
 
-## See Also
-For more information about the Azure Toolkits for Java IDEs, see the following links:
+## Next steps
 
-* [Azure Toolkit for Eclipse]
-  * [What's New in the Azure Toolkit for Eclipse]
-  * [Installing the Azure Toolkit for Eclipse]
-  * [Create a Hello World Web App for Azure in Eclipse]
-  * [Sign In Instructions for the Azure Toolkit for Eclipse]
-* [Azure Toolkit for IntelliJ]
-  * *What's New in the Azure Toolkit for IntelliJ (This Article)*
-  * [Installing the Azure Toolkit for IntelliJ]
-  * [Sign In Instructions for the Azure Toolkit for IntelliJ]
-  * [Create a Hello World Web App for Azure in IntelliJ]
-
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+[!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
 <!-- URL List -->
 

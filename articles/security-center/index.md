@@ -2,7 +2,7 @@
 title: Azure Security Center Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to set up security monitoring and policy management for Azure resources. Tutorials, a REST API reference, and other documentation.
 services: security-center
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

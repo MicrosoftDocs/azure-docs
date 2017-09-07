@@ -4,7 +4,7 @@ description: How to use a user-defined function and Machine Learning in a Stream
 keywords: ''
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
-ms.author: jeffstok
+ms.author: samacha
 ---
 
 # Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning

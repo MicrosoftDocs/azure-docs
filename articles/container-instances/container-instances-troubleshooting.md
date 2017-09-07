@@ -6,16 +6,16 @@ documentationcenter: ''
 author: seanmck
 manager: timlt
 editor: ''
-tags: 
-keywords: 
+tags:
+keywords:
 
-ms.assetid: 
+ms.assetid:
 ms.service: container-instances
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -208,3 +208,16 @@ microsoft/aci-helloworld               latest              7f78509b568e        1
 The key to keeping image sizes small is ensuring that your final image does not contain anything that is not required at runtime. One way to do this is with [multi-stage builds](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Multi-stage builds make it easy to ensure that the final image contains only the artifacts you need for your application, and not any of the extra content that was required at build time.
 
 The other way to reduce the impact of the image pull on your container's startup time is to host the container image using the Azure Container Registry in the same region where you intend to use Azure Container Instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
+
+### Resource not available error
+
+Due to varying regional resource load in Azure, you might receive the following error when attempting to deploy a container instance:
+
+`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
+
+This error indicates that due to heavy load in the region in which you are attempting to deploy, the resources specified for your container can't be allocated at that time. Use one or more of the the following mitigation steps to help resolve your issue.
+
+* Verify your container deployment settings fall within the parameters defined in [Region availability for Azure Container Instances](container-instances-region-availability.md)
+* Specify lower CPU and memory settings for the container
+* Deploy to a different Azure region
+* Deploy at a later time

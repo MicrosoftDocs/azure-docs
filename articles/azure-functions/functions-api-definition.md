@@ -4,7 +4,7 @@ description: Overview of OpenAPI support in Azure Functions
 services: functions
 documentationcenter: ''
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid:

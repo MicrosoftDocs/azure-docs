@@ -4,7 +4,7 @@ description: Understanding Stream Analytics Alerting
 keywords: set up alerts
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/26/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Set up alerts for Azure Stream Analytics jobs

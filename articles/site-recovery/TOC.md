@@ -13,7 +13,7 @@
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Get Started
-## [Replicate Azure VMs (preview)](site-recovery-azure-to-azure.md)
+## [Replicate Azure VMs to Azure (preview)](site-recovery-azure-to-azure.md)
 ## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
 ### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](vmware-walkthrough-prerequisites.md)
@@ -141,6 +141,7 @@
 ### [Azure to Azure replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [On-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 ### [Mobility service installation issues](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Failover to Azure issues](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Collect logs and troubleshoot on-premises issues](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference

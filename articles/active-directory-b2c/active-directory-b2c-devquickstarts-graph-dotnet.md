@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Use the Graph API | Microsoft Docs'
+title: 'Use the Graph API - Azure AD B2C | Microsoft Docs'
 description: How to call the Graph API for a B2C tenant by using an application identity to automate the process.
 services: active-directory-b2c
 documentationcenter: .net
@@ -34,7 +34,7 @@ Before you can create applications or users, or interact with Azure AD at all, y
 After you have a B2C tenant, you need to register your application via the [Azure Portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> To use the Graph API with your B2C tenant, you will need to register a dedicated application by using the generic *App Registrations* blade in the Azure Portal, **NOT** Azure AD B2C's *Applications* blade. You can't reuse the already-existing B2C applications that you registered in the Azure AD B2C's *Applications* blade.
+> To use the Graph API with your B2C tenant, you will need to register a dedicated application by using the generic *App Registrations* menu in the Azure Portal, **NOT** Azure AD B2C's *Applications* menu. You can't reuse the already-existing B2C applications that you registered in the Azure AD B2C's *Applications* menu.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD B2C tenant by selecting your account in the top right corner of the page.
@@ -43,16 +43,16 @@ After you have a B2C tenant, you need to register your application via the [Azur
     1. Select **Web App / API** as the Application Type.    
     2. Provide **any redirect URI** (e.g. https://B2CGraphAPI) as it's not relevant for this example.  
 5. The application will now show up in the list of applications, click on it to obtain the **Application ID** (also known as Client ID). Copy it as you'll need it in a later section.
-6. In the Settings blade, click on **Keys** and add a new key (also known as client secret). Also copy it for use in a later section.
+6. In the Settings menu, click on **Keys** and add a new key (also known as client secret). Also copy it for use in a later section.
 
 ## Configure create, read and update permissions for your application
 Now you need to configure your application to get all the required permissions to create, read, update and delete users.
 
-1. Continuing in the Azure portal's App Registrations blade, select your application.
-2. In the Settings blade, click on **Required permissions**.
-3. In the Required permissions blade, click on **Windows Azure Active Directory**.
-4. In the Enable Access  blade, select the **Read and write directory data** permission from **Application Permissions** and click **Save**.
-5. Finally, back in the Required permissions blade, click on the **Grant Permissions** button.
+1. Continuing in the Azure portal's App Registrations menu, select your application.
+2. In the Settings menu, click on **Required permissions**.
+3. In the Required permissions menu, click on **Windows Azure Active Directory**.
+4. In the Enable Access  menu, select the **Read and write directory data** permission from **Application Permissions** and click **Save**.
+5. Finally, back in the Required permissions menu, click on the **Grant Permissions** button.
 
 You now have an application that has permission to create, read and update users from your B2C tenant.
 

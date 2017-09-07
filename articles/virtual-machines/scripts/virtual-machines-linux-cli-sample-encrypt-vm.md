@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # Encrypt a Linux virtual machine in Azure

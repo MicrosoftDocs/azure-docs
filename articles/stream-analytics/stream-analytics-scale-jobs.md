@@ -4,7 +4,7 @@ description: Learn how to scale Stream Analytics jobs by configuring input parti
 keywords: data streaming, streaming data processing, tune analytics
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Scale Azure Stream Analytics jobs to increase stream data processing throughput

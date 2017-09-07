@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create an Azure Function that connects to
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: functions
 ms.assetid: 

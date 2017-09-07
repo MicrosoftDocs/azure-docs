@@ -240,4 +240,6 @@ Verify that https://adnotifications.windowsazure.com is reachable from the serve
 
 - Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](nps-extension-advanced-configuration.md)
 
+- Learn how to integrate [Remote Desktop Gateway](nps-extension-remote-desktop-gateway.md) and [VPN servers](nps-extension-vpn.md) using the NPS extension
+
 - [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)
