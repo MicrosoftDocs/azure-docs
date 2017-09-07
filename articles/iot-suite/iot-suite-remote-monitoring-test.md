@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -55,6 +55,7 @@ In this tutorial, you learn how to:
 >[!div class="checklist"]
 > * Create a new device type
 > * Simulate custom device behavior
+> * Send custom telemetry from an existing device type
 > * Add a new device type to the dashboard
 
 ## Prerequisites
@@ -95,6 +96,7 @@ This tutorial, showed you how to:
 >[!div class="checklist"]
 > * Create a new device type
 > * Simulate custom device behavior
+> * Send custom telemetry from an existing device type
 > * Add a new device type to the dashboard
 
 Now that you have learned how to use the device simulation service, the suggested next step is to learn how to [connect a physical device to your remote monitoring solution](iot-suite-connecting-devices-node.md).
