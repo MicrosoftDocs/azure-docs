@@ -34,7 +34,6 @@
 ### Concepts
 #### [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 #### [Customize a solution](iot-suite-remote-monitoring-customize.md)
-#### [Device connectivity](iot-suite-remote-monitoring-connectivity.md)
 #### [Security](iot-suite-remote-monitoring-security.md)
 
 ## Connected factory
