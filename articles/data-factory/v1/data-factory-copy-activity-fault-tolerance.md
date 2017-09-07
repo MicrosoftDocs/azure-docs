@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 # Add fault tolerance in Copy Activity by skipping incompatible rows
 

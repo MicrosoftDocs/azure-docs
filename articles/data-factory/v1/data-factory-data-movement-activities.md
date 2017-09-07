@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 # Move data by using Copy Activity
 ## Overview

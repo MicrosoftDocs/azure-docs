@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Use custom activities in an Azure Data Factory pipeline
 

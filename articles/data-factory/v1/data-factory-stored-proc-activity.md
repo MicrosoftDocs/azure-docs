@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # SQL Server Stored Procedure Activity
 > [!div class="op_single_selector" title1="Transformation Activities"]

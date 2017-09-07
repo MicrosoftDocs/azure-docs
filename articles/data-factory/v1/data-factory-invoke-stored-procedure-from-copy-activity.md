@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 
 # Invoke stored procedure from copy activity in Azure Data Factory

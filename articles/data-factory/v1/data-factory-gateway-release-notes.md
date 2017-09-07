@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
-published: true
+
+robots: noindex
 ---
 # Release notes for Data Management Gateway
 One of the challenges for modern data integration is to move data to and from on-premises to cloud. Data Factory makes this integration with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.

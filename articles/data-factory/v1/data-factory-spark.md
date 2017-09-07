@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Invoke Spark programs from Azure Data Factory pipelines
 

@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 # Move data from an SFTP server using Azure Data Factory
 This article outlines how to use the Copy Activity in Azure Data Factory to move data from an on-premises/cloud SFTP server to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.

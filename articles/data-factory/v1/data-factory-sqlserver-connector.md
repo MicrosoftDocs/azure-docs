@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/09/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 # Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from an on-premises SQL Server database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. 

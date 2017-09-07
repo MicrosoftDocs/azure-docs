@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Tutorial: Build your first pipeline to transform data using Hadoop cluster
 > [!div class="op_single_selector"]

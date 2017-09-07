@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 
+robots: noindex
 ---
 
 # Azure Data Factory - Security considerations for data movement

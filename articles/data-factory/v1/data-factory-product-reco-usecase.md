@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Use Case - Product Recommendations
 Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  See [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) page for details about this suite. In this document, we describe a common use case that Azure users have already solved and implemented using Azure Data Factory and other Cortana Intelligence component services.

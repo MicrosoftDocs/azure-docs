@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 
+robots: noindex
 ---
 # Data Management Gateway - high availability and scalability (Preview)
 This article helps you configure high availability and scalability solution with Data Management Gateway.    

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Azure Data Factory - Functions and System Variables
 This article provides information about functions and variables supported by Azure Data Factory.

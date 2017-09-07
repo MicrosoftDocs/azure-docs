@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 
 # File and compression formats supported by Azure Data Factory

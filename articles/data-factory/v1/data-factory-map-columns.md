@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 
 # Map source dataset columns to destination dataset columns

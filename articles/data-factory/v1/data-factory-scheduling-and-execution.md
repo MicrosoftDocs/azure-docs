@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Data Factory scheduling and execution
 This article explains the scheduling and execution aspects of the Azure Data Factory application model. This article assumes that you understand basics of Data Factory application model concepts, including activity, pipelines, linked services, and datasets. For basic concepts of Azure Data Factory, see the following articles:

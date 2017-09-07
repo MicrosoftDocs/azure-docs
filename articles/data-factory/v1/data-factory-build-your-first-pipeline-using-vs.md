@@ -16,6 +16,7 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Tutorial: Create a data factory by using Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]

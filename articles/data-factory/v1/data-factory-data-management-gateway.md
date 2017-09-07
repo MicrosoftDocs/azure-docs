@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 
+robots: noindex
 ---
 # Data Management Gateway
 The Data management gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section.
