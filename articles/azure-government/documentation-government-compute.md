@@ -31,6 +31,24 @@ The following information identifies the Azure Government boundary for Azure Vir
 | --- | --- |
 | Data entered, stored, and processed within a VM can contain export-controlled data. Binaries running within Azure Virtual Machines. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings.  Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure Virtual Machine.  Do not enter Regulated/controlled data into the following fields:  Tenant role names, Resource groups, Deployment names, Resource names, Resource tags |
 
+## Azure Functions
+The Azure Functions service offers much of the same functionality for the Azure Government environment as it does for the Azure Commercial environment, which you can read about [here](https://docs.microsoft.com/en-us/azure/azure-functions/). 
+
+### Variations
+*The following Functions features are not currently available in Azure Government:
+
+- Functions access through the Azure Government Portal
+- Consumption Plan 
+
+	> [!NOTE]
+	>The [App-Service plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
+	>
+    >
+>
+### Quickstarts
+Our Quickstarts page contains a series of tutorials that will guide you through getting started with Functions on Azure Government. 
+To visit this page, [click here](documentation-government-functions.md). 
+
 ## Next Steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>

@@ -41,6 +41,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | Cloud Services | Yes | Yes |
 | Service Fabric | Yes | Yes |
 | Virtual Machine Scale Sets | Yes | Yes |
+| [Functions](documentation-government-compute.md#azure-functions) | Yes | No |
 
 ## [Networking](documentation-government-networking.md)
 
