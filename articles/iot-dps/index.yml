@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure IoT Hub Device Provisioning Service Documentation
+title: Azure IoT Hub Device Provisioning Service (preview) Documentation
 metadata:
-  title: Azure IoT Hub Device Provisioning Service Documentation - Tutorials, API Reference
+  title: Azure IoT Hub Device Provisioning Service (preview) Documentation - Tutorials, API Reference
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: The IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner. Learn how to provision devices to your IoT hub(s) with our quickstarts, tutorials, and samples.
+  description: The IoT Hub Device Provisioning Service (preview) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner. Learn how to provision devices to your IoT hub(s) with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -34,7 +34,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use the IoT Hub Device Provisioning Service to automatically provision security enabled devices to single or multiple IoT hubs.
+    text: Learn how to use the IoT Hub Device Provisioning Service (preview) to automatically provision security enabled devices to single or multiple IoT hubs.
   - type: list
     style: ordered
     items:

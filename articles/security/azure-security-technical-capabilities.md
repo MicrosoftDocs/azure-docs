@@ -341,7 +341,7 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Securely connect your app with resources in a private network using Point-To-Site VPN](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
-- [Securely connect your app with resources in a private network using Hybrid Connections](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
+- [Securely connect your app with resources in a private network using Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
 Azure App Service uses the same Antimalware solution used by Azure Cloud Services and Virtual Machines. To learn more about this refer to our [Antimalware documentation](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 
