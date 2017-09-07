@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Azure Backup PowerShell samples
 
-The following table includes links to PowerShell scripts samples that use Azure Backup features to back up and restore data from a variety of sources.
+The following table includes links to PowerShell script samples that use Azure Backup to back up and restore data.
 
 | | |
 |---|---|
@@ -28,6 +28,6 @@ The following table includes links to PowerShell scripts samples that use Azure 
 | [Back up an encrypted virtual machine to Azure](../scripts/backup-powershell-sample-backup-encrypted-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Back up all data on the encrypted virtual machine.|
 
 |**Back up Windows Server**||
-| [Back up files and folders from Windows Server to Azure](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Back up the files and/or folders from an on-premises Windows Server to a Recovery Services vault in Azure.  |
+| [Back up files and folders from Windows Server to Azure](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Back up the files and folders from an on-premises Windows Server to Azure.  |
 | | |
 
