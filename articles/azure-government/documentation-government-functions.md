@@ -187,7 +187,7 @@ Type `y` when prompted.
 
 ### Create function- Visual Studio 
 
-Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs). 
+Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs). 
 
 Once that is confirmed, the steps to create a function using visual studio to Azure Government are essentially the same as creating one in Azure commercial, which can be found [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio). 
 
@@ -198,17 +198,17 @@ Once that is confirmed, the steps to create a function using visual studio to Az
 
         http://<functionappname>.azurewebsites.us/api/<functionname>?name=<yourname> 
 
-2. Paste this new URL for the HTTP request into your browser's address bar. The following image shows the response in the browser to the remote GET request returned by the function: 
+Paste this new URL for the HTTP request into your browser's address bar. The following image shows the response in the browser to the remote GET request returned by the function: 
 
    ![Function response in the browser](./media/documentation-government-functions-createvs.png)
 
-### Create Trigger Functions- Visual StudioLearn how to create a trigger function in Azure Government using Visual Studio. 
+### Create Trigger Functions- Visual Studio
+Learn how to create a trigger function in Azure Government using Visual Studio. 
 
 #### Prerequisites
 
 * Make sure Visual Studio has been installed:
-
-   -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
     >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
@@ -225,7 +225,9 @@ Go down to the "Add" button and click on "New Item" as shown below.
 2. Click on "Azure Function" and you will see this screen:
     
     ![triggerfunctioncreate1](./media/documentation-government-function5.png)
+    
     As you can see there are multiple types of trigger functions that you can create, such as Timer, Generic and GitHub Webhook, Blob, and Queue. We will create a Timer trigger function for the sake of this tutorial. 
+    
 3. Click on the Timer trigger and create, and you should be able to see the new function in your Visual Studio. 
 4. In the Solution Explorer on the right, you should be able to see and open up the "local.settings.json" file.
 
@@ -234,6 +236,7 @@ Go down to the "Add" button and click on "New Item" as shown below.
 5. Go to your [Azure Government portal](https://portal.azure.us) and click on "Storage Accounts" from the left side-bar. 
 
     ![triggerfunctioncreate3](./media/documentation-government-function7.png)
+    
     Click on the storage account that corresponds to this function app and you will see an "Access keys" section under "Settings".
     Once you navigate to this section you will be able to see two Default keys: Primary and Secondary.
 
@@ -284,8 +287,10 @@ In order to connect the function to your output Queue, you must create an output
 	<QueueName>.Add("Name passed to the function: " + name);     
 	```
 #### Test your function
+
 1. Run your function on Visual Studio.
-2. Navigate to the Azure Government [portal](portal.azure.us) and click on the Storage Account explorer from the menu on the left-hand side. 
+
+2. Navigate to the Azure Government [portal](https://portal.azure.us) and click on the Storage Account explorer from the menu on the left-hand side. 
 3. On the Overview page click on the "Queues" button in order to see the different Queues. 
 
     ![triggerfunctioncreate6](./media/documentation-government-function10.png)
