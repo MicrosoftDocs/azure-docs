@@ -32,6 +32,7 @@ We recommend that you watch the following video, where Kirill Gavrylyuk explains
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
 > 
 > 
+
 The Azure Cosmos DB Graph API provides:
 
 - Graph modeling.
