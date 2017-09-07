@@ -3,9 +3,10 @@
 - name: Overview
   expanded: true
   items:
-  - name: (What are the Azure Machine Learning preview features)?
+  - name: What are the Azure Machine Learning preview features?
+    href: overview-what-is-azure-ml.md
   - name: Machine Learning options at Microsoft
-    href: overview-what-are-machine-learning-options.md
+    href: oerview-what-are-machine-learning-options.md
 - name: Quickstarts
   items:
   - name: Provisioning and installation
