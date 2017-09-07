@@ -44,10 +44,7 @@ For a list of approved client apps, see [approved client app requirement](active
 
 You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md) to provide flexibility in how to protect data for both personal and corporate devices.
 
-
-
-
-  
+ 
 
 
 ##Before you begin
@@ -66,31 +63,12 @@ Additionally, you might want to take a look at the [best practices for condition
 
 ## Prerequisites
 
-1.	Before you create an app-based conditional access policy, you must have an Enterprise Mobility + Security or an Azure Active Directory premium subscription, and the users must be licensed for EMS or Azure AD. 
+- Before you create an app-based conditional access policy, you must have an Enterprise Mobility + Security or an Azure Active Directory premium subscription, and the users must be licensed for EMS or Azure AD. 
 
-2.	Before you create a new app-based conditional access, you must review the scenarios and the migration considerations
+- Before you create a new app-based conditional access policy, you must review the scenarios and the migration considerations
 
-## Supported platforms
+- For support information, you should take a look at [Approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
 
--	iOS
-
--	Android
-
-## Approved client applications 
-
-- Microsoft Outlook
-
-- Microsoft SharePoint
-
-- Microsoft OneDrive
-
-- Microsoft Teams
-
-- Microsoft Word
-
-- Microsoft Excel
-
-- Microsoft PowerPoint
 
 
 ## Exchange Online policy 
