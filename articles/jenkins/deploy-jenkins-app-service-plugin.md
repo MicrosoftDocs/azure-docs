@@ -137,7 +137,7 @@ Web App on Linux also supports traditional ways like Git and FTP, but only for b
 
 Before setting up the job in Jenkins, you need an Azure app service on Linux. A container registry is also needed to store and manage your private Docker container images. You can use DockerHub; we are using Azure Container Registry for this example.
 
-* You can follow the steps [here](/azure/app-service-web/app-service-linux-how-to-create-web-app) to create a Web App on Linux 
+* You can follow the steps [here](../app-service/containers/quickstart-nodejs.md) to create a Web App on Linux 
 * Azure Container Registry is a managed [Docker registry] (https://docs.docker.com/registry/) service based on the open-source Docker Registry 2.0. Follow the steps [here] (/azure/container-registry/container-registry-get-started-azure-cli) for more guidance on how to do so. You can also use DockerHub.
 
 ### To deploy using docker:
