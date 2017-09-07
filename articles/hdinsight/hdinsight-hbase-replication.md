@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 
 ---
@@ -23,7 +23,7 @@ Learn how to configure HBase replication within one virtual network (VNet) or be
 
 Cluster replication uses a source-push methodology. An HBase cluster can be a source or a destination, or it can fulfill both roles at once. Replication is asynchronous, and the goal of replication is eventual consistency. When the source receives an edit to a column family with replication enabled, that edit is propagated to all destination clusters. When data is replicated from one cluster to another, the source cluster and all clusters that have already consumed the data are tracked to prevent replication loops.
 
-In this tutorial, you will configure a source-destination replication. For other cluster topologies, see [Apache HBase Reference Guide](http://hbase.apache.org/book.html#_cluster_replication).
+In this tutorial, you configure a source-destination replication. For other cluster topologies, see [Apache HBase Reference Guide](http://hbase.apache.org/book.html#_cluster_replication).
 
 HBase replication usage cases for a single virtual network:
 
@@ -83,7 +83,7 @@ HBase replication uses IP addresses of the ZooKeeper VMs. You must configure sta
 5. Click one of the ZooKeeper VMs.
 6. Click **IP configurations**.
 7. Click **ipConfig1** from the list.
-8. Click **Static**, and write down the actual IP address. You will need the IP address when you run the script action to enable replication.
+8. Click **Static**, and write down the actual IP address. You need the IP address when you run the script action to enable replication.
 
   ![HDInsight HBase Replication ZooKeeper static IP](./media/hdinsight-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
 
@@ -105,7 +105,7 @@ For the cross-VNet scenario, you must use the **-ip** switch when calling the **
 
 ## Load test data
 
-When you replicate a cluster, you must specify the tables to replicate. In this section, you will load some data into the source cluster. In the next section, you will enable replication between the two clusters.
+When you replicate a cluster, you must specify the tables to replicate. In this section, you load some data into the source cluster. In the next section, you will enable replication between the two clusters.
 
 Follow the instructions in [HBase tutorial: Get started using Apache HBase with Linux-based Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) to create a **Contacts** table and insert some data into the table.
 
@@ -146,7 +146,7 @@ Optional arguments:
 |-su, --src-ambari-user | Specify the admin username for Ambari on the source HBase cluster. The default value is **admin**. |
 |-du, --dst-ambari-user | Specify the admin username for Ambari on the destination HBase cluster. The default value is **admin**. |
 |-t, --table-list | Specify the tables to be replicated. For example: --table-list="table1;table2;table3". If you don't specify tables, all existing HBase tables are replicated.|
-|-m, --machine | Specify the head node where the script action will run. The value is either hn1 or hn0. Because hn0 is usually busier, we recommend using hn1. You use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
+|-m, --machine | Specify the head node where the script action runs. The value is either hn1 or hn0. Because hn0 is usually busier, we recommend using hn1. You use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
 |-ip | This argument is required when you're enabling replication between two virtual networks. This argument acts as a switch to use the static IPs of ZooKeeper nodes from replica clusters instead of FQDN names. The static IPs need to be preconfigured before you enable replication. |
 |-cp, -copydata | Enable the migration of existing data on the tables where replication is enabled. |
 |-rpm, -replicate-phoenix-meta | Enable replication on Phoenix system tables. <br><br>*Use this option with caution.* We recommend that you re-create Phoenix tables on replica clusters before you use this script. |
@@ -192,7 +192,7 @@ The print_usage() section of the [script](https://github.com/Azure/hbase-utils/b
 
 ### Scenarios
 
-- **Copy specific tables (test1, test2, and test3) for all rows edited till now (current time stamp)**:
+- **Copy specific tables (test1, test2, and test3) for all rows edited until now (current time stamp)**:
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   or

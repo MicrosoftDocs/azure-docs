@@ -25,7 +25,12 @@ Azure Government is continually expanding its services. These services are deplo
 
 For the most current list of services, see the [Products available by region](https://azure.microsoft.com/regions/services/) page. 
 
-In the following tables, services that are specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md). Services that are specified as available in the portal can be managed in the [Azure Government portal](https://portal.azure.us/). 
+In the following tables, services that are specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md). 
+
+> [!NOTE]
+> Services that are specified as available in the "Portal" column can be managed in the [Azure Government portal](https://portal.azure.us/). 
+>
+>
 
 ## [Compute](documentation-government-compute.md)
 
