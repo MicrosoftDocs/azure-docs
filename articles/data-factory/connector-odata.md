@@ -212,3 +212,6 @@ When copying data from OData, the following mappings are used from OData data ty
 > [!Note]
 > OData complex data types (such as Object) are not supported.
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

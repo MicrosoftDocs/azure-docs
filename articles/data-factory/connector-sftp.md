@@ -234,3 +234,6 @@ To copy data from SFTP, set the source type in the copy activity to **FileSystem
 ]
 ```
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -179,3 +179,6 @@ To copy data from FTP, set the source type in the copy activity to **FileSystemS
 ]
 ```
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

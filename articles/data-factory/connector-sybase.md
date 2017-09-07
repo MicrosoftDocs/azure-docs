@@ -159,3 +159,6 @@ When copying data from Sybase, the following mappings are used from Sybase data 
 
 Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Factory interim data types, see [Azure SQL Database Connector - data type mapping](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) section.
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -519,3 +519,6 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
 6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: `"<machine>.<domain>.corp.<company>.com,1433"`.
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

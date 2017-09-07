@@ -179,3 +179,6 @@ There are a few known limitations when copying data from SAP HANA:
 - VARBINARY is not supported
 - Valid Dates are between 1899/12/30 and 9999/12/31
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

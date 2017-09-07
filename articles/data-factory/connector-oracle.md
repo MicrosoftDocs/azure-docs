@@ -221,3 +221,6 @@ When copying data from/to Oracle, the following mappings are used from Oracle da
 > [!NOTE]
 > Data type INTERVAL YEAR TO MONTH and INTERVAL DAY TO SECOND are not supported.
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

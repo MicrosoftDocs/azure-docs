@@ -198,3 +198,6 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 | `serial` |`serial4` |`Int32` |
 | `text` | |`String` |&nbsp;
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

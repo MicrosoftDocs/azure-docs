@@ -193,3 +193,6 @@ When copying data from DB2, the following mappings are used from DB2 data types 
 | VarGraphic |String |
 | Xml |Byte[] |
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

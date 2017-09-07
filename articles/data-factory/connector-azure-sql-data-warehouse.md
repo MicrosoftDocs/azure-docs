@@ -439,3 +439,6 @@ When copying data from/to Azure SQL Data Warehouse, the following mappings are u
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

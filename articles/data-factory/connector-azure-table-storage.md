@@ -250,3 +250,6 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 | Edm.Int32 |Int32 |A 32-bit integer. |
 | Edm.Int64 |Int64 |A 64-bit integer. |
 | Edm.String |String |A UTF-16-encoded value. String values may be up to 64 KB. |
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

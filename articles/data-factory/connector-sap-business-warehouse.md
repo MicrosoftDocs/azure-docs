@@ -182,3 +182,6 @@ When copying data from SAP BW, the following mappings are used from SAP BW data 
 | NUMC | String |
 | TIMS | String |
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

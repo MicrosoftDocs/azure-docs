@@ -239,3 +239,6 @@ To troubleshoot connection issues, use the **Diagnostics** tab of **Integration 
 3. Under the "Test Connection" section, select the **type** of data store (linked service).
 4. Specify the **connection string** that is used to connect to the data store, choose the **authentication** and enter **user name**, **password**, and/or **credentials**.
 5. Click **Test connection** to test the connection to the data store.
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
