@@ -1,6 +1,6 @@
 ---
-title: Conditional access with mobile app management in Azure Active Directory | Microsoft Docs
-description: Learn how Conditional access with mobile app management in Azure Active Directory works.
+title: Azure Active Directory app-based conditional access | Microsoft Docs
+description: Learn how Azure Active Directory app-based conditional access works.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -14,16 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
 
 ---
-# Conditional access with mobile app management in Azure Active Directory  
+# Azure Active Directory app-based conditional access  
 
-Azure Active Directory (Azure AD) app-based conditional access in the Azure portal combined with Intune app protection policies help restrict access to cloud apps to mobile apps that support Intune app protection, for example restricting access to Exchange Online to the Outlook app. This support allows devices that are not enrolled for management by Intune MDM to still protect company data.   
+Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) app-based conditional access, you can restrict access to your cloud apps to client apps that can protect your corporate data.  
 
-Mobile app management conditional access allows you to combine with other policies such as device-based conditional access policies to provide flexibility in how to protect data for both personal and corporate devices. 
+This topic explains how Azure AD app-based conditional access works.
+
+## Overview
+
+With [Azure AD conditional access](active-directory-conditional-access-azure-portal.md), you can fine-tune how authorized users can access your resources. For example, you can limit the access to your cloud apps to trusted devices.
+
+You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data. Intune app protection policies don't require mobile-device management (MDM) solution, which enables you to protect your company’s data with or without enrolling devices in a device management solution.
+
+Azure Active Directory app-based conditional access enables you limit access to your cloud apps to client apps that support Intune app protection policies. For example, you can restrict access to Exchange Online to the Outlook app.
+
+In the conditional access terminology, these client apps are known as **approved client apps**.  
+
+
+![Conditional access](./media/active-directory-conditional-access-mam/05.png)
+
+
+For a list of approved client apps, see [approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
+You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md) to provide flexibility in how to protect data for both personal and corporate devices.
+
+
+
+
+  
+
 
 ##Before you begin
 
