@@ -119,7 +119,7 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
 
 8. If you plan to complete the next steps at a later time, make sure you delete the HDInsight cluster you created in this article. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next step 
 
