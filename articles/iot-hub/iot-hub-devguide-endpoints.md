@@ -44,10 +44,8 @@ The following list describes the endpoints:
   * *Initiate file uploads*. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to [upload a file][lnk-upload].
   * *Retrieve and update device twin properties*. A device uses this endpoint to access its [device twin][lnk-twins]'s properties.
   * *Receive direct method requests*. A device uses this endpoint to listen for [direct method][lnk-methods]'s requests.
-
+git
     These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. AMQP is also available over [WebSockets][lnk-websockets] on port 443.
-
-    The device twins and methods endpoints are available only when you use the [MQTT v3.1.1][lnk-mqtt] protocol.
 
 * **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP][lnk-amqp] protocol. The method invocation endpoint is exposed over the HTTP protocol.
   
