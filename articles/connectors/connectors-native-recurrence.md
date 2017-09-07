@@ -1,6 +1,6 @@
 ---
-title: Run recurring scheduled tasks - Azure Logic Apps | Microsoft Docs
-description: Create workflows that run scheduled workloads at regular intervals with the recurrence trigger in logic apps
+title: Schedule tasks and workflows - Azure Logic Apps | Microsoft Docs
+description: Schedule tasks, workflows, and workloads that run regularly by using the recurrence trigger in logic apps
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
@@ -14,20 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/08/2017
 ms.author: LADocs; jehollan; astay
 ---
 
-# Create, schedule, and run recurring tasks with logic apps
+# Create, schedule, and regularly run tasks in Azure Logic Apps
 
-To schedule and run workflows at regular intervals, 
-create a logic app that starts with the **Schedule - Recurrence** trigger. 
-A [*trigger*](../connectors/connectors-overview.md) is an event that 
-you use to start a logic app workflow. For example, 
-you can schedule and run recurring workloads for these tasks:
+To schedule when to start and run workflows at regular intervals, 
+create a logic app that starts with a **Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+Although some [connectors](../connectors/apis-list.md) provide recurrence triggers for specific tasks, 
+other connectors don't. So for these connectors, you can still create, schedule, 
+and set up recurring workflows for tasks like these examples and more:
 
-* Email a summary of all tweets with a specific hashtag within the past week.
-* Schedule a workflow that runs a SQL stored procedure every day.
+* Get internal data: [Run a SQL stored procedure](../connectors/connectors-create-api-sqlazure.md) every day.
+* Get external data: Pull weather reports from NOAA every 15 minutes.
+* Report data: Email a summary for all orders greater than a specific amount in the past week.
+* Process data: Compress today's uploaded images every weekday during off-peak hours.
+* Clean up data: Delete all tweets older than 3 months.
+* Archive data: Push invoices to a backup service every month.
+
+This trigger supports many patterns, for example:
+
+* Run immediately and repeat every *n* number of seconds, minutes, hours, days
+weeks, or months.
+* Start at a specific time, then run and repeat every *n* number of seconds, 
+minutes, hours, days, weeks, or months.
+* Run and repeat at one or more times each day, for example, at 8:00 AM and 5:00 PM.
+* Run and repeat each week but only on specific days, for example, Saturday and Sunday.
+* Run and repeat each week but only on specific days at specific times of day, 
+for example, from Monday through Friday at 8:00 AM and 5:00 PM.
 
 ## Prerequisites
 
@@ -58,7 +73,7 @@ In this example, set these properties to run your workflow every week.
 4. For more scheduling options, 
 choose **Show advanced options** so that you can: 
 
-   * Set a start date and time for firing the recurrence trigger. 
+   * Schedule a start date and time for firing the recurrence trigger. 
    When you set the start date and time, you can apply a time zone too.
 
    * Select specific times or days for the recurrence 
@@ -71,23 +86,16 @@ choose **Show advanced options** so that you can:
    
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   This example specifies that the trigger doesn't fire until two weeks from today, 
-   supposing that today is September 4, 2017. And because this example selected "Week", 
-   you can also select specific days or times. The trigger shows you a preview 
-   for your specified recurrence. For example, this trigger runs weekly, on each Monday, 
-   at 10:30 AM, 12:30 PM, and 2:30 PM.
-
+   For example, suppose that today is September 4, 2017. 
+   This trigger doesn't fire until two weeks from today 
+   on September 18, 2017 at 8:00 AM PST. The workflow then runs 
+   at 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only each week. 
+   When you select "Day" or "Week", 
+   the trigger also shows a preview for your specified recurrence. 
+   [*What are some other example occurrences?*](#example-recurrences)
+   
    ![Advanced scheduling example](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
-
-   Here are more example recurrences:
-
-   | Recurrence | Interval | Frequency | On these days | At these hours | At these minutes | 
-   | ---------- | -------- | --------- | ------------- | -------------- | ---------------- |
-   | Every hour during working hours | 1 | Week | Select all days except Saturday and Sunday. Available only after you select "Week" as the frequency. | Select the hours for your specific working hours | {not necessary} | 
-   | Once each day on weekends | 1 | Week | Select only Saturday and Sunday. Available only after you select "Week" as the frequency. | {not necessary} | {not necessary} | 
-   | Every 15 minutes on Monday every other week | 2 | Week | Select only Monday | {not necessary} | 15 | 
-   ||||
-
+ 
 5. Now build your remaining workflow with actions or workflow control statements. 
 For more actions that you can add, see [Connectors](../connectors/apis-list.md).
 
@@ -97,14 +105,68 @@ You can configure these properties for the recurrence trigger.
 
 | Display name | Property name | Required | Description | 
 | ------------ | ------------- | -------- | ----------- | 
-| **Frequency** | frequency | Yes | The unit of time for the recurrence: `Second`, `Minute`, `Hour`, `Day`, `Week`, or `Month` | 
-| **Interval** | interval | Yes | The frequency of the interval for the recurrence | 
-| **Time zone** | timeZone | No | Applies only when you specify a **start time** and is used for start times without time zone offsets. Select the time zone that you want to apply. | 
-| **Start time** | startTime | No | Provide the start time in these formats: <p>- [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) without a time zone offset <p>- [ISO 8601 date time format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) without a time zone offset. But you can include the letter "Z", which refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time) and is necessary if you don't specify a time zone. | 
-| **On these days** | weekDays | No | When you select `Week`, you can select one or more days of the week when you want to run the workflow: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday` | 
-| **At these hours** | hours | No | When you select `Day` or `Week`, you can select one or more hours for the times of day when you want to run the workflow. For example, "10", "12" and "14" are 10 AM, 12 PM, and 2 PM. | 
-| **At these minutes** | minutes | No | When you select `Day` or `Week`, you can select one or more minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
+| **Frequency** | frequency | Yes | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | 
+| **Interval** | interval | Yes | A positive integer that describes how often the workflow runs. For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. <p>Here are the supported maximum intervals: </br>- Monthly: 18 months </br>- Daily: 548 days </br>- Hourly: 1 to 1,000 hours </br>- Minutes: 1 to 1,000 minutes | 
+| **Time zone** | timeZone | No | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. | 
+| **Start time** | startTime | No | Provide a start time in this format: <p>YYYY-MM-DDThh:mm:ss, when you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ, when you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify either "2017-09-18T14:00:00" and select a time zone such as Pacific Time, or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any earlier than the start time. [*What are other ways to set the start date and time?*](#start-time) | 
+| **On these days** | weekDays | No | When you select "Week", you can select one or more days of the week when you want to run the workflow: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday**, and **Sunday** | 
+| **At these hours** | hours | No | When you select "Day" or "Week", you can select one or more hours for the times of day when you want to run the workflow. For example, "10", "12" and "14" are 10 AM, 12 PM, and 2 PM. | 
+| **At these minutes** | minutes | No | When you select "Day" or "Week", you can select one or more minutes for the times of day when you want to run the workflow. For example, "30" is the half-hour mark. | 
 ||||| 
+
+## JSON definition
+
+Here's an example for this trigger: 
+
+``` json
+{
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Week",
+            "interval": 1,
+            "schedule": {
+                "hours": [
+                    10,
+                    12,
+                    14
+                ],
+                "minutes": [
+                    30
+                ],
+                "weekDays": [
+                    "Monday"
+                ]
+            },
+           "startTime": "2017-09-07T14:00:00",
+           "timeZone": "Pacific Standard Time"
+        },
+        "type": "Recurrence"
+    }
+}
+```
+
+## FAQ
+
+<a name="example-recurrences"></a>
+
+**Q:** What are other example recurrences? </br>
+**A:** Here are more examples:
+
+| Recurrence | Interval | Frequency | On these days | At these hours | At these minutes | 
+| ---------- | -------- | --------- | ------------- | -------------- | ---------------- |
+| Every hour during working hours | 1 | Week | Select all days except Saturday and Sunday. Available only after you select "Week" as the frequency. | Select the hours for your specific working hours | {not necessary} | 
+| Once each day on weekends | 1 | Week | Select only Saturday and Sunday. Available only after you select "Week" as the frequency. | {not necessary} | {not necessary} | 
+| Every 15 minutes on Monday every other week | 2 | Week | Select only Monday | {not necessary} | 15 | 
+||||
+
+<a name="start-time"></a>
+
+**Q:** What are other ways for setting the start date and time? </br>
+**A:** Here's more information about how you can control the start time for this trigger:
+
+||||
+
 
 ## Next steps
 
