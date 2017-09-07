@@ -115,9 +115,9 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 ## Pricing and SLA
 
-**Q:** What's the pricing while you're using the public preview?
+**Q:** What's the pricing now that the service is generally available?
 
-**A:** You are charged half the number of hours that your app runs, with the normal Azure App Service pricing. This means that you get a 50 percent discount on normal Azure App Service pricing.
+**A:** You are charged for the number of hours that your app runs, with the normal Azure App Service pricing.
 
 ## Other
 
