@@ -3,7 +3,7 @@ title: Anomaly Detection in Azure Usage Guide  (Preview)| Microsoft Docs
 description: Use stream analytics and machine learning to detect anomalies.
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: dubansal
 manager: jhubbard
 
 ms.service: stream-analytics
@@ -11,8 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
+ms.date: 08/28/2017
+ms.author: dubansal
 ---
 
 # Using the ANOMALYDETECTION operator
