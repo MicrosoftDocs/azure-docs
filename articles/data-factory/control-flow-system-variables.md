@@ -25,15 +25,15 @@ This article describes system variables supported by Azure Data Factory. You can
 | --- | --- |
 | @pipeline().DataFactory |Name of the data factory the pipeline run is running within | 
 | @pipeline().Pipeline |Name of the pipeline |
-| @pipeline().RunId | Id of the specific pipeline run | 
+| @pipeline().RunId | ID of the specific pipeline run | 
 | @pipeline().TriggerType | Type of the trigger that invoked the pipeline (Manual, Scheduler) | 
-| @pipeline().TriggerId| Id of the trigger that invokes the pipeline |
+| @pipeline().TriggerId| ID of the trigger that invokes the pipeline |
 | @pipeline().TriggerName| Name of the trigger that invokes the pipeline |
-| @pipeline().TriggerTime| Time when the trigger that invoked the pipeline. This is the actual fired time, not the scheduled time. For example, 13:20:08.0149599Z is given instead of 13:20:00.00Z |
+| @pipeline().TriggerTime| Time when the trigger that invoked the pipeline. The trigger time is the actual fired time, not the scheduled time. For example, `13:20:08.0149599Z` is returned instead of `13:20:00.00Z` |
 
 ## Trigger scope:
 
 | Variable Name | Description |
 | --- | --- |
-| trigger().scheduledTime |Time when the trigger was scheduled to invoke the pipeline run. For example, for a trigger that fires every 5 min, this would return 2017-06-01T22:20:00Z, 2017-06-01T22:25:00Z, 2017-06-01T22:29:00Z respectively.|
-| trigger().startTime |Time when the trigger **actually** fired to invoke the pipeline run. For example, for a trigger that fires every 5 min, this might return something like this 2017-06-01T22:20:00.4061448Z, 2017-06-01T22:25:00.7958577Z, 2017-06-01T22:29:00.9935483Z respectively.|
+| trigger().scheduledTime |Time when the trigger was scheduled to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable would return `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectively.|
+| trigger().startTime |Time when the trigger **actually** fired to invoke the pipeline run. For example, for a trigger that fires every 5 min, this variable might return something like this `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectively.|
