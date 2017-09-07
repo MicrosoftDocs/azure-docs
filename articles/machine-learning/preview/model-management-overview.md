@@ -1,6 +1,6 @@
 ---
-title: Concepts article Azure Machine Learning Model Management | Microsoft Docs
-description: This document explains model management concepts for Azure Machine Learning.
+title: Conceptual overview of Azure Machine Learning Model Management | Microsoft Docs
+description: This document explains Model Management concepts for Azure Machine Learning.
 services: machine-learning
 author: nk773
 ms.author: neerajkh

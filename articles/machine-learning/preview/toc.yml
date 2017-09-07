@@ -54,7 +54,10 @@
   - name: Acquire and understand data
     items:
     - name: (Work with large datasets)
-    - name: (Prepare your data)
+    - name: Get started with data preparation
+      href: data-prep-getting-started.md
+    - name: Python extensions for data preparation
+      href: data-prep-python-extensibility-overview.md
   - name: Develop and manage models
     items:
     - name: (Track run history and model metrics)
