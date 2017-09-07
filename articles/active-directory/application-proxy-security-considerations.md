@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/07/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -20,7 +20,7 @@ ms.custom: it-pro
 
 # Security considerations for accessing apps remotely with Azure AD Application Proxy
 
-This article explains how Azure Active Directory Application Proxy provides a secure service for publishing and accessing your applications remotely.
+This article explains the components that work to keep your users and applications safe when you use Azure Active Directory Application Proxy.
 
 The following diagram shows how Azure AD enables secure remote access to your on-premises applications.
 
@@ -56,7 +56,7 @@ Because Azure AD Application Proxy is a reverse-proxy, all traffic to back-end a
 
 You don't need to open inbound connections to the corporate network.
 
-Application Proxy connectors only use outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario required many additional investments in web application firewall products to analyze traffic and offer addition protections to the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
+Application Proxy connectors only use outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario required investments in web application firewall products to analyze traffic and protect the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
 
 For more information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
 
@@ -64,7 +64,7 @@ For more information about connectors, see [Understand Azure AD Application Prox
 
 Get cutting-edge security protection.
 
-Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](active-directory-identityprotection.md), with machine learning-driven intelligence and data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer real-time protection from high-risk sign-ins. We take into account numerous factors, such as access from infected devices, through anonymizing networks, and from atypical and unlikely locations.
+Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](active-directory-identityprotection.md), with data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer protection from high-risk sign-ins. We take into account numerous factors to determine which sign-in attemps are high risk. These factors include flagging infected devices, anonymizing networks, and atypical or unlikely locations.
 
 Many of these reports and events are already available through an API for integration with your security information and event management (SIEM) systems.
 
@@ -75,6 +75,14 @@ You don’t have to worry about maintaining and patching on-premises servers.
 Unpatched software still accounts for a large number of attacks. Azure AD Application Proxy is an Internet-scale service that Microsoft owns, so you always get the latest security patches and upgrades.
 
 To improve the security of applications published by Azure AD Application Proxy, we block web crawler robots from indexing and archiving your applications. Each time a web crawler robot tries to retrieve the robot's settings for a published app, Application Proxy replies with a robots.txt file that includes `User-agent: * Disallow: /`.
+
+### DDOS prevention
+
+Applications published through Application Proxy are protected against Distributed Denial of Service (DDOS) attacks.
+
+The Application Proxy service monitors the amount of traffic attempting to reach your applications and network. If this traffic spikes or exceeds a threshold that we set, Microsoft begins to throttle requests to your network. The threshold for excessive traffic is set high, because we know that many of you are in large organizations with many users and applications. The threshold is the same for all apps, and is set higher than your average traffic volume.
+
+Throttling is done based on total transactions per subscription and total transactions per application. When traffic is throttled, all requests to an application are denied for a short period of time. 
 
 ## Under the hood
 
@@ -99,7 +107,7 @@ The connector uses a client certificate to authenticate to the Application Proxy
 When the connector is first set up, the following flow events take place:
 
 1. The connector registration to the service happens as part of the installation of the connector. Users are prompted to enter their Azure AD admin credentials. The token acquired from this authentication is then presented to the Azure AD Application Proxy service.
-2. The Application Proxy service evaluates the token. It ensures that the user is a company administrator within the tenant that the token was issued for. If the user is not an administrator, the process is terminated.
+2. The Application Proxy service evaluates the token. It checks whether the user is a company administrator in the tenant. If the user is not an administrator, the process is terminated.
 3. The connector generates a client certificate request and passes it, along with the token, to the Application Proxy service. The service in turn verifies the token and signs the client certificate request.
 4. The connector uses the client certificate for future communication with the Application Proxy service.
 5. The connector performs an initial pull of the system configuration data from the service using its client certificate, and it is now ready to take requests.
@@ -109,7 +117,7 @@ When the connector is first set up, the following flow events take place:
 Whenever the Application Proxy service updates the configuration settings, the following flow events take place:
 
 1. The connector connects to the configuration endpoint within the Application Proxy service by using its client certificate.
-2. After the client certificate has been validated, the Application Proxy service returns configuration data to the connector (for example, the connector group that the connector should be part of).
+2. After the client certificate is validated, the Application Proxy service returns configuration data to the connector (for example, the connector group that the connector should be part of).
 3. If the current certificate is more than 180 days old, the connector generates a new certificate request, which effectively updates the client certificate every 180 days.
 
 ### Accessing published applications
