@@ -10,7 +10,7 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
     - [Azure Automation](#azure-automation) can perform actions across your Azure and on-prem infrastructure.
 
 - Automate application deployment and delivery
-    - Examples include [Visual Studio Team Services](#visual-studio-team-services) and [Jenkins](#jenkins)
+    - Examples include [Visual Studio Team Services](#visual-studio-team-services) and [Jenkins](#jenkins).
 
 
 ## Ansible
@@ -18,8 +18,8 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
 
 Learn how to:
 
-- [Install and configure Ansible on Linux for use with Azure](../articles/virtual-machines/linux/ansible-install-configure.md)
-- [Create a basic VM](../articles/virtual-machines/linux/ansible-create-vm.md)
+- [Install and configure Ansible on Linux for use with Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
+- [Create a basic VM](../articles/virtual-machines/linux/ansible-create-vm.md).
 - [Create a complete VM environment including supporting resources](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
 
 
@@ -28,7 +28,7 @@ Learn how to:
 
 Learn how to:
 
-- [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview)
+- [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
 - [Install Chef on Windows and create Azure VMs](../articles/virtual-machines/windows/chef-automation.md).
 
 
@@ -37,7 +37,7 @@ Learn how to:
 
 Learn how to:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview)
+- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
 
 
 ## Cloud-init
@@ -55,7 +55,7 @@ We are working with our partners to get cloud-init included and working in the i
 
 Learn how to:
 
-- [Customize a Linux VM with cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)
+- [Customize a Linux VM with cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## PowerShell DSC
@@ -65,9 +65,9 @@ DSC configurations define what to install on a machine and how to configure the 
 
 Learn how to:
 
-- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstart)
-- [Configure a DSC pull server](https://msdn.microsoft.com/powershell/dsc/pullserver)
-- [Use DSC for Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted)
+- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Configure a DSC pull server](https://msdn.microsoft.com/powershell/dsc/pullserver).
+- [Use DSC for Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 
 
 ## Azure Custom Script Extension
@@ -77,8 +77,8 @@ Scripts can be downloaded from Azure storage or any public location such as a Gi
 
 Learn how to:
 
-- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json)
-- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
+- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
 
 ## Packer
@@ -95,7 +95,7 @@ Learn how to:
 
 Learn how to:
 
-- [Install and configure Terraform with Azure](../articles/virtual-machines/linux/terraform-install-configure.md) 
+- [Install and configure Terraform with Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
 - [Create an Azure infrastructure with Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
 
 
@@ -106,9 +106,9 @@ Azure Automation also provides a Desired State Configuration (DSC) service that 
 
 Learn how to:
 
-- [Create a PowerShell runbook](../articles/automation/automation-first-runbook-textual-powershell.md)
-- [Use Hybrid Runbook Worker to manage on-prem resources](../articles/automation/automation-hybrid-runbook-worker.md)
-- [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md)
+- [Create a PowerShell runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
+- [Use Hybrid Runbook Worker to manage on-prem resources](../articles/automation/automation-hybrid-runbook-worker.md).
+- [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 
 ## Visual Studio Team Services
@@ -124,7 +124,7 @@ Learn how to:
 
 Learn how to:
 
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md)
+- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
 
 
 ## Next steps
