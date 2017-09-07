@@ -216,7 +216,6 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
     >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
-
 * Function app running in Visual Studio
     - To create one, complete the Quickstart section above titled "Create function- Visual Studio". 
 
@@ -224,47 +223,44 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
 
 1. Open up your function app in Visual Studio and right click on the app itself, not the solution. 
 Go down to the "Add" button and click on "New Item" as shown below.
-    ![triggerfunctioncreate](./media/documentation-government-function4.png)
 
-2. Click on "Azure Function" and you will see this screen:
+![triggerfunctioncreate](./media/documentation-government-function4.png)2. Click on "Azure Function" and you will see this screen:
     ![triggerfunctioncreate1](./media/documentation-government-function5.png)
     As you can see there are multiple types of trigger functions that you can create, such as Timer, Generic and GitHub Webhook, Blob, and Queue. We will create a Timer trigger function for the sake of this tutorial. 
-
 3. Click on the Timer trigger and create, and you should be able to see the new function in your Visual Studio. 
-4. In the Solution Explorer on the right you should be able to see and open up the "local.settings.json" file. 
+4. In the Solution Explorer on the right you should be able to see and open up the "local.settings.json" file.
+
     ![triggerfunctioncreate2](./media/documentation-government-function6.png)
     In order to connect the trigger function to Azure Government we need to define the connection property app settings that are defined in this file. 
-    
-5. Go to your [Azure Government portal](https://portal.azure.us) and click on "Storage Accounts" from the left side-bar. 
-    ![triggerfunctioncreate3](./media/documentation-government-function7.png)
 
+
+5. Go to your [Azure Government portal](https://portal.azure.us) and click on "Storage Accounts" from the left side-bar. 
+
+    ![triggerfunctioncreate3](./media/documentation-government-function7.png)
     Click on the storage account that corresponds to this function app and you will see an "Access keys" section under "Settings".
-Once you navigate to this section you will be able to see two Default keys: Primary and Secondary.
+    Once you navigate to this section you will be able to see two Default keys: Primary and Secondary.
+
     ![triggerfunctioncreate4](./media/documentation-government-function8.png)
 
 6. Copy the Connection String for your Primary key, go back to your "local.settings.json" file and paste the string for all of the values in the "Values" parameter. Also make sure "AccountName" = your storage account name. 
 
     ![triggerfunctioncreate5](./media/documentation-government-function9.png)
-
-Once this has been set you can run your Timer trigger function. 
+    Once this has been set you can run your Timer trigger function. 
 
 ### Integrate Storage using Visual Studio
 
 You can connect to external service data from your function in Visual Studio. 
-
 Learn how to update an existing function by adding an output binding that sends messages to Azure Queue storage. 
 
 #### Prerequisites
 
-- Make sure Visual Studio has been installed:
+* Make sure Visual Studio has been installed:
 
-* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-
-    ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-    
-    >[!NOTE]  
-    After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
-
+   -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
+    >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >
+    >
 
 - This tutorial requires a running function app. If you do not have one, you can follow the Quickstart section above titled "Create function- Visual Studio". 
 - This tutorial also requires an Azure Queue, if you have not created one you can do so by following [these steps](https://docs.microsoft.com/en-us/azure/storage/queues/storage-dotnet-how-to-use-queues).
@@ -272,7 +268,6 @@ Learn how to update an existing function by adding an output binding that sends 
 #### Update the function code 
 
 In order to connect the function to your output Queue you must create an output binding. 
-
 1. Open your function in Visual Studio
 2.  For a C# function, update your function definition as follows to add the output Queue storage binding parameter (replace the <QueueName> placeholder with the name of your output Queue). Skip this step for a JavaScript function.
 	
@@ -296,11 +291,12 @@ In order to connect the function to your output Queue you must create an output 
 
 #### Test your function
 1. Run your function on Visual Studio.
-
 2. Nagivate to the Azure Government [portal](portal.azure.us) and click on the Storage Account explorer from the menu on the left hand side. 
 3. On the Overview page click on the "Queues" button in order to see the different Queues. 
+
     ![triggerfunctioncreate6](./media/documentation-government-function10.png)
 
 4. Click on your Queue and you should be able to see the output of your function.
+
     ![triggerfunctioncreate7](./media/documentation-government-function11.png)
 
