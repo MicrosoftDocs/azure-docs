@@ -59,7 +59,7 @@ Before pushing and pulling container images, you must log in to the ACR instance
 $creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
 ```
 
-Next use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to log into the ACR instance. 
+Next use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to log in to the ACR instance. 
 
 ```bash
 docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
