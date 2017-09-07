@@ -48,7 +48,7 @@ Create an ACR instance using the [New-AzureRMContainerRegistry](/powershell/modu
 The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value. 
 
 ```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "myContainerRegistry007" -sku Basic -EnableAdminUser
+$Registry = New-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser
 ```
 
 ## Log in to ACR
