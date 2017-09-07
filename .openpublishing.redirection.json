@@ -10113,6 +10113,26 @@
             "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
             "redirect_url": "/azure/app-service-web/app-service-linux-intro",
             "redirect_document_id": false
-        }    
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },            
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-update-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        }
     ]
 }
