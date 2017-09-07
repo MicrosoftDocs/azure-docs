@@ -13,8 +13,12 @@
     href: quick-start-iris.md  
 - name: Tutorials
   items:
-  - name: Classify iris species
-    href: tutorial-classifying-iris.md
+  - name: Classify iris part 1 - data preparation
+    href: tutorial-classifying-iris-1.md
+  - name: Classify iris part 2 - model building
+    href: tutorial-classifying-iris-2.md
+  - name: Classify iris part 3 - model deployment
+    href: tutorial-classifying-iris-3.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md
 - name: Samples
