@@ -101,8 +101,8 @@ You can configure these properties for the recurrence trigger.
 
 | Display name | Property name | Required | Description | 
 | ------------ | ------------- | -------- | ----------- | 
-| **Frequency** | frequency | Yes | The unit of time: `Second`, `Minute`, `Hour`, `Day`, `Week`, or `Month` | 
-| **Interval** | interval | Yes | The frequency interval for the recurrence | 
+| **Frequency** | frequency | Yes | The unit of time for the recurrence: `Second`, `Minute`, `Hour`, `Day`, `Week`, or `Month` | 
+| **Interval** | interval | Yes | The frequency of the interval for the recurrence | 
 | **Time zone** | timeZone | No | Applies only when you specify a **start time** and is used for start times without time zone offsets. Select the time zone that you want to apply. | 
 | **Start time** | startTime | No | Provide the start time in these formats: <p>- [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) without a time zone offset <p>- [ISO 8601 date time format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) without a time zone offset. But you can include the letter "Z", which refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time) and is necessary if you don't specify a time zone. | 
 | **On these days** | weekDays | No | When you select `Week`, you can select one or more days of the week when you want to run the workflow: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday` | 

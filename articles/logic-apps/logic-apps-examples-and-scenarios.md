@@ -53,8 +53,9 @@ Here are just a few popular trigger examples:
 * Polling: 
 
   * [**Schedule - Recurrence** trigger](../connectors/connectors-native-recurrence.md) 
-  lets you specify the frequency and interval for running a logic app workflow 
-  and a schedule for starting and running that workflow.
+  lets you specify the frequency and interval for triggering your logic app. 
+  You can also specify a start date and time for firing the trigger, 
+  plus schedule the days of the week and times of day for running your logic app.
 
   * The "When an email is received" trigger lets your logic app check for 
   new email from any mail provider that's supported by Logic Apps, for example, 
