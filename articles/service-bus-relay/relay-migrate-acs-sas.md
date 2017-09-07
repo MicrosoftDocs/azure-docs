@@ -19,9 +19,9 @@ ms.author: sethm
 
 # Migrate from AAD Access Control Service to Shared Access Signature authorization
 
-Azure Relay applications historically had a choice of using two different authorization models: the [Shared Access Signature (SAS)](service-bus-sas.md) token model provided directly by the Relay service, and a federated model where the management of authorization rules is managed inside by the [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), and tokens obtained from ACS are passed to Relay for authorizing access to the desired features.
+Azure Relay applications historically had a choice of using two different authorization models: the [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) token model provided directly by the Relay service, and a federated model where the management of authorization rules is managed inside by the [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), and tokens obtained from ACS are passed to Relay for authorizing access to the desired features.
 
-The ACS authorization model has long been superseded by [SAS authorization](service-bus-authentication-and-authorization.md) as the preferred model, and all documentation, guidance, and samples exclusively use SAS today. Moreover, it is no longer possible to create new Relay namespaces that are paired with ACS.
+The ACS authorization model has long been superseded by [SAS authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md) as the preferred model, and all documentation, guidance, and samples exclusively use SAS today. Moreover, it is no longer possible to create new Relay namespaces that are paired with ACS.
 
 SAS has the advantage in that it is not immediately dependent on another service, but can be used directly from a client without any intermediaries by giving the client access to the SAS rule name and rule key. SAS can also be easily integrated with an approach in which a client has to first pass an authorization check with another service and then is issued a token. The latter approach is similar to the ACS usage pattern, but enables issuing access tokens based on application-specific conditions that are difficult to express in ACS.
 
@@ -62,6 +62,6 @@ SAS rules are not meant to be accounts, but are named signing keys associated wi
 To learn more about Azure Relay authentication, see the following topics:
 
 * [Azure Relay authentication and authorization](relay-authentication-and-authorization.md)
-* [Service Bus authentication with Shared Access Signatures](service-bus-sas.md)
+* [Service Bus authentication with Shared Access Signatures](../service-bus-messaging/service-bus-sas.md)
 
 
