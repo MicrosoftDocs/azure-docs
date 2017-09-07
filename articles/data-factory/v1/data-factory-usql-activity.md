@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Transformation Activities"]

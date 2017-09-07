@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Azure Data Factory - JSON Scripting Reference
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).  

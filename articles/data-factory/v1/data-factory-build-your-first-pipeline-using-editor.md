@@ -16,6 +16,7 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 
 # Tutorial: Build your first Azure data factory using Azure portal

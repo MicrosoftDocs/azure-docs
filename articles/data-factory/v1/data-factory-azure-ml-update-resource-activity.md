@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Updating Azure Machine Learning models using Update Resource Activity
 

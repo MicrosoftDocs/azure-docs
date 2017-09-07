@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 # Move data from Salesforce by using Azure Data Factory
 This article outlines how you can use Copy Activity in an Azure data factory to copy data from Salesforce to any data store that is listed under the Sink column in the [supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with Copy Activity and supported data store combinations.

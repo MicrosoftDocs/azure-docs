@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
+
+robots: noindex
 ---
 
 # Push data to an Azure Search index by using Azure Data Factory

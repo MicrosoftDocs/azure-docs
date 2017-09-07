@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Tutorial: Create a Data Factory pipeline that moves data by using Azure PowerShell
 > [!div class="op_single_selector"]

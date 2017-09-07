@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Tutorial: Copy data from Blob Storage to SQL Database using Data Factory
 > [!div class="op_single_selector"]

@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 
+robots: noindex
 ---
 # Move data between on-premises sources and the cloud with Data Management Gateway
 This article provides an overview of data integration between on-premises data stores and cloud data stores using Data Factory. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article and other data factory core concepts articles: [datasets](data-factory-create-datasets.md) and [pipelines](data-factory-create-pipelines.md).

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 # Move data from DB2 by using Azure Data Factory Copy Activity
 This article describes how you can use Copy Activity in Azure Data Factory to copy data from an on-premises DB2 database to a data store. You can copy data to any store that is listed as a supported sink in the [Data Factory data movement activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article. This topic builds on the Data Factory article, which presents an overview of data movement by using Copy Activity and lists the supported data store combinations. 

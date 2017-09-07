@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Invoke MapReduce Programs from Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]

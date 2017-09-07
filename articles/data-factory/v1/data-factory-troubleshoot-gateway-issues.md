@@ -14,7 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
-published: true
+
+robots: noindex
 ---
 # Troubleshoot issues with using Data Management Gateway
 This article provides information on troubleshooting issues with using Data Management Gateway.

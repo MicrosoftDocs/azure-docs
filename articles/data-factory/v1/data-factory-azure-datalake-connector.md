@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 # Copy data to and from Data Lake Store by using Data Factory
 This article explains how to use Copy Activity in Azure Data Factory to move data to and from Azure Data Lake Store. It builds on the [Data movement activities](data-factory-data-movement-activities.md) article, an overview of data movement with Copy Activity.

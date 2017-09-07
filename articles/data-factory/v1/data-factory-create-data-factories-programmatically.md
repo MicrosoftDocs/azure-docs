@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK
 ## Overview

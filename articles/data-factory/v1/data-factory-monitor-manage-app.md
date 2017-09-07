@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management app
 > [!div class="op_single_selector"]

@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Datasets in Azure Data Factory
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines. It provides details about each section (for example, structure, availability, and policy) in the dataset JSON definition. The article also provides examples for using the **offset**, **anchorDateTime**, and **style** properties in a dataset JSON definition.

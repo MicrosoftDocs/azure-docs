@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
 
+robots: noindex
 ---
 # Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Data Factory
 [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, SQL Data Warehouse is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.

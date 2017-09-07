@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Tutorial: Use REST API to create an Azure Data Factory pipeline to copy data 
 > [!div class="op_single_selector"]

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Azure Data Factory - naming rules
 The following table provides naming rules for Data Factory artifacts.

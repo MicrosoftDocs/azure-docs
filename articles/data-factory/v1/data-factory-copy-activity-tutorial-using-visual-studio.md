@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Tutorial: Create a pipeline with Copy Activity using Visual Studio
 > [!div class="op_single_selector"]

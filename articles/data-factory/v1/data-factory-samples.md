@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Azure Data Factory - Samples
 ## Samples on GitHub

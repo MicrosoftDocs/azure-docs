@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 08/12/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Pipelines and Activities in Azure Data Factory
 This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.  

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Troubleshoot Data Factory issues
 This article provides troubleshooting tips for issues when using Azure Data Factory. This article does not list all the possible issues when using the service, but it covers some issues and general troubleshooting tips.   

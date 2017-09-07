@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 
+robots: noindex
 ---
 # Process large-scale datasets using Data Factory and Batch
 This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution using Azure Data Factory and Azure Batch.

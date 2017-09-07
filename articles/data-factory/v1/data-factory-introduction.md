@@ -17,6 +17,7 @@ ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Introduction to Azure Data Factory 
 ## What is Azure Data Factory?

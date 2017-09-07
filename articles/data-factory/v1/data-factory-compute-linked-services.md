@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: shlo
 
+robots: noindex
 ---
 # Compute environments supported by Azure Data Factory
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.
