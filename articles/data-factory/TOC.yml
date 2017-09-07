@@ -4,7 +4,7 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
-  - name: Compare version 1 and version 2
+  - name: Compare v1 and v2
     href: compare-contrast-v1-v2.md   
 - name: Quickstarts
   expanded: true
@@ -31,10 +31,10 @@
     href: tutorial-copy-onprem-data-to-cloud-dot-net.md
   - name: 3 - Transform data in cloud
     href: tutorial-transform-data-dot-net.md
-  - name: 4 - Copy multiples tables in a loop 
-    href: tutorial-copy-multiple-tables-in-loop.md   
-  - name: 5 - Branch control flow
-    href: tutorial-branch-control-flow.md
+  - name: 4 - Control flow
+    href: tutorial-control-flow.md    
+  - name: 5 - Bulk and incremental copy
+    href: tutorial-bulk-incremental-copy.md
 - name: Samples
   items:
   - name: PowerShell
@@ -45,9 +45,7 @@
   items:
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
-  - name: Datasets
-    href: concepts-datasets-linked-services.md
-  - name: Linked services
+  - name: Datasets and linked services
     href: concepts-datasets-linked-services.md
   - name: Triggers
     href: concepts-triggers.md 
@@ -127,16 +125,16 @@
         href: connector-teradata.md
       - name: WebTable
         href: connector-web-table.md
+    - name: Format and compression support
+      href: supported-file-formats-and-compression-codecs.md        
+    - name: Schema mapping
+      href: copy-activity-map-schemas.md      
+    - name: Fault tolerance
+      href: copy-activity-fault-tolerance.md     
     - name: Performance and tuning
       href: copy-activity-performance.md
-    - name: Fault tolerance
-      href: copy-activity-fault-tolerance.md
     - name: Security considerations
       href: copy-activity-security-considerations.md
-    - name: Format and compression support
-      href: supported-file-formats-and-compression-codecs.md 
-    - name: Schema mapping
-      href: copy-activity-map-schemas.md
   - name: Transform data
     href: transform-data.md
     items: 
@@ -160,10 +158,6 @@
       href: transform-data-using-data-lake-analytics.md
     - name: .NET custom activity
       href: transform-data-using-dotnet-custom-activity.md
-    - name: Invoke R Scripts
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
-    - name: Azure Analysis Services
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
   - name: Control flow
     items: 
     - name: Web Activity
@@ -172,14 +166,20 @@
       href: control-flow-lookup-activity.md     
     - name: Get Metadata Activity
       href: control-flow-get-metadata-activity.md     
+    - name: Execute Pipeline Activity
+      href: control-flow-execute-pipeline-activity.md     
     - name: Script Activity
       href: control-flow-script-activity.md     
+    - name: Do Until Activity
+      href: control-flow-do-until-activity.md        
     - name: For Each Activity
       href: control-flow-for-each-activity.md  
-    - name: Execute Pipeline Activity
-      href: control-flow-execute-pipeline-activity.md
+    - name: If condition
+      href: control-flow-if-condition.md        
     - name: Expression Language         
-      href: control-flow-expression-language.md
+      href: control-flow-expression-language-functions.md
+    - name: System variables         
+      href: control-flow-system-variables.md      
   - name: Monitor and manage
     items: 
     - name: Use .NET

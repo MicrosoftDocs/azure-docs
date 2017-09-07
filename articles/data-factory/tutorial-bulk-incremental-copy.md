@@ -1,5 +1,5 @@
 ---
-title: Copy multiple tables in a loop to Azure | Microsoft Docs
+title: Bulk and incremental copy | Microsoft Docs
 description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
 keywords: data integration, cloud data integration, what is azure data factory
 services: data-factory
@@ -18,4 +18,4 @@ ms.author: shlo
 
 ---
 
-# Copy multiple tables in a loop to Azure
+# Tutorial: Bulk and incremental copy
