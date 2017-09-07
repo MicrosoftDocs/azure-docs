@@ -21,7 +21,7 @@ ms.author: larryfr
 ---
 # Example Storm topologies and components for Apache Storm on HDInsight
 
-The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, Power BI, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO.
+The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO.
 
 | Description | Demonstrates | Language/Framework |
 |:--- |:--- |:--- |

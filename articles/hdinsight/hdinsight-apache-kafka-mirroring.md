@@ -114,6 +114,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     sudo apt -y install jq
     # get the zookeeper hosts for the source cluster
     export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
     Replace `$CLUSTERNAME` with the name of the source cluster. When prompted, enter the password for the cluster login (admin) account.
 
