@@ -58,7 +58,7 @@ This topic assumes that you are familiar with:
 
 - How to [configure a conditional access policy](active-directory-conditional-access-azure-portal-get-started.md).
 
-- The migration considerations
+- The [migration of conditional access policies]().
  
 
 
