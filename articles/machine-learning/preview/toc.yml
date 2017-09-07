@@ -3,10 +3,9 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Azure Machine Learning preview?
-    href: concepts.md
+  - name: (What are the Azure Machine Learning preview features)?
   - name: Machine Learning options at Microsoft
-    href: what-are-machine-learning-options.md
+    href: overview-what-are-machine-learning-options.md
 - name: Quickstarts
   items:
   - name: Provisioning and installation
@@ -28,11 +27,9 @@
   - name: Awesome sample coming soon
     href: scripts/doc-template-sample.md
 - name: Concepts
-  items:
-  - name: Machine Learning Workbench overview
-    href: what-is-ml-workbench.md
+  items:       
   - name: Machine Learning preview features concepts
-    href: concepts.md
+    href: overview-general-concepts.md
   - name: Model Management overview
     href: model-management-overview.md    
 - name: How-to guides
