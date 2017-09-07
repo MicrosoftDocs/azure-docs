@@ -18,6 +18,10 @@
 ## [Back up on-premises VMware virtual machines to Azure](backup-azure-backup-server-vmware.md)
 ## [Restore data from on-premises VMware virtual machines](backup-azure-alternate-dpm-server.md)
 
+# Samples
+
+## [PowerShell](powershell-backup-samples.md)
+
 # Concepts
 
 ## FAQ
