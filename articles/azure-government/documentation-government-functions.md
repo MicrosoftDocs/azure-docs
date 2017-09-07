@@ -212,15 +212,13 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
 * Make sure Visual Studio has been installed:
 
    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-
-    ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-    
-    >[!NOTE]  
-    After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    
+    >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >
+    >
 
 * Function app running in Visual Studio
     - To create one, complete the Quickstart section above titled "Create function- Visual Studio". 
-
 
 #### Create trigger function
 
@@ -230,14 +228,13 @@ Go down to the "Add" button and click on "New Item" as shown below.
 
 2. Click on "Azure Function" and you will see this screen:
     ![triggerfunctioncreate1](./media/documentation-government-function5.png)
-
     As you can see there are multiple types of trigger functions that you can create, such as Timer, Generic and GitHub Webhook, Blob, and Queue. We will create a Timer trigger function for the sake of this tutorial. 
 
 3. Click on the Timer trigger and create, and you should be able to see the new function in your Visual Studio. 
 4. In the Solution Explorer on the right you should be able to see and open up the "local.settings.json" file. 
     ![triggerfunctioncreate2](./media/documentation-government-function6.png)
-
     In order to connect the trigger function to Azure Government we need to define the connection property app settings that are defined in this file. 
+    
 5. Go to your [Azure Government portal](https://portal.azure.us) and click on "Storage Accounts" from the left side-bar. 
     ![triggerfunctioncreate3](./media/documentation-government-function7.png)
 
