@@ -186,9 +186,9 @@ wget -q https://raw.githubusercontent.com/Azure/Machine-Learning-Operationalizat
 sudo /opt/microsoft/azureml/initial_setup.sh
 ```
 
-> [!NOTE]
-> Log out and log back in to your SSH session for the changes to take effect.
-> You can use the previous commands to update an earlier version of the CLIs on the DSVM.
+>Note: Log out and log back in to your SSH session for the changes to take effect.
+
+>Note: You can use the previous commands to update an earlier version of the CLIs on the DSVM.
 
 ## Next Steps
 - Get a quick tour of Azure ML Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
