@@ -65,7 +65,7 @@ sudo apt-get install python3-pip
 ```
 
 Then, to install the Service Fabric CLI for just your installation of Python 3.6, run the following command:
-PP
+
 ```bash
 python3.6 -m pip install sfctl
 sfctl -h
