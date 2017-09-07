@@ -11,7 +11,7 @@ The design time runtime uses Python for extensibility and depends on various Pyt
 
 After you install Azure ML Workbench on Windows there should be a shortcut on the desktop that can be found by pressing the Windows key and then starting to type Azure ML Workbench. On OS X/macOS there will be a new application.
 
-When you first launch Azure ML Workbench you are taken to the home screen from there create a new project by hitting the + on the menu, once you have a new project hit the + again and select "New Datasource". This will launch the datasource wizard, after the wizard is complete a "package.dprep" file will be added to the project, double lick on this to launch the Data Prep experience.
+When you first launch Azure ML Workbench you are taken to the home screen from there create a new project by hitting the + on the menu, once you have a new project hit the + again and select "New Datasource". This will launch the datasource wizard, after the wizard is complete a "package.dprep" file will be added to the project, double click on this to launch the Data Prep experience.
 
 ## Building Blocks of Data Preparation ##
 ### The Package ###
