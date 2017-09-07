@@ -149,7 +149,7 @@ Follow these steps to use the **[Data Migration Assistant](https://www.microsoft
 
      ![open data migration assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
-2. In the left-hand menu, click **+ New** to create an **Assessment** project. Fill in the requested values on the form using the suggested values for this tutorial and then click **Create**:
+2. In the left-hand menu, click **+ New** to create an **Assessment** project. Fill in the requested values and then click **Create**:
 
    | Setting      | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -161,7 +161,7 @@ Follow these steps to use the **[Data Migration Assistant](https://www.microsoft
    
    ![new data migration assistant project](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
-3.  On the **Select source** page, fill in the requested values on the form to connect to your source server using the suggested values for this tutorial and click **Connect**:
+3.  On the **Select source** page, fill in the requested values and then click **Connect**:
 
     | Setting      | Suggested value | Description | 
     | ------------ | ------------------ | ------------------------------------------------- | 
@@ -173,9 +173,9 @@ Follow these steps to use the **[Data Migration Assistant](https://www.microsoft
 
     ![new data migration select source](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
 
-5. Select a single database from your source server to migrate to Azure SQL Database and click **Next**. For this tutorial, there is only a single database.
+5. Select a single database from your source server to migrate to Azure SQL Database and then click **Next**. For this tutorial, there is only a single database.
 
-6. On the **Select target** page, fill in the requested values on the form to connect to your target server in Azure SQL Database (using the values from a previous procedure) and click **Connect**:
+6. On the **Select target** page, fill in the requested values and then click **Connect**:
 
     | Setting      | Suggested value | Description | 
     | ------------ | ------------------ | ------------------------------------------------- | 
@@ -187,7 +187,7 @@ Follow these steps to use the **[Data Migration Assistant](https://www.microsoft
 
     ![new data migration select target](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
 
-7. Select the database from the target server that you created in a previous procedure and click **Next** to start the source database schema assessment process. For this tutorial, there is only a single database. Notice that the compatibility level for this database is set to 140, which is the default compatibility level for all new databases in Azure SQL Database.
+7. Select the database from the target server that you created in a previous procedure and then click **Next** to start the source database schema assessment process. For this tutorial, there is only a single database. Notice that the compatibility level for this database is set to 140, which is the default compatibility level for all new databases in Azure SQL Database.
 
    > [!IMPORTANT] 
    > After you migrate your database to Azure SQL Database, you can choose to operate the database at a specified compatibility level for backward compatibility purposes. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
@@ -201,11 +201,11 @@ Follow these steps to use the **[Data Migration Assistant](https://www.microsoft
      ![new data migration assessment and object selection](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
 
 9. Click **Generate SQL script** to script the schema objects in the source database. 
-10. Review the generated script and click **Next issue** as needed to review the identified assessment issues and recommendations. For example, for Full-Text Search, the recommendation when you upgrade is to test your applications leveraging the Full-Text features. You can save or copy the script if you wish.
+10. Review the generated script and then click **Next issue** as needed to review the identified assessment issues and recommendations. For example, for Full-Text Search, the recommendation when you upgrade is to test your applications leveraging the Full-Text features. You can save or copy the script if you wish.
 
      ![new data migration generated script](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
 
-11. Click **Deply schema** and watch the schema migration process.
+11. Click **Deploy schema** and watch the schema migration process.
 
      ![new data migration schema migration](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
 
@@ -250,7 +250,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
 You can change the service tier, performance level, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher performance tier database for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level is maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
 
-1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A query window opens connected to your database.
+1. In Object Explorer, right-click **mySampleDatabase** and then click **New Query**. A query window opens connected to your database.
 
 2. Execute the following command to set the service tier to **Standard** and the performance level to **S1**.
 
