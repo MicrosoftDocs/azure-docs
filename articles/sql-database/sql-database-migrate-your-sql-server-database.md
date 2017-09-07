@@ -71,14 +71,14 @@ Follow these steps to create a blank SQL database.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
+   | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the amount of DTUs and storage that is available to you for each service tier. 
+6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the number of DTUs and storage that is available to you for each service tier. 
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
@@ -145,7 +145,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
 Follow these steps to use the **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** to assess the readiness of your database for migration to Azure SQL Database and to complete the migration.
 
-1. Open the **Data Migration Assistant**. You can run DMA on any computer with connectivity to the SQL Server instance containing the database that you plan to migrate and connectivity to the internet. You do not need to install it on the computer hosting the SQL Server instance that you will be migrating. The firewall rule that you created in a previous procedure must be for the computer on which you are running the Data Migration Assistant.
+1. Open the **Data Migration Assistant**. You can run DMA on any computer with connectivity to the SQL Server instance containing the database that you plan to migrate and connectivity to the internet. You do not need to install it on the computer hosting the SQL Server instance that you are migrating. The firewall rule that you created in a previous procedure must be for the computer on which you are running the Data Migration Assistant.
 
      ![open data migration assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
@@ -195,7 +195,7 @@ Follow these steps to use the **[Data Migration Assistant](https://www.microsoft
    > After you migrate your database to Azure SQL Database, you can choose to operate the database at a specified compatibility level for backward compatibility purposes. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
    >
 
-8. On the **Select objects** page, after the ource database schema assessment process completes, review the objects selected for migration and review the objects containing issues. For example, review the **dbo.uspSearchCandidateResumes** object for **SERVERPROPERTY('LCID')** behavior changes and the **HumanResourcesJobCandidate** object for Full-Text Search changes. 
+8. On the **Select objects** page, after the source database schema assessment process completes, review the objects selected for migration and review the objects containing issues. For example, review the **dbo.uspSearchCandidateResumes** object for **SERVERPROPERTY('LCID')** behavior changes and the **HumanResourcesJobCandidate** object for Full-Text Search changes. 
 
    > [!IMPORTANT] 
    > Depending upon the database's design and your application's design, when you migrate your source database, you may need to modify either or both your database or your application after migration (and, in some cases, before migration). For information about Transact-SQL differences that may affect your migration, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
@@ -203,7 +203,7 @@ Follow these steps to use the **[Data Migration Assistant](https://www.microsoft
      ![new data migration assessment and object selection](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
 
 9. Click **Generate SQL script** to script the schema objects in the source database. 
-10. Review the generated script and click **Next issue** as needed to review the identified assessment issues and recommendatations. For example, for Full-Text Search, the recommendation when you upgrade is to test your applications leveraging the Full-Text features. You can save or copy the script if you wish.
+10. Review the generated script and click **Next issue** as needed to review the identified assessment issues and recommendations. For example, for Full-Text Search, the recommendation when you upgrade is to test your applications leveraging the Full-Text features. You can save or copy the script if you wish.
 
      ![new data migration generated script](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
 
@@ -267,10 +267,10 @@ You can change the service tier, performance level, and compatibility level usin
     ```
 
 ## Next steps 
-In this tutorial you prepared, exported and imported your database. You learned to:
+In this tutorial you learned to:
 
-> * Create an empty Azure SQL database in the Azure portal (using a new or existing Azure SQL Database server)
-> * Create a server-level firewall in the Azure portal (if not previously created)
+> * Create an empty Azure SQL database in the Azure portal 
+> * Create a server-level firewall in the Azure portal 
 > * Use the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) to import your SQL Server database into the empty Azure SQL database 
 > * Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to change database properties.
 
