@@ -23,7 +23,11 @@ Azure AD B2C now allows your web and native applications to enable the 'keep me 
 
 We recommend against users checking this option on public computers. 
 
-![img](images/kmsi.PNG). 
+![img](images/kmsi.PNG)
+
+------
+
+##### 	                                        ***'keep me signed in' enabled sign-in experience*** 
 
 ## Prerequisites
 
@@ -31,11 +35,15 @@ An Azure AD B2C tenant configured to complete a local account sign-up/sign-in, a
 
 ## How to enable keep me signed in
 
-Make the following changes in your trust framework extensions policy, 
+Make the following changes in your trust framework extensions policy.
 
 ## Content definition 
 
-Define a new `ContentDefinition` with ID `api.signuporsigninwithkmsi` that defines a `DataUri` `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0`. This datauri is a machine understandable identifier that brings up a keep me signed in check box in the sign-in pages. 
+The `BuildingBlocks` node of your extention file must include a `ContentDefinitions`element. 
+
+1. In the `ContentDefinitions` section, define a new `ContentDefinition` with ID `api.signuporsigninwithkmsi`.
+2. Your new `ContentDefinition` must include a `LoadUri`, `RecoveyUri` and `DataUri` as follows.
+3. Datauri`urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` is a machine understandable identifier that brings up a keep me signed in check box in the sign-in pages. Please make sure you don't change this value. 
 
 ```XML
   <BuildingBlocks>
@@ -56,7 +64,12 @@ Define a new `ContentDefinition` with ID `api.signuporsigninwithkmsi` that defin
 
 ## Add a  local account sign-in claims provider 
 
-Add the following sign-in claims provider to your extensions policy. 
+You can define Local Account SignIn as a claims provider to the `<ClaimsProvider>` node in the extension file of your policy:
+
+1. Open the extension file (TrustFrameworkExtensions.xml) from your working directory. 
+2. Find the `<ClaimsProviders>` section. If it does not exist, add it under the root node.
+3. The starter pack from  [Getting started](active-directory-b2c-get-started-custom.md) comes with a 'Local Account SignIn' claims provider. 
+4. If not, add a new `<ClaimsProvider>` node as follows:
 
 ```XML
 <ClaimsProviders>
@@ -95,7 +108,15 @@ Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
 
 ## Create a keep me signed in enabled user journey
 
-Create a sign-in/up user journey with the content defined earlier with ID to enable the keep me signed in option. 
+You now need to add Local Account SignIn cliams provider to your user journey. 
+
+1. Open the base file of your policy (for example, TrustFrameworkBase.xml).
+2. Find the `<UserJourneys>` element and copy the entire `<UserJourney>` node that includes `Id="SignUpOrSignIn"`.
+3. Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
+4. Paste the entire `<UserJourney>` node that you copied as a child of the `<UserJourneys>` element.
+5. Rename the ID of the new user journey (for example, rename as `SignUpOrSignInWithKmsi`).
+6. Finally, in `OrchestrationStep 1` change the `ContentDefinitionReferenceId` to `api.signuporsigninwithkmsi` , you definied in the earlier steps. This enables the keep me signed in checkbox in the user journey. 
+7. You are done modifying the extension file. Save and upload this file. Ensure that all validations succeed.
 
 ```XML
 <UserJourneys>
@@ -132,10 +153,6 @@ Create a sign-in/up user journey with the content defined earlier with ID to ena
     </UserJourney>
   </UserJourneys>
 ```
-
-You are done modifying the extension file. Save and upload this file. Ensure that all validations succeed.
-
-
 
 ## Create a relying party (RP) file
 
