@@ -189,8 +189,6 @@ Follow these steps to use the **[Data Migration Assistant](https://www.microsoft
 
 7. Select the database from the target server that you created in a previous procedure and click **Next** to start the source database schema assessment process. For this tutorial, there is only a single database. Notice that the compatibility level for this database is set to 140, which is the default compatibility level for all new databases in Azure SQL Database.
 
-     ![new data migration assessment results compatible](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
-
    > [!IMPORTANT] 
    > After you migrate your database to Azure SQL Database, you can choose to operate the database at a specified compatibility level for backward compatibility purposes. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
    >
