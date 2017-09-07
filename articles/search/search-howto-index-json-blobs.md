@@ -11,9 +11,8 @@ ms.assetid: 57e32e51-9286-46da-9d59-31884650ba99
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.topic: articlms.tgt_pltfrm: na
+ms.date: 09/06/2017
 ms.author: eugenesh
 ---
 
@@ -44,7 +43,7 @@ Alternatively, when your blobs contain an **array of JSON objects**, you may wan
 you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.
 
 > [!IMPORTANT]
-> The JSON array parsing functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> The JSON array parsing functionality is currently in preview. It is available only in the REST API using version **2016-09-01-Preview**. Remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 >
 
