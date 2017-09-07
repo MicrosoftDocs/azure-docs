@@ -130,7 +130,7 @@ Select **OK**.
     ![New ASP.NET Project dialog box](./media/documentation-government-howto-deploy-webandmobile-openapp13.png)	
 5. From the menu, select **Debug > Start without Debugging** to run the web app locally.
 
-    ![Run app locally](./media/documentation-government-howto-deploy-webandmobile openapp14.png)
+    ![Run app locally](./media/documentation-government-howto-deploy-webandmobile-openapp14.png)
 If the browser page looks like the screenshot above then the application is running successfully and ready to be deployed to Azure Government. 
 
 
@@ -139,7 +139,7 @@ Once **Visual Studio is configured to connect to Azure Government account** (alr
 
 > [!NOTE]
 > In order to check if Visual Studio is connected to Azure Government, go to the "Tools" tab and click on the Azure Environment Selector extension to see what environment you are connected to.
->![azuregovenvironment](./media/documentation-government-howto-deploy-webandmobile-openapp3.png)
+>    ![azuregovenvironment](./media/documentation-government-howto-deploy-webandmobile-openapp3.png)
 > 
 
 
