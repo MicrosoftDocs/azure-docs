@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/07/2017
 ms.author: mimig
 
 ---
@@ -66,6 +66,25 @@ You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop an
 
 ### How can I get additional help with Azure Cosmos DB?
 If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) or the [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB), or schedule a one-on-one chat with the Azure Cosmos DB engineering team by sending mail to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
+
+<a id="try-cosmos-db"></a>
+## Try Azure Cosmos DB subscriptions
+
+You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used in addition to an Azure Free Trial or an Azure paid subscription. 
+
+Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscriptions associated with your user ID. 
+
+The following conditions apply to Try Azure Cosmos DB subscriptions:
+
+* One container per subscription for SQL (DocumentDB API), Gremlin (Graph API), and Table accounts.
+* Up to 3 collections per subscription for MongoDB accounts.
+* 10 GB storage capacity.
+* Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe and Southeast Asia
+* Maximum throughput of 5K RU/s.
+* Subscriptions expire after 24 hours, and can be extended to a maximum of 48 hours total.
+
+
+
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
