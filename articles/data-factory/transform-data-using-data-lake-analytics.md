@@ -34,7 +34,7 @@ The following table provides descriptions for the generic properties used in the
 | **type**                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | **accountName**          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | No                                       |
-| **subscriptionId**       | Azure subscription id                    | No (If not specified, subscription of the data factory is used). |
+| **subscriptionId**       | Azure subscription ID                    | No (If not specified, subscription of the data factory is used). |
 | **resourceGroupName**    | Azure resource group name                | No (If not specified, resource group of the data factory is used). |
 
 ### Service principal authentication
