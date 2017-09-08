@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/23/2017
 ms.author: billmath
 ---
 
@@ -31,7 +31,7 @@ You need to follow these instructions to deploy Pass-through Authentication:
 
 Ensure that the following prerequisites are in place:
 
-### On the Azure portal
+### On the Azure Active Directory admin center
 
 1. Create a cloud-only Global Administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing this step is critical to ensure that you don't get locked out of your tenant.
 2. Add one or more [custom domain name(s)](../active-directory-add-domain.md) to your Azure AD tenant. Your users sign in using one of these domain names.
@@ -53,7 +53,6 @@ Ensure that the following prerequisites are in place:
    - If your firewall or proxy allows DNS whitelisting, whitelist connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
    - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration, so open your firewall for those URLs as well.
    - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** and **www.microsoft.com:80**. These URLs are used for certificate validation with other Microsoft products, so you may already have these URLs unblocked.
-   
 
 ## Step 2: Enable Exchange ActiveSync support (optional)
 
@@ -95,15 +94,15 @@ If you have already installed Azure AD Connect (using the [express installation]
 
 Follow these instructions to verify that you have enabled Pass-through Authentication correctly:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with the Global Administrator credentials for your tenant.
 2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect**.
 4. Verify that the **Pass-through Authentication** feature shows as **Enabled**.
 5. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
 
-![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+![Azure Active Directory admin center - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
-![Azure portal - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
+![Azure Active Directory admin center - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
 
 At this stage, users from all managed domains in your tenant can sign in using Pass-through Authentication. However, users from federated domains continue to sign in using Active Directory Federation Services (AD FS) or another federation provider that you have previously configured. If you convert a domain from federated to managed, all users from that domain automatically start signing in using Pass-through Authentication. Cloud-only users are not impacted by the Pass-through Authentication feature.
 
@@ -111,15 +110,18 @@ At this stage, users from all managed domains in your tenant can sign in using P
 
 If you plan to deploy Pass-through Authentication in a production environment, you should install a standalone Authentication Agent. Install this second Authentication Agent on a server _other_ than the one running Azure AD Connect and the first Authentication Agent. This setup provides you high availability of sign-in requests. Follow these instructions to deploy a standalone Authentication Agent:
 
-1. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials.
+1. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with your tenant's Global Administrator credentials.
 2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect** and then **Pass-through Authentication**. And select **Download agent**.
 4. Click the **Accept terms & download** button.
 5. **Install the latest version of the Authentication Agent**: Run the executable downloaded in the preceding step. Provide your tenant's Global Administrator credentials when prompted.
 
-![Azure portal - Download Authentication Agent button](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
+![Azure Active Directory admin center - Download Authentication Agent button](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
-![Azure portal - Download Agent blade](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
+![Azure Active Directory admin center - Download Agent blade](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
+
+>[!NOTE]
+>You can also download the Authentication Agent from [here](https://aka.ms/getauthagent). Ensure that you review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
 
 ## Next steps
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.

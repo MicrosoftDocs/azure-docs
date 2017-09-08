@@ -1,4 +1,3 @@
----
 title: Send user context IDs to enable usage experiences in Azure Application Insights | Microsoft Docs
 description: Track how users move through your service by assigning each of them a unique, persistent ID string in Application Insights.
 services: application-insights
@@ -12,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 #  Send user context IDs to enable usage experiences in Azure Application Insights
@@ -87,7 +86,8 @@ This example sets the user ID to an identifier that expires after the session. I
 ## Next steps
 - To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
-    - [Users, Sessions, Events](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-    - [Funnels](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-    - [Retention](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
-    - [Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+    * [Usage overview](app-insights-usage-overview.md)
+    * [Users, Sessions, and Events](app-insights-usage-segmentation.md)
+    * [Funnels](usage-funnels.md)
+    * [Retention](app-insights-usage-retention.md)
+    * [Workbooks](app-insights-usage-workbooks.md)

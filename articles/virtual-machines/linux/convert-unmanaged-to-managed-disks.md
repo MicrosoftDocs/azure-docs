@@ -20,9 +20,9 @@ ms.author: iainfou
 
 # Convert a Linux virtual machine from unmanaged disks to managed disks
 
-If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](../../storage/storage-managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
+If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](../windows/managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
 
-This article shows you how to convert VMs by using the Azure CLI. If you need to install or upgrade it, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli.md). 
+This article shows you how to convert VMs by using the Azure CLI. If you need to install or upgrade it, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## Before you begin
 
@@ -92,16 +92,5 @@ All VMs in the availability set must be deallocated before you convert the avail
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## Managed disks and Azure Storage Service Encryption
-You can't use the preceding steps to convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that has ever been encrypted through [Azure Storage Service Encryption](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to copy and use unmanaged disks that have been in an encrypted storage account:
-
-1. Copy the VHD by using [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
-
-2. Use the copied VM in one of the following ways:
-
-   * Create a VM that uses managed disks and specify that VHD file during creation by using [az vm create](/cli/azure/vm#create).
-
-   * Attach the copied VHD by using [az vm disk attach](/cli/azure/vm/disk#attach) to a running VM that uses managed disks.
-
 ## Next steps
-For more information about storage options, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md).
+For more information about storage options, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).

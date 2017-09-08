@@ -1,10 +1,10 @@
 ---
-title: Azure Toolkit for Eclipse | Microsoft Docs
+title: Azure Toolkit for Eclipse
 description: Learn about the Azure Toolkit for Eclipse.
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: ef2f3839-2549-4471-9b53-0deb7f4c128b
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 08/20/2017
 ms.author: robmcm;asirveda
 
 ---
@@ -32,9 +32,10 @@ The following articles will help you start using the Azure Toolkit for Eclipse:
 * [What's new in the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-whats-new.md)
 * [Installing the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-installation.md)
 * [Sign-in instructions for the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-sign-in-instructions.md)
-* [Create a Hello World cloud service for Azure in Eclipse](azure-toolkit-for-eclipse-creating-a-hello-world-application.md)
 * [Create a Hello World web app for Azure in Eclipse](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
 
+
+<!-- Temporarily Deprecated Section
 ## Configure Azure project settings
 The following articles show you how to use the Azure Toolkit for Eclipse to configure settings for your Azure projects:
 
@@ -44,12 +45,13 @@ The following articles show you how to use the Azure Toolkit for Eclipse to conf
 * [Azure storage account list](azure-toolkit-for-eclipse-azure-storage-account-list.md)
 * [Enable session affinity](azure-toolkit-for-eclipse-enable-session-affinity.md)
 * [Enabling remote access for Azure deployments in Eclipse](azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md)
+-->
 
 ## Use the Azure Toolkit for Eclipse
 The following articles demonstrate using the Azure Toolkit for Eclipse to add Azure functionality to your Java projects:
 
 * [Displaying Javadoc content in Eclipse for the Package for Azure Libraries for Java](azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md)
-* [Deploying large deployments](azure-toolkit-for-eclipse-deploying-large-deployments.md)
+* [Manage Redis Caches using the Azure Explorer for Eclipse](azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md)
 * [Manage storage accounts by using the Azure Explorer for Eclipse](azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md)
 * [Manage virtual machines by using the Azure Explorer for Eclipse](azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md)
 * [Publish a Spring Boot app as a Docker container by using the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md)
@@ -67,6 +69,8 @@ The following articles demonstrate using the Azure Toolkit for Eclipse to add Az
 
 <!-- Temporarily Deprecated URLs -->
 
+<!-- [Create a Hello World cloud service for Azure in Eclipse](azure-toolkit-for-eclipse-creating-a-hello-world-application.md) -->
+<!-- [Deploying large deployments](azure-toolkit-for-eclipse-deploying-large-deployments.md) -->
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
 <!-- [How to Use Dedicated Caching]: http://go.microsoft.com/fwlink/?LinkID=699543 -->

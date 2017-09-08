@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ---
 
@@ -27,11 +27,11 @@ This article helps you find troubleshooting information about common issues rega
 
 ### Check status of the feature and Authentication Agents
 
-Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Azure portal](https://portal.azure.com/).
+Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+![Azure Active Directory admin center - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
-![Azure portal - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
+![Azure Active Directory admin center - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### User-facing sign-in error messages
 
@@ -45,13 +45,13 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
-### Sign-in failure reasons on the Azure portal
+### Sign-in failure reasons on the Azure Active Directory admin center
 
-Start troubleshooting user sign-in issues by looking at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure portal](https://portal.azure.com/).
+Start troubleshooting user sign-in issues by looking at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
+![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure portal](https://portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
+Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---

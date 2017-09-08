@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Bind a custom SSL certificate to a functi
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 

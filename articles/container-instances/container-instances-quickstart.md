@@ -1,7 +1,7 @@
 ---
 title: Create your first Azure Container Instances container | Azure Docs
 description: Deploy and get started with Azure Container Instances
-services: container-service
+services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
@@ -10,14 +10,14 @@ tags:
 keywords: ''
 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ---
 
 # Create your first container in Azure Container Instances

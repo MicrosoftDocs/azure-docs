@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ---
 
@@ -58,7 +58,7 @@ After completion of the wizard, Seamless SSO is enabled on your tenant.
 
 Follow these instructions to verify that you have enabled Seamless SSO correctly:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with the Global Administrator credentials for your tenant.
 2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect**.
 4. Verify that the **Seamless Single Sign-On** feature shows as **Enabled**.
@@ -119,6 +119,9 @@ Using third-party Active Directory Group Policy extensions to roll out the Azure
 #### Known limitations
 
 Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protection mode.
+
+>[!IMPORTANT]
+>We recently rolled back support for Edge to investigate customer-reported issues.
 
 ## Step 4: Test the feature
 

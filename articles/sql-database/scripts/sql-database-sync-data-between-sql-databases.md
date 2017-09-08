@@ -3,7 +3,7 @@ title: PowerShell example-Sync between multiple Azure SQL databases | Microsoft 
 description: Azure PowerShell example script to sync between multiple Azure SQL databases
 services: sql-database
 documentationcenter: sql-database
-author: douglaslms
+author: jognanay
 manager: jhubbard
 editor: ''
 tags:
@@ -134,7 +134,7 @@ New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -Name $SyncMemberName `
                             -MemberDatabaseCredential $Credential `
                             -MemberDatabaseName $MemberDatabaseName `
-                            -MemberServerName $MemberServerName `
+                            -MemberServerName ($MemberServerName + ".database.windows.net" `
                             -MemberDatabaseType $MemberDatabaseType `
                             -SyncDirection $SyncDirection
 
@@ -155,8 +155,8 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
     $timer=$timer+1
@@ -215,8 +215,7 @@ foreach ($tableSchema in $databaseSchema.Tables)
             if ((-not $addAllColumns) -and $tableSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
-                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
-            }
+                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"c            }
             elseif ((-not $addAllColumns) -and $columnSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
@@ -256,7 +255,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyngStartTime = Get-Date
+$SyncStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"

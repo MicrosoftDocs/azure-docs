@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/11/2017
 ms.author: banders
 ---
 
@@ -75,7 +75,7 @@ The following table shows data collection methods and other details about how da
 
 | platform | OMS Agent for Linux | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Yes](./media/log-analytics-vmware/oms-bullet-green.png) |![No](./media/log-analytics-vmware/oms-bullet-red.png) |![No](./media/log-analytics-vmware/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-vmware/oms-bullet-red.png) |every 3 minutes |
+| Linux |&#8226; |  |  |  |  |every 3 minutes |
 
 The following table show examples of data fields collected by the VMware Monitoring solution:
 

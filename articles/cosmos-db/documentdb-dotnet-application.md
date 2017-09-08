@@ -67,8 +67,9 @@ We will now walk through how to create a new ASP.NET MVC application from the gr
 1. In Visual Studio, on the **File** menu, point to **New**, and then click **Project**. The **New Project** dialog box appears.
 
 2. In the **Project types** pane, expand **Templates**, **Visual C#**, **Web**, and then select **ASP.NET Web Application**.
-   
+
       ![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+
 3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, you need to adjust the provided code samples to use whatever you named your application. 
 4. Click **Browse** to navigate to the folder where you would like to create the project, and then click **OK**.
    
@@ -303,10 +304,7 @@ The first thing to do here is add a class that contains all the logic to connect
             }
         }
    
-   > [!TIP]
-   > When creating a new DocumentCollection you can supply an optional RequestOptions parameter of OfferType, which allows you to specify the performance level of the new collection. If this parameter is not passed the default offer type will be used. For more on Azure Cosmos DB offer types please refer to [Azure Cosmos DB Performance Levels](performance-levels.md).
-   > 
-   > 
+    
 3. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
    
         <add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
