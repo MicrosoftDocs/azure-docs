@@ -13,10 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/07/2017
 ms.author: curtand
-ms.reviewer: rodejo
-ms.custom: it-pro
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;oldportal
 
 ---
 # Dedicated groups in Azure Active Directory
