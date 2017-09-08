@@ -105,8 +105,11 @@ SparkJob2
 		script2.py
 	logs
 ```
-## See Also
+## Next steps
+See the following articles that explain how to transform data in other ways: 
+
 * [Hive Activity](transform-data-using-hadoop-hive.md)
 * [Pig Activity](transform-data-using-hadoop-pig.md)
 * [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
+

@@ -189,8 +189,10 @@ See the following tutorial for step-by-step instructions for creating pipelines 
 
 ## V1 vs. V2 datasets
 
-In V2: 
-- external property is not supported. It's replaced by a trigger.
-- policy and availability properties are not supported. The start time for a pipeline depends on triggers.
-- Scoped datasets (datasets defined in a pipeline) are not supported. 
+Here are some differences between Data Factory v1 and v2 datasets: 
 
+- The external property is not supported in v2. It's replaced by a [trigger](concepts-triggers.md).
+- The policy and availability properties are not supported in V2. The start time for a pipeline depends on [triggers]((concepts-triggers.md)).
+- Scoped datasets (datasets defined in a pipeline) are not supported in V2. 
+
+## Next steps

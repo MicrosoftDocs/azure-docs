@@ -18,3 +18,7 @@ ms.author: shlo
 ---
 
 # Control flow in Azure Data Factory 
+
+
+## Next steps
+See [tutorial: control flow](tutorial-control-flow.md) for step-by-step instructions on creating a Data Factory pipeline that uses control flow activities. 

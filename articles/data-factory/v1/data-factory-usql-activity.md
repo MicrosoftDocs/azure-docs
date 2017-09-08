@@ -345,3 +345,11 @@ It is possible to use dynamic parameters instead. For example:
 
 In this case, input files are still picked up from the /datalake/input folder and output files are generated in the /datalake/output folder. The file names are dynamic based on the slice start time.  
 
+## Next steps
+See the following articles that explain how to transform data in other ways: 
+
+* [Hive Activity](transform-data-using-hadoop-hive.md)
+* [Pig Activity](transform-data-using-hadoop-pig.md)
+* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
+* [Spark Activity](transform-data-using-spark.md)

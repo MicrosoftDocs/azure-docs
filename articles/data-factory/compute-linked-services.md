@@ -459,3 +459,5 @@ You create an Azure SQL Data Warehouse linked service and use it with the [Store
 ## SQL Server Linked Service
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](connector-sql-server.md) article for details about this linked service.
 
+## Next steps
+For a list of the transformation activities supported by Azure Data Factory, see [Transform data](transform-data.md)

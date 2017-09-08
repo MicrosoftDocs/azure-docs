@@ -30,7 +30,7 @@
   - name: 2 - Copy on-prem data to cloud
     href: tutorial-copy-onprem-data-to-cloud-dot-net.md
   - name: 3 - Transform data in cloud
-    href: tutorial-transform-data-dot-net.md
+    href: tutorial-transform-data-using-spark-dot-net.md
   - name: 4 - Control flow
     href: tutorial-control-flow.md    
   - name: 5 - Bulk and incremental copy

@@ -30,8 +30,8 @@ In Azure Data Factory, you can use Copy Activity to copy data among data stores 
 
 Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, you can choose different flavor of Integration Runtime:
 
-* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **managed-elastic Integration Runtime** which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md).
-* When copying data from/to data stores located on-premisis or in a network with access control (e.g. Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
+* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **managed-elastic Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md).
+* When copying data from/to data stores located on-premisis or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
 
@@ -66,11 +66,11 @@ To use copy activity in Azure Data Factory, you need to:
 
 1. **Create linked services for source data store and sink data store.** Refer to the connector article's "Linked service properties" section on how to configure and the supported properties. You can find the supported connector list in [Supported data stores and formats](#supported-data-stores-and-formats) section.
 2. **Create datasets for source and sink.** Refer to the source and sink connector articles' "Dataset properties" section on how to configure and the supported properties.
-3. **Create a pipeline with copy activity.** Refer to the following section.
+3. **Create a pipeline with copy activity.** The nexst section provides an example.  
 
 ### Syntax
 
-Below is a template of copy activity which lists exhausted supported properties. Specify the ones fits your scenario.
+The following template of a copy activity lists exhausted supported properties. Specify the ones fits your scenario.
 
 ```json
 "activities":[
@@ -140,7 +140,7 @@ See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md)
 
 ## Fault tolerance
 
-By default, copy activity will stop copying data and return failure when encounter incompatible data between source and sink; while you can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](copy-activity-fault-tolerance.md) on more details.
+By default, copy activity stops copying data and return failure when encounter incompatible data between source and sink; while you can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](copy-activity-fault-tolerance.md) on more details.
 
 ## Performance and tuning
 
