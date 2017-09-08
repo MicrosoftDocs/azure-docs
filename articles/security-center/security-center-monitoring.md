@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 09/07/2017
 ms.author: yurid
 
 ---
@@ -61,7 +61,7 @@ This section has a set of [recommendations for each virtual machine and computer
 
 Each recommendation has a set of actions that you can perform after you click it. For example, if you click **Missing system updates**, a list of virtual machines and computers that are missing patches, and the severity of the missing update appears, as shown in the following screenshot:
 
-![Missing system updates for virtual machines](./media/security-center-monitoring/security-center-monitoring-fig3-sep2017.png)
+![Missing system updates for virtual machines](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
 The **Missing system updates** have a summary of critical updates in a graph format, one for Windows, and one for Linux. The second part has a table with the following information:
 
