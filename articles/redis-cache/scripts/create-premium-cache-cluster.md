@@ -36,8 +36,8 @@ This script uses the following commands to create a resource group and a Premium
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | Create Redis Cache instance. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Create Redis Cache instance. |
 
 
 ## Next steps
