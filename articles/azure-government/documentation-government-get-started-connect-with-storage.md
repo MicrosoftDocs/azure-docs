@@ -46,7 +46,12 @@ If you don't have an Azure Government subscription, create a [free account](http
     ![storage2](./media/documentation-government-get-started-connect-with-storage-image2.png)
 
 For more information on Azure Storage Explorer, click [here](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-### Connect VS with Storage Account
+### Quickstart - Connect VS with Storage Account
+
+#### Prerequisites
+* Download Visual Studio 2017 and Connect to Azure Government. For more information, click [here](documentation-government-get-started-connect-with-vs). 
+* Have an active Azure Government subscription.
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/en-us/overview/clouds/government/) before you begin.
 
 The Azure Storage Explorer is great for quickly connecting to your storage accounts. However the URL for storage is different than the URL for storage in commercial Azure – specifically, the domain ends with “core.usgovcloudapi.net”, rather than “core.windows.net”.
 
@@ -68,15 +73,15 @@ These endpoint differences must be taken into account when you connect to storag
 
     -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor?redirectedfrom=MSDN&view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_CloudStorageAccount__ctor_Microsoft_WindowsAzure_Storage_Auth_StorageCredentials_System_String_System_Boolean) – enabling us to explicitly pass in the endpoint suffix of “core.usgovcloudapi.net”. This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
 
-At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific record from our table storage we could do it like this:
+5. At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific record from our table storage we could do it like this:
 
-```cs
-var tableClient = storageAccount.CreateCloudTableClient();
+   ```cs
+    var tableClient = storageAccount.CreateCloudTableClient();
 
-var table = tableClient.GetTableReference("Contacts");
-var retrieveOperation = TableOperation.Retrieve<ContactEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
-var result = await table.ExecuteAsync(retrieveOperation);
-var contact = result.Result as ContactEntity;
-Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
-```
+    var table = tableClient.GetTableReference("Contacts");
+    var retrieveOperation = TableOperation.Retrieve<ContactEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
+    var result = await table.ExecuteAsync(retrieveOperation);
+    var contact = result.Result as ContactEntity;
+    Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
+    ```
 For more information on Azure Storage, [click here](https://docs.microsoft.com/en-us/azure/storage/). 
