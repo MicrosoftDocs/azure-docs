@@ -184,7 +184,9 @@ az ml experiment submit --run-configuration docker myscript.py
 
 Execution environment on local Docker is prepared using the Azure ML base Docker image. Azure ML Workbench dowloads this image when running for the first time and overlays it with packages specified in user's conda_dependencies.yml file. This operation makes the initial run slower but subsequent runs are considerably faster thanks to Workbench reusing cached layers. 
 
+
 >If running a PySpark script on Spark, spark_dependencies.yml is also used in addition to conda_dependencies.yml.
+
 
 Running your scripts on a Docker image gives you the following benefits:
 
@@ -216,6 +218,13 @@ The Docker construction process is exactly the same as when you target a local D
 
 >If running a PySpark script on Spark, spark_dependencies.yml is also used in addition to conda_dependencies.yml.
 
+
+If you prefer to avoid the latency introduced by building the docker image for your first run, you can use the following command to prepare the compute target before executing your script. 
+
+```
+az ml experiment prepare -c remotevm
+```
+
 _Overview of remote vm execution for a Python script:_
 ![](media/experiment-execution-overview/remote-vm-run.png)
 
@@ -244,3 +253,5 @@ Azure ML Workbench prepares and manages execution environment on HDInsight clust
 _Overview of HDInsight-based execution for a PySpark script_
 ![](media/experiment-execution-overview/hdinsight-run.png)
 
+### Running your scripts on a GPU
+To run your scripts on GPU, you can follow the guidance on this article: ["How to use GPU in Azure Machine Learning"](how-to-use-gpu.md)
