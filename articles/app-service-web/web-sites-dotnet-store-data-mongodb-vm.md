@@ -119,7 +119,7 @@ In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Cl
             public string Category { get; set; }
 
             [BsonElement("Date")]
-            public DateTime Date { get; set; }
+            public DateTime Date { get; set; } = DateTime.Now;
 
             [BsonElement("CreatedDate")]
             public DateTime CreatedDate { get; set; }
