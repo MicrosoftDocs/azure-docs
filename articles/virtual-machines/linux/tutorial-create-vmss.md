@@ -108,7 +108,7 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --generate-ssh-keys      
+  --generate-ssh-keys
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app.
@@ -192,7 +192,79 @@ az vmss scale \
     --new-capacity 5
 ```
 
-Autoscale rules let you define how to scale up or down the number of VMs in your scale set in response to demand such as network traffic or CPU usage. Currently, these rules cannot be set in Azure CLI 2.0. Use the [Azure portal](https://portal.azure.com) to configure autoscale.
+
+### Configure autoscale rules
+Rather than manually scaling the number of instances in your scale set, you can define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5 minute period. If the average CPU load then drops below 30% over a 5 minute period, the instances are scaled in by one instance. Your subscription ID is used to build the resource URIs for the various scale set components. To create these rules with [az monitor autoscale-settings create](cli/azure/monitor/autoscale-settings#create), copy and paste the following autoscale command profile:
+
+```azurecli-interactive 
+sub=$(az account show --query id -o tsv)
+
+az monitor autoscale-settings create \
+    --resource-group myResourceGroupScaleSet \
+    --name autoscale \
+    --parameters '{"autoscale_setting_resource_name": "autoscale",
+      "enabled": true,
+      "location": "East US",
+      "notifications": [],
+      "profiles": [
+        {
+          "name": "Auto created scale condition",
+          "capacity": {
+            "minimum": "2",
+            "maximum": "10",
+            "default": "2"
+          },
+          "rules": [
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan",
+                "threshold": 70
+              },
+              "scaleAction": {
+                "direction": "Increase",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            },
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 30
+              },
+              "scaleAction": {
+                "direction": "Decrease",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            }
+          ]
+        }
+      ],
+      "tags": {},
+      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+    }'
+```
+
+To reuse the autoscale profile, you can create a JSON (JavaScript Object Notation) file and pass that to the `az monitor autoscale-settings create` command with the `--parameters @autoscale.json` parameter.
+
 
 ### Get connection info
 To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). This command outputs the public IP address and port for each VM that allows you to connect with SSH:
