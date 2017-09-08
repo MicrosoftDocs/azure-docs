@@ -302,7 +302,7 @@ This authentication method allows middle-tier services to connect to Azure SQL D
 1. Register your application with Azure Active Directory and get the client id for your code. 
 2. Create a database user representing the application. (Completed earlier in step 6.)
 3. Create a certificate on the client computer runs the application.
-4. [Add the certificate as a key for your application](../active-directory/active-directory-certificate-based-authentication-get-started.md).
+4. Add the certificate as a key for your application.
 
 Sample connection string:
 
@@ -313,7 +313,7 @@ connection.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-For more information, see [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
+For more information, see [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). For information about adding a certificate, see [Get started with certificate-based authentication in Azure Active Directory](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 ### sqlcmd
 
