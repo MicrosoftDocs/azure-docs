@@ -15,12 +15,12 @@ ms.author: panosper
 # Use a custom speech-to-text endpoint
 You can send requests to an Azure Custom Speech Service speech-to-text endpoint, in a similar way as you can to the default Cognitive Services speech endpoint. These endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality that's available via the client library or the REST API for the Speech API is also available for your custom endpoint.
 
-The endpoints you create by using this service can process different numbers of concurrent requests. The volume depends on the pricing tier associated with your subscription. If too many requests are received, an error occurs. Note that the free tier has a monthly limit of requests.
+The endpoints you create by using this service can process different numbers of concurrent requests. The volume depends on the pricing tier associated with your subscription. If too many requests are received, an error occurs. The free tier has a monthly limit of requests.
 
 The service assumes that data is transmitted in real time. If it's sent faster, the request is considered running until its audio duration in real time has passed.
 
 > [!NOTE]
-> We *do not* support the [new web sockets](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) yet. If you plan to use web sockets with your custom speech endpoint, follow the instructions here.
+> We do not support the [new web sockets](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) yet. If you plan to use web sockets with your custom speech endpoint, follow the instructions here.
 >
 > The new [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedrest) support is coming soon. If you plan to call your custom speech endpoint via HTTP, follow the instructions here.
 >
@@ -69,7 +69,7 @@ dataClient.AuthenticationUri = "https://westus.api.cognitive.microsoft.com/sts/v
 
 The Custom Speech Service uses two different URLs for short-form and long-form recognition. Both are listed on the **Deployments** page. Use the correct endpoint URL for the specific form you want to use.
 
-For more details about invoking the various recognition clients with your custom endpoint, see the [SpeechRecognitionServiceFactory](https://www.microsoft.com/cognitive-services/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop) class. Note that the documentation on this page refers to acoustic model adaptation, but it applies to all endpoints created by using the Custom Speech Service.
+For more information about invoking the various recognition clients with your custom endpoint, see the [SpeechRecognitionServiceFactory](https://www.microsoft.com/cognitive-services/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop) class. The documentation on this page refers to acoustic model adaptation, but it applies to all endpoints created by using the Custom Speech Service.
 
 ## Send requests by using the Speech Protocol
 
@@ -77,8 +77,8 @@ The endpoints shown for the [Speech Protocol](https://docs.microsoft.com/en-us/a
 
 Currently, the only official client implementation is for [JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). If you want to start with the sample provided there, make the following changes to the code and build the sample again:
 
-1. In _src\sdk\speech.browser\SpeechConnectionFactory.ts_, replace the host name "wss://speech.platform.bing.com" with the host name shown as part of the details page of
-your deployment. Do not insert the full URI here but just the *wss* protocol scheme and host name. For example:
+1. In _src\sdk\speech.browser\SpeechConnectionFactory.ts_, replace the host name "wss://speech.platform.bing.com" with the host name shown on the details page of
+your deployment. Do not insert the full URI here but just the *wss* protocol scheme and the host name. For example:
 
     ```JavaScript
     private get Host(): string {

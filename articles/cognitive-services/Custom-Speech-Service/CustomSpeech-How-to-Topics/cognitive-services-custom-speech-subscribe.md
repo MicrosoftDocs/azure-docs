@@ -17,21 +17,26 @@ To get started using the Azure Custom Speech Service, you first need to link you
 
 1. You can get a subscription key from the Azure portal in one of two ways:
 
-    * Go to the [Azure portal](https://ms.portal.azure.com), and add a new Cognitive Services API by searching for _Cognitive Services_ and then selecting **Cognitive Services APIs**.
+    a. Go to the [Azure portal](https://ms.portal.azure.com), and add a new Cognitive Services API by searching for _Cognitive Services_ and then selecting **Cognitive Services APIs**.
 
       ![Cognitive Services search](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 
-    * Or go directly to the [Cognitive Services APIs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServices).
+    b. Or go directly to the [Cognitive Services APIs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServices).
 
         ![Cognitive Services APIs](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
   2. Fill in the following required fields:
-      * **Account name**. Use a name that works for you. You need to remember this name to find your Cognitive Services subscription in the resources list.
-      * **Subscription**. Select one from your Azure subscriptions.
-      * **API type**. Select **Custom Speech Service (Preview)**.
-      * **Location**. It's currently **West US**.
-      * **Pricing tier**. Select the tier that works for you. **F0** is the free tier. The quotas that are allowed are explained on the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
+
+      a. **Account name**. Use a name that works for you. Remember this name so that you can find your Cognitive Services subscription in the resources list.
+
+      b. **Subscription**. Select one from your Azure subscriptions.
+
+      c. **API type**. Select **Custom Speech Service (Preview)**.
+
+      d. **Location**. It's currently **West US**.
+      
+      e. **Pricing tier**. Select the tier that works for you. **F0** is the free tier. The quotas that are allowed are explained on the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
       ![Cognitive Services account creation](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
@@ -55,7 +60,7 @@ To get started using the Azure Custom Speech Service, you first need to link you
 
     ![Subscriptions table](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-  5. Select **Add new**. Enter a name for the subscription and the subscription key. This can be either **KEY 1** (primary key) or **KEY 2** (secondary key) from your subscription.
+  5. Select **Add new**. Enter a name for the subscription and the subscription key. It can be either **KEY 1** (primary key) or **KEY 2** (secondary key) from your subscription.
 
       ![Subscription key name](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 
