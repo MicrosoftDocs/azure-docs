@@ -78,9 +78,9 @@ To effectively protect access to Exchange Online from Exchange ActiveSync, you c
 
 - Block Exchange ActiveSync by using Active Directory Federation Services (AD FS) rules.
 
-    @RuleName = "Block Exchange ActiveSync"
-    c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
-    => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "false");
+        @RuleName = "Block Exchange ActiveSync"
+        c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
+        => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "false");
 
 
 
