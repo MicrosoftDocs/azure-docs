@@ -30,8 +30,8 @@ In Azure Data Factory, you can use Copy Activity to copy data among data stores 
 
 Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, you can choose different flavor of Integration Runtime:
 
-* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **managed-elastic Integration Runtime** which is secure, reliable, scalable, and [globally available](link to IR location page/section).
-* When copying data from/to data stores located on-premesis or in a network with access control (e.g. Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
+* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **managed-elastic Integration Runtime** which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md).
+* When copying data from/to data stores located on-premisis or in a network with access control (e.g. Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
 
@@ -51,7 +51,7 @@ Data stores with * can be on-premises or on Azure infrastructure as a service (I
 
 You can use Copy Activity to **copy files as-is** between two file-based data stores, in which case the data is copied efficiently without any serialization/deserialization.
 
-Copy Activity also support reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compression codec **GZip, Deflate, BZip2, and ZipDeflate** are supported. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
+Copy Activity also supports reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compression codec **GZip, Deflate, BZip2, and ZipDeflate** are supported. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
 
 For example, you can do the following copy activities:
 
@@ -123,13 +123,13 @@ Below is a template of copy activity which lists exhausted supported properties.
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of a copy activity must be set to: **Copy** | Yes |
-| inputs | Specify the dataset you created which points to the source data. Copy activity only support a single input. | Yes |
-| outputs | Specify the dataset you created which points to the sink data. Copy activity only support a single output. | Yes |
+| inputs | Specify the dataset you created which points to the source data. Copy activity supports only a single input. | Yes |
+| outputs | Specify the dataset you created which points to the sink data. Copy activity supports only a single output. | Yes |
 | typeProperties | A group of properties to configure copy activity. | Yes |
 | source | Specify the copy source type and the corresponding properties on how to retrieve data.<br/><br/>Learn details from the "Copy activity properties" section in connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | sink | Specify the copy sink type and the corresponding properties on how to write data.<br/><br/>Learn details from the "Copy activity properties" section in connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | translator | Specify explicit column mappings from source to sink. Applies when the default copy behavior cannot fulfill your need.<br/><br/>Learn details from [Schema and data type mapping](copy-activity-schema-and-type-mapping.md). | No |
-| cloudDataMovementUnits | Specify the powerfulness of managed-elastic [Integration Runtime](concepts-integration-runtime.md) to empower data copy.<br/><br/>Learn details from [Cloud data movement units](copy-activity-performance.md#cloud-data-movement-units). | No |
+| cloudDataMovementUnits | Specify the powerfulness of managed-elastic [Integration Runtime](concepts-integration-runtime.md) to empower data copy.<br/><br/>Learn details from [Cloud data movement units](copy-activity-performance.md). | No |
 | parallelCopies | Specify the parallelism that you want Copy Activity to use when reading data from source and writing data to sink.<br/><br/>Learn details from [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
 | enableStaging<br/>stagingSettings | Choose to stage the interim data in aa blob storage instead of directly copy data from source to sink.<br/><br/>Learn the useful scenarios and configuration details from [Staged copy](copy-activity-performance.md#staged-copy). | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when copying data from source to sink.<br/><br/>Learn details from [Fault tolerance](copy-activity-fault-tolerance.md). | No |
@@ -140,7 +140,7 @@ See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md)
 
 ## Fault tolerance
 
-By default, copy activity will stop copying data and return failure when encounter incompatible data between source and sink; while you can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](data-factory-copy-activity-fault-tolerance.md) on more details.
+By default, copy activity will stop copying data and return failure when encounter incompatible data between source and sink; while you can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](copy-activity-fault-tolerance.md) on more details.
 
 ## Performance and tuning
 
@@ -148,7 +148,7 @@ See the [Copy Activity performance and tuning guide](data-factory-copy-activity-
 
 ## Security considerations
 
-See the [Security considerations](data-factory-data-movement-security-considerations.md), which describes security infrastructure that data movement services in Azure Data Factory use to secure your data.
+See the [Security considerations](copy-activity-security-considerations.md) article, which describes security infrastructure that data movement services in Azure Data Factory use to secure your data.
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:
