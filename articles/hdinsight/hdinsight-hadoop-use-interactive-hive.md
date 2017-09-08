@@ -21,13 +21,13 @@ ms.author: jgao
 
 ---
 # Use Interactive Hive with HDInsight (Preview)
-Interactive Hive (also called Hive LLAP, or [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is a new HDInsight [cluster type](hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactive Hive supports in-memory caching, which makes Hive queries faster and much more interactive. 
+Interactive Hive (also called Hive LLAP, or [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is a new Azure HDInsight [cluster type](hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactive Hive supports in-memory caching, which makes Hive queries faster and much more interactive. 
 
 An Interactive Hive cluster is different from a Hadoop cluster. It contains only the Hive service. 
 
 > [!NOTE]
 > MapReduce, Pig, Sqoop, Oozie, and other services will be removed from this cluster type soon.
-> You can access the Hive service in the Interactive Hive cluster only via Ambari Hive View, Beeline, and the Microsoft Hive Open Database Connectivity (ODBC) driver (Hive ODBC). You can’t access it via the Hive console, Templeton, the Azure command-line tool (Azure CLI), or Azure PowerShell. 
+> You can access the Hive service in the Interactive Hive cluster only via Ambari Hive View, Beeline, and the Microsoft Hive Open Database Connectivity driver (Hive ODBC). You can’t access it via the Hive console, Templeton, the Azure command-line tool (Azure CLI), or Azure PowerShell. 
 > 
 > 
 
