@@ -26,6 +26,9 @@ In order to use Azure Machine Learning preview features, you need to do two thin
     * Windows 10
     * Windows server 2016
     * macOS Sierra (or newer)
+* Local web service deployment requires Docker on the local machine.
+* To set up a Model Management environment on a cluster, you must be an owner on the subscription.
+
 >Note model management CLI tools are also supported on Linux.
 
 ### Optional Requirements:
@@ -131,7 +134,7 @@ $ az ml workspace create -n <workspace name> -g <resource group> -a <Experimenta
 ```
 
 Let's also create resources needed for deploying and managing your models. 
->Note: Docker engine ust be installed and running if you want to deploy the web service locally.
+>Note: Docker engine must be installed and running if you want to deploy the web service locally.
 
 ```bash
 # Create a new Model Management Account
