@@ -1,3 +1,9 @@
+title: <this Sample of Custom DataFlow Transforms (Python)> | Microsoft Docs
+description: <this Gives samples of python custom dataFlow transforms expressions>
+author: <your cforbe>
+ms.author: <your cforbe@microsoft.com>
+ms.date: <today’s date: 9/7/2017>
+
 # Sample of Custom DataFlow Transforms (Python) #
 
 ## Transform Frame - Create a New Column on the fly ##
