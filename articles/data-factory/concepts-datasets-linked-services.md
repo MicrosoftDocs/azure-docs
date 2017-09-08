@@ -177,15 +177,7 @@ The following guidelines help you determine when to include structure informatio
 Data Factory automatically performs type conversions when moving data from a source data store to a sink data store.
 
 ## Create datasets
-You can create datasets by using one of these tools or SDKs: .NET API, PowerShell, REST API, Azure Resource Manager Template, and Azure portal. 
-
-See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
-
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
-- [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-python.md)
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-rest-api.md)
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-portal.md)
+You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell]((quickstart-create-data-factory-powershell.md)), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and [Azure portal](quickstart-create-data-factory-portal.md).
 
 ## V1 vs. V2 datasets
 
@@ -196,3 +188,10 @@ Here are some differences between Data Factory v1 and v2 datasets:
 - Scoped datasets (datasets defined in a pipeline) are not supported in V2. 
 
 ## Next steps
+See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
+
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
+- [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-python.md)
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-rest-api.md)
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-portal.md)

@@ -183,7 +183,7 @@
   - name: Monitor and manage
     items: 
     - name: Use .NET
-      href: monitor-manage-pipelines.md
+      href: monitor-programmatically.md
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
   - name: Create integration runtime

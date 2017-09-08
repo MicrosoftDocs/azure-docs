@@ -91,3 +91,12 @@ Property | Description | Allowed Values | Required
 -------- | ----------- | -------------- | --------
 fieldList | Lists the types of metadata information required.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |	No<br/>If empty, activity returns all 3 supported metadata information. 
 dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. <br/><br/>Currently supported dataset type is Azure Blob. Two sub properties are: <ul><li><b>referenceName</b>: reference to an existing Azure Blob Dataset</li><li><b>type</b>: since the dataset is being referenced, it is of the type "DatasetReference"</li></ul> |	<ul><li>String</li><li>DatasetReference</li></ul> |	Yes
+
+## Next steps
+See other control flow activities supported by Data Factory: 
+
+- [If condition](control-flow-if-condition.md)
+- [Do Until Activity](control-flow-do-until-activity.md)
+- [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
+- [For Each Activity](control-flow-for-each-activity.md)
+- [Lookup Activity](control-flow-lookup-activity.md)
