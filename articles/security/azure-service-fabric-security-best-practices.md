@@ -54,7 +54,7 @@ Use automated deployments:
 -	Require authentication for human access to the secrets.
 
 Additionally, consider the following configuration options:
--	Create perimeter networks (also known as demilitarized zones, DMZs, and screened subnets) by using Azure Network Security Groups (NSG).
+-	Create perimeter networks (also known as demilitarized zones, DMZs, and screened subnets) by using Azure Network Security Groups (NSGs).
 -   Access cluster virtual machines (VMs) or manage your cluster by using jump servers with Remote Desktop Connection.
 
 Your clusters must be secured to prevent unauthorized users from connecting, especially when a cluster is running in production. Although it's possible to create an unsecured cluster, anonymous users can connect to your cluster if the cluster exposes management endpoints to the public internet.
@@ -71,7 +71,7 @@ In this scenario, the clusters that run on Azure, or standalone clusters that ru
 
 To configure a standalone Windows cluster, see [Configure settings for a standalone Windows cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
 
-Use Azure Resource Manager templates and Service Fabric PowerShell module to create a secure cluster.
+Use Azure Resource Manager templates and the Service Fabric PowerShell module to create a secure cluster.
 For step-by-step instructions to create a secure Service Fabric cluster by using Azure Resource Manager templates, see [Creating a Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
 Use the Azure Resource Manager template:
@@ -102,7 +102,7 @@ To learn more about using X.509 certificates, see [Add or remove certificates fo
 Service Fabric also secures the resources that are used by applications. Resources like files, directories, and certificates are stored under the user accounts when the application is deployed. This feature makes running applications more secure from one another, even in a shared hosted environment.
 
 -	Use an Active Directory domain group or user:
-Run the service under the credentials for an Active Directory user or group account. Be sure to use AD on-premises within your domain and not Azure Active Directory. Access other resources in the domain that have been granted permissions by using a domain user or group. For example, resources such as file shares.
+Run the service under the credentials for an Active Directory user or group account. Be sure to use Active Directory on-premises within your domain and not Azure Active Directory. Access other resources in the domain that have been granted permissions by using a domain user or group. For example, resources such as file shares.
 
 -	Assign a security access policy for HTTP and HTTPS endpoints:
 Specify the **SecurityAccessPolicy** property to apply a **RunAs** policy to a service when the service manifest declares endpoint resources with HTTP. Ports allocated to the HTTP endpoints are correctly access-controlled lists for the RunAs user account that the service runs under. When the policy isn't set, http.sys doesn't have access to the service and you can get failures with calls from the client.
@@ -145,7 +145,7 @@ The certificate must meet the following requirements for SSL certificates in Azu
     
 -	The certificate must use a minimum of 2,048-bit encryption.
 
-The HTTP protocol is insecure and subject to eavesdropping attacks. Data that is transmitted over HTTP is sent as plain text from the web browser to the web server or between other endpoints. Attackers can intercept and view sensitive data that is sent via HTTP, such as credit card details and account logins. When data is sent or posted through a browser via HTTPS, SSL ensures that sensitive information is encrypted and secure from interception.
+The HTTP protocol is unsecure and subject to eavesdropping attacks. Data that is transmitted over HTTP is sent as plain text from the web browser to the web server or between other endpoints. Attackers can intercept and view sensitive data that is sent via HTTP, such as credit card details and account logins. When data is sent or posted through a browser via HTTPS, SSL ensures that sensitive information is encrypted and secure from interception.
 
 To learn more about using SSL certificates, see [Configure SSL for Azure applications](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate).
 
@@ -178,10 +178,10 @@ To learn more about how to set up a key vault, see [Get started with Azure Key V
 After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure classic portal.
 
 >[!NOTE]
-> For more information about using roles in Service Fabric, see [Role-based access control for Service Fabric clients](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
+> For more information about using roles in Service Fabric, see [Role-Based Access Control for Service Fabric clients](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
 
 Azure Service Fabric supports two access control types for clients that are connected to a [Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm): administrator and user. The cluster administrator can use access control to limit access to certain cluster operations for different groups of users. Access control makes the cluster more secure.
 
 ## Next steps
-- Set up your Service Fabric [development environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
-- Learn about [Service Fabric support options](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)
+- Set up your Service Fabric [development environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started).
+- Learn about [Service Fabric support options](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
