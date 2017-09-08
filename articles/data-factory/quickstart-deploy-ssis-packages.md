@@ -38,7 +38,7 @@ The PowerShell script in this section configures an instance of managed-dedicate
 1. Launch the Windows PowerShell Integrated Scripting Environment (ISE).
 2. In the ISE, run the following command from the command prompt.    
     ```powershell
-    Set-ExecutionPolicy Unrestricted -Scope CurrentUser`
+    Set-ExecutionPolicy Unrestricted -Scope CurrentUser
     ```
 3. Copy the PowerShell script in this section and paste it into the ISE.
 4. Provide appropriate values for the script parameters in the "SSIS in Azure specifications" section at the beginning of the script. These parameters are described in the following section.
