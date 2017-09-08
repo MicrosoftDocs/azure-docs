@@ -61,12 +61,14 @@ Before you begin this tutorial, you must have the following items:
 ### <a name="assign-permissions-to-azure-key-vault"></a>Assign permissions to Azure Key Vault
 If you used keys from an Azure Key Vault to configure encryption on the Data Lake Store account, you must configure access between the Data Lake Store account and the Azure Key Vault account. Perform the following steps to do so.
 
-1. If you used keys from the Azure Key Vault, the blade for the Data Lake Store account displays a warning at the top. Click the warning to open the **Configure Key Vault Permissions** blade.
+1. If you used keys from the Azure Key Vault, the blade for the Data Lake Store account displays a warning at the top. Click the warning to open **Encryption**.
    
     ![Data Lake Store encryption](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
 2. The blade shows two options to configure access.
+
+    ![Data Lake Store encryption](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake Store encryption")
    
-   * In the first option, click **Grant Permission** to configure access. The first option is enabled only when the user that created the Data Lake Store account is also an admin for the Azure Key Vault.
+   * In the first option, click **Grant Permissions** to configure access. The first option is enabled only when the user that created the Data Lake Store account is also an admin for the Azure Key Vault.
    * The other option is to run the PowerShell cmdlet displayed on the blade. You need to be the owner of the Azure Key Vault or have the ability to grant permissions on the Azure Key Vault. After you have run the cmdlet, come back to the blade and click **Enable** to configure access.
 
 > [!NOTE]
