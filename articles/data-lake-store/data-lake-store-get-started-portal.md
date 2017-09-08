@@ -88,7 +88,7 @@ You can create folders under your Data Lake Store account to manage and store da
 2. In your Data Lake Store account blade, click **Data Explorer**.
    
     ![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
-3. In your Data Lake Store account blade, click **New Folder**, enter a name for the new folder, and then click **OK**.
+3. From Data Explorer blade, click **New Folder**, enter a name for the new folder, and then click **OK**.
    
     ![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
    
