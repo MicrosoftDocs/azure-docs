@@ -16,7 +16,7 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 3. Select PowerShell
 
-4. The PowerShell cloud console appears at the bottom part of the portal
+4. The PowerShell Cloud Shell appears at the bottom part of the portal
 5. `Azure PowerShell drive` appears as follows
 
   ```powershell
