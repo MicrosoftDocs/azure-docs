@@ -1,5 +1,5 @@
 ---
-title: Replicas and Instances | Microsoft Docs
+title: Replicas and instances in Azure Service Fabric | Microsoft Docs
 description: Understand replicas, instances their function and lifecycle
 services: service-fabric
 documentationcenter: .net
@@ -18,9 +18,7 @@ ms.author: aprameyr
 
 ---
 
-This article describes concepts around replicas of stateful services or instances of stateless services.
-
-# Instances of Stateless Services
+# Instances of stateless services
 An instance of a stateless service is a copy of the service logic running on one of the nodes of the cluster. An instance within a partition is uniquely identified by its InstanceId. The lifecycle of an instance can be modeled by the following diagram:
 
 ![Instance Lifecycle](./media/service-fabric-concepts-replica-lifecycle/instance.png)
@@ -42,10 +40,10 @@ In the closing state, service fabric is in the process of shutting down the inst
 In the dropped state the instance is no longer running on the node. At this point, service fabric is maintaining metadata about this instance (which will be deleted lazily).
 
 > [!NOTE]
-> It is possible to transition from any state to the dropped state by using the ForceRemove option on `Remove-ServiceFabricReplica`
+> It is possible to transition from any state to the dropped state by using the ForceRemove option on `Remove-ServiceFabricReplica`.
 >
 
-# Replicas of Stateful Services
+# Replicas of stateful services
 A replica of a stateful service is a copy of the service logic running on one of the nodes of the cluster. In addition, the replica maintains a copy of the state of that service. There are two related concepts that describe the lifecycle and behavior of stateful replicas:
 - Replica Lifecycle
 - Replica Role
@@ -76,13 +74,9 @@ If the application host or the node for a ready replica crashes it transitions t
 ## Closing (CL)
 A replica enters the closing state in the following scenarios:
 
-### Shutting down the code for the replica
-Service fabric may need to shut down the running code for a replica. This could be for many reasons, e.g.,  application, fabric, or infrastructure upgrade or due to a fault reported by the replica etc. When the replica close completes the replica transitions to the down state. The persisted state associated with this replica that is stored on disk is not cleaned up.
+- **Shutting down the code for the replica**: Service fabric may need to shut down the running code for a replica. This could be for many reasons, e.g.,  application, fabric, or infrastructure upgrade or due to a fault reported by the replica etc. When the replica close completes the replica transitions to the down state. The persisted state associated with this replica that is stored on disk is not cleaned up.
 
-### Removing the replica from the cluster
-Service fabric may need to remove the persisted state and shut down the running code for a replica. This could be for many reasons, e.g.,  load balancing
-- Shutting down the running code for the replica. After this, the replica will transition to the down state.
-- Removing the persisted state and then closing the running code for the replica. After this, the replica will transition to the dropped state.
+- **Removing the replica from the cluster**: Service fabric may need to remove the persisted state and shut down the running code for a replica. This could be for many reasons, e.g.,  load balancing
 
 ## Dropped (DD)
 In the dropped state the instance is no longer running on the node. There is also no state left on the node. At this point, service fabric is maintaining metadata about this instance (which will eventually be deleted as well).
@@ -109,14 +103,14 @@ If the application host or the node for a standby replica crashes it transitions
 The replica role is not relevant in the standby state.
 
 > [!NOTE]
-> Any replica that is not down or dropped is considered to be *up*
+> Any replica that is not down or dropped is considered to be *up*.
 >
 
 > [!NOTE]
-> It is possible to transition from any state to the dropped state by using the ForceRemove option on `Remove-ServiceFabricReplica`
+> It is possible to transition from any state to the dropped state by using the ForceRemove option on `Remove-ServiceFabricReplica`.
 >
 
-# Replica Role 
+# Replica role 
 The role of the replica determines its function in the replica set.
 
 - **Primary (P)**: There is one primary in the replica set which is responsible for performing read and write operations. 

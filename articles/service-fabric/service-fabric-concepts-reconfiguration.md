@@ -1,5 +1,5 @@
 ---
-title: Reconfiguration | Microsoft Docs
+title: Reconfiguration in Azure Service Fabric | Microsoft Docs
 description: Understand reconfiguration of partitions in service fabric
 services: service-fabric
 documentationcenter: .net
@@ -25,7 +25,7 @@ A *reconfiguration* is the process of moving one *configuration* to another *con
 
 The Failover Manager initiates reconfigurations in response to different events in the system. For instance, if the primary fails then a reconfiguration is initiated to promote an active secondary to a primary. Another example is in response to application upgrades when it may be necessary to move the primary to another node in order to upgrade the node.
 
-## Reconfiguration Types
+## Reconfiguration types
 Reconfigurations can be classified into two types:
 
 - Reconfigurations where the primary is changing
@@ -34,7 +34,7 @@ Reconfigurations can be classified into two types:
 
 - Reconfigurations where the primary is not changing
 
-## Reconfiguration Phases
+## Reconfiguration phases
 A reconfiguration proceeds in several phases:
 
 - **Phase0**: This phase is performed in swap primary reconfigurations where the current primary transfers its state to the new primary and transitions to active secondary.
