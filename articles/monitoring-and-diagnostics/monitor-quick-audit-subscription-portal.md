@@ -64,4 +64,4 @@ When no longer needed, delete the resource group and network security group. To 
 In this quick start, you've created a network security group and browsed to the Activity Log to view the details of that event and other subscription-level events. To learn more about the Azure Activity Log, continue to the overview of the Activity Log.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor tutorials](./monitoring-overview-activity-logs.md)
+> [Overview of the Activity Log](./monitoring-overview-activity-logs.md)
