@@ -1,4 +1,10 @@
-Before reading this appendix read [Python Extensibility Overview](../DataPrep_PythonExtensibilityOverview.md)
+title: <this Sample of Custom Column Transforms (Python)> | Microsoft Docs
+description: <this Gives samples of python custom column transformss>
+author: <your cforbe>
+ms.author: <your cforbe@microsoft.com>
+ms.date: <today’s date: 9/7/2017>
+
+Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)
 # Sample of Custom Column Transforms (Python) #
 
 

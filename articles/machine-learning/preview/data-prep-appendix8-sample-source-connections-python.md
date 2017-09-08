@@ -1,3 +1,9 @@
+title: <this Sample of Source Connections (Python)> | Microsoft Docs
+description: <this Gives samples of python source connections expressions>
+author: <your cforbe>
+ms.author: <your cforbe@microsoft.com>
+ms.date: <today’s date: 9/7/2017>
+
 # Sample of Source Connections (Python) #
 
 ## Loading Data from data.world
@@ -20,7 +26,7 @@ Then run _dw configure_ on the command line, which will prompt you for your toke
 ```
 API token (obtained at: https://data.world/settings/advanced): <enter API token here>
 ```
-Now you should be able to import data.world libraries in Pendleton.
+Now you should be able to import data.world libraries.
 
 #### Load Data into Data Preparation
 
@@ -39,7 +45,7 @@ df = lds.dataframes['simpsons_episodes']
 
 ```
 
-#### Load CosmosDB Data to Pendleton
+#### Load CosmosDB Data into Data Preparation
 
 Create a new script based data flow and use the following script to load the data from CosmosDB
 

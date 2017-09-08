@@ -55,7 +55,7 @@
       href: how-to-use-mmlspark.md
   - name: Operationalize models
     items:
-    - name: (Use Model Management Service with CLI)
+    - name: (Use Model Management with CLI)
     - name: (Consume a service with CLI)
   - name: (Use AZ ML CLI from the command line)
   - name: (Use a Git repo for source control)  

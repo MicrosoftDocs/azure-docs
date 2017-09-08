@@ -1,6 +1,6 @@
 ---
 title: Model Management API reference | Microsoft Docs
-description: The REST API reference for the Azure Machine Learning Model Management service.
+description: The REST API reference for Azure Machine Learning Model Management.
 services: machine-learning
 author: get2chhavi
 ms.author: chhavib
@@ -155,7 +155,7 @@ If the hosting account does not exist in current location, it is created. If the
 | id | Resource Manager resource ID. |
 | createdOn |   The date and time the Hosting Account was created. |
 | modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management Service API. |
+| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
 
 #-------------------------------------------------
 ## Patch Hosting Account
@@ -270,7 +270,7 @@ All fields in the request are optional, but at least one field must be included 
 | id | Resource Manager resource ID. |
 | createdOn |   The date and time the Hosting Account was created. |
 | modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management Service API. |
+| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
 
 
 #-------------------------------------------------
@@ -359,7 +359,7 @@ Empty.
 | id | Resource Manager resource ID. |
 | createdOn |   The date and time the Hosting Account was created. |
 | modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management Service API. |
+| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
 
 #-------------------------------------------------
 ## Get Hosting Account In a Resource group and Subscription
