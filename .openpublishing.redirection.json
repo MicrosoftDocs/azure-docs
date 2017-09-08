@@ -7160,11 +7160,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-connect-azure-stack.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-connect-azure-stack",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-stack/azure-stack-connect-cli.md",
             "redirect_url": "azure/azure-stack/user/azure-stack-connect-cli",
             "redirect_document_id": false
@@ -7215,11 +7210,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-install-visual-studio.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-install-visual-studio",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-stack/azure-stack-kv-deploy-vm-with-secret.md",
             "redirect_url": "azure/azure-stack/user/azure-stack-kv-deploy-vm-with-secret",
             "redirect_document_id": false
@@ -7248,11 +7238,6 @@
             "source_path": "articles/azure-stack/azure-stack-kv-sample-app.md",
             "redirect_url": "azure/azure-stack/user/azure-stack-kv-sample-app",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-manage-permissions.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-manage-permissions",
-            "redirect_document_id": false
         }, 
         {
             "source_path": "articles/azure-stack/azure-stack-network-differences.md",
@@ -7267,16 +7252,6 @@
         {
             "source_path": "articles/azure-stack/azure-stack-powershell-configure-user.md",
             "redirect_url": "azure/azure-stack/user/azure-stack-powershell-configure-user",
-            "redirect_document_id": false
-        }, 
-        {
-            "source_path": "articles/azure-stack/azure-stack-powershell-download.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-powershell-download",
-            "redirect_document_id": false
-        }, 
-        {
-            "source_path": "articles/azure-stack/azure-stack-powershell-install.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-powershell-install",
             "redirect_document_id": false
         }, 
         {
@@ -7310,18 +7285,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-storage-connect-se.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-storage-connect-se",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-stack/azure-stack-validate-templates.md",
             "redirect_url": "azure/azure-stack/user/azure-stack-validate-templates",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-version-profiles.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-version-profiles",
             "redirect_document_id": false
         },
         {
