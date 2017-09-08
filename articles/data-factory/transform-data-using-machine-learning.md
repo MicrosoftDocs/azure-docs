@@ -65,7 +65,7 @@ The following table provides descriptions for the generic properties used in the
 
 Azure Machine Learning support both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from Data Factory. To get the information required to create the Azure Machine Learning Linked Service, go to https://services.azureml.net, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property. 
 
-![Azure Machine Learning Web Services](./media/data-factory-azure-ml-batch-execution-activity/MLWebServices.png)
+![Azure Machine Learning Web Services](./media/transform-data-using-machine-learning/web-services.png)
 
 ##Azure Machine Learning Batch Execution Activity
 
