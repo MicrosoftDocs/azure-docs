@@ -37,13 +37,13 @@
     href: active-directory-msi-overview.md
   - name: Quickstarts
     items:
-    - name: Configure MSI for Windows VM - Azure portal
+    - name: Configure MSI for Windows VM - Portal
       href: active-directory-msi-qs-configure-portal-windows-vm.md
     - name: Configure MSI for Windows VM - PowerShell
       href: active-directory-msi-qs-configure-powershell-windows-vm.md
     - name: Configure MSI for Windows VM - Azure CLI
       href: active-directory-msi-qs-configure-cli-windows-vm.md
-    - name: Configure MSI for Windows VM - ARM template
+    - name: Configure MSI for Windows VM - Template
       href: active-directory-msi-qs-configure-template-windows-vm.md  
   - name: Tutorials
     items:

@@ -32,44 +32,56 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
   - [a JSON editor (such as VS Code)](../azure-resource-manager/resource-manager-create-first-template.md), then upload/deploy using PowerShell or CLI.
   - Visual Studio's [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-Feel free to use any of the preceding techniques, but for purposes of demonstration in this article we use Xxxxx
+## Enable MSI during creation of an Azure VM, or on an existing VM
 
-## Enable MSI during creation of an Azure VM
+Because templates work the same during initial deployment and redeployment, you enable MSI on a new or existing VM in the same manner. Also, by default Azure Resource Manager will do an [incremental update](../azure-resource-manager/resource-group-template-deploy#incremental-and-complete-deployments.md) to your deployment, which is assumed here:
 
+1. After loading the template into an editor for updating, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section of the template. Your properties may look slightly different from this screen shot, depending on whether you are creating or modifying resources. 
 
+   ![Template screen shot - locate VM](./media/active-directory-msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-```JSON
-    {
-        "apiVersion": "2015-06-15",
-        "type": "Microsoft.Compute/virtualMachines",
-        ...
-        "identity": { 
-            "type": "systemAssigned"
-        },
-        ...
-    }
-```
+2. Add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property using the following syntax:
 
+   ```JSON
+   "identity": { 
+       "type": "systemAssigned"
+   },
+   ```
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you would like to deploy the VM.
+3. Then add the VM MSI extension as a `resources` element using the following syntax. In this example, we configure a Windows VM extension (`ManagedIdentityExtensionForWindows`), but you may also configure for Linux if you are configuring a Linux VM (`ManagedIdentityExtensionForLinux):
 
-2. Find the [resource group](../azure-resource-manager/resource-group-overview.md#terminology). Resource groups are used for containment and deployment of the VM and related resources. 
+>![NOTE] The example below also assumes you have the `vmName`,
 
-## Enable MSI on an existing Azure VM
-
-See https://github.com/rashidqureshi/MSI-Samples#appendix for incremental update on existing deployment.
-
-If you have a VM that was originally provisioned without an MSI:
-
-1. TODO
+   ```JSON
+   { 
+       "type": "Microsoft.Compute/virtualMachines/extensions",
+       "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+       "apiVersion": "2016-03-30",
+       "location": "[resourceGroup().location]",
+       "dependsOn": [
+           "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]",
+           "[concat('Microsoft.Authorization/roleAssignments/', variables('roleAssignmentId'))]"
+       ],
+       "properties": {
+           "publisher": "Microsoft.ManagedIdentity",
+           "type": "ManagedIdentityExtensionForWindows",
+           "typeHandlerVersion": "1.0",
+           "autoUpgradeMinorVersion": true,
+           "settings": {
+               "port": 50342
+           },
+           "protectedSettings": {}
+       }
+   }
+   ```
+4. When you're done, the VM resource in your template should look like the following screen shot:
 
 ## Remove MSI from an Azure VM
 
-See https://github.com/rashidqureshi/MSI-Samples#appendix for removing the extension.w
-
 If you have a Virtual Machine that no longer needs an MSI, you can remove the VM's MSI:
 
-1. TODO  
+   ```JSON
+   ```
 
 ## Related content
 
