@@ -30,7 +30,7 @@ Click on _File_ --> _New Project_ (or click on the "+" sign in the project list 
 Fill in the project name (this tutorial assumes you use `myIris`). Choose the directory the project is going to be created in (this tutorial assumes you choose `C:\Temp`). Enter an optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the `Classifying Iris` template from the project template list. 
 
 ![New Project](media/tutorial-classifying-iris/new_project.png)
->Optionally, you can fill in the Git repo field with an existing empty (with no master branch) Git repo on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](UsingGit.md) article and the [Roaming and Sharing](collab.md) article.
+>Optionally, you can fill in the Git repo field with an existing empty (with no master branch) Git repo on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article and the [Roaming and Sharing](collab.md) article.
 
 Click on _Create_ button to create the project. The project is now created and opened.
 
@@ -93,7 +93,7 @@ This creates an `iris-1.py` file with following two lines of code prepopulated (
 from azureml.dataprep.package import run
 df = run('iris.dprep', dataflow_idx=0)
 ```
-This code snippet shows how you can invoke the data wrangling logic you have created as a Data Prep package. Depending on the context in which this code runs, `df` can be a Python Pandas DataFrame if executed in Python runtime, or a Spark DataFrame if executed in a Spark context. For more information on how to use DataPrep in Azure ML Workbench, reference the [Getting Started with Data Preparation](DataPrep_GettingStarted.md) guide.
+This code snippet shows how you can invoke the data wrangling logic you have created as a Data Prep package. Depending on the context in which this code runs, `df` can be a Python Pandas DataFrame if executed in Python runtime, or a Spark DataFrame if executed in a Spark context. For more information on how to use DataPrep in Azure ML Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
 
 Now we have a data prep package that can be invoked from Python code, we are ready to move on to the next to build a machine learning model.
 
