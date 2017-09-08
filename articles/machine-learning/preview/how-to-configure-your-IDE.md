@@ -1,6 +1,6 @@
 ---
 title: How to configure Azure Machine Learning Workbench to work with an IDE?  | Microsoft Docs
-description: A guide to configuring the Azure Machine Learning Workbench to work with your IDE.  
+description: A guide to configuring Azure Machine Learning Workbench to work with your IDE.  
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -15,12 +15,12 @@ ms.date: 09/05/2017
 # How to configure Azure Machine Learning Workbench to work with an IDE? 
 
 ## Open Project in IDE
-Azure Machine Learning Workbench can be configured to work with an IDE. This enables a seamless data science development experience moving between data prep, coding, run tracking and operationalization. Currently the suported IDEs are:
+Azure Machine Learning Workbench can be configured to work with an IDE. This enables a seamless data science development experience moving between data prep, coding, run tracking and operationalization. Currently the supported IDEs are:
 - Microsoft Visual Studio Code 
 - JetBrain PyCharm 
 
-## Steps to confgure :  
-1. Click on the **File** menu in he top left corner of the Azure Machine Learning Workbench app. 
+## Steps to configure :  
+1. Click on the **File** menu in the top left corner of the Azure Machine Learning Workbench app. 
 2. Select the **Configure Project IDE** option from the flyout 
 3. Type in `VS Code` or `PyCharm` in the **Name** field (the name is arbitrary)
 4. Enter the location to the IDE executable (complete with the executable name and extension) in **Execution Path**
@@ -39,3 +39,5 @@ Azure Machine Learning Workbench can be configured to work with an IDE. This ena
 
 ## Open Project in IDE 
 Once the configuration is complete, you can open a Azure Machine Learning Project in the IDE by opening the **File** menu, and selecting **Open Project (** *IDE_Name* **)**
+
+>Note: Upon opening the embedded terminal, you will get a prompt _Do you allow shell: "C:\windows\System32\cmd.exe" (defined as a workspace setting) to be launched in the terminal?_. This is because we are configuring the shell to work seamlessly with Azure ML Workbench command line interface. 
