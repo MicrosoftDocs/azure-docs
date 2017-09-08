@@ -254,14 +254,17 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.clou
 ```
 
 ```azurecli
-sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 \
---cert ./client.crt --key ./keyfile.key
+sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
 Check that you are connected and the cluster is healthy using the [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet.
 
 ```powershell
 Get-ServiceFabricClusterHealth
+```
+
+```azurecli
+sfctl cluster health
 ```
 
 ## Clean up resources
