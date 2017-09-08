@@ -16,12 +16,12 @@ ms.date: 09/07/2017
 # Installing Azure Machine Learning preview features
 
 In order to use Azure Machine Learning preview features, you need to do two things:
-- Provision Azure resources.
+- Provision the relevant Azure resources.
 - Install the Azure ML Workbench desktop application, which also includes CLI (command-line interface) tools.
 
 ## Prerequisites
 ### Mandatory Requirements:
-* Access to an Azure subscription where you have sufficient permissions to create Azure resources. Minimally, you need to be a Contributor of the subscription, or Contributor of a Resource Group in the subscription.
+* Access to an Azure subscription where you have sufficient permissions to create Azure resources. Minimally, you need to be a Contributor to the subscription, or Contributor to a Resource Group in the subscription.
 * Supported operating systems for the Azure ML Workbench:
     * Windows 10
     * Windows server 2016
@@ -33,9 +33,9 @@ In order to use Azure Machine Learning preview features, you need to do two thin
 
 ### Optional Requirements:
 * Local Docker engine for running dev/test scenarios locally.
-* Access to Unbutu Linux VM for scale-up computation.
+* Access to an Unbutu Linux VM for scale-up computation.
 * Access to HDInsight for Spark cluster for scale-out computation.
-* Access to Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
+* Access to the Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
 
 ### Special Note for macOS Users
 Ensure that you run this [shell script](scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries, and configure links before proceeding with the installation.
@@ -46,9 +46,9 @@ $ /Applications/Python\ 3.6/Install\ Certificates.command
 ```
 
 ## Provisioning
-Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on _+ New_ and search for _Machine Learning_. Look for _ML Experimentation (preview)_ in the search results. Click on _ML Experimentation (preview)_ to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or supply an existing one, for storing Run outputs and other data.
+Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on _+ New_ and search for _Machine Learning_. Look for _ML Experimentation (preview)_ in the search results. Click on _ML Experimentation (preview)_ to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you will also be asked to create an Azure storage account, or to supply an existing one, for storing Run outputs and other data.
 
-As part of the Experimentation account creation experience, you have an option of also creating the _Machine Learning Model Management account_. You need this resource when you are ready to deploy and manage your models as real-time web services. It is recommended that you create the Model Management account along with the Experimentation account.
+As part of the Experimentation account creation experience, you have the option of also creating the _Machine Learning Model Management account_. You will need this resource when you are ready to deploy and manage your models as real-time web services. We recommended that you create the Model Management account at the same time as the Experimentation account.
 
 <!--
 >NOTE: Some note about pricing associated for public preview should go in here.
@@ -57,7 +57,7 @@ As part of the Experimentation account creation experience, you have an option o
 ## Installation
 You can install Azure Machine Learning Workbench on your Windows or macOS computer.
 ### Remove prior installations
-When a new release becomes available, Azure ML Workbench auto-updates on its own over the existing installation. It is usually unnecessary to remove prior installations. But in case you want to clean up and start a fresh install, you can run the following scripts: 
+When a new release becomes available, Azure ML Workbench will auto-update on its own replacing your existing local installation. It is usually unnecessary to remove prior installations. However, you can run the following scripts if you'd like to clean up your current install and start fresh: 
 
 * Windows command line: [cleanup_win.cmd](scripts/quick-start-installation/cleanup_win.cmd). 
 * Windows PowerShell: [cleanup_win.ps1](scripts/quick-start-installation/cleanup_win.ps1). 
@@ -65,7 +65,7 @@ When a new release becomes available, Azure ML Workbench auto-updates on its own
 * macOS: [cleanup_mac.sh](scripts/quick-start-installation/cleanup_mac.sh)
   * You may need to execute "_chmod a+x ./cleanup_mac.sh_" before you can run the downloaded script.
 
->Note: to run these clean-up scripts, you might need elevated privileges. Also, these scripts do not delete your existing projects.
+>Note: to run these clean-up scripts, you might need elevated privileges. Also, these scripts will not delete your existing projects.
 
 ### Download the Latest Azure ML Workbench Installer
 
@@ -75,7 +75,7 @@ When a new release becomes available, Azure ML Workbench auto-updates on its own
 | [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg) | macOS
 
 ### Install Azure ML Workbench
-Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Follow the on-screen instructions to finish the installation. Azure ML Workbench is now installed in the following directory:
+Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Follow the on-screen instructions to finish the installation. Azure ML Workbench will be installed in the following directory:
 ```
 # On Windows
 C:\Users\<username>\AppData\Local\AmlWorkbench
@@ -84,11 +84,11 @@ C:\Users\<username>\AppData\Local\AmlWorkbench
 /Applications/AmlWorkbench.app
  ```
 
-Click on the **Launch Azure ML Workbench** button when installation finishes to launch Workbench. If you close the installer, you can find the shortcut on your desktop named **Azure Machine Learning Workbench**. Double-click and open it. 
+Click on the **Launch Azure ML Workbench** button when the installation process is complete. If you close the installer, you can still find the shortcut to the Workbench on your desktop named **Azure Machine Learning Workbench**. Double-click it to open the app. 
 
-Log in using the same account you used earlier to provision Azure resources. 
+Log in to the Workbench using the same account you used earlier to provision your Azure resources. 
 
-When logging in succeeds, Workbench attempts to find your ML Experimentation accounts you created earlier from all the Azure subscriptions you have access to. If at least one is found, Azure ML Workbench will load it and list Workspaces and Projects under that account. And your installation process is complete. You can now move on to installing optional components.
+When login has succeeded, Workbench will attempt to find the ML Experimentation accounts you created earlier. It will search within the entire set of Azure subscriptions to which your credentials are attached. If at least one ML Experimentation Account is found, Azure ML Workbench will load it and list the Workspaces and Projects found under that account. After your installation process is complete, you can move on to installing optional components.
 
 ### Provisioning Azure ML resources through CLI
 If no ML Experimentation account is found after you log in, you are presented with the following screen. 
