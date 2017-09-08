@@ -140,7 +140,7 @@
 
 ## [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
 ## T-SQL
-### [All](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [Full reference](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW language elements](sql-data-warehouse-reference-tsql-language-elements.md)
 ### [SQL DW statements](sql-data-warehouse-reference-tsql-statements.md)
 ## [System views](sql-data-warehouse-reference-tsql-system-views.md)
@@ -148,7 +148,7 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
