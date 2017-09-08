@@ -122,7 +122,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On Save button](./media/active-directory-saas-databasics-tutorial/tutorial_general_400.png)
 
 6. To configure single sign-on on the DATABASICS side, please complete the form using the URL below. Once the form is submitted, the [DATABASICS Client support team](https://www.data-basics.com/support/) will contact you.
-[https://www.data-basics.com/support/submit-sso-onboarding-request/](https://www.data-basics.com/support/submit-sso-onboarding-request/)
+	
+	[https://www.data-basics.com/support/submit-sso-onboarding-request/](https://www.data-basics.com/support/submit-sso-onboarding-request/)
 
 
 > [!TIP]
