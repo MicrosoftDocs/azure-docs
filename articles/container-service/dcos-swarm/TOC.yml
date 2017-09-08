@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Docker Swarm Linux
+    href: container-service-swarm-walkthrough.md
   - name: DC/OS Linux
     href: container-service-dcos-quickstart.md
 - name: Tutorials
@@ -25,11 +27,13 @@
     href: container-service-security.md
 - name: How-to guides
   items:
+  - name: Create an ACS cluster
+    href: container-service-create-acs-cluster-cli.md
   - name: Connect with an ACS cluster
     href: container-service-connect.md
   - name: Scale an ACS cluster
     href: container-service-scale.md
-  - name: Manage with DC/OS
+  - name: DC/OS
     items:
     - name: Container management - DC/OS UI
       href: container-service-mesos-marathon-ui.md
@@ -55,18 +59,22 @@
         href: container-service-monitoring-sysdig.md
       - name: Monitor with Dynatrace
         href: container-service-monitoring-dynatrace.md
-  - name: Manage with Docker Swarm
+  - name: Docker Swarm
     items:
+    - name: Docker CE Quickstart
+      href: container-service-swarm-mode-walkthrough.md
     - name: Docker and Docker Compose
       href: container-service-docker-swarm.md
     - name: CI/CD with Docker Swarm and VSTS
       href: container-service-docker-swarm-setup-ci-cd.md
+    - name: CI/CD with Docker Swarm (ACS Engine) and VSTS 
+      href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: Reference
   items:
   - name: Azure CLI 2.0
     href: /cli/azure/acs
   - name: REST
-    href: /rest/api/compute/containerservices
+    href: /rest/api/container-services
 - name: Resources
   items:
   - name: Azure Roadmap

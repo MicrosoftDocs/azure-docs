@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/31/2017
 ms.author: cherylmc
 
 ---
 # Configure forced tunneling using the Azure Resource Manager deployment model
 
-Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. Without forced tunneling, Internet-bound traffic from your VMs in Azure always traverses from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches
+Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. Without forced tunneling, Internet-bound traffic from your VMs in Azure always traverses from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
@@ -31,7 +31,6 @@ This article walks you through configuring forced tunneling for virtual networks
 > * [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 > 
 > 
-
 
 ## About forced tunneling
 
@@ -49,8 +48,8 @@ Forced tunneling in Azure is configured via virtual network user-defined routes.
 
 * Each virtual network subnet has a built-in, system routing table. The system routing table has the following three groups of routes:
   
-  * **Local VNet routes:** Directly to the destination VMs in the same virtual network
-  * **On-premises routes:** To the Azure VPN gateway
+  * **Local VNet routes:** Directly to the destination VMs in the same virtual network.
+  * **On-premises routes:** To the Azure VPN gateway.
   * **Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes are dropped.
 * This procedure uses user-defined routes (UDR) to create a routing table to add a default route, and then associate the routing table to your VNet subnet(s) to enable forced tunneling on those subnets.
 * Forced tunneling must be associated with a VNet that has a route-based VPN gateway. You need to set a "default site" among the cross-premises local sites connected to the virtual network. Also, the on-premises VPN device must be configured using 0.0.0.0/0 as traffic selectors. 
@@ -58,13 +57,18 @@ Forced tunneling in Azure is configured via virtual network user-defined routes.
 
 ## Configuration overview
 
-The following procedure helps you create a resource group and a VNet. You'll then create a VPN gateway and configure forced tunneling. In this procedure, the virtual network "MultiTier-VNet" has three subnets: *Frontend*, *Midtier*, and *Backend*, with four cross-premises connections: *DefaultSiteHQ*, and three *Branches*.
+The following procedure helps you create a resource group and a VNet. You'll then create a VPN gateway and configure forced tunneling. In this procedure, the virtual network 'MultiTier-VNet' has three subnets: 'Frontend', 'Midtier', and 'Backend', with four cross-premises connections: 'DefaultSiteHQ', and three Branches.
 
-The procedure steps set the *DefaultSiteHQ* as the default site connection for forced tunneling, and configure the Midtier and Backend subnets to use forced tunneling.
+The procedure steps set the 'DefaultSiteHQ' as the default site connection for forced tunneling, and configure the 'Midtier' and 'Backend' subnets to use forced tunneling.
 
-## Before you begin
+## <a name="before"></a>Before you begin
 
 Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+
+> [!IMPORTANT]
+> Installing the latest version of the PowerShell cmdlets is required. Otherwise, you may receive validation errors when running some of the cmdlets.
+>
+>
 
 ### To log in
 
@@ -72,10 +76,16 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
 
 ## Configure forced tunneling
 
+> [!NOTE]
+> You may see warnings saying "The output object type of this cmdlet will be modified in a future release". This is expected behavior and you can safely ignore these warnings.
+>
+>
+
+
 1. Create a resource group.
 
   ```powershell
-  New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
+  New-AzureRmResourceGroup -Name 'ForcedTunneling' -Location 'North Europe'
   ```
 2. Create a virtual network and specify subnets.
 
@@ -110,7 +120,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Create the Gateway with a default site. This step takes some time to complete, sometimes 45 minutes or more, because you are creating and configuring the gateway.<br> The **-GatewayDefaultSite** is the cmdlet parameter that allows the forced routing configuration to work, so take care to configure this setting properly. This parameter is available in PowerShell 1.0 or later.
+6. Create the Gateway with a default site. This step takes some time to complete, sometimes 45 minutes or more, because you are creating and configuring the gateway.<br> The **-GatewayDefaultSite** is the cmdlet parameter that allows the forced routing configuration to work, so take care to configure this setting properly. If you see ValidateSet errors regarding the GatewaySKU value, verify that you have installed the [latest version of the PowerShell cmdlets](#before). The latest version of the PowerShell cmdlets contains the new validated values for the latest Gateway SKUs.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic

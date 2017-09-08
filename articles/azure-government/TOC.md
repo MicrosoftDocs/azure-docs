@@ -29,17 +29,20 @@
 ## [Marketplace](documentation-government-manage-marketplace.md)
 ## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
 
-## Services
+## [Services](documentation-government-services.md)
 ### [Compute](documentation-government-compute.md)
-### [Storage](documentation-government-services-storage.md)
-### [Database](documentation-government-services-database.md)
-### [Intelligence + Analytics](documentation-government-services-intelligenceandanalytics.md)
 ### [Networking](documentation-government-networking.md)
-### [Security + Identity](documentation-government-services-securityandidentity.md)
-### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+### [Storage](documentation-government-services-storage.md)
 ### [Web + Mobile](documentation-government-services-webandmobile.md)
 ### [Media Services](documentation-government-services-media.md)
+### [Databases](documentation-government-services-database.md)
+### [Data + Analytics](documentation-government-services-dataandanalytics.md)
+### [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md) 
 ### [Internet of Things](documentation-government-services-iot-hub.md)
+### [Security + Identity](documentation-government-services-securityandidentity.md)
+### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+
+
 
 # Resources
 ## [Azure Government Website](https://azure.microsoft.com/overview/clouds/government/)

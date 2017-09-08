@@ -397,7 +397,7 @@ You can use the **Agents capturing network traffic** blade to determine how much
 
 ![log search example](./media/log-analytics-wire-data/log-search-example01.png)
 
-Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas their applications. This blade offers a view into those areas.
+Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This blade offers a view into those areas.
 
 ![log search example](./media/log-analytics-wire-data/log-search-example02.png)
 
@@ -442,7 +442,7 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 | RemotePortNumber | Port number used by the remote IP address |
 | SessionID | A unique value that identifies communication session between two IP addresses |
 | SentBytes | Number of bytes sent |
-| TotalBytes | Total number of by sent during session |
+| TotalBytes | Total number of bytes sent during session |
 | ApplicationProtocol | Type of network protocol used   |
 | ProcessID | Windows process ID |
 | ProcessName | Path and file name of the process |

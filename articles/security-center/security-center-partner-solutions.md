@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/17/2017
 ms.author: terrylan
 
 ---
@@ -21,12 +21,12 @@ ms.author: terrylan
 This document walks you through how to monitor the health status of your partner solutions in Azure Security Center.
 
 > [!NOTE]
-> This document introduces the service by using an example deployment. This is not a step-by-step guide.
+> This document introduces the service by using an example deployment. This document is not a step-by-step guide.
 >
 >
 
 ## Monitoring partner solutions
-The **Partner solutions** tile on the **Security Center** blade lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
+The **Partner solutions** tile on the **Security Center** blade lets you monitor at a glance the health status of your partner solutions that are integrated with your Azure subscription.
 
 ![Partner solutions tile][1]
 
@@ -44,7 +44,7 @@ To view the health of your partner solutions:
    * Unhealthy (red) - there is a health issue that requires immediate attention.
    * Stopped reporting (orange) - the solution has stopped reporting its health.
    * Unknown protection status (orange) - the health of the solution is unknown at this time due to a failed process of adding a new resource to the existing solution.
-   * Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying.
+   * Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has recently been connected and is still deploying.
 
 2. Select a partner solution. In this example, lets select the **Qualys** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
 
@@ -54,7 +54,7 @@ To view the health of your partner solutions:
    ![Link resources to partner solution][5]
 
 ## Next steps
-In this document, you were introduced to the **Partner Solutions** tile in Security Center. To learn more about Security Center, see the following:
+In this document, you were introduced to the **Partner Solutions** tile in Security Center. To learn more about Security Center, see the following articles:
 
 * [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.

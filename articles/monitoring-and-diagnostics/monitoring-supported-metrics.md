@@ -1,8 +1,8 @@
 ---
 title: Azure Monitor metrics - supported metrics per resource type  | Microsoft Docs
 description: List of metrics available for each resource type with Azure Monitor.
-author: johnkemnetz
-manager: orenr
+author: anirudhcavale
+manager: ashwink
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/05/2017
-ms.author: johnkem
+ms.date: 9/6/2017
+ms.author: ancav
 
 ---
 # Supported metrics with Azure Monitor
@@ -70,6 +70,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ShortParsingIdleThreads|Threads: Short parsing idle threads|Count|Average|Number of idle threads in the short parsing thread pool.|
 |ShortParsingJobQueueLength|Threads: Short parsing job queue length|Count|Average|Number of jobs in the queue of the short parsing thread pool.|
 |memory_thrashing_metric|Memory Thrashing|Percent|Average|Average memory thrashing.|
+|mashup_engine_qpu_metric|M Engine QPU|Count|Average|QPU usage by mashup engine processes|
+|mashup_engine_memory_metric|M Engine Memory|Bytes|Average|Memory usage by mashup engine processes|
 
 ## Microsoft.ApiManagement/service
 
@@ -80,6 +82,14 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |UnauthorizedRequests|Unauthorized Gateway Requests|Count|Total|Number of unauthorized gateway requests|
 |FailedRequests|Failed Gateway Requests|Count|Total|Number of failures in gateway requests|
 |OtherRequests|Other Gateway Requests|Count|Total|Number of other gateway requests|
+|Duration|Overall Duration of Gateway Requests|Milliseconds|Average,Maximum|Overall Duration of Gateway Requests in milliseconds|
+|Capacity|Capacity (Preview)|Percent|Average,Maximum|Utilization metric for ApiManagement service|
+
+## Microsoft.Automation/automationAccounts
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|TotalJob|Total Jobs|Count|Total|The total number of jobs|
 
 ## Microsoft.Batch/batchAccounts
 
@@ -280,6 +290,18 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |cacheRead9|Cache Read (Shard 9)|BytesPerSecond|Maximum||
 |percentProcessorTime9|CPU (Shard 9)|Percent|Maximum||
 
+## Microsoft.ClassicCompute/virtualMachines
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|Percentage CPU|Percentage CPU|Percent|Average|The percentage of allocated compute units that are currently in use by the Virtual Machine(s).|
+|Network In|Network In|Bytes|Total|The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic).|
+|Network Out|Network Out|Bytes|Total|The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic).|
+|Disk Read Bytes/Sec|Disk Read|BytesPerSecond|Average|Average bytes read from disk during monitoring period.|
+|Disk Write Bytes/Sec|Disk Write|BytesPerSecond|Average|Average bytes written to disk during monitoring period.|
+|Disk Read Operations/Sec|Disk Read Operations/Sec|CountPerSecond|Average|Disk Read IOPS.|
+|Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS.|
+
 ## Microsoft.CognitiveServices/accounts
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
@@ -370,6 +392,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |JobAUEndedFailure|Failed AU Time|Seconds|Total|Total AU time for failed jobs.|
 |JobAUEndedCancelled|Cancelled AU Time|Seconds|Total|Total AU time for cancelled jobs.|
 
+## Microsoft.DataLakeStore/accounts
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|TotalStorage|Total Storage|Bytes|Maximum|Total amount of data stored in the account.|
+|DataWritten|Data Written|Bytes|Total|Total amount of data written to the account.|
+|DataRead|Data Read|Bytes|Total|Total amount of data read from the account.|
+|WriteRequests|Write Requests|Count|Total|Count of data write requests to the account.|
+|ReadRequests|Read Requests|Count|Total|Count of data read requests to the account.|
+
 ## Microsoft.DBforMySQL/servers
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
@@ -424,6 +456,10 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |d2c.endpoints.latency.serviceBusTopics|Message latency for Service Bus Topic endpoints|Milliseconds|Average|The average latency between message ingress to the IoT hub and message ingress into a Service Bus Topic endpoint, in milliseconds|
 |d2c.endpoints.egress.builtIn.events|Messages delivered to the built-in endpoint (messages/events)|Count|Total|Number of times messages were successfully written to the built-in endpoint (messages/events)|
 |d2c.endpoints.latency.builtIn.events|Message latency for the built-in endpoint (messages/events)|Milliseconds|Average|The average latency between message ingress to the IoT hub and message ingress into the built-in endpoint (messages/events), in milliseconds |
+|d2c.endpoints.egress.storage|Messages delivered to storage endpoints|Count|Total|Number of times messages were successfully written to storage endpoints|
+|d2c.endpoints.latency.storage|Message latency for storage endpoints|Milliseconds|Average|The average latency between message ingress to the IoT hub and message ingress into a storage endpoint, in milliseconds|
+|d2c.endpoints.egress.storage.bytes|Data written to storage|Bytes|Total|Amount of data, in bytes, written to storage endpoints|
+|d2c.endpoints.egress.storage.blobs|Blobs written to storage|Count|Total|Number of blobs written to storage endpoints|
 |d2c.twin.read.success|Successful twin reads from devices|Count|Total|The count of all successful device-initiated twin reads.|
 |d2c.twin.read.failure|Failed twin reads from devices|Count|Total|The count of all failed device-initiated twin reads.|
 |d2c.twin.read.size|Response size of twin reads from devices|Bytes|Average|The average, min, and max of all successful device-initiated twin reads.|
@@ -515,14 +551,14 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|Throughput|Throughput|BytesPerSecond|Average||
+|Throughput|Throughput|BytesPerSecond|Average|Number of bytes per second the Application Gateway has served|
 
 ## Microsoft.Network/expressRouteCircuits
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|BytesIn|BytesIn|Count|Total||
-|BytesOut|BytesOut|Count|Total||
+|BytesIn|BytesIn|Count|Total|Bytes ingressing Azure|
+|BytesOut|BytesOut|Count|Total|Bytes egressing Azure|
 
 ## Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -590,52 +626,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |notificationhub.pushes|All Outgoing Notifications|Count|Total|All outgoing notifications of the notification hub|
 |incoming.all.requests|All Incoming Requests|Count|Total|Total incoming requests for a notification hub|
 |incoming.all.failedrequests|All Incoming Failed Requests|Count|Total|Total incoming failed requests for a notification hub|
-
-## Microsoft.PowerBIDedicated/capacities
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|qpu_metric|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|
-|memory_metric|Memory|Bytes|Average|Memory. Range 0-25 GB for S1, 0-50 GB for S2 and 0-100 GB for S4|
-|TotalConnectionRequests|Total Connection Requests|Count|Average|Total connection requests. These are arrivals.|
-|SuccessfullConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|
-|TotalConnectionFailures|Total Connection Failures|Count|Average|Total failed connection attempts.|
-|CurrentUserSessions|Current User Sessions|Count|Average|Current number of user sessions established.|
-|QueryPoolBusyThreads|Query Pool Busy Threads|Count|Average|Number of busy threads in the query thread pool.|
-|CommandPoolJobQueueLength|Command Pool Job Queue Length|Count|Average|Number of jobs in the queue of the command thread pool.|
-|ProcessingPoolJobQueueLength|Processing Pool Job Queue Length|Count|Average|Number of non-I/O jobs in the queue of the processing thread pool.|
-|CurrentConnections|Connection: Current connections|Count|Average|Current number of client connections established.|
-|CleanerCurrentPrice|Memory: Cleaner Current Price|Count|Average|Current price of memory, $/byte/time, normalized to 1000.|
-|CleanerMemoryShrinkable|Memory: Cleaner Memory shrinkable|Bytes|Average|Amount of memory, in bytes, subject to purging by the background cleaner.|
-|CleanerMemoryNonshrinkable|Memory: Cleaner Memory nonshrinkable|Bytes|Average|Amount of memory, in bytes, not subject to purging by the background cleaner.|
-|MemoryUsage|Memory: Memory Usage|Bytes|Average|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory which was mapped or allocated by the xVelocity in-memory analytics engine (VertiPaq) in excess of the xVelocity engine Memory Limit.|
-|MemoryLimitHard|Memory: Memory Limit Hard|Bytes|Average|Hard memory limit, from configuration file.|
-|MemoryLimitHigh|Memory: Memory Limit High|Bytes|Average|High memory limit, from configuration file.|
-|MemoryLimitLow|Memory: Memory Limit Low|Bytes|Average|Low memory limit, from configuration file.|
-|MemoryLimitVertiPaq|Memory: Memory Limit VertiPaq|Bytes|Average|In-memory limit, from configuration file.|
-|Quota|Memory: Quota|Bytes|Average|Current memory quota, in bytes. Memory quota is also known as a memory grant or memory reservation.|
-|QuotaBlocked|Memory: Quota Blocked|Count|Average|Current number of quota requests that are blocked until other memory quotas are freed.|
-|VertiPaqNonpaged|Memory: VertiPaq Nonpaged|Bytes|Average|Bytes of memory locked in the working set for use by the in-memory engine.|
-|VertiPaqPaged|Memory: VertiPaq Paged|Bytes|Average|Bytes of paged memory in use for in-memory data.|
-|RowsReadPerSec|Processing: Rows read per sec|CountPerSecond|Average|Rate of rows read from all relational databases.|
-|RowsConvertedPerSec|Processing: Rows converted per sec|CountPerSecond|Average|Rate of rows converted during processing.|
-|RowsWrittenPerSec|Processing: Rows written per sec|CountPerSecond|Average|Rate of rows written during processing.|
-|CommandPoolBusyThreads|Threads: Command pool busy threads|Count|Average|Number of busy threads in the command thread pool.|
-|CommandPoolIdleThreads|Threads: Command pool idle threads|Count|Average|Number of idle threads in the command thread pool.|
-|LongParsingBusyThreads|Threads: Long parsing busy threads|Count|Average|Number of busy threads in the long parsing thread pool.|
-|LongParsingIdleThreads|Threads: Long parsing idle threads|Count|Average|Number of idle threads in the long parsing thread pool.|
-|LongParsingJobQueueLength|Threads: Long parsing job queue length|Count|Average|Number of jobs in the queue of the long parsing thread pool.|
-|ProcessingPoolBusyIOJobThreads|Threads: Processing pool busy I/O job threads|Count|Average|Number of threads running I/O jobs in the processing thread pool.|
-|ProcessingPoolBusyNonIOThreads|Threads: Processing pool busy non-I/O threads|Count|Average|Number of threads running non-I/O jobs in the processing thread pool.|
-|ProcessingPoolIOJobQueueLength|Threads: Processing pool I/O job queue length|Count|Average|Number of I/O jobs in the queue of the processing thread pool.|
-|ProcessingPoolIdleIOJobThreads|Threads: Processing pool idle I/O job threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|
-|ProcessingPoolIdleNonIOThreads|Threads: Processing pool idle non-I/O threads|Count|Average|Number of idle threads in the processing thread pool dedicated to non-I/O jobs.|
-|QueryPoolIdleThreads|Threads: Query pool idle threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|
-|QueryPoolJobQueueLength|Threads: Query pool job queue lengt|Count|Average|Number of jobs in the queue of the query thread pool.|
-|ShortParsingBusyThreads|Threads: Short parsing busy threads|Count|Average|Number of busy threads in the short parsing thread pool.|
-|ShortParsingIdleThreads|Threads: Short parsing idle threads|Count|Average|Number of idle threads in the short parsing thread pool.|
-|ShortParsingJobQueueLength|Threads: Short parsing job queue length|Count|Average|Number of jobs in the queue of the short parsing thread pool.|
-|memory_thrashing_metric|Memory Thrashing|Percent|Average|Average memory thrashing.|
 
 ## Microsoft.Search/searchServices
 
@@ -790,6 +780,41 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|
 |FunctionExecutionUnits|Function Execution Units|Count|Average|Function Execution Units|
 |FunctionExecutionCount|Function Execution Count|Count|Average|Function Execution Count|
+
+## Microsoft.Web/hostingEnvironments/multiRolePools
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|Requests|Requests|Count|Total|Requests|
+|BytesReceived|Data In|Bytes|Total|Data In|
+|BytesSent|Data Out|Bytes|Total|Data Out|
+|Http101|Http 101|Count|Total|Http 101|
+|Http2xx|Http 2xx|Count|Total|Http 2xx|
+|Http3xx|Http 3xx|Count|Total|Http 3xx|
+|Http401|Http 401|Count|Total|Http 401|
+|Http403|Http 403|Count|Total|Http 403|
+|Http404|Http 404|Count|Total|Http 404|
+|Http406|Http 406|Count|Total|Http 406|
+|Http4xx|Http 4xx|Count|Total|Http 4xx|
+|Http5xx|Http Server Errors|Count|Total|Http Server Errors|
+|AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|
+|CpuPercentage|CPU Percentage|Percent|Average|CPU Percentage|
+|MemoryPercentage|Memory Percentage|Percent|Average|Memory Percentage|
+|DiskQueueLength|Disk Queue Length|Count|Total|Disk Queue Length|
+|HttpQueueLength|Http Queue Length|Count|Total|Http Queue Length|
+|ActiveRequests|Active Requests|Count|Total|Active Requests|
+|TotalFrontEnds|Total Front Ends|Count|Average|Total Front Ends|
+|SmallAppServicePlanInstances|Small App Service Plan Workers|Count|Average|Small App Service Plan Workers|
+|MediumAppServicePlanInstances|Medium App Service Plan Workers|Count|Average|Medium App Service Plan Workers|
+|LargeAppServicePlanInstances|Large App Service Plan Workers|Count|Average|Large App Service Plan Workers|
+
+## Microsoft.Web/hostingEnvironments/workerPools
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|WorkersTotal|Total Workers|Count|Average|Total Workers|
+|WorkersAvailable|Available Workers|Count|Average|Available Workers|
+|WorkersUsed|Used Workers|Count|Average|Used Workers|
 
 ## Next steps
 * [Read about metrics in Azure Monitor](monitoring-overview-metrics.md)

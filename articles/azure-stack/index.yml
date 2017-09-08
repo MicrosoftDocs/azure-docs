@@ -6,7 +6,7 @@ metadata:
   title: Azure Stack Documentation - Tutorials, API Reference
   description: Learn how to use Azure Stack preview to deliver Azure services from your datacenter. Learn and demonstrate features from a proof of concept environment.
   services: azure-stack
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: azure-stack
   ms.tgt_pltfrm: na

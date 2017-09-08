@@ -2,15 +2,44 @@
   href: ../index.md
 - name: Overview
   href: overview.md
-- name: Quick Start Guide
-  href: quick-start.md
+  items:
+- name: Quickstarts
+  items:
+  - name: C#
+    href: quick-start.md
+- name: How-to guides
+  items:
+   - name: Sign up
+     href: text-analytics-howto-signup.md
+   - name: Get an access key
+     href: text-analytics-howto-accesskey.md
+   - name: Call the Text Analytics API
+     href: text-analytics-howto-call-api.md
+   - name: Detect language 
+     href: text-analytics-howto-language-detection.md
+   - name: Analyze sentiment 
+     href: text-analytics-howto-sentiment-analysis.md
+   - name: Extract keywords 
+     href: text-analytics-howto-keyword-extraction.md
 - name: Reference
   items: 
-  - name: API Reference content
+  - name: API Reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
-  - name: Windows SDK
-    href: https://github.com/adgroc/Cognitive-TextAnalytics-Windows
+  - name: .Net Standard SDK
+    href: https://aka.ms/tasdkdotnet
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: External and community content
+    href: text-analytics-resource-external-community.md
+  - name: FAQ
+    href: text-analytics-resource-faq.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/text-analytics-api
+  - name: User Voice 
+    href: https://cognitive.uservoice.com/forums/555922-text-analytics
+
+
+
+

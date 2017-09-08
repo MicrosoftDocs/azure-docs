@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
 
 ---
@@ -39,7 +39,6 @@ Caveats with app passwords for federated users:
 * You lose on-premises authentication-logging capability for app passwords.
 * Account disable/deletion may take up to three hours for directory sync, delaying disable/deletion of app passwords in the cloud identity.
 
-## Next steps
 For information on setting up either Azure Multi-Factor Authentication or the Azure Multi-Factor Authentication Server with AD FS, see the following articles:
 
 * [Secure cloud resources using Azure Multi-Factor Authentication and AD FS](multi-factor-authentication-get-started-adfs-cloud.md)

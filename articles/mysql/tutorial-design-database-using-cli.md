@@ -5,9 +5,9 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/13/2017
 ms.custom: mvc
 ---

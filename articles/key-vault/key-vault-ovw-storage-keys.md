@@ -1,4 +1,4 @@
-﻿---
+---
 ms.assetid: 
 title: Azure Key Vault Storage Account Keys
 description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
@@ -22,13 +22,14 @@ For more general information on Azure Storage Accounts, see [About Azure storage
 
 The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. For more information, see [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
+
 ## Storage account keys behavior
 
 ### What Key Vault manages
 
 Key Vault performs several internal management functions on your behalf when you use Storage Account Keys.
 
-1. Azure Key Vault manages keys of an Azure Storage Account (SAS). 
+1. Azure Key Vault manages keys of an Azure Storage Account (ASA). 
     - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.  
     - Azure Key Vault regenerates (rotates) the keys periodically. 
     - Key values are never returned in response to caller. 
@@ -52,12 +53,16 @@ Developers used to need to do the following practices with a storage account key
 //create storage account using connection string containing account name 
 // and the storage key 
 
-var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));var blobClient = storageAccount.CreateCloudBlobClient();
+var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+var blobClient = storageAccount.CreateCloudBlobClient();
  ```
  
 ### After Azure Key Vault Storage Keys 
 
 ```
+//Please make sure to set storage permissions appropriately on your key vault
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
@@ -117,7 +122,7 @@ Key Vault must verify that the identity has *regenerate* permissions before it c
 - Key Vault lists RBAC permissions on the storage account resource.
 - Key Vault validates the response via regular expression matching of actions and non-actions. 
 
-Find some supporting examples at [Key Vault - Managed Storage Accont Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
+Find some supporting examples at [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
 
 If the identity does not have *regenerate* permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
 

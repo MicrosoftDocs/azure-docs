@@ -20,7 +20,7 @@ ms.author: raynew
 
 # Step 2: Before you start
 
-After you've reviewed the [architecture](azure-to-azure-walkthrough-architecture.md) for replicating Azure virtual machines (VMs) between Azure regions with Azure Site Recovery(site-recovery-overview.md), use this article to verify prerequisites. 
+After you've reviewed the [architecture](azure-to-azure-walkthrough-architecture.md) for replicating Azure virtual machines (VMs) between Azure regions with [Azure Site Recovery](site-recovery-overview.md), use this article to verify prerequisites.
 
 - When you finish the article, you should have a clear understanding of what's needed to make the deployment work, and have completed the prerequisite steps.
 - Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -33,15 +33,15 @@ After you've reviewed the [architecture](azure-to-azure-walkthrough-architecture
 
 ## Support recommendations
 
-Review the table below.
+Review the table below. Get a full list of support requirements in the [support matrix.](site-recovery-support-matrix-azure-to-azure.md)
 
 **Component** | **Requirement**
 --- | ---
 **Recovery Services vault** | We recommend that you create a Recovery Services vault in the target Azure region that you want to use for disaster recovery. For example, if you want to replicate source VMs in East US to Central US, create the vault in Central US.
 **Azure subscription** | Your Azure subscription should be enabled to create VMs, in the target location that you want to use as the disaster recovery region. Contact support to enable the required quota.
 **Target region capacity** | In the target Azure region, the subscription should have enough capacity for VMs, storage accounts, and network components.
-**Storage** | Use the [storage guidance](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure VMs, to avoid performance issues.<br/><br/> Storage accounts must be in the same region as the vault.<br/><br/> If you deploy replication with the default settings, Site Recovery creates the required storage accounts based on the source configuration. If you customize settings, follow the [scalability targets for VM disks](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
-**Networking** | You need to allow outbound connectivity from Azure VMs, for specific URLs/IP ranges.<br/><br/> Network accounts must be in the same region as the vault.<br/><br/> If you use a premium storage account, you need an additional standard storage account, to store replication logs<br/><br/> You can't replicate to premium accounts in Central and South India.
+**Storage** | Use the [storage guidance](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure VMs, to avoid performance issues.<br/><br/> Storage accounts must be in the same region as the vault.<br/><br/> You can't replicate to premium accounts in Central and South India.<br/><br/> If you deploy replication with the default settings, Site Recovery creates the required storage accounts based on the source configuration. If you customize settings, follow the [scalability targets for VM disks](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+**Networking** | You need to allow outbound connectivity from Azure VMs, for specific URLs/IP ranges.<br/><br/> Network accounts must be in the same region as the vault.
 **Azure VM** | Make sure all of the latest root certificates are on the Windows/Linux Azure VM. If they're not, you won't be able to register the VM in Site Recovery, because of security constraints.
 **Azure user account** | Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of an Azure virtual machine.
 

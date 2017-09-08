@@ -13,13 +13,7 @@
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Get Started
-## [Replicate Azure VMs (preview)](azure-to-azure-walkthrough-overview.md)
-### [Step 1: Review the architecture](azure-to-azure-walkthrough-architecture.md)
-### [Step 2: Before you start](azure-to-azure-walkthrough-prerequisites.md)
-### [Step 3: Plan networking](azure-to-azure-walkthrough-network.md)
-### [Step 4: Create a vault](azure-to-azure-walkthrough-vault.md)
-### [Step 5: Enable replication](azure-to-azure-walkthrough-enable-replication.md)
-### [Step 6: Run a test failover](azure-to-azure-walkthrough-test-failover.md)
+## [Replicate Azure VMs to Azure (preview)](site-recovery-azure-to-azure.md)
 ## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
 ### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](vmware-walkthrough-prerequisites.md)
@@ -70,17 +64,7 @@
 ### [Step 9: Install the Mobility service](physical-walkthrough-install-mobility.md)
 ### [Step 10: Enable replication](physical-walkthrough-enable-replication.md)
 ### [Step 11: Run a test failover](physical-walkthrough-test-failover.md)
-## [Replicate Hyper-V VMs to a secondary site (with VMM)](vmm-to-vmm-walkthrough-overview.md)
-### [Step 1: Review the architecture](vmm-to-vmm-walkthrough-architecture.md)
-### [Step 2: Review prerequisites and limitations](vmm-to-vmm-walkthrough-prerequisites.md)
-### [Step 3: Plan networking](vmm-to-vmm-walkthrough-network.md)
-### [Step 4: Prepare VMM and Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v.md)
-### [Step 5: Create a vault](vmm-to-vmm-walkthrough-create-vault.md)
-### [Step 6: Set up the source and target](vmm-to-vmm-walkthrough-source-target.md)
-### [Step 7: Configure network mapping](vmm-to-vmm-walkthrough-network-mapping.md)
-### [Step 8: Create a replication policy](vmm-to-vmm-walkthrough-replication.md)
-### [Step 9: Enable replication](vmm-to-vmm-walkthrough-enable-replication.md)
-### [Step 10: Run a test failover](vmm-to-vmm-walkthrough-test-failover.md)
+## [Replicate Hyper-V VMs to a secondary site (with VMM)](site-recovery-vmm-to-vmm.md)
 ## [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
 ## [Replicate VMware VMs to Azure in a multi-tenant deployment (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
@@ -136,7 +120,7 @@
 ### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
-### [SAP](site-recovery-workload.md#protect-sap)
+### [SAP](site-recovery-sap.md)
 ### [IIS based web applications](site-recovery-iis.md)
 ### [Citrix XenApp and XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Other workloads](site-recovery-workload.md#workload-summary)
@@ -145,6 +129,7 @@
 ### [Automate Hyper-V replication to Azure (with VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Manage
+### [Upgrade your Site Recovery vault to Recovery Services vault](upgrade-site-recovery-vaults.md)
 ### [Manage process servers in Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Manage the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
@@ -155,6 +140,8 @@
 ## Monitor and troubleshoot
 ### [Azure to Azure replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [On-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Mobility service installation issues](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Failover to Azure issues](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Collect logs and troubleshoot on-premises issues](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference

@@ -4,7 +4,7 @@ description: This topic demonstrates how to redact faces with Azure media analyt
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/03/2017
 ms.author: juliako;
 
 ---
@@ -22,8 +22,6 @@ ms.author: juliako;
 **Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face redaction process will require just a few simple steps. For  more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 This topic gives details about **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
-
-The **Azure Media Redactor** MP is currently in Preview. It is available in all public Azure regions as well as US Government and China data centers. This preview is currently free of charge. 
 
 ## Face redaction modes
 Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process is very complex and does not always produce 100% of desired output, for this reason Media Analytics provides you with a couple of ways to modify the final output.
@@ -129,7 +127,37 @@ Example foo_IDList.txt
      1
      2
      3
+
+## Blur types
+
+In the **Combined** or **Redact** mode, there are 5 different blur modes you can choose from via the JSON input configuration: **Low**, **Med**, **High**, **Debug**, and **Black**. By default **Med** is used.
+
+You can find samples of the blur types below.
+
+### Example JSON:
+
+	{'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### Low
+
+![Low](./media/media-services-face-redaction/blur1.png)
  
+#### Med
+
+![Med](./media/media-services-face-redaction/blur2.png)
+
+#### High
+
+![High](./media/media-services-face-redaction/blur3.png)
+
+#### Debug
+
+![Debug](./media/media-services-face-redaction/blur4.png)
+
+#### Black
+
+![Black](./media/media-services-face-redaction/blur5.png)
+
 ## Elements of the output JSON file
 
 The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.

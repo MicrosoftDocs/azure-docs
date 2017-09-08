@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
+ms.date: 08/04/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Deploy a DC/OS cluster
@@ -27,13 +28,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## Log in to Azure 
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -43,7 +42,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -53,7 +52,7 @@ Create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
 
 The following example creates a DC/OS cluster named *myDCOSCluster* and creates SSH keys if they do not already exist. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli-interactive
+```azurecli
 az acs create \
   --orchestrator-type dcos \
   --resource-group myResourceGroup \
@@ -67,13 +66,13 @@ After several minutes, the command completes, and returns information about the 
 
 Once a DC/OS cluster has been created, it can be accesses through an SSH tunnel. Run the following command to return the public IP address of the DC/OS master. This IP address is stored in a variable and used in the next step.
 
-```azurecli-interactive
+```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
 To create the SSH tunnel, run the following command and follow the on-screen instructions. If port 80 is already in use, the command fails. Update the tunneled port to one not in use, such as `85:localhost:80`. 
 
-```azurecli-interactive
+```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -89,13 +88,13 @@ The DC/OS command line interface is used to manage a DC/OS cluster from the comm
 
 If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
-```azurecli-interactive
+```azurecli
 az acs dcos install-cli
 ```
 
 Before the CLI can be used with the cluster, it must be configured to use the SSH tunnel. To do so, run the following command, adjusting the port if needed.
 
-```azurecli-interactive
+```azurecli
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -135,26 +134,26 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app add marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app list
 ```
 
 When the **WAITING** column value switches from *True* to *False*, application deployment has completed.
 
-```azurecli-interactive
+```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
 Get the public IP address of the DC/OS cluster agents.
 
-```azurecli-interactive
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -166,7 +165,7 @@ Browsing to this address returns the default NGINX site.
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, DC/OS cluster, and all related resources.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 

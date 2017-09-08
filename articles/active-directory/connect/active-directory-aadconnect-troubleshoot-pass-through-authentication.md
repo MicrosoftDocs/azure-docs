@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ---
 
@@ -27,11 +27,11 @@ This article helps you find troubleshooting information about common issues rega
 
 ### Check status of the feature and Authentication Agents
 
-Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can see this by going to the **Azure AD Connect** blade on the [Azure portal](https://portal.azure.com/).
+Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+![Azure Active Directory admin center - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
-![Azure portal - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
+![Azure Active Directory admin center - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### User-facing sign-in error messages
 
@@ -45,13 +45,13 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
-### Sign-in failure reasons on the Azure portal
+### Sign-in failure reasons on the Azure Active Directory admin center
 
-Start troubleshooting user sign-in issues by looking at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure portal](https://portal.azure.com/).
+Start troubleshooting user sign-in issues by looking at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
+![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure portal](https://portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
+Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---
@@ -91,7 +91,7 @@ Ensure that you use a cloud-only Global Administrator account for all Azure AD C
 
 If you have Pass-through Authentication enabled on your tenant and you try to uninstall Azure AD Connect, it shows you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers."
 
-Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
+Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
 
 ## Issues with enabling the feature
 
@@ -106,6 +106,18 @@ Ensure that the server on which Azure AD Connect is installed can communicate wi
 ### Enabling the feature failed due to token or account authorization errors
 
 Ensure that you use a cloud-only Global Administrator account when enabling the feature. There is a known issue with multi-factor authentication (MFA)-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operation) as a workaround.
+
+## Exchange ActiveSync configuration issues
+
+These are the common issues when you configure Exchange ActiveSync support for Pass-through Authentication.
+
+### Exchange PowerShell issue
+
+If you see the "**A parameter cannot be found that matches parameter name 'PerTenantSwitchToESTSEnabled'\.**" error when you run the `Set-OrganizationConfig` Exchange PowerShell command, contact Microsoft Support.
+
+### Exchange ActiveSync not working
+
+The configuration takes some time to take effect - the time period depends on your environment. If the situation persists for a long time, contact Microsoft Support.
 
 ## Collecting Pass-through Authentication Agent logs
 
@@ -144,3 +156,12 @@ If audit logging is enabled, additional information can be found in the security
     </Query>
     </QueryList>
 ```
+
+### Performance Monitor counters
+
+Another way to monitor Authentication Agents is to track specific Performance Monitor counters on each server where the Authentication Agent is installed. Use the following Global counters (**# PTA authentications**, **#PTA failed authentications** and **#PTA successful authentications**) and Error counters (**# PTA authentication errors**):
+
+![Pass-through Authentication Performance Monitor counters](./media/active-directory-aadconnect-pass-through-authentication/pta12.png)
+
+>[!IMPORTANT]
+>Pass-through Authentication provides high availability using multiple Authentication Agents, and _not_ load balancing. Depending on your configuration, _not_ all your Authentication Agents receive roughly _equal_ number of requests. It is possible that a specific Authentication Agent receives no traffic at all.

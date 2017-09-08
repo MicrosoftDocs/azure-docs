@@ -19,7 +19,7 @@ ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Monitor and scale a single SQL database using PowerShell
+# Use PowerShell to monitor and scale a single SQL database
 
 This PowerShell script example monitors the performance metrics of a database, scales it to a higher performance level, and creates an alert rule on one of the performance metrics. 
 

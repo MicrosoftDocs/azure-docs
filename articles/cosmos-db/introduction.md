@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
@@ -45,7 +45,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
         * Additional data models coming soon 
 
 * **Elastically scale throughput and storage on demand, worldwide**
-    * Easily scale database throughput at [second](request-units.md) and [minute](request-units-per-minute.md) granularities, and change it anytime you want. 
+    * Easily scale database throughput at a [per second](request-units.md) granularity, and change it anytime you want. 
     * Scale storage size [transparently and automatically](partition-data.md) to handle your size requirements now and forever.
 
 * **Build highly responsive and mission-critical applications**

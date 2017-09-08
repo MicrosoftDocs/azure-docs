@@ -19,16 +19,9 @@ ms.author: huvalo
 
 ---
 # Django Hello World web app on a Windows Server VM
-> [!div class="op_single_selector"]
-> * [Windows](python-django-web-app.md)
-> * [Mac/Linux](../../linux/python-django-web-app.md)
-> 
-> 
-
-<br>
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and the classic deployment model](../../../resource-manager-deployment-model.md). This article describes the classic deployment model. We recommend that most new deployments use the Resource Manager model. For a Resource Manager template that you can use to deploy Django, see [Deploy a Django app](https://azure.microsoft.com/documentation/templates/django-app/).
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and the classic deployment model](../../../resource-manager-deployment-model.md). This article describes the classic deployment model. We recommend that most new deployments use the Resource Manager model.
 
 This tutorial shows you how to host a Django-based website in Windows Server in Azure Virtual Machines. In the tutorial, we assume no prior experience with Azure. When you finish the tutorial, you can have a Django-based application up and running in the cloud.
 
