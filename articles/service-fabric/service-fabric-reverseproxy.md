@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/07/2017
+ms.date: 08/08/2017
 ms.author: bharatn
 
 ---
@@ -131,6 +131,15 @@ Application Gateway thus needs a way to distinguish between these two cases. To 
 This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and Application Gateway will not attempt to resolve the service address again.
 
 ## Setup and configuration
+
+### Enable reverse proxy via Azure portal
+
+Azure portal provides an option to enable Reverse proxy while creating a new Service Fabric cluster.
+Under **Create Service Fabric cluster**, Step 2: Cluster Configuration, Node type configuration, select the checkbox to "Enable reverse proxy".
+For configuring secure reverse proxy, SSL certificate can be specified in Step 3: Security, Configure cluster security settings, select the checkbox to "Include a SSL certificate for reverse proxy" and enter the certificate details.
+
+### Enable reverse proxy via Azure Resource Manager templates
+
 You can use the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to enable the reverse proxy in Service Fabric for the cluster.
 
 Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) for Azure Resource Manager template samples to configure secure reverse proxy with a certificate and handling certificate rollover.
@@ -298,6 +307,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+* For additional reverse proxy configuration options, refer ApplicationGateway/Http section in [Customize Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

@@ -6,9 +6,9 @@ author: mswutao
 ms.author: wuta
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/12/2017
 ---
 

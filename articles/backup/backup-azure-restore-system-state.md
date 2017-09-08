@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/31/2017
+ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
 
 ---
@@ -174,7 +174,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 System State backup includes Active Directory data. Use the following steps to restore Active Directory Domain Service (AD DS) from its current state to a previous state.
 
 1. Restart the domain controller in Directory Services Restore Mode (DSRM).
-2. Follow the steps here to use Windows Server Backup cmdlets to recover AD DS.
+2. Follow the steps [here](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) to use Windows Server Backup cmdlets to recover AD DS.
 
 
 ## Troubleshoot failed System State restore

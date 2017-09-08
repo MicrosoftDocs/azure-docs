@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 
 ---
@@ -38,6 +38,7 @@ Application Gateway currently provides the following capabilities:
 * **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
 * **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the native support for Websocket.
 * **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources and custom probes to monitor for more specific scenarios.
+* **[SSL Policy and Ciphers](application-gateway-ssl-policy-overview.md)** - This feature provides the ability to limit the SSL protocol versions and the ciphers suites that are supported and the order in which they are processed.
 * **[Request redirect](application-gateway-redirect-overview.md)** - This feature provides the capability to redirect HTTP requests to an HTTPS listener.
 * **[Multi-tenant back-end support](application-gateway-web-app-overview.md)** - Application gateway supports configuring multi-tenant back-end services like Azure Web Apps and API Gateway as back-end pool members. 
 * **[Advanced diagnostics](application-gateway-diagnostics.md)** - Application gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
@@ -83,7 +84,7 @@ Azure Application Gateway automatically monitors the health of the back-end inst
 
 ## Configuring and managing
 
-For its endpoint, application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in its own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways. To secure your backend resources, the backend servers can be contained within a different subnet in the same virtual network as the application gateway. This subnet it not required for the backend applications. As long as the application gateway can reach the ip address, application gateway is able to provide ADC capabilities for the backend servers. 
+For its endpoint, application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in its own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways. To secure your backend resources, the backend servers can be contained within a different subnet in the same virtual network as the application gateway. This subnet is not required for the backend applications. As long as the application gateway can reach the ip address, application gateway is able to provide ADC capabilities for the backend servers. 
 
 You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI, or [Azure portal](https://portal.azure.com/). For additional questions on Application gateway visit [Application Gateway FAQ](application-gateway-faq.md) to view a list of common frequently asked questions.
 
@@ -101,4 +102,4 @@ After learning about Application gateway, you can [create an application gateway
 
 To learn how to create an application gateway using URL-based content routing, go to [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) for more information.
 
-To learn about some of the other key networking capabilities of Azure, see [Azure Networking]((../networking/networking-overview.md).
+To learn about some of the other key networking capabilities of Azure, see [Azure Networking](../networking/networking-overview.md).

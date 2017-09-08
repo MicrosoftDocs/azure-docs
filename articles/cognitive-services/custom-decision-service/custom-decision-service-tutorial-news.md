@@ -51,7 +51,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
     ![Custom Decision Service portal](./media/custom-decision-service-tutorial/portal.png)
 
-3. Enter a unique name for your application in the **App ID** text box. If this name is already in use by another customer, the system asks you to pick a different app ID. Select the **Advanced** check box, and enter the [connection string](../../storage/storage-configure-connection-string.md) for your Azure storage account. Normally, you use the same storage account for all your applications.
+3. Enter a unique name for your application in the **App ID** text box. If this name is already in use by another customer, the system asks you to pick a different app ID. Select the **Advanced** check box, and enter the [connection string](../../storage/common/storage-configure-connection-string.md) for your Azure storage account. Normally, you use the same storage account for all your applications.
 
     ![New app dialog box](./media/custom-decision-service-tutorial/new-app-dialog.png)
 

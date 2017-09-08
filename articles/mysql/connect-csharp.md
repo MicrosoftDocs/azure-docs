@@ -6,10 +6,10 @@ author: seanli1988
 ms.author: seal
 manager: janders
 editor: jasonwhowell
-ms.service: MySQL-database
+ms.service: MySQL
 ms.custom: mvc
 ms.devlang: csharp
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ---
 
@@ -203,7 +203,7 @@ namespace driver
 
 
 ## Delete data
-Use the following code to connect and read the data using a **DELETE** SQL statement. 
+Use the following code to connect and delete the data using a **DELETE** SQL statement. 
 
 The code uses ODBC class with method [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands.
 

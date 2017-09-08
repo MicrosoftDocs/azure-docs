@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
+ms.custom: mvc
 
 ---
 # Monitor an Azure Container Service cluster with ELK

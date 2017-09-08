@@ -248,7 +248,7 @@ The sections that follow can help you configure a client secret-based authentica
 ##### Create an Azure AD application by using Azure PowerShell
 Use the following PowerShell cmdlet to create an Azure AD application:
 
-    $aadClientSecret = “yourSecret”
+    $aadClientSecret = "yourSecret"
     $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 

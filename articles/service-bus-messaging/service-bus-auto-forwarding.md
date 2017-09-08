@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 08/07/2017
 ms.author: sethm
 
 ---
@@ -56,7 +56,7 @@ To create a subscription that is chained to another queue or topic, the creator 
 
 For detailed information about auto-forwarding, see the following reference topics:
 
-* [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo]
+* [ForwardTo][QueueDescription.ForwardTo]
 * [QueueDescription][QueueDescription]
 * [SubscriptionDescription][SubscriptionDescription]
 
@@ -65,8 +65,8 @@ To learn more about Service Bus performance improvements, see
 * [Best Practices for performance improvements using Service Bus Messaging](service-bus-performance-improvements.md)
 * [Partitioned messaging entities][Partitioned messaging entities].
 
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
-[SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
 [QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [SubscriptionDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif

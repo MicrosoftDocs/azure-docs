@@ -20,7 +20,7 @@ ms.author: bwren;dairwin
 
 # Service Map integration with System Center Operations Manager
   > [!NOTE]
-  > Because this feature is in private preview, it should not be used on production systems.
+  > This feature is in public preview.
   > 
   
 Operations Management Suite Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. Service Map allows you to view your servers the way you think of them, as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required besides the installation of an agent. For more information, see the [Service Map documentation](operations-management-suite-service-map.md).
@@ -57,17 +57,21 @@ To configure Service Map integration, do the following:
 
     ![The Operations Manager Configuration Workspace](media/oms-service-map/scom-config-workspace.png)
 
-4. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.   
+4. In the **Machine Group Selection** window, you choose which Service Map Machine Groups you want to sync to Operations Manager. Click **Add/Remove Machine Groups**, choose groups from the list of **Available Machine Groups**, and click **Add**.  When you are finished selecting groups, click **Ok** to finish.
+    
+    ![The Operations Manager Configuration Machine Groups](media/oms-service-map/scom-config-machine-groups.png)
+	
+5. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.   
     
     For the integration to build a distributed application diagram for a server, the server must be:
 
-    * Managed by Operations Manager.
-    * Managed by Service Map.
-    * Listed in the Service Map Servers Group.
+    * Managed by Operations Manager
+    * Managed by Service Map
+    * Listed in the Service Map Servers Group
 
     ![The Operations Manager Configuration Group](media/oms-service-map/scom-config-group.png)
 
-5. Optional: Select the Management Server resource pool to communicate with Operations Management Suite, and then click **Add Workspace**.
+6. Optional: Select the Management Server resource pool to communicate with Operations Management Suite, and then click **Add Workspace**.
 
     ![The Operations Manager Configuration Resource Pool](media/oms-service-map/scom-config-pool.png)
 
@@ -75,23 +79,22 @@ To configure Service Map integration, do the following:
 
     ![The Operations Manager Configuration Resource Pool](media/oms-service-map/scom-config-success.png)
 
-    >[!NOTE]
-    >The default sync interval is set to 60 minutes. You can configure overrides to change the sync interval. You can also add servers to the Service Map Servers Group manually through the **Authoring** pane. To do so, select **Groups**, and then search for **Service Map Servers Group**. The server maps for those servers are synced with the next sync, which is based on the configured sync interval.
 
 ## Monitor Service Map
 After the Operations Management Suite workspace is connected, a new folder, Service Map, is displayed in the **Monitoring** pane of the Operations Manager console.
 
 ![The Operations Manager Monitoring pane](media/oms-service-map/scom-monitoring.png)
 
-The Service Map folder has three nodes:
-* **Active Alerts**: Lists all the active alerts about the communication between Operations Manager and Service Map solution in Operations Management Suite.
-
-    >[!NOTE]
-    >These alerts are not the Operations Management Suite alerts that are surfaced in Operations Manager.
+The Service Map folder has four nodes:
+* **Active Alerts**: Lists all the active alerts about the communication between Operations Manager and Service Map.  Note that these alerts are not Operations Management Suite alerts being synced to Operations Manager. 
 
 * **Servers**: Lists the monitored servers that are configured to sync from Service Map.
 
     ![The Operations Manager Monitoring Servers pane](media/oms-service-map/scom-monitoring-servers.png)
+
+* **Machine Group Dependency Views**: Lists all machine groups that are synced from Service Map. You can click any group to view its distributed application diagram.
+
+    ![The Operations Manager distributed application diagram](media/oms-service-map/scom-group-dad.png)
 
 * **Server Dependency Views**: Lists all servers that are synced from Service Map. You can click any server to view its distributed application diagram.
 
@@ -115,14 +118,15 @@ A rule, _Microsoft.SystemCenter.ServiceMapImport.Rule_, is created to periodical
 ## Known issues and limitations
 
 The current design presents the following issues and limitations:
-* Although you can add servers to the Service Map Servers Group manually through the **Authoring** pane, the maps for those servers are synced from Service Map only during the next sync cycle. The default setting is 60 minutes, but you can override the timing. 
-* You can connect to a single Operations Management Suite workspace.
+* You can only connect to a single Operations Management Suite workspace.
+* Although you can add servers to the Service Map Servers Group manually through the **Authoring** pane, the maps for those servers are not synced immediately.  They will be synced from Service Map during the next sync cycle.
+* If you make any changes to the Distributed Application Diagrams created by the management pack, those changes will likely be overwritten on the next sync with Service Map.
 
 ## Create a service principal
 For official Azure documentation about creating a service principal, see:
-* [Create a service principal by using PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Create a service principal by using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Create a service principal by using the Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Create a service principal by using PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
 ### Feedback
-Do you have any feedback for us about Service Map or this documentation? Visit our [user voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.
+Do you have any feedback for us about Service Map or this documentation? Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.

@@ -82,5 +82,5 @@ A storage account can contain any number of queues, and a queue can contain any 
 ## Next steps
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
+* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
 

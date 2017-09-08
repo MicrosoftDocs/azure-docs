@@ -1,4 +1,4 @@
----
+﻿---
 title: Usage analysis for web applications with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your web app.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ---
 
 # Usage analysis for web applications with Application Insights
@@ -39,7 +39,7 @@ The best experience is obtained by installing Application Insights both in your 
 ## Include user and session ID in your telemetry
 To track users over time, Application Insights requires a way to identify them. The Events tool is the only Usage tool that does not require a user ID or a session ID.
 
-Start sending these IDs [here](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Start sending user and session IDs using [this process](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## Explore usage demographics and statistics
 Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 
@@ -165,8 +165,9 @@ In the web app initializer such as Global.asax.cs:
 All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
-
-* [Users and sessions](app-insights-usage-segmentation.md)
-* [Retention](app-insights-usage-retention.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)
-
+   - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+   - [Funnels](usage-funnels.md)
+   - [Retention](app-insights-usage-retention.md)
+   - [User Flows](app-insights-usage-flows.md)
+   - [Workbooks](app-insights-usage-workbooks.md)
+   - [Add user context](app-insights-usage-send-user-context.md)

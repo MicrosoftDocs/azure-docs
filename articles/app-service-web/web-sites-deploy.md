@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
-ms.author: cephalin;dariac
+ms.author: cephalin
 
 ---
 # Deploy your app to Azure App Service

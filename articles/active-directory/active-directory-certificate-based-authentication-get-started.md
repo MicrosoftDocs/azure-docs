@@ -37,6 +37,8 @@ This topic:
 
 To configure certificate-based authentication, the following must be true:  
 
+- Certificate-based authentication (CBA) is only supported for Federated environments for browser applications or native clients using modern authentication (ADAL). The one exception is Exchange Active Sync (EAS) for EXO which can be used for both, federated and managed accounts. 
+
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
 - Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an Internet facing URL.  
