@@ -126,7 +126,7 @@ _<compute target name>.compute_ file specifies connection and configuration info
 
 **password**: The encrypted password for the SSH connection.
 
-**baseDockerImage**: The Docker image used to run the Python/PySpark script. The default value is _microsoft/mmlspark:0.7_. We also support one other image: _microsoft/mmlspark:gpu_, which gives you GPU access to the host machine (if GPU is present).
+**baseDockerImage**: The Docker image used to run the Python/PySpark script. The default value is _microsoft/mmlspark:plus-0.7.dev7_2.gcfbc920_. We also support one other image: _microsoft/mmlspark:plus-gpu-0.7.dev7_2.gcfbc920_, which gives you GPU access to the host machine (if GPU is present).
 
 **sharedVolumes**: Flag to signal that execution engine should use Docker shared volume feature to ship project files back and forth. Having this flag turned on can speed up execution since Docker can access projects directly without the need to copy them. It is best to set _false_ if the Docker engine is running on Windows since volume sharing for Docker on Windows can be flaky. Set it to _true_ if it is running on macOS or Linux.
 

@@ -26,7 +26,7 @@ You can run your scripts on:
 * Conda Python environment inside of a Docker container on a remote Linux machine. For example, an [Ubuntu-based DSVM on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight for Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) on Azure
 
->Azure ML Execution Service currently supports Python 3.5.2 and Spark 2.1.10+ as Python and Spark runtime versions, respectively. 
+>Azure ML Execution Service currently supports Python 3.5.2 and Spark 2.1.11 as Python and Spark runtime versions, respectively. 
 
 
 ## Key Concepts in Azure ML Experiment Execution
@@ -42,7 +42,7 @@ Compute target specifies where to execute user's program such as user's desktop,
 * Remote Docker on Linux VMs. For example, an [Ubuntu-based DSVM on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight for Spark cluster](https://azure.microsoft.com/services/hdinsight/apache-spark/) on Azure
 
->Azure ML Execution Service currently supports Python 3.5.2 and Spark 2.1.10+ as Python and Spark runtime versions, respectively. 
+>Azure ML Execution Service currently supports Python 3.5.2 and Spark 2.1.11 as Python and Spark runtime versions, respectively. 
 
 > Windows VMs running Docker are **NOT** supported as remote compute targets.
 
@@ -55,7 +55,7 @@ Conda is used to manage local Docker and remote Docker executions as well as HDI
 
 **Supported runtimes for execution environments are:**
 * Python 3.5.2
-* Spark 2.1.10+
+* Spark 2.1.11
 
 ### Run Configuration
 In addition to compute target and execution environment, Azure ML provides a framework to define and change run configurations. Different executions of your experiment may require different configuration as part of iterative experimentation. You may be sweeping different parameter ranges, using different data sources, and may turn off run tracking for performance. Azure ML execution service provides a framework for managing run configuration.
@@ -127,13 +127,13 @@ $ conda env list
 ```
 
 >[!NOTE]
->Running PySpark locally directly against local Spark environments is currently _not_ supported. Azure ML Workbench does support PySpark scripts running on local Docker. Azure ML base Docker image comes with Spark 2.1.10 pre-installed. 
+>Running PySpark locally directly against local Spark environments is currently _not_ supported. Azure ML Workbench does support PySpark scripts running on local Docker. Azure ML base Docker image comes with Spark 2.1.11 pre-installed. 
 
 _Overview of local execution for a Python script:_
 ![](media/experiment-execution-overview/local-native-run.png)
 
 ## Running a script on local Docker
-You can also run your projects on a Docker container on your local machine through Azure ML Execution Service. Azure ML Workbench provides a base Docker image that comes with Azure ML libraries and as well as Spark 2.1.10 runtime to make local Spark executions easy. 
+You can also run your projects on a Docker container on your local machine through Azure ML Execution Service. Azure ML Workbench provides a base Docker image that comes with Azure ML libraries and as well as Spark 2.1.11 runtime to make local Spark executions easy. 
 
 >Docker needs to be already running on the local machine.
 
@@ -148,6 +148,9 @@ az ml experiment submit --run-configuration docker myscript.py
 ```
 
 Execution environment on local Docker is prepared using the Azure ML base Docker image. Azure ML Workbench downloads this image when running for the first time and overlays it with packages specified in user's conda_dependencies.yml file. This operation makes the initial run slower but subsequent runs are considerably faster thanks to Workbench reusing cached layers. 
+
+>[!TIP]
+>If you prefer to avoid the latency introduced by building the Docker image for your first run, you can use the following command to prepare the compute target before executing your script. az ml experiment prepare -c docker
 
 >If running a PySpark script on Spark, spark_dependencies.yml is also used in addition to conda_dependencies.yml.
 
@@ -181,16 +184,11 @@ Once you configure the compute target, you can use the following command to run 
 ```
 $ az ml experiment submit -c remotevm myscript.py
 ```
-[!NOTE]
+>[!NOTE]
 >Keep in mind that execution environment is configured using the specifications in conda_dependencies.yml. spark_dependencies.yml is also used if PySpark framework is specified in .runconfig file. 
 
 The Docker construction process for remote VMs is exactly the same as the process for local Docker runs so you should expect a similar execution experience.
 
-If you prefer to avoid the latency introduced by building the Docker image for your first run, you can use the following command to prepare the compute target before executing your script. 
-
-```
-az ml experiment prepare -c remotevm
-```
 
 _Overview of remote vm execution for a Python script:_
 ![](media/experiment-execution-overview/remote-vm-run.png)
@@ -219,7 +217,7 @@ Azure ML Workbench prepares and manages execution environment on HDInsight clust
 
 >User needs SSH access to the HDInsight cluster in order to execute experiments in this mode. 
 
->Supported configuration is HDInsight Spark clusters running Linux (Ubuntu with Python/PySpark 3.5.2 and Spark 2.1.10+).
+>Supported configuration is HDInsight Spark clusters running Linux (Ubuntu with Python/PySpark 3.5.2 and Spark 2.1.11).
 
 _Overview of HDInsight-based execution for a PySpark script_
 ![](media/experiment-execution-overview/hdinsight-run.png)
