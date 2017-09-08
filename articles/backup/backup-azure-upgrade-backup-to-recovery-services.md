@@ -143,7 +143,7 @@ No. You cannot view or manage your classic vault post upgrade. You will only be 
 If you need to use the store, the backups of this machine for long-term retention, then you will not be able to upgrade the vault. In future releases we will add support for upgrading such a vault.
 If you do not need to store the backups of this machine anymore, then please unregister this machine from the vault and retry the upgrade.
 
-**Why can't I see the jobs information for my on-premises resources after upgrade**</br>
+**Why can't I see the jobs information for my resources after upgrade?**</br>
 Monitoring for backups (MARS agent and IaaS) is a new feature that you get when you upgrade your Backup vault to Recovery Services vault. The monitoring information takes up to 12 hours to sync with the service.
 
 **How do I report an issue?**</br>
