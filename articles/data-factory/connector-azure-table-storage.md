@@ -236,7 +236,7 @@ The "DivisionID" is specified as the partition key.
 
 ## Data type mapping for Azure Table
 
-When copying data from/to Azure Table, the following mappings are used from Azure Table data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from/to Azure Table, the following mappings are used from Azure Table data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 When moving data to & from Azure Table, the following [mappings defined by Azure Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Azure Table OData types to .NET type and vice versa.
 

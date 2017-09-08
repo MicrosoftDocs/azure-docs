@@ -223,7 +223,7 @@ and you want to copy it into an Azure SQL table in the following format, by extr
 
 The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. For more information, see [Map source dataset columns to destination dataset columns](copy-activity-map-columns.md).
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. For more information, see [Map source dataset columns to destination dataset columns](copy-activity-schema-and-type-mapping.md).
 - `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. To copy data from array, you can use `array[x].property` to extract value of the given property from the `xth` object, or you can use `array[*].property` to find the value from any object containing such property.
 
 ```json
@@ -298,7 +298,7 @@ and you want to copy it into an Azure SQL table in the following format, by flat
 
 The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. For more information, see [Map source dataset columns to destination dataset columns](copy-activity-map-columns.md).
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. For more information, see [Map source dataset columns to destination dataset columns](copy-activity-schema-and-type-mapping.md).
 - `jsonNodeReference` indicates to iterate and extract data from the objects with the same pattern under **array** `orderlines`.
 - `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. In this example, `ordernumber`, `orderdate`, and `city` are under root object with JSON path starting with `$.`, while `order_pd` and `order_price` are defined with path derived from the array element without `$.`.
 

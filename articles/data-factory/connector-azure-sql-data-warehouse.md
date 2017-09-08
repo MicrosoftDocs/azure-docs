@@ -403,7 +403,7 @@ NULL value is a special form of default value. If the column is nullable, the in
 
 ## Data type mapping for Azure SQL Data Warehouse
 
-When copying data from/to Azure SQL Data Warehouse, the following mappings are used from Azure SQL Data Warehouse data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from/to Azure SQL Data Warehouse, the following mappings are used from Azure SQL Data Warehouse data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Azure SQL Data Warehouse data type | Data factory interim data type |
 |:--- |:--- |

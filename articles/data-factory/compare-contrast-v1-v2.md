@@ -16,3 +16,11 @@ ms.author: shlo
 
 ---
 # Compare and contrast version 1 and version 2 of Azure Data Factory
+
+
+
+## Next steps
+See the following topics: 
+
+- [Introduction to Azure Data Factory](introduction.md)
+- [Quickstart: create a data factory](quickstart-create-data-factory-dot-net.md)

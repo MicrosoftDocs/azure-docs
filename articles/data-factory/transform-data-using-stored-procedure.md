@@ -22,7 +22,7 @@ ms.author: shlo
 You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
 
 > [!NOTE] 
-> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-dot-net.md) before reading this article. 
+> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-dot-net.md) before reading this article. 
 
 You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
 
@@ -70,3 +70,11 @@ The following table describes these JSON properties:
 | linkedServiceName         | Reference to the Azure SQL Database or Azure SQL Data Warehouse or SQL Server registered as a linked service in Data Factory | Yes      |
 | storedProcedureName       | Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse or SQL Server database that is represented by the linked service that the output table uses. | Yes      |
 | storedProcedureParameters | Specify values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` for to pass parameter values and their native type supported by the data source. If you need to pass null for a parameter, use *"param1": { "value": null }* (all lower case). | No       |
+
+## Next steps
+See the following articles that explain how to transform data in other ways: 
+
+* [Hive Activity](transform-data-using-hadoop-hive.md)
+* [Pig Activity](transform-data-using-hadoop-pig.md)
+* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
+* [Spark Activity](transform-data-using-spark.md)

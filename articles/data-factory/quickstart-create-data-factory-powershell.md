@@ -19,7 +19,7 @@ ms.author: jingwang
 # Create a data factory and pipeline using PowerShell
 This quickstart describes how to use PowerShell to create an Azure data factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
 
-## Prerequisite
+## Prerequisites
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
@@ -355,4 +355,4 @@ Tutorial | Description
 -------- | -----------
 [Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
 [Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-copy-onprem-data-to-cloud-dot-net.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
-[Tutorial: transform data using Spark](tutorial-transform-data-dot-net.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
+[Tutorial: transform data using Spark](tutorial-transform-data-using-spark-dot-net.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure

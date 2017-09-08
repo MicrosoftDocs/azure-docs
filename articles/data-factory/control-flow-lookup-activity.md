@@ -228,3 +228,12 @@ Name | Description | Type | Required
 dataset | The dataset attribute is to provide the dataset reference for the lookup. Currently, the supported dataset types are:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | key/value pair | Yes
 source | Dataset-specific source properties, same as copy activity source | Key/value pair | No
 firstRowOnly | Returns first row or all rows. | boolean | No
+
+## Next steps
+See other control flow activities supported by Data Factory: 
+
+- [If condition](control-flow-if-condition.md)
+- [Do Until Activity](control-flow-do-until-activity.md)
+- [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
+- [For Each Activity](control-flow-for-each-activity.md)
+- [Get Metadata Activity](control-flow-get-metadata-activity.md)

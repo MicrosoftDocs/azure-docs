@@ -23,6 +23,8 @@
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Azure Portal
       href: quickstart-create-data-factory-portal.md     
+  - name: Deploy SSIS packages
+    href: quickstart-deploy-ssis-packages.md
 - name: Tutorials
   items:
   - name: 1 - Copy data in cloud
@@ -30,7 +32,7 @@
   - name: 2 - Copy on-prem data to cloud
     href: tutorial-copy-onprem-data-to-cloud-dot-net.md
   - name: 3 - Transform data in cloud
-    href: tutorial-transform-data-dot-net.md
+    href: tutorial-transform-data-using-spark-dot-net.md
   - name: 4 - Control flow
     href: tutorial-control-flow.md    
   - name: 5 - Bulk and incremental copy
@@ -127,8 +129,8 @@
         href: connector-web-table.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md        
-    - name: Schema mapping
-      href: copy-activity-map-schemas.md      
+    - name: Schema and type mapping
+      href: copy-activity-schema-and-type-mapping.md      
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md     
     - name: Performance and tuning
@@ -183,7 +185,7 @@
   - name: Monitor and manage
     items: 
     - name: Use .NET
-      href: monitor-manage-pipelines.md
+      href: monitor-programmatically.md
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
   - name: Create integration runtime
@@ -200,7 +202,6 @@
   - name: REST API
     href: /rest/api/data-factory
   - name: Python
-  - name: Java
 - name: Resources
   items:
   - name: Azure Roadmap

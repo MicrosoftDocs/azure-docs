@@ -155,7 +155,7 @@ To copy data from SAP BW, set the source type in the copy activity to **Relation
 
 ## Data type mapping for SAP BW
 
-When copying data from SAP BW, the following mappings are used from SAP BW data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from SAP BW, the following mappings are used from SAP BW data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | SAP BW data type | Data factory interim data type |
 |:--- |:--- |

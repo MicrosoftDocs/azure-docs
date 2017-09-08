@@ -14,7 +14,7 @@ metadata:
   ms.date: 08/07/2017
   ms.author: spelluru
 abstract:
-  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. Currently, the version V2 of Data Factory is in public preview. The version V1 is generally available (GA). If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation</a>. 
+  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in public preview. The version V1 is generally available (GA). If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation</a></p>. 
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -42,11 +42,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Create a data factory &#58; <a href="/azure/data-factory/tutorial-create-data-factory-dot-net">.NET</a> | <a href="/azure/data-factory/tutorial-create-data-factory-powershell">PowerShell</a>
-    - html: Monitor a data factory&#58; <a href="../data-factory/tutorial-monitor-data-factory-dot-net">.NET</a>
-    - html: Copy on-prem data to Azure&#58; <a href="../data-factory/tutorial-copy-onprem-data-to-cloud.md">.NET</a>    
-    - html: Copy multiple tables in a loop&#58; <a href="../data-factory/tutorial-copy-multiple-tables-in-loop.md">.NET</a>   
-    - html: Branch control flow&#58; <a href="../data-factory/tutorial-branch-control-flow.md">.NET</a>            
+    - html: Copy data in cloud &#58; <a href="/azure/data-factory/tutorial-copy-data-dot-net.md">.NET</a>
+    - html: Copy on-prem data to cloud&#58; <a href="../data-factory/tutorial-copy-onprem-data-to-cloud-dot-net.md">.NET</a>
+    - html: Transform data in cloud&#58; <a href="../data-factory/tutorial-transform-data-using-spark-dot-net.md">.NET</a>    
+    - html: Control flow&#58; <a href="../data-factory/tutorial-control-flow.md">.NET</a>   
+    - html: Bulk and incremental copy&#58; <a href="../data-factory/tutorial-bulk-incremental-copy.md">.NET</a>            
 - title: Reference
   items:
   - type: list
@@ -54,8 +54,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/powershell/azure/data-factory">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.datafactories">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+      html: <p><a href="/dotnet/api/microsoft.azure.management.datafactories">.NET</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/data-factory">Data Factory REST API Reference</a></p>      

@@ -153,7 +153,7 @@ To copy data from MySQL, set the source type in the copy activity to **Relationa
 
 ## Data type mapping for MySQL
 
-When copying data from MySQL, the following mappings are used from MySQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from MySQL, the following mappings are used from MySQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | MySQL data type | Data factory interim data type |
 |:--- |:--- |

@@ -162,7 +162,7 @@ To copy data from DB2, set the source type in the copy activity to **RelationalS
 
 ## Data type mapping for DB2
 
-When copying data from DB2, the following mappings are used from DB2 data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from DB2, the following mappings are used from DB2 data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | DB2 Database type | Data factory interim data type |
 |:--- |:--- |
