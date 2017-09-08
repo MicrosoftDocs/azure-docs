@@ -38,7 +38,7 @@ After the run has completed, you can view the results in run history view of Azu
 
 ## Install MMLSpark on Azure HDInsight Spark Cluster.
 
-To complete this and following step, you need to first [create Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+To complete this and the following step, you need to first [create an Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 By default, Azure Machine Learning Workbench installs MMLSpark package on your cluster when you run your experiment. You can control this behavior and install other Spark packages by editing a file named _aml_config/spark_dependencies.yml_ in your project folder.
 
@@ -56,7 +56,7 @@ You can also install MMLSpark directly on your HDInsight Spark cluster using [Sc
 
 ## Set up Azure HDInsight Spark Cluster as Compute Target
 
-Open CLI window from Workbench App by going to "File" and "Open Command Prompt"
+Open CLI window from Azure Machine Learning Workbench by going to "File" Menu and click "Open Command Prompt"
 
 In CLI Window, run following command:
 
@@ -70,11 +70,11 @@ Now the cluster is available as compute target for the project.
 
 Go back to the project dashboard of "MMLSpark on Adult Census" example. Select your cluster as the compute target, and click run.
 
-AML Workbench submits the spark job to the cluster. You can monitor the progress and view the results in run history view.
+Azure Machine Learning Workbench submits the spark job to the cluster. You can monitor the progress and view the results in run history view.
 
 ## Next steps
 For information about MMLSpark library, and examples, see [MMLSpark GitHub repository](https://github.com/Azure/mmlspark)
 
 *Apache®, Apache Spark, and Spark® are either registered trademarks or
 trademarks of the Apache Software Foundation in the United States and/or other
-countries*
+countries.*
