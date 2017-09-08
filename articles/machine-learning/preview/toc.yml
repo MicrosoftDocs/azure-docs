@@ -1,11 +1,12 @@
-- name: Azure Machine Learning preview features
+- name: Azure Machine Learning (preview) Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: (What are the Azure Machine Learning preview features?)
+  - name: What is Azure Machine Learning?
+    href: overview-what-is-azure-ml.md
   - name: Machine Learning options at Microsoft
-    href: oerview-what-are-machine-learning-options.md
+    href: overview-what-are-machine-learning-options.md
 - name: Quickstarts
   items:
   - name: Provisioning and installation
@@ -54,7 +55,7 @@
       href: how-to-use-mmlspark.md
   - name: Operationalize models
     items:
-    - name: (Use Model Management Service with CLI)
+    - name: (Use Model Management with CLI)
     - name: (Consume a service with CLI)
   - name: (Use AZ ML CLI from the command line)
   - name: (Use a Git repo for source control)  

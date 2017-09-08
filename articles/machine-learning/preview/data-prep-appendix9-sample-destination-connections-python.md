@@ -1,4 +1,10 @@
-Before reading this appendix read [Python Extensibility Overview](../DataPrep_PythonExtensibilityOverview.md)
+title: <this Sample of Destination Connections (Python)> | Microsoft Docs
+description: <this Gives samples of python destionation connections expressions>
+author: <your cforbe>
+ms.author: <your cforbe@microsoft.com>
+ms.date: <today’s date: 9/7/2017>
+
+Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)
 # Sample of Destination Connections (Python) #
 
 ## Write to Excel ##
