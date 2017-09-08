@@ -32,7 +32,7 @@ From your non-interactive .NET application, you need:
 * An HDInsight cluster. See the [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## Assign a role to the Azure AD application
-Assign your Azure AD application a [role](../active-directory/role-based-access-built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it). In this tutorial, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+Assign your Azure AD application a [role](../active-directory/role-based-access-built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. (For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it.) In this tutorial, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
 **To add the Owner role to the Azure AD application**
 
