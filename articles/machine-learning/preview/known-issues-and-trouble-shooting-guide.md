@@ -35,7 +35,7 @@ ms.date: 09/05/2017
 <username> ALL = NOPASSWD: /usr/bin/docker, /usr/bin/nvidia-docker
 ```
 
-##Docker
+## Docker
 * When executing against a local Docker container, if you see the following error, you can fix it by changing the Docker DNS Server from Automatic to Fixed 8.8.8.8. 
 ```
 Get https://registry-1.docker.io/v2/: 
@@ -43,7 +43,9 @@ dial tcp:
 lookup registry-1.docker.io on [::1]:53: read udp [::1]:49385->[::1]:53: 
 read: connection refused
 ```
-![Docker DNS setting](../Images/docker_dns.png)
+![Image](media/known-issues-and-trouble-shooting-guide/docker_dns.png)
+
+
 
 
 
