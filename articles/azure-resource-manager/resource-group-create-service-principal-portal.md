@@ -97,7 +97,7 @@ To check your subscription permissions:
 
    ![select app registrations](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
-1. Select **Add**.
+1. Select **New application registration**.
 
    ![add app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
@@ -133,9 +133,13 @@ When programmatically logging in, you need the ID for your application and an au
 
 ## Get tenant ID
 
-When programmatically logging in, you need to pass the tenant ID with your authentication request. 
+When programmatically logging in, you need to pass the tenant ID with your authentication request.
 
-1. To get the tenant ID, select **Properties** for your Azure AD tenant. 
+1. Select **Azure Active Directory**.
+
+   ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+
+1. To get the tenant ID, select **Properties** for your Azure AD tenant.
 
    ![select Azure AD properties](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
@@ -173,7 +177,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
    ![search for app](./media/resource-group-create-service-principal-portal/search-app.png)
 
-1. Select **OK** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
+1. Select **Save** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
 
 ## Log in as the application
 
