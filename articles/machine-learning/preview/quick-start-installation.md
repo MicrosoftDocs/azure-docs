@@ -17,10 +17,10 @@ ms.date: 09/05/2017
 
 In order to use Azure Machine Learning preview features, you need to do two things:
 - Provision Azure resources.
-- Install the Azure Machine Learning Workbench desktop application, which also includes CLI (command-line interface) tools.
+- Install the Azure ML Workbench desktop application, which also includes CLI (command-line interface) tools.
 
 ## Prerequisites
-### Mandatory Requirements:
+### Mandatory Requirements
 * Access to an Azure subscription where you have sufficient permissions to create Azure resources. Minimally, you need to be a Contributor of the subscription, or Contributor of a Resource Group in the subscription.
 * Supported operating systems for the Azure ML Workbench:
     * Windows 10
@@ -31,7 +31,7 @@ In order to use Azure Machine Learning preview features, you need to do two thin
 
 >Note Model Management CLIs are also supported on Linux.
 
-### Optional Requirements:
+### Optional Requirements
 * Local Docker engine for running dev/test scenarios locally.
 * Access to Unbutu Linux VM for scale-up computation.
 * Access to HDInsight for Spark cluster for scale-out computation.
@@ -46,9 +46,9 @@ $ /Applications/Python\ 3.6/Install\ Certificates.command
 ```
 
 ## Provisioning
-Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on _+ New_ and search for _Machine Learning_. Look for _ML Experimentation (preview)_ in the search results. Click on _ML Experimentation (preview)_ to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or supply an existing one, for storing Run outputs and other data.
+Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on **+ New** and search for **Machine Learning**. Look for **ML Experimentation (preview)** in the search results. Click on **ML Experimentation (preview)** to get started with creating your **Machine Learning Experimentation account**. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or supply an existing one, for storing Run outputs and other data.
 
-As part of the Experimentation account creation experience, you have an option of also creating the _Machine Learning Model Management account_. You need this resource when you are ready to deploy and manage your models as web services. It is recommended that you create the Model Management account along with the Experimentation account.
+As part of the Experimentation account creation experience, you have an option of also creating the **Machine Learning Model Management account**. You need this resource when you are ready to deploy and manage your models as web services. It is recommended that you create the Model Management account along with the Experimentation account.
 
 <!--
 >NOTE: Some note about pricing associated for public preview should go in here.
@@ -75,7 +75,7 @@ When a new release becomes available, Azure ML Workbench auto-updates on its own
 | [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg) | macOS
 
 ### Install Azure ML Workbench
-Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Finish dthe installation by following the on-screen instructions. Azure ML Workbench is now installed in the following directory:
+Double-click the downloaded installer **AmlWorkbenchSetup.exe** (on Windows), or **AmlWorkbench.dmg** (on macOS). Finish dthe installation by following the on-screen instructions. Azure ML Workbench is now installed in the following directory:
 ```
 # On Windows
 C:\Users\<username>\AppData\Local\AmlWorkbench
@@ -84,14 +84,18 @@ C:\Users\<username>\AppData\Local\AmlWorkbench
 /Applications/AmlWorkbench.app
  ```
 
-Click on the **Launch Azure Machine Learning Workbench** button when installation finishes to launch Workbench. If you close the installer, you can find the shortcut on your desktop named **Azure Machine Learning Workbench**. Double-click and open it. 
+Click on the **Launch Azure ML Workbench** button when installation finishes to launch Workbench. If you close the installer, you can find the shortcut on your desktop named **Azure Machine Learning Workbench**. Double-click and open it. 
 
 Log in using the same account you used earlier to provision Azure resources. 
 
-When logging in succeeds, Workbench attempts to find your ML Experimentation accounts you created earlier from all the Azure subscriptions you have access to. If at least one is found, Azure Machine Learning Workbench will load it and list Workspaces and Projects under that account. And your installation process is complete. You can now move on to installing optional components.
+When logging in succeeds, Workbench attempts to find your ML Experimentation accounts you created earlier from all the Azure subscriptions you have access to. If at least one is found, Azure ML Workbench will load it and list Workspaces and Projects under that account. And your installation process is complete. You can now move on to installing optional components.
 
-### Provisioning Azure Machine Learning resources through CLI
+### Provisioning Azure ML resources through CLI
 If no ML Experimentation account is found after you log in, you are presented with the following screen. 
+
+<!--
+>NOTE: a CLI screen should go in here.
+-->
 
 You can go back to the Provisioning steps to create the Experimentation account. Or, you can launch a command-line window by clicking on that link, and provision the resources using CLI tools. Below are the instructions.
 
@@ -106,7 +110,7 @@ $ az login
 # list all your subscriptions
 $ az account list -o table
  
-# set the subscription you want to use for Azure Machine Learning as the current subscription.
+# set the subscription you want to use for Azure ML as the current subscription.
 $ az account set -s <subscription id>
 ```
 
@@ -149,7 +153,7 @@ $ az ml env set -n <environment name> -g <resrouce group created at setup>
 >Note: To deploy your web service to a cluster, use the -c flag when setting up the environment.
 
 ### Check Your Build number
-You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
+You can find out the build number of the installed app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
 
 ![version number](media/quick-start-installation/version.png)
 
@@ -175,7 +179,7 @@ Docker is needed if you want to execute scripts in a local Docker container, or 
 - Only Windows 10 is supported for running Docker for Windows.
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and have it up and running.
 - Make sure your Docker engine is running in [Linux Container mode](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
-- Optionally, for better execution performance, share C drive (or whichever drive the system %temp% folder is) in the Docker for Windows configuration.
+- Optionally, for better execution performance, share C drive (or whichever drive the system _%temp%_ folder is) in the Docker for Windows configuration.
  
 ![Share C drive](media/quick-start-installation/share_c.png)
 
@@ -196,6 +200,6 @@ Log out and log back in to your SSH session for the changes to take effect.
 >NOTE: Local web service deployment is not supported on Windows DSVM.
 
 ## Next Steps
-- Get a quick tour of Azure Machine Learning Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
-- Walk through an extensive tutorial [_Classifying Iris_](doc-template-tutorial.md).
-- Learn about Azure Machine Learning Workbench data preparation capabilities through the [_Wrangling Bike Share Dataset_](doc-template-tutorial.md) tutorial.
+- Get a quick tour of Azure ML Workbench with [Quickstart: Classifying Iris Flower Dataset](quick-start-iris.md).
+- Walk through an extensive tutorial [Classifying Iris](doc-template-tutorial.md).
+- Learn about Azure ML Workbench data preparation capabilities through the [Wrangling Bike Share Dataset](doc-template-tutorial.md) tutorial.
