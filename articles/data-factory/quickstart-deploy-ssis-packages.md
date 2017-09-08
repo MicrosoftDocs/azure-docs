@@ -27,7 +27,7 @@ This quickstart describes how to provision managed-dedicated integration runtime
 - **Classic Virtual Network(VNet) (optional)**. You must have an Azure Virtual Network (VNet) if at least one of the following conditions is true:
     - You are hosting the SSIS Catalog database on a SQL Server Managed Instance which is part of a VNet.
     - You want to connect to on-premises data sources from SSIS packages running on a SQL Server Managed Instance.
-- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision managed-dedicated integration runtime that runs SSIS packages in the cloud. 
+- **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision managed-dedicated integration runtime that runs SSIS packages in the cloud. 
 
 
 ## Provision integration runtime
