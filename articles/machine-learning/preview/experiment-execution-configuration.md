@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/08/2017
 ---
 
 # Overview of Azure Machine Learning Experiment Execution Service

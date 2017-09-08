@@ -1,3 +1,17 @@
+---
+title: Execution Configuration Files
+description: This document details the configuration settings for Azure ML Workbench experiment execution.
+services: machine-learning
+author: gokhanuluderya-msft
+ms.author: gokhanu
+manager: haining
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.topic: article
+ms.date: 09/08/2017
+---
+
 # Execution Configuration Files
 
 When you submit a script for Azure Machine Learning (Azure ML) Workbench to execute from desktop app or from CLI, the behavior of the execution is controlled by files in the **aml_config** folder. This folder is under your project folder root. It is important to understand the contents of these files in order to achieve the desired outcome for your execution in an optimal way.
