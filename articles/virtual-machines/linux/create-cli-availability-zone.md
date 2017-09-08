@@ -124,7 +124,7 @@ The output shows that the IP address is in the same availability zone as the VM:
 Similarly, verify that the VM's managed disk is in the availability zone. Use the [az vm show](/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step. 
 
 ```azurecli-interactive
-osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name")
+osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
 ```
 Now you can get information about the managed disk:
 
