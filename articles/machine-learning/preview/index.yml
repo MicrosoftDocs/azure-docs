@@ -1,30 +1,60 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Documentation (preview features)
+title: Azure Machine Learning (preview) Documentation
 metadata:
-  title: Azure Machine Learning Documentation (preview features)
-  description: Learn how to use Azure Machine Learning public preview features.
+  title: Azure Machine Learning (preview) Documentation
+  meta.description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/28/2017
+  ms.date: 09/06/2017
   ms.author: carolz
 abstract:
   description: Azure Machine Learning is an integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface.
 sections:
-- title: Preview features
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'The following features are part of the Azure Machine Learning preview:'
+    text: 'Learn how to set up the Azure Machine Learning environment, then create and run a model:'
   - type: list
     style: unordered
     items:
-    - html: <a href="what-are-preview-features#workbench">Workbench</a>
-    - html: <a href="what-are-preview-features#experimentation-service">Experimentation Service</a>
-    - html: <a href="what-are-preview-features#model-management-service">Model Management Service</a>
-    - html: <a href="what-are-preview-features#mmlspark-library">MMLSpark Library</a>
-    - html: <a href="what-are-preview-features#openmind">OpenMind</a>
+    - html: <a href="quick-start-installation">Installation</a>
+    - html: <a href="quick-start-iris">Iris quickstart</a>
+
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to prepare your data, set up an experiment, and operationalize your model:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-classifying-iris-part-1">Prepare data</a>
+    - html: <a href="tutorial-classifying-iris-part-2">Build a model</a>
+    - html: <a href:"tutorial-classifying-iris-part-3">Deploy a model</a>
+    - html: <a href="tutorial-bikeshare-dataprep">Extended data prep tutorial</a>
+
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="sample-scripts-azure-cli">Azure CLI 2.0</a>
+    - html: <a href="sample-scripts-python">Python</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p>AZ ML CLI</p>
+    - title: Languages
+      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+    - title: REST
+      html: <p><a href="model-management-api-reference">Model Management REST API</a></p>

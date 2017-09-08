@@ -1,81 +1,88 @@
-
-- name: Machine Learning preview Documentation
+- name: Azure Machine Learning (preview) Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the Azure Machine Learning preview?
-    href: what-are-preview-features.md
+  - name: What is Azure Machine Learning?
+    href: overview-what-is-azure-ml.md
+  - name: Machine Learning options at Microsoft
+    href: overview-what-are-machine-learning-options.md
 - name: Quickstarts
   items:
-  - name: (Install Workbench)
-  - name: (Create a model)
-  - name: (Run a model in Docker)
-  - name: (Run a model with Python)
-  - name: (Operationalize a model)
-  - name: (Create a model with CLI)
-  - name: Set up model management
-    href: model-management-configuration.md
-  - name: Iris Quickstart
-    href: quick-start-iris.md
-  - name: MVC template
-    href: doc-template-quickstart.md
+  - name: Provisioning and installation
+    href: quick-start-installation.md
+  - name: Quick tour
+    href: quick-start-iris.md  
 - name: Tutorials
   items:
-  - name: (Bike Share Forecast)
-  - name: Iris Tutorial Azure CLI
-    href: tutorial-iris-azure-cli.md
-  - name: MVC template
-    href: doc-template-tutorial.md
+  - name: Classify iris part 1 - data preparation
+    href: tutorial-classifying-iris-part-1.md
+  - name: Classify iris part 2 - model building
+    href: tutorial-classifying-iris-part-2.md
+  - name: Classify iris part 3 - model deployment
+    href: tutorial-classifying-iris-part-3.md
+  - name: Prepare Bike share data
+    href: tutorial-bikeshare-dataprep.md
 - name: Samples
-  items:
-  - name: Azure CLI 2.0
-    href: sample-scripts-azure-cli.md
-  - name: Python
-    href: sample-scripts-python.md
-  - name: MVC template
+  items:  
+  - name: Awesome sample coming soon
     href: scripts/doc-template-sample.md
 - name: Concepts
-  items:
-  - name: ML Workbench overview
-    href: what-is-ml-workbench.md
-  - name: Model management overview
-    href: model-management-overview.md 
-  - name: (Operationalization overview)
-  - name: MVC template
-    href: doc-template-concepts.md
+  items:       
+  - name: Machine Learning preview features concepts
+    href: overview-general-concepts.md
+  - name: Model Management overview
+    href: model-management-overview.md    
 - name: How-to guides
   items:
-  - name: Set Up and Configure Environment
-    items:
-    - name: (Set up an Experimentation account)
-    - name: (Configure execution targets)
-    - name: (Use Jupyter notebooks)
-    - name: How to Use GPU from Workbench
-      href: how-to-use-gpu.md
+  - name: Set up and configure environment
+    items:    
+    - name: (Configure execution targets)    
+    - name: How to use GPU from Workbench
+      href: how-to-use-gpu.md    
   - name: Acquire and understand data
-    items:
-    - name: (Prepare your data)
+    items:    
+    - name: Get started with data preparation
+      href: data-prep-getting-started.md
   - name: Develop and manage models
     items:
+    - name: (Use Jupyter notebooks)
     - name: (Track run history and model metrics)
+    - name: (Manage data files)
     - name: Use the MMLSpark library
       href: how-to-use-mmlspark.md
   - name: Operationalize models
     items:
-    - name: (Use Model Management Service with CLI)
+    - name: (Use Model Management with CLI)
     - name: (Consume a service with CLI)
   - name: (Use AZ ML CLI from the command line)
-  - name: (Use a Git repo for source control)
-  - name: MVC template
-    href: doc-template-how-to.md
+  - name: (Use a Git repo for source control)  
 - name: Reference
-  items:
-  - name: (AZ ML CLI Syntax)
+  items:  
   - name: Model Management API
     href: model-management-api-reference.md
+  - name: Python extensions for data preparation
+    href: data-prep-python-extensibility-overview.md
+  - name: Supported Data Sources
+    href: data-prep-appendix2-supported-data-sources.md
+  - name: Supported Data Preparation Tranforms
+    href: data-prep-appendix3-supported-transforms.md
+  - name: Supported Data Preparation Inspectors
+    href: data-prep-appendix4-supported-inspectors.md
+  - name: Supported Data Preparation Data Destinations
+    href: data-prep-appendix5-supported-destinations.md
+  - name: Sample Data Preparation Filter Expressions in Python
+    href: data-prep-appendix6-sample-filter-expressions-python.md
+  - name: Sample Data Preparation Filter Expressions in Python
+    href: data-prep-appendix7-sample-transform-data-flow-python.md
+  - name: Sample Data Preparation Source Connections in Python
+    href: data-prep-appendix8-sample-source-connections-python.md
+  - name: Sample Data Preparation Destination Connections in Python
+    href: data-prep-appendix9-sample-destination-connections-python.md
+  - name: Sample Data Preparation Column Transforms in Python
+    href: data-prep-appendix10-sample-custom-column-transforms-python.md
 - name: Resources
   items:
-  - name: (Known Issues and Troubleshooting)
-  - name: (Release Notes)
-  - name: (Frequently Asked Questions)
+  - name: (Known issues and troubleshooting)  
+  - name: Frequently asked questions
+    href: faq.md

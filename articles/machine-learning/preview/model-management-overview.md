@@ -1,6 +1,6 @@
 ---
-title: Concepts article Azure Machine Learning Model Management | Microsoft Docs
-description: This document explains model management concepts for Azure Machine Learning.
+title: Conceptual overview of Azure Machine Learning Model Management | Microsoft Docs
+description: This document explains Model Management concepts for Azure Machine Learning.
 services: machine-learning
 author: nk773
 ms.author: neerajkh
@@ -16,7 +16,7 @@ ms.date: 08/28/2017
 Azure Machine Learning Model Management enables enterprises and users to manage and deploy machine-learning workflows and models as Docker containerized web services. 
 
 
-The Model Management Service provides capabilities for:
+Model Management provides capabilities for:
 - Model versioning
 - Tracking models in production
 - Deploying models in production through [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) using [Kubernetes](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
@@ -50,7 +50,7 @@ Models require additional artifacts to deploy into the production. The system pr
 The users can use the manifest from the previous step to generate and regenerate Docker-based container images in their respective environments. The containerized Docker-based images provide enterprises with the flexibility to run these images on scalable [Kubernetes based Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), or pull these images into their environment to run on-prem, on the local machine, or on IoT device. These Docker-based containerized images are self-contained with all necessary dependencies required for generating predictions. 
 
 ## Deploy Docker container images 
-With the Model Management Service, users can deploy Docker-based container images with a single command to Azure Container Service. These deployments are created with a front-end server that provides load balancing, encryption, API key authorization, and swagger. Users can control the deployment scale and telemetry: 
+With the Azure Machine Learning Model Management, users can deploy Docker-based container images with a single command to Azure Container Service. These deployments are created with a front-end server that provides load balancing, encryption, API key authorization, and swagger. Users can control the deployment scale and telemetry: 
 - Users can enable/disable system logging and model telemetry for each web service level. If enabled, all stdout logs are streamed to [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) and model telemetry is archived in users provided storage. 
 - Users can control auto-scale and concurrency limits that automatically increases the number of deployed containers based on the load within the existing cluster size. 
 
