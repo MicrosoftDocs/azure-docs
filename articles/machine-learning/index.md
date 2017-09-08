@@ -23,7 +23,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/machine-learning/preview/index.yml?toc=%2fazure%2fmachine-learning%2fpreview%2ftoc.json">
+        <a href="/azure/machine-learning/preview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -41,7 +41,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/studio/what-is-ml-studio.md?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">
+        <a href="/azure/machine-learning/studio">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -59,7 +59,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/team-data-science-process/index.yml?toc=/azure/machine-learning/team-data-science-process/toc.json">
+        <a href="/azure/machine-learning/team-data-science-process">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -77,7 +77,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/data-science-virtual-machine/index.yml?toc=/azure/machine-learning/data-science-virtual-machine/toc.json">
+        <a href="/azure/machine-learning/data-science-virtual-machine">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
