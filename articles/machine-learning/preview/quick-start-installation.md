@@ -26,7 +26,10 @@ In order to use Azure Machine Learning preview features, you need to do two thin
     * Windows 10
     * Windows server 2016
     * macOS Sierra (or newer)
->Note model management CLI tools are also supported on Linux.
+* Docker must be installed on local machine for local web service deployment.
+* Owner access to an Azure subscription is required to deploy web service to a cluster.
+
+>Note Model Management CLIs are also supported on Linux.
 
 ### Optional Requirements:
 * Local Docker engine for running dev/test scenarios locally.
@@ -35,7 +38,7 @@ In order to use Azure Machine Learning preview features, you need to do two thin
 * Access to Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
 
 ### Special Note for macOS Users
-Ensure that you run this [shell script](scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries, and configure links before proceeding with the installation.
+Run this [shell script](scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries. And configure links before proceeding with the installation.
 
 If you are using Python greater than 3.5, you need to execute this command to enable installing the right certificates.
 ```bash
@@ -45,7 +48,7 @@ $ /Applications/Python\ 3.6/Install\ Certificates.command
 ## Provisioning
 Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on _+ New_ and search for _Machine Learning_. Look for _ML Experimentation (preview)_ in the search results. Click on _ML Experimentation (preview)_ to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or supply an existing one, for storing Run outputs and other data.
 
-As part of the Experimentation account creation experience, you have an option of also creating the _Machine Learning Model Management account_. You need this resource when you are ready to deploy and manage your models as real-time web services. It is recommended that you create the Model Management account along with the Experimentation account.
+As part of the Experimentation account creation experience, you have an option of also creating the _Machine Learning Model Management account_. You need this resource when you are ready to deploy and manage your models as web services. It is recommended that you create the Model Management account along with the Experimentation account.
 
 <!--
 >NOTE: Some note about pricing associated for public preview should go in here.
@@ -54,7 +57,7 @@ As part of the Experimentation account creation experience, you have an option o
 ## Installation
 You can install Azure Machine Learning Workbench on your Windows or macOS computer.
 ### Remove prior installations
-When a new release becomes available, Azure Machine Learning Workbench auto-updates on its own over the existing installation. It is usually unnecessary to remove prior installations. But in case you want to clean up and start a fresh install, you can run the following scripts: 
+When a new release becomes available, Azure ML Workbench auto-updates on its own over the existing installation. It is unnecessary to remove prior installations. But in case you want to clean up and start a fresh install, you can run the following scripts: 
 
 * Windows command line: [cleanup_win.cmd](scripts/quick-start-installation/cleanup_win.cmd). 
 * Windows PowerShell: [cleanup_win.ps1](scripts/quick-start-installation/cleanup_win.ps1). 
@@ -72,7 +75,7 @@ When a new release becomes available, Azure Machine Learning Workbench auto-upda
 | [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg) | macOS
 
 ### Install Azure ML Workbench
-Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Follow the on-screen instructions to finish the installation. Azure ML Workbench is now installed in the following directory:
+Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Finish dthe installation by following the on-screen instructions. Azure ML Workbench is now installed in the following directory:
 ```
 # On Windows
 C:\Users\<username>\AppData\Local\AmlWorkbench
@@ -112,14 +115,10 @@ From here, you have two options, you can create a new Azure resource group, or u
 ```bash
 # Create a new Azure resource group
 # Note the currently supported Azure regions are: eastus2, and westcentralus
-# -n: Azure resource group name
-# -l: Azure region
-$ az group create -n mygroup -location eastus2
+$ az group create -n <Azure resource group name> -location <Azure region location, for example eastus2>
 
 # Create a new Experimentation account
-# -g: Azure resource group
-# -a: Experimentation Account name. It must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-$ az ml account experimentation create -n myexpacct -g mygroup
+$ az ml account experimentation create -n <account name. 3-24 chars, numbers, and lower-case letters only> -g <resource group>
 ```
 >Note the new Azure Storage Account auto-created will all carry the same name as the Experimentation account name.
 
@@ -131,10 +130,7 @@ It is a good idea to also create a new Workspace where your Projects can live. Y
 
 ```bash
 # Create a new workspace
-# -n: name of the workspace
-# -g: resource group name
-# -a: Experimentation account name
-$ az ml workspace create -n myWS -g mygroup -a myexpacct
+$ az ml workspace create -n <worksapce name> -g <resource group> -a <account name>
 ```
 
 Let's also create resources needed for deploying and managing your models. 
@@ -142,23 +138,15 @@ Let's also create resources needed for deploying and managing your models.
 
 ```bash
 # Create a new Model Management Account
-# -l: Azure region
-# -n: environment name
-# -g: Azure resource group name
-# --sku-instance: number of skus included.
-# --sku-name: the sku name
-$ az ml account modelmanagement create -l eastus2 -n myenv -g mygroup --sku-instances 1 --sku-name S1
+$ az ml account modelmanagement create -l <Azure region, e.g.,  eastus2> -n <environment name> -g <resrouce group> --sku-instances <number of pricing plan instances, e.g., 1> --sku-name <pricing plan, e.g.,  S1>
 
 # Create a new Model Management environment for local web service deployment
-# -l: Azure region
-# -n: environment name
-$ az ml env setup -l eastus2 -n myenv
+$ az ml env setup -l <Azure region location e.g. eastus2> -n <environment name>
 
 # Set the environment to be used
-# -n: environment name
-# -g: Azure resource group name
-$ az ml env set -n myenv -g mygroup
+$ az ml env set -n <environment name> -g <resrouce group created at setup>
 ```
+>Note: To deploy your web service to a cluster, use the -c flag when setting up the environment.
 
 ### Check Your Build number
 You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
@@ -192,6 +180,20 @@ Docker is needed if you want to execute scripts in a local Docker container, or 
 ![Share C drive](media/quick-start-installation/share_c.png)
 
 >Note on Windows, Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
+
+#### Installing or updating Model Mangement CLI on Linux
+Model Management CLIs are pre-installed on Azure Data Science Virtual Matchines (DSVM). 
+
+To install, or update the CLIs, run the following command from the command line, and follow the prompts:
+
+```bash
+wget -q https://raw.githubusercontent.com/Azure/Machine-Learning-Operationalization/master/scripts/amlupdate.sh -O - | sudo bash -
+sudo /opt/microsoft/azureml/initial_setup.sh
+```
+
+Log out and log back in to your SSH session for the changes to take effect.
+
+>NOTE: Local web service deployment is not supported on Windows DSVM.
 
 ## Next Steps
 - Get a quick tour of Azure Machine Learning Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
