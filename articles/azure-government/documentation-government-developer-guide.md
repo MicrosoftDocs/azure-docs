@@ -56,7 +56,21 @@ Currently, US Gov Virginia, US Gov Arizona, US Gov Texas and US Gov Iowa are the
 ### Quickstarts
 Navigate through the links below to get started using Azure Government.
 
-* [Login to Azure Government Portal]()
+* [Login to Azure Government Portal](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-portal)
+* [Connect with Visual Studio](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs)
+* [Connect with PowerShell](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-ps)
+* [Connect with CLI](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli)
+* [Connect with Azure Storage](documentation-government-get-started-connect-with-storage.md)
+
+### Azure Government Video Library 
+The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Government) contains many helpful videos to get you up and running with Azure Government. 
+
+## Compliance - Azure Blueprint
+
+The Azure Blueprint program is designed to facilitate the secure and compliant use of Azure for government agencies and third-party providers building on behalf of government. 
+
+For more information on Azure Government Compliance, refer to the [compliance documentation](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-plan-compliance) and watch this [video](https://channel9.msdn.com/blogs/Azure-Government/Compliance-on-Azure-Government). 
+
 ## Endpoint mapping
 To learn about mapping global Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
 
