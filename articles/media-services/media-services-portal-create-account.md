@@ -43,7 +43,7 @@ Accessing Media Services requires two associated accounts:
 * An Azure storage account. Storage accounts must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted.
 
   > [!NOTE]
-  > Media Services restricts the primary storage account to be a **General Purpose Storage** account with Tables, Queues. For more information about storage types, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+  > Media Services restricts the primary storage account to be a **General Purpose Storage** account with Tables, Queues. For more information about storage types, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## Create an AMS account
 The steps in this section show how to create an AMS account.
