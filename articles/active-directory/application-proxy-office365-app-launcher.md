@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -74,7 +74,7 @@ To install the package, follow these steps:
 
 Obtain the ObjectID of the app, and then search for the app by its home page.
 
-1. Open PowerShell and import the Azure AD module.
+1. In the same PowerShell window, import the Azure AD module.
 
     ```
     Import-Module AzureAD
@@ -100,7 +100,7 @@ Obtain the ObjectID of the app, and then search for the app by its home page.
 
 ### Update the home page URL
 
-Create the home page URL, and update your application with that value. 
+Create the home page URL, and update your application with that value. Continue using the same PowerShell window to run these commands. Or, if you're using a new PowerShell window, sign in to the Azure AD module again using `Connect-AzureAD`. 
 
 1. Confirm that you have the correct app, and replace *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* with the ObjectID that you copied in the preceding section.
 
