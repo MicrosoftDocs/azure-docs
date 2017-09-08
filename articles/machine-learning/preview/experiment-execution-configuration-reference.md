@@ -15,7 +15,7 @@ This file is a [conda environment file](https://conda.io/docs/using/envs.html#cr
 
 In this file, you can specify Python packages that your script needs for execution. Azure ML Workbench execution service will create the conda environment in the Docker image according to your list of dependencies. This means that the packages list here must be reachable by the execution engine, which typically means they are listed in channels hosted by [continuum.io](https://anaconda.org/conda-forge/repo) and others, or in [PyPI](https://pypi.python.org/pypi), or a publicly accessible endpoint (URL), or a local file path that is reachable by the execution engine.
 
-Here is an example of a typical *conda_dependencies.yml* file.
+Here is an example of a typical **conda_dependencies.yml** file.
 ```yaml
 name: project_environment
 dependencies:
@@ -41,7 +41,7 @@ dependencies:
 Docker engine in the compute target will cache the image built after the first execution. As long as the *docker_dependencies.yml* remains intact, Azure ML Workbench will use the same image without rebuilding. However, if anything changes in this file, it will cause a rebuild of the Docker image.
 
 >[!NOTE]
->Note this *conda_dependencies.yml* file is **NOT USED** if you target execution against _local_ compute context. You must manually provision package dependencies for your local Azure ML Workbench Python environment.
+>Note this **conda_dependencies.yml** file is **NOT USED** if you target execution against _local_ compute context. You must manually provision package dependencies for your local Azure ML Workbench Python environment.
 
 ## spark_dependencies.yml
 This file specifies the Spark application name when you submit a PySpark script and Spark packages that needs to be installed. You can also specify any public Maven repository as well as Spark package that can be found in those Maven repositories.
@@ -119,7 +119,7 @@ _foo.runconfig_ specifies the Azure ML Workbench execution behavior, such as whe
 
 **Framework**: This property specifies if Azure ML Workbench should launch a Spark session to run the script. The default value is _PySpark_. Set it to _Python_ if you are not running PySpark code which can help launching the job quicker with less overhead.
 
-**CondaDependenciesFile**: This property points to the file that specifies the conda environment dependencies in the *aml_config* folder. If set to _null_, it points to the default *conda_dependencies.yml* file.
+**CondaDependenciesFile**: This property points to the file that specifies the conda environment dependencies in the *aml_config* folder. If set to _null_, it points to the default **conda_dependencies.yml** file.
 
 **PrepareEnvironment**: This property, when set to _true_ (which is the default value), tells the execution service to prepare the conda environment based on the conda dependencies specified. This is effective only when you execute against a Docker environment. This setting has no effect if you are running against a _local_ environment. 
 
