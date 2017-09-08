@@ -204,7 +204,7 @@ At this point, contact SAP HANA on Azure Service Management and provide them wit
 
 ### Step 4: Create an SAP HANA user account
 
-To initiate the creation of SAP HANA snapshots, you need to create a user account in SAP HANA that the storage snapshot scripts can use. Create an SAP HANA user account within SAP HANA Studio for this purpose. This account must have the following privileges: **Backup Admin** and **Catalog Read**. In this example, the username is **SCADMIN**. The user account name created in HANA Studio is case-sensitive. Make sure to select **No** on require the user to change password on next sign in.
+To initiate the creation of SAP HANA snapshots, you need to create a user account in SAP HANA that the storage snapshot scripts can use. Create an SAP HANA user account within SAP HANA Studio for this purpose. This account must have the following privileges: **Backup Admin** and **Catalog Read**. In this example, the username is **SCADMIN**. The user account name created in HANA Studio is case-sensitive. Make sure to select **No** for requiring the user to change the password on the next sign-in.
 
 ![Creating a user in HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -314,7 +314,7 @@ The script is run as:
 ```
  ./testStorageSnapshotConnection.pl <HANA SID>
 ```
-Next, the script tries to sign in to the storage by using the public key provided in the previous setup steps and with the data configured in the HANABackupCustomerDetails.txt file. If successful, the following content is shown:
+Next, the script tries to sign in to the storage by using the public key provided in the previous setup steps and with the data configured in the HANABackupCustomerDetails.txt file. If sign-in is successful, the following content is shown:
 
 ```
 **********************Checking access to Storage**********************
@@ -335,7 +335,7 @@ WARNING: Ensure that no modification in format HANABackupCustomerDetails.txt lik
 WARNING: ******************Exiting Script*******************************
 ```
 
-After a successful sign in to the storage virtual machine interfaces, the script continues with phase #2 and creates a test snapshot. The output is shown here for a three-node scale-out configuration of SAP HANA:
+After a successful sign-in to the storage virtual machine interfaces, the script continues with phase #2 and creates a test snapshot. The output is shown here for a three-node scale-out configuration of SAP HANA:
 
 ```
 **********************Creating Storage snapshot**********************
@@ -398,7 +398,7 @@ The following parameters need to be specified:
 - The third parameter is a snapshot of the backup label for the type of snapshot. It is expected that it stays the same for scheduled snapshots of a specific type or frequency.
 - The fourth parameter defines the retention of the snapshots indirectly, by defining the number of snapshots of with the same snapshot prefix (label) to be kept. This parameter is important for a scheduled execution through cron. 
 
-In the case of a scale out, the script does some additional checking to ensure that you can access all the HANA servers. The script also checks that all HANA instances return the appropriate status of the instances, before it creates an SAP HANA snapshot. The SAP HANA snapshot is followed by a storage snapshot.
+In the case of a scale-out, the script does some additional checking to ensure that you can access all the HANA servers. The script also checks that all HANA instances return the appropriate status of the instances, before it creates an SAP HANA snapshot. The SAP HANA snapshot is followed by a storage snapshot.
 
 The execution of the script `azure\_hana\_backup.pl` creates the storage snapshot in the following three distinct phases:
 
@@ -408,7 +408,7 @@ The execution of the script `azure\_hana\_backup.pl` creates the storage snapsho
 
 To execute the script, you call it from the HDB executable folder that it was copied to. 
 
-The retention period is administered with the number of snapshots that are submitted as a parameter when you execute the script (such as **30**, shown previously). So, the amount of time that is covered by the storage snapshots is a function of two things. The period of execution and the number of snapshots submitted as a parameter when executing the script. If the number of snapshots that are kept exceeds the number that are named as a parameter in the call of the script, the oldest storage snapshot of the same label (in our previous case, **manual**) is deleted before a new snapshot executes. The number you give as the last parameter of the call, is the number you can use to control the number of snapshots that are kept. With this number, you can also control, indirectly, the disk space used for snapshots. 
+The retention period is administered with the number of snapshots that are submitted as a parameter when you execute the script (such as **30**, shown previously). So, the amount of time that is covered by the storage snapshots is a function of two things: the period of execution and the number of snapshots submitted as a parameter when executing the script. If the number of snapshots that are kept exceeds the number that are named as a parameter in the call of the script, the oldest storage snapshot of the same label (in our previous case, **manual**) is deleted before a new snapshot executes. The number you give as the last parameter of the call is the number you can use to control the number of snapshots that are kept. With this number, you can also control, indirectly, the disk space used for snapshots. 
 
 > [!NOTE]
 >As soon as you change the label, the counting starts again. This means you need to be strict in labeling so your snapshots are not accidentally deleted.
@@ -463,7 +463,7 @@ If you've set a commitment to users of a point-in-time recovery of 30 days, you 
 - In extreme cases, you need to have the ability to access a combined storage snapshot over/hana/data, /hana/log, and /hana/shared that is 30 days old.
 - Have contiguous transaction-log backups that cover the time between any of the combined storage snapshots. So, the oldest snapshot of the transaction-log backup volume needs to be 30 days old. This would not be the case if you copy the transaction-log backups to another NFS share that is located on Azure storage. In that case, you might pull old transaction-log backups from that NFS share.
 
-In order to be able to benefit from storage snapshots and the eventual storage replication of transaction-log backups, you need to change the location the SAP HANA writes the transaction-log backups to. This change can be done in HANA Studio.  Though SAP HANA backs up full log segments automatically, you should specify a log backup interval to be deterministic. This is especially true when you use the disaster-recovery option, as you usually want to execute log backups with a deterministic period. In the following case, we took 15 minutes as the log backup interval.
+To benefit from storage snapshots and the eventual storage replication of transaction-log backups, you need to change the location the SAP HANA writes the transaction-log backups to. This change can be done in HANA Studio.  Though SAP HANA backs up full log segments automatically, you should specify a log backup interval to be deterministic. This is especially true when you use the disaster-recovery option, because you usually want to execute log backups with a deterministic period. In the following case, we took 15 minutes as the log backup interval.
 
 ![Schedule SAP HANA backup logs in SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image5-schedule-backup.png)
 
@@ -474,7 +474,7 @@ If the database has never been backed up, the final step is to perform a file-ba
 ![Make a file-based backup to create a single backup entry](./media/hana-overview-high-availability-disaster-recovery/image6-make-backup.png)
 
 
-After your first successful storage snapshots have been executed, you can also delete the test snapshot that was executed in step 6. In order to do so, you need to run the script `removeTestStorageSnapshot.pl`:
+After your first successful storage snapshots have been executed, you can also delete the test snapshot that was executed in step 6. To do so, you need to run the script `removeTestStorageSnapshot.pl`:
 ```
 ./removeTestStorageSnapshot.pl <hana instance>
 ```
@@ -493,7 +493,7 @@ Use these commands to make sure that the snapshots that are taken and stored are
 >The snapshots of the boot LUN are not visible with the previous commands.
 
 ### Getting details of snapshots
-In order to get more details on snapshots, you can also use the script `azure\_hana\_snapshot\_details.pl`. This script can be run in either location if there is an active server in the disaster-recovery location. The script provides the following output, broken down by each volume that contains snapshots: 
+To get more details on snapshots, you can also use the script `azure\_hana\_snapshot\_details.pl`. This script can be run in either location if there is an active server in the disaster-recovery location. The script provides the following output, broken down by each volume that contains snapshots: 
    * Size of total snapshots in a volume
    * Each snapshot in that volume includes the following details: 
       - Snapshot name 
@@ -508,7 +508,7 @@ In order to get more details on snapshots, you can also use the script `azure\_h
 ./azure_hana_snapshot_details.pl 
 ```
 
-Since the script tries to retrieve the HANA backup ID, it needs to connect to the SAP HANA instance. This connection requires the configuration file HANABackupCustomerDetails.txt to be correctly set. An output of two snapshots on a volume might look like:
+Because the script tries to retrieve the HANA backup ID, it needs to connect to the SAP HANA instance. This connection requires the configuration file HANABackupCustomerDetails.txt to be correctly set. An output of two snapshots on a volume might look like:
 
 ```
 **********************************************************
@@ -554,11 +554,11 @@ In the previous example, the snapshot label is **customer** and the number of sn
 If you run the script with this setting, the number of snapshots, including the new storage snapshot, is 15. The 15 most recent snapshots are kept, whereas the 15 older snapshots are deleted.
 
  >[!NOTE]
- > This script reduces the number of snapshots only if there are snapshots that are more than one-hour old. The script does not delete snapshots that are less than one-hour old. These restrictions are related to the optional disaster-recovery functionality offered.
+ > This script reduces the number of snapshots only if there are snapshots that are more than one hour old. The script does not delete snapshots that are less than one hour old. These restrictions are related to the optional disaster-recovery functionality offered.
 
 If you no longer want to maintain a set of snapshots with a specific backup label **hanadaily** in the syntax examples, you can execute the script with **0** as the retention number. This removes all snapshots matching that label. However, removing all snapshots can affect the capabilities of disaster recovery.
 
-A second possibility to delete specific snapshots is to use the script `azure\_hana\_snapshot\_delete.pl`. This script is designed to delete a snapshot or set of snapshots either by using the HANA backup ID as found in the HANA Studio or through the snapshot name itself. Currently, the backup ID is only tied to the snapshots created for the **hana** snapshot type. Snapshot backups of the type **logs** and **boot** do not perform an SAP HANA snapshot. Therefore, there is no backup ID to be found for those snapshots. If the snapshot name is entered, it looks for all snapshots on the different volumes that match the entered snapshot name. The call syntax of the script is:
+A second possibility to delete specific snapshots is to use the script `azure\_hana\_snapshot\_delete.pl`. This script is designed to delete a snapshot or set of snapshots either by using the HANA backup ID as found in HANA Studio or through the snapshot name itself. Currently, the backup ID is only tied to the snapshots created for the **hana** snapshot type. Snapshot backups of the type **logs** and **boot** do not perform an SAP HANA snapshot. Therefore, there is no backup ID to be found for those snapshots. If the snapshot name is entered, it looks for all snapshots on the different volumes that match the entered snapshot name. The call syntax of the script is:
 
 ```
 ./azure_hana_snapshot_delete.pl 
@@ -583,7 +583,7 @@ In a different situation, a point-in-time recovery might be low urgency and plan
 Before you send the request, you need to do preparation. The SAP HANA on Azure Service Management team can then handle the request and provide the restored volumes. Afterward, it is up to you to restore the HANA database based on the snapshots. Here is how to prepare for the request:
 
 >[!NOTE]
->Your user interface might vary from the following screenshots, depending on the SAP HANA release that you are use.
+>Your user interface might vary from the following screenshots, depending on the SAP HANA release that you are using.
 
 1. Decide which snapshot to restore. Only the hana/data volume is restored unless you instruct otherwise. 
 
@@ -696,7 +696,7 @@ Snapshot created successfully.
 Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN01 "backup data drop snapshot"" ...
 HANA snapshot deletion successfully.
 ```
-You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the SAP HANA snapshots on each of the worker nodes. Then, the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted. The deletion of the HANA snapshot is initiated from the master Node.
+You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the SAP HANA snapshots on each of the worker nodes. Then, the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted. The deletion of the HANA snapshot is initiated from the master node.
 
 
 ## Disaster recovery principles
@@ -747,7 +747,7 @@ To achieve an even better RPO in the disaster-recovery case, you can copy the HA
 ## Disaster-recovery failover procedure
 In case you want or need to failover to the DR site, you need to interact with the SAP HANA on Azure operations team. In rough steps, the process so far looks like:
 
-- Since you are running a non-production instance of HANA on the disaster-recovery unit of HANA Large Instances, you need to shut down this instance. We assume that there is a dormant HANA production instance preinstalled.
+- Because you are running a non-production instance of HANA on the disaster-recovery unit of HANA Large Instances, you need to shut down this instance. We assume that there is a dormant HANA production instance preinstalled.
 - You need to make sure that no SAP HANA processes are running. You can do this check with the following command: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. 
 The output should show you the **hdbdaemon** process in a stopped state and no other HANA processes in a running or started state.
 - Now, you need to determine which snapshot name or SAP HANA backup ID you want to have the disaster-recovery site restored. In real disaster-recovery cases, this snapshot is usually the latest snapshot. However, you might be in a situation where you need to recover lost data. If you need to recover lost data, you need to pick an earlier snapshot.
@@ -786,7 +786,7 @@ In cases where the restore seems to hang at the **Finish** screen and does not c
 
 
 ### Failback from DR to a production site
-You can failback from a DR to a production site. Let's look at the case that the failover into the disaster-recovery site was caused by problems in the production Azure region and not by your need to get back lost data. This means you have been running your SAP production workload for a while in the disaster-recovery site. As the problems in the production site are resolved, you want to failback to your production site. Since you can't lose data, the step back into the production site involves several steps and close cooperation with the SAP HANA on Azure operations team. It is up to you to trigger the operations team to start synchronizing back to the production site after the problems are resolved.
+You can fail back from a DR to a production site. Let's look at the case that the failover into the disaster-recovery site was caused by problems in the production Azure region and not by your need to get back lost data. This means you have been running your SAP production workload for a while in the disaster-recovery site. As the problems in the production site are resolved, you want to fail back to your production site. Because you can't lose data, the step back into the production site involves several steps and close cooperation with the SAP HANA on Azure operations team. It is up to you to trigger the operations team to start synchronizing back to the production site after the problems are resolved.
 
 The sequence of steps looks like:
 
@@ -799,7 +799,7 @@ The sequence of steps looks like:
 
 ### Monitoring disaster recovery replication
 
-You are able to monitor the status of your storage replication progress by executing the script `azure\_hana\_replication\_status.pl`. This script must be run from a unit running in the disaster-recovery location. Otherwise, it will not function as expected. The script works regardless of whether or not replication is active. The script can be run for every HANA Large Instance unit of your tenant in the disaster-recovery location. It cannot be used to obtain details about the boot volume.
+You can monitor the status of your storage replication progress by executing the script `azure\_hana\_replication\_status.pl`. This script must be run from a unit running in the disaster-recovery location. Otherwise, it will not function as expected. The script works regardless of whether or not replication is active. The script can be run for every HANA Large Instance unit of your tenant in the disaster-recovery location. It cannot be used to obtain details about the boot volume.
 
 Call the script like:
 ```
@@ -814,7 +814,7 @@ The output is broken down, by volume, into the following sections:
 - Size of the latest snapshot
 - Current lag time between snapshots--the last completed snapshot replication and now  
 
-The link status shows as **Active** unless the link between locations is down or a failover event is currently ongoing. The replication activity addresses whether any data is currently being replicated, is idle, or if other activities are currently happening to the link. The last snapshot replicated should only display as `snapmirror…`. The size of the last snapshot is then displayed. Finally, the lag time is shown. The lag time represents the time from the scheduled replication time to when the replication finishes. A lag time can be greater than an hour for data replication, especially in the initial replication, even though replication has started. The lag time is going to continue to increase until the ongoing replication finishes.
+The link status shows as **Active** unless the link between locations is down or a failover event is currently ongoing. The replication activity addresses whether any data is currently being replicated, is idle, or if other activities are currently happening to the link. The last snapshot replicated should only appear as `snapmirror…`. The size of the last snapshot is then displayed. Finally, the lag time is shown. The lag time represents the time from the scheduled replication time to when the replication finishes. A lag time can be greater than an hour for data replication, especially in the initial replication, even though replication has started. The lag time is going to continue to increase until the ongoing replication finishes.
 
 An example of an output can look like:
 
