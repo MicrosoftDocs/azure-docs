@@ -1,6 +1,6 @@
 ﻿---
-title: Deploy Azure Log Analytics Nozzle for Cloud Foundry Monitoring| Microsoft Docs
-description: Step by step guidance on deploy Cloud Foundry loggregator nozzle for Azure Log Analytics, config Azure Log Analytics and OMS console, and use these tools to monitor the Cloud Foundry system health and performance metrics.
+title: Deploy Azure Log Analytics Nozzle for Cloud Foundry monitoring | Microsoft Docs
+description: Step-by-step guidance on deploying the Cloud Foundry loggregator Nozzle for Azure Log Analytics. Use the Nozzle to monitor the Cloud Foundry system health and performance metrics.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -20,19 +20,19 @@ ms.author: ningk
 
 # Deploy Azure Log Analytics Nozzle for Cloud Foundry system monitoring
 
-## Background
-
 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Microsoft [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/) (OMS). It helps you collect and analyze data that is generated from your cloud and on-premises environments.
 
-The Microsoft Azure Log Analytics Nozzle (the Nozzle) is a Cloud Foundry component, which forwards metrics from the [Cloud Foundry Loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) Firehose to Azure Log Analytics. With the Nozzle, you are able to collect, view, analyze your Cloud Foundry system health and performance metrics, across multiple deployments.
+The Log Analytics Nozzle (the Nozzle) is a Cloud Foundry (CF) component, which forwards metrics from the [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose to Log Analytics. With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics, across multiple deployments.
 
-In this document, you learn how to deploy the Nozzle to your Cloud Foundry environment, then access the data from the Azure Log Analytics OMS console.
+In this document, you learn how to deploy the Nozzle to your CF environment, and then access the data from the Log Analytics OMS console.
 
 ## Prerequisites
 
-### 1. Deploy a CF or PCF environment in Azure
+The following steps are prerequisites for deploying the Nozzle.
 
-You can use the Nozzle with either an open source Cloud Foundry (CF) deployment or a Pivotal Cloud Foundry (PCF) deployment.
+### 1. Deploy a CF or Pivotal Cloud Foundry environment in Azure
+
+You can use the Nozzle with either an open source CF deployment or a Pivotal Cloud Foundry (PCF) deployment.
 
 * [Deploy Cloud Foundry on Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
 
@@ -40,58 +40,60 @@ You can use the Nozzle with either an open source Cloud Foundry (CF) deployment 
 
 ### 2. Install the CF command-line tools for deploying the Nozzle
 
-The Nozzle runs as an application in CF environment, you need CF CLI to deploy the application. 
-It also needs access permission to the loggregator firehose and the Cloud Controller, you need UAA command-line client to create and configure the user.
+The Nozzle runs as an application in CF environment. You need CF CLI to deploy the application.
+
+The Nozzle also needs access permission to the loggregator firehose and the Cloud Controller. To create and configure the user, you need the User Account and Authentication (UAA) service.
 
 * [Install Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
-* [Install Cloud Foundry UAA Command-Line Client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
+* [Install Cloud Foundry UAA command-line client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Make sure Rubygems is installed before setting up UAA command-Line Client.
+Before setting up the UAA command-Line client, ensure that Rubygems is installed.
 
 ### 3. Create an OMS workspace in Azure
 
-#### Create the OMS workspace manually
+You can create the OMS workspace manually or by using a template. Load the pre-configured OMS views and alerts after you finish the Nozzle deployment.
 
-You can create the OMS workspace manually, and load the pre-configured OMS views and alerts after you finished the Nozzle deployment.
+To create the workspace manually:
 
-1. In the Azure portal, search the list of services in the Marketplace for Log Analytics, and then select Log Analytics.
-2. Click Create, then select choices for the following items:
+1. In the Azure portal, search the list of services in the Azure Marketplace, and then select Log Analytics.
+2. Select **Create**, and then select choices for the following items:
 
-* OMS Workspace: Type a name for your workspace.
-* Subscription: If you have multiple subscriptions, choose the same one with your CF deployment.
-* Resource group: You can create a new resource group, or use the same one with your CF deployment.
-* Location
-* Pricing tier: Click OK to complete.
-> For more information, see [Get started with Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+   * **OMS Workspace**: Type a name for your workspace.
+   * **Subscription**: If you have multiple subscriptions, choose the one that is the same as your CF deployment.
+   * **Resource group**: You can create a new resource group, or use the same one with your CF deployment.
+   * **Location**: Enter the location.
+   * **Pricing tier**: Select **OK** to complete.
+> For more information, see [Get started with Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### Create the OMS workspace through the OMS template
-
-You can create the OMS workspace, load the Pre-configured OMS views and alerts, all through the [Azure OMS Log Analytics Solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution)
+Alternatively, you can create the OMS workspace through the OMS template. With this method, you can also load the pre-configured OMS views and alerts. For more information, see the [Azure OMS Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
 
 ## Deploy the Nozzle
 
+There are a couple of different ways to deploy the Nozzle: as a PCF tile or as a CF application.
+
 ### Deploy the Nozzle as a PCF Ops Manager tile
 
-If you've deployed PCF via Ops Manager, follow these steps to [Install and Configure the Nozzle for PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html), the Nozzle is installed as a tile with Ops manager.
+If you've deployed PCF by using Ops Manager, follow these steps to [Install and configure the Nozzle for PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). The Nozzle is installed as a tile with Ops Manager.
 
-### Deploy the Nozzle as an application to Cloud Foundry
+### Deploy the Nozzle as a CF application
 
-If you are not using PCF Ops Manager, you need to push the Nozzle as an application.
+If you are not using PCF Ops Manager, deploy the Nozzle as an application. The following sections describe this process.
 
-#### Log in to your CF deployment as an admin through CF CLI
+#### Sign in to your CF deployment as an admin through CF CLI
 
-On your Dev box, run following command:
+Run the following command:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
 
-> "SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
-> "CF_User" is the CF admin name. You may retrieve the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
+"SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
+
+"CF_User" is the CF admin name. You may retrieve the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
 
 #### Create a CF user and grant required privileges
 
-On your Dev box, run following commands:
+Run the following commands:
 ```
 uaac target https://uaa.${SYSTEM_DOMAIN} --skip-ssl-validation
 uaac token client get admin
@@ -100,42 +102,42 @@ uaac member add cloud_controller.admin ${FIREHOSE_USER}
 uaac member add doppler.firehose ${FIREHOSE_USER}
 ```
 
-> "SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file.
+"SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file.
 
-#### Download the latest Azure Log Analytics Nozzle release
+#### Download the latest Log Analytics Nozzle release
 
-On your Dev box, run following command:
+Run the following command:
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
 ```
 
-#### Set environment variables in "manifest.yml" in your current directory
+#### Set environment variables
 
-This is the app manifest for the Nozzle, you need to replace the value with your specific OMS workspace information.
+Now you can set environment variables in the manifest.yml file in your current directory. The following shows the app manifest for the Nozzle. Replace values with your specific OMS workspace information.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, click "Settings", click "connected sources"
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, click "Settings", click "connected sources"
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics, default is 10s.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics, default is 10s.
-OMS_MAX_MSG_NUM_PER_BATCH : The max number of messages in a batch to OMS Log Analytics, default is 1000.
-API_ADDR                  : The api URL of the CF environment, refer to "Push the Nozzle as an App to Cloud Foundry" section step 1 on how to retrive your <CF_SYSTEM_DOMAIN>
-DOPPLER_ADDR              : Loggregator's traffic controller URL, refer to "Deploy the Nozzle as an App to Cloud Foundry" section step 1 on how to retrive your <CF_SYSTEM_DOMAIN>
-FIREHOSE_USER             : CF user you created in "Push the Nozzle as an App to Cloud Foundry" section, who has firehose and Cloud Controller admin access.
+OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
+DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
+FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
 FIREHOSE_USER_PASSWORD    : Password of the CF user above.
-EVENT_FILTER              : Event types to be filtered out. The format is a comma separated list, valid event types are METRIC,LOG,HTTP
-SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and the Trafficcontroller
-CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments
-IDLE_TIMEOUT              : Keep Alive duration for the firehose consumer, default is 60s.
-LOG_LEVEL                 : Logging level of the nozzle, valid levels: DEBUG, INFO, ERROR
-LOG_EVENT_COUNT           : If true, the total count of events that the nozzle has received and sent will be logged to OMS Log Analytics as CounterEvents
-LOG_EVENT_COUNT_INTERVAL  : The time interval of logging event count to OMS Log Analytics, default is 60s.
+EVENT_FILTER              : Event types to be filtered out. The format is a comma-separated list. Valid event types are METRIC, LOG, and HTTP.
+SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and the traffic controller.
+CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
+IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
+LOG_LEVEL                 : The logging level of the nozzle. Valid levels are DEBUG, INFO, and ERROR.
+LOG_EVENT_COUNT           : If true, the total count of events that the nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
 ```
 
-### Push the application from your dev box
+### Push the application from your development computer
 
-Make sure you are under the folder "oms-log-analytics-firehose-nozzle", run:
+Ensure that you are under the oms-log-analytics-firehose-nozzle folder. Run the following command:
 ```
 cf push
 ```
