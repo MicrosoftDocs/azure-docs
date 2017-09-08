@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/11/2017
+ms.date: 09/08/2017
 ms.author: iainfou
 ---
 
@@ -25,6 +25,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Use cloud-init to create an app to scale
 > * Create a virtual machine scale set
 > * Increase or decrease the number of instances in a scale set
+> * Create autoscale rules
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 
@@ -194,7 +195,7 @@ az vmss scale \
 
 
 ### Configure autoscale rules
-Rather than manually scaling the number of instances in your scale set, you can define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5-minute period. If the average CPU load then drops below 30% over a 5-minute period, the instances are scaled in by one instance. Your subscription ID is used to build the resource URIs for the various scale set components. To create these rules with [az monitor autoscale-settings create](cli/azure/monitor/autoscale-settings#create), copy and paste the following autoscale command profile:
+Rather than manually scaling the number of instances in your scale set, you can define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5-minute period. If the average CPU load then drops below 30% over a 5-minute period, the instances are scaled in by one instance. Your subscription ID is used to build the resource URIs for the various scale set components. To create these rules with [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#create), copy and paste the following autoscale command profile:
 
 ```azurecli-interactive 
 sub=$(az account show --query id -o tsv)
