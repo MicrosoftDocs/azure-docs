@@ -27,7 +27,7 @@ Follow the installation guide to provision Azure resources and install Azure ML 
 3. Fill in the **project name**, and the **directory** the project is going to be created in. The **project description** is optional but helpful. Choose the default `My Projects` workgroup, and then select the `Classifying Iris` sample project as the project template.
 
 <!--![New Project](media/quick-start-iris/new_project.png)-->
-4. Optionally, you can fill in the Git repo text field with the URL of a Git repo that lives in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must exist, and is empty with no master branch. Adding a Git repo now lets you enable roaming and sharing scenarios later.
+4. Optionally, you can fill in the Git repo text field with the URL of a Git repo that lives in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must exist, and it must be **empty with no master branch**. Adding a Git repo now lets you enable roaming and sharing scenarios later.
 
 5. Click on the **Create** button to create the project. After a few seconds, the new project is created and opened.
 
@@ -56,16 +56,10 @@ Follow the installation guide to provision Azure resources and install Azure ML 
 
 4. In the **output files** section. Expand the `outputs` folder, and select the `model.pkl` file. Click **download** button and select the `myIris` project root folder to download the `model.pkl` file.
 
-## Create Web Service Schema File
-1. Choose `iris_schema_gen.py` and the `local` environment in the **Run Control**, then click _Run_ button. This creates the `service_schema.json` in the `outputs` folder.
+## Create Web Service Schema and Scoring File
+1. Choose `iris_score.py` and the `local` environment in the **Run Control**, then click _Run_ button. This creates the `service_schema.json` in the `outputs` folder.
 
-2. Go to the run history of the `iris_shcema_gen.py` file, and download the `service_schema.json` file to the project root folder.
-
-## Create the Scoring File
-1. In the **File View**, click `+` and select _New Item_. 
-2. Name the file `score.py`.
-3. Go back to `iris_shcema_gen.py` file and copy the `init()` and `run()` functions. 
-4. Open `score.py` and paste the functions. Then click _Save_ button.
+2. Go to the run history of the `iris_score.py` file, and download the `service_schema.json` file to the project root folder.
 
 ## Deploy the Web Service
 >Note you must have Docker installed and running in order to deploy the web service locally.
@@ -78,7 +72,7 @@ C:\Temp\myIris> az ml service create realtime --model-file model.pkl -f score.py
  
 ## Test the web service
 ```batch
-C:\Temp\myIris> az ml service run realtime -n irisservice -d "{\"input_df\": [{3.4,4.2,5.1,3.1]}"
+C:\Temp\myIris> az ml service run realtime -i irisapp1 -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]} 
 ```
 
 ## Next Steps
