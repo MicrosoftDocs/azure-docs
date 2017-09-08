@@ -1,4 +1,4 @@
----
+m--
 title: Azure Machine Learning Model Management Web Service Deployment | Microsoft Docs
 description: This document describes the steps involved in deploying a machine learning model using Azure Machine Learning model Management.
 services: machine-learning
@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 09/05/2017
 ---
 
-# Deploying a Machine Learning Model as a Web Service
+# Deploying a machine learning model as a web service
 
-Model Management provides interfaces to deploy models. You can deploy models you create using frameworks such as Spark, Keras, Tensorflow, Microsoft Cognitive Toolkit (CNTK), and Python. 
+Azure Machine Learning model management provides interfaces to deploy models as REST API web services. You can deploy models you create using frameworks such as Spark, Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow, and Python. 
 
-This document covers the steps to deploy your models as web services using the Model Management Command-line Interface (CLI). You learn how to:
+This document covers the steps to deploy your models as web services using the Azure Machine Learning model management command-line Interface (CLI). You learn how to:
 
 - Install and update the CLIs
 - Create an image
@@ -25,9 +25,9 @@ This document covers the steps to deploy your models as web services using the M
 ## Deploying using the CLIs
 ### Accessing the CLIs
 
-The CLIs come pre-installed on the Azure ML Workbench and on [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+CLIs come pre-installed on the Azure Machine Learning Workbench and on [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
-- To use the CLIs, on the Workbench, click File -> Open CommandLine Interface. 
+- To use CLIs, on the Workbench, click File -> Open CommandLine Interface. 
 - On a DSVM, open a command prompt. Once there, type _az ml -h_ to see the options. 
 - On all other systems, you have to install the CLIs.
 
@@ -79,9 +79,7 @@ from azureml.api.schema.dataTypes import DataTypes
 from azureml.api.schema.sampleDefinition import SampleDefinition
 from azureml.api.realtime.services import generate_schema
 ```
-Then, define the input dataframe.
-
-The following example uses Numpy:
+Then, define the input variables such as Spark dataframe, Pandas dataframe, or NumPy array. The following example uses Numpy array:
 
 ```python
 inputs = {"input_array": SampleDefinition(DataTypes.NUMPY, yourinputarray)}
@@ -97,7 +95,7 @@ generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
 #### 3. Create a score.py file
 You provide a score.py file, which loads your model and return the prediction result(s) using the model.
 
-The file includes two functions: init and run.
+The file must include two functions: init and run.
 
 ##### Init function
 Use the init function to load the saved model.
@@ -126,10 +124,10 @@ def run(input_df):
 ```
 
 #### 4. Create an image 
-Use the model, schema, and score files to create an image.
+Use the model, schema, conda python dependencies [file](https://github.com/conda/conda-env), and score files to create an image.
 
 ```
-az ml image create -n <image name> -m <model file> -s <schema file> -r <run time e.g. python>
+az ml image create -n <image name> -m <model file> -s <schema file> -r <run time e.g. python> -c <conda dependencies file>
 ```
 
 >Note: for more details on the command parameters, type -h at the end of the command for example, az ml image create -h.
