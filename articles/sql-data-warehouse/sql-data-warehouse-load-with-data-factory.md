@@ -154,7 +154,7 @@ To learn more about Azure Data Factory and its data movement capabilities, see t
 
 - [Introduction to Azure Data Factory](../data-factory/introduction.md)
 - [Move data by using Copy Activity](../data-factory/copy-activity-overview.md)
-- [Move data to and from Azure SQL Data Warehouse using Azure Data Factory](../data-factory/copy-data-to-from-azure-sql-data-warehouse.md)
+- [Move data to and from Azure SQL Data Warehouse using Azure Data Factory](../data-factory/connector-azure-sql-data-warehouse.md)
 
 To explore your data in SQL Data Warehouse, see the following articles:
 
