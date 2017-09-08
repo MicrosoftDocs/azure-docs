@@ -1,6 +1,6 @@
 ---
 title: Create a Service Fabric cluster in Azure | Microsoft Docs
-description: Learn how to create a Windows cluster in Azure using a template.
+description: Learn how to create a Linux cluster in Azure using a template.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 09/06/2017
 ms.author: ryanwi
 
 ---
 
-# Create a secure cluster on Azure using a template
-This tutorial is part one of a series. You will learn how to create a Service Fabric cluster (Windows or Linux) running in Azure. When you're finished, you have a cluster running in the cloud that you can deploy applications to.
+# Create a secure Linux cluster on Azure using a template
+This tutorial is part one of a series. You will learn how to create a Service Fabric cluster (Linux) running in Azure. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster, see [Create a secure Windows cluster on Azure using a template](service-fabric-tutorial-create-vnet-and-windows-cluster-arm.md).
 
 In this tutorial, you learn how to:
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Create a key vault and upload a certificate
 > * Create a secure Service Fabric cluster in Azure using a template
 > * Secure the cluster with an X.509 certificate
-> * Connect to the cluster using PowerShell
+> * Connect to the cluster using Service Fabric CLI
 > * Remove a cluster
 
 In this tutorial series you learn how to:
@@ -39,8 +39,8 @@ In this tutorial series you learn how to:
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md)
-- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- Install the [Service Fabric SDK and CLI](service-fabric-get-started-linux.md)
+- Install the [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 The following procedures create a five-node Service Fabric cluster. The cluster is secured by a self-signed certificate placed in a key vault. 
 
@@ -48,15 +48,9 @@ To calculate cost incurred by running a Service Fabric cluster in Azure use the 
 For more information on creating Service Fabric clusters, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## Sign-in to Azure and select your subscription
-This guide uses Azure PowerShell. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
+This guide uses Azure CLI. When you start a new session, sign in to your Azure account and select your subscription before you execute Azure commands.
  
 Run the following script to sign in to your Azure account select your subscription:
-
-```powershell
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
-```
 
 ```azurecli
 az login
@@ -65,11 +59,6 @@ az account set --subscription <guid>
 
 ## Create a resource group
 Create a new resource group for your deployment and give it a name and a location.
-
-```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location centralus
-```
 
 ```azurecli
 ResourceGroupName = "sfclustertutorialgroup"
@@ -85,11 +74,7 @@ Download the following Resource Manager template and parameters file:
 - [network.json][network-arm]
 - [network.parameters.json][network-parameters-arm]
 
-Use the following PowerShell command to deploy the Resource Manager template and parameter files for the network setup:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
-```
+Use the following script to deploy the Resource Manager template and parameter files for the network setup:
 
 ```azurecli
 az group deployment create \
@@ -105,93 +90,40 @@ The Service Fabric cluster Resource Manager template in the next step is configu
 
 The following script creates a key vault in Azure, creates a self-signed certificate, and uploads the certificate to the key vault.  If you want to use an existing certificate, set **$CreateSelfSignedCertificate** to "$false" and specify the location in **$ExistingPfxFilePath**.
 
-```powershell
-$VaultResourceGroupName = 'ryanwikeyvaultgroup'
-$VaultName= 'ryanwikeyvault'
-$Location = "westus"
-$CertificateName = "ryanwicertificate1"
-$Password = 'mypa$$word!'
-$DnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
-$OutputPath = "C:\MyCertificates" # location where you want the .PFX to be stored
-$CreateSelfSignedCertificate = $true
-$ExistingPfxFilePath = 'C:\MyCertificates\ryanwicertificate1.pfx'
+```bash
+#!/bin/bash
 
-$ErrorActionPreference = 'Stop'
+password="$(openssl rand -base64 32)"
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout clusterCert.key -out clusterCert.crt -subj "/CN=examplecluster.centralus.cloudapp.azure.com"
+openssl pkcs12 -export -out clusterCert.pfx -inkey clusterCert.key -in clusterCert.crt -passout pass:"cat10dog"
+```
 
-Write-Host "Switching context to SubscriptionId $SubscriptionId"
-Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
+The following script creates a self-signed certificate.  Skip this step if you want to use an existing certificate.
 
-# New-AzureRmResourceGroup is idempotent as long as the location matches
-Write-Host "Ensuring ResourceGroup $VaultResourceGroupName in $Location"
-New-AzureRmResourceGroup -Name $VaultResourceGroupName -Location $Location -Force | Out-Null
-$resourceId = $null
+```azurecli
+#!/bin/bash
 
-try
-{
-    $existingKeyVault = Get-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultResourceGroupName
-    $resourceId = $existingKeyVault.ResourceId
+VaultResourceGroupName="ryanwikekeyvaultgroup"
+VaultName="ryanwikeyvault2"
+Location="centralus"
+PfxPath="./clusterCert.pfx"
+CertPwd="cat10dog"
+SecretName="ClusterCert"
 
-    Write-Host "Using existing vault $VaultName in $($existingKeyVault.Location)"
-}
-catch
-{
-}
+az group create --name $VaultResourceGroupName --location $Location
 
-if(!$existingKeyVault)
-{
-    Write-Host "Creating new vault $VaultName in $location"
-    $newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultResourceGroupName -Location $Location -EnabledForDeployment
-    $resourceId = $newKeyVault.ResourceId
-}
+az keyvault create --name $VaultName --resource-group $VaultResourceGroupName --enabled-for-deployment true --enabled-for-template-deployment true
 
-if($CreateSelfSignedCertificate)
-{
-    $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+formatted_secret=$(./servicefabric.py format-secret --pkcs12-cert $PfxPath --password $CertPwd)
+az keyvault secret set --vault-name $VaultName --name $SecretName --value $formatted_secret
 
-    $NewPfxFilePath = Join-Path $OutputPath $($CertificateName+".pfx")
+CERT_THUMB=$(openssl x509 -in clusterCert.crt -noout -fingerprint | awk -F= '{print $NF}' | sed -e 's/://g')
+SECRET_URL=$(az keyvault secret show --vault-name $VaultName --name $SecretName | python -c 'import json,sys;print json.load(sys.stdin)["id"]')
+KEYVAULTID=$(az keyvault show --name $VaultName | python -c 'import json,sys;print json.load(sys.stdin)["id"]')
 
-    Write-Host "Creating new self signed certificate at $NewPfxFilePath"
-    
-    ## Changes to PSPKI version 3.5.2 New-SelfSignedCertificate replaced by New-SelfSignedCertificateEx
-    $PspkiVersion = (Get-Module PSPKI).Version
-    if($PSPKIVersion.Major -ieq 3 -And $PspkiVersion.Minor -ieq 2 -And $PspkiVersion.Build -ieq 5) {
-        New-SelfsignedCertificateEx -Subject "CN=$DnsName" -EKU "Server Authentication", "Client authentication" -KeyUsage "KeyEncipherment, DigitalSignature" -Path $NewPfxFilePath -Password $securePassword -Exportable
-    }
-    else {
-        New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName $DnsName | Export-PfxCertificate -FilePath $NewPfxFilePath -Password $securePassword | Out-Null
-    }
-
-    $ExistingPfxFilePath = $NewPfxFilePath
-}
-
-Write-Host "Reading pfx file from $ExistingPfxFilePath"
-$cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $ExistingPfxFilePath, $Password
-
-$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
-$base64 = [System.Convert]::ToBase64String($bytes)
-
-$jsonBlob = @{
-   data = $base64
-   dataType = 'pfx'
-   password = $Password
-   } | ConvertTo-Json
-
-    $contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
-    $content = [System.Convert]::ToBase64String($contentbytes)
-
-    $secretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
-
-Write-Host "Writing secret to $CertificateName in vault $VaultName"
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertificateName -SecretValue $secretValue
-
-$output = @{};
-$output.SourceVault = $resourceId;
-$output.CertificateURL = $secret.Id;
-$output.CertificateThumbprint = $cert.Thumbprint;
-
-Write-Host "Source vault: " $output.SourceVault
-Write-Host "Certificate URL: " $output.CertificateURL
-Write-Host "Certificate Thumbprint: " $output.CertificateThumbprint
+echo "Thumbprint: $CERT_THUMB"
+echo "Secret URL: $SECRET_URL"
+echo "Vault ID: $KEYVAULTID"
 ```
 
 ## Deploy the Service Fabric cluster
@@ -203,11 +135,7 @@ Download the following Resource Manager template and parameters file:
 
 Fill in the empty parameters in the `cluster.parameters.json` file for your deployment, including the [Key Vault information](service-fabric-cluster-creation-via-arm.md#set-up-a-key-vault) for your cluster certificate.
 
-Use the following PowerShell command to deploy the Resource Manager template and parameter files to create the Service Fabric cluster:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
-```
+Use the following script to deploy the Resource Manager template and parameter files to create the Service Fabric cluster:
 
 ```azurecli
 az group deployment create \
@@ -217,41 +145,8 @@ az group deployment create \
     --parameters @cluster.parameters.json
 ```
 
-## Modify the certificate & access Service Fabric Explorer 
-
-1. Double-click the certificate to open the Certificate Import Wizard.
-
-2. Use default settings, but make sure to check the **Mark this key as exportable.** check box, in the **private key protection** step. Visual Studio needs to export the certificate when configuring Azure Container Registry to Service Fabric Cluster authentication later in this tutorial.
-
-3. You can now open Service Fabric Explorer in a browser. To do so, navigate to the **ManagementEndpoint** URL for your cluster using a web browser, and select the certificate that was saved on your machine.
-
->[!NOTE]
->When opening Service Fabric Explorer, you see a certificate error, as you are using a self-signed certificate. In Edge, you have to click *Details* and then the *Go on to the webpage* link. In Chrome, you have to click *Advanced* and then the *proceed* link.
-
->[!NOTE]
->If the cluster creation fails, you can always rerun the command, which updates the resources already deployed. If a certificate was created as part of the failed deployment, a new one is generated. To troubleshoot cluster creation, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
-
 ## Connect to the secure cluster
-Connect to the cluster using the Service Fabric PowerShell module installed with the Service Fabric SDK.  First, install the certificate into the Personal (My) store of the current user on your computer.  Run the following PowerShell command:
-
-```powershell
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\mycertificates\mysfcluster20170531104310.pfx `
-        -Password $certpwd
-```
-
-You are now ready to connect to your secure cluster.
-
-The **Service Fabric** PowerShell module provides many cmdlets for managing Service Fabric clusters, applications, and services.  Use the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet to connect to the secure cluster. The certificate thumbprint and connection endpoint details are found in the output from a previous step.
-
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
-          -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
-          -StoreLocation CurrentUser -StoreName My
-```
+Connect to the cluster using the Service Fabric CLI, which provides many cmdlets for managing Service Fabric clusters, applications, and services.  Connect to the secure cluster using the key created previously.
 
 ```azurecli
 sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 \
@@ -261,22 +156,14 @@ sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azur
 Check that you are connected and the cluster is healthy using the [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet.
 
 ```powershell
-Get-ServiceFabricClusterHealth
+sfctl cluster health
 ```
 
 ## Clean up resources
 
 A cluster is made up of other Azure resources in addition to the cluster resource itself. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzureRMResourceGroup cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
-
-```powershell
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId "Subcription ID"
-
-$ResourceGroupName = "sfclustertutorialgroup"
-Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
-```
+Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command.
 
 ```azurecli
 az login
@@ -294,7 +181,7 @@ In this tutorial, you learned how to:
 > * Create a key vault and upload a certificate
 > * Create a secure Service Fabric cluster in Azure using a template
 > * Secure the cluster with an X.509 certificate
-> * Connect to the cluster using PowerShell
+> * Connect to the cluster using Service Fabric CLI
 > * Remove a cluster
 
 Next, advance to the following tutorial to learn how to deploy an existing application.
