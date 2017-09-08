@@ -60,7 +60,7 @@ It is easy to use the logger within your Azure ML Workbench projects, and this a
 ## Create a Project in Azure ML Workbench
 Effective use of the Azure ML Workbench **Run History** feature begins with a solid project, and a project based on the **Classifying Iris** template provides a great foundation for exploration.
 You can create such a project by completing the **Create New Project dialogue**.
-For a detailed walkthrough of creating a project using the Classifying Iris template, see the [Iris Tutorial for Machine Learning Server](tutorial-classifying-iris.md).
+For a detailed walkthrough of creating a project using the Classifying Iris template, see the Iris Tutorial for Machine Learning Server.
 Once the project creation is complete, the *Project Dashboard* (which serves as the home page of your project) appears and is now available for your use (as shown.)
 
 ![project dashboard](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01a.png)
