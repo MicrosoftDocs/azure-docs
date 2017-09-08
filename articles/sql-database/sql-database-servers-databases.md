@@ -82,11 +82,7 @@ You can create the Azure SQL database's resource group ahead of time or while cr
 
 ### Create a blank SQL server (logical server)
 
-To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical server) form. The following screenshot shows one method for opening a form to create a blank logical SQL server. 
-
-   ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
-
-If you get to this form using another method, the information on the form is identical.
+To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical server) form.  
 
 ### Create a blank or sample SQL database
 
@@ -100,9 +96,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 
 ### Manage an existing SQL server
 
-To manage an existing server, navigate to the server using a number of methods - such as from specific SQL database page, the **SQL servers** page, or the **All resources** page. The following screenshot shows how to begin setting a server-level firewall from the **Overview** page for a server. 
-
-   ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+To manage an existing server, navigate to the server using a number of methods - such as from specific SQL database page, the **SQL servers** page, or the **All resources** page. 
 
 To manage an existing database, navigate to the **SQL databases** page and click the database you wish to manage. The following screenshot shows how to begin setting a server-level firewall for a database from the **Overview** page for a database. 
 
