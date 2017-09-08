@@ -1,67 +1,56 @@
-
-- name: Machine Learning preview Documentation
+- name: Azure Machine Learning (preview) Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the Azure Machine Learning preview?
-    href: concepts.md
+  - name: What is Azure Machine Learning?
+    href: overview-what-is-azure-ml.md
   - name: Machine Learning options at Microsoft
-    href: what-are-machine-learning-options.md
+    href: overview-what-are-machine-learning-options.md
 - name: Quickstarts
   items:
-  - name: Provisioning and Installation
+  - name: Provisioning and installation
     href: quick-start-installation.md
-  - name: Iris Quickstart Part
+  - name: Quick tour
     href: quick-start-iris.md  
 - name: Tutorials
   items:
-  - name: Classifying Iris
-    href: tutorial-classifying-iris.md
-  - name: Bike Share Forecast - Data preparation
+  - name: Classify iris part 1 - data preparation
+    href: tutorial-classifying-iris-part-1.md
+  - name: Classify iris part 2 - model building
+    href: tutorial-classifying-iris-part-2.md
+  - name: Classify iris part 3 - model deployment
+    href: tutorial-classifying-iris-part-3.md
+  - name: Prepare Bike share data
     href: tutorial-bikeshare-dataprep.md
-  - name: (Bike Share Forecast - Experimentation)
-  - name: Bike Share Forecast - Operationalization
-    href: tutorial-bikerental-operationalization.md
-  - name: (Iris tutorial Azure CLI)
-  - name: MVC template (temporary)
-    href: doc-template-tutorial.md
 - name: Samples
-  items:
-  - name: Azure CLI 2.0
-    href: sample-scripts-azure-cli.md
-  - name: Python
-    href: sample-scripts-python.md
-  - name: MVC template (temporary)
+  items:  
+  - name: Awesome sample coming soon
     href: scripts/doc-template-sample.md
 - name: Concepts
-  items:
-  - name: Machine Learning Workbench overview
-    href: what-is-ml-workbench.md
+  items:       
+  - name: Machine Learning preview features concepts
+    href: overview-general-concepts.md
   - name: Model Management overview
-    href: model-management-overview.md 
-  - name: (Operationalization overview)
-  - name: MVC template (temporary)
-    href: doc-template-concepts.md
+    href: model-management-overview.md    
 - name: How-to guides
   items:
   - name: Set up and configure environment
-    items:
-    - name: (Set up an Experimentation account)
-    - name: (Configure execution targets)
-    - name: (Use Jupyter notebooks)
+    items:    
+    - name: (Configure execution targets)    
     - name: How to use GPU from Workbench
-      href: how-to-use-gpu.md
+      href: how-to-use-gpu.md    
   - name: Acquire and understand data
-    items:
-    - name: (Work with large datasets)
+    items:    
     - name: Get started with data preparation
       href: data-prep-getting-started.md
     - name: Python extensions for data preparation
       href: data-prep-python-extensibility-overview.md
   - name: Develop and manage models
     items:
+    - name: (Use Jupyter notebooks)
     - name: (Track run history and model metrics)
+    - name: (Manage data files)
     - name: Use the MMLSpark library
       href: how-to-use-mmlspark.md
   - name: Operationalize models
@@ -69,18 +58,13 @@
     - name: (Use Model Management Service with CLI)
     - name: (Consume a service with CLI)
   - name: (Use AZ ML CLI from the command line)
-  - name: (Use a Git repo for source control)
-  - name: MVC template (temporary)
-    href: doc-template-how-to.md
+  - name: (Use a Git repo for source control)  
 - name: Reference
-  items:
-  - name: (AZ ML CLI Syntax)
+  items:  
   - name: Model Management API
     href: model-management-api-reference.md
 - name: Resources
   items:
-  - name: (Known issues and troubleshooting)
-  - name: (Release notes)
+  - name: (Known issues and troubleshooting)  
   - name: Frequently asked questions
     href: faq.md
-    

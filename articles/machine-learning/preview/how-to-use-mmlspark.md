@@ -20,17 +20,17 @@ Microsoft Machine Learning Library for Apache Spark (MMLSpark)  provides tools t
 
 ## Prerequisites
 To step through this how-to guide, you need to:
-- [Install AML Workbench](doc-template-how-to.md)
+- [Install Azure Machine Learning Workbench](doc-template-how-to.md)
 - [Set up Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## Run Your Experiment Locally
 
-Your AML Workbench is configured to use MMLSpark. To get started, create a new project, and select "MMLSpark on Adult Census" Gallery example.
+Your Azure Machine Learning Workbench is configured to use MMLSpark. To get started, create a new project, and select "MMLSpark on Adult Census" Gallery example.
 
-Select "Docker" as the compute context from the project dashboard, and click "Run." AML Workbench builds the Docker
+Select "Docker" as the compute context from the project dashboard, and click "Run." Azure Machine Learning Workbench builds the Docker
 container to run the PySpark program, and then executes the program.
 
-After the run has completed, you can view the results in run history view of AML Workbench.
+After the run has completed, you can view the results in run history view of Azure Machine Learning Workbench.
 
 ## Install MMLSpark on Azure HDInsight Spark Cluster.
 

@@ -1,6 +1,6 @@
 ---
 title: Iris Tutorial for Machine Learning Server | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning end-to-end.
+description: This full-length tutorial shows how to use Azure Machine Learning end-to-end. This is part 2 on experimentation.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -13,85 +13,12 @@ ms.topic: hero-article
 ms.date: 09/06/2017
 ---
 
-# Tutorial: Classifying Iris
-
+# Classifying Iris Part 1: Build Model
 In this tutorial, we show you the basics of Azure ML preview features by creating a data preparation package, building a model and operationalizing it as a real-time web service. To make things simple, we use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set). The instructions and screenshots are created for Windows, but they are similar, if not identical, for macOS.
 
-## Step 1. Launch Azure ML Workbench
-Follow the [installation guide](Installation.md) to install Azure ML Workbench desktop application, which also includes command-line interface (CLI). Launch the Azure ML Workbench desktop app and log in if needed.
+This is part 2 of a 3-part tutorial, convering model building.
 
-## Step 2. Create a new project
-Click on _File_ --> _New Project_ (or click on the "+" sign in the project list pane). You can also create a new Workspace first from this drop down menu.
-
-![new ws](media/tutorial-classifying-iris/new_ws.png)
-
-Fill in the project name (this tutorial assumes you use `myIris`). Choose the directory the project is going to be created in (this tutorial assumes you choose `C:\Temp`). Enter an optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the `Classifying Iris` template from the project template list. 
-
-![New Project](media/tutorial-classifying-iris/new_project.png)
->Optionally, you can fill in the Git repo field with an existing empty (with no master branch) Git repo on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](UsingGit.md) article and the [Roaming and Sharing](collab.md) article.
-
-Click on _Create_ button to create the project. The project is now created and opened.
-
-## Step 3. Create a Data Preparation package
-Open the `iris.csv` file from the File View, observe that the file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. Also notice it doesn't have column headers.
-
-![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
-
->Note it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to Deal with Large Data Files](PersistChanges.md) article.
-
-Under Data Explorer view, click on "+" to add a new data source. This launches the _Add Data Source_ wizard. 
-
-![data view](media/tutorial-classifying-iris/data_view.png)
-
-Select the _File(s)/Directory_ option, and choose the `iris.csv` local file. Accept all the default settings for each screen and finally click on _Finish_. 
-
-![select iris](media/tutorial-classifying-iris/select_iris_csv.png)
-
->Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
-
-This creates an `iris-1.dsource` file (because the sample project already comes with an `iris.dsource` file) and opens it in the _Data_ view. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Also notice the last row of the dataset is empty, probably because of an extra line break in the csv file.
-
-![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
-
-Now click on the _Metrics_ button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also switch over to the _Data_ view to see the data itself. 
-
-![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
-
-Now click on the _Prepare_ button next to the _Metrics_ button, and this creates a new file named `iris-1.dprep`. Again, this is because the sample project already comes with an `iris.dprep` file. It opens in Data Prep editor. Now let's do some simple data wrangling.
-
-Rename the column names by clicking on each column header and make the text editable. Enter `Sepal Length`, `Sepal Width`, `Petal Length`, `Petal Width`, and `Species` for the five columns respectively.
-
-![rename columns](media/tutorial-classifying-iris/rename_column.png)
-
-Select the `Species` column, and right-click on it and choose _Value Counts_. 
-
-![value count](media/tutorial-classifying-iris/value_count.png)
-
-This creates a histogram with four bars. Notice our target column has three distinct values, `Iris_virginica`, `Iris_versicolor`, `Iris-setosa`. And there is also one row with a `(null)` value. Let's get rid of this row by selecting the bar representing the null value, and click on the "-" filter button to remove it. 
-
-![value count](media/tutorial-classifying-iris/filter_out.png)
-
-Also notice as you are working on column renaming and filtering out the null value row, each action is recorded as a dataprep step in the _Steps_ pane. You can edit them (to adjust their settings), reorder them, or even remove them.
-
-![steps](media/tutorial-classifying-iris/steps.png)
-
-Now close the DataPrep editor. Don't worry, it is auto-saved. Right click on the `iris-1.dprep` file, and choose _Generate Data Access Code File_. 
-
-![generate code](media/tutorial-classifying-iris/generate_code.png)
-
-This creates an `iris-1.py` file with following two lines of code prepopulated (along with some comments):
-
-```python
-# This code snippet will load the referenced package and return a DataFrame.
-# If the code is run in a PySpark environment, the code will return a
-# Spark DataFrame. If not, the code will return a Pandas DataFrame.
-
-from azureml.dataprep.package import run
-df = run('iris.dprep', dataflow_idx=0)
-```
-This code snippet shows how you can invoke the data wrangling logic you have created as a Data Prep package. Depending on the context in which this code runs, `df` can be a Python Pandas DataFrame if executed in Python runtime, or a Spark DataFrame if executed in a Spark context. For more information on how to use DataPrep in Azure ML Workbench, reference the [Getting Started with Data Preparation](DataPrep_GettingStarted.md) guide.
-
-## Step 4. Review Python Code in `iris_sklearn.py` File
+## Step 1. Review Python Code in `iris_sklearn.py` File
 Now, open the `iris_sklearn.py` file.
 
 ![open file](media/tutorial-classifying-iris/open_iris_sklearn.png)
@@ -119,7 +46,7 @@ Now, open the `conda_dependencies.yml` file under the `aml_config` directory, an
 
 Also notice that the are three pairs of `.runconfig` and `.compute` files, named `local`, `docker-python`, and `docker-spark`. Open the `.runconfig` and `.compute` files for each pair and examine the content. These files control the execution environment and behaviors. For more information on configuring execution environment, please review [Configuring Execution Options](Execution.md) article. And for more information on the specific values in these configuration files, refer to the [Demystifying _aml_config_ Folder](aml_config.md) article.
 
-## Step 5. Execute `iris_sklearn.py` Script in `local` Environment
+## Step 2. Execute `iris_sklearn.py` Script in `local` Environment
 Let's run the `iris_sklearn.py` script for the first time. This script requires `scikit-learn` and `matplotlib` packages. `scikit-learn` is already installed by Azure ML Workbench. So we need to install `matplotlib`. Open the command-line window by clicking on _Open Command Prompt_ from the _File_ menu. (We refer to this command-line interface window as Azure ML Workbench CLI window, or CLI window for short.)
 
 In the CLI window, type in the following command to install `matplotlib` Python package. It should complete within a minute or so.
@@ -165,7 +92,7 @@ Confusion matrix and ROC curve plotted. See them in Run History details page.
 
 You can fill in some different numerical values in the _Arguments_ field ranging from `0.001` to `10`, and execute it a few more times. This value is fed to the Logistic Regression algorithm in the code, which should give you different results.
 
-## Step 6. Review Run History
+## Step 3. Review Run History
 In Azure ML Workbench, every script execution is captured as a run history record. You can view the run history of a particular script by entering the _run history_ view.
 
 ![run history list view]()
@@ -176,7 +103,7 @@ Now click on an individual run to see the run detail view. Notice all the statis
 
 ![run history details view]()
 
-## Step 7. Execute Scripts in the Local Docker Environment
+## Step 4. Execute Scripts in the Local Docker Environment
 >Note, in order to accomplish this step, you must have Docker engine locally installed and started. See the installation guide for more details.
 
 Azure ML allows you to easily configure additional execution environments and run your script there. In the `aml_config` folder, two additional environments are specified: `docker-python` and `docker-spark`. Take a quick look at the respective `.compute` and `.runconfig` files under the `aml_config` folder again if you'd like.
@@ -191,7 +118,7 @@ Open the `iris_pyspark.py` file, read through it. This script loads the `iris.cs
 
 Do a few more runs and play with different arguments. Open the `iris_pyspark.py` file to see the simple Logistic Regression model built using Spark ML library. And interact with _Job_ pane, run history list view, and run details view of your runs across different execution environments.
 
-## Step 8. Execute Scripts in the Azure ML CLI Window
+## Step 5. Execute Scripts in the Azure ML CLI Window
 Launch the command-line window by clicking on _File_ --> _Open Command Prompt_, noice that you are automatically placed in the project folder `C:\Temp\myIris`.
 
 >Important: You **must** use the command-line window opened from Workbench to accomplish the following steps:
@@ -255,7 +182,7 @@ When `run.py` finishes, you might see a graph like this in your run history list
 
 ![run.py graph]()
 
-## Step 8a (optional). Execute in a Docker Container on a Remote Machine
+## Step 5a (optional). Execute in a Docker Container on a Remote Machine
 To execute your script in a Docker container on a remote Linux machine, you need to have SSH access (username and password) to that remote machine. And that remote machine must have Docker engine installed and running. The easiest way to obtain such a Linux machine is to create a [Ubuntu-based Data Science Virtual Machine (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) on Azure. (Note the CentOS-based DSVM is NOT supported.) 
 
 Once the VM is created, you can attach the VM as an execution environment by generating a pair of `.runconfig` and `.compute` file using the below command. Let's name the new environment `myvm`.
@@ -289,7 +216,7 @@ Type this command to run it in the Spark instance in the remote Docker container
 REM execute iris_pyspark.py in Spark instance on remote Docker container
 C:\Temp\myIris> az ml experiment submit -c myvm-spark .\iris_pyspark.py
 ```
-## Step 8b (optional). Execute in an HDI cluster
+## Step 5b (optional). Execute in an HDI cluster
 You can also try to run this script in an actual Spark cluster. If you have access to a _Spark for Azure HDInsight_ cluster, generate an HDI run configuration using the following command:
 ```batch
 REM create a compute target that points to a HDI cluster
@@ -304,91 +231,9 @@ C:\Temp\myIris> az ml experiment submit -c myhdi .\iris_pyspark.py
 ```
 >Note: When you execute against a remote HDI cluster, you can also view the YARN job execution details at https://<cluster_name>.azurehdinsight.net/yarnui using the `admin` user account.
 
-## Step 9. Obtain the Pickled Model
-In the `iris_sklearn.py` script, we serialize the logistic regression model using the popular object serialization package -- pickle, into a file named `model.pkl` on disk. Here is the code snippet.
+Now that we have created the Logistic Regression model, let's deploy it as a real-time web service.
 
-```python
-print("Export the model to model.pkl")
-f = open('./outputs/model.pkl', 'wb')
-pickle.dump(clf1, f)
-f.close()
-```
-
-When you executed the `iris_sklearn.py` script, the model was written to the `outputs` folder with the name `model.pkl`. This folder lives in the execution environment you choose to run the script, not your local project folder. You can find it in the run history detail page and download this binary file by clicking on the download button next to the file name. Read more about the `outputs` folder in the [Persisting Changes](PersistingChanges.md) article.
-
-![Download Pickle](media/tutorial-classifying-iris/download_model.png)
-
-Now, download the model file `model.pkl` and save it to the root of your  project folder. You need it in the later steps.
-
-## Step 10. Prepare for Operationalization Locally
-Local mode deployments run in Docker containers on your local computer, whether that is your desktop or a Linux VM running on Azure. You can use local mode for development and testing. The Docker engine must be running locally to complete the operationalization steps as shown in the following steps.
-
-Let's prepare the operationalization environment. In the CLI window type the following to set up the environment for local operationalization:
-
-```batch
-C:\Temp\myIris> az ml env setup -n <your new environment name> -l <Azure region, for example, eastus2>
-```
->If you need to scale out your deployment (or if you don't have Docker engine installed locally, you can choose to deploy the web service on a cluster. In cluster mode, your service is run in the Azure Container Service (ACS). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web service deployment. Deploying to ACS allows you to scale your service as needed to meet your business needs. To deploy web service into a cluster, add the _--cluster_ flag to the setup command. For more information, enter the _--help_ flag.
-
-Follow the on-screen instructions to provision an Azure Container Registry (ACR) instance and a storage account in which to store the Docker image we are about to create. After the setup is complete, set the environment variables required for operationalization using the following command: 
-
-```batch
-C:\Temp\myIris> az ml env set -n <your environment name> -g <resource group>
-```
-
-To verify that you have properly configured your operationalization environment for local web service deployment, enter the following command:
-
-```batch
-C:\Temp\myIris> az ml env local
-```
-
-## Step 10. Create a Real-time Web Service
-Now you are ready to operationalize the pickled Iris model. 
-
-To deploy the web service, you must have a model, a scoring script, and optionally a schema for the web service input data. The scoring script loads the _model.pkl_ file from the current folder and uses it to produce a new predicted Iris class. The input to the model is an array of four numbers representing the sepal length and width, and pedal length and width. 
-
-In this example, you use a schema file to help parse the input data. To generate the scoring and schema files, simply execute the `iris_schema_gen.py` file that comes with the sample project in the command prompt using Python interpreter directly.  
-
-```batch
-C:\Temp\myIris> python iris_schema_gen.py
-```
-
-Running this file creates a `service_schema.json` file. This file contains the schema of the web service input.
-
-Now you are ready to create the real-time web service:
-```batch
-c:\temp\myIris> az ml service create realtime -f score.py --model-file model.pkl -s service_schema.json -n irisapp -r python
-```
-To quickly explain the switches of the `az ml service create realtime` command:
-* -n: app name, must be lower case.
-* -f: scoring script file name
-* --model-file: model file, in this case it is the pickled sklearn model
-* -r: type of model, in this case it is the python model
-
->Important: The service name (it is also the new Docker image name) must be all lower-case, otherwise you see an error.
-
-When you run the command, the model and the scoring file are uploaded into an Azure service that we manage. As part of deployment process, the operationalization component uses the pickled model `model.pkl` and the scoring script `score.py` to build a Docker image named `<ACR_name>.azureacr.io/irisapp`. It then registers the image with your Azure Container Registry (ACR) service, pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container will instead be deployed into the Kubernetes cluster.)
-
-As part of the deployment, an HTTP REST endpoint for the web service is created on your local machine. After a few minutes the command should finish with a success message and your web service is ready for action!
-
-You can see the running Docker container using the `docker ps` command:
-```batch
-c:\Temp\myIris> docker ps
-```
-You can test the running `irisapp` web service by feeding it with a JSON encoded record containing an array of four random numbers.
-
-The web service creation included sample data. When running in local mode, you can call the `az ml service view` command to retrieve a sample run command that you can use to test the service.
-
-```batch
-C:\Temp\myIris> az ml service show realtime -i <web service id>
-```
-
-To test the service, execute the returned service run command.
-
-```batch
-C:\Temp\myIris> az ml service run realtime -n irisapp -d "{\"input_df\": [{\"petal length\": 1.3, \"sepal width\": 3.6, \"petal width\": 0.25, \"sepal length\": 3.0}]}"
-```
-The output is ༖༗, which is the predicted class. (Your result might be different.)  
-
-## Congratulations!
-Great job! You have successfully run a training script in various compute environments, created a model, serialized the model, and operationalized the model through a Docker-based web service. 
+## Next Steps
+- [Part 1: Project setup and data preparation](tutorial-classifying-iris-part-1.md)
+- Part 2: Model building
+- [Part 3: Model deployment](tutorial-classifying-iris-part-3.md)
