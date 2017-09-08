@@ -71,7 +71,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     b. Enter the *Registration ID* and *Endorsement key* for your TPM device. 
     c. Select an IoT hub linked with your provisioning service.
     d. Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-    e. Update the **Initial device twin state**.
+    e. Update the **Initial device twin state** with the desired initial configuration for the device.
     f. Once complete, click the **Save** button. 
 
     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
