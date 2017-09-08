@@ -30,7 +30,7 @@ This article describes troubleshooting information that's relevant to using Azur
 ## Log/artifact paths
 Following are the paths to some important logs and artifacts. We refer to this information throughout the rest of the document:
 
-### Cloud services
+### Azure Cloud Services
 | Artifact | Path |
 | --- | --- |
 | **Azure Diagnostics configuration file** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
@@ -261,7 +261,7 @@ A new file called `<relevantLogFile>.csv` is created in the same path as the cor
 ### More about missing trace logs 
 
 >[!NOTE]
-> The following information applies mostly to cloud services unless you have configured the DiagnosticsMonitorTraceListener on an application that's running on your IaaS VM. 
+> The following information applies mostly to Azure Cloud Services unless you have configured the DiagnosticsMonitorTraceListener on an application that's running on your IaaS VM. 
 
 - Make sure the **DiagnosticMonitorTraceListener** is configured in the web.config or app.config.  This is configured by default in cloud service projects. However, some customers comment it out, which causes the trace statements to not be collected by diagnostics. 
 
@@ -276,9 +276,9 @@ Here is a list of known issues with known mitigations:
 
 **1. .NET 4.5 dependency:**
 
-WAD has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for cloud services, as well as all official images that are based on Azure virtual machines, have .NET 4.5 or higher installed. 
+Windows Azure Diagnostics Extension has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for Azure Cloud Services, as well as all official images that are based on Azure virtual machines, have .NET 4.5 or higher installed. 
 
-It is still possible encounter a situation where you try to run WAD on a machine that doesn't have .NET 4.5 or above. This happens when you create your machine off of an old image or snapshot, or when you bring your own custom disk.
+It is still possible encounter a situation where you try to run Windows Azure Diagnostics Extension on a machine that doesn't have .NET 4.5 or above. This happens when you create your machine off of an old image or snapshot, or when you bring your own custom disk.
 
 This generally manifests as an exit code **255** when running **DiagnosticsPluginLauncher.exe.** Failure happens due to the following unhandled exception: 
 ```
