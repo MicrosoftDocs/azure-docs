@@ -10,7 +10,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 09/08/2017
 ---
 # How to Use Microsoft Machine Learning Library for Apache Spark
 
@@ -23,6 +23,7 @@ ms.date: 08/31/2017
  * Train and score classification and regression models using implicit featurization.
 
 ## Prerequisites
+
 To step through this how-to guide, you need to:
 - [Install Azure Machine Learning Workbench](quick-start-installation.md)
 - [Set up Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
@@ -76,4 +77,4 @@ For information about MMLSpark library, and examples, see [MMLSpark GitHub repos
 
 *Apache®, Apache Spark, and Spark® are either registered trademarks or
 trademarks of the Apache Software Foundation in the United States and/or other
-countries
+countries*
