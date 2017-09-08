@@ -144,7 +144,7 @@ If you need to use the store, the backups of this machine for long-term retentio
 If you do not need to store the backups of this machine anymore, then please unregister this machine from the vault and retry the upgrade.
 
 **Why can't I see the jobs information for my on-premises resources after upgrade**</br>
-Monitoring for on-premises backups (MARS agent, DPM and Azure Backup Server) is a new feature that you get when you upgrade your Backup vault to Recovery Services vault. The monitoring information takes up to 12 hours to sync with the service.
+Monitoring for backups (MARS agent and IaaS) is a new feature that you get when you upgrade your Backup vault to Recovery Services vault. The monitoring information takes up to 12 hours to sync with the service.
 
 **How do I report an issue?**</br>
 If any portion of the vault upgrade fails, note the OperationId listed in the error. Microsoft Support will proactively work to resolve the issue. You can reach out to Support or email us at rsvaultupgrade@service.microsoft.com with your Subscription ID, vault name and OperationId. We will attempt to resolve the issue as quickly as possible. Do not retry the operation unless explicitly instructed to do so by Microsoft.
