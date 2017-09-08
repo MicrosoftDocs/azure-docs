@@ -44,8 +44,6 @@
     items:    
     - name: Get started with data preparation
       href: data-prep-getting-started.md
-    - name: Python extensions for data preparation
-      href: data-prep-python-extensibility-overview.md
   - name: Develop and manage models
     items:
     - name: (Use Jupyter notebooks)
@@ -63,7 +61,9 @@
   items:  
   - name: Model Management API
     href: model-management-api-reference.md
-  - name: Support Data Sources
+  - name: Python extensions for data preparation
+    href: data-prep-python-extensibility-overview.md
+  - name: Supported Data Sources
     href: data-prep-appendix2-supported-data-sources.md
   - name: Supported Data Preparation Tranforms
     href: data-prep-appendix3-supported-transforms.md
@@ -81,8 +81,6 @@
     href: data-prep-appendix9-sample-destination-connections-python.md
   - name: Sample Data Preparation Column Transforms in Python
     href: data-prep-appendix10-sample-column-transforms-python.md
-
-
 - name: Resources
   items:
   - name: (Known issues and troubleshooting)  
