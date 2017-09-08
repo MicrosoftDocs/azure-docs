@@ -185,7 +185,7 @@ When specify the SOQL or SQL query, pay attention to the DateTime format differe
 
 ## Data type mapping for Salesforce
 
-When copying data from Salesforce, the following mappings are used from Salesforce data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from Salesforce, the following mappings are used from Salesforce data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Salesforce data type | Data factory interim data type |
 |:--- |:--- |

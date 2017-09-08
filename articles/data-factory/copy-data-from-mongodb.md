@@ -164,7 +164,7 @@ Azure Data Factory service infers schema from a MongoDB collection by using the 
 
 ## Data type mapping for MongoDB
 
-When copying data from MongoDB, the following mappings are used from MongoDB data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from MongoDB, the following mappings are used from MongoDB data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | MongoDB data type | Data factory interim data type |
 |:--- |:--- |

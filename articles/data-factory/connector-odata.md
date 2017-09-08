@@ -189,7 +189,7 @@ To copy data from OData, set the source type in the copy activity to **Relationa
 
 ## Data type mapping for OData
 
-When copying data from OData, the following mappings are used from OData data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from OData, the following mappings are used from OData data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | OData data type | Data factory interim data type |
 |:--- |:--- |

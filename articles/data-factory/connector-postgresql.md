@@ -153,7 +153,7 @@ To copy data from PostgreSQL, set the source type in the copy activity to **Rela
 
 ## Data type mapping for PostgreSQL
 
-When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | PostgreSQL data type | PostgresSQL aliases | Data factory interim data type |
 |:--- |:--- |:--- |

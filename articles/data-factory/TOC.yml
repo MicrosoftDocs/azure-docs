@@ -127,8 +127,8 @@
         href: connector-web-table.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md        
-    - name: Schema mapping
-      href: copy-activity-map-schemas.md      
+    - name: Schema and type mapping
+      href: copy-activity-schema-and-type-mapping.md      
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md     
     - name: Performance and tuning

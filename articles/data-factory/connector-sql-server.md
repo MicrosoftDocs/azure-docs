@@ -463,7 +463,7 @@ The stored procedure feature takes advantage of [Table-Valued Parameters](https:
 
 ## Data type mapping for SQL server
 
-When copying data from/to SQL Server, the following mappings are used from SQL Server data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from/to SQL Server, the following mappings are used from SQL Server data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | SQL Server data type | Data factory interim data type |
 |:--- |:--- |

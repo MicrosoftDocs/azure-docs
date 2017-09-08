@@ -151,7 +151,7 @@ To copy data from SAP HANA, set the source type in the copy activity to **Relati
 
 ## Data type mapping for SAP HANA
 
-When copying data from SAP HANA, the following mappings are used from SAP HANA data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from SAP HANA, the following mappings are used from SAP HANA data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | SAP HANA data type | Data factory interim data type |
 |:--- |:--- |

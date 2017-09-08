@@ -195,7 +195,7 @@ To copy data to Oracle, set the sink type in the copy activity to **OracleSink**
 
 ## Data type mapping for Oracle
 
-When copying data from/to Oracle, the following mappings are used from Oracle data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from/to Oracle, the following mappings are used from Oracle data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Oracle data type | Data factory interim data type |
 |:--- |:--- |
