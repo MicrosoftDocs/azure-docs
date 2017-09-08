@@ -1,8 +1,53 @@
-### Hubway Bike Rental Tutorial
+---
+title: Bike-Share Data Preparation Tutorial
+description: And end-to-end data preparation tutorial using Hubway's Bike-share data and weather data
+services: machine-learning
+author: ranvijaykumar
+ms.author: ranku
+manager: mwinkle
+ms.reviewer: 
+ms.service: machine-learning
+ms.workload: data-services
+ms.custom: mvc, tutorial
+ms.topic: article
+ms.date: 09/07/2017
+---
 
->NOTE: Project "Vienna" is evolving quickly with a weekly release cadence. This tutorial is  developed with version 0.1.1708.30052. As we bring new updates (and some times breaking changes) into Vienna, inevitably you will find bits in the tutorial look or behave differently in the Vienna version you have installed. We do our best to keep the tutorial up-to-date with the latest releases and changes. But if you find blocking issues, please report them through our [feedback channels](../Feedback.md).
 
-# Task 1: Data Preparation
+
+# Bike-Share Data Preparation Tutorial
+
+### Introduction
+In this tutorial, we are going to use the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-data/index.html) together with Boston weather data obtained from [NOAA](http://www.noaa.gov/) to prepare data for building a prediction model. The purpose of the prediction model would be to predict the number of bikes picked up by users from a bike station during a 2-hour window.
+
+The Hubway data is organized in separate file for each month. The data files include the following fields, each row representing a bike trip:
+
+* Trip Duration (in seconds)
+* Start Time and Date
+* Stop Time and Date
+* Start Station Name & ID
+* End Station Name & ID
+* Bike ID
+* User Type (Casual = 24-Hour or 72-Hour Pass user; Member = Annual or Monthly Member)
+* ZIP Code (if user is a member)
+* Gender (self-reported by member)
+
+The Boston weather file contains the following weather-related fields reported on hourly basis:
+
+* DATE
+* REPORTTPYE
+* HOURLYDRYBULBTEMPF
+* HOURLYRelativeHumidity
+* HOURLYWindSpeed
+
+We will use Azure ML Workbench Data Preparation tool to prepare the Training and the Test data. We will not be building a prediction model. However, you are encouraged to take the prepared data and build a prediction model using the plethora of algorithms that the Workbench supports.
+
+### Prerequisites
+1. A properly installed Azure ML Workbench. Follow the [installation guide](quick-start-installation.md).
+2. Familiarity with creating a new project in the Workbench.
+
+### Let's Begin
+Now, launch Azure ML Workbench, sign-in, and create a new blank project, name it **BikeShare**. We are well on our way. 
 
 ## Obtaining Data
 
@@ -205,7 +250,7 @@ You should see the following screen:
 
 <table><tr><td><img id ="img" src="media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png"></td></tr></table>
 
-> **Try This:** Go to the advanced mode of **Derive column by example** for the step we created now by clicking the down arrow in the **Steps** pane. In the data grid, notice the checkboxes next to the column names *DATE_1* and *Hour Range* columns. Uncheck the checkbox next to the *Hour Range* column. Notice how the output changes. In the absence of the *Hour Range* column as input, Vienna treats *12AM-2AM* as a constant and appends it to all the derived values. Press Cancel in this dialog to return to the main grid without applying your changes.
+> **Try This:** Go to the advanced mode of **Derive column by example** for the step we created now by clicking the down arrow in the **Steps** pane. In the data grid, notice the checkboxes next to the column names *DATE_1* and *Hour Range* columns. Uncheck the checkbox next to the *Hour Range* column. Notice how the output changes. In the absence of the *Hour Range* column as input, *12AM-2AM* is treated as a constant and appends it to all the derived values. Press Cancel in this dialog to return to the main grid without applying your changes.
 
 Rename the newly created column named *Column* to "Date Hour Range" by double-clicking the column name, renaming it, and pressing enter after renaming.
 
@@ -254,7 +299,7 @@ df.rename(columns={"HOURLYWindSpeed_Mean":"N_WindSpeed"},inplace=True)
 df
 ```
 
-> **Try This:** You can write whatever Python code you like here. At the end, return **df** and Vienna loads it to the grid. Make sure to remove any additional code you wrote before proceeding. We are planning to provide few code templates as starters for users. What kind of operations you would like to see in the Templates? Send us feedback.
+> **Try This:** You can write whatever Python code you like here. At the end, return **df** and it will load to the grid. Make sure to remove any additional code you wrote before proceeding. We are planning to provide few code templates as starters for users. What kind of operations you would like to see in the Templates? Send us feedback.
 
 With this, we are done with preparing the weather data.
 
@@ -274,7 +319,7 @@ Now you should see two **Data Flows** in the **DATAFLOWS** pane: *BostonWeather*
 
 <table><tr><td><img id ="img" src="media/tutorial-bikeshare-dataprep/twodfsindprep.png"></td></tr></table>
 
-Vienna comes with a bunch of useful visualizations called **Inspectors** for String, Numeric, and Geographical data that help in understanding the data better and in identifying outliers. Let's use a few of those Inspectors.
+For data preparation, there are a number of useful visualizations called **Inspectors** for String, Numeric, and Geographical data that help in understanding the data better and in identifying outliers. Let's use a few of those Inspectors.
 
 #### D10.A. Visualize the lat, long columns using Map inspector.
 
@@ -408,7 +453,7 @@ Click on the *Hour Range* column in both the tables in the next screen to select
 
 <table><tr><td><img id ="img" src="media/tutorial-bikeshare-dataprep/joinkeyselection.png"></td></tr></table>
 
-Welcome to the Vienna’s way of visualizing joins. Play with the options to see how results change. Finally, select **Matching rows** checkbox on the top-right side and click **Finish**.
+Here one can visualize the joins. Play with the options to see how results change. Finally, select **Matching rows** checkbox on the top-right side and click **Finish**.
 
 <table><tr><td><img id ="img" src="media/tutorial-bikeshare-dataprep/joinscreen.png"></td></tr></table>
 
@@ -423,7 +468,7 @@ Right click on the *Hour Range* column, select **Derive column by example**, and
 <table><tr><td><img id ="img" src="media/tutorial-bikeshare-dataprep/featurehourrange.png"></td></tr></table>
 
 #### D15. Remove extra columns
-Remove the columns *Date Hour Range* and *rDate Hour Range* by selecting the column headers, right-clicking and then selecting **Remove Column**. We will not use these columns as features.
+Remove the columns *Date Hour Range* and *rDate Hour Range* by selecting the column headers, right-clicking, and then selecting **Remove Column**. We will not use these columns as features.
 
 #### D16. Save the output
 

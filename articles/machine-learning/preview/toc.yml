@@ -1,11 +1,12 @@
-- name: Azure Machine Learning preview features
+- name: Azure Machine Learning (preview) Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: (What are the Azure Machine Learning preview features?)
+  - name: What is Azure Machine Learning?
+    href: overview-what-is-azure-ml.md
   - name: Machine Learning options at Microsoft
-    href: oerview-what-are-machine-learning-options.md
+    href: overview-what-are-machine-learning-options.md
 - name: Quickstarts
   items:
   - name: Provisioning and installation
@@ -20,7 +21,7 @@
     href: tutorial-classifying-iris-part-2.md
   - name: Classify iris part 3 - model deployment
     href: tutorial-classifying-iris-part-3.md
-  - name: Prepare bike share data
+  - name: Prepare Bike share data
     href: tutorial-bikeshare-dataprep.md
 - name: Samples
   items:  
