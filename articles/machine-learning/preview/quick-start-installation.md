@@ -35,7 +35,7 @@ In order to use Azure Machine Learning preview features, you need to do two thin
 * Local Docker engine for running dev/test scenarios locally.
 * Access to an Ubutu Linux VM for scale-up computation.
 * Access to HDInsight for Spark cluster for scale-out computation.
-* Access to the Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
+* Access to an Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
 
 ### Special Note for macOS Users
 Ensure that you run this [shell script](scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries, and configure links before proceeding with the installation.
@@ -46,7 +46,7 @@ $ /Applications/Python\ 3.6/Install\ Certificates.command
 ```
 
 ## Provisioning
-Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on _+ New_ and search for _Machine Learning_. Look for _ML Experimentation (preview)_ in the search results. Click on _ML Experimentation (preview)_ to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or to supply an existing one, for storing Run outputs and other data.
+Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on **+ New** and search for `Machine Learning`. Look for `ML Experimentation (preview)` in the search results. Click on `ML Experimentation (preview)` to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or to supply an existing one, for storing Run outputs and other data.
 
 As part of the Experimentation account creation experience, you have the option of also creating the _Machine Learning Model Management account_. You need this resource when you are ready to deploy and manage your models as real-time web services. We recommended that you create the Model Management account at the same time as the Experimentation account.
 
@@ -63,7 +63,7 @@ When a new release becomes available, Azure ML Workbench will auto-update on its
 * Windows PowerShell: [cleanup_win.ps1](scripts/quick-start-installation/cleanup_win.ps1). 
   * Note, you may need to execute "_Set-ExecutionPolicy Unrestricted_" in a privilege-elevated PowerShell window before you can run the downloaded PowerShell script.
 * macOS: [cleanup_mac.sh](scripts/quick-start-installation/cleanup_mac.sh)
-  * You may need to execute "_chmod a+x ./cleanup_mac.sh_" before you can run the downloaded script.
+  * You may need to execute `_chmod a+x ./cleanup_mac.sh_` before you can run the downloaded script.
 
 >Note: to run these clean-up scripts, you might need elevated privileges. Also, these scripts will not delete your existing projects.
 
@@ -75,7 +75,7 @@ When a new release becomes available, Azure ML Workbench will auto-update on its
 | [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg) | macOS
 
 ### Install Azure ML Workbench
-Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Follow the on-screen instructions to finish the installation. Azure ML Workbench is now installed in the following directory:
+Double-click the downloaded installer `AmlWorkbenchSetup.exe` (on Windows), or `AmlWorkbench.dmg` (on macOS). Follow the on-screen instructions to finish the installation. Azure ML Workbench is now installed in the following directory:
 ```
 # On Windows
 C:\Users\<username>\AppData\Local\AmlWorkbench
@@ -151,7 +151,7 @@ $ az ml env set -n <environment name> -g <resource group>
 ### Check Your Build number
 You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
 
-![version number](media/quick-start-installation/version.png)
+![check version number](media/quick-start-installation/version.png)
 
 ### Success
 You have now successfully installed the Workbench desktop app and command-line interface. Follow the [Iris Quickstart](quick-start-iris.md) to get a quick tour of the Azure ML preview features experience.
@@ -169,6 +169,8 @@ Azure ML Workbench can run experiments in various compute targets. To leverage t
     * You must have SSH access (username and password) to the head node of that HDInsight Spark cluster. Here are the instructions on [provisioning a HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 * Deploy a web service to run locally on your machine
     * This requires a local Docker installation. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
+* Deploy a web service to run in an Azure Container Service Kubernetes cluster
+    * You can set this up in advance, or use Model Management CLI setup command to create it for you.
 
 #### Special Note on Docker for Windows 
 Docker is needed if you want to execute scripts in a local Docker container, or deploy model via a containerized web service locally. Since it is a technology born in Linux, it can be a little challenging to work with on Windows. Make sure you follow these instructions:
@@ -195,5 +197,5 @@ sudo /opt/microsoft/azureml/initial_setup.sh
 
 ## Next Steps
 - Get a quick tour of Azure ML Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
-- Walk through an extensive tutorial [_Classifying Iris_](doc-template-tutorial.md).
-- Learn about Azure ML Workbench data preparation capabilities through the [_Wrangling Bike Share Dataset_](doc-template-tutorial.md) tutorial.
+- Walk through an extensive tutorial [_Classifying Iris_](tutorial-classifying-iris-part-1.md).
+- Learn about Azure ML Workbench data preparation capabilities through the [_Preparing Bike Share Dataset_](tutorial-bikeshare-dataprep.md) tutorial.
