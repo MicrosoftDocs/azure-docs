@@ -65,10 +65,11 @@ The other consideration is the identity authority URL.  You need the correct URL
 ### Applications Using Legacy (Kerberos/NTLM) Authentication Protocols
 Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. The aim is to support logins for line-of-business application and other apps that require Windows Integrated authentication. This is commonly enabled by extending the Active Directory footprint to Azure by adding domain controllers as virtual machines, shown in the following figure: 
 
-<p align="center">
+<div align="justify">
 
 ![alt text](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
-</p>
+
+</div>
 
 
 >[!NOTE]
@@ -101,16 +102,15 @@ Here’s a way to find out using your browser of choice:
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
    - c.	The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
 
-```json
-{"authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize","tenant_region_scope":"USG"}
-```
+     `  {"authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize","tenant_region_scope":"USG"}
+`
 
-   - d. If the **tenant_region_scope** attribute’s value is **USG**, you have yourself an Azure Government tenant.
+   - d. If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
      - **Note**: The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
      - **Note**: The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Commercial in North America, the value would be **NA**.
 
 **If I’m an Office 365 GCC Moderate customer and want to build solutions in Azure Government do I need to have two tenants?**  
-Yes, the AAD Government tenant is only required for your Azure Government Subscription administration.
+Yes, the AAD Government tenant is required for your Azure Government Subscription administration.
 
 **If I’m an Office 365 GCC Moderate customer that has built workloads in Azure Government, where should I authenticate from, Commercial or Government?**  
 See “Choosing your Identity Authority” earlier in this article.
