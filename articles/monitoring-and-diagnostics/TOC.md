@@ -1,32 +1,44 @@
 # Overview
-## [Monitoring tools across Azure](monitoring-overview.md)
 ## [Azure Monitor](monitoring-overview-azure-monitor.md)
+
 # Quickstarts
 
 # Tutorials
 
 # Samples
-## [PowerShell samples](insights-powershell-samples.md)
-## [Azure CLI 1.0 samples](insights-cli-samples.md)
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
+## [Powershell](powershell-samples.md)
+## [Azure CLI](insights-cli-samples.md)
+ 
+## To Remove
+### [PowerShell samples](insights-powershell-samples.md)
+### [Azure CLI 1.0 samples](insights-cli-samples.md)
 
 # Concepts
 ## [Sources of monitoring data](monitoring-data-sources.md)
-## [Metrics](monitoring-overview-metrics.md)
-## [Alerts](monitoring-overview-alerts.md)
-## [Autoscale](monitoring-overview-autoscale.md)
-## [Activity log](monitoring-overview-activity-logs.md)
-## [Action groups](monitoring-action-groups.md)
-## [Diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
+## [Metrics supported](monitoring-supported-metrics.md)
 ## [Roles permissions and security](monitoring-roles-permissions-security.md)
-## [Azure Diagnostics Eextension](azure-diagnostics.md)
 ## [Partner integrations](monitoring-partners.md)
+## Additional Overviews
+### [Monitoring tools across Azure](monitoring-overview.md)
+### [Metrics](monitoring-overview-metrics.md)
+### [Alerts](monitoring-overview-alerts.md)
+### [Autoscale](monitoring-overview-autoscale.md)
+### [Activity log](monitoring-overview-activity-logs.md)
+### [Action groups](monitoring-action-groups.md)
+### [Diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
+### [Azure Diagnostics Extension](azure-diagnostics.md)
+## Schemas
+### [Activity log event schema](monitoring-activity-log-schema.md)
+### [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
+### [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
+#### [1.0](azure-diagnostics-schema-1dot0.md)
+#### [1.2](azure-diagnostics-schema-1dot2.md)
+#### [1.3 and later](azure-diagnostics-schema-1dot3-and-later.md)
 
 # How-to guides
-## Get started
+## Walkthroughs
 ### [Walkthrough of Azure Monitor](monitoring-get-started.md)
 ### [Walkthrough of autoscale](monitoring-autoscale-get-started.md)
-## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor) 
 ## Use alerts
 ### [Configure alerts in Azure portal](insights-alerts-portal.md)
 ### [Configure alerts with CLI](insights-alerts-command-line-interface.md)
@@ -69,23 +81,14 @@
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
 
 # Reference
-## [Metrics supported](monitoring-supported-metrics.md)
-## [Activity log event schema](monitoring-activity-log-schema.md)
-## [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
-## [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
-### [1.0](azure-diagnostics-schema-1dot0.md)
-### [1.2](azure-diagnostics-schema-1dot2.md)
-### [1.3 and later](azure-diagnostics-schema-1dot3-and-later.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [REST](/rest/api/monitor/)
-## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Regional Availability] (https://azure.microsoft.com/en-us/regions/services/)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor) 
 ## [Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
-
-
-
-
-
+## [Stack Overflow](https://stackoverflow.com/search?q=monitoring)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
