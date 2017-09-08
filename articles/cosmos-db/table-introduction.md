@@ -19,7 +19,7 @@ ms.author: arramac
 ---
 # Introduction to Azure Cosmos DB: Table API
 
-[Azure Cosmos DB](introduction.md) provides the Table API (preview) for applications written for Azure Table storage and that need premium capabilities like:
+[Azure Cosmos DB](introduction.md) provides the Table API (preview) for applications that are written for Azure Table storage and that need premium capabilities like:
 
 * [Turnkey global distribution](distribute-data-globally.md).
 * [Dedicated throughput](partition-data.md) worldwide.
