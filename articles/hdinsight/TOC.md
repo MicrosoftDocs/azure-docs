@@ -190,7 +190,7 @@
 ### [Upgrade HDInsight cluster to newer version](hdinsight-upgrade-cluster.md)
 ### [OS patching for HDInsight cluster](hdinsight-os-patching.md)
 ## Monitor
-### [Using Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+### [Use Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [Cluster-specific dashboards](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [Use queries with Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 ## [Troubleshoot](hdinsight-troubleshoot-guide.md)
