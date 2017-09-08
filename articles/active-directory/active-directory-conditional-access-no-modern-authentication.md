@@ -21,21 +21,22 @@ ms.reviewer: calebb
 
 # Set up SharePoint and Exchange Online for Azure Active Directory conditional access 
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how users access your cloud apps. If you want to use conditional access to control access to SharePoint and Exchange online, you need to prevent client apps from bypassing the enforcement of your conditional access policies.   
+With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how users access your cloud apps. If you want to use conditional access to control access to SharePoint and Exchange online, you need to:
 
-This article explains, how you can accomplish this goal.
+- Review whether your conditional access scenario is supported
+- Prevent client apps from bypassing the enforcement of your conditional access policies.   
+
+This article explains, how you can address both cases.
 
 
 ## What you need to know
 
-You can only use Azure AD conditional access to protect cloud apps when the authentication attempt of a client app is based on [modern authentication](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a). When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. 
-
-In addition to modern authentication, some cloud apps also support other (legacy) authentication protocols. This applies, for example, to SharePoint Online and Exchange Online.
-
-To address this issue, you should check whether it is possible to only enable modern authentication on your cloud apps. 
+You can only use Azure AD conditional access to protect cloud apps when the authentication attempt of a client app is based on [modern authentication](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a). In addition to modern authentication, some cloud apps also support legacy authentication protocols. This applies, for example, to SharePoint Online and Exchange Online. 
+When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps. 
  
 ## Control access to SharePoint Online
 
+In addition to modern authentication, SharePoint Online also supports legacy authentication protocols. If the legacy authentication protocols are enabled, 
 You can disable legacy authentication protocols for SharePoint access by using the **[Set-SPOTenant](https://technet.microsoft.com/library/fp161390.aspx)** cmdlet: 
 
 	Set-SPOTenant -LegacyAuthProtocolsEnabled $false
@@ -46,7 +47,7 @@ Exchange supports two main categories of protocols:
 
 - Exchange ActiveSync
 
-- Legacy protocols
+- Legacy authentication protocols
 
 You should review the following options, and then select the policy that is right for your organization.
 
