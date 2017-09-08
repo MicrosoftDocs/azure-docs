@@ -46,7 +46,7 @@ If you don't have an Azure Government subscription, create a [free account](http
     ![storage2](./media/documentation-government-get-started-connect-with-storage-image2.png)
 
 For more information on Azure Storage Explorer, click [here](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-#### Connect VS with Storage Account
+### Connect VS with Storage Account
 
 The Azure Storage Explorer is great for quickly connecting to your storage accounts. However the URL for storage is different than the URL for storage in commercial Azure – specifically, the domain ends with “core.usgovcloudapi.net”, rather than “core.windows.net”.
 
@@ -79,3 +79,4 @@ var result = await table.ExecuteAsync(retrieveOperation);
 var contact = result.Result as ContactEntity;
 Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
 ```
+For more information on Azure Storage, [click here](https://docs.microsoft.com/en-us/azure/storage/). 
