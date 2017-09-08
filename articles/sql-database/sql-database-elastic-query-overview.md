@@ -139,7 +139,7 @@ Elastic query is included into the cost of Azure SQL Database databases. Note th
 * Column statistics over external tables are currently not supported. Tables statistics are supported, but need to be created manually.
 
 ## Feedback
-Please share feedback on your experience with elastic queries with us on Disqus below, the MSDN forums, or on Stackoverflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
+Please share feedback on your experience with elastic queries with us on Livefyre below, the MSDN forums, or on Stackoverflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
 
 ## Next steps
 
