@@ -22,7 +22,7 @@ ms.author: juluk
 [!include [features-introblock](<features-introblock.md)]
 
 > [!TIP]
-> [PowerShell in Azure Cloud Shell](powershell-features.md) is also available.
+> [PowerShell in Azure Cloud Shell](features-powershell.md) is also available.
 
 ## Bash in Cloud Shell
 ### Tools
