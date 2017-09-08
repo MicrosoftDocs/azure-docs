@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 09/08/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -47,6 +47,14 @@ Tip 3: Need your app to be blazing fast anywhere in the world? Replicating your 
 > [!VIDEO https://www.youtube.com/embed/i22R7I_Rgdg]
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905783001937833984)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311547372904214528)
+
+## Tip 4: Replicate data globally
+
+Tip 4: Are gremlins your jam? #cosmosdb loves Gremlin too! View, query and edit your graph DB using the Azure portal [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
+
+> [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/906199438737203201)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311965366943834112)
 
 ## Next steps
 
