@@ -10466,7 +10466,7 @@
         },
         {
             "source_path": "articles/event-grid/resize-images-on-storage-blob-upload-event.md",
-            "redirect_url": "/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json",
+            "redirect_url": "/azure/storage/blobs/storage-blob-event-quickstart",
             "redirect_document_id": false
         },
         {
