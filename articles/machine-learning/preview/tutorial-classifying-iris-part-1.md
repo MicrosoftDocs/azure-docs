@@ -20,7 +20,7 @@ In this tutorial, we show you the basics of Azure ML preview features by creatin
 This is part 1 of a 3-part tutorial, convering project setup and data preparation.
 
 ## Step 1. Launch Azure ML Workbench
-Follow the [installation guide](Installation.md) to install Azure ML Workbench desktop application, which also includes command-line interface (CLI). Launch the Azure ML Workbench desktop app and log in if needed.
+Follow the [installation guide](quickstart-installation.md) to install Azure ML Workbench desktop application, which also includes command-line interface (CLI). Launch the Azure ML Workbench desktop app and log in if needed.
 
 ## Step 2. Create a new project
 Click on _File_ --> _New Project_ (or click on the "+" sign in the project list pane). You can also create a new Workspace first from this drop down menu.
