@@ -297,7 +297,7 @@
 ##### [Configure device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configure app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Configure VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
-##### [Block access to apps that don't use modern authentication](active-directory-conditional-access-block-apps-with-no-modern-authentication.md)
+##### [Block access to apps that don't use modern authentication](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
