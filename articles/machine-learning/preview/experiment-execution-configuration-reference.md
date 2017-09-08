@@ -14,7 +14,7 @@ ms.date: 09/08/2017
 
 # Execution Configuration Files
 
-When you submit a script for Azure Machine Learning (Azure ML) Workbench to execute from desktop app or from CLI, the behavior of the execution is controlled by files in the **aml_config** folder. This folder is under your project folder root. It is important to understand the contents of these files in order to achieve the desired outcome for your execution in an optimal way.
+When you submit a script for Azure Machine Learning (Azure ML) Workbench, the behavior of the execution is controlled by files in the **aml_config** folder. This folder is under your project folder root. It is important to understand the contents of these files in order to achieve the desired outcome for your execution in an optimal way.
 
 Following are the relevant files under this folder:
 - conda_dependencies.yml
@@ -27,7 +27,13 @@ Following are the relevant files under this folder:
 ## conda_dependencies.yml
 This file is a [conda environment file](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) that specifies the Python runtime version and packages that your code depends on. When Azure ML Workbench executes a script in a Docker container (either locally or in a remote Linux Docker host machine), it creates a [conda environment](https://conda.io/docs/using/envs.html) for your script to run. 
 
-In this file, you specify Python packages that your script needs for execution. Azure ML Workbench execution service creates the conda environment in the Docker image according to your list of dependencies. The packages list here must be reachable by the execution engine. For that reason, packages need to be listed in channels hosted by [continuum.io](https://anaconda.org/conda-forge/repo) and others, [PyPI](https://pypi.python.org/pypi), a publicly accessible endpoint (URL), or a local file path that is reachable by the execution engine.
+In this file, you specify Python packages that your script needs for execution. Azure ML Workbench execution service creates the conda environment in the Docker image according to your list of dependencies. The packages list here must be reachable by the execution engine. For that reason, packages need to be listed in channels such as:
+
+* [continuum.io](https://anaconda.org/conda-forge/repo)
+* [PyPI](https://pypi.python.org/pypi)
+* a publicly accessible endpoint (URL)
+* or a local file path
+* others reachable by the execution engine
 
 Here is an example of a typical **conda_dependencies.yml** file.
 ```yaml
@@ -129,7 +135,7 @@ _<compute target name>.compute_ file specifies connection and configuration info
 **nativeSharedDirectory**: This property specifies the base directory (For example: _~/.azureml/share/_) where files can be saved in order to be shared across runs on the same compute target. If this setting is used when running on a Docker container, _sharedVolumes_ must be set to true. Otherwise, execution fails.
 
 ### <run configuration name>.runconfig
-_<run configuration name>.runconfig_ specifies the Azure ML Workbench execution behavior, such as whether or not to track the run using the run history service, which computes target to user, etc. The names of the run configuration files are used to populate the execution context dropdown in the Azure ML Workbench desktop app.
+_<run configuration name>.runconfig_ specifies the Azure ML Workbench execution behavior. It specifies whether or not to track the run using the run history service, which computes target to user, etc... The names of the run configuration files are used to populate the execution context dropdown in the Azure ML Workbench desktop app.
 
 **SparkDependenciesFile**: This property points to the file that specifies the Spark dependencies in the **aml_config** folder. If let to the default value of _null_, it points to the default **spark_dependencies.yml** file.
 
