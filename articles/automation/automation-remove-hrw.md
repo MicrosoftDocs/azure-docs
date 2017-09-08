@@ -43,5 +43,5 @@ To remove a group, you first need to remove the Hybrid Runbook Worker from every
 ## Next Steps
 
 * Review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
-* For information on installing Windows Hybrid Runbook Workers, see [Azure Automation Windows Hybrid Runbook Worker](automation-windows-hrw-intall.md).
-* For information on installing Linux Hybrid Runbook Workers, see [Azure Automation Linux Hybrid Runbook Worker](automation-linux-hrw-intall.md).
+* For information on installing Windows Hybrid Runbook Workers, see [Azure Automation Windows Hybrid Runbook Worker](automation-windows-hrw-install.md).
+* For information on installing Linux Hybrid Runbook Workers, see [Azure Automation Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).

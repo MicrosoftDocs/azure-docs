@@ -37,8 +37,8 @@
 ### [Pass a JSON object to an Azure Automation runbook](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [Deploy Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
-### [Azure Automation Windows Hybrid Runbook Worker](automation-windows-hrw-intall.md)
-### [Azure Automation Linux Hybrid Runbook Worker](automation-linux-hrw-intall.md)
+### [Azure Automation Windows Hybrid Runbook Worker](automation-windows-hrw-install.md)
+### [Azure Automation Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)
 ### [Run runbooks on worker](automation-hrw-run-runbooks.md)
 ### [Remove Azure Automation Hybrid Runbook Workers](automation-remove-hrw.md)
 ## Deploy configuration management (DSC)
