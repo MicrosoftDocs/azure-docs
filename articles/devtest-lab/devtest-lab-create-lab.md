@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/30/2017
+ms.date: 09/07/2017
 ms.author: tarcher	
 
 ---
@@ -43,7 +43,8 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 	1. Enter a **Lab Name** for the new lab.
 	2. Select the **Subscription** to associate with the lab.
 	3. Select a **Location** in which to store the lab.
-	4. Select **Auto-shutdown** to specify if you want to enable - and define the parameters for - the automatic shutting down of all the lab's VMs. The auto-shutdown feature is mainly a cost-saving feature whereby you can specify when you want the VM to automatically be shut down. You can change auto-shutdown settings after creating the lab by following the steps outlined in the article, [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+	4. Select **Auto-shutdown** to specify if you want to enable - and define the parameters for - the automatic shutting down of all the lab's VMs. The auto-shutdown feature is mainly a cost-saving feature whereby you can specify when you want the VM to automatically be shut down. You can change auto-shutdown settings after creating the lab by following the steps outlined in the article [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+	1. Enter **NAME** and **VALUE** information for **Tags** if you want to create custom tagging that is added to every resource you will create in the lab. Tags are useful to help you manage and organize lab resources by category. For more information about tags, including how to add tags after creating the lab, see [Add tags to a lab](devtest-lab-add-tag.md).
 	5. Select **Pin to Dashboard** if you want a shortcut of the lab to appear on the portal dashboard.
 	6. Select **Automation options** to get Azure Resource Manager templates for configuration automation. 
 	7. Select **Create**. After selecting **Create**, the **DevTest Labs** blade displays. You can monitor the status of the lab creation process by watching the **Notifications** area. Once completed, refresh the page to see the newly created lab in the list of labs.  
