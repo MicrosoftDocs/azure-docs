@@ -36,11 +36,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 5. In the logic app blade, select the **Logic App Designer**
 
-6. In the designer select the **Recurrence** trigger.
+6. In the designer, select the **Recurrence** trigger.
 
     ![Created a recurrence trigger in the logic app designer in the portal blade](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.JPG)  
 
-7. Set an interval of 20 and a frequency of second to ensure your logic app is triggered every twenty seconds
+7. Set an interval of 20 and a frequency of second to ensure your logic app is triggered every 20 seconds
 
 8. Click the **New Step** button, and select **Add an action**
 
@@ -56,7 +56,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 1. Click the **Monitor** option in the left-hand navigation pane
 
-2. Select the **Metrics** tab, fill in the **Subscription**, **Resource Group**, **Resource Type** and **Resource** information for your logic app
+2. Select the **Metrics** tab, fill in the **Subscription**, **Resource Group**, **Resource Type**, and **Resource** information for your logic app
 
 3. From the list of metrics, choose **Runs Failed**
 
@@ -72,16 +72,16 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 8. Set the **Condition** for the metric alert as 'Greater than', set the **Threshold** as '10', and set the **Period** as 'Over the last 5 minutes'
 
-9. Finally, under **Addtional administrator email(s)** enter your email address. This will ensure that you receive an email in the event your logic app has more than 10 failed runs within a period of 5 minutes
+9. Finally, under **Additional administrator email(s)** enter your email address. This alert ensures that you receive an email in the event your logic app has more than 10 failed runs within a period of 5 minutes
 
     ![Configure the logic app alert in the portal blade](/media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-alert-portal.JPG)
 
 ## Receive metric alert notifications for your logic app
-1. Within a few moments you should receive an email from 'Microsoft Azure Alerts' to inform you the alert has been 'activated'
+1. Within a few moments, you should receive an email from 'Microsoft Azure Alerts' to inform you the alert has been 'activated'
 
 2. Navigate back to your logic app and modify the recurrence trigger to an interval of 1 and frequency of hour
 
-3. Within a few minutes you should receive an email from 'Microsoft Azure Alerts' informing you the alert has been 'resolved'
+3. Within a few minutes, you should receive an email from 'Microsoft Azure Alerts' informing you the alert has been 'resolved'
 
 ## Clean up resources
 
@@ -91,7 +91,7 @@ Other quick starts in this collection build upon this quick start. If you plan t
 
 2. Select the **Alerts** tab, find the alert you created in this quickstart guide and click on it
 
-3. In the metric alert blade click **Delete**
+3. In the metric alert blade, click **Delete**
 
 4. From the left-hand menu in the Azure portal, search for **Logic App** and then click **Logic apps**.
 
@@ -99,7 +99,7 @@ Other quick starts in this collection build upon this quick start. If you plan t
 
 ## Next steps
 
-In this quick start, you’ve learned how to create a metric alert for your resources. For more information on metric alerts click through to our overview on alerts.
+In this quick start, you’ve learned how to create a metric alert for your resources. For more information on metric alerts, click through to our overview on alerts.
 
 > [!div class="nextstepaction"]
 > [Azure Monitor alerts overview](./monitoring-overview-alerts.md)
