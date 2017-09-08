@@ -957,11 +957,12 @@ You can create an app.config file `AzCopy.exe.config` with property `AzureStorag
       </appSettings>
     </configuration>
 
-For property "AzureStorageUseV1MD5"
-• True - The default value, AzCopy uses .NET MD5 implementation.
-• False – AzCopy uses FIPS-compliant MD5 algorithm.
+For property "AzureStorageUseV1MD5":
 
-Note that FIPS-compliant algorithms are disabled by default on your Windows machine, you can type secpol.msc in your Run window and check this switch at Security Setting->Local Policy->Security Options->System cryptography: Use FIPS-compliant algorithms for encryption, hashing and signing.
+* True - The default value, AzCopy uses .NET MD5 implementation.
+* False – AzCopy uses FIPS-compliant MD5 algorithm.
+
+FIPS-compliant algorithms are disabled by default on Windows. You can change this policy setting on your machine. In the Run window (Windows+R), type secpol.msc to open the **Local Security Policy** window. In the **Security Settings** window, navigate to **Security Settings** > **Local Policies** > **Security Options**. Locate the **System cryptography: Use FIPS-compliant algorithms for encryption, hashing and signing** policy. Double-click on the policy to see the value displayed in the **Security Setting** column.
 
 ## Next steps
 
