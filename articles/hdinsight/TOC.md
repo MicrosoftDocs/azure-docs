@@ -47,6 +47,7 @@
 #### [Use cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
 #### [Use Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
+#### [Use .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 ### [Run the MapReduce samples](hdinsight-hadoop-run-samples-linux.md)
 ### [Use Pig with Hadoop](hdinsight-use-pig.md)
 #### [Use SSH and Pig](hdinsight-hadoop-use-pig-ssh.md)
@@ -97,7 +98,6 @@
 #### [Develop C# topologies with Hadoop tools](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 #### [Process events with C# topologies](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Process events with Java topologies](hdinsight-storm-develop-java-event-hub-topology.md)
-#### [Use Power BI with a topology](hdinsight-storm-power-bi-topology.md)
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
@@ -125,6 +125,7 @@
 ### [Serialize data with Avro Library](hdinsight-dotnet-avro-serialization.md)
 ### [Use C# user-defined functions](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Use Python with Hive and Pig](hdinsight-python.md)
+### [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 ## Analyze big data
 ### [Analyze using Power Query](hdinsight-connect-excel-power-query.md)
 ### [Connect Excel to Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)

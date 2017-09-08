@@ -196,6 +196,7 @@
 #### [Remove users](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [View all my apps](active-directory-coreapps-view-azure-portal.md)
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
+#### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
@@ -291,6 +292,8 @@
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
+#### [VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Mobile app management](active-directory-conditional-access-mam.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
@@ -298,7 +301,6 @@
 #### [FAQs](active-directory-conditional-faqs.md)
 #### [Classic portal](active-directory-conditional-access.md)
 ##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)

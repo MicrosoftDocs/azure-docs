@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
+ms.custom: mvc
 ---
 
 # Create a managed disk from a VHD file in a storage account in the same subscription with CLI

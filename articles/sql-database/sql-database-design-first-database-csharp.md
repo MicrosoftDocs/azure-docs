@@ -10,9 +10,9 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases
+ms.custom: develop databases, mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 08/25/2017
