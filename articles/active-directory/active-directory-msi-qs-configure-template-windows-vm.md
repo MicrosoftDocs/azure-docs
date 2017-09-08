@@ -48,9 +48,12 @@ Because templates work the same during initial deployment and redeployment, you 
    },
    ```
 
-3. Then add the VM MSI extension as a `resources` element using the following syntax. In this example, we configure a Windows VM extension (`ManagedIdentityExtensionForWindows`), but you may also configure for Linux if you are configuring a Linux VM (`ManagedIdentityExtensionForLinux):
+3. Then add the VM MSI extension as a `resources` element using the following syntax:
 
->![NOTE] The example below also assumes you have the `vmName`,
+>[!NOTE] The example below assumes you have the `vmName` and `roleAssignmentId` variables defined in your template.
+> 
+> In this example, a Windows VM extension (`ManagedIdentityExtensionForWindows`) in configured, but you may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
+>
 
    ```JSON
    { 
