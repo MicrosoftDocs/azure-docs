@@ -155,17 +155,17 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ## Next steps
 
 - Deploy a package. To deploy a package, you can choose from several tools and languages. For more info, see the following articles:
-	–	Deploy from SSMS
-	–	Deploy with T-SQL from SSMS
-	–	Deploy with T-SQL from VS Code
-	–	Deploy from command prompt
-	–	Deploy from PowerShell
-	–	Deploy from C# app
+	- Deploy from SSMS
+	- Deploy with T-SQL from SSMS
+	- Deploy with T-SQL from VS Code
+	- Deploy from command prompt
+	- Deploy from PowerShell
+	- Deploy from C# app
 - Run a package. To run a package, you can choose from several tools and languages. For more info, see the following articles:
-	–	Run from SSMS
-	–	Run with T-SQL from SSMS
-	–	Run with T-SQL from VS Code
-	–	Run from command prompt
-	–	Run from PowerShell
-	–	Run from C# app
+	- Run from SSMS
+	- Run with T-SQL from SSMS
+	- Run with T-SQL from VS Code
+	- Run from command prompt
+	- Run from PowerShell
+	- Run from C# app
 - Schedule a package. For more info, see Schedule page
