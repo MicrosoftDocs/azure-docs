@@ -27,7 +27,6 @@ Azure Storage is generally available in Azure Government. For details on Azure S
 The following map shows the primary and secondary region pairings used for geo-redundant storage and read-access geo-redundant storage accounts in Azure Government.
 
 ![Map of primary and secondary region pairings](./media/documentation-government-services-storage.PNG)
-
 > [!NOTE]
 > The USGov Virginia secondary region is USGov Texas. Previously, USGov Virginia used USGov Iowa as a secondary region. Storage accounts with USGov Iowa as a secondary region are being migrated to USGov Texas as a secondary region.
 >
@@ -47,7 +46,7 @@ To view the current secondary region of your geo-redundant storage or read-acces
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
 | [File storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |GA |GA |GA |GA |
-| [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |- |- |GA |GA |- |- |
+| [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |- |GA |GA |- |- |
 | [Locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage) |GA |GA |GA |GA |GA |GA |
 | [Geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
 | [Read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
