@@ -24,19 +24,19 @@ ms.author: jgao
 
 Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applications, and then test the applications on [Hortonworks Sandbox](http://hortonworks.com/products/sandbox/) running on your computer. 
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/) is a Java-integrated development environment (IDE) for developing computer software. After you develop and test your applications on Hortonworks Sandbox, you can move them to [Azure HDInsight](hdinsight-hadoop-introduction.md).
+[IntelliJ IDEA](https://www.jetbrains.com/idea/) is a Java integrated development environment (IDE) for developing computer software. After you develop and test your applications on Hortonworks Sandbox, you can move the applications to [Azure HDInsight](hdinsight-hadoop-introduction.md).
 
 ## Prerequisites
 
-Before you begin this tutorial, you must have:
+Before you begin this tutorial, you must have the following items:
 
 - Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox running on your local computer. To set up HDP, see [Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine](hdinsight-hadoop-emulator-get-started.md). 
     > [!NOTE]
     > HDInsight Tools for IntelliJ has been tested only with HDP 2.4. To get HDP 2.4, expand **Hortonworks Sandbox Archive** on the [Hortonworks Sandbox downloads site](http://hortonworks.com/downloads/#sandbox).
 
-- [Java Developer Kit (JDK) version 1.8 or later](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK is required by the Azure Toolkit for IntelliJ.
+- [Java Developer Kit (JDK) version 1.8 or later](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Azure Toolkit for IntelliJ requires JDK.
 
-- [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) plug-in and the [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) plug-in. HDInsight Tools for IntelliJ is available as part of the Azure Toolkit for IntelliJ. 
+- [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) plug-in and the [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) plug-in. HDInsight Tools for IntelliJ is available as part of Azure Toolkit for IntelliJ. 
 
 To install the plug-ins:
 
@@ -49,12 +49,12 @@ To install the plug-ins:
 
 ## Create a Spark Scala application
 
-In this section, create a sample Scala project by using IntelliJ IDEA. In the next section, link IntelliJ IDEA to the Hortonworks Sandbox (emulator) before you submit the project.
+In this section, you create a sample Scala project by using IntelliJ IDEA. In the next section, you link IntelliJ IDEA to the Hortonworks Sandbox (emulator) before you submit the project.
 
 1. Open IntelliJ IDEA on your computer. In the **New Project** dialog box, complete these steps:
 
    1. Select **HDInsight** > **Spark on HDInsight (Scala)**.
-   2. In the **Build tool** list, select one of the following, according to your need:
+   2. In the **Build tool** list, select one of the following, based on your scenario:
 
     * **Maven**: For Scala project-creation wizard support.
     * **SBT**: For managing dependencies and building for the Scala project.
@@ -64,12 +64,13 @@ In this section, create a sample Scala project by using IntelliJ IDEA. In the ne
 2. Select **Next**.
 3. In the next **New Project** dialog box, complete the following steps:
 
-    ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
-
     1. In the **Project name** box, enter a project name.
     2. In the **Project location** box, enter a project location.
     3. Next to the **Project SDK** drop-down list, select **New**, select **JDK**, and then specify the folder for Java JDK version 1.7 or later. Select **Java 1.8** for the Spark 2.x cluster. Select **Java 1.7** for the Spark 1.x cluster. The default location is C:\Program Files\Java\jdk1.8.x_xxx.
-    4. In the **Spark version** drop-down list, the Scala project creation wizard integrates the correct version for the Spark SDK and Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses Spark 1.6.2 (Scala 2.10.5). Ensure that you are using the repository marked *Scala 2.10.x*. Do not use the repository marked Scala 2.11.x.
+    4. In the **Spark version** drop-down list, the Scala project creation wizard integrates the correct version for the Spark SDK and Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses Spark 1.6.2 (Scala 2.10.5). Ensure that you are using the repository marked **Scala 2.10.x**. Do not use the repository marked Scala 2.11.x.
+    
+    ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+
 
 4. Select **Finish**.
 5. If the **Project** view is not already open, press **Alt+1** to open it.
@@ -115,7 +116,7 @@ In this section, create a sample Scala project by using IntelliJ IDEA. In the ne
             }
         }
 
-10. On the **Build** menu, select **Build project**. Make sure that the compilation finishes successfully.
+10. On the **Build** menu, select **Build project**. Ensure that the compilation finishes successfully.
 
 
 ## Link to the Hortonworks Sandbox
@@ -127,7 +128,7 @@ To link to an emulator:
 1. Open the project in IntelliJ.
 2. On the **View** menu, select **Tools Windows**, and then select **Azure Explorer**.
 3. Expand **Azure**, right-click **HDInsight**, and then select **Link an Emulator**.
-4. In the **Link A New Emulator** dialog box, enter the password that you've set for the root account of the Hortonworks Sandbox. Next, enter values similar to those in the following screenshot. Then, select **OK**. 
+4. In the **Link A New Emulator** dialog box, enter the password that you've set for the root account of the Hortonworks Sandbox. Next, enter values similar to those used in the following screenshot. Then, select **OK**. 
 
    ![The Link a New Emulator dialog box](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 
