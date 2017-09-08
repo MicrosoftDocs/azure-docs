@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -528,6 +528,8 @@ When you have completed the required steps, domain-joined devices are ready to a
 ### Remarks
 
 - You can use a Group Policy object to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers.
+
+- For Windows versions newer than Windows 10 November 2015 Update, Group Policy settings mentioned below are not required. Device registration will work automatically after you complete steps 1-3.
 
 - Windows 10 November 2015 Update automatically joins with Azure AD **only** if the rollout Group Policy object is set.
 
