@@ -81,4 +81,4 @@ In this quick start, you’ve learned how to plot and visualize metrics for your
 To learn how to create an alert on resource metrics, continue to our quickstart for metric alerts.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor metric alerts quickstart](./monitoring-quick.md)
+> [Azure Monitor metric alerts quickstart](./monitoring-quick-resource-metric-alert-portal.md)
