@@ -106,10 +106,10 @@ $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of 
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> -type cluster
 ```
 
-This command creates a pair files based on the compute target specified. Let's say you named your compute target _foo_. This command generates _foo.compute_ and _foo.runconfig_ in your **aml_config** folder.
+This command creates a pair of files based on the compute target specified. Let's say you named your compute target _foo_. This command generates _foo.compute_ and _foo.runconfig_ in your **aml_config** folder.
 
 >[!NOTE]
-> _local_ or _docker_ names for the run configuration files are arbitrary. Azure ML Workbench adds these two run configurations when you create a blank project for your convenience. You can rename the .runconfig files that come with the project template, or create new ones with any name you want.
+> _local_ or _docker_ names for the run configuration files are arbitrary. Azure ML Workbench adds these two run configurations when you create a blank project for your convenience. You can rename the <run configuration name>.runconfig files that come with the project template, or create new ones with any name you want.
 
 ### <compute target name>.compute
 _<compute target name>.compute_ file specifies connection and configuration information for the compute target. It is a list of name-value pairs. Follwing are the supported settings.
@@ -147,7 +147,7 @@ _<run configuration name>.runconfig_ specifies the Azure ML Workbench execution 
 
 **TrackedRun**: This flag signals the execution service whether or not to track the run in Azure ML Workbench run history infrastructure. The default value is _true_. If you set it to _false_, you can skip run history tracking and achieve some performance gains.
 
-**ArgumentVector**: This section specifies the script to be run as part of this execution and the parameters for the script. For example, if you have the following snippet in your .runconfig file 
+**ArgumentVector**: This section specifies the script to be run as part of this execution and the parameters for the script. For example, if you have the following snippet in your "<run configuration name>.runconfig" file 
 
 ```
  "ArgumentVector":[
@@ -156,7 +156,7 @@ _<run configuration name>.runconfig_ specifies the Azure ML Workbench execution 
   - "-v" 
  ] 
 ```
-_az ml experiment submit foo.runconfig_  automatically runs the command with _myscript.py_ file passing in 234 as a parameter and sets the --verbose flag.
+_"az ml experiment submit foo.runconfig"_  automatically runs the command with _myscript.py_ file passing in 234 as a parameter and sets the --verbose flag.
 
 
 **Target**: This parameter is the name of the _.compute_ file that the _runconfig_ file references. It generally points the _foo.compute_ file but you can edit it to point to a different compute target.
