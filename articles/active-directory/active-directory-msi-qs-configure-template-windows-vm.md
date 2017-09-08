@@ -34,7 +34,7 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
 
 ## Enable MSI during creation of an Azure VM, or on an existing VM
 
-Because templates work the same during initial deployment and redeployment, you enable MSI on a new or existing VM in the same manner. Also, by default Azure Resource Manager will do an [incremental update](../azure-resource-manager/resource-group-template-deploy#incremental-and-complete-deployments.md) to your deployment, which is assumed here:
+Because templates work the same during initial deployment and redeployment, you enable MSI on a new or existing VM in the same manner. Also, by default Azure Resource Manager will do an [incremental update](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to your deployment, which is assumed here:
 
 1. After loading the template into an editor for updating, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section of the template. Your properties may look slightly different from this screen shot, depending on whether you are creating or modifying resources. 
 
@@ -50,7 +50,8 @@ Because templates work the same during initial deployment and redeployment, you 
 
 3. Then add the VM MSI extension as a `resources` element using the following syntax:
 
->[!NOTE] The example below assumes you have the `vmName` and `roleAssignmentId` variables defined in your template.
+>[!NOTE] 
+> The example below assumes you have the `vmName` and `roleAssignmentId` variables defined in your template.
 > 
 > In this example, a Windows VM extension (`ManagedIdentityExtensionForWindows`) in configured, but you may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
 >
