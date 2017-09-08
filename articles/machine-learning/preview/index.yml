@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Documentation (preview features)
+title: Azure Machine Learning (preview) Documentation
 metadata:
-  title: Azure Machine Learning Documentation (preview features)
+  title: Azure Machine Learning (preview) Documentation
   meta.description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
   author: czeumault

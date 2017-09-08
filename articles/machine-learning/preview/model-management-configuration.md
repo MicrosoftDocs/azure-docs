@@ -16,7 +16,7 @@ ms.date: 08/29/2017
 ## Overview
 This document gets you started with using Azure ML Model Management to deploy and manage your machine learning models. 
 
-Using Azure ML Model Management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, Tensorflow, CNTK, or Python. 
+Using Azure ML Model Management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, TensorFlow, CNTK, or Python. 
 
 By the end of this document, you should be able to have your model management environment set up and ready for deploying your machine learning models.
 

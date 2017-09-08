@@ -160,7 +160,7 @@ Some example notebooks are available in JupyterHub.
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. To start H2O from the command-line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`; there are various [command line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you may like to configure. The Flow Web UI can be accessed by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
 
 #### Keras
-Keras is a high-level neural network API in Python that is capable of running on top of either Tensorflow or Theano. It is available in the root and py35 Python environments. 
+Keras is a high-level neural network API in Python that is capable of running on top of either TensorFlow or Theano. It is available in the root and py35 Python environments. 
 
 #### MXNet
 MXNet is a deep learning framework designed for both efficiency and flexibility. It has R and Python bindings included on the DSVM. Sample notebooks are included in JupyterHub, and sample code is available in /dsvm/samples/mxnet.

@@ -13,7 +13,7 @@ ms.date: 09/06/2017
 
 # Azure Machine Learning - Concepts
 
-Welcome to Azure Machine Learning. Our new release includes the Experimentation Service, the Model Management Service, and our Workbench application. This document defines are a few key concepts that will help you understand our new services and application. 
+Welcome to Azure Machine Learning. Our new release includes the Experimentation Service, Model Management, and our Workbench application. This document defines are a few key concepts that will help you understand our new services and application. 
 
 - **Subscription:** An Azure subscription grants you access to Azure services and the Azure Platform Management Portal. Because Azure Machine Learning is deeply integrated with Visual Studio Team Services, Azure Blob Storage, Azure Key Vault, and other Azure services, Workbench requires that each user have a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources. Note: During Public Preview, your subscription must have access to Azure resources in ‘EAST US 2’ or ‘West Central US’. Azure Machine Learning is currently deployed only in these regions.
 
@@ -41,13 +41,13 @@ Welcome to Azure Machine Learning. Our new release includes the Experimentation 
 - **Run:** The Experimentation Service defines a run as the execution of a given file in an environment. Run status is available in the Workbench UI. 
 
 
-- **Managed model:** The Model Management service enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. ‘Managed’ models have been registered with an Azure Machine Learning Model Management account. 
+- **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. ‘Managed’ models have been registered with an Azure Machine Learning Model Management account. 
  
 
-- **Deployment:** The Model Management service allows you to deploy models as packaged web service containers in Azure. Each web service is counted as a single deployment. 
+- **Deployment:** Model Management allows you to deploy models as packaged web service containers in Azure. Each web service is counted as a single deployment. 
 
 
-- **Manifests:** When the Model Management system deploys a model into production it includes a manifest that encompasses the model, dependencies, a scoring script, sample data, and a schema. The manifest is the recipe used to create a Docker container image. Using the Model Management Service, you can auto-generate, create versions, and manage your manifests. 
+- **Manifests:** When the Model Management system deploys a model into production it includes a manifest that encompasses the model, dependencies, a scoring script, sample data, and a schema. The manifest is the recipe used to create a Docker container image. Using Model Management, you can auto-generate, create versions, and manage your manifests. 
 
 
 - **Images:** You can use manifests to generate (and regenerate) Docker images. Containerized Docker images create flexibility to run images in the cloud, on local machines, or on IoT device. Images are self-contained, and include all dependencies required for generating predictions. 
