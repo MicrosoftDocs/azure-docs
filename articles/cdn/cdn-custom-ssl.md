@@ -23,7 +23,7 @@ ms.author: casoper
 
 HTTPS support for Azure CDN custom domains enables you to deliver secure content via SSL using your own domain name to improve the security of data while in transit. The end-to-end workflow to enable HTTPS for your custom domain is simplified via one-click enablement, complete certificate management, and all with no additional cost.
 
-It's critical to ensure the privacy and data integrity of all of your web applications sensitive data while in transit. Using the HTTPS protocol ensures that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication and protects your web applications from attacks. Currently, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (e.g. https://contoso.azureedge.net), HTTPS is enabled by default. Now, with custom domain HTTPS, you can enable secure delivery for a custom domain (e.g. https://www.contoso.com) as well. 
+It's critical to ensure the privacy and data integrity of all of your web applications sensitive data while in transit. Using the HTTPS protocol ensures that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. Currently, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (for example, https://contoso.azureedge.net), HTTPS is enabled by default. Now, with custom domain HTTPS, you can enable secure delivery for a custom domain (for example, https://www.contoso.com) as well. 
 
 Some of the key attributes of HTTPS feature are:
 
@@ -54,7 +54,7 @@ Some of the key attributes of HTTPS feature are:
 ## Step 2: Domain validation
 
 >[!IMPORTANT] 
->You must complete domain validation before HTTPS will be active on your custom domain. You have 6 business days to approve the domain. Requests with no approval will be canceled within 6 business days.  
+>You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests with no approval will be canceled within six business days.  
 
 After you enable HTTPS on your custom domain, our HTTPS certificate provider DigiCert validates ownership of your domain by contacting the registrant for your domain, based on WHOIS registrant information, via email (by default) or phone. DigiCert will also send the verification email to the following addresses. If WHOIS registrant information is private, make sure you can approve directly from one of these addresses:
 
@@ -64,26 +64,9 @@ After you enable HTTPS on your custom domain, our HTTPS certificate provider Dig
 >hostmaster@<your-domain-name.com>  
 >postmaster@<your-domain-name.com>
 
-The following table shows possible validation results.
-
-| Domain validation results | 
-| --- |
-| Certificate deleted |
-| Certificate successfully deployed |
-| Deleting certificate |
-| Deploying certificate to CDN POPs |
-| Domain validation succeeded |
-| Domain validation failed (customer likely declined email validation) |
-| Domain validation request expired (customer didn't respond within 6 days) |
-| Issuing certificate |
-| Domain validation email sent, waiting for your approval |
-| Submitting your request |
-| Unexpected failure while processing your request, please try again or contact support |
-
-
 Upon receiving the email, you have two verification options:
 
-1. You can approve all future orders placed through the same account for the same root domain, for example, consoto.com. This is a recommended approach if you are planning to add additional custom domains in the future for the same root domain.
+1. You can approve all future orders placed through the same account for the same root domain; for example, contoso.com. This is a recommended approach if you are planning to add additional custom domains in the future for the same root domain.
  
 2. You can approve just the specific host name used in this request. Additional approval will be required for subsequent requests.
 
@@ -93,9 +76,35 @@ Upon receiving the email, you have two verification options:
 
 After approval, DigiCert will add your custom domain name to the SAN certificate. The certificate will be valid for one year and will be auto renewed before it's expired.
 
-## Step 3: Wait for the propagation then start using your feature
+## Step 3: Wait for the propagation, then start using your feature
 
-After the domain name is validated, it takes up to 6-8 hours for the custom domain HTTPS feature to be active. When the process is complete, the "custom HTTPS" status in the Azure portal is set to "Enabled." HTTPS with your custom domain is now ready for your use.
+After the domain name is validated, it takes up to 6-8 hours for the custom domain HTTPS feature to be active. When the process is complete, the "Custom HTTPS" status in the Azure portal is set to "Enabled" and the four operation steps in the Custom domain HTTPS blade are marked as complete. Your custom domain is now ready to use HTTPS.
+
+![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
+
+## Validation results
+
+The following table shows the validation results that occur when you enable HTTPS. The operation progress is displayed as a series of four steps in the Custom domain HTTPS blade. The operation details are displayed in the custom domains list under Details. Under Custom HTTPS, the status is displayed as "Enabling" until the operation is complete.
+
+| Operation progress| Possible operation details | 
+| --- | --- |
+| 1 Submitting request | Submitting your request |
+| | Unexpected failure while processing your request, please try again or contact support |
+| 2 Domain validation | Domain validation email sent, waiting for your approval |
+| | Domain validation succeeded |
+| | Domain validation request expired (customer didn't respond within 6 days) |
+| | Domain validation failed (customer likely declined email validation) |
+| 3 Certificate provisioning | Issuing certificate |
+| | Deploying certificate to CDN POPs |
+| 4 Complete | Certificate successfully deployed |
+
+The following table shows the validation results that occur when you disable HTTPS. The operation progress is displayed as a series of three steps in the Custom domain HTTPS blade. The operation details are displayed in the custom domains list under Details. Under Custom HTTPS, the status is displayed as "Disabling" until the operation is complete.
+
+| Operation progress | Operation details | 
+| --- | --- |
+| 1 Submitting request | Deleting certificate |
+| 2 Certificate deprovisioning | |
+| 3 Complete | Certificate deleted |
 
 ## Frequently asked questions
 
