@@ -1,19 +1,20 @@
 ---
-title: Connect to Azure Government from Visual Studio Team Services | Microsoft Docs
-description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Visual Studio Team Services
+title: Azure Government Storage | Microsoft Docs
+description: This provides a quickstart-guide for getting started with Storage in Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: shashban
-manager: gopinach
+author: yujhong
+manager: zakramer
 
-ms.assetid: 
+ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: nams.workload: azure-government
-ms.date: 
-ms.author: shashban
+ms.tgt_pltfrm: na
+ms.workload: azure-government
+ms.date: 9/08/2017
+ms.author: yujhong
 
 ---
 # Connect with Storage in Azure Government
