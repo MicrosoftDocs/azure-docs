@@ -21,10 +21,6 @@
     href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
 - name: How-to guides
   items:
-  - name: Managed ACR - CLI
-    href: container-registry-managed-get-started-azure-cli.md
-  - name: Managed ACR - Portal
-    href: container-registry-managed-get-started-portal.md
   - name: Push and pull an image
     href: container-registry-get-started-docker-cli.md
   - name: View repositories

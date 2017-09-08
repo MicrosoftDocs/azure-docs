@@ -10465,6 +10465,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
+            "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
+            "redirect_document_id": false
+        },      
+        {
+            "source_path": "articles/container-registry/container-registry-managed-get-started-azure-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
             "redirect_document_id": false
