@@ -22,7 +22,8 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 ## Prerequisite
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
-* **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Prepare blob(s) under any path in the storage as source.
+* **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
 * Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## Create data factory
@@ -30,23 +31,27 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
 
     a. Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
+        
         ```powershell
         Login-AzureRmAccount
         ```        
     b. Run the following command to view all the subscriptions for this account:
+
         ```powershell
         Get-AzureRmSubscription
         ```
     c. Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
+
     	```powershell
-    	Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	```
+    	Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
+        ```
 
 2. Run the **New-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
 
     ```powershell
     $df = New-AzureRmDataFactoryV2 `
         -ResourceGroupName "<your resource group to create the factory>" `
-        -Location "<choose the region to create the factory, e.g. East US>" `
+        -Location "East US" `
         -Name "<specify the name of data factory to create. It must be globally unique.>" `
         -LoggingStorageAccountName "<your storage account name>" `
         -LoggingStorageAccountKey "<your storage account key>"
@@ -61,6 +66,7 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
         ```
 
     * To create Data Factory instances, you must be a contributor or administrator of the Azure subscription.
+    * Currently, Data Factory V2 allows you to create data factory only in the East US region. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ## Create linked service
 
@@ -105,7 +111,7 @@ You create linked services in a data factory to link your data stores and comput
 
 ## Create dataset
 
-You define dataset that represents the data to copy from/to. In this example, this Blob dataset refers to the Azure Storage linked service you create in above step. It takes a parameter whose value is set when this dataset is consumed in an activity. The parameter is used to construct the "folderPath" pointing to where the data resides.
+You define a dataset that represents the data to copy from a source to a sink. In this example, this Blob dataset refers to the Azure Storage linked service you create in the previous step. The dataset takes a parameter whose value is set in an activity that consumes the dataset. The parameter is used to construct the "folderPath" pointing to where the data resides/stored.
 
 1. Create a JSON file named **BlobDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
 
@@ -151,7 +157,7 @@ You define dataset that represents the data to copy from/to. In this example, th
 
 ## Create pipeline
 
-In this example, this pipeline contains one activity and takes two parameters - input blob path and output blob path. The values for these parameters are set when the pipeline is triggered. The copy activity refers the same Blob dataset created in above step as input and output, while it takes the two different parameters as source path and sink path respectively.
+In this example, this pipeline contains one activity and takes two parameters - input blob path and output blob path. The values for these parameters are set when the pipeline is triggered/run. The copy activity refers to the same blob dataset created in the previous step as input and output. When the dataset is used as an input dataset, input path is specified. And, when the dataset is used as an output dataset, the output path is specified. 
 
 1. Create a JSON file named **Adfv2QuickStartPipeline.json** in the **C:\ADFv2QuickStartPSH** folder with the following content:
 
@@ -230,8 +236,8 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 
     ```json
     {
-        "inputPath": "<the path to existing blob(s) to copy data from, e.g. containername/path>",
-        "outputPath": "<the blob path to copy data to, e.g. containername/path>"
+        "inputPath": "<the path to existing blob(s) to copy data from, e.g. containername/foldername>",
+        "outputPath": "<the blob path to copy data to, e.g. containername/foldername>"
     }
     ```
 
@@ -243,7 +249,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 
 ## Monitor pipeline run
 
-1. Run below script to continuously check the pipeline run status until it finishes copying the data.
+1. Run the following script to continuously check the pipeline run status until it finishes copying the data.
 
     ```powershell
     while ($True) {
@@ -281,7 +287,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     Message              :
     ```
 
-2. Run below script to retrieve copy activity run details, for example, size of the data read/written.
+2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
     $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactory $df `
@@ -293,11 +299,11 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 
     $result
 
-    if ($run.Status -eq "Succeeded") {
-        $result.Output -join "`r`n"
-    }
-    else {
-        $result.Error -join "`r`n"
+    if ($run.Status -eq "Succeeded") {`
+        $result.Output -join "`r`n"`
+    }`
+    else {`
+        $result.Error -join "`r`n"`
     }
     ```
 
@@ -327,12 +333,10 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     ```
 
 ## Verify the output
-
-Use Azure Storage explorer to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in PipelineParameters.json file.
-
+Use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) in the inputBlobPath are copied to outputBlobPath.
 
 ## Clean up resources
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group]((../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
+You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
 
 Run the following command to delete the entire resource group: 
 ```powershell

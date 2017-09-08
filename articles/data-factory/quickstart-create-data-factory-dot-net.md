@@ -18,16 +18,16 @@ ms.author: jingwang
 ---
 
 # Create a data factory and pipeline using .NET SDK
-
 This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
 
-## Prerequisite
+## Prerequisites
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
-* **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Prepare blob(s) under any path in the storage as source.
+* **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. 
+* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
 * **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
 * **Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
-* **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role.
+* **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article. 
 
 ## Create Visual Studio project
 
@@ -65,7 +65,7 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Add the following code to the **Main** method that sets variables. Replace below place-holders with your own values.
+2. Add the following code to the **Main** method that sets variables. Replace place-holders with your own values.
 
     ```csharp
     // Set variables
@@ -74,12 +74,16 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
     string authenticationKey = "<your authentication key for the application>";
     string subscriptionId = "<your subscription ID to create the factory>";
     string resourceGroup = "<your resource group to create the factory>";
-    string region = "<choose the region to create the factory, e.g. East US>";
+    // Currently, Data Factory V2 allows you to create data factory only in the East US region. 
+    // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions
+    string region = "East US";
     string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
     string storageAccount = "<your storage account name to copy data>";
     string storageKey = "<your storage account key>";
-    string inputBlobPath = "<the path to existing blob(s) to copy data from, e.g. containername/path>";
-    string outputBlobPath = "<the blob path to copy data to, e.g. containername/path>";
+    // specify the container and input folder from which all files need to be copied to the output folder. 
+    string inputBlobPath = "<the path to existing blob(s) to copy data from, e.g. containername/foldername>";
+    //specify the contains and output folder to which files need to be copied
+    string outputBlobPath = "<the blob path to copy data to, e.g. containername/foldername>";
 
     string storageLinkedServiceName = "AzureStorageLinkedService";  // name of the Azure Storage linked service
     string blobDatasetName = "BlobDataset";             // name of the blob dataset
@@ -99,7 +103,7 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
 
 ## Create data factory
 
-Add the following code to the **Main** method that creates a **data factory**.
+Add the following code to the **Main** method that creates a **data factory**. 
 
 ```csharp
 // Create a data factory
@@ -143,7 +147,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.S
 
 Add the following code to the **Main** method that creates an **Azure blob dataset**.
 
-You define dataset that represents the data to copy from/to. In this example, this Blob dataset refers to the Azure Storage linked service you create in above step. It takes a parameter whole value is set when this dataset is consumed in an activity. The parameter is used to construct the "folderPath" pointing to where the data resides.
+You define a dataset that represents the data to copy from a source to a sink. In this example, this Blob dataset refers to the Azure Storage linked service you create in the previous step. The dataset takes a parameter whose value is set in an activity that consumes the dataset. The parameter is used to construct the "folderPath" pointing to where the data resides/stored.
 
 ```csharp
 // Create a Azure Blob dataset
@@ -169,9 +173,9 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.Serializat
 
 ## Create pipeline
 
-Add the following code to the **Main** method that creates a **pipeline with one blob-to-blob copy activity**.
+Add the following code to the **Main** method that creates a **pipeline with a copy activity**.
 
-In this example, this pipeline contains one activity and takes two parameters - input blob path and output blob path. The values for these parameters are set when the pipeline is triggered. The copy activity refers the same Blob dataset created in above step as input and output, while it takes the two different parameters as source path and sink path respectively.
+In this example, this pipeline contains one activity and takes two parameters - input blob path and output blob path. The values for these parameters are set when the pipeline is triggered/run. The copy activity refers to the same blob dataset created in the previous step as input and output. When the dataset is used as an input dataset, input path is specified. And, when the dataset is used as an output dataset, the output path is specified. 
 
 ```csharp
 // Create a pipeline with copy activity
@@ -239,7 +243,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## Monitor pipeline run
 
-1. Add the following code to the **Main** method to continuously check the pipeline run status until it finishes copying the data.
+1. Add the following code to the **Main** method to continuously check the status of the pipeline run until it finishes copying the data.
 
     ```csharp
     // Monitor the pipeline run
@@ -276,19 +280,121 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Build and start the application, then verify the pipeline execution.
 
-The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use Azure Storage explorer to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
+The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
+
+### Sample output: 
+```json
+Creating data factory SPv2Factory0907...
+{
+  "properties": {
+    "loggingStorageAccountName": "<storageAccountName>",
+    "loggingStorageAccountKey": "<storageAccountKey>"
+  },
+  "location": "East US"
+}
+Creating linked service AzureStorageLinkedService...
+{
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": {
+        "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
+        "type": "SecureString"
+      }
+    }
+  }
+}
+Creating dataset BlobDataset...
+{
+  "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@{dataset().path}",
+        "type": "Expression"
+      }
+    },
+    "linkedServiceName": {
+      "referenceName": "AzureStorageLinkedService",
+      "type": "LinkedServiceReference"
+    },
+    "parameters": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
+}
+Creating pipeline Adfv2QuickStartPipeline...
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+        "inputs": [
+          {
+            "referenceName": "BlobDataset",
+            "parameters": {
+              "path": "@pipeline().parameters.inputPath"
+            },
+            "type": "DatasetReference"
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "BlobDataset",
+            "parameters": {
+              "path": "@pipeline().parameters.outputPath"
+            },
+            "type": "DatasetReference"
+          }
+        ],
+        "name": "CopyFromBlobToBlob"
+      }
+    ],
+    "parameters": {
+      "inputPath": {
+        "type": "String"
+      },
+      "outputPath": {
+        "type": "String"
+      }
+    }
+  }
+}
+Creating pipeline run...
+Pipeline run ID: 308d222d-3858-48b1-9e66-acd921feaa09
+Checking pipeline run status...
+Status: InProgress
+Status: InProgress
+Checking copy activity run details...
+{
+  "dataRead": 20,
+  "dataWritten": 20,
+  "copyDuration": 4,
+  "throughput": 0.01,
+  "errors": []
+}
+
+Press any key to exit...
+
+```
 
 ## Clean up resources
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group]((../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
+To programmatically, delete the data factory, add the following lines of code to the program: 
 
-### To delete the entire resource group including the newly created data factory:
-1.	Locate your resource group in the Azure portal. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of your resource group, such as our example **myresourcegroup**.
-2.	On your resource group page, click **Delete**. Then type the name of your resource group, such as our example **myresourcegroup**, in the text box to confirm deletion, and then click **Delete**.
-
-### To delete the newly created data factory:
-1. Locate your data factory in the Azure portal. From the left-hand menu in Azure portal, click **More services**, search for the **data factories** category, and select it.
-2. In the **Data factories** page, search for the data factory you created. Select the data factory you want to delete. 
-3. In the **Data factory** page, click **Delete** on the toolbar to delete the data factory.
+```csharp
+            Console.WriteLine("Deleting the data factory");
+            client.Factories.Delete(resourceGroup, dataFactoryName);
+```
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the following tutorials to learn about using Data Factory in slightly complex scenarios. 
