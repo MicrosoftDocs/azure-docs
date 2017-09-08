@@ -109,7 +109,7 @@ $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of 
 This command creates a pair of files based on the compute target specified. Let's say you named your compute target _foo_. This command generates _foo.compute_ and _foo.runconfig_ in your **aml_config** folder.
 
 >[!NOTE]
-> _local_ or _docker_ names for the run configuration files are arbitrary. Azure ML Workbench adds these two run configurations when you create a blank project for your convenience. You can rename the <run configuration name>.runconfig files that come with the project template, or create new ones with any name you want.
+> _local_ or _docker_ names for the run configuration files are arbitrary. Azure ML Workbench adds these two run configurations when you create a blank project for your convenience. You can rename <run configuration name>.runconfig files that come with the project template, or create new ones with any name you want.
 
 ### <compute target name>.compute
 _<compute target name>.compute_ file specifies connection and configuration information for the compute target. It is a list of name-value pairs. Follwing are the supported settings.

@@ -75,7 +75,7 @@ In this section, we dive into execution scenarios and learn about how Azure ML r
 ## Launching the CLI
 An easy way to launch the CLI is opening a project in the Azure ML Workbench desktop application and navigating to **File-->Open Command Prompt**.
 
-![](media/how-to-configure-experiment-execution/Opening-CLI.png)
+![](media/how-to-configure-experiment-execution/opening-cli.png)
 
 This command launches a terminal window in which you can enter commands to execute scripts in the current project folder. This terminal window is configured with the Python 3.5.2 environment which is installed by the Workbench.
 
