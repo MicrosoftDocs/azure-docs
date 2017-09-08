@@ -76,5 +76,5 @@ C:\Temp\myIris> az ml service run realtime -i irisapp1 -d "{\"input_df\": [{\"pe
 ```
 
 ## Next Steps
-- Full-length [Classifying Iris tutorial](tutorial-classifying-iris.md).
+- Full-length [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
 - Advanced data preparation tutorial: [Bike Share Forecasting Data Preparation](./doc-template-tutorial.md)
