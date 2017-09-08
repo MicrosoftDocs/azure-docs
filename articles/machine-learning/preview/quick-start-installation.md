@@ -33,7 +33,7 @@ In order to use Azure Machine Learning preview features, you need to do two thin
 
 ### Optional Requirements:
 * Local Docker engine for running dev/test scenarios locally.
-* Access to an Unbutu Linux VM for scale-up computation.
+* Access to an Ubutu Linux VM for scale-up computation.
 * Access to HDInsight for Spark cluster for scale-out computation.
 * Access to the Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
 
@@ -46,9 +46,9 @@ $ /Applications/Python\ 3.6/Install\ Certificates.command
 ```
 
 ## Provisioning
-Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on _+ New_ and search for _Machine Learning_. Look for _ML Experimentation (preview)_ in the search results. Click on _ML Experimentation (preview)_ to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you will also be asked to create an Azure storage account, or to supply an existing one, for storing Run outputs and other data.
+Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on _+ New_ and search for _Machine Learning_. Look for _ML Experimentation (preview)_ in the search results. Click on _ML Experimentation (preview)_ to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or to supply an existing one, for storing Run outputs and other data.
 
-As part of the Experimentation account creation experience, you have the option of also creating the _Machine Learning Model Management account_. You will need this resource when you are ready to deploy and manage your models as real-time web services. We recommended that you create the Model Management account at the same time as the Experimentation account.
+As part of the Experimentation account creation experience, you have the option of also creating the _Machine Learning Model Management account_. You need this resource when you are ready to deploy and manage your models as real-time web services. We recommended that you create the Model Management account at the same time as the Experimentation account.
 
 <!--
 >NOTE: Some note about pricing associated for public preview should go in here.
@@ -75,7 +75,7 @@ When a new release becomes available, Azure ML Workbench will auto-update on its
 | [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg) | macOS
 
 ### Install Azure ML Workbench
-Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Follow the on-screen instructions to finish the installation. Azure ML Workbench will be installed in the following directory:
+Double-click the downloaded installer _AmlWorkbenchSetup.exe_ (on Windows), or _AmlWorkbench.dmg_ (on macOS). Follow the on-screen instructions to finish the installation. Azure ML Workbench is now installed in the following directory:
 ```
 # On Windows
 C:\Users\<username>\AppData\Local\AmlWorkbench
