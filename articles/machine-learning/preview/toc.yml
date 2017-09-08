@@ -63,6 +63,26 @@
   items:  
   - name: Model Management API
     href: model-management-api-reference.md
+  - name: Support Data Sources
+    href: data-prep-appendix2-supported-data-sources.md
+  - name: Supported Data Preparation Tranforms
+    href: data-prep-appendix3-supported-transforms.md
+  - name: Supported Data Preparation Inspectors
+    href: data-prep-appendix4-supported-inspectors.md
+  - name: Supported Data Preparation Data Destinations
+    href: data-prep-appendix5-supported-destinations.md
+  - name: Sample Data Preparation Filter Expressions in Python
+    href: data-prep-appendix6-sample-filter-expressions-python.md
+  - name: Sample Data Preparation Filter Expressions in Python
+    href: data-prep-appendix7-sample-tranform-data-flow-python.md
+  - name: Sample Data Preparation Source Connections in Python
+    href: data-prep-appendix8-sample-filter-expressions-python.md
+  - name: Sample Data Preparation Destination Connections in Python
+    href: data-prep-appendix9-sample-destination-connections-python.md
+  - name: Sample Data Preparation Column Transforms in Python
+    href: data-prep-appendix10-sample-column-transforms-python.md
+
+
 - name: Resources
   items:
   - name: (Known issues and troubleshooting)  
