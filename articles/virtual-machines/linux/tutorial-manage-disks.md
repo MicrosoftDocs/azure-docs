@@ -99,7 +99,7 @@ Data disks can be created and attached at VM creation time or to an existing VM.
 
 ### Attach disk at VM creation
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command. 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
@@ -268,13 +268,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 All data disks need to be reattached to the virtual machine.
 
-First find the data disk name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This example places the name of the disk in a variable named *datadisk*, which is used in the next step.
+First find the data disk name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) command. This example places the name of the disk in a variable named *datadisk*, which is used in the next step.
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Use the [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) command to attach the disk.
+Use the [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) command to attach the disk.
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
