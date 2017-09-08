@@ -27,6 +27,7 @@ Stream Analytics Tools now support Visual Studio 2013, 2015 and 2017. In this do
 ### Visual Studio 2017
 * Download [Visual Studio 2017 (15.3 or above)](https://www.visualstudio.com/). Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. 
 * Double click the downloaded Visual Studio installer and install Azure Data Lake and Stream Analytics Tools either from **Data Storage and Processing** or **Azure Development workload**.
+
 ![Install Stream Analytics Tools for Visual Studio 1](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-2017-install-01.png)
 ![Install Stream Analytics Tools for Visual Studio 2](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-2017-install-02.png)
 
