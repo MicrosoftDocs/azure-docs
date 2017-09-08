@@ -57,7 +57,7 @@ Extension properties exist only in the context of a registered  Application in t
 1. Select **Create. Successful completion appears in the **notifications**
 1. Select the newly created web application: **WebApp-GraphAPI-DirectoryExtensions**
 1. Select Settings: **Required permissions**
-1. Select API **Windows Active Directory**
+1. Select API **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**
 1. Place a checkmark in Application Permissions: **Read and write directory data**, and **Save**
 1. Choose **Grant permissions** and confirm **Yes**.
 1. Copy to your clipboard and save the following identifiers from WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
