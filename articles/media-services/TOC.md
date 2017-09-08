@@ -183,7 +183,7 @@
 ### [Deliver by Download](media-services-deliver-asset-download.md)
 ### [Failover streaming scenario](media-services-implement-failover.md)
 
-## Consume
+## Playback
 ### [Playback media with existing players](media-services-playback-content-with-existing-players.md)
 ### [Playback media with Media Player](media-services-develop-video-players.md)
 ### Other playback options
