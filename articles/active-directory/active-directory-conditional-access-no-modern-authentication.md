@@ -1,6 +1,6 @@
 ---
-title: Blocking access to Enterprise applications in Azure Active Directory that don't use modern authentication | Microsoft Docs
-description: Learn how to block access to Enterprise applications in Azure Active Directory that don't use modern authentication.
+title: Block access to Enterprise applications in the Azure portal that don't use modern authentication | Microsoft Docs
+description: Learn how to block access to Enterprise applications in the Azure portal that don't use modern authentication.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,11 +18,12 @@ ms.author: markvi
 ms.reviewer: calebb
 
 ---
-# Blocking access to Enterprise applications in Azure Active Directory that don't use modern authentication
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your Enterprise applications. You can only use Azure AD conditional access to control access to applications that use [modern authentication](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a). For all other applications, you must use other methods to block access. 
+# Block access to Enterprise applications in the Azure portal that don't use modern authentication
 
-This topic explains, how you can Block access to apps that don't use modern authentication.   
+With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your Enterprise applications. You can only use Azure AD conditional access for applications that use [modern authentication](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a). 
+
+This topic explains, how you can block access to applications that don't use modern authentication.   
 
 
 ## Control access in Office 365 SharePoint Online
@@ -34,7 +35,7 @@ You can disable legacy protocols for SharePoint access by using the Set-SPOTenan
 
 ## Control access in Office 365 Exchange Online
 
-Exchange offers two main categories of protocols. Review the following options, and then select the policy that is right for your organization.
+Exchange supports two main categories of protocols. Review the following options, and then select the policy that is right for your organization.
 
 * **Exchange ActiveSync**. By default, conditional access policies for multi-factor authentication and location are not enforced for Exchange ActiveSync. You need to protect access to these services either by configuring Exchange ActiveSync policy directly, or by blocking Exchange ActiveSync by using Active Directory Federation Services (AD FS) rules.
 * **Legacy protocols**. You can block legacy protocols with AD FS. This blocks access to older Office clients, such as Office 2013 without modern authentication enabled, and earlier versions of Office.
