@@ -17,10 +17,6 @@ ms.author: carolz
 
 Learn how data scientists and developers use Machine Learning to embed predictive analytics into applications. Tutorials, videos, and example models show you how to build and deploy machine learning models.
 
-<br>
-<br>
-<br>
-
 <ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/machine-learning/preview">
