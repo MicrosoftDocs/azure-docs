@@ -1,6 +1,6 @@
 ---
-title: Run Sqoop jobs using .NET and HDInsight - Azure | Microsoft Docs
-description: Learn how to use HDInsight .NET SDK to run Sqoop import and export between an Hadoop cluster and an Azure SQL database.
+title: Run Sqoop jobs by using .NET and HDInsight - Azure | Microsoft Docs
+description: Learn how to use the HDInsight .NET SDK to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
 keywords: sqoop job
 editor: cgronlun
 manager: jhubbard
@@ -23,7 +23,7 @@ ms.author: jgao
 # Run Sqoop jobs by using .NET SDK for Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use HDInsight .NET SDK to run Sqoop jobs in HDInsight to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
+Learn how to use the Azure HDInsight .NET SDK to run Sqoop jobs in HDInsight to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 
 > [!NOTE]
 > Although you can use the procedures in this article with either a Windows-based or Linux-based HDInsight cluster, they work only from a Windows client. To choose other methods, use the tab selector at the top of this article.
@@ -35,7 +35,7 @@ Before you begin this tutorial, you must have the following item:
 * A Hadoop cluster in HDInsight. For more information, see [Create a cluster and a SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## Use Sqoop on HDInsight clusters with the .NET SDK
-The HDInsight .NET SDK provides .NET client libraries, so that it's easier to work with HDInsight clusters from .NET. In this section, you create a C# console application to export the hivesampletable to the SQL Database table that you created earlier in this tutorial.
+The HDInsight .NET SDK provides .NET client libraries, so that it's easier to work with HDInsight clusters from .NET. In this section, you create a C# console application to export the hivesampletable to the Azure SQL Database table that you created earlier in this tutorial.
 
 ## Submit a Sqoop job
 
