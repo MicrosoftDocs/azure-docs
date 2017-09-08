@@ -54,7 +54,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/powershell/azure/data-factory">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.datafactories">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
