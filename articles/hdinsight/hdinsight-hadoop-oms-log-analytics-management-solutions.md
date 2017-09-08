@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/11/2017
 ms.author: nitinme
 
 ---
-# Add HDInsight cluster management solutions to Log Analytics 
+# Add HDInsight cluster management solutions to Log Analytics (Preview)
 
 HDInsight provides cluster-specific management solutions that you can add  for Azure Log Analytics. [Management solutions](../log-analytics/log-analytics-add-solutions.md) add functionality to OMS, providing additional data and analysis tools to Log Analytics. These solutions collect important performance metrics from your HDInsight clusters and provides the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts. 
 

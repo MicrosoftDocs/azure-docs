@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/11/2017
 ms.author: nitinme
 
 ---
-# Use Azure Log Analytics to monitor HDInsight clusters 
+# Use Azure Log Analytics to monitor HDInsight clusters (Preview)
 
 In this article, you learn how to use Azure Log Analytics to monitor HDInsight Hadoop clusters operations.
 

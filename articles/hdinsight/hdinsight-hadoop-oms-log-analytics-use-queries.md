@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/11/2017
 ms.author: nitinme
 
 ---
-# Query Azure Log Analytics to monitor HDInsight clusters 
+# Query Azure Log Analytics to monitor HDInsight clusters (Preview)
 
 In this article you will look at some scenarios on how to use Azure Log Analytics with Azure HDInsight clusters. Three most common scenarios are:
 
