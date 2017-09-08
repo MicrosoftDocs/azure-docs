@@ -5,30 +5,34 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 manager: jhubbard
+
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 09/08/2017
 ---
 # How to Use Microsoft Machine Learning Library for Apache Spark
 
 ## Introduction
 
-Microsoft Machine Learning Library for Apache Spark (MMLSpark)  provides tools that let you easily create scalable machine learning models for large datasets. It includes integration of SparkML pipelines with [Microsoft Cognitive Toolkit
-(CNTK)](https://github.com/Microsoft/CNTK) and [OpenCV](http://www.opencv.org/), enabling you to build deep learning models for text and image datasets.
+[Microsoft Machine Learning Library for Apache Spark](https://github.com/Azure/mmlspark) (MMLSpark)  provides tools that let you easily create scalable machine learning models for large datasets. It includes integration of SparkML pipelines with [Microsoft Cognitive Toolkit
+(CNTK)](https://github.com/Microsoft/CNTK) and [OpenCV](http://www.opencv.org/), enabling you to: 
+ * Ingress and pre-process image data
+ * Featurize images and text using pre-trained deep learning models
+ * Train and score classification and regression models using implicit featurization.
 
 ## Prerequisites
+
 To step through this how-to guide, you need to:
-- [Install Azure Machine Learning Workbench](doc-template-how-to.md)
+- [Install Azure Machine Learning Workbench](quick-start-installation.md)
 - [Set up Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
-## Run Your Experiment Locally
+## Run Your Experiment in Docker Container
 
-Your Azure Machine Learning Workbench is configured to use MMLSpark. To get started, create a new project, and select "MMLSpark on Adult Census" Gallery example.
+Your Azure Machine Learning Workbench is configured to use MMLSpark when you run experiments in Docker container, either locally or in remote VM. This capability allows you to easily debug and experiment with your PySpark models, before running them on scale on a cluster. 
 
-Select "Docker" as the compute context from the project dashboard, and click "Run." Azure Machine Learning Workbench builds the Docker
-container to run the PySpark program, and then executes the program.
+To get started using an example, create a new project, and select "MMLSpark on Adult Census" Gallery example. Select "Docker" as the compute context from the project dashboard, and click "Run." Azure Machine Learning Workbench builds the Docker container to run the PySpark program, and then executes the program.
 
 After the run has completed, you can view the results in run history view of Azure Machine Learning Workbench.
 
@@ -36,13 +40,19 @@ After the run has completed, you can view the results in run history view of Azu
 
 To complete this and following step, you need to first [create Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
-To install MMLSpark on your cluster, open the cluster overview in Azure portal. Go to "Script Actions" and "Submit new" in the "Overview" section. In the
-"Bash script URI" field, enter following script action URL:
-<https://mmlspark.azureedge.net/buildartifacts/0.7/install-mmlspark.sh>. Check "Head" and "Worker" boxes, and submit. The installation should complete within 10 minutes.
+By default, Azure Machine Learning Workbench installs MMLSpark package on your cluster when you run your experiment. You can control this behavior and install other Spark packages by editing a file named _aml_config/spark_dependencies.yml_ in your project folder.
 
-For more information about running script actions, see [this
-guide](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#use-a-script-action-during-cluster-creation).
+```
+configuration: {}
+repositories:
+  - "https://mmlspark.azureedge.net/maven"
+packages:
+  - group: "com.microsoft.ml.spark"
+    artifact: "mmlspark_2.11"
+    version: "0.7"
+```
 
+You can also install MMLSpark directly on your HDInsight Spark cluster using [Script Action](https://github.com/Azure/mmlspark#hdinsight).
 
 ## Set up Azure HDInsight Spark Cluster as Compute Target
 
@@ -67,4 +77,4 @@ For information about MMLSpark library, and examples, see [MMLSpark GitHub repos
 
 *Apache®, Apache Spark, and Spark® are either registered trademarks or
 trademarks of the Apache Software Foundation in the United States and/or other
-countries.*
+countries*
