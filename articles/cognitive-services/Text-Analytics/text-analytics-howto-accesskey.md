@@ -34,7 +34,7 @@ If you need help finding the key, or to determine whether your subscription alre
 
 + [Learn how to call the API](text-analytics-howto-call-api.md) with REST.
 
-+ [Quickstart](quick-start.md) is a walk through of the main capabilities. Learn how to submit text, perform an analysis, and view results with minimal code.
++ [Quickstart](quick-start.md) is a walkthrough of the main capabilities. Learn how to submit text, perform an analysis, and view results with minimal code.
 
 + [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides technical documentation for the APIs. The documentation supports embedded requests so that you can call the API from each documentation page.
 

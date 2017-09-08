@@ -57,7 +57,7 @@
 
 ## Manage
 ### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
-### [Plan for high availability](data-lake-store-troubleshooting-guidance.md)
+### [Plan for high availability](data-lake-store-disaster-recovery-guidance.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

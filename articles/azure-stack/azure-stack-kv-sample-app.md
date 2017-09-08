@@ -56,7 +56,7 @@ Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor 
 $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
-# Configure the cloud administrator’s PowerShell environment.
+# Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM

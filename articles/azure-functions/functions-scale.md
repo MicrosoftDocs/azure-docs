@@ -1,13 +1,13 @@
 ---
-title: Azure Functions Consumption and App Service plans | Microsoft Docs
-description: Understand how Azure Functions scales to meet the needs of your event-driven workloads.
+title: Azure Functions hosting plans comparison | Microsoft Docs
+description: Learn how to choose between Azure Functions Consumption plan and App Service plan.
 services: functions
 documentationcenter: na
 author: lindydonna
 manager: cfowler
 editor: ''
 tags: ''
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
+keywords: azure functions, functions,  consumption plan, app service plan, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
@@ -21,7 +21,7 @@ ms.author: glenga
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Functions Consumption and App Service plans 
+# Azure Functions hosting plans comparison
 
 ## Introduction
 
@@ -57,9 +57,10 @@ In the App Service plan, your function apps run on dedicated VMs on Basic, Stand
 
 Consider an App Service plan in the following cases:
 - You have existing, underutilized VMs that are already running other App Service instances.
-- You expect your function apps to run continuously, or nearly continuously.
+- You expect your function apps to run continuously, or nearly continuously. In this case, an App Service Plan can be more cost-effective.
 - You need more CPU or memory options than what is provided on the Consumption plan.
 - You need to run longer than the maximum execution time allowed on the Consumption plan.
+- You require features that are only available on an App Service plan, such as support for App Service Environment, VNET/VPN connectivity, and larger VM sizes. 
 
 A VM decouples cost from both runtime and memory size. As a result, you won't pay more than the cost of the VM instance that you allocate. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 

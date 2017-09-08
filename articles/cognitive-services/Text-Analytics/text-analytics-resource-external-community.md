@@ -20,7 +20,7 @@ ms.author: heidist
 
 + Azure blog: [Text Analytics API original announcement](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
 
- + MSDN blog: [Using Text Analytics Key Phrase Cognitive Services API from PowerShell](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/)
++ MSDN blog: [Using Text Analytics Key Phrase Cognitive Services API from PowerShell](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/)
 
 + R Bloggers: [R Quick tip: Microsoft Cognitive Services’ Text Analytics API](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 

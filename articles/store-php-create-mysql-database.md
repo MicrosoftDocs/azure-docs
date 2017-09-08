@@ -23,7 +23,7 @@ This tutorial shows you how to create a MySQL database in the [Azure portal](htt
 [Azure App Service](app-service/app-service-value-prop-what-is.md).
 
 > [!NOTE]
-> You can also create a MySQL database as part of a [Marketplace app template](app-service-web/app-service-web-create-web-app-from-marketplace.md).
+> You can also create a MySQL database as part of a <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">Marketplace app template</a>.
 >
 >
 

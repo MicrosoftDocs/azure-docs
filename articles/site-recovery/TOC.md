@@ -13,7 +13,7 @@
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Get Started
-## [Replicate Azure VMs (preview)](site-recovery-azure-to-azure.md)
+## [Replicate Azure VMs to Azure (preview)](site-recovery-azure-to-azure.md)
 ## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
 ### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](vmware-walkthrough-prerequisites.md)
