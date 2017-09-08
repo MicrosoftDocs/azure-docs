@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 09/08/2017
 ms.author: juliako
 
 ---
@@ -187,6 +187,39 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 	      <JpgFormat />
 	    </Output>
 	  </Outputs>
+	</Preset>
+	
+## Example - generate thumbnails at different resolutions in one Task
+
+The following preset can be used to generate thumbnails at different resolutions in one Task.
+
+### XML preset
+
+Note the use of {Height} and {Width} macros in the Filename. It indicates to the encoder to include the width and hight that you specified in the **Encoding** section of the preset. 
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	<Encoding>
+	<JpgImage Start="00:00:01" Step="00:00:15">
+	  <JpgLayers>
+	   <JpgLayer>
+	    <Width>284</Width>
+	    <Height>160</Height>
+	    <Quality>90</Quality>
+	   </JpgLayer>
+	   <JpgLayer>
+	    <Width>960</Width>
+	    <Height>540</Height>
+	    <Quality>90</Quality>
+	   </JpgLayer>
+	  </JpgLayers>
+	</JpgImage>
+	</Encoding>
+	<Outputs>
+	<Output FileName="{Width}x{Height}_{Index}{Extension}">
+	  <JpgFormat/>
+	</Output>
+	</Outputs>
 	</Preset>
 
 ## <a id="code_sample"></a>Example – encode video and generate thumbnail
