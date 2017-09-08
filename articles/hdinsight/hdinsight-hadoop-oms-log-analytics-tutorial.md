@@ -28,13 +28,15 @@ Log Analytics is a service in [Operations Management Suite (OMS)](../operations-
 
 * **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
 
-* **An Azure HDInsight cluster**. Currently, you can use Azure OMS with the following HDInsight cluster types. For instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* **An Azure HDInsight cluster**. Currently, you can use Azure OMS with the following HDInsight cluster types:
     * Hadoop
     * Spark
     * HBase
     * Storm
     * Kafka
     * Interactive Hive
+
+    For instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 * **A Log Analytics workspace**. You can think of this workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. You must have one such workspace already created that you can associate with Azure HDInsight clusters. For instructions, see [Create a Log Analytics workspace](../log-analytics/log-analytics-get-started.md#2-create-a-workspace).
@@ -43,7 +45,7 @@ Log Analytics is a service in [Operations Management Suite (OMS)](../operations-
 
 In this section, you configure an existing HDInsight Hadoop cluster to use an Azure Log Analytics workspace to monitor jobs, debug logs, etc.
 
-1. In the Azure Portal, from the left pane, click **HDInsight clusters**, and then click the name of the cluster you want to configure with Azure Log Analytics.
+1. In the Azure portal, from the left pane, click **HDInsight clusters**, and then click the name of the cluster you want to configure with Azure Log Analytics.
 
 2. In the cluster blade, from the left pane, click **Monitoring**.
 
@@ -51,11 +53,11 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
     ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
 
-4. Once the cluster is configured to use Log Analytics for monitoring, you will see an **Open OMS Dashboard** option at the top of the tab. Click the button.
+4. Once the cluster is configured to use Log Analytics for monitoring, you see an **Open OMS Dashboard** option at the top of the tab. Click the button.
 
     ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "Open OMS dashboard")
 
-5. Enter your Azure credentials if prompted. You will be directed to the Microsoft OMS dashboard.
+5. Enter your Azure credentials if prompted. You are directed to the Microsoft OMS dashboard.
 
     ![Operations Management Suite portal](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "Operations Management Suite portal")
 
