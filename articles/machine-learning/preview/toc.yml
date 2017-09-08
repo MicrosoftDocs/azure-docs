@@ -74,13 +74,13 @@
   - name: Sample Data Preparation Filter Expressions in Python
     href: data-prep-appendix6-sample-filter-expressions-python.md
   - name: Sample Data Preparation Filter Expressions in Python
-    href: data-prep-appendix7-sample-tranform-data-flow-python.md
+    href: data-prep-appendix7-sample-transform-data-flow-python.md
   - name: Sample Data Preparation Source Connections in Python
-    href: data-prep-appendix8-sample-filter-expressions-python.md
+    href: data-prep-appendix8-sample-source-connections-python.md
   - name: Sample Data Preparation Destination Connections in Python
     href: data-prep-appendix9-sample-destination-connections-python.md
   - name: Sample Data Preparation Column Transforms in Python
-    href: data-prep-appendix10-sample-column-transforms-python.md
+    href: data-prep-appendix10-sample-custom-column-transforms-python.md
 - name: Resources
   items:
   - name: (Known issues and troubleshooting)  
