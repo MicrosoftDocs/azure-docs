@@ -130,7 +130,7 @@ To import data, you upload it to Azure storage, create an access key for it, and
 
 You can perform the following process manually, or set up an automated system to do it at regular intervals. You need to follow these steps for each block of data you want to import.
 
-1. Upload the data to [Azure blob storage](../storage/storage-dotnet-how-to-use-blobs.md). 
+1. Upload the data to [Azure blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
  * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
  * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
@@ -138,7 +138,7 @@ You can perform the following process manually, or set up an automated system to
  * When sending data in high frequency, every few seconds, it is recommended to use more than one storage account, for performance reasons.
 
  
-2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
+2. [Create a Shared Access Signature key for the blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
 
  * Endpoint: `https://dc.services.visualstudio.com/v2/track`

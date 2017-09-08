@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
+ms.date: 08/22/2017
 ms.author: arramac
 
 ---
@@ -358,6 +358,8 @@ To change the number of collections available to the Azure Cosmos DB Emulator, d
 
 Use the following tips to help troubleshoot issues you encounter with the Azure Cosmos DB emulator:
 
+- If you installed a new version of the Emulator and are experiencing errors, ensure you reset your data. You can reset your data by right-clicking the Azure Cosmos DB Emulator icon on the system tray, and then clicking Reset Data…. If that does not fix the errors, you can uninstall and reinstall the app. See [Uninstall the local emulator](#uninstall) for instructions.
+
 - If the Azure Cosmos DB emulator crashes, collect dump files from c:\Users\user_name\AppData\Local\CrashDumps folder, compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 - If you experience crashes in CosmosDB.StartupEntryPoint.exe, run the following command from an admin command prompt:
@@ -379,6 +381,13 @@ To collect debugging traces, run the following commands from an administrative c
 5. `CosmosDB.Emulator.exe /stoptraces`
 6. Navigate to `%ProgramFiles%\Azure Cosmos DB Emulator` and find the docdbemulator_000001.etl file.
 7. Send the .etl file along with repro steps to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) for debugging.
+
+### <a id="uninstall"></a>Uninstall the local Emulator
+
+1. Exit all open instances of the local Emulator by right-clicking the Azure Cosmos DB Emulator icon on the system tray, and then clicking Exit. It may take a minute for all instances to exit.
+2. In the Windows search box, type **Apps & features** and click on the **Apps & features (System settings)** result.
+3. In the list of apps, scroll to **Azure Cosmos DB Emulator**, select it, click **Uninstall**, then confirm and click **Uninstall** again.
+4. When the app is uninstalled, navigate to C:\Users\<user>\AppData\Local\CosmosDBEmulator and delete the folder. 
 
 ## Next steps
 

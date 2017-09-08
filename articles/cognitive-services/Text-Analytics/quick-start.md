@@ -1,270 +1,700 @@
 ---
-title: 'Azure Text Analytics Quick Start | Microsoft Docs'
-description: Get information to help you quickly get started using the Text Analytics API in Cognitive Services.
+title: 'C# Quickstart for Text Analytics API | Microsoft Docs'
+description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: onewth
-manager: jhubbard
-editor: cgronlun
+author: luiscabrer
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 05/16/2017
-ms.author: onewth
+ms.date: 08/24/2017
+ms.author: luisca
 
 ---
-# Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics, and language
+# Quickstart for Text Analytics API with C# 
 <a name="HOLTop"></a>
 
-This document describes how to onboard your service or application to use the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711).
-You can use these APIs to detect sentiment, key phrases, topics, and language from your text. [Visit the product page to see an interactive demo of the APIs.](//go.microsoft.com/fwlink/?LinkID=759712)
+This article provides information and code samples to help you quickly get started using the [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) with C# to accomplish the following tasks: 
+
+* [Detect Language](#Detect) 
+* [Analyze Sentiment](#SentimentAnalysis)
+* [Extract Key Phrases](#KeyPhraseExtraction)
+
+The code was written to work on a .Net Core application, with minimal references to external libraries. You should be able to run it on Windows, Linux, or MacOS.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
-By the end of this tutorial, you will be able to programmatically detect:
+## Prerequisites
 
-* **Sentiment** - Is text positive or negative?
-* **Key phrases** - What are people discussing in a single article?
-* **Topics** - What are people discussing across many articles?
-* **Languages** - What language is text written in?
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Text Analytics API**. You can use the **free tier for 5,000 transactions/month** to complete this quickstart.
 
-<a name="Overview"></a>
+You must have the [endpoint and access key](text-analytics-howto-accesskey.md) on hand for structuring the request. The key is generated for you during sign up. 
 
-## General overview
-This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to put it in production. This exercise takes about 30 minutes.
+<a name="Detect"></a>
 
-For these tasks, you need an editor and call the RESTful endpoints in your language of choice.
+## Detect language in text using C#
 
-Let's get started!
+Use the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) to detect the language of a text document.
 
-## Task 1 - Signing up for the Text Analytics APIs
-In this task, you will sign up for the text analytics service.
+### Detect language C# example request
 
-1. Navigate to **Cognitive Services** in the [Azure portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
-2. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free tier, there are no charges for using the service. You need to login to your Azure subscription to sign up for the service. 
-3. Complete the other fields and create your account.
-4. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as you need it when using the API services.
+The sample is written in C# using the Text Analytics API client library. 
 
-## Task 2 - Detect sentiment, key phrases, and languages
-It's easy to detect sentiment, key phrases, and languages in your text. You will programmatically get the same results as is shown in the [demo experience](//go.microsoft.com/fwlink/?LinkID=759712).
+1. Create a new Console solution in Visual Studio.
+1. Replace Program.cs with the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
+1. Run the program.
 
-> [!TIP]
-> For sentiment analysis, we recommend that you split text into sentences. This generally leads to higher precision in sentiment predictions.
-> 
-> 
+```c#
+using System;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Net.Http;
+using System.Collections.Generic;
 
-Refer to the [Text Analytics Overview](overview.md#supported-languages) for details of supported languages
-
-1. Set the headers as shown below. JSON is currently the only accepted input format for the APIs. XML is not supported.
-   
-        Ocp-Apim-Subscription-Key: <your API key>
-        Content-Type: application/json
-        Accept: application/json
-
-2. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Each ID should be unique and is the ID returned by the system. The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
-   
-        {
-            "documents": [
-                {
-                    "language": "en",
-                    "id": "1",
-                    "text": "First document"
-                },
-                ...
-                {
-                    "language": "en",
-                    "id": "100",
-                    "text": "Final document"
-                }
-            ]
-        }
-3. Make a **POST** call to the system with the input for sentiment, key phrases and language. The URLs are listed below:
-   
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
-4. This call returns a JSON formatted response with the IDs and detected properties. An example of the output for sentiment is shown below (with error details excluded). In the case of sentiment, a score between 0 and 1 is returned for each document:
-   
-        // Sentiment response
-        {
-              "documents": [
-                {
-                    "id": "1",
-                    "score": "0.934"
-                },
-                ...
-                {
-                    "id": "100",
-                    "score": "0.002"
-                },
-            ]
-        }
-   
-        // Key phrases response
-        {
-              "documents": [
-                {
-                    "id": "1",
-                    "keyPhrases": ["key phrase 1", ..., "key phrase n"]
-                },
-                ...
-                {
-                    "id": "100",
-                    "keyPhrases": ["key phrase 1", ..., "key phrase n"]
-                },
-            ]
-        }
-   
-        // Languages response
-        {
-              "documents": [
-                {
-                    "id": "1",
-                    "detectedLanguages": [
-                        {
-                            "name": "English",
-                            "iso6391Name": "en",
-                            "score": "1"
-                        }
-                    ]
-                },                
-                ...
-                {
-                    "id": "100",
-                    "detectedLanguages": [
-                        {
-                            "name": "French",
-                            "iso6391Name": "fr",
-                            "score": "0.985"
-                        }
-                    ]
-                }
-            ]
-        }
-
-## Task 3 - Detect topics in a corpus of text  (The topic detection capability will be deprecated August 24, 2017)
-This API returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
-
-This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with fewer than three words are discarded and therefore are not assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30 KB, and the total maximum size of submitted input is 30 MB. Topic detection is rate limited to five submissions every five minutes.
-
-There are two additional **optional** input parameters that can help to improve the quality of results:
-
-* **Stop words.**  These words and their close forms (for example, plurals) are excluded from the entire topic detection pipeline. Use this parameter for common words (for example, “issue”, “error” and “user” may be appropriate choices for customer complaints about software). Each string should be a single word.
-* **Stop phrases** - These phrases are excluded from the list of returned topics. Use this to exclude generic topics that you don’t want to see in the results. For example, “Microsoft” and “Azure” would be appropriate choices for topics to exclude. Strings can contain multiple words.
-
-Follow these steps to detect topics in your text.
-
-1. Format the input in JSON. This time, you can define stop words and stop phrases.
-   
-        {
-            "documents": [
-                {
-                    "id": "1",
-                    "text": "First document"
-                },
-                ...
-                {
-                    "id": "100",
-                    "text": "Final document"
-                }
-            ],
-            "stopWords": [
-                "issue", "error", "user"
-            ],
-            "stopPhrases": [
-                "Microsoft", "Azure"
-            ]
-        }
-2. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
-   
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
-3. This returns an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
-   
-        'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
-4. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
-   
-        GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
-5. The endpoint returns a response including `{"status": "notStarted"}` before processing, `{"status": "Running"}` while processing and `{"status": "Succeeded"}` with the output once completed. You can then consume the output, which is in the following format (note details like error format and dates have been excluded from this example):
-   
-        {
-            "status": "Succeeded",
-            "operationProcessingResult": {
-                  "topics": [
-                    {
-                        "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
-                        "score": "5"
-                        "keyPhrase": "first topic name"
-                    },
-                    ...
-                    {
-                        "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
-                        "score": "3"
-                        "keyPhrase": "final topic name"
-                    }
-                ],
-                  "topicAssignments": [
-                    {
-                        "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
-                        "documentId": "1",
-                        "distance": "0.354"
-                    },
-                    ...
-                    {
-                        "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
-                        "documentId": "55",
-                        "distance": "0.758"
-                    },            
-                ]
-            }
-        }
-
-The successful response for topics from the `operations` endpoint has the following schema:
-
+namespace TextAnalyticsCSharpCore
+{
+    struct Document
     {
-            "topics" : [{
-                "id" : "string",
-                "score" : "number",
-                "keyPhrase" : "string"
-            }],
-            "topicAssignments" : [{
-                "documentId" : "string",
-                "topicId" : "string",
-                "distance" : "number"
-            }],
-            "errors" : [{
-                "id" : "string",
-                "message" : "string"
-            }]
+        public string id;
+        public string text;
+    }
+
+    class Program
+    {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
+
+        // Replace the subscriptionKey string value with your valid subscription key.
+        const string subscriptionKey = "enter key here";
+
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace 
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages";
+
+
+        static void Main()
+        {
+            Console.WriteLine("Getting the language for a record");
+
+            List<Document> documents = new List<Document>();
+            documents.Add(new Document() { id = "1", text = "This is a document written in English." });
+            documents.Add(new Document() { id = "2", text = "Este es un document escrito en Español." });
+            documents.Add(new Document() { id = "3", text = "这是一个用中文写的文件" });
+
+            GetLanguage(documents);
+
+            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
+            Console.ReadLine();
         }
 
-Explanations for each part of this response are as follows:
+        /// <summary>
+        /// Queries the language for a set of document and outputs the information to the console.
+        /// </summary>
+        static async void GetLanguage(List<Document> documents)
+        {
+            var client = new HttpClient();
 
-**topics**
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-| Key | Description |
-|:--- |:--- |
-| id |A unique identifier for each topic. |
-| score |Count of documents assigned to topic. |
-| keyPhrase |A summarizing word or phrase for the topic. |
+            HttpResponseMessage response;
 
-**topicAssignments**
+            // Compose request.
+            string body = "";
+            foreach (Document doc in documents)
+            {
+                if (!string.IsNullOrEmpty(body))
+                {
+                    body = body + ",";
+                }
 
-| Key | Description |
-|:--- |:--- |
-| documentId |Identifier for the document. Equates to the ID included in the input. |
-| topicId |The topic ID, which the document has been assigned to. |
-| distance |Document-to-topic affiliation score between 0 and 1. The lower a distance score the stronger the topic affiliation is. |
+                body = body + "{ \"id\":\"" + doc.id + "\",  \"text\": \"" + doc.text +"\"   }";
+            }
 
-**errors**
+            body = "{  \"documents\": [" + body + "] }";
 
-| Key | Description |
-|:--- |:--- |
-| id |Input document unique identifier the error refers to. |
-| message |Error message. |
+            // Request body
+            byte[] byteData = Encoding.UTF8.GetBytes(body);
+
+            using (var content = new ByteArrayContent(byteData))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                response = await client.PostAsync(uriBase, content);
+            }
+
+            // Get the JSON response
+            string result = await response.Content.ReadAsStringAsync();
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine("\nResponse:\n");
+            Console.WriteLine(JsonPrettyPrint(result));
+        }
+
+
+        /// <summary>
+        /// Formats the given JSON string by adding line breaks and indents.
+        /// </summary>
+        /// <param name="json">The raw JSON string to format.</param>
+        /// <returns>The formatted JSON string.</returns>
+        static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
+
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+
+            StringBuilder sb = new StringBuilder();
+            bool quote = false;
+            bool ignore = false;
+            int offset = 0;
+            int indentLength = 3;
+
+            foreach (char ch in json)
+            {
+                switch (ch)
+                {
+                    case '"':
+                        if (!ignore) quote = !quote;
+                        break;
+                    case '\'':
+                        if (quote) ignore = !ignore;
+                        break;
+                }
+
+                if (quote)
+                    sb.Append(ch);
+                else
+                {
+                    switch (ch)
+                    {
+                        case '{':
+                        case '[':
+                            sb.Append(ch);
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', ++offset * indentLength));
+                            break;
+                        case '}':
+                        case ']':
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', --offset * indentLength));
+                            sb.Append(ch);
+                            break;
+                        case ',':
+                            sb.Append(ch);
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', offset * indentLength));
+                            break;
+                        case ':':
+                            sb.Append(ch);
+                            sb.Append(' ');
+                            break;
+                        default:
+                            if (ch != ' ') sb.Append(ch);
+                            break;
+                    }
+                }
+            }
+
+            return sb.ToString().Trim();
+        }
+
+
+    }
+}
+
+```
+
+#### Language detection response
+
+A successful response is returned in JSON. Following is an example of a successful response: 
+
+```json
+
+{
+   "documents": [
+      {
+         "id": "1",
+         "detectedLanguages": [
+            {
+               "name": "English",
+               "iso6391Name": "en",
+               "score": 1.0
+            }
+         ]
+      },
+      {
+         "id": "2",
+         "detectedLanguages": [
+            {
+               "name": "Spanish",
+               "iso6391Name": "es",
+               "score": 1.0
+            }
+         ]
+      },
+      {
+         "id": "3",
+         "detectedLanguages": [
+            {
+               "name": "Chinese_Simplified",
+               "iso6391Name": "zh_chs",
+               "score": 1.0
+            }
+         ]
+      }
+   ],
+   "errors": [
+
+   ]
+}
+
+
+```
+<a name="SentimentAnalysis"></a>
+
+## Analyze sentiment in text using C#
+
+Use the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) to detect the sentiment of a set of text records.
+
+### Analyze sentiment C# example request
+
+The sample is written in C# using the Text Analytics API client library. It scores two documents, one in English and another in Spanish.
+
+1. Create a new Console solution in Visual Studio.
+1. Replace Program.cs with the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
+1. Run the program.
+
+```c#
+using System;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Net.Http;
+using System.Collections.Generic;
+
+namespace TextAnalyticsCSharpCore
+{
+    struct Document
+    {
+        public string language;
+        public string id;
+        public string text;
+    }
+
+    class Program
+    {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
+
+        // Replace the subscriptionKey string value with your valid subscription key.
+        const string subscriptionKey = "enterKeyHere";
+
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace 
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment";
+
+        static void Main()
+        {
+            Console.WriteLine("Getting the sentiment for documents..");
+
+            List<Document> documents = new List<Document>();
+            documents.Add(new Document() { language="en", id = "1", text = "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable." });
+            documents.Add(new Document() { language="es", id = "2", text = "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico." });
+
+            GetSentiment(documents);
+
+            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Queries the language for a set of document and outputs the information to the console.
+        /// </summary>
+        static async void GetSentiment(List<Document> documents)
+        {
+            var client = new HttpClient();
+
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+            HttpResponseMessage response;
+
+            // Compose request.
+            string body = "";
+            foreach (Document doc in documents)
+            {
+                if (!string.IsNullOrEmpty(body))
+                {
+                    body = body + ",";
+                }
+
+                body = body + "{ \"language\": \""+ doc.language + "\", \"id\":\"" + doc.id + "\",  \"text\": \"" + doc.text + "\"   }";
+            }
+
+            body = "{  \"documents\": [" + body + "] }";
+
+            // Request body
+            byte[] byteData = Encoding.UTF8.GetBytes(body);
+
+            using (var content = new ByteArrayContent(byteData))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                response = await client.PostAsync(uriBase, content);
+            }
+
+            // Get the JSON response
+            string result = await response.Content.ReadAsStringAsync();
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine("\nResponse:\n");
+            Console.WriteLine(JsonPrettyPrint(result));
+        }
+
+
+        /// <summary>
+		/// Formats the given JSON string by adding line breaks and indents.
+		/// </summary>
+		/// <param name="json">The raw JSON string to format.</param>
+		/// <returns>The formatted JSON string.</returns>
+		static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
+
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+
+            StringBuilder sb = new StringBuilder();
+            bool quote = false;
+            bool ignore = false;
+            int offset = 0;
+            int indentLength = 3;
+
+            foreach (char ch in json)
+            {
+                switch (ch)
+                {
+                    case '"':
+                        if (!ignore) quote = !quote;
+                        break;
+                    case '\'':
+                        if (quote) ignore = !ignore;
+                        break;
+                }
+
+                if (quote)
+                    sb.Append(ch);
+                else
+                {
+                    switch (ch)
+                    {
+                        case '{':
+                        case '[':
+                            sb.Append(ch);
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', ++offset * indentLength));
+                            break;
+                        case '}':
+                        case ']':
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', --offset * indentLength));
+                            sb.Append(ch);
+                            break;
+                        case ',':
+                            sb.Append(ch);
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', offset * indentLength));
+                            break;
+                        case ':':
+                            sb.Append(ch);
+                            sb.Append(' ');
+                            break;
+                        default:
+                            if (ch != ' ') sb.Append(ch);
+                            break;
+                    }
+                }
+            }
+
+            return sb.ToString().Trim();
+        }
+    }
+}
+
+```
+
+#### Sentiment analysis response
+
+A successful response is returned in JSON. Following is an example of a successful response: 
+
+```json
+     {
+   "documents": [
+      {
+         "score": 0.99984133243560791,
+         "id": "1"
+      },
+      {
+         "score": 0.024017512798309326,
+         "id": "2"
+      },
+   ],
+   "errors": [   ]
+}
+```
+
+<a name="KeyPhraseExtraction"></a>
+
+## Extract key phrases in text using C#
+
+Use the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) to extract key-phrases from a text document.
+
+
+### Key phrase extraction C# example request
+
+The sample is written in C# using the Text Analytics API client library. Key phrases are extracted for both English and Spanish documents.
+
+1. Create a new Console solution in Visual Studio.
+1. Replace Program.cs with the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
+1. Run the program.
+
+
+```c#
+using System;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Net.Http;
+using System.Collections.Generic;
+
+namespace TextAnalyticsCSharpCore
+{
+    struct Document
+    {
+        public string language;
+        public string id;
+        public string text;
+    }
+
+    class Program
+    {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
+
+        // Replace the subscriptionKey string value with your valid subscription key.
+        const string subscriptionKey = "enterKeyHere";
+
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace 
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases";
+
+
+        static void Main()
+        {
+            Console.WriteLine("Getting the key phrases for a set of documents..");
+
+            List<Document> documents = new List<Document>();
+            documents.Add(new Document() { language = "en", id = "1", text = "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable." });
+            documents.Add(new Document() { language = "es", id = "2", text = "Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema." });
+            documents.Add(new Document() { language = "en", id = "3", text = "The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I've ever seen." });
+
+            GetKeyPhrases(documents);
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Queries the language for a set of document and outputs the information to the console.
+        /// </summary>
+        static async void GetKeyPhrases(List<Document> documents)
+        {
+            var client = new HttpClient();
+
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+            HttpResponseMessage response;
+
+            // Compose request.
+            string body = "";
+            foreach (Document doc in documents)
+            {
+                if (!string.IsNullOrEmpty(body))
+                {
+                    body = body + ",";
+                }
+
+                body = body + "{ \"language\": \"" + doc.language + "\", \"id\":\"" + doc.id + "\",  \"text\": \"" + doc.text + "\"   }";
+            }
+
+            body = "{  \"documents\": [" + body + "] }";
+
+            // Request body
+            byte[] byteData = Encoding.UTF8.GetBytes(body);
+
+            using (var content = new ByteArrayContent(byteData))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                response = await client.PostAsync(uriBase, content);
+            }
+
+            // Get the JSON response
+            string result = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine("\nResponse:\n");
+            Console.WriteLine(JsonPrettyPrint(result));
+        }
+
+
+        /// <summary>
+		/// Formats the given JSON string by adding line breaks and indents.
+		/// </summary>
+		/// <param name="json">The raw JSON string to format.</param>
+		/// <returns>The formatted JSON string.</returns>
+		static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
+
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+
+            StringBuilder sb = new StringBuilder();
+            bool quote = false;
+            bool ignore = false;
+            int offset = 0;
+            int indentLength = 3;
+
+            foreach (char ch in json)
+            {
+                switch (ch)
+                {
+                    case '"':
+                        if (!ignore) quote = !quote;
+                        break;
+                    case '\'':
+                        if (quote) ignore = !ignore;
+                        break;
+                }
+
+                if (quote)
+                    sb.Append(ch);
+                else
+                {
+                    switch (ch)
+                    {
+                        case '{':
+                        case '[':
+                            sb.Append(ch);
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', ++offset * indentLength));
+                            break;
+                        case '}':
+                        case ']':
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', --offset * indentLength));
+                            sb.Append(ch);
+                            break;
+                        case ',':
+                            sb.Append(ch);
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', offset * indentLength));
+                            break;
+                        case ':':
+                            sb.Append(ch);
+                            sb.Append(' ');
+                            break;
+                        default:
+                            if (ch != ' ') sb.Append(ch);
+                            break;
+                    }
+                }
+            }
+
+            return sb.ToString().Trim();
+        }
+
+
+    }
+}
+
+```
+
+
+### Key phrase extraction response
+
+A successful response is returned in JSON. Following is an example of a successful response: 
+
+```json
+{
+   "documents": [
+      {
+         "keyPhrases": [
+            "HDR resolution",
+            "new XBox",
+            "clean look"
+         ],
+         "id": "1"
+      },
+      {
+         "keyPhrases": [
+            "Carlos",
+            "notificacion",
+            "algun problema",
+            "telefono movil"
+         ],
+         "id": "2"
+      },
+      {
+         "keyPhrases": [
+            "new hotel",
+            "Grand Hotel",
+            "review",
+            "center of Seattle",
+            "classiest decor",
+            "stars"
+         ],
+         "id": "3"
+      }
+   ],
+   "errors": [  ]
+}
+```
+
 
 ## Next steps
-Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data. You can also use the insights to provide a streaming view of what customers are saying.
 
-To see how Text Analytics capabilities, such as sentiment, can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. The documentation supports embedded calls so that you can call the API from each documentation page.
 
++ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
+
+## See also 
+
+ [Text Analytics overview](overview.md)  
+ [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)

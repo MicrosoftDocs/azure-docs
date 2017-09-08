@@ -116,8 +116,8 @@ For sensor pins, use the following wiring:
 | -----------------------  | ---------------------- | ------------: |
 | VDD (Pin 5G)             | 3.3V PWR (Pin 1)       | White cable   |
 | GND (Pin 7G)             | GND (Pin 6)            | Brown cable   |
-| SCK (Pin 8G)             | I2C1 SDA (Pin 3)       | Orange cable  |
-| SDI (Pin 10G)            | I2C1 SCL (Pin 5)       | Red cable     |
+| SDI (Pin 10G)            | I2C1 SDA (Pin 3)       | Red cable     |
+| SCK (Pin 8G)             | I2C1 SCL (Pin 5)       | Orange cable  |
 | LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | White cable   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Black cable   |
 

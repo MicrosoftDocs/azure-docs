@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/22/2017
 ms.author: dobett
 
 ---
@@ -35,8 +35,8 @@ Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or 
 
 | IoT device                       | Programming language |
 |----------------------------------|----------------------|
-| Raspberry Pi                     | [Node.js][Pi_Nd], [C][Pi_C], [Python][Pi_Py]    |
-| IoT DevKit                       | [DevKit][DevKit]     |
+| Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
+| IoT DevKit                       | [Arduino in VSCode][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
 | Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |

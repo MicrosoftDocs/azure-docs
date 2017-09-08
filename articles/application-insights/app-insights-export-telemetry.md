@@ -38,7 +38,7 @@ After Continuous Export copies your data to storage (where it can stay for as lo
 
 2. Choose the telemetry data types you want to export.
 
-3. Create or select an [Azure storage account](../storage/storage-introduction.md) where you want to store the data.
+3. Create or select an [Azure storage account](../storage/common/storage-introduction.md) where you want to store the data.
 
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.

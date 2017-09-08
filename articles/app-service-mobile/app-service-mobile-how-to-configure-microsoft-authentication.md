@@ -33,8 +33,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
    > [!NOTE]
    > Your redirect URI is the URL of your application appended with the path, */.auth/login/microsoftaccount/callback*. For example, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
    > Make sure that you are using the HTTPS scheme.
-   > 
-   > 
+   
 7. Under "Application Secrets," click **Generate New Password**. Make note of the value that appears. Once you leave the page, it will not be displayed again.
 
     > [!IMPORTANT]

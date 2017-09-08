@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2016
+ms.date: 08/21/2016
 ms.author: saysa
 
 ---
@@ -142,6 +142,9 @@ To upgrade your application by using Eclipse Neon, you can create a duplicate ru
 This process creates and saves a run configuration profile you can use at any time to upgrade your application. It also gets the latest updated application type version from the application manifest file.
 
 The application upgrade takes a few minutes. You can monitor the application upgrade in Service Fabric Explorer.
+
+## Migrating old Service Fabric Java applications to be used with Maven
+We have recently moved Service Fabric Java libraries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned [here](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
 
 <!-- Images -->
 

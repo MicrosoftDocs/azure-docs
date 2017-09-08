@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
----
 
+---
 ## Add the application’s registration information to your app
 
 In this step, you need to add the Application Id to your project:

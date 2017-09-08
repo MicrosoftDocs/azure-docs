@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin;aelnably
+ms.author: cephalin
 
 ---
 # Restore an app in Azure
@@ -82,8 +82,8 @@ Scroll down to find the desired restore operation and click to select it.
 
 The details blade displays the available information related to the restore operation.
 
-## Next Steps
-You can backup and restore App Service apps using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
+<!-- ## Next Steps
+You can backup and restore App Service apps using REST API. -->
 
 
 <!-- IMAGES -->

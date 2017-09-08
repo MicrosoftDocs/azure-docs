@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/29/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -61,7 +61,7 @@ Cosmos DB uses hash-based partitioning. When you write an item, Cosmos DB hashes
 Azure Cosmos DB containers can be created as "fixed" or "unlimited." Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. Some APIs allow the partition key to be omitted for fixed-size containers. To create a container as unlimited, you must specify a minimum throughput of 2500 RU/s.
 
 ## Partitioning and provisioned throughput
-Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of **[request units](request-units.md) (RU) per second with a potential add-on for RU per minute**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU, Memory, and IO consumed by the operation. A read of a 1-KB document with Session consistency consumes one request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of **[request units](request-units.md) (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU, Memory, and IO consumed by the operation. A read of a 1-KB document with Session consistency consumes one request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
 > [!NOTE]
 > To achieve the full throughput of the container, you must choose a partition key that allows you to evenly distribute requests among some distinct partition key values.

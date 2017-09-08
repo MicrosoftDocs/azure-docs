@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 11: Create roles | Microsoft Doc
 description: Describes how to create roles in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''

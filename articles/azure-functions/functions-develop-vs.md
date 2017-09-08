@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 services: functions
 documentationcenter: .net
 author: ggailey777  
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.service: functions
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: glenga, donnam
+ms.date: 09/06/2017
+ms.author: glenga
 ---
 # Azure Functions Tools for Visual Studio  
 
@@ -35,11 +35,14 @@ Azure Functions Tools is included in the Azure development workload of [Visual S
 
 ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
+>[!NOTE]  
+>After you install or upgrade to Visual Studio 2017 version 15.3, you must manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+
 To create and deploy functions, you also need:
 
 * An active Azure subscription. If you don't have an Azure subscription, [free accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) are available.
 
-* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).  
+* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
 ## Create an Azure Functions project 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]

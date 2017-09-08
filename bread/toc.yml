@@ -34,6 +34,9 @@
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
     items:
+    - name: Web Apps for Containers
+      tocHref: /azure/app-service/containers/
+      topicHref: /azure/app-service/containers/
     - name: Web Apps
       tocHref: /azure/app-service-web/
       topicHref: /azure/app-service-web/
@@ -298,6 +301,16 @@
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
+    items:
+      - name: Blobs
+        tocHref: /azure/storage/blobs/
+        topicHref: /azure/storage/blobs/storage-blobs-introduction
+      - name: Files
+        tocHref: /azure/storage/files/
+        topicHref: /azure/storage/files/storage-files-introduction 
+      - name: Queues
+        tocHref: /azure/storage/queues/
+        topicHref: /azure/storage/queues/storage-queues-introduction
   - name: StorSimple
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/

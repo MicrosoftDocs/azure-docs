@@ -68,4 +68,4 @@ Run `az group delete -n MyRG`
 ## Next Steps
 [Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) <br>
 [Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Learn about Azure File storage](../storage/storage-files-introduction.md) <br>
+[Learn about Azure File storage](../storage/files/storage-files-introduction.md) <br>

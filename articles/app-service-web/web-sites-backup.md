@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin;aelnably
+ms.author: cephalin
 
 ---
 # Back up your app in Azure
@@ -159,8 +159,7 @@ The database backup for the app is stored in the root of the.zip file. For a SQL
 <a name="nextsteps"></a>
 
 ## Next Steps
-For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). You can also backup and restore App Service apps
-using REST API (see [Use REST to backup and restore App Service apps](websites-csm-backup.md)).
+For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). 
 
 
 <!-- IMAGES -->

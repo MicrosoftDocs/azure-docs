@@ -1,4 +1,4 @@
-﻿---
+---
 ms.assetid: 
 title: Azure Key Vault Storage Account Keys
 description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
@@ -29,7 +29,7 @@ The Azure Storage Account keys feature is initially available through the REST, 
 
 Key Vault performs several internal management functions on your behalf when you use Storage Account Keys.
 
-1. Azure Key Vault manages keys of an Azure Storage Account (SAS). 
+1. Azure Key Vault manages keys of an Azure Storage Account (ASA). 
     - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.  
     - Azure Key Vault regenerates (rotates) the keys periodically. 
     - Key values are never returned in response to caller. 
@@ -102,6 +102,10 @@ Key Vault needs permissions to *list* and *regenerate* keys for a storage accoun
 
 - Get ObjectId of Key Vault: 
 
+    `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
+    
+     or
+     
     `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 - Assign Storage Key Operator role to Azure Key Vault Identity: 
@@ -122,7 +126,7 @@ Key Vault must verify that the identity has *regenerate* permissions before it c
 - Key Vault lists RBAC permissions on the storage account resource.
 - Key Vault validates the response via regular expression matching of actions and non-actions. 
 
-Find some supporting examples at [Key Vault - Managed Storage Accont Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
+Find some supporting examples at [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
 
 If the identity does not have *regenerate* permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
 

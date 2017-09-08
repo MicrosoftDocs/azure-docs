@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: bwren
 
 ---
@@ -33,15 +33,16 @@ If you're familiar with the legacy Log Analytics query language, the easiest way
 
 ## Cheat sheet
 
-The following table provides a comparison between a variety of common queries to equivalent commands between the new and legacy query language in Azure Log Analytics. 
+The following table provides a comparison between a variety of common queries to equivalent commands between the new and legacy query language in Azure Log Analytics.
 
 | Description | Legacy | new |
 |:--|:--|:--|
+| Search all tables      | error | search "error"  (not case sensitive) |
 | Select data from table | Type=Event |  Event |
 |                        | Type=Event &#124; select Source, EventLog, EventID | Event &#124; project Source, EventLog, EventID |
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | String comparison      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
-|                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" |
+|                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (not case sensitive)<br>Event &#124; where Computer contains_cs "Contoso" (case sensitive) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Date comparison        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
@@ -58,5 +59,5 @@ The following table provides a comparison between a variety of common queries to
 
 
 ## Next steps
-- Check out a [tutorial on writing queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) using the new query language.
-- Refer to the [Query Language Reference](https://docs.loganalytics.io/queryLanguage/query_language.html) for details on all command, operators, and functions for the new query language.  
+- Check out a [tutorial on writing queries](https://go.microsoft.com/fwlink/?linkid=856078) using the new query language.
+- Refer to the [Query Language Reference](https://go.microsoft.com/fwlink/?linkid=856079) for details on all command, operators, and functions for the new query language.  

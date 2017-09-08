@@ -51,24 +51,24 @@ To delete the Compose application through PowerShell, use the following command:
 Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
 ```
 
-### Use Azure CLI 2.0
+### Use Azure Service Fabric CLI (sfctl)
 
-Alternatively, you can use the following Azure CLI command:
+Alternatively, you can use the following Service Fabric CLI command:
 
 ```azurecli
-az sf compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
 After you've created the application, you can check its status by using the following command:
 
 ```azurecli
-az sf compose status --application-id TestContainerApp [ --timeout ]
+sfctl compose status --application-id TestContainerApp [ --timeout ]
 ```
 
 To delete the Compose application, use the following command:
 
 ```azurecli
-az sf compose remove  --application-id TestContainerApp [ --timeout ]
+sfctl compose remove  --application-id TestContainerApp [ --timeout ]
 ```
 
 ## Supported Compose directives
@@ -111,9 +111,5 @@ Although this model offers flexibility, we are also planning to support a simple
 
 ## Next steps
 
-* Read up on the [Service Fabric application model](service-fabric-application-model.md).
-
-## Related articles
-
-* [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Get started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* Read up on the [Service Fabric application model](service-fabric-application-model.md)
+* [Get started with Service Fabric CLI](service-fabric-cli.md)

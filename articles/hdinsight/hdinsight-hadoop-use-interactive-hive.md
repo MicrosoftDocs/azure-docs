@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 
 ---
@@ -26,7 +26,7 @@ Interactive Hive (A.K.A. [Live Long and Process](https://cwiki.apache.org/conflu
 The Interactive Hive cluster is different from the Hadoop cluster. It only contains the Hive service. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie, and other services will be removed from this cluster type soon.
+> MapReduce, Pig, Sqoop, Oozie, and other services are removed from this cluster type soon.
 > The Hive service in the Interactive Hive cluster is only accessible via the Ambari Hive view, Beeline, and Hive ODBC. It can’t be accessed via Hive console, Templeton, Azure CLI, and Azure PowerShell. 
 > 
 > 
@@ -44,7 +44,7 @@ There are different options how you can execute Hive queries:
   
     For the information on using Beeline on HDInsight, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
   
-    You use Beeline from either the headnode or an empty edge node.  Using Beeline from an empty edge node is recommended.  For information on creating an HDInsight cluster with an empty edgenode, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
+    You use Beeline from either the headnode or an empty edge node.  Using Beeline from an empty edge node is recommended.  For information on creating a HDInsight cluster with an empty edgenode, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 * Run Hive using Hive ODBC
   
     For the information on using Hive ODBC, see [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).

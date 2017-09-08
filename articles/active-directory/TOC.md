@@ -10,16 +10,9 @@
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
 ## [Add a custom domain name](add-custom-domain.md)
 ## [Configure company branding](customize-branding.md)
+## [Add users to Azure AD](add-users-azure-active-directory.md)
+## [Assign licenses to users](license-users-groups.md)
 ## [Configure Self-service password reset](active-directory-passwords-getting-started.md)
-## Manage Azure AD licensing
-### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
-### [Classic portal](active-directory-licensing-what-is.md)
-### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
-#### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
-#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
-#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 
 
 # How to
@@ -44,11 +37,6 @@
 #### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Manage users
-### Add users
-#### [Azure portal](active-directory-users-create-azure-portal.md)
-#### [Classic portal](active-directory-create-users.md)
-
-
 ### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -56,7 +44,6 @@
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
-### [Delete users](active-directory-users-delete-user-azure-portal.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md)
@@ -144,28 +131,18 @@
 
 ## Manage devices
 ### [Introduction](device-management-introduction.md)
+### [Using the Azure portal](device-management-azure-portal.md)
+### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
+#### [Configure Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configure Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
 #### [Configure hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### Troubleshoot
-##### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### Register devices
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
-#### [FAQs](active-directory-device-registration-faq.md)
-#### Troubleshoot
-##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-##### [Troubleshooting for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md)
-### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [Plan](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Set up device registration](active-directory-azureadjoin-setup.md)
-#### [Register new devices](active-directory-azureadjoin-user-frx.md)
-#### [Deploy](active-directory-azureadjoin-devices-group-policy.md)
-#### [Understand Windows 10 integration](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Use Windows 10 devices](active-directory-azureadjoin-windows10-devices.md)
-#### [Join your device](active-directory-azureadjoin-personal-device.md)
-#### [Join a Windows 10 device](active-directory-azureadjoin-user-upgrade.md)
+#### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
+### Troubleshoot
+#### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Manage apps
 ### [Overview](active-directory-enable-sso-scenario.md)
@@ -219,6 +196,7 @@
 #### [Remove users](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [View all my apps](active-directory-coreapps-view-azure-portal.md)
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
+#### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
@@ -314,15 +292,15 @@
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
+#### [VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Mobile app management](active-directory-conditional-access-mam.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
-#### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
 #### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 #### [Classic portal](active-directory-conditional-access.md)
 ##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
