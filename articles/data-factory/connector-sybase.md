@@ -37,9 +37,6 @@ To use this Sybase connector, you need to:
 - Install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the Integration Runtime machine.
 
 ## Getting started
-
-***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
-
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Sybase connector.
@@ -162,3 +159,6 @@ When copying data from Sybase, the following mappings are used from Sybase data 
 
 Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Factory interim data types, see [Azure SQL Database Connector - data type mapping](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) section.
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

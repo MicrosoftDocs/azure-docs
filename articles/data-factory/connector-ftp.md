@@ -30,9 +30,6 @@ Specifically, this FTP connector supports:
 - Copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Get started
-
-***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
-
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](create-self-hosted-integration-runtime.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to FTP.
@@ -182,3 +179,6 @@ To copy data from FTP, set the source type in the copy activity to **FileSystemS
 ]
 ```
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

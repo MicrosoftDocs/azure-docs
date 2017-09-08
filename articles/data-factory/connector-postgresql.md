@@ -34,9 +34,6 @@ To use this PostgreSQL connector, you need to:
 - Install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 or above on the Integration Runtime machine.
 
 ## Getting started
-
-***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
-
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to PostgreSQL connector.
@@ -201,3 +198,6 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 | `serial` |`serial4` |`Int32` |
 | `text` | |`String` |&nbsp;
 
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

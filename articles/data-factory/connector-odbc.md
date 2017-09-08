@@ -34,9 +34,6 @@ To use this ODBC connector, you need to:
 - Install the ODBC driver for the data store on the Integration Runtime machine.
 
 ## Getting started
-
-***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
-
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to ODBC connector.
@@ -242,3 +239,6 @@ To troubleshoot connection issues, use the **Diagnostics** tab of **Integration 
 3. Under the "Test Connection" section, select the **type** of data store (linked service).
 4. Specify the **connection string** that is used to connect to the data store, choose the **authentication** and enter **user name**, **password**, and/or **credentials**.
 5. Click **Test connection** to test the connection to the data store.
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

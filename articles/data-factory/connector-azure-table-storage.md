@@ -27,9 +27,6 @@ You can copy data from any supported source data store to Azure Table, or copy d
 Specifically, this Azure Table connector supports copying data using both **account key** and **Service SAS** (Shared Access Signature) authentications.
 
 ## Get started
-
-***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
-
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Table Storage.
@@ -253,3 +250,6 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 | Edm.Int32 |Int32 |A 32-bit integer. |
 | Edm.Int64 |Int64 |A 64-bit integer. |
 | Edm.String |String |A UTF-16-encoded value. String values may be up to 64 KB. |
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

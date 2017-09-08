@@ -30,9 +30,6 @@ Specifically, this Azure SQL Database connector supports:
 - As sink, appending data to destination table or invoking a stored procedure with custom logic during copy.
 
 ## Getting started
-
-***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
-
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure SQL Database connector.
@@ -470,3 +467,6 @@ When copying data from/to Azure SQL Database, the following mappings are used fr
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
