@@ -119,6 +119,6 @@ See “Choosing your Identity Authority” earlier in this article.
 
 ## Next steps
 
-- Check out the [Azure Government developer guide](.\azure\azure-government\documentation-government-developer-guide.md) and build your first application!
+- Check out the [Azure Government developer guide](..\azure-government\documentation-government-developer-guide.md) and build your first application!
 - For supplemental information and updates, subscribe to the [Microsoft Azure Government blog.](https://blogs.msdn.microsoft.com/azuregov/)
 
