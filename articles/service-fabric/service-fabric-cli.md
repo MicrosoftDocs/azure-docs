@@ -194,7 +194,7 @@ For help with a specific command or a group of commands, use the `-h` flag.
 sfctl application -h
 ```
 
-Here's another example:
+Here is another example:
 
 ```azurecli
 sfctl application create -h
