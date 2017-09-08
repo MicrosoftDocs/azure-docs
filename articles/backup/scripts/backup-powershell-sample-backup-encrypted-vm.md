@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Back up an encrypted Azure virtual machine with PowerShell
 
-This script backs up an encrypted Azure virtual machine running Windows Server 2016. After running the script, you can access the virtual machine over RDP.
+This script creates a Recovery Services vault with Georedundant storage for an encrypted Azure virtual machine. The script also triggers the intitial recovery point for the virtual machine. After running the script, you'll have a first backup, and the backup will be retained for 365 days. The default protection policy is applied, which generates a daily backup for the virtual machine.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
