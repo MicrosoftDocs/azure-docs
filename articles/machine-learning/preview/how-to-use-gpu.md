@@ -9,96 +9,124 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 09/06/2017
 ---
-# How to use GPU from Azure Machine Learning Workbench
-You can use Graphical Processing Unit (GPU) hardware to handle the intensive processing that happens when training certain deep neural network models in Azure Machine Learning. By using GPUs, you can accelerate the training time of deep neural network models significantly. 
-
-In this document, you learn how to configure AML Workbench to use GPU-based  [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM) as execution target. While in principle it is possible to use GPUs on any Linux machine, the DSVM comes with the required drivers and libraries pre-installed, making the set-up much easier. 
+# How to use GPU in Azure Machine Learning
+Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipped with GPUs as execution target. 
 
 ## Prerequisites
-To step through this how-to guide, you need to:
-- [Install AML Workbench](doc-template-how-to.md)
+- To step through this how-to guide, you need to first [install Azure ML Workbench](quickstart-installation.md).
+- You need to have access to computers equipped with NVidia GPUs.
+    - You can run your scripts directly on local machine (Windows or macOS) with GPUs.
+    - You can also run scripts in a Docker container on a machine with GPUs.
 
-## Execute on Local Windows Computer with GPU
-You can execute directly on a GPU-enabled Windows computer that has required drivers and libraries installed. For example, you can use GPU-enabled Windows DSVM. Otherwise, read the following instructions to set up a GPU-enabled Docker image on Linux DSVM.
+## Execute in _local_ Environment with GPUs
+You can install Azure ML Workbench on a computer equipped with GPUs and execute against _local_ environment. This can be:
+- A physical Windows or macOS machine.
+- A Windows VM (Virtual Machine) such as a Windows DSVM provisioned using Azure NC-series VMs template.
+
+In this case, there are no special configuration required in Azure ML Workbench. Just make sure you have all the necessary drivers, toolkits, and GPU-enabled machine learning libraries installed locally. Simply execute against _local_ environment where the Python runtime can directly access the local GPU hardware.
 
 1. Open AML Workbench. go to **File** and **Open Command Prompt**. 
-2. From command line, install GPU-enabled deep learning framework such as CNTK or TensorFlow. 
-3. Then choose "local" as compute target. 
+2. From command line, install GPU-enabled deep learning framework such as CNTK, TensorFlow, and etc. For example:
+```batch
+REM install latest TensorFlow with GPU support
+C:\MyProj> pip install tensorflow-gpu
 
-## Create a Ubuntu-based Linux Data Science Virtual Machine in Azure
+REM install CNTK 2.1 (1-bit SGD) with GPU support on Winodows
+C:\MyProj> pip install https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-win_amd64.whl
+```
+3. Write Python code that leverages the deep learning libraries.
+4. Choose _local_ as compute environment and execute the Python code.
+```batch
+REM execute Python script in local environment
+C:\MyProj> az ml experiment submit -c local my-deep-learning-script.py
+```
+
+## Execute in _docker_ Environment on Linux VM with GPUs
+Azure ML Workbench also support execution in Docker in an Azure Linux VM. Here you have a great option to run computationally intensive jobs on a piece of powerful virtual hardware, and pay only for the usage by turning it off when done. While in principle it is possible to use GPUs on any Linux virtual machine, the Ubuntu-based DSVM comes with the required CUDA drivers and libraries pre-installed, making the set-up much easier. Follow the below steps:
+
+### Create a Ubuntu-based Linux Data Science Virtual Machine in Azure
 1. Open your web browser and go to the [Azure portal](https://portal.azure.com)
+
 2. Select **+ New** on the left of the portal.
+
 3. Search for "Data Science Virtual Machine for Linux (Ubuntu)" in the marketplace.
-4. Click **Create** to create an Ubuntu DSVM. 
-5. Fill in the basics form with the requested values. 
-When selecting the location for your VM, note that GPU VMs are only available in some Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/en-us/regions/services/).
-Click OK to save the Basics information.
-6. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, since those are the GPU-enabled ones.  Click **View All** to see the full list as needed.
-   Learn more about GPU-enabled VM sizes [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+
+4. Click **Create** to create an Ubuntu DSVM.
+
+5. Fill in the **Basics** form with the required information.
+When selecting the location for your VM, note that GPU VMs are only available in certain Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/en-us/regions/services/).
+Click OK to save the **Basics** information.
+
+6. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, which are equipped with NVidia GPU chips.  Click **View All** to see the full list as needed. Learn more about [GPU-equipped Azure VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+
 7. Finish the remaining settings and review the purchase information. Click Purchase to Create the VM. Take note of the IP address allocated to the virtual machine. 
 
-## Open AML Workbench, and create a new project. 
+### Create a New Project in Azure ML Workbench 
 You can use the _Classifying MNIST using TensorFlow_ example, or the _Classifying MNIST dataset with CNTK_ example.
 
-## Create a new compute context
-Launch the command line or bash shell. Enter the following AZ CLI command. Replace the placeholder text from the example below with your own values for the name, address, username, and password parameters. 
+### Create a new Compute Context
+Launch the command line from Azure ML Workbench. Enter the following command. Replace the placeholder text from the example below with your own values for the name, IP address, username, and password. 
 
-```azurecli
-az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password"
+```batch
+C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password"
 ```
 
-## Configure AML Workbench to access the GPU
-Go back to the project and open **files view**, and hit the **Refresh** button. Now you see two new configuration files `my\_dsvm.compute` and `my\_dsvm.runconfig`.
+### Configure Azure ML Workbench to Access GPU
+Go back to the project and open **File View**, and hit the **Refresh** button. Now you see two new configuration files `my_dsvm.compute` and `my_dsvm.runconfig`.
  
-Open the file named _my\_dsvm.compute_. Change the _baseDockerImage_ to _microsoft/mmlspark:gpu_ and add a line _nvidiaDocker: true_ to the end. So the file should have these two lines:
+Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:gpu` and add a new line `nvidiaDocker: true`. So the file should have these two lines:
  
-```
+```yaml
+...
 baseDockerImage: microsoft/mmlspark:gpu
 nvidiaDocker: true
 ```
  
-Now open _my\_dsvm.runconfig_, change _Framework_ value from _PySpark_ to _Python_. If you don't see this line, add it, since the default value would be _PySpark_.
+Now open `my_dsvm.runconfig`, change `Framework` value from `PySpark` to `Python`. If you don't see this line, add it, since the default value would be `PySpark`.
 
-```
+```yaml
 "Framework": "Python"
 ```
-## Reference Deep Learning Framework 
-Open _conda\_dependencies.yml_ file, and make sure you are using the GPU version of the deep learning framework Python packages. The sample projects list CPU versions so you need to make this change.
+### Reference Deep Learning Framework 
+Open `conda_dependencies.yml` file, and make sure you are using the GPU version of the deep learning framework Python packages. The sample projects list CPU versions so you need to make this change.
 
-### For TensorFlow: 
+Example for TensorFlow: 
 ```
 name: project_environment
 dependencies:
   - python=3.5.2
+  # latest TensorFlow library with GPU support
   - tensorflow-gpu
 ```
 
-### For CNTK:
+Example for CNTK:
+```yaml
+name: project_environment
+dependencies:
+  - python=3.5.2
+  - pip: 
+    # use the Linux build of CNTK 2.1 with GPU support
+    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-win_amd64.whl
 ```
+
+You can also use the 1 bit-SGD version of CNTK which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+
+```yaml
 name: project_environment
 dependencies:
   - python=3.5.2
   - pip:    
-    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
-```
-
-You can also use the 1bit-SGD version of CNTK that can give performance improvements on multi-GPU VMs. Do note [the license for 1bit-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
-
-```
-name: project_environment
-dependencies:
-  - python=3.5.2
-  - pip:    
+    # use the Linux build of CNTK 2.1 with 1-bit SGD and GPU support
     - https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-## Execute
-You are now ready to run your Python scripts. You can run them within the AML Workbench using the _my_dsvm_ context, or you can launch it from the command line:
+### Execute
+You are now ready to run your Python scripts. You can run them within the Azure ML Workbench using the `my_dsvm` context, or you can launch it from the command line:
  
-```azurecli
-az ml experiment submit -c my_dsvm my_tensorflow_or_cntk_script.py
+```batch
+C:\myProj> az ml experiment submit -c my_dsvm my_tensorflow_or_cntk_script.py
 ```
  
 To verify that the GPU is used, examine the run output to see something like the following:

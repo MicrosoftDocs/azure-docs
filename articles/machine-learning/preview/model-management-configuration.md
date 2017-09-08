@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning Model Management Setup and Configuration | Microsoft Docs
-description: This document describes the steps and concepts involved in setting up and configuring model management in Azure Machine Learning.
+description: This document describes the steps and concepts involved in setting up and configuring Model Management in Azure Machine Learning.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -14,7 +14,7 @@ ms.date: 08/29/2017
 # Model management setup
 
 ## Overview
-This docuemnt gets you started with using Azure ML Model Management to deploy and manage your machine learning models. 
+This document gets you started with using Azure ML Model Management to deploy and manage your machine learning models. 
 
 Using Azure ML Model Management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, Tensorflow, CNTK, or Python. 
 
@@ -22,7 +22,7 @@ By the end of this document, you should be able to have your model management en
 
 ## What you need to get started
 To get the most out of this guide, you should have owner access to an Azure subscription that you can deploy your models to.
-The CLI comes pre-installed on the Azure ML Workbench and on Azure DSVMs [https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview].
+The CLI comes pre-installed on the Azure ML Workbench and on [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## Using the CLI
 To use the command-line interfaces (CLIs) from the Workbench, click **File** -> **Open CommandLine Interface**. 
@@ -41,12 +41,15 @@ Open a command prompt using Run As Administrator and run the following commands:
 pip install azure-cli
 pip install azure-cli-ml
 ```
-
-NOTE: If you have an earlier version, uninstall it first using the following command:
+ 
+> [!NOTE]
+> If you have an earlier version, uninstall it first using the following command:
+>
 
 ```cmd
 pip uninstall azure-cli-ml
 ```
+
 
 ### Installing (or updating) on Linux
 Run the following command from the command line, and follow the prompts:
@@ -70,8 +73,7 @@ To start, you need to set up your deployment environment. The environment setup 
 
 When completing the environment setup:
 - You are prompted to sign in to Azure. To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the provided code to authenticate.
-- During the authentication process, you are prompted for an account to authenticate with. Important: Select an account that has a valid Azure subscription and sufficient permissions to create resources in the account.
-- When the log-in is complete, your subscription information is presented and you are prompted whether you wish to continue with the selected account.
+- During the authentication process, you are prompted for an account to authenticate with. Important: Select an account that has a valid Azure subscription and sufficient permissions to create resources in the account.- When the log-in is complete, your subscription information is presented and you are prompted whether you wish to continue with the selected account.
 
 ### Environment Setup
 #### Local deployment
@@ -80,7 +82,9 @@ To deploy and test your web service on the local machine, set up a local environ
 ```azurecli
 az ml env setup -l <location of Azure Region, e.g. eastus2> -n <your environment name> [-g <existing resource group>]
 ```
->Note: Local web service deployment requires your to install Docker on the local machine. 
+> [!NOTE] 
+> Local web service deployment requires your to install Docker on the local machine. 
+>
 
 The local environment setup command creates the following resources in your subscription:
 - A resource group (if not provided)
@@ -118,7 +122,9 @@ After setup is complete, you need to set the environment to be used for this dep
 az ml env set -n <environment name> -g <resource group>
 ```
 
->Note that after the environment is created, for subsequent deployments, you only need to use the set command above to reuse it.
+> [!NOTE] 
+> After the environment is created, for subsequent deployments, you only need to use the set command above to reuse it.
+>
 
 ### Create an Account
 An account is required for deploying models. You need to do this once per account, and can reuse the same account in multiple deployments.

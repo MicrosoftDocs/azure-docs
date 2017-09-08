@@ -23,8 +23,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="installation">Installation</a>
-    - html: <a href="model-management-configuration">Set up Model Management</a>
+    - html: <a href="quick-start-installation">Installation</a>
     - html: <a href="quick-start-iris">Iris quickstart</a>
 
 - title: Step-by-Step Tutorials
@@ -34,10 +33,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-iris-azure-cli">Iris tutorial using CLI</a>
-    - html: Bike Share Forecast - Data preparation
-    - html: Bike Share Forecast - Experimentation
-    - html: Bike Share Forecast - Operationalization
+    - html: <a href="tutorial-classifying-iris-part-1">Prepare data</a>
+    - html: <a href="tutorial-classifying-iris-part-2">Build a model</a>
+    - html: <a href:"tutorial-classifying-iris-part-3">Deploy a model</a>
+    - html: <a href="tutorial-bikeshare-dataprep">Extended data prep tutorial</a>
 
 - title: Samples
   items:
