@@ -68,7 +68,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
    ![View notification](./media/resource-group-template-deploy-portal/view-notification.png)
 
-1. After deploying your resources, you can add more resources to the resource group by using the **Add** command on the resource group blade.
+1. After deploying your resources, you can add more resources to the resource group by selecting **Add**.
 
    ![Add resource](./media/resource-group-template-deploy-portal/add-resource.png)
 
