@@ -64,13 +64,15 @@ The other consideration is the identity authority URL.  You need the correct URL
 
 ### Applications Using Legacy (Kerberos/NTLM) Authentication Protocols
 Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. The aim is to support logins for line-of-business application and other apps that require Windows Integrated authentication. This is commonly enabled by extending the Active Directory footprint to Azure by adding domain controllers as virtual machines, shown in the following figure: 
-
-<div align="justify">
+<div>
+<div></div>
+<div align="center">
 
 ![alt text](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
 
 </div>
-
+<div></div>
+</div>
 
 >[!NOTE]
 >The preceding figure is a simple connectivity example, using site-to-site VPN. Azure ExpressRoute is another and more preferred connectivity option.
