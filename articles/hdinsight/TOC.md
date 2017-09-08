@@ -47,6 +47,7 @@
 #### [Use cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
 #### [Use Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
+#### [Use .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 ### [Run the MapReduce samples](hdinsight-hadoop-run-samples-linux.md)
 ### [Use Pig with Hadoop](hdinsight-use-pig.md)
 #### [Use SSH and Pig](hdinsight-hadoop-use-pig-ssh.md)
