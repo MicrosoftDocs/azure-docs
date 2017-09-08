@@ -41,7 +41,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 ```
 
 > [!TIP]
-> For practice, try inspecting the claims in the sample id_token by pasting it into [jwt.ms(https://jwt.ms/).
+> For practice, try inspecting the claims in the sample id_token by pasting it into [jwt.ms](https://jwt.ms/).
 > 
 > 
 
