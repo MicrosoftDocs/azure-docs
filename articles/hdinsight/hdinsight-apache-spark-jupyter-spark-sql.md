@@ -16,13 +16,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 
 ---
 # Create an Apache Spark cluster in Azure HDInsight
 
-In this article, you learn how to create an Apache Spark cluster in Azure HDInsight. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md).
+In this article, you learn how to create an Apache Spark cluster in Azure HDInsight and then run a Spark SQL query on a Hive table. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md).
 
    ![Quickstart diagram describing steps to create an Apache Spark cluster on Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark quickstart using Apache Spark in HDInsight. Steps illustrated: create a cluster; run Spark interactive query")
 
@@ -54,16 +54,22 @@ In this section, you create an HDInsight Spark cluster using an [Azure Resource 
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled Submitting deployment for Template deployment. It takes about 20 minutes to create the cluster.
 
-If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. See [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters) for more information.
+If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 > [!NOTE]
 > This article creates a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 >
 >
 
-## Run a Hive query using Spark SQL
+## Run Spark SQL statements on a Hive table
 
-When you use a Jupyter notebook configured for your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. In this section, you learn how to start a Jupyter notebook and then run a basic Hive query.
+SQL (Structured Query Language) is the most common and widely used language for querying and defining data. The founders of Spark sought to harness this knowledge, opening up the well-known data querying language to a wider audience of analysts who wish to work with data that lives on Hadoop Distributed File System (HDFS). Spark SQL is that offering. It functions as an extension to Apache Spark for processing structured data, using the familiar SQL syntax.
+
+Spark SQL supports both SQL and HiveQL as query languages. Its capabilities include binding in Python, Scala, and Java. With it, you can query data stored in many locations, such as external databases, structured data files (example: JSON), and Hive tables.
+
+### Running Spark SQL on an HDInsight cluster
+
+When you use a Jupyter notebook configured for your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. In this section, you learn how to start a Jupyter notebook and then run a basic Spark SQL query on an existing Hive table (**hivesampletable**) that is available on all HDInsight clusters.
 
 1. Open the [Azure portal](https://portal.azure.com/).
 
@@ -89,9 +95,9 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
 
 4. Click the notebook name at the top, and enter a friendly name if you want.
 
-    ![Provide a name for the Jupter notebook to run interactive Spark query from](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Provide a name for the Jupter notebook to run interactive Spark query from")
+    ![Provide a name for the Jupyter notebook to run interactive Spark query from](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Provide a name for the Jupyter notebook to run interactive Spark query from")
 
-5.  Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. In the code below `%%sql` (called the sql magic) tells Jupyter notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that is available by default on all HDInsight clusters.
+5.  Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. In the code below, `%%sql` (called the sql magic) tells Jupyter notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that is available by default on all HDInsight clusters.
 
 		%%sql
         SELECT * FROM hivesampletable LIMIT 10
@@ -113,11 +119,11 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
 
 8. If you plan to complete the next steps at a later time, make sure you delete the HDInsight cluster you created in this article. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next step 
 
-In this article you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next article to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
+In this article, you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next article to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
 >[Run interactive queries on an HDInsight Spark cluster](hdinsight-apache-spark-load-data-run-query.md)
