@@ -200,7 +200,6 @@
   - name: REST API
     href: /rest/api/data-factory
   - name: Python
-  - name: Java
 - name: Resources
   items:
   - name: Azure Roadmap
