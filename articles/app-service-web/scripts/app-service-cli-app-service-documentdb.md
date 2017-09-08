@@ -46,8 +46,8 @@ This script uses the following commands to create a resource group, web app, Cos
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
 | [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Creates an Azure web app. |
-| [az cosmosdb create](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#create) | Creates a Cosmos DB account. This is where the data will be stored. |
-| [az cosmosdb list-keys](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#list-keys) | Lists the access keys for the specified Cosmos DB account. |
+| [az cosmosdb create](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_create) | Creates a Cosmos DB account. This is where the data will be stored. |
+| [az cosmosdb list-keys](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Lists the access keys for the specified Cosmos DB account. |
 | [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
 
 ## Next steps

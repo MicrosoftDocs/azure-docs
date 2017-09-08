@@ -230,7 +230,7 @@ Taking a disk snapshot creates a read only, point-in-time copy of the disk. Azur
 
 ### Create snapshot
 
-Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
+Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

@@ -50,7 +50,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az functionapp create]() | Creates a function app. |
 | [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Maps a custom domain to the function app. |
 | [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Uploads an SSL certificate to a function app. |
-| [az appservice web config ssl bind](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/ssl#bind) | Binds an uploaded SSL certificate to a function app. |
+| [az appservice web config ssl bind](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Binds an uploaded SSL certificate to a function app. |
 
 ## Next steps
 

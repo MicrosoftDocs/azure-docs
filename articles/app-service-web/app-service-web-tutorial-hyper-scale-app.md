@@ -67,10 +67,10 @@ Use [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create
 az group create --location "West Europe" --name myResourceGroup
 ```
 
-To see what possible values you can use for `---location`, use the [az appservice list-locations](https://docs.microsoft.com/en-us/cli/azure/appservice#list-locations) command.
+To see what possible values you can use for `---location`, use the [az appservice list-locations](https://docs.microsoft.com/en-us/cli/azure/appservice#az_appservice_list_locations) command.
 
 ### Create an App Service plan
-Use [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#create) to create a "B1" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Use [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#az_appservice_plan_create) to create a "B1" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
@@ -81,7 +81,7 @@ An App Service plan is a scale unit, which can include any number of apps that y
 For this tutorial, B1 is the minimum tier that enables scale out to three instances. You can always move your app up or down the pricing tier later by running [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update). 
 
 ### Create a web app
-Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) to create a web app with a unique name in `$appName`.
+Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_create) to create a web app with a unique name in `$appName`.
 
 ```azurecli
 $appName = "<replace-with-a-unique-name>"
@@ -89,14 +89,14 @@ az appservice web create --name $appName --resource-group myResourceGroup --plan
 ```
 
 ### Set deployment credentials
-Use [az appservice web deployment user set](https://docs.microsoft.com/en-us/cli/azure/appservice/web/deployment/user#set) to set your account-level deployment credentials for App Service.
+Use [az appservice web deployment user set](https://docs.microsoft.com/en-us/cli/azure/appservice/web/deployment/user#az_appservice_web_deployment_user_set) to set your account-level deployment credentials for App Service.
 
 ```azurecli
 az appservice web deployment user set --user-name <letters-numbers> --password <mininum-8-char-captital-lowercase-letters-numbers>
 ```
 
 ### Configure Git deployment
-Use [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config-local-git) to configure local Git deployment.
+Use [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config_local_git) to configure local Git deployment.
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName --resource-group myResourceGroup
@@ -126,7 +126,7 @@ git push azure master
 When prompted for password, use the password that you specified when you ran `az appservice web deployment user set`.
 
 ### Browse to Azure web app
-Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) to see your app running live in Azure, run this command.
+Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse) to see your app running live in Azure, run this command.
 
 ```azurecli
 az appservice web browse --name $appName --resource-group myResourceGroup
@@ -136,7 +136,7 @@ az appservice web browse --name $appName --resource-group myResourceGroup
 In this step, you set up Azure Redis Cache as an external, colocated cache to your Azure web app. You can quickly utilize Redis to cache your page output. In addition, when you scale out your web apps later, Redis helps you persist user sessions across multiple instances reliably.
 
 ### Create an Azure Redis Cache
-Use [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) to create an Azure Redis Cache and save the JSON output. Use a unique name in `$cacheName`.
+Use [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) to create an Azure Redis Cache and save the JSON output. Use a unique name in `$cacheName`.
 
 ```powershell
 $cacheName = "<replace-with-a-unique-cache-name>"
@@ -199,7 +199,7 @@ git push azure master
 When prompted for password, use the password that you specified when you ran `az appservice web deployment user set`.
 
 ### Browse to the Azure web app
-Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) to see the changes live in Azure.
+Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse) to see the changes live in Azure.
 
 ```azurecli
 az appservice web browse --name $appName --resource-group myResourceGroup
@@ -237,7 +237,7 @@ az network traffic-manager profile create --name myTrafficManagerProfile --resou
 > `--routing-method Performance` specifies that this profile [routes user traffic to the closest endpoint](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Get the resource ID of the Europe app
-Use [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#show) to get the resource ID of your web app.
+Use [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_show) to get the resource ID of your web app.
 
 ```azurecli
 $appId = az appservice web show --name $appName --resource-group myResourceGroup --query id --output tsv
@@ -260,7 +260,7 @@ az network traffic-manager profile show --name myTrafficManagerProfile --resourc
 Copy the output into your browser. You should see your web app again.
 
 ### Create an Azure Redis Cache in Asia
-Now, you replicate your Azure web app to the Southeast Asia region. To start, use [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) to create a second Azure Redis Cache in Southeast Asia. This cache needs to be colocated with your app in Asia.
+Now, you replicate your Azure web app to the Southeast Asia region. To start, use [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) to create a second Azure Redis Cache in Southeast Asia. This cache needs to be colocated with your app in Asia.
 
 ```powershell
 $redis = (az redis create --name $cacheName-asia --resource-group myResourceGroup --location "Southeast Asia" --sku-capacity 0 --sku-family C --sku-name Basic | ConvertFrom-Json)
@@ -276,7 +276,7 @@ az appservice plan create --name myAppServicePlanAsia --resource-group myResourc
 ```
 
 ### Create a web app in Asia
-Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) to create a second web app.
+Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_create) to create a second web app.
 
 ```azurecli
 az appservice web create --name $appName-asia --resource-group myResourceGroup --plan myAppServicePlanAsia
@@ -290,7 +290,7 @@ Use [az appservice web config appsettings update](https://docs.microsoft.com/cli
 az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-asia --resource-group myResourceGroup
 
 ### Configure Git deployment for the Asia app.
-Use [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config-local-git) to configure local Git deployment for the second web app.
+Use [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config_local_git) to configure local Git deployment for the second web app.
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName-asia --resource-group myResourceGroup
@@ -320,14 +320,14 @@ git push azure-asia master
 When prompted for password, use the password that you specified when you ran `az appservice web deployment user set`.
 
 ### Browse to the Asia app
-Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) to verify that your app is running live in Azure.
+Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse) to verify that your app is running live in Azure.
 
 ```azurecli
 az appservice web browse --name $appName-asia --resource-group myResourceGroup
 ```
 
 ### Get the resource ID of the Asia app
-Use [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#show) to get the resource ID of your web app in Southeast Asia.
+Use [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_show) to get the resource ID of your web app in Southeast Asia.
 
 ```azurecli
 $appIdAsia = az appservice web show --name $appName-asia --resource-group myResourceGroup --query id --output tsv
