@@ -48,9 +48,6 @@ In this tutorial, you learned how to:
 > * Redeploy the preconfigured solution
 > * Sign in to the preconfigured solution
 
-For more conceptual information about the remote monitoring preconfigured solution, see:
-
-* [Device connectivity](iot-suite-remote-monitoring-connectivity.md)
-* [Security](iot-suite-remote-monitoring-security.md)
+For more conceptual information about the remote monitoring preconfigured solution, see [Security](iot-suite-remote-monitoring-security.md).
 
 <!-- Next tutorials in the sequence -->
