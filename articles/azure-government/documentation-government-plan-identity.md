@@ -65,10 +65,10 @@ The other consideration is the identity authority URL.  You need the correct URL
 ### Applications Using Legacy (Kerberos/NTLM) Authentication Protocols
 Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authentication requires On-Premises Identity. The aim is to support logins for line-of-business application and other apps that require Windows Integrated authentication. This is commonly enabled by extending the Active Directory footprint to Azure by adding domain controllers as virtual machines, shown in the following figure: 
 
-<div align="center">
+<p align="center">
 
 ![alt text](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
-</div>
+</p>
 
 
 >[!NOTE]
@@ -102,7 +102,7 @@ Here’s a way to find out using your browser of choice:
    - c.	The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
 
 ```json
-{"authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize","token_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/token","token_endpoint_auth_methods_supported":["client_secret_post","private_key_jwt"],"jwks_uri":"https://login.microsoftonline.com/common/discovery/keys","response_modes_supported":["query","fragment","form_post"],"subject_types_supported":["pairwise"],"id_token_signing_alg_values_supported":["RS256"],"http_logout_supported":true,"frontchannel_logout_supported":true,"end_session_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/logout","response_types_supported":["code","id_token","code id_token","token id_token","token"],"scopes_supported":["openid"],"issuer":"https://sts.windows.net/b552ff1c-edad-4b6f-b301-5963a979bc4d/","claims_supported":["sub","iss","cloud_instance_name","cloud_instance_host_name","cloud_graph_host_name","aud","exp","iat","auth_time","acr","amr","nonce","email","given_name","family_name","nickname"],"microsoft_multi_refresh_token":true,"check_session_iframe":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/checksession","userinfo_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/openid/userinfo","tenant_region_scope":"USG","cloud_instance_name":"microsoftonline.com","cloud_graph_host_name":"graph.windows.net"}
+{"authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize","tenant_region_scope":"USG"}
 ```
 
    - d. If the **tenant_region_scope** attribute’s value is **USG**, you have yourself an Azure Government tenant.
