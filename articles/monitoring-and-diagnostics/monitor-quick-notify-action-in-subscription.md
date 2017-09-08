@@ -35,9 +35,9 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Identify event in the Activity Log
 
-An event has now been added to the Activity Log that describes the creation of the network security group. First we will identify the event in the Activity Log.
+An event has now been added to the Activity Log that describes the creation of the network security group. First we need to identify that event in the Activity Log.
 
-1. Click the **Monitor** button found on the left-hand navigation list. This opens to the Activity Log section.
+1. Click the **Monitor** button found on the left-hand navigation list, which opens to the Activity Log section.
 
 2. Click on the **Write NetworkSecurityGroups** event in the table of events shown.
 
@@ -53,7 +53,7 @@ An event has now been added to the Activity Log that describes the creation of t
 
     ![Create a network security group in the portal](./media/monitor-quick-notify-action-in-subscription/activity-log-alert-criteria.png)
 
-4. Under **Alert via** select **New** action group and provide a **name** and **short name** for the action group. This defines the set of actions taken when the alert is activated (when the criteria match a new event).
+4. Under **Alert via** select **New** action group and provide a **name** and **short name** for the action group. The action group defines the set of actions taken when the alert is activated (when the criteria match a new event).
 
 5. Under **Actions** add one or more actions by providing a **Name** for the action, the **Action type** (for example, email or SMS), and **Details** for that particular action type (for example, a webhook URL or email address).
 
@@ -64,11 +64,11 @@ An event has now been added to the Activity Log that describes the creation of t
 ## Test the Activity Log alert
 
 > [!NOTE]
-> It takes approximately ten minutes for an Activity Log alert to become fully enabled. New events that occur before the Activity Log alert is fully enabled do not generate notifications.
+> It takes approximately 10 minutes for an Activity Log alert to become fully enabled. New events that occur before the Activity Log alert is fully enabled do not generate notifications.
 >
 >
 
-To test the alert, repeat the steps above to **Create a network security group**, but give this network security group a different name and reuse the existing resource group. Within a few minutes you will receive a notification that the network security group was created.
+To test the alert, repeat the preceding section to **Create a network security group**, but give this network security group a different name and reuse the existing resource group. Within a few minutes, you will receive a notification that the network security group was created.
 
 ## Clean up resources
 
