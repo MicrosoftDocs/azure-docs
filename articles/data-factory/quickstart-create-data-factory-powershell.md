@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 09/07/2017
+ms.date: 09/06/2017
 ms.author: jingwang
 
 ---
@@ -30,22 +30,21 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 
 1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
 
-    a. Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
+    Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
-        ```powershell
-        Login-AzureRmAccount
-        ```        
-    b. Run the following command to view all the subscriptions for this account:
+    ```powershell
+    Login-AzureRmAccount
+    ```        
+    Run the following command to view all the subscriptions for this account:
 
-        ```powershell
-        Get-AzureRmSubscription
-        ```
-    c. Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
+    ```powershell
+    Get-AzureRmSubscription
+    ```
+    Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
-    	```powershell
-    	Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
-        ```
-
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
+    ```
 2. Run the **New-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
 
     ```powershell
