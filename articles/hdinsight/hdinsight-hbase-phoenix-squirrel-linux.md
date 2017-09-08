@@ -19,7 +19,7 @@ ms.author: jgao
 
 ---
 # Use Apache Phoenix with Linux-based HBase clusters in HDInsight
-Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to use SQLLine. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix grammar](http://phoenix.apache.org/language/index.html).
+Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight, and how to use SQLLine. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix grammar](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
 > For Phoenix version information about HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight](hdinsight-component-versioning.md).
