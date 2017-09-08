@@ -23,6 +23,8 @@
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Azure Portal
       href: quickstart-create-data-factory-portal.md     
+  - name: Deploy SSIS packages
+    href: quickstart-deploy-ssis-packages.md
 - name: Tutorials
   items:
   - name: 1 - Copy data in cloud
