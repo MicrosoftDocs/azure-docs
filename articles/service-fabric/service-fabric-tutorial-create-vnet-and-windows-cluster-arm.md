@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 09/06/2017
 ms.author: ryanwi
 
 ---
 
-# Create a secure cluster on Azure using a template
-This tutorial is part one of a series. You will learn how to create a Service Fabric cluster (Windows or Linux) running in Azure. When you're finished, you have a cluster running in the cloud that you can deploy applications to.
+# Create a secure Windows cluster on Azure using a template
+This tutorial is part one of a series. You will learn how to create a Service Fabric cluster (Windows) running in Azure. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster, see [Create a secure Linux cluster on Azure using a template](service-fabric-tutorial-create-vnet-and-linux-cluster-arm.md).
 
 In this tutorial, you learn how to:
 
@@ -58,22 +58,12 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-```azurecli
-az login
-az account set --subscription <guid>
-```
-
 ## Create a resource group
 Create a new resource group for your deployment and give it a name and a location.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location centralus
-```
-
-```azurecli
-ResourceGroupName = "sfclustertutorialgroup"
-az group create --name $ResourceGroupName --location "Central US"
 ```
 
 ## Deploy the network topology
@@ -89,14 +79,6 @@ Use the following PowerShell command to deploy the Resource Manager template and
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
-```
-
-```azurecli
-az group deployment create \
-    --name VnetDeployment \
-    --resource-group $ResourceGroupName \
-    --template-file network.json \
-    --parameters @network.parameters.json
 ```
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
@@ -209,14 +191,6 @@ Use the following PowerShell command to deploy the Resource Manager template and
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
 ```
 
-```azurecli
-az group deployment create \
-    --name ClusterDeployment \
-    --resource-group $ResourceGroupName \
-    --template-file cluster.json \
-    --parameters @cluster.parameters.json
-```
-
 ## Modify the certificate & access Service Fabric Explorer 
 
 1. Double-click the certificate to open the Certificate Import Wizard.
@@ -253,10 +227,6 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.clou
           -StoreLocation CurrentUser -StoreName My
 ```
 
-```azurecli
-sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 --cert ./client.crt --key ./keyfile.key
-```
-
 Check that you are connected and the cluster is healthy using the [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet.
 
 ```powershell
@@ -279,14 +249,6 @@ Select-AzureRmSubscription -SubscriptionId "Subcription ID"
 
 $ResourceGroupName = "sfclustertutorialgroup"
 Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
-```
-
-```azurecli
-az login
-az account set --subscription <guid>
-
-ResourceGroupName = "sfclustertutorialgroup"
-az group delete --name $ResourceGroupName
 ```
 
 ## Next steps
