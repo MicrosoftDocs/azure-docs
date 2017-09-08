@@ -26,7 +26,7 @@ Then run _dw configure_ on the command line, which will prompt you for your toke
 ```
 API token (obtained at: https://data.world/settings/advanced): <enter API token here>
 ```
-Now you should be able to import data.world libraries in Pendleton.
+Now you should be able to import data.world libraries.
 
 #### Load Data into Data Preparation
 
@@ -45,7 +45,7 @@ df = lds.dataframes['simpsons_episodes']
 
 ```
 
-#### Load CosmosDB Data to Pendleton
+#### Load CosmosDB Data into Data Preparation
 
 Create a new script based data flow and use the following script to load the data from CosmosDB
 

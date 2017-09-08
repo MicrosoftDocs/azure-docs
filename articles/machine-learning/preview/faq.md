@@ -81,11 +81,11 @@ The Model Management Service is a managed Azure service that allows data scienti
 
 **What is a “model”?**
 
-A model is an experimentation run that has been promoted to the Vienna hosting account for model management. A model that is registered in the hosting account is counted against your plan, including models updated through retraining or version iteration.
+A model is the output of an experimentation run that has been promoted for model management. A model that is registered in the hosting account is counted against your plan, including models updated through retraining or version iteration.
 
 **What is a “managed model”?**
 
-A model is the output of a training process and is the application of a machine learning algorithm to training data. The Model Management service enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. ‘Managed’ models have been registered with an Azure Machine Learning Model Management account. As an example, consider a scenario where you are trying to forecast sales. During the experimentation phase, you generate many models by using different data sets or algorithms. You have generated four models with varying accuracies but choose to register only the model with the highest accuracy. The model that is registered becomes your first managed model.
+A model is the output of a training process and is the application of a machine learning algorithm to training data. The Model Management service enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. "Managed" models have been registered with an Azure Machine Learning Model Management account. As an example, consider a scenario where you are trying to forecast sales. During the experimentation phase, you generate many models by using different data sets or algorithms. You have generated four models with varying accuracies but choose to register only the model with the highest accuracy. The model that is registered becomes your first managed model.
  
 **What is a deployment?**
 

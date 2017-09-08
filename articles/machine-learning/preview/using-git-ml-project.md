@@ -37,7 +37,7 @@ To get started using a remote Git repo, follow these basic instructions.
 >Note: Currently, Microsoft only supports Git repositories on VSTS Accounts. Support for General Git repos (such as GitHub and etc.) is planned in the future.
 
 ## Step 1. Create an Azure ML Experimentation Account
-If not already done, create an Azure ML Experimentation Account and install the Azure ML Workbench app. See more details in the [installation guide](Installation.md).
+If not already done, create an Azure ML Experimentation Account and install the Azure ML Workbench app. See more details in the [installation guide](quick-start-installation.md).
 
 ## Step 2. Create a VSTS Project or Use an Existing VSTS Project
 Navigate to [https://www.visualstudio.com](https://www.visualstudio.com), and sign in with an Azure Active Directory (AD) account used to access the Azure ML Experimentation account. Select the VSTS account you want to use. You can also create a new VSTS account.
