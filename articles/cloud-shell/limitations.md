@@ -57,4 +57,4 @@ Any latency in Cloud Shell is subject to local internet connectivity, Cloud Shel
 
 ## Next steps
 [Quickstart for Bash](quickstart.md) <br>
-[Quickstart for PowerShell](powershell-quickstart.md)
+[Quickstart for PowerShell](quickstart-powershell.md)

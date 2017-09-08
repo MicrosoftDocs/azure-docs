@@ -22,7 +22,7 @@ ms.author: juluk
 This document details how to use Bash in Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
 > [!NOTE]
-> A [PowerShell in Azure Cloud Shell](powershell-quickstart.md) guide is also available.
+> A [PowerShell in Azure Cloud Shell](quickstart-powershell.md) guide is also available.
 
 ## Start Cloud Shell
 1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>

@@ -2,11 +2,11 @@
 
 # Quickstart
 ## [Quickstart for Bash](quickstart.md)
-## [Quickstart for PowerShell](powershell-quickstart.md)
+## [Quickstart for PowerShell](quickstart-powershell.md)
 
 # Concepts
 ## [Features & Tools in Bash](features.md)
-## [Features & Tools in PowerShell](powershell-features.md)
+## [Features & Tools in PowerShell](features-powershell.md)
 ## [Limitations](limitations.md)
 ## [Troubleshooting](troubleshooting.md)
 
