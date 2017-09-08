@@ -34,7 +34,7 @@ This topic lists current POP locations for **Azure CDN from Verizon** and **Azur
 | Northern and Eastern Europe | Copenhagen, Denmark<br />Helsinki, Finland<br />Warsaw, Poland<br />Stockholm, Sweden | Bulgaria<br />Denmark<br />Finland<br />Norway<br />Poland<br />Sweden<br /> |
 | Western Europe | Vienna, Austria<br />Paris, France<br />Frankfurt, Germany<br />Amsterdam, Netherlands<br />London, UK | Austria<br />Belgium<br />France<br />Germany<br />Ireland<br />Netherlands<br />Switzerland<br />United Kingdom |
 | Southern Europe | Milan, Italy<br />Madrid, Spain | Greece<br />Italy<br />Portugal<br />Spain |
-| East Asia | Hong Kong SAR<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong SAR<br />Indonesia<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand |
+| East Asia | Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />Indonesia<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand |
 | South and Central Asia | Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India | India<br />Sri Lanka |
 | Middle East/West Asia | Muscat, Oman<br />Fujirah, United Arab Emirates | Israel<br />Kuwait<br />Qatar<br />Turkey<br />United Arab Emirates |
 | Africa | | Egypt<br />South Africa |

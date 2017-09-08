@@ -57,7 +57,7 @@ Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for th
 
 ## Container registry login
 
-You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) command to complete the operation. You need to provide the unique name given to the container registry when it was created.
+You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to complete the operation. You need to provide the unique name given to the container registry when it was created.
 
 ```azurecli
 az acr login --name <acrName>
