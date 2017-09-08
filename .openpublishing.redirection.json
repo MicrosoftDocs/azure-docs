@@ -10448,6 +10448,26 @@
             "source_path": "articles/app-service-web/app-service-linux-get-started-node.md",
             "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },            
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-update-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
         }
     ]
 }
