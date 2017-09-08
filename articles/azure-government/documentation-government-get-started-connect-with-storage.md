@@ -1,4 +1,4 @@
----
+,---
 title: Azure Government Storage | Microsoft Docs
 description: This provides a quickstart-guide for getting started with Storage in Azure Government
 services: azure-government
@@ -22,7 +22,8 @@ ms.author: yujhong
 ## Overview 
 Azure Government uses the same underlying technologies as commercial Azure, enabling you to use the development tools you’re already familiar with.
 
-However, Azure Government provides a physical and network-isolated instance of Azure which results in a higher level of compliance and security. As a result of this, we use different physical endpoints for our services such as Azure Storage. ### Microsoft Azure Storage Explorer
+However, Azure Government provides a physical and network-isolated instance of Azure, which results in a higher level of compliance and security. As a result, we use different physical endpoints for our services such as Azure Storage. 
+### Microsoft Azure Storage Explorer
 
 [The Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) is a cross-platform tool for working with Azure Storage. Government customers will now be able to take advantage of all the latest features of the Azure Storage Explorer such as being able to create and manage blobs, queues, tables, and file shares.
 
@@ -62,7 +63,7 @@ These endpoint differences must be taken into account when you connect to storag
 2. Copy/paste the storage account name and key.
 3. Open up Visual Studio and create a new project. Add a reference to the [WindowsAzure.Storage NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage/). This NuGet package contains classes we will need to connect to your storage account.
 
-4. Add these 2 lines of C# code to connect:
+4. Add these two lines of C# code to connect:
 	```cs
 	var credentials = new StorageCredentials(storageAccountName, storageAccountKey);
 
