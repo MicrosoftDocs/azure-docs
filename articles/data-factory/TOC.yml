@@ -38,7 +38,7 @@
 - name: Samples
   items:
   - name: PowerShell
-    href: powershell-samples.md
+    href: samples-powershell.md
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
 - name: Concepts
