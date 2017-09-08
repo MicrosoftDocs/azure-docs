@@ -36,7 +36,7 @@ More regions and markets will be added as we develop the product.
 
 **What other Azure services are required?**
 
-Azure Machine Learning has been designed with GIT integration to support versioning, collaboration, and reproducibility. GIT integration is enabled via Visual Studio Team Services and a VSTS account is required. Additional services include Azure Blob Storage, Azure Container Registry, and Azure Container Service.
+Azure Machine Learning has been designed with Git integration to support versioning, collaboration, and reproducibility. Git integration is enabled via Visual Studio Team Services and a VSTS account is required. Additional services include Azure Blob Storage, Azure Container Registry, and Azure Container Service.
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning Services in SQL Server 2017?**	
 
@@ -77,7 +77,7 @@ The Experimentation service can execute your experiments on local machines (dire
 
 **What is the Azure Machine Learning Model Management Service?**
 
-The Model Management Service is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. GIT repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to Azure VMs, Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters.  
+The Model Management Service is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. Git repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to Azure VMs, Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters.  
 
 **What is a “model”?**
 
