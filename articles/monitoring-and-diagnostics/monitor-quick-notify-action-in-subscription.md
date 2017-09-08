@@ -79,4 +79,4 @@ When no longer needed, delete the resource group and network security group. To 
 In this quick start, you performed an operation to generate an Activity Log event and then created an Activity Log alert to become notified when this operation occurs again in the future. You then tested the alert by performing that operation again. To learn more about the Azure Activity Log, continue to the overview of the Activity Log.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor tutorials](./monitoring-overview-activity-logs.md)
+> [Overview of the Activity Log](./monitoring-overview-activity-logs.md)
