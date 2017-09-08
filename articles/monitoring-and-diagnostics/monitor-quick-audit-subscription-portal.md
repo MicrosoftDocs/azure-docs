@@ -37,7 +37,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 An event has now been added to the Activity Log that describes the creation of the network security group. Use the following instructions to identify that event.
 
-1. Click the **Monitor** button found on the left-hand navigation list. This will open to the Activity Log section.
+1. Click the **Monitor** button found on the left-hand navigation list. It opens to the Activity Log section.
 
 2. In the **Activity Log** section, click the **Resource Group** dropdown and select **myResourceGroup**. Change the **Timespan** dropdown to **Last 1 hour**. Click **Apply**.
 
