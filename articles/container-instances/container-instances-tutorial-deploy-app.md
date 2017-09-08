@@ -26,8 +26,8 @@ This is the last of a three-part tutorial. In previous sections, [a container im
 
 > [!div class="checklist"]
 > * Deploying a container from an image in Azure Container Registry
-> * Viewing container logs
 > * Verifying the running application
+> * Viewing container logs
 
 ## Deploy the container using the Azure CLI
 
