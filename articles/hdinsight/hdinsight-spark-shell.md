@@ -71,7 +71,7 @@ The Spark Shell command (`spark-shell`, `pyspark`, or `sparkR`) supports many co
 
 ## Next steps
 
-- See [Use Spark with HDInsight](hdinsight-spark-with-hdinsight.md) for an overview.
+- See [Introduction to Spark on Azure HDInsight](hdinsight-apache-spark-overview.md) for an overview.
 - See [Use Spark SQL with HDInsight](hdinsight-spark-sql-with-hdinsight.md) to write applications that use DataFrames from SparkSQL.
 - See [What is Spark Structured Streaming?](hdinsight-spark-streaming-overview.md) to write applications that process streaming data with Spark.
 
