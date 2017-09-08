@@ -88,7 +88,7 @@ az group deployment create \
 ## Create a key vault and upload a certificate
 The Service Fabric cluster Resource Manager template in the next step is configured to create a secure cluster with certificate security. The certificate is used to secure node-to-node communication for your cluster and to manage user access to your Service Fabric cluster. API Management also uses this certificate to access the Service Fabric Naming Service for service discovery. This requires having a certificate in Key Vault for cluster security.
 
-The following script creates a key vault in Azure, creates a self-signed certificate, and uploads the certificate to the key vault.  If you want to use an existing certificate, set **$CreateSelfSignedCertificate** to "$false" and specify the location in **$ExistingPfxFilePath**.
+The following script creates a self-signed certificate.  Skip this step if you want to use an existing certificate.   If you want to use an existing certificate, set **$CreateSelfSignedCertificate** to "$false" and specify the location in **$ExistingPfxFilePath**.
 
 ```bash
 #!/bin/bash
@@ -98,8 +98,51 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout clusterCert.key -out
 openssl pkcs12 -export -out clusterCert.pfx -inkey clusterCert.key -in clusterCert.crt -passout pass:"cat10dog"
 ```
 
-The following script creates a self-signed certificate.  Skip this step if you want to use an existing certificate.
+To upload the certificate to keyvault we must first format the certificate and add additional data to it so that Service Fabric knows how to use it. The format is a base64 encoded json blob containing the following keys: 'data', 'dataType' and 'password'. Data should be the base64 encoded byte array of the PFX file. The following Python script properly encodes the PFX file to be uploaded to Keyvault, save it as *servicefabric.py*.
 
+```python
+#!/usr/bin/env python
+from __future__ import print_function
+
+import argparse
+import base64
+import json
+
+def formatCertificateToKeyvaultSecret(args):
+	f = open(args.cert_file, 'rb')
+	try:
+		ba = bytearray(f.read())
+		cert_base64 = base64.b64encode(ba)
+		json_blob = {
+			'data': cert_base64,
+			'dataType': 'pfx',
+			'password': args.password
+		}
+		blob_data = json.dumps(json_blob)
+		content_bytes = bytearray(blob_data)
+		content = base64.b64encode(content_bytes)
+		return content
+	finally:
+		f.close()
+
+def main():
+	parser = argparse.ArgumentParser()
+	
+	subparsers = parser.add_subparsers()
+	
+	formatCertSecretParser = subparsers.add_parser('format-secret', help='Formats the certificate into the expected format for service fabric, normally followed by uploading this to keyvault')
+	formatCertSecretParser.add_argument('-c', '--pkcs12-cert', dest='cert_file', required=True, help='The pkcs12 cert that you want to format as a secret for Service Fabric Keyvault')
+	formatCertSecretParser.add_argument('-p', '--password', dest='password', required=True, help='The password for the certificate')
+	formatCertSecretParser.set_defaults(func=formatCertificateToKeyvaultSecret)
+	
+	args = parser.parse_args()
+	print(args.func(args))
+
+if __name__ == "__main__":
+	main()
+```
+
+The following script creates a key vault in Azure and uploads the cluster certificate to the key vault.
 ```azurecli
 #!/bin/bash
 
