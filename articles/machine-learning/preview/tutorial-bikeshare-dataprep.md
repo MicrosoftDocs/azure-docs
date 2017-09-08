@@ -43,7 +43,7 @@ The Boston weather file contains the following weather-related fields reported o
 We will use Azure ML Workbench Data Preparation tool to prepare the Training and the Test data. We will not be building a prediction model. However, you are encouraged to take the prepared data and build a prediction model using the plethora of algorithms that the Workbench supports.
 
 ### Prerequisites
-1. A properly installed Azure ML Workbench. Follow the [installation guide](quickstart-installation.md).
+1. A properly installed Azure ML Workbench. Follow the [installation guide](quick-start-installation.md).
 2. Familiarity with creating a new project in the Workbench.
 
 ### Let's Begin
