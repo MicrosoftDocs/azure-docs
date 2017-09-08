@@ -116,7 +116,9 @@ Azure Cosmos DB also provides a .NET library that has Gremlin extension methods 
 | --- | --- |
 | [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 
-By using the [Azure Cosmos DB Emulator](local-emulator.md), you can use the Graph API to develop and test locally without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
+By using the [Azure Cosmos DB Emulator](local-emulator.md), you can use the .NET Graph API above to develop and test locally without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
+
+**NOTE:** Support for validating Gremlin queries against [Azure Cosmos DB Emulator](local-emulator.md) is only available via .NET Graph API.
 
 ## Scenarios for graph support of Azure Cosmos DB
 Here are some scenarios where graph support of Azure Cosmos DB can be used:
