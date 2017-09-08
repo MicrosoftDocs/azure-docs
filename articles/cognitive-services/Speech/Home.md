@@ -1,4 +1,4 @@
-﻿---
+---
 title: Bing Speech API in Microsoft Cognitive Services | Microsoft Docs
 description: Use the Bing Speech API to add speech-driven actions to your apps, including real-time interaction with users.
 services: cognitive-services
