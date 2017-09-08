@@ -47,7 +47,7 @@ Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usa
 Cloud Shell persists files through both of the following methods:
 * Creating a disk image of your `$Home` directory to persist all contents within the directory. The disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, and it automatically syncs changes.
 
-* Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction. `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
+* Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction. In Bash, `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.  In PowerShell, `/Home/<User>/clouddrive` is mapped to `$home\clouddrive`.
  
 > [!NOTE]
 > All files in your `$Home` directory, such as SSH keys, are persisted in your user disk image, which is stored in your mounted file share. Apply best practices when you persist information in your `$Home` directory and mounted file share.
@@ -73,7 +73,7 @@ The Azure files must reside in the same region as the Cloud Shell machine that y
 |Europe|North Europe, West Europe|
 |Asia Pacific|India Central, Southeast Asia|
 
-### The `clouddrive mount` command
+### The `clouddrive mount` command (Bash)
 
 > [!NOTE]
 > If you're mounting a new file share, a new user image is created for your `$Home` directory, because your previous `$Home` image is kept in the previous file share.
@@ -88,8 +88,14 @@ To view more details, run `clouddrive mount -h`, as shown here:
 
 ![Running the `clouddrive mount`command](media/persisting-shell-storage/mount-h.png)
 
+### `Get-Clouddrive` (PowerShell)
+
+[TODO]
+
 ## Unmount `clouddrive`
 You can unmount a file share that's mounted to Cloud Shell at any time. However, because Cloud Shell requires a mounted file share, you will be prompted to create and mount a new file share at the next session if it has been removed.
+
+### The `clouddrive unmount` command (Bash)
 
 To remove a file share from Cloud Shell:
 1. Run `clouddrive unmount`.
@@ -103,6 +109,10 @@ To view more details, run `clouddrive unmount -h`, as shown here:
 
 > [!WARNING]
 > Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell will erase your `$Home` directory disk image and any files in your file share. This action cannot be undone.
+
+### `Dismount-Clouddrive` (PowerShell)
+
+[TODO]
 
 ## List `clouddrive` file shares
 To discover which file share is mounted as `clouddrive`, run the following `df` command. 
