@@ -13,7 +13,7 @@ ms.date: 09/06/2017
 ---
 
 # Overview of Azure Machine Learning Experiment Execution Service
-Azure ML (Azure Machine Learning) experiment execution service enables data scientists to execute their experiments using Azure ML's execution and run management capabilities. It provides a framework for agile experimentation with fast iterations. Azure ML Workbench allows you to start with local runs on your machine and an easy path for scaling up and out to other environments such as a remote Data Science VM with GPUs or an HDInsight Cluster running Spark.
+Azure ML (Azure Machine Learning) experiment execution service enables data scientists to execute their experiments using Azure ML's execution and run management capabilities. It provides a framework for agile experimentation with fast iterations. Azure ML Workbench allows you to start with local runs on your machine and an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or HDInsight Clusters running Spark.
 
 Experiment Execution Service is built for providing reproducible and consistent runs of your experiments. It helps you manage your compute targets, execution environments, and run configurations. You can move easily between different environments with Azure ML Workbench run management and execution capabilities. 
 
@@ -45,12 +45,14 @@ Following compute targets and variations are supported for running an Azure ML E
 * Remote HDInsight Spark Cluster on Linux (Ubuntu)
     * Conda environment running on HDInsight
 
-> Please note that Windows VMs running Docker are **not** supported as remote compute targets.
+> Windows VMs running Docker are **NOT** supported as remote compute targets.
 
 ### Execution Environment
-Execution environment defines the run time configuration and the dependencies needed to run the program. In Azure ML Workbench, user manages local execution environment using their favorite tools and package managers if running on Azure ML Workbench default runtime. 
+Execution environment defines the run time configuration and the dependencies needed to run the program. 
 
-Conda is used to manage Docker-based local and remote executions as well as HDInsigh-based executions. For these compute targets, execution environment configuration is managed through Conda_dependencies.yml and Spark_dependencies.yml files in your project inside your **aml_config** folder.
+In Azure ML Workbench, user manages local execution environment using their favorite tools and package managers if running on Azure ML Workbench default runtime. 
+
+Conda is used to manage Docker-based local and remote executions as well as HDInsigh-based executions. For these compute targets, execution environment configuration is managed through Conda_dependencies.yml and Spark_dependencies.yml files. These files are in **aml_config** folder inside your project.
 
 **Supported runtimes for execution environments are:**
 * Python 3.5.2
@@ -63,7 +65,7 @@ _Following figure shows the high-level flow for initial experiment run:_
 ![](media/experiment-execution-overview/experiment-execution-flow.png)
 
 # Azure ML Experiment Execution Scenarios
-In this section, we dive into execution scenarios and learn about how Azure ML runs experiments, specifically running an experiment locally, on a remote VM, and on an HDInsightCluster. This section is detailed walkthorugh starting from creating of a compute target to executing your experiments.
+In this section, we dive into execution scenarios and learn about how Azure ML runs experiments, specifically running an experiment locally, on a remote VM, and on an HDInsightCluster. This section is detailed walkthrough starting from creating a compute target to executing your experiments.
 
 >For the rest of this article we are using the CLI (Command-line interface) commands to show the concepts and the capabilities. Capabilities described here can also be used from the Workbench desktop application.
 
@@ -72,7 +74,7 @@ An easy way to launch the CLI opening a project in the Azure ML Workbench deskto
 
 ![](media/how-to-configure-experiment-execution/Opening-CLI.png)
 
-This command launches a terminal window in which you can enter commands to execute scripts in the current project folder. This terminal window is configured with the Python 3.5.2 environment which is installed by Workbench as the default Python path.
+This command launches a terminal window in which you can enter commands to execute scripts in the current project folder. This terminal window is configured with the Python 3.5.2 environment which is installed by the Workbench.
 
 >[!NOTE]
 > When you execute any _az ml_ command from the command window, you need to be authenticated against Azure. CLI uses an independent authentication cache then the desktop app and so logging in to the Workbench desktop app doesn't mean you are authenticated in your CLI environment. To authenticate, follow the steps below. Authentication token is cached locally for a period of time so you only need to repeat these steps when the token expires. When the token expires or if you are seeing authentication errors), execute the following commands.
@@ -96,9 +98,9 @@ $ az account show
 
 ## Creating a Compute Target
 
-In order to execute an experiment or run a script, you need to specify a compute target as part of your run configuration. _az ml computetarget attach_ command enables you to create a compute target that you can use in your runs for the current project.
+In order to run a script, you need to specify a compute target as part of your run configuration. _az ml computetarget attach_ command enables you to create a compute target that you can use in your runs for the current project.
 
-For example, if you would like to run your experiment on a remote VM, you would first create a compute target using the following command:
+For example, if you would like to run your experiment on a remote VM, you need to create a compute target using the following command:
 
 ```
 az ml computetarget attach --name "remotevm" --address "IP Address" --username "sshuser" --password "sshpassword" --type remotedocker
@@ -120,10 +122,10 @@ az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --u
 Keep in mind that:
 * Remote VM needs to be running Linux-Ubuntu and should be accessible through SSH. 
 * Remote VM needs to have Docker running.
-* Windows VMs are currently not supported since Azure ML Workbench is using Docker for remote executions on VMs.
 * Type flag in the command needs to be set to "remotedocker" to signal this is not a cluster set-up.
+* Windows VMs are currently not supported since Azure ML Workbench is using Docker for remote executions on VMs.
 
-Once this command is run you will see your new compute target and run configuration in both CLI and Workbench desktop app. 
+Once this command is run, you will see your new compute target and run configuration in both CLI and Workbench desktop app. 
 
 ### Creating a compute target and run configuration for HDInsight Spark Cluster
 Similarly, you can create a compute target and run configuration for an HDInsight Spark cluster using the following command.
@@ -138,14 +140,14 @@ $ az ml computetarget attach --name "myhdi" --address "<IP address>" --username 
 ## Running Scripts and Experiments
 With Azure ML Workbench, you can execute your Python and PySpark scripts on various compute targets using the _az ml experiment submit_ command. This command requires a run configuration definition. 
 
-Azure ML Workbench creates a corresponding .runconfig file when you create a compute target, but you can create additional run configurations using _az ml runconfiguration  create_ command. You can also manually edit the runconfiguration files.
+Azure ML Workbench creates a corresponding .runconfig file when you create a compute target, but you can create additional run configurations using _az ml runconfiguration  create_ command. You can also manually edit the run configuration files.
 
 Run configurations show up as part of experiment run experience in the Workbench application. 
 
 >You can learn more about the run configuration file in the [Experiment Execution Configuration Reference](Experiment-Execution- Configuration-Reference.md) Section.
 
 ## Running experiments locally
-Azure ML Workbench allows you to run their experiments locally against Azure ML installed Python 3.5.2 runtime or on a local Docker container.
+Azure ML Workbench allows you to run your experiments locally against Azure ML installed Python 3.5.2 runtime or on a local Docker container.
 
 ### Running a script locally on Azure ML Workbench-installed runtime
 Azure ML Workbench enables you to run your scripts directly against the Azure ML Workbench-installed Python 3.5.2 runtime. This default runtime is installed at Azure ML Workbench set-up time and includes Azure ML libraries and dependencies. Run results and artifacts for local executions are still saved in Run History service in the cloud.
@@ -153,7 +155,7 @@ Azure ML Workbench enables you to run your scripts directly against the Azure ML
 Unlike Docker-based executions, this configuration is _not_ managed by Conda. User needs to install and manage dependencies themselves using their preferred tools and package managers. 
 
 ```
-$az ml experiment submit -c local ./myscript.py
+$az ml experiment submit -c local myscript.py
 ```
 
 You can find the path to this default Python environment by typing the following command in the Azure ML Workbench CLI window.
@@ -162,7 +164,7 @@ $ conda env list
 ```
 
 >[!NOTE]
->Azure ML Workbench currenyly only supports PySpark scripts running on local Docker. Azure ML base Docker image does come with Spark 2.1.10 installed. Running PySpark locally directly against local Spark environments is currently _not_ supported. 
+>Azure ML Workbench currently only supports PySpark scripts running on local Docker. Azure ML base Docker image does come with Spark 2.1.10 installed. Running PySpark locally directly against local Spark environments is currently _not_ supported. 
 
 _Overview of local execution for a Python script:_
 ![](media/experiment-execution-overview/local-native-run.png)
@@ -175,22 +177,20 @@ You can also run your projects on a Docker container on your local machine throu
 For running your Python or PySpark script on local Docker, you execute the following command in CLI.
 
 ```
-$az ml experiment submit -c docker ./myscript.py
-
+$az ml experiment submit -c docker myscript.py
+```
 or
-
+```
 az ml experiment submit --run-configuration docker myscript.py
 ```
 
-Execution environment on local Docker is prepared using the Azure ML base Docker image. Azure ML Workbench dowloads this image when running for the first time and overlays it with packages specified in user's conda_dependencies.yml file. This operation makes the initial run slower but subsequent runs are considerably faster thanks to Workbench reusing cached layers. 
-
+Execution environment on local Docker is prepared using the Azure ML base Docker image. Azure ML Workbench downloads this image when running for the first time and overlays it with packages specified in user's conda_dependencies.yml file. This operation makes the initial run slower but subsequent runs are considerably faster thanks to Workbench reusing cached layers. 
 
 >If running a PySpark script on Spark, spark_dependencies.yml is also used in addition to conda_dependencies.yml.
 
-
 Running your scripts on a Docker image gives you the following benefits:
 
-1. It ensures that your script can be reliably executed in other execution environments. Running on a Docker container helps you discover and avoid any local references that will impact portability. 
+1. It ensures that your script can be reliably executed in other execution environments. Running on a Docker container helps you discover and avoid any local references that may impact portability. 
 
 2. It allows you to quickly test code on runtimes and frameworks that are complex to install and configure, such as Apache Spark, without having to install them yourself.
 
@@ -213,13 +213,12 @@ Once you configure the compute target, you can use the following command to run 
 ```
 $ az ml experiment submit -c remotevm myscript.py
 ```
+[!NOTE]
+>Keep in mind that execution environment is configured using the specifications in conda_dependencies.yml and spark_dependencies.yml files. 
 
-The Docker construction process is exactly the same as when you target a local Docker container so you should expect a similar execution experience.
+The Docker construction process for remote VMs is exactly the same as the process for local Docker runs so you should expect a similar execution experience.
 
->If running a PySpark script on Spark, spark_dependencies.yml is also used in addition to conda_dependencies.yml.
-
-
-If you prefer to avoid the latency introduced by building the docker image for your first run, you can use the following command to prepare the compute target before executing your script. 
+If you prefer to avoid the latency introduced by building the Docker image for your first run, you can use the following command to prepare the compute target before executing your script. 
 
 ```
 az ml experiment prepare -c remotevm
@@ -253,5 +252,3 @@ Azure ML Workbench prepares and manages execution environment on HDInsight clust
 _Overview of HDInsight-based execution for a PySpark script_
 ![](media/experiment-execution-overview/hdinsight-run.png)
 
-### Running your scripts on a GPU
-To run your scripts on GPU, you can follow the guidance on this article: ["How to use GPU in Azure Machine Learning"](how-to-use-gpu.md)
