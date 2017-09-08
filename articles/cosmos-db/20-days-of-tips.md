@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/07/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -39,6 +39,14 @@ Seeing is believing. Use the #cosmosDB visual interface in the Azure portal to i
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905449095648731136)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311218673575088128)
+
+## Tip 3: Replicate data globally
+
+Tip 3: Need your app to be blazing fast anywhere in the world? Replicating your data with #cosmosDB is dead easy! [https://aka.ms/nimw2g](https://aka.ms/nimw2g)  
+
+> [!VIDEO https://www.youtube.com/embed/i22R7I_Rgdg]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905783001937833984)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311547372904214528)
 
 ## Next steps
 
