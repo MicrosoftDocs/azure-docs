@@ -113,7 +113,7 @@ Tag the image using the [docker tag](https://docs.docker.com/engine/reference/co
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Finally, use [Docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
+Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```
 docker push <acrLoginServer>/aci-helloworld:v1
