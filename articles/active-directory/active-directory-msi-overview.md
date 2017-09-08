@@ -6,7 +6,7 @@ documentationcenter: ''
 author: skwan
 manager: mbaldwin
 editor: ''
-
+ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,29 +14,69 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: skwan
+
 ---
 
-#  An overview of Managed Service Identity (MSI) for Azure resources
+#  Overview of Managed Service Identity (Preview) for Azure resources
 
-This is an overview of MSI ...
+A common challenge when building cloud applications is how to manage the secrets, API keys, and private keys that need to be in your code for authenticating to cloud services.  Keeping these secrets secure is an important task.  Ideally, they never appear on developer workstations or get checked into source control.  Azure KeyVault provides a way to securely store secrets and private keys, but your code needs to authenticate to KeyVault to use these keys.  Managed Service Identity (MSI) solves this problem by giving Azure services an automatically managed identity in Azure Active Directory.  Without needing to have any secrets in your code, you can use this identity to authenticate to any service that supports Azure AD authentication, including KeyVault.
 
-## Topic 1
+## How does it work?
 
-MSI is explained by this awesome diagram ...
+When you enable Managed Service Identity on an Azure service, Azure automatically creates an identity for the service instance in the Azure Active Directory tenant used by your Azure subscription.  Under the covers, Azure provisions the credentials for the identity onto the service instance.  Your code can then make a local request to get access tokens for services that support Azure AD authentication.  Azure takes care of rolling the credentials used by the service instance.  If the service instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
 
-## Topic 2
+Here's an example of how Managed Service Identity works with Azure Virtual Machines.
 
-You should also know ...
+![Virtual Machine MSI example](./media/msi-vm-example.png)
 
-## Related content
+1. Azure Resource Manager (ARM) receives a message to enable MSI on a VM.
+2. ARM creates a Service Principal in Azure Active Directory to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
+3. ARM configures the Service Principal details in the MSI VM Extension of the VM.  This includes the client ID and certificate used by the extension to get access tokens from Azure AD.
+4. Your code running on the VM requests a token from a local endpoint that is hosted by the MSI VM extension:  http://localhost:50342/oauth2/token.  The resource parameter specifies the service to which the token will be sent, for example "resource=https://management.azure.com/" if your code wants to authenticate to Azure Resource Manager.
+5. The MSI VM Extension uses its configured client ID and certificate to request an access token from Azure AD.  Azure AD returns a JSON Web Token (JWT) access token.
+6. Your code sends the access token on a call to a service that supports Azure AD authentication.
+
+Each Azure service that supports Managed Service Identity will have its own method for your code to obtain an acces token.
+
+## Which Azure services support Managed Service Identity?
+
+Azure services that support Managed Service Identity can use MSI to authenticate to services that support Azure AD authentication.  We are in the process of integrating MSI and Azure AD authentication across Azure.  Check back often for updates.
+
+### Azure Services that Support Managed Service Identity
+
+The following Azure services support Managed Service Identity.
+
+| Service | Tutorial | Status | Date |
+| --- | --- | --- | --- |
+| Azure Virtual Machines | [Tutorial](ARM-tutorial.md) | Preview | Sept 2017 |
+
+### Azure Services that Support Azure AD Authentication
+
+The following services support Azure AD Authentication and have been tested with client services that use Managed Service Identity.
+
+| Service | Resource ID | Tutorial | Status | Date |
+| --- | --- | --- | --- | --- |
+| Azure Resource Manager | https://management.azure.com/ | [Tutorial](tutorial.md) | Generally Available | Sept 2017 |
+| Azure KeyVault | NEED VALUE | NEED VALUE | Generally Available | Sept 2017 |
+| Azure SQL | NEED VALUE | Coming soon | Generally Available | Sept 2017 |
+| Azure Data Lake | NEED VALUE | Coming soon | Generally Available | Sept 2017 |
+
+## How much does Managed Service Identity cost?
+
+Managed Service Identity comes with Azure Active Directory Free, which is the default for Azure subscriptions.  There is no additional cost for Managed Service Identity.
+
+## Support and feedback
+
+We would love to hear from you!
+
+* Ask how-to questions on Stack Overflow: ['azure-msi'](http://stackoverflow.com/questions/tagged/azure-msi)
+* Make feature requests or give feedback: [Azure AD feedback forum for developers](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
 
 ## Next steps
+Now that you understand the basics, try a Managed Service Identity tutorial.
 
-- [Configure MSI on an Azure Windows VM](active-directory-msi-qs-configure-portal-windows-vm.md)
-- After you have MSI configured on a VM, Assign its MSI access to Azure Resource Manager
-- Then Get a token using Managed Service Identity, and access an Azure resource
-
-Use the following comments section to provide feedback and help us refine and shape our content.
+* [Try Managed Service Identity with a Windows VM] (managed-service-identity-overview.md) - Get started by enabling MSI on a Windows VM and authenticating to the Azure Resource Manager API.
+* [Try Managed Service Identity with a Linux VM](managed-service-identity-overview.md) - Get started by enabling MSI on a Linux VM and authenticating to the Azure Resource Manager API.
 
 
 
