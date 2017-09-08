@@ -54,7 +54,7 @@ Some of the key attributes of HTTPS feature are:
 ## Step 2: Domain validation
 
 >[!IMPORTANT] 
->You must complete domain validation before HTTPS will be active on your custom domain. You have 6 business days to approve the domain. Requests with no approval will be canceled within 6 business days.  
+>You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests with no approval will be canceled within six business days.  
 
 After you enable HTTPS on your custom domain, our HTTPS certificate provider DigiCert validates ownership of your domain by contacting the registrant for your domain, based on WHOIS registrant information, via email (by default) or phone. DigiCert will also send the verification email to the following addresses. If WHOIS registrant information is private, make sure you can approve directly from one of these addresses:
 
@@ -78,11 +78,13 @@ After approval, DigiCert will add your custom domain name to the SAN certificate
 
 ## Step 3: Wait for the propagation, then start using your feature
 
-After the domain name is validated, it takes up to 6-8 hours for the custom domain HTTPS feature to be active. When the process is complete, the "custom HTTPS" status in the Azure portal is set to "Enabled". HTTPS with your custom domain is now ready for your use.
+After the domain name is validated, it takes up to 6-8 hours for the custom domain HTTPS feature to be active. When the process is complete, the "Custom HTTPS" status in the Azure portal is set to "Enabled" and the four operation steps in the Custom domain HTTPS blade are marked as complete. Your custom domain is now ready to use HTTPS.
+
+![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
 
 ## Validation results
 
-The following table shows the validation results that occur when you enable HTTPS. The operation progress is displayed as a series of four steps in the Custom domain HTTPS blade. The possible operation details are displayed in the Custom domains window. 
+The following table shows the validation results that occur when you enable HTTPS. The operation progress is displayed as a series of four steps in the Custom domain HTTPS blade. The operation details are displayed in the custom domains list under Details. Under Custom HTTPS, the status is displayed as "Enabling" until the operation is complete.
 
 | Operation progress| Possible operation details | 
 | --- | --- |
@@ -96,12 +98,13 @@ The following table shows the validation results that occur when you enable HTTP
 | | Deploying certificate to CDN POPs |
 | 4 Complete | Certificate successfully deployed |
 
-The following table shows the validation results that occur when you disable HTTPS.
+The following table shows the validation results that occur when you disable HTTPS. The operation progress is displayed as a series of three steps in the Custom domain HTTPS blade. The operation details are displayed in the custom domains list under Details. Under Custom HTTPS, the status is displayed as "Disabling" until the operation is complete.
 
-| Operation | Details | 
+| Operation progress | Operation details | 
 | --- | --- |
-| Delete certificate | Deleting certificate |
-| | Certificate deleted |
+| 1 Submitting request | Deleting certificate |
+| 2 Certificate deprovisioning | |
+| 3 Complete | Certificate deleted |
 
 ## Frequently asked questions
 
