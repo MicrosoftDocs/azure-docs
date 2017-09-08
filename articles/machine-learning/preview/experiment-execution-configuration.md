@@ -107,12 +107,13 @@ Azure ML Workbench creates a corresponding .runconfig file when you create a com
 
 Run configurations show up as part of experiment run experience in the Workbench application. 
 
->You can learn more about the run configuration file in the [Experiment Execution Configuration Reference](Experiment-Execution- Configuration-Reference.md) Section.
+>You can learn more about the run configuration file in the [Experiment Execution Configuration Reference](Experiment-Execution-Configuration-Reference.md) Section.
 
 ## Running a script locally on Azure ML Workbench-installed runtime
 Azure ML Workbench enables you to run your scripts directly against the Azure ML Workbench-installed Python 3.5.2 runtime. This default runtime is installed at Azure ML Workbench set-up time and includes Azure ML libraries and dependencies. Run results and artifacts for local executions are still saved in Run History Service in the cloud.
 
-Unlike Docker-based executions, this configuration is _not_ managed by Conda. You need to install and manage your dependencies using your preferred package manager.
+>[!NOTE]
+> Unlike Docker-based executions, this configuration is _not_ managed by Conda. You need to manually provision package dependencies for your local Azure ML Workbench Python environment.
 
 You can execute the following command to run your script locally on Workbench-installed Python environment. 
 
@@ -136,7 +137,7 @@ You can also run your projects on a Docker container on your local machine throu
 
 >Docker needs to be already running on the local machine.
 
-For running your Python or PySpark script on local Docker, you execute the following commands in CLI.
+For running your Python or PySpark script on local Docker, you can execute the following commands in CLI.
 
 ```
 $az ml experiment submit -c docker myscript.py
@@ -227,3 +228,6 @@ _Overview of HDInsight-based execution for a PySpark script_
 ## Running a script on GPU
 To run your scripts on GPU, you can follow the guidance in this article:["How to use GPU in Azure Machine Learning"](how-to-use-gpu.md)
 
+## Next steps
+* [Quick Start Tutorial](quick-start-iris.md)
+* [Model Management](model-management-overview.md)
