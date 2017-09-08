@@ -17,7 +17,7 @@ ms.date: 09/05/2017
 
 In order to use Azure Machine Learning preview features, you need to do two things:
 - Provision Azure resources.
-- Install the Azure ML Workbench desktop application, which also includes CLI (command-line interface) tools.
+- Install the Azure Machine Learning Workbench desktop application, which also includes CLI (command-line interface) tools.
 
 ## Prerequisites
 ### Mandatory Requirements:
@@ -84,13 +84,13 @@ C:\Users\<username>\AppData\Local\AmlWorkbench
 /Applications/AmlWorkbench.app
  ```
 
-Click on the **Launch Azure ML Workbench** button when installation finishes to launch Workbench. If you close the installer, you can find the shortcut on your desktop named **Azure Machine Learning Workbench**. Double-click and open it. 
+Click on the **Launch Azure Machine Learning Workbench** button when installation finishes to launch Workbench. If you close the installer, you can find the shortcut on your desktop named **Azure Machine Learning Workbench**. Double-click and open it. 
 
 Log in using the same account you used earlier to provision Azure resources. 
 
-When logging in succeeds, Workbench attempts to find your ML Experimentation accounts you created earlier from all the Azure subscriptions you have access to. If at least one is found, Azure ML Workbench will load it and list Workspaces and Projects under that account. And your installation process is complete. You can now move on to installing optional components.
+When logging in succeeds, Workbench attempts to find your ML Experimentation accounts you created earlier from all the Azure subscriptions you have access to. If at least one is found, Azure Machine Learning Workbench will load it and list Workspaces and Projects under that account. And your installation process is complete. You can now move on to installing optional components.
 
-### Provisioning Azure ML resources through CLI
+### Provisioning Azure Machine Learning resources through CLI
 If no ML Experimentation account is found after you log in, you are presented with the following screen. 
 
 You can go back to the Provisioning steps to create the Experimentation account. Or, you can launch a command-line window by clicking on that link, and provision the resources using CLI tools. Below are the instructions.
@@ -106,7 +106,7 @@ $ az login
 # list all your subscriptions
 $ az account list -o table
  
-# set the subscription you want to use for Azure ML as the current subscription.
+# set the subscription you want to use for Azure Machine Learning as the current subscription.
 $ az account set -s <subscription id>
 ```
 
@@ -196,6 +196,6 @@ Log out and log back in to your SSH session for the changes to take effect.
 >NOTE: Local web service deployment is not supported on Windows DSVM.
 
 ## Next Steps
-- Get a quick tour of Azure ML Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
+- Get a quick tour of Azure Machine Learning Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
 - Walk through an extensive tutorial [_Classifying Iris_](doc-template-tutorial.md).
-- Learn about Azure ML Workbench data preparation capabilities through the [_Wrangling Bike Share Dataset_](doc-template-tutorial.md) tutorial.
+- Learn about Azure Machine Learning Workbench data preparation capabilities through the [_Wrangling Bike Share Dataset_](doc-template-tutorial.md) tutorial.
