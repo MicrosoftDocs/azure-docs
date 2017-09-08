@@ -17,20 +17,20 @@ ms.date: 11/14/2016
 ms.author: ryansoc
 
 ---
-# Azure Government Security + Identity
+# Azure Government security and identity
 ## Key Vault
-For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
+For details about Key Vault and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
 
-### Data Considerations
+### Data considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
 
-| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| Regulated/controlled data that's permitted | Regulated/controlled data that's not permitted |
 | --- | --- |
-| All data encrypted with an Azure Key Vault key may contain Regulated/controlled data. |Azure Key Vault metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your Key Vault.  Do not enter Regulated/controlled data into the following fields: Resource group names, Key Vault names, Subscription name |
+| All data that's encrypted with Azure Key Vault key might contain regulated or controlled data. |Azure Key Vault metadata cannot contain export-controlled data. This metadata includes all configuration data that you entered while creating and maintaining  Key Vault.  Do not enter regulated or controlled data into the following fields: Resource group names, Key Vault names, Subscription names. |
 
-Key Vault is generally available in Azure Government. As in public, there is no extension, so Key Vault is available through PowerShell and CLI only.
+Key Vault is generally available in Azure Government. There is no extension, so Key Vault is available through PowerShell and CLI only.
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog. </a>
 
