@@ -34,7 +34,7 @@ This PowerShell script example configures SQL Database auditing and threat detec
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## Script explanation
@@ -47,7 +47,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a logical server that hosts a database or elastic pool. |
 | [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Creates a database in a logical server as a single or a pooled database. |
 | [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Creates a Storage account. |
-| [Set-AzureRmSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabaseauditingpolicy) | Sets the auditing policy for a database. |
+| [Set-AzureRmSqlDatabaseAuditing](/powershell/module/azurerm.sql/set-azurermsqldatabaseauditing) | Sets the auditing policy for a database. |
 | [Set-AzureRmSqlDatabaseThreatDetectionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasethreatdetectionpolicy) | Sets a threat detection policy on a database. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
