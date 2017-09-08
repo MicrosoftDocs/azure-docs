@@ -73,11 +73,11 @@ No, the Experimentation Service allows as many experiments as you need and charg
 The Experimentation service can execute your experiments on local machines (direct or Docker-based), Azure virtual machines, and HDInsight. The service also accesses an Azure Blob Storage account for storing execution outputs and can leverage a Visual Studio Team Service account for version-control and Git storage. Note that you will be billed independently for any consumed compute and storage resources, based upon their individual pricing.  
 
 
-## Model Management Service
+## Model Management
 
-**What is the Azure Machine Learning Model Management Service?**
+**What is Azure Machine Learning Model Management?**
 
-The Model Management Service is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. Git repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to Azure VMs, Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters.  
+Azure Machine Learning Model Management is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. Git repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to Azure VMs, Spark HDInsight or Kubernetes-orchestrated Azure Container Service clusters.  
 
 **What is a “model”?**
 
@@ -85,15 +85,15 @@ A model is the output of an experimentation run that has been promoted for model
 
 **What is a “managed model”?**
 
-A model is the output of a training process and is the application of a machine learning algorithm to training data. The Model Management service enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. "Managed" models have been registered with an Azure Machine Learning Model Management account. As an example, consider a scenario where you are trying to forecast sales. During the experimentation phase, you generate many models by using different data sets or algorithms. You have generated four models with varying accuracies but choose to register only the model with the highest accuracy. The model that is registered becomes your first managed model.
+A model is the output of a training process and is the application of a machine learning algorithm to training data. Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. "Managed" models have been registered with an Azure Machine Learning Model Management account. As an example, consider a scenario where you are trying to forecast sales. During the experimentation phase, you generate many models by using different data sets or algorithms. You have generated four models with varying accuracies but choose to register only the model with the highest accuracy. The model that is registered becomes your first managed model.
  
 **What is a deployment?**
 
-The Model Management service allows you to deploy models as packaged web service containers in Azure. These web services can be invoked using REST APIs. Each web service is counted as a single deployment, and the total number of active deployments are counted towards your plan. Using the sales forecasting example, when you deploy your best performing model, your plan is incremented by one deployment. If you then retrain and deploy another version, you have two deployments. If you determine that the newer model is better, and delete the original, your deployment count is decremented by one.  
+Model Management allows you to deploy models as packaged web service containers in Azure. These web services can be invoked using REST APIs. Each web service is counted as a single deployment, and the total number of active deployments are counted towards your plan. Using the sales forecasting example, when you deploy your best performing model, your plan is incremented by one deployment. If you then retrain and deploy another version, you have two deployments. If you determine that the newer model is better, and delete the original, your deployment count is decremented by one.  
 
 **What specific compute resources are available for my deployments?** 
 
-The Model Management Service can run your deployments as Docker containers registered to Azure Container Service, as Azure virtual machines, or on local machines. Additional deployment targets will be added shortly. Note that you will be billed independently for any consumed compute resources, based upon their individual pricing.     
+Model Management can run your deployments as Docker containers registered to Azure Container Service, as Azure virtual machines, or on local machines. Additional deployment targets will be added shortly. Note that you will be billed independently for any consumed compute resources, based upon their individual pricing.     
 
 **Can I use the Azure Machine Learning Model Management to deploy models built using tools other than the Experimentation Service?**
 
@@ -101,7 +101,7 @@ You get the best experience when you deploy models created using the Experimenta
 
 **Can I use my own Azure resources?**
 
-Yes, the Experimentation Service and Model Management Service work in conjunction with multiple Azure data stores, compute workloads, and other services. Refer to our technical documentation for further details on required Azure services.
+Yes, the Experimentation Service and Model Management work in conjunction with multiple Azure data stores, compute workloads, and other services. Refer to our technical documentation for further details on required Azure services.
 
 **Do you support both on premise and cloud deployment scenarios?**
 
@@ -114,7 +114,7 @@ You can use the returned path to deploy the image as a web service on any docker
 
 **Do you support retraining of deployed models?**
 
-Yes, you can deploy multiple versions of the same model. The Model Management Service will support  service updates for all updated models and images.
+Yes, you can deploy multiple versions of the same model. Model Management will support  service updates for all updated models and images.
 
 ## Workbench
 
@@ -184,7 +184,7 @@ For public preview, Workbench supports data ingestion from:
 
 For public preview, Workbench supports “Derive Column by Example”, “Split Column by Example”, “Text Clustering”, “Handle Missing Values” and many others.  Workbench also supports data type conversion, data aggregation (COUNT, MEAN, VARIANCE, etc.), and complex data joins. For a full list of supported capabilities, visit our product documentation. 
 
-**Are there any data size limits enforced by AML Workbench, Experimentation, or Model Management Services?**
+**Are there any data size limits enforced by AML Workbench, Experimentation, or Model Management?**
 
 A: No, the new services do not impose any data limitations. However, there are limitations introduced by the environment in which you are performing your data preparation, model training, experimentation, or deployment. For example, if you are targeting a local environment for training, you are limited by the available space in your hard drive. Alternatively, if you are targeting HDInsight, you are limited by any associated size or compute restraints. 
 
@@ -202,7 +202,7 @@ The Microsoft Cognitive Toolkit is available under an open-source license and is
 
 **Are you charging for Azure Machine Learning during preview?**	
 
-A: Workbench is available free of charge to Azure subscribers. The Experimentation and Model Management Services offer usage free tiers, although discounted charges will apply beyond these limits. For more information, visit our pricing page.
+A: Workbench is available free of charge to Azure subscribers. The Experimentation Service and Model Management offer free tiers, although discounted charges will apply beyond these limits. For more information, visit our pricing page.
 
 **Will I be charged based on how many experiments I run?**
 
