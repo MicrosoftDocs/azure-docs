@@ -19,7 +19,7 @@ ms.author: jingwang
 robots: noindex
 ---
 # Move data From Amazon Redshift using Azure Data Factory
-> [!div class="op_single_selector" title1="Select version"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](data-factory-amazon-redshift-connector.md)
 > * [Version 2 - Preview](../connector-amazon-redshift.md)
 
