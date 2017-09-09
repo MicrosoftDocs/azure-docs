@@ -3,9 +3,9 @@ title: Transform data using U-SQL script - Azure | Microsoft Docs
 description: Learn how to process or transform data by running U-SQL scripts on Azure Data Lake Analytics compute service.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: shengcmsft
 manager: jhubbard
-editor: 
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: spelluru
+ms.author: shengc
 
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 

@@ -3,7 +3,7 @@ title: Transform data using Stored Procedure Activity in Azure Data Factory | Mi
 description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shengcmsft
 manager: jhubbard
 editor: spelluru
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: shlo
+ms.author: shengc
 
 ---
 

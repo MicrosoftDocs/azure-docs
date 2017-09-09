@@ -19,4 +19,4 @@ ms.author: shlo
 ---
 # Introduction to Azure Data Factory 
 > [!NOTE]
-> Currently, the version 2 of Data Factory is in public preview. The version 1 is generally available (GA). If you are using version 1 of the Data Factory service, see [Data Factory version 1 - Overview](v1/data-factory-introduction.md). 
+> This article applies to version 2 of Data Factory. Currently, the version 2 of Data Factory is in preview. The version 1 is generally available (GA). If you are using version 1 of the Data Factory service, see [Data Factory version 1 - Overview](v1/data-factory-introduction.md). 
