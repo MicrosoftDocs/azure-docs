@@ -93,9 +93,9 @@ Now we enable data collection in `iris_score.py` file. Data collection allows yo
     
     `global inputs_dc, prediction_dc`      
 
-    `inputs_dc = ModelDataCollector(model,identifier="inputs")`
+    `inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")`
 
-    `prediction_dc = ModelDataCollector(model, identifier="prediction")`
+    `prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
     
 * Add the following lines of code to the run(input_df) function,
     
