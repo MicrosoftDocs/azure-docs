@@ -14,12 +14,12 @@ ms.date: 09/06/2017
 ---
 
 # Classifying Iris Part 3: Deploy Model
-In this tutorial, we show you the basics of Azure ML preview features by creating a data preparation package, building a model and operationalizing it as a real-time web service. To make things simple, we use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set). The instructions and screenshots are created for Windows, but they are similar, if not identical, for macOS.
+In this tutorial, we demonstrate the basics of Azure ML preview features by creating a data preparation package, building a model and operationalizing it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to make things simple. These instructions and screenshots are for Windows, but the macOS experience is similar, if not identical.
 
-This is part 3 of a 3-part tutorial, covering model deployment.
+This is part 3 of a 3 part tutorial, covering model deployment.
 
 ## Step 1. Obtain the Pickled Model
-In the `iris_sklearn.py` script, we serialize the logistic regression model using the popular object serialization package -- pickle, into a file named `model.pkl` on disk. Here is the code snippet.
+In the `iris_sklearn.py` script, we serialize the logistic regression model using the popular object serialization package -- pickle, into a file named `model.pkl` on disk. Here is the code snippet:
 
 ```python
 print("Export the model to model.pkl")
@@ -28,42 +28,39 @@ pickle.dump(clf1, f)
 f.close()
 ```
 
-When you executed the `iris_sklearn.py` script, the model was written to the `outputs` folder with the name `model.pkl`. This folder lives in the execution environment you choose to run the script, not your local project folder. You can find it in the run history detail page and download this binary file by clicking on the download button next to the file name. Read more about the `outputs` folder in the [Persisting Changes](PersistingChanges.md) article.
+When you executed the `iris_sklearn.py` script, the model was written to the `outputs` folder with the name `model.pkl`. This folder lives in the execution environment you choose to run the script, and not in your local project folder. You can find it in the run history detail page. There you can retrieve the binary file by clicking on the download button next to the file name. Read more about the `outputs` folder in the [Persisting Changes](PersistingChanges.md) article.
 
 ![Download Pickle](media/tutorial-classifying-iris/download_model.png)
 
-Now, download the model file `model.pkl` and save it to the root of your  project folder. You need it in the later steps.
+Download the model file `model.pkl` and save it to the root of your project folder. It is needed in upcoming steps.
 
 ## Step 2. Prepare for Operationalization Locally
-Local mode deployments run in Docker containers on your local computer, whether that is your desktop or a Linux VM running on Azure. You can use local mode for development and testing. The Docker engine must be running locally to complete the operationalization steps as shown in the following steps. You can use -h flag at the end of the commands for command help.
+_Local mode_ deployments run in Docker containers on your local computer, whether that is your desktop or a Linux VM running on Azure. You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the operationalization steps as shown in the  steps. You can use `-h` flag at the end of the commands for command help.
 
-- Create the environment (you need to do this once per environment, for example,  dev or prod) in local mode (you can use -c switch in the command to set up environment in cluster mode)  
-    ```
-    az ml env setup -n <yourclustername> --location <e.g. eastus2>
+- Create the environment (you need to do this once per environment, for example,  dev or prod) in _local mode_ (you can use -c switch in the command to set up environment in _cluster mode_):  
+    ```batch
+    C:\Temp\myIris> az ml env setup -n <yourclustername> --location <e.g. eastus2>
     ```
     
     Follow the on-screen instructions to provision a storage account for storing Docker images, an ACR (Azure Container Registry) for listing Docker images, an AppInsight account for gathering telemetry, and an ACS cluster.
     
 
 - Create a Model Management account (one time setup)  
-    ```
-    az ml account modelmanagement create --location <e.g. eastus2> -n <your-new-acctname> -g <yourresourcegroupname> --sku-name S1
+    ```batch
+    C:\Temp\myIris> az ml account modelmanagement create --location <e.g. eastus2> -n <your-new-acctname> -g <yourresourcegroupname> --sku-name S1
     ```
     
 - Set the Model Management account  
-    ```
-    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
+    ```batch
+    C:\Temp\myIris> az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
     ```
     
 - Set the environment
 After the setup is complete, set the environment variables required for operationalization using the following command. The cluster name is the name used in step 1 above. The resource group name was the output of the same process and would be in the command window when the setup process is completed.
-    ```
-    az ml env set -n <yourclustername> -g <yourresourcegroupname>
+    ```batch
+    C:\Temp\myIris> az ml env set -n <yourclustername> -g <yourresourcegroupname>
     ```
     
-
-
-
     To verify that you have properly configured your operationalization environment for local web service deployment, enter the following command:
     
     ```batch
@@ -75,7 +72,7 @@ To deploy the web service, along with the model you also need a scoring script a
 
 We already downloaded the model.pkl file in Step 1. In order to get the schema file, follow the steps below:
 
-* Choose `iris_score.py`, pick the `local` environment in the **Run Control** dropdown, and then click _Run_ button. This creates the `service_schema.json` in the `outputs` folder.
+* Choose `iris_score.py`, pick the `local` environment in the **Run Control** dropdown, and then click **Run** button. This creates the `service_schema.json` in the `outputs` folder.
 
 * Go to the run history of the `iris_score.py` file, and download the `service_schema.json` file to the project root folder. 
 
@@ -87,26 +84,27 @@ Now we enable data collection in `iris_score.py` file. Data collection allows yo
 
 * Open `iris_score.py` and add the following code at the top of the file
    
-    `from azureml.datacollector import ModelDataCollector` 
+    ```python
+    from azureml.datacollector import ModelDataCollector
+    ```
 
-* Add the following lines of code to the Init() function,
+* Add the following lines of code to the `init()` function,
     
-    `global inputs_dc, prediction_dc`      
+    ```python
+    global inputs_dc, prediction_dc
+    inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
+    prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
+    ```
 
-    `inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")`
-
-    `prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
+* Add the following lines of code to the `run(input_df)` function,
     
-* Add the following lines of code to the run(input_df) function,
-    
-    `global clf2, inputs_dc, prediction_dc`
+    ```python
+    global clf2, inputs_dc, prediction_dc
+    inputs_dc.collect(input_df)
+    prediction_dc.collect(pred)
+    ```
 
-    `inputs_dc.collect(input_df)`
-
-	`prediction_dc.collect(pred)`
-
-    Make sure that variables `input_df` and `pred` are populated before you call collect() function on them.
-
+    Make sure that variables `input_df` and `pred` are populated before you call `collect()` function on them.
 
 Now you are ready to create the real-time web service.
 
@@ -117,14 +115,14 @@ Use `az ml service create realtime` command as shown below to create a realtime 
 ```batch
 c:\temp\myIris> az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
 ```
-To quickly explain the switches of the `az ml service create realtime` command:
+The following are switches for the `az ml service create realtime` command:
 * -n: app name, must be lower case.
 * -f: scoring script file name
 * --model-file: model file, in this case it is the pickled model.pkl file
 * -r: type of model, in this case it is a python model
 * --collect-model-data true: enables data collection
 
->Important: The service name (it is also the new Docker image name) must be all lower-case, otherwise you see an error.
+>Important: The service name (which is also the new Docker image name) must be all lower-case, otherwise you get an error.
 
 When you run the command, the model and the scoring file are uploaded into an Azure service that we manage. As part of deployment process, the operationalization component uses the pickled model `model.pkl` and the scoring script `iris_score.py` to build a Docker image named `<ACR_name>.azureacr.io/irisapp`. It then registers the image with your Azure Container Registry (ACR) service, pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container will instead be deployed into the Kubernetes cluster.)
 
@@ -157,26 +155,30 @@ To view the collected data in blob storage:
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 2. Click **More Services**.
-3. In the search box, type *Storage accounts* and press **Enter**
-4. From the **Storage accounts** search blade, select the Storage account resource. In order to determine your storage account follow the steps below,
+3. In the search box, type `Storage accounts` and press **Enter**
+4. From the **Storage accounts** search blade, select the **Storage account** resource. In order to determine your storage account follow the steps below,
 
-    a. Go to Azure ML Workbench, select the Project you're working, and open CLI from File menu
+    a. Go to Azure ML Workbench, select the project you're working on, and open command line prompt from **File** menu
     
-    b. Type `az ml env show -v` and check the *storage_account* value. This is your storage account
+    b. Type `az ml env show -v` and check the *storage_account* value. This is the name of your storage account
 
-5. Click on **Containers** in the resource blade menu, then the container called **modeldata**. You will need to wait 10 minutes after the first web service request in order to see data start propagating to the storage account. Data flows into blobs with the following container path:
+5. Click on **Containers** in the resource blade menu, then the container called **modeldata**. You may need to wait up to 10 minutes after the first web service request in order to see data start propagating to the storage account. Data flows into blobs with the following container path:
 
-    /modeldata/*subscription_id*/*resource_group_name*/*model_management_account_name*/*webservice_name*/*model_id*-*model_name*-*model_version*/*identifier*/*year*/*month*/*day*/data.csv 
+    `/modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv`
 
 Data can be consumed from Azure blobs in a variety of ways using both Microsoft software and open source tools. Here are some examples:
  - Excel - open the daily csv files as a spreadsheet
  - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/) - create charts with data pulled from csv data in blobs
  - [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview) - create a dataframe with a large portion of csv data
+```python
+var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
 ```
-var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@*storageaccount*.blob.core.windows.net/*subscription_id*/*resource_group_name*/*model_management_account_name*/*webservice_name*/*model_id*-*model_name*-*model_version*/default/2017/*/*/*")
-```
- - [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started) - load csv data into a hive table and perform SQL queries directly against blobs
+ - [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started) - load csv data into a hive table and perform SQL queries directly against blob
 
 ## Congratulations!
 Great job! You have successfully run a training script in various compute environments, created a model, serialized the model, and operationalized the model through a Docker-based web service. 
 
+## Next Steps
+- [Part 1: Project setup and data preparation](tutorial-classifying-iris-part-1.md)
+- [Part 2: Model building](tutorial-classifying-iris-part-2.md)
+- Part 3: Model deployment
