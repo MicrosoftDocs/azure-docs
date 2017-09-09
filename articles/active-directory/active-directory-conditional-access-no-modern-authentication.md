@@ -1,6 +1,6 @@
 ---
-title: Set up Office 365 SharePoint Online and Office 365 Exchange Online for Azure Active Directory conditional access | Microsoft Docs
-description: Learn how to set up Office 365 SharePoint Online and Office 365 Exchange Online for Azure Active Directory conditional access.
+title: Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access | Microsoft Docs
+description: Learn how to set up SharePoint Online and Exchange Online for Azure Active Directory conditional access.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -19,7 +19,7 @@ ms.reviewer: calebb
 
 ---
 
-# Set up Office 365 SharePoint Online and Office 365 Exchange Online for Azure Active Directory conditional access 
+# Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access 
 
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how users access your cloud apps. If you want to use conditional access to control access to SharePoint and Exchange online, you need to:
 
@@ -81,9 +81,6 @@ To effectively protect access to Exchange Online from Exchange ActiveSync, you c
         @RuleName = "Block Exchange ActiveSync"
         c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
         => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "false");
-
-
-
 
 
 
