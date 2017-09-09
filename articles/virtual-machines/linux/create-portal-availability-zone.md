@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Create a Linux virtual machine in an availability zone with the Azure portal
 
-Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This article steps through creating a virtual machine in an availablity zone (preview). You learn how to:
+Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This article steps through creating a virtual machine in an availability zone (preview). You learn how to:
 
 > [!div class="checklist"]
 > * Create a VM in an availability zone

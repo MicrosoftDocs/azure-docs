@@ -48,7 +48,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 Create a virtual machine with the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
-When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. The VM is created in availablity zone *1*. By default, the VM is created in the *Standard_DS1_v2* size. This size is supported in the availability zones preview.
+When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. The VM is created in availability zone *1*. By default, the VM is created in the *Standard_DS1_v2* size. This size is supported in the availability zones preview.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
@@ -74,7 +74,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 
 When the VM is deployed in an availability zone, the IP address and managed disk resources are deployed in the same availability zone. The following examples get information about these resources.
 
-First use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to return the the name of public IP address resource in *myVM*. In this example, the name is stored in a variable so that it can be used in a later step
+First use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to return the the name of public IP address resource in *myVM*. In this example, the name is stored in a variable that is used in a later step
 
 ```azurecli-interactive
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
@@ -121,7 +121,7 @@ The output shows that the IP address is in the same availability zone as the VM:
 }
 ```
 
-Similarly, verify that the VM's managed disk is in the availability zone. Use the [az vm show](/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step. 
+Similarly, verify that the VM's managed disk is in the availability zone. Use the [az vm show](/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable that is used in a later step. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
