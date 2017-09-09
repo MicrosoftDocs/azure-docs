@@ -62,29 +62,27 @@ To enable HTTPS, follow these steps:
 
 After you enable HTTPS on your custom domain, our HTTPS certificate provider DigiCert validates ownership of your domain by contacting the registrant for your domain, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. In addition, DigiCert will also send the verification email to the following addresses. If the WHOIS registrant information is private, make sure you can approve directly from one of these addresses:
 
-````
-admin@<your-domain-name.com>
-administrator@<your-domain-name.com>  
-webmaster@<your-domain-name.com>  
-hostmaster@<your-domain-name.com>  
-postmaster@<your-domain-name.com>
-````
+admin@&lt;your-domain-name.com&gt;  
+administrator@&lt;your-domain-name.com&gt;  
+webmaster@&lt;your-domain-name.com&gt;  
+hostmaster@&lt;your-domain-name.com&gt;  
+postmaster@&lt;your-domain-name.com&gt;  
 
 You should recieve an email shortly, similar to the following example, asking you to approve the request. If you are using a spam filter, add admin@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
     
 ![Custom HTTPS dialog](./media/cdn-custom-ssl/domain-validation-email.png)
 
-When you click on the approval link, you will directed to the following online approval form. 
+When you click on the approval link, you will be directed to the following online approval form. 
 	
 ![Custom HTTPS dialog](./media/cdn-custom-ssl/domain-validation-form.png)
 
-Follow the instructions on the form. you have two verification options:
+Follow the instructions on the form; you have two verification options:
 
 1. You can approve all future orders placed through the same account for the same root domain; for example, contoso.com. This is the recommended approach if you are planning to add additional custom domains in the future for the same root domain.
 
 2. You can approve just the specific host name used in this request. Additional approval will be required for subsequent requests.
 
-After approval, DigiCert will add your custom domain name to the Subject Alternative Names (SAN) certificate. The certificate will be valid for one year and will be auto-renewed before it's expired.
+After approval, DigiCert will add your custom domain name to the Subject Alternative Names (SAN) certificate. The certificate is valid for one year and will be auto-renewed before it's expired.
 
 ### Step 3: Wait for the propagation, then start using your feature
 
@@ -135,7 +133,6 @@ After the domain name is validated, it can take up to 6-8 hours for the custom d
 ### Operation progress
 
 The following table shows the operation progress that occurs when you disable HTTPS. After you enable HTTPS, three operation steps appear in the Custom domain HTTPS blade. Under each step, progress is indicated by a sequence of messages. After a step successfully completes, a green check mark appears next to it. 
-Under Custom HTTPS, the status is displayed as "Disabling" until the operation is complete.
 
 | Operation progress | Operation details | 
 | --- | --- |
