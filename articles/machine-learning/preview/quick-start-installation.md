@@ -26,19 +26,19 @@ In order to use Azure Machine Learning preview features, you need to do two thin
     * Windows 10
     * Windows server 2016
     * macOS Sierra (or newer)
-* Local web service deployment requires Docker on the local machine.
-* To set up a Model Management environment on a cluster, you must be an owner on the subscription.
+* Docker must be installed on local machine for local web service deployment.
+* Owner access to an Azure subscription is required to deploy web service to a cluster.
 
->Note model management CLI tools are also supported on Linux.
+>Note Model Management CLIs are also supported on Linux.
 
-### Optional Requirements:
+### Optional Requirements
 * Local Docker engine for running dev/test scenarios locally.
 * Access to an Ubutu Linux VM for scale-up computation.
 * Access to HDInsight for Spark cluster for scale-out computation.
 * Access to an Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
 
 ### Special Note for macOS Users
-Ensure that you run this [shell script](scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries, and configure links before proceeding with the installation.
+Run this [shell script](scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries. And configure links before proceeding with the installation.
 
 If you are using Python greater than 3.5, you need to execute this command to enable installing the right certificates.
 ```bash
@@ -93,6 +93,10 @@ When login has succeeded, Workbench will attempt to find the ML Experimentation 
 ### Provisioning Azure ML resources through CLI
 If no ML Experimentation account is found after you log in, you are presented with the following screen. 
 
+<!--
+>NOTE: a CLI screen should go in here.
+-->
+
 You can go back to the Provisioning steps to create the Experimentation account. Or, you can launch a command-line window by clicking on that link, and provision the resources using CLI tools. Below are the instructions.
 
 First, let's prepare the environment.
@@ -115,10 +119,10 @@ From here, you have two options, you can create a new Azure resource group, or u
 ```bash
 # Create a new Azure resource group
 # Note the currently supported Azure regions are: eastus2, and westcentralus
-$ az group create -n <Azure resource group name> mygroup -location <Azure region location>
+$ az group create -n <Azure resource group name> -location <Azure region location, for example eastus2>
 
 # Create a new Experimentation account
-$ az ml account experimentation create -n <experimentation acct name, 3-24 characters. numbers and lower-case only> -g <resource group>
+$ az ml account experimentation create -n <account name. 3-24 chars, numbers, and lower-case letters only> -g <resource group>
 ```
 >Note the new Azure Storage Account auto-created will all carry the same name as the Experimentation account name.
 
@@ -130,7 +134,7 @@ It is a good idea to also create a new Workspace where your Projects can live. Y
 
 ```bash
 # Create a new workspace
-$ az ml workspace create -n <workspace name> -g <resource group> -a <Experimentation account name>
+$ az ml workspace create -n <worksapce name> -g <resource group> -a <account name>
 ```
 
 Let's also create resources needed for deploying and managing your models. 
@@ -138,18 +142,18 @@ Let's also create resources needed for deploying and managing your models.
 
 ```bash
 # Create a new Model Management Account
-$ az ml account modelmanagement create -l <Azure Region location, e.g. eastus2> -n <your environment name> -g <resource gourp> --sku-instances <number of plans, default is 1> --sku-name <pricing plan for example: S1>
+$ az ml account modelmanagement create -l <Azure region, e.g.,  eastus2> -n <environment name> -g <resrouce group> --sku-instances <number of pricing plan instances, e.g., 1> --sku-name <pricing plan, e.g.,  S1>
 
 # Create a new Model Management environment for local web service deployment
-$ az ml env setup -l <Azure region location, e.g. eastus2> -n <environment name>
+$ az ml env setup -l <Azure region location e.g. eastus2> -n <environment name>
 
 # Set the environment to be used
-$ az ml env set -n <environment name> -g <resource group>
+$ az ml env set -n <environment name> -g <resrouce group created at setup>
 ```
->Note: To deploy your web service to a cluster, use the -c option of the env setup when setting up your environment.
+>Note: To deploy your web service to a cluster, use the -c flag when setting up the environment.
 
 ### Check Your Build number
-You can find out the build number of the installed app by clicking on the Help menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
+You can find out the build number of the installed app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
 
 ![check version number](media/quick-start-installation/version.png)
 
@@ -177,23 +181,25 @@ Docker is needed if you want to execute scripts in a local Docker container, or 
 - Only Windows 10 is supported for running Docker for Windows.
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and have it up and running.
 - Make sure your Docker engine is running in [Linux Container mode](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
-- Optionally, for better execution performance, share C drive (or whichever drive the system %temp% folder is) in the Docker for Windows configuration.
+- Optionally, for better execution performance, share C drive (or whichever drive the system _%temp%_ folder is) in the Docker for Windows configuration.
  
 ![Share C drive](media/quick-start-installation/share_c.png)
 
 >Note on Windows, Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
 
-#### Installing, or updating, the Model Management CLIs on Linux
-Run the following command from the command line, and follow the prompts:
+#### Installing or updating Model Mangement CLI on Linux
+Model Management CLIs are pre-installed on Azure Data Science Virtual Matchines (DSVM). 
+
+To install, or update the CLIs, run the following command from the command line, and follow the prompts:
 
 ```bash
-wget -q https://raw.githubusercontent.com/Azure/Machine-Learning-Operationalization/master/scripts/amlupdate.sh -O - | sudo bash -
-sudo /opt/microsoft/azureml/initial_setup.sh
+$ wget -q https://raw.githubusercontent.com/Azure/Machine-Learning-Operationalization/master/scripts/amlupdate.sh -O - | sudo bash -
+$ sudo /opt/microsoft/azureml/initial_setup.sh
 ```
 
->Note: Log out and log back in to your SSH session for the changes to take effect.
+Log out and log back in to your SSH session for the changes to take effect.
 
->Note: You can use the previous commands to update an earlier version of the CLIs on the DSVM.
+>NOTE: Local web service deployment is not supported on Windows DSVM.
 
 ## Next Steps
 - Get a quick tour of Azure ML Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).

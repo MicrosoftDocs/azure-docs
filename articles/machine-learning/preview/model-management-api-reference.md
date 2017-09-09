@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 08/28/2017
 ---
-# Hosting Account API reference
+# Azure Machine Learning model management account API reference
 
 For environment set up information, see [Hosting Account getting started]().
 
-The Hosting Account API implements the following operations:
+The Azure Machine Learning model management API implements the following operations:
 
 - Create or Update Model Management Account
 - Patch Model Management Account
@@ -24,7 +24,7 @@ The Hosting Account API implements the following operations:
 - Delete Model Management Account
 - Get Available Operations
 
-## Create or Update Hosting Account
+## Create or Update Azure Machine Learning model management account
 
 Creates or updates a Hosting Account.
 
@@ -158,9 +158,9 @@ If the hosting account does not exist in current location, it is created. If the
 | modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
 
 #-------------------------------------------------
-## Patch Hosting Account
+## Patch model management account
 
-Updates the specified Hosting Account.
+Updates the specified Azure Machine Learning model management account.
 
 If a field in the request is set in the Hosting Account, the value is updated. If a field is only in the request, it is added to the existing Hosting Account.
 
@@ -274,7 +274,7 @@ All fields in the request are optional, but at least one field must be included 
 
 
 #-------------------------------------------------
-## Get Hosting Account
+## Get model management account
 
 Gets information for the specified Hosting Account.
 
@@ -432,7 +432,7 @@ Empty.
 | nextLink | A continuation link (absolute URI) to the next page of results in the list. |
 
 #-------------------------------------------------
-## Delete Hosting Account
+## Delete model management account
 
 Deletes the specified hosting account. Models, packages, and deployments are not deleted.
 
