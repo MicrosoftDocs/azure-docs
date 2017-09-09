@@ -10465,11 +10465,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/event-grid/resize-images-on-storage-blob-upload-event.md",
-            "redirect_url": "/azure/storage/blobs/storage-blob-event-quickstart",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
             "redirect_document_id": false
