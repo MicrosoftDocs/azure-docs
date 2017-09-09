@@ -2,7 +2,7 @@
 title: Azure Monitor metrics - supported metrics per resource type  | Microsoft Docs
 description: List of metrics available for each resource type with Azure Monitor.
 author: anirudhcavale
-manager: orenr
+manager: ashwink
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 9/6/2017
 ms.author: ancav
 
 ---
@@ -291,18 +291,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |percentProcessorTime9|CPU (Shard 9)|Percent|Maximum||
 
 ## Microsoft.ClassicCompute/virtualMachines
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|Percentage CPU|Percentage CPU|Percent|Average|The percentage of allocated compute units that are currently in use by the Virtual Machine(s).|
-|Network In|Network In|Bytes|Total|The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic).|
-|Network Out|Network Out|Bytes|Total|The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic).|
-|Disk Read Bytes/Sec|Disk Read|BytesPerSecond|Average|Average bytes read from disk during monitoring period.|
-|Disk Write Bytes/Sec|Disk Write|BytesPerSecond|Average|Average bytes written to disk during monitoring period.|
-|Disk Read Operations/Sec|Disk Read Operations/Sec|CountPerSecond|Average|Disk Read IOPS.|
-|Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS.|
-
-## Microsoft.ClassicCompute/domainNames/slots/roles
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
