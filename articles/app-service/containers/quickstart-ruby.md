@@ -90,7 +90,7 @@ A resource group is required to contain the assets needed for your web app. To c
 az group create --location westeurop --name myResourceGroup
 ```
 
-Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command to create an app service plan for your web app.
+Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) command to create an app service plan for your web app.
 
 ```azurecli-interactive
   az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
@@ -140,7 +140,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#restart) command, as shown here:
+Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) command, as shown here:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
