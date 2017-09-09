@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 09/10/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -56,22 +56,16 @@ The combination of a condition statement with your controls represents a conditi
 
 In a conditional access policy, controls define what it is that should happen when a condition statement has been satisfied.  
 With controls, you can either block access or allow access with additional requirements.
-When you configure a policy that allows access, you need to select at least one requirement.   
+When you configure a policy that allows access, you need to select at least one requirement.  
 
-### Grant controls
+There are two types of controls: 
+
+- **Grant controls** - Grant controls govern whether or not a user can complete authentication and reach the resource that they’re attempting to sign-in to. If you have multiple controls selected, you can configure whether all of them are required when your policy is processed.
 The current implementation of Azure Active Directory enables you to configure the following grant control requirements:
 
-![Control](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
 
-- **Multi-factor Authentication** - You can require strong authentication through multi-factor authentication. As provider, you can use Azure Multi-Factor or an on-premises multi-factor authentication provider, combined with Active Directory Federation Services (AD FS). Using multi-factor authentication helps protect resources from being accessed by an unauthorized user who might have gained access to the credentials of a valid user.
 
-- **Compliant device** - You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from trusted devices. Requiring a compliant device is one option you have to define what a trusted device is. For more details, see [configure Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
-
-- **Domain joined device** – Requiring a domain-joined device is another option you have to configure a device-based conditional access policies. This requirement refers to to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more details, see [configure Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
-
-If you have multiple controls selected, you can also configure whether all of them are required when your policy is processed.
-
-![Control](./media/active-directory-conditional-access-azure-portal/06.png)
 
 ### Session controls
 Session controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
