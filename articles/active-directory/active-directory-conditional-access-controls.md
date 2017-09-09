@@ -45,7 +45,10 @@ This topic explains the various controls that are available in Azure AD conditio
 
 ## Grant controls
 
-With grant controls, you can either block access altogether or allow access with additional requirements by selecting the desired controls. Those additional requirements are combined by either requiring all selected controls to be fulfilled (*AND*) or requiring one selected control to be fulfilled (*OR*).
+With grant controls, you can either block access altogether or allow access with additional requirements by selecting the desired controls. For multiple controls, you can require:
+
+- All selected controls to be fulfilled (*AND*) 
+- One selected control to be fulfilled (*OR*)
 
 ![Control](./media/active-directory-conditional-access-controls/51.png)
 
@@ -65,11 +68,11 @@ Using multi-factor authentication helps protect resources from being accessed by
 
 ### Compliant device
 
-You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from trusted devices. Requiring a compliant device is one option you have to define what a trusted device is. For more details, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
+You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from trusted devices. Requiring a compliant device is one option you have to define what a trusted device is. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
 ### Domain joined device
 
-Requiring a domain-joined device is another option you have to configure a device-based conditional access policies. This requirement refers to to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more details, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
+Requiring a domain-joined device is another option you have to configure a device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
 
 
