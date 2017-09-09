@@ -28,15 +28,13 @@ As part of the Microsoft Azure portfolio, our new services require an Azure subs
 
 **In which regions are the new services be available?**
 
-For Public Preview, our new services are available in the United States, Canada, and Australia. Supported Azure regions are: 
-- US East 2
-- West Central
-- Australia
+Look for supported Azure regions for experimentation and model management service under Azure Machine Learning on the [Azure Products by region](https://azure.microsoft.com/en-us/regions/services/) page
+
 More regions and markets will be added as we develop the product.  
 
 **What other Azure services are required?**
 
-Azure Machine Learning has been designed with Git integration to support versioning, collaboration, and reproducibility. Git integration is enabled via Visual Studio Team Services and a VSTS account is required. Additional services include Azure Blob Storage, Azure Container Registry, and Azure Container Service.
+To fully experience all capabilities of Azure Machine Learning, Azure Machine Learnign will use Visual Studio VSTS account, Azure Blob Storage, Azure Container Registry, Data Science VM or HDInsight compute, and Azure Container Service.
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning Services in SQL Server 2017?**	
 
@@ -109,8 +107,7 @@ Yes. We support local and on-premise deployment scenarios via Docker containers.
 
 **Can I run a Docker image that was created using the Azure Machine Learning CLI on another host?**
 
-When you use the CLI to create a web service, it creates a docker image containing the web service and the dependent libraries. The CLI then returns the path to the Docker image file.
-You can use the returned path to deploy the image as a web service on any docker host.
+Yes. You can use the image as a web service on any docker host as long as host has sufficient compute resources for hosting the docker image.
 
 **Do you support retraining of deployed models?**
 
@@ -154,7 +151,7 @@ Yes! You can run Jupyter notebooks in Workbench, with Workbench as the client ho
 
 A: The current version of Jupyter included with Workbench launches a Python 3 kernel, and an additional kernel for each "runconfig" file in your aml_config folder. Supported configurations include:
 - Local Python
-- Python in local Docker
+- Python in local or remote Docker
 
 ## Data Formats and Capabilities
 
@@ -184,13 +181,13 @@ For public preview, Workbench supports data ingestion from:
 
 For public preview, Workbench supports “Derive Column by Example”, “Split Column by Example”, “Text Clustering”, “Handle Missing Values” and many others.  Workbench also supports data type conversion, data aggregation (COUNT, MEAN, VARIANCE, etc.), and complex data joins. For a full list of supported capabilities, visit our product documentation. 
 
-**Are there any data size limits enforced by AML Workbench, Experimentation, or Model Management?**
+**Are there any data size limits enforced by Azure Machine Learning Workbench, Experimentation, or Model Management?**
 
 A: No, the new services do not impose any data limitations. However, there are limitations introduced by the environment in which you are performing your data preparation, model training, experimentation, or deployment. For example, if you are targeting a local environment for training, you are limited by the available space in your hard drive. Alternatively, if you are targeting HDInsight, you are limited by any associated size or compute restraints. 
 
 ## Algorithms and Libraries
 
-**What algorithms are supported in AML Workbench?**
+**What algorithms are supported in Azure Machine Learning Workbench?**
 
 Our preview products and services include the best of the open source community. We support a wide range of algorithms and libraries including TensorFlow, scikit-learn, Apache Spark, and the Microsoft Cognitive Toolkit. Workbench also includes the Microsoft revoscalepy package.
 
