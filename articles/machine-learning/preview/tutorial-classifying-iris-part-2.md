@@ -13,32 +13,34 @@ ms.topic: hero-article
 ms.date: 09/06/2017
 ---
 
-# Classifying Iris Part 1: Build Model
-In this tutorial, we demonstrate the basics of Azure ML preview features by creating a data preparation package, building a model and operationalizing it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The instructions and screenshots have been created for Windows, but the macOS experience is similar, if not identical.
+# Classifying Iris Part 2: Build Model
+In this tutorial, let's walk through the basics of Azure Machine Learning by creating a data preparation package, building a model and deploying it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The screenshots are Windows-specific, but the macOS experience is almost identical.
 
 This is part 2 of a 3 part tutorial, covering model building.
 
-## Step 1. Review Python Code in `iris_sklearn.py` File
+## Step 1. Review `iris_sklearn.py` and Configuration Files in `aml_config` Folder
 Open the `iris_sklearn.py` file.
 
 ![open file](media/tutorial-classifying-iris/open_iris_sklearn.png)
 
->Note: the code you see might not be exactly identical to the code shown above as this sample project is updated frequently.
+>[!NOTE]
+>The code you see might not be exactly the same as the code shown above, as this sample project is updated frequently.
 
 This script performs the following tasks:
-1. Invokes the DataPrep package `iris.dprep` as the data source to generate a [Pandas](http://pandas.pydata.org/) dataframe
+1. Invokes the data prep package `iris.dprep` to create a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html).
 
-2. Adds random features to make the problem more difficult to solve. (This is because Iris is a very small dataset that can be easily classified with near 100% accuracy.) 
+2. Adds random features to make the problem more difficult to solve. (This is because Iris is a very small dataset that can be easily classified with near 100% accuracy.)
 
-3. Uses [scikit-learn](http://scikit-learn.org/stable/index.html) machine learning library to build a simple logistic regression model. 
+3. Uses [scikit-learn](http://scikit-learn.org/stable/index.html) machine learning library to build a simple Logistic Regression model. 
 
-4. Serializes the model using [pickle](https://docs.python.org/2/library/pickle.html) into a file in the `outputs` folder, loads it and de-serializes it back into memory
+4. Serializes the model using [pickle](https://docs.python.org/2/library/pickle.html) library into a file in the `outputs` folder, then loads it and de-serializes it back into memory
 
 5. Uses the deserialized model to make prediction on a new record. 
 
-6. Plots two graphs -- confusion matrix and multi-class ROC curve -- using [matplotlib](https://matplotlib.org/) library, and saves them in the `outputs` folder.
+6. Plots two graphs -- confusion matrix, and multi-class ROC curve -- using [matplotlib](https://matplotlib.org/) library, and saves them in the `outputs` folder.
 
-Note: the `run_logger` object in the Python code bears examination. It records regularization rate, and model accuracy into logs that are automatically plotted in the run history.
+>[!NOTE]
+>The `run_logger` object in the Python code bears examination. It records regularization rate, and model accuracy into logs that are automatically plotted in the run history.
 
 Open the `conda_dependencies.yml` file under the `aml_config` directory. This file specifies the Python version and also the `scikit-learn` package and the `matplotlib` package. 
 
@@ -49,19 +51,20 @@ There are three pairs of `.runconfig` and `.compute` files, named `local`, `dock
 ## Step 2. Execute `iris_sklearn.py` Script in `local` Environment
 Let's run the `iris_sklearn.py` script for the first time. This script requires `scikit-learn` and `matplotlib` packages. `scikit-learn` is already installed by the Azure ML Workbench. However, we need to install `matplotlib`. Open the command-line window by clicking on **Open Command Prompt** from the **File** menu. (We refer to this command-line interface window as Azure ML Workbench CLI window, or CLI window for short.)
 
-In the CLI window, type in the following command to install `matplotlib` Python package. It generally completes in roughly a minute.
+In the CLI window, type in the following command to install `matplotlib` Python package. It should complete in less than a minute.
+
 ```batch
 REM install matplotlib
 C:\Temp\myIris> pip install matplotlib
 ```
-
-Return to the Workbench app. In the **Run Control Panel**, choose `local` as the execution environment, and `iris_sklearn.py` as the script to run. Fill the _Arguments_ field with a value of `0.01`. Click on the _Run_ button. A job is immediately scheduled and listed in the **Jobs Panel** on the right side of the Workbench window. The status of the job transitions from `Submitting`, to `Running`, and finally to `Completed` in a few seconds.
+Return to the Workbench app. In the **Run Control Panel**, choose **local** as the execution environment, and `iris_sklearn.py` as the script to run. Fill the **Arguments** field with a value of `0.01`. Click on the **Run** button. A job is immediately scheduled and listed in the **Jobs** panel on the right side of the Workbench window. The status of the job transitions from **Submitting**, to **Running**, and finally to **Completed** in a few seconds.
 
 ![run sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
 Clicking on the job status text triggers a pop-up window that displays the standard output (stdout) of the running script. (Clicking on the script name leads you to the run detail information of that particular run which we discuss later.) When the run is completed, the pop-up window shows the following results: 
 
->Note: since we introduce some randomization into the training set earlier, your exact results will vary somewhat.
+>[!NOTE]
+>Since we introduce some randomization into the training set earlier, your exact results will vary somewhat.
 
 ```text
 Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -92,38 +95,40 @@ ROC curve plotted.
 Confusion matrix and ROC curve plotted. See them in Run History details page.
 ```
 
-Enter a series of different numerical values in the _Arguments_ field ranging from `0.001` to `10`, and execute the code a few more times. The value you change each time is fed to the Logistic Regression algorithm in the code, which should give you different results.
+Enter a series of different numerical values in the **Arguments** field ranging from `0.001` to `10`, and execute the code a few more times. The value you change each time is fed to the Logistic Regression algorithm in the code, which should give you different results.
 
 ## Step 3. Review Run History
-In Azure ML Workbench, every script execution is captured as a run history record. You can view the run history of a particular script by opening the _run history_ view.
+In Azure ML Workbench, every script execution is captured as a run history record. You can view the run history of a particular script by opening the **Runs** view.
 
 ![run history list view]()
 
-The statistics captured across multiple runs are rendered in the graph view and the table view. Experiment with the configurations and filter controls to see all your options.
+The statistics captured across multiple runs are rendered in the graphs above and the list below. Play with the configurations and filter controls to see all your options.
 
 Click on an individual run to see the run detail view. All the statistics for the selected run are listed in the _Run Properties_ section. The files written into the `outputs` folder are listed in the **Output Files** section, and can be downloaded or promoted (more on promotion later). The two plots, confusion matrix and multi-class ROC curve, are rendered in the **Output Images** section. All the log files can also be found in the **Log Files** section.
 
 ![run history details view]()
 
 ## Step 4. Execute Scripts in the Local Docker Environment
->Note, in order to accomplish this step, you must have Docker engine locally installed and started. See the installation guide for more details.
+>[!IMPORTANT]
+>In order to accomplish this step, you must have Docker engine locally installed and started. See the installation guide for more details.
 
 Azure ML allows you to easily configure additional execution environments and run your script there. In the `aml_config` folder, two additional environments are specified: `docker-python` and `docker-spark`. Take a moment to look at the respective `.compute` and `.runconfig` files under the `aml_config` folder again.
 
-In the **Run Control Panel**, choose `docker-python` as the targeted environment, and `iris_sklearn.py` as the script to run. (You can leave the **Arguments** field blank since the script specifies a default value.) Click on the **Run** button.
+In the **Run Control Panel**, choose **docker-python** as the targeted environment, and **iris_sklearn.py** as the script to run. (You can leave the **Arguments** field blank since the script specifies a default value.) Click on the **Run** button.
 
-A new job is started in the **Jobs Panel**. If you are running against Docker for the first time, it might take a few minutes to finish. Behind the scene, Azure ML Workbench downloads a base Docker image specified in the `docker-python.compute` file, starts a container based on that image, and installs Python packages specified in the `conda_dependencies.yml` file in the container. It then copies (or references, depending on run configuration) the local copy of the project folder, and then executes the `iris_sklearn.py` script. In the end, you should see the exact same result as you do when targeting `local`.
+Observer that a new job is started in the **Jobs** panel. If you are running against Docker for the first time, it might take a few minutes to finish. Behind the scene, Azure ML Workbench builds a new docker file referencing the base Docker image specified in the `docker-python.compute` file, and depedency Python packages specified in the `conda_dependencies.yml` file. The Docker engine then downloads the base image from Azure, installs Python packages specified in the `conda_dependencies.yml` file, then starts a Docker container. It then copies (or references, depending on run configuration) the local copy of the project folder, and then executes the `iris_sklearn.py` script. In the end, you should see the exact same result as you do when targeting **local**.
 
 The Docker base image contains a pre-installed and configured Spark instance. Because of this, you can execute a PySpark script in it. This is a simple way to develop and test your Spark program without having to spend the time installing and configuring Spark yourself. 
 
-Open the `iris_pyspark.py` file. This script loads the `iris.csv` data file, and uses the Logistic Regression algorithm from the Spark ML library to classify the Iris dataset. Now change the run environment to `docker-spark`, and the script to `iris_pyspark.py`, and run again. This takes a little longer since a Spark session has to be created and started inside the Docker container. You can also see the stdout is different than the stdout of `iris_pyspark.py`.
+Open the `iris_pyspark.py` file. This script loads the `iris.csv` data file, and uses the Logistic Regression algorithm from the Spark ML library to classify the Iris dataset. Now change the run environment to **docker-spark**, and the script to **iris_pyspark.py**, and run again. This takes a little longer since a Spark session has to be created and started inside the Docker container. You can also see the stdout is different than the stdout of `iris_pyspark.py`.
 
-Do a few more runs and play with different arguments. Open the `iris_pyspark.py` file to see the simple Logistic Regression model built using Spark ML library. Interact with the **Job Panel**, run history list view, and run details view of your runs across different execution environments.
+Do a few more runs and play with different arguments. Open the `iris_pyspark.py` file to see the simple Logistic Regression model built using Spark ML library. Interact with the **Jobs** panel, run history list view, and run details view of your runs across different execution environments.
 
 ## Step 5. Execute Scripts in the Azure ML CLI Window
 Launch the command-line window by clicking on **File** --> **Open Command Prompt**. You are automatically placed in the project folder `C:\Temp\myIris`.
 
->Important: You **must** use the command line window (launched from the Workbench) to accomplish the following steps:
+>[!Important]
+>You must use the command line window (launched from the Workbench) to accomplish the following steps:
 
 First, make sure you log in to Azure. (The workbench app and CLI use independent credential caches when authenticating against Azure resources.) You only need to do this once, until the cached token expires.
 

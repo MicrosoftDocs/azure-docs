@@ -14,7 +14,7 @@ ms.date: 09/06/2017
 ---
 
 # Classifying Iris Part 3: Deploy Model
-In this tutorial, we demonstrate the basics of Azure ML preview features by creating a data preparation package, building a model and operationalizing it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to make things simple. These instructions and screenshots are for Windows, but the macOS experience is similar, if not identical.
+In this tutorial, let's walk through the basics of Azure Machine Learning by creating a data preparation package, building a model and deploying it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The screenshots are Windows-specific, but the macOS experience is almost identical.
 
 This is part 3 of a 3 part tutorial, covering model deployment.
 
@@ -35,7 +35,7 @@ When you executed the `iris_sklearn.py` script, the model was written to the `ou
 Download the model file `model.pkl` and save it to the root of your project folder. It is needed in upcoming steps.
 
 ## Step 2. Prepare for Operationalization Locally
-_Local mode_ deployments run in Docker containers on your local computer, whether that is your desktop or a Linux VM running on Azure. You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the operationalization steps as shown in the  steps. You can use `-h` flag at the end of the commands for command help.
+_Local mode_ deployments run in Docker containers on your local computer, whether that is your desktop or a Linux VM running on Azure. You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the operationalization steps below. You can use `-h` flag at the end of the commands for command help.
 
 - Create the environment (you need to do this once per environment, for example,  dev or prod) in _local mode_ (you can use -c switch in the command to set up environment in _cluster mode_):  
     ```batch
@@ -158,7 +158,7 @@ To view the collected data in blob storage:
 3. In the search box, type `Storage accounts` and press **Enter**
 4. From the **Storage accounts** search blade, select the **Storage account** resource. In order to determine your storage account follow the steps below,
 
-    a. Go to Azure ML Workbench, select the project you're working on, and open command line prompt from **File** menu
+    a. Go to Azure ML Workbench, select the project you're working on, and open command-line prompt from **File** menu
     
     b. Type `az ml env show -v` and check the *storage_account* value. This is the name of your storage account
 
