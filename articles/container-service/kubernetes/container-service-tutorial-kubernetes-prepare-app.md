@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/08/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -51,7 +51,13 @@ Use git to download a copy of the application to your development environment.
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Inside the cloned directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used to create assets throughout the tutorial set. 
+Change directories so that you are working from the cloned directory.
+
+```bash
+cd azure-voting-app-redis
+```
+
+Inside the directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used to create assets throughout the tutorial set. 
 
 ## Create container images
 
@@ -60,7 +66,7 @@ Inside the cloned directory is the application source code, a pre-created Docker
 Run the docker-compose.yml file to create the container image, download the Redis image, and start the application.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
+docker-compose up -d
 ```
 
 When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
@@ -105,13 +111,13 @@ Now that application functionality has been validated, the running containers ca
 Run the following to stop the running containers.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
+docker-compose stop
 ```
 
-Delete the stopped containers with the following command.
+Delete the stopped containers and resources with the following command.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
+docker-compose down
 ```
 
 At completion, you have a container image that contains the Azure Vote application.

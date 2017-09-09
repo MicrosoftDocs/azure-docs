@@ -40,18 +40,45 @@ In previous tutorials, an application was packaged into a container image, the i
 
 If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-## Update application
+## Verify Docker compose file
 
-To complete the steps in this tutorial, you must have cloned a copy of the Azure Vote application. If necessary, create this cloned copy with the following command:
+In [tutorial 1](./container-service-tutorialkubernetes-prepare-app.md) of this series the application repo was cloned which includes application source code and a pre-created Docker file. These files are used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. 
 
-```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
+Inside you will find a file named azure-vote-all-in-one-redis.yml. Use the cat command to view the manifest file.
+
+```
+cat docker-compose.yml
 ```
 
-Open the `config_file.cfg` file with any code or text editor. You can find this file under the following directory of the cloned repo.
+Output:
+
+```yaml
+version: '3'
+services:
+  azure-vote-back:
+    image: redis
+    container_name: azure-vote-back
+    ports:
+        - "6379:6379"
+
+  azure-vote-front:
+    build: ./azure-vote
+    image: azure-vote-front
+    container_name: azure-vote-front
+    environment:
+      REDIS: azure-vote-back
+    ports:
+        - "8080:80
+```
+
+## Update application
+
+For this tutorial, a change will be made to the application, and these changes deployed to the Kubernetes cluster. The application source code can also be found inside of the **azure-vote** directory inside of the cloned directory. 
+
+Open the `config_file.cfg` file with any code or text editor. In this example `vi` is beeing used.
 
 ```bash
- /azure-voting-app-redis/azure-vote/azure-vote/config_file.cfg
+vi azure-vote/config_file.cfg
 ```
 
 Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and then save the file.
@@ -64,10 +91,14 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
+Save and close the file.
+
+## Update container image
+
 Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up --build -d
+docker-compose up -d
 ```
 
 ## Test application locally

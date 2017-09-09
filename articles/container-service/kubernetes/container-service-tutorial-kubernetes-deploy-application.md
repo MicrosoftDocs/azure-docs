@@ -39,21 +39,86 @@ In previous tutorials, an application was packaged into a container image, this 
 
 At minimum, this tutorial requires a Kubernetes cluster.
 
-## Get manifest file
+## Verify manifest file
 
-For this tutorial, [Kubernetes objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) are deployed using a Kubernetes manifest. A Kubernetes manifest is a YAML or JSON formatted file containing Kubernetes object deployment and configuration instructions.
-
-The application manifest file for this tutorial is available in the Azure Vote application repo, which was cloned in a previous tutorial. If you have not already done so, clone the repo with the following command: 
+In [tutorial 1](./container-service-tutorialkubernetes-prepare-app.md) of this series the application repo was cloned which includes a Kubernetes manifest file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file named azure-vote-all-in-one-redis.yml. Use the cat command to view the manifest file.
 
 ```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
+cat azure-vote-all-in-one-redis.yml
 ```
 
-The manifest file is found in the following directory of the cloned repo.
+Output:
 
-```bash
-/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
-```
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      containers:
+      - name: azure-vote-back
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-back
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: azure-vote-back
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-front
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: azure-vote-front
+    spec:
+      containers:
+      - name: azure-vote-front
+        image: microsoft/azure-vote-front:redis-v1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+        env:
+        - name: REDIS
+          value: "azure-vote-back"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+  ```
 
 ## Update manifest file
 
@@ -78,7 +143,7 @@ containers:
 Use the [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) command to run the application. This command parses the manifest file and create the defined Kubernetes objects.
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 Output:
