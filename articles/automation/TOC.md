@@ -5,6 +5,7 @@
 ## Runbook tutorial
 ### [Create graphical runbook](automation-first-runbook-graphical.md)
 ### [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
+### [My first Python runbook](automation-first-runbook-textual-python2.md)
 ### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 # How to
 ## Authentication and security
