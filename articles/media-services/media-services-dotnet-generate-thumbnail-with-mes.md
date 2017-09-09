@@ -25,7 +25,7 @@ For more details on the elements that are used in sample presets, you should rev
 
 Make sure to review the [Considerations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) section.
 
-##Example - "basic thumbnail" preset
+##Example of a "basic thumbnail" preset
 
 The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
 
@@ -145,7 +145,7 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	  </Outputs>
 	</Preset>
 	
-## Example – "single PNG file" preset
+## Example of a "single PNG file" preset
 
 The following JSON and XML preset can be used to produce a single output PNG file out of the first few seconds of the input video, where the encoder makes a best-effort attempt at finding an “interesting” frame. Note that the output image dimensions have been set to 100%, meaning these will match the dimensions of the input video. Note also how the “Format” setting in "Outputs" is required to match the use of "PngLayers" in the “Codecs” section. 
 
@@ -197,7 +197,7 @@ The following JSON and XML preset can be used to produce a single output PNG fil
 	  </Outputs>
 	</Preset>
 
-## Example – "a series of JPEG images" preset
+## Example of a "series of JPEG images" preset
 
 The following JSON and XML preset can be used to produce a set of 10 images at timestamps of 5%, 15%, …, 95% of the input timeline, where the image size is specified to be one quarter that of the input video.
 
@@ -253,7 +253,7 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 	  </Outputs>
 	</Preset>
 
-## Example – "one image at a specific timestamp" preset
+## Example of a "one image at a specific timestamp" preset
 
 The following JSON and XML preset can be used to produce a single JPEG image at the 30 second mark of the input video. This preset expects the input to be more than 30 seconds in duration (else the job will fail).
 
@@ -309,7 +309,7 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 	  </Outputs>
 	</Preset>
 	
-## Example - "thumbnails at different resolutions" preset
+## Example of a "thumbnails at different resolutions" preset
 
 The following preset can be used to generate thumbnails at different resolutions in one encoding task.
 
@@ -342,7 +342,7 @@ Note the use of {Height} and {Width} macros in the FileName; it indicates to the
 	</Outputs>
 	</Preset>
 
-## <a id="code_sample"></a>.NET code sample - encode video and generate thumbnail
+## <a id="code_sample"></a>Encode video and generate thumbnail with .NET
 
 The following code example uses Media Services .NET SDK to perform the following tasks:
 
