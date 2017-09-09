@@ -25,9 +25,9 @@ ms.custom: mvc
 This is the last of a three-part tutorial. In previous sections, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This section completes the tutorial by deploying the container to Azure Container Instances. Steps completed include:
 
 > [!div class="checklist"]
-> * Deploying a container from an image in Azure Container Registry
-> * Verifying the running application
-> * Viewing container logs
+> * Deploying the container from the Azure Container Registry using the Azure CLI
+> * Viewing the application in the browser
+> * Viewing the container logs
 
 ## Deploy the container using the Azure CLI
 
