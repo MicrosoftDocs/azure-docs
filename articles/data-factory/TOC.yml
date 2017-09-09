@@ -160,6 +160,8 @@
       href: transform-data-using-data-lake-analytics.md
     - name: .NET custom activity
       href: transform-data-using-dotnet-custom-activity.md
+    - name: Compute linked services
+      href: compute-linked-services.md
   - name: Control flow
     items: 
     - name: Web Activity

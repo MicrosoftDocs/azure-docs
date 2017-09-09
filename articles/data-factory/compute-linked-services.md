@@ -18,6 +18,10 @@ ms.author: shlo
 # Compute environments supported by Azure Data Factory
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Compute linked services in V1](v1/data-factory-compute-linked-services.md).
+
+
 The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
 
 | Compute environment | activities |
