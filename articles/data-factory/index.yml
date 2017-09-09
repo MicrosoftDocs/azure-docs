@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Factory V2 Public Preview Documentation
+title: Azure Data Factory V2 Preview Documentation
 metadata:
   title: Azure Data Factory Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis. 
@@ -31,6 +31,10 @@ sections:
         src: /azure/data-factory/media/index/logo_powershell.svg
       text: PowerShell
       href: /azure/data-factory/quickstart-create-data-factory-powershell
+    - image: 
+        src: /azure/data-factory/media/index/logo_rest.svg
+      text: REST
+      href: /azure/data-factory/quickstart-create-data-factory-rest-api  
     - image: 
         src: /azure/data-factory/media/index/logo_python.svg
       text: Python
