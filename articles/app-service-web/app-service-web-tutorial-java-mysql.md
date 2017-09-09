@@ -318,7 +318,7 @@ az webapp config appsettings set \
 You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
 For this example, FTP to deploy the .WAR file built previously on your local machine to Azure App Service.
 
-To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command: 
+To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) command: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles \ 

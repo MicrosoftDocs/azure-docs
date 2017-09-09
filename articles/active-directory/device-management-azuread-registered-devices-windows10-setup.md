@@ -18,6 +18,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 
 ---
+
 # Set up Azure Active Directory-registered Windows 10 devices
 
 Device management in Azure Active Directory (Azure AD) can help you ensure that users access your resources from devices that meet your security and compliance standards. For more information, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
