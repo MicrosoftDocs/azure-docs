@@ -71,76 +71,98 @@ SSISDBPricingTier | The pricing tier for your SSISDB hosted by Azure SQL DB serv
 ### Script
 
 ```powershell
-##### Managed-dedicated integration runtime specifications ##### 
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
-# If your input values contain special characters, for example "$", precede the special characters with the escape character "`". For example, "`$". 
+##### Managed-dedicated integratino runtime specifications
+
+# If your inputs contain PSH special characters, e.g. "$", please precede it with the escape character "`" like "`$". 
 
 # Azure Data Factory information
-$SubscriptionName = "[your Azure subscription name]"
-$ResourceGroupName = "[your Azure resource group name]"
-$DataFactoryName = "[your ADFv2 name]"
+$SubscriptionName = "MDP_492270"
+$ResourceGroupName = "SPADF2"
+$DataFactoryName = "SPDataFactorySSIS2"
 $DataFactoryLocation = "EastUS"
-$DataFactoryLoggingStorageAccountName = "[your storage account name]"
-$DataFactoryLoggingStorageAccountKey = "[your storage account key]"
+$DataFactoryLoggingStorageAccountName = "spstoragemswest"
+$DataFactoryLoggingStorageAccountKey = "39l9JePVi83UeWO2O5Q83MmX28kF393cVdyETDvL7o+ClBdwVfIjH85zzvzW41g79ryOrV3OpK92bj8JaQFp5g=="
 
-# Managed-dedicated integration runtime (that runs SSIS packages in the cloud) information
-$MDIRName = "[Name of your managed-dedicated integration runtime]"
+# Managed-dedicated integratin runtime
+$MDIRName = "SP-MDIR1"
 $MDIRDescription = "This is my managed-dedicated integration runtime instance"
-$MDIRLocation = "EastUS"
-$MDIRNodeSize = "Standard_D3_v2"
-$MDIRNodeNumber = 2
-$VnetId = "[your VNet resource ID or leave it empty]" # OPTIONAL
-$SubnetName = "[your subnet name or leave it empty]" # OPTIONAL
+$MDIRLocation = "EastUS" # In Private Preview, only East US|North Europe are supported for now
+$MDIRNodeSize = "Standard_A4_v2" # In Private Preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported for now
+$MDIRNodeNumber = 2 # In Private Preview, only 1-10 nodes are supported for now
+$MDIRMaxParallelExecutionsPerNode = 2 # In Private Preview, only 1-8 parallel executions per node are supported for now
+$VnetId = "" # OPTIONAL: In Private Preview, only Classic VNet is supported for now
+$SubnetName = "" # OPTIONAL: In Private Preview, only Classic VNet is supported for now
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL DB/MI server name].database.windows.net"
-$SSISDBServerAdminUserName = "[your server admin username]"
-$SSISDBServerAdminPassword = "[your server admin password]"
-$SSISDBPricingTier = "[your Azure SQL DB pricing tier, e.g. S3, or leave this value empty for Azure SQL MI]" # Not applicable for Azure SQL MI
+$SSISDBServerEndpoint = "spsqlserver.database.windows.net"
+$SSISDBServerAdminUserName = "spelluru"
+$SSISDBServerAdminPassword = "Sowmya123"
+$SSISDBPricingTier = "S0" # Not applicable for Azure SQL MI
 
 ##### End of managed-dedicated integration runtime specifications ##### 
+
+$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
+
+##### Validate Azure SQL DB/MI server ##### 
+
+$sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
+Try
+{
+    $sqlConnection.Open();
+}
+Catch [System.Data.SqlClient.SqlException]
+{
+    Write-Warning "Cannot connect to your Azure SQL DB logical server/Azure SQL MI server, exception: $_"  ;
+    Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
+    $yn = Read-Host
+    if(!($yn -ieq "Y"))
+    {
+        Return;
+    } 
+}
+
+##### Login and select Azure subscription #####
 
 Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-##### Automatically configure VNet permissions and settings for managed-dedicated integration runtime to join ##### 
+##### Automatically configure VNet permissions/settings for managed-dedicated integration runtime to join ##### 
 
 # Register to Azure Batch resource provider
-if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName)){
-$BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
-{
-    Start-Sleep -s 10
-}
-# Assign VM contributor role to Microsoft.Batch
-New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
-}
-
-##### Provision Azure Data Factory V2 + Managed-dedicated Integration Runtime ##### 
-
-New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
-New-AzureRmDataFactoryV2 -Location $DataFactoryLocation -LoggingStorageAccountName $DataFactoryLoggingStorageAccountName -LoggingStorageAccountKey $DataFactoryLoggingStorageAccountKey -Name $DataFactoryName -ResourceGroupName $ResourceGroupName 
-
-$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-New-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName -Type ManagedReserved -CatalogConnectionString $SSISDBConnectionString -CatalogPricingTier $SSISDBPricingTier -Description $MDIRDescription -ExecutionLocation $MDIRLocation -NodeSize $MDIRNodeSize -TargetNodesNumber $MDIRNodeNumber -VnetId $VnetId -Subnet $SubnetName
-}
-else
-{
-New-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName -Type ManagedReserved -CatalogConnectionString $SSISDBConnectionString -CatalogPricingTier $SSISDBPricingTier -Description $MDIRDescription -ExecutionLocation $MDIRLocation -NodeSize $MDIRNodeSize -TargetNodesNumber $MDIRNodeNumber
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+	Start-Sleep -s 10
+    }
+    # Assign VM contributor role to Microsoft.Batch
+    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
 }
 
+##### Provision data factory + managed-dedicated integration runtime ##### 
+New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+New-AzureRmDataFactoryV2 -Location $DataFactoryLocation -LoggingStorageAccountName $DataFactoryLoggingStorageAccountName -LoggingStorageAccountKey $DataFactoryLoggingStorageAccountKey -Name $DataFactoryName -ResourceGroupName $ResourceGroupName 
+New-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName -Type Managed -CatalogServerEndpoint $SSISDBServerEndpoint -CatalogAdminUserName $SSISDBServerAdminUserName -CatalogAdminPassword $SSISDBServerAdminPassword -CatalogPricingTier $SSISDBPricingTier -Description $MDIRDescription -Location $MDIRLocation -NodeSize $MDIRNodeSize -NumberOfNodes $MDIRNodeNumber -MaxParallelExecutionsPerNode $MDIRMaxParallelExecutionsPerNode -VnetId $VnetId -Subnet $SubnetName
 write-host("##### Starting #####")
 Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName -Sync -Force
 write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 
-##### Get Managed-dedicated integration runtime status #####
+##### Get managed-dedicated integration runtime status #####
 
 #Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName
 #Get-AzureRmDataFactoryV2IntegrationRuntimeStatus -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName
+
+##### Reconfigure managed-dedicated integration runtime, e.g. scale out from 2 to 5 nodes #####
+
+#Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName 
+#Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName -NumberOfNodes 5
+#Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName -Sync
 
 ##### Clean up ######
 
