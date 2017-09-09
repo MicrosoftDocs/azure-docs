@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell (Preview) features | Microsoft Docs
-description: Overview of features of Azure Cloud Shell
+title: Bash in Azure Cloud Shell (Preview) features | Microsoft Docs
+description: Overview of features of Bash in Azure Cloud Shell
 services: 
 documentationcenter: ''
 author: jluk
@@ -13,17 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/5/2017
 ms.author: juluk
 ---
 
-# Features and Tools for Azure Cloud Shell
-Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
+# Features and Tools for Bash in Azure Cloud Shell
 
-Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
+[!include [features-introblock](<features-introblock.md)]
 
-Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. 
-Since Cloud Shell is built for interactive sessions, shells automatically terminate after 20 minutes of shell inactivity.
+> [!TIP]
+> [PowerShell in Azure Cloud Shell](features-powershell.md) is also available.
 
 ## Bash in Cloud Shell
 ### Tools

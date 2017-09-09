@@ -26,14 +26,14 @@ Cloud Shell enables multiple concurrent sessions across browser tabs by allowing
 If exiting a session, be sure to exit from each session window as each process runs independently although they run on the same machine.
 
 ## Restart Cloud Shell
-![](media/recycle.png)
+![](media/using-the-shell-window/recycle.png)
 > [!WARNING]
 > Restarting Cloud Shell will reset machine state and any files not persisted by your file share will be lost.
 
 * Click the restart icon on the toolbar to receive a new Cloud Shell environment.
 
 ## Minimize & maximize Cloud Shell window
-![](media/minmax.png)
+![](media/using-the-shell-window/minmax.png)
 * Click the minimize icon on the top right of the window to hide it. Click the Cloud Shell icon again to unhide.
 * Click the maximize icon to set window to max height. To restore window to previous size, click restore.
 
@@ -49,7 +49,7 @@ If exiting a session, be sure to exit from each session window as each process r
 * Scroll with your mouse or touchpad to move terminal text.
 
 ## Exit command
-Running `exit` terminates the active session. This behavior occurs by default after 20 minutes without interaction.
+Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md)

@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 08/28/2017
 ms.author: juluk
 ---
 
@@ -26,23 +26,35 @@ The machine that provides your Cloud Shell session is temporary, and it is recyc
 * File shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
 * Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
-## User permissions
-Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory will not persist.
-Although certain commands within the `clouddrive` directory, such as `git clone`, do not have proper permissions, your `$Home` directory does have permissions.
-
 ## Browser support
 Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode is not supported.
 
 ## Copy and paste
-Ctrl+C and Ctrl+V do not function as copy/paste shortcuts in Cloud Shell on Windows machines, use Ctrl+Insert and Shift+Insert to copy and paste respectively.
+Ctrl+C and Ctrl+V do not function as copy/paste shortcuts in Cloud Shell on Windows machines, use Ctrl+Insert and Shift+Insert to copy and paste respectively. <br>
+Right-click copy-and-paste options are also available, but right-click function is subject to browser-specific clipboard access. 
 
-Right-click copy-and-paste options are also available, but right-click function is subject to browser-specific clipboard access.
+## For a given user, only one shell can be active
+Users can only launch one type of shell at a time, either **Bash** or **PowerShell**.
 
-## Editing .bashrc
-Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud Shell.
+## Bash Limitations
 
-## .bash_history
+### User permissions
+Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory will not persist.
+Although certain commands within the `clouddrive` directory, such as `git clone`, do not have proper permissions, your `$Home` directory does have permissions.
+
+### Editing .bashrc
+Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud Shell. 
+
+### .bash_history
 Your history of bash commands may be inconsistent because of Cloud Shell session disruption or concurrent sessions.
+
+## PowerShell Limitations
+
+### Startup time can be long
+PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize.
+
+### No $Home directory persistence
+Any application (such as: git, vim, and others) that writes data to $Home will not be persisted across PowerShell sessions.  For a workaround [see here TODO]() 
 
 ## Usage limits
 Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive sessions are ended without warning.
@@ -51,4 +63,5 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 Any latency in Cloud Shell is subject to local internet connectivity, Cloud Shell continues to attempt to carry out any instructions sent.
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md)
+[Quickstart for Bash](quickstart.md) <br>
+[Quickstart for PowerShell](quickstart-powershell.md)
