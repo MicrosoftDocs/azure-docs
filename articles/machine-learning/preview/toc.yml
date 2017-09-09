@@ -65,6 +65,14 @@
       href: model-management-service-deploy.md
     - name: placeholder - Consume web service
       href: doc-template-how-to.md  
+  - name: End-to-end examples
+    items:
+    - name: Awesome ADS example 1
+      href: doc-template-how-to.md 
+    - name: Awesome ADS example 2
+      href: doc-template-how-to.md
+    - name: Awesome ADS example 3
+      href: doc-template-how-to.md
 - name: Reference
   items:  
   - name: Data Preparation
