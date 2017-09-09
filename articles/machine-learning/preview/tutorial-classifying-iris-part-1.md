@@ -15,21 +15,22 @@ ms.date: 09/06/2017
 
 # Classifying Iris Part 1: Prepare Data
 
-In this tutorial, we show you the basics of Azure ML preview features by creating a data preparation package, building a model and operationalizing it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The instructions and screenshots are Windows-specific, but the macOS experience is almost identical.
+In this tutorial, let's walk through the basics of Azure Machine Learning by creating a data preparation package, building a model and deploying it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The screenshots are Windows-specific, but the macOS experience is almost identical.
 
-This is part 1 of a 3-part tutorial, covering project setup, and data preparation.
+This is part 1 of a 3 part tutorial, covering project setup, and data preparation.
 
 ## Step 1. Launch Azure ML Workbench
-Follow the [installation guide](quick-start-installation.md) to install the Azure ML Workbench application, which also includes the command-line interface (CLI). Launch the Azure ML Workbench app and log in if needed.
+Follow the [installation guide](quick-start-installation.md) to install the Azure ML Workbench application, which also includes the command-line interface (CLI). Launch the Azure ML Workbench app, and log in if needed.
 
 ## Step 2. Create a new project
-Click on **File** --> **New Project** (or click on the **+** sign in the Project pane). You can also create a new Workspace first from this drop down menu.
+Click on **File** --> **New Project** (or click on the **+** icon in the **PROJECTS** pane). You can also create a new Workspace first from this drop down menu.
 
 ![new workspace](media/tutorial-classifying-iris/new_ws.png)
 
 Fill in the project name (this tutorial assumes you use `myIris`). Choose the directory in which the project will be created (this tutorial assumes you've chosen `C:\Temp`). Enter the optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the **Classifying Iris** template from the project template list. 
 
 ![New Project](media/tutorial-classifying-iris/new_project.png)
+>[!TIP]
 >Optionally, you can also fill in the Git repo field with an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article and the [Roaming and Sharing](collab.md) article.
 
 Click on the **Create** button to create the project. The project is now created and opened for you.
@@ -39,9 +40,10 @@ Open the `iris.csv` file from the File View. The file is a simple table with 5 c
 
 ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
+>[!NOTE]
 >Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to Deal with Large Data Files](PersistChanges.md) article.
 
-In the Data Pane, click on the **+** to add a new data source. This launches the _Add Data Source_ wizard. 
+In the Data Pane, click on the **+** icon to add a new data source. This launches the **Add Data Source** wizard. 
 
 ![data view](media/tutorial-classifying-iris/data_view.png)
 
@@ -49,9 +51,10 @@ Select the **File(s)/Directory** option, and choose the `iris.csv` local file. A
 
 ![select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
+>[!IMPORTANT]
 >Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
 
-This creates an `iris-1.dsource` file (because the sample project already comes with an `iris.dsource` file) and opens it in the **Data View**. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Also, if the last row of the dataset is empty, it is likely because of an extra line break in the csv file.
+This creates an `iris-1.dsource` file (because the sample project already comes with an `iris.dsource` file) and opens it in the **Data View**. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
 
 ![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
@@ -59,9 +62,9 @@ Now click on the **Metrics** button. Observe the histograms and a complete set o
 
 ![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-Click on the **Prepare** button next to the **Metrics** button, and a new file named `iris-1.dprep` is created. This is because the sample project already comes with an `iris.dprep` file. The file opens in Data Prep editor. Now let's do some simple data wrangling.
+Click on the **Prepare** button next to the **Metrics** button, and a new file named `iris-1.dprep` is created. This is because the sample project already comes with an `iris.dprep` file. The file opens in data preparation editor. Now let's do some simple data prepartion.
 
-Rename the column names by clicking on each column header and make the text editable. Enter `Sepal Length`, `Sepal Width`, `Petal Length`, `Petal Width`, and `Species` for the five columns respectively.
+Rename the column names by clicking on each column header and make the header text editable. Enter `Sepal Length`, `Sepal Width`, `Petal Length`, `Petal Width`, and `Species` for the five columns respectively.
 
 ![rename columns](media/tutorial-classifying-iris/rename_column.png)
 
@@ -73,16 +76,16 @@ This creates a histogram with four bars. Notice our target column has three dist
 
 ![value count](media/tutorial-classifying-iris/filter_out.png)
 
-As you are working on column renaming and filtering out the null value row, each action you take is being recorded as a data prep step in the **Steps** pane. You can edit them (to adjust their settings), reorder them, or even remove them.
+As you are working on column renaming and filtering out the null value row, each action you take is being recorded as a data prep step in the **STEPS** pane. You can edit them (to adjust their settings), reorder them, or even remove them.
 ![steps](media/tutorial-classifying-iris/steps.png)
 
 ## Step 4. Generate Python/PySpark Code to Invoke Data Prep Package
 
-Now close the DataPrep editor. Don't worry, it is auto-saved. Right click on the `iris-1.dprep` file, and choose **Generate Data Access Code File**. 
+Now close the DataPrep editor. (Don't worry, it is auto-saved.) Right-click on the `iris-1.dprep` file to bring up context menu, and choose **Generate Data Access Code File**. 
 
 ![generate code](media/tutorial-classifying-iris/generate_code.png)
 
-This creates an `iris-1.py` file with following two lines of code prepopulated (along with some comments):
+An `iris-1.py` file is created with following two lines of code prepopulated (along with some comments):
 
 ```python
 # This code snippet will load the referenced package and return a DataFrame.
@@ -92,9 +95,9 @@ This creates an `iris-1.py` file with following two lines of code prepopulated (
 from azureml.dataprep.package import run
 df = run('iris.dprep', dataflow_idx=0)
 ```
-This code snippet invokes the data wrangling logic you created as a Data Prep package. Depending on the context in which this code is run, `df` can be a Python Pandas DataFrame if executed in Python runtime, or a Spark DataFrame if executed in a Spark context. For more information on how to use DataPrep in Azure ML Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
+This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` can be a _[pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)_ if executed in Python runtime, or a [_Spark DataFrame_](https://spark.apache.org/docs/latest/sql-programming-guide.html) if executed in a Spark context. For more information on how to prepare data in Azure ML Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
 
-Now we have a data prep package that can be invoked from Python code, we are ready to move on to the next to build a machine learning model.
+Now we have a data prep package that can be invoked from Python code, we are ready to move on to the next step: building a machine learning model.
 
 ## Next Steps
 - Part 1: Project setup and data preparation
