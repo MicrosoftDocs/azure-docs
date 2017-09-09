@@ -47,7 +47,7 @@ Open the `conda_dependencies.yml` file under the `aml_config` directory. This fi
 There are three pairs of `.runconfig` and `.compute` files, named `local`, `docker-python`, and `docker-spark`. Open the `.runconfig` and `.compute` files for each pair and examine the content. These files control the execution environment and behaviors. For more information on configuring execution environment, please review [Configuring Execution Options](Execution.md) article. For more information on the specific values in these configuration files, refer to the [Demystifying _aml_config_ Folder](aml_config.md) article.
 
 ## Step 2. Execute `iris_sklearn.py` Script in `local` Environment
-Let's run the `iris_sklearn.py` script for the first time. This script requires `scikit-learn` and `matplotlib` packages. `scikit-learn` is already installed by the Azure ML Workbench. However, we need to install `matplotlib`. Open the command-line window by clicking on _Open Command Prompt_ from the _File_ menu. (We refer to this command-line interface window as Azure ML Workbench CLI window, or CLI window for short.)
+Let's run the `iris_sklearn.py` script for the first time. This script requires `scikit-learn` and `matplotlib` packages. `scikit-learn` is already installed by the Azure ML Workbench. However, we need to install `matplotlib`. Open the command-line window by clicking on **Open Command Prompt** from the **File** menu. (We refer to this command-line interface window as Azure ML Workbench CLI window, or CLI window for short.)
 
 In the CLI window, type in the following command to install `matplotlib` Python package. It generally completes in roughly a minute.
 ```batch
@@ -55,11 +55,13 @@ REM install matplotlib
 C:\Temp\myIris> pip install matplotlib
 ```
 
-Return to the Workbench app. In the _Run Control Panel_, choose `local` as the execution environment, and `iris_sklearn.py` as the script to run. Fill the _Arguments_ field with a value of `0.01`. Click on the _Run_ button. A job is immediately scheduled and listed in the _Jobs_ panel on the right side of the Workbench window. The status of the Job transitions from `Submitting`, to `Running`, and finally to `Completed` in a few seconds.
+Return to the Workbench app. In the **Run Control Panel**, choose `local` as the execution environment, and `iris_sklearn.py` as the script to run. Fill the _Arguments_ field with a value of `0.01`. Click on the _Run_ button. A job is immediately scheduled and listed in the **Jobs Panel** on the right side of the Workbench window. The status of the job transitions from `Submitting`, to `Running`, and finally to `Completed` in a few seconds.
 
 ![run sklearn](media/tutorial-classifying-iris/run_sklearn.png)
 
-Clicking on the job status text triggers a pop-up window that displays the standard output (stdout) of the running script. (Clicking on the script name leads you to the run detail information of that particular run which we discuss later.) When the run is completed, the pop-up window shows the following results (Note: since we introduce some randomization into the training set earlier, your exact results will vary somewhat.):
+Clicking on the job status text triggers a pop-up window that displays the standard output (stdout) of the running script. (Clicking on the script name leads you to the run detail information of that particular run which we discuss later.) When the run is completed, the pop-up window shows the following results: 
+
+>Note: since we introduce some randomization into the training set earlier, your exact results will vary somewhat.
 
 ```text
 Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -99,7 +101,7 @@ In Azure ML Workbench, every script execution is captured as a run history recor
 
 The statistics captured across multiple runs are rendered in the graph view and the table view. Experiment with the configurations and filter controls to see all your options.
 
-Click on an individual run to see the run detail view. All the statistics for the selected run are listed in the _Run Properties_ section. The files written into the `outputs` folder are listed in the _Output Files_ section, and can be downloaded or promoted (more on promotion later). The two plots, confusion matrix and multi-class ROC curve, are rendered in the _Output Images_ section. All the log files can also be found in the _Log Files_ section.
+Click on an individual run to see the run detail view. All the statistics for the selected run are listed in the _Run Properties_ section. The files written into the `outputs` folder are listed in the **Output Files** section, and can be downloaded or promoted (more on promotion later). The two plots, confusion matrix and multi-class ROC curve, are rendered in the **Output Images** section. All the log files can also be found in the **Log Files** section.
 
 ![run history details view]()
 
@@ -108,18 +110,18 @@ Click on an individual run to see the run detail view. All the statistics for th
 
 Azure ML allows you to easily configure additional execution environments and run your script there. In the `aml_config` folder, two additional environments are specified: `docker-python` and `docker-spark`. Take a moment to look at the respective `.compute` and `.runconfig` files under the `aml_config` folder again.
 
-In the _Run Control Panel_, choose `docker-python` as the targeted environment, and `iris_sklearn.py` as the script to run. (You can leave the _Arguments_ field blank since the script specifies a default value.) Click on the _Run_ button.
+In the **Run Control Panel**, choose `docker-python` as the targeted environment, and `iris_sklearn.py` as the script to run. (You can leave the **Arguments** field blank since the script specifies a default value.) Click on the **Run** button.
 
-A new job is started in the _Jobs_ pane. If you are running against Docker for the first time, it might take a few minutes to finish. Behind the scene, Azure ML Workbench downloads a base Docker image specified in the `docker-python.compute` file, starts a container based on that image, and installs Python packages specified in the `conda_dependencies.yml` file in the container. It then copies (or references, depending on run configuration) the local copy of the project folder, and then executes the `iris_sklearn.py` script. In the end, you should see the exact same result as you do when targeting `local`.
+A new job is started in the **Jobs Panel**. If you are running against Docker for the first time, it might take a few minutes to finish. Behind the scene, Azure ML Workbench downloads a base Docker image specified in the `docker-python.compute` file, starts a container based on that image, and installs Python packages specified in the `conda_dependencies.yml` file in the container. It then copies (or references, depending on run configuration) the local copy of the project folder, and then executes the `iris_sklearn.py` script. In the end, you should see the exact same result as you do when targeting `local`.
 
 The Docker base image contains a pre-installed and configured Spark instance. Because of this, you can execute a PySpark script in it. This is a simple way to develop and test your Spark program without having to spend the time installing and configuring Spark yourself. 
 
 Open the `iris_pyspark.py` file. This script loads the `iris.csv` data file, and uses the Logistic Regression algorithm from the Spark ML library to classify the Iris dataset. Now change the run environment to `docker-spark`, and the script to `iris_pyspark.py`, and run again. This takes a little longer since a Spark session has to be created and started inside the Docker container. You can also see the stdout is different than the stdout of `iris_pyspark.py`.
 
-Do a few more runs and play with different arguments. Open the `iris_pyspark.py` file to see the simple Logistic Regression model built using Spark ML library. Interact with the _Job_ pane, run history list view, and run details view of your runs across different execution environments.
+Do a few more runs and play with different arguments. Open the `iris_pyspark.py` file to see the simple Logistic Regression model built using Spark ML library. Interact with the **Job Panel**, run history list view, and run details view of your runs across different execution environments.
 
 ## Step 5. Execute Scripts in the Azure ML CLI Window
-Launch the command-line window by clicking on _File_ --> _Open Command Prompt_. You are automatically placed in the project folder `C:\Temp\myIris`.
+Launch the command-line window by clicking on **File** --> **Open Command Prompt**. You are automatically placed in the project folder `C:\Temp\myIris`.
 
 >Important: You **must** use the command line window (launched from the Workbench) to accomplish the following steps:
 
@@ -173,7 +175,7 @@ while reg > 0.005:
     reg = reg / 2
 ```
 
-This script starts an `iris_sklearn.py` job with a _regularization rate_ of `10.0` (a ridiculously large number of course), and cut the rate to half in the following run, and so on, and so forth, until the rate is no smaller than `0.005`.
+This script starts an `iris_sklearn.py` job with a regularization rate of `10.0` (a ridiculously large number of course), and cut the rate to half in the following run, and so on, and so forth, until the rate is no smaller than `0.005`.
 ```
 REM Submit iris_sklearn.py multiple times with different regularization rates
 C:\Temp\myIris> python run.py
@@ -229,7 +231,7 @@ Issue the following command and the script runs in the HDI cluster:
 REM execute iris_pyspark on the HDI cluster
 C:\Temp\myIris> az ml experiment submit -c myhdi .\iris_pyspark.py
 ```
->Note: When you execute against a remote HDI cluster, you can also view the YARN job execution details at https://<cluster_name>.azurehdinsight.net/yarnui using the `admin` user account.
+>Note: When you execute against a remote HDI cluster, you can also view the YARN job execution details at `https://<cluster_name>.azurehdinsight.net/yarnui` using the `admin` user account.
 
 Now that we have created the Logistic Regression model, let's deploy it as a real-time web service.
 
