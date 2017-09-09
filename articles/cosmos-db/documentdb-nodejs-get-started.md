@@ -52,8 +52,10 @@ Now let's get started!
 ## Prerequisites for the Node.js tutorial
 Please make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](local-emulator.md) for this tutorial.
+* An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/). 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 * [Node.js](https://nodejs.org/) version v0.10.29 or higher.
 
 ## Step 1: Create an Azure Cosmos DB account
