@@ -986,7 +986,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 * Log in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
 * Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
-* (Optional) Create a Managed Disk from the VHD with *az disk create* - see https://docs.microsoft.com/cli/azure/disk#create
+* (Optional) Create a Managed Disk from the VHD with *az disk create* - see https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Create a new VM specifying the uploaded VHD or Managed Disk as OS disk with *az vm create* and parameter *--attach-os-disk*
 * Add a data disk to a new VM with *az vm disk attach* and parameter *--new*
 
@@ -1015,7 +1015,7 @@ To upload an existing VM or VHD from the on-premises network in order to use it 
 * Log in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
 * Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
-* (Optional) Create a Managed Disk Image from the VHD with *az image create* - see https://docs.microsoft.com/cli/azure/image#create
+* (Optional) Create a Managed Disk Image from the VHD with *az image create* - see https://docs.microsoft.com/cli/azure/image#az_image_create
 * Create a new VM specifying the uploaded VHD or Managed Disk Image as OS disk with *az vm create* and parameter *--image*
 
 **Template**
