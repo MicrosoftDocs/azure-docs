@@ -82,6 +82,8 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+
 ## Create a Ruby web app on Azure
 
 A resource group is required to contain the assets needed for your web app. To create a resource group, use the [az group create]() command.
@@ -123,10 +125,6 @@ git add -A
 git commit -m "Initial deployment commit"
 git push azure master
 ```
-
-> [!NOTE]
-> You may be prompted for credentials When you push to Azure Master. If you have not yet set your [Deployment Credentials](../../app-service-web/app-service-deployment-credentials) in the App Service blade.
->
 
 Confirm that the remote deployment operations report success. The commands produce output similar to the following text:
 
