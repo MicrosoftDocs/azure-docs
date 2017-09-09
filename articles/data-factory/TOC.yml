@@ -181,7 +181,9 @@
     - name: Expression Language         
       href: control-flow-expression-language-functions.md
     - name: System variables         
-      href: control-flow-system-variables.md      
+      href: control-flow-system-variables.md     
+  - name: Store credentials in key vault
+    href: store-credentials-in-key-vault.md 
   - name: Monitor and manage
     items: 
     - name: Use .NET

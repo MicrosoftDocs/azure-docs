@@ -78,28 +78,28 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 # If your inputs contain PSH special characters, e.g. "$", please precede it with the escape character "`" like "`$". 
 
 # Azure Data Factory information
-$SubscriptionName = "MDP_492270"
-$ResourceGroupName = "SPADF2"
-$DataFactoryName = "SPDataFactorySSIS2"
-$DataFactoryLocation = "EastUS"
-$DataFactoryLoggingStorageAccountName = "spstoragemswest"
-$DataFactoryLoggingStorageAccountKey = "39l9JePVi83UeWO2O5Q83MmX28kF393cVdyETDvL7o+ClBdwVfIjH85zzvzW41g79ryOrV3OpK92bj8JaQFp5g=="
+$SubscriptionName = "<your azure subscription name>"
+$ResourceGroupName = "<azure resource group name>"
+$DataFactoryName = "<globablly unique name for your data factory>"
+$DataFactoryLocation = "EastUS" # data factory v2 can be created only in east us region. 
+$DataFactoryLoggingStorageAccountName = "<storage account name>"
+$DataFactoryLoggingStorageAccountKey = "<storage account key>"
 
 # Managed-dedicated integratin runtime
-$MDIRName = "SP-MDIR1"
+$MDIRName = "<name of managed-dedicated integration runtime>"
 $MDIRDescription = "This is my managed-dedicated integration runtime instance"
-$MDIRLocation = "EastUS" # In Private Preview, only East US|North Europe are supported for now
-$MDIRNodeSize = "Standard_A4_v2" # In Private Preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported for now
-$MDIRNodeNumber = 2 # In Private Preview, only 1-10 nodes are supported for now
-$MDIRMaxParallelExecutionsPerNode = 2 # In Private Preview, only 1-8 parallel executions per node are supported for now
-$VnetId = "" # OPTIONAL: In Private Preview, only Classic VNet is supported for now
-$SubnetName = "" # OPTIONAL: In Private Preview, only Classic VNet is supported for now
+$MDIRLocation = "EastUS" # only East US|North Europe are supported
+$MDIRNodeSize = "Standard_A4_v2" # currently, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported 
+$MDIRNodeNumber = 2 # only 1-10 nodes are supported
+$MDIRMaxParallelExecutionsPerNode = 2 # only 1-8 parallel executions per node are supported
+$VnetId = "" # OPTIONAL: only classic VNet is supported
+$SubnetName = "" # OPTIONAL: only classic VNet is supported
 
 # SSISDB info
-$SSISDBServerEndpoint = "spsqlserver.database.windows.net"
-$SSISDBServerAdminUserName = "spelluru"
-$SSISDBServerAdminPassword = "Sowmya123"
-$SSISDBPricingTier = "S0" # Not applicable for Azure SQL MI
+$SSISDBServerEndpoint = "<your azure sql server name>.database.windows.net"
+$SSISDBServerAdminUserName = "<sql server admin user ID>"
+$SSISDBServerAdminPassword = "<sql server admin password>"
+$SSISDBPricingTier = "<your azure sql database pricing tier, e.g. S0, S3, or leave it empty for azure sql managed instance>" # Not applicable for Azure SQL MI
 
 ##### End of managed-dedicated integration runtime specifications ##### 
 
