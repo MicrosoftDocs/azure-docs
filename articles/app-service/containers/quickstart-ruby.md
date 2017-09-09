@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 ## Run the application locally
 
 Run the rails server in order for the application to work. Change to the *hello-world* directory, and the `rails server` command starts the server.
-
+e
 ```bash
 cd hello-world\bin
 rails server
@@ -123,6 +123,10 @@ git add -A
 git commit -m "Initial deployment commit"
 git push azure master
 ```
+
+> [!NOTE]
+> You may be prompted for credentials When you push to Azure Master. If you have not yet set your [Deployment Credentials](../../app-service-web/app-service-deployment-credentials) in the App Service blade.
+>
 
 Confirm that the remote deployment operations report success. The commands produce output similar to the following text:
 
