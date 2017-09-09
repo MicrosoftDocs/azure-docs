@@ -47,6 +47,7 @@
 #### [Use cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
 #### [Use Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
+#### [Use .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 ### [Run the MapReduce samples](hdinsight-hadoop-run-samples-linux.md)
 ### [Use Pig with Hadoop](hdinsight-use-pig.md)
 #### [Use SSH and Pig](hdinsight-hadoop-use-pig-ssh.md)
@@ -188,6 +189,10 @@
 ### [Availability and reliability ](hdinsight-high-availability-linux.md)
 ### [Upgrade HDInsight cluster to newer version](hdinsight-upgrade-cluster.md)
 ### [OS patching for HDInsight cluster](hdinsight-os-patching.md)
+## Monitor
+### [Use Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+### [Cluster-specific dashboards](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
+### [Use queries with Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 ## [Troubleshoot](hdinsight-troubleshoot-guide.md)
 ### [HBASE troubleshooting](hdinsight-troubleshoot-hbase.md)
 ### [HDFS troubleshooting](hdinsight-troubleshoot-hdfs.md)
