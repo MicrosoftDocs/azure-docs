@@ -65,16 +65,13 @@ The current implementation of Azure Active Directory enables you to configure th
 
     ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
 
+- **Session controls** - Session controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
+
+    ![Control](./media/active-directory-conditional-access-azure-portal/31.png)
 
 
-### Session controls
-Session controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
+For more information, see [controls in Azure Active Directory Conditional Access](active-directory-conditional-access-controls.md).
 
-![Control](./media/active-directory-conditional-access-azure-portal/31.png)
-
-#### Use app enforced restrictions
-You can use this control to require Azure AD to pass the device information to the cloud app. This helps the cloud app know if the user is coming from a compliant device or domain joined device. This control is currently only supported with SharePoint as the cloud app. SharePoint uses the device information to provide users a limited or full experience depending on the device state.
-To learn more about how to require limited access with SharePoint, see [control access from unmanaged devices](https://aka.ms/spolimitedaccessdocs).
 
 ## Condition Statement
 
