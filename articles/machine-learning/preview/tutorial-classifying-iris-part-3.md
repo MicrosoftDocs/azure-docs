@@ -16,7 +16,7 @@ ms.date: 09/06/2017
 # Classifying Iris Part 3: Deploy Model
 In this tutorial, we show you the basics of Azure ML preview features by creating a data preparation package, building a model and operationalizing it as a real-time web service. To make things simple, we use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set). The instructions and screenshots are created for Windows, but they are similar, if not identical, for macOS.
 
-This is part 3 of a 3-part tutorial, convering model deployment.
+This is part 3 of a 3-part tutorial, covering model deployment.
 
 ## Step 1. Obtain the Pickled Model
 In the `iris_sklearn.py` script, we serialize the logistic regression model using the popular object serialization package -- pickle, into a file named `model.pkl` on disk. Here is the code snippet.
@@ -32,12 +32,12 @@ When you executed the `iris_sklearn.py` script, the model was written to the `ou
 
 ![Download Pickle](media/tutorial-classifying-iris/download_model.png)
 
-Now, download the model file `model.pkl` and save it to the root of your  project folder. You will need it in the later steps.
+Now, download the model file `model.pkl` and save it to the root of your  project folder. You need it in the later steps.
 
 ## Step 2. Prepare for Operationalization Locally
 Local mode deployments run in Docker containers on your local computer, whether that is your desktop or a Linux VM running on Azure. You can use local mode for development and testing. The Docker engine must be running locally to complete the operationalization steps as shown in the following steps. You can use -h flag at the end of the commands for command help.
 
-- Create the environment (you need to do this once per environment, e.g.,  dev or prod) in local mode (you can use -c switch in the command to setup environment in cluster mode)  
+- Create the environment (you need to do this once per environment, for example,  dev or prod) in local mode (you can use -c switch in the command to set up environment in cluster mode)  
     ```
     az ml env setup -n <yourclustername> --location <e.g. eastus2>
     ```
@@ -73,15 +73,15 @@ After the setup is complete, set the environment variables required for operatio
 ## Step 3. Get scoring and schema files
 To deploy the web service, along with the model you also need a scoring script and optionally a schema for the web service input data. The scoring script loads the `model.pkl` file from the current folder and uses it to produce a new predicted Iris class.  
 
-We already downloaded the model.pkl file in Step 1. In order to get the schema file follow the steps below:
+We already downloaded the model.pkl file in Step 1. In order to get the schema file, follow the steps below:
 
 * Choose `iris_score.py`, pick the `local` environment in the **Run Control** dropdown, and then click _Run_ button. This creates the `service_schema.json` in the `outputs` folder.
 
 * Go to the run history of the `iris_score.py` file, and download the `service_schema.json` file to the project root folder. 
 
-We will use `iris_score.py` as our scoring file. 
+We use `iris_score.py` as our scoring file. 
 
-Now we will enable data collection in `iris_score.py` file. Data collection allows you to capture model inputs and predictions from the web service. Follow the steps below to enable data collection,
+Now we enable data collection in `iris_score.py` file. Data collection allows you to capture model inputs and predictions from the web service. Follow the steps below to enable data collection,
 
 * Use these links to download prerequisites for data collection on your machine.
 
