@@ -31,15 +31,9 @@ Then, you can use the logger's **log** method to store key/value pairs produced 
 Currently, logging model metrics of scalar, dictionary, list, dataframe types are supported as shown.
 
 ```Python
-# azureml.logging package basic usage #
-
 # create a logger instance in already set up environment 
 from azureml.logging import get_azureml_logger
 logger = get_azureml_logger()
-
-#
-# metric logging
-#
 
 # log scalar (any integer or floating point type is fine)
 logger.log("simple value", 7)
@@ -48,7 +42,7 @@ logger.log("simple value", 7)
 logger.log("range", {"min":5, "max":7})
 
 # log list
-logger.log("all values", [5,6,7])
+logger.log("all values", [5, 6, 7])
 
 # log dataframe
 import pandas
@@ -71,7 +65,6 @@ From the **Project Dashboard**, you can open the **iris_sklearn.py** script (as 
 ![accessing a script from the files tab](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 
 You can use this script as a guide for expected implementation of model metric logging in Azure ML.
-
 
 ## Parameterize and Log Model Metrics from Script
 In the **iris_sklearn.py** script, **Lines 12 through 18** show the expected pattern to import and construct the logger in Python.
