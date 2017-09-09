@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 # Copy data from Amazon Redshift using Azure Data Factory
 > [!div class="op_single_selector" title="Select version"]
-> * [Version 1 - GA](data-factory-amazon-redshift-connector.md)
+> * [Version 1 - GA](v1/data-factory-amazon-redshift-connector.md)
 > * [Version 2 - Preview](connector-amazon-redshift.md)
 
 > [!NOTE]

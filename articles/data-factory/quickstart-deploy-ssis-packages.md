@@ -25,7 +25,7 @@ This quickstart describes how to provision managed-dedicated integration runtime
 - **Azure Storage account**. If you don't already have an Azure Storage account, create one in the Azure portal before you get started. To provision managed-dedicated integration runtime in the cloud, you first need to create a data factory. To create a data factory, you must specify a storage account where the logging information is stored. 
 - **Azure SQL Database server** or **SQL Server Managed Instance**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
 - **Classic Virtual Network(VNet) (optional)**. You must have an Azure Virtual Network (VNet) if at least one of the following conditions is true:
-    - You are hosting the SSIS Catalog database on a SQL Server Managed Instance which is part of a VNet.
+    - You are hosting the SSIS Catalog database on a SQL Server Managed Instance that is part of a VNet.
     - You want to connect to on-premises data sources from SSIS packages running on a SQL Server Managed Instance.
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision managed-dedicated integration runtime that runs SSIS packages in the cloud. 
 
@@ -41,7 +41,7 @@ The PowerShell script in this section configures an instance of managed-dedicate
     Set-ExecutionPolicy Unrestricted -Scope CurrentUser
     ```
 3. Copy the PowerShell script in this section and paste it into the ISE.
-4. Provide appropriate values for the script parameters in the "SSIS in Azure specifications" section at the beginning of the script. These parameters are described in the following section.
+4. Provide appropriate values for the script parameters in the "SSIS in Azure specifications" section at the beginning of the script. These parameters are described in the next section.
 5. Run the script. Expect the `Start-AzureRmDataFactoryV2IntegrationRuntime` command near the end of the script to run for 20 to 30 minutes.
 
 [!NOTE]
@@ -57,15 +57,15 @@ DataFactoryName	|Name of the data factory.
 DataFactoryLoggingStorageAccountName | Azure storage account that stores logging information from Azure Data Factory.
 DataFactoryLoggingStorageAccountKey | Storage account key for the logging storage account. 
 MDIRName | Name of the managed-dedicated integration runtime.
-MDIRLocation | Location of the managed-dedicated integration runtime. This should be the region where you have an existing Azure SQL database(DB) /Managed Instance (MI) server to host SSISDB and or an existing VNet that is connected to your on-prem network. If your existing Azure SQL database/MI server is not in the same region as your existing VNet, first create managed-dedicated integration runtime inside a new VNet in the same region as your existing Azure SQL DB/MI server, then configure a VNet-to-VNet connection with your existing VNet.  
+MDIRLocation | Location of the managed-dedicated integration runtime. The value should be the region where you have an existing Azure SQL database(DB) /Managed Instance (MI) server to host SSISDB and or an existing VNet that is connected to your on-prem network. If your existing Azure SQL database/MI server is not in the same region as your existing VNet, first create managed-dedicated integration runtime inside a new VNet in the same region as your existing Azure SQL DB/MI server, then configure a VNet-to-VNet connection with your existing VNet.  
 MDIRNodeSize | The number of nodes (node size) of compute node that hosts managed-dedicated integration runtime.
 MDIRNodeNumber | The number of nodes in your managed-dedicated integration runtime cluster. 
-VnetId | The VNet resource ID for your managed-dedicated integration runtime to join. For example,/subscriptions/<subscription_guid>/resourceGroups/<group_name>/providers/Microsoft.ClassicNetwork/virtualNetworks/<vnet_name>.The VNet should be created under the same Azure subscription that is used to create the data factory and managed-dedicated integration runtime and in the same region as the managed-dedicated integration runtime. A VNet is only required if you have Azure SQL MI hosting SSISDB inside VNet or you need on-premises data access; otherwise leave this field empty.
-SubnetName | The subnet name for your managed-dedicated integration runtime to join.This is only required if you have Azure SQL MI hosting SSISDB inside VNet and or you need on-prem data access, otherwise leave this field empty.
+VnetId | The VNet resource ID for your managed-dedicated integration runtime to join. For example,`/subscriptions/<subscription_guid>/resourceGroups/<group_name>/providers/Microsoft.ClassicNetwork/virtualNetworks/<vnet_name>`.The VNet should be created under the same Azure subscription that is used to create the data factory and managed-dedicated integration runtime and in the same region as the managed-dedicated integration runtime. A VNet is only required if you have Azure SQL MI hosting SSISDB inside VNet or you need on-premises data access; otherwise leave this field empty.
+SubnetName | The subnet name for your managed-dedicated integration runtime to join. This field is required only if you have Azure SQL MI hosting SSISDB inside VNet and or you need on-prem data access, otherwise leave this field empty.
 SSISDBServerEndpoint | The endpoint of your existing Azure SQL DB/MI server to host SSISDB. For example, ssistestdb.database.windows.net.
 SSISDBServerAdminUserName | The admin username of your existing Azure SQL DB/MI server for us to prepare SSISDB on your behalf.
 SSISDBServerAdminPassword | The admin password of your existing Azure SQL DB/MI server for us to prepare SSISDB on your behalf.
-SSISDBPricingTier | The pricing tier for your SSISDB hosted by Azure SQL DB server. This is only required for Azure SQL DB server hosting SSISDB, otherwise leave this field empty for Azure SQL MI hosting SSISDB.
+SSISDBPricingTier | The pricing tier for your SSISDB hosted by Azure SQL DB server. This field is required only for Azure SQL DB server hosting SSISDB, otherwise leave this field empty for Azure SQL MI hosting SSISDB.
 
 
 ### Script
