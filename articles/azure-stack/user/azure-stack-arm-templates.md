@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 # Use Azure Resource Manager templates in Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 Azure Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation. You can also redeploy templates to make changes to the resources in the resource group.
 
 These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.

@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 # Deploy templates in Azure Stack using PowerShell
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack Development Kit.  Resource Manager templates deploy and provision all resources for your application in a single, coordinated operation.
 
 ## Run AzureRM PowerShell cmdlets

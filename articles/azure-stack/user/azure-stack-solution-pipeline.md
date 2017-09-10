@@ -13,12 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 09/25/2017
 ms.author: helaw
 ms.custom: mvc
 ---
 
 # Deploy apps to Azure and Azure Stack
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) pipeline enables you to build, test, and deploy your app to multiple clouds.  In this tutorial, you build a sample environment to learn how a hybrid CI/CD pipeline can help you:
  
 > [!div class="checklist"]

@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 # Deploy templates in Azure Stack using the command line
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 Use the command line to deploy Azure Resource Manager templates to the Azure Stack Development Kit. Azure Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
 
 ## Before you begin
