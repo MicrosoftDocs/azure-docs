@@ -303,7 +303,7 @@ To run the script, enter the following command:
 If the script successfully obtains the status of the HANA instance, it displays a message that the HANA connection was successful.
 
 
-The next test step is to check the connectivity to the storage based on the data you put into the HANABackupCustomerDetails.txt configuration file, and then execute a test snapshot. Before you execute the `azure\_hana\_backup.pl` script, you must execute this test. If a volume contains no snapshots, it is impossible to determine whether the volume is empty or if there is an SSH failure to obtain the snapshot details. For this reason, the script executes two steps:
+The next test step is to check the connectivity to the storage based on the data you put into the HANABackupCustomerDetails.txt configuration file, and then execute a test snapshot. Before you execute the `azure_hana_backup.pl` script, you must execute this test. If a volume contains no snapshots, it is impossible to determine whether the volume is empty or if there is an SSH failure to obtain the snapshot details. For this reason, the script executes two steps:
 
 - It verifies that the tenant's storage virtual machine and interfaces are accessible for the scripts to execute snapshots.
 - It creates a test, or dummy, snapshot for each volume by HANA instance.
@@ -493,7 +493,7 @@ Use these commands to make sure that the snapshots that are taken and stored are
 >The snapshots of the boot LUN are not visible with the previous commands.
 
 ### Getting details of snapshots
-To get more details on snapshots, you can also use the script `azure\_hana\_snapshot\_details.pl`. This script can be run in either location if there is an active server in the disaster-recovery location. The script provides the following output, broken down by each volume that contains snapshots: 
+To get more details on snapshots, you can also use the script `azure_hana_snapshot_details.pl`. This script can be run in either location if there is an active server in the disaster-recovery location. The script provides the following output, broken down by each volume that contains snapshots: 
    * Size of total snapshots in a volume
    * Each snapshot in that volume includes the following details: 
       - Snapshot name 
@@ -558,7 +558,7 @@ If you run the script with this setting, the number of snapshots, including the 
 
 If you no longer want to maintain a set of snapshots with a specific backup label **hanadaily** in the syntax examples, you can execute the script with **0** as the retention number. This removes all snapshots matching that label. However, removing all snapshots can affect the capabilities of disaster recovery.
 
-A second possibility to delete specific snapshots is to use the script `azure\_hana\_snapshot\_delete.pl`. This script is designed to delete a snapshot or set of snapshots either by using the HANA backup ID as found in HANA Studio or through the snapshot name itself. Currently, the backup ID is only tied to the snapshots created for the **hana** snapshot type. Snapshot backups of the type **logs** and **boot** do not perform an SAP HANA snapshot. Therefore, there is no backup ID to be found for those snapshots. If the snapshot name is entered, it looks for all snapshots on the different volumes that match the entered snapshot name. The call syntax of the script is:
+A second possibility to delete specific snapshots is to use the script `azure_hana_snapshot_delete.pl`. This script is designed to delete a snapshot or set of snapshots either by using the HANA backup ID as found in HANA Studio or through the snapshot name itself. Currently, the backup ID is only tied to the snapshots created for the **hana** snapshot type. Snapshot backups of the type **logs** and **boot** do not perform an SAP HANA snapshot. Therefore, there is no backup ID to be found for those snapshots. If the snapshot name is entered, it looks for all snapshots on the different volumes that match the entered snapshot name. The call syntax of the script is:
 
 ```
 ./azure_hana_snapshot_delete.pl 
@@ -834,7 +834,7 @@ The sequence of steps looks like:
 
 ### Monitoring disaster recovery replication
 
-You can monitor the status of your storage replication progress by executing the script `azure\_hana\_replication\_status.pl`. This script must be run from a unit running in the disaster-recovery location. Otherwise, it will not function as expected. The script works regardless of whether or not replication is active. The script can be run for every HANA Large Instance unit of your tenant in the disaster-recovery location. It cannot be used to obtain details about the boot volume.
+You can monitor the status of your storage replication progress by executing the script `azure_hana_replication_status.pl`. This script must be run from a unit running in the disaster-recovery location. Otherwise, it will not function as expected. The script works regardless of whether or not replication is active. The script can be run for every HANA Large Instance unit of your tenant in the disaster-recovery location. It cannot be used to obtain details about the boot volume.
 
 Call the script like:
 ```
