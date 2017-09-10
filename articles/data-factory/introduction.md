@@ -18,5 +18,9 @@ ms.author: shlo
 
 ---
 # Introduction to Azure Data Factory 
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-introduction.md)
+> * [Version 2 - Preview](introduction.md)
+
 > [!NOTE]
-> This article applies to version 2 of Data Factory. Currently, the version 2 of Data Factory is in preview. The version 1 is generally available (GA). If you are using version 1 of the Data Factory service, see [Data Factory version 1 - Overview](v1/data-factory-introduction.md). 
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Introduction to Data Factory V1](v1/data-factory-introduction.md).

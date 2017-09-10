@@ -20,6 +20,14 @@ ms.author: shlo
 robots: noindex
 ---
 # Introduction to Azure Data Factory 
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](data-factory-introduction.md)
+> * [Version 2 - Preview](../introduction.md)
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Introduction to Data Factory V2](../introduction.md).
+
+
 ## What is Azure Data Factory?
 In the world of big data, how is existing data leveraged in business? Is it possible to enrich data generated in the cloud by using reference data from on-premises data sources or other disparate data sources? For example, a gaming company collects many logs produced by games in the cloud. It wants to analyze these logs to gain insights in to customer preferences, demographics, usage behavior etc. to identify up-sell and cross-sell opportunities, develop new compelling features to drive business growth, and provide a better experience to customers. 
 

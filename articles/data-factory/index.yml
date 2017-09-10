@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/08/2017
   ms.author: spelluru
 abstract:
-  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in preview. The version V1 is generally available (GA). If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation</a></p>. 
+  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in preview. The version V1 is generally available (GA). If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -38,7 +38,11 @@ sections:
     - image: 
         src: /azure/data-factory/media/index/logo_python.svg
       text: Python
-      href: /azure/data-factory/quickstart-create-data-factory-python
+      href: /azure/data-factory/quickstart-create-data-factory-portal
+    - image: 
+        src: /azure/data-factory/media/index/logo_portal.svg
+      text: Python
+      href: /azure/data-factory/quickstart-create-data-factory-portal      
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
