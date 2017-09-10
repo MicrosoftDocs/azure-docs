@@ -22,8 +22,8 @@ ms.author: dobett
 
 At the end of this tutorial, you have two Java console apps:
 
-* **SimulateDeviceConfiguration**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
-* **SetDesiredConfigurationAndQuery**, a back-end app, which sets the desired configuration on a device and queries the configuration update process.
+* **simulated-device**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
+* **set-configuration**, a back-end app, which sets the desired configuration on a device and queries the configuration update process.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
@@ -32,8 +32,9 @@ At the end of this tutorial, you have two Java console apps:
 
 To complete this tutorial you need the following:
 
-* Visual Studio 2015 or Visual Studio 2017.
-* An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
+* The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* [Maven 3](https://maven.apache.org/install.html) 
+* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have an IoT hub and a device identity called **myDeviceId**. In that case, you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
 
@@ -43,9 +44,11 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 
 <a id="#create-the-simulated-device-app"></a>
 ## Create the simulated device app
-In this section, you create a .NET console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
+In this section, you create a Java console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
 
-1. In the dm-get-started folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
+1. Create an empty folder called dt-get-started.
+
+1. In the dt-get-started folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -119,7 +122,7 @@ In this section, you create a .NET console app that connects to your hub as **my
 	}
     ```
 
-1. To implement a callback handler for property events, add the following nested class to the **App** class:
+1. Add the following method to the **App** class:
 
     ```java
     private static class TelemetryConfig extends Device 
@@ -211,7 +214,7 @@ In this section, you create a .NET console app that connects to your hub as **my
     telemetryConfig = new TelemetryConfig();
     ```
 
-1. Add the following code to the **main** method to start listening for direct method calls:
+1. Add the following code to the **main** method to start device twin services:
 
     ```java
     try {
@@ -253,18 +256,15 @@ In this section, you create a .NET console app that connects to your hub as **my
    > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, some might have to queue them, and some could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
    > 
    > 
-1. Build the solution and then run the device app from Visual Studio by clicking **F5**. On the output console, you should see the messages indicating that your simulated device is retrieving the device twin, setting up the telemetry, and waiting for desired property change. Keep the app running.
 
 ## Create the service app
-In this section, you will create a .NET console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
+In this section, you will create a Java console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
 
-1. Create an empty folder called set-desired-configuration.
+1. In the dt-get-started folder, create a Maven project called **set-configuration** using the following command at your command prompt. Note this is a single, long command:
 
-1. In the set-desired-configuration folder, create a Maven project called **set-desired-configuration** using the following command at your command prompt. Note this is a single, long command:
+    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=set-configuration -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=set-desired-configuration -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
-
-1. At your command prompt, navigate to the set-desired-configuration folder.
+1. At your command prompt, navigate to the set-configuration folder.
 
 1. Using a text editor, open the pom.xml file in the trigger-reboot folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app to communicate with your IoT hub:
 
@@ -300,7 +300,7 @@ In this section, you will create a .NET console app that updates the *desired pr
 
 1. Save and close the pom.xml file.
 
-1. Using a text editor, open the set-desired-configuration\src\main\java\com\mycompany\app\App.java source file.
+1. Using a text editor, open the set-configuration\src\main\java\com\mycompany\app\App.java source file.
 
 1. Add the following **import** statements to the file:
 
@@ -323,7 +323,7 @@ In this section, you will create a .NET console app that updates the *desired pr
 	public static final String plant = "Redmond43";
     ```
 
-1. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
+1. To query and update device twins on the simulated device, add the following code to the **main** method:
 
     ```java
     // Get the DeviceTwin and DeviceTwinDevice objects
@@ -389,7 +389,7 @@ In this section, you will create a .NET console app that updates the *desired pr
 
 1. Save and close the set-desired-configuration\src\main\java\com\mycompany\app\App.java file.
 
-1. Build the **set-desired-configuration** back-end app and correct any errors. At your command prompt, navigate to the set-desired-configuration folder and run the following command:
+1. Build the **set-configuration** back-end app and correct any errors. At your command prompt, navigate to the set-configuration folder and run the following command:
 
     `mvn clean package -DskipTests`
    
@@ -406,6 +406,26 @@ In this section, you will create a .NET console app that updates the *desired pr
    > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single device twin use the **getDeviceTwin** method in the **Registry** class.
    > 
    > 
+
+## Run the apps
+
+You are now ready to run the apps.
+
+1. At a command prompt in the simulated-device folder, run the following command to begin listening for reboot method calls from your IoT hub:
+
+    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+
+    ![Java IoT Hub simulated device app to listen for reboot direct method calls][1]
+
+1. At a command prompt in the set-configuration folder, run the following command to query and update the device twins on your simulated device from your IoT hub:
+
+    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+
+    ![Java IoT Hub service app to call the reboot direct method][2]
+
+1. The simulated device responds to the reboot direct method call:
+
+    ![Java IoT Hub simulated device app responds to the direct method call][3]
 
 ## Next steps
 In this tutorial, you set a desired configuration as *desired properties* from the solution back end, and wrote a device app to detect that change and simulate a multi-step update process reporting its status through the reported properties.
