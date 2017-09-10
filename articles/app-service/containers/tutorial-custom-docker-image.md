@@ -205,7 +205,7 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 ## Create Web App for Containers
 
-You can host native Linux applications in the cloud by using Azure Web Apps. To create a Web App for Containers, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself. First, run the [az group create](https://docs.microsoft.com/cli/azure/group#create) command, and pass in a location and unique name.
+You can host native Linux applications in the cloud by using Azure Web Apps. To create a Web App for Containers, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself. First, run the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command, and pass in a location and unique name.
 
 ```azurecli-interactive
 az group create --location "West Europe" --name myResourceGroup
@@ -226,7 +226,7 @@ You see output similar to the sample shown here:
 }
 ```
 
-Use the name of the group to help create an app service plan by using the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command. You also need to name it a unique name and set the `--is-linux` flag.
+Use the name of the group to help create an app service plan by using the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) command. You also need to name it a unique name and set the `--is-linux` flag.
 
 ```azurecli-interactive
 az appservice plan create --name myServicePlan --resource-group myResourceGroup --is-linux
@@ -258,7 +258,7 @@ rs/Microsoft.Web/serverfarms/myServicePlan",
 }
 ```
 
-Now that the resource group and service plan have been created, you can run the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app. Notice the runtime stack is Python 3.4 and the web app uses the resource group and service plan setup in previous steps.
+Now that the resource group and service plan have been created, you can run the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) command to create the web app. Notice the runtime stack is Python 3.4 and the web app uses the resource group and service plan setup in previous steps.
 
 ```azurecli-interactive
 az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime "python|3.4" 
@@ -323,7 +323,7 @@ The [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) comma
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 
-To configure the web app to use a public Docker registry, pass the name of the app, the resource group, and the image name and URL to the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#set) command.
+To configure the web app to use a public Docker registry, pass the name of the app, the resource group, and the image name and URL to the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#az_webapp_config_container_set) command.
 
 ```azurecli-interactive
 az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage
@@ -361,7 +361,7 @@ A successful configuration change returns general information about the containe
 
 ## Test the Application in Azure
 
-Before testing, you must restart the web app using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#restart) for the configuration changes to take effect.
+Before testing, you must restart the web app using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) for the configuration changes to take effect.
 
 ```azurecli-interactive
 az webapp restart --name <web-app-name> --resource-group myResourceGroup
@@ -463,7 +463,7 @@ Congratulations! You've configured a custom Docker image for an Azure Web App fo
 
 Azure Container Registry is a managed Docker service from Azure for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Azure app service containers. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
 
-Use the [az acr create](https://docs.microsoft.com/cli/azure/acr#create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
+Use the [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -499,7 +499,7 @@ Use an existing service principal and assign access:
 }
 ```
 
-In order to push an image to the registry, you need to supply credentials so the registry accepts the push. You can retrieve these credentials by using the [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#show) command. 
+In order to push an image to the registry, you need to supply credentials so the registry accepts the push. You can retrieve these credentials by using the [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) command. 
 
 ```azurecli-interactive
 az acr credential show --name {azure-container-registry-name}
@@ -553,7 +553,7 @@ Listing the images in the registry confirms that `mydockerimage` is in the regis
 
 You can configure web apps on Linux so that they run a container stored in the Azure Container Registry. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
 
-The [az acr credential show](https://docs.microsoft.com/cli/azure/acr/credential#show) command displays the passwords for the container registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
+The [az acr credential show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) command displays the passwords for the container registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -575,7 +575,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Run the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#set) command. This command assigns the custom Docker image to the web app. Notice that you need a URL that is in the format `https://{your-registry-username}.azurecr.io`. Additionally, the web app needs the user name and password obtained in a previous step in order to access the container registry.
+Run the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#az_webapp_config_container_set) command. This command assigns the custom Docker image to the web app. Notice that you need a URL that is in the format `https://{your-registry-username}.azurecr.io`. Additionally, the web app needs the user name and password obtained in a previous step in order to access the container registry.
 
 ```azurecli-interactive
 az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
