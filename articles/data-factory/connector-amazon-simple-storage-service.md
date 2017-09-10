@@ -15,8 +15,8 @@ ms.author: jingwang
 ---
 # Copy data from Amazon Simple Storage Service using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-amazon-simple-storage-service-connector.md)
-> * [Version 2 - Preview](../connector-amazon-simple-storage-service.md)
+> * [Version 1 - GA](v1/data-factory-amazon-simple-storage-service-connector.md)
+> * [Version 2 - Preview](connector-amazon-simple-storage-service.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Blob Storage. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
