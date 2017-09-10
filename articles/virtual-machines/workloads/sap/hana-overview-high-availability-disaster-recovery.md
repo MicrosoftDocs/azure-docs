@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 09/13/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -156,7 +156,7 @@ However, it is your responsibility to install the SAP HANA HDB client on the HAN
 
 ### Step 2: Change the /etc/ssh/ssh\_config
 
-Change `/etc/ssh/ssh\_config` by adding the _MACs hmac-sha1_ line as shown here:
+Change `/etc/ssh/ssh_config` by adding the _MACs hmac-sha1_ line as shown here:
 ```
 #   RhostsRSAAuthentication no
 #   RSAAuthentication yes
@@ -400,7 +400,7 @@ The following parameters need to be specified:
 
 In the case of a scale-out, the script does some additional checking to ensure that you can access all the HANA servers. The script also checks that all HANA instances return the appropriate status of the instances, before it creates an SAP HANA snapshot. The SAP HANA snapshot is followed by a storage snapshot.
 
-The execution of the script `azure\_hana\_backup.pl` creates the storage snapshot in the following three distinct phases:
+The execution of the script `azure_hana_backup.pl` creates the storage snapshot in the following three distinct phases:
 
 1. Executes an SAP HANA snapshot.
 2. Executes a storage snapshot.
@@ -702,13 +702,17 @@ You can see from this sample how the script records the creation of the HANA sna
 ## Disaster recovery principles
 With HANA Large Instances, we offer a disaster-recovery functionality between HANA Large Instance stamps in different Azure regions. For instance, if you deploy HANA Large Instance units in the US West region of Azure, you can use the HANA Large Instance units in the US East region as disaster-recovery units. As mentioned earlier, disaster recovery is not configured automatically, because it requires you to pay for another HANA Large Instance unit in the DR region. The disaster-recovery setup works for scale-up as well as scale-out setups. 
 
-In the scenarios deployed so far, our customers use the unit in the DR region to run non-production systems that use an installed HANA instance. The HANA Large Instance unit needs to be of the same SKU as the SKU used for production purposes. You then need to order some more disk volumes. If you have additional disk volumes, you can have those disk volumes used as the targets for the storage replication from the production system into the disaster-recovery site. The volumes that are replicated to the DR site are the following:
+In the scenarios deployed so far, our customers use the unit in the DR region to run non-production systems that use an installed HANA instance. The HANA Large Instance unit needs to be of the same SKU as the SKU used for production purposes. The disk configuration is between the server unit in the Azure production region and the disaster recovery region is looking like:
+
+![Click "Finish" on the summary screen](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_setup.PNG)
+
+As shown in this overview graphics, you then need to order a second set of disk volumes. This disk volumes get associated with the HANA Large Instance server unit in the disaster recovery site. If you have additional disk volumes, you can have those disk volumes used as the targets for the storage replication from the production system into the disaster-recovery site. The volumes that are replicated to the DR site are the following:
 
 - /hana/data
-- /hana/log
-- /hana/shared
-- /hana/log/backup (includes /usr/sap)
+- /hana/logbackups 
+- /hana/shared (includes /usr/sap)
 
+The /hana/log volume is not replicated since the SAP HANA transaction log is not needed in the way the restore from those volumes are done. 
 
 The basis of the disaster-recovery functionality offered is the storage-replication functionality offered by the HANA Large Instance infrastructure. The functionality that is used on the storage side is not a constant stream of changes that replicate in an asynchronous manner as changes happen to the storage volume. Instead, it is a mechanism that relies on the fact that snapshots of these volumes are created on a regular basis. The delta between an already replicated snapshot and a new snapshot that is not yet replicated is then transferred to the disaster-recovery site into target disk volumes. These target disk volumes are the same size as the production volumes. 
 
