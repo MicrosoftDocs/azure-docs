@@ -18,3 +18,10 @@ ms.author: shlo
 ---
 
 # Pipelines and activities in Azure Data Factory 
+
+
+## Next steps
+See the following tutorials for step-by-step instructions for creating pipelines with activities: 
+
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
+- [Tutorial: copy data in cloud](tutorial-copy-data-powershell.md)

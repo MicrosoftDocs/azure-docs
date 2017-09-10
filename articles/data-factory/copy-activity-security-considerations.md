@@ -17,3 +17,10 @@ ms.author: jingwang
 
 ---
 # Security considerations for Azure Data Factory
+
+## Next steps
+See the other Copy Activity articles:
+
+- [Copy activity overview](copy-activity-overview.md)
+- [Copy activity fault tolerance](copy-activity-fault-tolerance.md)
+- [Copy activity performance](copy-activity-performance.md)

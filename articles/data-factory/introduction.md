@@ -24,3 +24,12 @@ ms.author: shlo
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Introduction to Data Factory V1](v1/data-factory-introduction.md).
+
+## Next steps
+See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
+
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
+- [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
+- [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md)
+- [Quickstart: create a data factory using Python](quickstart-create-data-factory-python.md)
+- [Quickstart: create a data factory using Azure portal](quickstart-create-data-factory-portal.md)

@@ -569,4 +569,5 @@ See other control flow activities supported by Data Factory:
 - [For Each Activity](control-flow-for-each-activity.md)
 - [Get Metadata Activity](control-flow-get-metadata-activity.md)
 - [Lookup Activity](control-flow-lookup-activity.md)
+- [Web Activity](control-flow-web-activity.md)
 

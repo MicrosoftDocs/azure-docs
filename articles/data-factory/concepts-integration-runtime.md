@@ -24,3 +24,9 @@ ms.author: shlo
 ## Managed-dedicated integration runtime 
 
 ## Self-hosted integration runtime
+
+## Next steps
+See the following articles:
+
+- [Quickstart: deploy an SSIS packages](quickstart-deploy-ssis-packages.md)
+- [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md)
