@@ -24,10 +24,244 @@ You can use Media Encoder Standard to generate one or more thumbnails from your 
 For more details on the elements that are used in sample presets, you should review [Media Encoder Standard schema](media-services-mes-schema.md).
 
 Make sure to review the [Considerations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) section.
+	
+## Example of a "single PNG file" preset
 
-##Example of a "basic thumbnail" preset
+The following JSON and XML preset can be used to produce a single output PNG file from the first few seconds of the input video, where the encoder makes a best-effort attempt at finding an “interesting” frame. Note that the output image dimensions have been set to 100%, meaning these will match the dimensions of the input video. Note also how the “Format” setting in "Outputs" is required to match the use of "PngLayers" in the “Codecs” section. 
 
-The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
+### JSON preset
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "PngLayers": [
+	        {
+	          "Type": "PngLayer",
+	          "Width": "100%",
+	          "Height": "100%"
+	        }
+	      ],
+	      "Start": "{Best}",
+	      "Type": "PngImage"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Index}{Extension}",
+	      "Format": {
+	        "Type": "PngFormat"
+	      }
+	    }
+	  ]
+	}
+	
+### XML preset
+
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Encoding>
+	    <PngImage Start="{Best}">
+	      <PngLayers>
+	        <PngLayer>
+	          <Width>100%</Width>
+	          <Height>100%</Height>
+	        </PngLayer>
+	      </PngLayers>
+	    </PngImage>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Index}{Extension}">
+	      <PngFormat />
+	    </Output>
+	  </Outputs>
+	</Preset>
+
+## Example of a "series of JPEG images" preset
+
+The following JSON and XML preset can be used to produce a set of 10 images at timestamps of 5%, 15%, …, 95% of the input timeline, where the image size is specified to be one quarter that of the input video.
+
+### JSON preset
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "JpgLayers": [
+	        {
+	          "Quality": 90,
+	          "Type": "JpgLayer",
+	          "Width": "25%",
+	          "Height": "25%"
+	        }
+	      ],
+	      "Start": "5%",
+	      "Step": "10%",
+	      "Range": "96%",
+	      "Type": "JpgImage"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Index}{Extension}",
+	      "Format": {
+	        "Type": "JpgFormat"
+	      }
+	    }
+	  ]
+	}
+
+### XML preset
+	
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Encoding>
+	    <JpgImage Start="5%" Step="10%" Range="96%">
+	      <JpgLayers>
+	        <JpgLayer>
+	          <Width>25%</Width>
+	          <Height>25%</Height>
+	          <Quality>90</Quality>
+	        </JpgLayer>
+	      </JpgLayers>
+	    </JpgImage>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Index}{Extension}">
+	      <JpgFormat />
+	    </Output>
+	  </Outputs>
+	</Preset>
+
+## Example of a "one image at a specific timestamp" preset
+
+The following JSON and XML preset can be used to produce a single JPEG image at the 30 second mark of the input video. This preset expects the input video to be more than 30 seconds in duration (else the job will fail).
+
+### JSON preset
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "JpgLayers": [
+	        {
+	          "Quality": 90,
+	          "Type": "JpgLayer",
+	          "Width": "25%",
+	          "Height": "25%"
+	        }
+	      ],
+	      "Start": "00:00:30",
+	      "Step": "1",
+	      "Range": "1",
+	      "Type": "JpgImage"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Index}{Extension}",
+	      "Format": {
+	        "Type": "JpgFormat"
+	      }
+	    }
+	  ]
+	}
+	
+### XML preset
+	
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Encoding>
+	    <JpgImage Start="00:00:30" Step="00:00:01" Range="00:00:01">
+	      <JpgLayers>
+	        <JpgLayer>
+	          <Width>25%</Width>
+	          <Height>25%</Height>
+	          <Quality>90</Quality>
+	        </JpgLayer>
+	      </JpgLayers>
+	    </JpgImage>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Index}{Extension}">
+	      <JpgFormat />
+	    </Output>
+	  </Outputs>
+	</Preset>
+	
+## Example of a "thumbnails at different resolutions" preset
+
+The following preset can be used to generate thumbnails at different resolutions in one task. In the example, at positions 5%, 15%, …, 95% of the input timeline, the encoder will generate two images – one at 100% of the input video resolution and the other at 50%.
+
+Note the use of {Resolution} macro in the FileName; it indicates to the encoder to use the width and height that you specified in the Encoding section of the preset while generating the file name of the output images. This also helps you distinguish between the different images easily
+
+### JSON preset
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "JpgLayers": [
+		{
+		  "Quality": 90,
+		  "Type": "JpgLayer",
+		  "Width": "100%",
+		  "Height": "100%"
+		},
+		{
+		  "Quality": 90,
+		  "Type": "JpgLayer",
+		  "Width": "50%",
+		  "Height": "50%"
+		}
+
+	      ],
+	      "Start": "5%",
+	      "Step": "10%",
+	      "Range": "96%",
+	      "Type": "JpgImage"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Resolution}_{Index}{Extension}",
+	      "Format": {
+		"Type": "JpgFormat"
+	      }
+	    }
+	  ]
+	}
+
+### XML preset
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	<Encoding>
+	<JpgImage Start="5%" Step="10%" Range="96%"><JpgImage Start="00:00:01" Step="00:00:15">
+	  <JpgLayers>
+	   <JpgLayer>
+	    <Width>284100%</Width>
+	    <Height>160100%</Height>
+	    <Quality>90</Quality>
+	   </JpgLayer>
+	   <JpgLayer>
+	    <Width>50%960</Width>
+	    <Height>50%40</Height>
+	    <Quality>90</Quality>
+	   </JpgLayer>
+	  </JpgLayers>
+	</JpgImage>
+	</Encoding>
+	<Outputs>
+	<Output FileName="{Basename}_{Resolution}{Width}x{Height}_{Index}{Extension}">
+	  <JpgFormat/>
+	</Output>
+	</Outputs>
+	</Preset>
+	
+## Example of generating a thumbnail while encoding
+
+While all of the above examples have discussed how you can submit an encoding task that only produces images, you can also combine video/audio encoding with thumbnail generation. The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
 
 ### <a id="json"></a>JSON preset
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
@@ -143,204 +377,7 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	      <JpgFormat />
 	    </Output>
 	  </Outputs>
-	</Preset>
-	
-## Example of a "single PNG file" preset
-
-The following JSON and XML preset can be used to produce a single output PNG file out of the first few seconds of the input video, where the encoder makes a best-effort attempt at finding an “interesting” frame. Note that the output image dimensions have been set to 100%, meaning these will match the dimensions of the input video. Note also how the “Format” setting in "Outputs" is required to match the use of "PngLayers" in the “Codecs” section. 
-
-### JSON preset
-
-	{
-	  "Version": 1.0,
-	  "Codecs": [
-	    {
-	      "PngLayers": [
-	        {
-	          "Type": "PngLayer",
-	          "Width": "100%",
-	          "Height": "100%"
-	        }
-	      ],
-	      "Start": "{Best}",
-	      "Type": "PngImage"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Index}{Extension}",
-	      "Format": {
-	        "Type": "PngFormat"
-	      }
-	    }
-	  ]
-	}
-	
-### XML preset
-
-	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
-	  <Encoding>
-	    <PngImage Start="{Best}">
-	      <PngLayers>
-	        <PngLayer>
-	          <Width>100%</Width>
-	          <Height>100%</Height>
-	        </PngLayer>
-	      </PngLayers>
-	    </PngImage>
-	  </Encoding>
-	  <Outputs>
-	    <Output FileName="{Basename}_{Index}{Extension}">
-	      <PngFormat />
-	    </Output>
-	  </Outputs>
-	</Preset>
-
-## Example of a "series of JPEG images" preset
-
-The following JSON and XML preset can be used to produce a set of 10 images at timestamps of 5%, 15%, …, 95% of the input timeline, where the image size is specified to be one quarter that of the input video.
-
-### JSON preset
-
-	{
-	  "Version": 1.0,
-	  "Codecs": [
-	    {
-	      "JpgLayers": [
-	        {
-	          "Quality": 90,
-	          "Type": "JpgLayer",
-	          "Width": "25%",
-	          "Height": "25%"
-	        }
-	      ],
-	      "Start": "5%",
-	      "Step": "1",
-	      "Range": "1",
-	      "Type": "JpgImage"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Index}{Extension}",
-	      "Format": {
-	        "Type": "JpgFormat"
-	      }
-	    }
-	  ]
-	}
-
-### XML preset
-	
-	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
-	  <Encoding>
-	    <JpgImage Start="5%" Step="10%" Range="96%">
-	      <JpgLayers>
-	        <JpgLayer>
-	          <Width>25%</Width>
-	          <Height>25%</Height>
-	          <Quality>90</Quality>
-	        </JpgLayer>
-	      </JpgLayers>
-	    </JpgImage>
-	  </Encoding>
-	  <Outputs>
-	    <Output FileName="{Basename}_{Index}{Extension}">
-	      <JpgFormat />
-	    </Output>
-	  </Outputs>
-	</Preset>
-
-## Example of a "one image at a specific timestamp" preset
-
-The following JSON and XML preset can be used to produce a single JPEG image at the 30 second mark of the input video. This preset expects the input to be more than 30 seconds in duration (else the job will fail).
-
-### JSON preset
-
-	{
-	  "Version": 1.0,
-	  "Codecs": [
-	    {
-	      "JpgLayers": [
-	        {
-	          "Quality": 90,
-	          "Type": "JpgLayer",
-	          "Width": "25%",
-	          "Height": "25%"
-	        }
-	      ],
-	      "Start": "00:00:30",
-	      "Step": "1",
-	      "Range": "1",
-	      "Type": "JpgImage"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Index}{Extension}",
-	      "Format": {
-	        "Type": "JpgFormat"
-	      }
-	    }
-	  ]
-	}
-	
-### XML preset
-	
-	<?xml version="1.0" encoding="utf-16"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
-	  <Encoding>
-	    <JpgImage Start="00:00:30" Step="00:00:02" Range="00:00:01">
-	      <JpgLayers>
-	        <JpgLayer>
-	          <Width>25%</Width>
-	          <Height>25%</Height>
-	          <Quality>90</Quality>
-	        </JpgLayer>
-	      </JpgLayers>
-	    </JpgImage>
-	  </Encoding>
-	  <Outputs>
-	    <Output FileName="{Basename}_{Index}{Extension}">
-	      <JpgFormat />
-	    </Output>
-	  </Outputs>
-	</Preset>
-	
-## Example of a "thumbnails at different resolutions" preset
-
-The following preset can be used to generate thumbnails at different resolutions in one encoding task.
-
-### XML preset
-
-Note the use of {Height} and {Width} macros in the FileName; it indicates to the encoder to include the width and height that you specified in the **Encoding** section of the preset. 
-
-	<?xml version="1.0" encoding="utf-8"?>
-	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
-	<Encoding>
-	<JpgImage Start="00:00:01" Step="00:00:15">
-	  <JpgLayers>
-	   <JpgLayer>
-	    <Width>284</Width>
-	    <Height>160</Height>
-	    <Quality>90</Quality>
-	   </JpgLayer>
-	   <JpgLayer>
-	    <Width>960</Width>
-	    <Height>540</Height>
-	    <Quality>90</Quality>
-	   </JpgLayer>
-	  </JpgLayers>
-	</JpgImage>
-	</Encoding>
-	<Outputs>
-	<Output FileName="{Width}x{Height}_{Index}{Extension}">
-	  <JpgFormat/>
-	</Output>
-	</Outputs>
-	</Preset>
+	</Preset>	
 
 ## <a id="code_sample"></a>Encode video and generate thumbnail with .NET
 
@@ -404,7 +441,7 @@ See the [Media Services development with .NET](media-services-dotnet-how-to-use.
 		    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
 		    {
 			// Declare a new job.
-			IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+			IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
 			// Get a media processor reference, and pass to it the name of the 
 			// processor to use for the specific task.
 			IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
@@ -413,7 +450,7 @@ See the [Media Services development with .NET](media-services-dotnet-how-to-use.
 			string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
 
 			// Create a task
-			ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+			ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
 			    processor,
 			    configuration,
 			    TaskOptions.None);
