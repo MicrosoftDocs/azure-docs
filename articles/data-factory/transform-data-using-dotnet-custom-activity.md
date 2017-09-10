@@ -21,7 +21,7 @@ ms.author: shengc
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
 - [Data movement activities](copy-activity-overview.md) to move data between [supported source and sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
-- [Data transformation activities](trasnform-data.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning. 
+- [Data transformation activities](transform-data.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning. 
 
 To move data to/from a data store that Data Factory does not support, or to transform/process data in a way that isn't supported by Data Factory, you can create a **Custom activity** with your own data movement or transformation logic and use the activity in a pipeline. The custom activity runs your customized code logic on an **Azure Batch** pool of virtual machines. 
 
@@ -32,8 +32,7 @@ See following topics if you are new to Azure Batch service:
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet to create an Azure Batch pool.
 
 ### Azure Batch Linked Service 
-
-Refer to the JSON definition of an sample Azure Batch Linked Services below, for details, refer to [Compute environments supported by Azure Data Factory](compute-linked-services.md)
+The following JSON defines a sample Azure Batch line service. For details, see [Compute environments supported by Azure Data Factory](compute-linked-services.md)
 
 ```json
 {
@@ -59,7 +58,7 @@ Refer to the JSON definition of an sample Azure Batch Linked Services below, for
 
 ### Custom Activity
 
-The following JSON snippet defines a pipeline with a simple Custom Activity. The activity definition has a reference to the Azure Batch linked service created above. 
+The following JSON snippet defines a pipeline with a simple Custom Activity. The activity definition has a reference to the Azure Batch linked service. 
 
 ```json
 {
@@ -96,15 +95,15 @@ The following table describes names and descriptions of properties that are spec
 | description           | Text describing what the activity does.  | No       |
 | type                  | For Custom activity, the activity type is **Custom**. | Yes      |
 | linkedServiceName     | Linked Service to Azure Batch            | Yes      |
-| command               | Command of the custom application to be executed. If the application is already available on the Azure Batch Pool Node, the resourceLinkedService and folderPath can be skipped. For example, you can specify the command to be "cmd /c dir" which is natively supported by the Windows Batch Pool node. | Yes      |
-| resourceLinkedService | Azure Storage Linked Service to the Storage account here the above custom application is stored | No       |
+| command               | Command of the custom application to be executed. If the application is already available on the Azure Batch Pool Node, the resourceLinkedService and folderPath can be skipped. For example, you can specify the command to be `cmd /c dir`, which is natively supported by the Windows Batch Pool node. | Yes      |
+| resourceLinkedService | Azure Storage Linked Service to the Storage account where the custom application is stored | No       |
 | folderPath            | Path to the folder of the custom application and all its dependencies | No       |
 | referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
-| extendedProperties    | User defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
+| extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
 
 ####Passing objects and properties
 
-The below sample shows how you can use the referenceObjects and extendedProperties to pass Data Factory objects and user defined properties to your custom application. 
+This sample shows how you can use the referenceObjects and extendedProperties to pass Data Factory objects and user-defined properties to your custom application. 
 
 
 ```json
@@ -144,7 +143,7 @@ The below sample shows how you can use the referenceObjects and extendedProperti
 }
 ```
 
-When the activity is executed, referenceObjects and extendedProperties are stored in following files which are deployed to the same execution folder of the SampleApp.exe: 
+When the activity is executed, referenceObjects and extendedProperties are stored in following files that are deployed to the same execution folder of the SampleApp.exe: 
 
 - activity.json
 
@@ -158,7 +157,7 @@ When the activity is executed, referenceObjects and extendedProperties are store
 
   Stores an array of Datasets defined in the referenceObjects property. 
 
-Following sample code demonstrate how the SampleApp.exe can accesses the required information from above JSON files: 
+Following sample code demonstrate how the SampleApp.exe can access the required information from JSON files: 
 
 ```C#
 using Newtonsoft.Json;
@@ -185,7 +184,7 @@ namespace SampleApp
 
 ####Retrieve execution outputs
 
-You can start a pipeline run of the above sample pipeline and monitor the execution result using the following PowerShell commands: 
+You can start a pipeline run of the sample pipeline and monitor the execution result using the following PowerShell commands: 
 
 ```powershell
 $runId = New-AzureRmDataFactoryV2PipelineRun -dataFactoryName "factoryName" -PipelineName "pipelineName" -Parameters @{ dummy = "b" }
@@ -194,13 +193,13 @@ $result.output -join "`r`n"
 $result.Error -join "`r`n" 
 ```
 
-The **stdout** and **stderr** of your custom application will be saved to a adfjobs container in the Azure Storage Linked Service you defined when creating Azure Batch Linked Service with a GUID of the task. You can get the detailed path from Activity Run output as shown below: 
+The **stdout** and **stderr** of your custom application are saved to the **adfjobs** container in the Azure Storage Linked Service you defined when creating Azure Batch Linked Service with a GUID of the task. You can get the detailed path from Activity Run output as shown in the following snippet: 
 
 ```shell
 "exitcode": 0
 "outputs": [
-"https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/output/stdout.txt",
-"https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/output/stderr.txt"
+    "https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/output/stdout.txt",
+    "https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/output/stderr.txt"
 ]
 "errorCode": ""
 "message": ""
@@ -209,8 +208,8 @@ The **stdout** and **stderr** of your custom application will be saved to a adfj
 ```
 
 > [!IMPORTANT]
-> - The activity.json, linkedServices.json and datasets.json are stored in the runtime folder of the Bath task. For above example, the activity.json, linkedServices.json and datasets.json are stored in https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/runtime/ path. You will need to clean it up separately if needed. 
-> - For Linked Services uses Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in above way. Use SecureString in extendedProperties instead of using Linked Service reference if needed. 
+> - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Bath task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in https://adfv2storage.blob.core.windows.net/adfjobs/097235ff-2c65-4d50-9770-29c029cbafbb/runtime/ path. You need to clean it up separately if needed. 
+> - For Linked Services uses Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed. 
 
 
 
@@ -243,5 +242,5 @@ See the following articles that explain how to transform data in other ways:
 * [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
 * [Spark Activity](transform-data-using-spark.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Machine Learning Batch Execution Activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

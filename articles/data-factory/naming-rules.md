@@ -27,4 +27,4 @@ The following table provides naming rules for Data Factory artifacts.
 | Resource Group |Unique across Microsoft Azure. Names are case-insensitive. |<ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”</li></ul> |
 
 ## Next steps
-Learn how to create data factories by following step-by-step insturctions in [QUickstart: create a data factory](quickstart-create-datafactory-powershell.md) article. 
+Learn how to create data factories by following step-by-step insturctions in [QUickstart: create a data factory](quickstart-create-data-factory-powershell.md) article. 

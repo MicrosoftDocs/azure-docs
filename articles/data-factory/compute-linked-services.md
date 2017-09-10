@@ -23,7 +23,7 @@ The following table provides a list of compute environments supported by Data Fa
 | Compute environment                      | activities                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service) | [Custom](transform-data-using-custom-dotnet-custom-activity.md) |
+| [Azure Batch](#azure-batch-linked-service) | [Custom](transform-data-using-dotnet-custom-activity.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
@@ -44,7 +44,7 @@ The Azure Data Factory service can automatically create an on-demand HDInsight c
 Note the following **important** points about on-demand HDInsight linked service:
 
 * The on-demand HDInsight cluster is created under your Azure subscription. You are able to see the cluster in your Azure portal when the cluster is up and running. 
-* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. With clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword defined in your Linked Serviced definition you will also be able to log on to the cluster for in-depth troubleshooting during the lifecycle of the cluster. 
+* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. The clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword defined in your Linked Serviced definition are used to log into the cluster for in-depth troubleshooting during the lifecycle of the cluster. 
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [!IMPORTANT]
@@ -86,18 +86,18 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | The type property should be set to **HDInsightOnDemand**. | Yes      |
 | clusterSize                  | Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Create Linux-based Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details about the Standard_D3 tier. | Yes      |
-| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle for you to log on for some troubleshooting purpose but it could resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
+| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
 | version                      | Version of the HDInsight cluster. If not specified, it's using the current HDInsight defined default version. | No       |
 | linkedServiceName            | Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this Azure Storage account.<p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store. </p> | Yes      |
 | hostSubscriptionId           | The Azure subscription ID used to create HDInsight cluster. If not specified, it uses the Subscription ID of your Azure login context. | No       |
-| clusterResourceGroup         | The Resource Group the HDInsight will be created under. | Yes      |
+| clusterResourceGroup         | The HDInsight cluster is created in this resource group.  | Yes      |
 | sparkVersion                 | The version of spark if the cluster type is "Spark" | No       |
 | additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. These storage accounts must be in the same region as the HDInsight cluster, which is created in the same region as the storage account specified by linkedServiceName. | No       |
 | osType                       | Type of operating system. Allowed values are: Linux and Windows (for HDInsight 3.3 only). Default is Linux. | No       |
 | hcatalogLinkedServiceName    | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. | No       |
 
 > [!IMPORTANT]
-> HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
+> HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
 >
 > 
 
@@ -118,7 +118,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 ### Service principal authentication
 
-The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behave. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Owner** role of the subscription of the resource group your HDInsight cluster will be created under. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
+The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Owner** role of the subscription of the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key 
@@ -350,7 +350,7 @@ The following table provides descriptions for the generic properties used in the
 | **type**                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | **accountName**          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | No                                       |
-| **subscriptionId**       | Azure subscription id                    | No (If not specified, subscription of the data factory is used). |
+| **subscriptionId**       | Azure subscription ID.                    | No (If not specified, subscription of the data factory is used). |
 | **resourceGroupName**    | Azure resource group name                | No (If not specified, resource group of the data factory is used). |
 | **servicePrincipalId**   | Specify the application's client ID.     | Yes                                      |
 | **servicePrincipalKey**  | Specify the application's key.           | Yes                                      |
@@ -382,7 +382,7 @@ The following table provides descriptions for the generic properties used in the
 ## 
 
 ## Azure SQL Linked Service
-You create an Azure SQL linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](transform-data-using-azure-sql-database.md#linked-service-properties) article for details about this linked service.
+You create an Azure SQL linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](connector-azure-sql-database.md#linked-service-properties) article for details about this linked service.
 
 ## Azure SQL Data Warehouse Linked Service
 You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) article for details about this linked service.
