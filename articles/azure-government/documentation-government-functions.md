@@ -1,5 +1,5 @@
 ---
-title: Azure Government Functions Quickstart | Microsoft Docs
+title: Azure Functions Quickstarts for Government | Microsoft Docs
 description: This provides a series of quickstarts for using Functions with Azure Government
 services: azure-government
 cloud: gov
@@ -20,14 +20,12 @@ ms.author: yujhong
 # Azure Government Functions 
 The series of Quickstarts below will help you get started using Azure Functions on Azure Government. Using Azure Functions with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#azure-functions).
 
-To learn more about Azure Functionsclick [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
-
-## Quickstarts
+To learn more about Azure Functions, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
 
 
-### Create function - Azure CLI
+## Create function - Azure CLI
 
-#### Prerequisites
+### Prerequisites
 
 Before running this sample, you must have the following:
 
@@ -42,7 +40,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 	>
 	>
 
-#### Launch Azure Cloud Shell
+### Launch Azure Cloud Shell
 
 You must first connect to Azure Government with Azure Command Line Interface (CLI) by following [these steps](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli). 
 
@@ -53,7 +51,12 @@ Log in to the Azure Government cloud through CLI:
 az login
 
 ```
-#### Create a Resource Group
+### Create a Resource Group with CLI
+
+> [!NOTE]
+> If you want to use an already existing Resource Group, you may skip this section. You can also create a Resource Group through the [Azure Government portal](https://portal.azure.us) instead of using CLI. 
+> 
+> 
 
 Create a resource group with the [az group create](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
 
@@ -63,7 +66,12 @@ If you are not using Cloud Shell, sign in first using the `az login` shown above
 ```azurecli-interactive
 az group create --name myResourceGroup --location usgovvirginia
 ```
-#### Create an Azure Storage Account
+### Create an Azure Storage Account
+
+> [!NOTE]
+> If you want to use an already existing storage account, you may skip this section. You can also create a storage account through the [Azure Government portal](https://portal.azure.us) instead of using CLI. 
+> 
+> 
 
 Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](https://docs.microsoft.com/en-us/azure/storage/common/storage-azure-cli#create-a-new-storage-account) command.
 
@@ -92,9 +100,9 @@ After the storage account has been created, the Azure CLI shows information simi
     // Remaining output has been truncated for readability.
 }
 ```
-#### Create a function app
+### Create a function app
 
-You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](https://docs.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest#az_functionapp_create) command.
+You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as logical unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](https://docs.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest#az_functionapp_create) command.
 
 Before creating your function app, you must create an [App Service plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan) that hosts your function app. 
 This can be done with the following command that creates a plan named "testPlan".
@@ -110,7 +118,7 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 --plan testPlan
 ```
 >[!NOTE] By default, a function app is created with the App Service plan, which means that dedicated VMs are allocated to your App Service apps and the functions host is always running.
-For more information about the App Service plan, [click here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan). 
+For more information about the App Service plan, [click here](../azure-functions/functions-scale.md#app-service-plan). 
 >
 >
 
@@ -134,10 +142,10 @@ After the function app has been created, the Azure CLI shows information similar
 }
 ```
 
-Now that you have a function app, you can deploy the actual function code from the GitHub sample repository.
+Now that you have a function app, you can deploy the actual function code from the [GitHub sample repository](https://github.com/Azure-Samples/functions-quickstart).
 
-#### Deploy your function code
-There are several ways to create your function code in your new function app. This topic connects to a sample repository in GitHub. As before, in the following code replace the `<app_name>` placeholder with the name of the function app you created. 
+### Deploy your function code
+ This Quickstart connects to a [sample repository in GitHub](https://github.com/Azure-Samples/functions-quickstart) that contains a sample function. As before, in the following code replace the `<app_name>` placeholder with the name of the function app you created. 
 
 ```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
@@ -159,10 +167,11 @@ After the deployment source been set, the Azure CLI shows information similar to
   "type": "Microsoft.Web/sites/sourcecontrols"
 }
 ```
+### Test the function
 
-#### Test the function
+Use cURL to test the deployed function on a Mac or Linux computer or using Bash on Windows, which you can [install](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).  
 
-Use cURL to test the deployed function on a Mac or Linux computer or using Bash on Windows. Execute the following cURL command, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL.
+Execute the following cURL command, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL.
 
 ```bash
 curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
@@ -176,22 +185,13 @@ If you don't have cURL available in your command line, enter the same URL in the
 
 ![Function response shown in a browser.](./media/documentation-government-function3.png)  
 
-#### Clean up resources
-
-Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following command to delete all resources created by this quickstart:
-
-```azurecli-interactive
-az group delete --name myResourceGroup
-```
-Type `y` when prompted.
-
-### Create function- Visual Studio 
+### Create function using Visual Studio 
 
 Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs). 
 
-Once that is confirmed, the steps to create a function using visual studio to Azure Government are essentially the same as creating one in Azure commercial, which can be found [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio). 
+Once that is confirmed, the steps to create a function using Visual Studio to Azure Government are essentially the same as creating one in Azure commercial, which can be found [here](../azure-functions/functions-create-your-first-function-visual-studio). 
 
-#### Test your function in Azure Government 
+### Test your function in Azure Government 
 
 
     The URL that calls your HTTP triggered function looks like this:
@@ -202,10 +202,10 @@ Paste this new URL for the HTTP request into your browser's address bar. The fol
 
    ![Function response in the browser](./media/documentation-government-functions-createvs.png)
 
-### Create Trigger Functions- Visual Studio
+## Create Trigger Functions - Visual Studio
 Learn how to create a trigger function in Azure Government using Visual Studio. 
 
-#### Prerequisites
+### Prerequisites
 
 * Make sure Visual Studio has been installed:
     -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
@@ -214,9 +214,9 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
     >
     >
 * Function app running in Visual Studio
-    - To create one, complete the Quickstart section above titled "Create function- Visual Studio". 
+    - To create one, complete the Quickstart section above, [Create function using Visual Studio](documentation-government-functions#create-function-using-visual-studio). 
 
-#### Create trigger function
+### Create trigger function
 
 1. Open up your function app in Visual Studio and right click on the app itself, not the solution. 
 Go down to the "Add" button and click on "New Item" as shown below.
@@ -246,12 +246,12 @@ Go down to the "Add" button and click on "New Item" as shown below.
     ![triggerfunctioncreate5](./media/documentation-government-function9.png)
 7. Once this has been set, you can run your Timer trigger function. 
 
-### Integrate Storage using Visual Studio
+## Integrate Storage using Visual Studio
 
 You can connect to external service data from your function in Visual Studio. 
 Learn how to update an existing function by adding an output binding that sends messages to Azure Queue storage. 
 
-#### Prerequisites
+### Prerequisites
 
 * Make sure Visual Studio has been installed:
 
@@ -264,7 +264,7 @@ Learn how to update an existing function by adding an output binding that sends 
 * This tutorial requires a running function app. If you do not have one, you can follow the Quickstart section above titled "Create function- Visual Studio". 
 * This tutorial also requires an Azure Queue, if you have not created one you can do so by following [these steps](https://docs.microsoft.com/en-us/azure/storage/queues/storage-dotnet-how-to-use-queues).
 
-#### Update the function code 
+### Update the function code 
 
 In order to connect the function to your output Queue, you must create an output binding. 
 1. Open your function in Visual Studio
@@ -286,7 +286,7 @@ In order to connect the function to your output Queue, you must create an output
 	```cs
 	<QueueName>.Add("Name passed to the function: " + name);     
 	```
-#### Test your function
+### Test your function
 
 1. Run your function on Visual Studio.
 
@@ -297,3 +297,12 @@ In order to connect the function to your output Queue, you must create an output
 4. Click on your Queue and you should be able to see the output of your function.
 
     ![triggerfunctioncreate7](./media/documentation-government-function11.png)
+
+### Clean up resources
+
+Use the following command to delete all resources created by this quickstart:
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+Type `y` when prompted.
