@@ -1,7 +1,6 @@
 ---
 title: 'Data Transformation: Process & transform data | Microsoft Docs'
 description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
-keywords: data transformation, process data, transform data, transformation activity
 services: data-factory
 documentationcenter: ''
 author: sharonlo101

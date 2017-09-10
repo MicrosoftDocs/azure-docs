@@ -1,7 +1,6 @@
 ---
 title: Pipeline runtime control in Azure Data Factory | Microsoft Docs
 description: 'Learn how to control pipeline runtime in Azure Data Factory.'
-keywords: data integration, cloud data integration, what is azure data factory
 services: data-factory
 documentationcenter: ''
 author: sharonlo101

@@ -31,7 +31,7 @@ See following topics if you are new to Azure Batch service:
 * [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet to create an Azure Batch pool.
 
-### Azure Batch Linked Service 
+## Azure Batch Linked Service 
 The following JSON defines a sample Azure Batch line service. For details, see [Compute environments supported by Azure Data Factory](compute-linked-services.md)
 
 ```json
@@ -56,7 +56,7 @@ The following JSON defines a sample Azure Batch line service. For details, see [
 }
 ```
 
-### Custom Activity
+## Custom Activity
 
 The following JSON snippet defines a pipeline with a simple Custom Activity. The activity definition has a reference to the Azure Batch linked service. 
 
@@ -101,7 +101,7 @@ The following table describes names and descriptions of properties that are spec
 | referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
 | extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
 
-####Passing objects and properties
+##Passing objects and properties
 
 This sample shows how you can use the referenceObjects and extendedProperties to pass Data Factory objects and user-defined properties to your custom application. 
 

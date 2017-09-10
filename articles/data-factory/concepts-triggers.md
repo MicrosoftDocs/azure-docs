@@ -1,7 +1,6 @@
 ---
 title: Triggers in Azure Data Factory | Microsoft Docs
 description: 'Learn about how to trigger pipelines in Azure Data Factory.'
-keywords: data integration, cloud data integration, what is azure data factory
 services: data-factory
 documentationcenter: ''
 author: sharonlo101

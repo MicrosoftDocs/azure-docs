@@ -1,7 +1,6 @@
 ---
 title: Bulk and incremental copy | Microsoft Docs
 description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
-keywords: data integration, cloud data integration, what is azure data factory
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
