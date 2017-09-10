@@ -22,27 +22,26 @@ ms.author: haining
 
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
-The core components of Azure Machine Learning are:
+The main components of Azure Machine Learning are:
 - Azure Machine Learning Workbench
 - Azure Machine Learning Experimentation Service
 - Azure Machine Learning Model Management Service
 - Microsoft Machine Learning Libraries for Apache Spark (MMLSpark Library)
 - Visual Studio Code Tools for Machine Learning
 
-Together, these applications and services help significantly accelerate the rate of iteration of your data science experiments. 
+Together, these applications and services help significantly accelerate your data science project development and deployment. 
  
-![Azure Machine Learning Concepts](media/concepts/aml-concepts.png)
+![Azure Machine Learning Concepts](media/overview-what-is-azure-ml/aml-concepts.png)
 
 ## Azure Machine Learning Workbench
-Azure ML is designed as a code-first, extensible machine learning platform. Workbench is a desktop application plus command-line tools for preparing data, and managing experiments execution.
-- Data connection, import, preparation, and wrangling 
-- Notebook and IDE integration
-- Collaboration and sharing
-- Model creation, lineage, and version control
-- Model scoring, statistics, and comparison
-- Registration, deployment, monitoring and retraining of production models
-
-The Azure Machine Learning Workbench is our companion application for the Experimentation and Model Management. The application allows you to manage machine learning solutions through the entire data science life cycle--from data ingestion, through deployment and monitoring. Workbench is a downloadable desktop application available for Windows and macOS. It  includes powerful, built-in data tools that learns your data preparation steps as you perform them. Project management, run history, and notebook integration are all included. We've also included the best open source machine learning frameworks including TensorFlow, Cognitive Toolkit, Spark ML, and scikit-learn. Additionally, Workbench is compatible with any Python or PySpark code and a number of popular machine learning IDEs. 
+Azure ML Workbench is a desktop application plus command-line tools, supported on both Windows and macOS. It allows you to manage machine learning solutions through the entire data science life cycle -- from data ingestion and preparation, through model development and experiment management, to model deployment in various target environments. Here are the core functionalities offered by Workbench:
+- Data preparation tool that can learn data transformation logic by example.
+- Data source abstraction accessible through UX and Python code.
+- Built-in Jupyter Notebook service and client UX.
+- Interaction with Experimentation Service and Model Management Service through UX and CLI.
+- Role-based access control that enables sharing and collaboration through Azure Active Directory.
+- Automatic run history snapshots and explicit version control enabled by native Git repo integration. 
+- Integration with popular Python IDEs.
 
 ## Azure Machine Learning Experimentation Service
 

@@ -18,7 +18,7 @@ In this tutorial, let's walk through the basics of Azure Machine Learning by cre
 
 This is part 2 of a 3 part tutorial, covering model building.
 
-## Step 1. Review `iris_sklearn.py` and Configuration Files in `aml_config` Folder
+## Step 1. Review _iris_sklearn.py_ and Configuration Files
 Open the `iris_sklearn.py` file.
 
 ![open file](media/tutorial-classifying-iris/open_iris_sklearn.png)
@@ -42,19 +42,12 @@ This script performs the following tasks:
 >[!NOTE]
 >The `run_logger` object in the Python code bears examination. It records regularization rate, and model accuracy into logs that are automatically plotted in the run history.
 
-Open the `conda_dependencies.yml` file under the `aml_config` directory. This file specifies the Python version and also the `scikit-learn` package and the `matplotlib` package. 
-
->Note: the `conda_dependencies.yml` file is only relevant if you are targeting Docker container (local or remote) for execution. It has no effect if you are targeting local compute context.
-
-There are three pairs of `.runconfig` and `.compute` files, named `local`, `docker-python`, and `docker-spark`. Open the `.runconfig` and `.compute` files for each pair and examine the content. These files control the execution environment and behaviors. For more information on configuring execution environment, please review [Configuring Execution Options](Execution.md) article. For more information on the specific values in these configuration files, refer to the [Demystifying _aml_config_ Folder](aml_config.md) article.
-
 ## Step 2. Execute `iris_sklearn.py` Script in `local` Environment
 Let's run the `iris_sklearn.py` script for the first time. This script requires `scikit-learn` and `matplotlib` packages. `scikit-learn` is already installed by the Azure ML Workbench. However, we need to install `matplotlib`. Open the command-line window by clicking on **Open Command Prompt** from the **File** menu. (We refer to this command-line interface window as Azure ML Workbench CLI window, or CLI window for short.)
 
 In the CLI window, type in the following command to install `matplotlib` Python package. It should complete in less than a minute.
 
 ```batch
-REM install matplotlib
 C:\Temp\myIris> pip install matplotlib
 ```
 Return to the Workbench app. In the **Run Control Panel**, choose **local** as the execution environment, and `iris_sklearn.py` as the script to run. Fill the **Arguments** field with a value of `0.01`. Click on the **Run** button. A job is immediately scheduled and listed in the **Jobs** panel on the right side of the Workbench window. The status of the job transitions from **Submitting**, to **Running**, and finally to **Completed** in a few seconds.
@@ -112,7 +105,7 @@ Click on an individual run to see the run detail view. All the statistics for th
 >[!IMPORTANT]
 >In order to accomplish this step, you must have Docker engine locally installed and started. See the installation guide for more details.
 
-Azure ML allows you to easily configure additional execution environments and run your script there. In the `aml_config` folder, two additional environments are specified: `docker-python` and `docker-spark`. Take a moment to look at the respective `.compute` and `.runconfig` files under the `aml_config` folder again.
+Azure ML allows you to easily configure additional execution environments and run your script there. In the `aml_config` folder, two additional environments are specified: `docker-python` and `docker-spark`. Take a moment to review the respective `.compute` and `.runconfig` files under the `aml_config` folder again.
 
 In the **Run Control Panel**, choose **docker-python** as the targeted environment, and **iris_sklearn.py** as the script to run. (You can leave the **Arguments** field blank since the script specifies a default value.) Click on the **Run** button.
 
@@ -197,7 +190,8 @@ Once the VM is created, you can attach the VM as an execution environment by gen
 REM create myvm compute target
 C:\Temp\myIris\> az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password>
 ```
->Note: the IP Address area can also be publicly addressable FQDN (fully qualified domain name), such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add FQDN to your DSVM and use it here instead of IP address, since you might turn off the VM at some point to save on cost. Additionally, the next time you start the VM, the IP address might have changed.
+>[!NOTE]
+>The IP Address area can also be publicly addressable FQDN (fully qualified domain name), such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add FQDN to your DSVM and use it here instead of IP address, since you might turn off the VM at some point to save on cost. Additionally, the next time you start the VM, the IP address might have changed.
 
 Edit the generated `myvm.runconfig` file under `aml_config` and change the Framework from default `PySpark` to `Python`:
 ```yaml
@@ -224,7 +218,7 @@ REM execute iris_pyspark.py in Spark instance on remote Docker container
 C:\Temp\myIris> az ml experiment submit -c myvm-spark .\iris_pyspark.py
 ```
 ## Step 5b (optional). Execute in an HDI cluster
-You can also run this script in an actual Spark cluster. If you have access to a _Spark for Azure HDInsight_ cluster, generate an HDI run configuration using the following command:
+You can also run this script in an actual Spark cluster. If you have access to a Spark for Azure HDInsight cluster, generate an HDI run configuration using the following command:
 ```batch
 REM create a compute target that points to a HDI cluster
 C:\Temp\myIris\> az ml computetarget attach --name myhdi --address <cluster name>-ssh.azurehdinsight.net --username <username> --password <password> --cluster
