@@ -240,13 +240,13 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 	<JpgImage Start="5%" Step="10%" Range="96%"><JpgImage Start="00:00:01" Step="00:00:15">
 	  <JpgLayers>
 	   <JpgLayer>
-	    <Width>284100%</Width>
-	    <Height>160100%</Height>
+	    <Width>100%</Width>
+	    <Height>100%</Height>
 	    <Quality>90</Quality>
 	   </JpgLayer>
 	   <JpgLayer>
-	    <Width>50%960</Width>
-	    <Height>50%40</Height>
+	    <Width>50%</Width>
+	    <Height>50%</Height>
 	    <Quality>90</Quality>
 	   </JpgLayer>
 	  </JpgLayers>
