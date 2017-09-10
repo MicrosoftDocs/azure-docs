@@ -189,45 +189,134 @@ Note the following points:
 ## Create data factory 
 You have authored linked service and pipeline definitions in JSON files. Now, let’s create a data factory, and deploy the linked Service and pipeline JSON files by using PowerShell cmdlets. Run the following PowerShell commands one by one: 
 
-1. Ser variables.
+1. Ser variables one by one.
 
     ```powershell
     $subscriptionID = "<subscription ID>" # Your Azure subscription ID
     $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09102017" # Name of the data factory
+    $dataFactoryName = "MyDataFactory09102017" # Globally unique name of the data factory
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     $loggingStorageAccountName = "<storageAccountName>" # Name of your Azure Storage account
     $loggingStorageAccountKey = "<storageAccountKey>" # Key of your Azure Storage account     
     ```
-2. Login to your Azure account and select your subscription ID.
-   
+2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
+
+    Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
+        
     ```powershell
     Login-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $subscriptionID 
+    ```        
+    Run the following command to view all the subscriptions for this account:
+
+    ```powershell
+    Get-AzureRmSubscription
+    ```
+    Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
+
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. Create the resource group and data factory.
+3. Create the resource group: ADFTutorialResourceGroup, and the data factory named `$dataFactoryName`. The name of the data factory must be globally unique. 
 
     ```powershell
     New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
-    New-AzureRmDataFactoryV2 -Location EastUS -LoggingStorageAccountName $loggingStorageAccountName -LoggingStorageAccountKey $loggingStorageAccountKey -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
-4. Deploy the linked service and pipeline definitions. 
+4. Create the data factory. 
+
+    ```powershell
+     $df = New-AzureRmDataFactoryV2 -Location EastUS -LoggingStorageAccountName $loggingStorageAccountName -LoggingStorageAccountKey $loggingStorageAccountKey -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+    ```
+
+    Execute the following command to see the output: 
+
+    ```powershell
+    $df
+    ```
+5. Switch to the folder where you created JSON files, and run the following command to deploy an Azure Storage linked service: 
        
     ```powershell
-    df = Get-AzureRmDataFactoryV2 -ResourceGroupName $rgName -Name $dfName
     New-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```
+6. Run the following command to deploy an on-demand Spark linked service: 
+       
+    ```powershell
     New-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
-    New-AzureRmDataFactoryV2Pipeline -dataFactory $df -Name $plName -File "MySparkOnDemandPipeline.json"
     ```
-
+7. Run the following command to deploy a pipeline: 
+       
+    ```powershell
+    New-AzureRmDataFactoryV2Pipeline -dataFactory $df -Name $pipelineName -File "MySparkOnDemandPipeline.json"
+    ```
 ## Start and monitor pipeline run  
-1. Start a pipeline run.
+1. Start a pipeline run. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = New-AzureRmDataFactoryV2PipelineRun -dataFactory $df -PipelineName $pipelineName 
+    $runId = New-AzureRmDataFactoryV2PipelineRun -dataFactory $df -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
     ```
-2. Get the status of the pipeline run. 
+2. Run the following script to continuously check the pipeline run status until it finishes copying the data.
 
     ```powershell
-    Get-AzureRmDataFactoryV2ActivityRun -dataFactory $df -PipelineName $pipelineName -PipelineRunId $runId -RunStartedAfter "…" -RunStartedBefore "…"
+    while ($True) {
+        $run = Get-AzureRmDataFactoryV2PipelineRun -DataFactory $df -RunId $runId -ErrorAction Stop
+        Write-Host  "Pipeline run status: " $run.Status -foregroundcolor "Yellow"
+
+        if ($run.Status -eq "InProgress") {
+            Start-Sleep -Seconds 300
+        }
+        else {
+            $run
+            break
+        }
+    }
+    ```  
+
+    Here is the output of the sample run: 
+
+    ```json
+    Pipeline run status:  InProgress
+    Pipeline run status:  InProgress
+    Pipeline run status:  Succeeded
+
+    Key                  : 35792305-f328-41ce-8e15-b964bc24f2d4
+    Timestamp            : 9/10/2017 10:38:39 PM
+    RunId                : 35792305-f328-41ce-8e15-b964bc24f2d4
+    DataFactoryName      : MyDataFactory09102017
+    PipelineName         : MySparkOnDemandPipeline
+    Parameters           : {}
+    ParametersCount      : 0
+    ParameterNames       : {}
+    ParameterNamesCount  : 0
+    ParameterValues      : {}
+    ParameterValuesCount : 0
+    RunStart             : 9/10/2017 10:25:55 PM
+    RunEnd               : 9/10/2017 10:38:39 PM
+    DurationInMs         : 763623
+    Status               : Succeeded
+    Message              :
+        ```
+
+3. Run the following command: 
+
+    ```powershell
+    Get-AzureRmDataFactoryV2ActivityRun -dataFactory $df -PipelineName $pipelineName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(10)
     ```
+    
+    Here is the sample output: 
+
+    ```json
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : MyDataFactory09102017
+    ActivityName      : MySparkActivity
+    Timestamp         : 9/10/2017 10:38:36 PM
+    PipelineRunId     : 35792305-f328-41ce-8e15-b964bc24f2d4
+    PipelineName      : MySparkOnDemandPipeline
+    Input             : {rootPath, entryFilePath, getDebugInfo, sparkJobLinkedService}
+    Output            : {clusterInUse, jobId, ExecutionProgress}
+    LinkedServiceName :
+    ActivityStart     : 9/10/2017 10:25:59 PM
+    ActivityEnd       : 9/10/2017 10:38:36 PM
+    Duration          :
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
+    ```
+ 4. Confirm that a folder named outputfiles is created in the spark folder of adftutorial container with the output from the spark program. 

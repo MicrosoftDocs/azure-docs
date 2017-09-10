@@ -23,8 +23,6 @@
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Azure Portal
       href: quickstart-create-data-factory-portal.md     
-  - name: Deploy SSIS packages
-    href: quickstart-deploy-ssis-packages.md
 - name: Tutorials
   items:
   - name: 1 - Copy data in cloud
@@ -37,6 +35,8 @@
     href: tutorial-control-flow.md    
   - name: 5 - Bulk and incremental copy
     href: tutorial-bulk-incremental-copy.md
+  - name: 6 - Deploy SSIS packages
+    href: tutorial-deploy-ssis-packages.md    
 - name: Samples
   items:
   - name: PowerShell
@@ -197,7 +197,7 @@
     - name: Create and configure self-hosted integration runtime
       href: create-self-hosted-integration-runtime.md
     - name: Provision managed dedicated integration runtime
-      href: quickstart-deploy-ssis-packages.md
+      href: tutorial-deploy-ssis-packages.md
 - name: Reference
   items:
   - name: .NET
