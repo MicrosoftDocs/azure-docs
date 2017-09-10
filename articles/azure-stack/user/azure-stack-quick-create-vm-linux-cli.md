@@ -19,7 +19,7 @@ ms.author: sngun
 
 # Create a Linux virtual machine by using CLI in Azure Stack
 
-Azure CLI is used to create and manage Azure Stack resources from the command line. This guide details using Azure CLI to create a linux virtual machine in Azure Stack. You can run the steps described in this article either from the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
+Azure CLI is used to create and manage Azure Stack resources from the command line. This guide details using Azure CLI to create a Linux virtual machine in Azure Stack. You can run the steps described in this article either from the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
 
 > [!NOTE]
 > Cloud Shell is not yet supported in Azure Stack.
