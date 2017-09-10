@@ -39,7 +39,8 @@ To change the number of streaming units, do the following:
 2. In the **Settings** window, select **Streaming endpoints**.
 3. Click on the streaming endpoint that you want to scale. 
 
-	> [!NOTE] You can only scale **Premium** streaming endpoints.
+	> [!NOTE] 
+	> You can only scale **Premium** streaming endpoints.
 
 4. Move the slider to specify the number of streaming units.
 
