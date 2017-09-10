@@ -7170,11 +7170,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-create-service-principals.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-create-service-principals",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-stack/azure-stack-deploy-template-command-line.md",
             "redirect_url": "azure/azure-stack/user/azure-stack-deploy-template-command-line",
             "redirect_document_id": false
@@ -7287,11 +7282,6 @@
         {
             "source_path": "articles/azure-stack/azure-stack-validate-templates.md",
             "redirect_url": "azure/azure-stack/user/azure-stack-validate-templates",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-version-profiles.md",
-            "redirect_url": "azure/azure-stack/user/azure-stack-version-profiles",
             "redirect_document_id": false
         },
         {
