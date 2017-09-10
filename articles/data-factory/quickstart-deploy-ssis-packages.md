@@ -177,7 +177,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ## Next steps
 
 - Deploy a package. To deploy a package, you can choose from several tools and languages. For more info, see the following articles:
-	- Deploy from SSMS
+	- [Deploy from SSMS](/sql/integration-services/deploy-packages-with-ssis)
 	- Deploy with T-SQL from SSMS
 	- Deploy with T-SQL from VS Code
 	- Deploy from command prompt
