@@ -113,7 +113,7 @@ The following table and graphic provide a high-level view of the components used
 2. After resynchronization finishes, normal delta replication should resume.
 3. If you don't want to wait for default resynchronization outside hours, you can resynchronize a VM manually. For example, if an outage occurs. To do this, in the Azure portal, select the VM > **Resynchronize**.
 
-    ![Manual resynchronization](./media/concepts-hyper-v-to-azure-architecture/image-site4.png)
+    ![Manual resynchronization](./media/concepts-hyper-v-to-azure-architecture/image4-site.png)
 
 
 ### Retry process
