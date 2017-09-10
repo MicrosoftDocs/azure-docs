@@ -220,4 +220,13 @@ After you are done with retraining, update the scoring web service (predictive e
 
 
 ## Next steps
-Read through the [Azure blog post: Getting started with Azure Data Factory and Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+See the following articles that explain how to transform data in other ways: 
+
+* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
+* [Hive Activity](transform-data-using-hadoop-hive.md)
+* [Pig Activity](transform-data-using-hadoop-pig.md)
+* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
+* [Spark Activity](transform-data-using-spark.md)
+* [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
+* [Stored procedure activity](transform-data-using-stored-procedure.md)

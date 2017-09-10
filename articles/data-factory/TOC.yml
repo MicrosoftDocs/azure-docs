@@ -197,7 +197,7 @@
     - name: Create and configure self-hosted integration runtime
       href: create-self-hosted-integration-runtime.md
     - name: Provision managed dedicated integration runtime
-      href: provision-managed-dedicated-integration-runtime.md
+      href: quickstart-deploy-ssis-packages.md
 - name: Reference
   items:
   - name: .NET
