@@ -45,173 +45,209 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 ## Create the simulated device app
 In this section, you create a .NET console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
 
-1. In Visual Studio, create a new Visual C# Windows Classic Desktop project by using the **Console Application** project template. Name the project **SimulateDeviceConfiguration**.
-   
-    ![New Visual C# Windows Classic device app][img-createdeviceapp]
+1. In the dm-get-started folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 
-1. In Solution Explorer, right-click the **SimulateDeviceConfiguration** project, and then click **Manage NuGet Packages...**.
-1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
-   
-    ![NuGet Package Manager window Client app][img-clientnuget]
-1. Add the following `using` statements at the top of the **Program.cs** file:
-   
-        using Microsoft.Azure.Devices.Client;
-        using Microsoft.Azure.Devices.Shared;
-        using Newtonsoft.Json;
+    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
-   
-        static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
-        static DeviceClient Client = null;
-        static TwinCollection reportedProperties = new TwinCollection();
+1. At your command prompt, navigate to the simulated-device folder.
 
-1. Add the following method to the **Program** class:
- 
-        public static void InitClient()
-        {
-            try
-            {
-                Console.WriteLine("Connecting to hub");
-                Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error in sample: {0}", ex.Message);
-            }
-        }
-    The **Client** object exposes all the methods you require to interact with device twins from the device. The code shown above, initializes the **Client** object, and then retrieves the device twin for **myDeviceId**.
+1. Using a text editor, open the pom.xml file in the simulated-device folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app to communicate with your IoT hub:
 
-1. Add the following method to the **Program** class. This method sets the initial values of telemetry on the local device and then updates the device twin.
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-device-client</artifactId>
+      <version>1.3.30</version>
+    </dependency>
+    ```
 
-        public static async void InitTelemetry()
-        {
-            try
-            {
-                Console.WriteLine("Report initial telemetry config:");
-                TwinCollection telemetryConfig = new TwinCollection();
-                
-                telemetryConfig["configId"] = "0";
-                telemetryConfig["sendFrequency"] = "24h";
-                reportedProperties["telemetryConfig"] = telemetryConfig;
-                Console.WriteLine(JsonConvert.SerializeObject(reportedProperties));
+    > [!NOTE]
+    > You can check for the latest version of **iot-device-client** using [Maven search][lnk-maven-device-search].
 
-                await Client.UpdateReportedPropertiesAsync(reportedProperties);
-            }
-            catch (AggregateException ex)
-            {
-                foreach (Exception exception in ex.InnerExceptions)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error in sample: {0}", exception);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error in sample: {0}", ex.Message);
-            }
-        }
+1. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
-1. Add the following method to the **Program** class. This is a callback which will detect a change in *desired properties* in the device twin.
+    ```xml
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+    ```
 
-        private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
-        {
-            try
-            {
-                Console.WriteLine("Desired property change:");
-                Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+1. Save and close the pom.xml file.
 
-                var currentTelemetryConfig = reportedProperties["telemetryConfig"];
-                var desiredTelemetryConfig = desiredProperties["telemetryConfig"];
+1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java source file.
 
-                if ((desiredTelemetryConfig != null) && (desiredTelemetryConfig["configId"] != currentTelemetryConfig["configId"]))
-                {
-                    Console.WriteLine("\nInitiating config change");
-                    currentTelemetryConfig["status"] = "Pending";
-                    currentTelemetryConfig["pendingConfig"] = desiredTelemetryConfig;
+1. Add the following **import** statements to the file:
 
-                    await Client.UpdateReportedPropertiesAsync(reportedProperties);
+    ```java
+    import com.microsoft.azure.sdk.iot.device.*;
+    import com.microsoft.azure.sdk.iot.device.DeviceTwin.*;
 
-                    CompleteConfigChange();
-                }
-            }
-            catch (AggregateException ex)
-            {
-                foreach (Exception exception in ex.InnerExceptions)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error in sample: {0}", exception);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error in sample: {0}", ex.Message);
-            }
-        }
+    import java.io.IOException;
+    import java.net.URISyntaxException;
+    import java.util.Scanner;
+    ```
 
-    This method updates the reported properties on the local device twin object with the configuration update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the device twin, it completes the config change by calling the method `CompleteConfigChange` described in the next point.
+1. Add the following class-level variables to the **App** class. Replace **{yourdeviceconnectionstring}** with the device connection string you noted in the *Create a device identity* section:
 
-1. Add the following method to the **Program** class. This method simulates a device reset, then updates the local reported properties setting the status to **Success** and removes the **pendingConfig** element. It then updates the device twin on the service. 
+    ```java
+	private static String deviceId = "myDeviceId";
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
+    private static String connString = "{yourdeviceconnectionstring}";
+    private static DeviceClient client;
+	private static TelemetryConfig telemetryConfig;
+    ```
 
-        public static async void CompleteConfigChange()
-        {
-            try
-            {
-                var currentTelemetryConfig = reportedProperties["telemetryConfig"];
+1. To implement a callback handler for device twin status events, add the following nested class to the **App** class:
 
-                Console.WriteLine("\nSimulating device reset");
-                await Task.Delay(30000); 
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback 
+	{
+		public void execute(IotHubStatusCode status, Object context) 
+		{
+			System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+		}
+	}
+    ```
 
-                Console.WriteLine("\nCompleting config change");
-                currentTelemetryConfig["configId"] = currentTelemetryConfig["pendingConfig"]["configId"];
-                currentTelemetryConfig["sendFrequency"] = currentTelemetryConfig["pendingConfig"]["sendFrequency"];
-                currentTelemetryConfig["status"] = "Success";
-                currentTelemetryConfig["pendingConfig"] = null;
+1. To implement a callback handler for property events, add the following nested class to the **App** class:
 
-                await Client.UpdateReportedPropertiesAsync(reportedProperties);
-                Console.WriteLine("Config change complete \nPress any key to exit.");
-            }
-            catch (AggregateException ex)
-            {
-                foreach (Exception exception in ex.InnerExceptions)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error in sample: {0}", exception);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error in sample: {0}", ex.Message);
-            }
-        }
+    ```java
+    private static class TelemetryConfig extends Device 
+	{
+		private Boolean configIdChanged = false;
+		private Boolean frequencyChanged = false;
 
-1. Finally add the following lines to the **Main** method:
+		private Property configId = new Property("configId", "0");
+		private Property sendFrequency = new Property("sendFrequency", "24h");
+		private Property pending_status = new Property("pending_status", null);
+		private Property pending_configId = new Property("pending_configId", null);
+		private Property pending_sendFrequency = new Property("pending_sendFrequency", null);
 
-        try
-        {
-            InitClient();
-            InitTelemetry();
+		public void InitTelemetry() throws IOException 
+		{
+			System.out.println("Report initial telemetry configuration:");
+			this.setReportedProp(this.configId);
+			this.setReportedProp(this.sendFrequency);
+			this.setReportedProp(this.pending_status);
+			this.setReportedProp(this.pending_configId);
+			this.setReportedProp(this.pending_sendFrequency);
+			System.out.println("Sending initial config");
+			System.out.println(this.getReportedProp());
+			client.sendReportedProperties(this.getReportedProp());
+		}
 
-            Console.WriteLine("Wait for desired telemetry...");
-            Client.SetDesiredPropertyUpdateCallback(OnDesiredPropertyChanged, null).Wait();
-            Console.ReadKey();
-        }
-        catch (AggregateException ex)
-        {
-            foreach (Exception exception in ex.InnerExceptions)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error in sample: {0}", exception);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error in sample: {0}", ex.Message);
-        }
+		private void UpdateReportedConfiguration() 
+		{
+      // Need a thread to ensure there's no conflict with receiving desired properties?
+			new Thread(() -> {
+				try {
+					System.out.println("Sending pending config");
+					pending_status.setValue("Pending");
+					System.out.println(this.getReportedProp());
+
+					System.out.println("Simulating device reset...");
+					Thread.sleep(10000);
+					configId.setValue(pending_configId.getValue());
+					sendFrequency.setValue(pending_sendFrequency.getValue());
+					pending_status.setValue("Success");
+					pending_configId.setValue(null);
+					pending_sendFrequency.setValue(null);
+					System.out.println("Sending final config");
+					System.out.println(this.getReportedProp());
+					client.sendReportedProperties(this.getReportedProp());
+				}
+				catch (Exception e) {
+					System.out.println("Exception \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+				}
+			}).start();
+		}
+    
+		@Override
+		public void PropertyCall(String propertyKey, Object propertyValue, Object context) 
+		{
+			System.out.println(propertyKey + " changed to " + propertyValue);
+
+			String current_configId = (String)configId.getValue();
+			if (propertyKey.equals("configId") && !current_configId.equals((String)propertyValue)) {
+				configIdChanged = true;
+				pending_configId.setValue(propertyValue);
+			};
+			if (propertyKey.equals("sendFrequency")) {
+				frequencyChanged = true;
+				pending_sendFrequency.setValue(propertyValue);
+			};
+			if (configIdChanged && frequencyChanged) {
+				configIdChanged = false;
+				frequencyChanged = false;
+				UpdateReportedConfiguration();
+			}
+		}
+	}
+    ```
+
+1. Modify the signature of the **main** method to throw the following exceptions:
+
+    ```java
+    public static void main(String[] args) throws IOException, URISyntaxException
+    ```
+
+1. Add the following code to the **main** method to instantiate a **DeviceClient**:
+
+    ```java
+    // Create a device client
+    client = new DeviceClient(connString, protocol);
+
+    // Create a Device object to store the device twin properties
+    telemetryConfig = new TelemetryConfig();
+    ```
+
+1. Add the following code to the **main** method to start listening for direct method calls:
+
+    ```java
+    try {
+      // Open the DeviceClient and start the device twin services.
+      client.open();
+      client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, telemetryConfig, null);
+      telemetryConfig.InitTelemetry();
+
+      // Is this needed?
+      client.subscribeToDesiredProperties(telemetryConfig.getDesiredProp());
+    }
+    catch (Exception e) {
+      System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+      telemetryConfig.clean();
+      client.close();
+      System.out.println("Shutting down...");
+    }
+    ```
+
+1. Add the following code to the **main** method to shut down the device simulator:
+
+    ```java
+    System.out.println("Press any key to exit...");
+
+    Scanner scanner = new Scanner(System.in);
+    scanner.nextLine();
+
+    telemetryConfig.clean();
+    client.close();
+    ```
+
+1. Save and close the simulated-device\src\main\java\com\mycompany\app\App.java file.
+
+1. Build the **simulated-device** back-end app and correct any errors. At your command prompt, navigate to the simulated-device folder and run the following command:
+
+    `mvn clean package -DskipTests`
 
    > [!NOTE]
    > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, some might have to queue them, and some could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
@@ -222,55 +258,140 @@ In this section, you create a .NET console app that connects to your hub as **my
 ## Create the service app
 In this section, you will create a .NET console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredConfigurationAndQuery**.
-   
-    ![New Visual C# Windows Classic Desktop project][img-createapp]
-1. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage NuGet Packages...**.
-1. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
-   
-    ![NuGet Package Manager window][img-servicenuget]
-1. Add the following `using` statements at the top of the **Program.cs** file:
-   
-        using Microsoft.Azure.Devices;
-        using System.Threading;
-        using Newtonsoft.Json;
-1. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
-   
-        static RegistryManager registryManager;
-        static string connectionString = "{iot hub connection string}";
-1. Add the following method to the **Program** class:
-   
-        static private async Task SetDesiredConfigurationAndQuery()
-        {
-            var twin = await registryManager.GetTwinAsync("myDeviceId");
-            var patch = new {
-                    properties = new {
-                        desired = new {
-                            telemetryConfig = new {
-                                configId = Guid.NewGuid().ToString(),
-                                sendFrequency = "5m"
-                            }
-                        }
-                    }
-                };
-   
-            await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
-            Console.WriteLine("Updated desired configuration");
-   
-            while (true)
-            {
-                var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
-                var results = await query.GetNextAsTwinAsync();
-                foreach (var result in results)
-                {
-                    Console.WriteLine("Config report for: {0}", result.DeviceId);
-                    Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
-                    Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
-                    Console.WriteLine();
-                }
-                Thread.Sleep(10000);
-            }
-        }
+1. Create an empty folder called set-desired-configuration.
+
+1. In the set-desired-configuration folder, create a Maven project called **set-desired-configuration** using the following command at your command prompt. Note this is a single, long command:
+
+    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=set-desired-configuration -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+
+1. At your command prompt, navigate to the set-desired-configuration folder.
+
+1. Using a text editor, open the pom.xml file in the trigger-reboot folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app to communicate with your IoT hub:
+
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.5.22</version>
+      <type>jar</type>
+    </dependency>
+    ```
+
+    > [!NOTE]
+    > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
+
+1. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+
+    ```xml
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+    ```
+
+1. Save and close the pom.xml file.
+
+1. Using a text editor, open the set-desired-configuration\src\main\java\com\mycompany\app\App.java source file.
+
+1. Add the following **import** statements to the file:
+
+    ```java
+    import com.microsoft.azure.sdk.iot.service.devicetwin.*;
+	import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+
+	import java.io.IOException;
+	import java.util.HashSet;
+	import java.util.Set;
+    ```
+
+1. Add the following class-level variables to the **App** class. Replace **{youriothubconnectionstring}** with your IoT hub connection string you noted in the *Create an IoT Hub* section:
+
+    ```java
+    public static final String iotHubConnectionString = "{youriothubconnectionstring}";
+    public static final String deviceId = "myDeviceId";
+
+    public static final String region = "US";
+	public static final String plant = "Redmond43";
+    ```
+
+1. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
+
+    ```java
+    // Get the DeviceTwin and DeviceTwinDevice objects
+    DeviceTwin twinClient = DeviceTwin.createFromConnectionString(iotHubConnectionString);
+    DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
+
+    try {
+		// Get the device twin from IoT Hub
+		System.out.println("Device twin before update:");
+		twinClient.getTwin(device);
+		System.out.println(device);
+
+		// Update device twin tags if they are different
+		// from the existing values
+		String currentTags = device.tagsToString();
+		if ((!currentTags.contains("region=" + region) && !currentTags.contains("plant=" + plant))) {
+			// Create the tags and attach them to the DeviceTwinDevice object
+			Set<Pair> tags = new HashSet<Pair>();
+			tags.add(new Pair("region", region));
+			tags.add(new Pair("plant", plant));
+			device.setTags(tags);
+
+			// Update the device twin in IoT Hub
+			System.out.println("Updating device twin");
+			twinClient.updateTwin(device);
+		}
+		
+		// Retrieve the device twin with the tag values from IoT Hub
+		System.out.println("Device twin after update:");
+		twinClient.getTwin(device);
+		System.out.println(device);
+
+		// Query the device twins in IoT Hub
+		System.out.println("Devices in Redmond:");
+
+		// Construct the query
+		SqlQuery sqlQuery = SqlQuery.createSqlQuery("*", SqlQuery.FromType.DEVICES, "tags.plant='R*'", null);
+
+		// Run the query, returning a maximum of 100 devices
+		Query twinQuery = twinClient.queryTwin(sqlQuery.getQuery(), 100);
+		while (twinClient.hasNextDeviceTwin(twinQuery)) {
+			DeviceTwinDevice d = twinClient.getNextDeviceTwin(twinQuery);
+			System.out.println(d.getDeviceId());
+		}
+
+		System.out.println("Devices in Redmond using a cellular network:");
+
+		// Construct the query
+		sqlQuery = SqlQuery.createSqlQuery("*", SqlQuery.FromType.DEVICES, "tags.plant='Redmond43' AND properties.reported.connectivityType = 'cellular'", null);
+
+		// Run the query, returning a maximum of 100 devices
+		twinQuery = twinClient.queryTwin(sqlQuery.getQuery(), 3);
+		while (twinClient.hasNextDeviceTwin(twinQuery)) {
+			DeviceTwinDevice d = twinClient.getNextDeviceTwin(twinQuery);
+			System.out.println(d.getDeviceId());
+		}
+    } catch (IotHubException e) {
+      System.out.println(e.getMessage());
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
+    }
+    ```
+
+1. Save and close the set-desired-configuration\src\main\java\com\mycompany\app\App.java file.
+
+1. Build the **set-desired-configuration** back-end app and correct any errors. At your command prompt, navigate to the set-desired-configuration folder and run the following command:
+
+    `mvn clean package -DskipTests`
    
     The **Registry** object exposes all the methods required to interact with device twins from the service. This code initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and then updates its desired properties with a new telemetry configuration object.
     After that, it queries the device twins stored in the IoT hub every 10 seconds, and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
@@ -278,15 +399,6 @@ In this section, you will create a .NET console app that updates the *desired pr
    > [!IMPORTANT]
    > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events, use [twin notifications][lnk-twin-notifications].
    > 
-   > 
-1. Finally, add the following lines to the **Main** method:
-   
-        registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-        SetDesiredConfigurationAndQuery();
-        Console.WriteLine("Press any key to quit.");
-        Console.ReadLine();
-1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
-1. With **SimulateDeviceConfiguration** device app running, run the service app from Visual Studio using **F5**. You should see the reported configuration change from **Pending** to **Success** with the new active send frequency of five minutes instead of 24 hours.
 
  ![Device configured successfully][img-deviceconfigured]
    
