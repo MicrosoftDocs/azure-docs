@@ -14,7 +14,7 @@ ms.author: heidist
 
 # How to find endpoints and access keys
 
-When you sign up for Text Analytics, you get a personalized access key unique to your subscription. This key is required on each call to the Text Analytics API. If you haven't [signed up](text-analytics-howto-signup.md), do so now to get your key. 
+When you sign up for Text Analytics, you get a personalized access key unique to your subscription. This key is required on each call to the Text Analytics API. If you haven't [signed up](text-analytics-how-to-signup.md), do so now to get your key. 
 
 If you need help finding the key, or to determine whether your subscription already has Text Analytics, use the following instructions to get the necessary information. 
 
@@ -28,19 +28,14 @@ If you need help finding the key, or to determine whether your subscription alre
 
 4. Click the link to open the service blade. You can now get a key from **Resources > Keys** or by clicking **Show access keys** in the Essentials pane. The endpoint is also visible in the Essentials pane.
 
- ![Portal page with endpoint and keys](../media/text-analytics/portal-keys-endpoint.png)
-
-## Next steps
-
-+ [Learn how to call the API](text-analytics-howto-call-api.md) with REST.
-
-+ [Quickstart](quick-start.md) is a walkthrough of the main capabilities. Learn how to submit text, perform an analysis, and view results with minimal code.
-
-+ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides technical documentation for the APIs. The documentation supports embedded requests so that you can call the API from each documentation page.
-
-+ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
+ ![Portal page with endpoint and keys](../media/portal-keys-endpoint.png)
 
 ## See also 
 
- [Text Analytics Overview](overview.md)  
- [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)
+ [Text Analytics Overview](../overview.md)  
+ [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Call the Text Analytics API](text-analytics-how-to-call-api.md)
