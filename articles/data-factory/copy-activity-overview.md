@@ -45,8 +45,6 @@ Copy Activity goes through the following stages to copy data from a source to a 
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
 
-Data stores with * can be on-premises or on Azure infrastructure as a service (IaaS). These data stores require you to [install self-hosted integration runtime](create-self-hosted-integration-runtime.md).
-
 ### Supported file formats
 
 You can use Copy Activity to **copy files as-is** between two file-based data stores, in which case the data is copied efficiently without any serialization/deserialization.
