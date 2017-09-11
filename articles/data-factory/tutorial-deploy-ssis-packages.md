@@ -139,8 +139,8 @@ The PowerShell script in this section configures an instance of managed-dedicate
 4. Provide appropriate values for the script parameters in the "SSIS in Azure specifications" section at the beginning of the script. These parameters are described in the next section.
 5. Run the script. The `Start-AzureRmDataFactoryV2IntegrationRuntime` command near the end of the script runs for **20 to 30 minutes**.
 
-[!NOTE]
-The script connects to your Azure SQL Database or SQL Server Managed Instance to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of managed-dedicated integration runtime to the VNet.
+> [!NOTE]
+> The script connects to your Azure SQL Database or SQL Server Managed Instance to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of managed-dedicated integration runtime to the VNet.
 
 
 ```powershell
