@@ -119,6 +119,6 @@ Event Grid costs $0.60 per million operations ($0.30 during preview) and the fir
 * [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   A tutorial on building an app using Logic Apps to react to events pushed by Event Grid.
 * [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)  
-  A tutorial that uses Azure Functions to stream data from Event Hubs to SQL Datawarehouse
+  A tutorial that uses Azure Functions to stream data from Event Hubs to SQL Data Warehouse.
 * [Event Grid REST API reference](/rest/api/eventgrid)  
   Provides more technical information about the Azure Event Grid, and a reference for managing Event Subscriptions, routing, and filtering.
