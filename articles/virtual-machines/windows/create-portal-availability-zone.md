@@ -60,7 +60,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Zone for IP address and managed disk
 
-When the VM is deployed in an availability zone, the IP address and managed disk resources are deployed in the same availability zone. You can confirm the zone settings using Azure PowerShell.
+When the VM is deployed in an availability zone, the IP address and managed disk resources are deployed in the same availability zone. You can confirm the zone settings using Azure PowerShell. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 The following examples get information about the resources in a resource group named *myResourceGroup*. Substitute the name of the resource group you used to create the VM.
 
