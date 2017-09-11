@@ -1,8 +1,10 @@
-title: <this Sample of Filter Expressions (Python)> | Microsoft Docs
-description: <this Gives samples of python filter expressions>
-author: <your cforbe>
-ms.author: <your cforbe@microsoft.com>
-ms.date: <today’s date: 9/7/2017>
+---
+title: Sample of Filter Expressions (Python) | Microsoft Docs
+description: Gives samples of python filter expressions
+author: cforbe
+ms.author: cforbe@microsoft.com
+ms.date: 9/7/2017
+---
 
 Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)
 # Sample of Filter Expressions (Python) #

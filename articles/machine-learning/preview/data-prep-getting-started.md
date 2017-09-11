@@ -1,8 +1,10 @@
-title: <this Getting Started with Data Preparation > | Microsoft Docs
-description: <this This is the getting started guide for the data prep section of AML workbench>
-author: <your cforbe>
-ms.author: <your cforbe@microsoft.com>
-ms.date: <today’s date: 9/7/2017>
+---
+title: Getting Started with Data Preparation  | Microsoft Docs
+description: This is the getting started guide for the data prep section of AML workbench
+author: cforbe
+ms.author: cforbe@microsoft.com
+ms.date: 9/7/2017
+---
 
 # Getting Started with Data Preparation #
 
@@ -69,11 +71,17 @@ You can import data into Data Preparation through either the New Data Source opt
 #### Step 2: Understand/Profile the Data ####
 The first action is to look at the Data Quality Bar at the top of each column. For each column, green indicates the rows that have values. Grey indicates the rows with a missing value, null etc. Red indicates error values. There are tool tips to tell the exact numbers of rows in each of the three buckets. The UI is scaled logarithmically, so always check the actual numbers after using the UI to get a rough feel for the volume of missing data.
 
+![columns](media/data-prep-getting-started/columns.png)
+
 The next action is to use the various Inspectors from the Inspector’s menu and also the grid to develop an understanding of the characteristics of the data and to start formulating hypotheses about the data preparation required for further analysis. While most inspectors work on a single or small number of columns, the Grid and the Column Metrics inspectors work on the entire dataset. 
 
 To look at metrics for the columns, click to the right of the dataset name above the grid to bring up the new view. The column metrics view shows a row for each column from the dataset and for each row it shows a series of statistics, numerical and graphical, depending on the datatype of the column. This view can also be sorted and filtered to help you deal with large volumes of columns.
 
+![profile](media/data-prep-getting-started/profile.png)
+
 It’s likely that several Inspectors across several columns will be needed to understand the data. You can scroll through various Inspectors in the Profiling Well. Within the well, you can also move Inspectors to the head of the list in order to see them in the immediately viewable area.
+
+![inspectors](media/data-prep-getting-started/inspectors.png)
 
 Different inspectors are provided for continuous vs categorical variables/columns. The Inspector menu enables and disables options depending on the type of variables/columns you have.
 
@@ -85,12 +93,16 @@ Transforms change the data and allow the execution of the data to support the cu
 
 A green icon to the left of a given Step indicates that it has run and the data reflects the execution of that Transform. A vertical bar to the left of the Step indicates the current state of the data in the Inspectors.
 
+![steps](media/data-prep-getting-started/steps.png)
+
 It is recommended to make small frequent changes to the data and to validate (Step 4) after each change as the hypothesis evolves.
 
 #### Step 4: Verify the impact of the transformation. ####
 Decide if the hypothesis was correct. If correct, then develop the next hypothesis and repeat steps 2-3 for the new one. If incorrect, then undo the last transformation and develop a new hypothesis and repeat steps 2-3.
 
 The primary way to determine if the Transform had the right impact is to use the Inspectors. You can either use existing Inspectors with their Halo effect on or you can launch multiple Inspectors to view the data at given points in time.
+
+![halo inspector](media/data-prep-getting-started/halo1.png) ![halo inspector](media/data-prep-getting-started/halo2.png)
 
 To undo a Transformation, go the Steps List on the right-hand side of the UI. (The Steps List panel may need to be popped back out. To open it, click the double chevron pointing left). In the panel, select the Transform that was executed that you wish to undo. Select the drop-down on the right-hand side of the UI block. Select either “Edit” to make changes or “Delete” to remove the Transform from the Steps List and the Dataflow.
 
