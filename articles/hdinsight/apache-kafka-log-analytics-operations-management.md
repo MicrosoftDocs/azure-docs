@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/14/2017
+ms.date: 09/11/2017
 ms.author: larryfr
 ---
 # Analyze logs for Apache Kafka (preview) on HDInsight
