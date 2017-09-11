@@ -19,14 +19,16 @@ ms.author: shlo
 # Copy Activity in Azure Data Factory
 
 ## Overview
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-data-movement-activities.md)
+> * [Version 2 - Preview](copy-activity-overview.md)
 
 In Azure Data Factory, you can use Copy Activity to copy data among data stores located on-premises and in the cloud. After the data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
 ![Role of Copy Activity](media/copy-activity-overview/copy-activity.png)
 
 > [!NOTE]
-> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) before reading this article.
-> To learn about pipeline and activities in general, see [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, you can choose different flavor of Integration Runtime:
 

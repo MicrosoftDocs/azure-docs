@@ -20,5 +20,8 @@ ms.author: shlo
 # Control flow in Azure Data Factory 
 
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
+
 ## Next steps
 See [tutorial: control flow](tutorial-control-flow.md) for step-by-step instructions on creating a Data Factory pipeline that uses control flow activities. 

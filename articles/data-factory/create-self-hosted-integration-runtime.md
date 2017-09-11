@@ -18,5 +18,8 @@ ms.author: spelluru
 ---
 # Provision SSIS runtime in Azure Data Factory
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
+
 ## Next steps
 See the following tutorial for step-by-step instructions: [Tutorial: copy on-premises data to cloud](tutorial-copy-onprem-data-to-cloud-powershell.md).

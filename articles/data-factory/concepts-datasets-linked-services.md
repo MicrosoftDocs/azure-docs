@@ -18,10 +18,16 @@ ms.author: shlo
 ---
 
 # Datasets and linked services in Azure Data Factory 
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-create-datasets.md)
+> * [Version 2 - Preview](concepts-datasets.md)
+
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory V2 pipelines. 
 
 > [!NOTE]
-> If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview. 
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Datasets in Data Factory V1](v1/data-factory-create-datasets.md).
+
+If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview. 
 
 ## Overview
 A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.

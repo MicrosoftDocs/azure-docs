@@ -27,6 +27,10 @@ The following data sources are currently supported for Lookup:
 
 Lookup activity is helpful when you want to dynamically retrieve a list of files/ records/tables from a configuration file or a data source. The output from the activity can be further used by other activities to perform specific processing on those items only.
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
+
+
 ## Example
 In this example, the copy activity copies data from a SQL table in Azure SQL database to  Azure Blob Storage. The name of the SQL table is stored in a JSON file in the Blob Storage. The lookup activity looks up the table name at runtime. This approach allows JSON to be modified dynamically without redeploying pipelines/datasets. 
 

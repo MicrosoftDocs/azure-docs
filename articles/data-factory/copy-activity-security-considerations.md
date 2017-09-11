@@ -17,6 +17,12 @@ ms.author: jingwang
 
 ---
 # Security considerations for Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-data-movement-security-considerations.md)
+> * [Version 2 - Preview](copy-activity-security-considerations.md)
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [copy activity security considerations in V1](v1/data-factory-data-movement-security-considerations.md).
 
 ## Next steps
 See the other Copy Activity articles:

@@ -19,6 +19,9 @@ ms.author: shlo
 # Execute Pipeline activity in Azure Data Factory
 The Execute Pipeline activity allows a Data Factory pipeline to invoke another pipeline.
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
+
 ## Syntax
 
 ```json
