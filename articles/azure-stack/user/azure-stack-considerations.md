@@ -50,7 +50,7 @@ The following table describes the high-level differences between Azure Stack and
 |Supported namespaces, resource types, and API versions | The latest (or earlier versions that are not yet deprecated). | Azure Stack supports specific versions. See the "Version requirements" section of this article.
 | | |
 
-*If you are an Azure Stack cloud operator, see [Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md) for information about the administrator portal and administrator Resource Manager endpoint URLs.
+*If you are an Azure Stack cloud operator, see [Using the administrator and user portals in Azure Stack](../azure-stack-manage-portals.md) for information about the administrator portal and administrator Resource Manager endpoint URLs.
 
 ## Helpful tools and best practices
  
