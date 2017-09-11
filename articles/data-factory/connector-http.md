@@ -24,7 +24,7 @@ ms.author: jingwang
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [HTTP connector in V1](v1/data-factory-htttp-connector.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [HTTP connector in V1](v1/data-factory-http-connector.md).
 
 ## Supported scenarios
 

@@ -24,7 +24,7 @@ ms.author: jingwang
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Teradata database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Teradata connector in V1](v1/data-factory-oprem-teradata-connector.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Teradata connector in V1](v1/data-factory-onprem-teradata-connector.md).
 
 ## Supported scenarios
 
