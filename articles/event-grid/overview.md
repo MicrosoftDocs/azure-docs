@@ -23,7 +23,7 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
 
-Currently, Blob Storage is not publicly available as a publisher. You must register for the preview release to react to storage blob events. For more information, see [Route Blob storage events to a custom web endpoint (preview)](../storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json)
+Currently, Blob Storage is not publicly available as a publisher. You must register for the preview release to react to storage blob events. For more information, see [Route Blob storage events to a custom web endpoint (preview)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## Concepts
 

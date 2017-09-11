@@ -113,6 +113,6 @@ az group delete --name gridResourceGroup
 Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
 
 - [About Event Grid](overview.md)
-- [Route Blob storage events to a custom web endpoint (preview)](../storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Route Blob storage events to a custom web endpoint (preview)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
