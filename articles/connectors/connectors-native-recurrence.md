@@ -1,6 +1,6 @@
 ---
-title: Schedule tasks and workflows that run regularly - Azure Logic Apps | Microsoft Docs
-description: Schedule tasks, workflows, processes, and workloads that run regularly with the recurrence trigger for logic apps
+title: Schedule tasks that run regularly - Azure Logic Apps | Microsoft Docs
+description: Create and schedule tasks, actions, workflows, processes, and workloads that run regularly in logic apps
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
@@ -18,14 +18,15 @@ ms.date: 09/08/2017
 ms.author: LADocs; jehollan
 ---
 
-# Create, schedule, and regularly run tasks or processes in Azure Logic Apps
+# Create and schedule regularly running actions in Azure Logic Apps
 
-To specify when your logic app runs at regular intervals, 
-build a logic app that starts with a **Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+To schedule tasks, actions, workflows, or processes that run regularly, 
+you can create a logic app that starts with the **Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
 Although some [connectors](../connectors/apis-list.md) 
-provide recurrence triggers for specific tasks, 
-other connectors don't. For these connectors, you can still create, 
-schedule, and set up recurring workflows like these examples and more:
+provide recurrence triggers for specific events, other connectors don't. 
+With this trigger, you can set a future date and time for when the trigger 
+fires and the recurrence schedule for performing tasks, such as these 
+examples and more:
 
 * Get internal data: [Run a SQL stored procedure](../connectors/connectors-create-api-sqlazure.md) every day.
 * Get external data: Pull weather reports from NOAA every 15 minutes.
@@ -108,13 +109,12 @@ For more actions that you can add, see [Connectors](../connectors/apis-list.md).
 
 You can configure these properties for the recurrence trigger.
 
-
-| Display name | Required | Property name | Type | Description | 
+| Name | Required | Property name | Type | Description | 
 | ------------ | -------- | ------------- | ---- | ----------- | 
 | **Frequency** | Yes | frequency | string | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | 
 | **Interval** | Yes | interval | integer | A positive whole number that describes how often the workflow runs based on the frequency. <p>The default interval is 1. Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. | 
 | **Time zone** | No | timeZone | string | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. | 
-| **Start time** | No | startTime | string | Provide a start time in this format: <p>YYYY-MM-DDThh:mm:ss if you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and select a time zone such as Pacific Time. Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are other ways to set the start date and time?*](#start-time) | 
+| **Start time** | No | startTime | string | Provide a start time in this format: <p>YYYY-MM-DDThh:mm:ss if you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and select a time zone such as Pacific Time. Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](#start-time) | 
 | **On these days** | No | weekDays | string | If you select "Week", you can select one or more days when you want to run the workflow: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday**, and **Sunday** | 
 | **At these hours** | No | hours | integer | If you select "Day" or "Week", you can select one or more integers, ranging from 0 to 23, as the hour marks for the times when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM. | 
 | **At these minutes** | No | minutes | integer | If you select "Day" or "Week", you can select one or more integers, ranging from 0 to 59, as the minute marks for the times when you want to run the workflow. <p>For example, "30" is the half-hour mark. With the previous example for hours, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
@@ -158,7 +158,6 @@ You can configure these properties for the recurrence trigger.
 **Q:** What are other example recurrence schedules? </br>
 **A:** Here are more examples:
 
-
 | Recurrence | Interval | Frequency | Start time | On these days | At these hours | At these minutes | Note |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
 | Run at 8 AM every day | 1 | Day | {none} | {unavailable} | 8 | {none} || 
@@ -179,14 +178,14 @@ You can configure these properties for the recurrence trigger.
 
 <a name="start-time"></a>
 
-**Q:** What are other ways for setting the start date and time? </br>
-**A:** Here's more information about how you can control the start time for this trigger.
+**Q:** What are the ways that I can use the start date and time? </br>
+**A:** Here are some patterns that show how you can control recurrence 
+with the start date and time:
 
-
-| Start time | Recurrence, no schedule | Recurrence with schedule | 
+| Start time | Recurrence without schedule | Recurrence with schedule | 
 | ---------- | ----------------------- | ------------------------ | 
-| {none} | Run once immediately, then run future workloads based on calculations from the last run time. | Run once immediately, then run future workloads based on the specified recurrence schedule. | 
-| Start time at present or in the future | Run once at the specified start time, then run future workloads based on calculations from the last run time. | Run once at the specified start time - no earlier. Run future workloads based on the specified recurrence schedule. | 
+| {none} | Run once immediately, then run future workloads based on the last run time. | Run once immediately, then run future workloads based on your specified recurrence schedule. | 
+| Start time at present or in the future | Run once at your specified start time, then run future workloads based on the last run time. | Run once, but no earlier than the specified start time. Run future workloads based on your specified recurrence schedule. | 
 | Start time in the past {not permitted} | {unavailable} | {unavailable} | 
 ||||
 
