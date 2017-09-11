@@ -20,8 +20,8 @@ robots: noindex
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-usql-activity.md)
-> * [Version 2 - Preview](transform-data-using-data-lake-analytics.md)
+> * [Version 1 - GA](data-factory-usql-activity.md)
+> * [Version 2 - Preview](../transform-data-using-data-lake-analytics.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [U-SQL Activity in V2](../transform-data-using-data-lake-analytics.md).
