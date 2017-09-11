@@ -38,38 +38,9 @@ In subsequent tutorials, Operations Management Suite is configured to monitor th
 
 In previous tutorials, an application was packaged into a container image, the image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
 
+An application repository was also cloned which includes the Docker Compose file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file named `docker-compose.yml`.
+
 If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
-
-## Verify Docker compose file
-
-In [tutorial 1](./container-service-tutorialkubernetes-prepare-app.md) of this series the application repo was cloned which includes application source code and a pre-created Docker file. These files are used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. 
-
-Inside you will find a file named azure-vote-all-in-one-redis.yml. Use the cat command to view the manifest file.
-
-```
-cat docker-compose.yml
-```
-
-Output:
-
-```yaml
-version: '3'
-services:
-  azure-vote-back:
-    image: redis
-    container_name: azure-vote-back
-    ports:
-        - "6379:6379"
-
-  azure-vote-front:
-    build: ./azure-vote
-    image: azure-vote-front
-    container_name: azure-vote-front
-    environment:
-      REDIS: azure-vote-back
-    ports:
-        - "8080:80
-```
 
 ## Update application
 
