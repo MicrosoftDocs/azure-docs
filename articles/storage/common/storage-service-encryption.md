@@ -3,7 +3,7 @@ title: Azure Storage Service Encryption for Data at Rest | Microsoft Docs
 description: Use the Azure Storage Service Encryption feature to encrypt your Azure Blob Storage on the service side when storing the data, and decrypt it when retrieving the data.
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: robinsh
+ms.author: tamram
 
 ---
 # Azure Storage Service Encryption for Data at Rest

@@ -3,7 +3,7 @@ title: Develop for Azure File storage with Python | Microsoft Docs
 description: Learn how to develop Python applications and services that use Azure File storage to store file data.
 services: storage
 documentationcenter: python
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ---
 
 # Develop for Azure File storage with Python

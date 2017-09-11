@@ -3,7 +3,7 @@ title: Introduction to Azure Storage | Microsoft Docs
 description: Introduction to Azure Storage, Microsoft's data storage in the cloud.
 services: storage
 documentationcenter: ''
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ---
 <!-- this is the same version that is in the MVC branch -->
 # Introduction to Microsoft Azure Storage

@@ -3,7 +3,7 @@ title: Introduction to Azure Blob storage | Microsoft Docs
 description:  Introduction to Azure Blob storage 
 services: storage
 documentationcenter: ''
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: robinsh
+ms.author: tamram
 
 ---
 # Introduction to Blob storage

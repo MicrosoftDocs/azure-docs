@@ -3,7 +3,7 @@ title: Develop for Azure File storage with Java | Microsoft Docs
 description: Learn how to develop Java applications and services that use Azure File storage to store file data.
 services: storage
 documentationcenter: java
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 05/27/2017
-ms.author: robinsh
+ms.author: tamram
 ---
 
 # Develop for Azure File storage with Java
