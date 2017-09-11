@@ -17,7 +17,16 @@ ms.author: spelluru
 
 ---
 # Deploy SQL Server Integration Services (SSIS) packages to Azure 
-This quickstart describes how to provision managed-dedicated integration runtime in Azure. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure.  
+This tutorial provides steps for provisioning a managed-dedicated integration runtime in Azure. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps: 
+
+> [!div class="checklist"]
+> * Create variables
+> * Create a data factory. 
+> * Create a managed-dedicated integration runtime
+> * Start the managed-dedicated integration runtime
+> * Deploy SSIS packages
+> * Review the complete script
+
 
 ## Prerequisites
 
@@ -30,15 +39,6 @@ This quickstart describes how to provision managed-dedicated integration runtime
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision managed-dedicated integration runtime that runs SSIS packages in the cloud. 
 
 ## Overview
-In this tutorial, you do the following steps: 
-
-> [!div class="checklist"]
-> * Create variables
-> * Create a data factory. 
-> * Create a managed-dedicated integration runtime
-> * Start the managed-dedicated integration runtime
-> * Deploy SSIS packages
-> * Review the complete script
 
 ## Create variables
 Define variables for use in the script in this tutorial:

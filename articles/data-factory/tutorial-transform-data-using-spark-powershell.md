@@ -18,8 +18,6 @@ ms.author: shengc
 ---
 
 # Tutorial: Transform data in cloud using Spark Activity in Azure Data Factory
-Azure HDInsight is the fully managed cloud Apache Hadoop offering provided by Microsoft that gives you optimized open-source analytic clusters. It is a powerful compute resource commonly used for modern data warehousing data transformation and advanced analytics. 
-
 Using Azure Data Factory, you can easily operationalize your data transformation or advanced analytics tasks using Spark, Hive, Pig, or MapReduce, etc. on your HDInsight cluster. In addition to that, Data Factory can help you dynamically create HDInsight clusters only when you have tasks to execute and stop and delete the cluster when tasks are done, so you can more effectively manage the powerful and valuable HDInsight computing resource. 
 
 In this tutorial, you create a Data Factory pipeline that performs data transformation using Spark Activity and an on-demand HDInsight linked service. 
