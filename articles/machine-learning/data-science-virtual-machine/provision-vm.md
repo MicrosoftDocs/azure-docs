@@ -12,7 +12,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 09/10/2017
 ms.author: bradsev
 
 ---
