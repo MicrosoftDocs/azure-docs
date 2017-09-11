@@ -90,7 +90,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 1. You have a blank template that is available for customizing.
 
-   ![Create template](./media/resource-group-template-deploy-portal/show-custom-template.png)
+   ![Create template](./media/resource-group-template-deploy-portal/blank-template.png)
 
 1. You can edit the JSON syntax manually, or select a pre-built template from the [Quickstart template gallery](https://azure.microsoft.com/en-us/resources/templates/). However, for this article, you use the **Add resource** option.
 
