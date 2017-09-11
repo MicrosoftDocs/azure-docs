@@ -221,7 +221,7 @@ $ az ml history last
   "user_id": "e9fafe06-b0e4-4154-8374-aae34f9977b2"
 }
 ```
-Alternatively, the list of all runs can be displayed in a tabular format.
+Also, the list of all runs can be displayed in a tabular format.
 ```
 $ az ml history list -o table
   Accuracy    Regularization Rate  Duration        Run_id                  Script_name      Start_time_utc                    Status

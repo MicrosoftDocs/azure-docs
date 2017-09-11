@@ -9,177 +9,110 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 09/11/2017
 ---
 # How to Use Jupyter Notebooks in Azure Machine Learning Workbench
 
 ## Introduction
 Azure Machine Learning Workbench supports interactive data science experimentation via its integration of **Jupyter Notebooks**.
-**Run History** provides a means to track the outputs of your machine learning experiments, and then enables filtering and comparison of their results.
-**Model Metrics** can be logged from any point of your scripts, tracking whatever values are most important in your data science experiments.
 This article describes how to make effective use of these features to increase the rate and the quality of your data science experimentation.
+
 
 ## Prerequisites
 To step through this how-to guide, you need to:
 - [Install AML Workbench](doc-template-how-to.md)
 
 
-## Azure ML Logging API Overview
-The Azure ML Logging API is available via the **azureml.logging** module in Python (which is installed with the Azure ML Workbench.)
-After importing this module, you can use the **get_azureml_logger** method to instantiate a **logger** object.
-Then, you can use the logger's **log** method to store key/value pairs produced by your Python scripts.
-Currently, logging model metrics of scalar, dictionary, list, dataframe types are supported as shown.
+## Notebook Basics
+Notebooks live in the notebooks tab.
+They’re shown according to the project’s folder hierarchy
 
-```Python
-# azureml.logging package basic usage #
+![notebooks tab](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
 
-# create a logger instance in already set up environment 
-from azureml.logging import get_azureml_logger
-logger = get_azureml_logger()
+When the user clicks on an existing notebook, they will get a read-only preview
 
-#
-# metric logging
-#
+![notebook preview](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
-# log scalar (any integer or floating point type is fine)
-logger.log("simple value", 7)
+Clicking Start Notebook Server will switch the notebook into Edit Mode.
 
-# log dictionary
-logger.log("range", {"min":5, "max":7})
+![edit mode](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 
-# log list
-logger.log("all values", [5,6,7])
+This is a full interactive Juptyer Notebook experience _in situ_, complete with code output.
 
-# log dataframe
-import pandas
-df = pandas.DataFrame.from_records([(1,2),(3,4)],columns=["a","b"])
-logger.log("dataframe", df)
+![interactive notebook](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-05.png)
+
+and plotting too.
+
+![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-06.png)
+
+This is a nice feature.
+
+
+## Command Line Interface
+We have a command line Interface, first with help page.
 ```
-It is easy to use the logger within your Azure ML Workbench projects, and this article shows you how to do so.
+johns-mbp:IrisDemo johnpelak$ pwd
+/Users/johnpelak/Desktop/IrisDemo
+johns-mbp:IrisDemo johnpelak$ az ml notebook -h
 
-## Create a Project in Azure ML Workbench
-Effective use of the Azure ML Workbench **Run History** feature begins with a solid project, and a project based on the **Classifying Iris** template provides a great foundation for exploration.
-You can create such a project by completing the **Create New Project dialogue**.
-For a detailed walkthrough of creating a project using the Classifying Iris template, see the Iris Tutorial for Machine Learning Server.
-Once the project creation is complete, the *Project Dashboard* (which serves as the home page of your project) appears and is now available for your use (as shown.)
+Group
+    az ml notebook: Start a notebook server.
 
-![project dashboard](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01a.png)
+Commands:
+    start: Execute run.
 
-This template provides nice examples of Azure ML's *data preparation*, *experimentation*, and *operationalization* capabilities (for further discussion of its features, see the [Iris Quickstart for Machine Learning Server](quick-start-iris.md).)
-From the **Project Dashboard**, you can open the **iris_sklearn.py** script (as shown.)
+johns-mbp:IrisDemo johnpelak$ az ml notebook start -h
 
-![accessing a script from the files tab](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
+Command
+    az ml notebook start: Execute run.
 
-You can use this script as a guide for expected implementation of model metric logging in Azure ML.
+Arguments
+    --project -p: Path to the project.
 
+Global Arguments
+    --debug     : Increase logging verbosity to show all debug logs.
+    --help -h   : Show this help message and exit.
+    --output -o : Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
+    --query     : JMESPath query string. See http://jmespath.org/ for more information and examples.
+    --verbose   : Increase logging verbosity. Use --debug for full debug logs.
+johns-mbp:IrisDemo johnpelak$ 
 
-## Parameterize and Log Model Metrics from Script
-In the **iris_sklearn.py** script, **Lines 12 through 18** show the expected pattern to import and construct the logger in Python.
-
-![constructing the logger](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-03.png)
-
-The creation pattern can be reduced to the following lines of code.
-
-```Python
-from azureml.logging import get_azureml_logger
-run_logger = get_azureml_logger()
 ```
 
-Once created, you can invoke the **log** method with a name/value pair as shown in **lines 52 and 63**.
-When script development is complete, it is often useful to parameterize scripts so that values can be passed in via the command line.
-**Lines 46 and 47** show how to accept command-line parameters (when present) using standard Python libraries.
-This script takes a single parameter for the Regularization Rate (*reg*) used to fit a classification model in an effort to increase *accuracy* without overfitting.
-These variables are then logged as *Regularization Rate* and *Accuracy* so that the model with optimal results can be easily identified.
+Now, here's how to use it.
 
-![reading parameters and logging values](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-04.png)
-
-The parsing and logging actions can be captured in the following lines of code.
-
-```Python
-#presuming reg and run_logger have been initialized before these statements
-import sys
-if len(sys.argv) > 1:
-    reg = float(sys.argv[1])
-
-run_logger.log("Regularization Rate", reg)
-
-# compute accuracy value, then...
-
-run_logger.log("Accuracy", accuracy)
+```
+$ az ml notebook start
+[I 10:14:25.455 NotebookApp] The port 8888 is already in use, trying another port.
+[I 10:14:25.464 NotebookApp] Serving notebooks from local directory: /Users/johnpelak/Desktop/IrisDemo
+[I 10:14:25.465 NotebookApp] 0 active kernels 
+[I 10:14:25.465 NotebookApp] The Jupyter Notebook is running at: http://localhost:8889/?token=1f0161ab88b22fc83f2083a93879ec5e8d0ec18490f0b953
+[I 10:14:25.465 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 10:14:25.466 NotebookApp] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8889/?token=1f0161ab88b22fc83f2083a93879ec5e8d0ec18490f0b953
+[I 10:14:25.759 NotebookApp] Accepting one-time-token-authenticated connection from ::1
+[W 10:16:52.692 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20170911101425 (::1) 6.80ms referer=http://localhost:8889/notebooks/iris.ipynb
+[I 10:16:52.970 NotebookApp] Kernel started: 7f8932e0-89b9-48b4-b5d0-e8f48d1da159
+[I 10:16:53.854 NotebookApp] Adapting to protocol v5.1 for kernel 7f8932e0-89b9-48b4-b5d0-e8f48d1da159
 ```
 
-Taking these steps in your scripts enable them to make optimal usage of **Run History**.
+## Notebook User Experience via CLI Launch
+When launched from the CLI, a Juptyer Notebook user experience is available from standalone web browser.
+You can see the file system.
 
-## Launch Runs from Project Dashboard
-Returning to the **Project Dashboard**, you can launch a **tracked run** by selecting the **iris_sklearn.py** script and entering the **regularization rate** parameter in the **Arguments** edit box.
+![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-07.png)
 
-![entering parameters and launching runs](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-05.png)
+You can also see the Notebook itself.
 
-Since launching tracked runs does not block Azure ML Workbench, several can be launched in parallel.
-The status of each tracked run is visible in the **Jobs Panel** as shown.
+![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
 
-![tracking runs in the jobs panel](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-06.png)
 
-This enables optimal resource utilization without requiring each job to run in serial.
-
-## View Results in Run History
-Progress and results of tracked runs are available for analysis in Azure ML Workbench's **Run History**.
-**Run History** provides three distinct views:
-- Dashboard
-- Details
-- Comparison
-
-The **Dashboard** view displays data across all runs of a given script, rendered in both graphical, and tabular forms.
-The **Details** view displays all data generated from a specific run of a given script, including logged metrics and output files (such as rendered plots.)
-The **Comparison** view enables results of two or three runs to be viewed side-by-side, also including logged metrics and output files.
-
-Across eight tracked runs of **iris_sklearn.py**, values for the **regularization rate** parameter and **accuracy** result were logged to illustrate how to use the Run History views.
-
-### Run History Dashboard
-The results of all eight runs are visible in the **Run History Dashboard**.
-As **iris_sklearn.py** logs *Regularization Rate* and *Accuracy*, the **Run History Dashboard** displays charts for these values by default.
-
-![run history dashboard](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-07.png)
-
-The **Run History Dashboard** can be customized so that logged values also appear in the grid.  Clicking the **customize** icon displays the **List View Customization** dialogue as shown.
-
-![customizing run history dashboard grid](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-08.png)
-
-Any values logged during tracked runs are available for display, and selecting **Regularization Rate** and **Accuracy** adds them to the grid.
-
-![logged values in customized grid](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-09.png)
-
-It is easy to find interesting runs by hovering over points in the charts.  In this case, Run 7 yielded a good accuracy coupled with a low duration.
-
-![finding an interesting run](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-10.png)
-
-Clicking a point associated with Run 7 in any chart or the link to Run 7 in the grid displays the **Run History Details**.
-
-### Run History Details
-From this view, full results of the Run 7 along with any artifacts produced by Run 7 are displayed.
-
-![run history details](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-11.png)
-
-The **Run History Details** view also provides the capability to **download** any files written to the **./outputs** folder (these files are backed by Azure ML Workbench's cloud storage for Run History, which is the subject of another article.)
-
-Finally, **Run History Details** provides a means to restore your project its state at the time of this run.
-Clicking the **Restore** button displays a confirmation dialogue as shown.
-
-![restore run confirm](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-13.png)
-
-If confirmed, files may be overwritten or removed, so use this feature carefully.
-
-### Run History Comparison
-Selecting two or three runs in the **Run History Dashboard** and clicking **Compare** brings you to the **Run History Comparison** view.
-Alternatively, clicking **Compare** and selecting a run within the **Run History Details** view also brings you to the **Run History Comparison** view.
-In either case, the **Run History Comparison** view provides a means to see the logged results and artifacts of two or three runs side by side.
-
-![run history comparison](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-12.png)
-
-This view is especially useful for comparison of plots.
 
 ## Next Steps
-These features are available to assist with the process of data science experimentation.
+These features are available to assist with the process of interactive data science experimentation.
 We hope that you find them to be useful, and would greatly appreciate your feedback.
 This is just our initial implementation, and we have a great deal of enhancements planned.
 We look forward to continuously delivering them to the Azure Machine Learning Workbench. 
