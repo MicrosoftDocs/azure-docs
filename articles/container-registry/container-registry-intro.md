@@ -1,5 +1,5 @@
 ---
-title: Private Docker container registries in Azure | Microsoft Docs
+title: Private Docker container registries in Azure
 description: Introduction to the Azure Container Registry service, providing cloud-based, managed, private Docker registries.
 services: container-registry
 documentationcenter: ''
@@ -15,21 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 09/11/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
-# Introduction to private Docker container registries
-
+# Introduction to private Docker container registries in Azure
 
 Azure Container Registry is a managed [Docker registry](https://docs.docker.com/registry/) service based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your private [Docker container](https://www.docker.com/what-docker) images. Use container registries in Azure with your existing container development and deployment pipelines, and draw on the body of Docker community expertise.
 
-For background about Docker and containers, see:
-
-* [Docker user guide](https://docs.docker.com/engine/userguide/)
-
-
-
+For background about Docker and containers, see the [Docker user guide](https://docs.docker.com/engine/userguide/).
 
 ## Use cases
 Pull images from an Azure container registry to various deployment targets:
@@ -39,18 +33,14 @@ Pull images from an Azure container registry to various deployment targets:
 
 Developers can also push to a container registry as part of a container development workflow. For example, target a container registry from a continuous integration and deployment tool such as [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) or [Jenkins](https://jenkins.io/).
 
-
-
-
-
 ## Key concepts
 * **Registry** - Create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](../storage/common/storage-introduction.md) in the same location. Take advantage of local, network-close storage of your container images by creating a registry in the same Azure location as your deployments. A fully qualified registry name has the form `myregistry.azurecr.io`.
 
   You [control access](container-registry-authentication.md) to a container registry using an Azure Active Directory-backed [service principal](../active-directory/active-directory-application-objects.md) or a provided admin account. Run the standard `docker login` command to authenticate with a registry.
 
-* **Managed Registry** - A tier that offers additional capabilities for registries in three SKUs - Basic, Standard, and Premium. The images in these SKUs are stored in Storage Accounts managed by the Azure Container Registries service, which improves reliability and enables new features. New capabilities include webhook integration, repository authentication with Azure Active Directory, and support for delete functionality. Users have the option to choose between managed registries or to create a registry backed by their own Storage Accounts when creating registries.
+* **Managed Registry** - You can choose to create a managed registry, or a registry backed by your own storage account when creating a registry. Managed registries offer additional capabilities in three SKUs: Basic, Standard, and Premium. The images in these SKUs are stored in Azure Storage accounts managed by the Azure Container Registry service, which improves reliability and enables new features. New capabilities include webhook integration, repository authentication with Azure Active Directory, and support for delete functionality.
 
-* **Repository** - A registry contains one or more repositories, which are groups of container images. Azure Container Registry supports multilevel repository namespaces. This feature enables you to group collections of images related to a specific app, or a collection of apps to specific development or operational teams. For example:
+* **Repository** - A registry contains one or more repositories, which are groups of container images. Azure Container Registry supports multilevel repository namespaces. With multilevel namespaces, you can group collections of images related to a specific app, or a collection of apps to specific development or operational teams. For example:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` represents a corporate-wide image
   * `myregistry.azurecr.io/warrantydept/dotnet-build` represents an image used to build .NET apps, shared across the warranty department
@@ -58,14 +48,10 @@ Developers can also push to a container registry as part of a container developm
 
 * **Image** - Stored in a repository, each image is a read-only snapshot of a Docker container. Azure container registries can include both Windows and Linux images. You control image names for all your container deployments. Use standard [Docker commands](https://docs.docker.com/engine/reference/commandline/) to push images into a repository, or pull an image from a repository.
 
-* **Container** - A container defines a software application and its dependencies wrapped in a complete filesystem including code, runtime, system tools, and libraries. Run Docker containers based on Windows or Linux images that you pull from a container registry. Containers running on a single machine share the operating system kernel. Docker containers are fully portable to all major Linux distros, Mac, and Windows.
-
-
-
+* **Container** - A container defines a software application and its dependencies wrapped in a complete filesystem including code, runtime, system tools, and libraries. Run Docker containers based on Windows or Linux images that you pull from a container registry. Containers running on a single machine share the operating system kernel. Docker containers are fully portable to all major Linux distros, macOS, and Windows.
 
 ## Next steps
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
-* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [this tutorial](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
-* If you want to set up your own Docker private registry in Azure (without a public endpoint), see [Deploying Your Own Private Docker Registry on Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
+* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [CI/CD with Docker Swarm and VSTS](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
