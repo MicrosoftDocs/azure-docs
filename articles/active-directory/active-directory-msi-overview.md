@@ -19,7 +19,7 @@ ms.author: skwan
 
 #  Overview of Managed Service Identity (Preview) for Azure resources
 
-A common challenge when building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked into source control. Azure KeyVault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to KeyVault to retrieve them. Managed Service Identity (MSI) solves this problem by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including KeyVault, without having any credentials in your code.
+A common challenge when building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked into source control. Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) solves this problem by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
 ## How does it work?
 
@@ -57,7 +57,7 @@ The following services support Azure AD authentication and have been tested with
 | Service | Resource ID | Tutorial | Status | Date |
 | --- | --- | --- | --- | --- |
 | Azure Resource Manager | https://management.azure.com/ | [Tutorial](tutorial.md) | Available | Sept 2017 |
-| Azure KeyVault | NEED VALUE | NEED VALUE | Available | Sept 2017 |
+| Azure Key Vault | https://vault.azure.net/ | NEED VALUE | Available | Sept 2017 |
 | Azure SQL | NEED VALUE | Coming soon | Available | Sept 2017 |
 | Azure Data Lake | NEED VALUE | Coming soon | Available | Sept 2017 |
 
