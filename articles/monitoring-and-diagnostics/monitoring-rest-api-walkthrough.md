@@ -111,9 +111,44 @@ Invoke-RestMethod -Uri $request `
 >
 >
 
-The resulting JSON response body would be similar to the following screenshot:
-
-![Alt "JSON view of metric definition response."](./media/monitoring-rest-api-walkthrough/available_metric_definitions_logic_app_json_response_clean.png)
+The resulting JSON response body would be similar to the following:
+```JSON
+{
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
+  "value": [
+    {
+      "name": {
+        "value": "RunsStarted",
+        "localizedValue": "Runs Started"
+      },
+      "category": "AllMetrics",
+      "startTime": "0001-01-01T00:00:00Z",
+      "endTime": "0001-01-01T00:00:00Z",
+      "unit": "Count",
+      "primaryAggregationType": "Total",
+      "resourceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets",
+      "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets",
+      "metricAvailabilities": [
+        {
+          "timeGrain": "PT1M",
+          "retention": "P30D",
+          "location": null,
+          "blobLocation": null
+        },
+        {
+          "timeGrain": "PT1H",
+          "retention": "P30D",
+          "location": null,
+          "blobLocation": null
+        }
+      ],
+      "properties": null,
+      "dimensions": null,
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions/RunsStarted",
+      "supportedAggregationTypes": [ "None", "Average", "Minimum", "Maximum", "Total", "Count" ]
+    }
+}
+```
 
 For more information, see the [List the metric definitions for a resource in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/mt743621.aspx) documentation.
 
@@ -141,9 +176,41 @@ Invoke-RestMethod -Uri $request `
     -Verbose
 ```
 
-The resulting JSON response body would be similar to the following screenshot:
+The resulting JSON response body would be similar to the following:
 
-![Alt "JSON response showing Average Response Time metric value"](./media/monitoring-rest-api-walkthrough/available_metrics_logic_app_json_response_clean.png)
+```JSON
+{
+  "value": [
+    {
+      "data": [
+        {
+          "timeStamp": "2017-08-18T19:00:00Z",
+          "total": 0.0
+        },
+        {
+          "timeStamp": "2017-08-18T20:00:00Z",
+          "total": 159.0
+        },
+        {
+          "timeStamp": "2017-08-18T21:00:00Z",
+          "total": 174.0
+        },
+        {
+          "timeStamp": "2017-08-18T22:00:00Z",
+          "total": 97.0
+        }
+      ],
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/RunsSucceeded",
+      "name": {
+        "value": "RunsSucceeded",
+        "localizedValue": "Runs Succeeded"
+      },
+      "type": "Microsoft.Insights/metrics",
+      "unit": "Count"
+    }
+  ]
+}
+```
 
 To retrieve multiple data or aggregation points, add the metric definition names and aggregation types to the filter, as seen in the following example:
 
@@ -156,9 +223,56 @@ Invoke-RestMethod -Uri $request `
     -OutFile ".\contostweets-metrics-multiple-results.json" `
     -Verbose
 ```
-The resulting JSON response body would be similar to the following screenshot:
-![Alt "JSON response showing Average Response Time metric value"](./media/monitoring-rest-api-walkthrough/available_metrics_logic_app_multiple_json_response_clean.png)
+The resulting JSON response body would be similar to the following:
 
+```JSON
+{
+  "value": [
+    {
+      "data": [
+        {
+          "timeStamp": "2017-08-18T21:03:00Z",
+          "total": 5.0,
+          "average": 1.0
+        },
+        {
+          "timeStamp": "2017-08-18T21:04:00Z",
+          "total": 7.0,
+          "average": 1.0
+        }
+      ],
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/ActionsCompleted",
+      "name": {
+        "value": "ActionsCompleted",
+        "localizedValue": "Actions Completed "
+      },
+      "type": "Microsoft.Insights/metrics",
+      "unit": "Count"
+    },
+    {
+      "data": [
+        {
+          "timeStamp": "2017-08-18T21:03:00Z",
+          "total": 5.0,
+          "average": 1.0
+        },
+        {
+          "timeStamp": "2017-08-18T21:04:00Z",
+          "total": 7.0,
+          "average": 1.0
+        }
+      ],
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/RunsSucceeded",
+      "name": {
+        "value": "RunsSucceeded",
+        "localizedValue": "Runs Succeeded"
+      },
+      "type": "Microsoft.Insights/metrics",
+      "unit": "Count"
+    }
+  ]
+}
+```
 
 ### Use ARMClient
 An additional approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline use of ARMClient for retrieving metric data:
@@ -200,14 +314,75 @@ The resource ID can also be obtained from the Azure portal. To do so, navigate t
 ![Alt "Resource ID displayed in the Properties blade in the Azure portal"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### Azure PowerShell
-The resource ID can be retrieved using Azure PowerShell cmdlets as well. For example, to obtain the resource ID for an Azure Logic App, execute the Get-AzureLogicApp cmdlet, as in the following screenshot:
+The resource ID can be retrieved using Azure PowerShell cmdlets as well. For example, to obtain the resource ID for an Azure Logic App, execute the Get-AzureLogicApp cmdlet, as in the following example:
 
-![Alt "Resource ID obtained via PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
+```PowerShell
+Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
+```
+
+The result should be similar to the following:
+```
+Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
+Name           : ContosoTweets
+Type           : Microsoft.Logic/workflows
+Location       : centralus
+ChangedTime    : 8/21/2017 6:58:57 PM
+CreatedTime    : 8/18/2017 7:54:21 PM
+AccessEndpoint : https://prod-08.centralus.logic.azure.com:443/workflows/f3a91b352fcc47e6bff989b85446c5db
+State          : Enabled
+Definition     : {$schema, contentVersion, parameters, triggers...}
+Parameters     : {[$connections, Microsoft.Azure.Management.Logic.Models.WorkflowParameter]}
+SkuName        :
+AppServicePlan :
+PlanType       :
+PlanId         :
+Version        : 08586982649483762729
+```
+
 
 ### Azure CLI
-To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the 'az storage account show' command, as shown in the following screenshot:
+To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the 'az storage account show' command, as shown in the following example:
 
-![Alt "Resource ID obtained via PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
+```
+az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
+```
+
+The result should be similar to the following:
+```JSON
+{
+  "accessTier": null,
+  "creationTime": "2017-08-18T19:58:41.840552+00:00",
+  "customDomain": null,
+  "enableHttpsTrafficOnly": false,
+  "encryption": null,
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/contosotweets2017",
+  "identity": null,
+  "kind": "Storage",
+  "lastGeoFailoverTime": null,
+  "location": "centralus",
+  "name": "contosotweets2017",
+  "networkAcls": null,
+  "primaryEndpoints": {
+    "blob": "https://contosotweets2017.blob.core.windows.net/",
+    "file": "https://contosotweets2017.file.core.windows.net/",
+    "queue": "https://contosotweets2017.queue.core.windows.net/",
+    "table": "https://contosotweets2017.table.core.windows.net/"
+  },
+  "primaryLocation": "centralus",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "azmon-rest-api-walkthrough",
+  "secondaryEndpoints": null,
+  "secondaryLocation": "eastus2",
+  "sku": {
+    "name": "Standard_GRS",
+    "tier": "Standard"
+  },
+  "statusOfPrimary": "available",
+  "statusOfSecondary": "available",
+  "tags": {},
+  "type": "Microsoft.Storage/storageAccounts"
+}
+```
 
 > [!NOTE]
 > Azure Logic Apps are not yet available via the Azure CLI, thus an Azure Storage account is shown in the preceding example.
@@ -224,7 +399,6 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-eventtypes_results.json" `
     -Verbose
 ```
 
