@@ -53,7 +53,7 @@ To visualize the current threat intelligence for your environment, you must firs
 	> 
 3. If you have more than one workspace to investigate, you may prioritize the investigation according to the **MALICIOUS IP** column that shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and then the **Threat intelligence** dashboard appears.
 
-	![Threat Intel](./media/security-center-threat-intel/security-center-threat-intel-fig2.png)
+	![Threat Intel](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
 4. This dashboard is divided in four tiles:
 	* **Threat types**: summarizes the type of threats were detected in the selected workspace.

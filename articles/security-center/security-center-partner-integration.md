@@ -57,10 +57,10 @@ After deployment, to view information about the health of the solution and perfo
 
 ![Partner solutions integration](./media/security-center-partner-integration/security-center-partner-integration-fig3.png)
 
-The content that you see in the when you open Security Solutions blade may vary according to your infrastructure. Using the previous image as example, this blade has three sections:
+The content that you see in the when you open Security Solutions may vary according to your infrastructure. Using the previous image as example, this page has three sections:
 
 - **Connected solutions**: displays solutions connected to Security Center.
-- **Discovered solutions**: displays solutions that are not connected to Security Center. You can connect these solutions and they will then display under connected solutions.  If Security Center does not detect any unconnected solutions, then this section will be hidden.
+- **Discovered solutions**: displays solutions that are not connected to Security Center. You can connect these solutions and they will then display under connected solutions.  If Security Center does not detect any unconnected solutions, then this section is hidden.
 - **Add data sources**: displays Azure and non-Azure data sources that you can add to Security Center.
 
 ### Connected solutions
@@ -80,7 +80,7 @@ The information that you see on each may vary according to the solution. Some in
 > Watch Security Center shows the date and time of the last received event to indicate if the appliance is reporting or not. Solutions that are not sending health indicator are displayed as connected if alert, or event were sent in the last 14 days.
 >  
 
-Some of these solutions might be fully integrated in Azure, others might be on-premises. Since Security Center supports [Common Event Format (CEF)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef), it can connect with solutions that uses CEF, such as  a Firewall that supports CEF. Once this solution is added to Security Center, Firewall sends logs in CEF format to Security Center, which handles it to [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). Firewall is a non-Azure resource, and sends events but not a health indicator.  The only information that Security Center has about health is the last time that this appliance sent an event.  For all non-Azure resources, Security Center displays in the health area of the tile the date and time that the last event was received.  This is an indicator that the non-Azure resource is still reporting.
+Some of these solutions might be fully integrated in Azure, others might be on-premises. Since Security Center supports [Common Event Format (CEF)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef), it can connect with solutions that use CEF, such as  a Firewall that supports CEF. Once this solution is added to Security Center, Firewall sends logs in CEF format to Security Center, which handles it to [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). Firewall is a non-Azure resource, and sends events but not a health indicator.  The only information that Security Center has about health is the last time that this appliance sent an event.  For all non-Azure resources, Security Center displays in the health area of the tile the date and time that the last event was received, which indicates that the non-Azure resource is still reporting.
 
 ### Discovered solutions
 
@@ -88,11 +88,11 @@ The **Discovered solutions** section shows all solutions that were added via Azu
 
 ![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center can integrate with built in Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). If you have a license for Azure AD Identity Protection, but it is not connected to Security Center, then Azure AD Identity Protection will be listed under **Discovered solutions**. To integrate this solution with Security Center, click **CONNECT** on **Azure AD Identity Protection** tile, and the following page appears:
+Security Center can integrate with built-in Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). If you have a license for Azure AD Identity Protection, but it is not connected to Security Center, then Azure AD Identity Protection will be listed under **Discovered solutions**. To integrate this solution with Security Center, click **CONNECT** on **Azure AD Identity Protection** tile, and the following page appears:
 
 ![Azure AD Identity Protection](./media/security-center-partner-integration/security-center-partner-integration-fig6.png)
 
-To finish connecting Azure AD Identity Protection you need to select a workspace that the data will be saved in. All data from Azure AD Identity Protection will flow from the workspace region that was selected in this step.  You will go through workspace selector to select the workspace and data will start to flow there.
+To finish connecting Azure AD Identity Protection you need to select a workspace that the data is saved in. All data from Azure AD Identity Protection will flow from the workspace region that was selected in this step.  You will go through workspace selector to select the workspace and data will start to flow there.
 
 In order to connect to Security Center you must be a global admin or a security admin.  The **Connect** button will be disabled if you don’t have permissions, and if you don’t have permissions there will be a message explaining why the button is disabled.
 
