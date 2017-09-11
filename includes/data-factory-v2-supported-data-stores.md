@@ -31,5 +31,6 @@
 | &nbsp; |[Web Table (table from HTML)](../articles/data-factory/connector-web-table.md) |✓ | |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md) |✓ | | |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | | |
+| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | | |
 
 
