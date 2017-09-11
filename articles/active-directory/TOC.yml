@@ -57,3 +57,9 @@
       href: active-directory-msi-overview.md
     - name: Use VM MSI to access non-AAD resource
       href: active-directory-msi-overview.md
+- name: Howto
+    items:
+    - name: Assign an MSI access to an Azure resource - Portal
+      href: active-directory-msi-howto-assign-access-portal.md
+    - name: Assign an MSI access to an Azure resource - PowerShell
+      href: active-directory-msi-howto-assign-access-powershell.md

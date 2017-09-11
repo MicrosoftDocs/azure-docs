@@ -32,7 +32,7 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](active-dire
 
    ![Access control (IAM) screenshot](./media/active-directory-msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
-4. Select the resource and hit "Save." You are returned to the main "Access control (IAM)" page, where you  see a new entry for the resource's MSI:
+4. Select the resource and hit "Save." You are returned to the main "Access control (IAM)" page, where you see a new entry for the resource's MSI:
 
    ![Access control (IAM) screenshot](./media/active-directory-msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
