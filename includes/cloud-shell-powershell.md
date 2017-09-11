@@ -5,11 +5,9 @@ The Azure Cloud Shell is a free shell that you can run directly within the Azure
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-The button launches an interactive shell that you can use to run all of the steps in this topic.
+The button launches an interactive shell that you can use to run all of the steps in this topic:
 
-
-
-
+[![Screenshot showing the Cloud Shell window in the portal](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 
 
 
