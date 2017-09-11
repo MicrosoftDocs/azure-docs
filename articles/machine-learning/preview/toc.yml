@@ -81,8 +81,8 @@
       href: doc-template-how-to.md
     - name: Awesome ADS example 3
       href: doc-template-how-to.md
-  - name: Known issues & troubleshooting guide
-    href: known-issues-and-trouble-shooting-guide.md
+    - name: Known issues & troubleshooting guide
+      href: known-issues-and-trouble-shooting-guide.md
 - name: Reference
   items:  
   - name: Data Preparation
