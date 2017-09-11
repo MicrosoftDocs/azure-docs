@@ -80,13 +80,8 @@ If you have a Virtual Machine that no longer needs an MSI:
 
 ## Related content
 
-- [Managed Service Identity overview](active-directory-msi-qs-configure-cli-windows-vm.md)
+- [Managed Service Identity overview](active-directory-msi-overview.md)
 - This article is adapted from the [Create a Windows virtual machine with CLI](../virtual-machines/windows/quick-create-cli.md) QuickStart, modified to include MSI-specific instructions. 
-
-## Next steps
-
-- Assign an MSI access to Azure Resource Manager
-- Get a token using Managed Service Identity 
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

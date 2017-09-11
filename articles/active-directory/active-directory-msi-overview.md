@@ -48,7 +48,7 @@ The following Azure services support Managed Service Identity.
 
 | Service | Tutorial | Status | Date |
 | --- | --- | --- | --- |
-| Azure Virtual Machines | [Tutorial](ARM-tutorial.md) | Preview | Sept 2017 |
+| Azure Virtual Machines | [Tutorial](active-directory-msi-overview.md) | Preview | Sept 2017 |
 
 ### Azure services that support Azure AD authentication
 
