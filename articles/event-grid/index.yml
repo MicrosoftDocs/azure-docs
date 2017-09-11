@@ -35,7 +35,6 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitor changes to VMs with logic apps</a>
-    - html: <a href="/azure/event-grid/event-grid-event-hubs-integration">Stream data from Event Hubs to data warehouse</a>
 - title: Reference
   items:
   - type: list
