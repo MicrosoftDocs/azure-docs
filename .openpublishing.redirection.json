@@ -10389,7 +10389,7 @@
             "redirect_url": "/azure/azure-functions/functions-openapi-definition",
             "redirect_document_id": false
         },
-
+        {
             "source_path": "articles/active-directory/active-directory-azureadjoin-user-frx.md",
             "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-frx",
             "redirect_document_id": false
