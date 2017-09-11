@@ -19,7 +19,7 @@ ms.author:
 
 ---
 # Installation instructions for Stream Analytics Tools for Visual Studio
-Stream Analytics Tools now support Visual Studio 2013, 2015 and 2017. In this document we will introduce how to install and unsintall the tools.
+Stream Analytics Tools now support Visual Studio 2017, 2015 and 2013. In this document we will introduce how to install and unsintall the tools.
 
 [Learn how to use Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio)
 
