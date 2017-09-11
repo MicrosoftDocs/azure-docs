@@ -35,7 +35,7 @@ The combination of a condition statement with your controls represents a conditi
 
 Each control is either a requirement that must be fulfilled by the person or system signing in, or a restriction on what the user can do after signing in. 
 
-There are two types of controls; 
+There are two types of controls: 
 
 - **Grant controls** - To gate access
 
@@ -70,7 +70,7 @@ Using multi-factor authentication helps protect resources from being accessed by
 
 You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from trusted devices. Requiring a compliant device is one option you have to define what a trusted device is. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
-### Domain joined device
+### Domain-joined device
 
 Requiring a domain-joined device is another option you have to configure a device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
@@ -90,11 +90,11 @@ With approved client apps, you can require a client app that attempts to access 
 
 ## Session controls
 
-Session controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
+Session controls enable limited experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
 
 ![Control](./media/active-directory-conditional-access-controls/31.png)
 
-#### Use app enforced restrictions
+### Use app enforced restrictions
 
 You can use this control to require Azure AD to pass the device information to the cloud app. This helps the cloud app know if the user is coming from a compliant device or domain joined device. This control is currently only supported with SharePoint as the cloud app. SharePoint uses the device information to provide users a limited or full experience depending on the device state.
 To learn more about how to require limited access with SharePoint, see [control access from unmanaged devices](https://aka.ms/spolimitedaccessdocs).
