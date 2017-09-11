@@ -21,11 +21,11 @@ ms.custom:
 
 # Create a Windows virtual machine in an availability zone with PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone (preview). You learn how to:
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This article details using PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone (preview). An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. You learn how to:
 
 > [!div class="checklist"]
 > * Create a VM in an availability zone
-> * 
+> * Identify related resources created in the availability zone
   
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -51,7 +51,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location eastus2
 ## Create networking resources
 
 ### Create a virtual network, subnet, and a public IP address 
-These resources are used to provide network connectivity to the virtual machine and connect it to the internet. Create the IP address in an availability zone, *2* in this example. To create the VM in an availablity zone (shown in a later step), you specify the same zone used to create the IP address.
+These resources are used to provide network connectivity to the virtual machine and connect it to the internet. Create the IP address in an availability zone, *2* in this example. To create the VM in an availability zone (shown in a later step), you specify the same zone used to create the IP address.
 
 ```powershell
 # Create a subnet configuration
@@ -117,7 +117,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 
 ## Zone for IP address and managed disk
 
-You created the VM's IP address resource in the same availablity zone as the VM. The managed disk resource for the VM is also created in the same availability zone. You can verify this with [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
+You created the VM's IP address resource in the same availability zone as the VM. The managed disk resource for the VM is also created in the same availability zone. You can verify this with [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
 
 ```powershell
 Get-AzureRmDisk -ResourceGroupName myResourceGroup
@@ -157,3 +157,4 @@ In this article, you learned about VMs in an availability zone such as how to:
 
 > [!div class="checklist"]
 > * Create a VM in availability zone
+> * Identify related resources created in the availability zone

@@ -21,11 +21,11 @@ ms.custom:
 
 # Create a Linux virtual machine in an availability zone with the Azure CLI
 
-You can deploy a Linux VM in an Azure availability zone (preview). You learn how to:
+You can deploy a Linux VM in an Azure availability zone (preview). An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. You learn how to:
 
 > [!div class="checklist"]
 > * Create a VM in an availability zone
-> * 
+> * Identify related resources created in the availability zone
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -74,7 +74,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 
 When the VM is deployed in an availability zone, the IP address and managed disk resources are deployed in the same availability zone. The following examples get information about these resources.
 
-First use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to return the the name of public IP address resource in *myVM*. In this example, the name is stored in a variable that is used in a later step
+First use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to return the name of public IP address resource in *myVM*. In this example, the name is stored in a variable that is used in a later step.
 
 ```azurecli-interactive
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
@@ -176,6 +176,7 @@ In this article, you learned about VMs in an availability zone such as how to:
 
 > [!div class="checklist"]
 > * Create a VM in availability zone
+> * Identify related resources created in the availability zone
 
 
 
