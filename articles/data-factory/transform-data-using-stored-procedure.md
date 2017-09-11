@@ -19,9 +19,16 @@ ms.author: shengc
 
 
 # Transform data using SQL Server Stored Procedure Activity in Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-stored-proc-activity.md)
+> * [Version 2 - Preview](transform-data-using-stored-procedure.md)
+
+
 You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
 
-> [!NOTE] 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Stored Procedure Activity in V1](v1/data-factory-stored-proc-activity.md).
+> 
 > If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-powershell.md) before reading this article. 
 
 You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
