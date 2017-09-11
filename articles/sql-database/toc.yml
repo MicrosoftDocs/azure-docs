@@ -43,11 +43,7 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
-  - name: 4 - Improve SQL DB performance
-    href: sql-database-performance-tutorial.md
-  - name: 5 - Implement multi-tenant app
-    href: sql-database-multi-tenant-application.md
-  - name: 6 - Implement a geo-distributed database
+  - name: 4 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
 - name: Samples
   items:
@@ -303,8 +299,6 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
-    - name: Azure RemoteApp
-      href: sql-database-ssms-remoteapp.md
   - name: Scale out
     items:
     - name: Create sharded app
