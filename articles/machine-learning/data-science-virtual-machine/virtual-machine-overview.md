@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 09/10/2017
 ms.author: gokuma;bradsev
 
 ---
@@ -24,6 +24,8 @@ ms.author: gokuma;bradsev
 The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. It is available on Windows Server and on Linux. We offer Windows edition of DSVM on Server 2016 and Server 2012. We offer Linux edition of the DSVM on Ubuntu 16.04 LTS and on OpenLogic 7.2 CentOS-based Linux distributions. 
 
 This topic discusses what you can do with the Data Science VM, outlines some of the key scenarios for using the VM, itemizes the key features available on the Windows and Linux versions, and provides instructions on how to get started using them.
+
+For an introduction to the Deep Learning Data Science VM, see [Introduction to the Deep Learning Data Science Virtual Machine](deep-learning-dsvm-overview.md). 
 
 ## What can I do with the Data Science Virtual Machine?
 The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment. This VM saves you considerable time that you would spend if you had rolled out a comparable environment on your own. Instead, start your data science project immediately in a newly created VM instance. 
@@ -118,7 +120,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 
 
 
-## How to get started with the Windows Data Science VM
+## Get started with the Windows Data Science VM
 * Create an instance of the desired Windows DSVM edition by navigating to
   * [Windows Server 2016 based DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
   

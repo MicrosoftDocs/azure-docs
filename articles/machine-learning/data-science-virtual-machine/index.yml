@@ -23,9 +23,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="get-started-windows-dsvm">Windows</a>
-    - html: <a href="get-started-linux-dsvm">Linux</a>
-
+    - html: <a href="provision-vm.md">Windows</a>
+    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
