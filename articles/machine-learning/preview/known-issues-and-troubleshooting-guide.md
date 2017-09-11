@@ -1,6 +1,6 @@
 ---
-title: Known Issues and Trouble Shooting Guide | Microsoft Docs
-description: List of known issues and a guide to help trouble-shoot 
+title: Known Issues and Troubleshooting Guide | Microsoft Docs
+description: List of known issues and a guide to help troubleshoot 
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -9,10 +9,10 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/05/2017 
 ---
 
-# Known Issues And Trouble Shooting Guide 
+# Known Issues And Troubleshooting Guide 
 
 ## Security
 * RSA keys are not supported when connecting to a remote machine or Spark cluster over SSH. Only username/password mode is supported.
@@ -43,7 +43,7 @@ dial tcp:
 lookup registry-1.docker.io on [::1]:53: read udp [::1]:49385->[::1]:53: 
 read: connection refused
 ```
-![Image](media/known-issues-and-trouble-shooting-guide/docker_dns.png)
+![Image](media/known-issues-and-troubleshooting-guide/docker_dns.png)
 
 
 

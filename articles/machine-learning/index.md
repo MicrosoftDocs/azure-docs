@@ -15,7 +15,7 @@ ms.author: carolz
 ---
 # Azure Machine Learning
 
-Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models. Learn how build and deploy models for any of your applications with our quickstarts, tutorials, documents, and samples. 
+Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models. Learn how to build and deploy models for any of your applications with our quickstarts, tutorials, documents, and samples. 
 
 <ul class="panelContent cardsFTitle">
     <li>
