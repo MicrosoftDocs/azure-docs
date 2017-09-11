@@ -256,6 +256,8 @@
     items:
     - name: Export to PowerApps and Microsoft Flow
       href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Use Managed Service Identity
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: App Service Environment
     items:
     - name: Use an App Service Environment
