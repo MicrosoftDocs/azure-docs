@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/06/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ---
 # Docker Compose application support in Azure Service Fabric (Preview)
@@ -22,10 +22,10 @@ Docker uses the [docker-compose.yml](https://docs.docker.com/compose) file for d
 
 Because this support is in preview, only a subset of Compose directives is supported. For example, application upgrades are not supported. However, you can always remove and deploy applications instead of upgrading them.
 
-To use this preview, create your cluster with the preview SDK (version 255.255.x.x) through the Azure portal. 
+To use this preview, create your cluster with version 5.7 or greater of the Service Fabric runtime through the Azure portal along with the corresponding SDK. 
 
 > [!NOTE]
-> This feature is in preview and is not supported.
+> This feature is in preview and is not supported in production.
 
 ## Deploy a Docker Compose file on Service Fabric
 
@@ -51,24 +51,24 @@ To delete the Compose application through PowerShell, use the following command:
 Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
 ```
 
-### Use Azure CLI 2.0
+### Use Azure Service Fabric CLI (sfctl)
 
-Alternatively, you can use the following Azure CLI command:
+Alternatively, you can use the following Service Fabric CLI command:
 
 ```azurecli
-az sf compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
 After you've created the application, you can check its status by using the following command:
 
 ```azurecli
-az sf compose status --application-id TestContainerApp [ --timeout ]
+sfctl compose status --application-id TestContainerApp [ --timeout ]
 ```
 
 To delete the Compose application, use the following command:
 
 ```azurecli
-az sf compose remove  --application-id TestContainerApp [ --timeout ]
+sfctl compose remove  --application-id TestContainerApp [ --timeout ]
 ```
 
 ## Supported Compose directives
@@ -111,9 +111,5 @@ Although this model offers flexibility, we are also planning to support a simple
 
 ## Next steps
 
-* Read up on the [Service Fabric application model](service-fabric-application-model.md).
-
-## Related articles
-
-* [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Get started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* Read up on the [Service Fabric application model](service-fabric-application-model.md)
+* [Get started with Service Fabric CLI](service-fabric-cli.md)

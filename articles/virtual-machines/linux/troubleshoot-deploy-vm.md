@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot deploying Linux virtual machine issues in Azure | Microsoft Docs
 description: Troubleshoot deploying Linux virtual machine issues in Azurethe Resource Manager deployment model.
 services: virtual-machines-windows
@@ -89,7 +89,7 @@ You can find the list at Linux on [Azure-Endorsed Distributions](endorsed-distro
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability.md#addmachine).
 
 
 ## Next steps

@@ -42,6 +42,7 @@
 ## Configure
 ### Azure
 #### [Profiler](app-insights-profiler.md)
+#### [Enable the Profiler](enable-profiler-cloud-services.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
 #### [Previews](app-insights-previews.md)
 
@@ -91,9 +92,11 @@
 
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
+#### [Send user context](app-insights-usage-send-user-context.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
-#### [Funnels](app-insights-understand-usage-patterns.md)
+#### [Funnels](usage-funnels.md)
 #### [Retention](app-insights-usage-retention.md)
+#### [User Flows](app-insights-usage-flows.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
 
 ### Analytics
@@ -130,7 +133,7 @@
 ### [Export to Power BI](app-insights-export-power-bi.md)
 
 ## Secure
-### [Data collection, retention and storage](app-insights-data-retention-privacy.md)
+### [Data collection, retention, and storage](app-insights-data-retention-privacy.md)
 ### [Resources, roles, and access control](app-insights-resources-roles-access-control.md)
 ### [IP addresses](app-insights-ip-addresses.md)
 
@@ -140,7 +143,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Reference
-## [Analytics](app-insights-analytics-reference.md)
+## [Analytics](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,6 +157,7 @@
 ### [Metric](application-insights-data-model-metric-telemetry.md)
 ### [Context](application-insights-data-model-context.md)
 ## [Telemetry correlation](application-insights-correlation.md)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
@@ -161,6 +165,7 @@
 ## [Languages and platforms](app-insights-platforms.md)
 
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
 ## News
 

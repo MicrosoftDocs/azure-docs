@@ -14,24 +14,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: piotrci
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
 
 ---
 # Create attribute-based rules for dynamic group membership in Azure Active Directory
-In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules.
+In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices.
 
-## To create the advanced rule
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
-   ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
-3. On the **Users and groups** blade, select **All groups**.
+> [!NOTE]
+> - You can set up a rule for dynamic membership on security groups or Office 365 groups.
+>
+> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group.
+>
+> - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
+
+> - At the moment it is not possible to create a device group based on owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
+
+## To create an advanced rule
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
+2. Select **Users and groups**.
+3. Select **All groups**.
 
    ![Opening the groups blade](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. On the **Users and groups - All groups** blade, select the **Add** command.
+4. In **All groups**, select **New group**.
 
    ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
@@ -59,10 +69,8 @@ For the complete list of supported parameters and expression rule operators, see
 The total length of the body of your advanced rule cannot exceed 2048 characters.
 
 > [!NOTE]
-> String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
+> String and regex operations are not case sensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
->
->
 
 ## Supported expression rule operators
 The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
@@ -82,16 +90,15 @@ The following table lists all the supported expression rule operators and their 
 
 ## Operator precedence
 
-All Operators are listed below per precedence from lower to higher, operator in same line are in equal precedence
+All Operators are listed below per precedence from lower to higher. Operators on same line are in equal precedence:
+````
 -any -all
 -or
 -and
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-
-All operators can be used with or without hyphen prefix.
-
-Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements
+````
+All operators can be used with or without the hyphen prefix. Parentheses are needed only when precedence does not meet your requirements.
 For example:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
@@ -152,7 +159,7 @@ Allowed operators
 | --- | --- | --- |
 | city |Any string value or $null |(user.city -eq "value") |
 | country |Any string value or $null |(user.country -eq "value") |
-| CompanyName | Any string value or $null | (user.CompanyName -eq "value") |
+| companyName | Any string value or $null | (user.companyName -eq "value") |
 | department |Any string value or $null |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Any string value or $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -195,7 +202,7 @@ Allowed operators
 
 | Properties | Values | Usage |
 | --- | --- | --- |
-| assigendPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
 Multi-value properties are collections of objects of the same type. You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively. For example:
 
@@ -263,25 +270,25 @@ You can create a group containing all direct reports of a manager. When the mana
 3. After saving the rule, all users with the specified Manager ID value will be added to the group.
 
 ## Using attributes to create rules for device objects
-You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
+You can also create a rule that selects device objects for membership in a group. The following device attributes can be used.
 
-| Properties              | Allowed values                  | Usage                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
-| deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
-| domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | any string value                | (device.managementType -eq "")                              |
-| organizationalUnit      | any string value                | (device.organizationalUnit -eq "")                          |
-| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | a valid AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+ Device attribute  | Values | Example
+ ----- | ----- | ----------------
+ accountEnabled | true false | (device.accountEnabled -eq true)
+ displayName | any string value |(device.displayName -eq "Rob Iphone”)
+ deviceOSType | any string value | (device.deviceOSType -eq "IOS")
+ deviceOSVersion | any string value | (device.OSVersion -eq "9.1")
+ deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | any string value | (device.deviceModel -eq "iPad Air")
+ deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
+ domainName | any string value | (device.domainName -eq "contoso.com")
+ enrollmentProfileName | Apple Device Enrollment Profile name | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | true false | (device.isRooted -eq true)
+ managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
+ organizationalUnit | any string value matching the name of the organizational unit set by an on-premises Active Directory | (device.organizationalUnit -eq "US PCs")
+ deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
 

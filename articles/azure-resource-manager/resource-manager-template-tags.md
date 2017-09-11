@@ -24,7 +24,7 @@ ms.author: tomfitz
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
-## Next Steps
+## Next steps
 * For information about managing tags, see [Use tags to organize your Azure resources](resource-group-using-tags.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

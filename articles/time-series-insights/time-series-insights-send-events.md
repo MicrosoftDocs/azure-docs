@@ -1,23 +1,23 @@
 ---
 title: Send events to Azure Time Series Insights environment | Microsoft Docs
-description: This tutorial covers how to push events to your Time Series Insights environment
+description: This tutorial covers the steps to push events to your Time Series Insights environment
 keywords:
-services: time-series-insights
+services: tsi
 documentationcenter:
 author: venkatgct
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor:
 
 ms.assetid:
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/21/2017
 ms.author: venkatja
 ---
-# Send events to a Time Series Insights environment via event hub
+# Send events to a Time Series Insights environment using event hub
 
 This tutorial explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [time series insights](https://insights.timeseries.azure.com).
 
@@ -38,9 +38,9 @@ This tutorial explains how to create and configure event hub and run a sample ap
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
 ## Create Time Series Insights event source
-1. If you haven't created event source, follow instructions specified [here](time-series-insights-add-event-source.md) to create an event source.
+1. If you haven't created an event source, follow [these instructions](time-series-insights-add-event-source.md) to create an event source.
 
-2. Specify “deviceTimestamp” as the timestamp property name – this property is used as the actual timestamp in the csharp sample. The timestamp property name is case-sensitive and values should have the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the event hub enqueued time is used.
+2. Specify “deviceTimestamp” as the timestamp property name – this property is used as the actual timestamp in the csharp sample. The timestamp property name is case-sensitive and values must follow the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the event hub enqueued time is used.
 
   ![Create event source](media/send-events/event-source-1.png)
 

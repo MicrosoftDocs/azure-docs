@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Technical deep dive
 
-This article gives you technical details into how the Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) feature works.
+This article gives you technical details into how the Azure Active Directory Seamless Single Sign-On (Seamless SSO) feature works.
 
-## How does Azure AD Seamless SSO work?
+>[!IMPORTANT]
+>The Seamless SSO feature is currently in preview.
+
+## How does Seamless SSO work?
 
 This section has two parts to it:
 1. The setup of the Seamless SSO feature.
@@ -35,6 +38,9 @@ Seamless SSO is enabled using Azure AD Connect as shown [here](active-directory-
 
 >[!NOTE]
 > The computer account and the Kerberos SPNs are created in each AD forest you synchronize to Azure AD (using Azure AD Connect) and for whose users you want Seamless SSO. Move the `AZUREADSSOACCT` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
+
+>[!IMPORTANT]
+>We highly recommend that you [roll over the Kerberos decryption key](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) of the `AZUREADSSOACCT` computer account at least every 30 days.
 
 ### How does sign-in with Seamless SSO work?
 

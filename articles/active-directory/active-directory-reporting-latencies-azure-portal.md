@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
+ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory reporting latencies
@@ -67,7 +68,7 @@ The following table lists the latency information for risk events.
 | Sign-ins from anonymous IP addresses |5 minutes |15 Minutes |2 hours |
 | Sign-ins from unfamiliar locations |5 minutes |15 Minutes |2 hours |
 | Users with leaked credentials |2 hours |4 hours |8 hours |
-| Impossible travel to atypical locations |2 hours |4 hours |8 hours  |
+| Impossible travel to atypical locations |5 minutes |1 hour |8 hours  |
 | Sign-ins from infected devices |2 hours |4 hours |8 hours  |
 | Sign-ins from IP addresses with suspicious activity |2 hours |4 hours |8 hours  |
 

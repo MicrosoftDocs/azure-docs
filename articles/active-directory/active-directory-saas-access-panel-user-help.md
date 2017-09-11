@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/17
+ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: japere
 

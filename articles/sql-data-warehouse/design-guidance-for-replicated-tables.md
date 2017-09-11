@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2017	
+ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 
 ---
@@ -22,7 +22,7 @@ ms.author: rortloff;barbkess
 This article gives recommendations for designing replicated tables in your SQL Data Warehouse schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 
 > [!NOTE]
-> The replicated table feature is currently in public preview. Some behaviors are subject to change.  For more information, see Public preview notes at the end of this article.
+> The replicated table feature is currently in public preview. Some behaviors are subject to change.
 > 
 
 ## Prerequisites
@@ -35,11 +35,11 @@ As part of table design, understand as much as possible about your data and how 
 - Do I have fact and dimension tables in a data warehouse?   
 
 ## What is a replicated table?
-A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB.
+A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB compressed.
 
 The following diagram shows a replicated table that is accessible on each Compute node. In SQL Data Warehouse, the replicated table is fully copied to a distribution database on each Compute node. 
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table")  
+![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
 
 Replicated tables work well for small dimension tables in a star schema. Dimension tables are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to fewer rebuilds of the replicated table. 
 
@@ -53,7 +53,7 @@ Consider converting an existing distributed table to a replicated table when:
 
 - Query plans use data movement operations that broadcast the data to all the Compute nodes. The BroadcastMoveOperation is expensive and slows query performance. To view data movement operations in query plans, use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
  
-Avoid using a replicated table when:
+Replicated tables may not yield the best query performance when:
 
 - The table has frequent insert, update, and delete operations. These data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
 - The data warehouse is scaled frequently. Scaling a data warehouse changes the number of Compute nodes, which incurs a rebuild.
@@ -72,18 +72,19 @@ CPU-intensive queries perform best when the work is distributed across all of th
 For example, this query has a complex predicate.  It runs faster when supplier is a distributed table instead of a replicated table. In this example, supplier can be hash-distributed or round-robin distributed.
 
 ```sql
-SELECT s_suppkey 
-FROM supplier 
-WHERE s_comment LIKE '%Customer%Complaints%'  
+
+SELECT EnglishProductName 
+FROM DimProduct 
+WHERE EnglishDescription LIKE '%frame%comfortable%'
+
 ```
 
 ## Convert existing round-robin tables to replicated tables
-If you already have round-robin tables, we recommend converting them to replicated tables. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins. 
+If you already have round-robin tables, we recommend converting them to replicated tables if they meet with criteria outlined in this article. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins. 
 
 This example uses [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
 
-```
--- Change DimSalesTerritory to a replicated table
+```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
 WITH   
   (   
@@ -101,12 +102,10 @@ CREATE STATISTICS [SalesTerritoryCountry] ON [DimSalesTerritory_REPLICATE] ([Sal
 CREATE STATISTICS [SalesTerritoryGroup] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryGroup]);
 
 -- Switch table names
-
 RENAME OBJECT [dbo].[DimSalesTerritory] to [DimSalesTerritory_old];
 RENAME OBJECT [dbo].[DimSalesTerritory_REPLICATE] TO [DimSalesTerritory];
 
 DROP TABLE [dbo].[DimSalesTerritory_old];
-
 ```  
 
 ### Query performance example for round-robin versus replicated 
@@ -127,11 +126,11 @@ WHERE d.FiscalYear = 2004
 ```
 We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan, which has multiple broadcast move operations: 
  
-![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Round-robin query plan") 
+![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran the query again. The resulting query plan is much shorter and does not have any broadcast moves.
 
-![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "Round-robin query plan") 
+![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## Performance considerations for modifying replicated tables
@@ -146,9 +145,7 @@ Rebuilds are not required after:
 - Pause operation
 - Resume operation
 
-The rebuild does not happen immediately after data is modified. Instead, the rebuild is triggered the first time a query selects from the table.
-
-Rebuilding the replicated table can slow query performance. Therefore, when designing a replicated table, try to minimize the number of times the table is rebuilt. 
+The rebuild does not happen immediately after data is modified. Instead, the rebuild is triggered the first time a query selects from the table.  Within the initial select statement from the table are steps to rebuild the replicated table.  Because the rebuild is done within the query, the impact to the initial select statement could be significant depending on the size of the table.  If multiple replicated tables are involved that need a rebuild, each copy is rebuilt serially as steps within the statement.  To maintain data consistency during the rebuild of the replicated table an exclusive lock is taken on the table.  The lock prevents all access to the table for the duration of the rebuild. 
 
 ### Use indexes conservatively
 Standard indexing practices apply to replicated tables. SQL Data Warehouse rebuilds each replicated table index as part of the rebuild. Only use indexes when the performance gain outweighs the cost of rebuilding the indexes.  
@@ -177,19 +174,19 @@ For example, this load pattern loads data from four sources, but only invokes on
 
 
 ### Rebuild a replicated table after a batch load
-To ensure consistent query execution times, we recommend forcing a fresh of the replicated tables after a batch load. Otherwise, the first query must wait for the tables to refresh, which includes rebuilding the indexes. Depending on the size and number of replicated tables affected, the performance impact can be significant.  
+To ensure consistent query execution times, we recommend forcing a refresh of the replicated tables after a batch load. Otherwise, the first query must wait for the tables to refresh, which includes rebuilding the indexes. Depending on the size and number of replicated tables affected, the performance impact can be significant.  
 
 This query uses the [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV to list the replicated tables that have been modified, but not rebuilt.
 
 ```sql 
-SELECT t.name 
-FROM sys.tables t  
+SELECT [ReplicatedTable] = t.[name]
+  FROM sys.tables t  
   JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id 
   JOIN sys.pdw_table_distribution_properties p 
     ON p.object_id = t.object_id 
-  WHERE c.[state] = 'Not built' 
-    AND p.[distribution] = 'Replicate'
+  WHERE c.[state] = 'NotReady'
+    AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
 To force a rebuild, run the following statement on each table in the preceding output. 
@@ -198,13 +195,7 @@ To force a rebuild, run the following statement on each table in the preceding o
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
  
-## Public preview notes
-It is important to note that replicated tables are currently in a public preview phase.  The following behaviors are for preview only. They are different in the final release.
-
-- Locking behavior. When SQL Data Warehouse rebuilds a replicated table, the system takes an exclusive lock. The lock prevents all access to the table for the duration of the rebuild.
-- Rebuilding within a select statement. A replicated table rebuild happens as a step within the select statement that triggered the rebuild.  Depending on the size of the table, the impact to the initial select statement could be significant.  If multiple replicated tables are involved that need a rebuild, each copy is rebuilt serially as steps within the statement.
-
-## Next Steps 
+## Next steps 
 To create a replicated table, use one of these statements:
 
 - [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)

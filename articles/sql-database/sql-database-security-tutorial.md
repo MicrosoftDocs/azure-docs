@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,security
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 06/28/2017
@@ -112,10 +112,6 @@ This establishes a connection using Transport Layer Security (TLS) and reduces t
 3. Review the complete **ADO.NET** connection string.
 
     ![ADO.NET connection string](./media/sql-database-security-tutorial/adonet-connection-string.png)
-
-> [!TIP]
-> For an example of creating a .NET application using Azure SQL Database, see [Build an ASP.NET app in Azure with SQL Database](/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md).
->
 
 ## Creating database users
 
@@ -240,7 +236,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 
 ## Next steps
-You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
+In this tutorial, you learned to improve the protection of your database against malicious users or unauthorized access with just a few simple steps.  You learned how to: 
 
 > [!div class="checklist"]
 > * Set up firewall rules for your sever and or database
@@ -250,6 +246,8 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database auditing
 > * Enable SQL Database threat detection
 
+Advance to the next tutorial to learn how to implement a geo-distributed database.
+
 > [!div class="nextstepaction"]
->[Improve SQL Database performance](sql-database-performance-tutorial.md)
+>[Implement a geo-distributed database](sql-database-implement-geo-distributed-database.md)
 

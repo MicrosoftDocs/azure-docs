@@ -3,7 +3,7 @@ title: How to use Azure API Management with Internal virtual network | Microsoft
 description: Learn how to setup and configure Azure API Management in Internal virtual network.
 services: api-management
 documentationcenter: ''
-author: solankisamir
+author: vladvino
 manager: kjoshi
 editor: ''
 

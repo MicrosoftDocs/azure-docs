@@ -48,7 +48,7 @@ Organizations need a BCDR strategy that determines how apps and data stay runnin
 
 ## Azure prerequisites
 * You need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* You need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md). Note that we don't support moving storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+* You need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/common/storage-introduction.md). Note that we don't support moving storage accounts created using the [new Azure portal](../storage/common/storage-create-storage-account.md) across resource groups.
 * You'll need an Azure virtual network so that Azure virtual machines will be connected to a network when you fail over from your primary site.
 
 ## Hyper-V prerequisites
@@ -164,7 +164,7 @@ Where parameters include:
     ![Create storage account](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
-> 1. We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+> 1. We do not support the move of Storage accounts created using the [new Azure portal](../storage/common/storage-create-storage-account.md) across resource groups.
 > 2. [Migration of storage accounts](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 >
 

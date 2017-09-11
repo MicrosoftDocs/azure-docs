@@ -1,6 +1,6 @@
 ---
 title: Deploy your app to Azure and Azure Stack | Microsoft Docs
-description: Learn how to deploy apps to Azure and Azure Stack with a hybrid CI/CD.
+description: Learn how to deploy apps to Azure and Azure Stack with a hybrid CI/CD pipeline.
 services: azure-stack
 documentationcenter: ''
 author: HeathL17
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/11/2017
 ms.author: helaw
 ms.custom: mvc
 ---
@@ -42,12 +42,12 @@ This topic also assumes that you have some knowledge of Azure and Azure Stack. I
 
 ### Azure Stack
  - [Deploy Azure Stack](azure-stack-run-powershell-script.md).  The installation usually takes a few hours to complete, so plan accordingly.
- - Deploy [SQL](azure-stack-sql-resource-provider-deploy.md) and [App Service](azure-stack-app-service-deploy.md) PaaS services to Azure Stack.
+ - Deploy [App Service](azure-stack-app-service-deploy.md) PaaS services to Azure Stack.
  - Create a Web App and configure it for [FTP publishing](azure-stack-app-service-enable-ftp.md).  Make note of the new Web App URL, as it is used later.  
 
 ### Developer tools
- - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  The sign-up process creates a project named "MyFirstProject".  
- - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS].(https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
+ - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  The sign-up process creates a project named "MyFirstProject."  
+ - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  - Connect to the project and [clone locally](https://www.visualstudio.com/docs/git/gitquickstart).
  - Create an [agent pool](https://www.visualstudio.com/docs/build/concepts/agents/pools-queues#creating-agent-pools-and-queues) in VSTS.
  - Install Visual Studio and deploy a [VSTS build agent](https://www.visualstudio.com/docs/build/actions/agents/v2-windows) to a virtual machine on Azure Stack. 
@@ -67,11 +67,11 @@ In this section, you create a simple ASP.NET application and push it to VSTS.  T
 ### Commit and push changes to VSTS
 1.  Using Team Explorer in Visual Studio, select the dropdown and click **Changes**.
 2.  Provide a commit message and select **Commit all**. You may be prompted to save the solution file, click yes to save all.
-3.  Once committed, Visual Studio will offer you to sync changes to your project. Select **Sync**.
+3.  Once committed, Visual Studio offers to sync changes to your project. Select **Sync**.
 
     ![image showing the commit screen once commit is completed](./media/azure-stack-solution-pipeline/image1.png)
 
-4.  In the synchronization tab, under *Outgoing*, you will see your new commit.  Select **Push** to synchronize the change to VSTS.
+4.  In the synchronization tab, under *Outgoing*, you see your new commit.  Select **Push** to synchronize the change to VSTS.
 
     ![image showing sync steps](./media/azure-stack-solution-pipeline/image2.png)
 
@@ -130,8 +130,8 @@ This step uses your newly built CI/CD pipeline to deploy the ASP.NET app to a We
 
 1.  From the banner in VSTS, select **Build & Release**, and then select **Builds**.
 2.  Click **...** on the build definition previously created, and select **Queue new build**.
-3.  Accept the defaults and click **Ok**.  The build will now begin and display progress.
-4.  Once the build is complete, you can track the status by selecting **Buuld & Release** and selecting **Releases**.
+3.  Accept the defaults and click **Ok**.  The build begins and displays progress.
+4.  Once the build is complete, you can track the status by selecting **Build & Release** and selecting **Releases**.
 5.  After the build is complete, visit the website using the URL noted when creating the Web App.    
 
 

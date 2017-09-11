@@ -389,7 +389,7 @@ In the OMS portal, click the **Wire Data 2.0** tile to open the Wire Data dashbo
 | Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
 | Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
 
-
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Wire Data dashboard](./media/log-analytics-wire-data/wire-data-dash.png)
 
@@ -397,7 +397,7 @@ You can use the **Agents capturing network traffic** blade to determine how much
 
 ![log search example](./media/log-analytics-wire-data/log-search-example01.png)
 
-Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas their applications. This blade offers a view into those areas.
+Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This blade offers a view into those areas.
 
 ![log search example](./media/log-analytics-wire-data/log-search-example02.png)
 
@@ -442,7 +442,7 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 | RemotePortNumber | Port number used by the remote IP address |
 | SessionID | A unique value that identifies communication session between two IP addresses |
 | SentBytes | Number of bytes sent |
-| TotalBytes | Total number of by sent during session |
+| TotalBytes | Total number of bytes sent during session |
 | ApplicationProtocol | Type of network protocol used   |
 | ProcessID | Windows process ID |
 | ProcessName | Path and file name of the process |

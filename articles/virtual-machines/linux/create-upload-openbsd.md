@@ -114,7 +114,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-To control access to the storage account, obtain the storage key with [az storage account key list](/cli/azure/storage/account/key#list) as follows:
+To control access to the storage account, obtain the storage key with [az storage account keys list](/cli/azure/storage/account/keys#list) as follows:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
