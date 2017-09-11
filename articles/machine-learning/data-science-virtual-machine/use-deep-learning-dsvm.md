@@ -61,7 +61,7 @@ Outline
  
 
 ### Scaling Deep Learning 
-#### Running CNTK and Tensorflow on multiple nodes 
+#### Running Cognitive Toolkit and Tensorflow on multiple nodes 
 #### Parallel Training with Batch AI Training Service 
 #### Deploying AI models in Vienna using Azure Container Service
 
