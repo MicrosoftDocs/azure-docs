@@ -18,6 +18,14 @@ ms.author: jingwang
 robots: noindex
 ---
 # Move data from an HTTP source using Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](data-factory-http-connector.md)
+> * [Version 2 - Preview](../connector-http.md)
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [HTTP connector in V2](../connector-http.md).
+
+
 This article outlines how to use the Copy Activity in Azure Data Factory to move data from an on-premises/cloud HTTP endpoint to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.
 
 Data factory currently supports only moving data from an HTTP source to other data stores, but not moving data from other data stores to an HTTP destination.
