@@ -1,5 +1,5 @@
 ---
-title: "Enable or Disable HTTPS on an Azure CDN Custom Domain | Microsoft Docs"
+title: "Enable or disable HTTPS on an Azure Content Delivery Network custom domain | Microsoft Docs"
 description: Learn how to enable or disable HTTPS on your Azure CDN endpoint with a custom domain.
 services: cdn
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.date: 02/03/2017
 ms.author: casoper
 
 ---
-# Enable or Disable HTTPS on an Azure CDN custom domain
+# Enable or disable HTTPS on an Azure Content Delivery Network custom domain
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-HTTPS support for Azure CDN custom domains enables you to deliver secure content via SSL using your own domain name to improve the security of data while in transit. The end-to-end workflow to enable HTTPS for your custom domain is simplified via one-click enablement, complete certificate management, and all with no additional cost.
+HTTPS support for Microsoft Azure Content Delivery Network (CDN) custom domains enables you to deliver secure content via SSL using your own domain name to improve the security of data while in transit. The end-to-end workflow to enable HTTPS for your custom domain is simplified via one-click enablement, complete certificate management, and all with no additional cost.
 
 It's critical to ensure the privacy and data integrity of all of your web applications sensitive data while in transit. Using the HTTPS protocol ensures that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. Currently, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as https://contoso.azureedge.net), HTTPS is enabled by default. Now, with custom domain HTTPS, you can enable secure delivery for a custom domain (for example, https://www.contoso.com) as well. 
 
@@ -60,7 +60,11 @@ To enable HTTPS, follow these steps:
 >[!IMPORTANT] 
 >You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days will be automatically canceled. 
 
-After you enable HTTPS on your custom domain, our HTTPS certificate provider DigiCert validates ownership of your domain by contacting the registrant for your domain, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. In addition, DigiCert will also send the verification email to the following addresses. If the WHOIS registrant information is private, make sure you can approve directly from one of these addresses:
+After you enable HTTPS on your custom domain, our HTTPS certificate provider DigiCert validates ownership of your domain by contacting the registrant for your domain, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. 
+
+![WHOIS Record](./media/cdn-custom-ssl/whois-record.png)
+
+In addition, DigiCert will send the verification email to the following addresses. If the WHOIS registrant information is private, make sure you can approve directly from one of these addresses:
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  
@@ -68,19 +72,19 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-You should recieve an email shortly, similar to the following example, asking you to approve the request. If you are using a spam filter, add admin@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add admin@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
     
 ![Custom HTTPS dialog](./media/cdn-custom-ssl/domain-validation-email.png)
 
-When you click on the approval link, you will be directed to the following online approval form. 
+When you click on the approval link, you will be directed to the following online approval form: 
 	
 ![Custom HTTPS dialog](./media/cdn-custom-ssl/domain-validation-form.png)
 
 Follow the instructions on the form; you have two verification options:
 
-1. You can approve all future orders placed through the same account for the same root domain; for example, contoso.com. This is the recommended approach if you are planning to add additional custom domains in the future for the same root domain.
+- You can approve all future orders placed through the same account for the same root domain; for example, contoso.com. This is the recommended approach if you are planning to add additional custom domains in the future for the same root domain.
 
-2. You can approve just the specific host name used in this request. Additional approval will be required for subsequent requests.
+- You can approve just the specific host name used in this request. Additional approval will be required for subsequent requests.
 
 After approval, DigiCert will add your custom domain name to the Subject Alternative Names (SAN) certificate. The certificate is valid for one year and will be auto-renewed before it's expired.
 
