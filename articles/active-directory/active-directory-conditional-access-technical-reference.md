@@ -33,7 +33,7 @@ This topic provides support information for the following configuration options 
 
 
 
-## Cloud applications assignments
+## Cloud apps assignments
 
 When you configure a conditional access policy, you need to [select the cloud apps that use your policy](active-directory-conditional-access-azure-portal.md#who). 
 
@@ -96,7 +96,7 @@ Azure AD conditional access supports the following device platforms:
 
 
 
-## Client applications condition 
+## Client apps condition 
 
 When you configure a conditional access policy, you can [**Select client apps**](active-directory-conditional-access-azure-portal.md#client-apps) for the client app condition. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
 
@@ -163,7 +163,7 @@ The following mobile apps and desktop clients support conditional access for Off
 
 
 
-## Approved client application requirement 
+## Approved client app requirement 
 
 Control client connections by using the **Require approved client app** option in your conditional access policy. Access is granted only when a connection attempt is made by an approved client app.
 
