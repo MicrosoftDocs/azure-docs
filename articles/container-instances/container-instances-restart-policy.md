@@ -1,6 +1,6 @@
 ---
 title: Run to completion containers in Azure Container Instances
-description: Learn how to run 
+description: Learn how to use Azure Container Instances for batch processes like build jobs and image rendering.
 services: container-instances
 documentationcenter: ''
 author: mmacy
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/16/2017
 ms.author: marsma
 ms.custom: mvc
 ---
 
 # Run to completion containers in Azure Container Instances
 
-The ease and speed of deploying containers in Azure Container Instances provides a compelling scenario for executing tasks like build jobs and image rendering in a container instance. With a configurable restart policy, you can specify that your containers are always restarted, or are stopped when their processes have completed successfully. Because Azure Container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
+The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing tasks like build jobs and image rendering in a container instance. With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because Azure Container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
 
 ## Container restart policy
 
@@ -56,7 +56,7 @@ The method by which you specify a restart policy depends on how you create your 
 
 ## When to use a restart policy
 
-Typical scenarios... 
+Typical scenarios...
 
 ## Run a sample container
 
