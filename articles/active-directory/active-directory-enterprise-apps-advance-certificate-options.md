@@ -54,9 +54,9 @@ Azure Active Directory support two types of signing algorithm to sign the SAML r
 ![SHA1 Certificate signing algorithm][2]
 
 ## Next steps
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md)
-* [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
+* [Troubleshooting SAML-Based Single Sign-On](develop/active-directory-saml-debugging.md)
 
 <!--Image references-->
 
