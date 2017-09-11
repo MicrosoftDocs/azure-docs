@@ -23,3 +23,18 @@ ms.author: gokuma;bradsev
 
 
 Placeholder - content to be provided.
+
+Outline:
+
+## What is Deep Learning Virtual Machine? 
+
+## Why Deep Learning Virtual Machine? 
+
+## Deep Learning Process Steps 
+
+## Deep Learning Tools by Process steps 
+
+### Tool Overview 
+### Tool Description 
+### Tool configuration on DLVM 
+### Customizing or extending the tool (if applicable)
