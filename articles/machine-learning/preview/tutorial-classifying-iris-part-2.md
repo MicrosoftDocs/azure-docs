@@ -50,6 +50,9 @@ In the CLI window, type in the following command to install `matplotlib` Python 
 ```batch
 C:\Temp\myIris> pip install matplotlib
 ```
+>[!NOTE]
+>If you skip the above `pip install` command, `iris_sklearn.py` can still successfully run, except it does not produce the confusion matrix and multi-class ROC curve plots.
+
 Return to the Workbench app. In the **Run Control Panel**, choose **local** as the execution environment, and `iris_sklearn.py` as the script to run. Fill the **Arguments** field with a value of `0.01`. Click on the **Run** button. A job is immediately scheduled and listed in the **Jobs** panel on the right side of the Workbench window. The status of the job transitions from **Submitting**, to **Running**, and finally to **Completed** in a few seconds.
 
 ![run sklearn](media/tutorial-classifying-iris/run_sklearn.png)
@@ -188,10 +191,18 @@ To execute your script in a Docker container on a remote Linux machine, you need
 Once the VM is created, you can attach the VM as an execution environment by generating a pair of `.runconfig` and `.compute` file using the below command. Let's name the new environment `myvm`.
 ```batch
 REM create myvm compute target
-C:\Temp\myIris\> az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password>
+C:\Temp\myIris> az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password>
 ```
 >[!NOTE]
 >The IP Address area can also be publicly addressable FQDN (fully qualified domain name), such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add FQDN to your DSVM and use it here instead of IP address, since you might turn off the VM at some point to save on cost. Additionally, the next time you start the VM, the IP address might have changed.
+
+Next, run the following command the construct the Docker image in the VM to get it ready for running the scripts.
+```
+REM prepare the myvm compute target
+C:\Temp\myIris> az ml experiment prepare -c myvm
+```
+>[!NOTE]
+>You can also change the value of `PrepareEnvironment` in `myvm.runconfig` from default `false` to `true`. This will automatically prepare the Docker container at the first run.
 
 Edit the generated `myvm.runconfig` file under `aml_config` and change the Framework from default `PySpark` to `Python`:
 ```yaml
@@ -221,7 +232,10 @@ C:\Temp\myIris> az ml experiment submit -c myvm-spark .\iris_pyspark.py
 You can also run this script in an actual Spark cluster. If you have access to a Spark for Azure HDInsight cluster, generate an HDI run configuration using the following command:
 ```batch
 REM create a compute target that points to a HDI cluster
-C:\Temp\myIris\> az ml computetarget attach --name myhdi --address <cluster name>-ssh.azurehdinsight.net --username <username> --password <password> --cluster
+C:\Temp\myIris> az ml computetarget attach --name myhdi --address <cluster name>-ssh.azurehdinsight.net --username <username> --password <password> --cluster
+
+REM prepare the HDI cluster
+C:\Temp\myIris> az ml experiment prepare -c myhdi
 ```
 >Note: the `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is NOT ༖༗. That is the other user created during provisioning to enable access the cluster's admin web UI. 
 
