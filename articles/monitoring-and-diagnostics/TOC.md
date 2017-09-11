@@ -2,7 +2,11 @@
 ## [Azure Monitor](monitoring-overview-azure-monitor.md)
 
 # Quickstarts
-
+## [Audit subscription activity](monitor-quick-audit-subscription-portal.md)
+## [Browse Metrics - Portal](monitor-quick-resource-metrics-portal.md)
+## [Alert on metric](monitoring-quick-resource-metric-alert-portal.md)
+## [Alert subscription activity](monitor-quick-notify-action-in-subscription.md)
+	
 # Tutorials
 
 # Samples
