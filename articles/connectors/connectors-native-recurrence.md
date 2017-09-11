@@ -55,10 +55,10 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md) 
 
-## Add a recurrence trigger for starting your logic app workflow
+## Add a recurrence trigger to your logic app
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-Create a blank logic app. 
+Create a blank logic app, or learn [how to create a blank logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 2. After Logic Apps Designer appears, in the search box, 
 enter "recurrence" as your filter. Select the **Schedule - Recurrence** trigger. 

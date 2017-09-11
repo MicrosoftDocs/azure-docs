@@ -40,22 +40,22 @@ and only one trigger, which starts your logic app workflow
 and passes in any data as part of that trigger. 
 Some connectors provide triggers, which come in these types:
 
-* *Polling triggers*: These triggers call your service at a specified 
-frequency and interval to check for new data. When new data exists, 
+* *Polling triggers*: These triggers regularly check for 
+new data at a service endpoint. When new data exists, 
 the trigger creates and runs a new workflow instance with the data as input.
 
 * *Push triggers*: These triggers listen for data at an endpoint, 
 which means they wait for an event to happen. When the event happens, 
-the trigger fires instantly, creating and running a new workflow instance with any data as input.
+the trigger fires instantly, creating and running a new workflow 
+instance with any data as input.
 
 Here are just a few popular trigger examples:
 
 * Polling: 
 
   * [**Schedule - Recurrence** trigger](../connectors/connectors-native-recurrence.md) 
-  lets you specify the frequency and interval for triggering your logic app. 
-  You can also specify a start date and time for firing the trigger, 
-  plus schedule the days of the week and times of day for running your logic app.
+  lets you set the start date and time plus the recurrence for firing your logic app. 
+  For example, you can select the days of the week and times of day for triggering your logic app.
 
   * The "When an email is received" trigger lets your logic app check for 
   new email from any mail provider that's supported by Logic Apps, for example, 
