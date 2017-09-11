@@ -22,6 +22,16 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
 
 ## Enable OMS for Kafka
 
+The steps to enable Log Analytics for HDInsight are the same for all HDInsight clusters. Use the following links to understand how to create and configure the required services:
+
+1. Create a Log Analytics workspace. For more information, see the [Get started with a Log Analytics workspace](../log-analytics/log-analytics-get-started.md) document.
+
+2. Create a Kafka on HDInsight cluster. For more information, see the [Start with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md) document.
+
+3. Configure the Kafka cluster to use Log Analytics. For more information, see the [Use Log Analytics to monitor HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
+
+-------REMOVE THE REST OF THESE IF UNEEDED---------
+
 > [!IMPORTANT]
 > You must have already created an Operations Management Suite (OMS) workspace before beginning the steps in this document. For more information, see the [Get started with a Log Analytics workspace](../log-analytics/log-analytics-get-started.md) document.
 
@@ -37,8 +47,6 @@ Learn how to use Microsoft Operations Management Suite to analyze logs generated
     ![Select the workspace ID and primary key](./media/apache-kafka-log-analytics-operations-management/oms-workspace-and-key.png)
 
 3. From the [Azure portal](https://portal.azure.com), select your Kafka on HDInsight cluster. Select __Script Actions__, and then select the __+ Submit new__ entry.
-
-    ![image goes here]()
 
 4. To enable log analytics, use the following information on the __Submit script action__ dialog:
 
