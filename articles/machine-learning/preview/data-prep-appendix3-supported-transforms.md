@@ -37,7 +37,7 @@ The "By Example" technology uses selected columns to attempt to determine the me
 You can select columns before invoking the transform. Once the transform editor has been launched, it is possible to see what columns are selected as inputs via check boxes at the top of each column. Addition and removal of columns from the selection can be completed by using the check boxes in the column headers.
 
 For a more detailed explanation of Derived Column By Example, along with more samples see:
-<<INSERT LINK TO RANVIJAYS DOC HERE>>
+[Derived Column by Example Reference](data-prep-derive-column-by-example.md)  
 
 ## Split Column by Example ##
 Takes an existing column and using the “By Example” engine attempts to split that column into n other columns. It is possible to run the Auto-Split on the subsequent generated columns.
