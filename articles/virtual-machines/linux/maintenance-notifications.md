@@ -1,7 +1,7 @@
 ---
-title: Maintenance notifications Windows VMs in Azure | Microsoft Docs
-description: View maintenance notifications for Windows virtual machines running in Azure.
-services: virtual-machines-windows
+title: Maintenance notifications Linux VMs in Azure | Microsoft Docs
+description: View maintenance notifications for Linux virtual machines running in Azure.
+services: virtual-machines-linux
 documentationcenter: ''
 author: zivr
 manager: timlt
@@ -9,7 +9,7 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
@@ -20,11 +20,13 @@ ms.author: zivr
 ---
 
 
-# View maintenance notifications for Windows virtual machines
+# View maintenance notifications for Linux virtual machines
 
-You can use the Azure portal or PowerShell to query for the maintenance windows for your VMs. In addition, you will  receive an e-mail notification if one or more of your VMs are scheduled for maintenance.
+You can use the Azure portal or CLI to query for the maintenance windows for your VMs. In addition, you will  receive an e-mail notification if one or more of your VMs are scheduled for maintenance.
 
 Both self-service maintenance and scheduled maintenance phases begin with a notification. Expect to receive a single notification per Azure subscription. The notification is sent to the subscription’s admin and co-admin by default. You can also configure who receives maintenance notifications.
+
+
 
 ------------------
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. While the majority of these updates are performed without any impact to the hosted virtual machines, there are cases where a maintenance operation results in virtual machines reboot. 
@@ -102,65 +104,6 @@ Once you start maintenance, your virtual machine will be rebooted and maintenanc
 In case you have missed the window where you can start maintenance, you will still be able to see the winddow when your VM will be rebooted by Azure. 
 
 
-## Check maintenance status using PowerShell
-
-You can also use Azure Powershell to see when VMs are scheduled for maintenance. Planned maintenance information is available from the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) cmdlet when you use the `-status` parameter.
- 
-Maintenance information is returned only if there is maintenance planned, if there is no maintenance scheduled that will impact the VM, the cmdlet will not return any maintenance information. 
-
-```powershell
-Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
-```
-
-The following properties are returned under MaintenanceRedeployStatus               : 
-	-   IsCustomerInitiatedMaintenanceAllowed : Indicate whether you can start maitnenance on the VM at this time
-	-   PreMaintenanceWindowStartTime         : The beginning of the maintenance self-service window when you can initiate maintenance on your VM 
-	-   PreMaintenanceWindowEndTime           : The end of the maintenance self-service window when you can initiate maintenance on your VM 
-	-   MaintenanceWindowStartTime            : The beginning ofthe maintenance scheduled window when you can initiate maintenance on your VM 
-	-   MaintenanceWindowEndTime              : The end of the maintenance scheduled window when you can initiate maintenance on your VM 
-	-   LastOperationResultCode               : The result of the last attempt to initiate mintenance on the VM 
-
-You can also learn about maintenance status for all virtual machines in a resource group by calling using the using [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) and not specifying a VM.
- 
-```powershell
-Get-AzureRmVM -ResourceGroupName rgName --Status
-```
-
-The following PowerShell function takes your subscription id and will print out a list of VMs which are scheduled for maintenance.
-
-```powershell
-
-function MaintenanceIterator
-{
-    Select-AzureRmSubscription -SubscriptionId $args[0]
-
-    $rgList= Get-AzureRmResourceGroup 
-
-    for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
-    {
-        $rg = $rgList[$rgIdx]
-        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
-        for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
-        {
-            $vm = $vmList[$vmIdx]
-            $vmDetails = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
-              if ($vmDetails.MaintenanceRedeployStatus )
-            {
-                Write-Output "VM: $($vmDetails.Name)  IsCustomerInitiatedMaintenanceAllowed: $($vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed) $($vmDetails.MaintenanceRedeployStatus.LastOperationMessage)"               
-            }
-          }
-    }
-}
-
-```
-
-### Start maintenance on your VM using PowerShell
-
-Using information from the function in the previous section, the following cmdlet will start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to true.
-
-```powershell
-Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
-```
  
 Using the Command Line Interface (Windows/Linux)
 Discover VMs scheduled for maintenance
