@@ -11,7 +11,7 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/31/2017
+ms.date: 06/30/2017
 ms.author: sergkanz
 
 ---

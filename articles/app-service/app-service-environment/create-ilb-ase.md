@@ -177,7 +177,7 @@ To upload your own certificates and test access:
 
 	![ILB IP address][5]
 
-### Web jobs, Functions and the ILB ASE
+## Web jobs, Functions and the ILB ASE ##
 
 Both Functions and web jobs are supported on an ILB ASE but for the portal to work with them, you must have network access to the SCM site.  This means your browser must either be on a host that is either in or connected to the virtual network.  
 

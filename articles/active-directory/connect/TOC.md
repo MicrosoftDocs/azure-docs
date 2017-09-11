@@ -16,7 +16,7 @@
 ### [Custom settings](active-directory-aadconnect-get-started-custom.md)
 ### [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade from a previous version](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Install using an existing ADSync database](active-directory-aadconnect-existing-database.md)
 
 # How to
 ## Plan and design

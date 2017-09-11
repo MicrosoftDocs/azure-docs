@@ -37,7 +37,7 @@ This error is most likely to happen when OS disk encryption is attempted on a ta
 
 ## Unable to encrypt
 
-In some cases, the Linux disk encryption appears to be stuck at "OS disk encryption started" and SSH is disabled. The encryption process can take between 3-16 hours to finish on a stock gallery image. If multi-terabyte-sized data disks are added, the process might take days. 
+In some cases, the Linux disk encryption appears to be stuck at "OS disk encryption started" and SSH is disabled. The encryption process can take between 3-16 hours to finish on a stock gallery image. If multi-terabyte-sized data disks are added, the process might take days.
 
 The Linux OS disk encryption sequence unmounts the OS drive temporarily. It then performs block-by-block encryption of the entire OS disk, before it remounts it in its encrypted state. Unlike Azure Disk Encryption on Windows, Linux Disk Encryption does not allow for concurrent use of the VM while the encryption is in progress. The performance characteristics of the VM can make a significant difference in the time required to complete encryption. These characteristics include the size of the disk and whether the storage account is standard or premium (SSD) storage.
 
@@ -81,15 +81,15 @@ At runtime, Azure Disk Encryption for Linux relies on the target distribution’
 
 ## Troubleshooting Windows Server 2016 Server Core
 
-On a Windows Server 2016 Server Core, the **bdehdcfg** component is not available by default. Azure Disk Encryption requires this component. Add the **bdehdcfg** component by following these steps:
+On Windows Server 2016 Server Core, the bdehdcfg component is not available by default. This component is required by Azure Disk Encryption. It is used to split the system volume from OS volume, which is done only once for the life time of the VM. These binaries are not required during later encryption operations.
 
-   1. Copy the following four files from a Windows Server 2016 datacenter VM to the **c:\windows\system32** folder of the Server Core image:
+To workaround this issue, copy the following 4 files from a Windows Server 2016 Data Center VM to the same location on Server Core:
 
    ```
-   bdehdcfg.exe
-   bdehdcfglib.dll
-   bdehdcfglib.dll.mui
-   bdehdcfg.exe.mui
+   \windows\system32\bdehdcfg.exe
+   \windows\system32\bdehdcfglib.dll
+   \windows\system32\en-US\bdehdcfglib.dll.mui
+   \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
    2. Enter the following command:
@@ -98,8 +98,8 @@ On a Windows Server 2016 Server Core, the **bdehdcfg** component is not availabl
    bdehdcfg.exe -target default
    ```
 
-   3. This command creates a 550-MB system partition. Reboot the system. 
-   
+   3. This command creates a 550-MB system partition. Reboot the system.
+
    4. Use DiskPart to check the volumes, and then proceed.  
 
 For example:

@@ -14,12 +14,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/22/2017
+ms.date: 09/06/2017
 ms.author: maroche
 
 ---
 # What's new in Azure Data Catalog
 Updates to **Azure Data Catalog** are released regularly. Not every release includes new user-facing features, as some releases are focused on back-end service capabilities. This page highlights new user-facing capabilities added to the Azure Data Catalog service.
+
+## What's new for September 2017 
+As of September 2017, the following capabilities have been added to Azure Data Catalog:
+
+* Support for extracting join relationship metadata from DB2 data sources when registering related tables using the data source registration tool.
+* Support for registering MongoDB version 3.4 data sources using the data source registration tool.
+* Support for deleting all metadata for contained objects in a single operation when removing a database or other container from Data Catalog.
+* Support for viewing up to 1,000 tags, business glossary terms, or other search facets, when refining a search in the Data Catalog portal.
+
 
 ## What's new for August 2017 
 As of August 2017, the following capabilities have been added to Azure Data Catalog:
