@@ -7,17 +7,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create ACR - Azure CLI
+  - name: Container Registry - CLI
     href: container-registry-get-started-azure-cli.md
-  - name: Create ACR - Portal
+  - name: Container Registry - Portal
     href: container-registry-get-started-portal.md
-  - name: Create ACR - PowerShell
+  - name: Container Registry - PowerShell
     href: container-registry-get-started-powershell.md
 - name: Tutorials
   items:
-  - name: ACR and Container Instances
+  - name: Azure Container Instances
     href: ../container-instances/container-instances-tutorial-prepare-app.md
-  - name: ACR and Container Service
+  - name: Azure Container Service
     href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
 - name: How-to guides
   items:
