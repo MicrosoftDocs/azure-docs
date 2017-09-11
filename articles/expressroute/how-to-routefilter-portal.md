@@ -110,6 +110,10 @@ You can attach the route filter to a circuit by selecting the "add Circuit" butt
 
 ![Create a route filter](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
 
+If the connectivity provider configures peering for your ExpressRoute circuit refresh the circuit from the ExpressRoute circuit blade before you select the "add Circuit" button.
+
+![Create a route filter](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
+
 ## <a name="getproperties"></a>To get the properties of a route filter
 
 You can view properties of a route filter when you open the resource in the portal.
