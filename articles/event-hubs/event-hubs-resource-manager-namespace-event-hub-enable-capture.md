@@ -201,7 +201,7 @@ The API version of the template.
 ```json
  "apiVersion":{  
     "type":"string",
-    "defaultValue":"2015-08-01",
+    "defaultValue":"2017-04-01",
     "metadata":{  
         "description":"ApiVersion used by the template"
     }
@@ -292,38 +292,50 @@ Creates a namespace of type **EventHubs**, with one event hub, and also enables 
             "name":"Standard",
             "tier":"Standard"
          },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]",
-                  "MessageRetentionInDays":"[parameters('messageRetentionInDays')]",
-                  "PartitionCount":"[parameters('partitionCount')]",
-                  "CaptureDescription":{
-                        "enabled":"[parameters('captureEnabled')]",
-                        "encoding":"[parameters('captureEncodingFormat')]",
-                        "intervalInSeconds":"[parameters('captureTime')]",
-                        "sizeLimitInBytes":"[parameters('captureSize')]",
-                        "destination":{
-                            "name":"EventHubCapture.AzureBlockBlob",
-                            "properties":{
-                                "StorageAccountResourceId":"[parameters('destinationStorageAccountResourceId')]",
-                                "BlobContainer":"[parameters('blobContainerName')]"
-                            }
-                        } 
-                  }
-
-               }
-
+         "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('eventHubNamespaceName')]",
+      "type": "Microsoft.EventHub/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "isAutoInflateEnabled": "true",
+        "maximumThroughputUnits": "7"
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('eventHubName')]",
+          "type": "EventHubs",
+          "dependsOn": [
+            "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
+          ],
+          "properties": {
+            "messageRetentionInDays": "[parameters('messageRetentionInDays')]",
+            "partitionCount": "[parameters('partitionCount')]",
+            "captureDescription": {
+              "enabled": "true",
+              "encoding": "[parameters('captureEncodingFormat')]",
+              "intervalInSeconds": "[parameters('captureTime')]",
+              "sizeLimitInBytes": "[parameters('captureSize')]",
+              "destination": {
+                "name": "EventHubArchive.AzureBlockBlob",
+                "properties": {
+                  "storageAccountResourceId": "[parameters('destinationStorageAccountResourceId')]",
+                  "blobContainer": "[parameters('blobContainerName')]",
+                  "archiveNameFormat": "[parameters('captureNameFormat')]"
+                }
+              }
             }
-         ]
-      }
-   ]
+          }
+
+        }
+      ]
+    }
+  ]
 ```
 
 ## Resources to deploy for Azure Data Lake Store as destination
@@ -333,7 +345,7 @@ Creates a namespace of type **EventHubs**, with one event hub, and also enables 
 ```json
  "resources": [
         {
-            "apiVersion": "2015-08-01",
+            "apiVersion": "2017-04-01",
             "name": "[parameters('namespaceName')]",
             "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
@@ -343,7 +355,7 @@ Creates a namespace of type **EventHubs**, with one event hub, and also enables 
             },
             "resources": [
                 {
-                    "apiVersion": "2015-08-01",
+                    "apiVersion": "2017-04-01",
                     "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
@@ -351,18 +363,18 @@ Creates a namespace of type **EventHubs**, with one event hub, and also enables 
                     ],
                     "properties": {
                         "path": "[parameters('eventHubName')]",
-                        "ArchiveDescription": {
+                        "captureDescription": {
                             "enabled": "true",
                             "encoding": "[parameters('archiveEncodingFormat')]",
-                            "intervalInSeconds": "[parameters('archiveTime')]",
-                            "sizeLimitInBytes": "[parameters('archiveSize')]",
+                            "intervalInSeconds": "[parameters('captureTime')]",
+                            "sizeLimitInBytes": "[parameters('captureSize')]",
                             "destination": {
                                 "name": "EventHubArchive.AzureDataLake",
                                 "properties": {
                                     "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
                                     "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
                                     "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
-                                    "ArchiveNameFormat": "[parameters('archiveNameFormat')]"
+                                    "ArchiveNameFormat": "[parameters('captureNameFormat')]"
                                 }
                             }
                         }
