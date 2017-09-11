@@ -28,38 +28,18 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
 
 2. Create a Kafka on HDInsight cluster. For more information, see the [Start with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md) document.
 
-3. Configure the Kafka cluster to use Log Analytics. For more information, see the [Use Log Analytics to monitor HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
+3. Configure the Kafka cluster to use log analytics. For more information, see the [Use Log Analytics to monitor HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
 
--------REMOVE THE REST OF THESE IF UNEEDED---------
+    > [!NOTE]
+    > You can also configure the cluster to use log analytics by using the `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. This cmdlet requires the following information:
+    >
+    > * The HDInsight cluster name.
+    > * The Workspace ID for log analytics. You can find this in the OMS workspace for your log analytics workspace.
+    > * The primary key for the OMS connection. To find the primary key, select your log analytics instance and then __OMS Portal__. From the OMS Portal, select __Settings__, __Connected Sources__, and then __Linux Servers__.
+
 
 > [!IMPORTANT]
-> You must have already created an Operations Management Suite (OMS) workspace before beginning the steps in this document. For more information, see the [Get started with a Log Analytics workspace](../log-analytics/log-analytics-get-started.md) document.
-
-1. From the [Azure portal](https://portal.azure.com), select your log analytics workspace. From the overview section, select the __OMS Portal__ link. This link opens the OMS portal for your workspace.
-
-    ![Analytics workspace, with the OMS Portal link highlighted](./media/apache-kafka-log-analytics-operations-management/select-oms-portal.png)
-
-2. Select __Settings__, __Connected Sources__, and then __Linux servers__. Copy the following values:
-
-    * __Workspace ID__
-    * __Primary Key__
-
-    ![Select the workspace ID and primary key](./media/apache-kafka-log-analytics-operations-management/oms-workspace-and-key.png)
-
-3. From the [Azure portal](https://portal.azure.com), select your Kafka on HDInsight cluster. Select __Script Actions__, and then select the __+ Submit new__ entry.
-
-4. To enable log analytics, use the following information on the __Submit script action__ dialog:
-
-    * __Script type__: Custom
-    * __Name__: Provide a name for this script
-    * __Bash script URI__: https://000aarperiscus.blob.core.windows.net/oms/kafka/HdiKafkaOmsInstallation.sh
-    * __Node type(s)__: Check both __Head__ and __Worker__.
-    * __Parameters__: Enter the __OMS Workspace ID__ and then the __OMS Primary Key__. There must be a space between these values.
-    * __Persist this script action...__: Check this selection.
-
-    ![Submit a new script action](./media/apache-kafka-log-analytics-operations-management/new-script-action.png)
-
-5. Select __Create__. Once the script completes, it may take around 20 minutes before data is available for log analytics.
+> it may take around 20 minutes before data is available for log analytics.
 
 ## Query logs
 
@@ -69,9 +49,9 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
 
     * Disk usage: `Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
     * CPU usage: `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
-    * Incoming messages per second: `Type=kafkametrics_CL ClusterName_s="kafkaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
-    * Incoming bytes per second: `Type=kafkametrics_CL HostName_s="wn0-kafkao" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
-    * Outgoing bytes per second: `Type=kafkametrics_CL ClusterName_s="kafkaaomstest3" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
+    * Incoming messages per second: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
+    * Incoming bytes per second: `Type=metrics_kafka_CL HostName_s="wn0-kafka" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
+    * Outgoing bytes per second: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
 
     > [!IMPORTANT]
     > Replace the query values with those of your cluster. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
@@ -82,7 +62,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
-    | kafkametrics\_CL | Kafka JMX metrics |
+    | metrics\_kafka\_CL | Kafka JMX metrics |
 
     ![Image of the CPU usage search](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
