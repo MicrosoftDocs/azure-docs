@@ -3,30 +3,45 @@
 - name: Overview
   href: virtual-machine-overview.md
   items:
-  - name: Deep Learning VM Overview
+  - name: Deep Learning
     href: deep-learning-dsvm-overview.md
 - name: Get Started
   items:
-  - name: Provision a Windows DSVM
+  - name: Windows DSVM
     href: provision-vm.md
-  - name: Provision a Linux CentOS DSVM
-    href: linux-dsvm-intro.md
-  - name: Provision a Linux Ubuntu DSVM
+  - name: Linux Ubuntu DSVM
     href: dsvm-ubuntu-intro.md
-  - name: Provision a Deep Learning DSVM
+  - name: Linux CentOS DSVM
+    href: linux-dsvm-intro.md
+  - name: Deep Learning
     href: provision-deep-learning-dsvm.md
 - name: How To
   items:
-  - name: Use a Windows DSVM
+  - name: Use Windows DSVM
     href: vm-do-ten-things.md
-  - name: Use a Linux DSVM
+  - name: Use Linux DSVM
     href: linux-dsvm-walkthrough.md
-  - name: Use a Deep Learning DSVM
+  - name: Use Deep Learning DSVM
     href: use-deep-learning-dsvm.md
+- name: Reference
+  - name: Deep Learning and AI frameworks
+    href: dsvm-deep-learning-ai-frameworks.md
+  - name: ML and data science tools
+    href: dsvm-ml-data-science-tools.md
+  - name: Languages
+    href: dsvm-languages.md
+  - name: Development tools 
+    href: dsvm-tools-development.md
+  - name: Data ingestion tools
+    href: dsvm-tools-ingestion.md
+  - name: Data exploration and visualization tools
+    href: dsvm-tools-explore-and-visualize.md
+  - name: Data platforms
+    href: dsvm-data-platforms.md
+  - name: Samples and walkthroughs
+    href: dsvm-samples-and-walkthroughs.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: http://blogs.technet.com/b/machinelearning/
   - name: MSDN forum
