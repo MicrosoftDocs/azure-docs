@@ -29,15 +29,15 @@ They’re shown according to the project’s folder hierarchy
 
 ![notebooks tab](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
 
-When the user clicks on an existing notebook, they will get a read-only preview
+When the user clicks on an existing notebook, they get a read-only preview
 
 ![notebook preview](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
-Clicking Start Notebook Server will switch the notebook into Edit Mode.
+Clicking Start Notebook Server switches the notebook into Edit Mode.
 
 ![edit mode](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 
-This is a full interactive Juptyer Notebook experience _in situ_, complete with code output.
+This is a full interactive Juptyer Notebook experience _in place_, complete with code output.
 
 ![interactive notebook](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-05.png)
 
@@ -49,7 +49,7 @@ This is a nice feature.
 
 
 ## Command Line Interface
-We have a command line Interface, first with help page.
+We have a command-line Interface, first with help page.
 ```
 johns-mbp:IrisDemo johnpelak$ pwd
 /Users/johnpelak/Desktop/IrisDemo
