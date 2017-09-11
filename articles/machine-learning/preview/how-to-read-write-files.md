@@ -16,69 +16,75 @@ ms.date: 09/10/2017
 ## Execution Isolation, Portability, and Reproducibility
 Azure ML Experimentation Service allows you to configure different execution targets, some are local -- such as local computer or a Docker container on a local computer, some are remote -- such as a Docker container in a remote machine, or an HDInsight cluster. Reference the [Configuration Experimentation Execution](experiment-execution-configuration.md) article for more details. Before any execution can happen, the project folder is copied into that compute target. This is true even in case of a local execution where a local temp folder is used for this purpose. 
 
-The purpose of this design is to ensure execution isolation,reproducibility, and portability. If you execute the same script twice, in the same compute target or a different compute target, you are guaranteed to receive the same results. The changes made by the first execution shouldn't affect the second execution. With this design, we can treat compute targets as stateless computation resources with no affinity to the jobs executed after they are finished.
+The purpose of this design is to ensure execution isolation, reproducibility, and portability. If you execute the same script twice, in the same compute target or a different compute target, you are guaranteed to receive the same results. The changes made by the first execution shouldn't affect the second execution. With this design, we can treat compute targets as stateless computation resources with no affinity to the jobs executed after they are finished.
 
 ## Challenges
-As a trade-off, this design philosophy has some side effects: 
-### Challenge #1: persist state changes
+With the benefits of portability and repeatability, this design also brings some unique challenges:
+### Persisting state changes
 If your script modifies state on the compute context, the changes are not persisted for your next execution, nor are they propagated back to the client machine automatically. 
 
 More concretely, if your script creates a sub folder, or writes out a file, you will not find such folder or file in your project directory post execution. They are left in a temp folder on the compute target environment wherever it happens to be. They might be used for debugging purposes, but you can never take dependencies on their existence.
 
-### Challenge #2: deal with large files in project folder
+### Dealing with large files in project folder
 
-If your project folder contains any large files, your will incur latency when the project folder is copied to the target compute environment at the beginning of each execution. Even if the execution happens locally, it is still unecessary disk traffic that should be avoided. 
+If your project folder contains any large files, your will incur latency when the project folder is copied to the target compute environment at the beginning of each execution. Even if the execution happens locally, it is still unecessary disk traffic that should be avoided. This is why we currently cap the maximum project size limit at 25 MB right now.
 
 ## Option 1: Use the _Outputs_ Folder
-This is the preferred option if you want to train and persist a model, and use it later for scoring.
+This is the preferred option if your script produces files, and you expect these files change with every experiment run, and you want to keep a history of these files. The common use case is that if you train a model, or create a dataset, or plot a graph as an image file as part of your model training execution. And you want to compare these outputs across runs, and you want go back and select an output file (such as a model) produced by a previous run, and use it for a subsequent task (such as scoring).
 
-Essentially, you can write file(s) into a folder named _outputs_ under the project root directory. This is a special folder that receives special treatment by the Experimentation Service. Anything your script creates in there during the execution, such as a sub folder, a model file, a data file, or a plotted image file (collectively known as _artifacts_), are copied into the Azure Blob Storage account associated with your Experimentation Account after the run is finished, and hence preserved as part of your run history record.
+Essentially, you can write file(s) into a folder named `outputs` relative to the root directory. This is a special folder that receives special treatment by the Experimentation Service. Anything your script creates in there during the execution, such as a a model file, a data file, or a plotted image file (collectively known as _artifacts_), are copied into the Azure Blob Storage account associated with your Experimentation account after the run is finished. They become part of your run history record.
 
-You can see and/or download any _artifacts_ by browsing to the run history detail page of a particular run in Azure ML Workbench, or by using the _az ml history_ command from CLI.
-
-Here is a quick example:
+Here is a quick example for storing a model in the `outputs` folder:
 ```python
-# clf1 is a scikit-learn model
-f = open('./outputs/model.pkl', 'wb')
-pickle.dump(clf1, f)
-f.close()
+import os
+import pickle
+
+# m is a scikit-learn model. 
+# we serialize it into a mode.plk file under the ./outputs folder.
+with open(os.path.join('.', 'outputs', 'model.pkl'), 'wb') as f:    
+    pickle.dump(m, f)
 ```
+You can download any _artifact_ by browsing to the **Output Files** section of the run detail page of a particular run in Azure ML Workbench, select it, and click on the **Download** button. Or, you can use the `az ml asset download` command from the CLI window.
 
-To see a more complete example, please follow the [Classifying Iris tutorial](Tutorial.md), and pay special attention to [Step 8](#step-8-obtain-the-pickled-model). 
-
-We plan to introduce a _promote_ verb and a _load_ verb to help you access selected artifacts, known as _assets_. This feature is currently still under development.
+To see a more complete example, please see the `iris_sklearn.py` Python script in the _Classifying Iris_ sample project.
 
 ## Option 2: Use the Shared Folder
-Using the _output_ folder in Option 1 means copying files into a Blob store after each run. It certainly carries overhead particularly when the files are large. If you don't need the lineage through run tracking, and you are OK with executing always against the same compute context, you can leverage the shared folder feature.
+Using a shared folder that can be accessed across independent runs can be a gerat option for the following scenarios, as long as you don't need to keep a history of these files for each run: 
+- Your script needs to load data from local files, such as csv files or a directory of text or image files, as training or test data. 
+- Your script processes raw data, and writes out intermediate results, such as featurized training data from text/image files, that are used in a subsequest training run. 
+- Your script spits out a model, and your subsequent scoring script needs to pick up the model and use it for evaluation. 
 
-The shared folder feature allows you to write to a special folder identified by an environment variable, _AZUREML_NATIVE_SHARE_DIRECTORY_, configurable through your _.compute_ file under the _aml_config_ folder. You can then retrieve these files later in a different execution on the same compute target.
+An important caveat is that the shared folder lives locally on the same compute target you choose. Hence this only works if all your script runs referencing this shared folder are executed on the same compute target, and the compute target is not recycled between runs.
+
+Fhe shared folder feature allows you to read from or write to a special folder identified by an environment variable, `AZUREML_NATIVE_SHARE_DIRECTORY`. 
 
 ### Example
 Here is some sample Python code for using this share folder to read and write a text file:
 ```python
 import os
 
-# write to the share folder
-f = open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'wb')
-f.write(“Hello World”)  
-f.close() 
+# write to the shared folder
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'wb') as f:
+    f.write(“Hello World”)
 
-# read from the share folder
-f = open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r')
-text = file.read()
-f.close()
+# read from the shared folder
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r') as f:
+    text = file.read()
 ```
 
-For a more complete example, please see the _iris_sklearn_share_folder.py_ file in the Classifying Iris sample project.
+For a more complete example, please see the `iris_sklearn_share_folder.py` file in the _Classifying Iris_ sample project.
 
-Before you can use this feature, you have to set some simple configurations in the _.compute_ file representing the targeted execution context in the _aml_config_ folder.
+Before you can use this feature, you have to set some simple configurations in the `.compute` file representing the targeted execution context in the `aml_config` folder. The actual path to this folder can vary depending on the compute target you choose and the value you configure.
 
 ### Configure Local Compute Context
-To enable this feature on a local compute context, simply add the following line to the your local _.compute_ file.
+To enable this feature on a local compute context, simply add the following line to the your `.compute` file representing _local_ environment (typically named `local.compute`).
 ```
+# local.runconfig
+...
 nativeSharedDirectory: ~/.azureml/share
+...
 ```
-The _~/.azureml/share_ is the default base folder and it is configurable. You can use any local absolute path accessible by the script run. Experimentation Account name, Workspace name and Project name are automatically appended to the base directory, which makes up the full path of the shared directory. For example, the files are written to (and retrieved from) the following path if you use the above default value:
+The `~/.azureml/share` is the default base folder path. You can change it to any local absolute path accessible by the script run. Experimentation account name, Workspace name and Project name are automatically appended to the base directory, which make up the full path of the shared directory. For example, the files can be written to (and retrieved from) the following path if you use the above default value:
 
 ```
 # on Windows
