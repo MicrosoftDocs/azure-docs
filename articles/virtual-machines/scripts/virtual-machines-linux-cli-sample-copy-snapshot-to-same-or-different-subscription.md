@@ -39,8 +39,8 @@ This script uses following commands to create a snapshot in the target subscript
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
-| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot#create) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
+| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_create) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
 
 ## Next steps
 

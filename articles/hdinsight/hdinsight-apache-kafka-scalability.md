@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/14/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ---
 
@@ -31,12 +31,12 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
 
 1. Follow the steps in the [Create an HDInsight cluster](hdinsight-hadoop-create-linux-clusters-portal.md) to understand the common steps to create a cluster using the portal. Do not complete the portal creation process.
 
-2. From the __Cluster size__ blade, use the __Disks per worker node__ field to configure the number of disks.
+2. From the __Cluster size__ section, use the __Disks per worker node__ field to configure the number of disks.
 
     > [!NOTE]
     > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-    ![Image of the cluster size blade with the disks per worker node highlighted](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Image of the cluster size section with the disks per worker node highlighted](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## Configure managed disks: Resource Manager template
 

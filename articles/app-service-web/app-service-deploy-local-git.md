@@ -18,8 +18,8 @@ ms.author: dariagrigoriu
 
 ---
 # Local Git Deployment to Azure App Service
-This tutorial shows you how to deploy your app to [Azure App Service] from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal].  
-Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](app-service-web-get-started.md).
+This tutorial shows you how to deploy your app to [Azure Web Apps](app-service-web-overview.md) from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal].  
+Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](app-service-web-get-started-dotnet.md).
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -171,7 +171,6 @@ git config --global http.postBuffer 524288000
 * [How to use PowerShell for Azure](/powershell/azure/overview)
 * [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
-[Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Azure Portal]: https://portal.azure.com
 [Git website]: http://git-scm.com
