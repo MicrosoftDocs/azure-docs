@@ -18,7 +18,7 @@ ms.author: bryanla
 
 # How to assign a Managed Service Identity (MSI) access to a resource, using the Azure portal
 
-Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine's MSI access to an Azure storage account, using the Azure portal.
+Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine's MSI access to an Azure storage account.
 
 ## Use Role Based Access Control (RBAC) to assign the MSI access to another resource
 
@@ -50,4 +50,15 @@ If either is incorrect, you may need to redeploy the MSI on your resource again,
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/active-directory-msi-overview.md).
 - To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using the Azure portal](active-directory-msi-qs-configure-portal-windows-vm.md).
 
+## Next steps
 
+- TODO: Assign an MSI access to Azure Resource Manager
+- TODO: Get a token using Managed Service Identity 
+
+Use the following comments section to provide feedback and help us refine and shape our content.
+
+<!--Reference style links IN USE -->
+[AAD-App-Branding]: ./active-directory-branding-guidelines.md
+
+<!--Image references-->
+[AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
