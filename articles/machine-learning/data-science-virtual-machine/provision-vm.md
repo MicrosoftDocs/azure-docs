@@ -26,7 +26,7 @@ The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (V
 * Power BI desktop
 * SQL Server 2016 Developer Edition
 * Machine learning and Data Analytics tools
-  * [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
   * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
@@ -127,7 +127,7 @@ Anaconda distribution also comes with a Jupyter notebook, an environment to shar
 > 
 > 
 
-We have packaged several sample notebooks in Python and in R. The Jupyter notebooks show how to work with Microsoft R Server, SQL Server 2016 R Services (In-database analytics), Python, Microsoft Cognitive ToolKit (CNTK) for deep learning and other Azure technologies once you log in to Jupyter. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in an earlier step. 
+We have packaged several sample notebooks in Python and in R. The Jupyter notebooks show how to work with Microsoft R Server, SQL Server 2016 R Services (In-database analytics), Python, Microsoft Cognitive ToolKit for deep learning and other Azure technologies once you log in to Jupyter. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in an earlier step. 
 
 ### Visual Studio 2015 Community edition
 Visual Studio Community edition installed on the VM. It is a free version of the popular IDE from Microsoft that you can use for evaluation purposes and for small teams. You can check out the licensing terms [here](https://www.visualstudio.com/support/legal/mt171547).  Open Visual Studio by double-clicking the desktop icon or the **Start** menu. You can also search for programs with **Win** + **S** and entering “Visual Studio”. Once there you can create projects in languages like C#, Python, R, node.js. Plugins are also installed that make it convenient to work with Azure services like Azure Data Catalog, Azure HDInsight (Hadoop, Spark), and Azure Data Lake. 
