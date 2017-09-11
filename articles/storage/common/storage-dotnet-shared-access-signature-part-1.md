@@ -42,11 +42,11 @@ A common scenario where a SAS is useful is a service where users read and write 
 
 1. Clients upload and download data via a front-end proxy service, which performs authentication. This front-end proxy service has the advantage of allowing validation of business rules, but for large amounts of data or high-volume transactions, creating a service that can scale to match demand may be expensive or difficult.
 
-  ![Scenario diagram: Front-end proxy service](../media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+  ![Scenario diagram: Front-end proxy service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. A lightweight service authenticates the client as needed and then generates a SAS. Once the client receives the SAS, they can access storage account resources directly with the permissions defined by the SAS and for the interval allowed by the SAS. The SAS mitigates the need for routing all data through the front-end proxy service.
 
-  ![Scenario diagram: SAS provider service](../media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+  ![Scenario diagram: SAS provider service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Many real-world services may use a hybrid of these two approaches. For example, some data might be processed and validated via the front-end proxy, while other data is saved and/or read directly using SAS.
 
@@ -67,14 +67,14 @@ A shared access signature is a signed URI that points to one or more storage res
 
 Here's an example of a SAS URI, showing the resource URI and the SAS token:
 
-![Components of a SAS URI](../media/storage-dotnet-shared-access-signature-part-1/sas-storage-uri.png)   
+![Components of a SAS URI](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-uri.png)   
 
 The SAS token is a string you generate on the *client* side (see the [SAS examples](#sas-examples) section for code examples). A SAS token you generate with the storage client library, for example, is not tracked by Azure Storage in any way. You can create an unlimited number of SAS tokens on the client side.
 
 When a client provides a SAS URI to Azure Storage as part of a request, the service checks the SAS parameters and signature to verify that it is valid for authenticating the request. If the service verifies that the signature is valid, then the request is authenticated. Otherwise, the request is declined with error code 403 (Forbidden).
 
 ## Shared access signature parameters
-The account SAS and service SAS tokens include some common parameters, and also take a few parameters that that are different.
+The account SAS and service SAS tokens include some common parameters, and also take a few parameters that are different.
 
 ### Parameters common to account SAS and service SAS tokens
 * **Api version** An optional parameter that specifies the storage service version to use to execute the request.

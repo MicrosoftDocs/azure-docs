@@ -1,5 +1,5 @@
 ---
-title: Azure portal dashboards | Microsoft Docs
+title: Create and share Azure portal dashboards | Microsoft Docs
 description: This article explains how to create and edit dashboards in the Azure portal.
 services: azure-portal
 documentationcenter: ''
@@ -17,13 +17,8 @@ ms.date: 09/06/2016
 ms.author: sewatson
 
 ---
-# Creating and sharing dashboards in the Azure portal
-You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This post goes through the basics of creating/editing, publishing, and managing access to dashboards.
-
-## Customizing dashboards versus blades
-Since launching dashboards a few months ago, there has been a steady decline in blade customizations and a rapid increase in dashboard customizations. This strong usage trend shows that you prefer customizing dashboards over blades. To support that trend, we will remove the ability to customize blades and dedicate our efforts to enhancing dashboard functionality. If you customized a blade, your customization will soon be removed. To preserve that customization, pin the customized tiles to a dashboard. Simply right-click the tile and select **Pin to dashboard** as shown in the following image.
-
-![save customized tile](./media/azure-portal-dashboards/save-customization.png)
+# Create and share dashboards in the Azure portal
+You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This article goes through the basics of creating, editing, publishing, and managing access to dashboards.
 
 ## Create a dashboard
 To create a dashboard, select the **New dashboard** button next to the current dashboard's name.  

@@ -47,6 +47,7 @@
 #### [Use cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
 #### [Use Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
+#### [Use .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 ### [Run the MapReduce samples](hdinsight-hadoop-run-samples-linux.md)
 ### [Use Pig with Hadoop](hdinsight-use-pig.md)
 #### [Use SSH and Pig](hdinsight-hadoop-use-pig-ssh.md)
@@ -57,14 +58,11 @@
 ### [Use DataFu with Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Use R Server
-### [Storage options](hdinsight-hadoop-r-server-storage.md)
-### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use Spark for in-memory processing
+### Get started - Spark developer
+#### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
+#### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
 ### [Create apps using Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Create apps using IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Process streaming events](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +76,13 @@
 ### [Use external packages with Jupyter using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Use external packages with Jupyter using script action](hdinsight-apache-spark-python-package-installation.md)
 ### [Use a local Jupyter notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Debug jobs remotely with IntelliJ through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Known issues](hdinsight-apache-spark-known-issues.md)
+## Use R Server
+### [Storage options](hdinsight-hadoop-r-server-storage.md)
+### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use HBase
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analyze real-time tweets](hdinsight-hbase-analyze-twitter-sentiment.md)
@@ -96,7 +98,6 @@
 #### [Develop C# topologies with Hadoop tools](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 #### [Process events with C# topologies](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Process events with Java topologies](hdinsight-storm-develop-java-event-hub-topology.md)
-#### [Use Power BI with a topology](hdinsight-storm-power-bi-topology.md)
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
@@ -124,6 +125,7 @@
 ### [Serialize data with Avro Library](hdinsight-dotnet-avro-serialization.md)
 ### [Use C# user-defined functions](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Use Python with Hive and Pig](hdinsight-python.md)
+### [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 ## Analyze big data
 ### [Analyze using Power Query](hdinsight-connect-excel-power-query.md)
 ### [Connect Excel to Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)
@@ -187,6 +189,10 @@
 ### [Availability and reliability ](hdinsight-high-availability-linux.md)
 ### [Upgrade HDInsight cluster to newer version](hdinsight-upgrade-cluster.md)
 ### [OS patching for HDInsight cluster](hdinsight-os-patching.md)
+## Monitor
+### [Use Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+### [Cluster-specific dashboards](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
+### [Use queries with Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 ## [Troubleshoot](hdinsight-troubleshoot-guide.md)
 ### [HBASE troubleshooting](hdinsight-troubleshoot-hbase.md)
 ### [HDFS troubleshooting](hdinsight-troubleshoot-hdfs.md)

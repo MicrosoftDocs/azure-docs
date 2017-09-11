@@ -1,6 +1,6 @@
 # Testing the new code owners feature in GitHub. Please contact Tyson if you have questions.
 
-articles/storage/  @mmacy
+articles/storage/  @tamram @robinsh
 articles/virtual-machines/  @iainfoulds @cynthn
 articles/virtual-machines/linux/  @iainfoulds @cynthn
 articles/virtual-machines/windows/  @iainfoulds @cynthn

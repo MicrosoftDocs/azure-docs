@@ -14,12 +14,44 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 09/06/2017
 ms.author: maroche
 
 ---
 # What's new in Azure Data Catalog
 Updates to **Azure Data Catalog** are released regularly. Not every release includes new user-facing features, as some releases are focused on back-end service capabilities. This page highlights new user-facing capabilities added to the Azure Data Catalog service.
+
+## What's new for September 2017 
+As of September 2017, the following capabilities have been added to Azure Data Catalog:
+
+* Support for extracting join relationship metadata from DB2 data sources when registering related tables using the data source registration tool.
+* Support for registering MongoDB version 3.4 data sources using the data source registration tool.
+* Support for deleting all metadata for contained objects in a single operation when removing a database or other container from Data Catalog.
+* Support for viewing up to 1,000 tags, business glossary terms, or other search facets, when refining a search in the Data Catalog portal.
+
+
+## What's new for August 2017 
+As of August 2017, the following capabilities have been added to Azure Data Catalog:
+
+*	A new developer sample is available for creating and managing relationship metadata by using the Data Catalog REST API. The *Import relationship information into Data Catalog* sample is available on the [Data Catalog code samples page](https://azure.microsoft.com/resources/samples/?service=data-catalog&sort=0). 
+* Support for extracting join relationship metadata from Teradata data sources when registering related tables using the data source registration tool.
+* Support for SQL Server table valued function (TVF) objects when registering SQL Server data sources using the data source registration tool.
+* Multiple updates and refinements to increase the performance and usability of the Data Catalog portal.
+
+## What's new for July 2017 
+As of July 2017, the following capabilities have been added to Azure Data Catalog:
+*	Support for more granular control over permited metadata operations including:
+    - Catalog administrators can restrict users’ ability to contribute tags and related metadata to the catalog, enabling read-only access to the catalog.
+    - Catalog administrators can restrict users’ ability to register new data sources in the catalog.
+    - Catalog administrators can restrict users’ ability to take ownership of data asset metadata in the catalog.
+    - Permissions can be granted to Azure Active Directory security groups and users for ease of managing permissions.
+* Support for relationships between registered data assets, and discovering related data assets in the Data Catalog portal, including:
+    - Extraction of relationship metadata from SQL Server (including Azure SQL Database), Oracle, and MySQL data sources when using the Data Catalog data source registration tool.
+    - Discovery of related data assets when viewing asset metadata in the Data Catalog portal.
+    - Operations to define, discover, and manage relationships between data assets by using the Data Catalog REST API.
+
+For additional details on managing permissions in Data Catalog, see [How to secure access to data catalog and data assets](data-catalog-how-to-secure-catalog.md).
+For additional details on relationships in Data Catalog, see [How to view related data assets in Azure Data Catalog](data-catalog-how-to-view-related-data-assets.md).
 
 ## What's new for June 2017 
 As of June 2017, the following capabilities have been added to Azure Data Catalog:

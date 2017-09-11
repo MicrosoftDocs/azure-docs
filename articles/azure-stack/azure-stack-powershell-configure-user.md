@@ -22,9 +22,9 @@ ms.author: sngun
 
 As an Azure Stack user, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as subscribe to offers, create virtual machines, deploy Azure Resource Manager templates,  etc. This topic is scoped to use with the user environments only, if you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md) topic. 
 
-## Prerequisites
+## Prerequisites 
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn):
+Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
 * Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
 * Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
@@ -36,7 +36,6 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
 ### Azure Active Directory (AAD) based deployments
        
   ```powershell
-
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
@@ -62,10 +61,9 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
    ```
 
-### Active Directory Federation Services (AD FS) based deployments
+### Active Directory Federation Services (AD FS) based deployments 
           
   ```powershell
-
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
@@ -97,7 +95,6 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
 When operating on a newly created user subscription that doesn’t have any resources deployed through the portal, the resource providers aren't automatically registered. You should explicitly register them by using the following script:
 
 ```powershell
-
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)

@@ -52,7 +52,7 @@
   - name: Regions and availability
     href: regions-and-availability.md
   - name: Storage
-    href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: about-disks-and-vhds.md
   - name: Networking
     href: network-overview.md
   - name: VM Scale Sets
@@ -108,6 +108,10 @@
       href: csharp.md
     - name: Use a template with C#
       href: csharp-template.md
+    - name: Create VM with Chef
+      href: chef-automation.md
+    - name: Use Java
+      href: java.md
     - name: Use Python
       href: python.md
     - name: Use a template
@@ -116,6 +120,8 @@
       href: connect-logon.md
     - name: Use AHUB licensing
       href: hybrid-use-benefit-licensing.md
+    - name: Use Multitenant Hosting Rights for Windows 10
+      href: windows-desktop-multitenant-hosting-deployment.md
   - name: Secure VMs
     items:
     - name: Encrypt

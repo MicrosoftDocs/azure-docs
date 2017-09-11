@@ -61,14 +61,6 @@ To obtain these values from a classic or Resource Manager storage account in the
 4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
 5. Click the copy icon to copy the key to the clipboard.
 
-To obtain these values from a classic storage account in the classic Azure portal:
-
-1. Log in to the [Azure classic portal](https://manage.windowsazure.com).
-2. Navigate to the storage account you want to use.
-3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
-4. In the pop-up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
-5. Click the copy icon to copy the key to the clipboard.
-
 ## Create a table
 The **Azure::TableService** object lets you work with tables and entities. To create a table, use the **create\_table()** method. The following example creates a table or prints the error if there is any.
 

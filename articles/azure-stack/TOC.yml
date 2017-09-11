@@ -53,6 +53,8 @@
       href: azure-stack-manage-portals.md
     - name: Connect to Azure Stack
       href: azure-stack-connect-azure-stack.md
+    - name: Enable CLI for users
+      href: azure-stack-cli-admin.md
     - name: Set up management environment
       items:
       - name: Install PowerShell
@@ -63,8 +65,6 @@
         href: azure-stack-powershell-configure-admin.md
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
-      - name: Install and configure CLI
-        href: azure-stack-connect-cli.md
     - name: Manage updates
       href: azure-stack-updates.md
     - name: Monitor health and alerts
@@ -89,10 +89,12 @@
       href: azure-stack-enable-multitenancy.md
   - name: Offer services
     items:
+    - name: Overview of offering services
+      href: azure-stack-offer-services-overview.md
     - name: Create plans, offers, and quotas
       items:
-      - name: Set quotas
-        href: azure-stack-setting-quotas.md
+      - name: Plan, offer, quota, and subscription overview
+        href: azure-stack-plan-offer-quota-overview.md
       - name: Create a plan
         href: azure-stack-create-plan.md
       - name: Create an offer
@@ -101,6 +103,8 @@
         href: azure-stack-subscribe-plan-provision-vm.md
       - name: Delegate offers in Azure Stack
         href: azure-stack-delegated-provider.md
+      - name: Quota types
+        href: azure-stack-quota-types.md
     - name: Offer SQL or MySQL as PaaS
       items:
       - name: PaaS services overview

@@ -57,10 +57,10 @@ Inside the cloned directory is the application source code, a pre-created Docker
 
 [Docker Compose](https://docs.docker.com/compose/) can be used to automate the build out of container images and the deployment of multi-container applications.
 
-Run the docker-compose.yaml file to create the container image, download the Redis image, and start the application.
+Run the docker-compose.yml file to create the container image, download the Redis image, and start the application.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up -d
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 ```
 
 When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
@@ -105,13 +105,13 @@ Now that application functionality has been validated, the running containers ca
 Run the following to stop the running containers.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
 ```
 
 Delete the stopped containers with the following command.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml rm
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 ```
 
 At completion, you have a container image that contains the Azure Vote application.
