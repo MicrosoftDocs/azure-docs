@@ -35,8 +35,8 @@ If you deployed your cluster in the Azure portal or used the sample Azure Resour
 The name looks similar to this: **LB-&lt;node type name&gt;**. For example, LB-sfcluster4doc-0, as shown in the following figure:
 
 ![Resources][Resources]
-
-## <a name="remote-connect-to-a-vm-scale-set"></a>Remotely connect to a scale set instance or cluster node
+<a name="remote-connect-to-a-vm-scale-set"></a>
+## Remotely connect to a scale set instance or cluster node
 For each node type that you defined in a cluster, set up a separate scale set. You can independently scale the node types up or down. Additionally, you can use different VM SKUs. Unlike single-instance VMs, virtual machine scale set instances don't have their own virtual IP address. This can be challenging when you are looking for an IP address and port that you can use to remotely connect to a specific instance.
 
 To find an IP address and port that you can use to remotely connect to a specific instance:
