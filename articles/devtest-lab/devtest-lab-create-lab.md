@@ -34,11 +34,11 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 	![More services menu option](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. From the list of available services, **DevTest Labs**.
-1. On the **DevTest Labs** blade, select **Add**.
+1. In the **DevTest Labs** area, select **Add**.
    
     ![Add a lab](./media/devtest-lab-create-lab/add-lab-button.png)
 
-1. On the **Create a DevTest Lab** blade:
+1. Under **Create a DevTest Lab**:
    
 	1. Enter a **Lab Name** for the new lab.
 	2. Select the **Subscription** to associate with the lab.
@@ -47,9 +47,9 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 	1. Enter **NAME** and **VALUE** information for **Tags** if you want to create custom tagging that is added to every resource you will create in the lab. Tags are useful to help you manage and organize lab resources by category. For more information about tags, including how to add tags after creating the lab, see [Add tags to a lab](devtest-lab-add-tag.md).
 	5. Select **Pin to Dashboard** if you want a shortcut of the lab to appear on the portal dashboard.
 	6. Select **Automation options** to get Azure Resource Manager templates for configuration automation. 
-	7. Select **Create**. After selecting **Create**, the **DevTest Labs** blade displays. You can monitor the status of the lab creation process by watching the **Notifications** area. Once completed, refresh the page to see the newly created lab in the list of labs.  
+	7. Select **Create**. You can monitor the status of the lab creation process by watching the **Notifications** area. Once completed, refresh the page to see the newly created lab in the list of labs.  
     
-    ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+    ![Create a lab section of DevTest Labs](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
