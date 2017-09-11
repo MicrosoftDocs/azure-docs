@@ -11,19 +11,23 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
 ---
-# Reading and Writing Large Data Files
+# Persisting Changes & Dealing with Large Files
 
-## Execution Isolation, Portability and Reproducibility
-Azure ML Experimentation Service allows you to configure different execution targets, some are local -- such as local computer or a Docker container on a local computer, some are remote -- such as a Docker container in a remote machine, or HDI cluster. Before any execution can happen, the project folder is copied into that compute target. This is true even in case of a local execution where a local temp folder is used for this purpose. 
+## Execution Isolation, Portability, and Reproducibility
+Azure ML Experimentation Service allows you to configure different execution targets, some are local -- such as local computer or a Docker container on a local computer, some are remote -- such as a Docker container in a remote machine, or an HDInsight cluster. Reference the [Configuration Experimentation Execution](experiment-execution-configuration.md) article for more details. Before any execution can happen, the project folder is copied into that compute target. This is true even in case of a local execution where a local temp folder is used for this purpose. 
 
-The purpose of this design is to ensure execution isolation, reproducibility and portability. If you execute the same script twice, in the same compute target or a different compute target, you are guaranteed to receive the same results, because changes made by the first execution won't affect the second execution. This way we can treat compute targets as purely stateless computation resources with no affinity to the jobs executed after they are finished.
+The purpose of this design is to ensure execution isolation,reproducibility, and portability. If you execute the same script twice, in the same compute target or a different compute target, you are guaranteed to receive the same results. The changes made by the first execution shouldn't affect the second execution. With this design, we can treat compute targets as stateless computation resources with no affinity to the jobs executed after they are finished.
 
-## Challenges of Persisting Files
-The above design philosophy means if your script changes state on the compute context, these changes are not persisted on the compute context itself, nor are they propagated back to the client machine, or more materially, the project folder. 
+## Challenges
+As a trade-off, this design philosophy has some side effects: 
+### Challenge #1: persist state changes
+If your script modifies state on the compute context, the changes are not persisted for your next execution, nor are they propagated back to the client machine automatically. 
 
 More concretely, if your script creates a sub folder, or writes out a file, you will not find such folder or file in your project directory post execution. They are left in a temp folder on the compute target environment wherever it happens to be. They might be used for debugging purposes, but you can never take dependencies on their existence.
 
-But of course, there is a need to persist state across executions, on the same compute context, or across different compute context. To meet this challenge, there are three different options you can choose from.
+### Challenge #2: deal with large files in project folder
+
+If your project folder contains any large files, your will incur latency when the project folder is copied to the target compute environment at the beginning of each execution. Even if the execution happens locally, it is still unecessary disk traffic that should be avoided. 
 
 ## Option 1: Use the _Outputs_ Folder
 This is the preferred option if you want to train and persist a model, and use it later for scoring.
@@ -74,7 +78,7 @@ To enable this feature on a local compute context, simply add the following line
 ```
 nativeSharedDirectory: ~/.azureml/share
 ```
-The _~/.azureml/share_ is the default base folder and it is configurable. You can use any local absolute path accessible by the script run. Experimentation Account name, Workspace name and Project name are automatially appended to the base directory which makes up the full path of the shared directory. For example, the files will be written to (and retrieved from) the following path if you uses the above default value:
+The _~/.azureml/share_ is the default base folder and it is configurable. You can use any local absolute path accessible by the script run. Experimentation Account name, Workspace name and Project name are automatically appended to the base directory, which makes up the full path of the shared directory. For example, the files are written to (and retrieved from) the following path if you use the above default value:
 
 ```
 # on Windows
@@ -90,7 +94,7 @@ To enable this feature on a Docker compute context, you need to add the followin
 sharedVolumes: true
 nativeSharedDirectory: ~/.azureml/share
 ```
->Note without _sharedVolume_ set to true, the execution will fail. 
+>Note without _sharedVolume_ set to true, the execution fails. 
 
 The code running in the Docker container will always see this share folder as _/azureml-share/_. This folder name is not configurable. And do NOT take dependency on this folder name in your code. Always use the environment variable name. It is mapped to a local folder on the Docker host machine/compute context of which the base directory is configurable. The local path of the share folder on the host machine, if you use the default value above, is simply:
 ```
@@ -106,7 +110,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 
 For more information on the configuration files in Azure ML Execution Service, please refer to this article: [Execution Configuration Files](aml_config.md).
 ### HDI Compute Context
-The _AZUREML_NATIVE_SHARE_DIRECTORY_ environment variable is not supported in HDI compute context. But it is very easy to achieve the same behavior by using a direct/absolute wasb path to the attached Blob storage.
+The _AZUREML_NATIVE_SHARE_DIRECTORY_ environment variable is not supported in HDI compute context. But it is easy to achieve the same behavior by using a direct/absolute wasb path to the attached Blob storage.
 
 ## Option 3: Use an External Durable Storage
 
