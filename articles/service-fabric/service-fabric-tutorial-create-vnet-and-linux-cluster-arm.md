@@ -40,7 +40,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the [Service Fabric SDK and CLI](service-fabric-get-started-linux.md)
-- Install the [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Install the [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 The following procedures create a five-node Service Fabric cluster. The cluster is secured by a self-signed certificate placed in a key vault. 
 
@@ -61,8 +61,8 @@ az account set --subscription <guid>
 Create a new resource group for your deployment and give it a name and a location.
 
 ```azurecli
-ResourceGroupName = "sfclustertutorialgroup"
-az group create --name $ResourceGroupName --location "Central US"
+ResourceGroupName="sflinuxclustergroup"
+az group create --name $ResourceGroupName --location "South Central US"
 ```
 
 ## Deploy the network topology
