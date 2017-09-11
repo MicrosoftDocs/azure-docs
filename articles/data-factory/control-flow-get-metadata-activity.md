@@ -29,6 +29,10 @@ The following functionality is available in the control flow:
 
 The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as output. Currently, only Azure blob dataset is supported. The supported metadata fields are size, structure, and lastModified time.  
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
+
+
 ## Syntax
 
 ### Get Metadata Activity definition:

@@ -17,7 +17,15 @@ ms.author: shengc
 
 ---
 # Transform data using Spark Activity in Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-spark.md)
+> * [Version 2 - Preview](transform-data-using-spark.md)
+
+
 Spark Activity is one of the [data transformation activities](transform-data.md) supported by Azure Data Factory. This activity runs the specified Spark program on your Apache Spark cluster in Azure HDInsight.    
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Spark Activity in V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > - Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.

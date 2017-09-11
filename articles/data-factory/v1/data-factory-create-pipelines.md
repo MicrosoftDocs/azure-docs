@@ -19,6 +19,13 @@ ms.author: shlo
 robots: noindex
 ---
 # Pipelines and Activities in Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](data-factory-create-pipelines.md)
+> * [Version 2 - Preview](../concepts-pipelines-activities.md)
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Pipelines in V2](../concepts-pipelines-activities.md).
+
 This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.  
 
 > [!NOTE]

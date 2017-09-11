@@ -1,5 +1,5 @@
 ---
-title: Deploy SSIS packages to cloud | Microsoft Docs
+title: Deploy SSIS packages to Azure | Microsoft Docs
 description: This article explains how to deploy SSIS packages to managed-dedicated integration runtime provided by Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -17,7 +17,16 @@ ms.author: spelluru
 
 ---
 # Deploy SQL Server Integration Services (SSIS) packages to Azure 
-This quickstart describes how to provision managed-dedicated integration runtime in Azure. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure.  
+This tutorial provides steps for provisioning a managed-dedicated integration runtime in Azure. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps: 
+
+> [!div class="checklist"]
+> * Create variables
+> * Create a data factory. 
+> * Create a managed-dedicated integration runtime
+> * Start the managed-dedicated integration runtime
+> * Deploy SSIS packages
+> * Review the complete script
+
 
 ## Prerequisites
 
@@ -29,25 +38,73 @@ This quickstart describes how to provision managed-dedicated integration runtime
     - You want to connect to on-premises data sources from SSIS packages running on a SQL Server Managed Instance.
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision managed-dedicated integration runtime that runs SSIS packages in the cloud. 
 
+## Overview
 
-## Provision integration runtime
-In this release, you must use PowerShell to provision an instance of managed-dedicated integration runtime that runs SSIS packages in the cloud. Currently, it's not possible to provision this runtime by using Azure portal. 
+## Create variables
+Define variables for use in the script in this tutorial:
 
-The PowerShell script in this section configures an instance of managed-dedicated integration runtime in the cloud that runs SSIS packages. After you run this script successfully, you can deploy and run SSIS packages in the Microsoft Azure cloud, in Azure SQL Database or on a SQL Server Managed Instance.
+```powershell
+# Azure Data Factory information
+$SubscriptionName = "<your azure subscription name>"
+$ResourceGroupName = "<azure resource group name>"
+$DataFactoryName = "<globablly unique name for your data factory>"
+$DataFactoryLocation = "EastUS" # data factory v2 can be created only in east us region. 
+$DataFactoryLoggingStorageAccountName = "<storage account name>"
+$DataFactoryLoggingStorageAccountKey = "<storage account key>"
 
-1. Launch the Windows PowerShell Integrated Scripting Environment (ISE).
-2. In the ISE, run the following command from the command prompt.    
-    ```powershell
-    Set-ExecutionPolicy Unrestricted -Scope CurrentUser
-    ```
-3. Copy the PowerShell script in this section and paste it into the ISE.
-4. Provide appropriate values for the script parameters in the "SSIS in Azure specifications" section at the beginning of the script. These parameters are described in the next section.
-5. Run the script. Expect the `Start-AzureRmDataFactoryV2IntegrationRuntime` command near the end of the script to run for 20 to 30 minutes.
+# Managed-dedicated integratin runtime
+$MDIRName = "<name of managed-dedicated integration runtime>"
+$MDIRDescription = "This is my managed-dedicated integration runtime instance"
+$MDIRLocation = "EastUS" # only East US|North Europe are supported
+$MDIRNodeSize = "Standard_A4_v2" # currently, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported 
+$MDIRNodeNumber = 2 # only 1-10 nodes are supported
+$MDIRMaxParallelExecutionsPerNode = 2 # only 1-8 parallel executions per node are supported
+$VnetId = "" # OPTIONAL: only classic VNet is supported
+$SubnetName = "" # OPTIONAL: only classic VNet is supported
 
-[!NOTE]
-The script connects to your Azure SQL Database or SQL Server Managed Instance to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of managed-dedicated integration runtime to the VNet.
+# SSISDB info
+$SSISDBServerEndpoint = "<your azure sql server name>.database.windows.net"
+$SSISDBServerAdminUserName = "<sql server admin user ID>"
+$SSISDBServerAdminPassword = "<sql server admin password>"
+$SSISDBPricingTier = "<your azure sql database pricing tier, e.g. S0, S3, or leave it empty for azure sql managed instance>" # Not applicable for Azure SQL MI
 
-### Parameters in script
+##### End of managed-dedicated integration runtime specifications ##### 
+
+$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
+```
+## Create a resource group
+Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+
+```powershell
+New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+```
+
+## Create a data factory
+Run the following command to create a data factory:
+
+```powershell
+New-AzureRmDataFactoryV2 -Location $DataFactoryLocation -LoggingStorageAccountName $DataFactoryLoggingStorageAccountName -LoggingStorageAccountKey $DataFactoryLoggingStorageAccountKey -Name $DataFactoryName -ResourceGroupName $ResourceGroupName 
+```
+
+## Create integration runtime
+Run the following command to create a managed-dedicated integration runtime that runs SSIS packages in Azure: 
+
+```powershell
+New-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName -Type Managed -CatalogServerEndpoint $SSISDBServerEndpoint -CatalogAdminUserName $SSISDBServerAdminUserName -CatalogAdminPassword $SSISDBServerAdminPassword -CatalogPricingTier $SSISDBPricingTier -Description $MDIRDescription -Location $MDIRLocation -NodeSize $MDIRNodeSize -NumberOfNodes $MDIRNodeNumber -MaxParallelExecutionsPerNode $MDIRMaxParallelExecutionsPerNode -VnetId $VnetId -Subnet $SubnetName
+```
+
+## Start integration runtime
+Run the following command to start the managed-dedicated integration runtime: 
+
+```powershell
+Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $MDIRName -ResourceGroupName $ResourceGroupName -Sync -Force
+```
+This command takes from **20 to 30 minutes** to complete. 
+
+## Deploy SSIS packages
+Now, use SQL Server Data Tools (SSDT) to deploy your SSIS packages to Azure. Connect to your Azure SQL server that hosts the SSIS catalog (SSISDB). The name of the Azure SQL server is in the format: <servername>.database.windows.net. See [Deploy packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) article for instructions. 
+
+## Parameters in script
 Field | Description
 ----- | -----------
 SubscriptionName | Your Azure subscription, under which the data factory and managed-dedicated integration runtime are created.
@@ -68,7 +125,23 @@ SSISDBServerAdminPassword | The admin password of your existing Azure SQL DB/MI 
 SSISDBPricingTier | The pricing tier for your SSISDB hosted by Azure SQL DB server. This field is required only for Azure SQL DB server hosting SSISDB, otherwise leave this field empty for Azure SQL MI hosting SSISDB.
 
 
-### Script
+## Complete script
+In this release, you must use PowerShell to provision an instance of managed-dedicated integration runtime that runs SSIS packages in the cloud. Currently, it's not possible to provision this runtime by using Azure portal. 
+
+The PowerShell script in this section configures an instance of managed-dedicated integration runtime in the cloud that runs SSIS packages. After you run this script successfully, you can deploy and run SSIS packages in the Microsoft Azure cloud, in Azure SQL Database or on a SQL Server Managed Instance.
+
+1. Launch the Windows PowerShell Integrated Scripting Environment (ISE).
+2. In the ISE, run the following command from the command prompt.    
+    ```powershell
+    Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+    ```
+3. Copy the PowerShell script in this section and paste it into the ISE.
+4. Provide appropriate values for the script parameters in the "SSIS in Azure specifications" section at the beginning of the script. These parameters are described in the next section.
+5. Run the script. The `Start-AzureRmDataFactoryV2IntegrationRuntime` command near the end of the script runs for **20 to 30 minutes**.
+
+> [!NOTE]
+> The script connects to your Azure SQL Database or SQL Server Managed Instance to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of managed-dedicated integration runtime to the VNet.
+
 
 ```powershell
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser
@@ -175,19 +248,8 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## Next steps
+See the following SSIS articles for deploying and running SSIS packages: 
 
-- Deploy a package. To deploy a package, you can choose from several tools and languages. For more info, see the following articles:
-	- [Deploy from SSMS](/sql/integration-services/deploy-packages-with-ssis)
-	- Deploy with T-SQL from SSMS
-	- Deploy with T-SQL from VS Code
-	- Deploy from command prompt
-	- Deploy from PowerShell
-	- Deploy from C# app
-- Run a package. To run a package, you can choose from several tools and languages. For more info, see the following articles:
-	- Run from SSMS
-	- Run with T-SQL from SSMS
-	- Run with T-SQL from VS Code
-	- Run from command prompt
-	- Run from PowerShell
-	- Run from C# app
-- Schedule a package. For more info, see Schedule page
+- [Deploy SSIS packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server)
+- [Run SSIS packages](/sql/integration-services/packages/run-integration-services-ssis-packages)
+- [Schedule SSIS packages](/sql/integration-services/packages/sql-server-agent-jobs-for-packages)

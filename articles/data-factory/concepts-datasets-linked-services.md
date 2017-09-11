@@ -18,10 +18,16 @@ ms.author: shlo
 ---
 
 # Datasets and linked services in Azure Data Factory 
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-create-datasets.md)
+> * [Version 2 - Preview](concepts-datasets-linked-services.md)
+
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory V2 pipelines. 
 
 > [!NOTE]
-> If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview. 
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Datasets in Data Factory V1](v1/data-factory-create-datasets.md).
+
+If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview. 
 
 ## Overview
 A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.
@@ -123,8 +129,6 @@ As you can see, the linked service defines how to connect to a SQL database. The
 There are many different types of datasets, depending on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
-
-Data stores with * can be on-premises or on Azure infrastructure as a service (IaaS). These data stores require you to [install self-hosted integration runtime](create-self-hosted-integration-runtime.md).
 
 In the example in the previous section, the type of the dataset is set to **AzureSqlTable**. Similarly, for an Azure Blob dataset, the type of the dataset is set to **AzureBlob**, as shown in the following JSON:
 

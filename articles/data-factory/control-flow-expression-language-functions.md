@@ -17,6 +17,13 @@ ms.author: shlo
 
 ---
 # Expressions and functions in Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-functions-variables.md)
+> * [Version 2 - Preview](control-flow-expression-language-functions.md)
+
+This article provides details about expressions and functions supported by Azure Data Factory (version 2). 
+
+## Introduction
 JSON values in the definition can be literal or expressions that are evaluated at runtime. For example:  
   
 ```json
@@ -28,6 +35,10 @@ JSON values in the definition can be literal or expressions that are evaluated a
 ```json
 "name": "@parameters('password') "
 ```
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Functions and variables in Data Factory V1](v1/data-factory-functions-variables.md).
+
 
 ## Expressions  
 Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (@). If a literal string is needed that starts with @, it must be escaped by using @@. The following examples show how expressions are evaluated.  
