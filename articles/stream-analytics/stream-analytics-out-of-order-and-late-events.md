@@ -33,7 +33,7 @@ Stream Analytics tolerates late and out-of-order events when processing by the a
 **Late arrival tolerance**
 
 * The late arrival tolerance setting is applicable only when processing by the application time, otherwise it is ignored.
-* Late arrival tolerance is the maximum difference between the arrival time and the application time. If the application time is before the **(Arrival Time - Late Arrival Window)**, it is set to **(Arrival Time - Late Arrival Window)**.
+* Late arrival tolerance is the maximum difference between the arrival time and the application time. If the application time is before the *(Arrival Time - Late Arrival Window)*, it is set to *(Arrival Time - Late Arrival Window)*.
 * When multiple partitions from the same input stream or multiple input streams are combined together, late arrival tolerance is the maximum amount of time every partition waits for new data. 
 
 Briefly, the late arrival window is the maximum delay between event generation and the receipt of the event at the input source.
@@ -41,12 +41,12 @@ Adjustment based on late arrival tolerance is done first and out of order is don
 
 **Out of order tolerance**
 
-* Events that arrive out of order, but within the set of the "out of order tolerance window" are **reordered by timestamp**. 
-* Events that arrive later than tolerance are either **dropped** or **adjusted**.
+* Events that arrive out of order, but within the set of the "out of order tolerance window" are *reordered by timestamp*. 
+* Events that arrive later than tolerance are either *dropped* or *adjusted*.
     * **Adjusted**: Adjusted to appear to have arrived at the latest acceptable time. 
     * **Dropped**: Discarded.
 
-To reorder events received within the "out of order tolerance window", the output of the query is **delayed by out of order tolerance window**.
+To reorder events received within the "out of order tolerance window", the output of the query is *delayed by out of order tolerance window*.
 
 **Example**
 
