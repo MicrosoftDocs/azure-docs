@@ -191,7 +191,7 @@ The name format used by Event Hubs Capture to write the Avro files. Note that a 
         "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
       }
     }
-  }
+  
 ```
 
 ### apiVersion
@@ -266,7 +266,7 @@ The Azure Data Lake Store name for the captured events.
 
 ###dataLakeFolderPath
 
-The destination folder path for the captured events.
+The destination folder path for the captured events.This is the folder in your Data Lake Store to which the events will be pushed from Capture. For setting permissions on this folder, please reder to this article [Use Azure Data Lake Store to capture data from Event Hubs](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)
 
 ```json
 "dataLakeFolderPath": {
