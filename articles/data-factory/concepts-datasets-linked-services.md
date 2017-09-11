@@ -19,7 +19,7 @@ ms.author: shlo
 
 # Datasets and linked services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-create-datasets.md)
+> * [Version 1 - GA](v1/data-factory-create-datasets-linked-services.md)
 > * [Version 2 - Preview](concepts-datasets.md)
 
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory V2 pipelines. 

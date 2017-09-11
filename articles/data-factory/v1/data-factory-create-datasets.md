@@ -20,8 +20,8 @@ robots: noindex
 ---
 # Datasets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-create-datasets.md)
-> * [Version 2 - Preview](concepts-datasets.md)
+> * [Version 1 - GA](data-factory-create-datasets.md)
+> * [Version 2 - Preview](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Datasets in V2](../concepts-datasets-linked-services.md).
