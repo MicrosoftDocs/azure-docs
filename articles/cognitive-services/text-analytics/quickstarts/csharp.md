@@ -1,5 +1,5 @@
 ---
-title: 'C# Quickstart for Text Analytics API | Microsoft Docs'
+title: C# Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -15,13 +15,7 @@ ms.author: luisca
 # Quickstart for Text Analytics API with C# 
 <a name="HOLTop"></a>
 
-This article provides information and code samples to help you quickly get started using the [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) with C# to accomplish the following tasks: 
-
-* [Detect Language](#Detect) 
-* [Analyze Sentiment](#SentimentAnalysis)
-* [Extract Key Phrases](#KeyPhraseExtraction)
-
-The code was written to work on a .Net Core application, with minimal references to external libraries. You should be able to run it on Windows, Linux, or MacOS.
+This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with C#. The code was written to work on a .Net Core application, with minimal references to external libraries, so you could also run it on Linux or MacOS.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -29,17 +23,13 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Text Analytics API**. You can use the **free tier for 5,000 transactions/month** to complete this quickstart.
 
-You must have the [endpoint and access key](text-analytics-howto-accesskey.md) on hand for structuring the request. The key is generated for you during sign up. 
+You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up. 
 
 <a name="Detect"></a>
 
-## Detect language in text using C#
+## Detect language
 
-Use the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) to detect the language of a text document.
-
-### Detect language C# example request
-
-The sample is written in C# using the Text Analytics API client library. 
+The Language Detection API detects the language of a text document, using the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). The following example is written in C# using the Text Analytics API client library.
 
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
@@ -214,9 +204,9 @@ namespace TextAnalyticsCSharpCore
 
 ```
 
-#### Language detection response
+**Language detection response**
 
-A successful response is returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON, as shown in the following example: 
 
 ```json
 
@@ -262,13 +252,9 @@ A successful response is returned in JSON. Following is an example of a successf
 ```
 <a name="SentimentAnalysis"></a>
 
-## Analyze sentiment in text using C#
+## Analyze sentiment
 
-Use the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) to detect the sentiment of a set of text records.
-
-### Analyze sentiment C# example request
-
-The sample is written in C# using the Text Analytics API client library. It scores two documents, one in English and another in Spanish.
+The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example is written in C# using the Text Analytics API client library. It scores two documents, one in English and another in Spanish.
 
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
@@ -440,12 +426,12 @@ namespace TextAnalyticsCSharpCore
 
 ```
 
-#### Sentiment analysis response
+**Sentiment analysis response**
 
-A successful response is returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON, as shown in the following example: 
 
 ```json
-     {
+{
    "documents": [
       {
          "score": 0.99984133243560791,
@@ -462,14 +448,9 @@ A successful response is returned in JSON. Following is an example of a successf
 
 <a name="KeyPhraseExtraction"></a>
 
-## Extract key phrases in text using C#
+## Extract key phrases
 
-Use the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) to extract key-phrases from a text document.
-
-
-### Key phrase extraction C# example request
-
-The sample is written in C# using the Text Analytics API client library. Key phrases are extracted for both English and Spanish documents.
+The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example is written in C# using the Text Analytics API client library. Key phrases are extracted for both English and Spanish documents.
 
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
@@ -647,9 +628,9 @@ namespace TextAnalyticsCSharpCore
 ```
 
 
-### Key phrase extraction response
+**Key phrase extraction response**
 
-A successful response is returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON, as shown in the following example: 
 
 ```json
 {
@@ -690,11 +671,10 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ## Next steps
 
-+ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. The documentation supports embedded calls so that you can call the API from each documentation page.
-
-+ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
+> [!div class="nextstepaction"]
+> [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## See also 
 
- [Text Analytics overview](overview.md)  
- [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)
+ [Text Analytics overview](../overview.md)  
+ [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
