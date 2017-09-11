@@ -89,7 +89,7 @@ cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 
 "SYSTEM_DOMAIN" is your CF domain name. You can retrieve it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
 
-"CF_User" is the CF admin name. You may retrieve the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
+"CF_User" is the CF admin name. You can retrieve the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
 
 #### Create a CF user and grant required privileges
 
@@ -130,8 +130,8 @@ EVENT_FILTER              : Event types to be filtered out. The format is a comm
 SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and the traffic controller.
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
-LOG_LEVEL                 : The logging level of the nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
+LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
 LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
 ```
 
@@ -163,13 +163,13 @@ Make sure the OMS Nozzle application is running.
 
 From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, and select one of the omsview files. For example, select *Cloud Foundry.omsview*, and save the view. Now a tile is displayed on the OMS **Overview** page. Select it to see visualized metrics.
 
-Operators can customize these views or create new views through **View Designer**.
+You can customize these views or create new views through **View Designer**.
 
 The *"Cloud Foundry.omsview"* is a preview version of the Cloud Foundry OMS view template. This is a fully configured, default template. If you have suggestions or feedback about the template, send them to the [issue section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
 ### 2. Create alert rules
 
-Operators can [create the alerts](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), and customize the queries and threshold values as needed. The following are recommended alerts:
+You can [create the alerts](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), and customize the queries and threshold values as needed. The following are recommended alerts:
 
 | Search query                                                                  | Generate alert based on | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
@@ -179,7 +179,7 @@ Operators can [create the alerts](https://docs.microsoft.com/azure/log-analytics
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Number of results > 0   | Consul emits its health status periodically. 0 means the system is healthy, and 1 means that the route emitter detects that Consul is down. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Number of results > 0 | The delta number of messages intentionally dropped by Doppler due to back pressure. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Number of results > 0   | Loggregator emits **LGR** to indicate problems with the logging process. An example of such a problem is when the log message output is too high. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Number of results > 0   | When the Nozzle receives a slow consumer alert from Loggregator, it sends the **slowConsumerAlert** ValueMetric to OMS. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Number of results > 0   | When the Nozzle receives a slow consumer alert from loggregator, it sends the **slowConsumerAlert** ValueMetric to OMS. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Number of results > 0   | If the delta number of lost events reaches a threshold, it means the Nozzle might have a problem running. |
 
 ## Scale
@@ -188,8 +188,8 @@ You can scale the Nozzle and the loggregator.
 
 ### Scale the Nozzle
 
-Operators should start with at least two instances of the Nozzle. The firehose distributes the workload across all instances of the Nozzle.
-To make sure the Nozzle can keep up with the data traffic from the firehose, set up the **slowConsumerAlert** alert (listed in the preceding section, "Create Alert Rules"). Once alerted, follow the [guidance for slow Nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed.
+You should start with at least two instances of the Nozzle. The firehose distributes the workload across all instances of the Nozzle.
+To make sure the Nozzle can keep up with the data traffic from the firehose, set up the **slowConsumerAlert** alert (listed in the preceding section, "Create Alert Rules"). After you have been alerted, follow the [guidance for slow Nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed.
 To scale up the Nozzle, use Apps Manager or the CF CLI to increase the instance numbers or the memory or disk resources for the Nozzle.
 
 ### Scale the loggregator
