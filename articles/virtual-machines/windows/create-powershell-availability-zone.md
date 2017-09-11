@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/06/2017
+ms.date: 09/11/2017
 ms.author: danlep
 ms.custom: 
 ---
