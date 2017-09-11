@@ -57,12 +57,12 @@ Learn how to process and analyze JavaScript Object Notation (JSON) files by usin
         ]
     }
 
-The file can be found at wasb://processjson@hditutorialdata.blob.core.windows.net/. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
+The file can be found at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
 
 In this tutorial, you use the Hive console. For instructions on how to open the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md).
 
 ## Flatten JSON documents
-The methods listed in the next section require that the JSON document be in a single row. So, you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on analyzing JSON data. To flatten the JSON document run the following script:
+The methods listed in the next section require that the JSON document be comprised of a single row. So, you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on analyzing JSON data. To flatten the JSON document, run the following script:
 
     DROP TABLE IF EXISTS StudentsRaw;
     CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
@@ -99,10 +99,10 @@ Hive provides three different mechanisms to run queries on JSON documents or you
 * Use the get_json_object User Defined Functions (UDF).
 * Use the json_tuple UDF.
 * Use custom Serializer/Deserializer (SerDe).
-* Write you own UDF by using Python or other languages. For more infomormation on how to run your own Python code with Hive, see [Python UDF with Apache Hive and Pig][hdinsight-python].
+* Write you own UDF by using Python or other languages. For more information on how to run your own Python code with Hive, see [Python UDF with Apache Hive and Pig][hdinsight-python].
 
 ### Use the get_json_object UDF
-Hive provides a built-in UDF called [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object), which can perform JSON querying during runtime. This method takes two arguments--the table name and method name, which has the flattened JSON document and the JSON field that needs to be parsed. Let’s look at an example to see how this UDF works.
+Hive provides a built-in UDF called [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) that can perform JSON querying during runtime. This method takes two arguments--the table name and method name, which has the flattened JSON document and the JSON field that needs to be parsed. Let’s look at an example to see how this UDF works.
 
 The following query returns the first name and last name for each student:
 
@@ -115,10 +115,10 @@ Here is the output when you run this query in the console window:
 
 ![get_json_object UDF][image-hdi-hivejson-getjsonobject]
 
-There are a few limitations of the get_json_object UDF.
+There are a few limitations of the get_json_object UDF:
 
-* Because each field in the query requires reparsing the query, it affects the performance.
-* GET\_JSON_OBJECT() returns the string representation of an array. To convert this array to a Hive array, you have to use regular expressions to replace the square brackets "[" and "]", and then you also have to call split to get the array.
+* Because each field in the query requires reparsing of the query, it affects the performance.
+* **GET\_JSON_OBJECT()** returns the string representation of an array. To convert this array to a Hive array, you have to use regular expressions to replace the square brackets "[" and "]", and then you also have to call split to get the array.
 
 This is why the Hive wiki recommends that you use json_tuple.  
 
@@ -137,7 +137,7 @@ The output of this script in the Hive console:
 The json_tuple UDF uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive, which enables json\_tuple to create a virtual table by applying the UDT function to each row of the original table. Complex JSONs become too unwieldy because of the repeated use of **LATERAL VIEW**. Furthermore, **JSON_TUPLE** cannot handle nested JSONs.
 
 ### Use a custom SerDe
-SerDe is the best choice for parsing nested JSON documents. It lets you to define the JSON schema, and then you can use the schema to parse the documents. For instructions, see [How to use a custom JSON SerDe with Microsoft Azure HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+SerDe is the best choice for parsing nested JSON documents. It lets you define the JSON schema, and then you can use the schema to parse the documents. For instructions, see [How to use a custom JSON SerDe with Microsoft Azure HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## Summary
 In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you only have one field to look up on--you can choose to use the Hive UDF get_json_object. If you have more than one key to look up on, then you can use json_tuple. If you have a nested document, then you should use the JSON SerDe.
