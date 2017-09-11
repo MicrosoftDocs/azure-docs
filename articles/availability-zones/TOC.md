@@ -1,6 +1,7 @@
 ﻿
 # Overview
-## [What are Availability Zones?](backup-introduction-to-azure-backup.md)
+
+## [What are Availability Zones?](az-overview.md)
 
 # Get started
 
