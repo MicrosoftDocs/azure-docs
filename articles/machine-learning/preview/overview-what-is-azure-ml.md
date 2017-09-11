@@ -104,6 +104,7 @@ Besides Azure Machine Learning, there are also a wide variety of options in Azur
 * Spark MLLib in HDInsight
 * Batch AI Training Service
 * Microsoft Cognitive Toolkit
+* Microsoft Cognitive Services
 <!--
 ### Azure Machine Learning
 [Azure Machine Learning](../index.md) manages the end to end development of machine learning and AI models in Azure.  [Machine Learning Studio](../studio/what-is-ml-studio.md) is a fully managed service enabling graphical construction of machine learning experiments with serverless training and deployment.  Azure Machine Learning Experimentation Service and Azure Machine Learning Model Management are preview services that manage the creation, deployment, and management of models built using Python and any machine learning framework available for Python. You can use the [Azure Machine Learning Workbench](what-is-ml-workbench.md) to build data preparation jobs, author models using notebooks, and manage the history of your training jobs. 
@@ -131,9 +132,15 @@ Use Spark when you need to scale out your data processing and create models as p
 Use Batch AI Training when you need to scale out deep learning jobs across clustered GPUs using frameworks such as Cognitive Toolkit, Caffe, Chainer, TensorFlow, and more.  Azure Machine Learning Model Management can be used to take models from Batch AI Training to deploy, manage, and monitor them.  Batch AI Training will be integrated with Azure Machine Learning Experimentation in the future. 
 
 ### Microsoft Cognitive Toolkit
-The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), is a unified deep-learning toolkit that describes neural networks as a series of computational steps via a directed graph. In this directed graph, leaf nodes represent input values or network parameters, while other nodes represent matrix operations upon their inputs. CNTK allows you to easily realize and combine popular model types such as feed-forward DNNs, convolutional nets (CNNs), and recurrent networks (RNNs/LSTMs). It implements stochastic gradient descent (SGD, error backpropagation) learning with automatic differentiation and parallelization across multiple GPUs and servers.
+The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), is a unified deep-learning toolkit that describes neural networks as a series of computational steps via a directed graph. In this directed graph, leaf nodes represent input values or network parameters, while other nodes represent matrix operations upon their inputs. The Cognitive Toolkit allows you to easily realize and combine popular model types such as feed-forward DNNs, convolutional nets (CNNs), and recurrent networks (RNNs/LSTMs). It implements stochastic gradient descent (SGD, error backpropagation) learning with automatic differentiation and parallelization across multiple GPUs and servers.
 
 Use the Cognitive Toolkit when you want to build a model using deep learning.  The Cognitive Toolkit can be used in any of the preceding services.
+
+### Microsoft Cognitive Services
+The [Microsoft Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/), are a set of 30 APIs that let you build apps with powerful algorithms to see, hear, speak, understand and interpret our needs using natural methods of communication, with just a few lines of code. Easily add intelligent features – such as emotion and sentiment detection, vision and speech recognition, language understanding, knowledge and search – into your app, across devices and platforms such as iOS, Android, and Windows, keep improving, and are easy to set up. 
+
+Use the Cognitive Services when you need any of the capabilities of the APIs and want to integrate them into your applications.  
+
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

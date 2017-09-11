@@ -45,6 +45,22 @@ read: connection refused
 ```
 ![Image](media/known-issues-and-troubleshooting-guide/docker_dns.png)
 
+## Check the Build Number for Azure Machine Learning Workbench
+You can find out the build number of the installed app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it to emails or support forums to help report issues.
+
+![check version number](media/quick-start-installation/version.png)
+
+## Remove prior installations of Azure Machine Learning Workbench
+When a new release becomes available, Azure Machine Learning Workbench will auto-update on its own replacing your existing local installation. It is usually unnecessary to remove prior installations. However, you can run the following scripts if you'd like to clean up your current install and start fresh: 
+
+* Windows command line: [cleanup_win.cmd](scripts/quick-start-installation/cleanup_win.cmd). 
+* Windows PowerShell: [cleanup_win.ps1](scripts/quick-start-installation/cleanup_win.ps1). 
+  * Note, you may need to execute "_Set-ExecutionPolicy Unrestricted_" in a privilege-elevated PowerShell window before you can run the downloaded PowerShell script.
+* macOS: [cleanup_mac.sh](scripts/quick-start-installation/cleanup_mac.sh)
+  * You may need to execute `_chmod a+x ./cleanup_mac.sh_` before you can run the downloaded script.
+
+>Note: to run these clean-up scripts, you might need elevated privileges. Also, these scripts will not delete your existing projects.
+
 
 
 
