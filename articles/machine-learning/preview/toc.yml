@@ -47,6 +47,8 @@
       href: how-to-use-gpu.md    
   - name: Acquire and understand data
     items:    
+    - name: Accesing Data with the Data Source Wizard
+      href: data-source-wizard.md
     - name: Get started with data preparation
       href: data-prep-getting-started.md
     - name: Data prepartion guide
@@ -73,6 +75,8 @@
       href: doc-template-how-to.md
     - name: Awesome ADS example 3
       href: doc-template-how-to.md
+  - name: Known issues & troubleshooting guide
+    href: known-issues-and-trouble-shooting-guide.md
 - name: Reference
   items:  
   - name: Data Preparation
@@ -97,6 +101,8 @@
       href: data-prep-appendix9-sample-destination-connections-python.md
     - name: Sample Data Preparation Column Transforms in Python
       href: data-prep-appendix10-sample-custom-column-transforms-python.md  
+    - name: placeholder - Data Preparation Execution API 
+      href: doc-template-how-to.md  
   - name: Experimentation    
     items:
     - name: Execution configuration

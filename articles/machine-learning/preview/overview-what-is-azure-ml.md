@@ -30,48 +30,86 @@ The main components of Azure Machine Learning are:
 - Visual Studio Code Tools for Machine Learning
 
 Together, these applications and services help significantly accelerate your data science project development and deployment. 
- 
+
 ![Azure Machine Learning Concepts](media/overview-what-is-azure-ml/aml-concepts.png)
+
+## Open and Powerful
+So much innovation in the data science and machine learning world is happening in the open-source community. Azure Machine Learning fully embraces open-source technologies. You can leverage tens of thousands of open-source Python packages, including popular machine learning frameworks including [scikit-learn](http://scikit-learn.org/), [TensorFlow](https://www.tensorflow.org/), [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [Spark ML](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) and many more. You can execute your experiments in managed environments such as Docker containers and Spark clusters. And you can use advanced hardware such as [GPU-enabled virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) to accelerate your execution.
+
+Azure ML itself is also built on top of mature and widely used open source technologies including [Jupyter Notebook](http://jupyter.org/), [Apache Spark](https://spark.apache.org/), [Docker](https://www.docker.com/), [Kubernetes](https://kubernetes.io/), [Python](https://www.python.org/), and [Conda](https://conda.io/docs/), just to name a few. It also includes Microsoft's own open-source technologies such as [Microsoft Machine Learning Library for Apache Spark](https://github.com/Azure/mmlspark) and Cognitive Toolkit.
+
+In addition, you also benefit from some of the most advanced, tried-and-true machine learning technologies developed by Microsoft that are designed to solve on large-scale problems. They are battle-tested in many Microsoft products, such as Windows, Bing, Xbox, Office, SQL Server, etc., and used by billions of people in the world every day. [PROSE](https://microsoft.github.io/prose/) (PROgram Synthesis using Examples), [microsoftml, and [revoscalepy](https://docs.microsoft.com/en-us/r-server/python-reference/revoscalepy/revoscalepy-package) are just three examples.
 
 ## Azure Machine Learning Workbench
 Azure ML Workbench is a desktop application plus command-line tools, supported on both Windows and macOS. It allows you to manage machine learning solutions through the entire data science life cycle -- from data ingestion and preparation, through model development and experiment management, to model deployment in various target environments. Here are the core functionalities offered by Workbench:
 - Data preparation tool that can learn data transformation logic by example.
 - Data source abstraction accessible through UX and Python code.
+- Python SDK for invoking visually constructed data preparation packages.
 - Built-in Jupyter Notebook service and client UX.
-- Interaction with Experimentation Service and Model Management Service through UX and CLI.
+- Experiment monitoring and management through run history views.
 - Role-based access control that enables sharing and collaboration through Azure Active Directory.
-- Automatic run history snapshots and explicit version control enabled by native Git repo integration. 
+- Automatic project snapshots for each run, and explicit version control enabled by native Git integration. 
 - Integration with popular Python IDEs.
 
-## Azure Machine Learning Experimentation Service
+For more information, reference the following articles:
+- [Data Preparation User Guide](data-prep-user-guide.md)
+- [Using Git with Azure ML](using-git-ml-project.md)
+- Using Jupyter Notebook in Azure ML
+- Roaming and Sharing
+- [Run History Guide](how-to-use-run-history-model-metrics.md)
+- [IDE Integration](how-to-configure-your-IDE.md)
 
-The Experimentation Service is a managed Azure service that allows you to build, test, and compare machine learning models locally or in the cloud. The service supports all machine learning Python libraries, whether proprietary to your business or open-source. (The installation of Workbench includes a wide range of the most popular open source machine learning libraries, including Spark, CNTK, TensorFlow, and scikit-learn.)  The service is also integrated by default with Visual Studio and Github. This integration enables collaboration, data and model history, lineage, and back-ups. Lastly, the Experimentation Service is deeply integrated with Docker and uses industry standard Docker containers to enable model portability and reproducibility across environments. 
+## Azure Machine Learning Experimentation Service
+The Experimentation Service handles the execution of machine learning experiments, as well as other vital services supporting Workbench, including project management, Git integration, access control, roaming and sharing etc. 
+
+Through easy configuration, you can execute your experiments across a range of compute environment options, including local native, local Docker container, Docker container on a remote VM, and scale-out Spark cluster in Azure. Experimentation Service constructs virtual environments, leveraging technologies including Docker and Conda, to ensure your script can be executed in isolation and always reproducible. It records extensive run history information and presents them to you visually, so you can easily select the best model out of your experiment runs. 
+
+For more information, please reference [Experimentation Execution Configuration](experiment-execution-configuration.md).
 
 ## Azure Machine Learning Model Management Service
 
-Model Management is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. The service uses the same GIT repository designated by the Experimentation Service. Using Git, models are versioned and model lineage is tracked. Model Management uses Docker to manage and deploy models reliably to local machines, Azure, or IoT edge devices. Models are deployed via Linux-based Docker containers that include the model and all encompassing dependencies. Containers are registered with Azure Container Registry and in the case of cloud deployments, pushed to Azure Container Service. For cluster deployments, Kubernetes is used to manage and load balance across containers. 
+Model Management Service allows data scientists and dev-ops teams to deploy predictive models into a wide variety of environments. Model versions and lineage are tracked from training runs to deployments. Models are stored, registered, and managed in the cloud. 
+
+Using simple CLI commands, you can containerize your model, scoring scripts and dependencies into Docker images. These images are registered in your own Docker registry hosted in Azure (Azure Container Registry). They can be then reliably deployed to local machines, on-prem servers, in the cloud, or on IoT edge devices. Kubernetes running in ACS (Azure Container Service) are used for cloud scale-out deployment, and model execution telemetry is captured in AppInsights for visual analysis. 
+
+For more information on Model Management Service, reference [Model Management Overview](model-management-overview.md)
 
 
 ## Microsoft Machine Learning Library for Apache Spark
-[MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Library for Apach Spark) is an open-source Spark package that provides deep learning and data science tools for Apache Spark, including integration of [Spark ML Pipelines](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) with [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) and [OpenCV](http://opencv.org/) Library. It enables you to quickly create powerful, highly-scalable predictive and analytical models for large image and text datasets.
+[MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Library for Apache Spark) is an open-source Spark package that provides deep learning and data science tools for Apache Spark, including integration of [Spark ML Pipelines](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) with [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) and [OpenCV](http://opencv.org/) Library. It enables you to quickly create powerful, highly scalable predictive and analytical models for large image and text datasets. Some highlights include:
+- Easily ingest images from HDFS into Spark DataFrame
+- Pre-process image data using transforms from OpenCV
+- Featurize images using pre-trained deep neural nets using CNTK
+- Use pre-trained bidirectional LSTMs from Keras for medical entity extraction
+- Train DNN-based image classification models on N-Series GPU VMs on Azure
+- Featurize free-form text data using convenient APIs on top of primitives in SparkML via a single transformer
+- Train classification and regression models easily via implicit featurization of data
+- Compute a rich set of evaluation metrics including per-instance metrics
+
+ For more information, reference [Using MMLSpark in Azure ML](how-to-use-mmlspark.md).
+
 
 ## Visual Studio Code Tools for Machine Learning
-VS Code Tool for ML is the Azure ML extension for VS Code.
+Visual Studio Code Tools for Machine Learning is an extension in VS Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
+- A run history view displaying the performance of training runs and logged metrics.
+- A gallery view allowing users to browse and bootstrap new projects with CNTK, TensorFlow, and many other deep-learning framework. 
+- An explorer view for selecting compute targets for your scripts to execute.
+ 
 
 ## What are the machine learning options in Azure?
-There are a wide variety of options in Azure to build, deploy, and manage machine learning models. 
-* Azure Machine Learning
+Besides Azure Machine Learning, there are also a wide variety of options in Azure to build, deploy, and manage machine learning models. 
+<!--* Azure Machine Learning-->
 * Microsoft Machine Learning Services in SQL
 * Data Science Virtual Machine
 * Spark MLLib in HDInsight
 * Batch AI Training Service
 * Microsoft Cognitive Toolkit
-
+<!--
 ### Azure Machine Learning
 [Azure Machine Learning](../index.md) manages the end to end development of machine learning and AI models in Azure.  [Machine Learning Studio](../studio/what-is-ml-studio.md) is a fully managed service enabling graphical construction of machine learning experiments with serverless training and deployment.  Azure Machine Learning Experimentation Service and Azure Machine Learning Model Management are preview services that manage the creation, deployment, and management of models built using Python and any machine learning framework available for Python. You can use the [Azure Machine Learning Workbench](what-is-ml-workbench.md) to build data preparation jobs, author models using notebooks, and manage the history of your training jobs. 
 
 Use Azure Machine Learning when you want to manage the end to end development.  Azure Machine Learning enables you to use the other services mentioned on this page to scale in the cloud, while providing you with management of the end to end lifecycle from data preparation, model creation, through deployment and monitoring. 
-
+-->
 ### Microsoft Machine Learning Services in SQL 
 [Microsoft Machine Learning Services](https://docs.microsoft.com/en-us/sql/advanced-analytics/r/r-services) enables you to run train and deploy machine learning models using R or Python, on data located on-premises and in SQL Server databases. 
 
@@ -100,5 +138,5 @@ Use the Cognitive Toolkit when you want to build a model using deep learning.  T
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Next Steps
-- Provision and install Azure Machine Learning
-- Take a quick tour around Azure Machine Learning
+- [Provision and install Azure Machine Learning](quick-start-installation.md)
+- [Take a quick tour around Azure Machine Learning](quick-start-iris.md)
