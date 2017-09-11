@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Move data From MongoDB using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onpremises-mongodb-connector.md)
+> * [Version 1 - GA](data-factory-on-premises-mongodb-connector.md)
 > * [Version 2 - Preview](../connector-mongodb.md)
 
 > [!NOTE]
