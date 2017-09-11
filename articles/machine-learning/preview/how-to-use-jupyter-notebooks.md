@@ -15,72 +15,49 @@ ms.date: 09/11/2017
 
 ## Introduction
 Azure Machine Learning Workbench supports interactive data science experimentation via its integration of **Jupyter Notebooks**.
-This article describes how to make effective use of these features to increase the rate and the quality of your data science experimentation.
+This article describes how to make effective use of this feature to increase the rate and the quality of your interactive data science experimentation.
 
 
 ## Prerequisites
 To step through this how-to guide, you need to:
 - [Install AML Workbench](doc-template-how-to.md)
+- Familiarity with [Jupyter Notebooks](http://jupyter.org/)
 
 
 ## Notebook Basics
-Notebooks live in the notebooks tab.
-They’re shown according to the project’s folder hierarchy
+For many data scientists, **Jupyter Notebooks** provide an indispensable medium for interactive experimentation, collaboration, and publication of results.
+Azure Machine Learning Workbench integrates **Jupyter Notebooks**, which can be accessed via the Workbench's  **Notebooks** tab.
+The **Classifying Iris** template generates a project with a Notebook that serves a great foundation for exploring this feature.
 
 ![notebooks tab](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
 
-When the user clicks on an existing notebook, they get a read-only preview
+When a **Notebook** is opened in Azure Machine Learning Workbench, it is displayed in its own document tab in **Preview Mode**.
+Notebooks are composed of cells, each of which can contain markdown, code, text output, rendered images, or even video.
+All content is nicely contained in the notebook file, which is displayed as rendered (with rich formatting intact) here in the Workbench.
 
 ![notebook preview](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
-Clicking Start Notebook Server switches the notebook into Edit Mode.
+Clicking **Start Notebook Server** switches the notebook into **Edit Mode**.
+The familiar **Jupyter Notebook UX** appears above the content and is ready to use with the notebook.
 
 ![edit mode](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 
-This is a full interactive Juptyer Notebook experience _in place_, complete with code output.
+This is a _fully-interactive_ _in-place_ Juptyer Notebook experience, complete with markdown and code cells as well as their rendered output.
 
 ![interactive notebook](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-05.png)
 
-and plotting too.
+In addition to text output, rendered graphical output (such as plots) is also supported as shown.
 
-![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-06.png)
+![interactive plot](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-06.png)
 
-This is a nice feature.
+Azure Machine Learning Workbench is configured to use a **Jupyter kernel** to execute code in the notebook.
+By default, a **Python 3 kernel** is used with new notebooks, but additional kernels are planned for forthcoming releases.
+These kernels are expected to extend the reach of notebooks beyond the local compute context.
 
 
 ## Command Line Interface
-We have a command-line Interface, first with help page.
-```
-johns-mbp:IrisDemo johnpelak$ pwd
-/Users/johnpelak/Desktop/IrisDemo
-johns-mbp:IrisDemo johnpelak$ az ml notebook -h
-
-Group
-    az ml notebook: Start a notebook server.
-
-Commands:
-    start: Execute run.
-
-johns-mbp:IrisDemo johnpelak$ az ml notebook start -h
-
-Command
-    az ml notebook start: Execute run.
-
-Arguments
-    --project -p: Path to the project.
-
-Global Arguments
-    --debug     : Increase logging verbosity to show all debug logs.
-    --help -h   : Show this help message and exit.
-    --output -o : Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
-    --query     : JMESPath query string. See http://jmespath.org/ for more information and examples.
-    --verbose   : Increase logging verbosity. Use --debug for full debug logs.
-johns-mbp:IrisDemo johnpelak$ 
-
-```
-
-Now, here's how to use it.
-
+Azure Machine Learning Workbench provides a **Command Line Interface** for its **Jupyter Notebook** capability.
+You can launch a notebook session by issuing an `az ml notebook start` from the command-line.
 ```
 $ az ml notebook start
 [I 10:14:25.455 NotebookApp] The port 8888 is already in use, trying another port.
@@ -94,22 +71,22 @@ $ az ml notebook start
     to login with a token:
         http://localhost:8889/?token=1f0161ab88b22fc83f2083a93879ec5e8d0ec18490f0b953
 [I 10:14:25.759 NotebookApp] Accepting one-time-token-authenticated connection from ::1
-[W 10:16:52.692 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20170911101425 (::1) 6.80ms referer=http://localhost:8889/notebooks/iris.ipynb
 [I 10:16:52.970 NotebookApp] Kernel started: 7f8932e0-89b9-48b4-b5d0-e8f48d1da159
 [I 10:16:53.854 NotebookApp] Adapting to protocol v5.1 for kernel 7f8932e0-89b9-48b4-b5d0-e8f48d1da159
 ```
+The `az ml notebook` process is ready to use from any web browser on your local machine (or any remote machine which can connect to the URL listed above.)
 
 ## Notebook User Experience via CLI Launch
-When launched from the CLI, a Juptyer Notebook user experience is available from standalone web browser.
-You can see the file system.
+When launched from the **CLI**, your default web browser is opened and navigated to the URL on which the `az ml notebook` server is listening.
+By default, this page lists the files present in the project folder as shown.
 
 ![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-07.png)
 
-You can also see the Notebook itself.
+Clicking on the **iris.ipynb** file (displayed beside the notebook icon) opens the notebook in a separate tab.
 
 ![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
 
-
+By design, the user experience the same as the one provided by Azure Machine Learning Workbench's **Notebook Edit Mode**.
 
 ## Next Steps
 These features are available to assist with the process of interactive data science experimentation.
