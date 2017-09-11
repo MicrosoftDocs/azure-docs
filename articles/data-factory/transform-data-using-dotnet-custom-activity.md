@@ -18,7 +18,7 @@ ms.author: shengc
 ---
 # Use custom activities in an Azure Data Factory pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-using-custom-activities.md)
+> * [Version 1 - GA](v1/data-factory-use-custom-activities.md)
 > * [Version 2 - Preview](transform-data-using-dotnet-custom-activity.md)
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
