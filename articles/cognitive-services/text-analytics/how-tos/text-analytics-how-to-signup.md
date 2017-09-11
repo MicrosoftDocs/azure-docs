@@ -18,7 +18,7 @@ Text Analytics resources are available 24-7 in the cloud. Before you can upload 
 
 + Start with an Azure Subscription. You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
 
-+ Create a [Cognitive Services API account] (https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**. Your key is generated when you sign up.
++ Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**. Your key is generated when you sign up.
 
 For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You can have multiple sign-ups in each subscrption: one free, one paid, and so forth. You can switch to a tier offering more transactions if your request volume increases.
 
@@ -28,15 +28,15 @@ There is no service level agreement for services in Preview or the free tier. Fo
 
 Start with a Free tier and then transition to a billable tier for production workloads. Standard billing is offered at graduated levels. You can switch tiers and still keep the same endpoint and access keys.
 
-1. Sign in to [Azure portal](https://portal.azure.com) and [find your service](text-analytics-howto-accesskey.md).
+1. Sign in to [Azure portal](https://portal.azure.com) and [find your service](text-analytics-how-to-access-key.md).
 
 2. Click **Price tier**.
 
-   ![Price tier command in left navigation menu](../media/text-analytics/portal-pricing-tier.png)
+   ![Price tier command in left navigation menu](../media/portal-pricing-tier.png)
 
 3. Choose a tier and click **Select**.  The new limits take effect as soon as the selection is processed. 
 
-   ![Tiles and Select button in tier selection page](../media/text-analytics/portal-choose-tier.png)
+   ![Tiles and Select button in tier selection page](../media/portal-choose-tier.png)
 
 ## How billing works
 
@@ -44,14 +44,12 @@ Billing is based on the number of transactions. You can purchase a block of tran
 
 Current rates are offered at a preview discount while the service is in preview. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-## Next steps
-
-Refer to the pricing page for current rates. The calculator is helpful if you are subscribing to multiple services.
-
-+ [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
-+ [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
-
 ## See also 
 
- [Text Analytics Overview](overview.md)  
- [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)
+ [Text Analytics Overview](../overview.md)  
+ [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get an access key](text-analytics-how-to-access-key.md)
