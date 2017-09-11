@@ -189,6 +189,8 @@ Full deallocation means that you stopped (deallocated) all VMs in an availabilit
 
 Select a new VM size to allocate. If this does not work, please try again later.
 
+<a name="Error string lookup"></a>
+
 ## Error string lookup
 **New_VMSizeNotSupported***
 
