@@ -34,8 +34,9 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: <a href="walkthroughs-aml-with-tdsp">Azure Machine Learning Workbench</a>
     - html: <a href="walkthroughs-spark">Spark with PySpark and Scala</a>
     - html: <a href="walkthroughs-hdinsight-hadoop">Hive with HDInsight Hadoop</a>
-    - html: <a href="U-SQL with Azure Data Lake](walkthroughs-azure-data-lake.md)
+    - html: <a href="walkthroughs-azure-data-lake>U-SQL with Azure Data Lake</a>
     - html: <a href="walkthroughs-sql-server">R, Python and T-SQL with SQL Server</a>
     - html: <a href="walkthroughs-sql-data-warehouse">T-SQL and Python with SQL DW</a>
