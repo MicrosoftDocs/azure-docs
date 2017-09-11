@@ -55,4 +55,8 @@ If you have a Virtual Machine that no longer needs an MSI:
 - For an overview of MSI, see [Managed Service Identity overview](active-directory-msi-overview.md).
 - This article is adapted from the [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) QuickStart, modified to include MSI-specific instructions. 
 
+## Next steps
+
+- Using the Azure portal, give an Azure VM's MSI [access to another Azure resource](active-directory-msi-howto-assign-access-portal.md).
+
 Use the following comments section to provide feedback and help us refine and shape our content.
