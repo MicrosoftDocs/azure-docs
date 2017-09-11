@@ -19,24 +19,18 @@ ms.author: spelluru
 robots: noindex
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Transformation Activities"]
-> * [Hive Activity](data-factory-hive-activity.md) 
-> * [Pig Activity](data-factory-pig-activity.md)
-> * [MapReduce Activity](data-factory-map-reduce.md)
-> * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
-> * [Spark Activity](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
-> * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
-> * [.NET Custom Activity](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-usql-activity.md)
+> * [Version 2 - Preview](transform-data-using-data-lake-analytics.md)
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [U-SQL Activity in V2](../transform-data-using-data-lake-analytics.md).
 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
 
-> [!NOTE]
-> Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
-> 
-> Review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create Data Factory entities.
+Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+
+Review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create Data Factory entities.
 
 ## Supported authentication types
 U-SQL activity supports below authentication types against Data Lake Analytics:

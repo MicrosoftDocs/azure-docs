@@ -261,6 +261,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     New-AzureRmDataFactoryV2Pipeline -dataFactory $df -Name $pipelineName -File "MySparkOnDemandPipeline.json"
     ```
 ## Start and monitor pipeline run  
+
 1. Start a pipeline run. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
@@ -332,4 +333,5 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
     ```
- 4. Confirm that a folder named `outputfiles` is created in the `spark` folder of adftutorial container with the output from the spark program. 
+
+4. Confirm that a folder named `outputfiles` is created in the `spark` folder of adftutorial container with the output from the spark program. 
