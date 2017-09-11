@@ -43,8 +43,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">ACR with Container Instances</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">ACR with Container Service</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Use Container Registry with Azure Container Instances</a>
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry with Azure Container Service</a>
 
 - title: Reference
   items:

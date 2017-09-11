@@ -22,11 +22,11 @@ ms.custom:
 
 # Create a container registry using the Azure portal
 
-An Azure Container Registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this Quickstart, you create a Container Registry with the Azure portal.
+An Azure Container Registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a Container Registry with the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To complete this Quickstart, you must have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+To complete this quickstart, you must have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
 ## Log in to Azure
 
@@ -42,7 +42,7 @@ Enter values for **Registry name** and **Resource group**. The registry name mus
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
-Azure Container Registry is available in several different SKUs. When deploying an ACR instance, choose a SKU that matches your image management needs. In this Quickstart, we select Classic due to its availability in all regions.
+Azure Container Registry is available in several different SKUs. When deploying an ACR instance, choose a SKU that matches your image management needs. In this quickstart, we select Classic due to its availability in all regions.
 
 | SKU | Description | Notes |
 |---|---|---|
@@ -124,7 +124,7 @@ When no longer needed, delete the **myResourceGroup** resource group. Doing so w
 
 ## Next steps
 
-In this Quickstart, you created an Azure Container Registry with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Registry with the Azure portal. If you'd like to try building a container yourself, then deploy it to Azure Container Instances using your Azure Container Registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](../container-instances/container-instances-tutorial-prepare-app.md)

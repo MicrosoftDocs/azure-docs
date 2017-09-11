@@ -21,7 +21,7 @@ ms.author: nepeters
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell.
 
-This quick start requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
@@ -103,7 +103,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this Quickstart, you created an Azure Container Registry with PowerShell. If you'd like to build a container image, and then deploy it to Azure Container Instances using an Azure Container Registry repository, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Registry with PowerShell. If you'd like to build a container image, and then deploy it to Azure Container Instances using an Azure Container Registry repository, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
