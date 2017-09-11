@@ -290,10 +290,11 @@
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
+#### [Controls](active-directory-conditional-access-controls.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
-#### [Tasks]
+#### Tasks
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Set up VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
