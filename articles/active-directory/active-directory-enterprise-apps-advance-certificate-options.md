@@ -39,7 +39,7 @@ Following are the three types of Certificate signing options are supported by Az
 
 3. **Sign SAML response and assertion** - If this option is selected then Azure AD as IDP will sign the entire SAML token with the X509 certificate of the application. Also it will use the signing algorithm which is selected in the drop down below.
 
-![Certificate signing options][4]
+    ![Certificate signing options][4]
 
 ## Certificate signing algorithm
 
@@ -47,11 +47,11 @@ Azure Active Directory support two types of signing algorithm to sign the SAML r
 
 1. SHA256 - This is the default algorithm which Azure Active Directory use to sign the SAML Response. This is the newest algorithm and treated as more secure than SHA1. Most of the applications does support SHA256 algorithm. If the application only support Sha1 as signing algorithm then you can change it. otherwise we recommend to use SHA256 algorithm for signing the SAML Response.
 
-![SHA256 Certificate signing algorithm][3]
+    ![SHA256 Certificate signing algorithm][3]
 
 2. SHA1 - This is the older algorithm and not treated as secure. If the application support only this signing algorithm then you can select this option in the drop down. With that Azure AD will sign the SAML Response with Sha1 algorithm.
 
-![SHA1 Certificate signing algorithm][2]
+    ![SHA1 Certificate signing algorithm][2]
 
 ## Next steps
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
