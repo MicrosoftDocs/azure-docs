@@ -91,7 +91,8 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** What is the format for the image name in private registry option?
 
-**A:** You need to add the full image name including the private registry url (eg. myacr.azurecr.io/dotnet:latest)
+**A:** You need to add the full image name including the private registry url (eg. myacr.azurecr.io/dotnet:latest). Image names using a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)
+. Use the [`az` command line tool](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) to set `docker-custom-image-name`.
 
 **Q:** I want to expose more than one port on my custom container image. Is that possible?
 
