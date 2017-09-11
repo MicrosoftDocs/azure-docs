@@ -48,7 +48,7 @@ The following Azure services support Managed Service Identity.
 
 | Service | Tutorial | Status | Date |
 | --- | --- | --- | --- |
-| Azure Virtual Machines | [Tutorial](ARM-tutorial.md) | Preview | Sept 2017 |
+| Azure Virtual Machines | [Tutorial](active-directory-msi-overview.md) | Preview | Sept 2017 |
 
 ### Azure Services that Support Azure AD Authentication
 
@@ -56,7 +56,7 @@ The following services support Azure AD Authentication and have been tested with
 
 | Service | Resource ID | Tutorial | Status | Date |
 | --- | --- | --- | --- | --- |
-| Azure Resource Manager | https://management.azure.com/ | [Tutorial](tutorial.md) | Generally Available | Sept 2017 |
+| Azure Resource Manager | https://management.azure.com/ | [Tutorial](active-directory-msi-overview.md) | Generally Available | Sept 2017 |
 | Azure KeyVault | NEED VALUE | NEED VALUE | Generally Available | Sept 2017 |
 | Azure SQL | NEED VALUE | Coming soon | Generally Available | Sept 2017 |
 | Azure Data Lake | NEED VALUE | Coming soon | Generally Available | Sept 2017 |
@@ -75,8 +75,8 @@ We would love to hear from you!
 ## Next steps
 Now that you understand the basics, try a Managed Service Identity tutorial.
 
-* [Try Managed Service Identity with a Windows VM] (managed-service-identity-overview.md) - Get started by enabling MSI on a Windows VM and authenticating to the Azure Resource Manager API.
-* [Try Managed Service Identity with a Linux VM](managed-service-identity-overview.md) - Get started by enabling MSI on a Linux VM and authenticating to the Azure Resource Manager API.
+* [Try Managed Service Identity with a Windows VM] (active-directory-msi-overview.md) - Get started by enabling MSI on a Windows VM and authenticating to the Azure Resource Manager API.
+* [Try Managed Service Identity with a Linux VM](active-directory-msi-overview.md) - Get started by enabling MSI on a Linux VM and authenticating to the Azure Resource Manager API.
 
 
 

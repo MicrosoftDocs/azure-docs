@@ -50,10 +50,10 @@
     - name: Use VM MSI to access Azure Resource Manager
       items:
       - name: Windows
-        href: TBD.md
+        href: active-directory-msi-overview.md
       - name: Linux
-        href: TBD.md
+        href: active-directory-msi-overview.md
     - name: Use VM MSI to access Azure storage
-      href: TBD.md
+      href: active-directory-msi-overview.md
     - name: Use VM MSI to access non-AAD resource
-      href: TBD.md
+      href: active-directory-msi-overview.md
