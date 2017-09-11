@@ -110,7 +110,7 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ## List container images
 
-To list the images in your ACR instance, navigate to your registry in the portal and select **Repositories**, then the repository you just created with `docker push`.
+To list the images in your ACR instance, navigate to your registry in the portal and select **Repositories**, then select the repository you created with `docker push`.
 
 In this example, we select the **aci-helloworld** repository, and we can see the `v1`-tagged image under **TAGS**.
 

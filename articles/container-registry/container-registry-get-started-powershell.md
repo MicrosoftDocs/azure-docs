@@ -35,7 +35,7 @@ Login-AzureRmAccount
 
 ## Create resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
+Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -45,21 +45,21 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 Create an ACR instance using the [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) command.
 
-The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value. 
+The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
 
 ```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser
+$Registry = New-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 ## Log in to ACR
 
-Before pushing and pulling container images, you must log in to the ACR instance. First, use the [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) command to get the admin centennials for the ACR instance.
+Before pushing and pulling container images, you must log in to the ACR instance. First, use the [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) command to get the admin credentials for the ACR instance.
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
 ```
 
-Next use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to log in to the ACR instance. 
+Next, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to log in to the ACR instance.
 
 ```bash
 docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
@@ -69,13 +69,13 @@ The command returns a 'Login Succeeded' message once completed.
 
 ## Push image to ACR
 
-To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull are pre-created image from Docker Hub.
+To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull a pre-created image from Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-The image needs to be tagged with the ACR login server name. Run the [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) command to return the login server name of the ACR instance.
+The image must be tagged with the ACR login server name. Run the [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) command to return the login server name of the ACR instance.
 
 ```powershell`
 Get-AzureRmContainerRegistry | Select Loginserver
@@ -87,7 +87,7 @@ Tag the image using the [docker tag](https://docs.docker.com/engine/reference/co
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Finally, use [Docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
+Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1

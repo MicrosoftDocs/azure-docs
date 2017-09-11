@@ -24,17 +24,17 @@ ms.custom: H1Hack27Feb2017
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
 
-This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This quickstart requires that you are running the Azure CLI version 2.0.12 or later. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -51,7 +51,7 @@ Azure Container Registry is available in several different SKUs. When deploying 
 
 Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 
-The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value. 
+The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
 
 ```azurecli
 az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
@@ -95,7 +95,7 @@ The command returns a 'Login Succeeded' message once completed.
 
 ## Push image to ACR
 
-To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull are pre-created image from Docker Hub.
+To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull a pre-created image from Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
@@ -152,7 +152,7 @@ v1
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, ACR instance, and all container images.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
