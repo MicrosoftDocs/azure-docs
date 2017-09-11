@@ -36,12 +36,12 @@ The name looks similar to this: **LB-&lt;node type name&gt;**. For example, LB-s
 
 ![Resources][Resources]
 
-## Remotely connect to a scale set instance or cluster node
+## <a name="remote-connect-to-a-vm-scale-set"></a>Remotely connect to a scale set instance or cluster node
 For each node type that you defined in a cluster, set up a separate scale set. You can independently scale the node types up or down. Additionally, you can use different VM SKUs. Unlike single-instance VMs, virtual machine scale set instances don't have their own virtual IP address. This can be challenging when you are looking for an IP address and port that you can use to remotely connect to a specific instance.
 
 To find an IP address and port that you can use to remotely connect to a specific instance:
 
-**Step 1**: Find the virtual IP address for the node type by getting the inbound NAT rules for RDP.
+**Step 1**: Find the virtual IP address for the node type by getting the inbound NAT rules for Remote Desktop Protocol (RDP).
 
 First, get the inbound NAT rules values that were defined as a part of the resource definition for **Microsoft.Network/loadBalancers**.
 
