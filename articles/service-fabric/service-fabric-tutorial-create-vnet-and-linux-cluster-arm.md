@@ -88,17 +88,7 @@ az group deployment create \
 ## Create a key vault and upload a certificate
 The Service Fabric cluster Resource Manager template in the next step is configured to create a secure cluster with certificate security. The certificate is used to secure node-to-node communication for your cluster and to manage user access to your Service Fabric cluster. API Management also uses this certificate to access the Service Fabric Naming Service for service discovery. This requires having a certificate in Key Vault for cluster security.
 
-The following script creates a self-signed certificate.  Skip this step if you want to use an existing certificate.   If you want to use an existing certificate, set **$CreateSelfSignedCertificate** to "$false" and specify the location in **$ExistingPfxFilePath**.
-
-```bash
-#!/bin/bash
-
-password="$(openssl rand -base64 32)"
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout clusterCert.key -out clusterCert.crt -subj "/CN=examplecluster.centralus.cloudapp.azure.com"
-openssl pkcs12 -export -out clusterCert.pfx -inkey clusterCert.key -in clusterCert.crt -passout pass:"cat10dog"
-```
-
-To upload the certificate to keyvault we must first format the certificate and add additional data to it so that Service Fabric knows how to use it. The format is a base64 encoded json blob containing the following keys: 'data', 'dataType' and 'password'. Data should be the base64 encoded byte array of the PFX file. The following Python script properly encodes the PFX file to be uploaded to Keyvault, save it as *servicefabric.py*.
+To upload the certificate to keyvault first format the certificate and add additional data to it so that Service Fabric knows how to use it. The format is a base64 encoded JSON blob containing the following keys: 'data', 'dataType' and 'password'. Data should be the base64 encoded byte array of the PFX file. The following Python script properly encodes the PFX file to be uploaded to a key vault. Save the Python script as *servicefabric.py*.
 
 ```python
 #!/usr/bin/env python
@@ -142,22 +132,27 @@ if __name__ == "__main__":
 	main()
 ```
 
-The following script creates a key vault in Azure and uploads the cluster certificate to the key vault.
-```azurecli
-#!/bin/bash
-
-VaultResourceGroupName="ryanwikekeyvaultgroup"
-VaultName="ryanwikeyvault2"
-Location="centralus"
-PfxPath="./clusterCert.pfx"
-CertPwd="cat10dog"
+The following script creates and formats a self-signed certificate, creates a key vault in Azure, and uploads the cluster certificate to the key vault.
+```bash
+VaultResourceGroupName="linuxkeyvaultgroup"
+VaultName="sflinuxvault"
+Location="southcentralus"
+PfxPath="clusterCert.pfx"
+CertPwd="mypa$$word!"
 SecretName="ClusterCert"
+
+password="$(openssl rand -base64 32)"
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout clusterCert.key -out clusterCert.crt -subj "/CN=sflinuxcluster.southcentralus.cloudapp.azure.com"
+openssl pkcs12 -export -out clusterCert.pfx -inkey clusterCert.key -in clusterCert.crt -passout pass:"$password"
 
 az group create --name $VaultResourceGroupName --location $Location
 
 az keyvault create --name $VaultName --resource-group $VaultResourceGroupName --enabled-for-deployment true --enabled-for-template-deployment true
 
-formatted_secret=$(./servicefabric.py format-secret --pkcs12-cert $PfxPath --password $CertPwd)
+formatted_secret=$(./servicefabric.py format-secret --pkcs12-cert $PfxPath --password $password)
+echo "Formatted secret:"
+echo "$formatted_secret"
+
 az keyvault secret set --vault-name $VaultName --name $SecretName --value $formatted_secret
 
 CERT_THUMB=$(openssl x509 -in clusterCert.crt -noout -fingerprint | awk -F= '{print $NF}' | sed -e 's/://g')
