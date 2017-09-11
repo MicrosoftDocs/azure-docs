@@ -20,7 +20,7 @@ ms.author: mahender
 > [!NOTE] 
 > Managed Service Identity for App Service and Azure Functions is currently in preview.
 
-This topic shows you how to create App Service and Azure Functions applications with a managed Azure Active Directory identity. This allows your apps to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](https://azure.microsoft.com).
+This topic shows you how to create App Service and Azure Functions applications with a managed Azure Active Directory identity. This allows your apps to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](https://docs.microsoft.com/azure/active-directory/active-directory-msi-overview).
 
 ## Creating an app with an identity
 
