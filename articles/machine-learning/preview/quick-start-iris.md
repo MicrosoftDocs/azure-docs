@@ -14,10 +14,10 @@ ms.date: 09/01/2017
 ---
 
 # Quickstart: Classifying Iris Flower Dataset
-In this quickstart, we'll take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model to predict the type of iris based on some of its physical characteristics.  This uses [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) from the popular Python [Scikit-learn](http://scikit-learn.org/stable/index.html) library to build the model.  You will learn the following in this quickstart: 
+In this quickstart, you take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model to predict the type of iris based on some of its physical characteristics.  This quickstart uses [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) from the popular Python [Scikit-learn](http://scikit-learn.org/stable/index.html) library to build the model.  You learn the following tasks in this quickstart: 
 
 - Create a new project
-- Execute the project to create the model
+- Creating a model by executing the project
 - Explore your run history
 - Deploy and test the model as a web service 
 
@@ -29,7 +29,7 @@ Follow the [installation](./quick-start-installation) guide to create Azure reso
 
 2. Click on **File** --> **New Project** (or click on the **+** sign in the project list pane). 
 
-3. Fill in the **project name**, and the **directory** in which the project will be created. The **project description** is optional but helpful. Choose the default **My Projects** workgroup, and select the **Classifying Iris** sample project as the project template.
+3. Fill in the **project name**, and the **directory** to store the files. The **project description** is optional but helpful. Choose the default **My Projects** workgroup, and select the **Classifying Iris** sample project as the project template.
 
     >[!TIP]
     >Optionally, you can fill in the Git repo text field with the URL of a Git repo that lives in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must exist, and it must be empty with no master branch. Adding a Git repo now lets you enable roaming and sharing scenarios later.
@@ -41,15 +41,15 @@ We're going to execute the project now, running on your local computer.
 
 1. Each project opens to its own **project dashboard**. Select `local` as the execution target from the command bar near the top of the application to the left of the run button, and `iris_sklearn.py` as the script to run.  There are a number of other files included in the sample you can check out later. 
 
-2. In the **Argument** text field, type `0.01`. This value will be used in the code to set the regularization rate, a value used to configure how the model will be created. 
+2. In the **Argument** text field, type `0.01`. This value is used in the code to set the regularization rate, a value used to configure how the model is created. 
 
-3. Click the **Run** button. This will begin to execute `iris_sklearn.py` on your computer, which trains the model. 
+3. Click the **Run** button to begin executing `iris_sklearn.py` on your computer, which trains the model. 
 
-4. Open the **Jobs Panel** by clicking **Jobs** in the upper right hand corner and the job you just ran is listed. A job's status transitions from **Submitting** to **Running** as the job begins to run, and then to **Completed** in a few seconds. 
+4. Open the **Jobs Panel** by clicking **Jobs** in the upper right-hand corner and the job you just ran is listed. A job's status transitions from **Submitting** to **Running** as the job begins to run, and then to **Completed** in a few seconds. 
 
 5. Congratulations. You have successfully executed a Python script in Azure ML Workbench.
 
-6. Repeat steps 2-4 (from above) several times. Each time, use different argument values ranging from `10` to `0.001`. Each time, the value you enter is used as regularization rate of the logistic regression algorithm in the `iris_sklearn.py` script.
+6. Repeat steps 2-4 several times. Each time, use different argument values ranging from `10` to `0.001`. Each time, the value you enter is used as regularization rate of the logistic regression algorithm in the `iris_sklearn.py` script.
 
 # View Run History of _iris_sklearn.py_
 1. Navigate to the Run History view, and click on `iris_sklearn.py`. The run history list displays every run that was executed on `iris_sklearn.py`. Each entry in this list corresponds to the run initiated when you clicked "Run" in step 3 before. 
@@ -58,20 +58,20 @@ We're going to execute the project now, running on your local computer.
 
 3. Click on a completed run and you can see a detailed view for that specific execution, including additional metrics, the files it produced (the model, plots in png format), two plots emitted in the code (confusion matrix and multi-class ROC curve), and other potentially useful run logs.
 
-4. In the **output files** section, expand the `outputs` folder, and select the `model.pkl` file. Click the **download** button and select the `myIris` project root folder to download the `model.pkl` file. This file is a serialized instance of the model you created above.  This is the model we want to publish as a web service. 
+4. In the **output files** section, expand the `outputs` folder, and select the `model.pkl` file. Click the **download** button and select the `myIris` project root folder to download the `model.pkl` file. This file is a serialized instance of the model you created above which you want to publish as a web service. 
 
 ## Create Web Service Schema and Scoring File
-You will now generate the script required to deploy the model as a web service.
+You now generate the script required to deploy the model as a web service.
 
-1. Choose `iris_score.py` and the `local` environment in the **Run Control**, then click **Run** button. This creates the `service_schema.json` in the `outputs` folder.
+1. Choose `iris_score.py` and the `local` environment in the **Run Control**, then click **Run** button. This job creates the `service_schema.json` in the `outputs` folder.
 
 2. Go to the run history of the `iris_score.py` file, and download the `service_schema.json` file to the project root folder.
 
 # Deploy the Web Service
 >[!IMPORTANT]
->You must have Docker installed and running in order to deploy the web service locally.  If you don't have Docker installed, please see the [Docker installation instructions](https://docs.docker.com/engine/installation/) and the tips in the [installation guide](./quick-start-installation.md). 
+>You must have Docker installed and running in order to deploy the web service locally.  If you don't have Docker installed, see the [Docker installation instructions](https://docs.docker.com/engine/installation/) and the tips in the [installation guide](./quick-start-installation.md). 
 
-Web services are currently created and deployed from the command line, so now you'll open the command line interface to create the web service. 
+Web services are currently created and deployed from the CLI, so now open the CLI to create and test the web service. 
 
 1. In the top menu of the Workbench, click **File** --> **Open Command-line Interface**.
 2. When the command window opens, type the following command:
@@ -80,7 +80,7 @@ Web services are currently created and deployed from the command line, so now yo
 C:\Temp\myIris> az ml service create realtime --model-file model.pkl -f score.py -n irisservice -s service_schema.json -r python
 ```
  
-The command creates a Docker container which will host a web service for the model. This Docker container will be deployed to your local computer where you can easily test it. 
+The command creates a Docker container which hosts a web service for the model. This Docker container is deployed to your local computer where you can easily test it. 
 
 # Test the web service
 The Docker container surfaces a web service for the model, so the next step is to invoke the web service and see the result.  While you could use curl or any other HTTP tools, the CLI has a simple command for invoking the model. 
@@ -89,7 +89,7 @@ The Docker container surfaces a web service for the model, so the next step is t
 C:\Temp\myIris> az ml service run realtime -i irisapp1 -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]} 
 ```
 
-Check out the output here, we've just predicted that, based on the input petal width, petal length, sepal width, and sepal length, the iris is probably a versicolor iris. 
+Check out the output here, we've predicted that, based on the input petal width, petal length, sepal width, and sepal length, the iris is probably a versicolor iris. 
 
 # Next Steps
 - Full-length [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
