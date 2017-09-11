@@ -27,6 +27,10 @@
     href: tutorial-classifying-iris-part-3.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md
+  - name: Classify UCI incomes - with a TDSP project
+    href: tutorial-classifying-uci-incomes.md
+  - name: Biomedical entity recognition with a TDSP project
+    href: sample-tdsp-nlp.md
 - name: How-to guides
   items:
   - name: Use Azure ML Workbench
@@ -39,6 +43,8 @@
       href: using-git-ml-project.md
     - name: Placehoder - Roaming and sharing projects
       href: doc-template-how-to.md
+    - name: Structure a project with TDSP 
+      href: how-to-use-tdsp-in-azure-ml.md
   - name: Compute environment
     items: 
     - name: Configure execution targets
