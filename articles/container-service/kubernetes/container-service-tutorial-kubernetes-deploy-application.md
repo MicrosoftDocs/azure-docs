@@ -39,88 +39,9 @@ In previous tutorials, an application was packaged into a container image, this 
 
 At minimum, this tutorial requires a Kubernetes cluster.
 
-## Verify manifest file
-
-In [tutorial 1](./container-service-tutorialkubernetes-prepare-app.md) of this series the application repo was cloned which includes a Kubernetes manifest file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file named azure-vote-all-in-one-redis.yml. Use the cat command to view the manifest file.
-
-```bash
-cat azure-vote-all-in-one-redis.yml
-```
-
-Output:
-
-```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      containers:
-      - name: azure-vote-back
-        image: redis
-        ports:
-        - containerPort: 6379
-          name: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 6379
-  selector:
-    app: azure-vote-back
----
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5 
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      containers:
-      - name: azure-vote-front
-        image: microsoft/azure-vote-front:redis-v1
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
-        env:
-        - name: REDIS
-          value: "azure-vote-back"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-vote-front
-  ```
-
 ## Update manifest file
+
+In [tutorial 1](./container-service-tutorialkubernetes-prepare-app.md) of this series the application repo was cloned which includes a Kubernetes manifest file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file named `azure-vote-all-in-one-redis.yml`.
 
 If using Azure Container Registry to store the container images, the manifest needs to be updated with the ACR loginServer name.
 
@@ -130,13 +51,23 @@ Get the ACR login server name with the [az acr list](/cli/azure/acr#list) comman
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The sample manifest has been pre-created with a repository name of *microsoft*. Open the file with any text editor, and replace the *microsoft* value with the login server name of your ACR instance.
+The sample manifest has been pre-created with a repository name of *microsoft*. Open the file with any text editor, and replace the *microsoft* value with the login server name of your ACR instance. 
+
+In this example, the file is opened with `vi`.
+
+```bash
+vi azure-vote-all-in-one-redis.yml
+```
+
+Replace `microsoft` with the ACR login server.
 
 ```yaml
 containers:
 - name: azure-vote-front
   image: microsoft/azure-vote-front:redis-v1
 ```
+
+Save and close the file.
 
 ## Deploy application
 
