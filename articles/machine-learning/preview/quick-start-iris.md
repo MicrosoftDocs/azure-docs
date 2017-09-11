@@ -80,7 +80,7 @@ Web services are currently created and deployed from the CLI, so now open the co
 
 2. When the command window opens, type the following command to log in to Azure first.
     >[!TIP]
-    >You only need to do this once until the cached az-cli token expires.
+    >You only need to do this once until the cached authentication token expires.
 
     ```shell
     az login
@@ -103,7 +103,7 @@ Web services are currently created and deployed from the CLI, so now open the co
     az ml service create realtime --model-file model.pkl -f score.py -n irisapp -s service_schema.json -r python
     ```
  
-    The command creates a Docker image in the cloud which hosts a web service for the model. This Docker container is then pulled down and deployed on your local computer where you can easily test it. 
+    The command creates a Docker image in the cloud, which hosts a web service for the model. This Docker container is then pulled down and deployed on your local computer where you can easily test it. 
 
 ## Test the web service
 The Docker container is now running on your local computer. You can invoke the web service and see the result.  While you could use curl or any other HTTP tool, there is a CLI command that makes it easy to test the web service. 
