@@ -24,6 +24,7 @@
   - name: Using Deep Learning
     href: use-deep-learning-dsvm.md
 - name: Reference
+  items:
   - name: Deep Learning and AI frameworks
     href: dsvm-deep-learning-ai-frameworks.md
   - name: ML and data science tools
