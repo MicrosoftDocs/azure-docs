@@ -10389,7 +10389,7 @@
             "redirect_url": "/azure/azure-functions/functions-openapi-definition",
             "redirect_document_id": false
         },
-		{
+	{
             "source_path": "articles/active-directory/active-directory-azureadjoin-user-frx.md",
             "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-frx",
             "redirect_document_id": false
@@ -10447,6 +10447,166 @@
         {
             "source_path": "articles/app-service-web/app-service-linux-get-started-node.md",
             "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },            
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-update-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/event-grid/resize-images-on-storage-blob-upload-event.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-event-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-project-properties.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-project-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-role-properties.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-role-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-service-endpoints.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-service-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-storage-account-list.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-storage-account-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-deploying-large-deployments.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-deploying-large-deployments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-enable-session-affinity.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-enable-session-affinity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-installation.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-installation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-publish-as-docker-container.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-sign-in-instructions.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-whats-new.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-hello-world-web-app-linux.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-installation.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-installation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-publish-as-docker-container.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-publish-as-docker-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-sign-in-instructions.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-whats-new.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-whats-new",
             "redirect_document_id": false
         }
     ]
