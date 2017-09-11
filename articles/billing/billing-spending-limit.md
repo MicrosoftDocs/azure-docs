@@ -65,7 +65,9 @@ The spending limit could prevent you from deploying or using certain third-party
 
 ### How do I turn on the spending limit after removing it?
 
-The spending limit is ever only turned on automatically. Unfortunately, there's no option to turn it on yourself after it's been removed. Make sure you select the **Remove spending limit for the current billing period** option if you're worried about the limit not turning back on.
+1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
+1. Click the yellow banner to change the spending limit option.
+1. Choose **Turn on spending limit in the next billing period \<start date of billing period\>**
 
 ### How do I set a custom spending limit?
 
