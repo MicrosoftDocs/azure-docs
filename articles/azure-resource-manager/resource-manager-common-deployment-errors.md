@@ -9,39 +9,106 @@ manager: timlt
 editor: tysonn
 keywords: deployment error, azure deployment, deploy to azure
 
-ms.assetid: c002a9be-4de5-4963-bd14-b54aa3d8fa59
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 09/11/2017
 ms.author: tomfitz
 
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
-This topic describes how you can resolve some common Azure deployment errors you may encounter.
+
+This topic describes some common Azure deployment errors you may encounter, and provides information to resolve the errors.
+
+| Error code | Mitigation | More information |
+| ---------- | ---------- | ---------------- |
+| AccountNameInvalid | Follow naming restrictions for the resource, particularly storage accounts. | [Troubleshoot](#accountnameinvalid) |
+| AccountPropertyCannotBeSet |  | |
+| AnotherOperationInProgress |  | |
+| ApiConnectionNotFound |  | |
+| ApiNotFound |  | |
+| AuthorizationFailed | Your account or service principal does not have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope. | [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) |
+| BadRequest |  | |
+| CannotSetProperty |  | |
+| Conflict |  | |
+| DeploymentActive |  | |
+| DnsRecordInUse |  | |
+| FunctionNotFound |  | |
+| GatewayTimeout |  | |
+| ImageNotFound |  | |
+| InternalServerError |  | |
+| InUseSubnetCannotBeDeleted |  | |
+| InvalidArgument |  | |
+| InvalidAuthenticationTokenTenant |  | |
+| InvalidContentLink |  | |
+| InvalidParameter |  | |
+| InvalidPrivateIPAddressFormat |  | |
+| InvalidRequestContent |  | |
+| InvalidRequestFormat |  | |
+| InvalidResourceNamespace |  | |
+| InvalidResourceReference |  | |
+| InvalidResourceType |  | |
+| InvalidTemplate |  | |
+| InvalidTemplateDeployment |  | |
+| IpConfigDeleteNotSupported |  | |
+| LinkedAuthorizationFailed |  | |
+| LinkedInvalidPropertyId |  | |
+| LocationRequired |  | |
+| MethodNotAllowed |  | |
+| MissingRegistrationForLocation |  | |
+| MissingSubscriptionRegistration |  | |
+| MultipleErrorsOccurred |  | |
+| NameNotAvailable |  | |
+| NetcfgInvalidSubnet |  | |
+| NicCountLimitReached |  | |
+| NicInUse |  | |
+| NoRegisteredProviderFound |  | |
+| NotFound |  | |
+| OperationNotAllowed |  | |
+| ParentResourceNotFound | Make sure a parent resource exists before creating the child resources. | [Troubleshoot](#parentresourcenotfound) |
+| PendingClusterUpgradeCannotBeInterrupted |  | |
+| PrivateIPAddressInReservedRange |  | |
+| PrivateIPAddressIsAllocated |  | |
+| PrivateIPAddressNotInSubnet |  | |
+| PropertyChangeNotAllowed |  | |
+| PublicIPAddressInUse |  | |
+| RequestDisallowedByPolicy |  | [Troubleshoot](#requestdisallowedbypolicy) |
+| ResourceDeploymentFailure |  | |
+| ResourceGroupBeingDeleted |  | |
+| ResourceGroupNotFound | | |
+| ResourceNotFound |  | |
+| ResourceQuotaExceeded |  | |
+| RoleAssignmentExists |  | |
+| SkuNotAvailable | Select SKU (such as VM size) that is available for the location you have selected. | |
+| StorageAccountAlreadyExists | Provide a unique name for the storage account. | [Troubleshoot](#storagenamenotunique)  |
+| StorageAccountAlreadyTaken | Provide a unique name for the storage account. | [Troubleshoot](#storagenamenotunique) |
+| StorageAccountNotFound |  | |
+| SubnetIsFull |  | |
+| SubnetsNotInSameVnet |  | |
+| ValidationError |  | |
+| VaultAlreadyExists |  | |
+| VaultNameNotValid |  | |
+| VMInstanceCountNotSufficientForReliability |  | |
+| VnetAddressSpaceOverlapsWithAlreadyPeeredVnet |  | |
+
 
 The following error codes are described in this topic:
 
-* [AccountNameInvalid](#accountnameinvalid)
 * [Authorization failed](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
-* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
 * [NotFound](#notfound)
 * [NoRegisteredProviderFound](#noregisteredproviderfound)
 * [OperationNotAllowed](#quotaexceeded)
-* [ParentResourceNotFound](#parentresourcenotfound)
 * [QuotaExceeded](#quotaexceeded)
-* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 * [ResourceNotFound](#notfound)
 * [SkuNotAvailable](#skunotavailable)
-* [StorageAccountAlreadyExists](#storagenamenotunique)
-* [StorageAccountAlreadyTaken](#storagenamenotunique)
+
 
 ## DeploymentFailed
 
@@ -121,40 +188,6 @@ You receive this error when the resource SKU you have selected (such as VM size)
   ```
 
 If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, submit a [SKU request](https://aka.ms/skurestriction) to Azure Support.
-
-## DisallowedOperation
-
-```
-Code: DisallowedOperation
-Message: The current subscription type is not permitted to perform operations on any provider 
-namespace. Please use a different subscription.
-```
-
-If you receive this error, you are using a subscription that is not permitted to access any Azure services other than Azure Active Directory. You might have this type of subscription when you need to access the classic portal but are not permitted to deploy resources. To resolve this issue, you must use a subscription that has permission to deploy resources.  
-
-To view your available subscriptions with PowerShell, use:
-
-```powershell
-Get-AzureRmSubscription
-```
-
-And, to set the current subscription, use:
-
-```powershell
-Set-AzureRmContext -SubscriptionName {subscription-name}
-```
-
-To view your available subscriptions with Azure CLI 2.0, use:
-
-```azurecli
-az account list
-```
-
-And, to set the current subscription, use:
-
-```azurecli
-az account set --subscription {subscription-name}
-```
 
 ## InvalidTemplate
 This error can result from several different types of errors.
@@ -533,12 +566,6 @@ For more information, see the following articles:
 
 - [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
 - [Use Policy to manage resources and control access](resource-manager-policy.md).
-
-## Authorization failed
-You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, you are not able to create resources. In that case, you see an error message indicating that authorization failed.
-
-For more information about role-based access control, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
-
 
 ## Next steps
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
