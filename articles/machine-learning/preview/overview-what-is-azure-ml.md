@@ -40,12 +40,13 @@ Azure ML Workbench is a desktop application plus command-line tools, supported o
 - Built-in Jupyter Notebook service and client UX.
 - Interaction with Experimentation Service and Model Management Service through UX and CLI.
 - Role-based access control that enables sharing and collaboration through Azure Active Directory.
-- Automatic run history snapshots and explicit version control enabled by native Git repo integration. 
+- Automatic run history snapshots and explicit version control enabled by native Git integration. 
 - Integration with popular Python IDEs.
 
 ## Azure Machine Learning Experimentation Service
+The Experimentation Service is a managed Azure service that handles the execution of machinear learning experiments. 
 
-The Experimentation Service is a managed Azure service that allows you to build, test, and compare machine learning models locally or in the cloud. The service supports all machine learning Python libraries, whether proprietary to your business or open-source. (The installation of Workbench includes a wide range of the most popular open source machine learning libraries, including Spark, CNTK, TensorFlow, and scikit-learn.)  The service is also integrated by default with Visual Studio and Github. This integration enables collaboration, data and model history, lineage, and back-ups. Lastly, the Experimentation Service is deeply integrated with Docker and uses industry standard Docker containers to enable model portability and reproducibility across environments. 
+allows you to build, test, and compare machine learning models locally or in the cloud. The service supports all machine learning Python libraries, whether proprietary to your business or open-source. (The installation of Workbench includes a wide range of the most popular open source machine learning libraries, including Spark, CNTK, TensorFlow, and scikit-learn.)  The service is also integrated by default with Visual Studio and Github. This integration enables collaboration, data and model history, lineage, and back-ups. Lastly, the Experimentation Service is deeply integrated with Docker and uses industry standard Docker containers to enable model portability and reproducibility across environments. 
 
 ## Azure Machine Learning Model Management Service
 
