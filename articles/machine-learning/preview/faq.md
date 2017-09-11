@@ -46,7 +46,7 @@ We currently support Python only. We are working on R integration and expect to 
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning for Spark?**
 
-A: MMLSpark provides deep learning and data science tools for Apache Spark, with emphasis on productivity, ease of experimentation and state-of-the-art algorithms. MMLSpark offers integration of Spark Machine Learning pipelines with Microsoft Cognitive Toolkit (CNTK) and OpenCV. You can create powerful, highly scalable predictive, and analytical models for image and text data. MMLSpark is available under an open-source license and is included in AML Workbench as a set of consumable models and algorithms. For more information on MMLSpark, visit our product documentation. 
+A: MMLSpark provides deep learning and data science tools for Apache Spark, with emphasis on productivity, ease of experimentation and state-of-the-art algorithms. MMLSpark offers integration of Spark Machine Learning pipelines with the Microsoft Cognitive Toolkit and OpenCV. You can create powerful, highly scalable predictive, and analytical models for image and text data. MMLSpark is available under an open-source license and is included in AML Workbench as a set of consumable models and algorithms. For more information on MMLSpark, visit our product documentation. 
 
 **Which versions of Spark are supported by the new tools and services? Top section**
 
@@ -95,7 +95,7 @@ Model Management can run your deployments as Docker containers registered to [Az
 
 **Can I use the Azure Machine Learning Model Management to deploy models built using tools other than the Experimentation Service?**
 
-You get the best experience when you deploy models created using the Experimentation Service. However, you can deploy models built using other frameworks and tools. We support a variety of models including  MMLSpark, TensorFlow, CNTK, scikit-learn, Keras, etc. 
+You get the best experience when you deploy models created using the Experimentation Service. However, you can deploy models built using other frameworks and tools. We support a variety of models including  MMLSpark, TensorFlow, Microsoft Cognitive Toolkit, scikit-learn, Keras, etc. 
 
 **Can I use my own Azure resources?**
 

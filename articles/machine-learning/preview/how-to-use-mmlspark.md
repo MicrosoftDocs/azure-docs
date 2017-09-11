@@ -16,8 +16,8 @@ ms.date: 09/08/2017
 
 ## Introduction
 
-[Microsoft Machine Learning Library for Apache Spark](https://github.com/Azure/mmlspark) (MMLSpark)  provides tools that let you easily create scalable machine learning models for large datasets. It includes integration of SparkML pipelines with [Microsoft Cognitive Toolkit
-(CNTK)](https://github.com/Microsoft/CNTK) and [OpenCV](http://www.opencv.org/), enabling you to: 
+[Microsoft Machine Learning Library for Apache Spark](https://github.com/Azure/mmlspark) (MMLSpark)  provides tools that let you easily create scalable machine learning models for large datasets. It includes integration of SparkML pipelines with the [Microsoft Cognitive Toolkit
+](https://github.com/Microsoft/CNTK) and [OpenCV](http://www.opencv.org/), enabling you to: 
  * Ingress and pre-process image data
  * Featurize images and text using pre-trained deep learning models
  * Train and score classification and regression models using implicit featurization.

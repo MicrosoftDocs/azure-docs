@@ -24,7 +24,7 @@ The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine im
 
   * [Caffe](http://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity
   * [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe
-  * [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
   * [H2O](https://www.h2o.ai/): An open-source big data platform and graphical user interface
   * [Keras](https://keras.io/): A high-level neural network API in Python for Theano and TensorFlow
   * [MXNet](http://mxnet.io/): A flexible, efficient deep learning library with many language bindings
@@ -137,7 +137,7 @@ After you sign in to the VM by using either the SSH client or XFCE graphical des
 ### Deep Learning Libraries
 
 #### CNTK
-The Microsoft Cognitive Toolki - also known as CNTK - is an open source, deep learning toolkit. Python bindings are available in the root and py35 Conda environments. It also has a command-line tool (cntk) that is already in the PATH.
+The Microsoft Cognitive Toolkit is an open source, deep learning toolkit. Python bindings are available in the root and py35 Conda environments. It also has a command-line tool (cntk) that is already in the PATH.
 
 Sample Python notebooks are available in JupyterHub. To run a basic sample at the command-line, execute the following commands in the shell:
 
