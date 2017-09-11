@@ -155,7 +155,7 @@ The Hadoop command line is only useful for storing data into Azure storage blob 
 In order to use the Hadoop command, you must first connect to the headnode using one of the following methods:
 
 * **Windows-based HDInsight**: [Connect using Remote Desktop](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux-based HDInsight**: Connect using SSH ([the SSH command](hdinsight-hadoop-linux-use-ssh-unix.md) or [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **Linux-based HDInsight**: Connect using [SSH or PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected, you can use the following syntax to upload a file to storage.
 

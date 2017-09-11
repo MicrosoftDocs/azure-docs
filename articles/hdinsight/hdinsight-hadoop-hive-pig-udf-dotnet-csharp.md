@@ -42,7 +42,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     * [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 
-* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).
+* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-linux-clusters.md).
 
 ## .NET on HDInsight
 
