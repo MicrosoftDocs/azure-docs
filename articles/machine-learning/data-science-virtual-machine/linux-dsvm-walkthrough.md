@@ -1,5 +1,5 @@
 ---
-title: Data science on the Linux Data Science Virtual Machine - Azure| Microsoft Docs
+title: Data science with the Linux Data Science Virtual Machine on Azure| Microsoft Docs
 description: How to perform several common data science tasks with the Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 09/10/2017
 ms.author: bradsev;paulsh
 
 ---

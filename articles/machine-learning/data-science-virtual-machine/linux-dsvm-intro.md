@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 09/10/2017
 ms.author: bradsev
 
 ---
@@ -31,7 +31,7 @@ The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine t
 * Azure command-line interface (CLI) for managing Azure resources
 * PostgresSQL Database
 * Machine learning tools
-  * [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
+  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
   * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
@@ -274,7 +274,7 @@ For information on how to deploy models in R and Python into Azure Machine Learn
 ### Machine learning tools
 The VM comes with a few machine learning tools and algorithms that have been pre-compiled and pre-installed locally. These include:
 
-* **CNTK** (Computational Network Toolkit from Microsoft Research): A deep learning toolkit.
+* **Microsoft Cognitive Toolkit** : A deep learning toolkit.
 * **Vowpal Wabbit**: A fast online learning algorithm.
 * **xgboost**: A tool that provides optimized, boosted tree algorithms.
 * **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries by using the `pip install` command.
@@ -284,7 +284,7 @@ The VM comes with a few machine learning tools and algorithms that have been pre
 
 Here is some additional information about the first three machine learning tools in the list.
 
-#### CNTK
+#### Microsoft Cognitive Toolkit
 This is an open source, deep learning toolkit. It is a command-line tool (cntk), and is already in the PATH.
 
 To run a basic sample, execute the following commands in the shell:

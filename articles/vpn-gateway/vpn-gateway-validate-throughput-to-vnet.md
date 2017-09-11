@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
 
 ---
@@ -22,7 +22,7 @@ ms.author: radwiv;chadmat;genli
 
 A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.
 
-This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine. It also provides troubleshooting guidance.
+This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine (VM). It also provides troubleshooting guidance.
 
 >[!NOTE]
 >This article is intended to help diagnose and fix common issues. If you're unable to solve the issue by using the following information, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -36,7 +36,7 @@ The VPN gateway connection involves the following components:
 - On-premises VPN device (view a list of [validated VPN devices)](vpn-gateway-about-vpn-devices.md#devicetable).
 - Public Internet
 - Azure VPN gateway
-- Azure virtual machine
+- Azure VM
 
 The following diagram shows the logical connectivity of an on-premises network to an Azure virtual network through VPN.
 

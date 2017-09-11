@@ -1,17 +1,22 @@
-- name: Azure Machine Learning preview features
+- name: Azure Machine Learning (preview features) Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: (What are the Azure Machine Learning preview features?)
-  - name: Machine Learning options at Microsoft
-    href: oerview-what-are-machine-learning-options.md
+  - name: What is Azure Machine Learning?
+    href: overview-what-is-azure-ml.md
+  - name: Key concepts
+    href: overview-general-concepts.md
+  - name: Model management overview
+    href: model-management-overview.md
 - name: Quickstarts
   items:
   - name: Provisioning and installation
     href: quick-start-installation.md
   - name: Quick tour
     href: quick-start-iris.md  
+  - name: Placeholder - Data prep quickstart
+    href: doc-template-quickstart.md
 - name: Tutorials
   items:
   - name: Classify iris part 1 - data preparation
@@ -20,50 +25,105 @@
     href: tutorial-classifying-iris-part-2.md
   - name: Classify iris part 3 - model deployment
     href: tutorial-classifying-iris-part-3.md
-  - name: Prepare Bike share data
+  - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md
-- name: Samples
-  items:  
-  - name: Awesome sample coming soon
-    href: scripts/doc-template-sample.md
-- name: Concepts
-  items:       
-  - name: Machine Learning preview features concepts
-    href: overview-general-concepts.md
-  - name: Model Management overview
-    href: model-management-overview.md    
+  - name: Classify UCI incomes - with a TDSP project
+    href: tutorial-classifying-uci-incomes.md
+  - name: Biomedical entity recognition with a TDSP project
+    href: sample-tdsp-nlp.md
 - name: How-to guides
   items:
-  - name: Set up and configure environment
-    items:    
-    - name: (Configure execution targets)    
-    - name: How to use GPU from Workbench
+  - name: Use Azure ML Workbench
+    items:
+    - name: Working with Python IDEs
+      href: how-to-configure-your-IDE.md
+    - name: Placeholder - Use Jupyter Notebooks
+      href: doc-template-how-to.md
+    - name: Integration with Git repo
+      href: using-git-ml-project.md
+    - name: Placehoder - Roaming and sharing projects
+      href: doc-template-how-to.md
+    - name: Structure a project with TDSP 
+      href: how-to-use-tdsp-in-azure-ml.md
+  - name: Compute environment
+    items: 
+    - name: Configure execution targets
+      href: experiment-execution-configuration.md
+    - name: Train with GPUs
       href: how-to-use-gpu.md    
   - name: Acquire and understand data
     items:    
+    - name: Accesing Data with the Data Source Wizard
+      href: data-source-wizard.md
     - name: Get started with data preparation
       href: data-prep-getting-started.md
-    - name: Python extensions for data preparation
-      href: data-prep-python-extensibility-overview.md
-  - name: Develop and manage models
-    items:
-    - name: (Use Jupyter notebooks)
-    - name: (Track run history and model metrics)
-    - name: (Manage data files)
-    - name: Use the MMLSpark library
+    - name: Data prepartion guide
+      href: data-prep-user-guide.md
+  - name: Develop models
+    items:    
+    - name: Track run history and model metrics
+      href: how-to-use-run-history-model-metrics.md    
+    - name: Reading and writing files
+      href: how-to-read-write-files.md
+    - name: MMLSpark library
       href: how-to-use-mmlspark.md
-  - name: Operationalize models
+  - name: Deploy models
     items:
-    - name: (Use Model Management Service with CLI)
-    - name: (Consume a service with CLI)
-  - name: (Use AZ ML CLI from the command line)
-  - name: (Use a Git repo for source control)  
+    - name: Deploy web service
+      href: model-management-service-deploy.md
+    - name: placeholder - Consume web service
+      href: doc-template-how-to.md  
+  - name: End-to-end examples
+    items:
+    - name: Awesome ADS example 1
+      href: doc-template-how-to.md 
+    - name: Awesome ADS example 2
+      href: doc-template-how-to.md
+    - name: Awesome ADS example 3
+      href: doc-template-how-to.md
+    - name: Known issues & troubleshooting guide
+      href: known-issues-and-troubleshooting-guide.md
 - name: Reference
   items:  
-  - name: Model Management API
-    href: model-management-api-reference.md
+  - name: Data Preparation
+    items:
+    - name: Python extensions for data preparation
+      href: data-prep-python-extensibility-overview.md
+    - name: Supported Data Sources
+      href: data-prep-appendix2-supported-data-sources.md
+    - name: Supported Data Preparation Tranforms
+      href: data-prep-appendix3-supported-transforms.md
+    - name: Supported Data Preparation Inspectors
+      href: data-prep-appendix4-supported-inspectors.md
+    - name: Supported Data Preparation Data Destinations
+      href: data-prep-appendix5-supported-destinations.md
+    - name: Sample Data Preparation Filter Expressions in Python
+      href: data-prep-appendix6-sample-filter-expressions-python.md
+    - name: Sample Data Preparation Filter Expressions in Python
+      href: data-prep-appendix7-sample-transform-data-flow-python.md
+    - name: Sample Data Preparation Source Connections in Python
+      href: data-prep-appendix8-sample-source-connections-python.md
+    - name: Sample Data Preparation Destination Connections in Python
+      href: data-prep-appendix9-sample-destination-connections-python.md
+    - name: Sample Data Preparation Column Transforms in Python
+      href: data-prep-appendix10-sample-custom-column-transforms-python.md  
+    - name: placeholder - Data Preparation Execution API 
+      href: doc-template-how-to.md  
+  - name: Experimentation    
+    items:
+    - name: Execution configuration
+      href: experiment-execution-configuration-reference.md
+    - name: Logging Library
+      href: doc-template-how-to.md
+  - name: Model management
+    items:
+    - name: Model management API
+      href: model-management-api-reference.md
+    - name: Model management CLI
+      href: model-management-cli-reference.md
+    - name: placeholder - Model Management Python libraries
+      href: doc-template-how-to.md  
 - name: Resources
-  items:
-  - name: (Known issues and troubleshooting)  
-  - name: Frequently asked questions
+  items:  
+  - name: FAQ
     href: faq.md
