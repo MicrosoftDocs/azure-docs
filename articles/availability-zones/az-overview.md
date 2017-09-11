@@ -21,7 +21,9 @@ ms.custom: mvc
 
 # Overview of Availability Zones
 
-Availability Zones are a component of Azure's High Availability and Disaster Recovery solution. An Availability Zone is a physically separate zone within an Azure region. There are three Availability Zones within an Azure region. Each Availability Zone has a distinct power source, network, cooling, and is logically separate from other Availability Zones within the Azure region.
+Though the cloud feels like it's everywhere, in reality, your data and applications are running in specific physical locations. Unforeseen events can have catastrophic impacts on those physical locations. And for this reason, it makes sense to distribute your data and applications to ensure their availability. Region pairs helps with availability by pairing one Azure region with another region within the same geography (such as US, Europe, or Asia). Availability Zones expands the level of control you have to maintain the availability of your applications and data. An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, cooling, and is logically separate from the other Availability Zones within the Azure region. When Availability Zones are deployed, an Azure region contains three Availability Zones.  
+
+If one Availability Zone is compromised, then the 
 
 What is the customer intent of this article. Why are we building AZ's. Should include information about regions. 
 
@@ -32,7 +34,7 @@ I am an ITPro and application developer, and I want to protect (use Availability
 
 The purpose of Availability Zones is to enable instant failover should one Availability Zone fail. 
 
-![conceptual view of one zone going down in a region](./media/az-overview/three-zones-per-region.png) remove this artwork. AZ's don't have an icon. Need to build a graphic similar to what AWS. John to provide.
+! conceptual view of one zone going down in a region (./media/az-overview/three-zones-per-region.png) John to provide artwork that shows Availability Zones.
 Data residency - 3+1.
 
 
@@ -72,12 +74,20 @@ Public IP
 - D2_v2
 - DS2_v2
 
-## Participate in the Availability Zones preview
+## Get Started with the Availability Zones preview
 
-To participate in the Availability Zones preview, click here and choose the subscriptions you want to enable for the preview.
+The Availability Zone preview is available in the East US 2 and West Europe regions for specific Azure services. 
+
+1. Follow the instructions to sign up for the Availablity Zones (link to signup) preview in your subscription. 
+2. Choose the Azure subscription to use.
+3. Use one of the following links to start using Availabilty Zones with your service. 
+    a. Create a virtual machine.
+    b. Create a public IP.
+    c. Creat a zonal virtual machine scale set.
+    d. Create a Managed Disk.
+    e. Create a Software Load Balancer.
 
 ## Next steps
-- Quickstart templates
-- Enroll in the preview
+- Quickstart templates - this link comes from Raj.
 - [Information on Azure Resiliency](https://azure.microsoft.com/features/resiliency)
 - FAQ
