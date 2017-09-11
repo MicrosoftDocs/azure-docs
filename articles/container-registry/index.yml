@@ -24,7 +24,7 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/container-registry/media/index/container-registry.svg
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
       text: Azure CLI
       href: /azure/container-registry/container-registry-get-started-azure-cli
     - image: 
