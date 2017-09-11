@@ -76,10 +76,10 @@ For more information on Model Management Service, reference [Model Management Ov
 
 
 ## Microsoft Machine Learning Library for Apache Spark
-[MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Library for Apache Spark) is an open-source Spark package that provides deep learning and data science tools for Apache Spark, including integration of [Spark ML Pipelines](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) with [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) and [OpenCV](http://opencv.org/) Library. It enables you to quickly create powerful, highly scalable predictive and analytical models for large image and text datasets. Some highlights include:
+[MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Library for Apache Spark) is an open-source Spark package that provides deep learning and data science tools for Apache Spark, including integration of [Spark ML Pipelines](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) and [OpenCV](http://opencv.org/) Library. It enables you to quickly create powerful, highly scalable predictive and analytical models for large image and text datasets. Some highlights include:
 - Easily ingest images from HDFS into Spark DataFrame
 - Pre-process image data using transforms from OpenCV
-- Featurize images using pre-trained deep neural nets using CNTK
+- Featurize images using pre-trained deep neural nets using the Microsoft Cognitive Toolkit 
 - Use pre-trained bidirectional LSTMs from Keras for medical entity extraction
 - Train DNN-based image classification models on N-Series GPU VMs on Azure
 - Featurize free-form text data using convenient APIs on top of primitives in SparkML via a single transformer
@@ -92,7 +92,7 @@ For more information on Model Management Service, reference [Model Management Ov
 ## Visual Studio Code Tools for Machine Learning
 Visual Studio Code Tools for Machine Learning is an extension in VS Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
 - A run history view displaying the performance of training runs and logged metrics.
-- A gallery view allowing users to browse and bootstrap new projects with CNTK, TensorFlow, and many other deep-learning framework. 
+- A gallery view allowing users to browse and bootstrap new projects with the Microsoft Cognitive Toolkit, TensorFlow, and many other deep-learning framework. 
 - An explorer view for selecting compute targets for your scripts to execute.
  
 
