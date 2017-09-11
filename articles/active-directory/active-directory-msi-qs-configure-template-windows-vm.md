@@ -26,10 +26,10 @@ ms.author: bryanla
 
 As with the Azure portal and scripting, Azure Resource Manager templates provide the ability to deploy new/modified resources defined by an Azure resource group. Several options are available for template editing and deployment, including both locally and portal/web based. A few of which include:
 
-  - Using a [custom template from Azure marketplace](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [QuickStart template](https://azure.microsoft.com/documentation/templates/).
-  - Deriving from an existing resource group, by exporting a template from either [the original deployment](../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), or from the [current state of the deployment](../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
-  - Using a local [JSON editor (such as VS Code)](../azure-resource-manager/resource-manager-create-first-template.md), then upload/deploy using PowerShell or CLI.
-  - Using Visual Studio's [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy template.
+   - Using a [custom template from Azure marketplace](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [QuickStart template](https://azure.microsoft.com/documentation/templates/).
+   - Deriving from an existing resource group, by exporting a template from either [the original deployment](../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), or from the [current state of the deployment](../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
+   - Using a local [JSON editor (such as VS Code)](../azure-resource-manager/resource-manager-create-first-template.md), then upload/deploy using PowerShell or CLI.
+   - Using Visual Studio's [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy template.  
 
 Regardless of the path you take, and because templates work the same during initial deployment or redeployment, you enable MSI on a new or existing VM in the same manner. Also, by default Azure Resource Manager will do an [incremental update](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to your deployment, which is assumed here:
 
@@ -47,11 +47,12 @@ Regardless of the path you take, and because templates work the same during init
 
 3. Then add the VM MSI extension as a `resources` element using the following syntax:
 
->[!NOTE] 
-> The example below assumes you have the `vmName` variable defined in your template.
-> 
-> In this example, a Windows VM extension (`ManagedIdentityExtensionForWindows`) in configured, but you may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
->
+   >[!NOTE] 
+   > The example below assumes 
+   >    - you have the `vmName` variable defined in your template.
+   >    - a Windows VM extension (`ManagedIdentityExtensionForWindows`) in being deployed. You 
+   >      may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
+   >
 
    ```JSON
    { 
@@ -75,17 +76,14 @@ Regardless of the path you take, and because templates work the same during init
    }
    ```
 
-4. When you're done, the VM resource in your template should look like the following screen shot:
+4. When you're done, the VM resource in your template should look like the following example:
 
    ![Template after shot](./media/active-directory-msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 
 ## Remove MSI from an Azure VM
 
-If you have a Virtual Machine that no longer needs an MSI, you can remove the VM's MSI:
-
-   ```JSON
-   ```
+If you have a Virtual Machine that no longer needs an MSI, just remove the 2 elements added above: the VM's `"identity"` property and the `"Microsoft.Compute/virtualMachines/extensions"` resource.
 
 ## Related content
 
@@ -98,8 +96,3 @@ If you have a Virtual Machine that no longer needs an MSI, you can remove the VM
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
-<!--Reference style links IN USE -->
-[AAD-App-Branding]: ./active-directory-branding-guidelines.md
-
-<!--Image references-->
-[AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
