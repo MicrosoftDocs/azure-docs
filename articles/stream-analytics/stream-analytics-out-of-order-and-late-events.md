@@ -25,7 +25,7 @@ In a temporal data stream of events, each event is assigned a timestamp. Azure S
 ![Stream Analytics event handling](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
 Input streams that are not in order are either:
-* Sorted (and therefore **delayed**).
+* Sorted (and therefore *delayed*).
 * Adjusted by the system, according to the user-specified policy.
 
 Stream Analytics tolerates late and out-of-order events when processing by the application time.
