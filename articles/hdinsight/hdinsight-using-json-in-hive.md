@@ -53,8 +53,7 @@ Learn how to process and analyze JavaScript Object Notation (JSON) files by usin
                 "ClassParticipationRank": "Low",
                 "Score": 83,
                 "PerformedActivity": true
-            }
-        ]
+                    ]
     }
 
 The file can be found at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
@@ -62,7 +61,7 @@ The file can be found at **wasb://processjson@hditutorialdata.blob.core.windows.
 In this tutorial, you use the Hive console. For instructions on how to open the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md).
 
 ## Flatten JSON documents
-The methods listed in the next section require that the JSON document be comprised of a single row. So, you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on analyzing JSON data. To flatten the JSON document, run the following script:
+The methods listed in the next section require that the JSON document be composed of a single row. So, you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on analyzing JSON data. To flatten the JSON document, run the following script:
 
     DROP TABLE IF EXISTS StudentsRaw;
     CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
