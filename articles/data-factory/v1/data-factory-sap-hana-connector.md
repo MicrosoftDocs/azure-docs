@@ -18,6 +18,13 @@ ms.author: jingwang
 robots: noindex
 ---
 # Move data From SAP HANA using Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](data-factory-sap-hana-connector.md)
+> * [Version 2 - Preview](../connector-sap-hana.md)
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [SAP HANA connector in V2](../connector-sap-business-warehouse.md).
+
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises SAP HANA. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 You can copy data from an on-premises SAP HANA data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an SAP HANA to other data stores, but not for moving data from other data stores to an SAP HANA.

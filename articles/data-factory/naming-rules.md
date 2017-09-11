@@ -26,3 +26,5 @@ The following table provides naming rules for Data Factory artifacts.
 | Linked Services/Tables/Pipelines |Unique with in a data factory. Names are case-insensitive. |<ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter, number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |
 | Resource Group |Unique across Microsoft Azure. Names are case-insensitive. |<ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”</li></ul> |
 
+## Next steps
+Learn how to create data factories by following step-by-step insturctions in [QUickstart: create a data factory](quickstart-create-data-factory-powershell.md) article. 

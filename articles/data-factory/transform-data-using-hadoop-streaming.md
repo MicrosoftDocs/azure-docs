@@ -3,7 +3,7 @@ title: Transform data using Hadoop Streaming Activity in Azure Data Factory | Mi
 description: Explains how to use Hadoop Streaming Activity in Azure Data Factory to transform data by running Hadoop Streaming programs on a Hadoop cluster. 
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shengcmsft
 manager: jhubbard
 editor: spelluru
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: shlo
+ms.author: shengc
 
 ---
 # Transform data using Hadoop Streaming Activity in Azure Data Factory
@@ -21,7 +21,7 @@ ms.author: shlo
 The HDInsight Streaming Activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes Hadoop Streaming programs on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 > [!NOTE] 
-> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-dot-net.md) before reading this article. 
+> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-powershell.md) before reading this article. 
 
 ## JSON sample
 ```json
@@ -84,8 +84,11 @@ The HDInsight Streaming Activity in a Data Factory [pipeline](concepts-pipelines
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
+* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
 * [Hive Activity](transform-data-using-hadoop-hive.md)
 * [Pig Activity](transform-data-using-hadoop-pig.md)
 * [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
 * [Spark Activity](transform-data-using-spark.md)
-
+* [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
+* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Stored procedure activity](transform-data-using-stored-procedure.md)

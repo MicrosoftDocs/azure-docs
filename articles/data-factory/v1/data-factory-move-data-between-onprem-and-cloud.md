@@ -1,7 +1,6 @@
 ---
 title: Move data - Data Management Gateway | Microsoft Docs
 description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
-keywords: data gateway, data integration, move data, gateway credentials
 services: data-factory
 documentationcenter: ''
 author: nabhishek

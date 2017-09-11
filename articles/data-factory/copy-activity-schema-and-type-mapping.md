@@ -17,3 +17,11 @@ ms.author: jingwang
 
 ---
 # Schema mapping in copy activity
+
+## Next steps
+See the other Copy Activity articles:
+
+- [Copy activity overview](copy-activity-overview.md)
+- [Copy activity fault tolerance](copy-activity-fault-tolerance.md)
+- [Copy activity performance](copy-activity-performance.md)
+- [Copy activity security considerations](copy-activity-security-considerations.md)

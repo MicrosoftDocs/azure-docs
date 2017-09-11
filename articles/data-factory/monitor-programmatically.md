@@ -17,3 +17,7 @@ ms.author: spelluru
 
 ---
 # Programmatically monitor an Azure data factory 
+
+## Next steps
+See [Monitor pipelines using Azure Monitor](monitor-using-azure-monitor.md) article to learn about using Azure Monitor to monitor Data Factory pipelines. 
+

@@ -19,6 +19,9 @@ ms.author: spelluru
 robots: noindex
 ---
 # Azure Data Factory - .NET API change log
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). 
+
 This article provides information about changes to Azure Data Factory SDK in a specific version. You can find the latest NuGet package for Azure Data Factory [here](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
 ## Version 4.11.0

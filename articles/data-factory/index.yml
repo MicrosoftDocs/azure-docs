@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Factory V2 Public Preview Documentation
+title: Azure Data Factory V2 Preview Documentation
 metadata:
   title: Azure Data Factory Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis. 
@@ -11,10 +11,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/07/2017
+  ms.date: 09/08/2017
   ms.author: spelluru
 abstract:
-  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in public preview. The version V1 is generally available (GA). If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation</a></p>. 
+  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in preview. The version V1 is generally available (GA). If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -32,9 +32,17 @@ sections:
       text: PowerShell
       href: /azure/data-factory/quickstart-create-data-factory-powershell
     - image: 
+        src: /azure/data-factory/media/index/logo_rest.svg
+      text: REST
+      href: /azure/data-factory/quickstart-create-data-factory-rest-api  
+    - image: 
         src: /azure/data-factory/media/index/logo_python.svg
       text: Python
-      href: /azure/data-factory/quickstart-create-data-factory-python
+      href: /azure/data-factory/quickstart-create-data-factory-portal
+    - image: 
+        src: /azure/data-factory/media/index/logo_portal.svg
+      text: Python
+      href: /azure/data-factory/quickstart-create-data-factory-portal      
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -43,8 +51,8 @@ sections:
     style: ordered
     items:
     - html: Copy data in cloud &#58; <a href="/azure/data-factory/tutorial-copy-data-dot-net.md">.NET</a>
-    - html: Copy on-prem data to cloud&#58; <a href="../data-factory/tutorial-copy-onprem-data-to-cloud-dot-net.md">.NET</a>
-    - html: Transform data in cloud&#58; <a href="../data-factory/tutorial-transform-data-using-spark-dot-net.md">.NET</a>    
+    - html: Copy on-prem data to cloud&#58; <a href="../data-factory/tutorial-copy-onprem-data-to-cloud-powershell.md">PowerShell</a>
+    - html: Transform data in cloud&#58; <a href="../data-factory/tutorial-transform-data-using-spark-powershell.md">.NET</a>    
     - html: Control flow&#58; <a href="../data-factory/tutorial-control-flow.md">.NET</a>   
     - html: Bulk and incremental copy&#58; <a href="../data-factory/tutorial-bulk-incremental-copy.md">.NET</a>            
 - title: Reference

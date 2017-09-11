@@ -22,7 +22,7 @@
 | **File** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |✓ | |
 | &nbsp; |[File System](../articles/data-factory/connector-file-system.md)* |✓ |✓ |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |
-| &nbsp; |[HDFS](../articles/data-factory/connector-hadoop-distributed-file-system.md)* |✓ | |
+| &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md)* |✓ | |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |
 | **Others** |[Generic HTTP](../articles/data-factory/connector-http.md) |✓ | |
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |✓ | |

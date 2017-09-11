@@ -3,7 +3,7 @@ title: Transform data using Pig Activity in Azure Data Factory | Microsoft Docs
 description: Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shengcmsft
 manager: jhubbard
 editor: spelluru
 
@@ -13,15 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: shlo
+ms.author: shengc
 
 ---
 # Transform data using Pig Activity in Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-pig-activity.md)
+> * [Version 2 - Preview](transform-data-using-hadoop-pig.md)
 
 The HDInsight Pig activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes Pig queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
-> [!NOTE] 
-> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-dot-net.md) before reading this article. 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Pig Activity in V1](v1/data-factory-pig-activity.md).
+
+If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-powershell.md) before reading this article. 
 
 ## Syntax
 
@@ -67,7 +72,11 @@ The HDInsight Pig activity in a Data Factory [pipeline](concepts-pipelines-activ
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
+* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
 * [Hive Activity](transform-data-using-hadoop-hive.md)
 * [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
 * [Spark Activity](transform-data-using-spark.md)
+* [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
+* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Stored procedure activity](transform-data-using-stored-procedure.md)

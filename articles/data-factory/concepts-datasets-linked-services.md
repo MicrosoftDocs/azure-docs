@@ -192,6 +192,6 @@ See the following tutorial for step-by-step instructions for creating pipelines 
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-python.md)
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-rest-api.md)
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-portal.md)
+- [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md)
+- [Quickstart: create a data factory using Python](quickstart-create-data-factory-python.md)
+- [Quickstart: create a data factory using Azure portal](quickstart-create-data-factory-portal.md)

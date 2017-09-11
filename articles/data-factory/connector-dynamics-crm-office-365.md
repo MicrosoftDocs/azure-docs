@@ -17,7 +17,6 @@ ms.author: jingwang
 
 ---
 # Copy data from Dynamics 365/Dynamics CRM using Azure Data Factory
-
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Dynamics 365/Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported scenarios

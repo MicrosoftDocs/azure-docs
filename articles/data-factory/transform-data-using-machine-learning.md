@@ -3,9 +3,9 @@ title: Create predictive data pipelines using Azure Data Factory | Microsoft Doc
 description: Learn how to create a predictive pipeline by using Azure Machine Learning - Batch Execution Activity in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: shengcmsft
 manager: jhubbard
-editor: 
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: spelluru
+ms.author: shengc
 
 ---
 # Create predictive pipelines using Azure Machine Learning and Azure Data Factory
@@ -220,4 +220,13 @@ After you are done with retraining, update the scoring web service (predictive e
 
 
 ## Next steps
-Read through the [Azure blog post: Getting started with Azure Data Factory and Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+See the following articles that explain how to transform data in other ways: 
+
+* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
+* [Hive Activity](transform-data-using-hadoop-hive.md)
+* [Pig Activity](transform-data-using-hadoop-pig.md)
+* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
+* [Spark Activity](transform-data-using-spark.md)
+* [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
+* [Stored procedure activity](transform-data-using-stored-procedure.md)

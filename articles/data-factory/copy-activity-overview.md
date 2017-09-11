@@ -155,4 +155,4 @@ See the following quickstarts, tutorials, and samples:
 
 - [Copy data from one location to another location in the same Azure Blob Storage](quickstart-create-data-factory-dot-net.md)
 - [Copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Copy data from on-premises SQL Server to Azure](tutorial-copy-onprem-data-to-cloud-dot-net.md)
+- [Copy data from on-premises SQL Server to Azure](tutorial-copy-onprem-data-to-cloud-powershell.md)

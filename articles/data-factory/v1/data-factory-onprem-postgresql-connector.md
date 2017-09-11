@@ -19,6 +19,14 @@ ms.author: jingwang
 robots: noindex
 ---
 # Move data from PostgreSQL using Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](data-factory-onprem-postgresql-connector.md)
+> * [Version 2 - Preview](../connector-postgresql.md)
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [PostgreSQL connector in V2](../connector-postgresql.md).
+
+
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises PostgreSQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 You can copy data from an on-premises PostgreSQL data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory currently supports moving data from a PostgreSQL database to other data stores, but not for moving data from other data stores to an PostgreSQL database. 

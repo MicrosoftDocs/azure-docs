@@ -3,9 +3,9 @@ title: Transform data using U-SQL script - Azure | Microsoft Docs
 description: Learn how to process or transform data by running U-SQL scripts on Azure Data Lake Analytics compute service.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: shengcmsft
 manager: jhubbard
-editor: 
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,16 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: spelluru
+ms.author: shengc
 
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-usql-activity.md)
+> * [Version 2 - Preview](transform-data-using-data-lake-analytics.md)
+
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
 
 > [!NOTE]
-> Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
->
-> Review the [Quickstart: create a data factory](quickstart-create-data-factory-dot-net.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline.
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [USQL Activity in V1](v1/data-factory-usql-activity.md).
+
+Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+
 
 ## Azure Data Lake Analytics Linked Service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
@@ -173,3 +178,14 @@ It is possible to use dynamic parameters instead. For example:
 
 In this case, input files are still picked up from the /datalake/input folder and output files are generated in the /datalake/output folder. The file names are dynamic based on the slice start time.  
 
+## Next steps
+See the following articles that explain how to transform data in other ways: 
+
+* [Hive Activity](transform-data-using-hadoop-hive.md)
+* [Pig Activity](transform-data-using-hadoop-pig.md)
+* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
+* [Spark Activity](transform-data-using-spark.md)
+* [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
+* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Stored procedure activity](transform-data-using-stored-procedure.md)

@@ -565,7 +565,8 @@ Expression for gathering the output of all the iterations of a ForEach is `@acti
 See other control flow activities supported by Data Factory: 
 
 - [If condition](control-flow-if-condition.md)
-- [Do Until Activity](control-flow-do-until-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
+- [For Each Activity](control-flow-do-until-activity.md)
 - [Get Metadata Activity](control-flow-get-metadata-activity.md)
 - [Lookup Activity](control-flow-lookup-activity.md)
+- [Web Activity](control-flow-web-activity.md)

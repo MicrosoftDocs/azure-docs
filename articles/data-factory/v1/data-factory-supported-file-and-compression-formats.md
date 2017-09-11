@@ -1,7 +1,6 @@
 ---
 title: File and compression formats in Azure Data Factory | Microsoft Docs
 description: 'Learn about the file formats supported by Azure Data Factory.'
-keywords: blob data, azure blob copy
 services: data-factory
 documentationcenter: ''
 author: linda33wj

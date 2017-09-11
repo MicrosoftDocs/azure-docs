@@ -69,3 +69,10 @@ Here is performance monitoring and tuning references for some of the supported d
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md)
 * On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
 * On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)
+
+## Next steps
+See the other Copy Activity articles:
+
+- [Copy activity overview](copy-activity-overview.md)
+- [Copy activity fault tolerance](copy-activity-fault-tolerance.md)
+- [Copy activity security considerations](copy-activity-security-considerations.md)
