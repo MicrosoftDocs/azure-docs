@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 09/08/2017
 ms.author: carolz
 ---
-# Azure Machine Learning Documentation
+# Azure Machine Learning
 
-Learn how data scientists and developers use Machine Learning to embed predictive analytics into applications. Tutorials, videos, and example models show you how to build and deploy machine learning models.
+Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models. Learn how to build and deploy models for any of your applications with our quickstarts, tutorials, documents, and samples. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +29,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Machine Learning (preview)</h3>
+                        <h3>Learn about our new Azure Machine Learning preview features, including Azure Machine Learning Experimentation Service, Model Management, and Workbench. </h3>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ By the end of this document, you should be able to have your model management en
 
 ## What you need to get started
 To get the most out of this guide, you should have owner access to an Azure subscription that you can deploy your models to.
-The CLI comes pre-installed on the Azure ML Workbench and on [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+The CLI comes pre-installed on the Azure Machine Learning Workbench and on [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## Using the CLI
 To use the command-line interfaces (CLIs) from the Workbench, click **File** -> **Open CommandLine Interface**. 
@@ -55,7 +55,8 @@ pip uninstall azure-cli-ml
 Run the following command from the command line, and follow the prompts:
 
 ```bash
-wget -q https://raw.githubusercontent.com/Azure/Machine-Learning-Operationalization/master/scripts/amlupdate.sh -O - | sudo bash -
+sudo pip install azure-cli
+sudo pip install azure-cli-ml
 sudo /opt/microsoft/azureml/initial_setup.sh
 ```
 
@@ -144,7 +145,7 @@ az ml account modelmanagement set -n <your account name> -g <resource group it w
 You are now ready to deploy your saved model as a web service. 
 
 ```azurecli
-az ml service create realtime --model-file <model file/folder path> -f <scoring file e.g. score.py> -n <your service name> -s <schema file e.g. service_schema.json> -r <runtime for the Docker container e.g. spark-py or python>
+az ml service create realtime --model-file <model file/folder path> -f <scoring file e.g. score.py> -n <your service name> -s <schema file e.g. service_schema.json> -r <runtime for the Docker container e.g. spark-py or python> -c <conda dependencies file for additional python packages>
 ```
 
 ### Next Steps
