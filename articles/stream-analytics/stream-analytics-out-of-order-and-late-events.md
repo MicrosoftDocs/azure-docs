@@ -41,7 +41,7 @@ Adjustment based on late arrival tolerance is done first and out of order is don
 
 **Out of order tolerance**
 
-* Events that arrive out of order, but within the set of the "out of order tolerance window" are *reordered by timestamp*. 
+* Events that arrive out of order, but within the "out of order tolerance window" are *reordered by timestamp*. 
 * Events that arrive later than tolerance are either *dropped* or *adjusted*.
     * **Adjusted**: Adjusted to appear to have arrived at the latest acceptable time. 
     * **Dropped**: Discarded.
