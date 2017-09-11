@@ -31,9 +31,13 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
    - Using a local [JSON editor (such as VS Code)](../azure-resource-manager/resource-manager-create-first-template.md), then upload/deploy using PowerShell or CLI.
    - Using Visual Studio's [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy template.  
 
-Regardless of the path you take, and because templates work the same during initial deployment or redeployment, you enable MSI on a new or existing VM in the same manner. Also, by default Azure Resource Manager will do an [incremental update](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to your deployment, which is assumed here:
+Regardless of the path you take, template syntax is the same during initial deployment and redeployment, so enabling MSI on a new or existing VM is done in the same manner. Also, by default Azure Resource Manager does an [incremental update](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments:
 
-1. After loading the template into an editor for updating, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section of the template. Your properties may look slightly different from this screen shot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one:
+1. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours may look slightly different from this screen shot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one:
+
+   >[!NOTE] 
+   > Step 2 also assumes the variables `vmName`, `storageAccountName`, and `nicName` are defined in your template.
+   >
 
    ![Template before screen shot - locate VM](./media/active-directory-msi-qs-configure-template-windows-vm/template-file-before.png) 
 
@@ -48,10 +52,7 @@ Regardless of the path you take, and because templates work the same during init
 3. Then add the VM MSI extension as a `resources` element using the following syntax:
 
    >[!NOTE] 
-   > The example below assumes 
-   >    - you have the `vmName` variable defined in your template.
-   >    - a Windows VM extension (`ManagedIdentityExtensionForWindows`) in being deployed. You 
-   >      may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
+   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) in being deployed. You may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
    >
 
    ```JSON
@@ -76,14 +77,13 @@ Regardless of the path you take, and because templates work the same during init
    }
    ```
 
-4. When you're done, the VM resource in your template should look like the following example:
+4. When you're done, your template should look similar to the following example:
 
    ![Template after shot](./media/active-directory-msi-qs-configure-template-windows-vm/template-file-after.png) 
 
-
 ## Remove MSI from an Azure VM
 
-If you have a Virtual Machine that no longer needs an MSI, just remove the 2 elements added above: the VM's `"identity"` property and the `"Microsoft.Compute/virtualMachines/extensions"` resource.
+If you have a Virtual Machine that no longer needs an MSI, just remove the two elements added in the previous example: the VM's `"identity"` property and the `"Microsoft.Compute/virtualMachines/extensions"` resource.
 
 ## Related content
 
