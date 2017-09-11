@@ -169,7 +169,74 @@ In either case, the **Run History Comparison** view provides a means to see the 
 
 ![run history comparison](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-12.png)
 
-This view is especially useful for comparison of plots.
+This view is especially useful for comparison of plots, but in general, any properties of runs can be compared here.
+
+### Command Line Interface
+Azure Machine Learning Workbench also provides access to Run History through its **Command Line Interface**.
+To access the **Command Line Interface**, click the **Open Command Prompt** menu as shown.
+
+![open command prompt](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-14.png)
+
+The commands available for Run History are accessed via `az ml history`, with online help available by adding the `-h` flag.
+```
+$ az ml history -h
+
+Group
+    az ml history: View run history of machine learning experiments.
+
+Commands:
+    compare : Compare two runs.
+    download: Download all the artifacts from a run into the destination path.
+    info    : Details about one run.
+    last    : Get detail about most recent run.
+    list    : List runs.
+    promote : Promote Artifacts.
+```
+These commands provide the same features and return the same data shown the **Run History Views**.
+For example, the results of last run can be displayed as a JSON object.
+```
+$ az ml history last
+{
+  "Accuracy": 0.6792452830188679,
+  "Regularization Rate": 0.078125,
+  "attachments": "control_log, control_log.txt, driver_log, driver_log.txt, pid.txt, dataprep/backgroundProcess.log, dataprep/backgroundProcess_Engine.log, dataprep/backgroundProcess_EngineHost.log, dataprep/backgroundProcess_ProjectProvider.log, dataprep/backgroundProcess_Sampling.log, dataprep/backgroundProcess_Telemetry.log, outputs/cm.png, outputs/model.pkl, outputs/sdk_debug.txt, outputs/roc.png",
+  "created_utc": "2017-09-08T00:58:01.611105+00:00",
+  "description": null,
+  "duration": "0:00:04.892389",
+  "end_time_utc": "2017-09-08T00:58:07.951403+00:00",
+  "experiment_id": "ce92d0a9-3e2c-4d51-85de-93ef22249ce1",
+  "heartbeat_enabled": true,
+  "hidden": false,
+  "name": null,
+  "parent_run_id": null,
+  "properties": {
+    "CommitId": "e77a5f0df2af1a482bbe39b70bfbb16b62228cb3"
+  },
+  "run_id": "IrisDemo_1504832281116",
+  "run_number": 8,
+  "script_name": "iris_sklearn.py",
+  "start_time_utc": "2017-09-08T00:58:03.059014+00:00",
+  "status": "Completed",
+  "target": "local",
+  "user_id": "e9fafe06-b0e4-4154-8374-aae34f9977b2"
+}
+```
+Also, the list of all runs can be displayed in a tabular format.
+```
+$ az ml history list -o table
+  Accuracy    Regularization Rate  Duration        Run_id                  Script_name      Start_time_utc                    Status
+----------  ---------------------  --------------  ----------------------  ---------------  --------------------------------  ---------
+  0.679245               0.078125  0:00:04.892389  IrisDemo_1504832281116  iris_sklearn.py  2017-09-08T00:58:03.059014+00:00  Completed
+  0.679245               0.15625   0:00:04.734956  IrisDemo_1504832255198  iris_sklearn.py  2017-09-08T00:57:38.507196+00:00  Completed
+  0.660377               0.3125    0:00:04.913762  IrisDemo_1504832234904  iris_sklearn.py  2017-09-08T00:57:16.849881+00:00  Completed
+  0.660377               0.625     0:00:06.107764  IrisDemo_1504832210767  iris_sklearn.py  2017-09-08T00:56:54.602813+00:00  Completed
+  0.641509               1.25      0:00:04.742727  IrisDemo_1504832171373  iris_sklearn.py  2017-09-08T00:56:13.879280+00:00  Completed
+  0.660377               2.5       0:00:04.915401  IrisDemo_1504832148526  iris_sklearn.py  2017-09-08T00:55:52.937083+00:00  Completed
+  0.641509               5         0:00:04.730627  IrisDemo_1504832127172  iris_sklearn.py  2017-09-08T00:55:29.612382+00:00  Completed
+  0.641509              10         0:00:06.059082  IrisDemo_1504832109906  iris_sklearn.py  2017-09-08T00:55:14.739806+00:00  Completed
+
+```
+The **Command Line Interface** is an alternative pathway to access the power of Azure Machine Learning Workbench.
 
 ## Next Steps
 These features are available to assist with the process of data science experimentation.
