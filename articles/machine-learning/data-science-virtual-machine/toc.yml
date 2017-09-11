@@ -21,7 +21,7 @@
     href: vm-do-ten-things.md
   - name: Use Linux DSVM
     href: linux-dsvm-walkthrough.md
-  - name: Use Deep Learning DSVM
+  - name: Using Deep Learning
     href: use-deep-learning-dsvm.md
 - name: Reference
   - name: Deep Learning and AI frameworks
@@ -43,9 +43,9 @@
 - name: Resources
   items:
   - name: Blog
-    href: http://blogs.technet.com/b/machinelearning/
+    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
+    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+    href: https://stackoverflow.com/search?q=dsvm
 
