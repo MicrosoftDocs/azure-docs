@@ -19,7 +19,14 @@ ms.author: jingwang
 robots: noindex
 ---
 # Copy data to/from on-premises Oracle using Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-onprem-oracle-connector.md)
+> * [Version 2 - Preview](connector-oracle.md)
+
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from an on-premises Oracle database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Oracle connector in V1](v1/data-factory-onprem-oracle-connector.md).
 
 ## Supported scenarios
 You can copy data **from an Oracle database** to the following data stores:

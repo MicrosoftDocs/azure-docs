@@ -96,7 +96,7 @@
       - name: FTP
         href: connector-ftp.md
       - name: HDFS
-        href: connector-hadoop-distributed-file-system.md
+        href: connector-hdfs.md
       - name: HTTP
         href: connector-http.md
       - name: MongoDB
