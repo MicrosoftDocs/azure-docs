@@ -144,84 +144,85 @@ cf push
 
 ## Validate the Nozzle installation
 
-### From Apps Manager (For PCF)
+### From Apps Manager (for PCF)
 
-1. Log in to Ops Manager, make sure the tile is displayed on the installation dashboard.
-2. Log in to Apps Manager, make sure the space you have created for the Nozzle is listed on the usage report, and the status is normal.
+1. Sign in to Ops Manager, and make sure the tile is displayed on the installation dashboard.
+2. Sign in to Apps Manager, make sure the space you have created for the Nozzle is listed on the usage report, and confirm that the status is normal.
 
-### From dev box
+### From your development computer
 
-On your Dev box CF CLI window, type:
+In the CF CLI window, type:
 ```
 cf apps
 ```
 Make sure the OMS Nozzle application is running.
 
-## View the data in OMS portal
+## View the data in the OMS portal
 
-### 1. Import OMS view
+### 1. Import the OMS view
 
-From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, select one of the omsview files, for example, *Cloud Foundry.omsview*, and save the view. Now a **Tile** is displayed on the main OMS Overview page. Click the **Tile**, it shows visualized metrics.
+From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, and select one of the omsview files. For example, select *Cloud Foundry.omsview*, and save the view. Now a tile is displayed on the OMS **Overview** page. Select it to see visualized metrics.
 
-Operators could customize these views or create new views through **View Designer**.
+Operators can customize these views or create new views through **View Designer**.
 
-The *"Cloud Foundry.omsview"* is a preview version of Cloud Foundry OMS view template, a fully configured default template is in progress, please send your suggestions and feedback to the [Issue Section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
+The *"Cloud Foundry.omsview"* is a preview version of the Cloud Foundry OMS view template. This is a fully configured, default template. If you have suggestions or feedback about the template, send them to the [issue section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
 ### 2. Create alert rules
 
-Operators can [create the alerts](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), customize the queries and threshold values as needed. Following are a set of recommended alerts.
+Operators can [create the alerts](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), and customize the queries and threshold values as needed. The following are recommended alerts:
 
 | Search query                                                                  | Generate alert based on | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Number of results < 1   | **bbs.Domain.cf-apps** indicates if the cf-apps Domain is up-to-date, meaning that CF App requests from Cloud Controller are synchronized to bbs.LRPsDesired (Diego-desired AIs) for execution. No data received means cf-apps Domain is not up-to-date in the given time window. |
-| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Number of results > 0   | For Diego cells, 0 means healthy, and 1 means unhealthy. Set the alert if multiple **unhealthy Diego cells** are detected in the given time window. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Number of results < 1   | **bbs.Domain.cf-apps** indicates if the cf-apps Domain is up-to-date. This means that CF App requests from Cloud Controller are synchronized to bbs.LRPsDesired (Diego-desired AIs) for execution. No data received means cf-apps Domain is not up-to-date in the specified time window. |
+| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Number of results > 0   | For Diego cells, 0 means healthy, and 1 means unhealthy. Set the alert if multiple unhealthy Diego cells are detected in the specified time window. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Number of results > 0 | 1 means the system is healthy, and 0 means the system is not healthy. |
-| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Number of results > 0   | Consul emits its health status periodically. 0 means the system is healthy, and 1 means that route emitter detects that **Consul is down**. |
-| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Number of results > 0 | The delta number of messages intentionally **dropped** by Doppler due to back pressure. |
-| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Number of results > 0   | Loggregator emits **LGR** to indicate problems with the logging process, for example, when log message output is too high. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Number of results > 0   | When the nozzle receives slow consumer alert from Loggregator, it sends **slowConsumerAlert** ValueMetric to OMS. |
-| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Number of results > 0   | If the delta number of **lost events** reaches a threshold, it means the nozzle might have some problem running. |
+| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Number of results > 0   | Consul emits its health status periodically. 0 means the system is healthy, and 1 means that the route emitter detects that Consul is down. |
+| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Number of results > 0 | The delta number of messages intentionally dropped by Doppler due to back pressure. |
+| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Number of results > 0   | Loggregator emits **LGR** to indicate problems with the logging process. An example of such a problem is when the log message output is too high. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Number of results > 0   | When the Nozzle receives a slow consumer alert from Loggregator, it sends the **slowConsumerAlert** ValueMetric to OMS. |
+| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Number of results > 0   | If the delta number of lost events reaches a threshold, it means the Nozzle might have a problem running. |
 
 ## Scale
 
+You can scale the Nozzle and the loggregator.
+
 ### Scale the Nozzle
 
-We recommend operators to start with at least two instances of the nozzle. The firehose distributes the workload across all instances of the nozzle.
-To make sure the nozzle can keep up with the data traffic from the firehose, the operator should set up the **slowConsumerAlert** alert listed in the "Create Alert Rules" section; once alerted, follow the [guidance for slow nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed.
-To scale up the nozzle, use Apps Manager or the CF CLI to increase the instance numbers or memory/disk resources for the nozzle.
+Operators should start with at least two instances of the Nozzle. The firehose distributes the workload across all instances of the Nozzle.
+To make sure the Nozzle can keep up with the data traffic from the firehose, set up the **slowConsumerAlert** alert (listed in the preceding section, "Create Alert Rules"). Once alerted, follow the [guidance for slow Nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed.
+To scale up the Nozzle, use Apps Manager or the CF CLI to increase the instance numbers or the memory or disk resources for the Nozzle.
 
-### Scale the Loggregator
+### Scale the loggregator
 
-Loggregator sends **LGR** log message to indicate problems with the logging process. The operator can monitor the alert to determine whether the loggregator needs to be scaled up.
-To scale up the loggregator, the operator can either increase Doppler buffer size or add additional Doppler server instances in the CF manifest, for details, check [the guidance for scaling the Loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
+Loggregator sends an **LGR** log message to indicate problems with the logging process. You can monitor the alert to determine whether the loggregator needs to be scaled up.
+To scale up the loggregator, either increase the Doppler buffer size, or add additional Doppler server instances in the CF manifest. For more information, see [the guidance for scaling the loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
 ## Update
 
-To update the Nozzle with a newer version, download the new Nozzle release, follow the steps in "Deploy" section, push the application again.
+To update the Nozzle with a newer version, download the new Nozzle release, follow the steps in the preceding "Deploy the Nozzle" section, and push the application again.
 
-To remove the Nozzle, follow these steps:
+### Remove the Nozzle from the Ops Manager
 
-### From the Ops Manager
+1. Sign in to Ops Manager.
+2. Locate the **Microsoft Azure Log Analytics Nozzle for PCF** tile.
+3. Select the garbage icon, and confirm the deletion.
 
-1. Log in to Ops Manager
-2. Locate the "Microsoft Azure Log Analytics Nozzle for PCF" tile
-3. Click the garbage icon, confirm the deleting action.
-
-### From the dev box
+### Remove the Nozzle from your development computer
 
 On your CF CLI window, type:
 ```
 cf delete <App Name> -r
 ```
 
-If you remove the Nozzle, the data in OMS portal is not automatically removed, it expires based on your OMS log analytics retention setting.
+If you remove the Nozzle, the data in OMS portal is not automatically removed. It expires based on your OMS Log Analytics retention setting.
 
 ## Support and feedback
 
-Azure Log Analytics Nozzle is open sourced, send your questions and feedback to the [github section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). 
-To open Azure support request, use the "Virtual Machine running Cloud Foundry" as the service category. 
+Azure Log Analytics Nozzle is open sourced. Send your questions and feedback to the [GitHub section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). 
+To open an Azure support request, choose "Virtual Machine running Cloud Foundry" as the service category. 
 
 ## Next step
 
-In addition to the Cloud Foundry metrics that is covered in the Nozzle, you can utilize OMS agent to gain insights to the VM level operational data (Syslog, Performance, Alerts, Inventory), it is installed as a Bosh Addon to your CF VMs.
-> See [Deploy OMS agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease) for details.
+In addition to the Cloud Foundry metrics covered in the Nozzle, you can also use OMS agent to gain insights into VM-level operational data (such as Syslog, Performance, Alerts, Inventory). OMS agent is installed as a Bosh add-on to your CF VMs.
+
+For details, see [Deploy OMS agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease).
