@@ -87,12 +87,7 @@ If you have a Virtual Machine that no longer needs an MSI, just remove the two e
 
 ## Related content
 
-- [Managed Service Identity overview](active-directory-msi-qs-configure-portal-windows-vm.md)
-
-## Next steps
-
-- Assign an MSI access to Azure Resource Manager
-- Get a token using Managed Service Identity 
+- [Managed Service Identity overview](active-directory-msi-overview.md)
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

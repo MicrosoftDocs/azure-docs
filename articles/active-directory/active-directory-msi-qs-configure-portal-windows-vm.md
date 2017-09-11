@@ -52,18 +52,7 @@ If you have a Virtual Machine that no longer needs an MSI:
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](../active-directory/active-directory-msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity overview](active-directory-msi-overview.md).
 - This article is adapted from the [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) QuickStart, modified to include MSI-specific instructions. 
 
-## Next steps
-
-- TODO: Assign an MSI access to Azure Resource Manager
-- TODO: Get a token using Managed Service Identity 
-
 Use the following comments section to provide feedback and help us refine and shape our content.
-
-<!--Reference style links IN USE -->
-[AAD-App-Branding]: ./active-directory-branding-guidelines.md
-
-<!--Image references-->
-[AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
