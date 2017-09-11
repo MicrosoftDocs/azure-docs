@@ -82,24 +82,27 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+
 ## Create a Ruby web app on Azure
 
 A resource group is required to contain the assets needed for your web app. To create a resource group, use the [az group create]() command.
 
 ```azurecli-interactive
-az group create --location westeurop --name myResourceGroup
+az group create --location westeurope --name myResourceGroup
 ```
 
 Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) command to create an app service plan for your web app.
 
 ```azurecli-interactive
-  az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
 Next, issue the [az webapp create](https://docs.microsoft.com/cli/azure/webapp) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
 
 ```azurecli-interactive
-  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
+--runtime "ruby|2.3" --deployment-local-git
 ```
 
 The output from the command reveals information about the newly created web app as well as the deployment URL. It should look similar to the following sample. Copy the URL for later use in this tutorial.
