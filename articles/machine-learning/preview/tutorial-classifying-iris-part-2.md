@@ -237,7 +237,7 @@ C:\Temp\myIris> az ml computetarget attach --name myhdi --address <cluster name>
 REM prepare the HDI cluster
 C:\Temp\myIris> az ml experiment prepare -c myhdi
 ```
->Note: the `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is NOT ༖༗. That is the other user created during provisioning to enable access the cluster's admin web UI. 
+>Note: the `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is not `admin`. That is the other user created during provisioning to enable access the cluster's admin web site. 
 
 Issue the following command and the script runs in the HDI cluster:
 ```batch
