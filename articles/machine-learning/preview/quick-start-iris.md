@@ -22,7 +22,7 @@ In this quickstart, you take a quick tour of Azure Machine Learning preview feat
 - Deploy and test the model as a web service 
 
 # Prerequisite:  Provision and Install Azure Machine Learning Workbench
-Follow the [installation](./quick-start-installation) guide to create Azure resources and install the Azure ML Workbench app.
+Follow the [installation](./quick-start-installation.md) guide to create Azure resources and install the Azure ML Workbench app.
 
 # Create a New Project with _Classifying Iris_ Sample Template 
 1. Launch the Azure ML Workbench app. 
