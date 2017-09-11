@@ -19,7 +19,7 @@ ms.author: apimpm
 This tutorial describes how to make changes to your API safely, and communicate the change to your developers.
 
 ## Prerequisites
-To complete this tutorial, you will need to have [created an API Management Service](api-management-getstarted-create-service-instance.md), and have either followed the previous getting started articles, or have an existing API you can alter (in place of Conference API).
+To complete this tutorial, you will need to have [created an API Management Service](api-management-getstarted-create-service-instance.md), and have an existing API you can alter (in place of Conference API).
 
 ## About revisions
 When your API is ready to go and starts to be used by developers, you usually need to take care in making changes to that API - so as not to disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**.

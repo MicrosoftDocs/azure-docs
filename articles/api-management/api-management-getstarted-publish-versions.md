@@ -19,7 +19,7 @@ ms.author: apimpm
 This tutorial describes how to set up versions of your API, and choose the way in which they are called by API developers.
 
 ## Prerequisites
-To complete this tutorial, you will need to have [created an API Management Service](api-management-getstarted-create-service-instance.md), and have either followed the previous getting started articles, or have an existing API you can alter (in place of Conference API).
+To complete this tutorial, you will need to have [created an API Management Service](api-management-getstarted-create-service-instance.md), and have an existing API you can alter (in place of Conference API).
 
 ## About versions
 Sometimes it is impractical to have all callers to your API use exactly the same version. Sometimes you will want to publish new or different API features to some users, while others will want to stick they API that currently works for them. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach.  We can do this using **versions** in Azure API Management.
@@ -69,6 +69,3 @@ For callers to see your new version, it must be added to a **product** (products
 3. Select **v1**.
 4. Notice the **Request URL** of the first operation in the list. It shows that the API URL path include **v1**.
 ![Version shown on developer portal](media/api-management-getstarted-publish-versions/VersionDevPortal.PNG)
-
-## Next steps
-[Monitor a published API](#api-management-getstarted-publish-versions.md)
