@@ -48,7 +48,7 @@ Regardless of the path you take, and because templates work the same during init
 3. Then add the VM MSI extension as a `resources` element using the following syntax:
 
 >[!NOTE] 
-> The example below assumes you have the `vmName` and `roleAssignmentId` variables defined in your template.
+> The example below assumes you have the `vmName` variable defined in your template.
 > 
 > In this example, a Windows VM extension (`ManagedIdentityExtensionForWindows`) in configured, but you may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
 >
@@ -73,27 +73,6 @@ Regardless of the path you take, and because templates work the same during init
            "protectedSettings": {}
        }
    }
-   ```
-
-   ```JSON
-   {
-       "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "myVM/MSIExtension",
-       "apiVersion": "2017-03-30",
-       "location": "westus",
-       "properties": {
-           "publisher": "Microsoft.ManagedIdentity",
-           "type": "ManagedIdentityExtensionForWindows",
-           "typeHandlerVersion": "1.0",
-           "autoUpgradeMinorVersion": true,
-           "settings": {
-               "port": 50342
-           }
-       },
-       "dependsOn": [
-           "Microsoft.Compute/virtualMachines/myVM"
-       ]
-   },   
    ```
 
 4. When you're done, the VM resource in your template should look like the following screen shot:
