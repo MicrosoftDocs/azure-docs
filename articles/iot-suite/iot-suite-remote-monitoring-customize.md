@@ -16,7 +16,10 @@ ms.workload: NA
 
 # Customize the remote monitoring preconfigured solution
 
-This article provides information about how you can access the source code for the remote monitoring preconfigured solution. It describes the GitHub repositories that contain the source code and resources for the microservices that make up the preconfigured solution.
+This article provides information about how you can access the source code and customize the remote monitoring preconfigured solution. The article describes:
+
+* The GitHub repositories that contain the source code and resources for the microservices that make up the preconfigured solution.
+* Common customization scenarios such as adding a new device type.
 
 ## Project overview
 
