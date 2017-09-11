@@ -56,11 +56,20 @@ Select the **Just in time VM access** tile and the **Just in time VM access** bl
 The **Just in time VM access** blade provides information on the state of your VMs:
 
 - **Configured** - VMs that have been configured to support just in time VM access. The data presented is for the last week and includes for each VM the number of approved requests, last access date and time, and last user.
-- **Recommended** - VMs that can support just in time VM access but have not been configured to. We recommend that you enable just in time VM access control for these VMs. See [Enable just in time VM access](#enable-just-in-time-vm-access).
+- **Recommended** - VMs that can support just in time VM access but have not been configured to. We recommend that you enable just in time VM access control for these VMs. See [configuring a just in time access policy](#configuring-a-just-in-time-access-policy).
 - **No recommendation** - Reasons that can cause a VM not to be recommended are:
   - Missing NSG - The just in time solution requires an NSG to be in place.
   - Classic VM - Security Center just in time VM access currently supports only VMs deployed through Azure Resource Manager. A classic deployment is not supported by the just in time solution.
   - Other - A VM is in this category if the just in time solution is turned off in the security policy of the subscription or the resource group, or that the VM is missing a public IP and doesn't have an NSG in place.
+
+## Enable the JIT Network Access policy
+
+In order to utilize just in time VM access, the JIT Network Access policy needs to be enabled within Azure Security Center. This can be enabled at either the subscription level or at the resource group level. Follow these steps to enable this policy:
+
+1. In **Azure Security Center**, in the **General** section, select **Security Policy**. 
+2. Select your subscription, or expand the subscription and select a specific resource group if you wish to enable it only for specific resource groups.
+3. In the **Security Policy** blade, select **Security policy**, and select **On** for **JIT Network Access**.
+4. Click **Save**.
 
 ## Configuring a just in time access policy
 
