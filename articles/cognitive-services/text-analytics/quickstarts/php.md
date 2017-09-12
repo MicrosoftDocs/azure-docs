@@ -33,7 +33,7 @@ The Language Detection API detects the language of a text document, using the [D
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `host` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -47,8 +47,8 @@ The Language Detection API detects the language of a text document, using the [D
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-$subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid subscription key.
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
@@ -64,7 +64,7 @@ $path = '/text/analytics/v2.0/languages';
 function DetectLanguage ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+		"Ocp-Apim-Access-Key: $key\r\n";
 
 	$data = json_encode ($data);
 
@@ -92,7 +92,7 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = DetectLanguage ($host, $path, $subscriptionKey, $data);
+$result = DetectLanguage ($host, $path, $accessKey, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
@@ -152,7 +152,7 @@ The Sentiment Analysis API detexts the sentiment of a set of text records, using
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `host` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -166,8 +166,8 @@ The Sentiment Analysis API detexts the sentiment of a set of text records, using
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-$subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid subscription key.
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
@@ -183,7 +183,7 @@ $path = '/text/analytics/v2.0/sentiment';
 function GetSentiment ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+		"Ocp-Apim-Access-Key: $key\r\n";
 
 	$data = json_encode ($data);
 
@@ -210,7 +210,7 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetSentiment ($host, $path, $subscriptionKey, $data);
+$result = GetSentiment ($host, $path, $accessKey, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
@@ -244,7 +244,7 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `host` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -258,8 +258,8 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-$subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid subscription key.
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
@@ -275,7 +275,7 @@ $path = '/text/analytics/v2.0/keyPhrases';
 function GetKeyPhrases ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+		"Ocp-Apim-Access-Key: $key\r\n";
 
 	$data = json_encode ($data);
 
@@ -303,7 +303,7 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetKeyPhrases ($host, $path, $subscriptionKey, $data);
+$result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
