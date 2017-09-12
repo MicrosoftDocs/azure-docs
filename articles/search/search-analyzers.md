@@ -56,7 +56,7 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
  Alternatively, instead of one `analyzer` property, you can set different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
 
-3. If you added `analyzer` to an existing index, drop and recreate the index to invoke new text processing on the fields. 
+3. If you added `analyzer` to an existing field in a built index, drop and recreate the entire index to invoke new text processing on the fields. 
 
 ## Best practices
 
@@ -66,7 +66,7 @@ This section provides advice on how to work with analyzers more efficiently.
 
 Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching. If `analyzer` is unspecified, the default Standard Lucene analyzer is used.
 
-A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of term-token mismatch if the query engine cannot find the indexed tokens.
+A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations are not aligned.
 
 ### Test during active development
 
