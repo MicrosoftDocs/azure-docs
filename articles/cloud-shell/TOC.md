@@ -5,14 +5,14 @@
 ## [Quickstart for PowerShell](quickstart-powershell.md)
 
 # Concepts
-## [Features & Tools in Bash](features.md)
-## [Features & Tools in PowerShell](features-powershell.md)
+## [Features & tools in Bash](features.md)
+## [Features & tools in PowerShell](features-powershell.md)
 ## [Limitations](limitations.md)
 ## [Troubleshooting](troubleshooting.md)
 
 # How-to
-## [Persisting Storage](persisting-shell-storage.md)
-## [Using the Window](using-the-shell-window.md)
+## [Persisting storage](persisting-shell-storage.md)
+## [Using the window](using-the-shell-window.md)
 
 # [Pricing](pricing.md)
 
