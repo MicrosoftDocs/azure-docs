@@ -1,6 +1,6 @@
 ---
-title: Azure App Service Web Apps for Containers FAQ | Microsoft Docs
-description: Azure App Service Web Apps for Containers FAQ.
+title: Azure App Service Web App for Containers FAQ | Microsoft Docs
+description: Azure App Service Web App for Containers FAQ.
 keywords: azure app service, web app, faq, linux, oss
 services: app-service
 documentationCenter: ''
@@ -18,9 +18,9 @@ ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 
 ---
-# Azure App Service Web Apps for Containers FAQ
+# Azure App Service Web App for Containers FAQ
 
-With the release of Web Apps for Containers, we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
+With the release of Web App for Containers, we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
 If you have a question, comment on the article and we'll answer it as soon as possible.
 
 ## Built-in images
