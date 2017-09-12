@@ -64,7 +64,7 @@ $path = '/text/analytics/v2.0/languages';
 function DetectLanguage ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Access-Key: $key\r\n";
+		"Ocp-Apim-Subscription-Key: $key\r\n";
 
 	$data = json_encode ($data);
 
@@ -183,7 +183,7 @@ $path = '/text/analytics/v2.0/sentiment';
 function GetSentiment ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Access-Key: $key\r\n";
+		"Ocp-Apim-Subscription-Key: $key\r\n";
 
 	$data = json_encode ($data);
 
@@ -275,7 +275,7 @@ $path = '/text/analytics/v2.0/keyPhrases';
 function GetKeyPhrases ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Access-Key: $key\r\n";
+		"Ocp-Apim-Subscription-Key: $key\r\n";
 
 	$data = json_encode ($data);
 

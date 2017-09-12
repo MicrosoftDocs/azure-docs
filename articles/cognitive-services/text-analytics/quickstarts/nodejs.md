@@ -83,7 +83,7 @@ let get_language = function (documents) {
 		hostname : uri,
 		path : path,
 		headers : {
-			'Ocp-Apim-Access-Key' : accessKey,
+			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
 	};
 
@@ -205,7 +205,7 @@ let get_sentiments = function (documents) {
 		hostname : uri,
 		path : path,
 		headers : {
-			'Ocp-Apim-Access-Key' : accessKey,
+			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
 	};
 
@@ -300,7 +300,7 @@ let get_key_phrases = function (documents) {
 		hostname : uri,
 		path : path,
 		headers : {
-			'Ocp-Apim-Access-Key' : accessKey,
+			'Ocp-Apim-Subscription-Key' : accessKey,
 		}
 	};
 
