@@ -61,7 +61,7 @@
 ## Use Spark for in-memory processing
 ### Get started - Spark developer
 #### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
-#### [Use an Interactive Spark Shell](hdinsight-spark-shell.md)
+#### [Use an interactive Spark Shell](hdinsight-spark-shell.md)
 #### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Create apps using Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)

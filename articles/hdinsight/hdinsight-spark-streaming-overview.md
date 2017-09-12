@@ -1,5 +1,5 @@
 ---
-title: What is Spark Streaming | Microsoft Docs
+title: What is Spark Streaming in Azure HDInsight | Microsoft Docs
 description: 'How to use Spark Streaming applications on HDInsight Spark clusters.'
 services: hdinsight
 documentationcenter: ''
@@ -38,7 +38,7 @@ Each RDD represents events collected over a user-defined timeframe called the ba
 
 ![Example DStream with Temperature Events ](./media/hdinsight-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
-## Structure of a Spark Streaming Application
+## Structure of a Spark Streaming application
 A Spark Streaming application is a long-running application that receives data from ingest sources, applies transformations to process the data, and then pushes the data out to one or more destinations. The structure of a Spark Streaming application has two main parts. First, you define where the data comes from, what processing to do on the data, and where the results should go. Second, you run the application indefinitely, waiting for a stop signal.
 
 For example, here is a simple application that receives a line of text over a TCP socket and counts the number of times each word appears.
@@ -145,7 +145,7 @@ The resulting output looks like the following:
 
 We expect to see six values, since the DummySource creates a value every 5 seconds and we emit a batch every 30 seconds.
 
-## Sliding Windows
+## Sliding windows
 If you want to perform aggregate calculations on your DStream over some time period, for example to get an average temperature over the last 2 seconds, you can use the sliding window operations included with Spark Streaming. A sliding window is defined as having a duration (the window length) and the interval during which the window's content are evaluated (the slide interval).
 
 These sliding windows can overlap, for example you can define a window with a length of 2 seconds, that slides every 1 second. This means every time you perform an aggregation calculation, the window will include data from the last 1 second of the previous window as well as any new data in the next 1 second.
@@ -199,14 +199,14 @@ The sliding window functions available in the Spark Streaming API include window
 ## Checkpointing
 To deliver resiliency and fault tolerance, Spark Streaming relies on checkpointing to insure that stream processing can continue uninterrupted, even in the face of node failures. In HDInsight, Spark creates checkpoints to durable storage (Azure Storage or Data Lake Store). These checkpoints store the metadata about the streaming application such as the configuration, the operations defined by the application, and any batches that were queued but not yet processed. In some cases, the checkpoints will also include saving the data in the RDDs to shorten the time it takes to rebuild the state of the data from what is present in the RDDs managed by Spark.
 
-## Deploying Spark Streaming Applications
+## Deploying Spark Streaming applications
 You typically build your Spark Streaming application locally and then deploy it to Spark on HDInsight by copying the JAR file that contains your application to the default storage attached to your HDInsight cluster. Then you can start your application by using the LIVY REST APIs available from your cluster. This is a POST operation where the body of the POST includes a JSON document that provides the path to your JAR, the name of the class whose main method defines and runs the streaming application, and optionally the resource requirements of the job (such as the number of executors, memory and cores), and any configuration settings your application code requires.
 
 ![Example Window with Temperature Events After Sliding](./media/hdinsight-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
 The status of all applications can also be checked with a GET request against a LIVY endpoint. Finally, you can terminate a running application by issuing a DELETE request against the LIVE endpoint. For details on the LIVY API, see [Remote jobs with LIVY](hdinsight-apache-spark-livy-rest-interface.md)
 
-## See also
+## Next steps
 
 * [Create an Apache Spark Cluster in HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
