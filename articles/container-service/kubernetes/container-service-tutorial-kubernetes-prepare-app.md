@@ -49,6 +49,11 @@ Use git to download a copy of the application to your development environment.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
+```
+
+Change directories so that you are working from the cloned directory.
+
+```
 cd azure-voting-app-redis
 ```
 

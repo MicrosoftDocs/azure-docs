@@ -19,7 +19,7 @@ ms.author: magoedte; bwren
 
 # Connection assets in Azure Automation
 
-An Automation connection asset contains the information required to connect to an external service or application from a runbook or DSC configuration. This may include information required for authentication such as a username and password in addition to connection information such as a URL or a port. The value of a connection is keeping all of the properties for connecting to a particular application in one asset as opposed to creating multiple variables. The user can edit the values for a connection in one place, and you can pass the name of a connection to a runbook or DSC configuration in a single parameter. The properties for a connection can be accessed in the runbook or DSC configuration with the **Get-AutomationConnection** activity.
+An Automation connection asset contains the information required to connect to an external service or application from a runbook or DSC configuration. This may include information required for authentication such as a username and password in addition to connection information such as a URL or a port. The value of a connection is keeping all of the properties for connecting to a particular application in one asset as opposed to creating multiple variables. The user can edit the values for a connection in one place, and you can pass the name of a connection to a runbook or DSC configuration in a single parameter. The properties for a connection can be accessed in the runbook or DSC configuration with the **Get-AutomationConnection** activity. 
 
 When you create a connection, you must specify a *connection type*. The connection type is a template that defines a set of properties. The connection defines values for each property defined in its connection type. Connection types are added to Azure Automation in integration modules or created with the [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163818.aspx) if the integration module includes a connection type and is imported into your Automation account. Otherwise, you will need to create a metadata file to specify an Automation connection type.  For further information regarding this, see [Integration Modules](automation-integration-modules.md).  
 
@@ -50,14 +50,14 @@ The activities in the following table are used to access connections in a runboo
 
  
 ## Python2 functions 
-The function in the following table is used to access connections in a python2 runbook. 
+The function in the following table is used to access connections in a Python2 runbook. 
 
 | Function | Description | 
 |:---|:---| 
-| automationassets.get_automation_connection | Retrieves a connection. Returns a dictionary with the properties of the conection. | 
+| automationassets.get_automation_connection | Retrieves a connection. Returns a dictionary with the properties of the connection. | 
 
 > [!NOTE] 
-> You must import the "automationassets" module at the top of your python runbook in order to access the asset functions.
+> You must import the "automationassets" module at the top of your Python runbook in order to access the asset functions.
 
 ## Creating a New Connection
 
@@ -81,7 +81,7 @@ The function in the following table is used to access connections in a python2 r
 
 Create a new connection with Windows PowerShell using the [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. This cmdlet has a parameter named **ConnectionFieldValues** that expects a [hash table](http://technet.microsoft.com/library/hh847780.aspx) defining values for each of the properties defined by the connection type.
 
-If you are familiar with the Automation [Run As account](automation-sec-configure-azure-runas-account.md) to authenticate runbooks using the service principal, the PowerShell script, provided as an alternative to creating the the Run As account from the portal, creates a new connection asset using the following sample commands.  
+If you are familiar with the Automation [Run As account](automation-sec-configure-azure-runas-account.md) to authenticate runbooks using the service principal, the PowerShell script, provided as an alternative to creating the Run As account from the portal, creates a new connection asset using the following sample commands.  
 
     $ConnectionAssetName = "AzureRunAsConnection"
     $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
@@ -111,7 +111,7 @@ The following image shows an example of using a connection in a graphical runboo
 ![](media/automation-connections/automation-get-connection-object.png)
 
 ### Python2 runbook sample
-The following sample shows how to authenticate using the Run As connection in a python2 runbook.
+The following sample shows how to authenticate using the Run As connection in a Python2 runbook.
 
     """ Tutorial to show how to authenticate against Azure resource manager resources """
     import azure.mgmt.resource
