@@ -40,7 +40,7 @@ pickle.dump(clf1, f)
 f.close()
 ```
 
-To see a more complete example, please follow the [Classifying Iris tutorial](Tutorial.md), and pay special attention to [Step 8](#step-8-obtain-the-pickled-model). 
+To see a more complete example, please follow the [Classifying Iris tutorial](quick-start-iris.md), and pay special attention to [Step 8](#step-8-obtain-the-pickled-model). 
 
 We plan to introduce a _promote_ verb and a _load_ verb to help you access selected artifacts, known as _assets_. This feature is currently still under development.
 
@@ -104,13 +104,16 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 /home/<username>/.azureml/share/<exp_acct_name>/<workspace_name>/<proj_name>/
 ```
 
-For more information on the configuration files in Azure ML Execution Service, please refer to this article: [Execution Configuration Files](aml_config.md).
+For more information on the configuration files in Azure ML Execution Service, please refer to this article: [Execution Configuration Files](experiment-execution-configuration-reference.md).
 ### HDI Compute Context
 The _AZUREML_NATIVE_SHARE_DIRECTORY_ environment variable is not supported in HDI compute context. But it is very easy to achieve the same behavior by using a direct/absolute wasb path to the attached Blob storage.
 
 ## Option 3: Use an External Durable Storage
 
-You of course are free to use an external durable store to write your state to if you don't want to leverage run history to automatically track your assets in run history, and your changes need to survive the compute context itself. One such example is to [use Azure blob storage from your Python/PySpark code](UsingBlobForStorage.md).
+You of course are free to use an external durable store to write your state to if you don't want to leverage run history to automatically track your assets in run history, and your changes need to survive the compute context itself. 
+<!-- Commenting out this link because it's currently broken (Gary)
+One such example is to [use Azure blob storage from your Python/PySpark code](UsingBlobForStorage.md).
+-->
 
 Here is also a quick example for attaching any arbitrary Azure Blob Storage to your Spark runtime:
 ```python
