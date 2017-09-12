@@ -1,5 +1,6 @@
 ---
-title: Azure Managed Service Identity (MSI) overview
+title: Managed Service Identity (MSI) for Azure Active Directory
+titleSuffix: Preview
 description: An overview of Managed Service Identity for Azure resources.
 services: active-directory
 documentationcenter: 
@@ -17,7 +18,9 @@ ms.author: skwan
 
 ---
 
-#  Overview of Managed Service Identity (Preview) for Azure resources
+#  Overview of Managed Service Identity (MSI) for Azure resources
+
+[!INCLUDE[preview-notice](../includes/active-directory-msi-preview-notice.md)]
 
 A common challenge when building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked into source control. Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
