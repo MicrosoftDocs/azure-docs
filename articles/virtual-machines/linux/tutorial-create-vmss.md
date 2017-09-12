@@ -264,7 +264,7 @@ az monitor autoscale-settings create \
     }'
 ```
 
-To reuse the autoscale profile, you can create a JSON (JavaScript Object Notation) file and pass that to the `az monitor autoscale-settings create` command with the `--parameters @autoscale.json` parameter.
+To reuse the autoscale profile, you can create a JSON (JavaScript Object Notation) file and pass that to the `az monitor autoscale-settings create` command with the `--parameters @autoscale.json` parameter. For more design information on the use of autoscale, see [autoscale best practices](/azure/architecture/best-practices/auto-scaling).
 
 
 ### Get connection info
