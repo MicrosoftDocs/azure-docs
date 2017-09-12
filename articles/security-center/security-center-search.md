@@ -29,7 +29,7 @@ Search is available in both the Free tier and Standard tier of Security Center. 
 >
 
 ## Access search
-1. Under the Security Center main menu, select **Log search**.
+1. Under the Security Center main menu, select **Search**.
 
   ![Select Log search][1]
 
@@ -63,4 +63,3 @@ To learn more about Security Center, see:
 [1]: ./media/security-center-search/search.png
 [2]: ./media/security-center-search/workspace-selector.png
 [3]: ./media/security-center-search/log-search.png
-[4]: ./media/security-center-search/search.png

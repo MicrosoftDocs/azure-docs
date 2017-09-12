@@ -18,12 +18,10 @@ ms.author: terrylan
 
 ---
 # Monitoring and processing security events in Azure Security Center
-The Events Processed dashboard provides an overview of the number of security events collected over time and a list of notable events that may require your attention.
-
-In this article we show you how to [update Log Analytics]() and [upgrade to Security Center’s Standard tier]().
+The Events dashboard provides an overview of the number of security events collected over time and a list of notable events that may require your attention.  
 
 > [!NOTE]
-> To use this feature, your workspace must be running Log Analytics v2 and be on Security Center’s Standard tier. See the Security Center [pricing page](security-center-pricing.md) for more information about the Standard tier.
+> To use this feature, your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier. See the Security Center [pricing page](security-center-pricing.md) for more information about the Standard tier.
 >
 >
 
@@ -31,23 +29,19 @@ In this article we show you how to [update Log Analytics]() and [upgrade to Secu
 Security Center uses the Microsoft Monitoring Agent to collect various security related configurations and events from your machines and stores these events in your workspace(s). Examples of such data are: operating system logs (Windows event logs), running processes, and events from security solutions integrated with Security Center. The Microsoft Monitoring Agent also copies crash dump files to your workspace(s).
 
 ## Events processed dashboard
-You access the Events Processed dashboard from the Security Center main menu or Security Center Overview blade.
+You access the **Events** dashboard from the Security Center main menu or Security Center **Overview** blade.  
 
 ![Events processed dashboard][1]
 
-The **Events Processed** tile under **Security Center** displays the number of events flowing into Security Center from your Azure VMs and non-Azure computers. The tile shows you the number of events processed in the last week and how that number compares to events processed in the previous week. An upward arrow indicates that more events were processed in the last week than in the previous week.  A downward arrow indicates that less events were processed in the last week than in the previous week.
+The **Events** tile under **Security Center** displays the number of events flowing into Security Center from your Azure VMs and non-Azure   computers.
 
-In this example, 8,421 events were processed in the last week which is 37 more events than events processed in the previous week.
-
-The **Events Processed** tile gives you a quick view of the volume of security data being collected. If the number of events processed is increasing (an upward arrow), then this might be an indicator of suspicious activity. If the number of events processed is decreasing (a downward arrow), then some machines in your environment may have stopped reporting events or you may have removed machines.
-
-The **Events Processed** dashboard provides an overview of the number of events processed overtime and a list of events.
+The **Events dashboard** provides an overview of the number of events processed overtime and a list of events.
 
  ![Dashboard][2]
 
  The top half of the dashboard trends all events processed in the last week. The bottom half of the dashboard lists notable events and all events by type:
 
- - **Notable events** include out-of-the-box event queries that Security Center provides and event queries that you create and add. The dashboard also provides a quick view into the count of each notable event.
+ - **Notable events** include event queries that Security Center provides and event queries that you create and add. The dashboard also provides a quick view into the count of each notable event.
  - **All events by type** shows the event types that are being received and a count for each type. Examples of event type are SecurityEvent, CommonSecurityLog, WindowsFirewall and W3CIISLog.
 
 ## View processed event details
@@ -75,30 +69,29 @@ Security Center provides out-of-the-box notable events. You can add notable even
 
   ![Add a notable event][7]
 
-2. Under **Log Search**, enter your query using Log Analytics query language.
+2. **Add custom notable event** opens.  Under **Display Name**, enter a name for your notable event. Under **Search Query**, enter your query for the event.
 
   ![Enter your query][8]
 
-3. **Add Saved Search** opens. Under **Display Name**, enter a name for your notable event. Under **Query**, paste your query for the event.
 4. Select **OK**.
 
 ## Update your workspace for events processing
-Your workspace must be running Log Analytics v2 and be on Security Center’s Standard tier to use event processing in Security Center. The **Events Processed** workspace selector identifies workspaces that do not meet these requirements.
+Your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier to use event processing in Security Center. The **Events** workspace selector identifies workspaces that do not meet these requirements.
 
 ![Workspace does not meet requirements][9]
 
 If the workspace row:
 
-- Contains **REQUIRES UPDATE** - you need to update your workspace to Log Analytics v2
+- Contains **REQUIRES UPDATE** - you need to update your workspace to Log Analytics version 2
 - Contains **UPGRADE PLAN** – you need to upgrade your workspace to Security Center’s Standard tier
 - Is blank - your workspace meets requirements and selecting a workspace takes you to the dashboard
 
 > [!NOTE]
-> Under **Events Processed**, the **EVENTS** column indicates amount of events in each workspace.  This column is blank for some workspaces because Security Center’s Free tier is applied to that workspace. Under the Free tier, Security Center will collect events but the events are not saved in Log Analytics and are not available in the dashboard.
+> Under **Events**, the **EVENTS** column indicates amount of events in each workspace.  This column is blank for some workspaces because Security Center’s Free tier is applied to that workspace. Under the Free tier, Security Center will collect events but the events are not saved in Log Analytics and are not available in the dashboard.
 >
 >
 
-## Update workspace to Log Analytics v2
+## Update workspace to Log Analytics version 2
 1. Select a workspace that **REQUIRES UPDATE**.
 2. **Search Upgrade** opens. Select **Upgrade Now**.
 
@@ -106,13 +99,13 @@ If the workspace row:
 
 ## Upgrade to Security Center’s Standard tier
 1. Select a workspace with **UPGRADE PLAN**.
-2. **Events Processed** opens. Select **Try the Events Processed dashboard**.
+2. **Events dashboard** opens. Select **Try the Events Processed dashboard**.
 
   ![Try dashboard][11]
 
-3. Under **Onboarding**, select the workspace that you are upgrading.
-4. Under **Settings**, select **Standard**.
-5. Select **Apply**.
+3. Under **Onboarding to advanced security**, select the workspace that you are upgrading.
+4. Under **Pricing**, select **Standard**.
+5. Select **Save**.
 
   ![Upgrade to Standard tier][12]
 
@@ -126,8 +119,6 @@ In this article you learned how to use Security Center’s Event Processed dashb
 To learn more about Security Center, see:
 
 - [Security Center Overview](security-center-intro.md) – Describes Security Center’s key capabilities
-
-
 
 <!--Image references-->
 [1]: ./media/security-center-events-dashboard/events-processed.png
