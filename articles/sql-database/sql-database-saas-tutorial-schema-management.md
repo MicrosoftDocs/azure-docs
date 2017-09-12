@@ -19,7 +19,7 @@ ms.date: 07/28/2017
 ms.author: billgib; sstein
 
 ---
-# Manage schema for multiple tenants in the Wingtip SaaS application
+# Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database
 
 The [first Wingtip SaaS tutorial](sql-database-saas-tutorial.md) shows how the app can provision a tenant database and register it in the catalog. Like any application, the Wingtip SaaS app will evolve over time, and at times will require changes to the database. Changes may include new or changed schema, new or changed reference data, and routine database maintenance tasks to ensure optimal app performance. With a SaaS application, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. For these changes to be in future tenant databases, they need to be incorporated into the provisioning process.
 

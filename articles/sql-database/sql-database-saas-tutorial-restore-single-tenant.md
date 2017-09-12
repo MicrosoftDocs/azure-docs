@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: billgib;sstein
 
 ---
-# Restore a tenants SQL database in a multi-tenant SaaS app
+# Restore a single tenants Azure SQL database in a multi-tenant SaaS app
 
 The Wingtip SaaS app is built using a database-per-tenant model, where each tenant has their own database. One of the benefits of this model is that it is easy to restore a single tenant’s data in isolation without impacting other tenants.
 
