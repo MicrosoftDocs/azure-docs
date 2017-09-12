@@ -34,7 +34,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
     > You can also configure the cluster to use log analytics by using the `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. This cmdlet requires the following information:
     >
     > * The HDInsight cluster name.
-    > * The Workspace ID for log analytics. You can find this in the OMS workspace for your log analytics workspace.
+    > * The workspace ID for log analytics. You can find the workspace ID in the OMS workspace for your log analytics workspace.
     > * The primary key for the OMS connection. To find the primary key, select your log analytics instance and then __OMS Portal__. From the OMS Portal, select __Settings__, __Connected Sources__, and then __Linux Servers__.
 
 
@@ -54,7 +54,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
     * Outgoing bytes per second: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
 
     > [!IMPORTANT]
-    > Replace the query values with those of your cluster. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
+    > Replace the query values with your cluster specific information. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
 
     You can also enter `*` to search all types logged. Currently the following logs are available for queries:
 
@@ -68,9 +68,9 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
  
  ## Next steps
 
- For more information on log analytics, see the [Get started with a Log Analytics workspace](../log-analytics/log-analytics-get-started.md) document.
+For more information on log analytics, see the [Get started with a Log Analytics workspace](../log-analytics/log-analytics-get-started.md) document.
 
- For more information on working with Kafka, see the following documents:
+For more information on working with Kafka, see the following documents:
 
  * [Mirror Kafka between HDInsight clusters](hdinsight-apache-kafka-mirroring.md)
  * [Increase the scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md)
