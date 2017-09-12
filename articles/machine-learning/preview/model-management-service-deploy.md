@@ -20,7 +20,7 @@ This document covers the steps to deploy your models as web services using the A
 ## Deploying web services
 Using the CLIs, you can deploy web services to run on the local machine or on a cluster.
 
-We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web serivce to a cluster for production-scale use. For more info on setting up your environment for deployment, see [this document](model-management-configuration.md). 
+We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use. For more info on setting up your environment for deployment, see [this document](model-management-configuration.md). 
 
 The following are the deployment steps:
 1. Use your saved, trained, Machine Learning model
@@ -106,7 +106,7 @@ def run(input_df):
 ```
 
 #### 4. Create an image 
-Use the model, schema, conda python [dependencies file](https://github.com/conda/conda-env), and the score and schema files to create an image.
+Create an image using the model. Also include schema, conda python [dependencies file](https://github.com/conda/conda-env), and the score and schema files.
 
 ```
 az ml image create -n <image name> -m <model file> -f <score.py file> -s <schema file> -r <run-time e.g. python> -c <conda dependencies file>
@@ -115,7 +115,7 @@ az ml image create -n <image name> -m <model file> -f <score.py file> -s <schema
 >Note: for more details on the command parameters, type -h at the end of the command for example, az ml image create -h.
 
 #### 5. Create and deploy the web service
-Deploy the image using the following command:
+Deploy the service using the following command:
 
 ```
 az ml service create realtime --image-id <image id> -n <service name>
@@ -123,14 +123,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 
 >Note: you can also use a single command to perform both actions. Use -h with the service create command for more details.
 
-#### 6. Test the sevice
+#### 6. Test the service
 Use the following command to get information on how to call the service:
 
 ```
 az ml service usage realtime -i <service id>
 ```
 
-Call the sevice using the run function from the command prompt:
+Call the service using the run function from the command prompt:
 
 ```
 az ml service run realtime -i <service id> -d "{\"input_df\": [INPUT DATA]}"
