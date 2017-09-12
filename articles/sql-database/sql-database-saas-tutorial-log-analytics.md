@@ -1,6 +1,6 @@
 ---
 title: Use Log Analytics with a SQL Database multi-tenant app | Microsoft Docs 
-description: "Setup and use Log Analytics (OMS) with the Azure SQL Database sample Wingtip SaaS app"
+description: "Setup and use Log Analytics (OMS) with a multi-tenant Azure SQL Database SaaS example app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 07/26/2017
 ms.author: billgib; sstein
 
 ---
-# Setup and use Log Analytics (OMS) with the Wingtip SaaS app
+# Setup and use Log Analytics (OMS) with the Azure SQL Database Wingtip SaaS example app
 
 In this tutorial, you set up and use *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* for monitoring elastic pools and databases. It builds on the [Performance Monitoring and Management tutorial](sql-database-saas-tutorial-performance-monitoring.md), and shows how to use *Log Analytics* to augment the monitoring and alerting provided in the Azure portal. Log Analytics is particularly suitable for monitoring and alerting at scale because it supports hundreds of pools and hundreds of thousands of databases. It also provides a single monitoring solution, which can integrate monitoring of different applications and Azure services, across multiple Azure subscriptions.
 

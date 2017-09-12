@@ -1,11 +1,11 @@
 ---
 title: Run ad-hoc analytics queries across multiple Azure SQL databases | Microsoft Docs
-description: "Run ad-hoc analytics queries across multiple SQL databases in the Wingtip SaaS multi-tenant app."
+description: "Run ad-hoc analytics queries across multiple SQL databases in a multi-tenant app example."
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid:
@@ -19,9 +19,9 @@ ms.date: 06/23/2017
 ms.author: billgib; sstein
 
 ---
-# Run ad-hoc analytics queries across all Wingtip SaaS tenants
+# Run ad-hoc analytics queries across multiple Azure SQL databases
 
-In this tutorial, you run distributed queries across the entire set of tenant databases to enable ad-hoc analytics. Elastic Query is used to enable distributed queries, which requires an additional analytics database is deployed (to the catalog server). These queries can extract insights buried in the day-to-day operational data of the Wingtip SaaS app.
+In this tutorial, you run distributed queries across the entire set of multi-tenant databases to enable ad-hoc analytics. Elastic Query is used to enable distributed queries, which requires an additional analytics database is deployed (to the catalog server). These queries can extract insights buried in the day-to-day operational data of the Wingtip SaaS app.
 
 
 In this tutorial you learn:

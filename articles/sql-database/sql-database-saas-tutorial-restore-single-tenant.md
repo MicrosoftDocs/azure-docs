@@ -1,11 +1,11 @@
 ---
-title: Restore an Azure SQL database in a multi-tenant app  | Microsoft Docs
+title: Restore an Azure SQL database in a multi-tenant SaaS app  | Microsoft Docs
 description: "Learn how to restore a single tenants SQL database after accidentally deleting data"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid:
@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: billgib;sstein
 
 ---
-# Restore a Wingtip SaaS tenants SQL database
+# Restore a tenants SQL database in a multi-tenant SaaS app
 
 The Wingtip SaaS app is built using a database-per-tenant model, where each tenant has their own database. One of the benefits of this model is that it is easy to restore a single tenant’s data in isolation without impacting other tenants.
 
