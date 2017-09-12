@@ -50,7 +50,7 @@ sections:
 - title: Quickstarts
   items:
   - type: paragraph
-      text: Learn how to back up an Azure virtual machine in Azure.
+    text: Learn how to back up an Azure virtual machine in Azure.
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
