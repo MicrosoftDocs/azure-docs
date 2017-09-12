@@ -18,7 +18,7 @@ ms.date: 09/12/2017
 ms.author: LADocs; jehollan
 ---
 
-# Create and schedule regularly running actions in Azure Logic Apps
+# Create and schedule regularly running workflows in Azure Logic Apps
 
 To schedule tasks, actions, workflows, or processes that run regularly, 
 you can create a logic app that starts with the **Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
