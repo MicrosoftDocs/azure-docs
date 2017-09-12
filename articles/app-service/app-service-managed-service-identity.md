@@ -93,7 +93,7 @@ For .NET applications and functions, the simplest way to work with a managed ser
 2. Add a "AzureServicesAuthConnectionString" application setting to your Azure resource with the value `AuthenticateAs=App;`.
 
 
-> ![TIP]
+> [!TIP]
 >  For local development, set your local version of this setting to `AuthenticateAs=User;User=VisualStudioAccount`. This allows you to test your code locally using the permissions granted to your individual account.
 
 
