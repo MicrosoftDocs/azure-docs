@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 09/12/2017
 ms.author: yurid
 
 ---
@@ -55,7 +55,7 @@ Based on the setup of your Azure environment and the security policy you defined
 
 After deployment, to view information about the health of the solution and perform basic management tasks, on the **Security Center** dashboard, select the **Partner solutions** option.
 
-![Partner solutions integration](./media/security-center-partner-integration/security-center-partner-integration-fig3.png)
+![Partner solutions integration](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
 The content that you see in the when you open Security Solutions may vary according to your infrastructure. Using the previous image as example, this page has three sections:
 
