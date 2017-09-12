@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Troubleshoot and remediate device issues
 
-Contoso is testing a new **Prototype** device in the field. While testing this device, you notice that the **Prototype** device is erroneously triggering a temperature alarm on the dashboard. As an operator, you need to investigate the behavior of this faulty **Prototype** device:
+Contoso is testing a new **Prototype** device in the field. As a Contoso operator, you notice during testing that the **Prototype** device is erroneously triggering a temperature alarm on the dashboard. You must now investigate the behavior of this faulty **Prototype** device.
 
 This tutorial shows you how to use the **Maintenance** page in the solution to troubleshoot and remediate these device issues.
 
@@ -76,11 +76,15 @@ To act on a device, select it in the list of devices and then choose **Schedule*
 
 Choose **DecreaseTemperature** and set the job name to **Decrease temperature**:
 
-<!-- Insert screenshot here -->
+<!-- TODO insert screenshot -->
 
-To track the status of the job on the **Maintenance** page, choose **View**:
+To track the status of the job on the **Maintenance** page, choose **System Status**. Use the **System Status** view to track all the jobs and method calls in the solution:
 
-<!-- Insert screenshot here -->
+<!-- TODO insert screenshot -->
+
+To view the details of a specific job or method call, choose it in the list in the **System Status** view:
+
+<!-- TODO insert screenshot -->
 
 ## Next steps
 
