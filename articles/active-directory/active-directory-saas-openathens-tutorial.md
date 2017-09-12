@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In **Display name mapping**, select **Use attribute**.
 
-	b. In **Display name attribute** text box, ether the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	b. In the **Display name attribute** text box, ether the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 	
 	c. In **Unique user mapping**, select **Use attribute**.
 
@@ -170,7 +170,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](./media/active-directory-saas-openathens-tutorial/create_aaduser_04.png)
 
-    a. In the **Name** box, type **BrittaSimon**.
+    a. In the **Name** text box, type **BrittaSimon**.
 
     b. In the **User name** text box, type the email address for Britta Simon.
 
