@@ -71,6 +71,8 @@
     items:
     - name: Deploy web service
       href: model-management-service-deploy.md
+    - name: Create Docker image
+      href: model-management-image-creation.md
     - name: placeholder - Consume web service
       href: doc-template-how-to.md  
   - name: End-to-end examples
