@@ -103,7 +103,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with PowerShell. If you'd like to build a container image, and then deploy it to Azure Container Instances using an Azure Container Registry repository, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Registry with the Azure CLI. If you would like to use Azure Container Registry with Azure Container Instances, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
