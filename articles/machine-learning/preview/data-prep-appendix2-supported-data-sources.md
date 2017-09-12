@@ -5,7 +5,7 @@ author: cforbe
 ms.author: cforbe@microsoft.com
 ms.date: 9/7/2017
 ---
-# Supported Data Sources for this Release #
+# Supported Data Sources #
 
 ## Types ##
 ### Common to all file sources ###
