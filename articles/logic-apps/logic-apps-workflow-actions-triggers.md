@@ -1042,7 +1042,7 @@ And you define a table action like this example:
 
 The result from this example looks like this HTML table: 
 
-<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>"
+<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
 
 To customize this table, you can specify the columns explicitly, for example:
 
@@ -1054,11 +1054,11 @@ To customize this table, you can specify the columns explicitly, for example:
         "format": "html",
         "columns": [ 
             {
-                "header": "produce id",
+                "header": "Produce ID",
                 "value": "@item().id"
             },
             {
-              "header": "description",
+              "header": "Description",
               "value": "@concat('fresh ', item().name)"
             }
         ]
@@ -1068,7 +1068,7 @@ To customize this table, you can specify the columns explicitly, for example:
 
 The result from this example looks like this HTML table: 
 
-<table><thead><tr><th>produce id</th><th>description</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>"
+<table><thead><tr><th>Produce ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>
 
 | Name | Required | Type | Description | 
 | ---- | -------- | ---- | ----------- | 

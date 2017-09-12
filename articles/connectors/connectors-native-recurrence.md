@@ -18,10 +18,11 @@ ms.date: 09/12/2017
 ms.author: LADocs; jehollan
 ---
 
-# Create and schedule regularly running workflows with logic apps
+# Create and schedule regularly running tasks with logic apps
 
 To schedule tasks, actions, workloads, or processes that run regularly, 
-you can create a logic app that starts with the **Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+you can create a logic app workflow that starts with the 
+**Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
 Although some [connectors](../connectors/apis-list.md) 
 provide recurrence triggers for specific events, other connectors don't. 
 With this trigger, you can set a future date and time for when the trigger 
