@@ -96,7 +96,7 @@ After the domain name is validated, it can take up to 6-8 hours for the custom d
 
 ### Operation progress
 
-The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the Custom domain HTTPS blade. Under each step, progress is indicated by a sequence of messages. After a step successfully completes, a green check mark appears next to it. 
+The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the Custom domain HTTPS blade. As each step becomes active, additional details appear under the step as it progresses. After a step successfully completes, a green check mark appears next to it. 
 
 | Operation step | Operation step details | 
 | --- | --- |
@@ -116,9 +116,9 @@ The following table shows the operation progress that occurs when you enable HTT
 
 If an error occurs before the request is submitted, you will see the following error message:
 
-```
+<code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
-```
+</code>
 
 ## Disabling HTTPS
 
@@ -146,7 +146,7 @@ After the custom domain HTTPS feature is disabled, it can take up to 6-8 hours f
 
 ### Operation progress
 
-The following table shows the operation progress that occurs when you disable HTTPS. After you enable HTTPS, three operation steps appear in the Custom domain HTTPS blade. Under each step, progress is indicated by a sequence of messages. After a step successfully completes, a green check mark appears next to it. 
+The following table shows the operation progress that occurs when you disable HTTPS. After you disable HTTPS, three operation steps appear in the Custom domain HTTPS blade. As each step becomes active, additional details appear under the step. After a step successfully completes, a green check mark appears next to it. 
 
 | Operation progress | Operation details | 
 | --- | --- |
