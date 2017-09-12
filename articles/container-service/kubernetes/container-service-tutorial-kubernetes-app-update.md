@@ -51,7 +51,7 @@ For this tutorial, a change will be made to the application, and these changes d
 Open the `config_file.cfg` file with any code or text editor. In this example `vi` is beeing used.
 
 ```bash
-vi azure-vote/config_file.cfg
+vi azure-vote/azure-vote/config_file.cfg
 ```
 
 Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and then save the file.
@@ -68,10 +68,10 @@ Save and close the file.
 
 ## Update container image
 
-Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application.
+Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application. The `--build` argument is used to instruct Docker Compose to re-created the application image.
 
 ```bash
-docker-compose up -d
+docker-compose up --build -d
 ```
 
 ## Test application locally
