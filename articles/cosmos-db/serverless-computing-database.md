@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB - The database for serverless computing | Microsoft Docs
+title: Azure Cosmos DB - Database triggers with Azure Functions | Microsoft Docs
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create a serverless architecure.
 services: cosmos-db
 author: mimig1
@@ -17,11 +17,11 @@ ms.date: 09/12/2017
 ms.author: mimig
 ---
 
-# Azure Cosmos DB: Serverless computing database
+# Serverless database triggers with Azure Functions and Azure Cosmos DB
 
 Serverless computing is all about the ability to focus on individual pieces of logic that are repeatable and stateless. These pieces require no infrastructure management and they consume resources only for the seconds, or milliseconds, when they run. At the core of the serverless computing movement are functions, which are made available in the Azure ecosystem by Azure Functions.
 
-With the native integration between Azure Cosmos DB and Azure Functions, you can simply add a trigger function directly from your Azure Cosmos DB account. The benefit of trigger functions are that they only execute when an event happens, and that event triggers a function call. Using Azure Functions and Azure Cosmos DB, you can create and deploy event-driven, planet-scale serverless apps with extremely low-latency access against very rich data for a huge number of customers across the globe.
+With the native integration between Azure Cosmos DB and Azure Functions, you can create database triggers directly from your Azure Cosmos DB account. The benefit of trigger functions are that they only execute when an event happens, and that event triggers a function call. Using Azure Functions and Azure Cosmos DB, you can create and deploy event-driven, planet-scale serverless apps with extremely low-latency access against very rich data for a huge number of customers across the globe.
 
 ## Overview
 
