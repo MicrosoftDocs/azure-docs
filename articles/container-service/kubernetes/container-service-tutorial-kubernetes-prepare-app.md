@@ -99,7 +99,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## Test application locally
 
-Browse to http://localhost:8080 to see the running application. It may take a few seconds for the application to start. Refresh the browser if needed.
+Browse to http://localhost:8080 to see the running application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
