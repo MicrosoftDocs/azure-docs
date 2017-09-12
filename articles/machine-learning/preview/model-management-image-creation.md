@@ -1,6 +1,6 @@
 ---
 title: Create a Docker image for Model Management in Azure Machine Learning | Microsoft Docs
-description: This document describes the steps for creating a docker image for your web service.
+description: This document describes the steps for creating a Docker image for your web service.
 services: machine-learning
 author: chhavib    
 ms.author: chhavib
@@ -10,20 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/12/2017
 ---
-# Model Management: Models, Manifests, and Images
+# Model Management: Models, manifests, and images
 
-## Overview
-This document walks you through the following steps of creating a docker image for your web service:
-Model Registration
-Manifest Creation
-Image Creation
-You can use this image to create a web service either locally or on a remote ACS cluster or another docker supported environment of your choice.
+This document walks you through the following steps of creating a Docker image for your web service:
+
+- Model Registration
+- Manifest Creation
+- Image Creation
+
+You can use this image to create a web service either locally or on a remote ACS cluster or another Docker supported environment of your choice.
 
 ## Prerequisites
-Make sure you have gone through the installation steps in the QuickStart Installation document.
-Following are required before you proceed:
+Make sure you have gone through the installation steps in the [Installation quickstart](quick-start-installation.md) document.
+
+The following are required before you proceed:
 1. Model Management Account provisioning
 2. Environment creation for deploying and managing models
 3. A machine learning model
@@ -36,7 +38,7 @@ To use the CLIs, on the Azure ML App menu, use File -> Open CommandLine Interfac
 On all other systems, you would have to install the CLIs.
 
 ## Setup
-### CLI Install
+### CLI install
 #### Installing (or updating) on Windows
 
 Install Python from [https://www.python.org/](https://www.python.org/). Ensure that you have selected to install pip.
@@ -50,18 +52,19 @@ Open a command prompt using Run As Administrator and run the following commands:
 
 The easiest and quickest way to get started on Linux is to use the Data Science VM (see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-dsvm-ubuntu-intro)).
 
-**Note**: The information in this document pertains to DSVMs provisioned after May 1, 2017.
+> [!NOTE]
+> The information in this document pertains to DSVMs provisioned after May 1, 2017.
 
 Once you have provisioned and signed into the DSVM, run the following commands and follow the prompts:
  
     $ wget -q https://raw.githubusercontent.com/Azure/Machine-Learning-Operationalization/master/scripts/amlupdate.sh -O - | sudo bash -
     $ sudo /opt/microsoft/azureml/initial_setup.sh
     
-**NOTE**: You may need to use the sudo -i command first.
+> [!NOTE]
+> - You may need to use the sudo -i command first.
+> - You must log out and log back in to your SSH session for the changes to take effect.
+> - You can use the preceding commands to update an earlier version of the CLIs on the DSVM.
 
-**NOTE**: You must log out and log back in to your SSH session for the changes to take effect.
-
-**NOTE**: You can use the preceding commands to update an earlier version of the CLIs on the DSVM.
 
 ### Provisioning
 ##### Set up the environment
@@ -79,7 +82,8 @@ The cluster environment setup command creates the following resources in your su
    
 The resource group, storage account, and ACR are created quickly. The ACS deployment may take some time. Once the setup command has finished setting up the resource group, storage account, and ACR, it outputs the environment export commands for the AML CLI environment. 
 
-**NOTE**: If you do not supply a -c parameter when you call the environment setup, the environment is configured for local mode. If you choose this option, you will not be able to run cluster mode commands.
+> [!NOTE]
+> If you do not supply a -c parameter when you call the environment setup, the environment is configured for local mode. If you choose this option, you will not be able to run cluster mode commands.
 
 After setup is complete, set the environment to be used for this deployment.
 
@@ -98,7 +102,7 @@ This creates and sets the Model Management account. You create this account in o
 The preceding command also sets the account for deployment, which means you can now deploy your web service. For any subsequent deployments however, you need to set the account first using the following command:
 
     az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
-### AAD Token
+### AAD token
 When using the CLI, log in using `az login`. The CLI uses your AAD token from the .azure file. If you wish to use the APIs, you have the following options:
 
 ##### Acquiring the AAD token manually
@@ -122,7 +126,7 @@ Once you create service principal, save the output. Now you can use that to get 
 The token is put in authorization header for API calls. See below for more details.
 
 
-## Registering Models
+## Registering models
 
 Model registration step registers your machine learning model with Azure Model Management Account that you created. This registration enables tracking the models and their versions that are assigned at the time of registration. The user provides the name of the model. Subsequent registration of models under the same name generates a new version and ID.
 
@@ -168,8 +172,9 @@ Body:
 `
 Response:
 `
-
+```json
 Http Status Code 200 means Successfully Registered
+```
 ```json
 {
     "id": "<system generated model id>",
@@ -186,7 +191,7 @@ Http Status Code 200 means Successfully Registered
 ```
 
 
-## Creation of Manifests
+## Creation of manifests
 Manifests are artifacts that bundle your dependencies together with models. This allows them to be packaged together. In other words, manifest defines the requirements to create your web service. It includes models, coding files, configuration settings, pip or conda files, or any other artifact that should be available on the container.
 
 Let us assume you have already registered a model in the previous step. 
@@ -245,8 +250,9 @@ Body:
 ```
 Response:
 `
-
+```json
 Http Status Code 200 means Successfully Registered
+```
 ```json
 {
    "id": "c510e688-60cc-43fb-bfe1-491a97374c6a",
