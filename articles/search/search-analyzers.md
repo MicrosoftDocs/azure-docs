@@ -48,7 +48,7 @@ The following list describes which analyzers are supported in Azure Search.
 
 You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use alternative options documented in [Predefined Analyzer Reference](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Only a few of the predefined analyzers have options that you can set. As with any customization, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
 
-## How to specify analyzer
+## How to specify analyzers
 
 1. For custom analyzers only, create an `analyzer` section in the index definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Custom Analyzers > Create](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
@@ -56,7 +56,10 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
  Alternatively, instead of one `analyzer` property, you can set different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
 
-3. If you added `analyzer` to an existing field in a built index, drop and recreate the entire index to invoke new text processing on the fields. 
+3. [Build the index](https://docs.microsoft.com/rest/api/searchservice/create-index) to invoke text analysis. 
+
+> [!Note]
+> Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. Adding or changing an `analyzer` attribute on any existing field requires that you drop and build the index. On new fields, where `analyzer` is part of the original definition, a rebuild is not a requirement. 
 
 ## Best practices
 
