@@ -1,3 +1,4 @@
+
 ---
 title: How to create Linux Azure VM Images with Packer | Microsoft Docs
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
@@ -38,7 +39,7 @@ Packer authenticates with Azure using a service principal. An Azure service prin
 Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Packer needs:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --role="Contributor" --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
 An example of the output from the preceding commands is as follows:
