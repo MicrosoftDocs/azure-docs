@@ -39,6 +39,8 @@
       href: azure-stack-considerations.md
     - name: Compute
       items:
+      - name: Overview
+        href: azure-stack-compute-overview.md
       - name: VM considerations
         href: azure-stack-vm-considerations.md
       - name: Create VM-Windows-PowerShell

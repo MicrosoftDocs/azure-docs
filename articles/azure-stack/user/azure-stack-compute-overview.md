@@ -2,15 +2,9 @@
 title: Introduction to Azure Stack virtual machines
 description: Learn about Azure Stack virtual machines
 services: azure-stack
-documentationcenter: ''
 author: anjayajodha
-manager:
-editor: ''
 
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
