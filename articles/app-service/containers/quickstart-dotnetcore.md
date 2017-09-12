@@ -1,6 +1,6 @@
 ---
 title: Create a .NET Core web app in a Linux container in Azure | Microsoft Docs
-description: Deploy your first .NET Core Hello World app to Web Apps for Containers in minutes.
+description: Deploy your first .NET Core Hello World app to Web App for Containers in minutes.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
@@ -19,7 +19,7 @@ ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
 ---
 # Create a .NET Core web app in a Linux container in Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
+[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on Azure Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -179,4 +179,4 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a .NET Core and SQL Database web app in Azure Web Apps for Containers](tutorial-dotnetcore-sqldb-app.md)
+> [Build a .NET Core and SQL Database web app in Azure Web App for Containers](tutorial-dotnetcore-sqldb-app.md)
