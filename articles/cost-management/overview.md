@@ -24,15 +24,19 @@ Reports help you monitor spending to analyze and track cloud usage, costs, and t
 ## Manage costs
 
 You can forecast future spending by reviewing historical data and by analyzing your cost over time trends. Cost Management also includes projected cost reports.
+
 You can use the cost allocation feature to analyze your costs based on your tagging policy. Custom account and entity tags to add more cost allocation capabilities. Use Category Manager to better organize your tags and achieve more governance.
 
 Use Cost Allocation for showback/chargeback to show resource utilization and associated costs to influence consumption behaviors or charge tenant customers.
+
 You can assign teams assess to cost management data by using Azure Role-Based Access Control. You also use entity structure, user management, and scheduled reports with recipient lists to give team members access to cost data.
+
 You can create alerts for unusual spending or overspending. Alerts notify stakeholders automatically for spending anomalies and overspending risks using alerts and reports that support alerts based on budget and cost thresholds.
 
 ## Improve efficiency
 
 Determine optimal VM needs and identify idle VMs. Using information in Inefficiency reports, you can create a plan to down-size or remove idle VMs.
+
 If you provisioned AWS Reserved Instances, you can improve your reserved instances utilization with Optimization reports where you can view buying recommendations, modify unused reservations, and plan provisioning.
 
 ## Next steps
