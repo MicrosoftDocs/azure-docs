@@ -61,7 +61,6 @@ Enter the code to sign in, and then close the browser to continue.
 ## Add a path-based rule to an existing application gateway
 
 The following steps show you how to add a path-based rule to an existing application gateway.
-
 ### Create a new back-end pool
 
 Configure the application gateway setting **imagesBackendPool** for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the new back-end pool. Each back-end pool can have its own setting. Path-based rules use back-end HTTP settings to route traffic to the correct back-end pool members. This determines the protocol and port that's used when sending traffic to the back-end pool members. The back-end HTTP settings also determine cookie-based sessions.  If enabled, cookie-based session affinity sends traffic to the same back end as previous requests for each packet:
@@ -97,7 +96,7 @@ This step configures the relative URL path used by the application gateway to de
 > [!IMPORTANT]
 > Each path must start with "/", and the only place an asterisk is allowed is at the end. Valid examples are /xyz, /xyz* or /xyz/*. The string fed to the path matcher does not include any text after the first "?" or "#", and those characters are not allowed. 
 
-The following example creates one rule for the "/images/*" path, routing traffic to the back-end **imagesBackendPool**. This rule ensures that traffic for each set of URLs is routed to the back end. For example, http://adatum.com/images/figure1.jpg goes to **imagesBackendPool**. If the path doesn't match any of the pre-defined path rules, the rule path map configuration also configures a default back-end address pool. For example, http://adatum.com/shoppingcart/test.html goes to **pool1** because it is defined as the default pool for unmatched traffic:
+The following example creates one rule for the /images/* path, routing traffic to the back-end **imagesBackendPool**. This rule ensures that traffic for each set of URLs is routed to the back end. For example, http://adatum.com/images/figure1.jpg goes to **imagesBackendPool**. If the path doesn't match any of the pre-defined path rules, the rule path map configuration also configures a default back-end address pool. For example, http://adatum.com/shoppingcart/test.html goes to **pool1** because it is defined as the default pool for unmatched traffic:
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
