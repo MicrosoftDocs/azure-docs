@@ -22,7 +22,7 @@ Once you've configured an Azure resource with an MSI, you can give the MSI acces
 
 ## Use Role Based Access Control (RBAC) to assign the MSI access to another resource
 
-After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm):
+After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm.md):
 
 1. Sign in to Azure using the `Login-AzureRmAccount` cmdlet. Use an account that is associated with the Azure subscription under which you have configured the MSI:
 
