@@ -1,8 +1,10 @@
-title: <this Sample of Source Connections (Python)> | Microsoft Docs
-description: <this Gives samples of python source connections expressions>
-author: <your cforbe>
-ms.author: <your cforbe@microsoft.com>
-ms.date: <today’s date: 9/7/2017>
+---
+title: Sample of Source Connections (Python) | Microsoft Docs
+description: Gives samples of python source connections expressions
+author: cforbe
+ms.author: cforbe@microsoft.com
+ms.date: 9/7/2017
+---
 
 # Sample of Source Connections (Python) #
 
