@@ -13,7 +13,7 @@ ms.date: 09/05/2017
 ---
 # Deploying a machine learning model as a web service
 
-Azure Machine Learning model management provides interfaces to deploy models as REST API web services. You can deploy models you create using frameworks such as Spark, Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow, and Python. 
+Azure Machine Learning model management provides interfaces to deploy models as REST API web services. You can deploy models you create using frameworks such as Spark, the Microsoft Cognitive Toolkit, Keras, Tensorflow, and Python. 
 
 This document covers the steps to deploy your models as web services using the Azure Machine Learning model management command-line Interface (CLI). You learn how to:
 
