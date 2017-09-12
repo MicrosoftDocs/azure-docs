@@ -251,7 +251,7 @@ Consequently, your backup process can be a combination of two things:
 
 Depending on the backup option you choose, you might have to handle the backup of both the data and the configuration, or the backup service might handle all of that for you.
 
-## Appendix: Understanding the effect of locally redundant storage, geo-redundant storage, and read-access geo-redundant storage
+## Appendix: Understanding the impact of data redundancy
 
 For storage accounts in Azure, there are three types of data redundancy that you should consider regarding disaster recovery: locally redundant, geo-redundant, or geo-redundant with read access. 
 
