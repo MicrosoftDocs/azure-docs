@@ -11,12 +11,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/11/2017
+  ms.date: 07/24/2017
   ms.author: carolz
 abstract:
   description: 'Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data.'
 sections:
-- title: Getting Started
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
     text: 'Learn how to get started using Machine Learning Studio:'

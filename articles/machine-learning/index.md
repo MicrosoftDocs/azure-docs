@@ -55,7 +55,7 @@ Azure Machine Learning provides fully managed services for building, deploying, 
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/team-data-science-process/overview">
+        <a href="/azure/machine-learning/team-data-science-process">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,7 +73,7 @@ Azure Machine Learning provides fully managed services for building, deploying, 
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/data-science-virtual-machine/virtual-machine-overview">
+        <a href="/azure/machine-learning/data-science-virtual-machine">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
