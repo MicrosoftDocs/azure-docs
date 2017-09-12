@@ -21,7 +21,7 @@ ms.custom:
 
 # Create a Linux virtual machine in an availability zone with the Azure CLI
 
-You can deploy a Linux VM in an Azure availability zone (preview). An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. 
+You can deploy a Linux VM in an Azure availability zone (preview). An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -168,7 +168,7 @@ The output shows that the managed disk is in the same availability zone as the V
 
 ## Next steps
 
-In this article, you learned a how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability) for Azure VMs.
+In this article, you learned a how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
 
 
 
