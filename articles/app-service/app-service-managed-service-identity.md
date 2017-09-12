@@ -20,7 +20,7 @@ ms.author: mahender
 > [!NOTE] 
 > Managed Service Identity for App Service and Azure Functions is currently in preview.
 
-This topic shows you how to create App Service and Azure Functions applications with a managed Azure Active Directory identity. This allows your apps to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](https://docs.microsoft.com/azure/active-directory/active-directory-msi-overview).
+This topic shows you how to create App Service and Azure Functions applications with a managed Azure Active Directory identity. This allows your apps to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](../active-directory/active-directory-msi-overview.md).
 
 ## Creating an app with an identity
 
@@ -31,7 +31,7 @@ Creating an app with an identity requires an additional property to be set at cr
 
 ### Using an Azure Resource Manager template
 
-An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-complex-application-predictably) and [Automating resource deployment in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-infrastructure-as-code).
+An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service-web/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Any resource of type `Microsoft.Web/sites` can be created with an identity by including the following property in the resource definition:
 ```json
@@ -140,7 +140,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 > |resource|The App ID URI of the receiving web service.|
 > |token_type|Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
-This response is the same as the [response for the AAD service-to-service access token request](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-service-to-service#service-to-service-access-token-response).
+This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service#service-to-service-access-token-response.md).
 
 ### REST protocol examples
 An example request might look like the following:
