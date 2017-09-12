@@ -12,6 +12,7 @@ ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
 ---
+
 # Receive a notification when a metric value is abnormal
 
 Azure Monitor makes metrics available for many Azure resources. These metrics convey the performance and health of those resources. In many cases metric values can be indicative of something being wrong with a resource. Many users create metric alerts to monitor for anomalous behavior and be notified if it occurs. This Quickstart steps through creating an alert, and receiving a notification for a metric for a Logic App resource.
