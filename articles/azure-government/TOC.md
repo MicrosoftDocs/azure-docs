@@ -19,6 +19,7 @@
 ## Plan
 ### [Security](documentation-government-plan-security.md)
 ### [Compliance](documentation-government-plan-compliance.md)
+### [Identity](documentation-government-plan-identity.md)
 ## Manage
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
@@ -29,7 +30,7 @@
 ## [Marketplace](documentation-government-manage-marketplace.md)
 ## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
 
-## [Services](documentation-government-services.md)
+## Services
 ### [Compute](documentation-government-compute.md)
 ### [Networking](documentation-government-networking.md)
 ### [Storage](documentation-government-services-storage.md)

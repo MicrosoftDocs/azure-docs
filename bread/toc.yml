@@ -128,6 +128,9 @@
     - name: Language Understanding Intelligent Service (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
+    - name: Text Analytics
+      tocHref: /azure/cognitive-services/text-analytics/
+      topicHref: /azure/cognitive-services/text-analytics/overview
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview

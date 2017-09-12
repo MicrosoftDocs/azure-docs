@@ -77,9 +77,11 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **A:** We mount an SMB share to the `/home/` directory. This will override any content that's there.
 
-**Q:** I'm using my own custom container. I don't want the platform to mount an SMB share to the `/home/`.
+**Q:** I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.
 
-**A:** You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `false`. This will prevent container restarts when the platform storage goes through a change. Note that your `/home/` directory will no longer be shared across scale instances, and files written there will not be persisted across restarts.
+**A:** You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `true` or by removing the app setting entirely. Keep in mind that doing this will cause container restarts when the platform storage goes through a change. 
+
+Note that if WEBSITES_ENABLE_APP_SERVICE_STORAGE is 'false', the /home/ directory will not be shared across scale instances, and files written there will not be persisted across restarts.
 
 **Q:** My custom container takes a long time to start, and the platform restart the container before it finishes starting up.
 
@@ -91,7 +93,8 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** What is the format for the image name in private registry option?
 
-**A:** You need to add the full image name including the private registry url (eg. myacr.azurecr.io/dotnet:latest)
+**A:** You need to add the full image name including the private registry url (eg. myacr.azurecr.io/dotnet:latest). Image names using a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)
+. Use the [`az` command line tool](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) to set `docker-custom-image-name`.
 
 **Q:** I want to expose more than one port on my custom container image. Is that possible?
 
@@ -115,9 +118,9 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 ## Pricing and SLA
 
-**Q:** What's the pricing while you're using the public preview?
+**Q:** What's the pricing now that the service is generally available?
 
-**A:** You are charged half the number of hours that your app runs, with the normal Azure App Service pricing. This means that you get a 50 percent discount on normal Azure App Service pricing.
+**A:** You are charged for the number of hours that your app runs, with the normal Azure App Service pricing.
 
 ## Other
 
