@@ -79,6 +79,8 @@
     href: known-issues-and-troubleshooting-guide.md
 - name: Reference
   items:  
+  - name: Service limitations
+    href: reference-service-limits.md
   - name: Data Preparation
     items:
     - name: Python extensions for data preparation
