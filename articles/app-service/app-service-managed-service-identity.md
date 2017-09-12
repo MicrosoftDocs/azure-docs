@@ -84,9 +84,9 @@ An app can use its identity to get tokens to other resources protected by AAD, s
 
 There is a simple REST protocol for obtaining a token in App Service and Azure Functions. For .NET applications, the Azure Service Authentication Library provides an abstraction over this protocol and supports a local development experience.
 
-### <a name="asal"></a>Using the Azure Service Authentication Library (ASAL)
+### <a name="asal"></a>Using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
-For .NET applications and functions, the simplest way to work with a managed service identity is through the Azure Service Authentication Library. This section shows you how to get started with ASAL.
+For .NET applications and functions, the simplest way to work with a managed service identity is through the Azure Service Authentication Library. This section shows you how to get started with the library.
 
 1. Add a reference to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet package to your application.
 
@@ -112,7 +112,7 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(AzureSe
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-To learn more about ASAL and the operations it exposes, see the [Azure Service Authentication Library Reference](https://azure.microsoft.com).
+To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### Using the REST protocol
 
@@ -172,7 +172,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 }
 ```
 > [!TIP]
-> For .NET languages, you can also use [ASAL](#asal) instead of crafting this request yourself.
+> For .NET languages, you can also use [Microsoft.Azure.Services.AppAuthentication](#asal) instead of crafting this request yourself.
 
 In Node.JS:
 ```javascript
