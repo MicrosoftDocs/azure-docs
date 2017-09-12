@@ -44,13 +44,13 @@ A new MSI-enabled Windows Virtual Machine resource is created in a new resource 
    az login
    ```
 
-2. Create a [resource group](../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group#create). You can skip this step if you already have resource group you would like to use instead:
+2. Create a [resource group](../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#create). You can skip this step if you already have resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Create a VM using [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVM* with an MSI, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
+3. Create a VM using [az vm create](/cli/azure/vm/#create). The following example creates a VM named *myVM* with an MSI, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -66,7 +66,7 @@ If you need to enable MSI on an existing Virtual Machine:
    az login
    ```
 
-2. Use [az vm assign-identity](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_assign_identity) with the `--assign-identity` parameter to add an MSI to an existing VM:
+2. Use [az vm assign-identity](/cli/azure/vm/#az_vm_assign_identity) with the `--assign-identity` parameter to add an MSI to an existing VM:
 
    ```azurecli-interactive
    az vm assign-identity -g myResourceGroup -n myVm
@@ -82,7 +82,7 @@ If you have a Virtual Machine that no longer needs an MSI:
    az login
    ```
 
-2. Use the `-n ManagedIdentityExtensionForWindows` switch with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm#assign-identity) to remove the MSI:
+2. Use the `-n ManagedIdentityExtensionForWindows` switch with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) to remove the MSI:
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows

@@ -68,4 +68,6 @@
         href: msi-howto-assign-access-portal.md
       - name: With PowerShell
         href: msi-howto-assign-access-powershell.md
+      - name: With Azure CLI
+        href: msi-howto-assign-access-cli.md        
 
