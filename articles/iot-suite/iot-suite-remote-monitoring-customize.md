@@ -54,7 +54,7 @@ The Java solution currently uses the .NET authentication, simulation, and revers
 
 ## Presentation and visualizations
 
-The following sections describe options to customize the UI in the remote monitoring solution:
+The following sections describe options to customize the presentation and visualizations layer in the remote monitoring solution:
 
 ### Change the logo in the UI
 
@@ -91,9 +91,17 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 To duplicate an existing UI element such as a chart or alert, see the[Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
 
+### Other customization options
+
+To further modify the presentation and visualizations layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
+
+* [UIConfig (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
+* [UIConfig (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [Azure PCS Remote Monitoring WebUI](https://github.com/Azure/pcs-remote-monitoring-webui)
+
 ## Device connectivity and streaming
 
-The following sections describe options to customize device connectivity and streaming in the remote monitoring solution. [Device models](https://github.com/Azure/device-simulation-dotnet/blob/master/wiki/Device-Models) describe the device types and telemetry in the solution. You use device models for both simulated and [physical devices].
+The following sections describe options to customize the device connectivity and streaming layer in the remote monitoring solution. [Device models](https://github.com/Azure/device-simulation-dotnet/blob/master/wiki/Device-Models) describe the device types and telemetry in the solution. You use device models for both simulated and [physical devices].
 
 For an example of a physical device implementation, see [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
 
@@ -130,14 +138,30 @@ To implement methods and jobs on your physical devices, see the following IoT Hu
 * [Understand and invoke direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
 * [Schedule jobs on multiple devices](../iot-hub/iot-hub-devguide-jobs.md).
 
+### Other customization options
+
+To further modify the device connectivity and streaming layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
+
+* [Device Telemetry (.NET)](https://github.com/Azure/device-telemetry-dotnet)
+* [Device Telemetry (Java)](https://github.com/Azure/device-telemetry-java)
+* [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
+* [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
+
 ## Data processing and analytics
 
-The following sections describe options to customize data processing and analytics in the remote monitoring solution.
+The following sections describe options to customize the data processing and analytics layer in the remote monitoring solution:
 
 ### Rules and actions
 
 See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to customize the rules and actions in solution.
 <!-- Update the previous link -->
+
+### Other customization options
+
+To further modify the data processing and analytics layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
+
+* [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
+* [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
 
 ## Infrastructure
 
@@ -152,6 +176,15 @@ The default storage service for the remote monitoring solution is Cosmos DB. See
 
 The default storage service for logs is Cosmos DB. See the [Customize log storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses for logging.
 <!-- Update the previous link -->
+
+### Other customization options
+
+To further modify the infrastructure in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
+
+* [IoTHub Manager (.NET)](https://github.com/Azure/iothub-manager-dotnet)
+* [IoTHub Manager (Java)](https://github.com/Azure/iothub-manager-java)
+* [Storage Adapter (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
+* [Storage Adapter (Java)](https://github.com/Azure/pcs-storage-adapter-java)
 
 ## Next steps
 
