@@ -21,11 +21,7 @@ ms.custom:
 
 # Create a Windows virtual machine in an availability zone with PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This article details using PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone (preview). An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. You learn how to:
-
-> [!div class="checklist"]
-> * Create a VM in an availability zone
-> * Identify related resources created in the availability zone
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This article details using PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone (preview). An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. 
   
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -153,8 +149,4 @@ Tags               : {}
 
 ## Next steps
 
-In this article, you learned about VMs in an availability zone such as how to:
-
-> [!div class="checklist"]
-> * Create a VM in availability zone
-> * Identify related resources created in the availability zone
+In this article, you learned a how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability) for Azure VMs.

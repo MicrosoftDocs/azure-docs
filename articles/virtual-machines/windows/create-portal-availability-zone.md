@@ -21,11 +21,7 @@ ms.custom:
 
 # Create a Windows virtual machine in an availability zone with the Azure portal
 
-Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This article steps through creating a virtual machine in an availability zone (preview). An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. You learn how to:
-
-> [!div class="checklist"]
-> * Create a VM in an availability zone
-> * Identify related resources created in the availability zone
+Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This article steps through creating a virtual machine in an availability zone (preview). An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -126,9 +122,4 @@ Tags               : {}
 
 ## Next steps
 
-In this article, you learned about VMs in an availability zone such as how to:
-
-> [!div class="checklist"]
-> * Create a VM in an availability zone
-> * Identify related resources created in the availability zone
-
+In this article, you learned a how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability) for Azure VMs.
