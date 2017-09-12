@@ -32,14 +32,14 @@ Azure Application Gateway is a dedicated virtual appliance that provides applica
 
 ## CLI versions
 
-You can create an application gateway by using one of the following CLI versions:
+You can create an application gateway by using one of the following command-line interface (CLI) versions:
 
 * [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md): Azure CLI for the classic and Azure Resource Manager deployment models
 * [Azure CLI 2.0](application-gateway-create-gateway-cli.md): Next-generation CLI for the Resource Manager deployment model
 
 ## Prerequisite: Install the Azure CLI 2.0
 
-To perform the steps in this article, you need to [install the Azure command-line interface for macOS, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure CLI for macOS, Linux, and Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > You need an Azure account to create an application gateway. If you don't have one, sign up for a [free trial](../active-directory/sign-up-organization.md).
@@ -59,7 +59,7 @@ This scenario will:
 
 ## Before you begin
 
-An application gateway requires its own subnet. When you're creating a virtual network, ensure that you leave enough address space for multiple subnets. After you deploy an application gateway to a subnet, you can only add additional application gateways to that subnet.
+An application gateway requires its own subnet. When you're creating a virtual network, ensure that you leave enough address space for multiple subnets. After you deploy an application gateway to a subnet, you can add only additional application gateways to that subnet.
 
 ## Sign in to Azure
 
@@ -143,7 +143,7 @@ If the web application was defined with the back-end pool in the preceding steps
 ## Get the application gateway DNS name
 After you create the gateway, you then configure the front end for communication. When you're using a public IP, the application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure users can hit the application gateway, use a CNAME record to point to the public endpoint of the application gateway. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md).
 
-To configure an alias, retrieve details of the application gateway and its associated IP/DNS name by using the PublicIPAddress element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record, which points the two web applications to this DNS name. Don't use A records because the VIP might change on restart of the application gateway:
+To configure an alias, retrieve details of the application gateway and its associated IP/DNS name by using the PublicIPAddress element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record, which points the two web applications to this DNS name. Don't use A records because the VIP might change on restart of the application gateway.
 
 
 ```azurecli-interactive
