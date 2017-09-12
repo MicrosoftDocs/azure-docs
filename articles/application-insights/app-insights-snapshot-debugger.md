@@ -64,26 +64,13 @@ Snapshot collection is available for:
 
 1. [Enable Application Insights in your ASP.NET Core web app](app-insights-asp-net-core.md), if you haven't done it yet.
 
+> [!NOTE]
+> Be sure that your application references version 2.1.1, or newer, of the Microsoft.ApplicationInsights.AspNetCore package.
+
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
-3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor. The code you should add depends on the referenced version of the Microsoft.ApplicationInsights.ASPNETCore NuGet package.
+3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor.
 
-   For Microsoft.ApplicationInsights.AspNetCore 2.1.0 add:
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   For Microsoft.ApplicationInsights.AspNetCore 2.1.1 add:
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...
