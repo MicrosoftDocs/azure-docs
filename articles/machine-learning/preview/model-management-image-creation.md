@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ---
-# Model Management: Models, Manifests and Images
+# Model Management: Models, Manifests, and Images
 
 ## Overview
-This document will walk you through the following steps of creating a docker image for your web service:
+This document walks you through the following steps of creating a docker image for your web service:
 Model Registration
 Manifest Creation
 Image Creation
-You can use this image to create a webservice either locally or on a removte ACS cluster or another docker supported environment of your choice.
+You can use this image to create a web service either locally or on a remote ACS cluster or another docker supported environment of your choice.
 
 ## Prerequisites
 Make sure you have gone through the installation steps in the QuickStart Installation document.
@@ -50,7 +50,7 @@ Open a command prompt using Run As Administrator and run the following commands:
 
 The easiest and quickest way to get started on Linux is to use the Data Science VM (see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-dsvm-ubuntu-intro)).
 
-**Note**: The information in this document pertains to DSVMs provisioned after May 1st, 2017.
+**Note**: The information in this document pertains to DSVMs provisioned after May 1, 2017.
 
 Once you have provisioned and signed into the DSVM, run the following commands and follow the prompts:
  
@@ -61,11 +61,11 @@ Once you have provisioned and signed into the DSVM, run the following commands a
 
 **NOTE**: You must log out and log back in to your SSH session for the changes to take effect.
 
-**NOTE**: You can use the above commands to update an earlier version of the CLIs on the DSVM.
+**NOTE**: You can use the preceding commands to update an earlier version of the CLIs on the DSVM.
 
 ### Provisioning
 ##### Set up the environment
-To deploy your web service to a production environment, first set up the environment using the following command.
+To deploy your web service to a production environment, first set up the environment using the following command:
 
     az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus]
 
@@ -77,34 +77,34 @@ The cluster environment setup command creates the following resources in your su
 * A Kubernetes deployment on an Azure Container Service (ACS) cluster
 * Application insights
    
-The resource group, storage account, and ACR are created quickly. The ACS deployment may take some time. Once the setup command has finished setting up the resource group, storage account, and ACR, it outputsthe environment export commands for the AML CLI environment. 
+The resource group, storage account, and ACR are created quickly. The ACS deployment may take some time. Once the setup command has finished setting up the resource group, storage account, and ACR, it outputs the environment export commands for the AML CLI environment. 
 
-**NOTE**: If you do not supply a -c parameter when you call the environment set up, the environment is configured for local mode. If you choose this option, you will not be able to run cluster mode commands.
+**NOTE**: If you do not supply a -c parameter when you call the environment setup, the environment is configured for local mode. If you choose this option, you will not be able to run cluster mode commands.
 
 After setup is complete, set the environment to be used for this deployment.
 
     az ml env set --cluster-name [environment name] -g [resource group]
     
 - Cluster name: the name used when setting up the environment
-- Resource group name: the name you specified for the setup command above. Or if you didn't specify it at time of set up, it was created and returned in the output of the set up command.
+- Resource group name: the name you specified for the preceding setup command - if you didn't specify the name at the time of setup, this is the name that was created and returned in the output of the setup command.
 
-Note that once the environment is created, for subsequent deployments, you only need to use the set command above.
+Once the environment is created, you only need to use the preceding set command for subsequent deployments.
 
 ##### Create a Model Management account
-This creates and sets the Model Management account. You need to create this account in order to access capabilities of creating images for web services, deploying models as web services as well as tracking model versions in production. You need to create and set this once. Subsequent deployments may re-use the same account.
+This creates and sets the Model Management account. You create this account in order to access capabilities of creating images for web services, deploying models as web services as well as tracking model versions in production. You create and set this account once. Subsequent deployments may reuse the same account.
 
     az ml account modelmanagement create -l [Azure region, e.g. eastus2] -n [your account name] -g [resource group name: existing] --sku-instances 1 --sku-name S1
 
-The above command also sets the account for deployment which means you can now deploy your web service. For any subsequent deployments however, you need to set the account first using the below command:
+The preceding command also sets the account for deployment, which means you can now deploy your web service. For any subsequent deployments however, you need to set the account first using the following command:
 
     az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ### AAD Token
-When using the CLI, login using `az login`. The CLI will use your AAD token from .azure file. If you wish to use the APIs, you have the following options:
+When using the CLI, log in using `az login`. The CLI uses your AAD token from the .azure file. If you wish to use the APIs, you have the following options:
 
 ##### Acquiring the AAD token manually
-You can do `az login` and get the latest token from .azure file on your home directory.
+You can do `az login` and get the latest token from the .azure file on your home directory.
 
-##### Acquiring the AAD token programatically
+##### Acquiring the AAD token programmatically
 ```
 az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName> --role Contributor --years <length of time> --name <MyservicePrincipalContributor>
 ```
@@ -119,17 +119,17 @@ Once you create service principal, save the output. Now you can use that to get 
         return token.AccessToken;
 }
 ```
-The token will be put in authorization header for API calls. See below for more details.
+The token is put in authorization header for API calls. See below for more details.
 
 
 ## Registering Models
 
-Model registration step registers your machine learning model with Azure Model Management Account that you created. This registration enables tracking the models and their versions that are assigned at the time of registration. The user will provide the name of the model. Subsequent registration of models under the same name generates a new version and id.
+Model registration step registers your machine learning model with Azure Model Management Account that you created. This registration enables tracking the models and their versions that are assigned at the time of registration. The user provides the name of the model. Subsequent registration of models under the same name generates a new version and ID.
 
 For the sake of this example, let us assume you have __*housing.model*__ in your current directory. This is a pySpark model and appears as a folder on your file system.  You would want to register it as __*housing.model*__ provide its location, which is the name of the model in current directory or SAS url. 
 
 ### CLI
-The following command will zip your model, load to the storage location of the environment you setup earlier and pass in sas url to the APIs behind the scene.
+The following command will zip your model, load to the storage location of the environment you set up earlier, and pass in sas url to the APIs behind the scene.
 ```
 az ml model register -m housing.model -n housing.model -t myTag -d "my housing.model"
 ```
@@ -169,7 +169,7 @@ Body:
 Response:
 `
 
-Http Satus Code 200 means Successfully Registered
+Http Status Code 200 means Successfully Registered
 ```json
 {
     "id": "<system generated model id>",
@@ -187,11 +187,11 @@ Http Satus Code 200 means Successfully Registered
 
 
 ## Creation of Manifests
-Manifests are artifacts that bundle your dependencies together with models so they can be packaged together. In other words, manifest defines the requirements to create your webservice. It includes models, coding files, configuration settings, pip or conda files, or any other artifact that should be available on the container.
+Manifests are artifacts that bundle your dependencies together with models. This allows them to be packaged together. In other words, manifest defines the requirements to create your web service. It includes models, coding files, configuration settings, pip or conda files, or any other artifact that should be available on the container.
 
 Let us assume you have already registered a model in the previous step. 
 
-**Model Id**:      *07b56951-3ce6-481a-bcb7-e76ee669e990*
+**Model ID**:      *07b56951-3ce6-481a-bcb7-e76ee669e990*
 
 **Scoring File**: *scoring.py*
 
@@ -246,7 +246,7 @@ Body:
 Response:
 `
 
-Http Satus Code 200 means Successfully Registered
+Http Status Code 200 means Successfully Registered
 ```json
 {
    "id": "c510e688-60cc-43fb-bfe1-491a97374c6a",
@@ -277,10 +277,10 @@ Http Satus Code 200 means Successfully Registered
 ```
 
 ## Building images
-Once you have the model registered and manifest created, you may go ahead and create Docker Images for your webservice. The container images will have all the artifacts defined in the manifest, all the dependencies downloaded. These images will be pushed to Azure Container Registry and can be pulled down for local testing or for service creation on ACS.
+Once you have the model registered and manifest created, you may go ahead and create Docker Images for your web service. The container images will have all the artifacts defined in the manifest, all the dependencies downloaded. These images are pushed to Azure Container Registry. From there they can be pulled down for local testing or for service creation on ACS.
 
 ### CLI
-Let us assume you have already created manifest in the above step.
+Let us assume you have already created manifest in the preceding step.
 
 **ManifestId**: e6b50818-0dfe-4e75-a987-c2fb6dc61431
 
@@ -316,7 +316,7 @@ Body:
 Response:
 `
 
-Http Satus Code 200 means Successfully Registered
+Http Status Code 200 means Successfully Registered
 ```json
 {
   "ComputeResourceId": "<ARM id of the compute resource>",
