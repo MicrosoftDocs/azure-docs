@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Windows
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
 
 > [!div class="checklist"]
 > * Use the Custom Script Extension to define an IIS site to scale
@@ -33,11 +33,11 @@ This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` G
 
 
 ## Scale Set overview
-Scale sets use similar concepts as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are distributed across fault and update domains just like VMs in an availability set.
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use similar concepts as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are distributed across logic fault and update domains in one or more *placement groups*. These are groups of similarly configured VMs, similar to [availability sets](tutorial-availability-sets.md).
 
 VMs are created as needed in a scale set. You define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
 
-Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 100 VMs in a scale set when using a custom image.
+Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 300 VMs in a scale set when using a custom image.
 
 
 ## Create an app to scale
