@@ -13,14 +13,6 @@ ms.date: 09/07/2017
 ---
 # Using Git Repo with an Azure Machine Learning Workbench Project
 
-## Quick Help 
-Use following link if you want to associate an Azure ML Workbench project with a Visual Studio Team Service Git repo:
-
-```
-https://<vsts_acct_name>.visualstudio.com/<vsts_proj_name>/_git/<git_repo_name>
-```
->Note: the Git repo must already exist, it must be empty (has no master branch), and you must have write access to it.
-
 ## Introduction
 Azure Machine Learning Workbench is designed with Git integration from the ground up. When creating a new project, the project folder is automatically "Git-initialized" as a local Git repository (repo) while a second hidden local Git repo is also created with a branch named _AzureMLHistory/<project_GUID>_ to keep track of project snapshots before each execution. 
 
@@ -30,7 +22,7 @@ If roaming is enabled, it is also possible to manage version control explicitly 
 
 This diagram depicts the relationship between a VSTS Git repo and an Azure ML project:
 
-![Vienna Git](/media/using-git-ml-project/vienna_git.png)
+![Vienna Git](media/using-git-ml-project/vienna_git.png)
 
 To get started using a remote Git repo, follow these basic instructions.
 
@@ -47,14 +39,14 @@ To navigate directly to the desired VSTS account, the URL is `https://<vsts_acco
 ## Step 2b. Use the Default Git Repo or Create A Git Repo
 If you are creating a new VSTS project, you need also create a new Version Control database. Make sure you use `Git` as the Version Control provider.
 
-![Create a Git repo](/media/using-git-ml-project/create_git_repo.png)
+![Create a Git repo](media/using-git-ml-project/create_git_repo.png)
 
 The URL of the newly created VSTS Git repo can be copied and used when adding a new Azure ML project. It typically looks like this:
 `http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
 
 You can also create additional Git repos under the same project.
 
-![new non-default Git repo](/media/using-git-ml-project/new_git_repo.png)
+![new non-default Git repo](media/using-git-ml-project/new_git_repo.png)
 
 The new non-default Git repo URL is typically: `http://<vsts_account_name>.visualstudio.com/<project_name/_git/<epo_name>`
 
@@ -63,7 +55,7 @@ The new non-default Git repo URL is typically: `http://<vsts_account_name>.visua
 ## Step 3. Create a new Azure ML Project with a remote Git Repo
 Launch Azure ML Workbench and create a new project. Fill the Git repo text box with the VSTS Git repo URL that you coped from Step 2.
 
-![Create Azure ML Project with Git repo](/media/using-git-ml-project/create_project_with_git_repo.png)
+![Create Azure ML Project with Git repo](media/using-git-ml-project/create_project_with_git_repo.png)
 
 Now a new Azure ML project is created with remote Git repo integration enabled and ready to go. The project folder is always Git-initialized as a local Git repo. A master branch and a special Run History branch (named _AzureMLHistory/<project_GUID>_) are created in the Git repo for you. And the Git _remote_ is set to the remote VSTS Git repo so commits on both branches can be pushed into the remote Git repo.
 
@@ -78,7 +70,7 @@ C:\Temp\myIris> az ml project update -r https://<acct-name>.visualstudio.com/pro
 ## Step 4. Capture Project Snapshot in Git Repo
 Now you can execute a few runs in the Workbench, make some changes in-between the runs. You can do this either from the desktop app, or from CLI using _az ml experiment submit_ command. For more details, you can follow the [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md). For each run, if there is any change made in any files in the project folder, a snapshot of the entire project folder is committed to the run history branch and pushed into the remote Git repo. You can view the branches and commits by browsing to the VSTS Git repo URL.
 
-![run history branch](/media/using-git-ml-project/run_history_branch.png)
+![run history branch](media/using-git-ml-project/run_history_branch.png)
 
 ## Step 5. Restore a Previous Project Snapshot 
 To restore the entire project folder to the state of a previous run history project state snapshot, you can use the following command from the Azure ML Workbench CLI window.
@@ -126,7 +118,8 @@ First let's generate a pair of SSH keys on your computer.
 
 #### On Windows:
 Launch Git GUI desktop app on Windows, and under _Help_ menu, click on _Show SSH Key_.
-![SSH Key](/media/using-git-ml-project/git_gui.png)
+
+![SSH Key](media/using-git-ml-project/git_gui.png)
 
 Copy SSH into clipboard.
 
@@ -150,11 +143,11 @@ More details steps can be found on [this GitHub article](https://help.github.com
 ### Upload Public Key to Git repo
 Go to your Visual Studio account homepage: https://<vsts_account_name>.visualstudio.com and log in, then click on Security under the avatar.
 
-![vsts security](/media/using-git-ml-project/vsts_security.png)
+![vsts security](media/using-git-ml-project/vsts_security.png)
 
 Then add a SSH public key,  paste the SSH public key you get from the previous step, and give it a name. You can add multiple keys here.
 
-![ssh key](/media/using-git-ml-project/add_ssh.png)
+![ssh key](media/using-git-ml-project/add_ssh.png)
 
 That's it, you are good to go.
 
