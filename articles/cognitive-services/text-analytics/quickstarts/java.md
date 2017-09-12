@@ -110,7 +110,7 @@ public class DetectLanguage {
 		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Access-Key", accessKey);
+		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
 		connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -285,7 +285,7 @@ public class GetSentiment {
 		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Access-Key", accessKey);
+		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
 		connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -434,7 +434,7 @@ public class GetKeyPhrases {
 		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Access-Key", accessKey);
+		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
 		connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
