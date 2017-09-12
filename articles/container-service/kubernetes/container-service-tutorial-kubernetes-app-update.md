@@ -40,11 +40,13 @@ In previous tutorials, an application was packaged into a container image, the i
 
 An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file a directory name `azure-vote` and a file named `docker-compose.yml`.
 
+To complete this tutorial, you need the pre-created `docker-compose.yml` file as well the application source code. These items were downloaded with the Azure Vote git repo in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
+
 If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## Update application
 
-For this tutorial, a change will be made to the application, and these changes deployed to the Kubernetes cluster. The application source code can be found inside of the **azure-vote** directory.. 
+For this tutorial, a change will be made to the application, and these changes deployed to the Kubernetes cluster. The application source code can be found inside of the **azure-vote** directory.
 
 Open the `config_file.cfg` file with any code or text editor. In this example `vi` is beeing used.
 

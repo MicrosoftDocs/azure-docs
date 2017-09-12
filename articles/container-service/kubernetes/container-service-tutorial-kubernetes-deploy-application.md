@@ -37,13 +37,13 @@ This tutorial assumes a basic understanding of Kubernetes concepts, for detailed
 
 In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created. 
 
-An application git repository was also cloned, which includes the Kubernetes manifest file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file named `azure-vote-all-in-one-redis.yml`.
+To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yml` Kubernetes manifest file. This file was downloaded with the Azure Vote git repo in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
 
 If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## Update manifest file
 
-If using Azure Container Registry to store the container images, the manifest needs to be updated with the ACR loginServer name.
+In this tutorial, Azure Container has been used to store the container images. For this to work, the ACR login server name needs to be added to the container image name in the manifest file.
 
 Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
 
@@ -51,7 +51,7 @@ Get the ACR login server name with the [az acr list](/cli/azure/acr#list) comman
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The sample manifest has been pre-created with a repository name of *microsoft*. Open the file with any text editor, and replace the *microsoft* value with the login server name of your ACR instance. 
+The manifest file has been pre-created with a repository name of *microsoft*. Open the file with any text editor, and replace the `microsoft` value with the login server name of your ACR instance. 
 
 In this example, the file is opened with `vi`.
 
@@ -59,7 +59,7 @@ In this example, the file is opened with `vi`.
 vi azure-vote-all-in-one-redis.yml
 ```
 
-Replace `microsoft` with the ACR login server.
+Replace `microsoft` with the ACR login server. This is found on line 47 of the manifest file.
 
 ```yaml
 containers:
