@@ -89,7 +89,7 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
    >
 3. Create a notebook. Click **New**, and then click **PySpark**.
 
-   ![Create a Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
+   ![Create a Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
 
    A new notebook is created and opened with the name Untitled(Untitled.pynb).
 
