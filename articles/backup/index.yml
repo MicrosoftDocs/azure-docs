@@ -40,27 +40,27 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/backup/backup-azure-vms-first-look-arm
-- title: Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to back up an Azure virtual machine in Azure.
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn to back up and recover virtual machines at scale.
-- title: Samples
-  items:
-  - type: paragraph
-    text: Use the following samples to protect your data in Azure.
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+  - title: Quickstarts
     items:
-    - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/recoveryservices">Recovery Services REST API Reference</a></p>
+    - type: paragraph
+      text: Learn how to back up an Azure virtual machine in Azure.
+  - title: Step-by-Step Tutorials
+    items:
+    - type: paragraph
+      text: Learn to back up and recover virtual machines at scale.
+  - title: Samples
+    items:
+    - type: paragraph
+      text: Use the following samples to protect your data in Azure.
+  - title: Reference
+    items:
+    - type: list
+      style: cards
+      className: cardsD
+      items:
+      - title: Command-Line
+        html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
+      - title: Languages
+        html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+      - title: REST
+        html: <p><a href="/rest/api/recoveryservices">Recovery Services REST API Reference</a></p>
