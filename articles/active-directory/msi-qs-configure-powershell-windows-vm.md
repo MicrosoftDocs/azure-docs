@@ -32,7 +32,7 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 
 A new MSI-enabled Windows Virtual Machine resource is created in a new resource group, using the specified configuration parameters. Also note that many these cmdlets can run 30 seconds or more before returning, with the final VM creation taking several minutes to complete.
 
-1. Sign in to Azure using [Login-AzureRmAccount](/powershell/module/azurerm.resources/Login-AzureRmAccount). Use an account that is associated with the Azure subscription under which you would like to deploy the VM.
+1. Sign in to Azure using [Login-AzureRmAccount](/powershell/module/azurerm.resources/Add-AzureRmAccount). Use an account that is associated with the Azure subscription under which you would like to deploy the VM.
 
    ```powershell
    Login-AzureRmAccount
@@ -107,13 +107,13 @@ A new MSI-enabled Windows Virtual Machine resource is created in a new resource 
 
 If you need to enable MSI on an existing Virtual Machine:
 
-1. Sign in to Azure using [Login-AzureRmAccount](/powershell/module/azurerm.resources/Login-AzureRmAccount). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. Sign in to Azure using [Login-AzureRmAccount](/powershell/module/azurerm.profile/Add-AzureRmAccount). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-2. First retrieve the VM properties using the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm.md) cmdlet. Then to enable MSI, use the `-IdentityType` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm.md) cmdlet:
+2. First retrieve the VM properties using the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) cmdlet. Then to enable MSI, use the `-IdentityType` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM

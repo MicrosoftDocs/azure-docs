@@ -29,7 +29,7 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
    ```powershell
    Login-AzureRmAccount
    ```
-2. In this example, we are giving an Azure VM access to a storage account. First we will use Get-AzureRMVM to get the service principal for the VM, which was created when we enabled MSI. Then, we will use New-AzureRmRoleAssignment to give the VM "Reader" access to Xxxxx. 
+2. In this example, we are giving an Azure VM access to a storage account. First we will use [Get-AzureRMVM](/powershell/module/azurerm.resources/Login-AzureRmAccount) to get the service principal for the VM, which was created when we enabled MSI. Then, we will use New-AzureRmRoleAssignment to give the VM "Reader" access to Xxxxx. 
 
     ```powershell
     (Get-AzureRMVM -ResourceGroupName myRG -Name windowsvm0).identity.principalid
