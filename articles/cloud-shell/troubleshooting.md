@@ -40,7 +40,7 @@ When using an Azure Active Directory subscription, I cannot create storage due t
 [TODO] from an issue
 
 ### GUI applications are not supported
-  - **Details**: If a user tries to launch a GUI app (for example, git clone a 2FA enabled private repo. It pops up a 2FA authentication dialog box), the console prompt does not return.
+  - **Details**: If a user tries to launch a GUI app (for example, git clone a 2FA enabled private repo. It pops up a 2FA authentication dialog box), the prompt does not return.
   - **Resolution**: `Ctrl+C` to exit the command.
 
 ### Get-Help -online does not open the help page
