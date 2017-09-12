@@ -134,6 +134,6 @@ Note that if WEBSITES_ENABLE_APP_SERVICE_STORAGE is 'false', the /home/ director
 
 ## Next steps
 
-* [What is Azure Web Apps for Containers?](app-service-linux-intro.md)
+* [What is Azure Web App for Containers?](app-service-linux-intro.md)
 * [Set up staging environments in Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continuous Deployment with Azure Web Apps for Containers](./app-service-linux-ci-cd.md)
+* [Continuous Deployment with Azure Web App for Containers](./app-service-linux-ci-cd.md)
