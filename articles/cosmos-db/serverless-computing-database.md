@@ -27,7 +27,7 @@ With the native integration between Azure Cosmos DB and Azure Functions, yo
 
 With Azure Cosmos DB and Azure Functions, you can:
 
-1. Create event-driven Azure Cosmos DB triggers that get invoked when items are modified in an Azure Cosmos DB database. These triggers rely Azure Cosmos DB [change feed](change-feed.md) support, which monitors your database for changes.
+1. Create event-driven Azure Cosmos DB triggers that get invoked when items are modified in an Azure Cosmos DB database. These triggers rely Azure Cosmos DB [change feed](change-feed.md) support (streams), which monitor your database for changes.
 2. Use data in an Azure Cosmos DB database as input to an Azure Function. This is known as an input binding. 
 3. Store data in Azure Cosmos DB as the output of an Azure Function. This is known as an output binding.
 
