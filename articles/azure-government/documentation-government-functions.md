@@ -116,7 +116,8 @@ In the following command substitute a unique function app name where you see the
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --plan testPlan
 ```
->[!NOTE] By default, a function app is created with the App Service plan, which means that dedicated VMs are allocated to your App Service apps and the functions host is always running.
+>[!NOTE]
+>By default, a function app is created with the App Service plan, which means that dedicated VMs are allocated to your App Service apps and the functions host is always running.
 For more information about the App Service plan, [click here](../azure-functions/functions-scale.md#app-service-plan). 
 >
 >
@@ -209,9 +210,11 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
 * Make sure Visual Studio has been installed:
     -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
-    >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >[!NOTE] 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 2017    	tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > 	**Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
+    
 * Function app running in Visual Studio
     - To create one, complete the Quickstart section above, [Create function using Visual Studio](documentation-government-functions#create-function-using-visual-studio). 
 
@@ -256,7 +259,8 @@ Learn how to update an existing function by adding an output binding that sends 
 
    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
-    >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >[!NOTE] 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
 
