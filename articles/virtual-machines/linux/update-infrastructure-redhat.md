@@ -26,7 +26,7 @@ Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured t
 
 1. RHUI currently supports only the latest minor release in a given RHEL family (RHEL6 or RHEL7). RHEL VM instance connected to RHUI upgrades to the latest minor version when you run `sudo yum update`. 
 
-    For example, if you provision a VM from RHEL 7.2 PAYG image and run `sudo yum update`, you end up with RHEL 7.4 VM (current latest minor version in RHEL7 family).
+    For example, if you provision a VM from RHEL 7.2 PAYG image and run `sudo yum update`, you end up with a RHEL 7.4 VM (current latest minor version in RHEL7 family).
 
     To avoid this behavior, you need to build your own image as described in [Create and Upload Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article and connect it to a different update infrastructure ([directly to Red Hat content delivery servers](https://access.redhat.com/solutions/253273) or Red Hat Satellite server).
 
