@@ -28,6 +28,7 @@
 ### [Set policies and schedules ](devtest-lab-set-lab-policy.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
+### [Add tags to a lab](devtest-lab-add-tag.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
 
