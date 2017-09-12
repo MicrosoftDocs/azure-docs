@@ -34,10 +34,10 @@ Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured t
 
 3. Two classes of RHEL PAYG images in Azure (RHEL for SAP HANA, RHEL for SAP Business Applications) are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification. 
 
-4. Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you are proxying all VM traffic via on-premises network infrastructure you may need to setup user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
+4. Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you are proxying all VM traffic via on-premises network infrastructure, you may need to setup user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
 
 ### The IPs for the RHUI content delivery servers
-RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government and Azure Germany regions. 
+RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government, and Azure Germany regions. 
 
 If you are using network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on the environment you are in. 
 
@@ -58,7 +58,7 @@ If you are using network configuration to further restrict access from RHEL PAYG
 
 ## RHUI Azure Infrastructure Update
 
-In September 2016 we deployed an updated Azure RHUI and in April 2017 we shut down the old Azure RHUI. If you have been using the RHEL PAYG images (or their snapshots) from September 2016 or later you are automatically connecting to the new Azure RHUI. If, however, you have older snapshots/VMs, their configuration needs to be manually updated to access the Azure RHUI as described below.
+In September 2016 we deployed an updated Azure RHUI and in April 2017 we shut down the old Azure RHUI. If you have been using the RHEL PAYG images (or their snapshots) from September 2016 or later, you are automatically connecting to the new Azure RHUI. If, however, you have older snapshots/VMs, their configuration needs to be manually updated to access the Azure RHUI as described below.
 
 The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) so that a single endpoint (rhui-1.microsoft.com) can be used by any VM regardless of region. 
 
