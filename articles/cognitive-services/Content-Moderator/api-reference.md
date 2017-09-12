@@ -16,7 +16,7 @@ ms.author: sajagtap
 You get started with the Content Moderator APIs in the following ways:
 
   1. [Subscribe to the Content Moderator API](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/ContentModerator) on the Microsoft Azure portal.
-  1. Sign up for the [content moderator review tool](http://contentmoderator.cognitive.microsoft.com/). See [Your API Key in the review tool](overview.md).
+  1. Sign up for the [content moderator review tool](http://contentmoderator.cognitive.microsoft.com/). See the screenshot in the [Overview](overview.md) article.
 
 ## Content Moderation APIs ##
 
