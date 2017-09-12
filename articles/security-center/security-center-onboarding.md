@@ -39,17 +39,24 @@ You can upgrade an entire Azure subscription to the Standard tier, which is inhe
 ## Upgrade an Azure subscription
 To upgrade all subscriptions to Standard:
 1. Under the Security Center main menu, select **Onboarding**.
-2. Under the **Onboarding to advanced security**, Security Center lists subscriptions eligible for onboarding. You can upgrade all of the listed subscriptions by selecting **Apply Standard plan**.
+2. Under **Onboarding to advanced security**, Security Center lists subscriptions eligible for onboarding. You can upgrade all of the listed subscriptions by selecting **Apply Standard plan**.
 
   ![Upgrade all subscriptions][1]
 
 To upgrade an individual subscription to Standard:
-1. Select a subscription.  In this example, we selected **Subscription 1**. **Security policy & settings** provides information on the total number of resources contained in the subscription.
+You can upgrade a subscription from **Onboarding** by selecting **Apply Standard Tier**. To upgrade a resource group under the subscription to Standard, select the subscription:
+1. Select a subscription.  **Security policy** provides information on the resource group contained in the subscription.
+2. Select the subscription or a resource group.
 
   ![Upgrade all subscriptions][2]
 
-2. Select **Standard** to upgrade from Free to Standard.
-3. Select **Apply**.
+3. Select **Standard** to upgrade from Free to Standard.
+4. Select **Apply**.
+
+> [!NOTE]
+> Upgrading a subscription to Standard will turn on [automatic provisioning](security-center-enable-data-collection.md) if it was previously disabled. We recommend automatic provisioning of monitoring agents.
+>
+>
 
 ## Upgrade a workspace
 Applying Standard to the workspace applies to all resources reporting to the workspace.
@@ -67,7 +74,7 @@ Applying Standard to the workspace applies to all resources reporting to the wor
 ## Onboard non-Azure resources
 Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. You can add non-Azure computers from the **Onboarding** blade or from the **Compute** blade. We’ll walk through both methods.
 
-### Add new non-Azure resources from the Onboarding blade
+### Add new non-Azure resources from Onboarding
 
 1. Return to **Onboarding**.   
 2. Select **Do you want to add new non-Azure resources**.
@@ -87,11 +94,10 @@ We’ll walk through both methods:
 
    ![Add a new workspace][4]
 
-2. Under **Security & Compliance**, the recommended solutions Antimalware Assessment and Security and Audit are checked. These solutions are installed automatically if you leave them checked. You can uncheck them if you do not want to install.
-3. Select **OMS workspace** to create a new workspace.
-4. Under **OMS Workspace**, enter the information for your workspace.
-5. Under **OMS Workspace**, select **OK**.  After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
-6. Under **Security & Compliance**, select **Create**.
+2. Under **Security & Audit**, select **OMS workspace** to create a new workspace.
+3. Under **OMS Workspace**, enter the information for your workspace.
+4. Under **OMS Workspace**, select **OK**.  After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
+5. Under **Security & Audit**, select **OK**.
 
 **Select an existing workspace and add resource**
 
