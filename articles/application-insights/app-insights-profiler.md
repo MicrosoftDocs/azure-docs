@@ -69,8 +69,9 @@ There is no charge for the profiler service. Your web app must be hosted in at l
 
 ## Overhead and sampling algorithm
 
-The Profiler randomly runs 2 minutes every hour on each Virtual Machine that hosts the application with Profiler enabled to capture traces. When the Profiler is running, it adds 15% overhead to the throughput of the server.
-The sampling algorithm is the same for all hosting services on Azure, though the more servers available for hosting the application, the less impact Profiler has on the overall application performance. This is because more servers will be available serving the web requests while one of the servers is having overhead from the Profiler.
+The Profiler randomly runs 2 minutes every hour on each Virtual Machine that hosts the application with Profiler enabled to capture traces. When the Profiler is running, it adds between 5-15% CPU overhead to the server.
+The more servers available for hosting the application, the less impact Profiler has on the overall application performance. This is because the sampling algorithm results in the profiler running on only run on 5% of servers at any given time, and more servers will be available to serve web requests to offset the servers having overhead from the Profiler. 
+
 
 ## Viewing profiler data
 
