@@ -62,7 +62,7 @@ The following table summarizes replicated operating system support in various de
 
  **VMware/physical server** | **Hyper-V (with/without VMM)** |
 --- | --- |
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/>*Windows Server 2016* - not supported currently on VMware virtual machines and Physical servers. <br/><br/> Red Hat Enterprise Linux : 5.2 to 5.11, 6.1 to 6.8, 7.0 to 7.3 <br/><br/>Cent OS : 5.2 to 5.11, 6.1 to 6.8, 7.0 to 7.3 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/>*Windows Server 2016* - not supported currently on VMware virtual machines and Physical servers. <br/><br/> Red Hat Enterprise Linux : 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.3 <br/><br/>CentOS : 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.3 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 >[!IMPORTANT]
@@ -78,8 +78,9 @@ The following table summarizes replicated operating system support in various de
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic to 3.13.0-121-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-81-generic |
+14.04 LTS | 9.11 | 3.13.0-24-generic to 3.13.0-128-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-91-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic to 4.4.0-81-generic,<br/>4.8.0-34-generic to 4.8.0-56-generic,<br/>4.10.0-14-generic to 4.10.0-24-generic |
-
+16.04 LTS | 9.11 | 4.4.0-21-generic to 4.4.0-91-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-32-generic |
 
 ## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
 
@@ -161,7 +162,7 @@ NFS | No | N/A
 SMB 3.0 | No | No
 RDM | Yes<br/><br/> N/A for physical servers | N/A
 Disk > 1 TB | Yes<br/><br/>Upto 4095 GB | Yes<br/><br/>Upto 4095 GB
-Disk with 4K sector size | No | No
+Disk with 4K sector size | Yes | Yes, supported for Generation 1 VMs<br/><br/>Not supported for Generation 2 VMs.
 Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes
 Storage Spaces | No | Yes
 Hot add/remove disk | No | No
@@ -183,7 +184,7 @@ Import/export service | No | No
 ## Support for Azure compute configuration
 
 **Compute feature** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
---- | --- | --- 
+--- | --- | ---
 Availability sets | Yes | Yes
 HUB | Yes | Yes  
 Managed disks | Yes | Yes<br/><br/>Failback to on-premises from Azure VM with managed disks is not currently supported.
@@ -196,7 +197,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 --- | --- | ---
 **Guest operating system** | Hyper-V to Azure replication: Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication: Check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md) | Prerequisites check will fail if unsupported.
 **Guest operating system architecture** | 64-bit | Prerequisites check will fail if unsupported
-**Operating system disk size** | Up to 1023 GB | Prerequisites check will fail if unsupported
+**Operating system disk size** | Up to 2048 GB if you are replicating **VMware VMs or physical servers to Azure**.<br/><br/>Upto 2048 GB for **Hyper-V Generation 1** VMs.<br/><br/>Upto 300 GB for **Hyper-V Generation 2 VMs**.  | Prerequisites check will fail if unsupported
 **Operating system disk count** | 1 | Prerequisites check will fail if unsupported.
 **Data disk count** | 64 or less if you are replicating **VMware VMs to Azure**; 16 or less if you are replicating **Hyper-V VMs to Azure** | Prerequisites check will fail if unsupported
 **Data disk VHD size** | Up to 4095 GB | Prerequisites check will fail if unsupported

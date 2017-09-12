@@ -210,12 +210,12 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 2. Once you arrive at the `jdbc:hive2://localhost:10001/>` prompt, enter the following to add the UDF to Hive and expose it as a function.
 
     ```hiveql
-    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
 
     > [!NOTE]
-    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Store instead, change the `wasbs:///` value to `adl:///`.
+    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Store instead, change the `wasb:///` value to `adl:///`.
 
 3. Use the UDF to convert values retrieved from a table to lower case strings.
 

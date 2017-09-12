@@ -4,7 +4,7 @@ description: Azure Media Analytics OCR (optical character recognition) enables y
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako
 
 ---
@@ -174,8 +174,8 @@ The following output example contains the general video information and several 
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Creates a job with an OCR configuration/preset file.
-3. Downloads the output JSON files. 
+2. Create a job with an OCR configuration/preset file.
+3. Download the output JSON files. 
    
 #### Create and configure a Visual Studio project
 
@@ -203,7 +203,6 @@ Set up your development environment and populate the app.config file with connec
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {

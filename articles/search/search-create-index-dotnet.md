@@ -33,8 +33,7 @@ Before following this guide and creating an index, you should have already [crea
 
 > [!NOTE]
 > All sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto). You can also read about the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) for a more detailed walk through of the sample code.
->
->
+
 
 ## Identify your Azure Search service's admin api-key
 Now that you have provisioned an Azure Search service, you are almost ready to issue requests against your service endpoint using the .NET SDK. First, you will need to obtain one of the admin api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.

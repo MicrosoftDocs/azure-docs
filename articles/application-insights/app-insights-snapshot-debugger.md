@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Docs
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Debug snapshots on exceptions in .NET apps
@@ -111,7 +111,7 @@ Snapshot collection is available for:
 2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
 3. Snapshots are collected only on exceptions that are reported to Application Insights. You may need to modify your code to report them. The exception handling code depends on the structure of your application, but an example is below:
-   ```C#
+    ```C#
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -128,18 +128,22 @@ Snapshot collection is available for:
             // TODO: Rethrow the exception if desired.
         }
    }
-
+    ```
+    
 ## Grant permissions
 
 Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
 
 To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
-1. On the Application Insights navigation menu, select **Access Control (IAM)**.
-2. Click **Roles** > **Application Insights Snapshot Debugger**.
-3. Click **Add**, and then select a user or group.
+1. Open the Access Control (IAM) blade.
+1. Click the +Add button.
+1. Select Application Insights Snapshot Debugger from the Roles drop-down list.
+1. Search for and enter a name for the user to add.
+1. Click the Save button to add the user to the role.
 
-    >[!IMPORTANT] 
+
+[!IMPORTANT]
     Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
 
 ## Debug snapshots in the Application Insights portal
@@ -167,7 +171,7 @@ The downloaded snapshot contains any symbol files that were found on your web ap
 
 ## How snapshots work
 
-When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 minutes. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
+When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 milliseconds. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
 
 ## Current limitations
 

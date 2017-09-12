@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/20/2017
+ms.date: 7/24/2017
 ms.author: xiaofmao
 
 ---
@@ -27,11 +27,13 @@ If you haven't installed Storage Explorer yet, [download](http://www.storageexpl
 
 After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 
-## Connect to an Azure Stack subscription
+## Prepare an Azure Stack subscription
 
-You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-with-vpn).
+You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-For Azure Stack Development Kit, you need to export the Azure Stack authority root certificate. To do so:
+For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+
+### To export and then import the Azure Stack certificate
 
 1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 
@@ -45,7 +47,7 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
 4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
 
-    The exported certificate will be used in the next step.   
+    The exported certificate will be used in the next step.
 5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
 
 6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
@@ -54,7 +56,12 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
     ![Import the certificate into Storage Explorer (Preview)][27]
 
-6. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
+Now you are ready to connect Storage Explorer to an Azure Stack subscription.
+
+### To connect an Azure Stack subscription
+
+
+1. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
     ![Ensure Target Azure Stack is selected][28]
 
@@ -65,40 +72,19 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
     ![Add an Azure Stack account][29]
 
-9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Create Custom Environment**, and then click **Next**.
+9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Use Azure Stack Environment**, and then click **Next**.
 
-10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to a Custom Cloud Environment** dialog box.  
+10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to Azure Stack Environment** dialog box.  
 
     The details for each field are as follows:
 
     * **Environment name**: The field can be customized by user.
-    * **Authority**: The value should be https://login.microsoftonline.com.
-    * **Sign in resource id**: Retrieve the value by running one of the following PowerShell scripts:
-
-        If you are a cloud operator:
-
-        ```powershell
-        (Invoke-RestMethod `
-         -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 `
-         -Method Get).authentication.audiences[0]
-        ```
-
-        If you are a user:
-
-        ```powershell
-        (Invoke-RestMethod `
-         -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 `
-         -Method Get).authentication.audiences[0]
-        ```
-
-    * **Graph endpoint**: The value should be https://graph.windows.net.
-    * **ARM resource id**: Use the same value as **Sign in resource id**.
     * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
 
-        * For cloud operator: https://adminmanagement.local.azurestack.external   
-        * For tenant: https://management.local.azurestack.external
+        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
+        * For tenant:<br> https://management.local.azurestack.external
  
-    * **Tenant Ids**: Optional. The value is given only when the directory must be specified.
+    * **Tenant Id**: Optional. The value is given only when the directory must be specified.
 
 12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
 
@@ -112,7 +98,7 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 * [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
+* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png

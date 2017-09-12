@@ -18,18 +18,22 @@ ms.date: 04/25/2017
 ms.author: aedwin
 
 ---
-# Reporting APIs for Enterprise customers - Marketplace Charges (Preview)
+# Reporting APIs for Enterprise customers - Marketplace Store Charge
 
 The Marketplace Store Charge API returns the usage-based marketplace charges breakdown by day for the specified Billing Period or start and end dates (one time fees are not included).
 
 ##Request 
-Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. Custom time ranges can be specified with the start and end date parameters which are in the format yyyy-MM-dd, the maximum supported time range is 36 months.  
+Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. Custom time ranges can be specified with the start and end date parameters that are in the format yyyy-MM-dd, the maximum supported time range is 36 months.  
 
 |Method | Request URI|
 |-|-|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+
+> [!Note]
+> To use the preview version of API, replace v2 with v1 in the above URL.
+>
 
 ## Response
  
@@ -94,7 +98,8 @@ Common header properties that need to be added are specified [here](billing-ente
 |resourceRate|decimal|Unit price for the meter|
 |extendedCost|decimal|Estimated charge based on Consumed Quantity and Extended cost|
 <br/>
-## See Also
+## See also
+
 * [Billing Periods API](billing-enterprise-api-billing-periods.md)
 
 * [Usage Detail API](billing-enterprise-api-usage-detail.md) 

@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
 ---
 
@@ -30,12 +30,12 @@ The blob indexer can extract text from the following document formats:
 * ZIP
 * EML
 * RTF
-* Plain text files
-* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) preview feature)
+* Plain text files (see also [Indexing plain text](#IndexingPlainText))
+* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md))
 * CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
 
 > [!IMPORTANT]
-> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2015-02-28-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 >
 
@@ -84,10 +84,12 @@ For more on the Create Datasource API, see [Create Datasource](https://docs.micr
 You can provide the credentials for the blob container in one of these ways:
 
 - **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
-- **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. The SAS should have the list and read permissions on containers and objects (blobs in this case).
--  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. The SAS should have the list and read permissions on the container.
+- **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`
+ The SAS should have the list and read permissions on containers and objects (blobs in this case).
+-  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`
+ The SAS should have the list and read permissions on the container.
 
-For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
+For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
@@ -263,7 +265,7 @@ Azure Search document extraction logic isn't perfect and will sometimes fail to 
 
 You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
 
-* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata.md) are indexed.
+* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/blobs/storage-properties-metadata.md) are indexed.
 * `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content are indexed.
 * `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
 
@@ -335,13 +337,35 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 - Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
 
+- One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md).
+
 ## Indexing documents along with related data
 
-Your documents may have associated metadata - for example, the department that created the document - that's stored as structured data in one of the following locations.
--   In a separate data store, such as SQL Database or Azure Cosmos DB.
--   Directly attached to each document in Azure Blob Storage as custom metadata. (For more info, see [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
+You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts. 
 
-You can index the documents along with their metadata by assigning the same unique key value to each document and to its metadata, and by specifying the `mergeOrUpload` action for each indexer. For a detailed description of this solution, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+
+<a name="IndexingPlainText"></a>
+## Indexing plain text 
+
+If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property: 
+
+	{
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## Content type-specific metadata properties

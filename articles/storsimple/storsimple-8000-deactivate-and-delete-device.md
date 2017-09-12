@@ -48,6 +48,10 @@ If you are interested in deleting the device completely and do not want to retai
 #### To deactivate the device and delete the data
 
 1. Before you deactivate a device, you must delete all the volume containers (and the volumes) associated with the device. You can delete volume containers only after you have deleted the associated backups.
+
+    > [!NOTE]
+    > Before you deactivate a StorSimple physical device or cloud appliance, ensure that the data from the deleted volume container is actually deleted from the device. You can monitor the cloud consumption charts and when you see the cloud usage drop because of the backups you have deleted, then you can proceed to deactivate the device. If you deactivate the device before this drop occurs, the data is stranded in the storage account and accrues charges.
+
 2. Deactivate the device as follows:
    
    1. Go to your StorSimple Device Manager service and click **Devices**. In the **Devices** blade, select the device that you wish to deactivate, right-click, and then click **Deactivate**.

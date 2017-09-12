@@ -126,7 +126,7 @@ subid= '<Azure Subscription ID>'
 rg = '<Azure Resource Group Name>'
 location = '<Location>' # i.e. 'eastus2'
 adls = '<Azure Data Lake Store Account Name>'
-adls = '<Azure Data Lake Analytics Account Name>'
+adla = '<Azure Data Lake Analytics Account Name>'
 ```
 
 ## Create the clients

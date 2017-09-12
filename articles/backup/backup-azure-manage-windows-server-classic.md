@@ -30,8 +30,8 @@ In this article you'll find an overview of the backup management tasks available
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 > [!IMPORTANT]
-> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
->- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+>- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
 >- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 >
 
@@ -89,7 +89,7 @@ From the **Configure** tab you can select the appropriate storage redundancy opt
 
 ![Configure](./media/backup-azure-manage-windows-server-classic/configure.png)
 
-See this article for more information about [storage redundancy](../storage/storage-redundancy.md).
+See this article for more information about [storage redundancy](../storage/common/storage-redundancy.md).
 
 ## Microsoft Azure Backup agent tasks
 ### Console

@@ -18,11 +18,11 @@ ms.date: 04/25/2017
 ms.author: aedwin
 
 ---
-# Overview of Reporting APIs for Enterprise customers (Preview)
+# Overview of Reporting APIs for Enterprise customers
 The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. 
 
 ## Enabling data access to the API
-* **Generate\Retrieve the API Key** - Log in to the Enterprise portal and follow the tutorial under Help - Reporting APIs. The first section under this help article explains how to generate\retrieve the API key for the specified enrollment.
+* **Generate or retrieve the API key** - Log in to the Enterprise portal and follow the tutorial under Help - Reporting APIs. The first section under this help article explains how to generate or retrieve the API key for the specified enrollment.
 * **Passing keys in the API** - The API key needs to be passed for each call for Authentication and Authorization. The following property needs to be to the HTTP headers
 
 |Request Header Key | Value|
@@ -30,7 +30,7 @@ The Reporting APIs enable Enterprise Azure customers to programmatically pull co
 |Authorization| Specify the value in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09|
 
 ## Consumption APIs
-A Swagger endpoint is available [here](https://consumption.azure.com/v1/swagger) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
+A Swagger endpoint is available [here](https://consumption.azure.com/swagger/ui/index) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
 
 * **Balance and Summary** - The [Balance and Summary API](billing-enterprise-api-balance-summary.md) offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments and overage charges.
 
@@ -41,7 +41,7 @@ A Swagger endpoint is available [here](https://consumption.azure.com/v1/swagger)
 * **Price Sheet** - The [Price Sheet API](billing-enterprise-api-pricesheet.md) provides the applicable rate for each Meter for the given Enrollment and Billing Period. 
 
 ## Helper APIs
- **List Billing Periods** - The [Billing Periods API](billing-enterprise-api-billing-periods.md) returns a list of billing periods that have consumption data for the specified Enrollment in reverse chronological order. Each Period contains a property pointing to the API route for the four sets of data - BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet.
+ **List Billing Periods** - The [Billing Periods API](billing-enterprise-api-billing-periods.md) returns a list of billing periods that have consumption data for the specified Enrollment in reverse chronological order. Each Period contains a property pointing to the API route for the four sets of data - BalanceSummary, UsageDetails, Marketplace Charges, and Price Sheet.
 
 
 ## API Response Codes  

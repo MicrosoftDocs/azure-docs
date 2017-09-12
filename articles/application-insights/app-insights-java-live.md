@@ -1,4 +1,4 @@
----
+﻿---
 title: Application Insights for Java web apps that are already live
 description: Start monitoring a web application that is already running on your server
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Application Insights for Java web apps that are already live

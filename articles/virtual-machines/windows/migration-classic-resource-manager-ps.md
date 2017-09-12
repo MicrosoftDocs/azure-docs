@@ -73,7 +73,7 @@ Sign in to your account for the Resource Manager model.
 Get the available subscriptions by using the following command:
 
 ```powershell
-    Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+    Get-AzureRMSubscription | Sort Name | Select Name
 ```
 
 Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own.

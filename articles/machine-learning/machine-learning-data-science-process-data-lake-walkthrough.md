@@ -81,7 +81,7 @@ Create an ADLA account from the [Azure Portal](http://portal.azure.com). For det
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### Create an Azure Blob storage account
-Create an Azure Blob storage account from the [Azure Portal](http://portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+Create an Azure Blob storage account from the [Azure Portal](http://portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 

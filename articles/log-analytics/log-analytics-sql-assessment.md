@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -61,7 +61,7 @@ The following table shows data collection methods for agents, whether Operations
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 days |
+| Windows | &#8226; | &#8226; |  |  | &#8226; |7 days |
 
 ## Operations Manager run-as accounts for OMS
 Log Analytics in OMS uses the Operations Manager agent and management group to collect and send data to the OMS service. OMS builds upon management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain account. You need to provide credential information by configuring an Operations Manager Run As account.
@@ -164,6 +164,8 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 ## Ignore recommendations
 If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### To identify recommendations that you will ignore
 1. Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.

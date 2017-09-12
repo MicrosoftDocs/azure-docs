@@ -32,7 +32,7 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 2. [Download the installer and helper scripts](azure-stack-app-service-deploy.md#download-the-required-components).
 3. [Run the helper script to create required certificates](azure-stack-app-service-deploy.md#create-certificates-required-by-app-service-on-azure-stack).
 4. [Install the App Service resource provider](azure-stack-app-service-deploy.md#use-the-installer-to-download-and-install-app-service-on-azure-stack) (it will take a couple hours to install and for all the worker roles to appear).
-5. [Validate the installation](azure-stack-app-service-deploy.md#validate-app-service-on-azure-stack-installation).
+5. [Validate the installation](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation).
 
 ## Create an offer
 

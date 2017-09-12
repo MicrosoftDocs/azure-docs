@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 8/21/2017
 ms.author: subramar
 
 ---
@@ -30,11 +30,29 @@ Service Fabric provides SDKs for building services on Linux in both .NET Core an
 ## Prerequisites
 Before you get started, make sure that you have [set up your Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
-You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (recommended) or
-[XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
+You will also want to install the [Service Fabric CLI](service-fabric-cli.md)
+
+### Install and set up the generators for CSharp
+Service Fabric provides scaffolding tools which will help you create a Service Fabric CSharp application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for CSharp working on your machine.
+1. Install nodejs and NPM on your machine
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Install the Service Fabric Yeo Java application generator from NPM
+
+  ```bash
+  sudo npm install -g generator-azuresfcsharp
+  ```
 
 ## Create the application
-A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
+A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](http://yeoman.io/) generator for CSharp, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
 
 1. In a terminal, type the following command to start building the scaffolding: `yo azuresfcsharp`
 2. Name your application.
@@ -59,12 +77,10 @@ The Service Fabric Yeoman templates include a build script that you can use to b
 
 Once the application is built, you can deploy it to the local cluster.
 
-### Using XPlat CLI
-
 1. Connect to the local Service Fabric cluster.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. Run the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
@@ -73,20 +89,20 @@ Once the application is built, you can deploy it to the local cluster.
     ./install.sh
     ```
 
-### Using Azure CLI 2.0
-
 Deploying the built application is the same as any other Service Fabric application. See the documentation on
-[managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md) for
+[managing a Service Fabric application with the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) for
 detailed instructions.
 
 Parameters to these commands can be found in the generated manifests inside the application package.
 
-Once the application has been deployed, open a browser and navigate to [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
-Then, expand the **Applications** node and note that there is now an entry for your application type and another for
-the first instance of that type.
+Once the application has been deployed, open a browser and navigate to
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
+[http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
+that there is now an entry for your application type and another for the first instance of that type.
 
 ## Start the test client and perform a failover
-Actor projects do not do anything on their own. They require another service or client to send them messages. The actor template includes a simple test script that you can use to interact with the actor service.
+Actor projects do not do anything on their own. They require another service or client to send them messages. The actor
+template includes a simple test script that you can use to interact with the actor service.
 
 1. Run the script using the watch utility to see the output of the actor service.
 
@@ -101,7 +117,7 @@ Actor projects do not do anything on their own. They require another service or 
 
 ## Adding more services to an existing application
 
-To add another service to an application already created using `yo`, perform the following steps: 
+To add another service to an application already created using `yo`, perform the following steps:
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfcsharp:AddService`
 
@@ -111,14 +127,11 @@ To add another service to an application already created using `yo`, perform the
 3. Update the project file names to csproj files in build.sh.
 
 ## Next steps
+
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
+* [Interacting with Service Fabric clusters using the Service Fabric CLI](service-fabric-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
-
-## Related articles
-
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

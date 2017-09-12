@@ -1,5 +1,5 @@
 ---
-title: Networking considerations with an Azure App Service Environment
+title: Networking considerations with an Azure App Service environment
 description: Explains the ASE network traffic and how to set NSGs and UDRs with your ASE
 services: app-service
 documentationcenter: na
@@ -15,26 +15,31 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ---
-# Networking considerations for an App Service Environment #
+# Networking considerations for an App Service environment #
 
 ## Overview ##
 
-The [App Service Environment][Intro] (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  There are two deployment types for the ASE:
+ Azure [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network (VNet). There are two deployment types for an App Service environment (ASE):
 
-- _External ASE_ - exposes the ASE hosted apps on an internet accessible IP address. For more information, see [Create an External ASE][MakeExternalASE].
-- _ILB ASE_ - exposes the ASE hosted apps on an IP address inside your Azure Virtual Network(VNet).  The internal endpoint is an Internal Load Balancer (ILB), which is why it is called an ILB ASE. For more information, see [Create and use an ILB ASE][MakeILBASE].
+- **External ASE**: Exposes the ASE-hosted apps on an internet-accessible IP address. For more information, see [Create an External ASE][MakeExternalASE].
+- **ILB ASE**: Exposes the ASE-hosted apps on an IP address inside your VNet. The internal endpoint is an internal load balancer (ILB), which is why it's called an ILB ASE. For more information, see [Create and use an ILB ASE][MakeILBASE].
 
-There are now two versions of the ASE. The initial version of the ASE is called ASEv1 and the newer version is called ASEv2. For information on ASEv1, see [Introduction to the App Service Environment v1][ASEv1Intro]. An ASEv1 can be deployed in a classic or Resource Manager VNet. An ASEv2 can only be deployed into a Resource Manager VNet.
+There are now two versions of App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [Introduction to App Service Environment v1][ASEv1Intro]. ASEv1 can be deployed in a classic or Resource Manager VNet. ASEv2 can only be deployed into a Resource Manager VNet.
 
-All calls from an ASE that go to the internet leave the VNet through a VIP assigned for the ASE. The public IP of this VIP is then the source IP for all calls from the ASE that go to the internet.  If the apps in your ASE make calls to resources in your VNet or across a VPN then the source IP will be one of the IPs in the subnet used by your ASE.  Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, then it also has access to resources there without any additional configuration of the ASE or your app.
+All calls from an ASE that go to the internet leave the VNet through a VIP assigned for the ASE. The public IP of this VIP is then the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your VNet or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the VNet, it can also access resources within the VNet without any additional configuration. If the VNet is connected to your on-premises network, apps in your ASE also have access to resources there. You don't need to configure the ASE or your app any further.
 
-![][1] 
+![External ASE][1] 
 
-If you have an External ASE, then that public VIP is also the endpoint that your ASE apps will resolve to for HTTP/S, FTP/S, web deploy and remote debugging.
+If you have an External ASE, the public VIP is also the endpoint that your ASE apps resolve to for:
 
-![][2]
+* HTTP/S. 
+* FTP/S. 
+* Web deployment.
+* Remote debugging.
 
-If you have an ILB ASE, then the IP address of the ILB is the endpoint for HTTP/S, FTP/S, web deploy and remote debugging.
+![ILB ASE][2]
+
+If you have an ILB ASE, the IP address of the ILB is the endpoint for HTTP/S, FTP/S, web deployment, and remote debugging.
 
 The normal app access ports are:
 
@@ -44,7 +49,7 @@ The normal app access ports are:
 |  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
 |  Visual Studio remote debugging  |  User configurable |  4016, 4018, 4020, 4022 |
 
-This is true if you are on an External ASE or on an ILB ASE. If you are on an External ASE, then those are the ports you hit on the public VIP. If you are on an ILB ASE, you would hit those ports on the ILB. It should be noted that if you lock down port 443, there can be an impact to some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
+This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
 
 ## ASE dependencies ##
 
@@ -52,149 +57,166 @@ An ASE inbound access dependency is:
 
 | Use | From | To |
 |-----|------|----|
-| Management | Internet | ASE subnet: 454, 455 |
-|  ASE internal communication | ASE subnet: all ports | ASE subnet: all ports
-|  Allow Azure Load Balancer Inbound | Azure Load Balancer | Any
+| Management | App Service management addresses | ASE subnet: 454, 455 |
+|  ASE internal communication | ASE subnet: All ports | ASE subnet: All ports
+|  Allow Azure load balancer inbound | Azure load balancer | ASE subnet: All ports
+|  App assigned IP addresses | App assigned addresses | ASE subnet: All ports
 
-The inbound traffic provides command and control of the ASE in addition to system monitoring. The source IPs for this traffic are not constant. This means that the network security configuration needs to allow access from all IPs on ports 454 and 455.
+The inbound traffic provides command and control of the ASE in addition to system monitoring. The source IPs for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from all IPs on ports 454 and 455.
 
-For outbound access, an ASE depends on multiple external systems. Those system dependencies are defined with DNS names and do not map to a fixed set of IP addresses. This means that the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. An ASE has the following outbound dependencies:
+Within the ASE subnet there are many ports used for internal component communication and they can change.  This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
+
+For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE then you need to take into account the normal app access ports.  If you are using app assigned addresses you need to open it to all ports.  When an address is assigned to a specific app, then the load balancer will use ports that are not known of in advance to send HTTP and HTTPS traffic to the ASE.
+
+If you are using app assigned IP addresses you need to allow traffic from the IPs assigned to your apps to the ASE subnet.
+
+For outbound access, an ASE depends on multiple external systems. Those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. An ASE has the following outbound dependencies:
 
 | Use | From | To |
 |-----|------|----|
-| Azure Storage | ASE Subnet | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1) |
-| SQL Database | ASE Subnet | database.windows.net: 1433, 11000-11999, 14000-14999 (For more information, see [Sql Database V12 port usage](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md))|
-| Azure management | ASE Subnet | management.core.windows.net, management.azure.com: 443 
-| SSL certificate verification |  ASE Subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
-| Azure Active Directory        | ASE Subnet            |  Internet: 443
-| App Service management        | ASE Subnet            |  Internet: 443
-| Azure DNS                     | ASE Subnet            | Internet: 53
-| ASE internal communication    | ASE subnet: all ports | ASE subnet: all ports
+| Azure Storage | ASE subnet | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1.) |
+| Azure SQL Database | ASE subnet | database.windows.net: 1433, 11000-11999, 14000-14999 (For more information, see [SQL Database V12 port usage](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
+| Azure management | ASE subnet | management.core.windows.net, management.azure.com: 443 
+| SSL certificate verification |  ASE subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Azure Active Directory        | ASE subnet            |  Internet: 443
+| App Service management        | ASE subnet            |  Internet: 443
+| Azure DNS                     | ASE subnet            |  Internet: 53
+| ASE internal communication    | ASE subnet: All ports |  ASE subnet: All ports
 
-If the ASE loses access to these dependencies, it stops working. When that happens long enough, the ASE becomes suspended.
+If the ASE loses access to these dependencies, it stops working. When that happens long enough, the ASE is suspended.
 
-**Customer DNS**
+### Customer DNS ###
 
-If the VNet is configured with a customer defined DNS server, then the tenant workloads will use it. The ASE still needs to communicate with Azure DNS for management purposes. 
+If the VNet is configured with a customer-defined DNS server, the tenant workloads use it. The ASE still needs to communicate with Azure DNS for management purposes. 
 
-If the VNet is configured with a customer DNS on the other side of a VPN, the DNS server must be reachable from the subnet containing the ASE.
+If the VNet is configured with a customer DNS on the other side of a VPN, the DNS server must be reachable from the subnet that contains the ASE.
 
 <a name="portaldep"></a>
-## Portal Dependencies ##
 
-In addition to the functional dependencies that an ASE has, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in the Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Some of the features that use the SCM site include:
+## Portal dependencies ##
+
+In addition to the ASE functional dependencies, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Features that use the SCM site include:
 
 -   Web jobs
 -   Functions
--   Logstream
+-   Log streaming
 -   Kudu
 -   Extensions
 -   Process Explorer
 -   Console
 
-This is most challenging when using an ILB ASE, since the SCM site is not internet accessible outside of the VNet. For this reason, those capabilities that depend on SCM site access are grayed out in the Azure portal when your app is hosted on an ILB ASE.
+When you use an ILB ASE, the SCM site isn't internet accessible from outside the VNet. When your app is hosted on an ILB ASE, some capabilities will not work from the portal.  
 
-Many of those capabilities that depend upon the SCM site are also available directly in the Kudu console. You can directly connect to it rather than using the portal. If your app is hosted in an ILB ASE, you need to log in using your publishing credentials. The URL to access the SCM site of an app hosted in an ILB ASE has the following format: 
+Many of those capabilities that depend upon the SCM site are also available directly in the Kudu console. You can connect to it directly rather than by using the portal. If your app is hosted in an ILB ASE, use your publishing credentials to sign in. The URL to access the SCM site of an app hosted in an ILB ASE has the following format: 
 
 ```
 <appname>.scm.<domain name the ILB ASE was created with> 
 ```
 
-So, if your ILB ASE is the domain name *contoso.net* and your app name is *testapp*, my app will be reached at *testapp.contoso.net* and the SCM site that goes with it will be reached at *testapp.scm.contoso.net*.
+If your ILB ASE is the domain name *contoso.net* and your app name is *testapp*, the app is reached at *testapp.contoso.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.net*.
+
+## Functions and Web jobs ##
+
+Both Functions and Web jobs depend on the SCM site but are supported for use in the portal, even if your apps are in an ILB ASE, so long as your browser can reach the SCM site.  If you are using a self-signed certificate with your ILB ASE, you will need to enable your browser to trust that certificate.  For IE and Edge that means the certificate has to be in the computer trust store.  If you are using Chrome then that means you accepted the certificate in the browser earlier by presumably hitting the scm site directly.  The best solution is to use a commercial certificate that is in the browser chain of trust.  
 
 ## ASE IP addresses ##
 
-An ASE has more than a few IP addresses to be aware of. They are:
+An ASE has a few IP addresses to be aware of. They are:
 
-- Public inbound IP address – used for app traffic in an External ASE, and management traffic in both an External ASE and an ILB ASE.
-- Outbound public IP - used as the "from" IP for outbound connections from the ASE that leave the VNet, which are not routed down a VPN.
-- ILB IP address - if you are using an ILB ASE.
-- App assigned IP-based SSL addresses - only possible with an External ASE and when IP based SSL is configured.
+- **Public inbound IP address**: Used for app traffic in an External ASE, and management traffic in both an External ASE and an ILB ASE.
+- **Outbound public IP**: Used as the "from" IP for outbound connections from the ASE that leave the VNet, which aren't routed down a VPN.
+- **ILB IP address**: If you use an ILB ASE.
+- **App-assigned IP-based SSL addresses**: Only possible with an External ASE and when IP-based SSL is configured.
 
-All these IP addresses are easily visible in an ASEv2 in the Azure portal from the ASE UI. If you have an ILB ASE, then the IP for the ILB is listed.
+All these IP addresses are easily visible in an ASEv2 in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
 
-![][3]
+![IP addresses][3]
 
-**App Assigned IP Addresses**
+### App-assigned IP addresses ###
 
-With an External ASE, you can assign IP addresses to individual apps. You cannot do that with an ILB ASE. For more information on configuring your app to have its own IP address, see [Bind an existing custom SSL certificate to Azure Web Apps](../../app-service-web/app-service-web-tutorial-custom-ssl.md).
+With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Bind an existing custom SSL certificate to Azure web apps](../../app-service-web/app-service-web-tutorial-custom-ssl.md).
 
-When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps will be inaccessible. This is an important thing to keep in mind when configuring Network Security Groups.
+When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
 
 ## Network Security Groups ##
 
-[Network Security Groups][NSGs] (NSGs) provide the ability to control network access within a VNet. When you use the portal, there is an implicit deny rule at the lowest priority to deny everything so what you build are your allow rules.
+[Network Security Groups][NSGs] provide the ability to control network access within a VNet. When you use the portal, there's an implicit deny rule at the lowest priority to deny everything. What you build are your allow rules.
 
-In an ASE, you don't have access to the VMs used to host the ASE itself. They are in a Microsoft managed subscription. If you want to restrict access to the apps on the ASE, then you need to set NSGs on the ASE subnet. In doing so, you need to pay careful attention to the ASE dependencies. If you block any dependencies, the ASE will stop working.
+In an ASE, you don't have access to the VMs used to host the ASE itself. They're in a Microsoft-managed subscription. If you want to restrict access to the apps on the ASE, set NSGs on the ASE subnet. In doing so, pay careful attention to the ASE dependencies. If you block any dependencies, the ASE stops working.
 
-NSGs can be configured through the Azure portal or via PowerShell. For the sake of simplicity, the information here shows the Azure portal. You create and manage NSGs in the portal as a top-level resource under **Networking**.
+NSGs can be configured through the Azure portal or via PowerShell. The information here shows the Azure portal. You create and manage NSGs in the portal as a top-level resource under **Networking**.
 
-Taking into account the inbound and outbound requirements, the NSGs should look similar to what is shown below. In this example, the VNet address range is _192.168.250.0/16_ and the subnet that the ASE is in is _192.168.251.128/25_.
+When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. The VNet address range is _192.168.250.0/16_, and the subnet that the ASE is in is _192.168.251.128/25_.
 
-The first two inbound requirements for the ASE to function are at the top in this example. They enable ASE management and allow the ASE to communicate with itself. The other entries are all tenant configurable and can govern network access to the ASE hosted applications.   
+The first two inbound requirements for the ASE to function are shown at the top of the list in this example. They enable ASE management and allow the ASE to communicate with itself. The other entries are all tenant configurable and can govern network access to the ASE-hosted applications. 
 
-![][4]
+![Inbound security rules][4]
 
-In addition to a default rule to enable the IPs in the VNet to talk to the ASE subnet, there is also a default rule that enables the load balancer, aka the public VIP, to communicate with the ASE.  You can see the default rules by clicking *Default rules* next to the *Add* icon. If you were to put a deny everything else rule after the NSG rules shown, you would prevent traffic between the VIP and the ASE. If you wish to prevent traffic coming from inside the VNet, be sure to add your own rule to allow inbound with a source equal to AzureLoadBalancer with a destination of Any and a port range of \*.  Since the NSG rule is being applied just to the ASE subnet you do not need to be specific in the destination.
+A default rule enables the IPs in the VNet to talk to the ASE subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the ASE. To see the default rules, select **Default rules** next to the **Add** icon. If you put a deny everything else rule after the NSG rules shown, you prevent traffic between the VIP and the ASE. To prevent traffic coming from inside the VNet, add your own rule to allow inbound. Use a source equal to AzureLoadBalancer with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the ASE subnet, you don't need to be specific in the destination.
 
-If you assigned an IP address to your app, then you will also need to make sure you keep the ports used with that open. You can see the ports used in the **App Service Environment** > **IP Addresses** UI.  
+If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
 
-All but the last item shown in the outbound rules noted below are needed. They enable network access to the ASE dependencies that were noted earlier in this document. If you block any of them, then your ASE will stop working. The last item in the list enables your ASE to communicate with other resources in your VNet.
+All the items shown in the following outbound rules are needed, except for the last item. They enable network access to the ASE dependencies that were noted earlier in this article. If you block any of them, your ASE stops working. The last item in the list enables your ASE to communicate with other resources in your VNet.
 
-![][5]
+![Outbound security rules][5]
 
-After your NSGs are defined, you need to assign them to the subnet that your ASE is on. If you don’t remember the ASE VNet or subnet, you can see it from the ASE management portal. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
+After your NSGs are defined, assign them to the subnet that your ASE is on. If you don’t remember the ASE VNet or subnet, you can see it from the ASE management portal. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
 
 ## Routes ##
 
-Routes become problematic most commonly when you configure your VNet with ExpressRoute. There are three types of routes in an Azure VNet. There are:
+Routes become problematic most commonly when you configure your VNet with Azure ExpressRoute. There are three types of routes in a VNet:
 
 -   System routes
 -   BGP routes
--   User Defined Routes (UDRs)
+-   User-defined routes (UDRs)
 
-BGP routes override System routes. UDRs override BGP routes. For more information about routes in Azure Virtual Networks, see [User Defined Routes overview][UDRs]
+BGP routes override system routes. UDRs override BGP routes. For more information about routes in Azure virtual networks, see [User-defined routes overview][UDRs].
 
-The SQL Database that the ASE uses to manage the system has a whitelist, and requires communication to originate from the ASE public VIP. If replies to incoming management requests are sent down the ExpressRoute, then the reply address is different than the destination, which breaks the TCP communication.
+The Azure SQL database that the ASE uses to manage the system has a firewall. It requires communication to originate from the ASE public VIP. Connections to the SQL database from the ASE will be denied if they are sent down the ExpressRoute connection and out another IP address.
 
-What all this means is that, for your ASE to work while your VNet is configured with an ExpressRoute, the easiest thing to do is:
+If replies to incoming management requests are sent down the ExpressRoute, the reply address is different than the original destination. This mismatch breaks the TCP communication.
 
--   Configure ExpressRoute to advertise _0.0.0.0/0_, which by default force tunnels all outbound traffic on-premises.
--   Create a UDR, and apply it to the subnet that contains the App Service Environment, with an address prefix of _0.0.0.0/0_ and a next hop type of _Internet_.
+For your ASE to work while your VNet is configured with an ExpressRoute, the easiest thing to do is:
 
-If you make these two changes then internet destined traffic, that originates from the ASE subnet, will not be forced down the ExpressRoute and the ASE will be able to work. 
+-   Configure ExpressRoute to advertise _0.0.0.0/0_. By default, it force tunnels all outbound traffic on-premises.
+-   Create a UDR. Apply it to the subnet that contains the ASE with an address prefix of _0.0.0.0/0_ and a next hop type of _Internet_.
+
+If you make these two changes, internet-destined traffic that originates from the ASE subnet isn't forced down the ExpressRoute and the ASE works. 
 
 > [!IMPORTANT]
-> The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range, and as such can potentially be accidentally overridden by route advertisements that use more specific address ranges.
+> The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
 >
+> ASEs aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure IP address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the ASE's subnet are force tunneled to a customer's on-premises network infrastructure. This network flow is currently not supported with ASEs. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path.
 
-App Service Environments are not supported with ExpressRoute configurations that cross-advertise routes from the public peering path to the private peering path. ExpressRoute configurations, with public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges. If these address ranges are cross-advertised on the private peering path, the end result is that all outbound network packets from the App Service Environment's subnet will be force-tunneled to a customer's on-premises network infrastructure. This network flow is currently not supported with App Service Environments. One solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
+To create a UDR, follow these steps:
 
-To create a UDR as described:
+1. Go to the Azure portal. Select **Networking** > **Route Tables**.
 
-1.  Go to the Azure portal > **Networking** > **Route Tables**.
-2.  Create a new Route Table in the same region as your VNet.
-3.  From within your Route Table UI, select **Routes** > **Add**.
-4.  Set the **Next hop type** to **Internet** and the **Address prefix** to _0.0.0.0/0_ and click  **Save**.
+2. Create a new route table in the same region as your VNet.
 
-You will then see something like this:
+3. From within your route table UI, select **Routes** > **Add**.
 
-![][6]
+4. Set the **Next hop type** to **Internet** and the **Address prefix** to **0.0.0.0/0**. Select **Save**.
 
-After you have created the new Route Table, go to the subnet containing your ASE. Select your Route Table from the list you get in the portal. After saving the change, you should then see the NSGs and Routes noted with your subnet.
+    You then see something like the following:
 
-![][7]
+    ![Functional routes][6]
 
-### Deploying into existing Azure Virtual Networks that are integrated with ExpressRoute ###
+5. After you create the new route table, go to the subnet that contains your ASE. Select your route table from the list in the portal. After you save the change, you should then see the NSGs and routes noted with your subnet.
 
-If you want to deploy your ASE into a VNet that is already integrated with ExpressRoute, then you need to pre-configure the subnet you want the ASE deployed into and then deploy using a Resource Manager template. To create an ASE in a VNet that already has ExpressRoute configured:
+    ![NSGs and routes][7]
+
+### Deploy into existing Azure virtual networks that are integrated with ExpressRoute ###
+
+To deploy your ASE into a VNet that's integrated with ExpressRoute, preconfigure the subnet where you want the ASE deployed. Then use a Resource Manager template to deploy it. To create an ASE in a VNet that already has ExpressRoute configured:
 
 - Create a subnet to host the ASE.
 
     > [!NOTE]
-    > Nothing else can be in the subnet but the ASE, and be sure to pick a large enough address space to allow for future growth, because this cannot be changed later. A `/25` with 128 addresses is the recommended size.
-- Create UDRs (i.e. Route Tables) as described earlier and set that on the subnet.
-- Create the ASE using a Resource Manager template as described here: [Creating an ASE using an ARM Template][MakeASEfromTemplate].
+    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/25` with 128 addresses.
+
+- Create UDRs (for example, route tables) as described earlier, and set that on the subnet.
+- Create the ASE by using a Resource Manager template as described in [Create an ASE by using a Resource Manager template][MakeASEfromTemplate].
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -228,3 +250,4 @@ If you want to deploy your ASE into a VNet that is already integrated with Expre
 [AppDeploy]: ../../app-service-web/web-sites-deploy.md
 [ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[ASEManagement]: ./management-addresses.md

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -34,9 +34,22 @@ In [the Azure portal](https://portal.azure.com), you can find the security repor
 ![Risky Sign-ins](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
+## What Azure AD license do you need to access a security report?  
+
+All editions of Azure Active Directory provide you with risky sign-ins reports.  
+However, the level of report granularity varies between the editions: 
+
+- In the **Azure Active Directory Free and Basic editions**, you already get a list of risky sign-ins. 
+
+- The **Azure Active Directory Premium 1** edition extends this model by also enabling you to examine some of the underlying risk events that have been detected for each report. 
+
+- The **Azure Active Directory Premium 2** edition provides you with the most detailed information about all underlying risk events and it also enables you to configure security policies that automatically respond to configured risk levels.
+
+
+
 ## Azure Active Directory free and basic edition
 
-The Azure Active Directory free and basic editions provide you with a list of risky sign-ins that have been detected for your users. The risk events report provides you with:
+The Azure Active Directory free and basic editions provide you with a list of risky sign-ins that have been detected for your users. This report lists:
 
 - **User** - The name of the user that was used during the sign-in operation
 - **IP** - The IP address of the device that was used to connect to Azure Active Directory
@@ -44,7 +57,6 @@ The Azure Active Directory free and basic editions provide you with a list of ri
 - **Sign-in time** - The time when the sign-in was performed
 - **Status** - The status of the sign-in
 
-This report provides you with an option to download the report data.
 
 ![Risky Sign-ins](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -58,6 +70,15 @@ Based on your investigation of the risky sign-in, you can provide feedback to Az
 ![Risky Sign-ins](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 For more details, see [Closing risk events manually](active-directory-identityprotection.md#closing-risk-events-manually).
+
+This report provides you with an option to:
+
+- Searh resources
+- Download the report data
+
+
+![Risky Sign-ins](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## Azure Active Directory premium editions
 

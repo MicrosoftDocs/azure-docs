@@ -41,7 +41,7 @@ The StorSimple Cloud Appliance is available in two models, a standard 8010 (form
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory)| Standard_DS3 (4 cores, 14 GB memory)|
 | **Region availability** |All Azure regions |Azure regions that support Premium Storage and DS3 Azure VMs<br></br>Use [this list](https://azure.microsoft.com/regions/services/) to see if both **Virtual Machines > DS-series** and **Storage > Disk storage** are available in your region. |
-| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
+| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/common/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/common/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios <br></br>Low latency and higher performance workloads<br></br>Secondary device for disaster recovery |
 
 <sup>1</sup> *Formerly known as the 1100*.
@@ -90,7 +90,7 @@ Before you provision the cloud appliance, you need to make the following prepara
 Make the following updates to your StorSimple Device Manager service before you create a cloud appliance:
 
 * Add [access control records](storsimple-8000-manage-acrs.md) for the VMs that are going to be the host servers for your cloud appliance.
-* Use a [storage account](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in the same region as the cloud appliance. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the cloud appliance. More information on how to create a [Standard Storage account](../storage/storage-create-storage-account.md) or a [Premium Storage account](../storage/storage-premium-storage.md)
+* Use a [storage account](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in the same region as the cloud appliance. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the cloud appliance. More information on how to create a [Standard Storage account](../storage/common/storage-create-storage-account.md) or a [Premium Storage account](../storage/common/storage-premium-storage.md)
 * Use a different storage account for cloud appliance creation from the one used for your data. Using the same storage account may result in poor performance.
 
 Make sure that you have the following information before you begin:

@@ -21,7 +21,14 @@ Bing Speech Recognition API allows you to develop applications using [Web socket
 To work with Bing Speech API, you must have a subscription key. If you don't have a subscription key already, get one here: [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). 
 
 ## Get started
-To get started with Bing Speech Recognition API using web socket, we have created a working HTML/JS sample ready for you to try. The steps below will walk you through how to get the source code and how to run the sample.
+To get started with Bing Speech Recognition API using web socket, we have created a working HTML/JS sample ready for you to try. The steps below will walk you through how to get the source code and how to run the sample. After getting a subscription key you can either pass it in directly into the speech endpoint or use authentication endpoint as shown below to get a token and pass that in to speech endpoint using the SDK.
+```
+POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
+Ocp-Apim-Subscription-Key: <GUID>
+Host: api.cognitive.microsoft.com
+Content-Length: 0
+Connection: Keep-Alive
+```
 
 To run the sample, do the follow:
 1. Download a copy of the HTML file and the JavaScript file from the [SpeechToText-WebSockets-Javascript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) repository: 
@@ -32,7 +39,7 @@ and [speech.browser.sdk.js](https://github.com/Azure-Samples/SpeechToText-WebSoc
    Replace '..\..\distrib\speech.browser.sdk.js' with corrected path to the SDK JavaScript file.
    
    > [!NOTE]
-   > To work with Bing Speech Recognition API, all you need is a subscription key. However, the Speech API for JavaScript using web socket also support authentication token. If you have an authentication tokan and preferred to use that then do the following. Replace 'let authentication = new SR.CognitiveSubscriptionKeyAuthentication(subscriptionKey);' statement with this 'let authentication = new SR.CognitiveTokenAuthentication(fetchCallback, fetchOnExpiryCallback);'.
+   > To work with Bing Speech Recognition API, all you need is a subscription key. However, the Speech API for JavaScript using web socket also support authentication token. If you have an authentication token and preferred to use that then do the following. Replace 'let authentication = new SR.CognitiveSubscriptionKeyAuthentication(subscriptionKey);' statement with this 'let authentication = new SR.CognitiveTokenAuthentication(fetchCallback, fetchOnExpiryCallback);'.
 3. Open **Sample.html** in a web browser.
 4. Click the **Start** button. This will initialize the sample and turns on the microphone. Grant the browser access to your microphone if the browser asks for permission. 
 5. Start talking. Your transcribed text appears after the **Current hypothesis:** label. The text area will display the JSON payload of the transcribed audio.

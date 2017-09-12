@@ -5,27 +5,27 @@
 ## [SDKs and tools](../../index.md#pivot=sdkstools)
 
 # Quickstart
-## [Web Apps](../../app-service-web/web-sites-dotnet-get-started.md)
+## [Web Apps](../../app-service-web/app-service-web-get-started-html.md)
 ## Virtual machines
-### [Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md)
-### [Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+### [Linux](../../virtual-machines/linux/quick-create-portal.md)
+### [Windows](../../virtual-machines/windows/quick-create-portal.md)
 ## [Serverless](../../azure-functions/functions-create-first-azure-function.md)
 ## Microservices
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
-### [Container Service](../../container-service/container-service-deployment.md) 
+### [Container Service](../../container-service/dcos-swarm/container-service-deployment.md) 
 
 # Tutorials
 ## Create and deploy a web app
-### [ASP.NET](../../app-service-web/web-sites-dotnet-get-started.md)
-### [Java](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Node.js](../../app-service-web/app-service-web-nodejs-get-started.md)
-### [PHP](../../app-service-web/app-service-web-php-get-started.md)
-### [Python](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
+### [ASP.NET](../../app-service-web/app-service-web-get-started-dotnet.md)
+### [Java](../../app-service-web/app-service-web-get-started-java.md)
+### [Node.js](../../app-service-web/app-service-web-get-started-nodejs.md)
+### [PHP](../../app-service-web/app-service-web-get-started-php.md)
+### [Python](../../app-service-web/app-service-web-get-started-python.md)
 ## Deploy complex VM templates
 ### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Create an Azure connected function](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [Docker deploy web app on Linux](../../app-service-web/app-service-linux-using-custom-docker-image.md) 
+## [Docker deploy web app on Linux](../../app-service/containers/quickstart-custom-docker-image.md) 
 
 # Samples
 ## Azure CLI
@@ -48,12 +48,11 @@
 
 # How to guides
 ## Plan
-### [Web application architectures](../../guidance/guidance-ra-app-service.md)
-### [VM architectures](../../guidance/guidance-ra-compute.md)
-### [Connect to on-premises networks](../../guidance/guidance-ra-hybrid-networking.md)
+### [Web application architectures](/azure/architecture/reference-architectures/managed-web-app/)
+### [VM architectures](/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [Connect to on-premises networks](/azure/architecture/reference-architectures/hybrid-networking/)
 ### [Microservices patterns/scenarios](../../service-fabric/service-fabric-patterns-and-scenarios.md)
 ## Develop
-### [WordPress apps](../../app-service-web/web-sites-php-web-site-gallery.md)
 ### [Linux VM](../../virtual-machines/virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM](../../virtual-machines/virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Serverless apps](../../azure-functions/functions-reference.md)
@@ -64,12 +63,12 @@
 ### [Linux VM from a template](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM from a template](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Store data
-### [Blobs](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [File shares](../../storage/storage-dotnet-how-to-use-files.md)
-### [Key-value pairs](../../storage/storage-dotnet-how-to-use-tables.md)
-### [JSON documents](../../documentdb/documentdb-get-started.md)
-### [Relational tables](../../sql-database/sql-database-get-started.md)
-### [Message queues](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [File shares](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Key-value pairs](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+### [JSON documents](../../cosmos-db/documentdb-get-started.md)
+### [Relational tables](../../sql-database/sql-database-get-started-portal.md)
+### [Message queues](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Scale
 ### [Web and mobile apps](../../app-service-web/web-sites-scale.md)
@@ -77,7 +76,7 @@
 ### [Microservice apps](../../service-fabric/service-fabric-concepts-scalability.md)
 
 ## Secure
-### [Web and mobile apps](../../app-service-web/web-sites-security.md)
+### [Web and mobile apps](../../app-service-web/app-service-web-tutorial-custom-ssl.md)
 
 ## Backup
 ### [Web and mobile apps](../../app-service-web/web-sites-backup.md)
@@ -85,7 +84,7 @@
 
 ## Monitor
 ### [Web and mobile apps](../../app-service-web/web-sites-enable-diagnostic-log.md)
-### [Linux VM](../../virtual-machines/virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json.md)
+### [Linux VM](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM](../../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Microservices](../../service-fabric/service-fabric-diagnostics-overview.md)
 ### [Billing alerts](../../billing/billing-set-up-alerts.md)
@@ -112,5 +111,6 @@
 # Resources
 ## [Azure regions](https://azure.microsoft.com/regions/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Samples](https://azure.microsoft.com/resources/samples/)
 ## [Videos](https://azure.microsoft.com/resources/videos/home/)

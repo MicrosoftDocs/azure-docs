@@ -3,7 +3,7 @@ title: Azure Advisor High Availability recommendations | Microsoft Docs
 description: Use Azure Advisor to improve high availability of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: kumudd
+author: KumudD
 manager: carmonm
 editor: ''
 

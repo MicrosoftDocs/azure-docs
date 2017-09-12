@@ -64,7 +64,7 @@ In this section, perform the following steps to create an Azure Automation accou
 3. In the Automation Accounts blade, click **Add**.<br><br>![Add Automation Account](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. In the **Add Automation Account** blade, in the **Name** box type in a name for your new Automation account.
 5. If you have more than one subscription, specify the one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
-6. Select the value **No** for the **Create Azure Run As account** option, and click the **Create** button.  
+6. Select the value **Yes** for the **Create Azure Run As account** option, and click the **Create** button.  
    
     > [!NOTE]
     > If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against Azure Resource Manager resources.

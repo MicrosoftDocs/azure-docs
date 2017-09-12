@@ -2,7 +2,7 @@
 title: Azure Application Gateway Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to deploy a cloud application delivery controller. Documentation shows how to set up application-level routing and load balancing for a web front end.
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:

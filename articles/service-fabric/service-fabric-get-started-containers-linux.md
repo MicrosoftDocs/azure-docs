@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Service Fabric container application on Linux | Microsoft Docs
 description: Create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
@@ -29,6 +29,7 @@ Running an existing application in a Linux container on a Service Fabric cluster
 * A development computer running:
   * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
+  * [Service Fabric CLI](service-fabric-cli.md)
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
@@ -197,12 +198,12 @@ gradle
 ```
 
 ## Deploy the application
-Once the application is built, you can deploy it to the local cluster using the Azure CLI.
+Once the application is built, you can deploy it to the local cluster using the Service Fabric CLI.
 
 Connect to the local Service Fabric cluster.
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://localhost:19080
 ```
 
 Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
@@ -317,6 +318,54 @@ Here are the complete service and application manifests used in this article.
   </DefaultServices>
 </ApplicationManifest>
 ```
+## Adding more services to an existing application
+
+To add another container service to an application already created using yeoman, perform the following steps:
+
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfcontainer:AddService`
+
+<a id="manually"></a>
+
+
+## Configure time interval before container is force terminated
+
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+	      ...
+          }
+        ]
+}
+```
+The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
+
+
+## Configure the runtime to remove unused container images
+
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+	        "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+	      ...
+          }
+        ]
+} 
+```
+
+For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).

@@ -7,8 +7,8 @@ manager: jhubbard
 editor: mimig1
 
 ms.service: cosmos-db
-ms.topic: hero-article
-ms.date: 06/22/2017
+ms.topic: quickstart
+ms.date: 07/21/2017
 ms.author: mimig
 ---
 
@@ -22,7 +22,10 @@ In other words, your Golang application only knows that it's connecting to a dat
 
 ## Prerequisites
 
-- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin. 
+
+  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 - [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
 - An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
 
@@ -86,8 +89,8 @@ The following Golang code snippet connects the Go app with Azure Cosmos DB Mongo
 dialInfo := &mgo.DialInfo{
     Addrs:    []string{"golang-couch.documents.azure.com:10255"}, // Get HOST + PORT
     Timeout:  60 * time.Second,
-    Database: "golang-coach", // It can be anything
-    Username: "golang-coach", // Username
+    Database: "database", // It can be anything
+    Username: "username", // Username
     Password: "Azure database connect password from Azure Portal", // PASSWORD
     DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
         return tls.Dial("tcp", addr.String(), &tls.Config{})
@@ -118,7 +121,7 @@ The **mgo.Dial()** method is used when there is no SSL connection. For an SSL co
 An instance of the **DialWIthInfo{}** object is used to create the session object. Once the session is established, you can access the collection by using the following code snippet:
 
 ```go
-collection := session.DB(“golang-couch”).C(“package”)
+collection := session.DB(“database”).C(“package”)
 ```
 
 <a id="create-document"></a>
