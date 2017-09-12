@@ -13,16 +13,19 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 4. Select and add the the following columns:
 
-	**Maintenance** - shows the maintenance status for the VM. The following are the potential values:
-		- Start now: The VM is in the self-service maintenance window which lets you initiate the maintenance yourself. See below on how to start maintenance on your VM
-		- Scheduled: The VM is scheduled for maintenance with no option for you to initiate maintenance. You can learn of the maintenance window by selecting the Auto-Scheduled window in this view or by clicking on the VM
-		- Completed: You have successfully initiated and completed maintenance on your VM.
-		- Skipped: You have selected to initiate maintenance with no success. Azure has canceled the maintenance for your VM and will reschedule it in a later time
-		- Retry later: You have selected to initiate maintenance and Azure was not able to fulfill your request. In this case, you can try again in a later time. 
-	
-	**Maintenance Pro-Active** - shows the time window when you can control and orchestrate maintenance on your VMs (See Start Maintenance).
-
-	**Maintenance Scheduled** - shows the time window when Azure will reboot your VM in order to complete maintenance. 
+   **Maintenance** - shows the maintenance status for the VM. The following are the potential values:
+	  
+      | Value | Description |
+	  |-------|-------------|
+	  | Start now | The VM is in the self-service maintenance window which lets you initiate the maintenance yourself. See below on how to start maintenance on your VM | 
+	  | Scheduled | The VM is scheduled for maintenance with no option for you to initiate maintenance. You can learn of the maintenance window by selecting the Auto-Scheduled window in this view or by clicking on the VM | 
+	  | Completed | You have successfully initiated and completed maintenance on your VM. | 
+	  | Skipped| You have selected to initiate maintenance with no success. Azure has canceled the maintenance for your VM and will reschedule it in a later time | 
+	  | Retry later| You have selected to initiate maintenance and Azure was not able to fulfill your request. In this case, you can try again in a later time. | 
+   
+   **Maintenance Pro-Active** - shows the time window when you can self-start maintenance on your VMs.
+   
+   **Maintenance Scheduled** - shows the time window when Azure will reboot your VM in order to complete maintenance. 
 
 
 

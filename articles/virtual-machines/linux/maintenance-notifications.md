@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 09/12/2017
 ms.author: zivr
 
 ---
@@ -48,8 +48,8 @@ az vm get-instance-view  rgName  vmName
 
 The following values are returned under MaintenanceRedeployStatus: 
 
-| Value									| Description														||
-|---------------------------------------|--------------------------------------------------------------------||
+| Value	| Description	|
+|-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maitnenance on the VM at this time ||
 | PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM ||
 | PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM ||

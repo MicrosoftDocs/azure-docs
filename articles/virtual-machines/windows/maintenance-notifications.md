@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 09/12/2017
 ms.author: zivr
 
 ---
@@ -49,13 +49,17 @@ Maintenance information is returned only if there is maintenance planned, if the
 Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
-The following properties are returned under MaintenanceRedeployStatus               : 
-	-   IsCustomerInitiatedMaintenanceAllowed : Indicate whether you can start maitnenance on the VM at this time
-	-   PreMaintenanceWindowStartTime         : The beginning of the maintenance self-service window when you can initiate maintenance on your VM 
-	-   PreMaintenanceWindowEndTime           : The end of the maintenance self-service window when you can initiate maintenance on your VM 
-	-   MaintenanceWindowStartTime            : The beginning ofthe maintenance scheduled window when you can initiate maintenance on your VM 
-	-   MaintenanceWindowEndTime              : The end of the maintenance scheduled window when you can initiate maintenance on your VM 
-	-   LastOperationResultCode               : The result of the last attempt to initiate mintenance on the VM 
+The following properties are returned under MaintenanceRedeployStatus: 
+| Value	| Description	|
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maitnenance on the VM at this time ||
+| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM ||
+| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM ||
+| MaintenanceWindowStartTime            | The beginning ofthe maintenance scheduled window when you can initiate maintenance on your VM ||
+| MaintenanceWindowEndTime              | The end of the maintenance scheduled window when you can initiate maintenance on your VM ||
+| LastOperationResultCode               | The result of the last attempt to initiate mintenance on the VM ||
+
+
 
 You can also learn about maintenance status for all virtual machines in a resource group by calling using the using [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) and not specifying a VM.
  
@@ -99,54 +103,6 @@ Using information from the function in the previous section, the following cmdle
 Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
 ```
  
-Using the Command Line Interface (Windows/Linux)
-Discover VMs scheduled for maintenance
-Initiate Maintenance on your VM
-
-FAQs (Windows/Linux)
-Why do you need to reboot my virtual machines now ?
-While the majority of updates and upgrades to the Azure platform do not impact virtual machine's availability, there are cases where we can't avoid rebooting virtual machines hosted in Azure. We have accumulated several changes which require us to restart our servers which will result in virtual machines reboot. 
-
-I follow your recommendations for High Availability by using an Availability Set, am I safe ? 
-Yes ! Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also wait for at least 30 minutes before moving to the next group of virtual machines.
-For more information about high availability, refer to Manage the availability of Windows virtual machines in Azure or Manage the availability of Linux virtual machines in Azure .
-
-I have disaster recovery set in another region. Am I safe ?
-Each Azure region is paired with another region within the same geography (such as US, Europe, or Asia). Planned Azure updates are rolled out to paired regions one at a time to minimize downtime and risk of application outage. During planned maintenance, Azure may schedule a similar window for users to start the maintenance, however the scheduled maintenance window will be different between the paired regions. 
-For more information on Azure regions, refer to Regions and availability for virtual machines in Azure.  You can see the full list of regional pairs here.
-
-
-How do I get notified about planned maintenance ?
-I don't see any indication of planned maintenance in the portal, Powershell, or CLI, What is wrong ? 
-Should I start the maintenance on my virtual machine ? 
-Is there a way to know exactly when my virtual machine will be impacted ? 
-I have received an email about hardware decommissioning, is this the same as planned maintenance ? 
-
-
-
----------------
-
-## Query using the Azure API
-
-Use the [get VM information
-API](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)
-and look for the instance view to discover the maintenance details on an
-individual VM. The response includes the following elements:
-
-  - isCustomerInitiatedMaintenanceAllowed: Indicates whether you can now initiate pre-emptive redeploy on the VM.
-
-  - preMaintenanceWindowStartTime: The start time of the pre-emptive maintenance window.
-
-  - preMaintenanceWindowEndTime: The end time of the pre-emptive maintenance window. After this time, you will no longer be able to initiate maintenance on this VM.
-    
-  - maintenanceWindowStartTime: The start time of the scheduled maintenance window when your VM are impacted.
-
-  - maintenanceWindowEndTime: The end time of the scheduled maintenance window.
-  
-  - lastOperationResultCode: The result of your last Maintenance-Redeploy operation.
- 
-  - lastOperationMessage:  Message describing the result of your last Maintenance-Redeploy operation.
-
 
 ## Next Steps
 
