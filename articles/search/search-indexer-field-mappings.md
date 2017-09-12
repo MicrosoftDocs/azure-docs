@@ -78,15 +78,13 @@ These functions are currently supported:
 
 <a name="base64EncodeFunction"></a>
 
-### base64Encode
+## base64Encode
 Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded.
 
-If you have access to [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) you can just leave out `parameters` for the mapping function, which defaults `useHttpServerUtilityUrlTokenEncode` to `true`.
-
-#### Sample use case
+### Sample use case
 Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document), for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function. Then you can map between the document key and source key using HttpServerUtility.UrlTokenEncode and HttpServerUtility.UrlTokenDecode.
 
-#### Example
+### Example
 ```JSON
 
 "fieldMappings" : [
@@ -97,24 +95,10 @@ Only URL-safe characters can appear in an Azure Search document key (because cus
   }]
 ```
 
-<a name="base64table"></a>
-
-If you are not using the .NET Framework (for example JavaScript or Python), then you should set `useHttpServerUtilityUrlTokenEncode` to `false`. You may need additional processing of your base64 encoded key to be consistent with the `mappingFunction` output.
-
-The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 function, apply that function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
-
-| Encoding | Base64 encode output | Additional processing |
-| --- | --- | --- |
-| Base64 with padding | `MDA+MDA/MDA=` | Use URL-safe characters and remove padding |
-| Base64 without padding | `MDA+MDA/MDA` | Use URL-safe characters |
-| URL-safe base64 with padding | `MDA-MDA_MDA=` | Remove padding |
-| URL-safe base64 without padding | `MDA-MDA_MDA` | None |
-
-
-#### Sample use case
+### Sample use case
 You want to build a user interface around your Search service and make Lookup API calls using JavaScript. A source document with key `00>00?00` will be added to the index with key `MDA-MDA_MDA`. When looking up the document, you must use `MDA-MDA_MDA` as the document key.
 
-#### Example
+### Example
 ```JSON
 
 "fieldMappings" : [
@@ -125,21 +109,17 @@ You want to build a user interface around your Search service and make Lookup AP
   }]
 ```
 
+If you don't need to lookup documents by keys and also don't need to decode the encoded content, you can just leave out `parameters` for the mapping function, which defaults `useHttpServerUtilityUrlTokenEncode` to `true`. Otherwise, see [base64 details](#base64details) section below to decide which settings to use.
+
 <a name="base64DecodeFunction"></a>
 
-### base64Decode
+## base64Decode
 Performs Base64 decoding of the input string. The input is assumed to a *URL-safe* Base64-encoded string.
 
-You must ensure the decoding `parameters` match how your input was encoded.
-
-If you don't specify any `parameters`, then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`, and your input must be encoded using HttpServerUtility.UrlTokenEncode.
-
-If you set `useHttpServerUtilityUrlTokenDecode` to `false` then the input must be encoded as URL-safe base64 without padding. See [above table](#base64table) for details.
-
-#### Sample use case
+### Sample use case
 Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding to represent arbitrary UTF-8 strings in blob custom metadata. However, to make search meaningful, you can use this function to turn the encoded data back into "regular" strings when populating your search index.
 
-#### Example
+### Example
 ```JSON
 
 "fieldMappings" : [
@@ -150,21 +130,23 @@ Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding t
   }]
 ```
 
+If you don't specify any `parameters`, then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`. See [base64 details](#base64details) section below to decide which settings to use.
+
 <a name="extractTokenAtPositionFunction"></a>
 
-### extractTokenAtPosition
+## extractTokenAtPosition
 Splits a string field using the specified delimiter, and picks the token at the specified position in the resulting split.
 
 For example, if the input is `Jane Doe`, the `delimiter` is `" "`(space) and the `position` is 0, the result is `Jane`; if the `position` is 1, the result is `Doe`. If the position refers to a token that doesn't exist, an error is returned.
 
-#### Sample use case
+### Sample use case
 Your data source contains a `PersonName` field, and you want to index it as two separate `FirstName` and `LastName` fields. You can use this function to split the input using the space character as the delimiter.
 
-#### Parameters
+### Parameters
 * `delimiter`: a string to use as the separator when splitting the input string.
 * `position`: an integer zero-based position of the token to pick after the input string is split.    
 
-#### Example
+### Example
 ```JSON
 
 "fieldMappings" : [
@@ -182,21 +164,40 @@ Your data source contains a `PersonName` field, and you want to index it as two 
 
 <a name="jsonArrayToStringCollectionFunction"></a>
 
-### jsonArrayToStringCollection
+## jsonArrayToStringCollection
 Transforms a string formatted as a JSON array of strings into a string array that can be used to populate a `Collection(Edm.String)` field in the index.
 
 For example, if the input string is `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `red`, `white`, and `blue`. For input values that cannot be parsed as JSON string arrays, an error is returned.
 
-#### Sample use case
+### Sample use case
 Azure SQL database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure Search. To populate string collection fields, format your source data as a JSON string array and use this function.
 
-#### Example
+### Example
 ```JSON
 
 "fieldMappings" : [
   { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } }
 ]
 ```
+
+<a name="base64details"></a>
+
+## Details of base64 encoding and decoding
+Azure Search supports two base64 encodings: HttpServerUtility URL token and URL-safe base64 encoding without padding. You need to know how to simulate `base64Encode` and `base64Decode` if you want to encode a document key for lookup, encode a value to be decoded by the indexer, or decode a field encoded by the indexer.
+
+If you use the .NET Framework, you can set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `true`, for encoding and decoding respectively. Then `base64Encode` will behave like [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) and `base64Decode` will behave like [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+
+If you are not using the .NET Framework (for example JavaScript or Python), then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, you may need additional processing of your base64 encode function output and base64 decode function input to be compatible with the `mappingFunction`.
+
+The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 function, apply your library encode function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
+
+| Encoding | Base64 encode output | Additional processing after library encoding | Additional processing before library decoding |
+| --- | --- | --- | --- |
+| Base64 with padding | `MDA+MDA/MDA=` | Use URL-safe characters and remove padding | Use standard base64 characters and add padding |
+| Base64 without padding | `MDA+MDA/MDA` | Use URL-safe characters | Use standard base64 characters |
+| URL-safe base64 with padding | `MDA-MDA_MDA=` | Remove padding | Add padding |
+| URL-safe base64 without padding | `MDA-MDA_MDA` | None | None |
+
 
 ## Help us make Azure Search better
 If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
