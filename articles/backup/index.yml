@@ -16,53 +16,58 @@ metadata:
 abstract:
   description: Use Azure Backup to back up and restore your data. With Azure Backup you can back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
 sections:
-  - title: ""
+- title: ""
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-    - type: list
-      style: cards
-      className: cardsFTitle
-      items:
-      - image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/backup.svg
-        text: Learn about Azure Backup
+    - title: Learn about Azure Backup
+      href: /azure/backup/backup-introduction-to-azure-backup
+      image: 
+        src: https://docs.microsoft.com/azure/backup/media/index/backup.svg
         href: /azure/backup/backup-introduction-to-azure-backup
-      - image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/video-library.svg
-        text: Azure Backup Video Library
-          href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-      - image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-        text: Get Started backing up files and folders with Azure Backup
+    - title: Azure Backup Video Library
+      href: https://azure.microsoft.com/documentation/videos/index/?services=backup
+      image: 
+        src: https://docs.microsoft.com/azure/backup/media/index/video-library.svg
+        href: https://azure.microsoft.com/documentation/videos/index/?services=backup
+    - title: Get Started backing up files and folders with Azure Backup
+      href: /azure/backup/backup-try-azure-backup-in-10-mins
+      image: 
+        src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
         href: /azure/backup/backup-try-azure-backup-in-10-mins
-      - image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-        text: Get Started backing up a VMware server with Azure Backup Server
+    - title: Get Started backing up a VMware server with Azure Backup Server
+      href: /azure/backup/backup-azure-backup-server-vmware
+      image: 
+        src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
         href: /azure/backup/backup-azure-backup-server-vmware
-      - image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-        text: Get Started protecting Azure virtual machines with Azure Backup
+    - title: Get Started protecting Azure virtual machines with Azure Backup
+      href: /azure/backup/backup-azure-vms-first-look-arm
+      image: 
+        src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
         href: /azure/backup/backup-azure-vms-first-look-arm
-  - title: Quickstarts
-    items:
-    - type: paragraph
+- title: Quickstarts
+  items:
+  - type: paragraph
       text: Learn how to back up an Azure virtual machine in Azure.
-  - title: Step-by-Step Tutorials
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn to back up and recover virtual machines at scale.
+- title: Samples
+  items:
+  - type: paragraph
+    text: Use the following samples to protect your data in Azure.
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-    - type: paragraph
-      text: Learn to back up and recover virtual machines at scale.
-  - title: Samples
-    items:
-    - type: paragraph
-      text: Use the following samples to protect your data in Azure.
-  - title: Reference
-    items:
-    - type: list
-      style: cards
-      className: cardsD
-      items:
-      - title: Command-Line
-        html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
-      - title: Languages
-        html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
-      - title: REST
-        html: <p><a href="/rest/api/recoveryservices">Recovery Services REST API Reference</a></p>
+    - title: Command-Line
+      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/recoveryservices">Recovery Services REST API Reference</a></p>
