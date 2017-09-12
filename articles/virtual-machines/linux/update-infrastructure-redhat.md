@@ -18,11 +18,9 @@ ms.author: borisb
 
 ---
 # Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure
- Based on the upstream Pulp project, [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) allows cloud providers to locally mirror Red Hat-hosted repository content, create custom repositories with their own content, and make those repositories available to a large group of end users through a load-balanced content delivery system.
+ [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) allows cloud providers (such as Azure) to mirror Red Hat-hosted repository content, create custom repositories with Azure-specific content, and make it available to end user VMs.
 
-Virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace are registered to access the Red Hat Update Infrastructure (RHUI) deployed in Azure.  The on-demand RHEL instances have access to a regional yum repository and able to receive incremental updates.
-
-RHEL Pay-As-You-Go (PAYG) images come preconfigured to access Azure RHUI. You don't need to do any additional configuration - run `sudo yum update` after your RHEL instance is ready to get the latest updates. This service is included as part of RHEL PAYG software fees.
+Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured to access Azure RHUI. You don't need to do any additional configuration - run `sudo yum update` after your RHEL instance is ready to get the latest updates. This service is included as part of RHEL PAYG software fees.
 
 ## Important information about Azure RHUI
 
