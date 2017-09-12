@@ -55,7 +55,7 @@ The following use cases demonstrate a few ways you can make the most of your Azu
 
     Implementation: todo
 
-In all of these cases, because the function has decoupled the app itself, you dont need to spin up new app instances all the time, instead, Azure Functions spins up individual functions to complete discrete processes as needed.
+In all of these cases, because the function has decoupled the app itself, you don't need to spin up new app instances all the time, instead, Azure Functions spins up individual functions to complete discrete processes as needed.
 
 ## Tooling
 
@@ -85,7 +85,7 @@ Benefits of Azure Functions:
 
 * **Good for quick tasks**. The service spins up new instances of functions whenever an event fires and closes them as soon as the function completes. You only pay for the time your functions are running.
 
-* If you're not sure whether Flow, Logic Apps, Azure Functions, or WebJobs are best for your implementation, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs/functions-compare-logic-apps-ms-flow-webjobs.md).
+* If you're not sure whether Flow, Logic Apps, Azure Functions, or WebJobs are best for your implementation, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
 ## Next steps
 
