@@ -23,8 +23,8 @@ The Azure Marketplace is available for Azure Government with an updated list of 
 ## Variations
 Below are some considerations when using Azure Marketplace for Government:
 
-* Only Bring Your Own License (BYOL) images are available. You cannot access any images that require purchase transaction through Azure Marketplace
-* Only a subset of images is currently available as compared to the public marketplace. You can find the list of available images [here](../azure-government-image-gallery.md) 
+* In general, only Bring Your Own License (BYOL) images are available. You cannot access any images that require purchase transaction through Azure Marketplace.
+* Only a subset of images is currently available as compared to the public marketplace. You can find the list of available images [here](../azure-government-image-gallery.md). 
 * Before provisioning an image, your Enterprise Administrator must enable Marketplace purchases for your Azure subscription
   * Log in to the Portal as an Enterprise Administrator
   * Navigate to *Manage*
@@ -34,6 +34,11 @@ Below are some considerations when using Azure Marketplace for Government:
 
 > [!NOTE]
 > If you are interested in making your images available in Azure Government please refer to [partner onboarding guidelines](documentation-government-manage-marketplace-partners.md) for more information.
+> 
+> 
+
+> [!NOTE]
+> Red Hat Enterprise Linux is available in Azure Government with Azure Marketplace billing.  This is a special case.
 > 
 > 
 
