@@ -26,12 +26,12 @@ Though the cloud feels like it's everywhere, in reality, your data and applicati
 Availability Zones protect against hardware, network, cooling, and power failures that can compromise a datacenter.  
 
 ! conceptual view of one zone going down in a region (./media/az-overview/three-zones-per-region.png) John to provide artwork that shows Availability Zones.
-Data residency - 3+1.
+
 
 ## Supported Regions
 
-East US 2
-West Europe
+- East US 2
+- West Europe
 
 
 ## Supported Services
@@ -59,11 +59,11 @@ The Availability Zone preview is available in the East US 2 and West Europe regi
 1. Follow the instructions to sign up for the Availablity Zones (link to signup) preview in your subscription. 
 2. Choose the Azure subscription to use.
 3. Use one of the following links to start using Availabilty Zones with your service. 
-    a. Create a virtual machine.
-    b. Create a public IP.
-    c. Creat a zonal virtual machine scale set.
-    d. Create a Managed Disk.
-    e. Create a Software Load Balancer.
+    - Create a virtual machine.
+    - Create a public IP.
+    - Creat a zonal virtual machine scale set.
+    - Create a Managed Disk.
+    - Create a Software Load Balancer.
 
 ## Next steps
 - Quickstart templates - this link comes from Raj.
