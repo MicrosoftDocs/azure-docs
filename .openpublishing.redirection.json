@@ -22,7 +22,7 @@
         {
             "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
             "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
-            "redirect_document_id": false                        
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
@@ -1412,6 +1412,241 @@
         {
             "source_path": "articles/app-service-web/web-sites-godaddy-custom-domain-name.md",
             "redirect_url": "/azure/app-service-web/app-service-web-tutorial-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-linux-readme.md",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-ci-cd.md",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-ci-cd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-cli.md",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-faq.md",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-intro.md",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-ssh-support.md",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-ssh-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-ruby.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-ruby",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-ruby-get-started.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-ruby",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-dotnetcore.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-dotnetcore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-changes-existing-services.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-app-azure-portal.md",
+            "redirect_url": "https://portal.azure.com/#create/hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-app-azure-resource-manager-powershell.md",
+            "redirect_url": "/azure/app-service-web/app-service-powershell-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-app-azure-resource-manager-xplat-cli.md",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-arm-from-github-provision.md",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-arm-with-msdeploy-provision.md",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-arm-with-sql-database-provision.md",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-create-web-app-from-marketplace.md",
+            "redirect_url": "https://portal.azure.com/#create/hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-get-started-2.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-tutorial-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-get-started-dotnet-portal.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-get-started-php-portal.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-web-test-in-production-get-start.md",
+            "redirect_url": "/azure/app-service-web/web-sites-staged-publishing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/automation-manage-web-app.md",
+            "redirect_url": "/azure/app-service-web/app-service-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/develop-wordpress-on-app-service-web-apps.md",
+            "redirect_url": "https://portal.azure.com/#create/WordPress.WordPress",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/java-create-azure-website-using-java-sdk.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/storage-nodejs-use-table-storage-web-site.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/websites-csm-backup.md",
+            "redirect_url": "/azure/app-service-web/web-sites-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-dotnet-session-state-caching.md",
+            "redirect_url": "/azure/redis-cache/cache-aspnet-session-state-provider",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-enterprise-offerings.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-hybrid-connection-get-started.md",
+            "redirect_url": "/azure/app-service/app-service-hybrid-connections",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-manage-azure-website.md",
+            "redirect_url": "/azure/app-service-web/web-sites-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-migration-from-iis-server.md",
+            "redirect_url": "https://www.movemetothecloud.net/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-nodejs-chat-app-socketio.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-nodejs-iojs.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-php-convert-wordpress-multisite.md",
+            "redirect_url": "/azure/app-service-web/web-sites-php-enterprise-wordpress",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-php-mysql-deploy-use-ftp.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-php-mysql-deploy-use-git.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-php-sql-database-deploy-use-git.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-php-web-site-gallery.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-python-create-deploy-bottle-app.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-python-create-deploy-django-app.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-python-create-deploy-flask-app.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-python-ptvs-bottle-table-storage.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-python-ptvs-django-mysql.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-python-ptvs-django-sql.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-python-ptvs-flask-table-storage.md",
+            "redirect_url": "/azure/app-service-web/app-service-web-get-started-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/web-sites-security.md",
+            "redirect_url": "/azure/app-service/app-service-authentication-overview",
             "redirect_document_id": false
         },
         {
@@ -2876,6 +3111,11 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
+            "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-storm-power-bi-topology.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
         },
@@ -9252,57 +9492,57 @@
         {
             "source_path": "articles/storage/automation-manage-storage.md",
             "redirect_url": "/azure/storage/common/storage-manage-with-automation",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-about-disks-and-vhds-linux.md",
             "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-about-disks-and-vhds-windows.md",
             "redirect_url": "/azure/virtual-machines/windows/about-disks-and-vhds",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-analytics.md",
             "redirect_url": "/azure/storage/common/storage-analytics",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-azure-cli-nodejs.md",
             "redirect_url": "/azure/storage/common/storage-azure-cli-nodejs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-azure-cli.md",
             "redirect_url": "/azure/storage/common/storage-azure-cli",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
             "redirect_url": "/azure/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-blob-snapshots.md",
             "redirect_url": "/azure/storage/blobs/storage-blob-snapshots",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-blob-storage-tiers.md",
             "redirect_url": "/azure/storage/blobs/storage-blob-storage-tiers",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-c-plus-plus-enumeration.md",
             "redirect_url": "/azure/storage/common/storage-c-plus-plus-enumeration",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-c-plus-plus-how-to-use-files.md",
             "redirect_url": "/azure/storage/files/storage-c-plus-plus-how-to-use-files",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-c-plus-plus-how-to-use-blobs.md",
@@ -9312,722 +9552,722 @@
         {
             "source_path": "articles/storage/storage-c-plus-plus-how-to-use-queues.md",
             "redirect_url": "/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-c-plus-plus-how-to-use-tables.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-c-plus",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-client-side-encryption-java.md",
             "redirect_url": "/azure/storage/common/storage-client-side-encryption-java",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-client-side-encryption-python.md",
             "redirect_url": "/azure/storage/common/storage-client-side-encryption-python",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-client-side-encryption.md",
             "redirect_url": "/azure/storage/common/storage-client-side-encryption",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-concurrency.md",
             "redirect_url": "/azure/storage/common/storage-concurrency",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-configure-connection-string.md",
             "redirect_url": "/azure/storage/common/storage-configure-connection-string",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-cors-support.md",
             "redirect_url": "/azure/storage/common/storage-cors-support",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-create-storage-account.md",
             "redirect_url": "/azure/storage/common/storage-create-storage-account",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-custom-domain-name.md",
             "redirect_url": "/azure/storage/blobs/storage-custom-domain-name",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-decide-blobs-files-disks.md",
             "redirect_url": "/azure/storage/common/storage-decide-blobs-files-disks",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-designing-ha-apps-with-ragrs.md",
             "redirect_url": "/azure/storage/common/storage-designing-ha-apps-with-ragrs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-disaster-recovery-guidance.md",
             "redirect_url": "/azure/storage/common/storage-disaster-recovery-guidance",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-dotnet-how-to-use-blobs.md",
             "redirect_url": "/azure/storage/blobs/storage-dotnet-how-to-use-blobs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-dotnet-how-to-use-files.md",
             "redirect_url": "/azure/storage/files/storage-dotnet-how-to-use-files",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-dotnet-how-to-use-queues.md",
             "redirect_url": "/azure/storage/queues/storage-dotnet-how-to-use-queues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-dotnet-how-to-use-tables.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-dotnet",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-1.md",
             "redirect_url": "/azure/storage/common/storage-dotnet-shared-access-signature-part-1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-2.md",
             "redirect_url": "/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-e2e-troubleshooting.md",
             "redirect_url": "/azure/storage/common/storage-e2e-troubleshooting",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-enable-and-view-metrics.md",
             "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
             "redirect_url": "/azure/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-explorer-troubleshooting.md",
             "redirect_url": "/azure/storage/common/storage-explorer-troubleshooting",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-explorers.md",
             "redirect_url": "/azure/storage/common/storage-explorers",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-faq-for-disks.md",
             "redirect_url": "/azure/virtual-machines/windows/faq-for-disks",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-file-how-to-create-file-share.md",
             "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-file-how-to-use-files-mac.md",
             "redirect_url": "/azure/storage/files/storage-how-to-use-files-mac",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-file-how-to-use-files-portal.md",
             "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-file-how-to-use-files-powershell.md",
             "redirect_url": "/azure/storage/files/storage-how-to-use-files-powershell",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-file-how-to-use-files-windows.md",
             "redirect_url": "/azure/storage/files/storage-how-to-use-files-windows",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-files-faq.md",
             "redirect_url": "/azure/storage/files/storage-files-faq",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-files-introduction.md",
             "redirect_url": "/azure/storage/files/storage-files-introduction",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-how-to-use-files-linux.md",
             "redirect_url": "/azure/storage/files/storage-how-to-use-files-linux",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-https-custom-domain-cdn.md",
             "redirect_url": "/azure/storage/blobs/storage-https-custom-domain-cdn",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-backing-up-drive-manifests.md",
             "redirect_url": "/azure/storage/common/storage-import-export-backing-up-drive-manifests",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-cancelling-and-deleting-jobs.md",
             "redirect_url": "/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-creating-an-export-job.md",
             "redirect_url": "/azure/storage/common/storage-import-export-creating-an-export-job",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-creating-an-import-job.md",
             "redirect_url": "/azure/storage/common/storage-import-export-creating-an-import-job",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-diagnostics-and-error-recovery.md",
             "redirect_url": "/azure/storage/common/storage-import-export-diagnostics-and-error-recovery",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-enumerating-jobs.md",
             "redirect_url": "/azure/storage/common/storage-import-export-enumerating-jobs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-file-format-log.md",
             "redirect_url": "/azure/storage/common/storage-import-export-file-format-log",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-file-format-manifest.md",
             "redirect_url": "/azure/storage/common/storage-import-export-file-format-manifest",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-file-format-metadata-and-properties.md",
             "redirect_url": "/azure/storage/common/storage-import-export-file-format-metadata-and-properties",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-service.md",
             "redirect_url": "/azure/storage/common/storage-import-export-service",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-how-to-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-how-to-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-how-to.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-how-to",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-preparing-hard-drives-import-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-preparing-hard-drives-import.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-previewing-drive-usage-export-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-quick-reference-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-quick-reference-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-quick-reference.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-quick-reference",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-repairing-an-export-job-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-repairing-an-export-job-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-repairing-an-import-job-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-repairing-an-import-job-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-reviewing-job-status-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-reviewing-job-status-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-setting-properties-metadata-import-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-setting-properties-metadata-import-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-setting-properties-metadata-import.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-setting-properties-metadata-import",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-setup-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-setup-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-setup.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-setup",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-tool-troubleshooting-v1.md",
             "redirect_url": "/azure/storage/common/storage-import-export-tool-troubleshooting-v1",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-import-export-using-the-rest-api.md",
             "redirect_url": "/azure/storage/common/storage-import-export-using-the-rest-api",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-incremental-snapshots.md",
             "redirect_url": "/azure/virtual-machines/windows/incremental-snapshots",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-introduction.md",
             "redirect_url": "/azure/storage/common/storage-introduction",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-ios-how-to-use-blob-storage.md",
             "redirect_url": "/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-java-how-to-use-blob-storage.md",
             "redirect_url": "/azure/storage/blobs/storage-java-how-to-use-blob-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-java-how-to-use-file-storage.md",
             "redirect_url": "/azure/storage/files/storage-java-how-to-use-file-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-java-how-to-use-queue-storage.md",
             "redirect_url": "/azure/storage/queues/storage-java-how-to-use-queue-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-java-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-java",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-java-hudson-continuous-integration-solution.md",
             "redirect_url": "/azure/storage/common/storage-java-hudson-continuous-integration-solution",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-java-jenkins-continuous-integration-solution.md",
             "redirect_url": "/azure/storage/common/storage-java-jenkins-continuous-integration-solution",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-manage-access-to-resources.md",
             "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-managed-disks-overview.md",
             "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-migrate-to-premium-storage-using-azure-site-recovery.md",
             "redirect_url": "/azure/storage/common/storage-migrate-to-premium-storage-using-azure-site-recovery",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-migration-to-premium-storage.md",
             "redirect_url": "/azure/storage/common/storage-migration-to-premium-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-monitor-storage-account.md",
             "redirect_url": "/azure/storage/common/storage-monitor-storage-account",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-monitoring-diagnosing-troubleshooting.md",
             "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-moving-data.md",
             "redirect_url": "/azure/storage/common/storage-moving-data",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-nodejs-how-to-use-blob-storage.md",
             "redirect_url": "/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-nodejs-how-to-use-queues.md",
             "redirect_url": "/azure/storage/queues/storage-nodejs-how-to-use-queues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-nodejs-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-nodejs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
             "redirect_url": "/azure/cosmos-db/table-storage-cloud-service-nodejs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-performance-checklist.md",
             "redirect_url": "/azure/storage/common/storage-performance-checklist",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-php-how-to-use-blobs.md",
             "redirect_url": "/azure/storage/blobs/storage-php-how-to-use-blobs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-php-how-to-use-queues.md",
             "redirect_url": "/azure/storage/queues/storage-php-how-to-use-queues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-php-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-php",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-powershell-guide-full.md",
             "redirect_url": "/azure/storage/common/storage-powershell-guide-full",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-premium-storage-performance.md",
             "redirect_url": "/azure/storage/common/storage-premium-storage-performance",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-premium-storage.md",
             "redirect_url": "/azure/storage/common/storage-premium-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-properties-metadata.md",
             "redirect_url": "/azure/storage/blobs/storage-properties-metadata",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-python-how-to-use-blob-storage.md",
             "redirect_url": "/azure/storage/blobs/storage-python-how-to-use-blob-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-python-how-to-use-file-storage.md",
             "redirect_url": "/azure/storage/files/storage-python-how-to-use-file-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-python-how-to-use-queue-storage.md",
             "redirect_url": "/azure/storage/queues/storage-python-how-to-use-queue-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-python-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-redundancy.md",
             "redirect_url": "/azure/storage/common/storage-redundancy",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-require-secure-transfer.md",
             "redirect_url": "/azure/storage/common/storage-require-secure-transfer",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
             "redirect_url": "/azure/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-ruby-how-to-use-blob-storage.md",
             "redirect_url": "/azure/storage/blobs/storage-ruby-how-to-use-blob-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-ruby-how-to-use-queue-storage.md",
             "redirect_url": "/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-ruby-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-ruby",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-samples-dotnet.md",
             "redirect_url": "/azure/storage/common/storage-samples-dotnet",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-samples-java.md",
             "redirect_url": "/azure/storage/common/storage-samples-java",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-samples.md",
             "redirect_url": "/azure/storage/common/storage-samples",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-scalability-targets.md",
             "redirect_url": "/azure/storage/common/storage-scalability-targets",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-security-guide.md",
             "redirect_url": "/azure/storage/common/storage-security-guide",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-service-encryption-customer-managed-keys.md",
             "redirect_url": "/azure/storage/common/storage-service-encryption-customer-managed-keys",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-service-encryption.md",
             "redirect_url": "/azure/storage/common/storage-service-encryption",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-standard-storage.md",
             "redirect_url": "/azure/storage/common/storage-standard-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-table-design-guide.md",
             "redirect_url": "/azure/cosmos-db/table-storage-design-guide",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-troubleshoot-linux-file-connection-problems.md",
             "redirect_url": "/azure/storage/files/storage-troubleshoot-linux-file-connection-problems",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-troubleshoot-windows-file-connection-problems.md",
             "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-use-azcopy-linux.md",
             "redirect_url": "/azure/storage/common/storage-use-azcopy-linux",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-use-azcopy.md",
             "redirect_url": "/azure/storage/common/storage-use-azcopy",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-use-data-movement-library.md",
             "redirect_url": "/azure/storage/common/storage-use-data-movement-library",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-use-emulator.md",
             "redirect_url": "/azure/storage/common/storage-use-emulator",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-using-managed-disks-template-deployments.md",
             "redirect_url": "/azure/virtual-machines/windows/using-managed-disks-template-deployments",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/storage-xamarin-blob-storage.md",
             "redirect_url": "/azure/storage/blobs/storage-xamarin-blob-storage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-aspnet-getting-started-blobs.md",
             "redirect_url": "/azure/visual-studio/vs-storage-aspnet-getting-started-blobs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-aspnet-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-aspnet-getting-started-queues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-aspnet-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-aspnet-getting-started-tables",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-aspnet-what-happened.md",
             "redirect_url": "/azure/visual-studio/vs-storage-aspnet-what-happened",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-aspnet5-getting-started-blobs.md",
             "redirect_url": "/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-aspnet5-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-aspnet5-getting-started-queues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-aspnet5-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-aspnet5-getting-started-tables",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-aspnet5-what-happened.md",
             "redirect_url": "/azure/visual-studio/vs-storage-aspnet5-what-happened",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-cloud-services-getting-started-blobs.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-blobs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-cloud-services-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-cloud-services-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-cloud-services-what-happened.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-what-happened",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-webjobs-getting-started-blobs.md",
             "redirect_url": "/azure/visual-studio/vs-storage-webjobs-getting-started-blobs",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-webjobs-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-webjobs-getting-started-queues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-webjobs-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-webjobs-getting-started-tables",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/vs-storage-webjobs-what-happened.md",
             "redirect_url": "/azure/visual-studio/vs-storage-webjobs-what-happened",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-snapshot-to-storage-account.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-linux-cli-sample-create-managed-disk-from-snapshot.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-linux-cli-sample-create-managed-disk-from-vhd.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-storage-account.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-snapshot.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-vhd.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-snapshot-from-vhd.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/windows/a8-a9-a10-a11-specs.md",
@@ -10048,12 +10288,12 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-device-registration-get-started.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-device-registration-faq.md",
             "redirect_url": "/azure/active-directory/device-management-faq",
@@ -10108,7 +10348,7 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-overview.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-windows10-devices-overview.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
@@ -10126,9 +10366,9 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
-            "redirect_url": "/azure/app-service-web/app-service-linux-intro",
+            "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-passwords-get-insights.md",
             "redirect_url": "/azure/active-directory/active-directory-passwords-reporting",
@@ -10154,7 +10394,7 @@
             "redirect_url": "/azure/azure-functions/functions-openapi-definition",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/active-directory/active-directory-azureadjoin-user-frx.md",
             "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-frx",
             "redirect_document_id": false
@@ -10175,8 +10415,513 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/remoteapp/automation-manage-remote-app.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-ad.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-anyapp.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-appreqs.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-apptrouble.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-appv.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bandwidth.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bandwidthexperience.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bandwidthguidelines.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bandwidthtests.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bestpractices.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-billing.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-changetenant.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-clientbestpractices.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-clients.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-cloudtrouble.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-collections.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-create-cloud-deployment.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-create-custom-image.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-create-hybrid-deployment.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-datastorage.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-faq.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-freetrial.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-hybridtrouble.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-image-on-azurevm.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-imageoptions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-imagereqs.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-images.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-licensing.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migrate.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migrate-citrix.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migrate-mycloudit.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migratevnet.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migrationoptions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-o365.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-o365user.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-officesubscription.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-onedrive.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-outlook.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-perapp.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-planvnet.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-ports.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-publish.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-quickbooks.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-redirection.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-retirement.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-roadmap.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-secure.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-secureaccess.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-sql.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-threeminutes.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-tutorial-arawithpowershell.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-tutorial-o365anywhere.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-upd.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-update.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-uploadimage.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-usbredir.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-user.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-vnet.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-vnetsizing.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-whatis.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-whatsnew.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
+            "redirect_url": "/azure/virtual-machines/windows/agent-user-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/restart-resize-error-troubleshooting.md",
+            "redirect_url": "/azure/virtual-machines/linux/troubleshoot-deploy-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/virtual-machines-windows-sizes-storage.md",
+            "redirect_url": "/azure/virtual-machines/windows/sizes-storage",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-choose-deployment-type.md",
+            "redirect_url": "/azure/app-service/containers/choose-deployment-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-using-custom-docker-image.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-custom-docker-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-get-started-node.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },            
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-update-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/event-grid/resize-images-on-storage-blob-upload-event.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-event-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-project-properties.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-project-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-role-properties.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-role-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-service-endpoints.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-service-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-storage-account-list.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-storage-account-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-deploying-large-deployments.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-deploying-large-deployments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-enable-session-affinity.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-enable-session-affinity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-installation.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-installation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-publish-as-docker-container.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-sign-in-instructions.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-whats-new.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-hello-world-web-app-linux.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-installation.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-installation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-publish-as-docker-container.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-publish-as-docker-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-sign-in-instructions.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-whats-new.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-whats-new",
             "redirect_document_id": false
         }
     ]

@@ -31,7 +31,7 @@ Required permissions | For permissions required to apply an update, see [account
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## 1.1.614.0
-Status: To be released
+Status: September 05 2017
 
 ### Azure AD Connect
 
@@ -39,6 +39,7 @@ Status: To be released
 * There is a known issue with Azure AD Connect Upgrade that is affecting customers who have enabled [Seamless Single Sign-On](active-directory-aadconnect-sso.md). After Azure AD Connect is upgraded, the feature appears as disabled in the wizard, even though the feature remains enabled. A fix for this issue will be provided in future release. Customers who are concerned about this display issue can manually fix it by enabling Seamless Single Sign-On in the wizard.
 
 #### Fixed issues
+* Fixed an issue that prevented Azure AD Connect from updating the claims rules in on-premises ADFS while enabling the [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature. The issue occurs if you try to enable the feature for an existing Azure AD Connect deployment that has ADFS configured as the sign-in method. The issue occurs because the wizard does not prompt for ADFS credentials before trying to update the claims rules in ADFS.
 * Fixed an issue that caused Azure AD Connect to fail installation if the on-premises AD forest has NTLM disabled. The issue is due to Azure AD Connect wizard not providing fully qualified credentials when creating the security contexts required for Kerberos authentication. This causes Kerberos authentication to fail and Azure AD Connect wizard to fall back to using NTLM.
 
 ### Azure AD Connect Sync
@@ -53,7 +54,7 @@ Status: To be released
 
 #### New features and improvements
 * Added a Troubleshoot task to Azure AD Connect wizard under Additional Tasks. Customers can leverage this task to troubleshoot issues related to password synchronization and collect general diagnostics. In the future, the Troubleshoot task will be extended to include other directory synchronization-related issues.
-* Azure AD Connect now supports a new installation mode called **Use Existing Database**. This installation mode allows customers to install Azure AD Connect that specifies an existing ADSync database. For more information about this feature, refer to article Use an existing database.
+* Azure AD Connect now supports a new installation mode called **Use Existing Database**. This installation mode allows customers to install Azure AD Connect that specifies an existing ADSync database. For more information about this feature, refer to article [Use an existing database](active-directory-aadconnect-existing-database.md).
 * For improved security, Azure AD Connect now defaults to using TLS1.2 to connect to Azure AD for directory synchronization. Previously, the default was TLS1.0.
 * When Azure AD Connect Password Synchronization Agent starts up, it tries to connect to Azure AD well-known endpoint for password synchronization. Upon successful connection, it is redirected to a region-specific endpoint. Previously, the Password Synchronization Agent caches the region-specific endpoint until it is restarted. Now, the agent clears the cache and retries with the well-known endpoint if it encounters connection issue with the region-specific endpoint. This change ensures that password synchronization can failover to a different region-specific endpoint when the cached region-specific endpoint is no longer available.
 * To synchronize changes from an on-premises AD forest, an AD DS account is required. You can either (i) create the AD DS account yourself and provide its credential to Azure AD Connect, or (ii) provide an Enterprise Admin credentials and let Azure AD Connect create the AD DS account for you. Previously, (i) is the default option in the Azure AD Connect wizard. Now, (ii) is the default option.
