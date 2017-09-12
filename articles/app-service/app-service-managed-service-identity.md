@@ -140,7 +140,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 > |resource|The App ID URI of the receiving web service.|
 > |token_type|Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
-This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service#service-to-service-access-token-response.md).
+This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
 
 ### REST protocol examples
 An example request might look like the following:
