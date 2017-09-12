@@ -95,7 +95,7 @@ namespace TextAnalyticsCSharpCore
             var client = new HttpClient();
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Access-Key", accessKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", accessKey);
 
             HttpResponseMessage response;
 
@@ -319,7 +319,7 @@ namespace TextAnalyticsCSharpCore
             var client = new HttpClient();
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Access-Key", accessKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", accessKey);
 
             HttpResponseMessage response;
 
@@ -519,7 +519,7 @@ namespace TextAnalyticsCSharpCore
             var client = new HttpClient();
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Access-Key", accessKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", accessKey);
 
             HttpResponseMessage response;
 

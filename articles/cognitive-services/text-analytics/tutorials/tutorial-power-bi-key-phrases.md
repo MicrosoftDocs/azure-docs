@@ -103,7 +103,7 @@ Now open the Advanced Editor window by clicking **Advanced Editor** in the Query
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Access-Key" = apikey],
+    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
     keyphrases  = Text.Lower(Text.Combine(jsonresp[documents]{0}[keyPhrases], ", "))
@@ -202,7 +202,7 @@ The Sentiment Analysis function below returns a score indicating how positive th
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Access-Key" = apikey],
+    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
     sentiment   = jsonresp[documents]{0}[score]
@@ -219,7 +219,7 @@ Here are two versions of a Language Detection function. The first returns the IS
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Access-Key" = apikey],
+    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
     language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
@@ -233,7 +233,7 @@ in  language
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Access-Key" = apikey],
+    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
     language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
@@ -253,7 +253,7 @@ Finally, here's a variant of the Key Phrases function already presented that ret
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Access-Key" = apikey],
+    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
     keyphrases  = jsonresp[documents]{0}[keyPhrases]
