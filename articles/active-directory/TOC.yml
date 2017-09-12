@@ -1,0 +1,44 @@
+- name: Resource access in Azure
+  href: active-directory-understanding-resource-access.md
+- name: Role-Based Access Control
+  href: role-based-access-control-what-is.md
+  items:
+  - name: Manage access assignments
+    items:
+    - name: By user
+      href: role-based-access-control-manage-assignments.md
+    - name: By resource
+      href: role-based-access-control-configure.md
+  - name: Built-in roles
+    href: role-based-access-built-in-roles.md
+  - name: Custom roles
+    href: role-based-access-control-custom-roles.md
+  - name: Assign custom roles for internal and external users
+    href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+  - name: Reporting
+    href: role-based-access-control-access-change-history-report.md
+  - name: More ways to manage roles
+    items:
+    - name: With Azure CLI
+      href: role-based-access-control-manage-access-azure-cli.md
+    - name: With PowerShell
+      href: role-based-access-control-manage-access-powershell.md
+    - name: With REST
+      href: role-based-access-control-manage-access-rest.md
+  - name: Elevate tenant admin access
+    href: role-based-access-control-tenant-admin-access.md
+  - name: Troubleshoot
+    href: role-based-access-control-troubleshooting.md
+  - name: Resource Provider operations
+    href: role-based-access-control-resource-provider-operations.md
+- name: Managed Service Identity
+  href: msi-overview.md
+  items:
+    - name: Configure MSI for Windows VM - Portal
+      href: msi-qs-configure-portal-windows-vm.md
+    - name: Configure MSI for Windows VM - PowerShell
+      href: msi-qs-configure-powershell-windows-vm.md
+    - name: Configure MSI for Windows VM - Azure CLI
+      href: msi-qs-configure-cli-windows-vm.md
+    - name: Configure MSI for Windows VM - Template
+      href: msi-qs-configure-template-windows-vm.md  
