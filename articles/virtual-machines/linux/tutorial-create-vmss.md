@@ -326,6 +326,7 @@ In this tutorial, you created a virtual machine scale set. You learned how to:
 > * Use cloud-init to create an app to scale
 > * Create a virtual machine scale set
 > * Increase or decrease the number of instances in a scale set
+> * Create autoscale rules
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 
