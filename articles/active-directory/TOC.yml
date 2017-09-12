@@ -19,11 +19,11 @@
     href: role-based-access-control-access-change-history-report.md
   - name: More ways to manage roles
     items:
-    - name: Azure CLI
+    - name: With Azure CLI
       href: role-based-access-control-manage-access-azure-cli.md
-    - name: PowerShell
+    - name: With PowerShell
       href: role-based-access-control-manage-access-powershell.md
-    - name: REST
+    - name: With REST
       href: role-based-access-control-manage-access-rest.md
   - name: Elevate tenant admin access
     href: role-based-access-control-tenant-admin-access.md
@@ -36,35 +36,35 @@
   items:
     - name: Configure MSI for Windows VM
       items:
-      - name: with the Azure Portal
+      - name: With the Azure Portal
         href: msi-qs-configure-portal-windows-vm.md
-      - name: with PowerShell
+      - name: With PowerShell
         href: msi-qs-configure-powershell-windows-vm.md
-      - name: with Azure CLI
+      - name: With Azure CLI
         href: msi-qs-configure-cli-windows-vm.md
-      - name: with Azure Resource Manager template
+      - name: With Azure Resource Manager template
         href: msi-qs-configure-template-windows-vm.md  
     - name: Use MSI to access Azure Resource Manager
       items:
-      - name: with Windows VM
+      - name: With Windows VM
         href: msi-tutorial-windows-vm-access-arm.md
-      - name: with Linux VM
+      - name: With Linux VM
         href: msi-tutorial-linux-vm-access-arm.md
     - name: Use MSI to access Azure storage
       items:
-      - name: with Windows VM
+      - name: With Windows VM
         href: msi-tutorial-windows-vm-access-storage.md
-      - name: with Linux VM
+      - name: With Linux VM
         href: msi-tutorial-linux-vm-access-storage.md
     - name: Use MSI to access non-AAD resource
       items:
-      - name: with Windows VM
+      - name: With Windows VM
         href: msi-tutorial-windows-vm-access-nonaad.md
-      - name: with Linux VM
+      - name: With Linux VM
         href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Assign an MSI access to an Azure resource
       items:
-        - name: with the Azure portal
-          href: msi-howto-assign-access-portal.md
-        - name: with PowerShell
-          href: msi-howto-assign-access-powershell.md
+      - name: With the Azure portal
+        href: msi-howto-assign-access-portal.md
+      - name: With PowerShell
+        href: msi-howto-assign-access-powershell.md
