@@ -34,7 +34,7 @@
 - name: Managed Service Identity
   href: msi-overview.md
   items:
-    - name: Configure MSI for Windows VM
+    - name: Configure an MSI for a Windows VM
       items:
       - name: With the Azure Portal
         href: msi-qs-configure-portal-windows-vm.md
@@ -44,24 +44,6 @@
         href: msi-qs-configure-cli-windows-vm.md
       - name: With Azure Resource Manager template
         href: msi-qs-configure-template-windows-vm.md  
-    - name: Use MSI to access Azure Resource Manager
-      items:
-      - name: With Windows VM
-        href: msi-tutorial-windows-vm-access-arm.md
-      - name: With Linux VM
-        href: msi-tutorial-linux-vm-access-arm.md
-    - name: Use MSI to access Azure storage
-      items:
-      - name: With Windows VM
-        href: msi-tutorial-windows-vm-access-storage.md
-      - name: With Linux VM
-        href: msi-tutorial-linux-vm-access-storage.md
-    - name: Use MSI to access non-AAD resource
-      items:
-      - name: With Windows VM
-        href: msi-tutorial-windows-vm-access-nonaad.md
-      - name: With Linux VM
-        href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Assign an MSI access to an Azure resource
       items:
       - name: With the Azure portal
@@ -69,5 +51,10 @@
       - name: With PowerShell
         href: msi-howto-assign-access-powershell.md
       - name: With Azure CLI
-        href: msi-howto-assign-access-cli.md        
+        href: msi-howto-assign-access-cli.md 
+    - name: Use MSI to access Azure Resource Manager
+      items:
+      - name: With Windows VM
+        href: msi-tutorial-windows-vm-access-arm.md
+       
 
