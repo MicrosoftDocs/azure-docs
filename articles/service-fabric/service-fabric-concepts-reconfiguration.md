@@ -18,7 +18,7 @@ ms.author: aprameyr
 
 ---
 
-# Introduction
+# Reconfiguration in Azure Service Fabric
 A *configuration* is defined as the replicas and their roles for a partition of a stateful service.
 
 A *reconfiguration* is the process of moving one *configuration* to another *configuration*. It is making a change to the replica set for a partition of a stateful service. The old configuration is called the *previous configuration (PC)* and the new configuration is called the *current configuration (CC)*. The reconfiguration protocol in service fabric preserves consistency and maintains availability during any changes to the replica set.
@@ -45,7 +45,7 @@ A reconfiguration proceeds in several phases:
 
 There are several other phases that are for internal use only.
 
-# Stuck reconfigurations
+## Stuck reconfigurations
 Reconfigurations may get *stuck* for a variety of reasons. Some of the common reasons include:
 
 - **Down replicas**: some reconfiguration phases require a majority of the replicas in the configuration to be up
