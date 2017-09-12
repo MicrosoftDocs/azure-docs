@@ -80,7 +80,7 @@ A new MSI-enabled Windows Virtual Machine resource is created in a new resource 
 
 4. Create the VM.
 
-   a. Create a configurable VM object. These settings are used when deploying the virtual machine, such as a virtual machine image, size, and authentication configuration. The `-IdentityType "SystemAssigned"` parameter used in the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm.md) cmdlet causes the VM to be provisioned with an MSI. The `Get-Credential` cmdlet prompts for credentials, which are configured as the user name and password for the virtual machine:
+   a. Create a configurable VM object. These settings are used when deploying the virtual machine, such as a virtual machine image, size, and authentication configuration. The `-IdentityType "SystemAssigned"` parameter used in the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet causes the VM to be provisioned with an MSI. The `Get-Credential` cmdlet prompts for credentials, which are configured as the user name and password for the virtual machine:
 
    ```powershell
    # Define a credential object (prompts for user/password to be used for VM authentication)
@@ -96,7 +96,7 @@ A new MSI-enabled Windows Virtual Machine resource is created in a new resource 
    New-AzureRmVM -ResourceGroupName myResourceGroup -Location WestUS -VM $vmConfig
    ```
 
-5. Add the MSI VM extension using the `-Type "ManagedIdentityExtensionForWindows"` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension.md) cmdlet. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
+5. Add the MSI VM extension using the `-Type "ManagedIdentityExtensionForWindows"` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -113,14 +113,14 @@ If you need to enable MSI on an existing Virtual Machine:
    Login-AzureRmAccount
    ```
 
-2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to enable MSI, use the `-IdentityType` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm.md) cmdlet:
+2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to enable MSI, use the `-IdentityType` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
    ```
 
-3. Add the MSI VM extension using the `-Type "ManagedIdentityExtensionForWindows"` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension.md) cmdlet. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Be sure to specify the correct `-Location` parameter, matching the location of the existing VM:
+3. Add the MSI VM extension using the `-Type "ManagedIdentityExtensionForWindows"` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Be sure to specify the correct `-Location` parameter, matching the location of the existing VM:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -131,7 +131,7 @@ If you need to enable MSI on an existing Virtual Machine:
 
 If you have a Virtual Machine that no longer needs an MSI, you can use the `RemoveAzureRmVMExtension` cmdlet to remove MSI from the VM:
 
-1. Use the `-Name "ManagedIdentityExtensionForWindows"` switch with the [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension.md) cmdlet:
+1. Use the `-Name "ManagedIdentityExtensionForWindows"` switch with the [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet:
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM

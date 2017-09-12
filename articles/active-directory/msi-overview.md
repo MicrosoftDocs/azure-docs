@@ -56,7 +56,7 @@ The following services support Azure AD authentication and have been tested with
 
 | Service | Resource ID | Tutorial | Status | Date |
 | --- | --- | --- | --- | --- |
-| Azure Resource Manager | https://management.azure.com/ | [Tutorial](msi-tutorial-windows-vm-access-rm.md) | Available | Sept 2017 |
+| Azure Resource Manager | https://management.azure.com/ | [Tutorial](msi-tutorial-windows-vm-access-arm.md) | Available | Sept 2017 |
 | Azure Key Vault | https://vault.azure.net/ | [Tutorial](msi-tutorial-windows-vm-access-nonaad.md) | Available | Sept 2017 |
 | Azure SQL | https://database.windows.net/ | Coming soon | Available | Sept 2017 |
 | Azure Data Lake | https://management.core.windows.net/ | Coming soon | Available | Sept 2017 |
