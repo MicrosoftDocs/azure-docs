@@ -35,8 +35,6 @@ This task uses a production deployment. Information on using a staging deploymen
 
 Read [this](cloud-services-how-to-create-deploy.md) article first if you have not yet created a cloud service.
 
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
 ## Step 1: Get an SSL certificate
 To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third party who issues certificates for this purpose. If you do not already have one, you need to obtain one from a company that sells SSL certificates.
 
