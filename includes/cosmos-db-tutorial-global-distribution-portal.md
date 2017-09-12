@@ -3,7 +3,7 @@ You can learn about Azure Cosmos DB global distribution in this Azure Friday vid
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-For more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
+For more information about how global database replication works in Cosmos DB, see [Distribute data globally with Cosmos DB](../articles/documentdb/documentdb-distribute-data-globally.md).
 
 ## <a id="addregion"></a>Add global database regions using the Azure Portal
 Azure Cosmos DB is available in all [Azure regions][azureregions] world-wide. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
@@ -11,7 +11,7 @@ Azure Cosmos DB is available in all [Azure regions][azureregions] world-wide. Af
 1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **Azure Cosmos DB**.
 2. In the **Azure Cosmos DB** blade, select the database account to modify.
 3. In the account blade, click **Replicate data globally** from the menu.
-4. In the **Replicate data globally** blade, select the regions to add or remove by clicking regions in the map, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) or the [Distribute data globally with Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) article for more information.
+4. In the **Replicate data globally** blade, select the regions to add or remove by clicking regions in the map, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](../articles/documentdb/documentdb-distribute-data-globally.md) article for more information.
    
     ![Click the regions in the map to add or remove them][1]
     

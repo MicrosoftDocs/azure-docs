@@ -47,7 +47,7 @@ In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the v
 You can obtain the Webhook URL using [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and executing the following command
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
 ``` 
 
 For the Webhook URL, you need to have the following endpoint:

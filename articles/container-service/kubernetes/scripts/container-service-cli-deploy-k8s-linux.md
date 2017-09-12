@@ -53,8 +53,8 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Creates and ACS cluster. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#create) | Creates and ACS cluster. |
 
 ## Next steps
 

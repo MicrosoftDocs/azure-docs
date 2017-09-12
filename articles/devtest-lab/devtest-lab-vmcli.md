@@ -34,7 +34,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 > Put the **lab's resource group** name in the --resource-group parameter.
 >
 
-If you want to create a VM using a formula, use the --formula parameter in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+If you want to create a VM using a formula, use the --formula parameter in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#create).
 
 
 Verify that the VM is available.

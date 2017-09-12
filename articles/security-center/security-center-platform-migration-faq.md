@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 08/15/2017
 ms.author: terrylan
 
 ---
@@ -34,7 +34,7 @@ When data collection is enabled for the first time or when your subscriptions ar
 
 - install the Microsoft Monitoring agent on the VM
    - if a workspace created by Security Center already exists in the same geolocation as the VM, the agent is connected to this workspace
-   - if a workspace does not exist, Security Center creates a new resource group and default workspace in that geolocation, and connect the agent to that workspace. The naming convention for the workspace and resource group is:
+   - if a workspace does not exist, Security Center creates a new resource group and default workspace in that geolocation, and connect the agent to that workspace. The naming convention for the workspace and resource group are:
 
        Workspace: DefaultWorkspace-[subscription-ID]-[geo]
 
@@ -66,46 +66,11 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 
 To recover, remove the Microsoft Monitoring Agent on the VMs connected to the deleted workspace. Security Center reinstalls the agent and creates new default workspaces.
 
-### How can I use my existing Log Analytics workspace?
-
-You can select an existing Log Analytics workspace to store data collected by Security Center. To use your existing Log Analytics workspace:
-
-- The workspace must be associated with your selected Azure subscription.
-- At a minimum, you must have read permissions to access the workspace.
-
-To select an existing Log Analytics workspace:
-
-1. Under **Security policy – Data Collection**, select **Use another workspace**.
-
-   ![Use another workspace][5]
-
-2. From the pull-down menu, select a workspace to store collected data.
-
-   > [!NOTE]
-   > In the pull down menu, only workspaces that you have access to and are in your Azure subscription are shown.
-   >
-   >
-
-3. Select **Save**.
-4. After selecting **Save**, you will be asked if you would like to reconfigure monitored VMs.
-
-   - Select **No** if you want the new workspace settings to **apply on new VMs only**. The new workspace settings only apply to new agent installations; newly discovered VMs that do not have the Microsoft Monitoring Agent installed.
-   - Select **Yes** if you want the new workspace settings to **apply on all VMs**. In addition, every VM connected to a Security Center created workspace is reconnected to the new target workspace.
-
-   > [!NOTE]
-   > If you select Yes, you must not delete the workspace(s) created by Security Center until all VMs have been reconnected to the new target workspace. This operation fails if a workspace is deleted too early.
-   >
-   >
-
-   - Select **Cancel** to cancel the operation.
-
-      ![Reconfigure monitored VMs][6]
-
 ### What if the Microsoft Monitoring Agent was already installed as an extension on the VM?
 Security Center does not override existing connections to user workspaces. Security Center stores security data from the VM in the workspace already connected.
 
 ### What if I had a Microsoft Monitoring Agent installed on the machine but not as an extension?
-If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent and security monitoring is limited.
+If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will not install the Microsoft Monitoring Agent and security monitoring will be limited.
 
 ### What is the impact of removing these extensions?
 If you remove the Microsoft Monitoring Extension, Security Center is not able to collect security data from the VM and some security recommendations and alerts are unavailable. Within 24 hours, Security Center determines that the VM is missing the extension and reinstalls the extension.
@@ -149,7 +114,7 @@ If a VM already has the Microsoft Monitoring Agent installed as an Azure extensi
 
 A Security Center solution is installed on the workspace if not present already, and the solution is applied only to the relevant VMs. When you add a solution, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace. [Solution Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), which is an OMS feature, allows you to apply a scope to your solutions.
 
-If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent and security monitoring is limited.
+If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will not install the Microsoft Monitoring Agent and security monitoring is limited.
 
 ### What should I do if I suspect that the data platform migration broke the connection between one of my VMs and my workspace?
 This should not happen. If it does happen, then [Create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md) and include the following details:
@@ -190,5 +155,3 @@ To learn more about the Security Center platform migration, see
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
-[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

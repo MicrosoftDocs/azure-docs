@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: tomfitz
 ---
-# Stream big data into a data warehouse
+# Streaming big data into a data warehouse
 
 Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications from apps and services. The [Event Hubs Capture and Event Grid sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows how to use Azure Event Hubs Capture with Azure Event Grid to seamlessly migrate data from an event hub to a SQL Data Warehouse.
 
@@ -33,7 +33,7 @@ In this article, you:
 
 ## About the event data
 
-Event Grid distributes event data to the subscribers. The following example shows event data for creating a Capture file. In particular, notice the `fileUrl` property in the `data` object. The function app gets this value and uses it to retrieve the Capture file.
+Event Grid distributes event to data to the subscribers. The following example shows event data for the creating a Capture file. In particular, notice the `fileUrl` property in the `data` object. The function app gets this value and uses it to retrieve the Capture file.
 
 ```json
 [
@@ -91,9 +91,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateU
 
 Provide a password value when prompted.
 
-## Create a table in SQL Data Warehouse
+## Create table in data warehouse
 
-Add a table to your data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script. To run the script, use Visual Studio or the Query Editor in the portal.
+Add a table to your SQL data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script. To run the script, use Visual Studio or the Query Editor in the portal.
 
 The script to run is:
 
@@ -170,11 +170,11 @@ To subscribe to the event, run the following command:
 az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
 ```
 
-## Run the app to generate data
+## Run app to generate data
 
-You have finished setting up your event hub, SQL data warehouse, Azure function app, and event subscription. The solution is ready to migrate data from the event hub to the data warehouse. Before running an application that generates data for event hub, you need to configure a few values.
+You have finished setting up your event hub, SQL data warehouse, Azure function app, and event subscription. The solution is ready to migrate data from the event hub to the data warehouse. Before running an application that generates data for event hub, you need to configure a couple of values.
 
-1. In the portal, select your event hub namespace. Select **Connection Strings**.
+1. In the portal, select you event hub namespace. Select **Connection Strings**.
 
    ![Select connection strings](media/event-grid-event-hubs-integration/event-hub-connection.png)
 

@@ -75,7 +75,7 @@ You have an OpenAPI definition for your function, from [Create an OpenAPI defini
 > [!IMPORTANT]
 > Remember that you must be signed into Azure with the same credentials that you use for your PowerApps and Microsoft Flow tenants. This enables Azure to create the custom API and make it available for both PowerApps and Microsoft Flow.
 
-1. In the [Azure portal](https://portal.azure.com), click your function app name (like **function-demo-energy**) > **Platform features** > **API definition**.
+1. Click your function app name (like **function-demo-energy**) > **Platform features** > **API definition**.
 
     ![API definition](media/functions-powerapps-scenario/api-definition.png)
 
@@ -92,7 +92,7 @@ You have an OpenAPI definition for your function, from [Create an OpenAPI defini
     |**Custom API Name**|Enter a name, like `Turbine Repair`.|
     |**API Key Name**|Enter the name that app and flow builders should see in the custom API UI. Note that the example includes helpful information.|
  
-    ![Export to PowerApps and Microsoft Flow](media/functions-powerapps-scenario/export-api-2.png)
+    ![API definition source](media/functions-powerapps-scenario/export-api-2.png)
 
 1. Click **OK**. The custom API is now built and added to the environment you specified.
 

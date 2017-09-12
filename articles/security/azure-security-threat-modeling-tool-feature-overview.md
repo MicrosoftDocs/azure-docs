@@ -20,135 +20,134 @@ ms.author: rodsan
 
 # Threat Modeling Tool feature overview
 
-The Threat Modeling Tool can help you with your threat modeling needs. For a basic introduction to the tool, see [Get started with the Threat Modeling Tool](./azure-security-threat-modeling-tool-getting-started.md).
+We are glad you chose to use the Threat Modeling Tool for your threat modeling needs! If you haven’t done so, visit **[Getting Started with the Threat Modeling Tool](./azure-security-threat-modeling-tool-getting-started.md)** to learn the basics.
 
-> [!NOTE]
->The Threat Modeling Tool is updated frequently, so check this guide often to see our latest features and improvements.
+> Our tool is updated often, so check this guide often to see our latest features and improvements.
 
-To open a blank page, select **Create A Model**.
+Clicking on the "Create a New Model" button opens a blank start page, similar to the image below:
 
-![Blank page](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Blank Start Page](./media/azure-security-threat-modeling-tool/tmtstart.png)
 
-To see the features currently available in the tool, use the threat model created by our team in the [Get started](./azure-security-threat-modeling-tool-getting-started.md) example.
+Using the threat model created by our team in the **[Getting Started](./azure-security-threat-modeling-tool-getting-started.md)** example, let’s check out all the features available in the tool today.
 
-![Basic threat model](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Basic Threat Model](./media/azure-security-threat-modeling-tool/basictmt.png)
 
 ## Navigation
 
-Before we discuss the built-in features, let's review the main components found in the tool.
+Before diving into the built-in features, let’s go over the main components found in the tool
 
 ### Menu items
 
-The experience is similar to other Microsoft products. Let's review the top-level menu items.
+The experience should be similar to other Microsoft products. Let’s begin by going through the top-level menu items:
 
-![Menu items](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Menu Items](./media/azure-security-threat-modeling-tool/menuitems.png)
 
 | Label                               | Details      |
 | --------------------------------------- | ------------ |
-| **File** | <ul><li>Open, save, and close files</li><li>Sign in and sign out of OneDrive accounts.</li><li>Share links (view and edit).</li><li>View file information.</li><li>Apply a new template to existing models.</li></ul> |
-| **Edit** | Undo and redo actions, as well as copy, paste, and delete. |
-| **View** | <ul><li>Switch between **Analysis** and **Design** views.</li><li>Open closed windows (for example, stencils, element properties, and messages).</li><li>Reset layout to default settings.</li></ul> |
-| **Diagram** | Add and delete diagrams, and move through tabs of diagrams. |
-| **Reports** | Create HTML reports to share with others. |
-| **Help** | Find guides to help you use the tool. |
+| **File** | <ul><li>Open, Save and Close Files</li><li>Sign In/Out of OneDrive accounts</li><li>Share Links (View + Edit)</li><li>View File Information</li><li>Apply New Template to Existing Models</li></ul> |
+| **Edit** | Undo/redo actions, as well a copy, paste and delete |
+| **View** | <ul><li>Switch between **Analysis** and **Design** views</li><li>Open closed windows (e.g.stencils, element properties and messages)</li><li>Reset layout to default settings</li></ul> |
+| **Diagram** | Add/Delete diagrams and navigate through “tabs” of diagrams |
+| **Reports** | Create HTML reports to share with others |
+| **Help** | Guides to help you use the tool |
 
-The symbols are shortcuts for the top-level menus:
+The icons are shortcuts for the top-level menus:
 
-| Symbol                               | Details      |
+| Icon                               | Details      |
 | --------------------------------------- | ------------ |
-| **Open** | Opens a new file. |
-| **Save** | Saves the current file. |
-| **Design** | Opens the **Design** view, where you can create models. |
-| **Analyze** | Shows generated threats and their properties. |
-| **Add diagram** | Adds a new diagram (similar to new tabs in Excel). |
-| **Delete diagram** | Deletes the current diagram. |
-| **Copy/Cut/Paste** | Copies, cuts, and pastes elements. |
-| **Undo/Redo** | Undoes and redoes actions. |
-| **Zoom in/Zoom out** | Zooms in and out of the diagram for a better view. |
-| **Feedback** | Opens the MSDN Forum. |
+| **Open** | Opens a new file |
+| **Save** | Saves current file |
+| **Design** | Goes into design view, where you can create models |
+| **Analyze** | Shows generated threats and their properties |
+| **Add Diagram** | Adds new diagram (similar to new tabs in Excel) |
+| **Delete Diagram** | Deletes current diagram |
+| **Copy/Cut/Paste** | Copies/cuts/pastes elements |
+| **Undo/Redo** | Undoes/redoes actions |
+| **Zoom In/Zoom Out** | Zooms in and out of the diagram for a better view |
+| **Feedback** | Opens the MSDN Forum |
 
 ### Canvas
 
-The canvas is the space where you drag and drop elements. Drag and drop is the quickest and most efficient way to build models. You can also right-click and select items from the menu to add generic versions of elements, as shown:
+The space where you drag and drop elements into. Drag and drop is the quickest and most efficient way to build models. You may also right click and select from the menu, which adds generic versions of the elements you’re using, as shown below.
 
-#### Drop the stencil on the canvas
+#### Dropping the stencil on the canvas
 
-![Canvas drop](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Canvas Drop](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
 
-#### Select the stencil
+#### Clicking on the stencil
 
-![Element properties](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Element Properties](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
 
 ### Stencils
 
-Based on the template you select, you can find all the stencils available to use. If you can't find the right elements, use another template. Or you can modify a template to fit your needs. Generally, you can find a combination of categories like these:
+Where you can find all stencils available to use based on the template selected. If you can’t find the right elements, try using another template, or modify one to fit your needs. Generally, you should be able to find a combination of categories like the ones below:
 
-| Stencil name                               | Details      |
+| Stencil Name                               | Details      |
 | --------------------------------------- | ------------ |
-| **Process** | Applications, browser plug-ins, threads, virtual machines |
-| **External interactor** | Authentication providers, browsers, users, web applications |
-| **Data store** | Cache, storage, configuration files, databases, registry |
-| **Data flow** | Binary, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, named pipe, RPC/DCOM, SMB, UDP |
-| **Trust line/Border boundary** | Corporate networks, internet, machine, sandbox, user/kernel mode |
+| **Process** | Applications, Browser Plugins, Threads, Virtual Machines |
+| **External Interactor** | Authentication Providers, Browsers, Users, Web Applications |
+| **Data Store** | Cache, Storage, Configuration Files, Databases, Registry |
+| **Data Flow** | Binary, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, Named Pipe, RPC/DCOM, SMB, UDP |
+| **Trust Line/Border Boundary** | Corporate Networks, Internet, Machine, Sandbox, User/Kernel Mode |
 
-### Notes/messages
+### Notes/Messages
 
 | Component                               | Details      |
 | --------------------------------------- | ------------ |
-| **Messages** | Internal tool logic that alerts users whenever there's an error, such as no data flows between elements. |
-| **Notes** | Manual notes are added to the file by engineering teams throughout the design and review process. |
+| **Messages** | Internal tool logic that alerts users whenever there is an error, such as no data flows between elements |
+| **Notes** | Manual notes added to the file by engineering teams throughout the design and review process |
 
 ### Element properties
 
-Element properties vary by the elements you select. Apart from trust boundaries, all other elements contain three general selections:
+These vary by the elements selected. Apart from Trust Boundaries, all other elements contain 3 general selections:
 
-| Element property                               | Details      |
+| Element Property                               | Details      |
 | --------------------------------------- | ------------ |
-| **Name** | Useful for naming your processes, stores, interactors, and flows so that they're easily recognized. |
-| **Out of scope** | If selected, the element is taken out of the threat-generation matrix (not recommended). |
-| **Reason for out of scope** | Justification field to let users know why out of scope was selected. |
+| **Name** | Useful for naming your processes, stores, interactors and flows to be easily recognized |
+| **Out of Scope** | If selected, the element is taken out of the threat generation matrix (not recommended) |
+| **Reason for Out of Scope** | Justification field to let users know why out of scope was selected |
 
-Properties are changed under each element category. Select each element to inspect the available options. Or you can open the template to learn more. Let's review the features.
+Properties are changed under each element category. Click on each element to inspect the available options, or open the template to learn more. Let’s get into the features.
 
 ## Welcome screen
 
-When you open the app, you see the **Welcome** screen.
+The welcome screen is the first thing you see when you open the app.
 
-### Open a model
+### Open A model
 
-Hover over **Open A Model** to reveal two options: **Open From This Computer** and **Open From OneDrive**. The first option opens the **File Open** screen. The second option takes you through the sign-in process for OneDrive. After successful authentication, you can select folders and files.
+Hovering over “Open a Model” button shows you 2 hidden options: “Open From this Computer” and “Open from OneDrive.” The first opens the File Open screen, while the second takes you through the sign in process for OneDrive, allowing you to pick folders and files after a successful authentication.
 
-![Open model](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Open Model](./media/azure-security-threat-modeling-tool/openmodel.png)
 
-![Open from computer or OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Open From Computer or OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
 
-### Feedback, suggestions, and issues
+### Feedback, suggestions and issues
 
-When you select **Feedback, Suggestions and Issues**, you go to the MSDN Forum for SDL Tools. You can read what other people are saying about the tool, including workarounds and new ideas.
+Selecting this option will take you to the MSDN Forums for SDL Tools. It’s a great way to check out what other people are saying about the tool, including workarounds and new ideas.
 
 ![Feedback](./media/azure-security-threat-modeling-tool/feedback.png)
 
 ## Design view
 
-When you open or create a new model, the **Design** view opens.
+Whenever you open or create a new model, you’ll be taken to the design view.
 
-### Add elements
+### Adding elements
 
-You can add elements on the grid in two ways:
+There are 2 ways to add elements on the grid:
 
-- **Drag and drop**: Drag the desired element to the grid. Then use the element properties to provide additional information.
-- **Right-click**: Right-click anywhere on the grid, and select items from the drop-down menu. A generic representation of the element you select appears on the screen.
+- **Drag and Drop** – drag the desired element to the grid, then use the element properties to provide additional information.
+- **Right Click** – right click anywhere on the grid and select from the dropdown menu. A generic representation of that element will appear on the screen.
 
-### Connect elements
+### Connecting elements
 
-You can connect elements in two ways:
+There are 2 ways to connect elements in the tool:
 
-- **Drag and drop**: Drag the desired dataflow to the grid, and connect both ends to the appropriate elements.
-- **Click + Shift**: Click the first element (sending data), press and hold the Shift key, and then select the second element (receiving data). Right-click, and select **Connect**. If you use a bi-directional data flow, the order is not as important.
+- **Drag and Drop** – drag the desired dataflow to the grid, and connect both ends to the appropriate elements.
+- **Click + Shift** – click on the first element (sending data), press and hold the Shift key, then select the second element (receiving data). Right click, and select “Connect.” If you’re using a bi-directional dataflow, the order is not as important.
 
 ### Properties
 
- To see the properties that can be modified on the stencils, select the stencil and the information populates accordingly. The following example shows before and after a **Database** stencil is dragged onto the diagram:
+Shows all the properties that can be modified on the stencils placed in the diagram. To see the properties, just click on the stencil and the information will be populated accordingly. The example below shows before and after a "Database" stencil is dragged onto the diagram:
 
 #### Before
 
@@ -160,49 +159,48 @@ You can connect elements in two ways:
 
 ### Messages
 
-If you create a threat model and forget to connect data flows to elements, you get a notification. You can ignore the message, or you can follow the instructions to fix the issue. 
+If you create a threat model and forget to connect data flows to elements, the message window notifies you to act. You can choose to ignore it or follow the instructions to fix the issue. 
 
 ![Messages](./media/azure-security-threat-modeling-tool/messages.png)
 
 ### Notes
 
-To add notes to your diagram, switch from the **Messages** tab to the **Notes** tab.
+Switching tabs from Messages to Notes allows you to add notes to your diagram to capture all your thoughts
 
 ## Analysis view
 
-After you build your diagram, select the **Analysis** symbol (the magnifying glass) on the shortcuts toolbar to switch to the **Analysis** view.
+Once you're done building your diagram, switch over to analysis view by going to the top menu selections and choosing the magnifying glass next to the paint palette.
 
-![Analysis view](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Analysis View](./media/azure-security-threat-modeling-tool/analysisview.png)
 
 ### Generated threat selection
 
-When you select a threat, you can use three distinct functions:
+When you click on a threat, you can leverage three unique functions:
 
-| Feature                               | Information      |
+| Feature                               | Info      |
 | --------------------------------------- | ------------ |
-| **Read indicator** | <p>The threat is marked as read, which helps you keep track of the items you reviewed.</p><p>![Read/unread indicator](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Interaction focus** | <p>Interaction in the diagram that belongs to a threat is highlighted.</p><p>![Interaction focus](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **Threat properties** | <p>Additional information about the threat appears in the **Threat Properties** window.</p><p>![Threat properties](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Read Indicator** | <p>Threat is now marked as read, which can easily help you keep track of the items you already went through</p><p>![Read/Unread Indicator](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
+| **Interaction Focus** | <p>Interaction in the diagram belonging to that threat is highlighted</p><p>![Interaction Focus](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
+| **Threat Properties** | <p>Additional information about the threat is populated in the threat properties window</p><p>![Threat Properties](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
 
 ### Priority change
 
-You can change the priority level of each generated threat. Different colors make it easy to identify high-, medium-, and low-priority threats.
+Changing the priority level of each generated threat also changes their colors to make it easy to identify high, medium and low priority threats.
 
-![Priority change](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Priority Change](./media/azure-security-threat-modeling-tool/prioritychange.png)
 
 ### Threat properties editable fields
 
-As seen in the preceding image, you can change the information generated by the tool. You can also add information to certain fields, such as justification. These fields are generated by the template. If you need more information for each threat, you can make modifications.
+As seen in the image above, users can change the information generated by the tool an also add information to certain fields, such as justification. These fields are generated by the template, so if you need more information for each threat, you're encouraged to make modifications.
 
-![Threat properties](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![Threat Properties](./media/azure-security-threat-modeling-tool/threatproperties.png)
 
 ## Reports
 
-After you finish changing priorities and updating the status of each generated threat, you can save the file and/or print out a report. Go to **Report** > **Create Full Report**. Name the report, and you should see something similar to the following image:
+Once you're done changing priorities and updating the status of each generated threat, you can save the file and/or print out a report by going to "Report" and then "Create Full Report." You'll be asked to name the report, and once you do, you should see something similar to the image below:
 
 ![Report](./media/azure-security-threat-modeling-tool/report.png)
 
 ## Next steps
 
-* To contribute a template for the community, go to our [GitHub](https://github.com/Microsoft/threat-modeling-templates) page. 
-* To get started with the tool, go to the [Download](https://aka.ms/tmtpreview) page.
+To contribute a template for the community, please go to our **[GitHub](https://github.com/Microsoft/threat-modeling-templates)** page. **[Download](https://aka.ms/tmtpreview)** the tool to get started today.

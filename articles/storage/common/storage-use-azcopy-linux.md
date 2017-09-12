@@ -25,8 +25,6 @@ There are two versions of AzCopy that you can download. AzCopy on Linux is built
 ## Download and install AzCopy
 ### Installation on Linux
 
-The article includes commands for various releases of Ubuntu.  Use the `lsb_release -a` command to confirm your distribution release and codename. 
-
 AzCopy on Linux requires .NET Core framework on the platform. See the installation instructions on the [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) page.
 
 As an example, let's install .NET Core on Ubuntu 16.10. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) installation page.
@@ -36,7 +34,7 @@ As an example, let's install .NET Core on Ubuntu 16.10. For the latest installat
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.0
+sudo apt-get install dotnet-dev-1.0.3
 ```
 
 Once you have installed .NET Core, download and install AzCopy.

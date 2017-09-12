@@ -345,7 +345,7 @@ In this section, you create a Java console app that handles the desired properti
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. Currently, to use device twin features you must use the MQTT protocol.
 
 1. To print device twin notifications to the console, add the following nested class to the **App** class:
 

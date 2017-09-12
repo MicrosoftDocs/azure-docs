@@ -1,18 +1,3 @@
----
-title: In depth guide on how to use Azure Machine Learning Data Preparation  | Microsoft Docs
-description: This document provides the overview and details on solving data problems with Azure ML data prep
-services: machine-learning
-author: euangMS
-ms.author: euang
-manager: 
-ms.reviewer: 
-ms.service: 
-ms.workload: 
-ms.custom: 
-ms.devlang: 
-ms.topic: 
-ms.date: 09/07/2017
----
 # Data Preparation User Guide #
 
 ## Introduction ##
@@ -20,7 +5,7 @@ ms.date: 09/07/2017
 
 ## Understanding how it all works ##
 ### Step Execution, History, and Caching ###
-Data Prep step history maintains a series of caches for perf reasons. If you click on a step, and it hits a cache it does not re-execute. If you have a write block at the end of the step history and you flip back and forth on the steps but make no changes, then the write will not be triggered after the first time. If you 
+Data Prep step history maintains a series of caches for perf reasons. If you click on a step and it hits a cache it does not re-execute. If you have a write block at the end of the step history and you flip back and forth on the steps but make no changes, then the write will not be triggered after the first time. If you 
 - Make changes to the write block or
 - Add a new transform block and move it above the write block generating a cache invalidation or
 - If you change the properties of a block above the write block generating a cache invalidation or
@@ -28,10 +13,6 @@ Data Prep step history maintains a series of caches for perf reasons. If you cli
 
 Then a new write occurs and overwrites the previous one.
 
-### Error Values ###
-### Sampling ###
-### Forking, Merging, and Appending ###
-### Filtering ###
 
 ### List of Appendices ###
 [Appendix 1 - Supported Platforms](data-prep-appendix1-supported-platforms.md)  

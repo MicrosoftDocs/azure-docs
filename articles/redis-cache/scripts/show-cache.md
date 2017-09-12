@@ -34,7 +34,7 @@ This script uses the following commands to retrieve the details of an Azure Redi
 
 | Command | Notes |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Retrieve details of an Azure Redis Cache instance. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis#show) | Retrieve details of an Azure Redis Cache instance. |
 
 
 ## Next steps

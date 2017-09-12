@@ -89,7 +89,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate.
 
 | **Setting** | **Description** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Unified Group creation is allowed in the directory by non-admin users. |
+|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Unified Group creation is allowed in the directory. |
 |  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “” |GUID of the security group for which the members are allowed to create Unified Groups even when EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: “” |A link to the Group Usage Guidelines. |
 |  <ul><li>ClassificationDescriptions<li>Type: String<li>Default: “” | A comma-delimited list of classification descriptions. |
@@ -100,6 +100,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate.
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: “” | The url of a link to the guest usage guidelines. |
 |  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
 |  <ul><li>ClassificationList<li>Type: String<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Unified Groups. |
+|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True | A boolean indicating whether or not non-admin users can create new Unified groups. |
 
 
 ## Read settings at the directory level

@@ -37,7 +37,7 @@ To get started using a remote Git repo, follow these basic instructions.
 >Note: Currently, Microsoft only supports Git repositories on VSTS Accounts. Support for General Git repos (such as GitHub and etc.) is planned in the future.
 
 ## Step 1. Create an Azure ML Experimentation Account
-If not already done, create an Azure ML Experimentation Account and install the Azure ML Workbench app. See more details in the [installation guide](quick-start-installation.md).
+If not already done, create an Azure ML Experimentation Account and install the Azure ML Workbench app. See more details in the [installation guide](Installation.md).
 
 ## Step 2. Create a VSTS Project or Use an Existing VSTS Project
 Navigate to [https://www.visualstudio.com](https://www.visualstudio.com), and sign in with an Azure Active Directory (AD) account used to access the Azure ML Experimentation account. Select the VSTS account you want to use. You can also create a new VSTS account.
@@ -76,7 +76,7 @@ C:\Temp\myIris> az ml project update -r https://<acct-name>.visualstudio.com/pro
 >Note you must have write access to the specified VSTS Git repo. And the Git repo must be empty (without a master branch).
 
 ## Step 4. Capture Project Snapshot in Git Repo
-Now you can execute a few runs in the Workbench, make some changes in-between the runs. You can do this either from the desktop app, or from CLI using _az ml experiment submit_ command. For more details, you can follow the [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md). For each run, if there is any change made in any files in the project folder, a snapshot of the entire project folder is committed to the run history branch and pushed into the remote Git repo. You can view the branches and commits by browsing to the VSTS Git repo URL.
+Now you can execute a few runs in the Workbench, make some changes in-between the runs. You can do this either from the desktop app, or from CLI using _az ml experiment submit_ command. For more details, you can follow the [Classifying Iris tutorial](Tutorial.md). For each run, if there is any change made in any files in the project folder, a snapshot of the entire project folder is committed to the run history branch and pushed into the remote Git repo. You can view the branches and commits by browsing to the VSTS Git repo URL.
 
 ![run history branch](/media/using-git-ml-project/run_history_branch.png)
 

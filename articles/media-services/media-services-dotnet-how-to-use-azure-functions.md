@@ -28,6 +28,10 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 - Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 - If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](media-services-portal-create-account.md).
 	
+## Considerations
+
+-  Azure Functions running under the Consumption plan have 5 minutes timeout limit.
+
 ## Create a function app
 
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
@@ -39,6 +43,10 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 ## Configure function app settings
 
 When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. For more information, see  [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+
+For example:
+
+![Settings](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
 The function, defined in this article, assumes you have the following environment variables in your app settings:
 
@@ -332,9 +340,6 @@ To test your function, you need to upload an MP4 file into the **input** contain
 2. Click **Blobs**.
 3. Click **+ Container**. Name the container **input**.
 4. Press **Upload** and browse to an .mp4 file that you want to upload.
-
->[!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
 ## Next steps
 

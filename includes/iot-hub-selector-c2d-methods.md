@@ -12,6 +12,9 @@ This tutorial shows you how to:
 * Create a simulated device app that has a direct method which can be called by the cloud.
 * Create a console app that calls a direct method in the simulated device app through your IoT hub.
 
+> [!NOTE]
+> At this time, direct methods are only supported on devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md

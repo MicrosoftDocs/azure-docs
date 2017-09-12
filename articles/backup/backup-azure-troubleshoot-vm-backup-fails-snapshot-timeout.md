@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable | Microsoft Docs'
-description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, disks'
+description: 'Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent'
 services: backup
 documentationcenter: ''
 author: genlin
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 08/17/2017
 ms.author: genli;markgal;
 ---
 
@@ -62,10 +62,6 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)
-
-## The specified Disk configuration is not supported
-
-Currently Azure Backup doesn’t support disk sizes greater than 1023GB. Please make sure that disk sizes are less than the limit by splitting the disks. To split the disks, you need to copy data from disks greater than 1023GB into newly created disks of size less than 1023GB.
 
 
 ## Causes and Solutions

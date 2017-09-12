@@ -1,6 +1,6 @@
 ---
 title: Submit Hadoop jobs in HDInsight | Microsoft Docs
-description: Learn how to submit Hadoop jobs in Azure HDInsight.
+description: Learn how to submit Hadoop jobs to Azure HDInsight Hadoop.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -21,32 +21,30 @@ ms.author: jgao
 ---
 # Submit Hadoop jobs in HDInsight
 
-You can submit Hadoop jobs in Azure HDInsight by using the Microsoft .NET SDK for HDInsight, curl, or Azure PowerShell.
+You can submit Hadoop jobs using .NET SDK, Curl, and Azure PowerShell:
 
-## Resources
-
-- **.NET SDK**:
+- Use .NET SDK
 
   - [Create non-interactive authentication .NET applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
-  - [Run Hive queries by using the HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-  - [Run Pig jobs by using the .NET SDK for Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-  - [Run Sqoop jobs by using the .NET SDK for Hadoop in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
-  - [Run MapReduce jobs by using the HDInsight .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
+  - [Run Hive queries using HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+  - [Run Pig jobs using the .NET SDK for Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+  - [Run Sqoop jobs using .NET SDK for Hadoop in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+  - [Run MapReduce jobs using HDInsight .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **curl**:
+- CURL
 
-  - [Run Hive queries with Hadoop in HDInsight by using curl](hdinsight-hadoop-use-hive-curl.md)
-  - [Run Pig jobs with Hadoop in HDInsight by using curl](hdinsight-hadoop-use-pig-curl.md)
-  - [Run Sqoop jobs with Hadoop in HDInsight by using curl](hdinsight-hadoop-use-sqoop-curl.md)
-  - [Run MapReduce jobs with Hadoop in HDInsight by using curl](hdinsight-hadoop-use-mapreduce-curl.md)
+  - [Run Hive queries with Hadoop in HDInsight with Curl](hdinsight-hadoop-use-hive-curl.md)
+  - [Run Pig jobs with Hadoop on HDInsight by using Curl](hdinsight-hadoop-use-pig-curl.md)
+  - [Run Sqoop jobs with Hadoop in HDInsight with Curl](hdinsight-hadoop-use-sqoop-curl.md)
+  - [Run MapReduce jobs with Hadoop on HDInsight using Curl](hdinsight-hadoop-use-mapreduce-curl.md)
 
-- **PowerShell**:
+- PowerShell
 
-  - [Run Hive queries by using PowerShell](hdinsight-hadoop-use-hive-powershell.md)
-  - [Run Pig jobs by using PowerShell](hdinsight-hadoop-use-pig-powershell.md)
+  - [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md)
+  - [Run Pig jobs using PowerShell](hdinsight-hadoop-use-pig-powershell.md)
   - [Use Sqoop with Hadoop in HDInsight](hdinsight-hadoop-use-sqoop-powershell.md)
-  - [Run MapReduce jobs with Hadoop in HDInsight by using PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
+  - [Run MapReduce jobs with Hadoop on HDInsight using PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
 
 ## See also
 
-- [Azure HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/)
+- [Azure HDInsight Documentation](https://docs.microsoft.com/azure/hdinsight/)

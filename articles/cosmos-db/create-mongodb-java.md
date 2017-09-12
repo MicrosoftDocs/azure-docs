@@ -30,8 +30,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
    * JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK)
    * Maven (Run `apt-get install maven` if you don't have Maven)
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a database account
 
@@ -41,7 +40,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 Name your new database, **db**, and your new collection, **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## Clone the sample application
 

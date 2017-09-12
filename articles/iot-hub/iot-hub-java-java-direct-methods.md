@@ -107,7 +107,7 @@ In this section, you create a Java console app that responds to a method called 
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. 
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. Currently, to use direct methods you must use the MQTT protocol.
 
 1. To return a status code to your IoT hub, add the following nested class to the **App** class:
 

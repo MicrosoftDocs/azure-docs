@@ -41,7 +41,7 @@ Direct methods are implemented on the device and may require zero or more inputs
 
 Direct methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable up to 3600 seconds). Direct methods are useful in interactive scenarios where you want a device to act if and only if the device is online and receiving commands, such as turning on a light from a phone. In these scenarios, you want to see an immediate success or failure so the cloud service can act on the result as soon as possible. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guarantee on ordering or any concurrency semantics on method calls.
 
-Direct method are HTTP-only from the cloud side, and MQTT or AMQP from the device side.
+Direct method are HTTP-only from the cloud side, and MQTT-only from the device side.
 
 The payload for method requests and responses is a JSON document up to 8KB.
 

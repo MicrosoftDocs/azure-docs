@@ -24,11 +24,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /azure/sql-database/media/index/portal.svg
+        src: /media/common/i_portal.svg
       text: Set up auto provisioning
       href: /azure/iot-dps/quick-setup-auto-provision
     - image: 
-        src: /azure/sql-database/media/index/portal.svg
+        src: /media/common/i_portal.svg
       text: Create simulated device
       href: /azure/iot-dps/quick-create-simulated-device
 - title: Step-by-Step Tutorials
@@ -42,12 +42,4 @@ sections:
     - html: <a href="/azure/iot-dps/tutorial-set-up-device">Set up your device to connect to Azure</a>
     - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Provision devices to a single IoT hub</a>
     - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Provision devices to multiple, load-balanced IoT hubs</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="/rest/api/iot-dps">REST API</a></p>
 

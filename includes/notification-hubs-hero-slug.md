@@ -1,7 +1,7 @@
 
-The goal of this article is to help you get started using Azure Notification Hubs as quickly as possible. The article presents a very simple broadcast scenario that focuses on the basic concepts of Notification Hubs.
+The goal of this topic is to help you get started using Notification Hubs quickly as possible. This topic presents a very simple broadcast scenario example in order to concentrate on the basic concepts for Notification Hubs.
 
-If you are already familiar with Notification Hubs, you might want to select another topic from the left navigation or go to the relevant articles in the "Next steps" section.
+If you are already familiar with Notification Hubs, you may want to select another topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
 
-We take your feedback seriously. If you have any difficulty completing this topic, or if you have recommendations for improving this content, we invite you to provide feedback at the end of the article.
+We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
 

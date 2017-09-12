@@ -1179,7 +1179,7 @@ Process all values in a multi-valued attribute (or output of an expression) base
 * condition: any function that can process an item in the attribute
 
 **Examples:**  
-`Select($item,[otherPhone],Replace($item,"-",""))`  
+`Select($item,[otherPhone],Replace($item,“-”,“”))`  
 Return all the values in the multi-valued attribute otherPhone after hyphens (-) have been removed.
 
 - - -

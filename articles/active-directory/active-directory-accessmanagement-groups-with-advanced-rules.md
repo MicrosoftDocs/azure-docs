@@ -277,10 +277,10 @@ You can also create a rule that selects device objects for membership in a group
 | displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
 | deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
 | deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | a valid device category name    | (device.deviceCategory -eq "BYOD")                          |
+| deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
 | deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
 | deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Personal, Company               | (device.deviceOwnership -eq "Company")                      |
+| deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
 | domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
 | enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
 | isRooted                | true false                      | (device.deviceOSType -eq true)                              |

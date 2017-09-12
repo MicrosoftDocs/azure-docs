@@ -61,7 +61,7 @@
   - name: Speaker Recognition
     href: Speaker-recognition/Home.md
   - name: Text Analytics
-    href: text-analytics/overview.md
+    href: Text-Analytics/overview.md
   - name: Translator
     href: Translator/translator-info-overview.md
   - name: Video

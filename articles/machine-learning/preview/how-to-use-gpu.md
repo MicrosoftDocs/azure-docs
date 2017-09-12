@@ -15,7 +15,7 @@ ms.date: 09/06/2017
 Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipped with GPUs as execution target. 
 
 ## Prerequisites
-- To step through this how-to guide, you need to first [install Azure ML Workbench](quick-start-installation.md).
+- To step through this how-to guide, you need to first [install Azure ML Workbench](quickstart-installation.md).
 - You need to have access to computers equipped with NVidia GPUs.
     - You can run your scripts directly on local machine (Windows or macOS) with GPUs.
     - You can also run scripts in a Docker container on a machine with GPUs.
@@ -28,12 +28,12 @@ You can install Azure ML Workbench on a computer equipped with GPUs and execute 
 In this case, there are no special configuration required in Azure ML Workbench. Just make sure you have all the necessary drivers, toolkits, and GPU-enabled machine learning libraries installed locally. Simply execute against _local_ environment where the Python runtime can directly access the local GPU hardware.
 
 1. Open AML Workbench. go to **File** and **Open Command Prompt**. 
-2. From command line, install GPU-enabled deep learning framework such as the Microsoft Cognitive Toolkit, TensorFlow, and etc. For example:
+2. From command line, install GPU-enabled deep learning framework such as CNTK, TensorFlow, and etc. For example:
 ```batch
 REM install latest TensorFlow with GPU support
 C:\MyProj> pip install tensorflow-gpu
 
-REM install Microsoft Cognitive Toolkit 2.1 (1-bit SGD) with GPU support on Windows
+REM install CNTK 2.1 (1-bit SGD) with GPU support on Winodows
 C:\MyProj> pip install https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-win_amd64.whl
 ```
 3. Write Python code that leverages the deep learning libraries.
@@ -101,24 +101,24 @@ dependencies:
   - tensorflow-gpu
 ```
 
-Example for Microsoft Cognitive Toolkit:
+Example for CNTK:
 ```yaml
 name: project_environment
 dependencies:
   - python=3.5.2
   - pip: 
-    # use the Linux build of Microsoft Cognitive Toolkit 2.1 with GPU support
+    # use the Linux build of CNTK 2.1 with GPU support
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-win_amd64.whl
 ```
 
-You can also use the 1 bit-SGD version of the Microsoft Cognitive Toolkit which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+You can also use the 1 bit-SGD version of CNTK which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
 
 ```yaml
 name: project_environment
 dependencies:
   - python=3.5.2
   - pip:    
-    # use the Linux build of the Microsoft Cognitive Toolkit 2.1 with 1-bit SGD and GPU support
+    # use the Linux build of CNTK 2.1 with 1-bit SGD and GPU support
     - https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 

@@ -32,7 +32,7 @@ Before proceeding, create your Device Provisioning Service instance and an IoT h
 
 ## Select a Hardware Security Module
 
-The [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) provides support for two types of Hardware Security Modules (or HSMs): 
+The [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-device-auth/tree/master/dps_client) provides support for two types of Hardware Security Modules (or HSMs): 
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
@@ -75,8 +75,8 @@ The Device Provisioning System Client SDK does not provide default support for a
 
 1. Develop a GitHub repository to access your HSM. This project needs to produce a static library for the Device Provisioning SDK to consume.
 1. Your library must implement the functions defined in the following header file:
-    a. For custom TPM, implement functions defined in `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h`.
-    b. For custom X.509, implement functions defined in `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h`. 
+    a. For custom TPM, implement functions defined in `\azure-iot-device-auth\dps_client\adapters\custom_hsm_tpm_impl.h`.
+    b. For custom X.509, implement functions defined in `\azure-iot-device-auth\dps_client\adapters\custom_hsm_x509_impl.h`. 
 1. Your HSM repository must also contain a `CMakeLists.txt` file at the root for the repository that should be built.
 
 ### Integrate with the Device Provisioning Service Client
@@ -94,7 +94,7 @@ Once your library successfully builds on its own, you can move to the IoThub C-S
     - The build process clones the custom repository and builds the library.
     - The SDK will attempt to link against the custom HSM defined in the cmake command.
 
-1. Run the `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` sample to verify if your HSM is implemented correctly.
+1. Run the `\azure-iot-device-auth\dps_client\samples\dps_client_sample\dps_client_sample.c` sample to verify if your HSM is implemented correctly.
 
 <a id="extractsecurity"></a>
 ## Extract the security artifacts

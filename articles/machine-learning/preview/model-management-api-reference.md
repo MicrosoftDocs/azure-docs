@@ -1,6 +1,6 @@
 ---
 title: Model Management API reference | Microsoft Docs
-description: The REST API reference for Azure Machine Learning Model Management.
+description: The REST API reference for the Azure Machine Learning Model Management service.
 services: machine-learning
 author: get2chhavi
 ms.author: chhavib
@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 08/28/2017
 ---
-# Azure Machine Learning model management account API reference
+# Hosting Account API reference
 
 For environment set up information, see [Hosting Account getting started]().
 
-The Azure Machine Learning model management API implements the following operations:
+The Hosting Account API implements the following operations:
 
 - Create or Update Model Management Account
 - Patch Model Management Account
@@ -24,7 +24,7 @@ The Azure Machine Learning model management API implements the following operati
 - Delete Model Management Account
 - Get Available Operations
 
-## Create or Update Azure Machine Learning model management account
+## Create or Update Hosting Account
 
 Creates or updates a Hosting Account.
 
@@ -155,12 +155,12 @@ If the hosting account does not exist in current location, it is created. If the
 | id | Resource Manager resource ID. |
 | createdOn |   The date and time the Hosting Account was created. |
 | modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
+| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management Service API. |
 
 #-------------------------------------------------
-## Patch model management account
+## Patch Hosting Account
 
-Updates the specified Azure Machine Learning model management account.
+Updates the specified Hosting Account.
 
 If a field in the request is set in the Hosting Account, the value is updated. If a field is only in the request, it is added to the existing Hosting Account.
 
@@ -270,11 +270,11 @@ All fields in the request are optional, but at least one field must be included 
 | id | Resource Manager resource ID. |
 | createdOn |   The date and time the Hosting Account was created. |
 | modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
+| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management Service API. |
 
 
 #-------------------------------------------------
-## Get model management account
+## Get Hosting Account
 
 Gets information for the specified Hosting Account.
 
@@ -359,7 +359,7 @@ Empty.
 | id | Resource Manager resource ID. |
 | createdOn |   The date and time the Hosting Account was created. |
 | modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
+| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management Service API. |
 
 #-------------------------------------------------
 ## Get Hosting Account In a Resource group and Subscription
@@ -432,7 +432,7 @@ Empty.
 | nextLink | A continuation link (absolute URI) to the next page of results in the list. |
 
 #-------------------------------------------------
-## Delete model management account
+## Delete Hosting Account
 
 Deletes the specified hosting account. Models, packages, and deployments are not deleted.
 

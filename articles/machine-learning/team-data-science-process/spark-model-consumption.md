@@ -43,7 +43,7 @@ To modify the Jupyter notebook for Spark 1.6 to use with an HDInsight Spark 2.0 
 ## Setup: storage locations, libraries, and the preset Spark context
 Spark is able to read and write to an Azure Storage Blob (WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
-To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: *"wasb///"*. The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output is saved. 
+To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: *"wasb//"*. The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output is saved. 
 
 ### Set directory paths for storage locations in WASB
 Models are saved in: "wasb:///user/remoteuser/NYCTaxi/Models". If this path is not set properly, models are not loaded for scoring.

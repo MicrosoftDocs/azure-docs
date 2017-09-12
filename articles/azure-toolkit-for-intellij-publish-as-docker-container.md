@@ -121,7 +121,7 @@ This article demonstrates the steps that are required to publish your applicatio
       > [!NOTE]
       > An Azure key vault that's created with a specific account or service principal is not automatically accessible by another account or service principal that shares the subscription. To allow another account or service principal to use the key vault, you must use the Azure portal to add the account or service principal.
 
-  * **New log in credentials**: Create a new set of login credentials. If you select this option, do the following:
+   * **New log in credentials**: Create a new set of login credentials. If you select this option, do the following:
 
       a. On the **VM Credentials** tab, provide the following information for the virtual-machine login credentials of your Docker host:
 
@@ -131,17 +131,17 @@ This article demonstrates the steps that are required to publish your applicatio
 
       * **SSH**: Enter the Secure Shell (SSH) settings for your Docker host. You can select one of the following options:
 
-        * **None**: Specifies that your virtual machine does not allow SSH connections.
+         * **None**: Specifies that your virtual machine does not allow SSH connections.
 
-        * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
+         * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
 
-        * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
+         * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
 
             * *id_rsa*: Contains the RSA identification for a user.
 
             * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
 
-     b. On the **Docker Daemon Access** tab, provide the following information:
+      b. On the **Docker Daemon Access** tab, provide the following information:
 
       ![Create Docker Host][PUB06]
 

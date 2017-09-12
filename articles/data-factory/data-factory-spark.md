@@ -226,7 +226,7 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 
 	![Jupyter query results](media/data-factory-spark/jupyter-notebook-results.png)
 
-See [Run a Spark SQL query](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) for detailed instructions. 
+See [Run a Spark SQL query](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql) section for detailed instructions. 
 
 ### Troubleshooting
 Since you set **getDebugInfo** to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**.

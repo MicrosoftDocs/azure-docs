@@ -37,11 +37,11 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Return a list of virtual machines. In this case, the query option is used to return the virtual machine operating system disk. This value is then added to a variable name ‘uri’. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Deletes a virtual machine. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates a virtual machine.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) | Attaches a disk to a virtual machine. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Returns the IP addresses of a virtual machine. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm#show) | Return a list of virtual machines. In this case, the query option is used to return the virtual machine operating system disk. This value is then added to a variable name ‘uri’. |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm#delete) | Deletes a virtual machine. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates a virtual machine.  |
+| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) | Attaches a disk to a virtual machine. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Returns the IP addresses of a virtual machine. |
 
 ## Next steps
 

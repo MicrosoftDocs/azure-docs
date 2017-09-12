@@ -6,7 +6,7 @@ To retrieve host name, ports, and access keys using the Azure Portal, [browse](.
 ![Redis cache settings](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### Retrieve host name, ports, and access keys using Azure CLI
-To retrieve the host name and ports using Azure CLI 2.0 you can call [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), and to retrieve the keys you can call [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). The following script calls these two commands and echos the hostname, ports, and keys to the console.
+To retrieve the host name and ports using Azure CLI 2.0 you can call [az redis show](https://docs.microsoft.com/cli/azure/redis#show), and to retrieve the keys you can call [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys). The following script calls these two commands and echos the hostname, ports, and keys to the console.
 
 ```azurecli
 #/bin/bash

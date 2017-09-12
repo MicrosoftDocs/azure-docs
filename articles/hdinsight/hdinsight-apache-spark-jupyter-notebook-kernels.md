@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 
 ---
@@ -68,8 +68,8 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
 
     So, you don't have to run statements like the following to set the contexts:
 
-        sc = SparkContext('yarn-client')
-        sqlContext = HiveContext(sc)
+      	sc = SparkContext('yarn-client')
+      	sqlContext = HiveContext(sc)
 
     Instead, you can directly use the preset contexts in your application.
 

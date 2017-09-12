@@ -49,13 +49,13 @@ This script uses the following commands to create a Batch job and tasks. Each co
 
 | Command | Notes |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Authenticate against a Batch account.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Creates a Batch job.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Updates properties of a Batch job.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Retrieves details of a specified Batch job.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Adds a task to the specified Batch job.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Retrieves the details of a task from the specified Batch job.  |
-| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_list) | Lists the tasks associated with the specified job.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Authenticate against a Batch account.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#create) | Creates a Batch job.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#set) | Updates properties of a Batch job.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | Retrieves details of a specified Batch job.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | Adds a task to the specified Batch job.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | Retrieves the details of a task from the specified Batch job.  |
+| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | Lists the tasks associated with the specified job.  |
 
 ## Next steps
 

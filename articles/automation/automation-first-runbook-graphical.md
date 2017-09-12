@@ -24,17 +24,17 @@ ms.author: magoedte;bwren
 > * [Graphical](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell Workflow](automation-first-runbook-textual.md)
-> * [Python](automation-first-runbook-textual-python2.md)
+> 
 > 
 
 This tutorial walks you through the creation of a [graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation.  We start with a simple runbook that tests and publishes while we explain how to track the status of the runbook job.  Then we modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  Then we complete the tutorial by making the runbook more robust by adding runbook parameters and conditional links.
 
 ## Prerequisites
-To complete this tutorial, you need the following:
+To complete this tutorial, you will need the following.
 
-* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
-* An Azure virtual machine. We stop and start this machine so it should not be a production VM.
+* Azure subscription.  If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
+* [Azure Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* An Azure virtual machine.  We will stop and start this machine so it should not be production.
 
 ## Step 1 - Create runbook
 We start by creating a simple runbook that outputs the text *Hello World*.

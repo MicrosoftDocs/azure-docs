@@ -44,7 +44,7 @@ To see diagnostics and metrics in action, you need a VM. First, create a resourc
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*:
+Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named *myVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -77,7 +77,7 @@ When enabling boot diagnostics, the URI to the blob storage container is needed.
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). The `--storage` value is the blob URI collected in the previous step.
+Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). The `--storage` value is the blob URI collected in the previous step.
 
 ```azurecli-interactive 
 az vm boot-diagnostics enable \
@@ -101,7 +101,7 @@ Now start the VM with the [az vm start]( /cli/azure/vm#stop) command as follows:
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) command as follows:
+You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) command as follows:
 
 ```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM

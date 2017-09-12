@@ -22,10 +22,7 @@ In other words, your Golang application only knows that it's connecting to a dat
 
 ## Prerequisites
 
-- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin. 
-
-  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
-
+- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 - [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
 - An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
 

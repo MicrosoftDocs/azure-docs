@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 
 ---
@@ -49,7 +49,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 ## Submit a topology: Visual Studio
 
-The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm cluster. The following steps use a sample application. For information about creating on using the HDInsight Tools, see [Develop C# topologies using the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm cluster. The following steps use a sample application. For information about creating your own topologies by using the HDInsight Tools, see [Develop C# topologies using the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 1. If you have not already installed the latest version of the Data Lake tools for Visual Studio, see [Get started using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -83,7 +83,7 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    This command starts the example WordCount topology on the cluster. This topology randomly generates sentences, and then counts the occurrence of each word in the sentences.
+    This command starts the example WordCount topology on the cluster. This topology randomly generate sentences and count the occurrence of each word in the sentences.
 
    > [!NOTE]
    > When submitting topology to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. To copy the file to the cluster, you can use the `scp` command. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -92,11 +92,11 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
 ## Submit a topology: programmatically
 
-You can programmatically deploy a topology using the Nimbus service. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
+You can programmatically deploy a topology to Storm on HDInsight by communicating with the Nimbus service hosted in your cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
 
 ## Monitor and manage: Visual Studio
 
-When a topology is submitted using Visual Studio, the **Storm Topologies** view appears. Select the topology from the list to view information about the running topology.
+When a topology has been successfully submitted using Visual Studio, the **Storm Topologies** view for the cluster appears. Select the topology from the list to view information about the running topology.
 
 ![visual studio monitor](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
@@ -202,9 +202,9 @@ Selecting a spout from the **Spouts** or **Bolts** sections displays the followi
 * **Component summary**: Basic information about the spout or bolt.
 * **Spout/Bolt stats**: Statistics about the spout or bolt. To set the timeframe for the remaining entries on the page, use the links in the **Window** column.
 * **Input stats** (bolt only): Information about the input streams consumed by the bolt.
-* **Output stats**: Information about the streams emitted by the spout or bolt.
+* **Output stats**: Information about the streams emitted by this spout or bolt.
 * **Executors**: Information about the instances of the spout or bolt. Select the **Port** entry for a specific executor to view a log of diagnostic information produced for this instance.
-* **Errors**: Any error information for the spout or bolt.
+* **Errors**: Any error information for this spout or bolt.
 
 ## Monitor and manage: REST API
 
@@ -222,7 +222,7 @@ The base URI for the REST API on Linux-based HDInsight clusters is available on 
 You can find the fully qualified domain name (FQDN) for the cluster head node in several different ways:
 
 * **From an SSH session**: Use the command `headnode -f` from an SSH session to the cluster.
-* **From Ambari Web**: Select **Services** from the top of the page, then select **Storm**. From the **Summary** tab, select **Storm UI Server**. The FQDN of the node that hosts the Storm UI and REST API is displayed at the top of the page.
+* **From Ambari Web**: Select **Services** from the top of the page, then select **Storm**. From the **Summary** tab, select **Storm UI Server**. The FQDN of the node that the Storm UI and REST API is running is at the top of the page.
 * **From Ambari REST API**: Use the command `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` to retrieve information about the node that the Storm UI and REST API are running on. Replace **PASSWORD** with the admin password for the cluster. Replace **CLUSTERNAME** with the cluster name. In the response, the "host_name" entry contains the FQDN of the node.
 
 ### Authentication
@@ -234,10 +234,10 @@ Requests to the REST API must use **basic authentication**, so you use the HDIns
 
 ### Return values
 
-Information that is returned from the REST API may only be usable from within the cluster. For example, the fully qualified domain name (FQDN) returned for Zookeeper servers is not accessible from the Internet.
+Information that is returned from the REST API may only be usable from within the cluster or virtual machines on the same Azure Virtual Network as the cluster. For example, the fully qualified domain name (FQDN) returned for Zookeeper servers is not be accessible from the Internet.
 
 ## Next Steps
 
-Learn how to [Develop Java-based topologies using Maven](hdinsight-storm-develop-java-topology.md).
+Now that you've learned how to deploy and monitor topologies by using the Storm Dashboard, learn how to [Develop Java-based topologies using Maven](hdinsight-storm-develop-java-topology.md).
 
 For a list of more example topologies, see [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).
