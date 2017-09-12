@@ -1,5 +1,5 @@
 ---
-title: How to read write large files | Microsoft Docs
+title: How to read and write large data files | Microsoft Docs
 description: How to read and write large files in Azure ML experiments.
 services: machine-learning
 author: hning86
@@ -72,12 +72,12 @@ with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r') as f:
     text = file.read()
 ```
 
-For a more complete example, please see the `iris_sklearn_share_folder.py` file in the _Classifying Iris_ sample project.
+For a more complete example, please see the `iris_sklearn_shared_folder.py` file in the _Classifying Iris_ sample project.
 
 Before you can use this feature, you have to set some simple configurations in the `.compute` file representing the targeted execution context in the `aml_config` folder. The actual path to this folder can vary depending on the compute target you choose and the value you configure.
 
 ### Configure Local Compute Context
-To enable this feature on a local compute context, simply add the following line to the your `.compute` file representing _local_ environment (typically named `local.compute`).
+To enable this feature on a local compute context, simply add the following line to your `.compute` file representing _local_ environment (typically named `local.compute`).
 ```
 # local.runconfig
 ...
@@ -95,7 +95,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 ```
 
 ### Configure Docker Compute Context (Local or Remote)
-To enable this feature on a Docker compute context, you need to add the following 2 lines to your local or remote Docker _.compute_ file.
+To enable this feature on a Docker compute context, you need to add the following two lines to your local or remote Docker _.compute_ file.
 ```
 sharedVolumes: true
 nativeSharedDirectory: ~/.azureml/share
@@ -114,13 +114,16 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 /home/<username>/.azureml/share/<exp_acct_name>/<workspace_name>/<proj_name>/
 ```
 
-For more information on the configuration files in Azure ML Execution Service, please refer to this article: [Execution Configuration Files](aml_config.md).
+For more information on the configuration files in Azure ML Execution Service, please refer to this article: [Execution Configuration Files](experiment-execution-configuration-reference.md).
 ### HDI Compute Context
 The _AZUREML_NATIVE_SHARE_DIRECTORY_ environment variable is not supported in HDI compute context. But it is easy to achieve the same behavior by using a direct/absolute wasb path to the attached Blob storage.
 
 ## Option 3: Use an External Durable Storage
 
-You of course are free to use an external durable store to write your state to if you don't want to leverage run history to automatically track your assets in run history, and your changes need to survive the compute context itself. One such example is to [use Azure blob storage from your Python/PySpark code](UsingBlobForStorage.md).
+You of course are free to use an external durable store to write your state to if you don't want to leverage run history to automatically track your assets in run history, and your changes need to survive the compute context itself. 
+<!-- Commenting out this link because it's currently broken (Gary)
+One such example is to [use Azure blob storage from your Python/PySpark code](UsingBlobForStorage.md).
+-->
 
 Here is also a quick example for attaching any arbitrary Azure Blob Storage to your Spark runtime:
 ```python
