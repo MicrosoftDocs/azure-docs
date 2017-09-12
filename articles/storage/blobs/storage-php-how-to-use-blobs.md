@@ -54,7 +54,7 @@ The following example shows how to include the autoloader file and reference the
 
 ```php
 require_once 'vendor/autoload.php';
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 ```
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute are referenced.
@@ -86,26 +86,28 @@ For the examples outlined here, the connection string will be passed directly.
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobServiceClient = ServicesBuilder::getInstance()->createBlobService($connectionString);
 ```
 
 ## Create a container
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-A **BlobRestProxy** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container access control list (ACL) and container metadata.)
+A **BlobServiceClient** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container access control list (ACL) and container metadata.)
 
 ```php
 require_once 'vendor\autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
+
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobServiceClient = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 
 // OPTIONAL: Set public access policy and metadata.
@@ -134,7 +136,7 @@ $createContainerOptions->addMetaData("key2", "value2");
 
 try    {
     // Create container.
-    $blobRestProxy->createContainer("mycontainer", $createContainerOptions);
+    $blobServiceClient->createContainer("mycontainer", $createContainerOptions);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -151,24 +153,25 @@ Calling **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** makes the c
 For more information about Blob service error codes, see [Blob Service Error Codes][error-codes].
 
 ## Upload a blob into a container
-To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation creates the blob if it doesn't exist, or overwrites it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
+To upload a file as a blob, use the **blobServiceClient->createBlockBlob** method. This operation creates the blob if it doesn't exist, or overwrites it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
-// Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
+// Create blob REST proxy.
+$blobServiceClient = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 $content = fopen("c:\myfile.txt", "r");
 $blob_name = "myblob";
 
 try    {
     //Upload blob
-    $blobRestProxy->createBlockBlob("mycontainer", $blob_name, $content);
+    $blobServiceClient->createBlockBlob("mycontainer", $blob_name, $content);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -183,21 +186,20 @@ catch(ServiceException $e){
 Note that the previous sample uploads a blob as a stream. However, a blob can also be uploaded as a string using, for example, the [file\_get\_contents][file_get_contents] function. To do this using the previous sample, change `$content = fopen("c:\myfile.txt", "r");` to `$content = file_get_contents("c:\myfile.txt");`.
 
 ## List the blobs in a container
-To list the blobs in a container, use the **BlobRestProxy->listBlobs** method with a **foreach** loop to loop through the result. The following code displays the name of each blob as output in a container and displays its URI to the browser.
+To list the blobs in a container, use the **blobServiceClient->listBlobs** method with a **foreach** loop to loop through the result. The following code displays the name of each blob as output in a container and displays its URI to the browser.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
-
+$blobServiceClient = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 try    {
     // List blobs.
-    $blob_list = $blobRestProxy->listBlobs("mycontainer");
+    $blob_list = $blobServiceClient->listBlobs("mycontainer");
     $blobs = $blob_list->getBlobs();
 
     foreach($blobs as $blob)
@@ -216,21 +218,21 @@ catch(ServiceException $e){
 ```
 
 ## Download a blob
-To download a blob, call the **BlobRestProxy->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
+To download a blob, call the **blobServiceClient->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobServiceClient = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 
 try    {
     // Get blob.
-    $blob = $blobRestProxy->getBlob("mycontainer", "myblob");
+    $blob = $blobServiceClient->getBlob("mycontainer", "myblob");
     fpassthru($blob->getContentStream());
 }
 catch(ServiceException $e){
@@ -246,21 +248,20 @@ catch(ServiceException $e){
 Note that the example above gets a blob as a stream resource (the default behavior). However, you can use the [stream\_get\_contents][stream-get-contents] function to convert the returned stream to a string.
 
 ## Delete a blob
-To delete a blob, pass the container name and blob name to **BlobRestProxy->deleteBlob**.
+To delete a blob, pass the container name and blob name to **BlobServiceClient->deleteBlob**.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
-
+$blobServiceClient = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 try    {
     // Delete blob.
-    $blobRestProxy->deleteBlob("mycontainer", "myblob");
+    $blobServiceClient->deleteBlob("mycontainer", "myblob");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -273,20 +274,20 @@ catch(ServiceException $e){
 ```
 
 ## Delete a blob container
-Finally, to delete a blob container, pass the container name to **BlobRestProxy->deleteContainer**.
+Finally, to delete a blob container, pass the container name to **BlobServiceClient->deleteContainer**.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+$blobServiceClient = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 try    {
     // Delete container.
-    $blobRestProxy->deleteContainer("mycontainer");
+    $blobServiceClient->deleteContainer("mycontainer");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -301,14 +302,12 @@ catch(ServiceException $e){
 ## Next steps
 Now that you've learned the basics of the Azure blob service, follow these links to learn about more complex storage tasks.
 
-* Visit the [Azure Storage team blog](http://blogs.msdn.com/b/windowsazurestorage/)
-* See the [PHP block blob example](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
-* See the [PHP page blob example](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
-* [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* Visit the [API Reference for Azure Storage PHP Client Library](http://azure.github.io/azure-storage-php/)
+* See the [Advanced Blob example](https://github.com/Azure/azure-storage-php/blob/master/samples/BlobSamples.php).
 
 For more information, see also the [PHP Developer Center](/develop/php/).
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: https://github.com/Azure/azure-storage-php
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
