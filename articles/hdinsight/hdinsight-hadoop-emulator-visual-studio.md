@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/11/2017
 ms.author: larryfr
 
 ---
 # Use the Azure Data Lake tools for Visual Studio with the Hortonworks Sandbox
 
-Azure Data Lake includes tools for working with generic Hadoop clusters, in addition to tools for working with Data Lake and Azure HDInsight. This document provides the steps needed to use the  Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
+Azure Data Lake includes tools for working with generic Hadoop clusters. This document provides the steps needed to use the Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
 
 Using the Hortonworks Sandbox allows you to work with Hadoop locally on your development environment. After you have developed a solution and want to deploy it at scale, you can then move to an HDInsight cluster.
 
 ## Prerequisites
 
-* The Hortonworks Sandbox, running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox. This was set up by using the information in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md).
+* The Hortonworks Sandbox, running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox. For information on setting up the sandbox, see the [Get started with the Hortonworks sandbox.](hdinsight-hadoop-emulator-get-started.md) document.
 
 * Visual Studio 2013, Visual Studio 2015, or Visual Studio 2017 (any edition).
 
@@ -36,7 +36,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Configure passwords for the sandbox
 
-Make sure that the Hortonworks Sandbox is running. Then follow the steps in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when you connect to the sandbox from Visual Studio.
+Make sure that the Hortonworks Sandbox is running. Then follow the steps in the [Get started in the Hortonworks Sandbox](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) document. These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when you connect to the sandbox from Visual Studio.
 
 ## Connect the tools to the sandbox
 
@@ -75,19 +75,19 @@ After following these steps, you now have an **HDInsight local cluster** entry i
 
 ## Write a Hive query
 
-Hive provides a SQL-like query language (HiveQL) for working with structured data. Use the following steps to learn how to run ad hoc queries against the local cluster.
+Hive provides a SQL-like query language (HiveQL) for working with structured data. Use the following steps to learn how to run on-demand queries against the local cluster.
 
 1. In **Server Explorer**, right-click the entry for the local cluster that you added previously, and then select **Write a Hive Query**.
 
     ![Screenshot of Server Explorer, with Write a Hive Query highlighted](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    This opens a new query window that allows you to quickly write and submit a query to the local cluster.
+    A new query window appears. Here you can quickly write and submit a query to the local cluster.
 
 2. In the new query window, enter the following command:
 
         select count(*) from sample_08;
 
-    From the top of the query window, make sure that the configuration for the local cluster is selected, and then select **Submit**. Leave the other values (**Batch** and server name) at the default values.
+    To run the query, select **Submit** at the top of the window. Leave the other values (**Batch** and server name) at the default values.
 
     ![Screenshot of query window, with the Submit button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
@@ -119,7 +119,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
 ## Create a Hive project
 
-You can also create a project that contains multiple Hive scripts. A project is useful when you have related scripts that you need to keep together, or maintain by using a version control system.
+You can also create a project that contains multiple Hive scripts. Use a project when you have related scripts or want to store scripts in a version control system.
 
 1. In Visual Studio, select **File**, **New**, and then **Project**.
 
@@ -127,7 +127,7 @@ You can also create a project that contains multiple Hive scripts. A project is 
 
     ![Screenshot of New Project window, with Azure Data Lake, HIVE, Hive Sample, and OK highlighted](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
-The **Hive Sample** project contains two scripts, **WebLogAnalysis.hql** and **SensorDataAnalysis.hql**. You can submit these by using the same **Submit** button at the top of the window.
+The **Hive Sample** project contains two scripts, **WebLogAnalysis.hql** and **SensorDataAnalysis.hql**. You can submit these scripts by using the same **Submit** button at the top of the window.
 
 ## Create a Pig project
 
@@ -186,7 +186,7 @@ Data Lake tools also allow you to easily view information about jobs that have b
 
 ### Database and table properties
 
-You can view the properties of a database or table. Selecting **Properties** displays details for the selected item in the properties window. For example, see the information shown in the following screenshot.
+You can view the properties of a database or table. Selecting **Properties** displays details for the selected item in the properties window. For example, see the information shown in the following screenshot:
 
 ![Screenshot of Properties window](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 

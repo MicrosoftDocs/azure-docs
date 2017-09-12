@@ -2,7 +2,7 @@
 title: H264 Single Bitrate 16x9 SD Media Encoder Standard preset - Azure | Microsoft Docs
 description: The topic gives an overview of the **H264 Single Bitrate 16x9 SD** task preset.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''

@@ -1,7 +1,7 @@
 ---
 title: How to use the SendGrid email service (.NET) | Microsoft Docs
 description: Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.
-services: app-service\web
+services: app-service-web
 documentationcenter: .net
 author: thinkingserious
 manager: erikre

@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/15/2017
@@ -278,7 +278,7 @@ In this tutorial, you automated the deployment of an app to Azure using Jenkins 
 > * Create a deployment group for the Azure virtual machines
 > * Create a release definition that configures the VMs and deploys the app
 
-Follow this link to see pre-built virtual machine script samples.
+Advance to the next tutorial to learn more about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack.
 
 > [!div class="nextstepaction"]
-> [Linux virtual machine script samples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
+> [Deploy LAMP stack](tutorial-lamp-stack.md)

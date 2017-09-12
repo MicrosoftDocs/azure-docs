@@ -1,24 +1,24 @@
---- 
-title: Azure AD v2 JS SPA Guided Setup - Intro | Microsoft Docs     
-description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint       
-services: active-directory      
-documentationcenter: dev-center-name        
-author: andretms        
-manager: mbaldwin       
-editor: ''      
-       
-ms.service: active-directory        
-ms.devlang: na      
-ms.topic: article       
-ms.tgt_pltfrm: na       
-ms.workload: identity       
-ms.date: 06/01/2017     
-ms.author: andret       
 ---
+title: Azure AD v2 JS SPA Guided Setup - Intro | Microsoft Docs
+description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint  
+services: active-directory
+documentationcenter: dev-center-name  
+author: andretms
+manager: mbaldwin
+editor: ''
 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na   
+ms.workload: identity 
+ms.date: 06/01/2017
+ms.author: andret
+
+---
 # Call the Microsoft Graph API from a JavaScript Single Page Application (SPA)
 
-This guide demonstrates how a JavaScript Single Page Application (SPA) can sign in personal and work accounts, get an access token and call the Microsoft Graph API or other APIs that require access tokens from Azure Active Directory v2 endpoint.
+This guide demonstrates how a JavaScript Single Page Application (SPA) can sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API or other APIs that require access tokens from the Azure Active Directory v2 endpoint.
 
 ### How this guide works
 
@@ -27,7 +27,8 @@ This guide demonstrates how a JavaScript Single Page Application (SPA) can sign 
 <!--start-collapse-->
 ### More Information
 
-The sample application created by this guide enables a JavaScript SPA to query the Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, after a user signs-in, a token is added to HTTP requests via the authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
+The sample application created by this guide enables a JavaScript SPA to query the Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, after a user signs-in, an access token is requested and added to HTTP requests via the authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library (MSAL).
+
 <!--end-collapse-->
 
 <!--start-collapse-->
@@ -38,4 +39,9 @@ This guide uses the following library:
 |Library|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Preview|
+
+> [!NOTE]
+> *msal.js* targets the *Azure Active Directory v2 endpoint* - which enables personal, school and work accounts to sign in and acquire tokens. The *Azure Active Directory v2 endpoint* has [some limitations](..\active-directory-v2-limitations.md). If you are interested only in school and work accounts, use *adal.js* and the *V1 endpoint*. 
+> To understand differences between the v1 and v2 endpoints read the [v1-v2 comparison](..\active-directory-v2-compare.md).
+
 <!--end-collapse-->

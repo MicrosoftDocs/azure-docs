@@ -4,8 +4,8 @@
   items:
   - name: About Azure Cosmos DB
     href: introduction.md
-  - name: Welcome DocumentDB customers
-    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+  - name: 20 days of tips
+    href: 20-days-of-tips.md
 - name: Quickstarts
   expanded: true
   items:
@@ -51,8 +51,12 @@
     items:
     - name: DocumentDB
       href: tutorial-develop-documentdb-dotnet.md
-    - name: MongoDB
+    - name: MongoDB with .NET
       href: tutorial-develop-mongodb.md
+    - name: MongoDB with Angular
+      href: tutorial-develop-mongodb-nodejs.md
+    - name: MongoDB with React
+      href: tutorial-develop-mongodb-react.md
     - name: Table
       href: tutorial-develop-table-dotnet.md
     - name: Graph
@@ -210,7 +214,19 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
-      - name: Tutorials
+      - name: Angular tutorial series
+        items:
+        - name: Part 2 - Create Node app
+          href: tutorial-develop-mongodb-nodejs-part2.md
+        - name: Part 3 - Add Angular UI
+          href: tutorial-develop-mongodb-nodejs-part3.md
+        - name: Part 4 - Create Cosmos DB
+          href: tutorial-develop-mongodb-nodejs-part4.md
+        - name: Part 5 - Connect to Cosmos DB
+          href: tutorial-develop-mongodb-nodejs-part5.md
+        - name: Part 6 - Write to the app
+          href: tutorial-develop-mongodb-nodejs-part6.md
+      - name: Additional tutorials
         items:
         - name: Node.js console app
           href: mongodb-samples.md
@@ -220,8 +236,32 @@
         href: gremlin-support.md
     - name: Table API
       items:
-      - name: Table storage
-        href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+      - name: Table storage overview
+        href: table-storage-overview.md
+      - name: Table storage design guide
+        href: table-storage-design-guide.md
+      - name: Table storage REST APIs
+        href: /rest/api/storageservices/Table-Service-Concepts
+      - name: Tutorials
+        items:
+          - name: .NET
+            href: table-storage-how-to-use-dotnet.md
+          - name: F#
+            href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+          - name: Node.js 
+            href: table-storage-cloud-service-nodejs.md
+          - name: Java
+            href: table-storage-how-to-use-java.md
+          - name: Node.js
+            href: table-storage-how-to-use-nodejs.md
+          - name: C++ 
+            href: table-storage-how-to-use-c-plus.md
+          - name: PHP
+            href: table-storage-how-to-use-php.md
+          - name: Python
+            href: table-storage-how-to-use-python.md
+          - name: Ruby
+            href: table-storage-how-to-use-ruby.md
     - name: Change feed
       href: change-feed.md
     - name: Geospatial

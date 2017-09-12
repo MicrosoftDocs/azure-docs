@@ -4,7 +4,7 @@ description: Learn how to code and test Azure functions on your local computer b
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 07/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 
 ---
 # Code and test Azure functions locally
@@ -72,7 +72,7 @@ The file local.settings.json stores app settings, connection strings, and settin
   "IsEncrypted": false,   
   "Values": {
     "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>", 
+    "AzureWebJobsDashboard": "<connection string>" 
   },
   "Host": {
     "LocalHttpPort": 7071, 

@@ -177,12 +177,15 @@ To upload your own certificates and test access:
 
 	![ILB IP address][5]
 
-### Functions and the ILB ASE
+## Web jobs, Functions and the ILB ASE ##
 
-When you use Azure Functions on an ILB ASE, you might get an error message that says "We are not able to retrieve your functions right now. Please try again later." This error occurs because the Functions UI leverages the scm site over HTTPS. If you use an HTTP certificate for your ASE that doesn't have a root certificate that's in the browser, you might encounter this situation. In addition, the Internet Explorer\Edge browsers don’t share the *accept-invalid-cert* setting between tabs. So you can do one of two things:
+Both Functions and web jobs are supported on an ILB ASE but for the portal to work with them, you must have network access to the SCM site.  This means your browser must either be on a host that is either in or connected to the virtual network.  
 
-- Add the certificate to your trusted certificate store. 
-- Use Chrome. But you need to go to the scm site first and accept the untrusted certificate. Then go to the portal.
+When you use Azure Functions on an ILB ASE, you might get an error message that says "We are not able to retrieve your functions right now. Please try again later." This error occurs because the Functions UI leverages the SCM site over HTTPS and the root certificate is not in the browser chain of trust. Web jobs has a similar problem. To avoid this problem you can do one of the following:
+
+- Add the certificate to your trusted certificate store. This unblocks Edge and Internet Explorer.
+- Use Chrome and go to the SCM site first, accept the untrusted certificate and then go to the portal.
+- Use a commercial certificate that is in your browser chain of trust.  This is the best option.  
 
 ## DNS configuration ##
 

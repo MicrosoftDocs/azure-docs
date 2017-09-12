@@ -102,7 +102,7 @@ Azure compute services are the core of a Big Compute solution, and the different
 ### Storage services
 A Big Compute solution typically operates on a set of input data, and generates data for its results. Some of the Azure storage services used in Big Compute solutions include:
 
-* [Blob, table, and queue storage](https://azure.microsoft.com/documentation/services/storage/) - Manage large amounts of unstructured data, NoSQL data, and messages for workflow and communication, respectively. For example, you might use blob storage for large technical data sets, or for the input images or media files your application processes. You might use queues for asynchronous communication in a solution. See [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+* [Blob, table, and queue storage](https://azure.microsoft.com/documentation/services/storage/) - Manage large amounts of unstructured data, NoSQL data, and messages for workflow and communication, respectively. For example, you might use blob storage for large technical data sets, or for the input images or media files your application processes. You might use queues for asynchronous communication in a solution. See [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
 * [Azure File storage](https://azure.microsoft.com/services/storage/files/) - Shares common files and data in Azure using the standard SMB protocol, which is needed for some HPC cluster solutions.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) - Provides a hyperscale Apache Hadoop Distributed File System for the cloud, useful for batch, real-time, and interactive analytics.
 

@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Map a custom domain to a function app in 
 services: functions
 documentationcenter: 
 author: ggailey777   
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 
@@ -26,7 +26,7 @@ This sample script creates a function app with related resources, and then maps 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, you must use the Azure CLI version 2.0 or a later version. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## Sample script
@@ -37,15 +37,15 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands: Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creates a storage account required by the function app. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan required to map a custom domain. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Creates a storage account required by the function app. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan required to map a custom domain. |
 | [az functionapp create]() | Creates a function app. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Maps a custom domain to a function app. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Maps a custom domain to a function app. |
 
 ## Next steps
 

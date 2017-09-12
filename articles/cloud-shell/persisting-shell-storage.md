@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ---
 
@@ -27,8 +27,8 @@ On initial start, Cloud Shell prompts you to associate a new or existing file sh
 
 When you use basic settings and select only a subscription, Cloud Shell creates three resources on your behalf in the supported region that's nearest to you:
 * Resource group: `cloud-shell-storage-<region>`
-* Storage account: `cs-uniqueGuid`
-* File share: `cs-<user>-<domain>-com-uniqueGuid`
+* Storage account: `cs<uniqueGuid>`
+* File share: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![The Subscription setting](media/basic-storage.png)
 
@@ -36,7 +36,7 @@ The file share mounts as `clouddrive` in your `$Home` directory. The file share 
 
 ### Use existing resources
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage and geo-redundant storage accounts.
+By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your Cloud Shell region and for local-redundant & geo-redundant storage accounts.
 
 ![The Resource group setting](media/advanced-storage.png)
 
@@ -47,7 +47,7 @@ Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usa
 Cloud Shell persists files through both of the following methods:
 * Creating a disk image of your `$Home` directory to persist all contents within the directory. The disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, and it automatically syncs changes.
 
-* Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction. `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
+* Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file share interaction. `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
  
 > [!NOTE]
 > All files in your `$Home` directory, such as SSH keys, are persisted in your user disk image, which is stored in your mounted file share. Apply best practices when you persist information in your `$Home` directory and mounted file share.
@@ -62,11 +62,11 @@ With Cloud Shell, you can run a command called `clouddrive`, which enables you t
 You can update the file share that's associated with Cloud Shell by using the `clouddrive mount` command.
 
 If you mount an existing file share, the storage accounts must be:
-* Locally redundant storage or geo-redundant storage to support file shares.
+* Locally-redundant storage or geo-redundant storage to support file shares.
 * Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
 ### Supported storage regions
-The Azure files must reside in the same region as the Cloud Shell machine that you're mounting them to. Cloud Shell machines exist in the following regions:
+The Azure files must reside in the same region as the Cloud Shell machine that you're mounting them to. Cloud Shell clusters currently exist in the following regions:
 |Area|Region|
 |---|---|
 |Americas|East US, South Central US, West US|
@@ -89,7 +89,7 @@ To view more details, run `clouddrive mount -h`, as shown here:
 ![Running the `clouddrive mount`command](media/mount-h.png)
 
 ## Unmount `clouddrive`
-You can unmount a file share that's mounted to Cloud Shell at any time. However, because Cloud Shell requires a mounted file share, you will be prompted to create and mount a new file share at the next session if it has been removed.
+You can unmount a file share that's mounted to Cloud Shell at any time. Once your file share is unmounted, you will be prompted to mount a new file share prior to your next session.
 
 To remove a file share from Cloud Shell:
 1. Run `clouddrive unmount`.
@@ -102,23 +102,23 @@ To view more details, run `clouddrive unmount -h`, as shown here:
 ![Running the `clouddrive unmount`command](media/unmount-h.png)
 
 > [!WARNING]
-> Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell will erase your `$Home` directory disk image and any files in your file share. This action cannot be undone.
+> Running this command will not delete any resources. Manually deleting a resource group, storage account, or file share that is mapped to Cloud Shell will permanently delete your `$Home` directory image and any other files in your file share. This action cannot be undone.
 
 ## List `clouddrive` file shares
 To discover which file share is mounted as `clouddrive`, run the following `df` command. 
 
-The file path to clouddrive will show your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
+The file path to clouddrive shows your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
+Filesystem                                               1K-blocks     Used Available Use% Mounted on
+overlay                                                   30428648 15585636  14826628  52% /
+tmpfs                                                       986704        0    986704   0% /dev
+tmpfs                                                       986704        0    986704   0% /sys/fs/cgroup
+/dev/sda1                                                 30428648 15585636  14826628  52% /etc/hosts
+shm                                                          65536        0     65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName        6291456  5242944   1048512  84% /usr/justin/clouddrive
+/dev/loop0                                                 5160576   601652   4296780  13% /home/justin
 ```
 
 ## Transfer local files to Cloud Shell

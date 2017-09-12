@@ -85,11 +85,12 @@ Set-ExecutionPolicy Unrestricted
 ```
 
 ### Create the service principal
-You can create a Service Principal by executing the following command:
+You can create a Service Principal by executing the following command, making sure to update the *DisplayName* parameter:
 ```powershell
 $servicePrincipal = New-AzSADGraphServicePrincipal `
  -DisplayName "<YourServicePrincipalName>" `
  -AdminCredential $(Get-Credential) `
+ -AdfsMachineName "AZS-ADFS01" `
  -Verbose
 ```
 ### Assign a role
