@@ -1,4 +1,4 @@
----
+ ---
 title: 'Tutorial: Azure Active Directory integration with OpenAthens | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OpenAthens
 services: active-directory
@@ -24,10 +24,10 @@ In this tutorial, you learn how to integrate OpenAthens with Azure Active Direct
 Integrating OpenAthens with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to OpenAthens.
-- You can enable your users to automatically sign-on to OpenAthens (single sign-on) with their Azure AD accounts.
+- You can enable your users to automatically sign on to OpenAthens (single sign-on) with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
-For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -144,7 +144,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	g. Select **Save changes**.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After adding this app from the **Active Directory** > **Enterprise Applications** section, simply select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. For more about the embedded documentation feature, see [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After adding this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. For more about the embedded documentation feature, see [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Create an Azure AD test user
 
