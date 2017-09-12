@@ -55,7 +55,7 @@ To enable HTTPS, follow these steps:
     ![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
 
-### Step 2: Domain validation
+### Step 2: Validate domain
 
 >[!IMPORTANT] 
 >You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days will be automatically canceled. 
@@ -64,7 +64,7 @@ After you enable HTTPS on your custom domain, our HTTPS certificate provider Dig
 
 ![WHOIS Record](./media/cdn-custom-ssl/whois-record.png)
 
-In addition, DigiCert will send the verification email to the following addresses. If the WHOIS registrant information is private, make sure you can approve directly from one of these addresses:
+In addition, DigiCert will send the verification email to the following addresses. If the WHOIS registrant information is private, verify that you can approve directly from one of these addresses:
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  
@@ -88,15 +88,15 @@ Follow the instructions on the form; you have two verification options:
 
 After approval, DigiCert will add your custom domain name to the Subject Alternative Names (SAN) certificate. The certificate is valid for one year and will be auto-renewed before it's expired.
 
-### Step 3: Wait for the propagation, then start using your feature
+### Step 3: Wait for propagation
 
 After the domain name is validated, it can take up to 6-8 hours for the custom domain HTTPS feature to be activated. When the process is complete, the "Custom HTTPS" status in the Azure portal is set to "Enabled" and the four operation steps in the Custom domain HTTPS blade are marked as complete. Your custom domain is now ready to use HTTPS.
 
-![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
+![Enable HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
 
 ### Operation progress
 
-The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the Custom domain HTTPS blade. Under each step, progress is indicated by a sequence of messages. After a step successfully completes, a green check mark appears next to it. 
+The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the Custom domain HTTPS blade. As each step becomes active, additional details appear under the step as it progresses. After a step successfully completes, a green check mark appears next to it. 
 
 | Operation step | Operation step details | 
 | --- | --- |
@@ -105,12 +105,20 @@ The following table shows the operation progress that occurs when you enable HTT
 | | Your HTTPS request has been submitted successfully. |
 | 2 Domain validation | We have sent you an email asking you to validate the domain ownership. Waiting for your confirmation. |
 | | Your domain ownership has been successfully validated. |
-| | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS will not be enabled on your domain. |
-| | Domain ownership validation request was rejected by the customer. HTTPS will not be enabled on your domain. |
+| | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS will not be enabled on your domain. * |
+| | Domain ownership validation request was rejected by the customer. HTTPS will not be enabled on your domain. * |
 | 3 Certificate provisioning | The certificate authority is currently issuing the certificate needed to enable HTTPS on your domain. |
 | | The certificate has been issued and is currently being deployed to CDN network. This could take up to 6 hours. |
 | | The certificate has been successfully deployed to CDN network. |
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
+
+\* This message will not appear unless an error has occurred. 
+
+If an error occurs before the request is submitted, you will see the following error message:
+
+<code>
+We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
+</code>
 
 ## Disabling HTTPS
 
@@ -130,13 +138,15 @@ After you have enabled HTTPS, you can later disable it. To disable HTTPS, follow
 
     ![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
-### Step 2: Wait for the propagation, then start using your feature
+### Step 2: Wait for propagation
 
-After the domain name is validated, it can take up to 6-8 hours for the custom domain HTTPS feature to be disabled. When the process is complete, the "Custom HTTPS" status in the Azure portal is set to "disabled" and the three operation steps in the Custom domain HTTPS blade are marked as complete. Your custom domain can no longer use HTTPS.
+After the custom domain HTTPS feature is disabled, it can take up to 6-8 hours for it to take effect. When the process is complete, the "Custom HTTPS" status in the Azure portal is set to "disabled" and the three operation steps in the Custom domain HTTPS blade are marked as complete. Your custom domain can no longer use HTTPS.
+
+![Disable HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
 
 ### Operation progress
 
-The following table shows the operation progress that occurs when you disable HTTPS. After you enable HTTPS, three operation steps appear in the Custom domain HTTPS blade. Under each step, progress is indicated by a sequence of messages. After a step successfully completes, a green check mark appears next to it. 
+The following table shows the operation progress that occurs when you disable HTTPS. After you disable HTTPS, three operation steps appear in the Custom domain HTTPS blade. As each step becomes active, additional details appear under the step. After a step successfully completes, a green check mark appears next to it. 
 
 | Operation progress | Operation details | 
 | --- | --- |

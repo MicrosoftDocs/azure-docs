@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 
 Change directories so that you are working from the cloned directory.
 
-```bash
+```
 cd azure-voting-app-redis
 ```
 
