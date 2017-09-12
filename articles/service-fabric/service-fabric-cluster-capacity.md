@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 09/12/2017
 ms.author: chackdan
 
 ---
@@ -72,7 +72,7 @@ This privilege is expressed in the following values:
 * Bronze - No privileges. This is the default. Only use this durability level for Node Types that run _only_ stateless workloads. 
 
 > [!WARNING]
-> NodeTypes running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed. It is possible that such jobs can still impact your workloads, causing downtime or other issues. For any sort of production workload, running with at least Silver is recommended. 
+> NodeTypes running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed. It is possible that such jobs can still impact your workloads, causing downtime or other issues. For any sort of production workload, running with at least Silver is recommended. You must maintain a minimum count of 5 nodes for any node-type that has a durability of Gold or silver. 
 > 
 
 You get to choose durability level for each of your node-types.You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster.**You must maintain a minimum count of 5 nodes for any node-type that has a durability of Gold or silver**. 
@@ -96,7 +96,7 @@ Use Silver or Gold durability for all node types that host stateful services you
 1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion.
 2. Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
 	- **For non-primary nodetypes:** It is recommended that you create new Virtual Machine Scale Set, modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
-	- **For the primary nodetype:** Our recommendation is that you do not change VM SKU of the primary node type. If the reason for the new SKU is capacity, we recommend adding more instances or if possible, create a new cluster. If you have no choice, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
+	- **For the primary nodetype:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances or if possible, create a new cluster and restore application state (if applicable) from your old cluster. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
 
 
 > [!WARNING]
@@ -160,6 +160,9 @@ For production workloads
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
 - Standard A1 SKU is not supported for production workloads for performance reasons.
 
+> [!WARNING]
+> Changing the VM SKU size on a running cluster is not supported. So choose the primary node type VM SKU carefully, taking into account future needs. At this time, the only supported way to move your primary node type to a new VM SKU (smaller or larger) is to create a new cluster with the right capacity, deploy your applications to it and then restoring the application state from the latest backups you have taken from the old cluster. you do not need to restore the system service states, they get recreated by the act of deploying your applications to the cluster. 
+> 
 
 ## Non-Primary node type - Capacity Guidance for stateful workloads
 
