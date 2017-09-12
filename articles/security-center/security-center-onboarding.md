@@ -32,7 +32,7 @@ Security Center automatically detects any Azure subscriptions or workspaces not 
 You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all resources within the subscription, or you can define a unique policy to upgrade a specific resource group only. If the resource group’s policy settings are unique, Security Center will not override the pricing policies when you upgrade the subscription to the Standard tier. Applying the Standard tier to a subscription only applies to the VMs in the subscription that are reporting to workspaces created by Security Center. Applying the Standard tier to the workspace applies to all resources reporting to the workspace.
 
 > [!NOTE]
-> You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. [Solution targeting](../operations-management-suite-solution-targeting.md) allows you to apply a scope to the solution and target a subset of computers in the workspace.  If you are using solution targeting, Security Center lists the workspace as not having a solution.
+> You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. [Solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to the solution and target a subset of computers in the workspace.  If you are using solution targeting, Security Center lists the workspace as not having a solution.
 >
 >
 
