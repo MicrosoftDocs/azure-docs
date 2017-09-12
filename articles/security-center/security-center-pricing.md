@@ -59,8 +59,8 @@ Security Center offers enhanced security and threat protection for your hybrid c
 ## Next steps
 In this article, you were introduced to pricing for Security Center. To learn more about the Standard tier’s enhanced security and advanced threat protection, see:
 
-- [Advanced threat detection](security-center-threat-intel.md)
-- [Just in time VM access control](security-center-just-in-time)
+- [Advanced threat detection](security-center-threat-report.md)
+- [Just in time VM access control](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png
