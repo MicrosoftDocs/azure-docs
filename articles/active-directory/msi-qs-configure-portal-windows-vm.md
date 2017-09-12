@@ -18,9 +18,13 @@ ms.author: bryanla
 
 # Configure an Azure VM Managed Service Identity (MSI) using the Azure portal
 
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+
+In this QuickStart, you will learn how to enable and remove MSI for an Azure Windows VM, using the Azure portal.
+
 ## Prerequisites
 
-[!INCLUDE [active-directory-msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
 ## Enable MSI during creation of an Azure VM
 
@@ -36,7 +40,7 @@ If you have a VM that was originally provisioned without an MSI:
 
 2. Click the "Configuration" page, enable MSI on the VM by selecting "Yes" under "Managed service identity", then click **Save**. This operation can take 60 seconds or more to complete:
 
-   ![Configuration page screenshot](./media/active-directory-msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## Remove MSI from an Azure VM
 
@@ -48,11 +52,11 @@ If you have a Virtual Machine that no longer needs an MSI:
 
 3. Click the "Configuration" page, remove MSI from the VM by selecting "No" under "Managed service identity", then click **Save**. This operation can take 60 seconds or more to complete:
 
-   ![Configuration page screenshot](./media/active-directory-msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](active-directory-msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
 - This article is adapted from the [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) QuickStart, modified to include MSI-specific instructions. 
 
 Use the following comments section to provide feedback and help us refine and shape our content.

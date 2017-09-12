@@ -18,9 +18,13 @@ ms.author: bryanla
 
 # Configure an Azure VM Managed Service Identity (MSI) using PowerShell
 
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+
+In this QuickStart, you will learn how to enable and remove MSI for an Azure Windows VM, using  PowerShell.
+
 ## Prerequisites
 
-[!INCLUDE [active-directory-msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
 Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) if you haven't already.
 
@@ -135,7 +139,7 @@ Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdent
 
 ## Related content
 
-- [Managed Service Identity overview](active-directory-msi-overview.md)
+- [Managed Service Identity overview](msi-overview.md)
 - This article is adapted from the [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md) QuickStart, modified to include MSI-specific instructions. 
 
 Use the following comments section to provide feedback and help us refine and shape our content.
