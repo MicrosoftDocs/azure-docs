@@ -18,132 +18,126 @@ ms.date: 06/13/2017
 ms.author: genli
 
 ---
-# Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs
+# Troubleshoot errors when you delete storage accounts, containers, or VHDs in Azure Resource Manager (ARM)
 
-You might receive errors when you try to delete an Azure storage account, container, or virtual hard disk (VHD) in the [Azure portal](https://portal.azure.com). This article provides troubleshooting guidance to help resolve the problem in an Azure Resource Manager deployment.
+You might receive errors when you try to delete an Azure storage account, container, or virtual hard disk (VHD). This article provides troubleshooting guidance to help resolve storage object deletion problem in Azure Resource Manager (ARM).
 
-If this article doesn't address your Azure problem, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your problem on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
+Azure prevents deletion of disks that are leased and attached to a VM because VM corruption could occur if the lease is broken an attached disk were deleted without first detaching from the VM. Detaching disks from its VMs will automatically break the lease on the disks so the best practice to deleting a disk, container, or storage account is to first make sure that all disks are detached from VMs before deleting the storage objects.
 
 ## Symptoms
 ### Scenario 1
-When you try to delete a VHD in a storage account in a Resource Manager deployment, you receive the following error message:
+When you try to delete a storage account in a Resource Manager (ARM) deployment, you receive the following error message:
 
-**Failed to delete blob 'vhds/BlobName.vhd'. Error: There is currently a lease on the blob and no lease ID was specified in the request.**
+>_Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use._
 
-This problem can occur because a virtual machine (VM) has a lease on the VHD that you are trying to delete.
+This problem can occur because the storage account contains at least one VHD(s) that is attache to a VM.
 
 ### Scenario 2
-When you try to delete a container in a storage account in a Resource Manager deployment, you receive the following error message:
+When you try to delete a container in a Resource Manager (ARM) deployment, you receive one of the following error message:
 
-**Failed to delete storage container 'vhds'. Error: There is currently a lease on the container and no lease ID was specified in the request.**
+>_Failed to delete # out of # container(s):<br>vhds: There is currently a lease on the container and no lease ID was specified in the request._
 
-This problem can occur because the container has a VHD that is locked in the lease state.
+This problem can occur because the container contains at least one VHD(s) that is attached to a VM.
 
 ### Scenario 3
-When you try to delete a storage account in a Resource Manager deployment, you receive the following error message:
+When you try to delete a VHD and receive the following error message:
 
-**Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
+>_Failed to delete # out of # blobs:<br>BlobName.vhd: There is currently a lease on the blob and no lease ID was specified in the request._
 
-This problem can occur because the storage account contains a VHD that is in the lease state.
+This problem can occur because a VM is attached to the VHD you are trying to delete.
 
 ## Solution 
-To resolve these problems, you must identify the VHD that is causing the error and the associated VM. Then, detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD and allows it to be deleted. 
+The process to delete the storage account, container, or disk in one of the above scenarios is:
+1. [Identify all VMs with attach disks that prevent deletion](#Step-1:-Identify-all-VMs-and-disks-that-prevent-deletion-of-storage-objects)
+2. [Delete all VMs with attached **OS disks**](#How-to-delete-VM-to-detach-OS-disk)
+3. [Detach all **Data disks** from the VM](#Step-3:-Detach-data-disk-from-the-VM)
+4. Delete the desired storage [account](storage-create-storage-account.md#delete-a-storage-account), [container](#Scenario-2:-Delete-a-storage-container), or [blob](#Scenario-3:-Delete-a-storage-blob)
 
-To do this, use one of the following methods:
+### Step 1: Identify all VMs and disks that prevent deletion of storage objects
 
-### Method 1 - Use Azure storage explorer
+#### Scenario 1: Identifying objects that prevent deletion of the storage account
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the Hub menu, select **_All resources_**. Go to the storage account, under **_Blob Service_** select **_Containers_**.
 
-### Step 1 Identify the VHD that prevent deletion of the storage account
+    ![Screenshot of the portal, with the storage account containers and the "Lease State" with "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_containers_sm.PNG)
 
-1. When you delete the storage account, you will receive a message dialog such as the following: 
+3. In the list of containers, identify all containers where **_Lease State_** is **_Leased_** and follow steps in [Scenario 2: Identifying objects that prevent deletion of the blob container](#Scenario-2:-Identifying-objects-that-prevent-deletion-of-the-blob-container) for each **_Leased_** container.
 
-    ![message when deleting the storage account](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+#### Scenario 2: Identifying objects that prevent deletion in the blob container
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the Hub menu, select **_All resources_**. Go to the storage account, under **_Blob Service_** select **_Containers_** and find the container to be deleted.
+3. Click to open the container and list of blobs inside it will appear. Follow steps 3-6 in [Scenario 3: Identifying VMs that prevent deletion of the VHD](#Scenario-3:-Identifying-VMs-that-prevent-deletion-of-the-VHD) for all blobs with the following properties:
+    -	Blob Type = **Page blob**
+    -	Lease State = **Leased**
+    -	Name ending with **.vhd**
 
-2. Check the **Disk URL** to identify the storage account and the VHD that prevents you delete the storage account. In the following example, the string before “.blob.core.windows.net “ is the storage account name, and "SCCM2012-2015-08-28.vhd" is the VHD name.  
+    ![Screenshot of the portal, with the storage account blobs and the "Lease State" with "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_disks_sm.PNG)
 
-        https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
+#### Scenario 3: Identifying VMs that prevent deletion of the VHD
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the Hub menu, select **_All resources_**. Go to the storage account, under **_Blob Service_** select **_Containers_** and browse to the blob to be deleted.
+3. If the blob **_Lease State_** is **_Leased_**, right click, and select **_Edit Metadata_** to open Blob metadata pane. 
 
-### Step 2 Delete the VHD by using Azure Storage Explorer
+    ![Screenshot of the portal, with the storage account blobs and right click > "Edit Metadata" hilighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_editMetadata_sm.PNG)
 
-1. Download and Install the latest version of [Azure Storage Explorer](http://storageexplorer.com/). This tool is a standalone app from Microsoft that allows you to easily work with Azure Storage data on Windows, macOS and Linux.
-2. Open Azure Storage Explorer, select ![account icon](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) on the left bar, select your Azure environment, and then sign in.
+4. In Blob metadata pane, find MicrosoftAzureCompute_VMName key, the value of this key is the name of the VM that this disk is attached to. (See *Note if this field does not exist)
+5. In Blob metadata pane, find MicrosoftAzureCompute_DiskType key.
+ The value of this key is the disk type. (See *Note if this field does not exist). 
 
-3. Select all subscriptions or the subscription that contains the storage account you want to delete.
+     ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_blobMetadata_sm.PNG)
 
-    ![add subscription](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/addsub.png)
+6. Record VM name and disk type then follow steps in [Detaching disk from a VM](Detaching disk from a VM) section.
 
-4. Go to the storage account that we obtained from the disk URL earlier, select the **Blob Containers** > **vhds** and search for the VHD that prevents you delete the storage account.
-5. If the VHD is found,  check the **VM Name** column to find the VM that is using this VHD.
+> Note: _If MicrosoftAzureCompute_VMName and MicrosoftAzureCompute_DiskType does not appear in the blob metadata and/or the blob name does not end with .vhd, this indicate that the blob is leased but is not attached to a VM. Leased blobs cannot be deleted without breaking the lease first; however, leased blobs that are not attached to a VM will not prevent deletion of container or Storage Account containing it. To break lease, right click on the blob and select Break lease._
 
-    ![Check vm](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/check-vm.png)
 
-6. Remove the lease from the VHD by using Azure portal. For more information, see [Remove the lease from the VHD](#remove-the-lease-from-the-vhd). 
-
-7. Go to the Azure Storage Explorer, right-click the VHD and then select delete.
-
-8. Delete the storage account.
-
-### Method 2 - Use Azure portal 
-
-#### Step 1: Identify the VHD that prevent deletion of the storage account
-
-1. When you delete the storage account, you will receive a message dialog such as the following: 
-
-    ![message when deleting the storage account](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
-
-2. Check the **Disk URL** to identify the storage account and the VHD that prevents you delete the storage account. In the following example, the string before “.blob.core.windows.net “ is the storage account name, and "SCCM2012-2015-08-28.vhd" is the VHD name.  
-
-        https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
-
-2. Sign in to the [Azure portal](https://portal.azure.com).
-3. On the Hub menu, select **All resources**. Go to the storage account, and then select **Blobs** > **vhds**.
-
-    ![Screenshot of the portal, with the storage account and the "vhds" container highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
-
-4. Locate the VHD that we obtained from the disk URL earlier. Then, determine which VM is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD:
-
-VM in Resource Manager development  model
-
-   * OS disks generally follow this naming convention: VMName-YYYY-MM-DD-HHMMSS.vhd
-   * Data disks generally follow this naming convention: VMName-YYYY-MM-DD-HHMMSS.vhd
-
-VM in Classic development model
-
-   * OS disks generally follow this naming convention: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd
-   * Data disks generally follow this naming convention: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd
-
-#### Step 2: Remove the lease from the VHD
-
-[Remove the lease from the VHD](#remove-the-lease-from-the-vhd), and then delete the storage account.
-
-## What is a lease?
+#### What is a lease?
 A lease is a lock that can be used to control access to a blob (for example, a VHD). When a blob is leased, only the owners of the lease can access the blob. A lease is important for the following reasons:
 
 * It prevents data corruption if multiple owners try to write to the same portion of the blob at the same time.
 * It prevents the blob from being deleted if something is actively using it (for example, a VM).
 * It prevents the storage account from being deleted if something is actively using it (for example, a VM).
 
-### Remove the lease from the VHD
-If the VHD is an OS disk, you must delete the VM to remove the lease:
+### Step 2: Delete VM to detach OS disk
+If the VHD is an OS disk, you must delete the VM to detach and remove the lease. No additional action will be required for data disks attached to this VM once these steps are completed:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the **Hub** menu, select **Virtual Machines**.
-3. Select the VM that holds a lease on the VHD.
+2. On the _Hub_ menu, select **_Virtual Machines_**.
+3. Select the VM that the VHD is attached to.
 4. Make sure that nothing is actively using the virtual machine, and that you no longer need the virtual machine.
-5. At the top of the **VM details** blade, select **Delete**, and then click **Yes** to confirm.
-6. The VM should be deleted, but the VHD can be retained. However, the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease is released, go to **All resources** > **Storage Account Name** > **Blobs** > **vhds**. In the **Blob properties** pane, the **Lease Status** value should be **Unlocked**.
+5. At the top of the **_VM details_** blade, select **_Delete_**, and then click **_Yes_** to confirm.
+6. The VM should be deleted, but the VHD can be retained. However, the VHD should no longer be attached to a VM or have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease is released, browse to the blob location and in the **_Blob properties_** pane, the **_Lease Status_** value should be **_Unlocked_**.
 
+### Step 3: Detach data disk from the VM
 If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the **Hub** menu, select **Virtual Machines**.
-3. Select the VM that holds a lease on the VHD.
-4. Select **Disks** on the **VM details** blade.
-5. Select the data disk that holds a lease on the VHD. You can determine which VHD is attached in the disk by checking the URL of the VHD.
+2. On the _Hub_ menu, select **_Virtual Machines_**.
+3. Select the VM that the VHD is attached to.
+4. Select **_Disks_** on the **_VM details_** blade.
+5. Select the data disk that the VHD is attached to. You can determine which VHD is attached in the disk by checking the URL of the VHD.
 6. Determine with certainty that nothing is actively using the data disk.
-7. Click **Detach** on the **Disk details** blade.
-8. The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, go to **All resources** > **Storage Account Name** > **Blobs** > **vhds**. In the **Blob properties** pane, the **Lease Status** value should be **Unlocked**.
+7. Click **_Detach_** on the **_Disk details_** blade.
+8. The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, browse to the blob location and in the **_Blob properties_** pane, the **_Lease Status_** value should be **_Unlocked_**.
 
-## Next steps
-* [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
-* [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+### Step 4: Delete Storage object
+#### Scenario 1: Delete a storage account
+Follow the steps in [this article](storage-create-storage-account.md#delete-a-storage-account)
+
+#### Scenario 2: Delete a storage container
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the _Hub_ menu, select **_All resources_**. Go to the storage account, under **_Blob Service_** select **_Containers_**.
+3. Find the container to be deleted and ensure that its **_Lease State_** is not **_Leased_** then select it to show **_Container_** blade.
+3. At the top of the **_Container_** blade, select **_Delete container_**, and then click **_Yes_** to confirm.
+4. The container should be deleted when **_Successfully deleted container(s)_** message appears.
+
+#### Scenario 3: Delete a storage blob
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the _Hub_ menu, select **_All resources_**. Go to the storage account, under **_Blob Service_** select **_Containers_**.
+3. Drill down to find the blob to be deleted and ensure that its **_Lease State_** is not **_Leased_** then select to view its **_Blob Properties_**.
+3. At the top of the **_Blob Properties_** blade, select **_Delete_**, and then click **_Yes_** to confirm.
+4. The blob should be deleted when **_Successfully deleted blob(s)_** message appears.
+
+
+
+
