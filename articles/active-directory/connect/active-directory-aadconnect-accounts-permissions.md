@@ -97,7 +97,7 @@ When you upgrade from one version of Azure AD Connect to a new release, you need
 | --- | --- | --- |
 | User running the installation wizard |Administrator of the local server |Update binaries. |
 | User running the installation wizard |Member of ADSyncAdmins |Make changes to Sync Rules and other configuration. |
-| User running the installation wizard |If you use a full SQL server: DBO (or similar) of the sync engine database |Make database level changes, such as updating tables with new columns. |
+| User running the installation wizard |If you use a full SQL server: Sysadmin (or similar) of the database instance hosting the sync engine database |Make database level changes, such as updating tables with new columns. |
 
 ## More about the created accounts
 ### Active Directory account
