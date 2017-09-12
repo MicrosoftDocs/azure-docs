@@ -2,10 +2,10 @@
 title: How to assign an MSI access to an Azure resource, using the Azure portal
 description: Step by step instructions for assigning an MSI on one resource, access to another resource, using the Azure portal.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: bryanla
 manager: mbaldwin
-editor: ''
+editor: 
 
 ms.service: active-directory
 ms.devlang: na

@@ -2,10 +2,10 @@
 title: How to configure MSI on an Azure VM using PowerShell
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using PowerShell.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: bryanla
 manager: mbaldwin
-editor: ''
+editor: 
 
 ms.service: active-directory
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.author: bryanla
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this QuickStart, you will learn how to enable and remove MSI for an Azure Windows VM, using  PowerShell.
+In this QuickStart, you learn how to enable and remove MSI for an Azure Windows VM, using PowerShell.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 
 A new MSI-enabled Windows Virtual Machine resource is created in a new resource group, using the specified configuration parameters. Also note that many these cmdlets can run 30 seconds or more before returning, with the final VM creation taking several minutes to complete.
 
-1. Sign in to Azure using [Login-AzureRmAccount](/powershell/module/azurerm.resources/Add-AzureRmAccount). Use an account that is associated with the Azure subscription under which you would like to deploy the VM.
+1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription under which you would like to deploy the VM.
 
    ```powershell
    Login-AzureRmAccount
@@ -80,7 +80,7 @@ A new MSI-enabled Windows Virtual Machine resource is created in a new resource 
 
 4. Create the VM.
 
-   a. Create a configurable VM object. These settings are used when deploying the virtual machine, such as a virtual machine image, size, and authentication configuration. The `-IdentityType "SystemAssigned"` parameter used in the `New-AzureRmVMConfig` cmdlet causes the VM to be provisioned with an MSI. The `Get-Credential` cmdlet prompts for credentials, which are configured as the user name and password for the virtual machine:
+   a. Create a configurable VM object. These settings are used when deploying the virtual machine, such as a virtual machine image, size, and authentication configuration. The `-IdentityType "SystemAssigned"` parameter used in the [New-AzureRmVMConfig](powershell/module/azurerm.compute/new-azurermvm.md) cmdlet causes the VM to be provisioned with an MSI. The `Get-Credential` cmdlet prompts for credentials, which are configured as the user name and password for the virtual machine:
 
    ```powershell
    # Define a credential object (prompts for user/password to be used for VM authentication)
@@ -96,7 +96,7 @@ A new MSI-enabled Windows Virtual Machine resource is created in a new resource 
    New-AzureRmVM -ResourceGroupName myResourceGroup -Location WestUS -VM $vmConfig
    ```
 
-5. Add the MSI VM extension using the `-Type "ManagedIdentityExtensionForWindows"` parameter on the `Set-AzureRmVMExtension` cmdlet. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
+5. Add the MSI VM extension using the `-Type "ManagedIdentityExtensionForWindows"` parameter on the [Set-AzureRmVMExtension](powershell/module/azurerm.compute/set-azurermvmextension.md) cmdlet. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -107,20 +107,20 @@ A new MSI-enabled Windows Virtual Machine resource is created in a new resource 
 
 If you need to enable MSI on an existing Virtual Machine:
 
-1. Sign in to Azure using [Login-AzureRmAccount](/powershell/module/azurerm.profile/Add-AzureRmAccount). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-2. First retrieve the VM properties using the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) cmdlet. Then to enable MSI, use the `-IdentityType` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to enable MSI, use the `-IdentityType` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm.md) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
    ```
 
-3. As with creation of a new VM, now add the MSI VM extension to the existing VM, specifying the port used by the OAuth token endpoint. Be sure to specify the correct `-Location` parameter, matching the location of the existing VM:
+3. Add the MSI VM extension using the `-Type "ManagedIdentityExtensionForWindows"` parameter on the [Set-AzureRmVMExtension](powershell/module/azurerm.compute/set-azurermvmextension.md) cmdlet. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Be sure to specify the correct `-Location` parameter, matching the location of the existing VM:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -129,9 +129,9 @@ If you need to enable MSI on an existing Virtual Machine:
 
 ## Remove MSI from an Azure VM
 
-If you have a Virtual Machine that no longer needs an MSI:
+If you have a Virtual Machine that no longer needs an MSI, you can use the `RemoveAzureRmVMExtension` cmdlet to remove MSI from the VM:
 
-1. Use the `-Name "ManagedIdentityExtensionForWindows"` switch with the [Remove-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmextension?view=azurermps-4.3.1) cmdlet:
+1. Use the `-Name "ManagedIdentityExtensionForWindows"` switch with the [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension.md) cmdlet:
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
