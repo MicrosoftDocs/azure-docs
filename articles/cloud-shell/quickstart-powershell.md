@@ -78,7 +78,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     Demo       northcentralus  Succeeded         Standard_F1    WindowsServer 2016-Datacenter latest    AdminUser     demo219
     ```
 
-> Note: You may notice that the second time when you type `dir`, the PowerShell console is able to display the items much faster.
+> Note: You may notice that the second time when you type `dir`, PowerShell is able to display the items much faster.
 This is because the child items are cached in memory for a better user experience.
 However, you can always use `dir -force` to get fresh data.
 
@@ -193,7 +193,7 @@ For how to create a profile, refer to [About Profiles][profile].
 
 To see examples of running `az cli` commands, follow the [Azure Cloud Shell quickstart][bashqs].
 
-## Exit the console
+## Exit the shell
 
 Type `exit` to close the session.
 
