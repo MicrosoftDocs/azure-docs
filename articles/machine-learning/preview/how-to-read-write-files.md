@@ -27,7 +27,7 @@ More concretely, if your script creates a sub folder, or writes out a file, you 
 
 ### Dealing with large files in project folder
 
-If your project folder contains any large files, your will incur latency when the project folder is copied to the target compute environment at the beginning of each execution. Even if the execution happens locally, it is still unecessary disk traffic that should be avoided. This is why we currently cap the maximum project size limit at 25 MB right now.
+If your project folder contains any large files, your incur latency when the project folder is copied to the target compute environment at the beginning of each execution. Even if the execution happens locally, it is still unecessary disk traffic that should be avoided. This is why we currently cap the maximum project size limit at 25 MB right now.
 
 ## Option 1: Use the **Outputs** Folder
 This is the preferred option if your script produces files, and you expect these files change with every experiment run, and you want to keep a history of these files. The common use case is that if you train a model, or create a dataset, or plot a graph as an image file as part of your model training execution. And you want to compare these outputs across runs, and you want go back and select an output file (such as a model) produced by a previous run, and use it for a subsequent task (such as scoring).
