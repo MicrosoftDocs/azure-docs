@@ -20,7 +20,7 @@ ms.author: bryanla
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this QuickStart, you learn how to enable and remove MSI for an Azure Windows VM, using PowerShell.
+In this article, you learn how to enable and remove MSI for an Azure Windows VM, using PowerShell.
 
 ## Prerequisites
 

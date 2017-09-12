@@ -29,14 +29,14 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
    ```powershell
    Login-AzureRmAccount
    ```
-2. In this example, we are giving an Azure VM access to a storage account. First we use [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) to get the service principal for the VM, which was created when we enabled MSI. Then, we use [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) to give the VM "Reader" access to a storage account. 
+2. In this example, we are giving an Azure VM access to a storage account. First we use [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) to get the service principal for the VM named "myVM", which was created when we enabled MSI. Then, we use [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) to give the VM "Reader" access to a storage account called "myStorageAcct":
 
     ```powershell
-    (Get-AzureRMVM -ResourceGroupName myRG -Name windowsvm0).identity.principalid
-    New-AzureRmRoleAssignment -ObjectId <from above cmd> -RoleDefinitionName Reader -Scope /subscriptions/<subscriptionID>/resourceGroups/myRG
+    $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
+    New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
-## Troubleshooting
+### Troubleshooting
 
 If the MSI for the resource does not show up in the list of available identities, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 
