@@ -12,6 +12,7 @@ ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
 ---
+
 # How do I browse metrics for my resources in Azure Portal
 
 Metrics for many resources can be visualized through the Azure Portal. This method provides a browser-based user interface to discover and plot metrics for Azure resources. This Quickstart steps through creating a Logic App, creating a job, and visualizing the metrics for the logic app.
