@@ -1,5 +1,5 @@
 ---
-title: Azure How to - Use different HSM with DPS Client SDK | Microsoft Docs
+title: Azure How to - Use different HSM with the Device Provisioning Service Client SDK | Microsoft Docs
 description: Azure How to - Use different HSM with physical devices and simulators with Device Provisioning Service Client SDK
 services: iot-dps 
 keywords: 
@@ -16,11 +16,11 @@ ms.custom: mvc
 ---
 
 # How to use different Hardware Security Module with Device Provisioning Service Client SDK
-These steps show how to use different [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) with Device Provisioning Service (DPS) Client SDK in C using physical device and simulator.  DPS supports two authentication mode: X509 and Trusted Platform Module (TPM).
+These steps show how to use different [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) with Device Provisioning Service Client SDK in C using physical device and simulator.  DPS supports two authentication modes: X509 and Trusted Platform Module (TPM).
 
 ## Prerequisites
 
-Prepare your development environment according to the section titled "Prepare the development environment" in this [quickstart](./quick-create-simulated-device.md) guide.
+Prepare your development environment according to the section titled "Prepare the development environment" in the [Create and provision simulated device] (./quick-create-simulated-device.md) guide.
 
 ## Enable authentication with different HSM
 
