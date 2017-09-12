@@ -22,7 +22,7 @@
         {
             "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
             "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
-            "redirect_document_id": false                        
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
@@ -10283,12 +10283,12 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-device-registration-get-started.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-device-registration-faq.md",
             "redirect_url": "/azure/active-directory/device-management-faq",
@@ -10343,7 +10343,7 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-overview.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-windows10-devices-overview.md",
             "redirect_url": "/azure/active-directory/device-management-introduction",
@@ -10363,7 +10363,7 @@
             "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
             "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-passwords-get-insights.md",
             "redirect_url": "/azure/active-directory/active-directory-passwords-reporting",
@@ -10389,7 +10389,7 @@
             "redirect_url": "/azure/azure-functions/functions-openapi-definition",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/active-directory/active-directory-azureadjoin-user-frx.md",
             "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-frx",
             "redirect_document_id": false
@@ -10407,6 +10407,316 @@
         {
             "source_path": "articles/batch/batch-cli-samples.md",
             "redirect_url": "/azure/batch/batch-cli-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/automation-manage-remote-app.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-ad.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-anyapp.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-appreqs.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-apptrouble.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-appv.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bandwidth.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bandwidthexperience.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bandwidthguidelines.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bandwidthtests.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-bestpractices.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-billing.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-changetenant.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-clientbestpractices.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-clients.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-cloudtrouble.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-collections.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-create-cloud-deployment.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-create-custom-image.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-create-hybrid-deployment.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-datastorage.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-faq.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-freetrial.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-hybridtrouble.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-image-on-azurevm.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-imageoptions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-imagereqs.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-images.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-licensing.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migrate.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migrate-citrix.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migrate-mycloudit.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migratevnet.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-migrationoptions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-o365.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-o365user.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-officesubscription.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-onedrive.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-outlook.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-perapp.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-planvnet.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-ports.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-publish.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-quickbooks.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-redirection.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-retirement.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-roadmap.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-secure.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-secureaccess.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-sql.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-threeminutes.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-tutorial-arawithpowershell.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-tutorial-o365anywhere.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-upd.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-update.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-uploadimage.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-usbredir.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-user.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-vnet.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-vnetsizing.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-whatis.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/remoteapp/remoteapp-whatsnew.md",
+            "redirect_url": "/azure",
             "redirect_document_id": false
         },
         {
@@ -10475,8 +10785,148 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/event-grid/resize-images-on-storage-blob-upload-event.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-event-quickstart",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-project-properties.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-project-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-role-properties.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-role-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-service-endpoints.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-service-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-azure-storage-account-list.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-azure-storage-account-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-deploying-large-deployments.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-deploying-large-deployments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-enable-session-affinity.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-enable-session-affinity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-installation.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-installation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-redis-caches-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-publish-as-docker-container.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-publish-as-docker-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-publish-spring-boot-docker-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-sign-in-instructions.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-eclipse-whats-new.md",
+            "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse-whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-hello-world-web-app-linux.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-installation.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-installation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-redis-caches-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-publish-as-docker-container.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-publish-as-docker-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-publish-spring-boot-docker-app.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-publish-spring-boot-docker-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-sign-in-instructions.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-toolkit-for-intellij-whats-new.md",
+            "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-whats-new",
             "redirect_document_id": false
         }
     ]
