@@ -96,7 +96,7 @@ Only URL-safe characters can appear in an Azure Search document key (because cus
 ```
 
 ### Sample use case
-You want to build a user interface around your Search service and make Lookup API calls using JavaScript. A source document with key `00>00?00` will be added to the index with key `MDA-MDA_MDA`. When looking up the document, you must use `MDA-MDA_MDA` as the document key.
+You want to build a user interface around your Search service and make Lookup API calls using JavaScript. A source document with key `00>00?00` is added to the index by the indexer with key `MDA-MDA_MDA`. When looking up the document, you must use `MDA-MDA_MDA` as the document key.
 
 ### Example
 ```JSON
@@ -109,7 +109,7 @@ You want to build a user interface around your Search service and make Lookup AP
   }]
 ```
 
-If you don't need to lookup documents by keys and also don't need to decode the encoded content, you can just leave out `parameters` for the mapping function, which defaults `useHttpServerUtilityUrlTokenEncode` to `true`. Otherwise, see [base64 details](#base64details) section below to decide which settings to use.
+If you don't need to look up documents by keys and also don't need to decode the encoded content, you can just leave out `parameters` for the mapping function, which defaults `useHttpServerUtilityUrlTokenEncode` to `true`. Otherwise, see [base64 details](#base64details) section to decide which settings to use.
 
 <a name="base64DecodeFunction"></a>
 
@@ -130,7 +130,7 @@ Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding t
   }]
 ```
 
-If you don't specify any `parameters`, then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`. See [base64 details](#base64details) section below to decide which settings to use.
+If you don't specify any `parameters`, then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`. See [base64 details](#base64details) section to decide which settings to use.
 
 <a name="extractTokenAtPositionFunction"></a>
 
@@ -183,9 +183,9 @@ Azure SQL database doesn't have a built-in data type that naturally maps to `Col
 <a name="base64details"></a>
 
 ## Details of base64 encoding and decoding
-Azure Search supports two base64 encodings: HttpServerUtility URL token and URL-safe base64 encoding without padding. You need to know how to simulate `base64Encode` and `base64Decode` if you want to encode a document key for lookup, encode a value to be decoded by the indexer, or decode a field encoded by the indexer.
+This section describes the output of `base64Encode` and input of `base64Decode`. You need to simulate the mapping functions if you want to encode a document key for look up, encode a value to be decoded by the indexer, or decode a field encoded by the indexer. Azure Search supports two base64 encodings: HttpServerUtility URL token and URL-safe base64 encoding without padding.
 
-If you use the .NET Framework, you can set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `true`, for encoding and decoding respectively. Then `base64Encode` will behave like [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) and `base64Decode` will behave like [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+If you use the .NET Framework, you can set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `true`, for encoding and decoding respectively. Then `base64Encode` behaves like [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) and `base64Decode` behaves like [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
 If you are not using the .NET Framework (for example JavaScript or Python), then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, you may need additional processing of your base64 encode function output and base64 decode function input to be compatible with the `mappingFunction`.
 
