@@ -61,10 +61,12 @@
 ## Use Spark for in-memory processing
 ### Get started - Spark developer
 #### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
-#### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md) 
+#### [Use an interactive Spark Shell](hdinsight-spark-shell.md)
+#### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Create apps using Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Create apps using IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [What is Spark Streaming?](hdinsight-spark-streaming-overview.md)
 ### [Process streaming events](hdinsight-apache-spark-eventhub-streaming.md)
 ### [Predict HVAC performance](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -189,6 +191,10 @@
 ### [Availability and reliability ](hdinsight-high-availability-linux.md)
 ### [Upgrade HDInsight cluster to newer version](hdinsight-upgrade-cluster.md)
 ### [OS patching for HDInsight cluster](hdinsight-os-patching.md)
+## Monitor
+### [Use Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+### [Cluster-specific dashboards](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
+### [Use queries with Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 ## [Troubleshoot](hdinsight-troubleshoot-guide.md)
 ### [HBASE troubleshooting](hdinsight-troubleshoot-hbase.md)
 ### [HDFS troubleshooting](hdinsight-troubleshoot-hdfs.md)

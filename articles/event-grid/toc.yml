@@ -12,8 +12,6 @@
   items:
   - name: Monitor VM changes with logic apps
     href: monitor-virtual-machine-changes-event-grid-logic-app.md
-  - name: Resize uploaded images
-    href: resize-images-on-storage-blob-upload-event.md
 - name: Concepts
   items:
   - name: Event Grid concepts
@@ -30,6 +28,8 @@
     href: event-grid-event-hubs-integration.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/eventgrid
   - name: REST
     href: /rest/api/eventgrid
   - name: Subscription schema
