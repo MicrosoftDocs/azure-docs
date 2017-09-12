@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/05/2017
 ms.author: magoedte
 ---
 
@@ -79,7 +79,7 @@ mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. In
 docker-cimprov | 1.0.0 | Docker provider for OMI. Installed if Docker is detected.
 
 ### Compatibility with System Center Operations Manager
-The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. If you install the OMS Agent for Linux on a system currently managed by Operations Manager, it the OMI and SCX packages on the computer to a newer version. In this release, the OMS and System Center 2016 - Operations Manager/Operations Manager 2012 R2 agents for Linux are compatible. 
+The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. If you install the OMS Agent for Linux on a system currently managed by Operations Manager, it upgrades the OMI and SCX packages on the computer to a newer version. In this release, the OMS and System Center 2016 - Operations Manager/Operations Manager 2012 R2 agents for Linux are compatible. 
 
 > [!NOTE]
 > System Center 2012 SP1 and earlier versions are currently not compatible or supported with the OMS Agent for Linux.<br>
@@ -270,7 +270,7 @@ The agent packages can be uninstalled by running the bundle .sh file with the `-
 ### Issue: You see a 500 and 404 error in the log file right after onboarding
 This is a known issue that occurs on first upload of Linux data into an OMS workspace. This does not affect data being sent or service experience.
 
-### Issue:  You are not seeing any data in the OMS portal
+### Issue: You are not seeing any data in the OMS portal
 
 #### Probable causes
 
@@ -286,4 +286,4 @@ This is a known issue that occurs on first upload of Linux data into an OMS work
 
     >[!NOTE]
     >This issue is fixed in agent version 1.1.0-28 and later.
-> 
+

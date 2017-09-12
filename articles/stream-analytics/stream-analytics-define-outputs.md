@@ -52,7 +52,7 @@ The table below lists the property names and their description needed for creati
 <td>The name of the Data Lake Storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
 </tr>
 <tr>
-<td>Path Prefix Pattern [<I>optional</I>]</td>
+<td>Path Prefix Pattern</td>
 <td>The file path used to write your files within the specified Data Lake Store Account. <BR>{date}, {time}<BR>Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}</td>
 </tr>
 <tr>
@@ -298,7 +298,7 @@ The table below lists the property names and their description for creating a ta
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 
 ## Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed, multi-model database service that offers limitless elastic scale around the globe, rich query and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs.
 
 The below list details the property names and their description for creating an Azure Cosmos DB output.
 

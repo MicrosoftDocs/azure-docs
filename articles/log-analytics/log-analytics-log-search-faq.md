@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 
 ---
@@ -29,6 +29,9 @@ No, your alert rules are automatically converted to the new search language duri
 
 
 ## Computer groups
+
+### Question: I'm getting errors when trying to use computer groups.  Has their syntax changed?
+Yes, the syntax for using computer groups changes when your workspace is upgraded.  See [Computer groups in Log Analytics log searches](log-analytics-computer-groups.md) for details.
 
 ### Known issue: Groups imported from Active Directory
 You cannot currently create a query that uses a computer group imported from Active Directory.  As a workaround until this issue is corrected, create a new computer group using the imported Active Directory group and then use that new group in your query.
@@ -61,7 +64,7 @@ Prior to upgrade, when you selected a value in a chart, it would return a detail
 ## Log Search API
 
 ### Question: Does the Log Search API get updated after I upgrade?
-The [Log Search API](log-analytics-log-search-api.md) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this API, even after you upgrade your workspace.  Updated documentation will become available for the Log Search API when it's updated.
+The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work when you upgraded your workspace.  See [Azure Log Analytics REST API](https://dev.loganalytics.io/) for details on the new API.
 
 
 ## Portals

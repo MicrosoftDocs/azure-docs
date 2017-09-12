@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
+ms.custom: mvc
 ---
 
 # Export/Copy managed snapshots as VHD to a storage account in different region with CLI
@@ -38,8 +39,8 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 
 | Command | Notes |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#grant-access) | Generates read-only SAS that is used to copy underlying VHD file to a storage account or download it to on-premises  |
-| [az storage blob copy start](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#start) | Copies a blob asynchronously from one storage account to another |
+| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_grant_access) | Generates read-only SAS that is used to copy underlying VHD file to a storage account or download it to on-premises  |
+| [az storage blob copy start](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Copies a blob asynchronously from one storage account to another |
 
 ## Next steps
 

@@ -21,7 +21,7 @@ ms.author: bwren
 
 Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It shows you detailed profiles of live requests that were served by your app, and highlights the 'hot path' that is using the most time. It automatically selects examples that have different response times. The profiler uses various techniques to minimize overhead.
 
-The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier. 
+The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier.
 
 <a id="installation"></a>
 ## Enable the profiler
@@ -56,16 +56,21 @@ If you use WebDeploy to deploy changes to your web application, ensure that you 
 
 ### Using profiler with Azure VMs and Compute resources (preview)
 
-When you [enable Application Insights for Azure app services at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatically available. (If you already enabled Application Insights for the resource, you might need to update to the lates version through the **Configure** wizard.)
+When you [enable Application Insights for Azure app services at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatically available. (If you already enabled Application Insights for the resource, you might need to update to the latest version through the **Configure** wizard.)
 
 There is a [preview version of the Profiler for Azure Compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## Limits
+## Limitations
 
 The default data retention is 5 days. Maximum 10 GB ingested per day.
 
 There is no charge for the profiler service. Your web app must be hosted in at least the Basic tier of App Services.
+
+## Overhead and sampling algorithm
+
+The Profiler randomly runs 2 minutes every hour on each Virtual Machine that hosts the application with Profiler enabled to capture traces. When the Profiler is running, it adds 15% overhead to the throughput of the server.
+The sampling algorithm is the same for all hosting services on Azure, though the more servers available for hosting the application, the less impact Profiler has on the overall application performance. This is because more servers will be available serving the web requests while one of the servers is having overhead from the Profiler.
 
 ## Viewing profiler data
 

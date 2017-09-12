@@ -122,7 +122,7 @@ The default timestamp of Blob storage events in Stream Analytics is the timestam
 CSV-formatted inputs *require* a header row to define fields for the data set. In addition, all header row fields must be unique.
 
 > [!NOTE]
-> Stream Analytics does not support adding content to an existing blob. Stream Analytics will view a blob only once, and any changes that occur in the blob after the job has read the data are not processed. A best practice is to upload all the data once and then not add events to that blob store.
+> Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 > 
 
 ### Configure Blob storage as a data stream input

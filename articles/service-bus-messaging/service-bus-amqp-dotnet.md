@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 08/28/2017
 ms.author: sethm
 
 ---
@@ -47,7 +47,7 @@ The value of the `Microsoft.ServiceBus.ConnectionString` setting is the Service 
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-Where `[namespace]` and `SharedAccessKey` are obtained from the [Azure portal][Azure portal] when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal].
+Where `namespace` and `SAS key` are obtained from the [Azure portal][Azure portal] when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal].
 
 When using AMQP, append the connection string with `;TransportType=Amqp`. This notation instructs the client library to make its connection to Service Bus using AMQP 1.0.
 
@@ -120,7 +120,7 @@ The [.NET APIs](/dotnet/api/) expose several settings to control the behavior of
 Ready to learn more? Visit the following links:
 
 * [Service Bus AMQP overview]
-* [AMQP 1.0 support for Service Bus partitioned queues and topics]
+* [AMQP 1.0 protocol guide]
 * [AMQP in Service Bus for Windows Server]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
@@ -131,5 +131,5 @@ Ready to learn more? Visit the following links:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

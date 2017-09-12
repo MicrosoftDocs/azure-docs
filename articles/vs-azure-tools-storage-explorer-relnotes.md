@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: storage
 ms.devlang: multiple
-ms.topic: release-notes
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017

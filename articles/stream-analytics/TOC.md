@@ -13,6 +13,7 @@
 ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
