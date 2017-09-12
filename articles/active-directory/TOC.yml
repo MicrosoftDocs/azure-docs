@@ -50,13 +50,13 @@
     - name: Use VM MSI to access Azure Resource Manager
       items:
       - name: Windows
-        href: active-directory-msi-overview.md
+        href: active-directory-msi-tutorial-windows-vm-access-arm.md
       - name: Linux
-        href: active-directory-msi-overview.md
+        href: active-directory-msi-tutorial-linux-vm-access-arm.md
     - name: Use VM MSI to access Azure storage
-      href: active-directory-msi-overview.md
+      href: active-directory-msi-tutorial-vm-access-storage.md
     - name: Use VM MSI to access non-AAD resource
-      href: active-directory-msi-overview.md
+      href: active-directory-msi-tutorial-vm-access-nonaad.md
   - name: Howto
     items:
     - name: Assign an MSI access to an Azure resource - Portal
