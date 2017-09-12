@@ -17,7 +17,7 @@ ms.search.scope:
 ms.search.validFrom:
 ms.dyn365.ops.version:
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: mcollier
 
 ---
@@ -26,7 +26,7 @@ This article shows you how to perform authentication so your code can use the [M
 
 The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions, granularity, and metric values. The data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there additional analysis can be performed as needed.
 
-Besides working with various metric data points, as this article demonstrates, the Monitor API makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Besides working with various metric data points, the Monitor API also makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 ## Authenticating Azure Monitor Requests
 The first step is to authenticate the request.
@@ -111,7 +111,7 @@ Invoke-RestMethod -Uri $request `
 >
 >
 
-The resulting JSON response body would be similar to the following:
+The resulting JSON response body would be similar to the following example:
 ```JSON
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
@@ -176,7 +176,7 @@ Invoke-RestMethod -Uri $request `
     -Verbose
 ```
 
-The resulting JSON response body would be similar to the following:
+The resulting JSON response body would be similar to the following example:
 
 ```JSON
 {
@@ -223,7 +223,7 @@ Invoke-RestMethod -Uri $request `
     -OutFile ".\contostweets-metrics-multiple-results.json" `
     -Verbose
 ```
-The resulting JSON response body would be similar to the following:
+The resulting JSON response body would be similar to the following example:
 
 ```JSON
 {
@@ -275,14 +275,18 @@ The resulting JSON response body would be similar to the following:
 ```
 
 ### Use ARMClient
-An additional approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline use of ARMClient for retrieving metric data:
+An additional approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline the use of ARMClient for retrieving metric data:
 
 1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/armclient).
 2. In a terminal window, type *armclient.exe login*. Doing so prompts you to log in to Azure.
 3. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
 4. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
 
-![Alt "Using ARMClient to work with the Azure Monitoring REST API"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
+For example, in order to retrieve the metric definitions for a specific Logic App, issue the following command:
+```
+armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
+```
+
 
 ## Retrieve the Resource ID
 Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information is helpful when using the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
@@ -297,7 +301,7 @@ The following list contains a few examples of resource ID formats for various Az
 * **Elastic SQL Pool** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
 * **SQL Database (v12)** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{server-name}*/databases/*{database-name}*
 * **Service Bus** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{servicebus-name}*
-* **VM Scale Sets** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
+* **Virtual machine scale sets** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
 * **VMs** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
 * **Event Hubs** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-namespace}*
 
@@ -320,7 +324,7 @@ The resource ID can be retrieved using Azure PowerShell cmdlets as well. For exa
 Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
-The result should be similar to the following:
+The result should be similar to the following example:
 ```
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
@@ -347,7 +351,7 @@ To retrieve the resource ID for an Azure Storage account using the Azure CLI, ex
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
-The result should be similar to the following:
+The result should be similar to the following example:
 ```JSON
 {
   "accessTier": null,
