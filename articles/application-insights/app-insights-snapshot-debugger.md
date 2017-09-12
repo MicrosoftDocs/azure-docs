@@ -3,7 +3,7 @@ title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Do
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
 documentationcenter: ''
-author: qubitron
+author: pharring
 manager: carmonm
 
 ms.service: application-insights
