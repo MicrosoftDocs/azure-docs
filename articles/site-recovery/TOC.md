@@ -13,7 +13,7 @@
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Get Started
-## [Replicate Azure VMs (preview)](site-recovery-azure-to-azure.md)
+## [Replicate Azure VMs to Azure (preview)](site-recovery-azure-to-azure.md)
 ## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
 ### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](vmware-walkthrough-prerequisites.md)
@@ -39,7 +39,19 @@
 ### [Step 9: Create a replication policy](hyper-v-site-walkthrough-replication.md)
 ### [Step 10: Enable replication](hyper-v-site-walkthrough-enable-replication.md)
 ### [Step 11: Run a test failover](hyper-v-site-walkthrough-test-failover.md)
-## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
+## [Replicate Hyper-V VMs to Azure (with VMM)](vmm-to-azure-walkthrough-overview.md)
+### [Step 1: Review the architecture](vmm-to-azure-walkthrough-architecture.md)
+### [Step 2: Review prerequisites and limitations](vmm-to-azure-walkthrough-prerequisites.md)
+### [Step 3: Plan capacity](vmm-to-azure-walkthrough-capacity.md)
+### [Step 4: Plan networking](vmm-to-azure-walkthrough-network.md)
+### [Step 5: Prepare Azure](vmm-to-azure-walkthrough-prepare-azure.md)
+### [Step 6: Prepare VMM and Hyper-V](vmm-to-azure-walkthrough-vmm-hyper-v.md)
+### [Step 7: Create a vault](vmm-to-azure-walkthrough-create-vault.md)
+### [Step 8: Set up the source and target](vmm-to-azure-walkthrough-source-target.md)
+### [Step 9: Configure network mapping](vmm-to-azure-walkthrough-network-mapping.md)
+### [Step 10: Create a replication policy](vmm-to-azure-walkthrough-replication.md)
+### [Step 11: Enable replication](vmm-to-azure-walkthrough-enable-replication.md)
+### [Step 12: Run a test failover](vmm-to-azure-walkthrough-test-failover.md)
 ## [Replicate physical servers to Azure](physical-walkthrough-overview.md)
 ### [Step 1: Review the architecture](physical-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](physical-walkthrough-prerequisites.md)
@@ -108,7 +120,7 @@
 ### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
-### [SAP](site-recovery-workload.md#protect-sap)
+### [SAP](site-recovery-sap.md)
 ### [IIS based web applications](site-recovery-iis.md)
 ### [Citrix XenApp and XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Other workloads](site-recovery-workload.md#workload-summary)
@@ -117,6 +129,7 @@
 ### [Automate Hyper-V replication to Azure (with VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Manage
+### [Upgrade your Site Recovery vault to Recovery Services vault](upgrade-site-recovery-vaults.md)
 ### [Manage process servers in Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Manage the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
@@ -127,6 +140,8 @@
 ## Monitor and troubleshoot
 ### [Azure to Azure replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [On-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Mobility service installation issues](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Failover to Azure issues](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Collect logs and troubleshoot on-premises issues](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
@@ -143,4 +158,5 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=site-recovery)

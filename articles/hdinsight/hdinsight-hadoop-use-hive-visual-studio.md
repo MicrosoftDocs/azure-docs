@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 07/07/2017
 ms.author: larryfr
 
 ---
@@ -32,7 +32,7 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
 * Visual Studio (one of the following versions):
 
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate with Update 4
 
     * Visual Studio 2015 (any edition)
 

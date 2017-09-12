@@ -12,7 +12,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) with the following workloads:
+* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
   - **ASP.NET and web development**
   - **Azure development**
 

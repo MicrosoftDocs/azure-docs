@@ -32,6 +32,7 @@
 ### [Sign-up issues](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Declined card](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Sign-in issues](billing-cannot-login-subscription.md)
+### [No subscriptions found](billing-no-subscriptions-found.md)
 
 # Reference
 ## [API Overview](billing-usage-rate-card-overview.md)
@@ -44,3 +45,4 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Contact support](../azure-supportability/how-to-create-azure-support-request.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

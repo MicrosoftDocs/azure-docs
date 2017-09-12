@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/16/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ---
 
@@ -30,13 +30,13 @@ Azure Automation is a software as a service (SaaS) application that provides a s
 
 Runbooks that you run in Azure are executed on Automation sandboxes, which are hosted in Azure platform as a service (PaaS) virtual machines.  Automation sandboxes provide tenant isolation for all aspects of runbook execution – modules, storage, memory, network communication, job streams, etc. This role is managed by the service and is not accessible from your Azure or Azure Automation account for you to control.         
 
-To automate the deployment and management of resources in your local data center or other cloud services, after creating an Automation account, you can designate one or more machines to run the [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md)  role.  Each HRW requires the Microsoft Management Agent (MMA) with a connection to a Log Analytics workspace and an Automation account.  Log Analytics is used to bootstrap the installation, maintain the MMA agent, and monitor the functionality of the HRW.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
+To automate the deployment and management of resources in your local datacenter or other cloud services, after creating an Automation account, you can designate one or more machines to run the [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md)  role.  Each HRW requires the Microsoft Management Agent with a connection to a Log Analytics workspace and an Automation account.  Log Analytics is used to bootstrap the installation, maintain the Microsoft Management Agent, and monitor the functionality of the HRW.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
 
-You can deploy multiple HRW to provide high availability for your runbooks, load balance runbook jobs, and in some cases dedicate them for particular workloads or environments.  HRW communicates with the Automation service over TCP outbound port 443.  Once you have runbook running on an HRW within your datacenter, and you want the runbook to perform management tasks against other machines or services within the datacenter, then there may be other ports that the runbook needs access to.  If your IT security policies do not allow computers on your network to connect to the Internet, review the article [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md), which acts as a proxy for the HRW to collect job status and receive configuration information from your Automation account.
+You can deploy multiple HRW to provide high availability for your runbooks, load balance runbook jobs, and in some cases dedicate them for particular workloads or environments.  The Microsoft Monitoring Agent on the HRW initiates communication with the Automation service over TCP port 443 and there are no inbound firewall requirements.  Once you have runbook running on an HRW within the environment, and you want the runbook to perform management tasks against other machines or services within that environment, there may be other ports that the runbook needs access to.  If your IT security policies do not allow computers on your network to connect to the Internet, review the article [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md), which acts as a proxy for the HRW to collect job status and receive configuration information from your Automation account.
 
 Runbooks running on an HRW run in the context of the local System account on the computer, which is the recommended security context when performing administrative actions on the local Windows machine. If you want the runbook to run tasks against resources outside of the local machine, you may need to define secure credential assets in the Automation account that you can access from the runbook and use to authenticate with the external resource. You can use [Credential](automation-credentials.md), [Certificate](automation-certificates.md), and [Connection](automation-connections.md) assets in your runbook with cmdlets that allow you to specify credentials so you can authenticate them.
 
-DSC configurations stored in Azure Automation can be directly applied to Azure virtual machines. Other physical and virtual machines can request configurations from the Azure Automation DSC pull server.  For managing configurations of your on-premises physical or virtual Windows and Linux systems, you don't need to deploy any infrastructure to support the Automation DSC pull server, only outbound Internet access from each system to be managed by Automation DSC, communicating over TCP port 443 to the OMS service.   
+DSC configurations stored in Azure Automation can be directly applied to Azure virtual machines. Other physical and virtual machines can request configurations from the Azure Automation DSC pull server.  For managing configurations of your on-premise physical or virtual Windows and Linux systems, you don't need to deploy any infrastructure to support the Automation DSC pull server, only outbound Internet access from each system to be managed by Automation DSC, communicating over TCP port 443 to the OMS service.   
 
 ## Prerequisites
 
@@ -62,8 +62,8 @@ When designating a computer to run hybrid runbook jobs, this computer must have 
 ### Permissions required to create Automation account
 To create or update an Automation account, you must have the following specific privileges and permissions required to complete this topic.   
  
-* In order to create an Automation account, your AD user account needs to be added to a role with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
-* Non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) if the App registrations setting is set to **Yes**.  If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD. 
+* In order to create an Automation account, your AD user account needs to be added to a role with permissions equivalent to the Owner role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md).  
+* If the App registrations setting is set to **Yes**, non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD. 
 
 If you are not a member of the subscription’s Active Directory instance before you are added to the global administrator/co-administrator role of the subscription, you are added to Active Directory as a guest. In this situation, you receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 
@@ -79,6 +79,8 @@ All the automation tasks you perform against resources using the Azure cmdlets i
 * **Integration modules** - are PowerShell modules included with an Azure Automation account to make use of cmdlets within runbooks and DSC configurations.
 * **Schedules** - contains schedules that starts or stops a runbook at a specified time, including recurring frequencies.
 * **Variables** - contain values that are available from a runbook or DSC configuration.
+* **DSC Configurations** - are PowerShell scripts that describes how to configure an operating system feature or setting or install an application on a Windows or Linux computer.  
+* **Runbooks** - are a set of tasks that perform some automated process in Azure Automation based on Windows PowerShell.    
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage all the resources in your subscription. Create Automation accounts in different regions if you have policies that require data and resources to be isolated to a specific region.
 
@@ -163,8 +165,7 @@ The recommended method to onboard Automation is by selecting the Automation & Co
    - Specify a name for the new **OMS Workspace**.
    - Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
    - For **Resource Group**, you can create a resource group or select an existing resource group.  
-   - Select a **Location**.  Currently the only locations available are **Australia Southeast**, **East US**, **Southeast Asia**, **West Central US**, and **West Europe**.
-   - Select a **Pricing tier**.  The solution is offered in two tiers: free and Per Node (OMS) tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The Per Node (OMS) tier does not have a limit on the amount of data collected daily.  
+   - Select a **Location**.  For additional information, see which [regions Azure Automation is available in](https://azure.microsoft.com/regions/services/).  Solutions are offered in two tiers: free and Per Node (OMS) tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The Per Node (OMS) tier does not have a limit on the amount of data collected daily.  
    - Select **Automation Account**.  If you are creating a new OMS workspace, you are required to also create an Automation account that is associated with the new OMS workspace specified earlier, including your Azure subscription, resource group, and region.  You can select **Create an Automation account** and on the **Automation Account** blade, provide the following: 
   - In the **Name** field, enter the name of the Automation account.
 

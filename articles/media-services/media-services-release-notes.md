@@ -4,7 +4,7 @@ description: Media Services Release Notes
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/20/2017
 ms.author: juliako
 
 ---
@@ -40,6 +40,13 @@ These release notes summarize changes from previous releases and known issues.
 
 ## <a id="rest_version_history"></a>REST API Version History
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+## June 2017 Release
+
+Media Services now supports [Azure Active Directory (Azure AD)-based authentication](media-services-use-aad-auth-to-access-ams-api.md).
+
+> [!IMPORTANT]
+> Currently, Media Services supports the Azure Access Control service authentication model. However, Access Control authorization will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible.
 
 ## March 2017 Release
 

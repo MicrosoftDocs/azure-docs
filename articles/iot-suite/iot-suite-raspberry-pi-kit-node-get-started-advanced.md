@@ -13,7 +13,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
 
 ---
@@ -30,7 +30,6 @@ The tutorial uses:
 
 - Raspbian OS, the Node.js programming language, and the Microsoft Azure IoT SDK for Node.js to implement a sample device.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
-
 
 ## Overview
 
@@ -62,33 +61,44 @@ If you haven't done so already, install Node.js on your Raspberry Pi. The IoT SD
 
 1. Use the following command to update your Raspberry Pi:
 
-    `sudo apt-get update`
+    ```sh
+    sudo apt-get update
+    ```
 
 1. Use the following command to download the Node.js binaries to your Raspberry Pi:
 
-    `wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Use the following command to install the binaries:
 
-    `sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Use the following command to verify you have installed Node.js v6.10.2 successfully:
 
-    `node --version`
+    ```sh
+    node --version
+    ```
 
 ### Clone the repositories
 
 If you haven't done so already, clone the required repositories by running the following commands on your Pi:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git
+```
 
 ### Update the device connection string
 
 Open the sample configuration file in the **nano** editor using the following command:
 
-`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo`
+```sh
+nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo
+```
 
 Replace the placeholder values with the device id and IoT Hub information you created and saved at the start of this tutorial.
 
@@ -105,13 +115,16 @@ Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
 
 Run the following commands to install the prerequisite packages for the sample:
 
-`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0`
-
-`npm install`
+```sh
+cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0
+npm install
+```
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js`
+```sh
+sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js
+```
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 
@@ -127,7 +140,7 @@ Press **Ctrl-C** to exit the program at any time.
 
 1. On the **Invoke Method** page, choose **InitiateFirmwareUpdate** in the **Method** dropdown.
 
-1. In the **FWPackageURI** field, enter **https://raw.githubusercontent.com/IoTChinaTeam/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. This file contains the implementation of version 2.0 of the firmware.
+1. In the **FWPackageURI** field, enter **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. This file contains the implementation of version 2.0 of the firmware.
 
 1. Choose **InvokeMethod**. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard. It then starts the firmware update process by downloading the new version of the firmware:
 

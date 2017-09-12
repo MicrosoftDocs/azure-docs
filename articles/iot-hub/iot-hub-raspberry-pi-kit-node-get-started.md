@@ -4,7 +4,7 @@ description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Ra
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud'
 
@@ -31,9 +31,9 @@ Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-w
 
 ## What you do
 
-* Setup Raspberry Pi.
 * Create an IoT hub.
 * Register a device for Pi in your IoT hub.
+* Setup Raspberry Pi.
 * Run a sample application on Pi to send sensor data to your IoT hub.
 
 Connect Raspberry Pi to an IoT hub that you create. Then you run a sample application on Pi to collect temperature and humidity data from a BME280 sensor. Finally, you send the sensor data to your IoT hub.
@@ -78,7 +78,7 @@ These items are optional because the code sample support simulated sensor data.
 Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
-   1. [Download Raspbian Jessie with Pixel](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
+   1. [Download Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
    1. Extract the Raspbian image to a folder on your computer.
 1. Install Raspbian to the microSD card.
    1. [Download and install the Etcher SD card burner utility](https://etcher.io/).
@@ -104,7 +104,7 @@ To enable SSH and I2C, you can find more reference documents on [raspberrypi.org
 
 ### Connect the sensor to Pi
 
-Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, skip this section.
+Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](#connect-pi-to-the-network).
 
 ![The Raspberry Pi and sensor connection](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
@@ -116,8 +116,8 @@ For sensor pins, use the following wiring:
 | -----------------------  | ---------------------- | ------------: |
 | VDD (Pin 5G)             | 3.3V PWR (Pin 1)       | White cable   |
 | GND (Pin 7G)             | GND (Pin 6)            | Brown cable   |
-| SCK (Pin 8G)             | I2C1 SDA (Pin 3)       | Orange cable  |
-| SDI (Pin 10G)            | I2C1 SCL (Pin 5)       | Red cable     |
+| SDI (Pin 10G)            | I2C1 SDA (Pin 3)       | Red cable     |
+| SCK (Pin 8G)             | I2C1 SCL (Pin 5)       | Orange cable  |
 | LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | White cable   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Black cable   |
 
@@ -141,9 +141,16 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Clone sample application and install the prerequisite packages
 
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
-    - [PuTTY](http://www.putty.org/) for Windows. You need the IP address of your Pi to connect it via SSH.
-    - The built-in SSH client on Ubuntu or macOS. You might need run `ssh pi@<ip address of pi>` to connect Pi via SSH.
-
+   
+   **Windows Users**
+   1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
+   1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
+   
+   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   
+   **Mac and Ubuntu Users**
+   
+   Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
    > [!NOTE] 
    The default username is `pi` , and the password is `raspberry`.
 
@@ -175,7 +182,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    sudo npm install
    ```
    > [!NOTE] 
-   It might take several minutes to finish this installation process denpening on your network connection.
+   It might take several minutes to finish this installation process depending on your network connection.
 
 ### Configure the sample application
 
@@ -187,7 +194,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
    ![Config file](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
 
-   There are two items in this file you can configurate. The first one is `interval`, which defines the time interval between two messages that send to cloud. The second one `simulatedData`,which is a Boolean value for whether to use simulated sensor data or not.
+   There are two items in this file you can configurate. The first one is `interval`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `simulatedData`,which is a Boolean value for whether to use simulated sensor data or not.
 
    If you **don't have the sensor**, set the `simulatedData` value to `true` to make the sample application create and use simulated sensor data.
 
@@ -195,10 +202,10 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
 ### Run the sample application
 
-1. Run the sample application by running the following command:
+Run the sample application by running the following command:
 
    ```bash
-   sudo node index.js '<your Azure IoT hub device connection string>'
+   sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'
    ```
 
    > [!NOTE] 
@@ -211,6 +218,6 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub.
+You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi in a command line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

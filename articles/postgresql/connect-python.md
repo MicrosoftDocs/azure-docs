@@ -1,19 +1,20 @@
 ---
 title: 'Connect to Azure Database for PostgreSQL from Python | Microsoft Docs'
-description: Provides a Python code sample you can use to connect and query data from Azure Database for PostgreSQL.
+description: This quickstart provides a Python code sample that you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 07/07/2017
+ms.topic: quickstart
+ms.date: 08/15/2017
 ---
+
 # Azure Database for PostgreSQL: Use Python to connect and query data
-This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
+This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL. It also demonstrates how to use SQL statements to query, insert, update, and delete data in the database from macOS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -22,32 +23,46 @@ This quickstart uses the resources created in either of these guides as a starti
 
 You also need:
 - [python](https://www.python.org/downloads/) installed
-- [pip](https://pip.pypa.io/en/stable/installing/) package installed (pip is already installed if you're using Python 2 >=2.7.9 or Python 3 >=3.4 binaries downloaded from [python.org](https://python.org), but you need to upgrade pip.)
+- [pip](https://pip.pypa.io/en/stable/installing/) package installed (pip is already installed if you're working with Python 2 >=2.7.9 or Python 3 >=3.4 binaries downloaded from [python.org](https://python.org).
 
 ## Install the Python connection libraries for PostgreSQL
-Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, which enabled you to connect and query the database. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows), so you may use pip install to get the binary version of the module including all the dependencies:
+Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, which enables you to connect and query the database. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows). Use pip install to get the binary version of the module including all the dependencies.
 
-```cmd
-pip install psycopg2
-```
-Make sure to use an up-to-date version of pip (you can upgrade it using something like `pip install -U pip`)
+1. On your own computer, launch a command-line interface:
+    - On Linux, launch the Bash shell.
+    - On macOS, launch the Terminal.
+    - On Windows, launch the Command Prompt from the Start Menu.
+2. Ensure that you are using the most current version of pip by running a command such as:
+    ```cmd
+    pip install -U pip
+    ```
+
+3. Run the following command to install the psycopg2 package:
+    ```cmd
+    pip install psycopg2
+    ```
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
+2. From the left-hand menu in Azure portal, click **All resources** and search for **mypgserver-20170401** (the server you just created).
 3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
+4. Select the server's **Overview** page, and then make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-python/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
-## Run Python code
-- Using your favorite text editor, create a new file called postgres.py in a folder. Copy and paste the one of the code blocks inside it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
-- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then, type the python command followed by the file name, such as `python postgresql.py`.
+## How to run Python code
+This topic contains a total of four code samples, each of which performs a specific function. The following instructions indicate how to create a text file, insert a code block, and then save the file so that you can run it later. Be sure to create four separate files, one for each code block.
+
+- Using your favorite text editor, create a new file.
+- Copy and paste one of the code samples in the following sections into the text file. Replace the **host**, **dbname**, **user**, and **password** parameters with the values that you specified when you created the server and database.
+- Save the file with the .py extension (for example postgres.py) into your project folder. If you are running the Windows OS, be sure to select UTF-8 encoding when saving the file. 
+- Launch the Command Prompt or Bash shell and then change the directory to your project folder, for example `cd postgres`.
+-  To run the code, type the Python command followed by the file name, for example `Python postgres.py`.
 
 > [!NOTE]
-> Starting in Python version 3, you may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the code blocks below. If that happens, replace each call to the command `print "string"` with a function call using parenthesis, such as `print("string")`.
+> Starting in Python version 3, you may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the following code blocks. If that happens, replace each call to the command `print "string"` with a function call using parenthesis, such as `print("string")`.
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function with **INSERT** SQL statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function is used to execute the SQL query against PostgreSQL database. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
@@ -88,6 +103,10 @@ conn.commit()
 cursor.close()
 conn.close()
 ```
+
+After the code runs successfully, the output appears as follows:
+
+![Command line output](media/connect-python/2-example-python-output.png)
 
 ## Read data
 Use the following code to read the data inserted using [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function with **SELECT** SQL statement. This function accepts a query and returns a result set that can be iterated over with the use of [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.

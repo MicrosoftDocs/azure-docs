@@ -6,11 +6,11 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 07/10/2017
+ms.topic: quickstart
+ms.date: 07/12/2017
 ---
 # Azure Database for MySQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. It uses SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for MySQL.
@@ -24,29 +24,29 @@ This quickstart uses the resources created in either of these guides as a starti
 Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. Depending on your platform, follow the steps:
 
 ### Windows
-- Download and Install Python 2.7 from [python.org](https://www.python.org/downloads/windows/). 
-- Check the Python installation by launching the command prompt. Run the command `C:\python27\python.exe -V` using the uppercase V switch to see the version number.
-- Install the Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/) corresponding to your version of Python.
+1. Download and Install Python 2.7 from [python.org](https://www.python.org/downloads/windows/). 
+2. Check the Python installation by launching the command prompt. Run the command `C:\python27\python.exe -V` using the uppercase V switch to see the version number.
+3. Install the Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/) corresponding to your version of Python.
 
 ### Linux (Ubuntu)
-- In Linux (Ubuntu), Python is typically installed as part of the default installation.
-- Check the Python installation by launching the bash shell. Run the command `python -V` using the uppercase V switch to see the version number.
-- Check the PIP installation by running the `pip show pip -V` command to see the version number. 
-- PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP] (https://pip.pypa.io/en/stable/installing/) package, by running command `sudo apt-get install python-pip`.
-- Update PIP to the latest version, by running the `pip install -U pip` command.
-- Install the MySQL connector for Python, and its dependencies by using the PIP command:
+1. In Linux (Ubuntu), Python is typically installed as part of the default installation.
+2. Check the Python installation by launching the bash shell. Run the command `python -V` using the uppercase V switch to see the version number.
+3. Check the PIP installation by running the `pip show pip -V` command to see the version number. 
+4. PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP] (https://pip.pypa.io/en/stable/installing/) package, by running command `sudo apt-get install python-pip`.
+5. Update PIP to the latest version, by running the `pip install -U pip` command.
+6. Install the MySQL connector for Python, and its dependencies by using the PIP command:
 
    ```bash
    sudo pip install mysql-connector-python-rf
    ```
  
 ### MacOS
-- In Mac OS, Python is typically installed as part of the default OS installation.
-- Check the Python installation by launching the bash shell. Run the command `python -V` using the uppercase V switch to see the version number.
-- Check the PIP installation by running the `pip show pip -V` command to see the version number.
-- PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package.
-- Update PIP to the latest version, by running the `pip install -U pip` command.
-- Install the MySQL connector for Python, and its dependencies by using the PIP command:
+1. In Mac OS, Python is typically installed as part of the default OS installation.
+2. Check the Python installation by launching the bash shell. Run the command `python -V` using the uppercase V switch to see the version number.
+3. Check the PIP installation by running the `pip show pip -V` command to see the version number.
+4. PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package.
+5. Update PIP to the latest version, by running the `pip install -U pip` command.
+6. Install the MySQL connector for Python, and its dependencies by using the PIP command:
 
    ```bash
    pip install mysql-connector-python-rf

@@ -1,6 +1,6 @@
 # Overview
 ## [About virtual machines](../../virtual-machines-windows-about.md)
-## [Disks and VHDs](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Disks and VHDs](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtual Networks](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
 ## [Compare VMs, websites, and cloud services](../../../app-service-web/choose-web-site-cloud-service-vm.md)
@@ -43,6 +43,7 @@
 ### [Install and configure Trend Micro Deep Security as a Service](install-trend.md)
 ### [Configure an availability set](configure-availability.md)
 ### [Resize a Windows VM created in the classic deployment model](resize-vm.md)
+### [Maintenance](planned-maintenance-schedule.md)
 
 ## Manage
 ### [Migrate from Classic to Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -69,11 +70,7 @@
 #### [Submit jobs from on-premises to Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configure Oracle Data Guard for Azure](configure-oracle-data-guard.md)
-####[Configure Oracle GoldenGate for Azure](configure-oracle-goldengate.md)
-####[Miscellaneous considerations for images](oracle-considerations.md)
-####[List of Oracle VM images](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
@@ -84,7 +81,8 @@
 ### [Access to an application](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Classic deployment issues with creating a new VM](troubleshoot-deployment-new-vm.md)
 ### [Classic deployment issues with restarting or resizing an existing VM](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Reset RDP password](reset-rdp.md)
+### [Reset RDP password](reset-rdp.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](/powershell/azure/overview)
@@ -98,8 +96,9 @@
 ## [Storage REST](/rest/api/storageservices)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

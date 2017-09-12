@@ -26,7 +26,7 @@ After reading this article, post any comments at the bottom, or ask technical qu
 
 ## Prepare hosts
 
-- Make sure that the Hyper-V hosts meet the [prerequisites](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager).
+- Make sure that the Hyper-V hosts meet the [prerequisites](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm).
 - Make sure that the hosts can access the required URLs:
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]

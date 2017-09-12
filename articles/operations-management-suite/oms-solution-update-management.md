@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 
 ---
@@ -60,10 +60,10 @@ At the date and time specified in the update deployment, the target computers ex
     > [!NOTE]
     > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
     >
-* CentOS 6 (x86/x64), and 7 (x64)
-* Red Hat Enterprise 6 (x86/x64), and 7 (x64)
-* SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)
-* Ubuntu 12.04 LTS and newer x86/x64  
+* CentOS 6 (x86/x64), and 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64), and 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)  
+* Ubuntu 12.04 LTS and newer x86/x64   
     > [!NOTE]  
     > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure  Unattended-Upgrade package to disable automatic updates. For information on how to configure this, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
@@ -74,6 +74,9 @@ At the date and time specified in the update deployment, the target computers ex
     >
 
 For additional information on how to install the OMS Agent for Linux and download the  latest version, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux).  For information on how to install the OMS Agent for Windows, review [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agents.md).  
+
+### Permissions
+In order to create update deployments, you need to be granted the contributor role in both your Automation account and Log Analytics workspace.  
 
 ## Solution components
 This solution consists of the following resources that are added to your Automation account and directly connected agents or Operations Manager connected management group.
@@ -151,7 +154,7 @@ When you add the Update Management solution to your OMS workspace, the **Update 
 ## Viewing update assessments
 Click on the **Update Management** tile to open the **Update Management** dashboard.<br><br> ![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
-This dashboard provides a detailed breakdown of update status categorized by type of operating system and update classification - critical, security, or other (such as a definition update). The **Update Deployments** tile when selected, redirects you to the Update Deployments page where you can view schedules, deployments currently running, completed deployments, or schedule a new deployment.  
+This dashboard provides a detailed breakdown of update status categorized by type of operating system and update classification - critical, security, or other (such as a definition update). The results in each tile on this dashboard reflect only updates that are approved for deployment, which is based based on the computers synchronization source.   The **Update Deployments** tile when selected, redirects you to the Update Deployments page where you can view schedules, deployments currently running, completed deployments, or schedule a new deployment.  
 
 You can run a log search that returns all records by clicking on the specific tile or to run a query of a particular category and pre-defined criteria , select one from the list  available under the **Common Update Queries** column.    
 
@@ -305,6 +308,17 @@ The following table provides sample log searches for update records collected by
 ## Troubleshooting
 
 This section provides information to help troubleshoot issues with the Update Management solution.  
+
+### How do I troubleshoot onboarding issues?
+If you encounter issues while attempting to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log for events with  event ID 4502 and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  The following table highlights specific error messages and a possible resolution for each.  
+
+| Message | Reason | Solution |   
+|----------|----------|----------|  
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
+| Unable to  Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br>System.Net.WebException: The underlying connection<br>was closed: An unexpected error<br>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br>The client and server cannot communicate,<br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](../automation/automation-offering-get-started.md#network-planning)|  
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](../automation/automation-offering-get-started.md#network-planning)| 
+| The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Please contact<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](../automation/automation-offering-get-started.md#network-planning)|  
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has<br>read access to folder:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### How do I troubleshoot update deployments?
 You can view the results of the runbook responsible for deploying the updates included in the scheduled update deployment from the Jobs blade of your Automation account that is linked with the OMS workspace supporting this solution.  The runbook **Patch-MicrosoftOMSComputer** is a child runbook that targets a specific managed computer, and reviewing the verbose Stream will present detailed information for that deployment.  The output will display which required updates are applicable, download status, installation status, and additional details.<br><br> ![Update Deployment job status](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>

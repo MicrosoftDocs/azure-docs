@@ -1,6 +1,6 @@
 ---
-title: Azure App Service Environment Readme
-description: Lists the documentation that describes the Azure App Service Environment
+title: Azure App Service Environment readme
+description: Lists the documentation that describes Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -16,26 +16,26 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ---
 
-# App Service Environment Documentation
-The App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale. This capability can host your [Web Apps][webapps], [Mobile Apps][mobileapps], [API Apps][APIApps], and [Functions][Functions].
+# App Service environment documentation
+ Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIApps], and [functions][Functions].
 
-App Service Environments are ideal for application workloads that require:
+App Service environments (ASEs) are ideal for application workloads that require:
 
-* Very high scale
-* Isolation and secure network access
+* Very high scale.
+* Isolation and secure network access.
 
-Customers can create multiple App Service Environments within a single Azure region, as well as across multiple Azure regions. This makes App Service Environments ideal for horizontally scaling state-less application tiers in support of high RPS workloads.
+Customers can create multiple ASEs within a single Azure region and across multiple Azure regions. This versatility makes ASEs ideal for horizontally scaling stateless application tiers in support of high RPS workloads.
 
-App Service Environments are isolated to running only a single customer's applications, and are always deployed into a virtual network. Customers have fine-grained control over both inbound and outbound application network traffic using [network security groups][NSGs]. Applications can also establish high-speed secure connections over virtual networks to on-premises corporate resources.
+ASEs are isolated to running only a single customer's applications and are always deployed into an Azure virtual network. Customers have fine-grained control over inbound and outbound application network traffic by using [Network Security Groups][NSGs]. Applications can also establish high-speed secure connections over virtual networks to on-premises corporate resources.
 
-Apps frequently need to access corporate resources such as internal databases and web services. Apps running on App Service Environments can access resources reachable via [Site-to-Site][SiteToSite] VPN and [Azure ExpressRoute][ExpressRoute] connections.
+Apps frequently need to access corporate resources, such as internal databases and web services. Apps that run on ASEs can access resources via [site-to-site][SiteToSite] VPN and [Azure ExpressRoute][ExpressRoute] connections.
 
-* [What is an App Service Environment?][Intro]
-* [Creating an App Service Environment][MakeExternalASE]
-* [Creating an Internal Load Balancer App Service Environment][MakeILBASE]
-* [Using an App Service Environment][UsingASE]
-* [Networking Considerations and the App Service Environment][ASENetwork]
-* [Creating an App Service Environment from a Template][MakeASEfromTemplate]
+* [What is an App Service environment?][Intro]
+* [Create an App Service environment][MakeExternalASE]
+* [Create an internal load balancer App Service environment][MakeILBASE]
+* [Use an App Service environment][UsingASE]
+* [Networking considerations and the App Service environment][ASENetwork]
+* [Create an App Service environment from a template][MakeASEfromTemplate]
 
 
 ## Videos
@@ -48,8 +48,8 @@ Deploying Highly Scalable and Secure Apps
 Running Enterprise Web and Mobile Apps on Azure App Service
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
 
-## ASEv1 ##
-There are two versions to the App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [App Service Environment v1 Documentation][ASEv1README].
+## App Service Environment v1 ##
+There are two versions of App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [App Service Environment v1 documentation][ASEv1README].
 
 
 <!--Links-->

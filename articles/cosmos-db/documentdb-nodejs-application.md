@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/14/2017
 ms.author: mimig
 
 ---
@@ -29,7 +29,7 @@ ms.author: mimig
 
 This Node.js tutorial shows you how to use Azure Cosmos DB and the DocumentDB API to store and access data from a Node.js Express application hosted on Azure Websites. You build a simple web-based task-management application, a ToDo app, that allows creating, retrieving, and completing tasks. The tasks are stored as JSON documents in Azure Cosmos DB. This tutorial walks you through the creation and deployment of the app and explains what's happening in each snippet.
 
-![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/image1.png)
+![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
 Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][GitHub]. Just read the [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) file for instructions on how to run the app.
 
@@ -42,11 +42,10 @@ Don't have time to complete the tutorial and just want to get the complete solut
 Before following the instructions in this article, you should ensure
 that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-   OR
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-   A local installation of the [Azure Cosmos DB Emulator](local-emulator.md).
 * [Node.js][Node.js] version v0.10.29 or higher.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
@@ -58,7 +57,7 @@ Let's start by creating an Azure Cosmos DB account. If you already have an accou
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Step 2: Learn to create a new Node.js application
+## <a name="_Toc395783178"></a>Step 2: Create a new Node.js application
 Now let's learn to create a basic Hello World Node.js project using the [Express](http://expressjs.com/) framework.
 
 1. Open your favorite terminal, such as the Node.js command prompt.
@@ -75,17 +74,17 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
         npm start
 6. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
    
-    ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
+    ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/cosmos-db-node-js-express.png)
 
     Then, to stop the application, press CTRL+C in the terminal window and then click **y** to terminate the batch job.
 
 ## <a name="_Toc395783179"></a>Step 3: Install additional modules
-The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to an Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
+The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
 
 1. Back in the terminal, install the **async** module via npm.
    
         npm install async --save
-2. Install the **documentdb** module via npm. This is the module where all the DocumentDB magic happens.
+2. Install the **documentdb** module via npm. This is the module where all the Azure Cosmos DB magic happens.
    
         npm install documentdb --save
 3. A quick check of the **package.json** file of the application should show the additional modules. This file will tell Azure which packages to download and install when running your application. It should resemble the example below.
@@ -187,12 +186,6 @@ That takes care of all the initial setup and configuration, now let’s get down
    
         module.exports = DocDBUtils;
    
-   > [!TIP]
-   > createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection. If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.
-   > 
-   > For more information on Azure Cosmos DB Offer Types please refer to [Performance levels in Azure Cosmos DB](performance-levels.md) 
-   > 
-   > 
 5. Save and close the **docdbUtils.js** file.
 6. At the beginning of the **taskDao.js** file, add the following code to reference the **DocumentDBClient** and the **docdbUtils.js** we created above:
    
@@ -387,8 +380,8 @@ That takes care of all the initial setup and configuration, now let’s get down
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the DocumentDB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the DocumentDB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
@@ -453,81 +446,61 @@ Now let’s turn our attention to building the user interface so a user can actu
     Save and close this **layout.jade** file.
 
 3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
+   
+        extends layout
+        block content
+           h1 #{title}
+           br
+        
+           form(action="/completetask", method="post")
+             table.table.table-striped.table-bordered
+               tr
+                 td Name
+                 td Category
+                 td Date
+                 td Complete
+               if (typeof tasks === "undefined")
+                 tr
+                   td
+               else
+                 each task in tasks
+                   tr
+                     td #{task.name}
+                     td #{task.category}
+                     - var date  = new Date(task.date);
+                     - var day   = date.getDate();
+                     - var month = date.getMonth() + 1;
+                     - var year  = date.getFullYear();
+                     td #{month + "/" + day + "/" + year}
+                     td
+                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+             button.btn.btn-primary(type="submit") Update tasks
+           hr
+           form.well(action="/addtask", method="post")
+             .form-group
+               label(for="name") Item Name:
+               input.form-control(name="name", type="textbox")
+             .form-group
+               label(for="category") Item Category:
+               input.form-control(name="category", type="textbox")
+             br
+             button.btn(type="submit") Add item
+   
 
-    ```
-    extends layout
-    block content
-      h1 #{title}
-      br
+This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
+   
+In this layout we created two HTML forms.
+
+The first form contains a table for our data and a button that allows us to update items by posting to **/completetask** method of our controller.
     
-      form(action="/completetask", method="post")
-        table.table.table-striped.table-bordered
-          tr
-            td Name
-            td Category
-            td Date
-            td Complete
-          if (typeof tasks === "undefined")
-            tr
-              td
-          else
-            each task in tasks
-              tr
-                td #{task.name}
-                td #{task.category}
-                - var date  = new Date(task.date);
-                - var day   = date.getDate();
-                - var month = date.getMonth() + 1;
-                - var year  = date.getFullYear();
-                td #{month + "/" + day + "/" + year}
-                td
-                  input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-        button.btn(type="submit") Update tasks
-      hr
-      form.well(action="/addtask", method="post")
-        label Item Name:
-        input(name="name", type="textbox")
-        label Item Category:
-        input(name="category", type="textbox")
-        br
-        button.btn(type="submit") Add item
-    ```
+The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
 
-    This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
-   
-    In this layout we created two HTML forms.
-
-    The first form contains a table for our data and a button that allows us to update items by posting to **/completetask** method of our controller.
-    
-    The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
-
-    This should be all that we need for our application to work.
-4. Open the **style.css** file in **public\stylesheets** directory and replace the code with the following:
-   
-        body {
-          padding: 50px;
-          font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        }
-        a {
-          color: #00B7FF;
-        }
-        .well label {
-          display: block;
-        }
-        .well input {
-          margin-bottom: 5px;
-        }
-        .btn {
-          margin-top: 5px;
-          border: outset 1px #C8C8C8;
-        }
-   
-    Save and close this **style.css** file.
+This should be all that we need for our application to work.
 
 ## <a name="_Toc395783181"></a>Step 6: Run your application locally
 1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:
    
-    ![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
+    ![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files is left justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, then refresh your browser window. 
@@ -536,7 +509,7 @@ Now let’s turn our attention to building the user interface so a user can actu
 3. The page should update to display the newly created item in the ToDo
    list.
    
-    ![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
+    ![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
 4. To complete a task, simply check the checkbox in the Complete column,
    and then click **Update tasks**. This updates the document you already created.
 
@@ -551,7 +524,7 @@ Now let’s turn our attention to building the user interface so a user can actu
    
         git push azure master
 4. In a few seconds, git will finish publishing your web
-   application and launch a browser where you can see your handy work
+   application and launch a browser where you can see your handiwork
    running in Azure!
 
     Congratulations! You have just built your first Node.js Express Web Application using Azure Cosmos DB and published it to Azure Websites.

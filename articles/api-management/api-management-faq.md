@@ -3,7 +3,7 @@ title: Azure API Management FAQ | Microsoft Docs
 description: Learn the answers to common questions, patterns, and best practices in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -127,7 +127,7 @@ You can get your IP address (or addresses, in a multi-region deployment) on the 
 To learn how to configure an OAuth 2.0 authorization server with Active Directory Federation Services (AD FS) security, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### What routing method does API Management use in deployments to multiple geographic locations?
-API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#priority) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Can I use an Azure Resource Manager template to create an API Management service instance?
 Yes. See the [Azure API Management Service](http://aka.ms/apimtemplate) QuickStart templates.

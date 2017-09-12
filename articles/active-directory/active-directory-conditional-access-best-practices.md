@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/22/2017
+ms.date: 09/07/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Best practices for conditional access in Azure Active Directory
@@ -24,11 +25,28 @@ This topic provides you with information about things you should know and what i
 
 ## What you should know
 
-### Do I need to assign a user to my policy?
+### What’s required to make a policy work?
 
-When configuring a conditional access policy, you should at least assign one group to it. A conditional access policy that has no users and groups assigned, is never triggered.
+When you create a new policy, there are no users, groups, apps or access controls selected.
 
-When you intend to assign several users and groups to a policy, you should start small by assigning only one user or group, and then test your configuration. If your policy works as expected, you can then add additional assignments to it.  
+![Cloud apps](./media/active-directory-conditional-access-best-practices/02.png)
+
+
+To make your policy work, you must configure the following:
+
+
+|What           | How                                  | Why|
+|:--            | :--                                  | :-- |
+|**Cloud apps** |You need to select one or more apps.  | The goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.|
+| **Users and groups** | You need to select at least one user or group that is authorized to access the cloud apps you have selected. | A conditional access policy that has no users and groups assigned, is never triggered. |
+| **Access controls** | You need to select at least one access control. | Your policy processor needs to know what to do if your conditions are satisfied.|
+
+
+In addition to these basic requirements, in many cases, you should also configure a condition. While a policy would also work without a configured condition, conditions are the driving factor for fine-tuning access to your apps.
+
+
+![Cloud apps](./media/active-directory-conditional-access-best-practices/04.png)
+
 
 
 ### How are assignments evaluated?
@@ -74,6 +92,99 @@ In your environment, you should avoid the following configurations:
 **For all users, all cloud apps, all device platforms:**
 
 - **Block access** - This configuration blocks your entire organization, which is definitely not a good idea.
+
+
+
+## Policy migration
+
+If you have policies in the Azure classic portal configured, you should migrate them to the Azure portal because:
+
+
+- A user who is in an Azure classic portal policy and an Azure portal policy needs to meet the requirements in both policies 
+
+- If you don't migrate your existing policies, you will not be able to implement policies that are granting access
+
+
+### Migration from the Azure classic portal
+
+In this scenario: 
+
+- In your [Azure classic portal](https://manage.windowsazure.com), you have configured:
+
+    - SharePoint Online
+
+    ![Conditional access](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - A device-based conditional access policy
+
+    ![Conditional access](./media/active-directory-conditional-access-best-practices/15.png)
+
+- You want to configure a mobile application management conditional access policy in the Azure portal 
+ 
+
+#### Configuration 
+
+- Review your device-based conditional access policies
+
+- Migrate them to the Azure portal 
+
+- Add mobile application management conditional access policies
+
+
+### Migrating from Intune 
+
+In this scenario:
+
+- In [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), you have a mobile application management conditional access policy for either Exchange Online or SharePoint Online configured
+
+    ![Conditional access](./media/active-directory-conditional-access-best-practices/15.png)
+
+- You want to migrate to using mobile application management conditional access in the Azure portal
+
+
+#### Configuration 
+ 
+- Review your device-based conditional access policies
+
+- Migrate them to the Azure portal 
+
+- Review you mobile application management conditional access policies configured for Exchange Online or SharePoint Online in Intune
+
+- Add the control for **Require approved applications** in addition to the device-based control 
+ 
+
+### Migrating from the Azure classic portal and Intune
+
+In this scenario:
+
+- You have the following configured:
+
+    - **Azure classic portal:** Device-based conditional 
+
+    - **Intune:** Mobile application management conditional access policies 
+    
+- You want to migrate both policies to using mobile application management conditional access policies in the Azure portal
+
+
+#### Configuration
+
+- Review your device-based conditional access policies
+
+- Migrate them to the Azure portal 
+
+- Review you mobile application management conditional access policy configured for Exchange Online or SharePoint Online in Intune
+
+- Add the control for **Require approved applications** in addition to the device-based 
+
+
+
+
+
+
+
+
+
+
 
 
 ## Common scenarios

@@ -4,7 +4,7 @@ description: Use an Azure function app to save your IoT hub messages to your Azu
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot data storage, iot sensor data storage'
 
@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 08/16/2017
 ms.author: xshi
 
 ---
@@ -43,7 +43,7 @@ You learn how to create an Azure storage account and an Azure function app to st
 
 ## Create an Azure storage account
 
-1. In the [Azure portal](https://portal.azure.com/), click **New** > **Storage** > **Storage account**.
+1. In the [Azure portal](https://portal.azure.com/), click **New** > **Storage** > **Storage account** > **Create**.
 
 2. Enter the necessary information for the storage account:
 
@@ -105,7 +105,7 @@ IoT hub exposes a built-in event hub-compatible endpoint to enable applications 
 
 ## Create and deploy an Azure function app
 
-1. In the [Azure portal](https://portal.azure.com/), click **New** > **Compute** > **Function App**.
+1. In the [Azure portal](https://portal.azure.com/), click **New** > **Compute** > **Function App** > **Create**.
 
 2. Enter the necessary information for the function app.
 
@@ -161,11 +161,11 @@ IoT hub exposes a built-in event hub-compatible endpoint to enable applications 
       
    c. Click **Save**.
 
-7. Under **Triggers**, click **Azure Event Hub (myEventHubTrigger)**.
+7. Under **Triggers**, click **Azure Event Hub (eventHubMessages)**.
 
 8. Under **Event Hub consumer group**, enter the name of the consumer group that you created, and then click **Save**.
 
-9. Click **Develop**, and then click **View files**.
+9. Click the function you've created on the left and then click **View Files** on the right.
 
 10. Replace the code in `index.js` with the following:
 

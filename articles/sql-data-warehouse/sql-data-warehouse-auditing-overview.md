@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 08/21/2017
 ms.author: rortloff;barbkess
 
 ---
@@ -52,65 +52,61 @@ You can configure auditing for the following event categories:
 
 For each Event Category, Auditing of **Success** and **Failure** operations are configured separately.
 
-For further details about the activities and events audited, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>.
+For more information about the activities and events audited, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>.
 
 Audit logs are stored in your Azure storage account. You can define an audit log retention period.
 
-An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.
+An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy applies to all databases on a server, which do not have a specific overriding database auditing policy defined.
 
-Before setting up audit auditing check if you are using a ["Downlevel Client"](sql-data-warehouse-auditing-downlevel-clients.md).
+Before setting up audit auditing check if you are using a ["Downlevel Client."](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Set up auditing for your database
-1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
-2. navigate to the configuration blade of the SQL Data Warehouse database / SQL Server you want to audit. Click the **Settings** button on top and then, in the Setting blade, and select **Auditing**.
+1. Launch the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
+2. Go to the **Settings** blade of the SQL Data Warehouse you want to audit. In the **Settings** blade, select **Auditing & Threat detection**.
    
     ![][1]
-3. In the auditing configuration blade, first unselect the **Inherit Auditing Settings from Server** checkbox. This allows you to specify the settings for a particular database.
-   
-    ![][2]
-4. Next, enable auditing by clicking the **ON** button.
+3. Next, enable auditing by clicking the **ON** button.
    
     ![][3]
-5. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
+4. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage blade. Select the Azure storage account where logs will be saved and, the retention period. 
+>[!TIP]
+>Use the same storage account for all audited databases to get the most out of the pre-configured reports templates.
    
     ![][4]
-6. Click the **OK** button to save the storage details configuration.
-7. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
-8. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
-9. Click **OK**.
+5. Click the **OK** button to save the storage details configuration.
+6. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
+7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
+8. Click **OK**.
 
-## <a id="subheading-3">Analyze audit logs and reports</a>
+## <a id="subheading-3"></a>Analyze audit logs and reports
 Audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** prefix in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
 A preconfigured dashboard report template is available as a <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">downloadable Excel spreadsheet</a> to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download <a href="http://www.microsoft.com/download/details.aspx?id=39379">here</a>.
 
 The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account.
 
-For more detailed instructions on working with the report template, read the <a href="http://go.microsoft.com/fwlink/?LinkId=506731">How To (doc download)</a>.
+## <a id="subheading-4"></a>Storage key regeneration
+In production, you are likely to refresh your storage keys periodically. When refreshing your keys, you need to save the policy. The process is as follows:
 
-![][5]
+1. In the auditing configuration blade (described above in the setup auditing section) switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
 
-## <a id="subheading-4">Practices for usage in production</a>
-The description in this section refers to screen captures above. Either <a href="https://portal.azure.com" target="_blank">Azure Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Classic Portal</a> may be used.
-
-## <a id="subheading-5"></a>Storage Key Regeneration
-In production you are likely to refresh your storage keys periodically. When refresh your keys you need to re-save the policy. The process is as follows:.
-
-1. In the auditing configuration blade (described above in the set up auditing section) switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
    ![][4]
 2. Go to the storage configuration blade and **regenerate** the *Primary Access Key*.
 3. Go back to the auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary* and press **SAVE**.
 4. Go back to the storage UI and **regenerate** the *Secondary Access Key* (as preparation for the next keys refresh cycle.
 
-## <a id="subheading-6"></a>Automation
-There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database. To access the auditing cmdlets you must be running PowerShell in Azure Resource Manager mode.
+## <a id="subheading-5"></a>Automation (PowerShell/REST API)
+You can also configure auditing in Azure SQL Data Warehouse by using the following automation tools:
 
-> [!NOTE]
-> The  [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) module is currently in preview. It might not provide the same management capabilities as the Azure module.
-> 
-> 
+* **PowerShell cmdlets**:
 
-When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to list the available cmdlets.
+   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
+   * [Get-AzureRMSqlServerAuditingPolicy][102]
+   * [Remove-AzureRMSqlDatabaseAuditing][103]
+   * [Remove-AzureRMSqlServerAuditing][104]
+   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
+   * [Set-AzureRMSqlServerAuditingPolicy][106]
+   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
 <!--Anchors-->
 [Database Auditing basics]: #subheading-1
@@ -127,3 +123,10 @@ When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to lis
 
 
 <!--Link references-->
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
+[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
+[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

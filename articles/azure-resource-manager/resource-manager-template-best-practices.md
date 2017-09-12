@@ -27,7 +27,7 @@ Generally, you work with three types of resource names in Resource Manager:
 * Resource names that are not required to be unique, but you choose to provide a name that can help you identify a resource based on context.
 * Resource names that can be generic.
 
-For help establishing a naming convention, see the [Azure infrastructure naming guidelines](../virtual-machines/windows/infrastructure-naming-guidelines.md). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
+ For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
 
 ### Unique resource names
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common resource types that require a unique name include:
@@ -390,7 +390,6 @@ It's also a good idea to format your JSON for better readability. You can use a 
 
 ## Next steps
 * For guidance on architecting your solution for virtual machines, see [Run a Windows VM in Azure](../guidance/guidance-compute-single-vm.md) and [Run a Linux VM in Azure](../guidance/guidance-compute-single-vm-linux.md).
-* For guidance on setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/storage-performance-checklist.md).
-* For help with virtual networks, see the [networking infrastructure guidelines](../virtual-machines/windows/infrastructure-networking-guidelines.md).
+* For guidance on setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).
 * To learn about how an enterprise can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](resource-manager-subscription-governance.md).
 

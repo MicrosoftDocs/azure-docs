@@ -3,8 +3,8 @@ title: Working with the App Service Mobile Apps managed client library (Windows 
 description: Learn how to use a .NET client for Azure App Service Mobile Apps with Windows and Xamarin apps.
 services: app-service\mobile
 documentationcenter: ''
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # How to use the managed client for Azure Mobile Apps

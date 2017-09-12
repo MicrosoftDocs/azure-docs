@@ -4,7 +4,7 @@ description: Learn how to set up and connect Adafruit Feather M0 WiFi to Azure I
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: ''
 
@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/17/2017
+ms.date: 8/16/2017
 ms.author: xshi
 
 ---
@@ -29,7 +29,6 @@ In this tutorial, you begin by learning the basics of working with your Arduino 
 ## What you do
 
 Connect Adafruit Feather M0 WiFi to an IoT hub that you create. Then you run a sample application on M0 WiFi to collect the temperature and humidity data from a BME280. Finally, you send the sensor data to your IoT hub.
-
 
 
 ## What you learn
@@ -154,9 +153,16 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 
    ![Open the sample application in Arduino IDE](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
-3. Click **Tools** > **Board** > **Boards Manager**, and then install the `Arduino SAMD Boards` version `1.6.2` or later. To add the board file definitions, install the `Adafruit SAMD` package.
 
-   Boards Manager indicates that `Arduino SAMD Boards` with a version of `1.6.2` or later is installed. 
+1. Click **File** > **Preferences** (Windows/Linux) or **Arduino** > **Preferences** (Mac) and copy and paste the link below into the **Additional Boards Manager URLs** option in the Arduino IDE preferences.
+   
+   ```
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   ```
+
+1. Click **Tools** > **Board** > **Boards Manager**, and then install the `Arduino SAMD Boards` version `1.6.2` or later. 
+
+1. Then in the same window, install `Adafruit SAMD Boards` package to add the board file definitions.
 
    ![The esp8266 package is installed](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 

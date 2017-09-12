@@ -1,8 +1,8 @@
----
+﻿---
 title: Media Encoder Standard schema | Microsoft Docs
 description: The topic gives an overview of the Media Encoder Standard schema.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 07/19/2017
 ms.author: juliako
 
 ---
@@ -60,11 +60,11 @@ Contains a sequence of the following elements.
 ### Attributes
 | Name | Type | Description |
 | --- | --- | --- |
-| **Condition** |**xs:string** | When the input has no video, you may want to force the encoder to insert a monochrome video track. To do that, use Condition="InsertBlackIfNoVideoBottomLayerOnly" (to insert a video at only the lowest bitrate) or Condition="InsertBlackIfNoVideo" (to insert a video at all output bitrates). For more information, see [this](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) topic.|
+| **Condition** |**xs:string** | When the input has no video, you may want to force the encoder to insert a monochrome video track. To do that, use Condition="InsertBlackIfNoVideoBottomLayerOnly" (to insert a video at only the lowest bitrate) or Condition="InsertBlackIfNoVideo" (to insert a video at all output bitrates). For more information, see [this](media-services-advanced-encoding-with-mes.md#no_video) topic.|
 
 ## <a name="H264Layers"></a> H264Layers
 
-By default, if you send an input to the encoder that contains only audio, and no video, the output asset will contain files with audio data only. Some players may not be able to handle such output streams. You can use the H264Video's **InsertBlackIfNoVideo** attribute setting to force the encoder to add a video track to the output in that scenario. For more information, see [this](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) topic.
+By default, if you send an input to the encoder that contains only audio, and no video, the output asset will contain files with audio data only. Some players may not be able to handle such output streams. You can use the H264Video's **InsertBlackIfNoVideo** attribute setting to force the encoder to add a video track to the output in that scenario. For more information, see [this](media-services-advanced-encoding-with-mes.md#no_video) topic.
               
 ### Elements
 | Name | Type | Description |

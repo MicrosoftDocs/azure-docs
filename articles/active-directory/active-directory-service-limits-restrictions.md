@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 08/28/2017
 ms.author: curtand
-ms.custom: aaddev
+ms.custom: aaddev;it-pro
+ms.reviewer: jeffsta
 
 ---
 # Azure AD service limits and restrictions

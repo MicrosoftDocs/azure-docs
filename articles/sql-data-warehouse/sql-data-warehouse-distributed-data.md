@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/29/2017
+ms.date: 07/12/2017
 ms.author: jrj;barbkess
 
 ---
@@ -63,7 +63,7 @@ Each Compute node has a node ID and is visible in system views that pertain to S
 ## <a name="Replicated"></a>Replicated Tables
 A table that is replicated has a fully copy of the table stored on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Replicated tables are only feasible with small tables because of the extra storage required to store the full table on each compute node.  
 
-The following diagram shows a replicated table that is stored on each Compute node. For SQL Data Warehouse, the replicated table is maintained by a round-robin table and fully copied to the first distribution database on each Compute node. For Parallel Data Warehouse, the replicated table is stored across all disks assigned to the Compute node.  This disk strategy is implemented by using SQL Server filegroups.  
+The following diagram shows a replicated table that is stored on each Compute node. For SQL Data Warehouse, the replicated table is fully copied to a distribution database on each Compute node. For Parallel Data Warehouse, the replicated table is stored across all disks assigned to the Compute node.  This disk strategy is implemented by using SQL Server filegroups.  
 
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 

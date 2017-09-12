@@ -39,7 +39,7 @@ For a quick overview, watch the following video about how to fail over from Azur
 ## Prerequisites
 When you prepare to reprotect virtual machines, take or consider the following prerequisite actions:
 
-* If a vCenter server manages the virtual machines that you want to fail back to, make sure that you have the [required permissions](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access) for discovery of virtual machines on vCenter servers.
+* If a vCenter server manages the virtual machines that you want to fail back to, make sure that you have the [required permissions](site-recovery-vmware-to-azure-classic.md) for discovery of virtual machines on vCenter servers.
 
   > [!WARNING]
   > If snapshots are present on the on-premises master target or the virtual machine, reprotection fails. You can delete the snapshots on the master target before you proceed to reprotect. The snapshots on the virtual machine are automatically merged during a reprotect job.
@@ -54,7 +54,10 @@ When you prepare to reprotect virtual machines, take or consider the following p
 
     The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-* A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. Make sure that you take regularly scheduled backups of your server. If there's a disaster, restore the server with the same IP address so that failback works.
+* A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. 
+
+> [!IMPORTANT]
+> Make sure that you take regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works.
 
 * Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
 
@@ -105,13 +108,13 @@ An on-premises master target server is required to receive data from the process
 
 For information about installing a master target server, see:
 
-* [How to install Windows master target server](site-recovery-vmware-to-azure.md#run-site-recovery-unified-setup)
+* [How to install Windows master target server](site-recovery-vmware-to-azure.md)
 * [How to install Linux master target server](site-recovery-how-to-install-linux-master-target.md)
 
 
 #### What datastore types are supported on the on-premises ESXi host during failback?
 
-Currently, Azure Site Recovery supports failing back only to a virtual machine file system (VMFS) datastore. A vSAN or NFS datastore is not supported. Due to this limitation, the datastore selection input on the reprotect screen is empty in the case of NFS datastores, or it shows the vSAN datastore but fails during the job. If you intend to fail back, you can create a VMFS datastore on-premises and fail back to it. This failback will cause a full download of the VMDK.
+Currently, Azure Site Recovery supports failing back only to a virtual machine file system (VMFS) or vSAN datastore. A NFS datastore is not supported. Due to this limitation, the datastore selection input on the reprotect screen is empty in the case of NFS datastores, or it shows the vSAN datastore but fails during the job. If you intend to fail back, you can create a VMFS datastore on-premises and fail back to it. This failback will cause a full download of the VMDK.
 
 ### Common things to check after completing installation of the master target server
 
@@ -206,7 +209,7 @@ The failback will shut down the virtual machine in Azure and boot the on-premise
 
 * If you used a template to create your virtual machines, ensure that each virtual machine has its own UUID for the disks. If the on-premises virtual machine's UUID clashes with that of the master target because both were created from the same template, reprotection fails. Deploy another master target that has not been created from the same template.
 
-* If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores cannot be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credential with an appropriate account that has permissions, and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores cannot be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credential with an appropriate account that has permissions, and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 
 * When you fail back a Linux virtual machine and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation happens because the Network Manager package is removed when the virtual machine is recovered in Azure.
 
@@ -219,3 +222,35 @@ The failback will shut down the virtual machine in Azure and boot the on-premise
 * If you are trying to fail back to an alternate vCenter, make sure that your new vCenter and the master target server are discovered. A typical symptom is that the datastores are not accessible or visible in the **Reprotect** dialog box.
 
 * A Windows Server 2008 R2 SP1 server that is protected as a physical on-premises server cannot be failed back from Azure to an on-premises site.
+
+### Common Error codes
+
+#### Error code 95226
+
+*Reprotect failed as the Azure virtual machine was not able to reach the on-premises configuration server.*
+
+This happens when 
+1. The Azure virtual machine could not reach the on-premises configuration server and hence could not be discovered and registered to the configuration server. 
+2. The InMage Scout Application service on the Azure virtual machine that needs to be running to communicate to the on-premises configuration server might not be running post failover.
+
+To resolve this issue
+1. You need to ensure that the network of the Azure virtual machine is configured such that the virtual machine can communicate with the on-premises configuration server. To do this, either set up a Site to Site VPN back to your on-premises datacenter or configure an ExpressRoute connection with private peering on the virtual network of the Azure virtual machine. 
+2. If you already have a network configured such that the Azure virtual machine can communicate with the on-premises configuration server, then log into the virtual machine and check the 'InMage Scout Application Service'. If you observe that the InMage Scout Application Service is not running then start the service manually and ensure that the service start type is set to Automatic.
+
+### Error code 78052
+Reprotect fails with the error message: *Protection couldn't be completed for the virtual machine.*
+
+This can happen due to two reasons
+1. The virtual machine you are reprotecting is a Windows Server 2016. Curently this operating system is not supported for failback, but will be supported very soon.
+2. There already exists a virtual machine with the same name on the Master target server you are failing back to.
+
+To resolve this issue you can select a different master target server on a different host, so that the reprotect will create the machine on a different host, where the names do not collide. You can also vMotion the master target to a different host where the name collision will not happen.
+
+### Error code 78093
+
+*The VM is not running, in a hung state or not accessible.*
+
+To reprotect a failed over virtual machine back to on-premises, you need the Azure virtual machine running. This is so that the mobility service registers with the configuration server on-premises and can start replicating by communicating with the process server. If the machine is on an incorrect network or in not running (hung state or shutdown), then the configuration server cannot reach the mobility service in the virtual machine to begin the reprotect. You can restart the virtual machine so that it can start communicating back on-premises. Restart the reprotect job after starting the Azure virtual machine
+
+
+

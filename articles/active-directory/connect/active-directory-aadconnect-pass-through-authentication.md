@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 07/27/2017
 ms.author: billmath
 ---
 
@@ -27,6 +27,9 @@ This feature is an alternative to [Azure AD Password Hash Synchronization](activ
 ![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
 You can combine Pass-through Authentication with the [Seamless Single Sign-On](active-directory-aadconnect-sso.md) feature. This way, when your users are accessing applications on their corporate machines inside your corporate network, they don't need to type in their passwords to sign in.
+
+>[!IMPORTANT]
+>Azure AD Pass-through Authentication is currently in preview.
 
 ## Key benefits of using Azure AD Pass-through Authentication
 
