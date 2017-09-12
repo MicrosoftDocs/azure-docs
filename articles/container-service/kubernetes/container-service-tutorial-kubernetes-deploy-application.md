@@ -25,7 +25,7 @@ ms.custom: mvc
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]
-> * Download Kubernetes manifest files
+> * Update Kubernetes manifest files
 > * Run application in Kubernetes
 > * Test the application
 

@@ -37,19 +37,15 @@ In previous tutorials, a container image was created and uploaded to an Azure Co
 
 ## Create Kubernetes cluster
 
-In the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md), a resource group named *myResourceGroup* was created. If you have not done so, create this resource group now.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
-```
-
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes.
+The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in a [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md).
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
+
+In some cases, such as with a limited trial, an Azure subscription will have limited access to Azure resources. If the deployment fails due to limited available cores, limit the agent count by adding `--agent-count 1` to the deployment command. 
 
 After several minutes, the command completes, and returns json formatted information about the ACS deployment.
 
@@ -65,7 +61,7 @@ If running in Linux or macOS, you may need to run with sudo. On Windows, ensure 
 az acs kubernetes install-cli 
 ```
 
-On Windows, the default installation is *c:\program files (x86)\kubectl.exe*. You may need to add this file to the Windows path. 
+On Windows, the default installation is `c:\program files (x86)\kubectl.exe`. You may need to add this file to the Windows path. 
 
 ## Connect with kubectl
 

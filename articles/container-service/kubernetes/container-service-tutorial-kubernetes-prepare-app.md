@@ -44,12 +44,10 @@ To complete this tutorial, you need a Docker development environment. Docker pro
 ## Get application code
 
 The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.  
-
 Use git to download a copy of the application to your development environment.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-cd azure-voting-app-redis
 ```
 
 Change directories so that you are working from the cloned directory.
@@ -64,7 +62,7 @@ Inside the directory is the application source code, a pre-created Docker compos
 
 [Docker Compose](https://docs.docker.com/compose/) can be used to automate the build out of container images and the deployment of multi-container applications.
 
-Run the docker-compose.yml file to create the container image, download the Redis image, and start the application.
+Run the `docker-compose.yml` file to create the container image, download the Redis image, and start the application.
 
 ```bash
 docker-compose up -d
@@ -76,7 +74,7 @@ When completed, use the [docker images](https://docs.docker.com/engine/reference
 docker images
 ```
 
-Notice that three images have been downloaded or created. The *azure-vote-front* image contains the application. It was derived from the *nginx-flask* image. The Redis image was downloaded from Docker Hub.
+Notice that three images have been downloaded or created. The `azure-vote-front` image contains the application. The `nginx-flask` images was downloaded from Docker Hub and is used as a base image for the application. The `redis` image was also downloaded from Docker Hub and is used to start a Redis instance.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -101,7 +99,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## Test application locally
 
-Browse to http://localhost:8080 to see the running application.
+Browse to http://localhost:8080 to see the running application. It may take a few seconds for the application to start. Refresh the browser if needed.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
