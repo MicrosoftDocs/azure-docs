@@ -18,9 +18,13 @@ ms.author: bryanla
 
 # Configure an Azure VM Managed Service Identity (MSI) using a template
 
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+
+In this QuickStart, you will learn how to enable and remove MSI for an Azure Windows VM, using an Azure Resource Manager deployment template.
+
 ## Prerequisites
 
-[!INCLUDE [active-directory-msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
 ## Enable MSI during creation of an Azure VM, or on an existing VM
 
@@ -39,7 +43,7 @@ Regardless of the path you take, template syntax is the same during initial depl
    > Step 2 also assumes the variables `vmName`, `storageAccountName`, and `nicName` are defined in your template.
    >
 
-   ![Template before screen shot - locate VM](./media/active-directory-msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Template before screen shot - locate VM](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 2. Add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property using the following syntax:
 
@@ -79,7 +83,7 @@ Regardless of the path you take, template syntax is the same during initial depl
 
 4. When you're done, your template should look similar to the following example:
 
-   ![Template after shot](./media/active-directory-msi-qs-configure-template-windows-vm/template-file-after.png) 
+   ![Template after shot](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## Remove MSI from an Azure VM
 
@@ -87,7 +91,7 @@ If you have a Virtual Machine that no longer needs an MSI, just remove the two e
 
 ## Related content
 
-- [Managed Service Identity overview](active-directory-msi-overview.md)
+- [Managed Service Identity overview](msi-overview.md)
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

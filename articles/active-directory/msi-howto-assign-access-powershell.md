@@ -1,5 +1,5 @@
 ---
-title: How to assign an MSI access to a resource, using PowerShell
+title: How to assign an MSI access to an Azure resource, using PowerShell
 description: Step by step instructions for assigning an MSI on one resource, access to another resource, using PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -22,7 +22,7 @@ Once you've configured an Azure resource with an MSI, you can give the MSI acces
 
 ## Use Role Based Access Control (RBAC) to assign the MSI access to another resource
 
-After you've enabled MSI on an Azure resource, [such as an Azure VM](active-directory-msi-qs-configure-powershell-windows-vm.md):
+After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm.md):
 
 1. Sign in to Azure using [Login-AzureRmAccount](/powershell/module/azurerm.resources/Login-AzureRmAccount). Use an account that is associated with the Azure subscription under which you have configured the MSI:
 
@@ -47,8 +47,8 @@ If either is incorrect, you may need to redeploy the MSI on your resource again,
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](../active-directory/active-directory-msi-overview.md).
-- To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using PowerShell](active-directory-msi-qs-configure-powershell-windows-vm.md).
+- For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
+- To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using PowerShell](msi-qs-configure-powershell-windows-vm.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

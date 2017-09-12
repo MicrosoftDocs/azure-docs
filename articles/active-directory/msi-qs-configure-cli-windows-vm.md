@@ -18,9 +18,13 @@ ms.author: bryanla
 
 # Configure an Azure VM Managed Service Identity (MSI) using Azure CLI
 
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+
+In this QuickStart, you will learn how to enable and remove MSI for an Azure Windows VM, using  Azure CLI.
+
 ## Prerequisites
 
-[!INCLUDE [active-directory-msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
 To run the CLI script examples, you have three options:
 
@@ -72,7 +76,13 @@ If you need to enable MSI on an existing Virtual Machine:
 
 If you have a Virtual Machine that no longer needs an MSI:
 
-1. Use the `-n ManagedIdentityExtensionForWindows` switch with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm#assign-identity):
+1. If you're not using Azure Cloud Shell from the Azure portal, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+
+   ```azurecli-interactive
+   az login
+   ```
+
+2. Use the `-n ManagedIdentityExtensionForWindows` switch with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm#assign-identity) to remove the MSI:
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -80,7 +90,7 @@ If you have a Virtual Machine that no longer needs an MSI:
 
 ## Related content
 
-- [Managed Service Identity overview](active-directory-msi-overview.md)
+- [Managed Service Identity overview](msi-overview.md)
 - This article is adapted from the [Create a Windows virtual machine with CLI](../virtual-machines/windows/quick-create-cli.md) QuickStart, modified to include MSI-specific instructions. 
 
 Use the following comments section to provide feedback and help us refine and shape our content.

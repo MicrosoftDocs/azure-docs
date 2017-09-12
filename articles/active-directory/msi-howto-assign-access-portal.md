@@ -1,5 +1,5 @@
 ---
-title: How to assign an MSI access to a resource, using the Azure portal
+title: How to assign an MSI access to an Azure resource, using the Azure portal
 description: Step by step instructions for assigning an MSI on one resource, access to another resource, using the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -22,7 +22,7 @@ Once you've configured an Azure resource with an MSI, you can give the MSI acces
 
 ## Use Role Based Access Control (RBAC) to assign the MSI access to another resource
 
-After you've enabled MSI on an Azure resource, [such as an Azure VM](active-directory-msi-qs-configure-portal-windows-vm.md):
+After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-portal-windows-vm.md):
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you have configured the MSI.
 
@@ -30,11 +30,11 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](active-dire
 
 3. Click the "Access control (IAM)" page of the resource, and click "+ Add." Then specify the role, Assign access to a "Virtual Machine", and specify the corresponding subscription and resource group where the resource resides. Under the search criteria area, you should see the resource show up. In this example, we see the "SimpleWinVM" VM: 
 
-   ![Access control (IAM) screenshot](./media/active-directory-msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Access control (IAM) screenshot](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
 4. Select the resource and hit "Save." You are returned to the main "Access control (IAM)" page, where you see a new entry for the resource's MSI:
 
-   ![Access control (IAM) screenshot](./media/active-directory-msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Access control (IAM) screenshot](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
 ## Troubleshooting
 
@@ -47,7 +47,7 @@ If either is incorrect, you may need to redeploy the MSI on your resource again,
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](../active-directory/active-directory-msi-overview.md).
-- To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using the Azure portal](active-directory-msi-qs-configure-portal-windows-vm.md).
+- For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
+- To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md).
 
 
