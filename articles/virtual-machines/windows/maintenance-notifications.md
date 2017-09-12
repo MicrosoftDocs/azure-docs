@@ -22,85 +22,22 @@ ms.author: zivr
 
 # View maintenance notifications for Windows virtual machines
 
-You can use the Azure portal or PowerShell to query for the maintenance windows for your VMs. In addition, you will  receive an e-mail notification if one or more of your VMs are scheduled for maintenance.
+Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
-Both self-service maintenance and scheduled maintenance phases begin with a notification. Expect to receive a single notification per Azure subscription. The notification is sent to the subscription’s admin and co-admin by default. You can also configure who receives maintenance notifications.
+- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
 
-------------------
-Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. While the majority of these updates are performed without any impact to the hosted virtual machines, there are cases where a maintenance operation results in virtual machines reboot. 
-This guide describes how to monitor, control and orchestrate VM reboots during planned maintenance.
-
-Planned maintenance wave 
-Planned maintenance is scheduled in waves. Each wave has different scope (regions).
-A wave starts with notification to customers. By default notification is sent to subscription owner and co-owners, However you can set activity log alerts to add more recipients and channels (email, SMS, Webhook) to the maintenance notification. 
-Soon after the notification, a self-service window begins during which you can discover which of your virtual machines is included in this wave and initiate the maintenance at you own schedule. 
-Following the self-service window, a scheduled maintenance window  begins in which Azure will schedule and apply the required maintenance to your virtual machine. 
-The goal in having two windows is simple, give you enough time to initiate maintenance and reboot your virtual machine while knowing the window by which Azure will proceed with the maintenance.
-
-Note: In case you try to start maintenance and fail, Azure will mark your VM as 'skipped' and will not reboot it during the scheduled maintenance window. Instead, you will be contacted in a later time with a new schedule. 
------------------------------------------------
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
 
 
-## View VMs scheduled for maintenance 
+Both self-service maintenance and scheduled maintenance phases begin with an e-mail notification sent to the subscription admin and co-admin by default. You can also configure who receives maintenance notifications.
 
-Once a planned maintenance wave is scheduled, and notifications are sent, you can observe the list of virtual machines which will be impacted by the upcoming maintenance wave. 
+You can use the Azure portal or PowerShell to query for the maintenance windows for your VMs and start self-service maintenance.
 
-You can use the Azure portal and look for VMs scheduled for maintenance.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the left navigation, click **Virtual Machines**.
-
-3. In the Virtual Machines pane, click the **Columns** button to open the list of available columns.
-
-4. Select and add the the following columns:
-
-	**Maintenance** - shows the maintenance status for the VM. The following are the potential values:
-		- Start now: The VM is in the self-service maintenance window which lets you initiate the maintenance yourself. See below on how to start maintenance on your VM
-		- Scheduled: The VM is scheduled for maintenance with no option for you to initiate maintenance. You can learn of the maintenance window by selecting the Auto-Scheduled window in this view or by clicking on the VM
-		- Completed: You have successfully initiated and completed maintenance on your VM.
-		- Skipped: You have selected to initiate maintenance with no success. Azure has canceled the maintenance for your VM and will reschedule it in a later time
-		- Retry later: You have selected to initiate maintenance and Azure was not able to fulfill your request. In this case, you can try again in a later time. 
-	
-	**Maintenance Pro-Active** - shows the time window when you can control and orchestrate maintenance on your VMs (See Start Maintenance).
-
-	**Maintenance Scheduled** - shows the time window when Azure will reboot your VM in order to complete maintenance. 
+ > [!NOTE]
+ > If you try to start maintenance and fail, Azure will mark your VM as **skipped** and will not reboot it during the scheduled maintenance window. Instead, you will be contacted in a later time with a new schedule. 
 
 
-
-
-## Notification and alerts 
-
-Azure will communicate a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log] (../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the menu on the left, select **Monitor**. 
-3. In the **Monitor - Activity log** pane, select **Alerts**.
-4. In the **Monitor - Alerts** pane, click **+ Add activity log alert**.
-5. Complete the information in the **Add activity log alert** page and make sure you set the following in **Criteria**:
-	**Type**: Maintenance 
-	**Status**: All (Do not set status to Active or Resolved)
-	**Level**: All
-	
-To learn more on how to configure Activity Log Alerts, see [Create activity log alerts](../../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
-	
-
-
-	
-## Start Maintenance on your VM
-While you are looking at the VM details you will be able to see more maintenance related details.  
-At the top of the VM details view, a new notification ribbon will be added if your VM is included in a planned maintenance wave. In addition, a new option is added to start maintenance when possible. 
-
-
-Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. 
-
-
-From there you will be able to start maintenance on your VM.
-
-Once you start maintenance, your virtual machine will be rebooted and maintenance status will be updated to reflect the result within few minutes.
-
-In case you have missed the window where you can start maintenance, you will still be able to see the winddow when your VM will be rebooted by Azure. 
-
+[!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
 
 ## Check maintenance status using PowerShell
 
