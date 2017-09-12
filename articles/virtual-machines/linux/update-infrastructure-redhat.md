@@ -18,7 +18,7 @@ ms.author: borisb
 
 ---
 # Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure
- [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) allows cloud providers (such as Azure) to mirror Red Hat-hosted repository content, create custom repositories with Azure-specific content, and make it available to end user VMs.
+ [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) allows cloud providers (such as Azure) to mirror Red Hat-hosted repository content, create custom repositories with Azure-specific content, and make it available to end-user VMs.
 
 Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured to access Azure RHUI. You don't need to do any additional configuration - run `sudo yum update` after your RHEL instance is ready to get the latest updates. This service is included as part of RHEL PAYG software fees.
 
@@ -34,7 +34,7 @@ Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured t
 
 3. Two classes of RHEL PAYG images in Azure (RHEL for SAP HANA, RHEL for SAP Business Applications) are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification. 
 
-4. Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you are proxying all VM traffic via on-premises network infrastructure, you may need to setup user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
+4. Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you are proxying all VM traffic via on-premises network infrastructure, you may need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
 
 ### The IPs for the RHUI content delivery servers
 RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government, and Azure Germany regions. 
