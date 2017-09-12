@@ -1,44 +1,62 @@
 ---
-title: Azure Cloud Shell (Preview) features | Microsoft Docs
-description: Overview of features of Azure Cloud Shell
+title: PowerShell in Azure Cloud Shell (Preview) features | Microsoft Docs
+description: Overview of features of PowerShell in Azure Cloud Shell
 services: 
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
 ms.assetid: 
 ms.service: azure
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
-ms.author: juluk
+ms.date: 09/12/2017
+ms.author: damaerte
 ---
 
-# Features and Tools for PowerShell in Azure Cloud Shell
+# Features and tools for PowerShell in Azure Cloud Shell
 
 [!include [features-introblock](<features-introblock.md)]
 
 > [!TIP]
 > [Bash in Azure Cloud Shell](features.md) is also available.
 
-## PowerShell in Cloud Shell
+PowerShell in Cloud Shell runs on `Windows Server 2016`.
 
-The PowerShell experience in Azure Cloud Shell will provide the same benefits as the [Bash shell experience](features.md). Additionally, the PowerShell experience will provide:
+## Features
 
-- **Azure namespace** capability to let you easily discover and navigate all Azure resources.
+### Secure automatic authentication
+
+PowerShell in Cloud Shell securely and automatically authenticates account access for the Azure PowerShell.
+
+### Azure Files persistence
+
+To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
+Once completed, Cloud Shell will automatically attach your storage (mount as `$home\clouddrive`) for all future sessions.
+Since Cloud Shell is allocated on a per-request basis using a temporary machine, files outside of your `$home\clouddrive` and machine state are not persisted across sessions.
+
+[Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage.md)
+
+### Azure namespace
+
+Capability to let you easily discover and navigate all Azure resources.
 
 > [!NOTE]
 > [TODO: replace old gif]
 
-- **Interaction with VMs** to enable seamless management into the guest VMs.
+### Interaction with VMs
+
+To enable seamless management into the guest VMs.
 
 > [!NOTE]
 > [TODO: replace old gif]
 
-- **Extensible model** to import additional cmdlets and ability to run any executable.
+### Extensible model
+
+To import additional cmdlets and ability to run any executable.
 
 > [!NOTE]
 > [TODO: replace old gif]
@@ -47,8 +65,8 @@ The PowerShell experience in Azure Cloud Shell will provide the same benefits as
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)<br> [Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli) |
-|Text editors    |vim<br> nano<br> emacs                   |
+|Azure tools     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) |
+|Text editors    |vim<br> nano                   |
 |Package Manager |PowerShellGet<br> PackageManagement      |
 |Source control  |git                                      |
 |Test tools      |Pester                                   |
@@ -62,16 +80,7 @@ The PowerShell experience in Azure Cloud Shell will provide the same benefits as
 |Python      |2.7        |
 |PowerShell  |5.1        |
 
-## Secure automatic authentication
-Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
-
-## Azure Files persistence
-Since Cloud Shell is allocated on a per-request basis using a temporary machine, files outside of your $Home and machine state are not persisted across sessions.
-To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
-Once completed Cloud Shell will automatically attach your storage for all future sessions.
-
-[Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage.md)
-
 ## Next steps
+
 [Quickstart with PowerShell in Cloud Shell](quickstart-powershell.md) <br>
 [Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
