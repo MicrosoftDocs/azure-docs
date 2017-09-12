@@ -54,7 +54,7 @@ The function in the following table is used to access connections in a Python2 r
 
 | Function | Description | 
 |:---|:---| 
-| automationassets.get_automation_connection | Retrieves a connection. Returns a dictionary with the properties of the conection. | 
+| automationassets.get_automation_connection | Retrieves a connection. Returns a dictionary with the properties of the connection. | 
 
 > [!NOTE] 
 > You must import the "automationassets" module at the top of your Python runbook in order to access the asset functions.
