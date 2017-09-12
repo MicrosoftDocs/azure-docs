@@ -18,7 +18,7 @@ ms.author: borisb
 
 ---
 # Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure
-[Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) offers a highly scalable solution to manage yum repository content for Red Hat Enterprise Linux cloud instances that are hosted by Red Hat-certified cloud providers. Based on the upstream Pulp project, RHUI allows cloud providers to locally mirror Red Hat-hosted repository content, create custom repositories with their own content, and make those repositories available to a large group of end users through a load-balanced content delivery system.
+ Based on the upstream Pulp project, [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) allows cloud providers to locally mirror Red Hat-hosted repository content, create custom repositories with their own content, and make those repositories available to a large group of end users through a load-balanced content delivery system.
 
 Virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace are registered to access the Red Hat Update Infrastructure (RHUI) deployed in Azure.  The on-demand RHEL instances have access to a regional yum repository and able to receive incremental updates.
 
@@ -26,15 +26,15 @@ RHEL Pay-As-You-Go (PAYG) images come preconfigured to access Azure RHUI. You do
 
 ## Important information about Azure RHUI
 
-1. RHUI currently supports only the latest minor release in a given RHEL family (RHEL6 or RHEL7). A RHEL VM instance connected to RHUI will upgrade to the latest minor version if you run `sudo yum update`. 
+1. RHUI currently supports only the latest minor release in a given RHEL family (RHEL6 or RHEL7). RHEL VM instance connected to RHUI upgrades to the latest minor version when you run `sudo yum update`. 
 
-    For example, if you provision a VM from RHEL 7.2 PAYG image and run `sudo yum update`, you will end up with RHEL 7.4 VM (current latest minor version in RHEL7 family).
+    For example, if you provision a VM from RHEL 7.2 PAYG image and run `sudo yum update`, you end up with RHEL 7.4 VM (current latest minor version in RHEL7 family).
 
-    To avoid this behavior you will need to build your own image as described in [Create and Upload Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article and connect it to a different update infrastructure ([directly to Red Hat content delivery servers](https://access.redhat.com/solutions/253273) or Red Hat Satellite server).
+    To avoid this behavior, you need to build your own image as described in [Create and Upload Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article and connect it to a different update infrastructure ([directly to Red Hat content delivery servers](https://access.redhat.com/solutions/253273) or Red Hat Satellite server).
 
-2. Access to the Azure-hosted RHUI is included in the RHEL PAYG image price. Unregistering a PAYG RHEL VM from the Azure-hosted RHUI does not convert the virtual machine into Bring-Your-Own-License (BYOL) type VM. If you register the same VM with another source of updates you may be incurring _indirect_ double charges: first time for Azure RHEL software fee, and the second time for Red Hat subscription(s) that have been purchased previously. If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+2. Access to the Azure-hosted RHUI is included in the RHEL PAYG image price. Unregistering a PAYG RHEL VM from the Azure-hosted RHUI does not convert the virtual machine into Bring-Your-Own-License (BYOL) type VM. If you register the same VM with another source of updates, you may be incurring _indirect_ double charges: first time for Azure RHEL software fee, and the second time for Red Hat subscription(s) that have been purchased previously. If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-3. Two classes of RHEL PAYG images in Azure (RHEL for SAP HANA, RHEL for SAP Business Applications) are connected to dedicated RHUI channels that will remain on the specific RHEL minor version as required for SAP certification. 
+3. Two classes of RHEL PAYG images in Azure (RHEL for SAP HANA, RHEL for SAP Business Applications) are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification. 
 
 4. Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you are proxying all VM traffic via on-premises network infrastructure you may need to setup user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
 
@@ -125,7 +125,7 @@ sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
 Download, Verify, and Install Client RPM. 
 
 > [!NOTE]
-> Package versions will change and if you are manually connecting to Azure RHUI you can find the latest version of the client package for each RHEL family by provisioning the latest image from the gallery.
+> Package versions change and if you are manually connecting to Azure RHUI you can find the latest version of the client package for each RHEL family by provisioning the latest image from the gallery.
 > 
 
 Download:
@@ -166,5 +166,4 @@ sudo rpm -U azureclient.rpm
 Upon completion, verify that you can access Azure RHUI form the VM.
 
 ## Next steps
-To create a Red Hat Enterprise Linux VM from Azure Marketplace Pay-As-You-Go image and leverage Azure-hosted RHUI go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). You will be able to use `yum update` in your RHEL instance without any additional setup.
-
+To create a Red Hat Enterprise Linux VM from Azure Marketplace Pay-As-You-Go image and leverage Azure-hosted RHUI go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 
