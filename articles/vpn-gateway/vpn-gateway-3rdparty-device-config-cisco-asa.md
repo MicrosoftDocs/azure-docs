@@ -87,7 +87,7 @@ The following table lists the IPsec/IKE algorithms and parameters that are used 
 | Pre-Shared Key   | PreSharedKey                         |
 |                  |                                      |
 
-\* On some device, IPsec Integrity must be a null value when the IPsec Encryption algorithm is AES-GCM.
+\* On some devices, IPsec Integrity must be a null value when the IPsec Encryption algorithm is AES-GCM.
 
 ### ASA device support
 
