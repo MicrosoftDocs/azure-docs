@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: babanisa
 ---
 
@@ -23,7 +23,7 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
 
-Currently, Blob Storage is not publicly available as a publisher.
+Currently, Blob Storage is not publicly available as a publisher. You must register for the preview release to react to storage blob events. For more information, see [Route Blob storage events to a custom web endpoint (preview)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## Concepts
 
@@ -114,9 +114,11 @@ Event Grid costs $0.60 per million operations ($0.30 during preview) and the fir
 
 ## Next steps
 
-* [Create and subscribe to custom events](custom-event-quickstart.md) 
+* [Create and subscribe to custom events](custom-event-quickstart.md)  
   Jump right in and start sending your own custom events to any endpoint using the Azure Event Grid quickstart.
-* [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md) 
+* [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   A tutorial on building an app using Logic Apps to react to events pushed by Event Grid.
+* [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)  
+  A tutorial that uses Azure Functions to stream data from Event Hubs to SQL Data Warehouse.
 * [Event Grid REST API reference](/rest/api/eventgrid)  
   Provides more technical information about the Azure Event Grid, and a reference for managing Event Subscriptions, routing, and filtering.
