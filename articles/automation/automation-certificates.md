@@ -38,6 +38,18 @@ The cmdlets in the following table are used to create and manage automation cert
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Uploads a service certificate for the specified cloud service.|
 
 
+## Python2 functions
+
+The function in the following table is used to access certificates in a Python2 runbook.
+
+| Function | Description |
+|:---|:---|
+| automationassets.get_automation_certificate | Retrieves information about a certificate asset. |
+
+> [!NOTE]
+> You must import the "automationassets" module at the top of your Python runbook in order to access the asset functions.
+
+
 ## Creating a new certificate
 
 When you create a new certificate, you upload a .cer or .pfx file to Azure Automation. If you mark the certificate as exportable, then you can transfer it out of the Azure Automation certificate store. If it is not exportable, then it can only be used for signing within the runbook or DSC configuration.
@@ -88,6 +100,14 @@ The following image shows an example of using a certificate in a graphical runbo
 
 ![Example Graphical Authoring ](media/automation-certificates/graphical-runbook-add-certificate.png)
 
+### Python2 sample
+The following sample shows how to access certificates in Python2 runbooks.
+
+	# get a reference to the Azure Automation certificate
+	cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+	
+	# returns the binary cert content  
+	print cert 
 
 ## Next steps
 
