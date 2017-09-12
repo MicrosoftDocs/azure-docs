@@ -16,31 +16,31 @@ metadata:
 abstract:
   description: Use Azure Backup to back up and restore your data. With Azure Backup you can back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
 sections:
-  - title: Overview
+  - title: ""
     items:
     - type: list
       style: cards
       className: cardsFTitle
       items:
-      - html: <p><a href="/azure/backup/backup-introduction-to-azure-backup">Learn about Azure Backup</a></p>
-        image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/backup.svg
+      - image: 
+            src: https://docs.microsoft.com/azure/backup/media/index/backup.svg
+          text: Learn about Azure Backup
           href: /azure/backup/backup-introduction-to-azure-backup
-      - html: <p><a href="https://azure.microsoft.com/documentation/videos/index/?services=backup">Azure Backup Video Library</a></p>
-        image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/video-library.svg
+      - image: 
+            src: https://docs.microsoft.com/azure/backup/media/index/video-library.svg
+          text: Azure Backup Video Library
           href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-      - html: <p><a href="/azure/backup/backup-try-azure-backup-in-10-mins">Get Started backing up files and folders with Azure Backup</a></p>
-        image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+      - image: 
+            src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+          text: Get Started backing up files and folders with Azure Backup
           href: /azure/backup/backup-try-azure-backup-in-10-mins
-      - html: <p><a href="/azure/backup/backup-azure-backup-server-vmware">Get Started backing up a VMware server with Azure Backup Server</a></p>
-        image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+      - image: 
+            src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+          text: Get Started backing up a VMware server with Azure Backup Server
           href: /azure/backup/backup-azure-backup-server-vmware
-      - html: <p><a href="/azure/backup/backup-azure-vms-first-look-arm">Get Started protecting Azure virtual machines with Azure Backup</a></p>
-        image: 
-          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+      - image: 
+            src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+          text: Get Started protecting Azure virtual machines with Azure Backup
           href: /azure/backup/backup-azure-vms-first-look-arm
   - title: Quickstarts
     items:
