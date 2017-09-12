@@ -23,25 +23,25 @@ sections:
       className: cardsFTitle
       items:
       - image: 
-            src: https://docs.microsoft.com/azure/backup/media/index/backup.svg
-          text: Learn about Azure Backup
-          href: /azure/backup/backup-introduction-to-azure-backup
+          src: https://docs.microsoft.com/azure/backup/media/index/backup.svg
+        text: Learn about Azure Backup
+        href: /azure/backup/backup-introduction-to-azure-backup
       - image: 
-            src: https://docs.microsoft.com/azure/backup/media/index/video-library.svg
-          text: Azure Backup Video Library
+          src: https://docs.microsoft.com/azure/backup/media/index/video-library.svg
+        text: Azure Backup Video Library
           href: https://azure.microsoft.com/documentation/videos/index/?services=backup
       - image: 
-            src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-          text: Get Started backing up files and folders with Azure Backup
-          href: /azure/backup/backup-try-azure-backup-in-10-mins
+          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+        text: Get Started backing up files and folders with Azure Backup
+        href: /azure/backup/backup-try-azure-backup-in-10-mins
       - image: 
-            src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-          text: Get Started backing up a VMware server with Azure Backup Server
-          href: /azure/backup/backup-azure-backup-server-vmware
+          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+        text: Get Started backing up a VMware server with Azure Backup Server
+        href: /azure/backup/backup-azure-backup-server-vmware
       - image: 
-            src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-          text: Get Started protecting Azure virtual machines with Azure Backup
-          href: /azure/backup/backup-azure-vms-first-look-arm
+          src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
+        text: Get Started protecting Azure virtual machines with Azure Backup
+        href: /azure/backup/backup-azure-vms-first-look-arm
   - title: Quickstarts
     items:
     - type: paragraph
