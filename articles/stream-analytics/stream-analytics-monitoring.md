@@ -53,7 +53,7 @@ You can adjust the type of chart, metrics shown, and time range in the Edit Char
 
 ## Latest output
 Another interesting data point to monitor your job is the time of the last output, shown in the Overview page.
-This time is the application time (i.e. the time using the timestamp from the event data) of the latest output of your job. If you have multiple output partitions, this time shows the latest time accross all partitions.
+This time is the application time (i.e. the time using the timestamp from the event data) of the latest output of your job.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
