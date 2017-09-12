@@ -1,5 +1,4 @@
 - name: Data Science Virtual Machine documentation
-  href: index.yml
 - name: Overview
   href: virtual-machine-overview.md
   items:

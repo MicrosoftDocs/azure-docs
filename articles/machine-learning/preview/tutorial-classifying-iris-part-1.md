@@ -31,7 +31,10 @@ Fill in the project name (this tutorial assumes you use `myIris`). Choose the di
 
 ![New Project](media/tutorial-classifying-iris/new_project.png)
 >[!TIP]
->Optionally, you can also fill in the Git repo field with an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article and the [Roaming and Sharing](collab.md) article.
+>Optionally, you can also fill in the Git repo field with an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article. 
+<!-- Commenting out this link because it's currently broken, the article doesn't exist yet (Gary)
+and the [Roaming and Sharing](collab.md) article
+-->
 
 Click on the **Create** button to create the project. The project is now created and opened for you.
 
@@ -41,7 +44,7 @@ Open the `iris.csv` file from the File View. The file is a simple table with 5 c
 ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
 >[!NOTE]
->Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to Deal with Large Data Files](PersistChanges.md) article.
+>Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
 
 In the Data Pane, click on the **+** icon to add a new data source. This launches the **Add Data Source** wizard. 
 
