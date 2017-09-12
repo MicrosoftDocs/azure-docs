@@ -73,14 +73,14 @@ When the site is created, it has the following additional properties:
 }
 ```
 
-Where "<TENANTID" and "<PRINCIPALID>" are replaced with GUIDs. The tenantId property identifies what AAD tenant the application belongs to. The principalId is a unique identifier for the application's new identity. Within AAD, the application has the same name that you gave to your App Service or Azure Functions instance.
+Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId property identifies what AAD tenant the application belongs to. The principalId is a unique identifier for the application's new identity. Within AAD, the application has the same name that you gave to your App Service or Azure Functions instance.
 
 ## Obtaining tokens for Azure resources
 
 An app can use its identity to get tokens to other resources protected by AAD, such as Azure Key Vault. These tokens represent the application accessing the resource, and not any specific user of the application. 
 
 > [!IMPORTANT]
-> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token.
+> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Managed Service Identity tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-service-identity-support-azuread-authn.md).
 
 There is a simple REST protocol for obtaining a token in App Service and Azure Functions. For .NET applications, the Azure Service Authentication Library provides an abstraction over this protocol and supports a local development experience.
 
@@ -92,8 +92,10 @@ For .NET applications and functions, the simplest way to work with a managed ser
 
 2. Add a "AzureServicesAuthConnectionString" application setting to your Azure resource with the value `AuthenticateAs=App;`.
 
+
 > ![TIP]
 >  For local development, set your local version of this setting to `AuthenticateAs=User;User=VisualStudioAccount`. This allows you to test your code locally using the permissions granted to your individual account.
+
 
 3. Add the following code to your application:
 
