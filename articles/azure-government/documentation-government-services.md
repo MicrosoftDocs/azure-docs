@@ -133,6 +133,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | Yes | Yes |
 | Scheduler | Yes | Yes |
 | [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | Yes | Yes |
+| Azure Service Management API | Yes | Yes |
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/).

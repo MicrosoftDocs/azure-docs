@@ -31,6 +31,24 @@ The following information identifies the Azure Government boundary for Azure Vir
 | --- | --- |
 | Data entered, stored, and processed within a VM can contain export-controlled data. Binaries running within Azure Virtual Machines. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings.  Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure Virtual Machine.  Do not enter Regulated/controlled data into the following fields:  Tenant role names, Resource groups, Deployment names, Resource names, Resource tags |
 
+## Batch 
+For details on this service and how to use it, see[ Azure Batch documentation](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview).
+
+### Variations
+The URLs for accessing and managing the Batch service are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| Batch | *.batch.azure.com | *.batch.usgovcloudapi.net |
+
+### Considerations
+The following information identifies the Azure Government boundary for Azure Batch:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| --- | --- |
+| |
+
+
 ## Azure Functions
 The [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
 
