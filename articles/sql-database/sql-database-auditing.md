@@ -168,8 +168,8 @@ In production, you are likely to refresh your storage keys periodically. When re
 3. Go back to the auditing configuration blade, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the auditing configuration blade.
 4. Go back to the storage configuration blade and regenerate the secondary access key (in preparation for the next key's refresh cycle).
 
-## <a id="subheading-7"></a>Automation (PowerShell/REST API)
-You can also configure auditing in Azure SQL Database by using the following automation tools:
+## Manage SQL database auditing using Azure PowerShell
+
 
 * **PowerShell cmdlets**:
 
@@ -181,6 +181,8 @@ You can also configure auditing in Azure SQL Database by using the following aut
    * [Set-AzureRMSqlServerAuditing][106]
 
    For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## Manage SQL database auditing using REST API
 
 * **REST API - Blob auditing**:
 
