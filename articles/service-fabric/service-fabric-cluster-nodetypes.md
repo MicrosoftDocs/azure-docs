@@ -30,7 +30,7 @@ As shown in the preceding figure, scale set instances start at instance 0, and t
 When you scale up a scale set, a new instance is created. The new scale set instance name typically is the scale set name plus the next instance number. In our example, it is BackEnd_5.
 
 ## Map scale set load balancers to node types and scale sets
-If you deployed your cluster in the Azure portal or used the sample Azure Resource Manager template, all resources under a resource group are listed. You can see the load balancers for each scale set or node type. The load balancer name uses the following format: **LB-&lt;node type name&gt;**. For example, LB-sfcluster4doc-0, as shown in the following figure:
+If you deployed your cluster in the Azure portal or used the sample Azure Resource Manager template, all resources under a resource group are listed. You can see the load balancers for each scale set or node type. The load balancer name uses the following format: **LB-&lt;node type name&gt;**. An example is LB-sfcluster4doc-0, as shown in the following figure:
 
 ![Resources][Resources]
 <a name="remote-connect-to-a-vm-scale-set"></a>
@@ -112,7 +112,7 @@ Changing the RDP port range values after the cluster has been deployed is more c
 
 To change the password for all nodes of a specific node type, complete the following steps. These changes will apply to all current and future nodes in the scale set.
 
-1. Open PowerShell as an Administrator. 
+1. Open PowerShell as an administrator. 
 2. To log in and select your subscription for the session, run the following commands. Change the `SUBSCRIPTIONID` parameter to your subscription ID. 
 
     ```powershell
