@@ -47,7 +47,7 @@ If either is incorrect, you may need to redeploy the MSI on your resource again,
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
 - To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md).
 
 
