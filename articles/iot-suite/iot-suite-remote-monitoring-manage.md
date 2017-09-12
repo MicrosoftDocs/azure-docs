@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Manage and configure your devices
 
-Contoso has ordered new machinery to expand one of their facilities to increase output. While you wait for the new machinery to be delivered, you want to run a simulation to verify the behavior of your solution. As an operator you want to manage and configure the devices in the remote monitoring solution.
+Contoso has ordered new machinery to expand one of their facilities to increase output. While you wait for the new machinery to be delivered, you want to run a simulation to verify the behavior of your solution. As an operator, you want to manage and configure the devices in the remote monitoring solution.
 
 To provide an extensible way to manage and configure devices, the remote monitoring solution uses IoT Hub features such as [jobs](../iot-hub/iot-hub-devguide-jobs.md) and [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To learn how a device developer implements methods on a physical device, see [Customize the remote monitoring preconfigured solution](iot-suite-remote-monitoring-customize.md).
 
@@ -70,7 +70,7 @@ Choose **Restart** and set the job name to **Restart engine**:
 
 <!-- Insert screenshot here -->
 
-To track the status of the job ion the **Maintenance** page, choose **View**:
+To track the status of the job on the **Maintenance** page, choose **View**:
 
 <!-- Insert screenshot here -->
 
