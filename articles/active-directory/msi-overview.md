@@ -18,7 +18,7 @@ ms.author: skwan
 
 ---
 
-#  Overview of Managed Service Identity (Preview) for Azure resources
+#  Overview of Managed Service Identity (MSI) for Azure resources
 
 [!INCLUDE[preview-notice](../includes/active-directory-msi-preview-notice.md)]
 
