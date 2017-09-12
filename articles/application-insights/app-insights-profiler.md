@@ -61,11 +61,16 @@ When you [enable Application Insights for Azure app services at run time](app-in
 There is a [preview version of the Profiler for Azure Compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## Limits
+## Limitations
 
 The default data retention is 5 days. Maximum 10 GB ingested per day.
 
 There is no charge for the profiler service. Your web app must be hosted in at least the Basic tier of App Services.
+
+## Overhead and sampling algorithm
+
+The Profiler randomly runs 2 minutes every hour on each Virtual Machine that hosts the application with Profiler enabled to capture traces. When the Profiler is running, it adds 15% overhead to the throughput of the server.
+The sampling algorithm is the same for all hosting services on Azure, though the more servers available for hosting the application, the less impact Profiler has on the overall application performance. This is because more servers will be available serving the web requests while one of the servers is having overhead from the Profiler.
 
 ## Viewing profiler data
 
