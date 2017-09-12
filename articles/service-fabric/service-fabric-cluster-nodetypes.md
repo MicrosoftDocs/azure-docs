@@ -87,7 +87,7 @@ Changing the RDP port range values after the cluster has been deployed is more c
 > [!NOTE]
 > Ensure that you have Azure PowerShell 1.0 or a later version installed on your computer. If you don't have Azure Powershell 1.0 or a later version, we recommend that you follow the steps described in [How to install and configure Azure PowerShell.](/powershell/azure/overview)
 
-1. Sign in to your Azure account. If the following PowerShell command fails, verify that you installed PowerShell installed correctly.
+1. Sign in to your Azure account. If the following PowerShell command fails, verify that you installed PowerShell correctly.
 
     ```
     Login-AzureRmAccount
