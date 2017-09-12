@@ -19,7 +19,7 @@ The design time runtime uses Python for extensibility and depends on various Pyt
 
 After you install Azure ML Workbench on Windows, there should be a shortcut on the desktop that can be found by pressing the Windows key and then starting to type Azure ML Workbench. On OS X/macOS, there will be a new application.
 
-When you first launch Azure ML Workbench you are taken to the home screen from there create a new project by hitting the + on the menu, once you have a new project hit the + again and select "New Data Source". This will launch the data source wizard, after the wizard is complete a "package.dprep" file will be added to the project, double-click on this to launch the Data Prep experience. [Click here for more information about the Data Source Wizard](data-source-wizard.md) 
+When you first launch Azure ML Workbench you are taken to the home screen from there create a new project by clicking the + on the menu. Once you have a new project, click the + Data View and select "New Data Source". This will launch the data source wizard, after the wizard is complete a "datasource.dsource" file will be added to the project. Open the data source and click on Prepare and choose a package to launch the Data Prep experience. [See the Data Source Wizard](data-source-wizard.md) for more information on how to create a data source.
 
 ## Building Blocks of Data Preparation ##
 ### The Package ###
@@ -49,13 +49,13 @@ A source is where the data comes from, and the format it is in. Each source has 
 Transforms consume data in a given format, perform some operation on the data (such as changing the data type) and then produce data in the new format. Each Transform has its own UI and behavior(s). Chaining several Transforms together via Steps in the Dataflow is the core of Data Preparation functionality. (Appendix 3 provides the current list of supported Transforms).
 
 ### The Inspector ###
-Inspectors are visualizations of the data. Inspectors help you understand the data so you can decide which actions (Transforms) you need to take to make the data better suited for your purpose. Some Inspectors support actions that generate Transforms. For example, the Value Count Inspector allows you to select a Value and then apply a filter to include that Value or to Exclude that Value. Inspectors can also provide context for Transforms. For example, selecting one or more columns changes the possible Transforms that can be applied.
+Inspectors are visualizations of the data. Inspectors help you understand the data so you can decide which actions (Transforms) you need to take to make the data better suited for your purpose. Some Inspectors support actions that generate Transforms. For example, the Value Count Inspector allows you to select a Value and then apply a filter to include that Value or to exclude that Value. Inspectors can also provide context for Transforms. For example, selecting one or more columns changes the possible Transforms that can be applied.
 
 A column may have multiple Inspectors at any point in time (e.g. Column Statistics and a Histogram). There can also be multiple instances of an Inspector against different columns. For example, all numeric columns could have Histograms at the same time.
 
 The Inspectors appear in the Profiling Well at the bottom of the UI and also in the main view. The default Inspector is the Grid. Any Inspector can be expanded into the main view. In this scenario, whichever Inspector was already in the main view minimizes to the well. Inspectors can be configured by clicking on the pencil icon. Once minimized into the well, an inspector can be moved left to support reordering.
 
-Some Inspectors support the option for a “Halo”. This is the capability to remember the value/state before the last Transform was applied. The old value is displayed as a background gray with the current value in the foreground. This allows for easy comparison of the impact of a Transform. 
+Some Inspectors support the option for a “Halo”. This is the capability to remember the value/state before the last Transform was applied. The old value is displayed as a gray background with the current value in the foreground. This allows for easy comparison of the impact of a Transform. 
 
 There are two special Inspectors, the first is the DataGrid, this is the default view when opening a Dataflow, the second is the Profiling Inspector that launches from the DataGrid. Both of these Inspectors work on the entire dataset not a column, there can only be one of these two Inspectors available at a time. (Appendix 4 provides the current list of supported Inspectors).
 
@@ -66,14 +66,20 @@ There are two special Inspectors, the first is the DataGrid, this is the default
 Data Preparation assumes a basic five-step methodology/approach to data preparation.
 
 #### Step 1: Ingestion ####
-You can import data into Data Preparation through either the New Data Source option on the project view or the Open Data Source option on the Dataflow menu. All initial ingestion of data is handled through the data source wizard.
+You can import data into Data Preparation through either the New Data Source option on the data view or the Open Data Source option on the Dataflow menu. All initial ingestion of data is handled through the data source wizard.
 
 #### Step 2: Understand/Profile the Data ####
-The first action is to look at the Data Quality Bar at the top of each column. For each column, green indicates the rows that have values. Grey indicates the rows with a missing value, null etc. Red indicates error values. There are tool tips to tell the exact numbers of rows in each of the three buckets. The UI is scaled logarithmically, so always check the actual numbers after using the UI to get a rough feel for the volume of missing data.
+The first action is to look at the Data Quality Bar at the top of each column. For each column, 
+
+    •	Green indicates the rows that have values 
+    •	Grey indicates the rows with a missing value, null etc. 
+    •	Red indicates error values
+
+There are tool tips to tell the exact numbers of rows in each of the three buckets. The UI is scaled logarithmically, so always check the actual numbers after using the UI to get a rough feel for the volume of missing data.
 
 ![columns](media/data-prep-getting-started/columns.png)
 
-The next action is to use the various Inspectors from the Inspector’s menu and also the grid to develop an understanding of the characteristics of the data and to start formulating hypotheses about the data preparation required for further analysis. While most inspectors work on a single or small number of columns, the Grid and the Column Metrics inspectors work on the entire dataset. 
+The next action is to use the various Inspectors from the Inspectors’ menu and also the grid to develop an understanding of the characteristics of the data and to start formulating hypotheses about the data preparation required for further analysis. While most inspectors work on a single or small number of columns, the Grid and the Column Metrics inspectors work on the entire dataset. 
 
 To look at metrics for the columns, click to the right of the dataset name above the grid to bring up the new view. The column metrics view shows a row for each column from the dataset and for each row it shows a series of statistics, numerical and graphical, depending on the datatype of the column. This view can also be sorted and filtered to help you deal with large volumes of columns.
 
@@ -85,7 +91,7 @@ It’s likely that several Inspectors across several columns will be needed to u
 
 Different inspectors are provided for continuous vs categorical variables/columns. The Inspector menu enables and disables options depending on the type of variables/columns you have.
 
-When working with wide datasets that have many columns, a pragmatic approach of working with subsets is advisable. This approach includes focusing on a small number of columns (e.g. 5-10), preparing them and then working through the remaining columns. The grid inspector supports vertical partitioning of columns and so if you have more than 300 columns then you need to "page" through them.
+When working with wide datasets that have many columns, a pragmatic approach of working with subsets is advisable. This approach includes focusing on a small number of columns (e.g. 5-10), preparing them and then working through the remaining columns. The grid inspector supports vertical partitioning of columns and so if you have more than 200 columns then you need to "page" through them.
  
 
 #### Step 3: Transform the Data ####
@@ -104,7 +110,7 @@ The primary way to determine if the Transform had the right impact is to use the
 
 ![halo inspector](media/data-prep-getting-started/halo1.png) ![halo inspector](media/data-prep-getting-started/halo2.png)
 
-To undo a Transformation, go the Steps List on the right-hand side of the UI. (The Steps List panel may need to be popped back out. To open it, click the double chevron pointing left). In the panel, select the Transform that was executed that you wish to undo. Select the drop-down on the right-hand side of the UI block. Select either “Edit” to make changes or “Delete” to remove the Transform from the Steps List and the Dataflow.
+To undo a Transformation, go the Steps List on the right-hand side of the UI. (The Steps List panel may be collapsed. To open it, click the double chevron pointing left). In the panel, select the executed Transform that you wish to undo. Select the drop-down on the right-hand side of the UI block. Select either “Edit” to make changes or “Delete” to remove the Transform from the Steps List and the Dataflow.
 
 #### Step 5: Output ####
 When finished with your data preparation, you can write the Dataflow to an output. A Dataflow can have many outputs. From the Transforms menu, you can select which output you want the dataset to be written as. You can also select the output's destination. The list of outputs and destinations are listed in Appendix 5.

@@ -66,4 +66,4 @@ If the file path includes important data, you can choose to include it as the fi
 
 ![step 7](media/data-source-wizard/step6.png)
 
-After clicking ##Finish##, a new data source will be added to the project. You can find it under the ##Data Sources# group in the ##Data View##, or as a .dsource file in the ##File View##.
+After clicking Finish, a new data source will be added to the project. You can find it under the Data Sources group in the Data View, or as a .dsource file in the File View
