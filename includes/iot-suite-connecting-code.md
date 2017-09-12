@@ -159,10 +159,10 @@ Now add code that implements the behavior defined in the model.
         addProperty(propMap, "$$MessageSchema", schema);
         addProperty(propMap, "$$ContentType", "JSON");
         time_t now = time(0);
-        struct tm timeinfo;
-        gmtime_s(&timeinfo, &now);
+        struct tm* timeinfo;
+        timeinfo = gmtime(&now);
         char timebuff[50];
-        strftime(timebuff, 50, "%Y-%m-%dT%H:%M:%SZ", &timeinfo);
+        strftime(timebuff, 50, "%Y-%m-%dT%H:%M:%SZ", timeinfo);
         addProperty(propMap, "$$CreationTimeUtc", timebuff);
 
         if (IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, NULL, NULL) != IOTHUB_CLIENT_OK)

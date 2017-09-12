@@ -1,5 +1,5 @@
 ---
-title: Connect a device using C on Windows | Microsoft Docs
+title: Connect to Azure IoT Suite using C on Windows | Microsoft Docs
 description: Describes how to connect a device to the Azure IoT Suite remote monitoring preconfigured solution using an application written in C running on Windows.
 services: ''
 suite: iot-suite
@@ -22,7 +22,7 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Create a C sample solution on Windows
+## Create a C client solution on Windows
 
 The following steps show you how to create a client application that communicates with the remote monitoring preconfigured solution. This application is written in C and built and run on Windows.
 
