@@ -285,6 +285,8 @@ Add-AzureRmAutoscaleSetting `
   -AutoscaleProfiles $myScaleProfile
 ```
 
+For more design information on the use of autoscale, see [autoscale best practices](/azure/architecture/best-practices/auto-scaling).
+
 
 ## Next steps
 In this tutorial, you created a virtual machine scale set. You learned how to:
