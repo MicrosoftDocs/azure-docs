@@ -42,11 +42,16 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
    az login
    ```
 
-2. In this example, we are giving an Azure VM access to a storage account. First we use [az resource list](/cli/azure/resource/#list) to get the service principal for the VM named "myVM", which was created when we enabled MSI. Then, we use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give the VM "Reader" access to a storage account called "myStorageAcct":
+2. In this example, we are giving an Azure VM access to a storage account. First we use [az resource list](/cli/azure/resource/#list) to get the service principal for the VM named "myVM", which was created when we enabled MSI:
 
    ```azurecli-interactive
-   az resource list -n myVM | grep principalId			
-   az role assignment create --assignee <spID> --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
+   az resource list -n SimpleWinVM --query [*].[identity.principalId]		
+   ```
+
+3. Once we have the service principal ID, "mySP", we use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give the VM "Reader" access to a storage account called "myStorageAcct":
+
+   ```azurecli-interactive
+   az role assignment create --assignee mySP --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
    ```
 
 ## Troubleshooting
