@@ -37,7 +37,7 @@ This tutorial assumes a basic understanding of Kubernetes concepts, for detailed
 
 In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created. 
 
-An application repository was also cloned which includes the Kubernetes manifest file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file named `azure-vote-all-in-one-redis.yml`.
+An application git repository was also cloned, which includes the Kubernetes manifest file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file named `azure-vote-all-in-one-redis.yml`.
 
 If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
