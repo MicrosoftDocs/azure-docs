@@ -98,7 +98,9 @@ To undo a Transformation, go the Steps List on the right-hand side of the UI. (T
 When finished with your data preparation, you can write the Dataflow to an output. A Dataflow can have many outputs. From the Transforms menu, you can select which output you want the dataset to be written as. You can also select the output's destination. The list of outputs and destinations are listed in Appendix 5.
 
 ### List of Appendices ###
+<!-- Commenting out this link because it's currently broken, Appendix 1 doesn't exist at the moment (Gary)
 [Appendix 1 - Supported Platforms](data-prep-appendix1-supported-platforms.md)  
+-->
 [Appendix 2 - Supported Data Sources](data-prep-appendix2-supported-data-sources.md)  
 [Appendix 3 - Supported Transforms](data-prep-appendix3-supported-transforms.md)  
 [Appendix 4 - Supported Inspectors](data-prep-appendix4-supported-inspectors.md)  

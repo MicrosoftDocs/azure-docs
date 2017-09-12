@@ -57,7 +57,9 @@ You can install Azure Machine Learning Workbench on your Windows or macOS comput
 | [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg) | macOS
 
 ### Special Note for macOS Users
+<!-- Commented-out until we move the script files elsewhere (Gary)
 Run this [shell script](./scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries. And configure links before proceeding with the installation. 
+-->
 
 If you are using Python greater than 3.5, you need to execute this command to enable installing the right certificates.
 ```bash
