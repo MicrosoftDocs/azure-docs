@@ -15,8 +15,6 @@
     href: quick-start-installation.md
   - name: Quick tour
     href: quick-start-iris.md  
-  - name: Placeholder - Data prep quickstart
-    href: doc-template-quickstart.md
 - name: Tutorials
   items:
   - name: Classify iris part 1 - data preparation
