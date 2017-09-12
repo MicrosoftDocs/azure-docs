@@ -4,6 +4,7 @@
 # Quickstarts
 ## [Create a Cloudyn trial registration with an Azure Enterprise Agreement enrollment](quick-register-ea.md)
 
+
 <!---
 ## [Create a Cloudyn trial registration with an Azure Cloud Solution Provider (CSP) account](quick-register-csp.md)
 ## [Create a Cloudyn trial registration with a standard Azure subscription (web direct)](quick-register-azure-sub.md)
