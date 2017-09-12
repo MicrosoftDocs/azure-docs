@@ -24,7 +24,7 @@ To do this tutorial, you need:
 > [!div class="checklist"]
 > * Microsoft Power BI Desktop. [Download at no charge]((https://powerbi.microsoft.com/)).
 > * A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
-> * A subscription key for Text Analytics. [Sign up](../../cognitive-services-apis-create-account.md), then [get your key](../how-tos/text-analytics-how-to-access-key.md).
+> * A access key for Text Analytics. [Sign up](../../cognitive-services-apis-create-account.md), then [get your key](../how-tos/text-analytics-how-to-access-key.md).
 > * Customer comments. [Get our example data](https://aka.ms/cogsvc/ta) or use your own.
 
 ## Loading customer data
@@ -190,7 +190,7 @@ Click the Focus Mode tool in the report to get a better look at our word cloud. 
 
 The Text Analytics service, one of the Cognitive Services offered by Microsoft Azure, also provides sentiment analysis and language detection. The language detection in particular is useful if your customer feedback is not all in English.
 
-Both of these other APIs are very similar to the Key Phrases API. Near-identical custom functions can thus be used to integrate them with Power BI Desktop. Just create a blank query and paste the appropriate code below into the Advanced Editor, as you did earlier. (Don't forget your subscription key!) Then, as before, use the function to add a new column to the table.
+Both of these other APIs are very similar to the Key Phrases API. Near-identical custom functions can thus be used to integrate them with Power BI Desktop. Just create a blank query and paste the appropriate code below into the Advanced Editor, as you did earlier. (Don't forget your access key!) Then, as before, use the function to add a new column to the table.
 
 The Sentiment Analysis function below returns a score indicating how positive the sentiment expressed in the text is.
 

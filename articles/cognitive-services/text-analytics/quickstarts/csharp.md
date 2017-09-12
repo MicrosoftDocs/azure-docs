@@ -58,17 +58,17 @@ namespace TextAnalyticsCSharpCore
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace the accessKey string value with your valid subscription key.
+        // Replace the accessKey string value with your valid access key.
         const string accessKey = "enter key here";
 
         // Replace or verify the region.
         //
-        // You must use the same region in your REST API call as you used to obtain your subscription keys.
-        // For example, if you obtained your subscription keys from the westus region, replace 
+        // You must use the same region in your REST API call as you used to obtain your access keys.
+        // For example, if you obtained your access keys from the westus region, replace 
         // "westcentralus" in the URI below with "westus".
         //
-        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-        // a free trial subscription key, you should not need to change this region.
+        // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+        // a free trial access key, you should not need to change this region.
         const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages";
 
 
@@ -284,17 +284,17 @@ namespace TextAnalyticsCSharpCore
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace the accessKey string value with your valid subscription key.
+        // Replace the accessKey string value with your valid access key.
         const string accessKey = "enterKeyHere";
 
         // Replace or verify the region.
         //
-        // You must use the same region in your REST API call as you used to obtain your subscription keys.
-        // For example, if you obtained your subscription keys from the westus region, replace 
+        // You must use the same region in your REST API call as you used to obtain your access keys.
+        // For example, if you obtained your access keys from the westus region, replace 
         // "westcentralus" in the URI below with "westus".
         //
-        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-        // a free trial subscription key, you should not need to change this region.
+        // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+        // a free trial access key, you should not need to change this region.
         const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment";
 
         static void Main()
@@ -481,17 +481,17 @@ namespace TextAnalyticsCSharpCore
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace the accessKey string value with your valid subscription key.
+        // Replace the accessKey string value with your valid access key.
         const string accessKey = "enterKeyHere";
 
         // Replace or verify the region.
         //
-        // You must use the same region in your REST API call as you used to obtain your subscription keys.
-        // For example, if you obtained your subscription keys from the westus region, replace 
+        // You must use the same region in your REST API call as you used to obtain your access keys.
+        // For example, if you obtained your access keys from the westus region, replace 
         // "westcentralus" in the URI below with "westus".
         //
-        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-        // a free trial subscription key, you should not need to change this region.
+        // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+        // a free trial access key, you should not need to change this region.
         const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases";
 
 
