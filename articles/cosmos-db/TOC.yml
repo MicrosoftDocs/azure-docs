@@ -95,6 +95,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Serverless database
+    href: serverless-computing-database.md
   - name: Global distribution
     href: distribute-data-globally.md
   - name: Partitioning
