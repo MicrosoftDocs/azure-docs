@@ -40,5 +40,7 @@ If you provisioned AWS Reserved Instances, you can improve your reserved instanc
 Now that you’re familiar with Cost Management, the next step is to register your cloud environment and start exploring your data.
 
 - Create a trial registration with an Azure Enterprise Agreement enrollment
+<!---
 - Create a trial registration with an Azure Cloud Solution Provider (CSP) account
 - Create a trial registration with a standard Azure subscription (web direct)
+-->
