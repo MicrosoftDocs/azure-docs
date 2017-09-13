@@ -177,7 +177,7 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn
 <a name="dataunderstanding"></a>
 ## Data acquisition and understanding
 
-During setup, the aerial image sets used in this tutorial were transferred to the storage account and Network File Server that you created. The training, validation, and operationalization images are all 224 pixel x 224 pixel PNG files at a resolution of one pixel per square meter. The training and validation images have been organized into subfolders based on their land use label. (The land use labels of the operationalization images are unknown and in many cases ambiguous; some of these images contain multiple land types.) For more information on how these image sets were constructed, see the [Embarrassingly Parallel Image Classification git repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
+During setup, the aerial image sets used in this tutorial were transferred to the storage account that you created. The training, validation, and operationalization images are all 224 pixel x 224 pixel PNG files at a resolution of one pixel per square meter. The training and validation images have been organized into subfolders based on their land use label. (The land use labels of the operationalization images are unknown and in many cases ambiguous; some of these images contain multiple land types.) For more information on how these image sets were constructed, see the [Embarrassingly Parallel Image Classification git repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
 To view example images:
 1. Log in to the [Azure portal](https://portal.azure.com).
