@@ -938,7 +938,7 @@ If you haven't defined a `response` action, then the outputs are empty.
 ## Compose action
 
 This action lets you construct an arbitrary object, 
-and the output from is the result from evaluating its inputs. 
+and the output is the result from evaluating the action's inputs. 
 
 > [!NOTE]
 > You can use the `Compose` action for constructing any output, 
