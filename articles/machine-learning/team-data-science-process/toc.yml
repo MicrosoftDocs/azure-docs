@@ -1,31 +1,31 @@
-- name: '[Team Data Science Process Documentation]'
+- name: Team Data Science Process Documentation
 - name: Overview
   href: overview.md
 - name: Lifecycle
   href: lifecycle.md
   items:
-  - name: 1. Business Understanding
+  - name: 1. Business understanding
     href: lifecycle-business-understanding.md
-  - name: 2. Data Acquisition and Understanding
+  - name: 2. Data acquisition and understanding
     href: lifecycle-data.md
   - name: 3. Modeling
     href: lifecycle-modeling.md
   - name: 4. Deployment
     href: lifecycle-deployment.md
-  - name: 5. Customer Acceptance
+  - name: 5. Customer acceptance
     href: lifecycle-acceptance.md
   - name: With Azure ML
     href: http://aka.ms/datascienceprocess
 - name: Roles and tasks
   href: roles-tasks.md
   items:
-  - name: Group Manager
+  - name: Group manager
     href: group-manager-tasks.md
-  - name: Team Lead
+  - name: Team lead
     href: team-lead-tasks.md
-  - name: Project Lead
+  - name: Project lead
     href: project-lead-tasks.md
-  - name: Individual Contributor
+  - name: Individual contributor
     href: project-ic-tasks.md
 - name: Project structure
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
@@ -102,9 +102,9 @@
         href: move-data-to-azure-blob-using-ssis.md
       - name: Move to a VM
         href: move-sql-server-virtual-machine.md
-      - name: Move to SQL database
+      - name: Move to SQL Database
         href: move-sql-azure.md
-      - name: Load into hive tables
+      - name: Load into Hive tables
         href: move-hive-tables.md
       - name: Load from on-prem SQL
         href: move-sql-azure-adf.md
@@ -227,10 +227,10 @@
           href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:
-  - name: TDSP Tools and Utilities GitHub
+  - name: TDSP tools and utilities - GitHub
     href: https://github.com/Azure/Azure-TDSP-Utilities
     items:
-    - name: Latest Rev of Utilities for Microsoft Team Data Science Process
+    - name: Latest utilities for the Team Data Science Process
       href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
   - name: Cortana Intelligence and Machine Learning Blog
     href: https://blogs.technet.microsoft.com/machinelearning/
