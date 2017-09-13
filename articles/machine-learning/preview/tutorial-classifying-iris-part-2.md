@@ -96,13 +96,9 @@ Enter a series of different numerical values in the **Arguments** field ranging 
 ## Step 3. Review Run History
 In Azure ML Workbench, every script execution is captured as a run history record. You can view the run history of a particular script by opening the **Runs** view.
 
-![run history list view]()
-
 The statistics captured across multiple runs are rendered in the graphs above and the list below. Play with the configurations and filter controls to see all your options.
 
 Click on an individual run to see the run detail view. All the statistics for the selected run are listed in the _Run Properties_ section. The files written into the `outputs` folder are listed in the **Output Files** section, and can be downloaded or promoted (more on promotion later). The two plots, confusion matrix and multi-class ROC curve, are rendered in the **Output Images** section. All the log files can also be found in the **Log Files** section.
-
-![run history details view]()
 
 ## Step 4. Execute Scripts in the Local Docker Environment
 >[!IMPORTANT]
@@ -141,9 +137,6 @@ C:\Temp\myIris> az set account -s <subscriptionId>
 REM verify your current subscription is set correctly
 C:\Temp\myIris> az account show
 ```
-<!--
-For more information on authentication in the command line window, please reference [CLI Execution Authentication](Execution.md#cli-execution-authentication). 
--->
 
 Once you are authenticated and the current Azure subscription context is set, type the following commands in the CLI window: 
 
@@ -181,9 +174,7 @@ This script starts an `iris_sklearn.py` job with a regularization rate of `10.0`
 REM Submit iris_sklearn.py multiple times with different regularization rates
 C:\Temp\myIris> python run.py
 ```
-When `run.py` finishes, you might see a graph like this in your run history list view.
-
-![run.py graph]()
+When `run.py` finishes, you see a graph in your run history list view.
 
 ## Step 5a (optional). Execute in a Docker Container on a Remote Machine
 To execute your script in a Docker container on a remote Linux machine, you need to have SSH access (username and password) to that remote machine. And that remote machine must have Docker engine installed and running. The easiest way to obtain such a Linux machine is to create a [Ubuntu-based Data Science Virtual Machine (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) on Azure. (Note the CentOS-based DSVM is NOT supported.) 
@@ -237,14 +228,16 @@ C:\Temp\myIris> az ml computetarget attach --name myhdi --address <cluster name>
 REM prepare the HDI cluster
 C:\Temp\myIris> az ml experiment prepare -c myhdi
 ```
->Note: the `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is not `admin`. That is the other user created during provisioning to enable access the cluster's admin web site. 
+>[!NOTE]
+>The `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is not `admin`. That is the other user created during provisioning to enable access the cluster's admin web site. 
 
 Issue the following command and the script runs in the HDI cluster:
 ```batch
 REM execute iris_pyspark on the HDI cluster
 C:\Temp\myIris> az ml experiment submit -c myhdi .\iris_pyspark.py
 ```
->Note: When you execute against a remote HDI cluster, you can also view the YARN job execution details at `https://<cluster_name>.azurehdinsight.net/yarnui` using the `admin` user account.
+>[!NOTE]
+>When you execute against a remote HDI cluster, you can also view the YARN job execution details at `https://<cluster_name>.azurehdinsight.net/yarnui` using the `admin` user account.
 
 Now that we have created the Logistic Regression model, let's deploy it as a real-time web service.
 
