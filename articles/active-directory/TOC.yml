@@ -70,3 +70,5 @@
         href: msi-howto-assign-access-powershell.md
       - name: With Azure CLI
         href: msi-howto-assign-access-cli.md 
+    - name: Known issues
+      href: msi-known-issues.md
