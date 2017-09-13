@@ -23,11 +23,16 @@ ms.reviewer: jairoc
 
 **Q: How can I register a macOS device?**
 
-**A:** To register  macOS device:
+**A:** To register macOS device:
 
 1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
 2.	[Define a conditional access policy for macOS devices](active-directory-conditional-access-azure-portal.md) 
-3.	Users covered under CA will need supported version of Office for macOS applications to use the resources. Once with the right set of applications, users will be prompted to enroll the device using company portal.
+
+**Remarks:**
+
+- The users that are included in your conditional access policy need a [supported version of Office for macOS](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) to access resources. 
+
+- During the first access attempt, your users are prompted to enroll the device using the company portal.
 
 ---
 
