@@ -26,7 +26,7 @@ You can deploy a Public IP in an Azure availability zone (preview). An [availabi
 > * Create a Public IP in an availability zone
 > * Identify related resources created in the availability zone
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.xxx [*TBD*] or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
