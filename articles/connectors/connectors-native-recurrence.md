@@ -163,20 +163,20 @@ Here is an example recurrence trigger definition:
 
 | Recurrence | Interval | Frequency | Start time | On these days | At these hours | At these minutes | Note |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
-| Run at 8 AM every day | 1 | Day | {none} | {unavailable} | 8 | {none} || 
+| Run at 8:00 AM every day | 1 | Day | {none} | {unavailable} | 8 | {none} || 
 | Run at 8:30 AM every day | 1 | Day | {none} | {unavailable} | 8 | 30 || 
 | Run at 8:30 AM and 4:30 PM every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30 || 
 | Run at 8:30 AM and 4:45 every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30, 45 || 
 | Run every 15 minutes | 1 | Day | {none} | {unavailable} | {none} | 0, 15, 30, 45 || 
 | Run every hour | 1 | Day | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | To control the minutes portion, you can specify minute marks or a start time, or you can use the creation time. For example, if the start time or creation time is 8:25 AM, this schedule runs at 8:25 AM, 9:25 AM, 10:25 AM, and so on. <p>This schedule is equivalent to a frequency of "Hour", an interval of one, and no schedule. However, the difference is that you can use this schedule with a different frequency and interval. For example, if frequency is "Month", the schedule runs once per month, rather than every day. | 
-| Run every hour, on the hour | 1 | Day | {none} | {unavailable} | {none} | 0 | For example, 12 AM, 1 AM, 2 AM, and so on. This schedule is equivalent to a frequency of "Hour" and a start time with zero minutes. <p>If the frequency is "Week" or "Month," this schedule respectively runs only one day per week or one day per month. | 
-| Run every 15 minutes past the hour, every hour | 1 | Day | {none} | {unavailable} | {none} | 15 | For example, this schedule runs at 00:15 AM, 1:15 AM, 2:15 AM, and so on. | 
-| Run every Saturday at start time | 1 | Week | {your-start-time} | "Saturday" | {none} | {none} || 
-| Run every week on Saturday at 5 PM | 1 | Week | {none} | "Saturday" | 17 | {none} || 
-| Run every week on Tuesday, Thursday at 5 PM | 1 | Week | {none} | "Tuesday", "Thursday" | 17 | {none} || 
-| Run every hour during working hours | 1 | Week | {none} | Select all days except Saturday and Sunday. | Select the hours for your specific working hours | {none} || 
-| Run once every day on weekends | 1 | Week | {none} | "Saturday", "Sunday" | {none} | {none} || 
-| Run every 15 minutes biweekly on Mondays only | 2 | Week | {none} | "Monday" | {none} | 0, 15, 30, 45 || 
+| Run every hour, on the hour | 1 | Day | {none} | {unavailable} | {none} | 0 | For example, 12:00 AM, 1:00 AM, 2:00 AM, and so on. This schedule is equivalent to a frequency of "Hour" and a start time with zero minutes. <p>If the frequency is "Week" or "Month," this schedule respectively runs only one day per week or one day per month. | 
+| Run every 15 minutes past the hour, every hour | 1 | Day | {none} | {unavailable} | {none} | 15 | This schedule runs at 00:15 AM, 1:15 AM, 2:15 AM, and so on. | 
+| Run every Saturday at start time | 1 | Week | {your-start-time} | "Saturday" | {none} | {none} | For example, if you specify a start time of "2017-09-09T14:00:00", this schedule doesn't start until September 9, 2017 at 2:00 PM, but then runs every Saturday at 2:00 PM. | 
+| Run every week on Saturday at 5 PM | 1 | Week | {none} | "Saturday" | 17 | {none} | This schedule runs every Saturday at 5:00 PM. | 
+| Run every week on Tuesday, Thursday at 5 PM | 1 | Week | {none} | "Tuesday", "Thursday" | 17 | {none} | This schedule runs every Tuesday and Thursday at 5:00 PM. | 
+| Run every hour during working hours | 1 | Week | {none} | Select all days except Saturday and Sunday. | Select the hour marks for your specific working hours | Select any minute marks, as appropriate. | For example, if your working hours are 8:00 AM to 5:00 PM, then select "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" as your hour marks. <p>If your working hours are 8:30 AM to 5:30 PM, select the previous hour marks plus the "30" minute mark. | 
+| Run once every day on weekends | 1 | Week | {none} | "Saturday", "Sunday" | Select the hour mark that you want. | Select any minute mark as appropriate. | This schedule runs every Saturday and Sunday at your specified time. | 
+| Run every 15 minutes biweekly on Mondays only | 2 | Week | {none} | "Monday" | {none} | 0, 15, 30, 45 | This schedule runs every other Monday at every 15-minute mark. | 
 |||||
 
 <a name="start-time"></a>
@@ -189,7 +189,7 @@ with the start date and time:
 | ---------- | ----------------------- | ------------------------ | 
 | {none} | Run once immediately, then run future workloads based on the last run time. | Run once immediately, then run future workloads based on your specified recurrence schedule. | 
 | Start time at present or in the future | Run once at your specified start time, then run future workloads based on the last run time. | Run once, but no earlier than the specified start time. Run future workloads based on your specified recurrence schedule. | 
-| Start time in the past {not permitted} | {unavailable} | {unavailable} | 
+| Start time in the past {not permitted} | {not applicable} | {not applicable} | 
 ||||
 
 ## Next steps
