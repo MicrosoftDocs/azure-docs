@@ -39,7 +39,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 	>
 	>
 
-### Launch Azure Cloud Shell
+### Launch Azure CLI 2.0
 
 You must first connect to Azure Government with Azure Command Line Interface (CLI) by following [these steps](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli). 
 
@@ -116,8 +116,7 @@ In the following command substitute a unique function app name where you see the
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --plan testPlan
 ```
->[!NOTE]
->By default, a function app is created with the App Service plan, which means that dedicated VMs are allocated to your App Service apps and the functions host is always running.
+>[!NOTE] By default, a function app is created with the App Service plan, which means that dedicated VMs are allocated to your App Service apps and the functions host is always running.
 For more information about the App Service plan, [click here](../azure-functions/functions-scale.md#app-service-plan). 
 >
 >
@@ -185,7 +184,7 @@ If you don't have cURL available in your command line, enter the same URL in the
 
 ![Function response shown in a browser.](./media/documentation-government-function3.png)  
 
-### Create function using Visual Studio 
+## Create function using Visual Studio 
 
 Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs). 
 
@@ -193,8 +192,8 @@ Once that is confirmed, the steps to create a function using Visual Studio to Az
 
 ### Test your function in Azure Government 
 
-
-    The URL that calls your HTTP triggered function looks like this:
+Once your function has been deployed from the previous step above, we can test that the function. 
+The URL that calls your HTTP triggered function looks like this:
 
         http://<functionappname>.azurewebsites.us/api/<functionname>?name=<yourname> 
 
@@ -210,11 +209,9 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
 * Make sure Visual Studio has been installed:
     -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
-    >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 2017    	tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > 	**Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
-    
 * Function app running in Visual Studio
     - To create one, complete the Quickstart section above, [Create function using Visual Studio](documentation-government-functions#create-function-using-visual-studio). 
 
@@ -234,7 +231,8 @@ Go down to the "Add" button and click on "New Item" as shown below.
 4. In the Solution Explorer on the right, you should be able to see and open up the "local.settings.json" file.
 
     ![triggerfunctioncreate2](./media/documentation-government-function6.png)
-    In order to connect the trigger function to Azure Government we need to define the connection property app settings that are defined in this file. 
+
+    In order to connect the trigger function to Azure Government we need to define the connection property app settings that are defined in this file. We will find this value in the next step. 
 5. Go to your [Azure Government portal](https://portal.azure.us) and click on "Storage Accounts" from the left side-bar. 
 
     ![triggerfunctioncreate3](./media/documentation-government-function7.png)
@@ -243,15 +241,15 @@ Go down to the "Add" button and click on "New Item" as shown below.
     Once you navigate to this section you will be able to see two Default keys: Primary and Secondary.
 
     ![triggerfunctioncreate4](./media/documentation-government-function8.png)
-6. Copy the Connection String for your Primary key, go back to your "local.settings.json" file and paste the string for all of the values in the "Values" parameter. Also make sure "AccountName" = your storage account name. 
+6. Copy the Connection String for your Key1, go back to your "local.settings.json" file and paste the string for each of the 3 values in the "Values" parameter. Also make sure "AccountName" = your storage account name. 
 
     ![triggerfunctioncreate5](./media/documentation-government-function9.png)
-7. Once this has been set, you can run your Timer trigger function. 
+7. Once this has been set, you can run your Timer trigger function locally. 
+8. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions#create-function-using-visual-studio).
 
-## Integrate Storage using Visual Studio
+## Use Azure Queues for Output Bindings
 
-You can connect to external service data from your function in Visual Studio. 
-Learn how to update an existing function by adding an output binding that sends messages to Azure Queue storage. 
+This tutorial will walk through how to update an existing function by adding output bindings that connect and send messages to Azure Queue Storage from your function in Visual Studio. 
 
 ### Prerequisites
 
@@ -259,8 +257,7 @@ Learn how to update an existing function by adding an output binding that sends 
 
    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
-    >[!NOTE] 
-    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
 
@@ -293,13 +290,14 @@ In order to connect the function to your output Queue, you must create an output
 
 1. Run your function on Visual Studio.
 
-2. Navigate to the Azure Government [portal](https://portal.azure.us) and click on the Storage Account explorer from the menu on the left-hand side. 
+2. Navigate to the Azure Government [portal](https://portal.azure.us) and click on the Storage Accounts button from the menu on the left-hand side. 
 3. On the Overview page click on the "Queues" button in order to see the different Queues. 
 
     ![triggerfunctioncreate6](./media/documentation-government-function10.png)
 4. Click on your Queue and you should be able to see the output of your function.
 
     ![triggerfunctioncreate7](./media/documentation-government-function11.png)
+5. Now that you have tested the output binding locally, go throuogh the same steps for deployment that you did in the [section above](documentation-government-functions#create-function-using-visual-studio). 
 
 ### Clean up resources
 
@@ -309,3 +307,4 @@ Use the following command to delete all resources created by this quickstart:
 az group delete --name myResourceGroup
 ```
 Type `y` when prompted.
+
