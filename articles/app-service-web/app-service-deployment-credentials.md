@@ -47,7 +47,7 @@ To configure your user-level credentials:
 1. In the [Azure portal](https://portal.azure.com), click App Service > **&lt;any_app>** > **Deployment credentials**.
 
     > [!NOTE]
-    > In the portal, you must have at least one app before you can access the deployment credentials blade. However, with the [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md), 
+    > In the portal, you must have at least one app before you can access the deployment credentials blade. However, with the [Azure CLI](/cli/azure/webapp/deployment/user#set), 
     > you can configure user-level credentials without an existing app.
 
 2. Configure the user name and password, and then click **Save**.

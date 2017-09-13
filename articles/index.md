@@ -8,7 +8,6 @@ description: Learn how to build and manage powerful applications using Microsoft
 ---
 <div id="main" class="v2">
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure Documentation</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="/azure/guides/developer/azure-developer-guide">
@@ -67,6 +66,7 @@ description: Learn how to build and manage powerful applications using Microsoft
         </ul>
     </div>
     <div class="container">
+        <h1 class="screenReader">Microsoft Azure Documentation</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">Get Started</a>
@@ -157,7 +157,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
@@ -316,7 +316,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Cosmos DB</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -860,6 +860,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>Azure IoT Hub</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-dps/">
+                                                <img src="media/index/dps.svg" alt="" />
+                                                <p>IoT Hub Device Provisioning Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1997,8 +2003,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cosmos DB</h3>
-                                                    <p>Managed NoSQL document database-as-a-service</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>Globally distributed, multi-model database for any scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2470,6 +2476,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Azure IoT Hub</h3>
                                                     <p>Connect, monitor, and control billions of IoT assets</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-dps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dps.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Hub Device Provisioning Service</h3>
+                                                    <p>Zero-touch, just-in-time provisioning for Azure IoT Hub</p>
                                                 </div>
                                             </div>
                                         </div>
