@@ -42,6 +42,7 @@ Prerequisites:
 - An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available)
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Follow the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace
+    - Load this project from [its GitHub repo](https://github.com/Azure/MachineLearningSamples-AerialImageClassification) in Azure Machine Learning Workbench
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
 
 <a name="resources"></a>
@@ -110,11 +111,6 @@ We now create the storage account that hosts project files that must be accessed
     Record the value of `key1` where indicated in the following command, then run the command to store the value.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
-    ```
-1. Create a file share named `baitshare` in your storage account with the following command:
-
-    ```
-    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. In your favorite text editor, load the `settings.cfg` file from the AML Workbench project's "Code" subdirectory, and insert the storage account name and key as indicated. Save and close the `settings.cfg` file.
 1. If you have not already done so, download and install the [AzCopy](http://aka.ms/downloadazcopy) utility.
