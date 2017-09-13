@@ -27,14 +27,14 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 > [!div class="checklist"]
 > * Enable MSI on a Linux Virtual Machine 
 > * Create a new Storage Account
-> * Grant your VM access to use Storage credentials
-> * Get an access token for your Storage Account using the VM identity and use it to call ARM
+> * Grant your VM access to Storage
+> * Get an access token for your Storage Account using the VM identity to access Storage Keys 
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Login to Azure
-Login to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+## Log in to Azure
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 
 ## Create a Linux Virtual Machine in a new Resource Group
@@ -51,7 +51,7 @@ For this tutorial, we will create a new Linux VM. You can also enable MSI on an 
 6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
 
 ## Enable MSI on your VM
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the VM.  
+A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables Managed Service Identity for the VM.  
 
 1. Select the **Virtual Machine** that you wnat to enable MSI on.
 2. On the left navigation bar click **Configuration**.
@@ -81,10 +81,10 @@ You can use Storage keys as usual when doing Storage operations, in this example
 
 Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.   
 
-1. Navigate to tab for **Storage**.  
-2. Select the specific **Storage Account** you created earlier.   
-3. Go to **Access control (IAM)** in the left panel.  
-4. Then **Add** a new role assignment for your VM, pick **Role** as **Storage Account Key Operator Service Role**.  
+1. Navigate to tab for **Storage**.  
+2. Select the specific **Storage Account** you created earlier.   
+3. Go to **Access control (IAM)** in the left panel.  
+4. Then **Add** a new role assignment for your VM, pick **Role** as **Storage Account Key Operator Service Role**.  
 5. In the next dropdown, **Assign access** to the resource **Virtual Machine**.  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown. And for **Resource Group**, select **All resource groups**.  
 7. Finally, in **Select** choose your Linux Virtual Machine in the dropdown and click **Save**. 
@@ -95,11 +95,11 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 You will need to use the Bash terminal, pick and then download your Linux distribution [here](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
 
 
-1. In the portal, navigate to your Linux virtual machine and in the **Overview**, click **Connect**. You will be prompted to use Bash, make note of your SSH and VM IP in the alert. 
-2.   Open and connect to Bash.  
-3.   In the terminal, enter in your **SSH** and **VM**you wish to connect to for example, “ssh admin@12.61.219.35 ”.  
-4.   Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
-5.   Then, you can make a request using CURL to get the authorization token for the Linux VM you are logged into. The **Azure Resource Manager** (ARM) endpoint is https://management.azure.com.  
+1. In the portal, navigate to your Linux virtual machine and in the **Overview**, click **Connect**. You will be prompted to use Bash, make note of your SSH and VM IP in the alert. 
+2. Open and connect to Bash.  
+3. In the terminal, enter in your **SSH** and **VM**you wish to connect to for example, “ssh admin@12.61.219.35 ”.  
+4. Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
+5. Then, you can make a request using CURL to get the authorization token for the Linux VM you are logged into. The **Azure Resource Manager** (ARM) endpoint is https://management.azure.com.  
 
 
 ## Access credentials for the Storage Account  
@@ -136,7 +136,7 @@ The CURL response gives you the list of Keys:
 
 Create a file to be uploaded this will be a sample Blob file that you can upload with your Storage Keys on your storage account within the container you created. 
 
-On a Linux VM you can do this with the following command, ensure that the file is local on the VM.
+On a Linux VM you can do this with the following command. 
 
 ```bash
 echo "This is a test file." > test.txt

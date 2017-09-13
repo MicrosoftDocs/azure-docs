@@ -76,7 +76,7 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
 ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
-## Get an access token using the VM identity and use it to call Azure Resource Manager (ARM) 
+## Get an access token using the VM identity and use it to call Azure Resource Manager 
 You will need to use **PowerShell** in this portion.  If you don’t have installed, download it [here](https://docs.microsoft.com/en-us.powershell/azure/overview?view=azurermps-4.3.1). 
 
 1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
@@ -84,9 +84,9 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
 3.	Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
 4.	Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
-   ```powershell
+```powershell
    $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   ```
+```
 
 > [!NOTE]
 > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.

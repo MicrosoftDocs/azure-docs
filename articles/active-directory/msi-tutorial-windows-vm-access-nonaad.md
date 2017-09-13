@@ -32,12 +32,12 @@ You will learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Login to Azure
-Login to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+## Log in to Azure
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 
 ## Create a Windows virtual machine in a new resource group
-For this tutorial, we create a new Windows VM.  You can also enable MSI on an existing VM.
+For this tutorial, we create a new Windows VM. You can also enable MSI on an existing VM.
 
 1.	Click the **New** button found on the upper left-hand corner of the Azure portal.
 2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
@@ -49,7 +49,7 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## Enable MSI on your VM 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
+A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your Virtual Machine. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
 
 1.	Select the **Virtual Machine** that you want to enable MSI on.  
 2.	On the left navigation bar click **Configuration**. 
