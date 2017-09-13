@@ -120,9 +120,8 @@ Do the following before you start:
 - On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
 - Make sure TLS 1.0 is enabled on the machine.
 - Make sure the machine can access these URLs:
-        
         [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+
         - Any IP address-based firewall rules should allow communication to Azure.
         - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
         - Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
@@ -172,8 +171,6 @@ Enable replication for each server.
 6. Select the Azure storage account you want to use for replicating data. 
 7. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
 8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. 
-
-    ![Enable replication](./media/tutorial-physical-to-azure/enable-replication.png)
 9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed. 
 10. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
 11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
