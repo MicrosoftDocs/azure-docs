@@ -38,7 +38,7 @@ For Node.js, you specify the PM2 configuration file or your script file. For .NE
 
 **What happens when I press the restart button in the Azure portal?**
 
-This action is the equivalent of Docker restart.
+This action is the same as a Docker restart.
 
 **Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?**
 
@@ -48,7 +48,7 @@ Yes, you can do that through the Security Compliance Manager (SCM) site.
 
 You need to set the **reserved** field of the app service to *true*.
 
-## Continuous integration/deployment
+## Continuous integration and deployment
 
 **My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration and deployment of custom containers?**
 
@@ -70,7 +70,7 @@ Yes.
 
 **Do you support Composer as a dependency manager for PHP apps?**
 
-Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.lock file), and Kudu will trigger a composer install for you.
+Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.lock file), and Kudu will then trigger a composer install for you.
 
 ## Custom containers
 
@@ -80,14 +80,14 @@ We mount an SMB share to the `/home/` directory, which overrides any content tha
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
-You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `true` or by removing the app setting entirely. Keep in mind that doing this will cause container restarts when the platform storage goes through a change. 
+You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true* or by removing the app setting entirely. Keep in mind that doing this will cause container restarts when the platform storage goes through a change. 
 
 >[!NOTE]
->If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is 'false', the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
+>If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 
-You can configure the time the platform will wait before restarting your container. To do so, set the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the value you want. The default value is 230 seconds, and the maximum value is 600 seconds.
+You can configure the amount of time the platform will wait before it restarts your container. To do so, set the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the value you want. The default value is 230 seconds, and the maximum value is 600 seconds.
 
 **What is the format for the private registry server URL?**
 
@@ -95,23 +95,23 @@ Provide the full registry URL, including `http://` or `https://`.
 
 **What is the format for the image name in the private registry option?**
 
-Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command line tool](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
 
 **Can I expose more than one port on my custom container image?**
 
-Currently, exposing more than one port isn't supported.
+We do not currently support exposing more than one port.
 
 **Can I bring my own storage?**
 
-Currently, bringing your own storage isn't supported.
+We do not currently support bringing your own storage.
 
 **Why can't I browse my custom container's file system or running processes from the SCM site?**
 
 The SCM site runs in a separate container. You can't check the file system or running processes of the app container.
 
-**My custom container listens to a port other than port 80. How can I configure my app to route the requests to that port?**
+**My custom container listens to a port other than port 80. How can I configure my app to route requests to that port?**
 
-We have auto port detection. You can also specify an application setting called **WEBSITES_PORT** and give it the value of the expected port number. Previously, the platform used the `PORT` app setting. We are planning to deprecate this app setting and to use `WEBSITES_PORT` exclusively.
+We have automatic port detection. You can also specify an app setting called *WEBSITES_PORT* and give it the value of the expected port number. Previously, the platform used the *PORT* app setting. We are planning to deprecate this app setting and to use *WEBSITES_PORT* exclusively.
 
 **Do I need to implement HTTPS in my custom container?**
 
