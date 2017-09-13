@@ -16,15 +16,15 @@ ms.date: 09/14/2017
 ms.author: elkuzmen
 ---
 
-# Use Managed Service Identity (MSI) with a Linux VM to access KeyVault 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and then use that identity to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
-You will learn how to:
+# Use Managed Service Identity (MSI) with a Linux VM to access Key Vault 
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and then use that identity to access the Azure Key Vault. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You will learn how to:
 
 
 > [!div class="checklist"]
 > * Enable MSI on a Linux Virtual Machine 
-> * Grant your VM access to a Resource Group in Azure Resource Manager (ARM)
-> * Get an access token using the VM identity and use it to call ARM
+> * Grant your VM access to a secret stored in a Key Vault 
+> * Get an access token using the VM identity and use it to retrieve the secret from the Key Vault 
+ 
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -63,7 +63,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 
 ## Grant your VM access to a Secret stored in a Key Vault  
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use MSI with services that don’t support Azure AD authentication, you can store the credentials you need for those services in Azure Key Vault, and use MSI to authenticate to Key Vault to retrieve the credentials. 
+Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  However,not all Azure services support Azure AD authentication. To use MSI with services that don’t support Azure AD authentication, you can store the credentials you need for those services in Azure Key Vault, and use MSI to authenticate to Key Vault to retrieve the credentials. 
 
 First, we need to create a Key Vault and grant our VM’s identity access to the Key Vault.   
 
@@ -87,11 +87,15 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
  
 ## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
 To complete these steps, you will need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/about).   
+
+
  
-1.   In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
-2.   Connect to the VM with the SSH client of your choice. 
-3.   In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Key Vault.  
+1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**. 
+2. **Connect** to the VM with the SSH client of your choice. 
+3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Key Vault.  
  
+
+
 The CURL request for the access token is below.  
 
 ```bash

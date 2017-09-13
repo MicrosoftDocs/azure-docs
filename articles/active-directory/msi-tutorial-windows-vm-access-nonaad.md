@@ -59,9 +59,6 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
-## Grant your VM access to a Resource Group in ARM
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s identity access to a resource in ARM, in this case the Resource Group in which the VM is contained.  
-=======
 
 ## Grant your VM access to a Secret stored in a Key Vault  
 Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use MSI with services that don’t support Azure AD authentication, you can store the credentials you need for those services in Azure Key Vault, and use MSI to authenticate to Key Vault to retrieve the credentials. 
@@ -87,9 +84,47 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
 6. Click **Create** to create the secret. 
  
 ## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
+Now that you have created a secret, stored it in a Key Vault, and granted your VM MSI access to the Key Vault, you can write code to retrieve the secret at run time.  To keep this example simple we’ll use simple REST calls using PowerShell.  If you don’t have PowerShell installed, download it [here](https://docs.microsoft.com/en-us.powershell/azure/overview?view=azurermps-4.3.1).
 
+First, we’ll use the VM’s MSI to get an access token to authenticate to Key Vault:
  
+1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
+2. Enter in your **Username** and **Password** for which you added when you created the **Windows VM**.  
+3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.  
+4. In PowerShell, invoke the web request on the tenant to get the token for the local host in the specific port for the VM.  
 
+
+The PowerShell request:
+
+```powershell
+PS C:\> $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://vault.azure.net"} -Headers @{Metadata="true"} 
+```
+
+Next, extract the full response which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object.  
+
+```powershell
+PS C:\> $content = $response.Content | ConvertFrom-Json 
+```
+
+Next, extract the access token from the response.  
+
+```powershell
+PS C:\> $KeyVaultToken = $content.access_token 
+```
+
+Finally, use PowerShell’s Invoke-WebRequest command to retrieve the secret you created earlier in the Key Vault, passing the access token in the Authorization header.  You’ll need the URL of your Key Vault, which is in the **Essentials** section of the **Overview** page of the Key Vault.  
+
+```powershell
+PS C:\> (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
+```
+
+The response will look like this: 
+
+```powershell
+{"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 
+```
+
+Once you’ve retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password. 
 
 
 ## Related content

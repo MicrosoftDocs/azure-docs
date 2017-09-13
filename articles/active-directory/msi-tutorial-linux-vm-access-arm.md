@@ -16,8 +16,8 @@ ms.date: 09/14/2017
 ms.author: elkuzmen
 ---
 
-# Use Managed Service Identity (MSI) with a Linux VM to access Azure Resource Manager
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and then use that identity to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
+# Use Managed Service Identity with a Linux VM to access Azure Resource Manager
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine, and then use that identity to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
 You will learn how to:
 
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Login to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 
-## Create a Linux Virtual MAchine in a new Resource Group
+## Create a Linux Virtual Machine in a new Resource Group
 For this tutorial, we will create a new Linux VM. You can also enable MSI on an existing VM.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
@@ -62,7 +62,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 
 ## Grant your VM access to a Resource Group in ARM
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in ARM, in this case the Resource Group in which the VM is contained.  
+Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case the Resource Group in which the VM is contained.  
 
 1. Navigate to the tab for **Resource Groups**.
 2. Select the specific **Resource Group** you created earlier.
@@ -77,10 +77,11 @@ Using MSI your code can get access tokens to authenticate to resources that supp
  ## Get an access token using the VM Identity and use it to call Azure Resource Manager (ARM)  
   
 To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the Windows Subsystem for Linux.  
+
  
-1.   In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
-2.   Connect to the VM with the SSH client of your choice. 
-3.   In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
+1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
+2. **Connect** to the VM with the SSH client of your choice. 
+3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
  
 ## The CURL request for the access token is below.  
 
