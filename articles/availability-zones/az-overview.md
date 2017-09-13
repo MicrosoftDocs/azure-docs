@@ -63,5 +63,5 @@ The Availability Zones preview is available in the East US 2 and West Europe reg
     - Create a Software Load Balancer
 
 ## Next steps
-- Quickstart templates - this link comes from Raj.
+- [Quickstart templates](http://aka.ms/azqs)
 - [Information on Azure Resiliency](https://azure.microsoft.com/features/resiliency)
