@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Logging | Microsoft Docs
+title: Azure Cosmos DB diagnostic logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Cosmos DB logging.
 services: cosmos-db
 documentationcenter: ''
@@ -17,11 +17,13 @@ ms.date: 09/12/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB logging
+# Azure Cosmos DB diagnostic logging
 
-Once you've started using one or more Azure Cosmos DB databases, you will likely want to monitor how and when your databases are accessed, and by whom. You can monitor your databases by enabling diagnostic logging for Azure Cosmos DB, and collecting those logs in an Azure Storage account, streaming them to EventHubs, and/or exporting them into an OMS workspace.
+Once you've started using one or more Azure Cosmos DB databases, you will likely want to monitor how and when your databases are accessed, and by whom. You can monitor your databases by enabling diagnostic logging for Azure Cosmos DB, and collecting those logs in an Azure Storage account, streaming them to EventHubs, and/or exporting them into an OMS workspace via Log Analytics.
 
-Use this tutorial to get started with Azure Cosmos DB logging via the Azure portal, PowerShell, or CLI.  
+![Turn on diagnostic logging for Azure Cosmos DB in the Azure portal](./media/logging/azure-cosmos-db-logging-overview.png)
+
+Use this tutorial to get started with Azure Cosmos DB logging via the Azure portal, CLI, or PowerShell.
 
 ## What is logged?
 
@@ -38,7 +40,7 @@ To complete this tutorial, you must have the following resources:
 
 ## Turn on logging in the Azure portal
 
-1. In the Azure portal, in your Azure Cosmos DB account, click **Diagnostic logs** in the left navigation, and then click **Turn on diagnostics**.
+1. In the [Azure portal](https://portal.azure.com), in your Azure Cosmos DB account, click **Diagnostic logs** in the left navigation, and then click **Turn on diagnostics**.
 
     ![Turn on diagnostic logging for Azure Cosmos DB in the Azure portal](./media/logging/turn-on-portal-logging.png)
 
@@ -57,7 +59,35 @@ To complete this tutorial, you must have the following resources:
 
 ## Turn on logging using CLI
 
-Information to be provided.
+To enable metrics and diagnostics logging using the Azure CLI, use the following commands:
+
+- To enable storage of Diagnostic Logs in a Storage Account, use this command:
+
+   ```azurecli-interactive
+   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   ```
+
+   The `resourceId` is the name of the Azure Cosmos DB account. The `storageId` is the name of the storage account to which you want to send the logs.
+
+- To enable streaming of Diagnostic Logs to an Event Hub, use this command:
+
+   ```azurecli-interactive
+   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   ```
+
+   The `resourceId` is the name of the Azure Cosmos DB account. The `serviceBusRuleId` is a string with this format:
+
+   ```azurecli-interactive
+   {service bus resource ID}/authorizationrules/{key name}
+   ```
+
+- To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
+
+   ```azurecli-interactive
+   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   ```
+
+You can combine these parameters to enable multiple output options.
 
 ## Turn on logging using PowerShell
 
@@ -108,18 +138,18 @@ For additional ease of management, in this tutorial we use the same resource gro
 >
 
 ### <a id="identify"></a>Identify the Azure Cosmos DB account for your logs
-Set the Cosmos DB account name to a variable named **account**:
+Set the Azure Cosmos DB account name to a variable named **account**, where ResourceName is the name of the Azure Cosmos DB account.
 
     $account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup`
      -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 
 
 ### <a id="enable"></a>Enable logging
-To enable logging for Azure Cosmos DB, use the Set-AzureRmDiagnosticSetting cmdlet, together with the variables for our new storage account and our Azure Cosmos DB account. Run the following command, setting the **-Enabled** flag to **$true**:
+To enable logging for Azure Cosmos DB, use the Set-AzureRmDiagnosticSetting cmdlet, together with the variables for the new storage account and the Azure Cosmos DB account. Run the following command, setting the **-Enabled** flag to **$true**:
 
-   Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+    Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 
-The output for this includes:
+The output for the command should resemble the following:
 
     StorageAccountId : /subscriptions/<subscription-ID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.S
                        torage/storageAccounts/contosocosmosdblogs
@@ -266,5 +296,12 @@ Logs are made available in your account two hours from the time the Azure Cosmos
 * Use standard Azure access control methods to secure your logs by restricting who can access them.
 * Delete logs that you no longer want to keep in your storage account.
 * The retention period for data plane requests archived to a 
-Storage account is configured in the portal when **Log DataPlaneRequests** is selected. See [Turn on logging in the Azure portal](#turn-on-logging-in-the-azure-portal) to change that setting. Retention for Event hub and Log Analytics is set...?(where?)
+Storage account is configured in the portal when **Log DataPlaneRequests** is selected. See [Turn on logging in the Azure portal](#turn-on-logging-in-the-azure-portal) to change that setting.
 
+## Next steps
+
+- Read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles to gain an understanding of not only how to enable logging, but the metrics and log categories supported by the various Azure services.
+- Read these articles to learn about event hubs:
+   - [What are Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)?
+   - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- See [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
