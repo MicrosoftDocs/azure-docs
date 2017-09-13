@@ -101,7 +101,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
-                                                <ul class="noBullet" style="column-count:2;-webkit-column-count: 2;-moz-column-count: 2;column-gap:50px;-webkit-column-gap:50px;-moz-column-gap:50px;">
+                                                <ul class="noBullet">
 													<li>
 														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
 															<img src="media/index/logo_NET.svg" alt="">
