@@ -9960,11 +9960,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/sql-database/sql-database-geo-replication-failover-transact-sql.md",
-            "redirect_url": "/sql/t-sql/statements/alter-database-azure-sql-database",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/storage/storage-performance-checklist.md",
             "redirect_url": "/azure/storage/common/storage-performance-checklist",
             "redirect_document_id": true
