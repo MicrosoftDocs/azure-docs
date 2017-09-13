@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: a63acba3-8fb3-4926-aa29-b1e64a765681
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 06/23/2017
 ms.author: raynew
 
 ---
@@ -279,8 +279,7 @@ Run this sample script to update DNS, specifying the IP address you retrieved us
 
 
 ## Privacy information for Site Recovery
-This section provides additional privacy information for the Microsoft Azure Site Recovery service (“Service”). To view the privacy statement for Microsoft Azure services, see the
-[Microsoft Azure Privacy Statement](http://go.microsoft.com/fwlink/?LinkId=324899)
+This section provides additional privacy information for the Microsoft Azure Site Recovery service. 
 
 **Feature: Registration**
 

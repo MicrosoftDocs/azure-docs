@@ -3,7 +3,7 @@ title: How to enable cross-app SSO on Android using ADAL | Microsoft Docs
 description: 'How to use the features of the ADAL SDK to enable Single Sign On across your applications. '
 services: active-directory
 documentationcenter: ''
-author: brandwe
+author: danieldobalian
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: brandwe
+ms.author: dadobali
+ms.custom: aaddev
 
 ---
 # How to enable cross-app SSO on Android using ADAL

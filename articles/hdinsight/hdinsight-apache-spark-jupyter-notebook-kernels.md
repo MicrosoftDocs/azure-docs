@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 
 ---
@@ -68,8 +68,8 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
 
     So, you don't have to run statements like the following to set the contexts:
 
-      	sc = SparkContext('yarn-client')
-      	sqlContext = HiveContext(sc)
+        sc = SparkContext('yarn-client')
+        sqlContext = HiveContext(sc)
 
     Instead, you can directly use the preset contexts in your application.
 
@@ -167,7 +167,7 @@ The new kernels are in evolving stage and will mature over time. This could also
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 

@@ -4,18 +4,19 @@ description: Learn how to create your first Azure Function for serverless execut
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: '' 
 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 08/07/2017
 ms.author: glenga
+ms.custom: mvc
 
 ---
 # Create your first function in the Azure portal
@@ -36,8 +37,6 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
-
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 Next, you create a function in the new function app.
@@ -46,7 +45,7 @@ Next, you create a function in the new function app.
 
 1. Expand your new function app, then click the **+** button next to **Functions**.
 
-2.  In the **Get started quickly** page, click **WebHook + API**, choose a language for your function, and click **Create this function**. 
+2.  In the **Get started quickly** page, select **WebHook + API**, **Choose a language** for your function, and click **Create this function**. 
    
     ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -54,21 +53,19 @@ A function is created in your chosen language using the template for an HTTP tri
 
 ## Test the function
 
-1. In your new function, click **</> Get function URL** and copy the **Function URL**. 
+1. In your new function, click **</> Get function URL**, select **default (Function key)**, and then click **Copy**. 
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Paste the URL for the HTTP request into your browser's address bar. Append the query string `&name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the function:
+2. Paste the function URL into your browser's address bar. Append the query string `&name=<yourname>` to this URL and press the `Enter` key on your keyboard to execute the request. The following is an example of the response returned by the function in the Edge browser:
 
     ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     The request URL includes a key that is required, by default, to access your function over HTTP.   
 
-## View the function logs 
+3. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and click the up arrow at the bottom of the screen to expand **Logs**. 
 
-When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and click the up arrow at the bottom of the screen to expand **Logs**. 
-
-![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## Clean up resources
 

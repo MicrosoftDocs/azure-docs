@@ -20,7 +20,7 @@ ms.author: asteen
 
 # No users are being provisioned to an Azure AD Gallery application
 
-Once automatic provisioning has been configured for an application (including verifying that the app credentials provided to Azure AD to connect to the app are valid). Then users and/or groups are provisioned to the app is determined by the following things:
+Once automatic provisioning has been configured for an application (including verifying that the app credentials provided to Azure AD to connect to the app are valid). Then users and/or groups are provisioned to the app and is determined by the following things:
 
 -   Which users and groups have been **assigned** to the application. For more information on assignment, see [Assign a user or group to an enterprise app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 

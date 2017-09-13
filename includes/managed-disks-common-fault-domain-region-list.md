@@ -18,12 +18,15 @@
 | UK South            | 2                       |
 | UK West             | 2                       |
 |                     |                         |
-| East Asia           | 3                       |
+| East Asia           | 2                       |
 | South East Asia     | 2                       |
 | Japan East          | 2                       |
 | Japan West          | 2                       |
 | South India         | 2                       |
 | Central India       | 2                       |
+| West India          | 2                       |
+| Korea Central       | 2                       |
+| Korea South         | 2                       |
 |                     |                         |
 | Australia East      | 2                       |
 | Australia Southeast | 2                       |

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric plug-in for Eclipse | Microsoft Docs
-description:  Get started with the Service Fabric plug-in for Eclipse.
+description:  Get started with the Service Fabric plug-in for Eclipse.  
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/03/2016
+ms.date: 08/21/2016
 ms.author: saysa
 
 ---
@@ -30,16 +30,17 @@ You can install a Service Fabric plug-in in Eclipse. The plug-in can help simpli
     -   To check for and install updates for Eclipse Neon, go to **Help** > **Check for Updates**.
 
 2.  To install the Service Fabric plug-in, in Eclipse Neon, go to **Help** > **Install New Software**.
-  1.    In the **Work with** box, enter **http://dl.windowsazure.com/eclipse/servicefabric**.
+  1.    In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
   2.    Click **Add**.
-    ![Service Fabric plug-in for Eclipse Neon][sf-eclipse-plugin-install]
+
+         ![Service Fabric plug-in for Eclipse Neon][sf-eclipse-plugin-install]
   3.    Select the Service Fabric plug-in, and then click **Next**.
   4.    Complete the installation steps, and then accept the Microsoft Software License Terms.
 
 If you already have the Service Fabric plug-in installed, make sure that you have the latest version. To check for available updates, go to **Help** > **Installation Details**. In the list of installed plug-ins, select Service Fabric, and then click **Update**. Available updates will be installed.
 
 > [!NOTE]
-> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (http://dl.windowsazure.com/eclipse/servicefabric).
+> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (http://dl.microsoft.com/eclipse/azure/servicefabric).
 
 ## Create a Service Fabric application in Eclipse
 
@@ -142,9 +143,12 @@ This process creates and saves a run configuration profile you can use at any ti
 
 The application upgrade takes a few minutes. You can monitor the application upgrade in Service Fabric Explorer.
 
+## Migrating old Service Fabric Java applications to be used with Maven
+We have recently moved Service Fabric Java libraries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned [here](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
+
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

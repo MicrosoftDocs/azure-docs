@@ -28,7 +28,7 @@ To add a device to your remote monitoring solution, complete the following steps
 
    ![Add device ID][3]
 
-1. Make a note the device credentials (**Device ID**, **IoT Hub Hostname**, and **Device Key**). Your client application on the Raspberry Pi needs these values to connect to the remote monitoring solution. Then click **Done**.
+1. Make a note the device credentials (**Device ID**, **IoT Hub Hostname**, and **Device Key**). Your client application on the Intel NUC needs these values to connect to the remote monitoring solution. Then click **Done**.
 
     ![View device credentials][4]
 

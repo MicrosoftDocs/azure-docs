@@ -3,7 +3,7 @@ title: SQL Data Warehouse data management partners | Microsoft Docs
 description: Lists of third-party data management partners with solutions that support SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: partners
 ms.date: 12/27/2016
-ms.author: jrj;barbkess
+ms.author: kevin;barbkess
 
 ---
 # SQL Data Warehouse data management partners

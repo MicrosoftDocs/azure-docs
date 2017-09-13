@@ -32,6 +32,7 @@ service and includes standard web socket upgrade headers along with other header
 GET /speech/recognize/interactive/cognitiveservices/v1 HTTP/1.1
 Host: speech.platform.bing.com
 Upgrade: websocket
+Connection: Upgrade
 ProtoSec-WebSocket-Key: wPEE5FzwR6mxpsslyRRpgP==
 Sec-WebSocket-Version: 13
 Authorization: t=EwCIAgALBAAUWkziSCJKS1VkhugDegv7L0eAAJqBYKKTzpPZOeGk7RfZmdBhYY28jl&p=
@@ -63,6 +64,27 @@ include a valid [universally unique identifier](https://en.wikipedia.org/wiki/Un
 
 In addition to the standard web socket handshake headers, speech requests require an *Authorization* header. Connection requests without this header are rejected 
 by the service with a 403 Forbidden HTTP response.
+
+The *Authorization* header must contain a JSON Web Token (JWT) access token.
+
+For information about subscribing and obtaining API keys that are used to retrieve valid JWT access tokens, see [Get Started for Free](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions?productId=%2fproducts%2fBing.Speech.Preview).
+
+The API key is passed to the token service. For example:
+
+```
+POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
+Content-Length: 0
+```
+
+The required header information for token access is as follows.
+
+Name	| Format	| Description
+---------|---------|--------
+Ocp-Apim-Subscription-Key |	ASCII	| Your subscription key
+
+The token service returns the JWT access token as `text/plain`. Then the JWT is passed as a `Base64 access_token` to the handshake as an authorization header prefixed with the string `Bearer`. For example:
+
+`Authorization: Bearer [Base64 access_token]`
 
 ## Cookies
 
@@ -205,6 +227,25 @@ If a client initiates a turn with an audio chunk that does *not* include a valid
 
 PCM audio **must** be sampled at 16 kHz with 16 bits per sample and one channel (*riff-16khz-16bit-mono-pcm*). The Microsoft Speech Service does not support
 stereo audio streams and will reject audio streams that do not use the specified bit rate, sample rate or number of channels.
+
+### OPUS
+
+Opus is a totally open, royalty-free, highly versatile audio codec. The speech service has support for OPUS at a constant bitrate of `32000` or `16000`. Only the `OGG` container for OPUS is currently supported by the service which is specified by the `audio/ogg` mime type.
+To use OPUS, modify the [JavaScript Sample](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/samples/browser/Sample.html#L101) and change the `RecognizerSetup` method to return:
+
+```javascript
+return SDK.CreateRecognizerWithCustomAudioSource(            
+            recognizerConfig,               
+            authentication,              
+            new SDK.MicAudioSource(                    
+                     new SDK.OpusRecorder(                     
+                     {                               
+                         mimeType: "audio/ogg",                               
+                         bitsPerSecond: 32000                      
+                     }                    
+              )                 
+          )); 
+```
 
 ## Detecting End of Speech
 Since humans do not *explicitly* signal when they are finished speaking, any application that accepts speech as input has two choices for handling the end of speech
@@ -504,6 +545,10 @@ X-RequestId: 123e4567e89b12d3a456426655440000
   }
 }
 ```
+
+The body of the *turn.start* message is a JSON structure that contains context for the start of the turn. The *context* element
+contains a *serviceTag* property; this property specifies a tag value that the service has associated with the turn. 
+This value can be used by Microsoft if you need help troubleshooting failures in your application.
 
 ## Turn End
 The *turn.end* signals the end of a turn from the perspective of the service. The *turn.end* message is the always the **last** response message you will receive for any request. 

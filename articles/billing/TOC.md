@@ -9,6 +9,8 @@
 ## Monitor usage and costs
 ### [Get invoice and usage](billing-download-azure-invoice-daily-usage-date.md)
 ### [Understand your bill](billing-understand-your-bill.md)
+### [Understand terms on your invoice](billing-understand-your-invoice.md)
+### [Understand terms on your usage](billing-understand-your-usage.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
 ### [Understand spending limit](billing-spending-limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)
@@ -30,6 +32,7 @@
 ### [Sign-up issues](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Declined card](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Sign-in issues](billing-cannot-login-subscription.md)
+### [No subscriptions found](billing-no-subscriptions-found.md)
 
 # Reference
 ## [API Overview](billing-usage-rate-card-overview.md)
@@ -40,4 +43,6 @@
 ## [Partner solution: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Contact support](../azure-supportability/how-to-create-azure-support-request.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Resources, roles and access control in Azure Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Resources, roles, and access control in Application Insights

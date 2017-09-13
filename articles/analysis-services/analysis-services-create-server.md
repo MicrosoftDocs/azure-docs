@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 08/15/2017
 ms.author: owend
 
 ---
@@ -22,10 +22,10 @@ ms.author: owend
 This article walks you through creating an Analysis Services server resource in your Azure subscription.
 
 ## Before you begin
-To get started, you need:
+To complete this quickstart, you need:
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. Microsoft accounts are not supported. To learn more, see [User authentication](analysis-services-overview.md#secure).
+* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. Microsoft accounts are not supported. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 * **Resource group**: Use a resource group you already have or [create a new one](../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
@@ -34,8 +34,8 @@ To get started, you need:
 > 
 
 ## To create a server in Azure portal
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **+ New** > **Intelligence + analytics** > **Analysis Services**.
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+2. Click **+ New** > **Data + analytics** > **Analysis Services**.
 3. In the **Analysis Services** blade, fill in the required fields, and then press **Create**.
    
     ![Create server](./media/analysis-services-create-server/aas-create-server-blade.png)

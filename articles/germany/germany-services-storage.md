@@ -36,13 +36,13 @@ Storage Service Encryption safeguards data at rest within Azure storage accounts
 
 | Service | Germany Central | Germany Northeast |
 | --- | --- | --- | --- |
-| [Blob storage](../storage/storage-introduction.md#blob-storage) |GA |GA |
-| [Table storage](../storage/storage-introduction.md#table-storage) |GA  |GA |
-| [Queue storage](../storage/storage-introduction.md#queue-storage) |GA | GA |
-| [File storage](../storage/storage-introduction.md#file-storage) |GA |GA |
-| [Hot/cool blob storage](../storage/storage-blob-storage-tiers.md) |GA |GA |
-| [Storage Service Encryption](../storage/storage-service-encryption.md) |GA |GA |
-| [Premium Storage](../storage/storage-premium-storage.md) |GA |GA |
+| [Blob storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |
+| [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
+| [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
+| [File storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |
+| [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |GA |
+| [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
+| [Premium Storage](../storage/common/storage-premium-storage.md) |GA |GA |
 | Import/Export |NA |NA |
 | StorSimple |NA |NA |
 
@@ -57,7 +57,7 @@ The URLs for storage accounts in Azure Germany are different from those in globa
 | File storage | *.file.core.windows.net | *.file.core.cloudapi.de | 
 
 > [!NOTE]
-> All your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/common/storage-configure-connection-string.md). 
 >
 >
 
@@ -66,7 +66,7 @@ For more information on APIs, see [Cloud Storage Account Constructor](https://ms
 The endpoint suffix to use in these overloads is *core.cloudapi.de*.
 
 > [!NOTE]
-> If error 53 ("The network path was not found") is returned while you're [mounting the file share](../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share), a firewall might be blocking the outbound port. Try mounting the file share on a virtual machine that's in the same Azure subscription as storage account.
+> If error 53 ("The network path was not found") is returned while you're [mounting the file share](../storage/files/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on a virtual machine that's in the same Azure subscription as storage account.
 >
 >
 

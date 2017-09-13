@@ -8,7 +8,7 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 05/23/2017
 ms.author: anroth
 ---
 
@@ -29,10 +29,13 @@ to detect faces in an image and return face attributes including:
 
 #### Face Detect cURL Example Request
 
+> [!NOTE]
+> You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+
 ```javascript  
 @ECHO OFF
 
-curl -v -X POST "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes={string}"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes={string}"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
@@ -187,10 +190,14 @@ Use the [Face - Identify method](https://dev.projectoxford.ai/docs/services/5638
 identify people based on a detected face and people database (defined as a person group) which needs to be created in advance and can be edited over time
 
 #### Face - Identify cURL Example Request
+
+> [!NOTE]
+> You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+
 ```javascript
 @ECHO OFF
 
-curl -v -X POST "https://westus.api.cognitive.microsoft.com/face/v1.0/identify"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 

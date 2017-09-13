@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Getting started with Azure Active Directory Conditional Access

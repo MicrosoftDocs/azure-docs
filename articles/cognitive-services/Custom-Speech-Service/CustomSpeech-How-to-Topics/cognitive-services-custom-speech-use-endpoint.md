@@ -19,6 +19,12 @@ The endpoints you create by using this service can process different numbers of 
 
 The service assumes that data is transmitted in real time. If it is sent faster, the request is considered running until its audio duration in real time has passed.
 
+> [!NOTE]
+> We **do not** support the [new Web Socket](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) yet. Please follow the instructions below in case you plan to use Web Sockets with custom speech endpoint.
+>
+> The new [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedrest) support is coming soon! If you plan to call your custom speech endpoint via HTTP follow the instructions below, please.
+>
+
 ## Send requests by using the speech client library
 
 To send requests to your custom endpoint by using the speech client library, start the recognition client. Use the Client Speech SDK from [nuget](http://nuget.org/). Search for "speech recognition" and select the speech recognition nuget from Microsoft for your platform. Some sample code can be found on [GitHub](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). The Client Speech SDK provides a factory class _SpeechRecognitionServiceFactory_, which offers the following methods:
@@ -65,6 +71,34 @@ The Custom Speech Service uses two different URLs for short form and long form r
 
 For more details about invoking the various recognition clients with your custom endpoint, see the [SpeechRecognitionServiceFactory](https://www.microsoft.com/cognitive-services/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop) class. Note that the documentation on this page refers to acoustic model adaptation, but it applies to all endpoints created by using the Custom Speech Service.
 
+## Send requests using the Speech Protocol
+
+The endpoints shown for the [Speech Protocol](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) are endpoints for the Open Source Web Socket Speech Protocol.
+
+Currently, the only official client implementation is for [JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). If you want to start with the
+sample provided there, you will have to make the following changes to the code and build the sample again.
+
+1.  In _src\sdk\speech.browser\SpeechConnectionFactory.ts_ replace the host name "wss://speech.platform.bing.com" with the host name shown as part on the details page of
+your deployment. Do not insert the full URI here but just the *wss* protocol scheme and host name. Example:
+
+    ```JavaScript
+    private get Host(): string {
+        return Storage.Local.GetOrAdd("Host", "wss://<your_key_goes_here>.api.cris.ai");
+    }
+    ```
+
+2.  Set the _recognitionMode_ parameter in _samples\browser\Samples.html_ according to your requirements.
+  * _RecognitionMode.Interactive_ supports requests up to 15 seconds.
+  * _RecognitionMode.Conversation_ and _RecognitionMode.Dictation_ (both are equivalent in Custom Speech Service) support requests up to 10 minutes.
+
+3.  Build the sample using "gulp build" before using it.
+
+> [!NOTE]
+> Please ensure that you use the correct URI for this protocol. The reuqired scheme is *wss* (not *http* as in the client protocol!. You will also have to change the URI of the authorization provider in the implementation of IAuthorizationProvider to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
+
+Please see the documentation of [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedjswebsockets) for more information.
+
+
 ## Send requests by using HTTP
 
 Sending a request to your custom endpoint by using an HTTP post is similar to sending a request by HTTP to the Cognitive Services Bing Speech API. Modify the URL to reflect the address of your custom deployment.
@@ -83,7 +117,7 @@ To create a post request, follow the same process you use for the Cognitive Serv
 2.  Post audio to the endpoint by using POST again.
 
     ```
-    curl -X POST --data-binary @@example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
+    curl -X POST --data-binary @example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
     ```
 
     **token** is your access token you received with the previous call. **https_endpoint** is the full address of your custom speech-to-text endpoint, shown in the **Deployment Information** page.

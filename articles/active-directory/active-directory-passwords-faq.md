@@ -6,6 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 08/28/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Password management frequently asked questions
@@ -32,6 +34,7 @@ This FAQ is split into the following sections:
 * [**Questions about password writeback**](#password-writeback)
 
 ## Password reset registration
+
 * **Q:  Can my users register their own password reset data?**
 
   > **A:** Yes, as long as password reset is enabled and they are licensed, they can go to the Password Reset Registration portal at http://aka.ms/ssprsetup to register their authentication information. Users can also register by going to the access panel at http://myapps.microsoft.com, clicking the profile tab, and clicking the Register for Password Reset option.
@@ -76,7 +79,9 @@ This FAQ is split into the following sections:
   > **A:** A user is considered registered for SSPR when they have registered at least the **Number of methods required to reset** that you have set in the [Azure portal](https://portal.azure.com).
   >
   >
+
 ## Password reset
+
 * **Q:  How long should I wait to receive an email, SMS, or phone call from password reset?**
 
   > **A:** Email, SMS messages, and phone calls should arrive in under one minute, with the normal case being 5-20 seconds.
@@ -99,7 +104,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
 
-  > **A:** You can send your users to https://passwordreset.microsoftonline.com directly, or you can instruct them to click the **Can’t access your account link** found on any Work or School sign-in page. You can also publish these links in a place easily accessible to your users.
+  > **A:** Try some of the suggestions in our [SSPR deployment article](active-directory-passwords-best-practices.md#email-based-rollout)
   >
   >
 * **Q:  Can I use this page from a mobile device?**
@@ -152,6 +157,11 @@ This FAQ is split into the following sections:
   > **A:** Yes, one limit can be set for registration and another for reset. 3-5 security questions may be required for registration and 3-5 may be required for reset.
   >
   >
+* **Q:  I configured my policy to require users to use security questions for reset but Azure administrators seem to be configured differently.**
+
+  > **A:** This is the expected behavior. Microsoft enforces a strong default two gate password reset policy for any Azure administrator role. This disables administrators from using security questions. More information about this policy can be found in the article [Password policies and restrictions in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences)
+  >
+  >
 * **Q:  If a user has registered more than the maximum number of questions required to reset, how are security questions selected during reset?**
 
   > **A:** N security questions are selected at random out of the total number of questions a user has registered for, where N is the **Number of questions required to reset**. For example, if a user has 5 security questions registered, but only 3 are required to reset, 3 of the 5 are selected randomly and presented at reset. If the user gets the answers to the questions wrong, the selection process reoccurs to prevent question hammering.
@@ -169,6 +179,7 @@ This FAQ is split into the following sections:
   >
 
 ## Password change
+
 * **Q:  Where should my users go to change their passwords?**
 
   > **A:** Users may change their passwords anywhere they see their profile picture or icon (like in the upper right corner of their [Office 365](https://portal.office.com) or [Access Panel](https://myapps.microsoft.com) experiences. Users may change their passwords from the [Access Panel profile page](https://account.activedirectory.windowsazure.com/r#/profile). Users may also be asked to change their passwords automatically at the Azure AD sign-in screen if their passwords have expired. Finally, users may navigate to the [Azure AD Password Change Portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) directly if they wish to change their passwords.
@@ -181,6 +192,7 @@ This FAQ is split into the following sections:
   >
 
 ## Password management reports
+
 * **Q:  How long does it take for data to show up on the password management reports?**
 
   > **A:** Data should appear on the password management reports within 5-10 minutes. It some instances it may take up to an hour to appear.
@@ -213,6 +225,7 @@ This FAQ is split into the following sections:
   >
 
 ## Password writeback
+
 * **Q:  How does password writeback work behind the scenes?**
 
   > **A:** See [How password writeback works](active-directory-passwords-writeback.md) for an explanation of what happens when you enable password writeback, and how data flows through the system back into your on-premises environment.

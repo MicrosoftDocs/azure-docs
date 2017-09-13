@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 05/08/2017
 ms.author: jeedes
 
 ---
@@ -220,7 +220,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration.
 
-Login to your application through any prepended URL (for example `https://safe.menlosecurity.com/http://www.cnn.com/`) and enter the Azure AD credentials. You will then be redirected to the appropriate website after successful authentication.
+Open a browser window in an "InPrivate" or "Incognito" mode to trigger a new authentication.  In Internet Explorer, use Ctrl+Shift+P.  In Chrome, use Ctrl+Shift+N.  In the private browsing window, browse to a protected resource and perform an Azure AD login.  Upon successful login, you will be taken to the requested site in an isolation session.
 
 ## Additional resources
 

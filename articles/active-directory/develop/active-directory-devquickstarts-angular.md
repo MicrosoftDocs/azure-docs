@@ -3,7 +3,7 @@ title: Azure AD AngularJS Getting Started | Microsoft Docs
 description: How to build an AngularJS single-page application that integrates with Azure AD for sign-in and calls Azure AD-protected APIs by using OAuth.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: jmprieur
+ms.custom: aaddev
 
 ---
 # Help secure AngularJS single-page apps by using Azure AD
@@ -26,6 +27,7 @@ Azure Active Directory (Azure AD) makes it simple and straightforward for you to
 For JavaScript applications running in a browser, Azure AD provides the Active Directory Authentication Library (ADAL), or adal.js. The sole purpose of adal.js is to make it easy for your app to get access tokens. To demonstrate just how easy it is, here we'll build an AngularJS To Do List application that:
 
 * Signs the user in to the app by using Azure AD as the identity provider.
+
 * Displays some information about the user.
 * Securely calls the app's To Do List API by using bearer tokens from Azure AD.
 * Signs the user out of the app.
@@ -58,6 +60,7 @@ To enable your app to authenticate users and get tokens, you first need to regis
 ## Step 2: Install ADAL and configure the single-page app
 Now that you have an application in Azure AD, you can install adal.js and write your identity-related code.
 
+### Configure the JavaScript client
 Begin by adding adal.js to the TodoSPA project by using the Package Manager Console:
   1. Download [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) and add it to the `App/Scripts/` project directory.
   2. Download [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) and add it to the `App/Scripts/` project directory.
@@ -70,6 +73,7 @@ Begin by adding adal.js to the TodoSPA project by using the Package Manager Cons
     ...
     ```
 
+### Configure the back end server
 For the single-page app's back-end To Do List API to accept tokens from the browser, the back end needs configuration information about the app registration. In the TodoSPA project, open `web.config`. Replace the values of the elements in the `<appSettings>` section to reflect the values that you used in the Azure portal. Your code will reference these values whenever it uses ADAL.
   * `ida:Tenant` is the domain of your Azure AD tenant--for example, contoso.onmicrosoft.com.
   * `ida:Audience` is the client ID of your application that you copied from the portal.

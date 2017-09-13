@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -77,7 +77,12 @@ When creating your first Batch account in user subscription mode, perform the fo
 
     ![Subscription access control][subscription_access]
 
-4. On the **Add permissions** blade, select the **Contributor** role, and search for **MicrosoftAzureBatch** (no spaces). Select **MicrosoftAzureBatch**, and click **Save**.
+4. On the **Add permissions** blade, select the **Contributor** role, search for the Batch API. Search for each of these strings until you find the API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
+
+5. Once you find the Batch API, select it and click **Save**.
 
     ![Add Batch permissions][add_permission]
 
@@ -128,7 +133,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ![Batch account URL in portal][account_url]
 
-* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. (This setting is not available in user subscription mode, where you use Azure Active Directory authetication.)
+* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. (This setting is not available in user subscription mode, where you use Azure Active Directory authentication.)
 
     To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
 
@@ -142,10 +147,10 @@ You can optionally link a general-purpose Azure Storage account to your Batch ac
 
 We recommend that you create a new Storage account exclusively for use by your Batch account.
 
-![Creating a "General purpose" storage account][storage_account]
+![Creating a general-purpose storage account][storage_account]
 
 > [!NOTE]
-> Azure Batch currently supports only the general-purpose Storage account type. This account type is described in step 5, [Create a storage account] (../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+> Azure Batch currently supports only the general-purpose Storage account type. This account type is described in step 5, [Create a storage account] (../storage/common/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 >
 >
 

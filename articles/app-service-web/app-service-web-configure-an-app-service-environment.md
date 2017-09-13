@@ -1,6 +1,6 @@
 ---
-title: How to Configure an App Service Environment | Microsoft Docs
-description: Configuration, management, and monitoring of App Service Environments
+title: How to Configure an App Service Environment v1
+description: Configuration, management, and monitoring of the App Service Environment v1
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -13,11 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 07/11/2017
 ms.author: ccompy
 
 ---
-# Configuring an App Service Environment
+# Configuring an App Service Environment v1
+
+> [!NOTE]
+> This article is about the App Service Environment v1.  There is a newer version of the App Service Environment that is easier  to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
 ## Overview
 At a high level, an Azure App Service Environment consists of several major components:
 
@@ -39,25 +44,25 @@ Changing the quantity or size is called a scale operation.  Only one scale opera
 
 * An ASE starts with two P2s, which is sufficient for dev/test workloads and low-level production workloads. We strongly recommend P3s for moderate to heavy production workloads.
 * For moderate to heavy production workloads, we recommend that you have at least four P3s to ensure there are sufficient front ends running when scheduled maintenance occurs. Scheduled maintenance activities will bring down one front end at a time. This reduces overall available front-end capacity during maintenance activities.
-* You can't instantly add a new front-end instance. They can take between 2 to 3 hours to provision.
+* Front ends can take up to an hour to provision. 
 * For further scale fine-tuning, you should monitor the CPU percentage, Memory percentage and Active Requests metrics for the front-end pool. If the CPU or Memory percentages are above 70 percent when running P3s, add more front ends. If the Active Requests value averages out to 15,000 to 20,000 requests per front end, you should also add more front ends. The overall goal is to keep CPU and Memory percentages below 70%, and Active Requests averaging out to below 15,000 requests per front end when you're running P3s.  
 
 **Workers**: The workers are where your apps actually run. When you scale up your App Service plans, that uses up workers in the associated worker pool.
 
-* You cannot instantly add workers. They can take from 2 to 3 hours to provision, regardless of how many are being added.
-* Scaling the size of a compute resource for any pool will take 2 to 3 hours per update domain. There are 20 update domains in an ASE. If you scaled the compute size of a worker pool with 10 instances, it could take between 20 to 30 hours to complete.
+* You cannot instantly add workers. They may take up to an hour to provision.
+* Scaling the size of a compute resource for any pool will take < 1 hour per update domain. There are 20 update domains in an ASE. If you scaled the compute size of a worker pool with 10 instances, it could take up to 10 hours to complete.
 * If you change the size of the compute resources that are used in a worker pool, you will cause cold starts of the apps that are running in that worker pool.
 
 The fastest way to change the compute resource size of a worker pool that is not running any apps is to:
 
-* Scale down the instance count to 0. It will take about 30 minutes to deallocate your instances.
-* Select the new compute size and number of instances. From here, it will take between 2 to 3 hours to complete.
+* Scale down the quantity of workers to 2.  The minimum scale down size in the portal is 2. It will take a few minutes to deallocate your instances. 
+* Select the new compute size and number of instances. From here, it will take up to 2 hours to complete.
 
 If your apps require a larger compute resource size, you can't take advantage of the previous guidance. Instead of changing the size of the worker pool that is hosting those apps, you can populate another worker pool with workers of the desired size and move your apps over to that pool.
 
-* Create the additional instances of the needed compute size in another worker pool. This will take from 2 to 3 hours to complete.
+* Create the additional instances of the needed compute size in another worker pool. This will take up to an hour to complete.
 * Reassign your App Service plans that are hosting the apps that need a larger size to the newly configured worker pool. This is a fast operation that should take less than a minute to complete.  
-* Scale down the first worker pool if you don't need those unused instances anymore. This operation takes about 30 minutes to complete.
+* Scale down the first worker pool if you don't need those unused instances anymore. This operation takes a few minutes to complete.
 
 **Autoscaling**: One of the tools that can help you to manage your compute resource consumption is autoscaling. You can use autoscaling for front-end or worker pools. You can do things such as increase your instances of any pool type in the morning and reduce it in the evening. Or perhaps you can add instances when the number of workers that are available in a worker pool drops below a certain threshold.
 

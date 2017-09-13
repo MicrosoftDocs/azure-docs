@@ -1,21 +1,21 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Graph API | Microsoft Docs
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: ''
 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: arramac
+ms.topic: quickstart
+ms.date: 07/28/2017
+ms.author: denlee
 
 ---
 # Azure Cosmos DB: Build a .NET application using the Graph API
@@ -32,23 +32,11 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Create a database account
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## Add sample data
-
-You can now add data to your graph using Data Explorer.
-
-1. In Data Explorer, expand **sample-database**, **sample-graph**, click **Graph**, and then click **New Vertex** and **New Edge** to add items to your graph. The Data Explorer is also where you can scale your throughput, and add stored procedures, user-defined functions, and triggers to your container.
-
-    ![Add vertexes and edges to a graph in the Data Explorer](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Once you've added some items, click the **Apply Filter** button, or right-click **Graph** and click **New Graph Query** to see the visual graph of your data. You can change how data is labeled and styled by clicking the **Style** button and changing your settings. Here's an example graph in Data Explorer, the labels, colors, and data shown can all be modified.
-
-    ![Visual graph explorer in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -62,13 +50,13 @@ Now let's clone a Graph API app from github, set the connection string, and run 
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. Then open the solution file in Visual Studio. 
+3. Then open Visual Studio and open the solution file. 
 
 ## Review the code
 
 Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized. In the preview, we added a graph extension API on the DocumentDB client. We are working on a standalone graph client decoupled from the DocumentDB client and resources.
+* The DocumentClient is initialized. In the preview, we added a graph extension API on the Azure Cosmos DB client. We are working on a standalone graph client decoupled from the Azure Cosmos DB client and resources.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -111,17 +99,17 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `App.config` file in the next step.
+1. In Visual Studio 2017, open the App.config file. 
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-dotnet/keys.png)
+2. In the Azure portal, in your Azure Cosmos DB account, click **Keys** in the left navigation. 
 
-2. In Visual Studio 2017, open the `App.config` file. 
+    ![View and copy an primary key in the Azure portal, on the Keys page](./media/create-graph-dotnet/keys.png)
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `App.config`. 
+3. Copy your **URI** value from the portal and make it the value of the Endpoint key in App.config. You can use the copy button as shown in the preceding screenshot to copy the value.
 
-    `<add key="Endpoint" value="FILLME.documents.azure.com:443" />`
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in `App.config`. 
+4. Copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
 
     `<add key="AuthKey" value="FILLME" />`
 
@@ -135,6 +123,8 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 3. From the results, install the **Microsoft.Azure.Graphs** library. This installs the Azure Cosmos DB graph extension library package and all dependencies.
 
+    If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
+
 4. Click CTRL + F5 to run the application.
 
    The console window displays the vertexes and edges being added to the graph. When the script completes, press ENTER twice to close the console window. 
@@ -143,13 +133,17 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 You can now go back to Data Explorer in the Azure portal and browse and query your new graph data.
 
-* In Data Explorer, the new database appears in the Collections pane. Expand **graphdb**, **graphcoll**, and then click **Graph**.
+1. In Data Explorer, the new database appears in the Graphs pane. Expand **graphdb**, **graphcollz**, and then click **Graph**.
 
-    The data generated by the sample app is displayed in the Graphs pane.
+2. Click the **Apply Filter** button to use the default query to view all the verticies in the graph. The data generated by the sample app is displayed in the Graphs pane.
+
+    You can zoom in and out of the graph, you can expand the graph display space, add additional verticies, and move verticies on the display surface.
+
+    ![View the graph in Data Explorer in the Azure portal](./media/create-graph-dotnet/graph-explorer.png)
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 

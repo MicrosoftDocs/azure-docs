@@ -1,46 +1,47 @@
 ---
-title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs 
+title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs
 description: "Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/28/2017
 ms.author: billgib; sstein
 
 ---
-# Manage schema for multiple tenants in the WTP SaaS application
+# Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database
 
-The Introduction to the WTP Application tutorial shows how the WTP app can provision a tenant database with its initial schema and register it in the catalog. Like any application, the WTP app will evolve over time, and will at times require changes to the database. Changes may include new or changed schema, new or changed reference data, and routine database maintenance tasks to ensure optimal app performance. With a SaaS application, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. Changes also need to be incorporated into the provisioning process for future tenant databases.
+The [first Wingtip SaaS tutorial](sql-database-saas-tutorial.md) shows how the app can provision a tenant database and register it in the catalog. Like any application, the Wingtip SaaS app will evolve over time, and at times will require changes to the database. Changes may include new or changed schema, new or changed reference data, and routine database maintenance tasks to ensure optimal app performance. With a SaaS application, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. For these changes to be in future tenant databases, they need to be incorporated into the provisioning process.
 
-This tutorial explores two scenarios - deploying reference data updates for all tenants, and retuning an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these operations across all tenants, and a *golden* tenant database that is used as a template for new databases.
+This tutorial explores two scenarios - deploying reference data updates for all tenants, and retuning an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these operations across all tenants, and the *golden* tenant database that is used as a template for new databases.
 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
 
-> * Create a job account to query across multiple tenants
+> * Create a job account
+> * Query across multiple tenants
 > * Update data in all tenant databases
 > * Create an index on a table in all tenant databases
 
 
 To complete this tutorial, make sure the following prerequisites are met:
 
-* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * The latest version of SQL Server Management Studio (SSMS) is installed. [Download and Install SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). As this is a limited preview, you should contact SaaSFeedback@microsoft.com for related questions or support.*
+*This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.*
 
 
 ## Introduction to SaaS Schema Management patterns
@@ -55,11 +56,11 @@ The single tenant per database SaaS pattern benefits in many ways from the data 
 There is a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database (that requires no additional services or components). This new version of Elastic Jobs is currently in limited preview. This limited preview currently supports PowerShell to create job accounts, and T-SQL to create and manage jobs.
 
 > [!NOTE]
-> *This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). As this is a limited preview, you should contact SaaSFeedback@microsoft.com for related questions or support.*
+> *This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.*
 
 ## Get the Wingtip application scripts
 
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Create a job account database and new job account
 
@@ -84,14 +85,14 @@ To create a new job, we use a set of jobs system stored procedures created in th
 1. Also connect to the tenant server: tenants1-\<user\>.database.windows.net
 1. Browse to the *contosoconcerthall* database on the *tenants1* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
 1. Open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modify \<user\>, use the user name used when you deployed the WTP app, in all 3 locations in the script
+1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip app
 1. Ensure you are connected to the jobaccount database and press **F5** to run the script
 
 * **sp\_add\_target\_group** creates the target group name DemoServerGroup, now we need to add target members.
-* **sp\_add\_target\_group\_member** adds a *server* target member type, which deems all databases within that server (note this is the customer1-&lt;WtpUser&gt; server containing the tenant databases) at time of job execution should be included in the job, the second is adding a *database* target member type, specifically the ‘golden’ database, baseTenantDB which resides on catalog-&lt;WtpUser&gt; server, and lastly another *database* target group member type to include the adhocanalytics database that is used in a later tutorial.
+* **sp\_add\_target\_group\_member** adds a *server* target member type, which deems all databases within that server (note this is the tenants1-&lt;User&gt; server containing the tenant databases) at time of job execution should be included in the job, the second is adding a *database* target member type, specifically the ‘golden’ database (basetenantdb) that resides on catalog-&lt;User&gt; server, and lastly another *database* target group member type to include the adhocanalytics database that is used in a later tutorial.
 * **sp\_add\_job** creates a job called “Reference Data Deployment”
-* **sp\_add\_jobstep** creates the job step containing T-SQL command text to update to the reference table, VenueTypes
-* The remaining views in the script display the existence of the objects and monitor job execution. Review the status value from the **lifecycle** column. The job has successfully finished on all tenant databases and the two additional databases containing the reference table.
+* **sp\_add\_jobstep** creates the job step containing T-SQL command text to update the reference table, VenueTypes
+* The remaining views in the script display the existence of the objects and monitor job execution. Use these queries to review the status value in the **lifecycle** column to determine when the job has successfully finished on all tenant databases and the two additional databases containing the reference table.
 
 1. In SSMS, browse to the *contosoconcerthall* database on the *tenants1* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are** now in the results list.
 
@@ -102,9 +103,9 @@ Similar to the previous exercise, this exercise creates a job to rebuild the ind
 
 Create a job using the same jobs 'system' stored procedures.
 
-1. Open SSMS and connect to the catalog-&lt;WtpUser&gt;.database.windows.net server
+1. Open SSMS and connect to the catalog-&lt;User&gt;.database.windows.net server
 1. Open the file …\\Learning Modules\\Schema Management\\OnlineReindex.sql
-1. Right click, select Connection, and connect to the catalog-&lt;WtpUser&gt;.database.windows.net server, if not already connected
+1. Right click, select Connection, and connect to the catalog-&lt;User&gt;.database.windows.net server, if not already connected
 1. Ensure you are connected to the jobaccount database and press F5 to run the script
 
 * sp\_add\_job creates a new job called “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”
@@ -128,6 +129,6 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* [Additional tutorials that build upon the Wingtip SaaS application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
 * [Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)

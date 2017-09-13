@@ -4,7 +4,7 @@ description: 'This topic describes how to set up a channel that receives a multi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea

@@ -25,7 +25,7 @@ to use the [Azure Active Directory Graph API](https://msdn.microsoft.com/Library
 to query directory data in the application.
 
 The Azure Active Directory tenant that you use can be an Azure-only directory. Or, it can be 
-[synced with your on-premise Active Directory](../active-directory/active-directory-aadconnect.md) to create a single sign-on experience for 
+[synced with your on-premises Active Directory](../active-directory/active-directory-aadconnect.md) to create a single sign-on experience for 
 workers that are on-premises and remote. This article uses the default directory for your Azure account.
 
 <a name="bkmk_build"></a>
@@ -385,8 +385,8 @@ If you need role-based access control (RBAC) for your line-of-business app in az
 the Azure Active Directory team. It shows you how to enable roles for your Azure Active Directory application, and then 
 authorize users with the `[Authorize]` decoration.
 
-If your line-of-business app needs access to on-premises data, see 
-[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md).
+<!-- If your line-of-business app needs access to on-premises data, see 
+[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md). -->
 
 <a name="bkmk_resources"></a>
 
@@ -397,5 +397,3 @@ If your line-of-business app needs access to on-premises data, see
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Microsoft Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
 * [Azure Active Directory Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx)
-
-[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute

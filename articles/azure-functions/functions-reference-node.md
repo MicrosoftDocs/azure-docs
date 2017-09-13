@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
@@ -15,8 +15,8 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/06/2017
-ms.author: chrande, glenga
+ms.date: 05/25/2017
+ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
@@ -131,6 +131,21 @@ The following example writes to the console at the warning trace level:
 context.log.warn("Something has happened."); 
 ```
 You can set the trace-level threshold for logging in the host.json file, or turn it off.  For more information about how to write to the logs, see the next section.
+
+## Binding data type
+
+To define the data type for an input binding, use the `dataType` property in the binding definition. For example, to read the content of an HTTP request in binary format, use the type `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Other options for `dataType` are `stream` and `string`.
 
 ## Writing trace output to the console 
 
@@ -261,7 +276,7 @@ The following steps let you include packages in your function app:
 2. Click **Debug Console** > **CMD**.
 
 3. Go to `D:\home\site\wwwroot`, and then drag your package.json file to the **wwwroot** folder at the top half of the page.  
-    You can upload files to your function app in other ways also. For more information, see [How to update function app files](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+    You can upload files to your function app in other ways also. For more information, see [How to update function app files](functions-reference.md#fileupdate). 
 
 4. After the package.json file is uploaded, run the `npm install` command in the **Kudu remote execution console**.  
     This action downloads the packages indicated in the package.json file and restarts the function app.

@@ -1,5 +1,5 @@
 ---
-title: Generate recommendations using Mahout and HDInsight (SSH) | Microsoft Docs
+title: Generate recommendations using Mahout and HDInsight (SSH) - Azure | Microsoft Docs
 description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop).
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 08/15/2017
 ms.author: larryfr
 
 ---
@@ -32,7 +32,9 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 * A Linux-based HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted].
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
+* An SSH client. For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 ## Mahout versioning
 
@@ -163,16 +165,10 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Press **Ctrl-X**, **Y**, and finally **Enter** to save the data.
 
-4. Use the following command to make the file executable:
+4. Run the Python script. The following command assumes you are in the directory where all the files were downloaded:
 
     ```bash
-    chmod +x show_recommendations.py
-    ```
-
-5. Run the Python script. The following command assumes you are in the directory where all the files were downloaded:
-
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
     This command looks at the recommendations generated for user ID 4.
@@ -224,7 +220,6 @@ Now that you have learned how to use Mahout, discover other ways of working with
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
-[management]: https://manage.windowsazure.com/
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

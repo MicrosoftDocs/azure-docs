@@ -3,7 +3,7 @@ title: Move data from an FTP server by using Azure Data Factory | Microsoft Docs
 description: Learn about how to move data from an FTP server using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: monicar
 
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: spelluru
+ms.date: 06/19/2017
+ms.author: jingwang
 
 ---
 # Move data from an FTP server by using Azure Data Factory
@@ -195,7 +195,7 @@ In copy activity, when the source is of type **FileSystemSource**, the following
 | --- | --- | --- | --- |
 | recursive |Indicates whether the data is read recursively from the subfolders, or only from the specified folder. |True, False (default) |No |
 
-## JSON example: Copy data from FTP server to Azure Blob storage
+## JSON example: Copy data from FTP server to Azure Blob
 This sample shows how to copy data from an FTP server to Azure Blob storage. However, data can be copied directly to any of the sinks stated in the [supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats), by using the copy activity in Data Factory.  
 
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):

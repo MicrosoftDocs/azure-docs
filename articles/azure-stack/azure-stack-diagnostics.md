@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/11/2017
+ms.date: 9/25/2017
 ms.author: adshar
 
 ---
 # Azure Stack diagnostics tools
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
  
 Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs, which means that diagnosing issues can quickly become a challenging task, especially for errors coming from multiple interacting Azure Stack components. 
 
@@ -69,7 +71,7 @@ The following are important things to know about the Trace Collector:
   
 ## Log collection tool
  
-The PowerShell command `Get-AzureStackLog` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
+The PowerShell command `Get-AzureStackLog` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user-defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
 
 > [!CAUTION]
 > These log files may contain personally identifiable information (PII). Take this into account before you publicly post any log files.
@@ -88,16 +90,10 @@ We currently collect the following log types:
  
 To identify all the logs that get collected from all the components, refer to the `<Logs>` tags in the customer configuration file located at `C:\EceStore\<Guid>\<GuidWithMaxFileSize>`.
  
-### To run Get-AzureStackLog
+**To run Get-AzureStackLog**
 1.	Log in as AzureStack\AzureStackAdmin on the host.
 2.	Open a PowerShell window as an administrator.
-3.	Run the following commands to import the PowerShell modules:
-
-    -	`cd C:\CloudDeployment\AzureStackDiagnostics\Microsoft.AzureStack.Diagnostics.DataCollection`
-
-    -	`Import-Module .\Microsoft.AzureStack.Diagnostics.DataCollection.psd1`
-
-4.	Run `Get-AzureStackLog`.  
+3.	Run `Get-AzureStackLog`.  
 
     **Examples**
 
@@ -113,7 +109,7 @@ To identify all the logs that get collected from all the components, refer to th
 
         `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date)`
 
-If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past 4 hours by default.
+If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past four hours by default.
 
 Currently, you can use the `FilterByRole` parameter to filter log collection by the following roles:
 
@@ -151,8 +147,18 @@ A few things to note:
 * For more details, you can refer to the customer configuration file. Investigate the `<Logs>` tags for the different roles.
 
 > [!NOTE]
-> We are enforcing size and age limits to the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. Having said that, when diagnosing a problem you will often need logs that might not exist anymore due to these limits being enforced. Hence, it is **highly recommended** that you offload your logs to an external storage space (a storage account in public Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months depending on your requirements.
+> We are enforcing size and age limits to the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. Having said that, when diagnosing a problem you will often need logs that might not exist anymore due to these limits being enforced. Hence, it is **highly recommended** that you offload your logs to an external storage space (a storage account in Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months depending on your requirements.
 
+### Multi-node considerations
+If you want to collect logs in a multi-node environment, note the following differences:
+* The `get-date` function is not white-listed in multi-node environments. So, you must explicitly specify a date. For example:
+
+   `-FromDate "Friday, August 18, 2017 6:34:48 AM" -ToDate "Friday, August 18, 2017 7:35:25 AM"`
+* Specify a UNC path for the output to a shared folder on the hardware lifecycle host, or any other shared folder that you can access. For example:
+
+   `Get-AzureStackLog -OutputSharePath \\10.193.128.250\logs -OutputShareCredential $sharecred`
+
+   The `-OutputShareCredential` parameter prompts you for credentials to access the shared folder.
 
 ## Next steps
 [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)

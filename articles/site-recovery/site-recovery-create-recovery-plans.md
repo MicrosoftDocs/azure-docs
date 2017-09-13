@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/24/2017
+ms.date: 07/23/2017
 ms.author: raynew
 
 ---
@@ -40,6 +40,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
     - For VMM to Azure, select **Source Type** > **VMM**.  Select the source VMM server, and **Azure** as the target.
     - For Hyper-V replication to Azure (without VMM), select **Source Type** > **Hyper-V site**. Select the site as the source, and **Azure** as the target.
     - For a VMware VM or a physical on-premises server to Azure, select a configuration server as the source, and **Azure** as the target.
+    - For a Azure to Azure recovery plan, select a Azure region as the source, and a secondary Azure region as the target. The secondary Azure regions are only those to which virtual machines are protected.
 2. In **Select virtual machines**, select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.
 
 ## Customize and extend recovery plans

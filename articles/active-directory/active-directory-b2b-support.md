@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 05/26/2017
 ms.author: sasubram
 
 ---
@@ -41,4 +41,4 @@ You’ve read through the documentation, you’ve done the right things, but sti
 
   ![support ticket problem description](media/active-directory-b2b-support/problem-description.png)
 
-  Add your contact information and a support representative will contact you for further troubleshooting.
+3. For a support representative to contact you for further troubleshooting, add your contact information.

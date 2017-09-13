@@ -1,11 +1,10 @@
-﻿---
+---
 title: Manage Role-Based Access Control (RBAC) with Azure PowerShell | Microsoft Docs
 description: How to manage RBAC with Azure PowerShell, including listing roles, assigning roles, and deleting role assignments.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: andredm7
 manager: femila
-editor: ''
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
@@ -13,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/02/2017
-ms.author: kgremban
-
+ms.date: 07/12/2017
+ms.author: andredm
+ms.reviewer: rqureshi
 ---
 # Manage Role-Based Access Control with Azure PowerShell
 > [!div class="op_single_selector"]
@@ -124,7 +123,7 @@ To remove access for users, groups, and applications, use:
 ## Create a custom role
 To create a custom role, use the ```New-AzureRmRoleDefinition``` command. There are two methods of structuring the role, using PSRoleDefinitionObject or a JSON template. 
 
-## Get Actions from Particular Resource Provider
+## Get Actions for a Resource Provider
 When You are creating custom roles from scratch, it is important to know all the possible operations from the resource providers.
 Use the ```Get-AzureRMProviderOperation``` command to get this information.
 For example, if you want to check all the available operations for virtual Machine use this command:
@@ -162,7 +161,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### Create role with JSON template
-A JSON template can be used as the source definition for the custom role. The following example creates a custom role that allows read access to storage and compute resources, access to support, and adds that role to two subscriptions. Create a new file `C:\CustomRoles\customrole1.json` with the following content. The Id should be set to `null` on initial role creation as a new ID is generated automatically. 
+A JSON template can be used as the source definition for the custom role. The following example creates a custom role that allows read access to storage and compute resources, access to support, and adds that role to two subscriptions. Create a new file `C:\CustomRoles\customrole1.json` with the following example. The Id should be set to `null` on initial role creation as a new ID is generated automatically. 
 
 ```
 {

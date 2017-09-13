@@ -3,7 +3,7 @@ title: Log Analytics log search REST API | Microsoft Docs
 description: This guide provides a basic tutorial describing how you can use the Log Analytics search REST API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
@@ -12,12 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
-ms.author: banders
+ms.date: 09/06/2017
+ms.author: bwren
 
 ---
 # Log Analytics log search REST API
 This guide provides a basic tutorial, including examples, of how you can use the Log Analytics Search REST API. Log Analytics is part of the Operations Management Suite (OMS).
+
+> [!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you should refer to the [documentation for the new version of the log search API](https://dev.loganalytics.io/).
 
 > [!NOTE]
 > Log Analytics was previously called Operational Insights, which is why it is the name used in the resource provider.

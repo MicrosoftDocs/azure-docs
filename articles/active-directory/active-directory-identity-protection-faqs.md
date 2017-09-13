@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 09/01/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection FAQ
+
 
 ## Why do some risk events have “Closed (system)” status?
 
@@ -33,5 +35,4 @@ ms.author: markvi
 **A:** See [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md) for an answer to this question.
 
 ---
-
 

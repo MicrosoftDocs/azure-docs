@@ -575,6 +575,9 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
 
 7. Run the query again! You should notice a significant difference. 
 
+    > [!NOTE]
+    > Because the query returns a lot of data, the bandwidth availability of the machine running SSMS may be a performance bottleneck. This can result in you not seeing any performance improvements!
+
 > [!NOTE]
 > Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
 > Azure SQL Data Warehouse.
@@ -655,7 +658,7 @@ savings by pausing and scaling to meet your business needs.
 
 [Migrating Data to Azure SQL Data Warehouse][]
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Query Monitoring]: sql-data-warehouse-manage-monitor.md
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/

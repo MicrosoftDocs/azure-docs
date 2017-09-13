@@ -7,8 +7,8 @@ manager: ytkuo
  
 ms.service: cognitive-services 
 ms.technology: computer-vision 
-ms.topic: article 
-ms.date: 02/06/2017 
+ms.topic: article
+ms.date: 08/10/2017 
 ms.author: juliakuz 
 --- 
  
@@ -221,7 +221,7 @@ Among the various visual categories is the adult and racy group, which enables d
 ## <a name="OCR">Optical Character Recognition (OCR)</a>
 OCR technology detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
 
-OCR supports 21 languages. These languages are: Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, Swedish, and Turkish.
+OCR supports 25 languages. These languages are: Arabic, Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian (Cyrillic and Latin), Slovak, Spanish, Swedish, and Turkish.
 
 If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis. OCR provides the frame coordinates of each word as seen in below illustration.
 

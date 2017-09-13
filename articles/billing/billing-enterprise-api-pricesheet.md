@@ -18,7 +18,7 @@ ms.date: 04/25/2017
 ms.author: aedwin
 
 ---
-# Reporting APIs for Enterprise customers - PriceSheet (Preview)
+# Reporting APIs for Enterprise customers - Price Sheet
 
 The Price Sheet API provides the applicable rate for each Meter for the given Enrollment and Billing Period.
 
@@ -27,9 +27,12 @@ Common header properties that need to be added are specified [here](billing-ente
 
 |Method | Request URI|
 |-|-|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/pricesheet|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet|
 
+> [!Note]
+> To use the preview version of API, replace v2 with v1 in the above URL.
+>
 
 ## Response
 
@@ -38,6 +41,7 @@ Common header properties that need to be added are specified [here](billing-ente
     		{
     		  	"id": "enrollments/57354989/billingperiods/201601/products/343/pricesheets",
     	  		"billingPeriodId": "201704",
+				"meterId": "dc210ecb-97e8-4522-8134-2385494233c0",
     	  		"meterName": "A1 VM",
     	  		"unitOfMeasure": "100 Hours",
     	 	 	"includedQuantity": 0,
@@ -48,6 +52,7 @@ Common header properties that need to be added are specified [here](billing-ente
     		{
     	  		"id": "enrollments/57354989/billingperiods/201601/products/2884/pricesheets",
     	  		"billingPeriodId": "201404",
+				"meterId": "dc210ecb-97e8-4522-8134-5385494233c0",
     	  		"meterName": "Locally Redundant Storage Premium Storage - Snapshots - AU East",
     	  		"unitOfMeasure": "100 GB",
     	  		"includedQuantity": 0,
@@ -59,12 +64,17 @@ Common header properties that need to be added are specified [here](billing-ente
 		]
 	
 
+> [!Note]
+>If you are using the Preview API, meterId field is not available.
+>
+
 **Response property definitions**
 
 |Property Name| Type| Description
 |-|-|-|
 |id| string| The unique Id that represents a particular PriceSheet item (meter by billing period)|
 |billingPeriodId| string| The unique Id that represents a particular Billing period|
+|meterId| string| The identifier for the meter. It can be mapped to the usage meterId.|
 |meterName| string| The meter name|
 |unitOfMeasure| string| The Unit of Measure for measuring the service|
 |includedQuantity| decimal| Quantity that is included |
@@ -72,7 +82,7 @@ Common header properties that need to be added are specified [here](billing-ente
 |unitPrice| decimal| The unit price for the meter|
 |currencyCode| string| The currency code for the unitPrice|
 <br/>
-## See Also
+## See also
 
 * [Billing Periods API](billing-enterprise-api-billing-periods.md)
 

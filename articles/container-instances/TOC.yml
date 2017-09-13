@@ -1,0 +1,53 @@
+- name: Container Instances
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Container Instances
+    href: container-instances-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create container instance
+    href: container-instances-quickstart.md
+- name: Tutorials
+  items:
+  - name: Build and deploy a container
+    items:
+    - name: 1 - Create container image
+      href: container-instances-tutorial-prepare-app.md
+    - name: 2 - Create container registry
+      href: container-instances-tutorial-prepare-acr.md
+    - name: 3 - Deploy app
+      href: container-instances-tutorial-deploy-app.md
+- name: Concepts
+  items:
+  - name: Regions and availability
+    href: container-instances-region-availability.md
+  - name: Relationship to orchestrators
+    href: container-instances-orchestrator-relationship.md
+  - name: Container groups
+    href: container-instances-container-groups.md
+- name: How-to guides
+  items:
+  - name: Deploy multi-container groups
+    href: container-instances-multi-container-group.md
+  - name: Manage state with Azure file shares
+    href: container-instances-mounting-azure-files-volume.md
+  - name: Deploy from Azure Container Registry
+    href: container-instances-using-azure-container-registry.md
+  - name: Troubleshoot deployments to Azure Container Instances
+    href: container-instances-troubleshooting.md
+- name: Reference
+  items:
+  - name: Azure CLI 2.0
+    href: /cli/azure/container
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Templates - Container Instances
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/

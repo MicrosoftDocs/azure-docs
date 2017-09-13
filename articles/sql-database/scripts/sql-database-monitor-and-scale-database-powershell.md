@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script-Monitor & scale a single SQL database | Microsoft Docs
-description: Azure PowerShell Script Sample - Monitor and scale a single SQL database using PowerShell
+title: PowerShell example-monitor-scale-single Azure SQL database | Microsoft Docs
+description: Azure PowerShell example script to monitor and scale a single Azure SQL database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -10,31 +10,31 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Monitor and scale a single SQL database using PowerShell
+# Use PowerShell to monitor and scale a single SQL database
 
-This sample PowerShell script monitors the performance metrics of a database, scales it to a higher performance level, and creates an alert rule on one of the performance metrics. 
+This PowerShell script example monitors the performance metrics of a database, scales it to a higher performance level, and creates an alert rule on one of the performance metrics. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1 "Monitor and scale single SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## Script explanation

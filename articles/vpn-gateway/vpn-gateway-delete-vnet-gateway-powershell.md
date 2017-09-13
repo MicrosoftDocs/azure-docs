@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Delete a virtual network gateway: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: Delete a virtual network gateway using PowerShell in the Resource Manager deployment model. 
 services: vpn-gateway
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 06/20/2017
 ms.author: cherylmc
 
 ---
 # Delete a virtual network gateway using PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-> * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+> * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
 >
 
@@ -35,9 +35,11 @@ There are a couple of different approaches you can take when you want to delete 
 ## Before beginning
 
 ### 1. Download the latest Azure Resource Manager PowerShell cmdlets.
+
 Download and install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about downloading and installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-### 2. Connect to your Azure account. 
+### 2. Connect to your Azure account.
+
 Open your PowerShell console and connect to your account. Use the following example to help you connect:
 
 ```powershell
@@ -80,57 +82,59 @@ $Conns=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | whe
 ```
 
 ### 3. Delete all connections.
+
 You may be prompted to confirm the deletion of each of the connections.
 
 ```powershell
 $Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
-### 4. Get the list of the corresponding local network gateways.
+### 4. Delete the virtual network gateway.
 
-```powershell
-$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
-```
-	
-### 5. Delete the local network gateways.
-You may be prompted to confirm the deletion of each of the local network gateway.
+You may be prompted to confirm the deletion of the gateway. If you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
 
-```powershell
-$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
-```
-
-### 6. Delete the virtual network gateway.
-You may be prompted to confirm the deletion of the gateway.
-
->[!NOTE]
-> If you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
->
->
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### 7. Get the IP configurations of the virtual network gateway.
+At this point, your virtual network gateway has been deleted. You can use the next steps to delete any resources that are no longer being used.
+
+### 5 Delete the local network gateways.
+
+Get the list of the corresponding local network gateways.
+
+```powershell
+$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
+```
+
+Delete the local network gateways. You may be prompted to confirm the deletion of each of the local network gateway.
+
+```powershell
+$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
+```
+
+### 6. Delete the Public IP address resources.
+
+Get the IP configurations of the virtual network gateway.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### 8. Get the list of Public IP addresses used for this virtual network gateway 
-If the virtual network gateway was active-active, you will see two Public IP addresses.
+Get the list of Public IP address resources used for this virtual network gateway. If the virtual network gateway was active-active, you will see two Public IP addresses.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### 9. Delete the Public IPs.
+Delete the Public IP resources.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 ```
 
-### 10. Delete the gateway subnet and set the configuration.
+### 7. Delete the gateway subnet and set the configuration.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -166,6 +170,7 @@ get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-obje
 ```
 
 ### 3. Get the list of connections in both directions.
+
 Because this is a VNet-to-VNet configuration, you need the list of connections in both directions.
 
 ```powershell
@@ -179,6 +184,7 @@ In this example, we are checking for connections from RG2. Run this for each res
  ```
 
 ### 4. Delete all connections.
+
 You may be prompted to confirm the deletion of each of the connections.
 
 ```powershell
@@ -187,39 +193,36 @@ $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_
 ```
 
 ### 5. Delete the virtual network gateway.
-You may be prompted to confirm the deletion of the virtual network gateway.
 
->[!NOTE]
-> If you have P2S configurations to your VNets in addition to your V2V configuration, deleting the virtual network gateways will automatically disconnect all P2S clients without warning.
->
->
-
+You may be prompted to confirm the deletion of the virtual network gateway. If you have P2S configurations to your VNets in addition to your V2V configuration, deleting the virtual network gateways will automatically disconnect all P2S clients without warning.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### 6. Get the IP configurations of the virtual network gateway.
+At this point, your virtual network gateway has been deleted. You can use the next steps to delete any resources that are no longer being used.
+
+### 6. Delete the Public IP address resources
+
+Get the IP configurations of the virtual network gateway.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### 7. Get the list of Public IP addresses used for this virtual network gateway. 
-If the virtual network gateway was active-active, you will see two Public IP addresses.
+Get the list of Public IP address resources used for this virtual network gateway. If the virtual network gateway was active-active, you will see two Public IP addresses.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### 8. Delete the Public IPs.
-You may be prompted to confirm the deletion of the Public IP.
+Delete the Public IP resources. You may be prompted to confirm the deletion of the Public IP.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### 9. Delete the gateway subnet and set the configuration.
+### 7. Delete the gateway subnet and set the configuration.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -249,33 +252,36 @@ $Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### 2. Delete the virtual network gateway.
+
 You may be prompted to confirm the deletion of the virtual network gateway.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### 3. Get the IP configurations of the virtual network gateway.
+At this point, your virtual network gateway has been deleted. You can use the next steps to delete any resources that are no longer being used.
+
+### 3. Delete the Public IP address resources
+
+Get the IP configurations of the virtual network gateway.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### 4. Get the list of Public IP addresses used for this virtual network gateway. 
-If the virtual network gateway was active-active, you will see two Public IP addresses.
+Get the list of Public IP addresses used for this virtual network gateway. If the virtual network gateway was active-active, you will see two Public IP addresses.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### 5. Delete the Public IPs.
-You may be prompted to confirm the deletion of the Public IP.
+Delete the Public IPs. You may be prompted to confirm the deletion of the Public IP.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### 6. Delete the gateway subnet and set the configuration.
+### 4. Delete the gateway subnet and set the configuration.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -293,6 +299,7 @@ Get-AzureRmResourceGroup
 ```
 
 ### 2. Locate the resource group that you want to delete.
+
 Locate the resource group that you want to delete and view the list of resources in that resource group. In the example, the name of the resource group is RG1. Modify the example to retrieve a list of all the resources.
 
 ```powershell
@@ -300,9 +307,11 @@ Find-AzureRmResource -ResourceGroupNameContains RG1
 ```
 
 ### 3. Verify the resources in the list.
+
 When the list is returned, review it to verify that you want to delete all the resources in the resource group, as well as the resource group itself. If you want to keep some of the resources in the resource group, use the steps in the earlier sections of this article to delete your gateway.
 
 ### 4. Delete the resource group and resources.
+
 To delete the resource group and all the resource contained in the resource group, modify the example and run.
 
 ```powershell
@@ -310,6 +319,7 @@ Remove-AzureRmResourceGroup -Name RG1
 ```
 
 ### 5. Check the status.
+
 It takes some time for Azure to delete all the resources. You can check the status of your resource group by using this cmdlet.
 
 ```powershell
@@ -318,6 +328,8 @@ Get-AzureRmResourceGroup -ResourceGroupName RG1
 
 The result that is returned shows 'Succeeded'.
 
-	ResourceGroupName : RG1
-	Location          : eastus
-	ProvisioningState : Succeeded
+```
+ResourceGroupName : RG1
+Location          : eastus
+ProvisioningState : Succeeded
+```

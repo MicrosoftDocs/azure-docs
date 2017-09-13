@@ -14,7 +14,7 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: dobett
 
 ---
@@ -22,7 +22,7 @@ ms.author: dobett
 
 ## Introduction
 
-The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution.
+The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected factory FAQ](iot-suite-faq-cf.md).
 
 Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
@@ -64,7 +64,7 @@ You can browse the data items that a connected OPC UA server can send to your so
 
 ## Map the data
 
-The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. The connected factory solution deploys to your Azure account when you provision the solution. A JSON file in the Visual Studio connected factory solution stores this mapping information. You can view and modify this JSON configuration file in the connected factory Visual Studio solution and redeploy it.
+The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. The connected factory solution deploys to your Azure account when you provision the solution. A JSON file in the Visual Studio connected factory solution stores this mapping information. You can view and modify this JSON configuration file in the connected factory Visual Studio solution. You can redeploy the solution after you make a change.
 
 You can use the configuration file to:
 
@@ -96,13 +96,13 @@ The name, description, and location appear on this view in the dashboard:
 
 ![Munich data in the dashboard][img-munich]
 
-Each factory, production line, and station has an image property. You can find these JPEG files in the **Content\img** folder in the **WebApp** project. These image files display in the connected factory dashboard.
+Each factory, production line, and station have an image property. You can find these JPEG files in the **Content\img** folder in the **WebApp** project. These image files display in the connected factory dashboard.
 
 Each station includes several detailed properties that define the mapping from the OPC UA data items. These properties are described in the following sections:
 
 ### OpcUri
 
-The **OpcUri** value is the OPC UA Application URI that uniquely identifies the OPC UA server. For example, the **OpcUri** value for the assembly station on production line 1 in Munich looks like this: **urn:scada2194:ua:munich:productionline0:assemblystation**.
+The **OpcUri** value is the OPC UA Application URI that uniquely identifies the OPC UA server. For example, the **OpcUri** value for the assembly station on production line 1 in Munich looks like the following: **urn:scada2194:ua:munich:productionline0:assemblystation**.
 
 You can view the URIs of the connected OPC UA servers in the solution dashboard:
 
@@ -169,8 +169,9 @@ The **azure-iot-connected-factory** repository includes a **build.ps1** PowerShe
 Learn more about the connected factory preconfigured solution by reading the following articles:
 
 * [Connected factory preconfigured solution walkthrough][lnk-rm-walkthrough]
-* [Connect your device to the Connected factory preconfigured solution][lnk-connect-cf]
+* [Deploy a gateway for connected factory][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
+* [Connected factory FAQ](iot-suite-faq-cf.md)
 * [FAQ][lnk-faq]
 
 
@@ -183,7 +184,7 @@ Learn more about the connected factory preconfigured solution by reading the fol
 [img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
 [lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
 
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

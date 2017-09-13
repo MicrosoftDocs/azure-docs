@@ -11,6 +11,26 @@
     href: quickstart-create-mysql-server-database-using-azure-portal.md
   - name: Create DB - Azure CLI
     href: quickstart-create-mysql-server-database-using-azure-cli.md
+  - name: Connect & query
+    items:
+    - name: PHP
+      href: connect-php.md
+    - name: Java
+      href: connect-java.md
+    - name: .Net
+      href: connect-csharp.md    
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: C++
+      href: connect-cpp.md
+    - name: Go
+      href: connect-go.md
+    - name: MySQL Workbench
+      href: connect-workbench.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
@@ -22,7 +42,7 @@
   - name: 2 - Create a Web App
     items:
     - name: Wordpress - Portal
-      href: ../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json
+      href: https://portal.azure.com/#create/WordPress.WordPress
     - name: PHP - Azure CLI
       href: ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
 - name: Samples
@@ -63,7 +83,7 @@
       href: concepts-migrate-dump-restore.md
     - name: Import & export
       href: concepts-migrate-import-export.md
-- name: How-to Guides
+- name: How-to guides
   items:
   - name: Manage a Server
     items:
@@ -79,26 +99,36 @@
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
-  - name: Connect Applications
+  - name: Connect applications
     items:
-    - name: Connection Strings
+    - name: Connection strings
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
-    - name: Web App
+    - name: Web apps
       href: howto-connect-webapp.md
+  - name: Configure server parameters
+    items:
+    - name: Azure portal
+      href: howto-server-parameters.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/mysql
+  - name: REST API
+    href: /rest/api/mysql
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Videos
+    href: videos.md
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability

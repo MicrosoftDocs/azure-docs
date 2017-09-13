@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 
 ---
@@ -42,7 +42,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 2. This article does not provide a conceptual overview of the Azure Data Factory service. We recommend that you go through [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of the service.  
 
 ## Create data factory
-A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step.
+A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run a Hive script to transform input data to product output data. Let's start with creating the data factory in this step.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **NEW** on the left menu, click **Data + Analytics**, and click **Data Factory**.
@@ -78,7 +78,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
 Before creating a pipeline in the data factory, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent input/output data in linked data stores, and then create the pipeline with an activity that uses these datasets.
 
 ## Create linked services
-In this step, you link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. Identify what [data store](data-factory-data-movement-activities.md)/[compute services](data-factory-compute-linked-services.md) are used in your scenario and link those services to the data factory by creating linked services.  
+In this step, you link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. The HDInsight linked service is used to run a Hive script specified in the activity of the pipeline in this sample. Identify what [data store](data-factory-data-movement-activities.md)/[compute services](data-factory-compute-linked-services.md) are used in your scenario and link those services to the data factory by creating linked services.  
 
 ### Create Azure Storage linked service
 In this step, you link your Azure Storage account to your data factory. In this tutorial, you use the same Azure Storage account to store input/output data and the HQL script file.
@@ -92,7 +92,7 @@ In this step, you link your Azure Storage account to your data factory. In this 
 3. You should see the JSON script for creating an Azure Storage linked service in the editor.
 
    ![Azure Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../storage/storage-create-storage-account.md#manage-your-storage-account).
+4. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 5. Click **Deploy** on the command bar to deploy the linked service.
 
     ![Deploy button](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -111,15 +111,17 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
 	```JSON
     {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "AzureStorageLinkedService"
+        "name": "HDInsightOnDemandLinkedService",
+        "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+			    "version": "3.5",
+                "clusterSize": 1,
+			    "timeToLive": "00:05:00",
+                "osType": "Linux",
+			    "linkedServiceName": "AzureStorageLinkedService"
+            }
         }
-      }
     }
 	```
 
@@ -128,12 +130,12 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
    | Property | Description |
    |:--- |:--- |
    | ClusterSize |Specifies the size of the HDInsight cluster. |
-   | TimeToLive |Specifies that the idle time for the HDInsight cluster, before it is deleted. |
-   | linkedServiceName |Specifies the storage account that is used to store the logs that are generated by HDInsight. |
+   | TimeToLive | Specifies that the idle time for the HDInsight cluster, before it is deleted. |
+   | linkedServiceName | Specifies the storage account that is used to store the logs that are generated by HDInsight. |
 
     Note the following points:
 
-   * The Data Factory creates a **Windows-based** HDInsight cluster for you with the JSON. You could also have it create a **Linux-based** HDInsight cluster. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
+   * The Data Factory creates a **Linux-based** HDInsight cluster for you with the JSON. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
    * You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
    * The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (**timeToLive**). The cluster is automatically deleted when the processing is done.
 
@@ -278,8 +280,8 @@ In this step, you create your first pipeline with a **HDInsightHive** activity. 
 	                "linkedServiceName": "HDInsightOnDemandLinkedService"
 	            }
 	        ],
-	        "start": "2016-04-01T00:00:00Z",
-	        "end": "2016-04-02T00:00:00Z",
+	        "start": "2017-07-01T00:00:00Z",
+	        "end": "2017-07-02T00:00:00Z",
 	        "isPaused": false
 	    }
 	}
@@ -366,7 +368,7 @@ You can also use Monitor & Manage application to monitor your pipelines. For det
 1. Click **Monitor & Manage** tile on the home page for your data factory.
 
     ![Monitor & Manage tile](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
-2. You should see **Monitor & Manage application**. Change the **Start time** and **End time** to match start (04-01-2016 12:00 AM) and end times (04-02-2016 12:00 AM) of your pipeline, and click **Apply**.
+2. You should see **Monitor & Manage application**. Change the **Start time** and **End time** to match start and end times of your pipeline, and click **Apply**.
 
     ![Monitor & Manage App](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 3. Select an activity window in the **Activity Windows** list to see details about it.

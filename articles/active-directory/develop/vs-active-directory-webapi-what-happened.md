@@ -3,8 +3,8 @@ title: Changes made to a WebApi project when you connect to Azure AD | Microsoft
 description: Describes what happens to your WebApi project when you connect to Azure AD by using Visual Studio
 services: active-directory
 documentationcenter: ''
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
-ms.author: tarcher
+ms.author: kraigb
+ms.custom: aaddev
 
 ---
 # What happened to my WebApi project (Visual Studio Azure Active Directory connected service)

@@ -42,8 +42,9 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 [!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]
 
-## View the swagger
-See the [swagger details](/connectors/servicebus/). 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/servicebus/). 
 
 ## Next steps
 [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).

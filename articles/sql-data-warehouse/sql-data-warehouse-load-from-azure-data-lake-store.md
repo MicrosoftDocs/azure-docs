@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 09/06/2017
 ms.author: cakarst;barbkess
 
 
@@ -22,9 +22,7 @@ ms.author: cakarst;barbkess
 # Load data from Azure Data Lake Store into SQL Data Warehouse
 This document gives you all steps you  need to load your own data from Azure Data Lake Store (ADLS) into SQL Data Warehouse using PolyBase.
 While you are able to run adhoc queries over the data stored in ADLS using the External Tables, as a best practice we suggest importing the data into the SQL Data Warehouse.
-,
-Time Estimate: 10 minutes assuming you have the prerequisites need to complete.
->
+
 In this tutorial you will learn how to:
 
 1. Create External Database objects to load from Azure Data Lake Store.
@@ -38,12 +36,13 @@ To run this tutorial, you need:
 
 >[!NOTE] 
 > You need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your Azure Data Lake from SQL Data Warehouse. Details for how to get these values are in the link above.
+>Note for Azure Active Directory App Registration use the 'Application ID' as the Client ID.
 
 * SQL Server Management Studio or SQL Server Data Tools, to download SSMS and connect see [Query SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
 * An Azure SQL Data Warehouse, to create one follow: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* An Azure Data Lake Store that does not have encryption enabled. To create one follow: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* An Azure Data Lake Store, with or without encryption enabled. To create one follow: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 
@@ -77,12 +76,17 @@ WITH
     SECRET = '<key>'
 ;
 
+-- It should look something like this:
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+WITH
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
+;
 ```
 
 
 ### Create the external data source
-Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data.
-You can find the ADL URI in the Azure portal and www.portal.azure.com.
+Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data. To find the ADL URI in the Azure portal, navigate to your Azure Data Lake Store, and then look at the Essentials panel.
 
 ```sql
 -- C: Create an external data source
@@ -206,7 +210,7 @@ The following example is a good starting point for creating statistics. It creat
 ## Achievement unlocked!
 You have successfully loaded data into Azure SQL Data Warehouse. Great job!
 
-##Next Steps
+## Next Steps
 Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 

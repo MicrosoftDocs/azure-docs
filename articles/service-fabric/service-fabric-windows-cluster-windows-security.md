@@ -3,7 +3,7 @@ title: Secure a cluster running on Windows by using Windows security | Microsoft
 description: Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows by using Windows security.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/28/2017
-ms.author: ryanwi
+ms.date: 08/24/2017
+ms.author: dekapur
 
 ---
 # Secure a standalone cluster on Windows by using Windows security
@@ -30,7 +30,6 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 
 ```  
 "security": {  
-            "ServerCredentialType": "Windows",  
             "WindowsIdentities": {  
                 "ClustergMSAIdentity": "accountname@fqdn"  
                 "ClusterSPN": "fqdn"  

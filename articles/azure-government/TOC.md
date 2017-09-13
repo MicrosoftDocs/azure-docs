@@ -19,6 +19,7 @@
 ## Plan
 ### [Security](documentation-government-plan-security.md)
 ### [Compliance](documentation-government-plan-compliance.md)
+### [Identity](documentation-government-plan-identity.md)
 ## Manage
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
@@ -31,18 +32,23 @@
 
 ## Services
 ### [Compute](documentation-government-compute.md)
-### [Storage](documentation-government-services-storage.md)
-### [Database](documentation-government-services-database.md)
-### [Intelligence + Analytics](documentation-government-services-intelligenceandanalytics.md)
 ### [Networking](documentation-government-networking.md)
-### [Security + Identity](documentation-government-services-securityandidentity.md)
-### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+### [Storage](documentation-government-services-storage.md)
 ### [Web + Mobile](documentation-government-services-webandmobile.md)
 ### [Media Services](documentation-government-services-media.md)
+### [Databases](documentation-government-services-database.md)
+### [Data + Analytics](documentation-government-services-dataandanalytics.md)
+### [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md) 
+### [Internet of Things](documentation-government-services-iot-hub.md)
+### [Security + Identity](documentation-government-services-securityandidentity.md)
+### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+
 
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/)
-## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
-## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Azure Government Website](https://azure.microsoft.com/overview/clouds/government/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
+## [Pricing](https://azure.microsoft.com/pricing/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)

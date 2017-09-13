@@ -4,7 +4,7 @@ description: Use Power BI to visualize temperature and humidity data that is col
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'real time data visualization, live data visualization, sensor data visualization'
 
@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/24/2017
 ms.author: xshi
 
 ---
@@ -116,11 +116,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 ## Create and publish a Power BI report to visualize the data
 
-1. Ensure the sample application is running. If not, run the following command to run the application on Pi:
-
-   ```bash
-   gulp run
-   ```
+1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 1. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
 1. Go to the group workspace that you set when you created the output for the Stream Analytics job.
 1. Click **Streaming datasets**.
@@ -136,7 +132,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
    1. Drag **EventEnqueuedUtcTime** to **Axis** on the **Visualizations** pane.
    1. Drag **temperature** to **Values**.
 
-      Now a line chart is created. The x-axis of chart displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
+      Now a line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
 
       ![Add a line chart for temperature to a Microsoft Power BI report](media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 

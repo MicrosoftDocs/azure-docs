@@ -70,7 +70,7 @@ Before you deploy a virtual array, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual array:
   
   * A minimum of 4 cores.
-  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports 2 million files. You need 16 GB RAM to support 2 - 4 million plan files.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports 2 million files. You need 16 GB RAM to support 2 - 4 million files.
   * One network interface.
   * A 500 GB virtual disk for system data.
 
@@ -139,7 +139,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
 
 This step is optional and should be performed only if you did not enable the automatic creation of a storage account with your service.
 
-If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for step-by-step instructions.
 
 Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) on the StorSimple Device Manager service page to add an existing Microsoft Azure storage account.
 

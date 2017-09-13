@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Managed Application | Microsoft Docs
-description: Describes the concepts for Azure Managed Application
+title: Overview of Azure managed applications | Microsoft Docs
+description: Describes the concepts for Azure managed applications
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
@@ -10,53 +10,70 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-
 ---
-# Azure Managed Applications overview
 
-Today, Azure provides a robust Marketplace where ISVs and start ups can offer their solutions to customers around the world. Azure Marketplace is a gallery that consists of hundreds of complex, multi-resource templates from first and third-party vendors. Customers can within minutes deploy and start using PaaS and SaaS applications. Although it provides a great way to quickly deploy an offering, the customer is still responsible for maintaining and updating the solution. For vendors, there is no way to charge customers for use of an application beyond the virtual machine image billing. Furthermore, vendors have no way of preventing customers from modifying critical application resources, and no way to block access to intellectual property that makes up an application. Azure Managed Applications provides a solution for these concerns. 
+# Azure managed applications overview
+
+Vendors that use Azure can offer solutions to customers around the world. Azure Marketplace is a gallery that consists of hundreds of complex, multiresource templates from first-party and third-party vendors. Within minutes, customers can deploy and start using platform as a service (PaaS) and software as a service (SaaS) applications. 
+
+Although the Marketplace provides a great way for customers to quickly deploy an offering, the customer is responsible for maintaining and updating the solution. Beyond the virtual machine image billing, vendors can't charge customers for the use of an application. Furthermore, vendors can't prevent customers from modifying critical application resources. Vendors also can't block access to intellectual property that makes up an application. Azure managed applications provide solutions for these concerns. 
+
+A managed application is similar to a solution template in the Marketplace, with one key difference. In a managed application, the resources are provisioned to a resource group that's managed by the vendor. The resource group is present in the customer's subscription, but an identity in the vendor's tenant has access to the resource group.
 
 ## Advantages of managed applications
 
-Azure Managed Applications provides an ecosystem that enables vendors to make a PaaS or SaaS services available as self-contained applications. Customers deploy managed applications in their subscriptions, but vendors can manage them. It enables vendors to bill customers using Azure's billing system, use templates to manage the lifecycle of deployed applications. On the other side, it allows customers to automatically acquire updates, and pay for support and maintenance. They do not have to maintain or update the application themselves or diagnose and fix issues when the application fails.
+Managed service providers (MSPs), ISVs, and corporate central IT teams can use managed applications to deliver solutions through the Marketplace or the Service Catalog. Although customers deploy these managed applications in their subscriptions, they don't have to maintain, update, or service them. Because vendors manage and support the applications, customers don't have to develop application-specific domain knowledge to manage these applications. Customers can automatically acquire application updates without the need to worry about troubleshooting and diagnosing issues with the applications.
 
-Such an ecosystem in Azure would not only benefit PaaS and SaaS vendors but also corporate central platform teams and System Integrators that wish to package and resell their solutions.
+For vendors and providers, managed applications create a channel to sell infrastructure and software through the Marketplace. Managed applications also provide a way to attach services and operational support to Azure customers. Vendors can bill customers by using the Azure billing system. They can use templates to manage the lifecycle of deployed applications. These solutions are self-contained and sealed to the customer, so vendors can provide high-quality service. This approach benefits PaaS and SaaS vendors. It also helps corporate central platform teams and system integrators (SIs) who want to package and resell their solutions.
 
-## How managed applications work
-There are two experiences when working with managed applications:
+## Managed application types
+Azure managed applications come in two types: Service Catalog and Marketplace.
+ 
+### Service Catalog  
 
-1. The vendor or independent software vendor (ISV) who creates a managed application, and makes it available for broader use. 
-2. The customer or consumer who wishes to create and use the published application. 
+With the Service Catalog, customers can create a catalog of approved solutions for Azure to be used by people in their organization. Maintaining such a catalog of solutions is helpful for central IT teams in enterprises. They can use the catalog to ensure compliance with certain organizational standards while they provide solutions for their organizations. They can control, update, and maintain these applications. Employees can use the catalog to easily discover the rich set of applications that are recommended and approved by their IT departments. Customers see the Service Catalog managed applications that they created. They also can see the managed applications that other people in their organization share with them.
+ 
+For information about publishing a Service Catalog managed application, see [Create and publish a Service Catalog managed application](managed-application-publishing.md).
+ 
+For information about consuming a Service Catalog managed application, see [Consume a Service Catalog managed application](managed-application-consumption.md).
+ 
+### Marketplace
 
-This article covers both experiences. First, lets understand how a managed application works. 
+Managed applications are available through the Marketplace in the Azure portal. After the vendor publishes these applications, they're available for everyone inside or outside an organization to consume. With this approach, MSPs, ISVs, and SIs can offer their solutions to all Azure customers. Customers get the benefit of using these complex solutions without the need to invest in understanding and maintaining the solutions. 
 
-A managed application is similar to a marketplace solution template with one key difference. In a managed application, the resources are provisioned to a resource group that is managed by the ISV/vendor. The resource group is present in the customer's subscription, but a user, user group, or application in the ISV's tenant has access to the resource group. To manage and service the application, the vendor's identity is added to an Active Directory Owner, Contributor, Reader, or any other built-in role. 
+Currently, publishers can make their offers available as a managed application or as a solution template that's unmanaged. The main components of publishing a managed application include the template file and the UI definition file. The template file describes the resources that are provisioned. The UI definition file describes how the required inputs for provisioning these resources are displayed in the portal. The required files are packaged in a .zip file and uploaded through the publishing portal.
+ 
+For information about publishing a managed application to the Marketplace, see [Azure managed applications in the Marketplace](managed-application-author-marketplace.md).
+
+For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](managed-application-consume-marketplace.md).
 
 ## Key concepts
 
 ### Managed resource group
-The resource group where all the Azure resources being provisioned in the template are created. For example, if the appliance is creating a storage account, this resource group contains the storage account resource. It does not contain the appliance resource.
+The managed resource group is where all the Azure resources that are provisioned in the template are created. For example, if the appliance is used to create a storage account, this resource group contains the storage account resource. It doesn't contain the appliance resource.
 
 ### Appliance package
-The publisher creates a package that contains the template files and the createUIDefinition file. Specifically it contains the following files:
+The publisher creates a package that contains the template files and the createUIDefinition file. Specifically, it contains the following files:
 
-- **applianceMainTemplate.json** - The template file that defines all the resources that are provisioned by the appliance. This file is a regular template file that is used for creating resources.
+- **applianceMainTemplate.json**: This template file defines all the resources that are provisioned by the appliance. This file is a regular template file that's used to create resources.
 
-- **MainTemplate.json** - Template file that defines the appliance resource (Microsoft.Solutions/appliances). One key property defined in this resource is the ManagedResourceGroupId. This property indicates which resource group is used for hosting the actual resources defined in the applianceMainTemplate.json.
+- **MainTemplate.json**: This template file defines the appliance resource (Microsoft.Solutions/appliances). One key property defined in this resource is ManagedResourceGroupId. This property indicates which resource group is used to host the actual resources that are defined in applianceMainTemplate.json.
 
-- **createUIDefinition.json** - This file describes how the UI needed for the parameters defined in the template is rendered.
+- **applianceCreateUIDefinition.json**: This file describes how the UI needed for the parameters defined in the template is rendered.
 
 ### Authorization
-The publisher needs to specify the permissions required by the vendor to manage the resources on behalf of the customer. This permission applies to the managed resource group. You set the following values:
+The publisher must specify the permissions required by the vendor to manage the resources on behalf of the customer. This permission applies to the managed resource group. Set the following values:
 
-- **PrincipalID** - The Azure AD identifier of the user, group, or application that is used to grant access to the managed resource group. This identifier belongs to the publisher's tenant.
+- **PrincipalID**: The Azure Active Directory (Azure AD) identifier of the user, group, or application that's used to grant access to the managed resource group. This identifier belongs to the publisher's tenant.
 
-- **RoleDefinitionID** - The Azure AD identifier of the role assigned to the preceding principal ID. It could be any of the built-in RBAC roles in the publisher's tenant.
+- **RoleDefinitionID**: The Azure AD identifier of the role assigned to the preceding principal ID. It can be any of the built-in Role-Based Access Control roles in the publisher's tenant. For more information, see [Built-in roles for Azure Role-Based Access Control](../active-directory/role-based-access-built-in-roles.md).
 
 ## Next steps
 
-* To understand the vendor experience, see [Create and publish an Azure Managed Application](managed-application-publishing.md).
-* To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).
-* To create a UI definition file, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For information about publishing managed applications to the Marketplace, see [Azure managed applications in the Marketplace](managed-application-author-marketplace.md).
+* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](managed-application-consume-marketplace.md).
+* For information about publishing a Service Catalog managed application, see [Create and publish a Service Catalog managed application](managed-application-publishing.md).
+* For information about consuming a Service Catalog managed application, see [Consume a Service Catalog managed application](managed-application-consumption.md).
+* To create a UI definition file, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).

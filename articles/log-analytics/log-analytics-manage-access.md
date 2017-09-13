@@ -3,7 +3,7 @@ title: Manage workspaces in Azure Log Analytics and the OMS portal | Microsoft D
 description: You can manage workspaces in Azure Log Analytics and the OMS portal using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: banders
+ms.date: 08/06/2017
+ms.author: magoedte
 
 ---
 # Manage workspaces
@@ -102,7 +102,60 @@ The following activities also require Azure permissions:
 ### Managing access to Log Analytics using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
-If you have at least Azure read permission on the Log Analytics workspace, you can open the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
+Azure has two built-in user roles for Log Analytics:
+- Log Analytics Reader
+- Log Analytics Contributor
+
+Members of the *Log Analytics Reader* role can:
+- View and search all monitoring data 
+- View monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
+
+| Type    | Permission | Description |
+| ------- | ---------- | ----------- |
+| Action | `*/read`   | Ability to view all resources and resource configuration. Includes viewing: <br> Virtual machine extension status <br> Configuration of Azure diagnostics on resources <br> All properties and settings of all resources |
+| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Ability to perform Log Search v2 queries |
+| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Ability to perform Log Search v1 queries |
+| Action | `Microsoft.Support/*` | Ability to open support cases |
+|Not Action | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Prevents reading of workspace key required to use the data collection API and to install agents |
+
+
+Members of the *Log Analytics Contributor* role can:
+- Read all monitoring data 
+- Creating and configuring Automation accounts
+- Adding and removing management solutions
+- Reading storage account keys 
+- Configure collection of logs from Azure Storage
+- Edit monitoring settings for Azure resources, including
+  - Adding the VM extension to VMs
+  - Configuring Azure diagnostics on all Azure resources
+
+> [!NOTE] 
+> You can use the ability to add a virtual machine extension to a virtual machine to gain full control over a virtual machine.
+
+| Permission | Description |
+| ---------- | ----------- |
+| `*/read`     | Ability to view all resources and resource configuration. Includes viewing: <br> Virtual machine extension status <br> Configuration of Azure diagnostics on resources <br> All properties and settings of all resources |
+| `Microsoft.Automation/automationAccounts/*` | Ability to create and configure Azure Automation accounts, including adding and editing runbooks |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Add, update and remove virtual machine extensions, including the Microsoft Monitoring Agent extension and the OMS Agent for Linux extension |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | View the storage account key. Required to configure Log Analytics to read logs from Azure storage accounts |
+| `Microsoft.Insights/alertRules/*` | Add, update, and remove alert rules |
+| `Microsoft.Insights/diagnosticSettings/*` | Add, update, and remove diagnostics settings on Azure resources |
+| `Microsoft.OperationalInsights/*` | Add, update, and remove configuration for Log Analytics workspaces |
+| `Microsoft.OperationsManagement/*` | Add and remove management solutions |
+| `Microsoft.Resources/deployments/*` | Create and delete deployments. Required for adding and removing solutions, workspaces, and automation accounts |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Create and delete deployments. Required for adding and removing solutions, workspaces, and automation accounts |
+
+To add and remove users to a user role, it is necessary to have `Microsoft.Authorization/*/Delete` and `Microsoft.Authorization/*/Write` permission.
+
+Use these roles to give users access at different scopes:
+- Subscription - Access to all workspaces in the subscription
+- Resource Group - Access to all workspace in the resource group
+- Resource - Access to only the specified workspace
+
+Use [custom roles](../active-directory/role-based-access-control-custom-roles.md) to create roles with the specific permissions needed.
+
+### Azure user roles and Log Analytics portal user roles
+If you have at least Azure read permission on the Log Analytics workspace, you can open the Log Analytics portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
 
 When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. If you do not have a role assignment in the Log Analytics portal, the service [checks the Azure permissions you have on the workspace](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Your role assignment in the Log Analytics portal is determined using as follows:
@@ -190,7 +243,7 @@ Use the following steps to remove a user from a workspace. Removing the user doe
 4. Select the group in the list results and then click **Add**.
 
 ## Link an existing workspace to an Azure subscription
-All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you next sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
+All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
 
 ### To link a workspace to an Azure subscription in the OMS portal
 

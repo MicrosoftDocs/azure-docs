@@ -5,10 +5,8 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid:
-ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
 ---

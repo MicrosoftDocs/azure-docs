@@ -1,16 +1,15 @@
 ---
-title: "Pricing Tiers in Azure Database for PostgreSQL | Microsoft Docs"
+title: "Pricing Tiers in Azure Database for PostgreSQL"
 description: "Pricing Tiers in Azure Database for PostgreSQL"
 services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid:
-ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.custom: mvc
+ms.service: postgresql
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 05/31/2017
 ---
 # Azure Database for PostgreSQL options and performance: Understand what’s available in each pricing tier
 When you create an Azure Database for PostgreSQL server, you decide upon three main choices to configure the resources allocated for that server. These choices impact the performance and scale of the server.
@@ -47,6 +46,9 @@ To decide on a pricing tier, first start by determining if your workload needs a
 | Database backup retention period | 7 days | 35 days | 
 
 During the preview timeframe, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
+
+## Understand the price
+When you create a new Azure Database for PostgreSQL inside the [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), click the **Pricing tier** blade, and the monthly cost will be shown based on the options you have selected. If you do not have an Azure subscription, use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for PostgreSQL** to customize the options.
 
 ## Choose a performance level (Compute Units)
 Once you have determined the pricing tier for your Azure Database for PostgreSQL server, you are ready to determine the performance level by selecting the number of Compute Units needed. A good starting point is 200 or 400 Compute Units for applications that require higher user concurrency for their web or analytical workloads, and adjust incrementally as needed. 
@@ -94,6 +96,6 @@ Behind the scenes, changing the performance level of a database creates a replic
 
 The duration of the entire scale process depends on both the size and pricing tier of the server before and after the change. For example, a server that is changing Compute Units within the Standard pricing tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 
-## Next Steps
+## Next steps
 - For more on Compute Units, see [Explaining Compute Units](concepts-compute-unit-and-storage.md)
 - Learn how to [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)

@@ -1,16 +1,17 @@
-﻿# Overview
+# Overview
 ## [What is Resource Manager?](resource-group-overview.md)
-## [Supported services](resource-manager-supported-services.md)
+## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
 ## [Managed Applications](managed-application-overview.md)
 
 # Get started
-## [Export template](resource-manager-export-template.md)
-## [Create your first template](resource-manager-create-first-template.md)
+## [Create and deploy template](resource-manager-create-first-template.md)
+## [VS Code extension for templates](resource-manager-vscode-extension.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Deploy template](resource-manager-samples-powershell-deploy.md)
 
@@ -19,8 +20,8 @@
 
 # How to
 ## Create templates
-### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md)
+### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
@@ -32,6 +33,7 @@
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 
+
 ## Deploy
 ### PowerShell
 #### [Deploy template](resource-group-template-deploy.md)
@@ -41,7 +43,9 @@
 #### [Deploy template](resource-group-template-deploy-cli.md)
 #### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
 #### [Export template and redeploy](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
+### Portal
+#### [Deploy resources](resource-group-template-deploy-portal.md)
+#### [Export template](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -64,20 +68,24 @@
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
-### [Security considerations](best-practices-resource-manager-security.md)
 
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)
-### [Portal policy assignment](resource-manager-policy-portal.md)
-### [Script policy assignment](resource-manager-policy-create-assign.md)
-### [Resource tag policies](resource-manager-policy-tags.md)
-### [Storage policies](resource-manager-policy-storage.md)
-### [Linux VM policies](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM policies](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Use portal to assign policy](resource-manager-policy-portal.md)
+### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
+### Examples
+#### [Tags](resource-manager-policy-tags.md)
+#### [Naming conventions](resource-manager-policy-naming-convention.md)
+#### [Network](resource-manager-policy-network.md)
+#### [Storage](resource-manager-policy-storage.md)
+#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Use managed applications
-### [Publish managed application](managed-application-publishing.md)
-### [Consume managed application](managed-application-consumption.md)
+### [Publish service catalog application](managed-application-publishing.md)
+### [Consume service catalog application](managed-application-consumption.md)
+### [Publish marketplace application](managed-application-author-marketplace.md)
+### [Consume marketplace application](managed-application-consume-marketplace.md)
 ### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Audit
@@ -86,6 +94,11 @@
 
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
+### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
+### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Virtual Machine deployment errors
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Reference
 ## [Template format](/azure/templates/)
@@ -93,6 +106,7 @@
 ### [Array and object functions](resource-group-template-functions-array.md)
 ### [Comparison functions](resource-group-template-functions-comparison.md)
 ### [Deployment functions](resource-group-template-functions-deployment.md)
+### [Logical functions](resource-group-template-functions-logical.md)
 ### [Numeric functions](resource-group-template-functions-numeric.md)
 ### [Resource functions](resource-group-template-functions-resource.md)
 ### [String functions](resource-group-template-functions-string.md)
@@ -119,8 +133,10 @@
 ## [REST](/rest/api/resources/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)

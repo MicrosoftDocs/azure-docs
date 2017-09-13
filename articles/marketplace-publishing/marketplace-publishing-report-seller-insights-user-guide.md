@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use the Azure Marketplace Seller Insights portal | Microsoft Docs
 description: As a seller on the Azure Marketplace, understand how to use the Azure Marketplace Seller Insights portal.
 services: marketplace publishing
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/16/2017
 ms.author: v-dabosl
 
 ---
@@ -91,6 +91,7 @@ You can sign in to the Seller Insights portal by using a personal Microsoft acco
 
 ## Summary view
 
+
 1. Select the **Summary** tab.
 2. Enter the **Start Date** of the time period you're interested in here, and then click **Apply**. Three months of data are shown.
 3. New order trend data for the three-month time period you've selected is shown here.
@@ -113,6 +114,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
 ![Orders overview][8]
 ![Orders overview map][9]
+
 
 ### Orders
 #### Monthly view: Panel A
@@ -161,6 +163,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
   ![Orders trend view Panel C][16]
 
 
+
 #### Detailed orders data: Panel D
 
   ![Panel Map D][13]
@@ -175,10 +178,12 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
   ![Orders detailed orders view of Panel D][19]
 
+
 ### Usage
 #### Monthly view: Panel A
 
   ![Panel Map A][10]
+
 
   1. To access your orders and usage data, select the **Orders and Usage** tab.
   2. Select **Usage** from **Report Type**.
@@ -213,6 +218,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
   1. Select **Trend View**.
   2. Select the items that you want to view from the **Subject Area** list, and then click **Apply**. The default is **Select All**.
 
+
   ![Usage monthly view Panel C Subject Area list][17]
 
   3. Use the filter symbol to select **All** data or **Top 10** for all your selections. The default is **Top 10**.
@@ -227,6 +233,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
 #### Detailed usage data: Panel D
 
+
   ![Panel Map D][13]
 
   1. The **Usage Detail** panel shows detailed order data.
@@ -236,6 +243,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
   3. Select the number of items per page that you want to view. 10, 20, or 50 items per page are available.
   4. Download the data in Excel or CSV format for offline analysis.
+
 
   ![Usage monthly view Panel D][24]
   ![Usage monthly view Panel D download result][25]
@@ -294,8 +302,6 @@ This section shows you how to add new users or change their permissions in the S
   ![Edit a user panel][30]
 
 ## Help support requests
-
-
 
 
 ### Access the support request format
@@ -406,3 +412,4 @@ Use the following Microsoft and work or school accounts to reset your password.
 [32]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-information.png
 [33]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-fill-out-and-submit.png
 [34]: ./media/marketplace-publishing-report-seller-insights-user-guide/feedback-form.png
+[35]: ./media/marketplace-publishing-report-seller-insights-user-guide/help.png

@@ -1,5 +1,5 @@
 ---
-title: Populate groups dynamically based on user attributes in Azure Active Directory | Microsoft Docs
+title: Populate groups dynamically based on object attributes in Azure Active Directory | Microsoft Docs
 description: How-to's to create advanced rules for group membership including supported expression rule operators and parameters.
 services: active-directory
 documentationcenter: ''
@@ -13,26 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 
 ---
-# Populate groups dynamically based on user attributes 
+
+# Populate groups dynamically based on object attributes
 The Azure classic portal provides you with the ability to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
 
-When any attributes of a user change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user would trigger any group adds or removes. If a user satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
+When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
 > [!NOTE]
-> You can set up a rule for dynamic membership on security groups or Office 365 groups. 
+> - You can set up a rule for dynamic membership on security groups or Office 365 groups.
 >
-> Dynamic memberships for groups require an Azure AD Premium license to be assigned to
+> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group.
 >
-> * The administrator who manages the rule on a group
-> * All members of the group
->
-> Please also not that although you can create a dynamic group for devices or users, you cannot create a rule that selects both user and device objects. 
+> - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
 
-## To create the advanced rule
+> - At the moment it is not possible to create a device group based on owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
+
+## To create an advanced rule
 1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
 2. Select the **Groups** tab, and then open the group you want to edit.
 3. Select the **Configure** tab, select the **Advanced rule** option, and then enter the advanced rule into the text box.
@@ -51,6 +53,7 @@ The following are examples of a properly constructed advanced rule:
 * (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 For the complete list of supported parameters and expression rule operators, see sections below.
+
 
 Note that the property must be prefixed with the correct object type: user or device.
 The below rule will fail the validation:
@@ -82,6 +85,8 @@ The following table lists all the supported expression rule operators and their 
 | Contains |-contains |
 | Not Match |-notMatch |
 | Match |-match |
+| In | -in |
+| Not In | -notIn |
 
 ## Operator precedence
 
@@ -90,7 +95,7 @@ All Operators are listed below per precedence from lower to higher, operator in 
 -or
 -and
 -not
--eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 
 All operators can be used with or without hyphen prefix.
 
@@ -102,6 +107,14 @@ For example:
 is equivalent to:
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
+
+## Using the -In and -notIn operators
+
+If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
+
+	user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+
+Note the use of the "[" and "]" at the beginning and end of the list of values. This condition evaluates to True of the value of user.department equals one of the values in the list.
 
 ## Query error remediation
 The following table lists potential errors and how to correct them if they occur
@@ -125,8 +138,8 @@ Allowed operators
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
-| accountEnabled |true false |user.accountEnabled -eq true) |
-| dirSyncEnabled |true false null |(user.dirSyncEnabled -eq true) |
+| accountEnabled |true false |user.accountEnabled -eq true |
+| dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### Properties of type string
 Allowed operators
@@ -139,11 +152,14 @@ Allowed operators
 * -notContains
 * -match
 * -notMatch
+* -in
+* -notIn
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
 | city |Any string value or $null |(user.city -eq "value") |
 | country |Any string value or $null |(user.country -eq "value") |
+| companyName | Any string value or $null | (user.companyName -eq "value") |
 | department |Any string value or $null |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Any string value or $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -153,6 +169,7 @@ Allowed operators
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
 | mobile |Any string value or $null |(user.mobile -eq "value") |
 | objectId |GUID of the user object |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Any string value or $null |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |Any string value or $null |(user.postalCode -eq "value") |
@@ -172,10 +189,39 @@ Allowed operators
 * -contains
 * -notContains
 
-| Poperties | Allowed values | Usage |
+| Properties | Allowed values | Usage |
 | --- | --- | --- |
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
+
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+
+## Multi-value properties
+Allowed operators
+
+* -any (satisfied when at least one item in the collection matches the condition)
+* -all (satisfied when all items in the collection match the condition)
+
+| Properties | Values | Usage |
+| --- | --- | --- |
+| assignedPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+
+Multi-value properties are collections of objects of the same type. You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively. For example:
+
+assignedPlans is a multi-value property that lists all service plans assigned to the user. The below expression will select users who have the Exchange Online (Plan 2) service plan that is also in Enabled state:
+
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+(The Guid identifier identifies the Exchange Online (Plan 2) service plan.)
+
+> [!NOTE]
+> This is useful if you want to identify all users for whom an Office 365 (or other Microsoft Online Service) capability has been enabled, for example to target them with a certain set of policies.
+
+The following expression will select all users who have any service plan that is associated with the Intune service (identified by service name "SCO"):
+```
+user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
 
 ## Use of Null values
 
@@ -188,62 +234,60 @@ is equivalent to
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
 
-Extension attributes are synced from on premise Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
+Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
 An example of a rule that uses an extension attribute would be
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Custom Attributes are synced from on premise Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
+Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
 An example of a rule that uses a custom attribute is
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
+The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name. 
+Currently we do not support multi-value attributes synchronized from on premises Active Directory. 
 
-## Support for multi-value properties
+## "Direct Reports" Rule
+You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership will be adjusted automatically.
 
-To include a multi-value property in a rule, use the "-any" operator, as in
+> [!NOTE]
+> 1. For the rule to work, make sure the **Manager ID** property is set correctly on users in your tenant. You can check the current value for a user on their **Profile tab**.
+> 2. This rule only supports **direct** reports. It is currently not possible to create a group for a nested hierarchy, e.g. a group that includes direct reports and their reports.
 
-  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+**To configure the group**
 
-## Direct Reports Rule
-You can populate members in a group based on the manager attribute of a user.
+1. Follow steps 1-5 from section [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
+2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
 
-**To configure a group as a “Manager” group**
+    *Direct Reports for "{obectID_of_manager}"*
 
-1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
-2. Select the **Groups** tab, and then open the group you want to edit.
-3. Select the **Configure** tab, and then select **ADVANCED RULE**.
-4. Type the rule with the following syntax:
-
-    Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
-
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
-5. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
+    An example of a valid rule:
+```
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. After saving the rule, all users with the specified Manager ID value will be added to the group.
 
 ## Using attributes to create rules for device objects
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
 
-| Properties | Allowed values | Usage |
-| --- | --- | --- |
-| displayName |any string value |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |any string value |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |any string value |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq true) |
-| isManaged |true false null |(device.isManaged -eq false) |
-| isCompliant |true false null |(device.isCompliant -eq true) |
-| deviceCategory |any string value |(device.deviceCategory -eq "") |
-| deviceManufacturer |any string value |(device.deviceManufacturer -eq "Microsoft") |
-| deviceModel |any string value |(device.deviceModel -eq "IPhone 7+") |
-| deviceOwnership |any string value |(device.deviceOwnership -eq "") |
-| domainName |any string value |(device.domainName -eq "contoso.com") |
-| enrollmentProfileName |any string value |(device.enrollmentProfileName -eq "") |
-| isRooted |true false null |(device.isRooted -eq true) |
-| managementType |any string value |(device.managementType -eq "") |
-| organizationalUnit |any string value |(device.organizationalUnit -eq "") |
-| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| Properties              | Allowed values                  | Usage                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
+| displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | a valid device category name    | (device.deviceCategory -eq "BYOD")                          |
+| deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | Personal, Company               | (device.deviceOwnership -eq "Company")                      |
+| domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
+| managementType          | any string value                | (device.managementType -eq "")                              |
+| organizationalUnit      | any string value                | (device.organizationalUnit -eq "")                          |
+| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | a valid AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.

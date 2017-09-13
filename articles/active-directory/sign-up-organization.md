@@ -1,6 +1,6 @@
 ---
 title: Sign up for Azure as an organization
-description: Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD.
+description: Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premises server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -12,8 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: it-pro
 
 ---
 # Sign up for Azure as an organization

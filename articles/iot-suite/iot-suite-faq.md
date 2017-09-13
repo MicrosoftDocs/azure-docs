@@ -20,11 +20,14 @@ ms.author: corywink
 ---
 # Frequently asked questions for IoT Suite
 
+See also, the connected factory specific [FAQ](iot-suite-faq-cf.md).
+
 ### Where can I find the source code for the preconfigured solutions?
 
 The source code is stored in the following GitHub repositories:
-* [Remote Monitoring preconfigured solution][lnk-remote-monitoring-github]
+* [Remote monitoring preconfigured solution][lnk-remote-monitoring-github]
 * [Predictive maintenance preconfigured solution][lnk-predictive-maintenance-github]
+* [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory)
 
 ### How do I update to the latest version of the remote monitoring preconfigured solution that uses the IoT Hub device management features?
 
@@ -95,6 +98,7 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-dele
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+* [Connected factory preconfigured solution overview](iot-suite-connected-factory-overview.md)
 * [IoT security from the ground up][lnk-security-groundup]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md

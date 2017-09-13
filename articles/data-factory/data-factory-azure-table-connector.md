@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/22/2017
 ms.author: jingwang
 
 ---
@@ -455,7 +455,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
    }
 }
 ```
-### Type Mapping for Azure Table
+## Type Mapping for Azure Table
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach.
 
 1. Convert from native source types to .NET type
@@ -470,8 +470,8 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 | Edm.DateTime |DateTime |A 64-bit value expressed as Coordinated Universal Time (UTC). The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC. The range ends at December 31, 9999. |
 | Edm.Double |double |A 64-bit floating point value. |
 | Edm.Guid |Guid |A 128-bit globally unique identifier. |
-| Edm.Int32 |Int32 or int |A 32-bit integer. |
-| Edm.Int64 |Int64 or long |A 64-bit integer. |
+| Edm.Int32 |Int32 |A 32-bit integer. |
+| Edm.Int64 |Int64 |A 64-bit integer. |
 | Edm.String |String |A UTF-16-encoded value. String values may be up to 64 KB. |
 
 ### Type Conversion Sample

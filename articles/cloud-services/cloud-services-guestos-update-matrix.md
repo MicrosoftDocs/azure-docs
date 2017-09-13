@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/17/2017
+ms.date: 8/24/2017
 ms.author: raiye
 
 ---
 # Azure Guest OS releases and SDK compatibility matrix
-Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
+Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
 
 > [!IMPORTANT]
 > This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines.
@@ -34,8 +34,27 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+
+###### **August 24, 2017**
+August Guest OS has released.
+
+###### **August 3, 2017**
+July Guest OS has released.
+
+###### **July 19, 2017**
+July Guest OS rollout is starting July 19 and has a projected release of August 8.
+
+###### **July 7, 2017**
+June Guest OS has released.
+
+###### **June 16, 2017**
+June Guest OS rollout is starting June 16 and has a projected release of July 11.
+
+###### **June 5, 2017**
+May Guest OS has released.
+
 ###### **May 17, 2017**
-Due to a security bug, we are disabling the following December, 2016, and January, 2017, OS Releases that do not have the [fix] from the portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
+Due to a security bug, we are disabling the following December 2016 and January 2017 OS Releases that do not have the [fix] from the portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
 
 ###### **May 12, 2017**
 May Guest OS rollout is starting May 12 and has a projected release of June 13.
@@ -48,15 +67,6 @@ March Guest OS rollout started March 14, 2017, and released on April 10, 2017.
 
 ###### **January 10, 2017**
 The January Guest OS contains patches that only impact OS family 2 (Windows 2008 Server R2). We have therefore released only the OS Family 2 image (WA-GUEST-OS-2.59_201701-01) for this month. For all other OS families, the December OS (201612-01) remains the latest.
-
-###### **December 14, 2016**
-December Guest OS rollout is starting December 14, 2016 and has a projected release of January 13, 2017.
-
-###### **November 20, 2016**
-November Guest OS rollout is starting November 8, 2016, and has a projected release of December 8, 2016.
-
-###### **October 23, 2016**
-Windows Server, 2016, will be released as OS Family 5 on November 1, 2016, with .NET 4.6 support.
 
 
 ## Releases
@@ -73,11 +83,15 @@ Windows Server, 2016, will be released as OS Family 5 on November 1, 2016, with 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.6_201704-01 |May 9, 2017 |Post 5.8 |TBD |
-| WA-GUEST-OS-5.5_201703-01 |April 10, 2017 |Post 5.7 |TBD |
-|~~WA-GUEST-OS-5.4_201612-01~~ |Jan 10, 2017 |Post 5.6 |TBD |
-|~~WA-GUEST-OS-5.3_201611-01~~ |Dec 14, 2016 |May 9, 2017 |TBD |
-|~~WA-GUEST-OS-5.2_201610-02~~ |Nov 1, 2016 |April 10, 2017 |TBD |
+| WA-GUEST-OS-5.10_201708-01 |August 24, 2017 |Post 5.12 |TBD |
+| WA-GUEST-OS-5.9_201707-01 |August 3, 2017 |Post 5.11 |TBD |
+| WA-GUEST-OS-5.8_201706-01 |July 7, 2017 |Post 5.10 |TBD |
+|~~WA-GUEST-OS-5.7_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
+|~~WA-GUEST-OS-5.6_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
+|~~WA-GUEST-OS-5.5_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
+|~~WA-GUEST-OS-5.4_201612-01~~ |January 10, 2017 |June 5, 2017|TBD |
+|~~WA-GUEST-OS-5.3_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
+|~~WA-GUEST-OS-5.2_201610-02~~ |November 1, 2016 |April 10, 2017 |TBD |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
@@ -91,19 +105,18 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.41_201704-01 |May 9, 2017 |Post 4.43 |TBD |
-| WA-GUEST-OS-4.40_201703-01 |April 10, 2017 |Post 4.42 |TBD |
-|~~WA-GUEST-OS-4.39_201612-01~~ |Jan 10, 2017 |Post 4.41 |TBD |
-|~~WA-GUEST-OS-4.38_201611-01~~ |Dec 14, 2016 |May 9, 2017 |TBD |
-|~~WA-GUEST-OS-4.37_201610-02~~ |Nov 16, 2016 |April 10, 2017 |TBD |
-|~~WA-GUEST-OS-4.36_201609-01~~ |Oct 13, 2016 |Jan 14, 2017 |TBD |
-|~~WA-GUEST-OS-4.35_201608-01~~ |Sept 13, 2016 |Dec 16, 2016 |TBD |
-|~~WA-GUEST-OS-4.34_201607-01~~ |Aug 8, 2016 |Nov 13, 2016 |TBD |
-|~~WA-GUEST-OS-4.33_201606-01~~ |July 13, 2016 |Oct 13, 2016 |TBD |
-|~~WA-GUEST-OS-4.32_201605-01~~ |June 10, 2016 |Sept 8, 2016 |TBD |
-|~~WA-GUEST-OS-4.31_201604-01~~ |May 2, 2016 |Aug 13, 2016 |TBD |
-|~~WA-GUEST-OS-4.30_201603-01~~ |April 7, 2016 |July 10, 2016 |TBD |
-|~~WA-GUEST-OS-4.29_201602-02~~ |March 12, 2016 |June 2, 2016 |TBD |
+| WA-GUEST-OS-4.45_201708-01 |August 24, 2017 |Post 4.47 |TBD |
+| WA-GUEST-OS-4.44_201707-01 |August 3, 2017 |Post 4.46 |TBD |
+| WA-GUEST-OS-4.43_201706-01 |July 7, 2017 |Post 4.45 |TBD |
+|~~WA-GUEST-OS-4.42_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
+|~~WA-GUEST-OS-4.41_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
+|~~WA-GUEST-OS-4.40_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
+|~~WA-GUEST-OS-4.39_201612-01~~ |January 10, 2017 |June 5, 2017 |TBD |
+|~~WA-GUEST-OS-4.38_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
+|~~WA-GUEST-OS-4.37_201610-02~~ |November 16, 2016 |April 10, 2017 |TBD |
+|~~WA-GUEST-OS-4.36_201609-01~~ |October 13, 2016 |January 14, 2017 |TBD |
+|~~WA-GUEST-OS-4.35_201608-01~~ |September 13, 2016 |December 16, 2016 |TBD |
+|~~WA-GUEST-OS-4.34_201607-01~~ |August 8, 2016 |November 13, 2016 |TBD |
 
 
 ## Family 3 releases
@@ -118,19 +131,18 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.48_201704-01 |May 9, 2017 |Post 3.50 |TBD |
-| WA-GUEST-OS-3.47_201703-01 |April 10, 2017 |Post 3.49 |TBD |
-| ~~WA-GUEST-OS-3.46_201612-01~~ |Jan 10, 2017 |Post 3.48 |TBD |
-| ~~WA-GUEST-OS-3.45_201611-01~~ |Dec 14, 2016 |May 9, 2017 |TBD |
-| ~~WA-GUEST-OS-3.44_201610-02~~ |Nov 16, 2016 |May 1, 2017 |TBD |
-| ~~WA-GUEST-OS-3.43_201609-01~~ |Oct 13, 2016 |Jan 14, 2017 |TBD |
-| ~~WA-GUEST-OS-3.42_201608-01~~ |Sept 13, 2016 |Dec 16, 2016 |TBD |
-| ~~WA-GUEST-OS-3.41_201607-01~~ |Aug 8, 2016 |Nov 13, 2016 |TBD |
-| ~~WA-GUEST-OS-3.40_201606-01~~ |July 13, 2016 |Oct 13, 2016 |TBD |
-| ~~WA-GUEST-OS-3.39_201605-01~~ |June 10, 2016 |Sept 8, 2016 |TBD |
-| ~~WA-GUEST-OS-3.38_201604-01~~ |May 2, 2016 |Aug 13, 2016 |TBD |
-| ~~WA-GUEST-OS-3.37_201603-01~~ |April 7, 2016 |July 10, 2016 |TBD |
-| ~~WA-GUEST-OS-3.36_201602-02~~ |March 12, 2016 |June 2, 2016 |TBD |
+| WA-GUEST-OS-3.52_201708-01 |August 24, 2017 |Post 3.54 |TBD |
+| WA-GUEST-OS-3.51_201707-01 |August 3, 2017 |Post 3.53 |TBD |
+| WA-GUEST-OS-3.50_201706-01 |July 7, 2017 |Post 3.52 |TBD |
+|~~WA-GUEST-OS-3.49_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
+|~~WA-GUEST-OS-3.48_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
+|~~WA-GUEST-OS-3.47_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
+|~~WA-GUEST-OS-3.46_201612-01~~ |January 10, 2017 |June 5, 2017 |TBD |
+|~~WA-GUEST-OS-3.45_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
+|~~WA-GUEST-OS-3.44_201610-02~~ |November 16, 2016 |May 1, 2017 |TBD |
+|~~WA-GUEST-OS-3.43_201609-01~~ |October 13, 2016 |January 14, 2017 |TBD |
+|~~WA-GUEST-OS-3.42_201608-01~~ |September 13, 2016 |December 16, 2016 |TBD |
+|~~WA-GUEST-OS-3.41_201607-01~~ |August 8, 2016 |November 13, 2016 |TBD |
 
 
 ## Family 2 releases
@@ -145,20 +157,20 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.61_201704-01 |May 9, 2017 |Post 2.63 |TBD |
-| WA-GUEST-OS-2.60_201703-01 |April 10, 2017 |Post 2.62 |TBD |
-|~~WA-GUEST-OS-2.59_201701-01~~ |Jan 10, 2017 |Post 2.61 |TBD |
-|~~WA-GUEST-OS-2.58_201612-01~~ |Jan 10, 2017 |May 9, 2017|TBD |
-|~~WA-GUEST-OS-2.57_201611-01~~ |Dec 14, 2016 |April 10, 2017 |TBD |
-|~~WA-GUEST-OS-2.56_201610-02~~ |Nov 16, 2016 |Feb 10, 2017 |TBD |
-|~~WA-GUEST-OS-2.55_201609-01~~ |Oct 13, 2016 |Jan 14, 2017 |TBD |
-|~~WA-GUEST-OS-2.54_201608-01~~ |Sept 13, 2016 |Dec 16, 2016 |TBD |
-|~~WA-GUEST-OS-2.53_201607-01~~ |Aug 8, 2016 |Nov 13, 2016 |TBD |
-|~~WA-GUEST-OS-2.52_201606-01~~ |July 13, 2016 |Oct 13, 2016 |TBD |
-|~~WA-GUEST-OS-2.51_201605-01~~ |June 10, 2016 |Sept 8, 2016 |TBD |
-|~~WA-GUEST-OS-2.50_201604-01~~ |May 2, 2016 |Aug 13, 2016 |TBD |
-|~~WA-GUEST-OS-2.49_201603-01~~ |April 7, 2016 |July 10, 2016 |TBD |
-|~~WA-GUEST-OS-2.48_201602-02~~|March 12, 2016 |June 2, 2016 |TBD |
+| WA-GUEST-OS-2.65_201708-01 |August 24, 2017 |Post 2.67 |TBD |
+| WA-GUEST-OS-2.64_201707-01 |August 3, 2017 |Post 2.66 |TBD |
+| WA-GUEST-OS-2.63_201706-01 |July 7, 2017 |Post 2.65 |TBD |
+|~~WA-GUEST-OS-2.62_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
+|~~WA-GUEST-OS-2.61_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
+|~~WA-GUEST-OS-2.60_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
+|~~WA-GUEST-OS-2.59_201701-01~~ |January 10, 2017 |June 5, 2017 |TBD |
+|~~WA-GUEST-OS-2.58_201612-01~~ |January 10, 2017 |May 9, 2017|TBD |
+|~~WA-GUEST-OS-2.57_201611-01~~ |December 14, 2016 |April 10, 2017 |TBD |
+|~~WA-GUEST-OS-2.56_201610-02~~ |November 16, 2016 |February 10, 2017 |TBD |
+|~~WA-GUEST-OS-2.55_201609-01~~ |October 13, 2016 |January 14, 2017 |TBD |
+|~~WA-GUEST-OS-2.54_201608-01~~ |September 13, 2016 |December 16, 2016 |TBD |
+|~~WA-GUEST-OS-2.53_201607-01~~ |August 8, 2016 |November 13, 2016 |TBD |
+
 
 
 ## MSRC patch updates
@@ -180,10 +192,10 @@ There are three dates that are important to Guest OS releases: **release** date,
 
 The window between the **disabled** date and the **expiration** date provides you with a buffer to easily transition from one Guest OS to one newer. If you're using *automatic* as your Guest OS, you'll always be on the latest version and you don't have to worry about it expiring.
 
-When the **expiration** date passes and any Cloud Service still using that Guest OS will be stopped, deleted, or forced to upgrade. You can read more about the retirement policy [here][retirepolicy].
+When the **expiration** date passes, any Cloud Service still using that Guest OS will be stopped, deleted, or forced to upgrade. You can read more about the retirement policy [here][retirepolicy].
 
 ## Guest OS Family-Version Explanation
-The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services run on. Each Guest OS has a family, version and release number.
+The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services runs on. Each Guest OS has a family, version, and release number.
 
 * **Guest OS family**  
   A Windows Server operating system release that a Guest OS is based on. For example, *family 3* is based on Windows Server 2012.

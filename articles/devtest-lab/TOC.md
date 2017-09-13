@@ -2,6 +2,8 @@
 ## [About Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
 ## Scenarios
+### [Use labs for developers](devtest-lab-developer-lab.md)
+### [Use labs for test environments](devtest-lab-test-env.md)
 ### [Use labs for training](devtest-lab-training-lab.md)
 
 # Get started
@@ -26,6 +28,7 @@
 ### [Set policies and schedules ](devtest-lab-set-lab-policy.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
+### [Add tags to a lab](devtest-lab-add-tag.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
 
@@ -39,8 +42,12 @@
 
 ## Manage reusable templates
 ### [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md)
-### [Create custom artifacts](devtest-lab-artifact-author.md)
+### [Use a resource manager template](devtest-lab-use-resource-manager-template.md)
 ### [Manage formulas](devtest-lab-manage-formulas.md)
+
+## Manage artifacts
+### [Create custom artifacts](devtest-lab-artifact-author.md)
+### [Diagnose artifact failures](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Manage virtual networks
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
@@ -64,3 +71,8 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Pricing](https://azure.microsoft.com/pricing/details/devtest-lab/)
+
+
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

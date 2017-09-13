@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/31/2017
 ms.author: billmath
+ms.reviewer: jesakowi
+ms.custom: oldportal;it-pro;
 
 ---
 
@@ -23,6 +25,8 @@ Within Azure Active Directory, you can add applications to your directory.  The 
 
 ![](media/active-directory-apps-permissions-consent/apps1.png)
 
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article.
 
 ## Types of apps
 

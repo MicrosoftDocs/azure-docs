@@ -13,18 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2017
+ms.date: 07/25/2017
 ms.author: curtand
+
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
 
 ---
 # Add users from other directories or partner companies in Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Azure portal](active-directory-users-create-external-azure-portal.md )
-> * [Azure classic portal](active-directory-create-users-external.md)
->
->
 
-This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). 
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to add B2B collaboration guest users in the Azure AD admin center, see [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
+
+Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
 ## Add a user
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) with an account that's a global admin for the directory.

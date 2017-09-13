@@ -6,6 +6,7 @@ services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 08/28/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Azure AD self-service password reset for the IT professional

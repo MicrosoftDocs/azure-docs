@@ -27,9 +27,9 @@ You can get started by creating a Logic app now, see [Create a logic app](../log
 > [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
 > 
 
-## View the swagger
+## Connector-specific details
 
-View any triggers, actions, and limits in the [swagger details](/connectors/rss/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/rss/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

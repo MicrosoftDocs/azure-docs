@@ -18,6 +18,10 @@ ms.author: ccompy
 
 ---
 # Hybrid Connections overview
+
+> [!IMPORTANT]
+> BizTalk Hybrid Connections is retired, and replaced by App Service Hybrid Connections. For more information, including how to manage your existing BizTalk Hybrid Connections, see [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md).
+
 Introduction to Hybrid Connections, lists the supported configurations, and lists the required TCP ports.
 
 ## What is a hybrid connection
@@ -84,8 +88,8 @@ The following TCP ports are used by Hybrid Connections:
 
 ## Next steps
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)<br/>
-[Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
-[Connect to on-premises SQL Server from an Azure web app](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
+<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Connect to on-premises SQL Server from an Azure web app](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> -->
 
 ## See Also
 [REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)

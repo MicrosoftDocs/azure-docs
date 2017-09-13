@@ -5,20 +5,29 @@
 ## Scenarios
 ### [Incident response](security-center-incident-response.md)
 ### [Use recommendations to enhance security](security-center-using-recommendations.md)
+## [Platform migration](security-center-platform-migration.md)
+### [Platform migration FAQ](security-center-platform-migration-faq.md)
 
 # Get started
 ## [Quick start](security-center-get-started.md)
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
 ## [Permissions](security-center-permissions.md)
+## [Supported platforms](security-center-os-coverage.md)
 ## [Partner integration](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
 # How to
 
-## Prevent
+## Security policy
+### [Data collection](security-center-enable-data-collection.md)
 ### [Set security policies](security-center-policies.md)
-### [Implement security recommendations](security-center-recommendations.md)
 
+## [Onboarding](security-center-onboarding.md)
+## [Events](security-center-events-dashboard.md)
+## [Search](security-center-search.md)
+
+## Prevent
+### [Implement security recommendations](security-center-recommendations.md)
 ### [Application recommendations](security-center-application-recommendations.md)
 #### [Add a web application firewall](security-center-add-web-application-firewall.md)
 #### [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)
@@ -37,7 +46,6 @@
 ### [Virtual machine recommendations](security-center-virtual-machine-recommendations.md)
 #### [Apply disk encryption](security-center-apply-disk-encryption.md)
 #### [Apply system updates](security-center-apply-system-updates.md)
-#### [Enable data collection](security-center-enable-data-collection.md)
 #### [Enable encryption for storage account](security-center-enable-encryption-for-storage-account.md)
 #### [Enable VM Agent](security-center-enable-vm-agent.md)
 #### [Install Endpoint Protection](security-center-install-endpoint-protection.md)
@@ -47,17 +55,22 @@
 #### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Update OS version](security-center-update-os-version.md)
 #### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
-
 ### [Monitor security health](security-center-monitoring.md)
 ### [Monitor partner solutions](security-center-partner-solutions.md)
+### [Identity and Access](security-center-identity-access.md)
 
 ## Detect and Respond
 ### [Detection capabilities](security-center-detection-capabilities.md)
 ### [Manage security alerts](security-center-managing-and-responding-alerts.md)
+### [Types of security alerts](security-center-alerts-type.md)
+### [Alert validation](security-center-alert-validation.md)
 ### [Manage security incidents](security-center-incident.md)
 ### [Azure log integration](security-center-integrating-alerts-with-log-integration.md)
-### [Types of security alerts](security-center-alerts-type.md)
+### [Threat intelligence map](security-center-threat-intel.md)
 ### [Threat intelligence report](security-center-threat-report.md)
+
+## Cloud defenses
+### [Just in time access](security-center-just-in-time.md)
 
 ## Troubleshoot
 ### [Troubleshooting guide](security-center-troubleshooting-guide.md)
@@ -69,8 +82,10 @@
 ## [Azure Security](/azure/security/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Pricing](security-center-pricing.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service overview](https://azure.microsoft.com/services/security-center/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
