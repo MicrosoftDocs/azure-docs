@@ -19,23 +19,21 @@ ms.author: byvinyal
 ---
 # Azure App Service Static IP Restrictions #
 
-IP Restrictions allow you to define a list of ip addresses that are blocked from accessing your app. The block list can include individual IP Addresses or a range of IP Addresses defined by a Subnet mask.
+IP Restrictions allow you to define a list of IP addresses that are blocked from accessing your app. The block list can include individual IP Addresses or a range of IP Addresses defined by a Subnet mask.
 
-When a request to the app is generated from a client, the ip address is evaluated against the block list. If there is a match, the app replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
+When a request to the app is generated from a client, the IP address is evaluated against the block list. If there is a match, the app replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
 IP Restrictions are evaluated on the same App Service plan instances assigned to your app.
 
-## Adding and IP Restriction using the Azure portal ##
+To add an IP restriction rule to your app, use the menu to open **Network**>**IP Restrictions** and click on **Configure IP Restrictions**
 
-To add an ip restriction rule to your app, use the menu to open **Network**>**IP Restrictions** and click on **Configure IP Restrictions**
-
-![ip restrictions]
+![IP restrictions]
 (media/app-service-ip-restrictions/ip-restrictions.png)
 
 From here, you can review the list of IP restriction rules defined for your app.
 
-![list ip restrictions](media/app-service-ip-restrictions/browse-ip-restrictions.png)
+![list IP restrictions](media/app-service-ip-restrictions/browse-ip-restrictions.png)
 
-You can click on **[+] Add** to add a new ip restriction rule.
+You can click on **[+] Add** to add a new IP restriction rule.
 
-![add ip restrictions](media/app-service-ip-restrictions/add-ip-restrictions.png)
+![add IP restrictions](media/app-service-ip-restrictions/add-ip-restrictions.png)
