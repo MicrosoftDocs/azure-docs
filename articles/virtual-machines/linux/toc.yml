@@ -75,8 +75,6 @@
     href: autoscale.md
   - name: Infrastructure automation
     href: infrastructure-automation.md
-  - name: Containers
-    href: containers.md
   - name: Security and monitoring
     href: security-monitoring.md
   - name: Backup and recovery

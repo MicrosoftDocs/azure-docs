@@ -19,7 +19,7 @@ ms.author: zivr
 
 ---
 
-# Planned maintenance for Linux virtual machines 
+# Planned maintenance for virtual machines in Azure
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 

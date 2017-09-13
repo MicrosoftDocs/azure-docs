@@ -18,7 +18,7 @@ ms.date: 08/14/2017
 ms.author: cynthn
 
 ---
-# Planned maintenance for Windows virtual machines in Azure
+# Planned maintenance for virtual machines in Azure
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 

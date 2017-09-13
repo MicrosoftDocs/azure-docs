@@ -16,7 +16,7 @@ ms.date: 08/21/2017
 ms.author: davidmu
 ---
 
-# Automatically scale Windows and Linux virtual machines in Azure
+# Automatically scale virtual machines in Azure
 
 [!INCLUDE [virtual-machines-autoscale](../../../includes/virtual-machines-autoscale.md)]
 

@@ -10965,6 +10965,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/containers.md",
+            "redirect_url": "https://azure.microsoft.com/overview/containers/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/containers.md",
+            "redirect_url": "https://azure.microsoft.com/overview/containers/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-toolkit-for-intellij-whats-new.md",
             "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-whats-new",
             "redirect_document_id": false
