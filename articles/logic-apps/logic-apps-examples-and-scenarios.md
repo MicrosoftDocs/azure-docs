@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 09/06/2017
+ms.date: 09/13/2017
 ms.author: LADocs; jehollan
 ---
 
@@ -60,16 +60,16 @@ Here are just a few popular trigger examples:
   [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), 
   [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), and so on.
 
-  * The ["HTTP"](../connectors/connectors-native-http.md) trigger lets your 
+  * The [**HTTP** trigger](../connectors/connectors-native-http.md) lets your 
   logic app check a specified service endpoint by communicating over HTTP.
   
 * Push:
 
-  * The [**Request / Response - Request**](../connectors/connectors-native-reqres.md) 
-  trigger lets your logic app receive HTTP requests and respond in real time 
+  * The [**Request / Response - Request** trigger](../connectors/connectors-native-reqres.md) 
+  lets your logic app receive HTTP requests and respond in real time 
   to events in some way.
 
-  * The [**HTTP Webhook** ](../connectors/connectors-native-webhook.md) trigger 
+  * The [**HTTP Webhook** trigger](../connectors/connectors-native-webhook.md) 
   subscribes to a service endpoint by registering a *callback URL* with that service. 
   That way, the service can just notify the trigger when the specified event happens, 
   so that the trigger doesn't need to poll the service.
