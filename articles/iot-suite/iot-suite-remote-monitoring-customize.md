@@ -52,7 +52,7 @@ This table summarizes the current availability of each microservice for each lan
 
 The Java solution currently uses the .NET authentication, simulation, and reverse proxy microservices. These microservices will be replaced by Java versions as soon as they become available.
 
-## Presentation and visualizations
+## Presentation and visualization
 
 The following sections describe options to customize the presentation and visualizations layer in the remote monitoring solution:
 
