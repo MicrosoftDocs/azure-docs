@@ -20,7 +20,7 @@ ms.author: mahender
 > [!NOTE] 
 > Managed Service Identity for App Service and Azure Functions is currently in preview.
 
-This topic shows you how to create App Service and Azure Functions applications with a managed Azure Active Directory identity. This allows your apps to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](../active-directory/active-directory-msi-overview.md).
+This topic shows you how to create App Service and Azure Functions applications with a managed Azure Active Directory identity. This allows your apps to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](../active-directory/msi-overview.md).
 
 ## Creating an app with an identity
 
@@ -91,7 +91,7 @@ Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId pro
 An app can use its identity to get tokens to other resources protected by AAD, such as Azure Key Vault. These tokens represent the application accessing the resource, and not any specific user of the application. 
 
 > [!IMPORTANT]
-> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Managed Service Identity tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-service-identity-support-azuread-authn.md).
+> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Managed Service Identity tokens, see [Azure services that support Azure AD authentication](../active-directory/msi-overview.md).
 
 There is a simple REST protocol for obtaining a token in App Service and Azure Functions. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library provides an abstraction over this protocol and supports a local development experience.
 
