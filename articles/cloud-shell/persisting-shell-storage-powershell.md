@@ -31,17 +31,17 @@ The Azure files must reside in the same region as the Cloud Shell machine that y
 |Asia Pacific|India Central, Southeast Asia|
 
 ## `Get-Clouddrive`
-The `Get-Clouddrive` command retrieves the file share information currently mounted by the clouddrive in the Cloud Shell.
+The `Get-Clouddrive` command retrieves the file share information currently mounted by the clouddrive in the Cloud Shell. <br>
 ![Running Get-Clouddrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
 ## Unmount `clouddrive`
-You can unmount a file share that's mounted to Cloud Shell at any time. If the file share has been removed, you will be prompted to create and mount a new file share at the next session because Cloud Shell requires a mounted file share.
+You can unmount a file share that's mounted to Cloud Shell at any time. If the file share has been removed, you will be prompted to create and mount a new file share at the next session.
 
 ### `Dismount-Clouddrive`
 The `Dismount-Clouddrive` command unmounts a file share from the current storage account. Dismounting the clouddrive will terminate the current session. The user will be prompted to create and mount a new file share during the next session.
 ![Running Dismount-Clouddrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
-[!include [features-introblock](persisting-shell-storage-endblock.md)]
+[!include [features-endblock](persisting-shell-storage-endblock.md)]
 
 ## Next steps
 [Quickstart for PowerShell](quickstart-powershell.md) <br>
