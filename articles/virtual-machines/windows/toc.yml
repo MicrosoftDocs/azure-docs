@@ -65,8 +65,10 @@
     href: autoscale.md
   - name: Infrastructure automation
     href: infrastructure-automation.md
-  - name: Security
-    href: security-monitoring.md
+  - name: Security and policy
+    href: security-policy.md
+  - name: Monitoring
+    href: monitor.md
   - name: Backup and recovery
     href: backup-recovery.md
   - name: High performance computing

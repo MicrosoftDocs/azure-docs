@@ -1,44 +1,6 @@
-﻿It’s important for you to keep your virtual machine (VM) secure for the applications that you run. To make sure that your applications run as efficiently as possible, it is also important to be able to monitor the health and actions of your VM. This article provides information that enables you to keep your VM secure and to monitor many aspects of it.
-
-## Secure your VM
-
-Securing your VMs can include one or more Azure services and features that cover secure access to your VMs and secure storage of your data. 
-
-### Antimalware
-
-The modern threat landscape for cloud environments is dynamic, increasing the pressure to maintain effective protection in order to meet compliance and security requirements. [Microsoft Antimalware for Azure](../articles/security/azure-security-antimalware.md) is a free real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. Alerts can be configured to notify you when known malicious or unwanted software attempts to install itself or run on your VM.
-
-### Azure Security Center
-
-[Azure Security Center](../articles/security-center/security-center-intro.md) helps you prevent, detect, and respond to threats to your VMs. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
-
-### Encryption
-
-For enhanced [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) and [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) security and compliance, virtual disks in Azure can be encrypted. Virtual disks on Windows VMs are encrypted at rest using Bitlocker. Virtual disks on Linux VMs are encrypted at rest using dm-crypt. 
-
-There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use. An Azure Active Directory service principal provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
-
-### Key Vault and SSH Keys
-
-Secrets and certificates can be modeled as resources and provided by [Key Vault](../articles/key-vault/key-vault-whatis.md). You can use Azure PowerShell to create key vaults for [Windows VMs](../articles/virtual-machines/windows/key-vault-setup.md) and the Azure CLI for [Linux VMs](../articles/virtual-machines/linux/key-vault-setup.md). You can also create keys for encryption.
-
-Key vault access policies grant permissions to keys, secrets, and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, [key vault access policy](../articles/key-vault/key-vault-secure-your-key-vault.md) does not support object level permissions.
-
-When you connect to VMs, you should use public-key cryptography to provide a more secure way to log in to them. This process involves a public and private key exchange using the secure shell (SSH) command to authenticate yourself rather than a username and password. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. With a secure shell (SSH) key pair, you can create a [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md) that uses SSH keys for authentication, eliminating the need for passwords to log in. You can also use SSH keys to connect from a [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) to a Linux VM.
-
-### Policies
-
-[Azure Resource Manager policies](../articles/azure-resource-manager/resource-manager-policy.md) can be used to define the desired behavior for your organization's [Windows VMs](../articles/virtual-machines/windows/policy.md) and [Linux VMs](../articles/virtual-machines/linux/policy.md). By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
-
-### Role-based access control
-
-Using [role-based access control (RBAC)](../articles/active-directory/role-based-access-control-what-is.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../articles/active-directory/role-based-access-control-configure.md), using the [Azure CLI](https://docs.microsoft.com/cli/azure/role), or[Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
-
-## Monitor your VM
-
 You can take advantage of many opportunities to monitor your VMs by collecting, viewing, and analyzing diagnostic and log data. To do simple [monitoring](../articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) of your VM, you can use the Overview screen for the VM in the Azure portal. You can use [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs to collect additional metric data. You can also use more advanced monitoring options, such as [Application Insights](../articles/application-insights/app-insights-overview.md) and [Log Analytics](../articles/log-analytics/log-analytics-overview.md).
 
-### Diagnostics and metrics 
+## Diagnostics and metrics 
 
 You can set up and monitor the collection of [diagnostics data](https://docs.microsoft.com/cli/azure/vm/diagnostics) using [metrics](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) in the Azure portal, the Azure CLI, Azure PowerShell, and programming Applications Programming Interfaces (APIs). For example, you can:
 
@@ -54,19 +16,19 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
     Using the collected diagnostics data, you can configure autoscaling for your VMs. You can also configure logs to store the data and set up alerts to let you know when performance isn't quite right.
 
-### Alerts
+## Alerts
 
 You can create [alerts](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), or the [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
-### Azure Service Health
+## Azure Service Health
 
 [Azure Service Health](../articles/service-health/service-health-overview.md) provides personalized guidance and support when issues in Azure services affect you, and helps you prepare for upcoming planned maintenance. Azure Service Health alerts you and your teams using targeted and flexible notifications.
 
-### Azure Resource Health
+## Azure Resource Health
 
 [Azure Resource health](../articles/service-health/resource-health-overview.md) helps you diagnose and get support when an Azure issue impacts your resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
 
-### Logs
+## Logs
 
 The [Azure Activity Log](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) is a subscription log that provides insight into subscription-level events that have occurred in Azure. The log includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. You can click Activity Log in the Azure portal to view the log for your VM.
 
@@ -87,7 +49,7 @@ Some of the things you can do with diagnostics logs include:
 - [Stream them to Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 - Analyze them with [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
-### Advanced monitoring
+## Advanced monitoring
 
 - [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. You can install an extension on a [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) or a [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) that installs the OMS agent, and enrolls the VM into an existing OMS workspace.
 
@@ -98,7 +60,5 @@ Some of the things you can do with diagnostics logs include:
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) enables you to monitor your VM and its associated resources as they relate to the network that they are in. You can install the Network Watcher Agent extension on a [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) or a [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md).
 
 ## Next steps
-
 - Walk through the steps in [Monitor a Windows Virtual Machine with Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) or [Monitor a Linux Virtual Machine with the Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md).
 - Learn more about the best practices around [Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).
-
