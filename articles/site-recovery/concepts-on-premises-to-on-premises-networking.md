@@ -30,7 +30,7 @@ When planning your replication and failover strategy, one of the key questions i
 - **Use a different IP address**: You can select to use a different IP address for the replicated VM. In this scenario the VM gets a new IP address after failover, and a DNS update is required.
 - **Retain the same IP address**: You might want to use the same IP address for the replica VM. Keeping the same IP addresses simplifies the recovery by reducing network related issues after failover. 
 
-## Retain IP addresses
+## Retaining IP addresses
 
 If you want to retain the IP addresses from the primary site after failover to the secondary site, you can do a full subnet failover, and update routes to indicate the new location of the IP addresses, or alternative deploy a stretched subnet between the primary and the recovery sites.
 
