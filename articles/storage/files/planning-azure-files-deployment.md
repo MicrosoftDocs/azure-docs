@@ -20,6 +20,25 @@ ms.author: wgries
 # Planning for an Azure Files deployment
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. Because Azure Files is fully managed, deploying it in production scenarios is much easier than deploying and managing a file server or NAS device. This article addresses the topics to consider when deploying an Azure File share for production use within your organization.
 
+## Management concepts
+ The following diagram illustrates the Azure File storage management constructs:
+
+![File Structure](./media/storage-files-introduction/files-concepts.png)
+
+* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for details about storage account capacity.
+
+* **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TiB total capacity of the file share.
+
+* **Directory**: An optional hierarchy of directories.
+
+* **File**: A file in the share. A file may be up to 1 TiB in size.
+
+* **URL format**: For requests to an Azure File share made with the File REST protocol, files are addressable using the following URL format:
+
+    ```
+    https://<storage account>.file.core.windows.net/<share>/<directory>/directories>/<file>
+    ```
+
 ## Data access method
 Azure Files offers two, built-in, convenient data access methods for you and your users to access your data:
 
