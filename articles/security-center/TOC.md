@@ -26,8 +26,10 @@
 ## [Search](security-center-search.md)
 
 ## Prevent
-### [Managing recommendations](security-center-recommendations.md)
-### [Integrating partner solutions](security-center-partner-integration.md)
+### [Monitor security health](security-center-monitoring.md)
+### [Manage recommendations](security-center-recommendations.md)
+### [Integrate partner solutions](security-center-partner-integration.md)
+### [Monitor partner solutions](security-center-partner-solutions.md)
 
 ### [Compute](security-center-virtual-machine-recommendations.md)
 #### [Apply disk encryption](security-center-apply-disk-encryption.md)
@@ -41,8 +43,6 @@
 #### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Update OS version](security-center-update-os-version.md)
 #### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
-### [Monitor security health](security-center-monitoring.md)
-### [Monitor partner solutions](security-center-partner-solutions.md)
 
 ### [Networking](security-center-network-recommendations.md)
 #### [Add a next generation firewall](security-center-add-next-generation-firewall.md)
