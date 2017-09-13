@@ -105,7 +105,7 @@ For .NET applications and functions, the simplest way to work with a managed ser
 using Microsoft.Azure.Services.AppAuthentication;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(AzureService.AzureDataLake);
+string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
