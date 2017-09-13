@@ -110,7 +110,7 @@ In this section, you create a Java console app that connects to your hub as **my
 	private static TelemetryConfig telemetryConfig;
     ```
 
-1. To implement a callback handler for device twin status events (debugging purposes), add the following nested class to the **App** class:
+1. To implement a callback handler for device twin status events (for debugging purposes), add the following nested class to the **App** class:
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback 
@@ -122,7 +122,7 @@ In this section, you create a Java console app that connects to your hub as **my
 	}
     ```
 
-1. Add the following method to the **App** class:
+1. Add the following class under the **App** class:
 
     ```java
     private static class TelemetryConfig extends Device 
@@ -188,13 +188,11 @@ In this section, you create a Java console app that connects to your hub as **my
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. Add the following code to the **main** method to instantiate a **DeviceClient**:
+1. Add the following code to the **main** method to instantiate a **DeviceClient** and **TelemetryConfig**:
 
     ```java
-    // Create a device client
     client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
     telemetryConfig = new TelemetryConfig();
     ```
 
