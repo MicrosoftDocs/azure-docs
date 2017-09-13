@@ -24,10 +24,19 @@ This topic shows you how to create App Service and Azure Functions applications 
 
 ## Creating an app with an identity
 
-Creating an app with an identity requires an additional property to be set at creation time.
+Creating an app with an identity requires an additional property to be set on the application.
 
-> [!NOTE]
-> This feature is in preview, and there currently is no UX support for creating an app with an identity. To try out this feature, you need to create your app using an Azure Resource Manager template.
+### Using the Azure portal
+
+To set up a managed service identity in the portal, you will first create an application as normal and then enable the feature.
+
+1. Create an app in the portal as you normally would. Navigate to it in the portal.
+
+2. If using a function app, navigate to **Platform features**.
+
+3. Select **Managed service identity**.
+
+4. Switch **Register with Azure Active Directory** to **On**. Click **Save**.
 
 ### Using an Azure Resource Manager template
 
