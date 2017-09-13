@@ -82,33 +82,20 @@ An app can use its identity to get tokens to other resources protected by AAD, s
 > [!IMPORTANT]
 > You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Managed Service Identity tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-service-identity-support-azuread-authn.md).
 
-There is a simple REST protocol for obtaining a token in App Service and Azure Functions. For .NET applications, the Azure Service Authentication Library provides an abstraction over this protocol and supports a local development experience.
+There is a simple REST protocol for obtaining a token in App Service and Azure Functions. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library provides an abstraction over this protocol and supports a local development experience.
 
 ### <a name="asal"></a>Using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
-For .NET applications and functions, the simplest way to work with a managed service identity is through the Azure Service Authentication Library. This section shows you how to get started with the library.
+For .NET applications and functions, the simplest way to work with a managed service identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) or Active Directory Integrated Authentication. This section shows you how to get started with the library.
 
 1. Add a reference to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet package to your application.
 
-2. Add a "AzureServicesAuthConnectionString" application setting to your Azure resource with the value `AuthenticateAs=App;`.
-
-
-> [!TIP]
->  For local development, set your local version of this setting to `AuthenticateAs=User;User=VisualStudioAccount`. This allows you to test your code locally using the permissions granted to your individual account.
-
-
-3. Add the following code to your application:
+2.  Add the following code to your application:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
 // ...
-string connectionString = ""; // Replace to read from the AzureServicesAuthConnectionString setting as appropriate to the target framework
-var azureServiceTokenProvider = new AzureServiceTokenProvider(connectionString);
-```
-
-You can then request a token directly or pass a token callback to another Azure service SDK as follows:
-
-```csharp
+var azureServiceTokenProvider = new AzureServiceTokenProvider();
 string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(AzureService.AzureDataLake);
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
