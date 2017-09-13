@@ -38,7 +38,7 @@ In subsequent tutorials, Operations Management Suite is configured to monitor th
 
 In previous tutorials, an application was packaged into a container image, the image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
 
-An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside you will find a directory named `azure-vote` and a file named `docker-compose.yml`.
+An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside you will find a directory named *azure-vote* and a file named *docker-compose.yml*.
 
 If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
@@ -46,7 +46,7 @@ If you haven't completed these steps, and want to follow along, return to [Tutor
 
 For this tutorial, a change will be made to the application, and these changes deployed to the Kubernetes cluster. The application source code can be found inside of the **azure-vote** directory.
 
-Open the `config_file.cfg` file with any code or text editor. In this example `vi` is beeing used.
+Open the *config_file.cfg* file with any code or text editor. In this example *vi* is used.
 
 ```bash
 vi azure-vote/azure-vote/config_file.cfg
@@ -66,7 +66,7 @@ Save and close the file.
 
 ## Update container image
 
-Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application. The `--build` argument is used to instruct Docker Compose to re-created the application image.
+Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application. The `--build` argument is used to instruct Docker Compose too re-create the application image.
 
 ```bash
 docker-compose up --build -d
@@ -74,7 +74,7 @@ docker-compose up --build -d
 
 ## Test application locally
 
-Browse to `http://localhost:8080` to see the updated application.
+Browse to http://localhost:8080 to see the updated application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 

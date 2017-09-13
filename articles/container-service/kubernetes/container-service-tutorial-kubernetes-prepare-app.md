@@ -75,7 +75,7 @@ When completed, use the [docker images](https://docs.docker.com/engine/reference
 docker images
 ```
 
-Notice that three images have been downloaded or created. The `azure-vote-front` image contains the application and uses The `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
+Notice that three images have been downloaded or created. The `azure-vote-front` image contains the application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE

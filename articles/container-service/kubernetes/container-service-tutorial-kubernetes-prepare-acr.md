@@ -41,7 +41,7 @@ This tutorial requires that you are running the Azure CLI version 2.0.4 or later
 
 When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named `myResourceGroup` is created in the `westeurope` region.
+Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *westeurope* region.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -53,7 +53,7 @@ Create an Azure Container registry with the [az acr create](/cli/azure/acr#creat
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Throughout the rest of this tutorial, we use "<acrname>" as a placeholder for the container registry name.
+Throughout the rest of this tutorial, we use "acrname" as a placeholder for the container registry name.
 
 ## Container registry login
 
@@ -90,7 +90,7 @@ To get the loginServer name, run the following command.
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Now, tag the `azure-vote-front` image with the loginServer of the container registry. Also, add `:redis-v1` to the end of the image name. This tag indicates the image version.
+Now, tag the *azure-vote-front* image with the loginServer of the container registry. Also, add *:redis-v1* to the end of the image name. This tag indicates the image version.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
@@ -114,7 +114,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## Push images to registry
 
-Push the `azure-vote-front` image to the registry. 
+Push the *azure-vote-front* image to the registry. 
 
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
