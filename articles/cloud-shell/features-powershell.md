@@ -71,7 +71,7 @@ To import additional cmdlets and ability to run any executable.
 |Source control  |git                                      |
 |Test tools      |Pester                                   |
 
-## Language Support
+## Language support
 
 |**Language**|**Version**|
 |------------|-----------|
