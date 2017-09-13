@@ -88,7 +88,7 @@ To make a change, add a name for the job, update the property values, and choose
 
 <!-- Insert screenshot here -->
 
-To track the status of the job ion the **Maintenance** page, choose **View**:
+To track the status of the job on the **Maintenance** page, choose **View**:
 
 <!-- Insert screenshot here -->
 
@@ -107,6 +107,6 @@ Now that you have learned how to manage your devices, the suggested next steps a
 
 * [Troubleshoot and remediate device issues](iot-suite-remote-monitoring-maintain.md).
 * [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md).
-* [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md)
+* [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

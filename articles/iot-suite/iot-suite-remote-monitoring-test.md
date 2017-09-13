@@ -55,8 +55,8 @@ In this tutorial, you learn how to:
 >[!div class="checklist"]
 > * Create a new device type
 > * Simulate custom device behavior
-> * Send custom telemetry from an existing device type
 > * Add a new device type to the dashboard
+> * Send custom telemetry from an existing device type
 
 ## Prerequisites
 
@@ -212,7 +212,7 @@ The `scripts/scripts/lightbulb-01-state.js` file defines the simulated behavior 
 
 1. Save the `scripts/scripts/lightbulb-01-state.js` file.
 
-### Test the **Lightbulb** device type
+### Test the Lightbulb device type
 
 To test the **Lightbulb** device type, you:
 
@@ -228,13 +228,12 @@ The following steps describe how to add new simulated instances to the solution:
 To define a new physical device type, you upload a model definition to the **Devices** page in the solution.
 
 <!-- TODO Expand on this -->
-<!-- How to modify the UX so it pulls the information about the new device type. I believe today is hardcoded so we may have to do this post MVP. -->
 
-## Send custom telemetry
+## Add a new telemetry type
 
 This section describes how to modify an existing simulated device type to support a new telemetry type.
 
-### Locate the **Chiller** device type files
+### Locate the Chiller device type files
 
 The following steps show you how to find the files that define the built-in **Chiller** device:
 
@@ -250,15 +249,15 @@ The following steps show you how to find the files that define the built-in **Ch
 
 ### Specify the new telemetry type
 
-The following steps show you how to add a new **External Temperature** type to the **Chiller** device type:
+The following steps show you how to add a new **Internal Temperature** type to the **Chiller** device type:
 
 1. Open the `chiller-01.json` file.
 
 1. In the **InitialState** section, add the follwing two definitions:
 
     ```json
-    "external_temperature": 65.0,
-    "external_temperature_unit": "F",
+    "internal_temperature": 65.0,
+    "internal_temperature_unit": "F",
     ```
 
 1. In the **Telemetry** array, add the following definition:
@@ -266,9 +265,9 @@ The following steps show you how to add a new **External Temperature** type to t
     ```json
     {
       "Interval": "00:00:05",
-      "MessageTemplate": "{\"external_temperature\":${external_temperature},\"external_temperature_unit\":\"${external_temperature_unit}\"}",
+      "MessageTemplate": "{\"internal_temperature\":${internal_temperature},\"internal_temperature_unit\":\"${internal_temperature_unit}\"}",
       "MessageSchema": {
-        "Name": "chiller-external-temperature;v1",
+        "Name": "chiller-internal-temperature;v1",
         "Format": "JSON",
         "Fields": {
           "temperature": "double",
@@ -284,20 +283,20 @@ The following steps show you how to add a new **External Temperature** type to t
 
 1. Add the following fields to the **state** variable:
 
-```js
-external_temperature: 65.0,
-external_temperature_unit: "F",
-```
+    ```js
+    internal_temperature: 65.0,
+    internal_temperature_unit: "F",
+    ```
 
 1. Add the following line to the **main** function:
 
-```js
-state.external_temperature = vary(65, 2, 15, 125);
-```
+    ```js
+    state.internal_temperature = vary(65, 2, 15, 125);
+    ```
 
 1. Save the `scripts/chiller-01-state.js` file.
 
-### Test the **Lightbulb** device type
+### Test the Chiller device type
 
 To test the updated **Chiller** device type, you:
 
@@ -316,8 +315,8 @@ This tutorial, showed you how to:
 >[!div class="checklist"]
 > * Create a new device type
 > * Simulate custom device behavior
-> * Send custom telemetry from an existing device type
 > * Add a new device type to the dashboard
+> * Send custom telemetry from an existing device type
 
 Now you have learned how to use the device simulation service, the suggested next step is to learn how to [connect a physical device to your remote monitoring solution](iot-suite-connecting-devices-node.md).
 
