@@ -136,7 +136,7 @@ After you have enabled HTTPS, you can later disable it. To disable HTTPS, follow
 
 4. Click **Off** to disable HTTPS, then click **Apply**.
 
-    ![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
+    ![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
 ### Step 2: Wait for propagation
 
