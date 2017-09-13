@@ -16,11 +16,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robinsh
 ---
-<!-- Patterned after /virtual-machines/windows/tutorial-manage-vm --> 
 
 # Perform Azure Blob storage operations with Azure PowerShell
 
-Azure Blob storage provides scalable performant object storage accessible from any client that can make an HTTP request. This tutorial covers common Blob storage operations. You learn how to:
+Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This article covers basic operations in Azure Blob storage such as uploading, downloading, and deleting blobw. You learn how to:
 
 > [!div class="checklist"]
 > * Create a container 
@@ -32,57 +31,13 @@ Azure Blob storage provides scalable performant object storage accessible from a
 > * View and set a blob's metadata and properties
 > * Manage security using Shared Access Signatures
 
-We will use variables to store values used repeatedly (such as container name), so we don't hardcode the same values throughout the PowerShell script. This makes it easier to change the value and have it take effect throughout the script, and eliminates the possibility of typos in the repeated usage.
-
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-## Log in to Azure
-
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
-
-```powershell
-Login-AzureRmAccount
-```
-
-## Retrieve list of locations
-
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This tutorial will use **eastus**. Store this in the variable **location** for future use.
-
-```powershell
-Get-AzureRmLocation | select Location 
-$location = eastus
-```
-
-## Create resource group
-
-Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. 
-
-An Azure resource group is a logical container into which Azure resources are deployed and managed. Store the resource group name in a variable for future use. In this example, a resource group named *blobstutorialrg* is created in the *eastus* region.
-
-```powershell
-$resourceGroup = "blobstutorialrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
-```
-
-## Create storage account
-
-Create a standard general-purpose storage account with locally-redundant storage (LRS) using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Get the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials.
-
-```powershell
-$storageAccountName = "blobtutorialtest"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
-  -Name $storageAccountName `
-  -Location $location `
-  -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
-
-$ctx = $storageAccount.Context
-```
+[!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 
 ## Create a container
 
-Blobs are usually uploaded into a container. Containers are similar to a folder on your computer, allowing you to organize groups of blobs in containers like you organize your files in folders on your computer. A storage account can have any number of containers; it is only limited by the amount of space taken up in the storage account (up to 500TB). 
+Blobs are always uploaded into a container. Containers are similar to directories on your computer, allowing you to organize groups of blobs in containers like you organize your files in folders on your computer. A storage account can have any number of containers; it is only limited by the amount of space taken up in the storage account (up to 500TB). 
 
 When you create a container, you can set the access level, which helps define who can access the blobs in that container. For example, they can be private (access level = `Off`),meaning nobody can access them without a shared access signature or the access keys for the storage account. If you don't specify the access level when you create the container, it defaults to private.
 
@@ -90,10 +45,10 @@ You may want images in your container to be accessible publicly. For example, if
 
 To create the container, set the container name, then create the container, setting the permissions to 'blob'. Container names must start with a letter or a number, and can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, please see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Create a new container with [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Set the access level to public. The container name in this example is *tutorialblobs*.
+Create a new container with [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Set the access level to public. The container name in this example is *blobshowto*.
 
 ```powershell
-$containerName = "tutorialblobs"
+$containerName = "blobshowto"
 New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 ```
 
