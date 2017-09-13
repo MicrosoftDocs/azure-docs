@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Update an application in Kubernetes
 
-After you deploy an application in Kubernetes, it can be updated by specifying a new container image or image version. When you update an application, the update rollout is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update, and provides a rollback mechanism if a deployment failure occurs. 
+After you deploy an application in Kubernetes, it can be updated by specifying a new container image or image version. When you update an application, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update, and provides a rollback mechanism if a deployment failure occurs. 
 
 In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks that you complete include:
 
@@ -38,9 +38,7 @@ In subsequent tutorials, Operations Management Suite is configured to monitor th
 
 In previous tutorials, an application was packaged into a container image, the image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
 
-An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo and that you have changed directories into the cloned directory. Inside you will find a file a directory name `azure-vote` and a file named `docker-compose.yml`.
-
-To complete this tutorial, you need the pre-created `docker-compose.yml` file as well the application source code. These items were downloaded with the Azure Vote git repo in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
+An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside you will find a directory named `azure-vote` and a file named `docker-compose.yml`.
 
 If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
