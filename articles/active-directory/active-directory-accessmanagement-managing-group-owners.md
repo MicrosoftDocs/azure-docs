@@ -27,7 +27,7 @@ After a resource owner assigns access to a resource to an Azure AD group, the me
 1. In the [Azure AD admin center](https://aad.portal.azure.com), select **Users and groups**.
 2. Select **All groups**, and then open the group that you want to add owners to.
 3. Select **Owners**, and then select **Add owners**.
-4. On the **Add owners** page, select the user that you want to add as the owner of this group, and then click or tap **Select**. Make sure this name is added to the **Selected** pane.
+4. On the **Add owners** page, select the user that you want to add as the owner of this group, and then click or tap **Select**. 
 
 ## Remove an owner from a group
 
