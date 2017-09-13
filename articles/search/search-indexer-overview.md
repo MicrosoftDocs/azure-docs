@@ -67,7 +67,7 @@ Now that you have the basic idea, the next step is to review requirements and ta
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexing CSV blobs using the Azure Search Blob indexer](search-howto-index-csv-blobs.md)
 * [Indexing JSON blobs with Azure Search Blob indexer](search-howto-index-json-blobs.md)
