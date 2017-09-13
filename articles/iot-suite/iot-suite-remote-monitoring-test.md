@@ -212,7 +212,7 @@ The `scripts/scripts/lightbulb-01-state.js` file defines the simulated behavior 
 
 1. Save the `scripts/scripts/lightbulb-01-state.js` file.
 
-### Test the **Lightbulb** device type
+### Test the Lightbulb device type
 
 To test the **Lightbulb** device type, you:
 
@@ -233,7 +233,7 @@ To define a new physical device type, you upload a model definition to the **Dev
 
 This section describes how to modify an existing simulated device type to support a new telemetry type.
 
-### Locate the **Chiller** device type files
+### Locate the Chiller device type files
 
 The following steps show you how to find the files that define the built-in **Chiller** device:
 
@@ -283,20 +283,20 @@ The following steps show you how to add a new **Internal Temperature** type to t
 
 1. Add the following fields to the **state** variable:
 
-```js
-internal_temperature: 65.0,
-internal_temperature_unit: "F",
-```
+    ```js
+    internal_temperature: 65.0,
+    internal_temperature_unit: "F",
+    ```
 
 1. Add the following line to the **main** function:
 
-```js
-state.internal_temperature = vary(65, 2, 15, 125);
-```
+    ```js
+    state.internal_temperature = vary(65, 2, 15, 125);
+    ```
 
 1. Save the `scripts/chiller-01-state.js` file.
 
-### Test the **Chiller** device type
+### Test the Chiller device type
 
 To test the updated **Chiller** device type, you:
 

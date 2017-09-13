@@ -64,9 +64,9 @@ The default deployment uses the Contoso company name and logo in the UI. To chan
 
 1. Step 2
 
-### Add a new KPI to the **Dashboard** page
+### Add a new KPI to the Dashboard page
 
-The following steps describe how to add a new KPI to display on the **Dashboard** page. The new KPI shows information about the number of alarms with specific status values as a pie-chart:
+The following steps describe how to add a new KPI to display on the **Dashboard** page. The new KPI shows information about the number of alarms with specific status values as a pie chart:
 
 1. Step 1
 
@@ -89,7 +89,7 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 ### Duplicate an existing control
 
-To duplicate an existing UI element such as a chart or alert, see the[Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
+To duplicate an existing UI element such as a chart or alert, see the [Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
 
 ### Other customization options
 
