@@ -115,5 +115,75 @@ Finally, call Azure Resource Manager using the access token. In this example, we
 ```
 **Note:** The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
 
-## Access credentials for the Storage Account  
+## Get the Storage Keys from Azure Resource Manager 
+
+
+```powershell
+PS C:\> $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/97f51385-2edc-4b69-bed8-7778dd4cb761/resourceGroups/SKwan_Test/providers/Microsoft.Storage/storageAccounts/skwanteststorage/listKeys/?api-version=2016-12-01 -Method POST$ -Headers @{Authorization="Bearer $ARMToken"}
+```
+
+```powershell
+PS C:\> $keysContent = $keysResponse.Content | ConvertFrom-Json
+```
+
+```powershell
+PS C:\> $key = $keysContent.keys[0].value
+```
+
+
+**Create a file to be uploaded using Azure CLI**
+
+```bash
+echo "This is a test text file." > test.txt
+```
+
+**Upload the file using the Azure CLI and authenticating with the Storage Key**
+Note: First remember to install Azure storage commandlets “Install-Module Azure.Storage”. 
+
+PowerShell request:
+
+
+```powershell
+PS C:\> $ctx = New-AzureStorageContext -StorageAccountName skwanteststorage -StorageAccountKey $key
+PS C:\> Set-AzureStorageBlobContent -File test.txt -Container testcontainer -Blob testblob -Context $ctx
+```
+
+Response:
+
+```powershell
+ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
+BlobType          : BlockBlob
+Length            : 56
+ContentType       : application/octet-stream
+LastModified      : 9/13/2017 6:14:25 PM +00:00
+SnapshotTime      :
+ContinuationToken :
+Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
+Name              : testblob
+```
+
+**Download the file using the Azure CLI and authenticating with the Storage Key**
+
+PowerShell request:
+
+```powershell
+PS C:\> Get-AzureStorageBlobContent -Blob <blob name> -Container <container name> -Destination <file> -Context $ctx
+```
+
+Response:
+
+```powershell
+ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
+BlobType          : BlockBlob
+Length            : 56
+ContentType       : application/octet-stream
+LastModified      : 9/13/2017 6:14:25 PM +00:00
+SnapshotTime      :
+ContinuationToken :
+Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
+Name              : testblob
+```
+
+
+
 

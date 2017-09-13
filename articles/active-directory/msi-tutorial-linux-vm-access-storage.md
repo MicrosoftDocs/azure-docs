@@ -88,7 +88,7 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
 ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
- ## Get an access token using the VM Identity and use it to call Azure Resource Manager (ARM)  
+ ## Get an access token using the VM Identity and use it to call Azure Resource Manager
 You will need to use the Bash terminal, pick and then download your Linux distribution [here](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
 
 
@@ -96,27 +96,22 @@ You will need to use the Bash terminal, pick and then download your Linux distri
 2. Open and connect to Bash.  
 3. In the terminal, enter in your **SSH** and **VM**you wish to connect to for example, “ssh admin@12.61.219.35 ”.  
 4. Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
-5. Then, you can make a request using CURL to get the authorization token for the Linux VM you are logged into. The **Azure Resource Manager** (ARM) endpoint is https://management.azure.com.  
+5. Then, you can make a request using CURL to get the authorization token for the Linux VM you are logged into. The **Azure Resource Manager** endpoint is https://management.azure.com.  
 
 
-## Access credentials for the Storage Account  
-
-
-The CURL request for the access token is below.  
+**The CURL request for the access token is below**
 
 ```bash
 curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50432/oauth2/token   
 ```
 
-**Note:** Ensure that the URL for the resource you are trying to request access for contains the proper formatting with a slash at the end such as “https:<RESOURCE>/”  
+**Note:** Ensure that the URL for the resource you are trying to request access for contains the proper formatting with a slash at the end such as  'https:<RESOURCE>/'
 
-Response:  
+```powershell
+{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEP"}
+ ```
 
-```bash
-{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEP
-```
-
-## The CURL request for Storage to List Keys.  
+## The CURL request to get Storage Keys from Azure Resource Manager  
 
 **Note:** The text in the URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
 
@@ -131,7 +126,7 @@ The CURL response gives you the list of Keys:
 ```
 
 
-Create a file to be uploaded this will be a sample Blob file that you can upload with your Storage Keys on your storage account within the container you created. 
+Create a file to be uploaded this will be a sample blob file that you can upload with your Storage Keys on your storage account within the container you created. 
 
 On a Linux VM you can do this with the following command. 
 
@@ -140,6 +135,7 @@ echo "This is a test file." > test.txt
 ```
  Next, you can upload the file using the Azure CLI and authenticate with the Storage Key.
  
+
 ```azurecli-interactive
  az storage blob upload --container-name 
                         --file 
@@ -148,7 +144,7 @@ echo "This is a test file." > test.txt
                         [--account-key] 
 ```
 
-Response-
+Response: 
 
 ```JSON
 Finished[#############################################################]  100.0000%
@@ -158,9 +154,9 @@ Finished[#############################################################]  100.000
 }
 ```
 
-Step 5 (optional):  Download the file using the Azure CLI and authenticating with the storage key
+Additionally, you can download the file using the Azure CLI and authenticating with the Storage Key. 
 
-Request-
+Request: 
 
 ```azurecli-interactive
 az storage blob download --container-name
@@ -170,7 +166,7 @@ az storage blob download --container-name
                          [--account-key]  
 ```
 
-Response-
+Response: 
 
 ```JSON
 {
