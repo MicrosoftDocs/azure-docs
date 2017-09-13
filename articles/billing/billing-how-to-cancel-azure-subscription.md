@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 08/30/2017
 ms.author: genli
 
 ---
@@ -32,41 +32,21 @@ If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/pl
 
 ## Cancel subscription using the Azure portal
 
-1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-
+1. Select your subscription from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription that you want to cancel and click **Cancel subscription**.
 
     ![Screenshot that shows the Cancel button](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-
 1. Follow prompts and finish cancellation.
-
-## Cancel subscription using the Azure Account Center
-
-1. Sign in to the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
-
-1. Under **Click a subscription to view details and usage**, select the subscription that you want to cancel.
-
-    ![Screenshot that shows an example subscription selected](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
-
-1. On the right side of the page, select **Cancel Subscription**.
-
-    ![Screenshot that shows the Cancel subscription button](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
-
-1. Select **Yes, cancel my subscription**.
-
-    ![Screenshot that shows the Cancel dialog](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
-
-1. Click ![Check symbol button](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) to close the dialog window and return to your subscription page.
 
 ## What happens after I cancel my subscription?
 
 Once you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation show in the portal.
 
-After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only.
+After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
 
-Unless you’re on a Free Trial or have credits available, you’re billed for any outstanding usage charges generated between your last billing cycle and the cancellation date. You get your last bill at the end of the billing cycle.
+If you cancel in the middle of a billing period, we send the final bill on your typical invoice date after the period ends. 
 
-After you cancel your subscription, we wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+We wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## Reactivate subscription
 

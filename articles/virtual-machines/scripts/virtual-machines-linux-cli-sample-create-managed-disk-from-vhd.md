@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
+ms.custom: mvc
 ---
 
 # Create a managed disk from a VHD file in a storage account in the same subscription with CLI
@@ -38,7 +39,7 @@ This script uses following commands to create a managed disk from a VHD. Each co
 
 | Command | Notes |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Creates a managed disk using URI of a VHD in a storage account in the same subscription |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Creates a managed disk using URI of a VHD in a storage account in the same subscription |
 
 ## Next steps
 
