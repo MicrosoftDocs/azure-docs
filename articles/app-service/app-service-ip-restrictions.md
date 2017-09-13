@@ -32,7 +32,7 @@ To add an ip restriction rule to your app, use the menu to open **Network**>**IP
 ![ip restrictions]
 (media/app-service-ip-restrictions/ip-restrictions.png)
 
-From here you can review the list IP restrictions rules defined for your app.
+From here, you can review the list of IP restriction rules defined for your app.
 
 ![list ip restrictions](media/app-service-ip-restrictions/browse-ip-restrictions.png)
 
