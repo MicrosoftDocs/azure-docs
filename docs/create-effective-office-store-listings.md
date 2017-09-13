@@ -134,7 +134,10 @@ Make your screenshots rich and informative. Help customers understand how your s
 
 >**Note:**  Be sure to remove any personal information from your screenshots that you do not want customers to see.
 
-![An image that shows an add-in with callouts next to a blank add-in](../images/dd143a4e-aa72-46f1-8e4c-1e121f2ce6e1.PNG)
+|**Do**|**Don't**|
+|:------------|:--------------|
+|Use clear and simple captions to convey your add-ins value.|Don’t use callouts that obstruct important content.|
+|![Do checkbox example](../images/screenshot_do1.png)|![Don't checkbox example](../images/screenshot_dont1.png)|
 
 ## Use ratings and reviews
 <a name="bk_ratings"> </a>
