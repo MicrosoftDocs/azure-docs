@@ -17,7 +17,7 @@ ms.author: heidist
 
 # Analyzers in Azure Search
 
-An *analyzer* is a component of [full text search processing](search-lucene-query-architecture.md) responsible for processing text in query strings and the contents of indexed documents. During indexing, an analyzer transforms text into tokens, which are written as terms into the index. During search, an analyzer performs the same transformations, except terms are read from the index instead of written.
+An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and the contents of indexed documents. During indexing, an analyzer transforms text into tokens, which are written as terms into the index. During search, an analyzer performs the same transformations on query terms used to retrieve documents with matching terms from the index.
 
 The following transformations are typical during analysis:
 
@@ -46,12 +46,17 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
 2. On each searchable field for which you want to use the analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). Valid values include a predefined analyzer, a language analyzer, or a custom analyzer previously defined in the index schema.
 
- Alternatively, instead of one `analyzer` property, you can set different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
+  Alternatively, instead of one `analyzer` property, you can set different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
 
 3. Analysis occurs during indexing. If you add an `analyzer` to an existing index, note the following:
 
-+ When added to new fields that haven't been indexed yet, analysis occurs when you add or update documents that have the new field. You can use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.
-+ When added to existing fields, the inverted index for that field needs to be recreated from the ground up and  document contents for those fields must be reindexed.  
+   + When added to new fields that haven't been indexed yet, analysis occurs when you add or update documents that have the new field. You can use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.
+
+   + When added to existing fields, the inverted index for that field must be recreated from the ground up and document contents for those fields must be reindexed. 
+
+   For indexes under active development, delete and create the index. 
+
+   For indexes in production, you should create a new field to provide the revised definition, then use Update Index and mergeOrUpload to incorporate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. 
 
 ## Best practices
 
