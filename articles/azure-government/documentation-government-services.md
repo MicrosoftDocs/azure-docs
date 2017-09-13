@@ -53,7 +53,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger) | Yes | Yes |
 | [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | Yes | Yes |
 | Application Gateway | Yes | Yes |
-| ExpressRoute | Yes | Yes |
+| Network Watcher | Yes | Yes |
 
 ## [Storage](documentation-government-services-storage.md)
 
@@ -75,6 +75,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [App Service: API Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [Media Services](documentation-government-services-media.md) | Yes | Yes |
+| API Management | Yes | Yes |
 
 ## [Databases](documentation-government-services-database.md)
 
@@ -85,7 +86,6 @@ In the following tables, services that are specified as Azure Resource Manager e
 | SQL Server Stretch Database | Yes | Yes |
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
-
 ## [Data + Analytics](documentation-government-services-dataandanalytics.md)
 
 | Service | Resource Manager enabled | Portal |
@@ -133,7 +133,9 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | Yes | Yes |
 | Scheduler | Yes | Yes |
 | [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | Yes | Yes |
-| Azure Service Management API | Yes | Yes |
+| Azure Portal - Classic | Yes | Yes |
+| Azure Portal - Ibiza| Yes | Yes |
+| Azure Resource Manager | Yes | Yes |
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/).
