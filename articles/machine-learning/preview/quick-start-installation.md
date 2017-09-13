@@ -53,7 +53,8 @@ You can install Azure Machine Learning Workbench on your Windows or macOS comput
 | [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg) | macOS
 
 >[!IMPORTANT]
->Please make sure you fully download the isntallers and save it on di
+>Please make sure you fully download the installer, and launch it from your disk.
+
 ### Special Note for macOS Users
 Run this shell script to brew-install the latest OpenSSL libraries. And configure links before proceeding with the installation. 
 
@@ -106,8 +107,8 @@ Docker is needed if you want to execute scripts in a local Docker container, or 
  
 ![Share C drive](media/quick-start-installation/share_c.png)
 
->Note on Windows, Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
-
+>[!NOTE]
+>On Windows, Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
 
 ## Next Steps
 - Get a quick tour of Azure ML Workbench with [_Quickstart: Classifying Iris Flower Dataset_](quick-start-iris.md).
