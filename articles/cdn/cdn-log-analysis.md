@@ -28,5 +28,5 @@ As a current Azure CDN user with Verizon standard or premium profile, you can vi
 
 ## Azure Diagnostic Logs
 
-This feature is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles. For more information, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+This feature is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles. For more information, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
 
