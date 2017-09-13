@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 09/13/2017
 ms.author: mimig
 ---
 
-# Serverless database triggers with Azure Functions and Azure Cosmos DB
+# Azure Cosmos DB: Serverless computing database using Azure Functions
 
 Serverless computing is all about the ability to focus on individual pieces of logic that are repeatable and stateless. These pieces require no infrastructure management and they consume resources only for the seconds, or milliseconds, when they run. At the core of the serverless computing movement are functions, which are made available in the Azure ecosystem by [Azure Functions](https://azure.microsoft.com/services/functions).
 
