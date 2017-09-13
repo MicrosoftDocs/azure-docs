@@ -120,8 +120,8 @@ Here's the definition for this trigger:
 
 | Element name | Required | Type | Description | 
 | ------------ | -------- | ---- | ----------- | 
-| frequency | Yes | String | The unit of time for how often the trigger fires - use only one of these values: "second", "minute", "hour", "day", "week", or "month" | 
-| interval | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. | 
+| frequency | Yes | String | The unit of time for how often the trigger fires. Use only one of these values: "second", "minute", "hour", "day", "week", or "month" | 
+| interval | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
 | timeZone | No | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
 | startTime | No | String | Specify the start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running workflows](../connectors/connectors-native-recurrence.md). | 
 | weekDays | No | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
@@ -886,10 +886,10 @@ you can use this example:
   
 | Element name | Required | Type | Description | 
 | ------------ | -------- | ---- | ----------- | 
-| until | No | Object | The wait duration based on a point in time |
+| until | No | Object | The wait duration based on a point in time | 
 | until timestamp | Yes | String | The point in time in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) when the wait expires | 
-| interval | No | Object | The wait duration based on the interval unit and count |
-| interval unit | Yes | String | The unit of time - use only one of these values: "second", "minute", "hour", "day", "week", or "month" |  
+| interval | No | Object | The wait duration based on the interval unit and count | 
+| interval unit | Yes | String | The unit of time. Use only one of these values: "second", "minute", "hour", "day", "week", or "month" | 
 | interval count | Yes | Integer | A positive integer representing the number of interval units used for the wait duration | 
 ||||| 
 

@@ -186,7 +186,7 @@ Here is an example recurrence trigger definition:
 with the start date and time:
 
 | Start time | Recurrence without schedule | Recurrence with schedule | 
-| ---------- | ----------------------- | ------------------------ | 
+| ---------- | --------------------------- | ------------------------ | 
 | {none} | Run once immediately, then run future workloads based on the last run time. | Run once immediately, then run future workloads based on your specified recurrence schedule. | 
 | Start time at present or in the future | Run once at your specified start time, then run future workloads based on the last run time. | Run once, but no earlier than the specified start time. Run future workloads based on your specified recurrence schedule. | 
 | Start time in the past {not permitted} | {not applicable} | {not applicable} | 
