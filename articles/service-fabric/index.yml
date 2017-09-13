@@ -65,7 +65,7 @@ sections:
     - title: Why Azure Service Fabric?
       href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
       image: 
-        src: https://docs.microsoft.com/azure/active-directory/media/active-directory-saas-tutorial-list/saasapp_lynda.com.png 
+        src: https://docs.microsoft.com/media/logos/logo_lynda.com.svg
         href: https://www.lynda.com/Azure-tutorials/Why-Azure-Service-Fabric/573134/590379-4.html
 - title: Concepts
   items:
