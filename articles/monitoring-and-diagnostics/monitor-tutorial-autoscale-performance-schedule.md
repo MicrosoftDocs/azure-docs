@@ -66,8 +66,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 7. Click the **Add** button
 
 This rule ensures that if your Web App receives more than 10 requests within a period of 5 minutes or less, that one additional instance is added to your App Service Plan to manage load.
-
-    ![Create a scale out rule](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.jpg)
+    ![Create a scale-out rule](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.jpg)
 
 ## Create a scale-in rule
 It is always recommended to have a scale-in rule to accompany a scale-out rule. This ensures that your resources are not over provisioned.
