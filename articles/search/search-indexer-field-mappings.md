@@ -81,10 +81,10 @@ These functions are currently supported:
 ## base64Encode
 Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded.
 
-### Sample use case
-Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document), for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function. Then you can map between the document key and source key using HttpServerUtility.UrlTokenEncode and HttpServerUtility.UrlTokenDecode.
+### Sample use case - document key lookup
+Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document), for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function. Once the key is encoded, you can use base64 decode to retrieve the original value. For details, see the [base64 encoding and decoding](#base64details) section.
 
-### Example
+#### Example
 ```JSON
 
 "fieldMappings" : [
@@ -95,10 +95,10 @@ Only URL-safe characters can appear in an Azure Search document key (because cus
   }]
 ```
 
-### Sample use case
-You want to build a user interface around your Search service and make Lookup API calls using JavaScript. A source document with key `00>00?00` is added to the index by the indexer with key `MDA-MDA_MDA`. When looking up the document, you must use `MDA-MDA_MDA` as the document key.
+### Sample use case - retrieve original key
+You have a blob indexer that indexes blobs with the blob path metadata as the document key. After retrieving the encoded document key, you want to decode the path and download the blob.
 
-### Example
+#### Example
 ```JSON
 
 "fieldMappings" : [
@@ -119,7 +119,7 @@ Performs Base64 decoding of the input string. The input is assumed to a *URL-saf
 ### Sample use case
 Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding to represent arbitrary UTF-8 strings in blob custom metadata. However, to make search meaningful, you can use this function to turn the encoded data back into "regular" strings when populating your search index.
 
-### Example
+#### Example
 ```JSON
 
 "fieldMappings" : [
@@ -131,6 +131,24 @@ Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding t
 ```
 
 If you don't specify any `parameters`, then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`. See [base64 details](#base64details) section to decide which settings to use.
+
+<a name="base64details"></a>
+
+### Details of base64 encoding and decoding
+Azure Search supports two base64 encodings: HttpServerUtility URL token and URL-safe base64 encoding without padding. You need to use the same encoding as the mapping functions if you want to encode a document key for look up, encode a value to be decoded by the indexer, or decode a field encoded by the indexer.
+
+If you use the .NET Framework, you can set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `true`, for encoding and decoding respectively. Then `base64Encode` behaves like [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) and `base64Decode` behaves like [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+
+If you are not using the .NET Framework, then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, the base64 encode and decode utility functions may be  different from Azure Search.
+
+The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 functions, apply your library encode function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
+
+| Encoding | Base64 encode output | Additional processing after library encoding | Additional processing before library decoding |
+| --- | --- | --- | --- |
+| Base64 with padding | `MDA+MDA/MDA=` | Use URL-safe characters and remove padding | Use standard base64 characters and add padding |
+| Base64 without padding | `MDA+MDA/MDA` | Use URL-safe characters | Use standard base64 characters |
+| URL-safe base64 with padding | `MDA-MDA_MDA=` | Remove padding | Add padding |
+| URL-safe base64 without padding | `MDA-MDA_MDA` | None | None |
 
 <a name="extractTokenAtPositionFunction"></a>
 
@@ -179,24 +197,6 @@ Azure SQL database doesn't have a built-in data type that naturally maps to `Col
   { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } }
 ]
 ```
-
-<a name="base64details"></a>
-
-## Details of base64 encoding and decoding
-This section describes the output of `base64Encode` and input of `base64Decode`. You need to simulate the mapping functions if you want to encode a document key for look up, encode a value to be decoded by the indexer, or decode a field encoded by the indexer. Azure Search supports two base64 encodings: HttpServerUtility URL token and URL-safe base64 encoding without padding.
-
-If you use the .NET Framework, you can set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `true`, for encoding and decoding respectively. Then `base64Encode` behaves like [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) and `base64Decode` behaves like [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
-
-If you are not using the .NET Framework (for example JavaScript or Python), then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, you may need additional processing of your base64 encode function output and base64 decode function input to be compatible with the `mappingFunction`.
-
-The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 function, apply your library encode function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
-
-| Encoding | Base64 encode output | Additional processing after library encoding | Additional processing before library decoding |
-| --- | --- | --- | --- |
-| Base64 with padding | `MDA+MDA/MDA=` | Use URL-safe characters and remove padding | Use standard base64 characters and add padding |
-| Base64 without padding | `MDA+MDA/MDA` | Use URL-safe characters | Use standard base64 characters |
-| URL-safe base64 with padding | `MDA-MDA_MDA=` | Remove padding | Add padding |
-| URL-safe base64 without padding | `MDA-MDA_MDA` | None | None |
 
 
 ## Help us make Azure Search better
