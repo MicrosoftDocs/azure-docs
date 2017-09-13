@@ -125,16 +125,16 @@ The creators of schema A and B now lock down their schemas using DENY:
  
 ## PolyBase performance optimizations
 To achieve optimal loading performance with PolyBase we suggest the following:
--- Split large compressed files into smaller compressed files. The compression types supported today are not splittable. As a result, performance will be impacted by loading a single large file.
--- For fastest loading speed, load into a round_robin, heap staging table. This will be the most efficient way to move the data from storage layer to the data warehouse.
--- All file formats have different performance characteristics. For the fastest load, use compressed delimited text files. The difference between UTF-8 and UTF-16 performance is minimal.
--- Co-locate your storage layer and your data warehouse to minimize latency
--- Scale up your data warehouse if you expect a large loading job.
+- Split large compressed files into smaller compressed files. The compression types supported today are not splittable. As a result, performance will be impacted by loading a single large file.
+- For fastest loading speed, load into a round_robin, heap staging table. This will be the most efficient way to move the data from storage layer to the data warehouse.
+- All file formats have different performance characteristics. For the fastest load, use compressed delimited text files. The difference between UTF-8 and UTF-16 performance is minimal.
+- Co-locate your storage layer and your data warehouse to minimize latency
+- Scale up your data warehouse if you expect a large loading job.
 
 ## PolyBase Limitations
 PolyBase in SQL DW has the following limitations that need to be taken into consideration when designing a loading job:
--- A single row cannot be wider than 1,000,000 bytes. This is true regardless of the table schema defined, including (n)varchar(max) columns. This means for External Tables (n)varchar(max) columns can be at max 1,000,000 bytes wide, not the 2GB limit defined by the data type.
--- When exporting data into an ORC File Format from SQL Server or Azure SQL Data Warehouse text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this, export only a subset of the columns.
+- A single row cannot be wider than 1,000,000 bytes. This is true regardless of the table schema defined, including (n)varchar(max) columns. This means for External Tables (n)varchar(max) columns can be at max 1,000,000 bytes wide, not the 2GB limit defined by the data type.
+- When exporting data into an ORC File Format from SQL Server or Azure SQL Data Warehouse text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this, export only a subset of the columns.
 
 
 
