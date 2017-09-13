@@ -19,10 +19,7 @@ ms.author: juluk
 
 [!include [features-introblock](persisting-shell-storage-introblock.md)]
 
-### Restrict resource creation with an Azure resource policy
-Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) that are triggered by this specific tag.
-
-## How Cloud Shell works            Seporate
+## How Cloud Shell works 
 Cloud Shell persists files through both of the following methods: 
 * Creating a disk image of your `$Home` directory to persist all contents within the directory. The disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, and it automatically syncs changes.                   bash
 
@@ -31,7 +28,7 @@ Cloud Shell persists files through both of the following methods:
 > [!NOTE]          bash
 > All files in your `$Home` directory, such as SSH keys, are persisted in your user disk image, which is stored in your mounted file share. Apply best practices when you persist information in your `$Home` directory and mounted file share.
 
-## Use the `clouddrive` command              Bash
+## Use the `clouddrive` command
 With Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that's mounted to Cloud Shell.
 ![Running the "clouddrive" command](media/persisting-shell-storage/clouddrive-h.png)
 
@@ -52,7 +49,7 @@ The Azure files must reside in the same region as the Cloud Shell machine that y
 |Europe|North Europe, West Europe|
 |Asia Pacific|India Central, Southeast Asia|
 
-### The `clouddrive mount` command (Bash)
+### The `clouddrive mount` command
 
 > [!NOTE]
 > If you're mounting a new file share, a new user image is created for your `$Home` directory, because your previous `$Home` image is kept in the previous file share.
@@ -67,14 +64,10 @@ To view more details, run `clouddrive mount -h`, as shown here:
 
 ![Running the `clouddrive mount`command](media/persisting-shell-storage/mount-h.png)
 
-### `Get-Clouddrive` (PowerShell)
-
-[TODO]
-
 ## Unmount `clouddrive`
 You can unmount a file share that's mounted to Cloud Shell at any time. However, because Cloud Shell requires a mounted file share, you will be prompted to create and mount a new file share at the next session if it has been removed.
 
-### The `clouddrive unmount` command (Bash)
+### The `clouddrive unmount` command
 
 To remove a file share from Cloud Shell:
 1. Run `clouddrive unmount`.
@@ -88,10 +81,6 @@ To view more details, run `clouddrive unmount -h`, as shown here:
 
 > [!WARNING]
 > Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell will erase your `$Home` directory disk image and any files in your file share. This action cannot be undone.
-
-### `Dismount-Clouddrive` (PowerShell)
-
-[TODO]
 
 ## List `clouddrive` file shares
 To discover which file share is mounted as `clouddrive`, run the following `df` command. 
@@ -110,25 +99,7 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## Transfer local files to Cloud Shell            common
-The `clouddrive` directory syncs with the Azure portal storage blade. Use this blade to transfer local files to or from your file share. Updating files from within Cloud Shell is reflected in the file storage GUI when you refresh the blade.
-
-### Download files
-
-![List of local files](media/persisting-shell-storage/download.png)
-1. In the Azure portal, go to the mounted file share.
-2. Select the target file.
-3. Select the **Download** button.
-
-### Upload files
-
-![Local files to be uploaded](media/persisting-shell-storage/upload.png)
-1. Go to your mounted file share.
-2. Select the **Upload** button.
-3. Select the file or files that you want to upload.
-4. Confirm the upload.
-
-You should now see the files that are accessible in your `clouddrive` directory in Cloud Shell.
+[!include [features-introblock](persisting-shell-storage-endblock.md)]
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) <br>

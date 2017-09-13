@@ -11,7 +11,8 @@
 ## [Troubleshooting](troubleshooting.md)
 
 # How-to
-## [Persisting storage](persisting-shell-storage.md)
+## [Bash persisting storage](persisting-shell-storage.md)
+## [PowerShell persisting storage](persisting-shell-storage-powershell.md)
 ## [Using the window](using-the-shell-window.md)
 
 # [Pricing](pricing.md)
