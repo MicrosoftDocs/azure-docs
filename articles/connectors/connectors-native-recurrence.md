@@ -189,7 +189,7 @@ with the start date and time:
 | ---------- | --------------------------- | ------------------------ | 
 | {none} | Run once immediately, then run future workloads based on the last run time. | Run once immediately, then run future workloads based on your specified recurrence schedule. | 
 | Start time at present or in the future | Run once at your specified start time, then run future workloads based on the last run time. | Run once, but no earlier than the specified start time. Run future workloads based on your specified recurrence schedule. | 
-| Start time in the past {not permitted} | {not applicable} | {not applicable} | 
+| Start time in the past | Calculate the first future run time based on the start time, then run at that time. Run future workloads based on calulations from the last run time. | Calculate the first future run time based on the start time, then run at that time. Run future workloads based on your specified recurrence schedule. | 
 ||||
 
 ## Next steps
