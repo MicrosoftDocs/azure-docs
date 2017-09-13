@@ -8,18 +8,15 @@
 ## [Alert subscription activity](monitor-quick-notify-action-in-subscription.md)
 	
 # Tutorials
+## [Autoscale on performance and schedule](monitor-tutorial-autoscale-performance-schedule.md)
+## [Archive monitoring data](monitor-tutorial-archive-monitoring-data.md)
 
 # Samples
 ## [Powershell](powershell-samples.md)
 ## [Azure CLI](insights-cli-samples.md)
- 
-## To Remove
-### [PowerShell samples](insights-powershell-samples.md)
-### [Azure CLI 1.0 samples](insights-cli-samples.md)
-
+  
 # Concepts
 ## [Sources of monitoring data](monitoring-data-sources.md)
-## [Metrics supported](monitoring-supported-metrics.md)
 ## [Roles permissions and security](monitoring-roles-permissions-security.md)
 ## [Partner integrations](monitoring-partners.md)
 ## Additional Overviews
@@ -32,8 +29,6 @@
 ### [Diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
 ### [Azure Diagnostics Extension](azure-diagnostics.md)
 ## Schemas
-### [Activity log event schema](monitoring-activity-log-schema.md)
-### [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
 ### [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
 #### [1.0](azure-diagnostics-schema-1dot0.md)
 #### [1.2](azure-diagnostics-schema-1dot2.md)
@@ -43,6 +38,9 @@
 ## Walkthroughs
 ### [Walkthrough of Azure Monitor](monitoring-get-started.md)
 ### [Walkthrough of autoscale](monitoring-autoscale-get-started.md)
+### [Azure CLI 1.0 samples](insights-cli-samples.md)
+### [PowerShell samples](insights-powershell-samples.md)
+
 ## Use alerts
 ### [Configure alerts in Azure portal](insights-alerts-portal.md)
 ### [Configure alerts with CLI](insights-alerts-command-line-interface.md)
@@ -84,9 +82,15 @@
 ### [Send to Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
 
+
 # Reference
+## [CLI 2.0](cli/azure/monitor?view=azure-cli-latest)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [REST](/rest/api/monitor/)
+## [Metrics supported](monitoring-supported-metrics.md)
+## [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
+## [Activity log event schema](monitoring-activity-log-schema.md)
+
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
