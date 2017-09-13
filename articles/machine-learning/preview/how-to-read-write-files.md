@@ -72,11 +72,12 @@ with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r') as f:
     text = file.read()
 ```
 
-For a more complete example, please see the `iris_sklearn_shared_folder.py` file in the _Classifying Iris_ sample project.
+For a more complete example, see the `iris_sklearn_shared_folder.py` file in the _Classifying Iris_ sample project.
 
 Before you can use this feature, you have to set some simple configurations in the `.compute` file representing the targeted execution context in the `aml_config` folder. The actual path to this folder can vary depending on the compute target you choose and the value you configure.
 
 ### Configure Local Compute Context
+
 To enable this feature on a local compute context, simply add the following line to your `.compute` file representing _local_ environment (typically named `local.compute`).
 ```
 # local.runconfig
@@ -84,7 +85,8 @@ To enable this feature on a local compute context, simply add the following line
 nativeSharedDirectory: ~/.azureml/share
 ...
 ```
-The `~/.azureml/share` is the default base folder path. You can change it to any local absolute path accessible by the script run. Experimentation account name, Workspace name, and Project name are automatically appended to the base directory, which makes up the full path of the shared directory. For example, the files can be written to (and retrieved from) the following path if you use the above default value:
+
+The `~/.azureml/share` is the default base folder path. You can change it to any local absolute path accessible by the script run. Experimentation account name, Workspace name, and Project name are automatically appended to the base directory, which makes up the full path of the shared directory. For example, the files can be written to (and retrieved from) the following path if you use the preceding default value:
 
 ```
 # on Windows
@@ -95,7 +97,8 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 ```
 
 ### Configure Docker Compute Context (Local or Remote)
-To enable this feature on a Docker compute context, you need to add the following two lines to your local or remote Docker `.compute` file.
+To enable this feature on a Docker compute context, you need to add the following two lines to your local or remote Docker _.compute_ file.
+
 ```
 # docker.compute
 ...

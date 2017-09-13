@@ -1,9 +1,10 @@
-title: <this Supported Data Sources for this Release > | Microsoft Docs
-description: <this Tells which data sources are supported for AML workbench>
-author: <your cforbe>
-ms.author: <your cforbe@microsoft.com>
-ms.date: <today’s date: 9/7/2017>
-
+---
+title: Supported Data Sources for this Release  | Microsoft Docs
+description: Tells which data sources are supported for AML workbench
+author: cforbe
+ms.author: cforbe@microsoft.com
+ms.date: 9/7/2017
+---
 # Supported Data Sources for this Release #
 
 ## Types ##

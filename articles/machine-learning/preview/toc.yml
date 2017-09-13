@@ -71,11 +71,22 @@
   - name: Deploy models
     items:
     - name: (Setup Model Management Environment)
+    - name: Create Docker image
+      href: model-management-image-creation.md
     - name: Deploy web service
       href: model-management-service-deploy.md
-    - name: (Consume web service)
-  - name: Known issues & troubleshooting guide
-    href: known-issues-and-troubleshooting-guide.md
+    - name: placeholder - Consume web service
+      href: doc-template-how-to.md  
+  - name: End-to-end examples
+    items:
+    - name: Awesome ADS example 1
+      href: doc-template-how-to.md 
+    - name: Awesome ADS example 2
+      href: doc-template-how-to.md
+    - name: Awesome ADS example 3
+      href: doc-template-how-to.md
+    - name: Known issues & troubleshooting guide
+      href: known-issues-and-troubleshooting-guide.md
 - name: Reference
   items:  
   - name: Service limitations
