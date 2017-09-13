@@ -139,7 +139,7 @@ After configuring storage account for reports using recovery services vault, it 
 ## Troubleshooting errors
 | Error details | Resolution |
 | --- | --- |
-| After setting up the storage account for the Backup Reports, **Storage Account** still shows has **Not Configured**. | If you configured storage account successfully, your reporting data will flow in despite this issue. To resolve this issue, go to Azure portal > More Services > Diagnostic settings > RS vault > Edit Setting. Delete the previously configured setting and create a new setting from the same blade. This time set the field **Name** to **service**. This should show the configured storage account. |
+| After setting up the storage account for Backup Reports, **Storage Account** still shows **Not Configured**. | If you configured storage account successfully, your reporting data will flow in despite this issue. To resolve this issue, go to Azure portal > More Services > Diagnostic settings > RS vault > Edit Setting. Delete the previously configured setting and create a new setting from the same blade. This time set the field **Name** to **service**. This should show the configured storage account. |
 |After importing Azure Backup content pack in Power BI, the error **404- container is not found** comes up. | As suggested in this document, you must wait for 24 hours after configuring reports in Recovery Services vault to see them correctly in Power BI. If you try to access the reports before 24 hours, you will get this error since complete data is not yet present to show valid reports. |
 
 ## Next steps
