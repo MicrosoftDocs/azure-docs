@@ -63,7 +63,7 @@ To install the updates:
    * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
    * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
    * UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-2. Extract the .zip files.<br>
+2. Extract the .zip files.
 3. **For the RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server and extract it. In the extracted folder, run **/Install**.<br>
 4. **For the configuration server/process server**: Copy **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** to the configuration server and process server. Double-click to run it.<br>
 5. **For the Windows master target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the master target server. Double-click it to run it. Note that the unified agent is also applicable to the source server if source is not updated till Update4. You should install it on the source server as well, as mentioned later in this list.<br>
@@ -71,7 +71,7 @@ To install the updates:
 7. **For the Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.<br>
 8. **For the Windows source server**: You do not need to install Update 5 agent on source if soruce is already on update4. If it is less than update4, apply the update 5 agent.
 To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click it to run it. <br>
-9. **For the Linux source server**: To update the unified agent, copy corresponding  version of UA file to the Linux server and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server,  copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**  to the server and extract it. In the extracted folder, run **/Install**.
+9. **For the Linux source server**: To update the unified agent, copy the corresponding version of the UA file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server,  copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**  to the server and extract it. In the extracted folder, run **/Install**.
 
 ## Enable replication
 
@@ -87,17 +87,14 @@ To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Ap
 ## Updates
 
 ### Azure Site Recovery Scout 8.0.1 Update 5
-Scout Update 5 is a cumulative update. It has all the fixes from Update 1 to Update 4, and the new fixes described below. 
-- Fixes from Site Recovery Scout Update 4 to Update 5 are specific to the the master target and vContinuum components. If your source servers, master target, configuration server, process server and RX are already running Update 5, then apply Update 5 only on the master target server. 
+Scout Update 5 is a cumulative update. It has all the fixes from Update 1 to Update 4, and the new fixes described below. Fixes from Site Recovery Scout Update 4 to Update 5 are specifically for the master target and vContinuum components. If source servers, master target, configuration server, process server and RX are already running Update 5, then only apply it on the master target server. 
 
-**New platform support**
+#### New platform support
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
+* SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the GA package from the portal, as described in [create a vault](#create-a-vault).
 
-> [!NOTE]
-> SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout general availability package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the general availability package from the portal as described in [create a vault](#create-a-vault).
->
 
-**Bug fixes and enhancements**
+#### Bug fixes and enhancements**
 
 * Increased Windows Cluster support reliability
 	* Fixed- Some of the P2V MSCS cluster disks become RAW after recovery.
@@ -109,19 +106,16 @@ Scout Update 5 is a cumulative update. It has all the fixes from Update 1 to Upd
 	
 * During failback protection, if the selected master target server isn't on the same ESXi server as the protected source machine (during forward protection), then vContinuum picks up the wrong master target server during failback recovery, and the recovery operation fails.
 
-> [!NOTE]
-> 
-> * The P2V cluster fixes are applicable only to physical MSCS clusters that are newly protected with Site Recovery Scout Update 5. To get the cluster fixes on protected P2V MSCS clusters with older updates, follow the follow the upgrade steps that are mentioned in the section 12 of the [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
-> 
-> * Re-protection of a physical MSCS cluster can only reuse existing target disks, if at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then use the manual steps in section 12 of [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes), to  move the target side disks to the correct datastore path, to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following the upgrade steps, it will create a new disk on the target ESXi server. You need to manually delete the old disks from the datastore.
-> 
-> * When a source SLES11 or SLES11 (with any service pack) server is rebooted gracefully, then manually mark the **root** disk replication pairs for re-synchronization. There isn't any notification in the CX interface. If you dont' mark the root disk for resynchronization, you might notice data integrity issues.
+#### Issues
+* The P2V cluster fixes are applicable only to physical MSCS clusters that are newly protected with Site Recovery Scout Update 5. To get the cluster fixes on protected P2V MSCS clusters with older updates, follow the upgrade steps mentioned in section 12 of the [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
+* Re-protection of a physical MSCS cluster can only reuse existing target disks, if at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then use the manual steps in section 12 of [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes), to  move the target side disks to the correct datastore path, to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following the upgrade steps, it will create a new disk on the target ESXi server. You need to manually delete the old disks from the datastore.
+* When a source SLES11 or SLES11 (with any service pack) server is rebooted gracefully, then manually mark the **root** disk replication pairs for re-synchronization. There isn't any notification in the CX interface. If you dont' mark the root disk for resynchronization, you might notice data integrity issues.
 > 
 
 ### Azure Site Recovery Scout 8.0.1 Update 4
-Scout Update 4 is a cumulative update. It has all the fixes from Update 1 to Update 3, and the following new bug fixes and enhancements.
+Scout Update 4 is a cumulative update. It has all the fixes from Update 1 to Update 3, and the new fixes described below.
 
-**New platform support**
+#### New platform support
 
 * Support has been added for vCenter/vSphere 6.0, 6.1 and 6.2
 * Support has been added for following Linux operating systems:
@@ -133,7 +127,7 @@ Scout Update 4 is a cumulative update. It has all the fixes from Update 1 to Upd
 > [!NOTE]
 > RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from the portal as described in [create a vault](#step-1-create-a-vault).
 
-**Bug fixes and enhancements**
+#### Bug fixes and enhancements
 
 * Improved shutdown handling for the following Linux operating systems and clones, to prevent unwanted re-synchronization issues.
 	* Red Hat Enterprise Linux (RHEL) 6.x
@@ -153,13 +147,18 @@ Scout Update 4 is a cumulative update. It has all the fixes from Update 1 to Upd
   * Capacity and free space details for all the protected devices.
   * Scout driver state on the source server.
 
-> [!NOTE]
-> * **InMage_Scout_Standard_8.0.1_GA.zip** base package now has an updated CX base installer: **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**, and a Windows master target base installer: **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installations, use the new CX and Windows master target GA bits.
-> * Update 4 can be applied directly on 8.0.1 GA.
-> * The configuration server and RX updates can’t be rolled back, after they've been applied.
+#### Issues
+
+* **InMage_Scout_Standard_8.0.1_GA.zip** base package now has an updated CX base installer: **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**, and a Windows master target base installer: **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installations, use the new CX and Windows master target GA bits.
+* Update 4 can be applied directly on 8.0.1 GA.
+* The configuration server and RX updates can’t be rolled back, after they've been applied.
 
 
 ### Azure Site Recovery Scout 8.0.1 Update 3
+
+All Site Recovery updates are cumulative. Update 3 has all the fixes of Update 1 and Update 2. Update 3 can be directly applied on 8.0.1 GA. The configuration server and RX updates can’t be rolled back after they're applied on the system.
+
+#### Bug fixes and enhancements
 Update 3 includes the following bug fixes and enhancements:
 
 * The configuration server and RX aren't registered in the vault when they're behind the proxy.
@@ -189,13 +188,10 @@ Update 3 includes the following bug fixes and enhancements:
 | Malicious file upload |Restricted files to certain extensions. Allowed extensions are: 7z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip. |
 | Persistent cross-site scripting |Added input validations. |
 
-> [!NOTE]
-> * All Site Recovery updates are cumulative. Update 3 has all the fixes of Update 1 and Update 2. Update 3 can be directly applied on 8.0.1 GA.
-> * The configuration server and RX updates can’t be rolled back after they're applied on the system.
->
->
+
 
 ### Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
+
 Fixes in Update 2 include:
 
 * **Configuration server**: Fix for an issue that prevented the 31-day free metering feature from working as expected when the configuration server was registered in Site Recovery.
