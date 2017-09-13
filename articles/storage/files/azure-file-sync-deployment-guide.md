@@ -43,11 +43,11 @@ For every server, including server nodes in a Failover Cluster, you intend to us
 
 1. Disable Internet Explorer Enhanced Security Configuration. This is only required for initial server registration, and can be reenabled after the server has been registered.
     1. Open Server Manager.
-    2. On the left-hand side, click "Local Server":
+    2. On the left-hand side, click "Local Server":  
         !["Local Server" on the left-hand side of the Server Manager UI](media/azure-file-sync-deployment-guide/prepare-server-disable-IEESC-1.PNG)
-    3. Select the link for "IE Enhanced Security Configuration" on the right-hand side of the Properties sub-pane:
+    3. Select the link for "IE Enhanced Security Configuration" on the right-hand side of the Properties sub-pane:  
         ![The "IE Enhanced Security Configuration" in the Server Manager UI](media/azure-file-sync-deployment-guide/prepare-server-disable-IEESC-2.PNG)
-    4. Select "Off" for both Administrators and Users in the Internet Explorer Enhanced Security Configuration pop-up Window:
+    4. Select "Off" for both Administrators and Users in the Internet Explorer Enhanced Security Configuration pop-up window:  
         ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/azure-file-sync-deployment-guide/prepare-server-disable-IEESC-3.png)
 
 2. Ensure that you are running at least PowerShell 5.1.* (PowerShell 5.1 is the default on Windows Server 2016). You can verify you are running PowerShell 5.1.* by looking at the value of the PSVersion property of the $PSVersionTable object:
@@ -61,7 +61,7 @@ For every server, including server nodes in a Failover Cluster, you intend to us
 3. [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). We always recommend using the latest version of the of Azure PowerShell modules.
 
 ## Install the Azure File Sync agent
-The Azure File Sync agent is a downloadable package which enables a Windows Server to be synchronized with an Azure File share. The agent can be downloaded from the [Microsoft Download Center](aka.ms/FabianUhseToPopulate). Once downloaded, double click on the MSI package to start the Azure File Sync agent installation.
+The Azure File Sync agent is a downloadable package which enables a Windows Server to be synchronized with an Azure File share. The agent can be downloaded from the [Microsoft Download Center](https://aka.ms/FabianUhseToPopulate). Once downloaded, double click on the MSI package to start the Azure File Sync agent installation.
 
 > [!Important]  
 > If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent will need to be installed on every node in the cluster.

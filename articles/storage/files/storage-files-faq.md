@@ -24,7 +24,7 @@ ms.author: renash
 
 * **Q. Why is Azure File storage useful?**  
    
-    Azure File storage provides shared data access across multiple VMs and platforms. Refer to [Why Azure File storage is useful](storage-files-introduction.md#why-azure-file-storage-is-useful).
+    Azure File storage provides shared data access across multiple VMs and platforms. Refer to [Why Azure File storage is useful](storage-files-introduction.md#why-azure-files-is-useful).
 
 * **Q. When should I use Azure File vs Azure Blob vs Azure Disk ?**  
    

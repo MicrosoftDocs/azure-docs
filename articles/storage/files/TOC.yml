@@ -15,7 +15,7 @@
   - name: Get started with Azure File Sync
     href: azure-file-sync-quick-start.md
   - name: Mount on Windows
-    href: storage-file-how-to-use-files-windows.md
+    href: storage-how-to-use-files-windows.md
   - name: Mount on Linux
     href: storage-how-to-use-files-linux.md
   - name: Mount on macOS
