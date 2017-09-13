@@ -132,33 +132,17 @@ The CURL response gives you the list of Keys:
 
 Create a file to be uploaded this will be a sample Blob file that you can upload with your Storage Keys on your storage account within the container you created. 
 
-On a Linux VM you can do this with the following command, ensure that the file is local on the VM.
 
-```bash
-echo "This is a test file." > test.txt
-```
- Next, you can upload the file using the Azure CLI and authenticate with the Storage Key.
-```bash
- az storage blob upload --container-name testcontainer --file test.txt --name testblob --account-name skwanteststorage --account-key FIkeuE5DQ1mpCZQLJo05GQkFNjvArrZaAJt8KHfqF+RWdDYOkD6XN2s1yAoSqGLqheFggOxHzefx96zun6aEhw==
-```
 
 Response-
 
-```JSON
-Finished[#############################################################]  100.0000%
-{
-  "etag": "\"0x8D4F9929765C139\"",
-  "lastModified": "2017-09-12T03:58:56+00:00"
-}
-```
 
-Step 5 (optional):  Download the file using the Azure CLI and authenticating with the storage key
+
+Step 5 (optional):  Download the file using PowerShell
 
 Request-
 
-```bash 
-az storage blob download --container-name testcontainer --file test2.txt --name testblob --account-name skwanteststorage --account-key FIkeuE5DQ1mpCZQLJo05GQkFNjvArrZaAJt8KHfqF+RWdDYOkD6XN2s1yAoSqGLqheFggOxHzefx96zun6aEhw==
-```
+
 
 Response-
 

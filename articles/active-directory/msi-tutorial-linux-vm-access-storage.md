@@ -139,8 +139,13 @@ On a Linux VM you can do this with the following command, ensure that the file i
 echo "This is a test file." > test.txt
 ```
  Next, you can upload the file using the Azure CLI and authenticate with the Storage Key.
-```bash
- az storage blob upload --container-name testcontainer --file test.txt --name testblob --account-name skwanteststorage --account-key FIkeuE5DQ1mpCZQLJo05GQkFNjvArrZaAJt8KHfqF+RWdDYOkD6XN2s1yAoSqGLqheFggOxHzefx96zun6aEhw==
+ 
+```azurecli-interactive
+ az storage blob upload --container-name 
+                        --file 
+                        --name 
+                        [--account-name] 
+                        [--account-key] 
 ```
 
 Response-
@@ -157,8 +162,12 @@ Step 5 (optional):  Download the file using the Azure CLI and authenticating wit
 
 Request-
 
-```bash 
-az storage blob download --container-name testcontainer --file test2.txt --name testblob --account-name skwanteststorage --account-key FIkeuE5DQ1mpCZQLJo05GQkFNjvArrZaAJt8KHfqF+RWdDYOkD6XN2s1yAoSqGLqheFggOxHzefx96zun6aEhw==
+```azurecli-interactive
+az storage blob download --container-name
+                         --file 
+                         --name 
+                         [--account-name]
+                         [--account-key]  
 ```
 
 Response-
