@@ -153,11 +153,14 @@ Note: it is recommended to use only one of the keys in all of your applications 
   This article shows how to use Active Directory to control access to your Azure Storage keys in Azure Key Vault. It also shows how to use an Azure Automation job to regenerate the keys on an hourly basis.
 
 ## Data Plane Security
-Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about allowing access to the objects?
+Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
 
-There are three methods for controlling access to the data objects themselves. The first is by controlling access to the storage account keys, the second is using Shared Access Signatures to grant access to specific data objects for a specific amount of time, the third is using Network Security to limit access to the storage account by subnet or IP-range.
+There are two methods for authorizing access to the data objects themselves. These include controlling access to the storage account keys and using Shared Access Signatures to grant access to specific data objects for a specific amount of time.
 
-One exception to note is that you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
+In addition, for Blob Storage, you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
+
+In addition to limiting access through authorization, you can also use [Firewalls and Virtual Networks](storage-network-security.md) to limit access to the storage account based on network rules.  This approach enables you deny access to public internet traffic, and to grant access only to specific Azure Virtual Networks or public internet IP address ranges.
+
 
 ### Storage Account Keys
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account.
@@ -239,15 +242,7 @@ For more detailed information on using Shared Access Signatures and Stored Acces
   * [Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
-* Limiting access by IP Address (IP ACLs)
 
-  * [What is an endpoint Access Control List (ACLs)?](../../virtual-network/virtual-networks-acl.md)
-  * [Constructing a Service SAS](https://msdn.microsoft.com/library/azure/dn140255.aspx)
-
-    This is the reference article for service-level SAS; it includes an example of IP ACLing.
-  * [Constructing an Account SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx)
-
-    This is the reference article for account-level SAS; it includes an example of IP ACLing.
 * Authentication
 
   * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
