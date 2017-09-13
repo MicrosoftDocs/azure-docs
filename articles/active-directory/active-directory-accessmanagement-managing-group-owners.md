@@ -13,30 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 09/12/2017
 ms.author: curtand
 
-ms.custom: oldportal;it-pro;
+ms.custom: it-pro
 
 ---
 # Managing owners for a group
 Once a resource owner has assigned access to a resource to an Azure AD group, the membership of the group is managed by the group owner. The resource owner effectively delegates the permission to assign users to the resource to the owner of the group.
 
-> [!IMPORTANT]
-> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. 
+## Add an owner to a group
 
-## Assigning group ownership
-**To add an owner to a group**
-
-1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
-2. Select the **Groups** tab, and then open the group that you want to add owners to.
+1. In the [Azure AD admin center](https://aad.portal.azure.com), select **Users and groups**.
+2. Select **All groups**, and then open the group that you want to add owners to.
 3. Select **Add Owners**.
 4. On the **Add owners** page, select the user that you want to add as the owner of this group, and make sure this name is added to the **Selected** pane.
 
-**To remove an owner from a group**
+## Remove an owner from a group
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
-2. Select the **Groups** tab, and then open the group that you want to remove an owner from.
+1. In the [Azure AD admin center](https://aad.portal.azure.com), select **Users and groups**.
+2. Select **All groups**, and then open the group from which you want to remove owners.
 3. Select the **Owners** tab.
 4. Select the owner that you want to remove from this group, and then select **Remove**.
 

@@ -99,7 +99,7 @@ No.
 
 * You can search and browse for technical questions and answers from the community or ask your own question by clicking [here](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
-[How to get support for Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)
+[How to get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Use this link to get support through the Azure portal.
 
