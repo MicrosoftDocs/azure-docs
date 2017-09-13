@@ -128,7 +128,6 @@ Event Hubs events are currently only emitted when a file is automatically sent t
 ### Available event types
 
 - **Microsoft.EventHub.CaptureFileCreated**: Raised when a capture file is created.
-
 ### Example event
 
 This sample event shows the schema of an event hubs event raised when the Capture feature stores a file: 
@@ -156,7 +155,7 @@ This sample event shows the schema of an event hubs event raised when the Captur
 ]
 
 ```
--
+
 
 ## Azure Blob storage
 
