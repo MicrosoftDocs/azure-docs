@@ -144,10 +144,10 @@ Do the following before you start:
 - Make sure the machine can access these URLs:
         
         [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
-        - Any IP address-based firewall rules should allow communication to Azure.
-        - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-        - Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
+
+- Any IP address-based firewall rules should allow communication to Azure.
+- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
+- Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
 Then run setup as a Local Administrator on the configuration server VM.
 
@@ -198,10 +198,11 @@ Select and verify target resources.
 4. In **Recovery point retention**, specify (in hours) how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
     - 24 hours retention is supported for machines replicated to premium storage
     - 72 hours is supported for standard storage.
-1. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
+5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
     ![Replication policy](./media/tutorial-vmware-to-azure/replication-policy.png)
-8. The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then the failback policy will be **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.
+
+The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then the failback policy will be **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.
 
 
 ## Enable replication
@@ -222,10 +223,6 @@ Enable replication as follows:
 9. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. 
 10. In **Virtual Machines** > **Select virtual machines**, click and select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
 11. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
-
-    ![Select process server](./media/tutorial-vmware-to-azure/select-process.png)
-
-
 12. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
 13. Click **Enable Replication**.
 
