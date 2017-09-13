@@ -1,6 +1,6 @@
 ﻿---
 title: Require secure transfer in Azure Storage | Microsoft Docs
-description: Learn about the "Require secure transfer" feature for Azure Storage, and how to enable it.
+description: Learn about the "Secure transfer required" feature for Azure Storage, and how to enable it.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -16,11 +16,11 @@ ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
 ---
-# Require secure transfer
+# Require secure transfer in Azure Storage
 
-The "Secure transfer required" option enhances the security of your storage account by only allowing requests to the storage account from secure connections. For example, when calling REST APIs to access your storage account, you must connect using HTTPS. Any requests using HTTP are rejected when "Secure transfer required" is enabled.
+The "Secure transfer required" option enhances the security of your Azure Storage account by only allowing requests to the account from secure connections. For example, when calling REST APIs to access your storage account, you must connect using HTTPS. Any requests using HTTP are rejected when "Secure transfer required" is enabled.
 
-When you are using the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client. 
+When you use the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios using SMB 2.1, SMB 3.0 without encryption, and some versions of the Linux SMB client. 
 
 By default, the "Secure transfer required" option is disabled.
 
@@ -29,26 +29,26 @@ By default, the "Secure transfer required" option is disabled.
 
 ## Enable "Secure transfer required" in the Azure portal
 
-You can enable the "Secure transfer required" setting both when you create a storage account in the [Azure portal](https://portal.azure.com), and for existing storage accounts.
+You enable the "Secure transfer required" setting when you create a storage account in the [Azure portal](https://portal.azure.com), and also for existing storage accounts.
 
 ### Require secure transfer when you create a storage account
 
 1. Open the **Create storage account** blade in the Azure portal.
 1. Under **Secure transfer required**, select **Enabled**.
 
-  ![screenshot](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+  ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### Require secure transfer for an existing storage account
 
 1. Select an existing storage account in the Azure portal.
-1. Select **Configuration** under **SETTINGS** in the storage account menu blade.
+1. Select **Configuration** under **SETTINGS** in the storage account menu pane.
 1. Under **Secure transfer required**, select **Enabled**.
 
-  ![screenshot](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+  ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## Enable "Secure transfer required" programmatically
 
-The setting name is _supportsHttpsTrafficOnly_ in storage account properties. You can enable it with REST API, tools, or libraries:
+The setting name is _supportsHttpsTrafficOnly_ in storage account properties. You enable it with REST API, tools, or libraries:
 
 * [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (Version: 2016-12-01)
 * [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (Version: 4.1.0)
@@ -60,9 +60,9 @@ The setting name is _supportsHttpsTrafficOnly_ in storage account properties. Yo
 
 ### Enable "Secure transfer required" setting with REST API
 
-To simplify testing with REST API, you can use [ArmClient](https://github.com/projectkudu/ARMClient) to call from command line.
+To simplify testing with REST API, use [ArmClient](https://github.com/projectkudu/ARMClient) to call from the command line.
 
- You can use below command line to check the setting with the REST API:
+ Use the following command line to check the setting with the REST API:
 
 ```
 # Login Azure and proceed with your credentials
@@ -71,7 +71,7 @@ To simplify testing with REST API, you can use [ArmClient](https://github.com/pr
 > armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
 ```
 
-In the response, you can find _supportsHttpsTrafficOnly_ setting. Sample:
+In the response, find the _supportsHttpsTrafficOnly_ setting. Example:
 
 ```Json
 
@@ -88,7 +88,7 @@ In the response, you can find _supportsHttpsTrafficOnly_ setting. Sample:
 
 ```
 
-You can use below command line to enable the setting with the REST API:
+Use the following command line to enable the setting with the REST API:
 
 ```
 
@@ -112,4 +112,4 @@ Sample of Input.json:
 ```
 
 ## Next steps
-Azure Storage provides a comprehensive set of security capabilities, which together enable developers to build secure applications. For more details, visit the [Storage Security Guide](storage-security-guide.md).
+Azure Storage provides a comprehensive set of security capabilities, which together enable developers to build secure applications. For more details, go to the [Storage Security Guide](storage-security-guide.md).
