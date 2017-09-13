@@ -31,11 +31,7 @@ In these articles, you will learn to use Azure Machine Learning preview features
 * Local Docker engine for running dev/test scenarios locally.
 * Access to an Ubutu Linux VM for scale-up computation.
 * Access to HDInsight for Spark cluster for scale-out computation.
-* Access to an Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
 * Docker must be installed on local machine for local web service deployment.
-
-
-
 
 ## Provisioning
 Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Log in to Azure. Click on **+ New** and search for `Machine Learning`. Look for `ML Experimentation (preview)` in the search results. Click on `ML Experimentation (preview)` to get started with creating your _Machine Learning Experimentation account_. As part of the Experimentation account creation, you are also asked to create an Azure storage account, or to supply an existing one, for storing Run outputs and other data.
@@ -56,10 +52,10 @@ You can install Azure Machine Learning Workbench on your Windows or macOS comput
 | [AmlWorkbenchSetup.exe](https://vienna.blob.core.windows.net/windows/AmlWorkbenchSetup.exe) | Windows 
 | [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg) | macOS
 
+>[!IMPORTANT]
+>Please make sure you fully download the isntallers and save it on di
 ### Special Note for macOS Users
-<!-- Commented-out until we move the script files elsewhere (Gary)
-Run this [shell script](./scripts/quick-start-installation/install_openssl.sh) to brew-install the latest OpenSSL libraries. And configure links before proceeding with the installation. 
--->
+Run this shell script to brew-install the latest OpenSSL libraries. And configure links before proceeding with the installation. 
 
 If you are using Python greater than 3.5, you need to execute this command to enable installing the right certificates.
 ```bash
