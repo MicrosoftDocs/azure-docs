@@ -53,7 +53,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-    html: <p><a href="/cli/azure/acr">Azure CLI 2.0</a><p>
-    html: <p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a><p>
+    html: <p><a href="/cli/azure/acr">Azure CLI 2.0</a></p>
+    html: <p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/containerregistry">REST API Reference</a></p>
