@@ -14,7 +14,6 @@
 ## [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
 ## [Available services](documentation-government-services.md)
 ## Quickstarts
-### [Functions](documentation-government-functions.md)
 ### [Web App](documentation-government-howto-deploy-webandmobile.md)
 
 # How To
