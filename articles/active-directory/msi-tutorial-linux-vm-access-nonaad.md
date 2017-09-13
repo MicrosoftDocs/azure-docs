@@ -3,7 +3,7 @@ title: Use a Linux VM MSI to access KeyVault
 description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: elizakuzmenko
+author: elkuzmen
 manager: mbaldwin
 editor: bryanla
 
