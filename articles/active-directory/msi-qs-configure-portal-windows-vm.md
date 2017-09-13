@@ -16,11 +16,11 @@ ms.date: 09/14/2017
 ms.author: bryanla
 ---
 
-# Configure an Azure VM Managed Service Identity (MSI) using the Azure portal
+# Configure a VM Managed Service Identity (MSI) using the Azure portal
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this QuickStart, you will learn how to enable and remove MSI for an Azure Windows VM, using the Azure portal.
+In this article, you will learn how to enable and remove MSI for an Azure Windows VM, using the Azure portal.
 
 ## Prerequisites
 
