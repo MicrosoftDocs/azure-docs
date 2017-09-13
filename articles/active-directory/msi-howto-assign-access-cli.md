@@ -16,7 +16,7 @@ ms.date: 09/14/2017
 ms.author: bryanla
 ---
 
-# How to assign a Managed Service Identity (MSI) access to a resource, using Azure CLI
+# Assign a Managed Service Identity (MSI) access to a resource using Azure CLI
 
 Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine's MSI access to an Azure storage account, using Azure CLI.
 
@@ -32,9 +32,9 @@ To run the CLI script examples, you have three options:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Use Role Based Access Control (RBAC) to assign the MSI access to another resource
+## Use RBAC to assign the MSI access to another resource
 
-After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-cli-windows-vm.md). 
+After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-cli-windows-vm.md): 
 
 1. If you're not using Azure Cloud Shell from the Azure portal, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
@@ -58,8 +58,8 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
 
 If the MSI for the resource does not show up in the list of available identities, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 
-- look at the "Configuration" page and ensure MSI enabled = "Yes."
-- look at the "Extensions" page and ensure the MSI extension deployed successfully.
+- Look at the "Configuration" page and ensure MSI enabled = "Yes."
+- Look at the "Extensions" page and ensure the MSI extension deployed successfully.
 
 If either is incorrect, you may need to redeploy the MSI on your resource again, or troubleshoot the deployment failure.
 

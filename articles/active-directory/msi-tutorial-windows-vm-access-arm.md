@@ -28,8 +28,8 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Windo
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+## Sign in to Azure
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create a Windows virtual machine in a new resource group
 For this tutorial, we create a new Windows VM.  You can also enable MSI on an existing VM.
@@ -41,7 +41,6 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the Settings page, keep the defaults and click **OK**.
 
-
 ## Enable MSI on your VM 
 A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
 
@@ -51,7 +50,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 4.	Ensure you click **Save** to save the configuration.  
 5. If you wish to check and verify which extensions are on this VM, click Extensions. If MSI is enabled, then ManagedIdentityExtensionforWindows appears in the list.
 
-## Grant your VM access to a resource group in Azure Resource Manager
+## Grant your VM access to a resource group
 Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s identity access to a resource in Azure Resource Manager, in this case the Resource Group in which the VM is contained.  
 
 1.	Navigate to the tab for **Resource Groups**. 
@@ -62,19 +61,20 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 6.	Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**. 
 7.	Finally, in **Select** choose your Windows VM in the dropdown and click **Save**.
 
-## Get an access token using the VM identity and use it to call Azure Resource Manager  
-You will need to use **PowerShell** in this portion.  If you haven't yet, [install it now](https://docs.microsoft.com/en-us.powershell/azure/overview?view=azurermps-4.3.1). 
+## Get an access token to call Azure Resource Manager  
+Now get an access token for Azure Resource Manager, using the identity of the VM. You need to use **PowerShell** in this portion. If you haven't yet, [install it now](https://docs.microsoft.com/en-us.powershell/azure/overview?view=azurermps-4.3.1). 
 
 1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
 2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3.	Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
 4.	Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
-```powershell
-$response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-```
+   ```powershell
+   $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+   ```
 
-**Note**: The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+> [!NOTE]
+> The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
 
 Next, extract the full response, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
 
@@ -92,7 +92,8 @@ Finally, call Azure Resource Manager using the access token. In this example, we
 ```powershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
 ```
-**Note**: The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
+> [!NOTE] 
+> The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
 
 The following command returns the details of the Resource Group:
 ```powershell

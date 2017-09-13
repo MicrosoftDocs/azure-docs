@@ -2,10 +2,10 @@
 title: How to configure MSI on an Azure VM using Azure CLI
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using Azure CLI.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: bryanla
 manager: mbaldwin
-editor: ''
+editor: 
 
 ms.service: active-directory
 ms.devlang: na
@@ -16,7 +16,7 @@ ms.date: 09/14/2017
 ms.author: bryanla
 ---
 
-# Configure an Azure VM Managed Service Identity (MSI) using Azure CLI
+# Configure a VM Managed Service Identity (MSI) using Azure CLI
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
