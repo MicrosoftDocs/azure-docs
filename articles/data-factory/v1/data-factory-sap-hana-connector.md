@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 08/31/2017
 ms.author: jingwang
 
 robots: noindex
@@ -37,7 +37,7 @@ To enable the connectivity to the SAP HANA instance, install the following compo
 - **SAP HANA ODBC driver** on the gateway machine. You can download the SAP HANA ODBC driver from the [SAP Software Download Center](https://support.sap.com/swdc). Search with the keyword **SAP HANA CLIENT for Windows**. 
 
 ## Getting started
-You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
+You can create a pipeline with a copy activity that moves data from an on-premises SAP HANA data store by using different tools/APIs. 
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 - You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 

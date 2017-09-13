@@ -303,8 +303,8 @@ This topic provides a reference for the following API Management policies. For i
 |---------------|-----------------|--------------|--------------|  
 |key|A string. Expression allowed. Specifies the concurrency scope. Can be shared by multiple policies.|Yes|N/A|  
 |max-count|An integer. Specifies a maximum number of requests that are allowed to enter the policy.|Yes|N/A|  
-|timeout|An integer. Expression allowed. Specifies the number of seconds a request should wait to enter a scope before failing with "403 Too Many Requests"|No|Infinity|  
-|max-queue-length|An integer. Expression allowed. Specifies the maximum queue length. Incoming requests trying to enter this policy will be terminated with “403 Too Many Requests” immediately when the queue is exhausted.|No|Infinity|  
+|timeout|An integer. Expression allowed. Specifies the number of seconds a request should wait to enter a scope before failing with "429 Too Many Requests"|No|Infinity|  
+|max-queue-length|An integer. Expression allowed. Specifies the maximum queue length. Incoming requests trying to enter this policy will be terminated with “429 Too Many Requests” immediately when the queue is exhausted.|No|Infinity|  
   
 ###  <a name="ChooseUsage"></a> Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

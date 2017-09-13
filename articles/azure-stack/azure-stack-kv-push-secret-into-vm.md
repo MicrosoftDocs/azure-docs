@@ -23,7 +23,7 @@ This article helps you to create a virtual machine in Azure Stack and push certi
 
 ## Prerequisites
 
-* Azure Stack cloud administrators must have [created an offer](azure-stack-create-offer.md) that includes the Azure Key Vault service.  
+* Azure Stack operators must have [created an offer](azure-stack-create-offer.md) that includes the Azure Key Vault service.  
 * Users must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
 * [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)

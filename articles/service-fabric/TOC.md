@@ -4,6 +4,8 @@
 
 # Quickstarts
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
+## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
+## [Deploy a Linux container application](service-fabric-quickstart-containers-linux.md)
 
 # Tutorials
 ## Deploy a .NET app
@@ -122,7 +124,7 @@
 ### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Performance counters for Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md)
 
-# How To Guides
+# How-to guides
 ## Set up your development environment
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
@@ -278,7 +280,7 @@
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Manage a cluster using Service Fabric CLI](service-fabric-cli.md)
+### [Getting started with Service Fabric CLI](service-fabric-cli.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
