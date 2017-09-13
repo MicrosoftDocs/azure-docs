@@ -95,7 +95,7 @@ We also demonstrate how we can publish the trained Neural Network as a service f
 ## Architecture
 The figure shows the architecture that was used to process data and train models.
 
-![Architecture](./media/sample-tdsp-nlp/Architecture.png)
+![Architecture](./media/sample-tdsp-nlp/architecture.png)
 
 ## Data 
 We first obtained the raw MEDLINE abstract data from [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). The data is available publically and is in form of XML files available on their [FTP server](ftp://ftp.nlm.nih.gov/nlmdata/.medleasebaseline/gz/). There are 812 XML files available on the server and each of the XML files contain around 30,000,000 abstracts. More detail about data acquisition and understanding is provided in the Project Structure. The fields present in each file are 
@@ -135,7 +135,7 @@ Other datasets, which are being used for training and evaluation of the Neural E
 For the project, we use the TDSP folder structure and documentation templates (Figure 1), which follows the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). Project is created based on instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/Docs/how-to-use-tdsp-in-azure-ml.md).
 
 
-![Fill in project information](./media/sample-tdsp-nlp/Instantiation_Step3.JPG) 
+![Fill in project information](./media/sample-tdsp-nlp/instantiation-step3.jpg) 
 
 The step-by-step data science workflow was as follows:
 
@@ -181,7 +181,7 @@ Once we have the word embeddings ready, we can make a deep neural network that u
 #### [Featurizing/Embedding Words with Word2Vec](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_DataPreparation/ReadMe.md)
 Word2Vec is the name given to a class of neural network models that, given an unlabeled training corpus, produce a vector for each word in the corpus that encodes its semantic information. These models are simple neural networks with one hidden layer. The word vectors/embeddings are learned by backpropagation and stochastic gradient descent. There are two types of word2vec models, namely, the Skip-Gram and the continuous-bag-of-words. Since we are using the MLlib's implementation of the word2vec, which supports the Skip-gram model, we briefly describe the model here. [For details](https://arxiv.org/pdf/1301.3781.pdf).
 
-![Skip Gram Model](./media/sample-tdsp-nlp/Skip Gram.png)
+![Skip Gram Model](./media/sample-tdsp-nlp/skip-gram.png)
 
 The model uses Hierarchical Softmax and Negative sampling to optimize the performance. Hierarchical SoftMax (H-SoftMax) is an approximation inspired by binary trees. H-SoftMax essentially replaces the flat SoftMax layer with a hierarchical layer that has the words as leaves. This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from 
 having to calculate the expensive normalization over all words. Since a balanced binary tree has a depth of log2(|V|)log2(|V|) (V is the Vocabulary), we only need to evaluate at most log2(|V|)log2(|V|) nodes to obtain the final probability of a word. The probability of a word w given its context c is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. We can build a Huffman Tree based on the frequency of the words in the dataset to ensure that more frequent words get shorter representations. Refer [link](http://sebastianruder.com/word-embeddings-softmax/) for further information.
@@ -189,7 +189,7 @@ Image taken from [here](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-
 
 Once we have the embeddings, we would like to visualize them and see the relationship between semantically similar words. 
 
-![W2V similarity](./media/sample-tdsp-nlp/W2v_sim.png)
+![W2V similarity](./media/sample-tdsp-nlp/w2v-sim.png)
 
 We have shown two different ways of visualizing the embeddings. The first, uses a PCA to project the high dimensional vector to a 2-D vector space. This leads to a significant loss of information and the visualization is not as accurate. The second is to use PCA with t-SNE. t-SNE is a nonlinear dimensionality reduction technique that is well-suited for embedding high-dimensional data into a space of two or three dimensions, which can then be visualized in a scatter plot.  It models each high-dimensional object by a two- or three-dimensional point in such a way that similar objects are modeled by nearby points and dissimilar objects are modeled by distant points. It works in two parts. First, it creates a probability distribution over the pairs in the higher dimensional space in a way that similar objects have a high probability of being picked and dissimilar points have  low probability of getting picked. Second, it defines a similar probability distribution over the points in a low dimensional map and minimizes the KL Divergence between the two distributions with respect to location of points on the map. The location of the points in the low dimension is obtained by minimizing the KL Divergence using Gradient Descent. But t-SNE might not be always reliable. Refer [link](https://distill.pub/2016/misread-tsne/) Refer [GitHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/02_Modeling/01_FeatureEngineering/ReadMe.md) for details about the implementation.
 
@@ -211,7 +211,7 @@ As you see below, t-SNE visualization provides more separation and potential clu
 #### [Training the Neural Entity Extractor](Code/02_Modeling/02_ModelCreation/ReadMe.md)
 Traditional Neural Network Models suffer from a problem that they treat each input and output as independent of the other inputs and outputs. This may not be a good idea for tasks such as Machine translation, Entity Extraction, or any other sequence to sequence labeling tasks. Recurrent Neural Network models overcome this problem as they can pass information computed until now to the next node. This property is called having memory in the network since it is able to use the previously computed information. The below picture represents this.
 
-![RNN](./media/sample-tdsp-nlp/RNN_expanded.png)
+![RNN](./media/sample-tdsp-nlp/rnn-expanded.png)
 
 Vanilla RNNs actually suffer from the [Vanishing Gradient Problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) due to which they are not able to utilize all the information they have seen before. The problem becomes evident only when a large amount of context is required to make a prediction. But models like LSTM do not suffer from such a problem, in fact they are designed to remember long-term dependencies. Unlike vanilla RNNs that have a single neural network, the LSTMs have the interactions between four neural networks for each cell. Refer to the [excellent post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) for a detailed explanation of how LSTM work.
 
@@ -223,7 +223,7 @@ Refer [GitHub code link](https://github.com/Azure/MachineLearningSamples-Biomedi
 
 The model architecture that we have used across all the codes and for comparison is presented below. The parameter that changes for different datasets is the maximum sequence length (613 here).
 
-![LSTM model](./media/sample-tdsp-nlp/D_a_D_model.png)
+![LSTM model](./media/sample-tdsp-nlp/d-a-d-model.png)
 
 #### Model evaluation
 We use the evaluation script from the shared task [Bio-Entity Recognition Task at Bio NLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html) to evaluate the precision, recall, and F1 score of the model. Below is the comparison of the results we get with the embeddings trained on Medline Abstracts and that on Google News embeddings. We clearly see that the in-domain model is out performing the generic model. Hence having a specific word embedding model rather than using a generic one is much more helpful. 
