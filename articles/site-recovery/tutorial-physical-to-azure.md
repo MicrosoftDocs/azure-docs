@@ -36,7 +36,7 @@ To complete this tutorial:
 
 - [Review](concepts-physical-to-azure-architecture.md) the scenario architecture and components.
 - [Review](site-recovery-support-matrix-to-azure.md) the support requirements for all components.
-- Make sure that machines that you want to replicate comply with [operating system requirements](site-recovery-support-matrix-to-azure#support-for-replicated-machine-os-versions), [file storage requirements](site-recovery-support-matrix-to-azure.md#supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers), and [prerequisites for Azure VMs](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Make sure that machines that you want to replicate comply with [operating system requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [file storage requirements](site-recovery-support-matrix-to-azure.md#supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers), and [prerequisites for Azure VMs](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 - Prepare Azure, including an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare for installation of the Mobility service on each server you want to replicate.
 
@@ -53,14 +53,14 @@ Get a Microsoft [Azure account](http://azure.microsoft.com/).
 
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
-- Review the [permissions](site-recovery-role-based-linked-access-control#permissions-required-to-enable-replication-for-new-virtual-machines) you need.
-- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure).
+- Review the [permissions](site-recovery-role-based-linked-access-control.md) you need.
+- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
 
 
 
 ### Set up an Azure network
 
-Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet).
+Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet.md).
 
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault
@@ -153,7 +153,7 @@ Select and verify target resources.
 4. In **Recovery point retention**, specify (in hours) how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
 5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
-    ![Replication policy](./media/vmware-walkthrough-replication/replication-policy.png)
+    ![Replication policy](./media/tutorial-physical-to-azure/replication-policy.png)
 8. The new policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then the failback policy will be **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.
 
 
