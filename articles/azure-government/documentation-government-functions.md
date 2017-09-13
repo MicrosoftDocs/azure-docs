@@ -192,7 +192,7 @@ Once that is confirmed, the steps to create a function using Visual Studio to Az
 
 ### Test your function in Azure Government 
 
-Once your function has been deployed from the previous step above, we can test that the function. 
+Once your function has been deployed from the previous step above, we can test the function. 
 The URL that calls your HTTP triggered function looks like this:
 
         http://<functionappname>.azurewebsites.us/api/<functionname>?name=<yourname> 
@@ -238,7 +238,7 @@ Go down to the "Add" button and click on "New Item" as shown below.
     ![triggerfunctioncreate3](./media/documentation-government-function7.png)
     
     Click on the storage account that corresponds to this function app and you will see an "Access keys" section under "Settings".
-    Once you navigate to this section you will be able to see two Default keys: Primary and Secondary.
+    Once you navigate to this section you will be able to see two Default keys: Primary and Secondary
 
     ![triggerfunctioncreate4](./media/documentation-government-function8.png)
 6. Copy the Connection String for your Key1, go back to your "local.settings.json" file and paste the string for each of the 3 values in the "Values" parameter. Also make sure "AccountName" = your storage account name. 
