@@ -63,7 +63,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
 
 2. Set the three request headers:
 
-   + `Ocp-Apim-Access-Key`: your access key, obtained from Azure portal.
+   + `Ocp-Apim-Subscription-Key`: your access key, obtained from Azure portal.
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 

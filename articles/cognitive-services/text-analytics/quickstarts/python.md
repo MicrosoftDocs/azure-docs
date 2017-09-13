@@ -64,7 +64,7 @@ path = '/text/analytics/v2.0/languages'
 def GetLanguage (documents):
 	"Detects the languages for a set of documents and returns the information."
 
-	headers = {'Ocp-Apim-Access-Key': accessKey}
+	headers = {'Ocp-Apim-Subscription-Key': accessKey}
 	conn = httplib.HTTPSConnection (uri)
 	body = json.dumps (documents)
 	conn.request ("POST", path, body, headers)
@@ -168,7 +168,7 @@ path = '/text/analytics/v2.0/sentiment'
 def GetSentiment (documents):
 	"Gets the sentiments for a set of documents and returns the information."
 
-	headers = {'Ocp-Apim-Access-Key': accessKey}
+	headers = {'Ocp-Apim-Subscription-Key': accessKey}
 	conn = httplib.HTTPSConnection (uri)
 	body = json.dumps (documents)
 	conn.request ("POST", path, body, headers)
@@ -246,7 +246,7 @@ path = '/text/analytics/v2.0/keyPhrases'
 def GetKeyPhrases (documents):
 	"Gets the sentiments for a set of documents and returns the information."
 
-	headers = {'Ocp-Apim-Access-Key': accessKey}
+	headers = {'Ocp-Apim-Subscription-Key': accessKey}
 	conn = httplib.HTTPSConnection (uri)
 	body = json.dumps (documents)
 	conn.request ("POST", path, body, headers)
