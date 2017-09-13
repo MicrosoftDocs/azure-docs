@@ -157,7 +157,7 @@ Your cluster's deployment may take up to 30 minutes (including provisioning and 
 <a name="installbait"></a>
 #### Install Batch AI Training Software Development Kit and Command Line Interface
 
-You will need a Batch AI Training account for portions of this example. Sign up for an account at the Batch AI Training website and wait to receive your credentials via email. Follow the instructions in the email to install the Batch AI Training Python SDK and Command Line Interface.
+You will need a Batch AI Training account for portions of this example. Sign up for an account at the [Batch AI Training website](https://batchaitraining.azure.com/) and wait to receive your credentials via email. Follow the instructions in the email to install the Batch AI Training Python SDK and Command Line Interface.
 
 <a name="baitresources"></a>
 #### Create Batch AI Training resources
