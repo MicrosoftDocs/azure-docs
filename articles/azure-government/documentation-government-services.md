@@ -19,7 +19,6 @@ ms.author: stemi
 ---
 # Available services in Azure Government
 Azure Government is continually expanding its services. These services are deployed through the same code that is used in Azure public. This section documents the services that are currently available in Azure Government, including two key types of information:
-
 * **Variations**: Variations due to features that are not deployed yet or properties (for example, URLs) that are unique to the government environment.  
 * **Considerations**: Government-specific implementation detail to ensure that data stays within your compliance boundary.
 
@@ -41,7 +40,6 @@ In the following tables, services that are specified as Azure Resource Manager e
 | Cloud Services | Yes | Yes |
 | Service Fabric | Yes | Yes |
 | Virtual Machine Scale Sets | Yes | Yes |
-| [Functions](documentation-government-compute.md#azure-functions) | Yes | No |
 
 ## [Networking](documentation-government-networking.md)
 
@@ -62,7 +60,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Blob storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
 | [Table storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
 | [Queue storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [File storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
+| [File storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes 
 | [Disk storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
 | [Import/Export](documentation-government-services-storage.md#azure-importexport) | Yes | Yes |
