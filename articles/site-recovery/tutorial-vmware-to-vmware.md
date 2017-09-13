@@ -87,104 +87,99 @@ To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Ap
 ## Updates
 
 ### Azure Site Recovery Scout 8.0.1 Update 5
-Scout Update 5 is a cumulative update. It has all the fixes of update1 till update4 and following new bug fixes and enhancements.
-Fixes that are added from ASR Scout update4 to update5 are specific to Master Target and vContinuum components. If all your source servers, Master Target, Configuration Server, Process Server and RX are already on ASR Scout update4 then you need to apply update 5 only on Master Target server. 
+Scout Update 5 is a cumulative update. It has all the fixes from Update 1 to Update 4, and the new fixes described below. 
+- Fixes from Site Recovery Scout Update 4 to Update 5 are specific to the the master target and vContinuum components. If your source servers, master target, configuration server, process server and RX are already running Update 5, then apply Update 5 only on the master target server. 
 
 **New platform support**
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
 
 > [!NOTE]
-> SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step 1](#step-1-create-a-vault).
+> SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout general availability package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the general availability package from the portal as described in [create a vault](#create-a-vault).
 >
 
 **Bug fixes and enhancements**
 
-* Increase Windows Cluster support reliability
-	* Fixed- Sometime some of the P2V MSCS cluster disks become RAW after recovery
-	* Fixed- P2V MSCS cluster recovery fails due to disk order mismatch
-	* Fixed- MSCS cluster add disks operation fails with disk size mismatch
-	* Fixed- Source MSCS cluster with RDM LUNs mapping readiness check fails in size verification
-	* Fixed- Single node cluster protection fails due to SCSI mismatch issue 
-	* Fixed- Re-protect of the P2V Windows cluster server fails if target cluster disks are present. 
+* Increased Windows Cluster support reliability
+	* Fixed- Some of the P2V MSCS cluster disks become RAW after recovery.
+	* Fixed- P2V MSCS cluster recovery fails due to a disk order mismatch.
+	* Fixed- The MSCS cluster add disks operation fails with a disk size mismatch error.
+	* Fixed- The readiness check for the source MSCS cluster with RDM LUNs mapping fails in size verification.
+	* Fixed- Single node cluster protection fails because of a SCSI mismatch issue. 
+	* Fixed- Re-protection of the P2V Windows cluster server fails if target cluster disks are present. 
 	
-* During failback protection, if selected MT is not on the same ESXi server as that of the protected source machine (during forward protection), then vContinuum picks up the wrong MT during Failback Recovery and subsequently recovery operation fails.
+* During failback protection, if the selected master target server isn't on the same ESXi server as the protected source machine (during forward protection), then vContinuum picks up the wrong master target server during failback recovery, and the recovery operation fails.
 
 > [!NOTE]
 > 
-> * Above P2V cluster fixes are applicable to only those physical MSCS cluster that are  freshly protected with ASR Scout update5. To avail the cluster fixes on the already protected P2V MSCS cluster with older updates, you need to follow the upgrade steps that are mentioned in the section 12, Upgrade protected P2V MSCS cluster to Scout Update5 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes).
+> * The P2V cluster fixes are applicable only to physical MSCS clusters that are newly protected with Site Recovery Scout Update 5. To get the cluster fixes on protected P2V MSCS clusters with older updates, follow the follow the upgrade steps that are mentioned in the section 12 of the [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
 > 
-> * Re-protect of physical MSCS cluster can reuse existing target disks only if
-at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then there are manual steps as mentioned in section 12 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes) to  move the target side disks to the correct datastore path to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following upgrade steps then it will create new disk on the target ESXi server. You need to manually delete the old disks from  the datastore.
+> * Re-protection of a physical MSCS cluster can only reuse existing target disks, if at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then use the manual steps in section 12 of [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes), to  move the target side disks to the correct datastore path, to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following the upgrade steps, it will create a new disk on the target ESXi server. You need to manually delete the old disks from the datastore.
 > 
-> * Whenever source SLES11 or SLES11 with any service pack server is rebooted gracefully, then one should manually mark the **root** disk replication pairs for re-sync as it will not be notified in CX UI. If you dont' mark the root disk for resync, you may see data integrity (DI) issues.
+> * When a source SLES11 or SLES11 (with any service pack) server is rebooted gracefully, then manually mark the **root** disk replication pairs for re-synchronization. There isn't any notification in the CX interface. If you dont' mark the root disk for resynchronization, you might notice data integrity issues.
 > 
 
 ### Azure Site Recovery Scout 8.0.1 Update 4
-Scout Update 4 is a cumulative update. It has all the fixes of update1 till update3 and following new bug fixes and enhancements.
+Scout Update 4 is a cumulative update. It has all the fixes from Update 1 to Update 3, and the following new bug fixes and enhancements.
 
 **New platform support**
 
 * Support has been added for vCenter/vSphere 6.0, 6.1 and 6.2
-* Support has been added for following Linux operating systems
+* Support has been added for following Linux operating systems:
   * Red Hat Enterprise Linux (RHEL)7.0, 7.1 and 7.2
   * CentOS 7.0, 7.1 and 7.2
   * Red Hat Enterprise Linux (RHEL) 6.8
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step 1](#step-1-create-a-vault).
->
->
+> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from the portal as described in [create a vault](#step-1-create-a-vault).
 
 **Bug fixes and enhancements**
 
-* Improved shutdown handling for following Linux OSes and clones to prevent unwanted re-sync issues.
-  * Red Hat Enterprise Linux (RHEL) 6.x
-  * Oracle Linux (OL) 6.x
-* For Linux, complete folder access permissions in unified agent installation directory are now restricted only to the local user.
-* On Windows timing out issue while issuing  common distributed consistency book mark on heavily loaded distributed applications like SQL and Share Point clusters.
-* Added log related fix in CX base installer.
-* VMware vCLI 6.0 download link is added to Windows Master Target base installer.
-* Added more checks and logs for network configurations changes during failover and DR drills.
-* Sometime retention information is not reported to the CX.  
-* For physical cluster, volume Re-size operation through vContinuum wizard is failing when source volume shrink happened.
-* Cluster protection failed with error "Failed to find the disk signature" when cluster disk is PRDM disk.
-* cxps transport server crash because of out-of-range exception.
-* Server name and IP columns are now resizable in push install page of vContinuum wizard.
-* RX API Enhancements
-  * Provides Five latest available common consistency points (Only Guaranteed tags).
-  * Provides capacity and free space details for all the protected devices.
-  * Provides Scout driver state on source server.
+* Improved shutdown handling for the following Linux operating systems and clones, to prevent unwanted re-synchronization issues.
+	* Red Hat Enterprise Linux (RHEL) 6.x
+	* Oracle Linux (OL) 6.x
+* For Linux, complete folder access permissions in the unified agent installation directory, are now restricted to the local user only.
+* On Windows, a fix for a timing out issue that occurred when issuing common distributed consistency bookmarks, on heavily loaded distributed applications such as SQL Server and Share Point clusters.
+* A log related fix in the CX base installer.
+* VMware vCLI 6.0 download link was added to the Windows master target base installer.
+* More checks and logs for network configuratios changes during failover and disaster recovery drills were added.
+* A fix for an issue that causes retention information not to be reported to the CX.  
+* For physical clusters, a fix for an issue that caused volume resize operation in the vContinuum wizard to fail, during a source volume shrink happened.
+* A fix for a cluster protection issue, that failed with error "Failed to find the disk signature" when the cluster disk is a PRDM disk.
+* A fix for cxps transport server crash caused by an out-of-range exception.
+* Server name and IP address columns are now resizable in the Push Installation page of the vContinuum wizard.
+* RX API enhancements:
+  * Five latest available common consistency points now available (only guaranteed tags).
+  * Capacity and free space details for all the protected devices.
+  * Scout driver state on the source server.
 
 > [!NOTE]
-> * **InMage_Scout_Standard_8.0.1_GA.zip** base package now has updated CX base installer **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**  and Windows Master Target  base installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installation use new CX and Windows Master Target GA bits.
-> * Update 4 can be directly applied on 8.0.1 GA.
-> * The configuration server and RX updates can’t be rolled back after they're applied on the system.
->
->
+> * **InMage_Scout_Standard_8.0.1_GA.zip** base package now has an updated CX base installer: **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**, and a Windows master target base installer: **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installations, use the new CX and Windows master target GA bits.
+> * Update 4 can be applied directly on 8.0.1 GA.
+> * The configuration server and RX updates can’t be rolled back, after they've been applied.
+
 
 ### Azure Site Recovery Scout 8.0.1 Update 3
 Update 3 includes the following bug fixes and enhancements:
 
-* The configuration server and RX fail to register to the Site Recovery vault when they're behind the proxy.
-* The number of hours that the recovery point objective (RPO) is not met is not getting updated in the health report.
-* The configuration server is not syncing with RX when the ESX hardware details or network details contain any UTF-8 characters.
-* Windows Server 2008 R2 domain controllers fail to boot after recovery.
-* Offline sync is not working as expected.
-* After virtual machine (VM) failover, replication-pair deletion gets stuck in the CX UI for a long time, and users cannot complete the failback or resume operation.
-* Overall snapshot operations that are done by the consistency job have been optimized to help reduce application disconnects like SQL clients.
-* The performance of the consistency tool (VACP.exe) has been improved by reducing the memory usage that is required for creating snapshots on Windows.
-* The push install service crashes when the password is greater than 16 characters.
-* vContinuum is not checking and prompting for new vCenter credentials when the credentials are changed.
-* On Linux, the master target cache manager (cachemgr) is not downloading files from the process server, which results in replication pair throttling.
-* When the physical failover cluster (MSCS) disk order is not the same on all the nodes, replication is not set for some of the cluster volumes.
-  <br/>Note that the cluster needs to be reprotected to take advantage of this fix.  
-* SMTP functionality is not working as expected after RX is upgraded from Scout 7.1 to Scout 8.0.1.
-* More stats have been added in the log for the rollback operation to track the time it has taken to complete it.
+* The configuration server and RX aren't registered in the vault when they're behind the proxy.
+* The number of hours in which the recovery point objective (RPO) isn't met isn't updated in the health report.
+* The configuration server isn't syncing with RX when the ESX hardware details, or network details, contain any UTF-8 characters.
+* Windows Server 2008 R2 domain controllers don't start after recovery.
+* Offline synchronization isn't working as expected.
+* After VM failover, replication-pair deletion is stuck in the CX UI for a long time, and users can't complete the failback or resume operations.
+* Overall snapshot operations by the consistency job have been optimized, to help reduce application disconnects such as SQL Server clients.
+* The performance of the consistency tool (VACP.exe) has been improved, by reducing the memory usage required for creating snapshots on Windows.
+* The push install service crashes when the password is larger than 16 characters.
+* vContinuum doesn't check and prompt for new vCenter credentials, when the credentials are changed.
+* On Linux, the master target cache manager (cachemgr) isn't downloading files from the process server. This results in replication pair throttling.
+* When the physical failover cluster (MSCS) disk order isn't the same on all nodes, replication isn't set for some of the cluster volumes. The cluster needs to be reprotected to take advantage of this fix.  
+* SMTP functionality isn't working as expected, after RX is upgraded from Scout 7.1 to Scout 8.0.1.
+* More statistics have been added in the log for the rollback operation, to track the time taken to complete it.
 * Support has been added for Linux operating systems on the source server:
   * Red Hat Enterprise Linux (RHEL) 6 update 7
   * CentOS 6 update 7
-* The CX and RX UI can now show the notification for the pair, which goes into bitmap mode.
+* The CX and RX UI can now show notifications for the pair, which goes into bitmap mode.
 * The following security fixes have been added in RX:
 
 | **Issue description** | **Implementation procedures** |
