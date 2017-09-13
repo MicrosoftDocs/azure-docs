@@ -59,11 +59,16 @@ Open up Visual Studio and click File -> New -> Project. We will create an ASP.NE
 
 ![extra1](./media/documentation-government-howto-deploy-webandmobile-extra1.png)
 
-Right click on your web app and click "Publish". Once your web app has been published to Azure Government, you should be able to see this screen, with the URL ending in "azurewebsites.us". 
+Right click on your web app and click "Publish".
+There are two different options, to use an existing Web App or create a new one. We will use the existing Web App we have created above in the section above, so choose the "select existing" box. To deploy an app and also have Visual Studio provision a new Azure Web App during the publish process, follow [these steps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-dotnet-get-started#createapiapp).
+
+![extra5](./media/documentation-government-howto-deploy-webandmobile-extra5.png)
+
+Once your web app has been published to Azure Government, you should be able to see this screen, with the URL ending in "azurewebsites.us". 
 
 ![extra3](./media/documentation-government-howto-deploy-webandmobile-extra3.png)
 
-We just published our app to the existing Azure Web App that we previously created. To deploy an app and also have Visual Studio provision a new Azure Web App during the publish process, follow [these steps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-dotnet-get-started#createapiapp).
+We just published our app to the existing Azure Web App that we previously created. 
 
 ### Deploy using Publish profile
 Log in to the [Azure Government Portal](https://portal.azure.us). 
@@ -82,7 +87,7 @@ Now you will be able to upload the publish profile that you downloaded from the 
 
 If you navigate to the url you should be able to see this screen.
 
-![extra4](./media/documentation-government-howto-deploy-webandmobile-extra3.png)
+![extra3](./media/documentation-government-howto-deploy-webandmobile-extra3.png)
 The app has now been deployed to Azure Government. 
 
 ### References
