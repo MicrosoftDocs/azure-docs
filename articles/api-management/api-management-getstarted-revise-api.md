@@ -19,13 +19,13 @@ ms.author: apimpm
 This tutorial describes how to make changes to your API safely, and communicate the change to your developers.
 
 ## Prerequisites
-To complete this tutorial, you will need to have [created an API Management Service](api-management-getstarted-create-service-instance.md), and have an existing API you can alter (in place of Conference API).
+To complete this tutorial, you need to create an API Management Service, and have an existing API you can alter (in place of Conference API).
 
 ## About revisions
 When your API is ready to go and starts to be used by developers, you usually need to take care in making changes to that API - so as not to disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**.
 
 ## Walkthrough
-In this walkthrough We will add a new revision, add an operation to it, then make that revision current - creating a change log entry when we do.
+In this walkthrough we add a new revision, add an operation to it, then make that revision current - creating a change log entry when we do.
 
 ## Add a new revision
 1. Browse to the **APIs** page within your API Management service in the Azure portal.
@@ -41,7 +41,7 @@ In this walkthrough We will add a new revision, add an operation to it, then mak
 6. Your new revision is now created.
 
     > [!NOTE]
-    > You orginal API remains in **Revision 1**. This is the revision your users will continue to call, until you choose to make a different revision current.
+    > You original API remains in **Revision 1**. This is the revision your users will continue to call, until you choose to make a different revision current.
 
 ## Make non-breaking changes to your revision
 1. Select the **Design** tab near the top of the screen.
@@ -63,7 +63,7 @@ In this walkthrough We will add a new revision, add an operation to it, then mak
 3. Select **Make Current**.
 ![Make revision current and post to change log](media/api-management-getstarted-revise-api/MakeCurrent.PNG)
 4. Select **Post to Public Change Log for this API**
-5. Provide a description for your change that developers will see, e.g. **"Added new Feedback operation"**.
+5. Provide a description for your change that developers see, for example **"Added new Feedback operation."**
 6. **Revision 2** is now current.
 
 ## Browse the developer portal to see changes and change log
