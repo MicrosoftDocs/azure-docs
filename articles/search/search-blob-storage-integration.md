@@ -24,10 +24,8 @@ With advanced support for 56 languages, Azure Search can analyze your content an
 
 ## Crack open and search through the content of enterprise document formats
 With support for [document extraction](https://aka.ms/azsblobindexer) in Azure Blob storage, Azure Search can index the content of a variety of file types stored in blobs:
-- PDF
-- Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)
-- HTML
-- Plain text files
+
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 By extracting text and metadata of these file types, it is easy to search across multiple file formats with a single query to find the most relevant documents regardless of type. By indexing the content and the metadata of Microsoft Office documents, PDFs, and emails, it’s possible to build a robust enterprise content management solution using Blob storage and Azure Search.
 
