@@ -21,7 +21,6 @@ ms.author: yujhong
 The series of Quickstarts below will help you get started using Azure Functions on Azure Government. Using Azure Functions with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#azure-functions).
 
 To learn more about Azure Functions, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
-
 ## Create function - Azure CLI
 
 ### Prerequisites
@@ -60,7 +59,7 @@ az login
 Create a resource group with the [az group create](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
 
 The following example creates a resource group named `myResourceGroup` with the location set to `usgovvirginia`.
-If you are not using Cloud Shell, sign in first using the `az login` shown above.
+If you are not using CLI, sign in first using the `az login` shown above.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location usgovvirginia
