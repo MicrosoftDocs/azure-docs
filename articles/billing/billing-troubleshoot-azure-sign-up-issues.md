@@ -21,6 +21,17 @@ ms.custom: H1Hack27Feb2017
 # Troubleshoot sign-up issues for Azure
 If you can't sign up for Azure, use the tips in this article to troubleshoot common issues. If you have an issue with your credit card during sign-up, see [your debit card or credit card is declined at Azure sign-up](billing-credit-card-fails-during-azure-sign-up.md). If you have an Azure account but can't sign in, see [I can't sign in to manage my Azure subscription](billing-cannot-login-subscription.md).
 
+## Error "We cannot proceed with signup due to an issue with your account. Please contact billing support." 
+
+To resolve the issue, follow these steps:
+
+1. Log in to [Azure account center](https://account.azure.com) by using the account administrator credential. 
+2. Click **profile**, and then click **Edit details**.
+3. Make sure that all address fields are completed and valid. 
+4. When you sign up the Azure subscription, make sure that the billing address entered during the credit card registration matches your bank's records.
+
+If you still receive the error, try to sign up by using a different browser.
+
 ## Progress bar hangs in "Identity verification by card" section
 
 To complete the identity verification by card, third-party cookies must be allowed for your browser.
