@@ -54,13 +54,13 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
    + When added to existing fields, the inverted index for that field must be recreated from the ground up and document contents for those fields must be reindexed. 
 
-   For indexes under active development, delete and create the index. 
+     For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition.
 
-   For indexes in production, you should create a new field to provide the revised definition, then use Update Index and mergeOrUpload to incorporate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. 
+     For indexes in production, you should create a new field to provide the revised definition, then use Update Index and mergeOrUpload to incorporate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. 
 
 ## Best practices
 
-This section provides advice on how to work with analyzers more efficiently.
+This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
