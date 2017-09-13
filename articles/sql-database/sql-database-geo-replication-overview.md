@@ -32,10 +32,10 @@ If you are using active geo-replication and for any reason your primary database
 You can manage replication and failover of an individual database or a set of databases on a server or in an elastic pool using active geo-replication. You can do that using 
 
 - The [Azure portal](sql-database-geo-replication-portal.md)
-- [PowerShell: Single database](scripts/sql-database-setup-geodr-and-failover-database-powershell)
-- [PowerShel: Elastic pool](scripts/sql-database-setup-geodr-and-failover-pool-powershell)
-- [PowerShell: Failover Group](scripts/sql-database-setup-geodr-and-failover-database-failover-group-powershell)
-- [Transact-SQL: Single database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database.md)
+- [PowerShell: Single database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [PowerShell: Elastic pool](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+- [PowerShell: Failover Group](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [Transact-SQL: Single database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Single database](/rest/api/sql/replicationlinks/failover)
 - [REST API: Failover group](/rest/api/sql/failovergroups/failover). 
  
