@@ -16,9 +16,9 @@ Once you deploy a model as a realtime Web service, you can send it data and get 
 
 With the Azure Machine Learning Web service, an external application communicates with a predictive model in real time. A web service call returns prediction results to the external application. To make a Web service call, you pass an API key that is created when you deploy a prediction. 
 
->Note: API keys are only available in Cluster deployment mode. Local web services do not have keys.
+[!NOTE]: API keys are only available in Cluster deployment mode. Local web services do not have keys.
 
-## Get service info
+## Get service information
 After the web service has been successfully deployed, use the following command to get the service URL. 
 
 ```
@@ -42,8 +42,8 @@ az ml service keys realtime -i <web service id>
 Use the service URL to send a request from a C# Console App. 
 
 1. In Visual Studio, create a new Console App: 
-    a. In the menu, click, File -> New -> Project
-    b. Under Visual Studio C#, click Windows Class Desktop, then select Console App.
+    * In the menu, click, File -> New -> Project
+    * Under Visual Studio C#, click Windows Class Desktop, then select Console App.
 2. Enter _MyFirstService_ as the Name of the project, then click OK.
 3. In Project References, set references to _System.Net_, and _System.Net.Http_.
 4. Click Tools -> NuGet Package Manager -> Package Manager Console, then install the Microsoft.AspNet.WebApi.Client package.

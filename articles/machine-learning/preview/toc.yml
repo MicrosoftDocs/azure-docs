@@ -15,8 +15,7 @@
     href: quick-start-installation.md
   - name: Quick tour
     href: quick-start-iris.md  
-  - name: Placeholder - Data prep quickstart
-    href: doc-template-quickstart.md
+  - name: (Data prep quickstart)
 - name: Tutorials
   items:
   - name: Classify iris part 1 - data preparation
@@ -25,25 +24,27 @@
     href: tutorial-classifying-iris-part-2.md
   - name: Classify iris part 3 - model deployment
     href: tutorial-classifying-iris-part-3.md
+  - name: (Classify iris - CLI edition)
   - name: Prepare bike share data
-    href: tutorial-bikeshare-dataprep.md
-  - name: Classify UCI incomes - with a TDSP project
-    href: tutorial-classifying-uci-incomes.md
-  - name: Biomedical entity recognition with a TDSP project
-    href: sample-tdsp-nlp.md
+    href: tutorial-bikeshare-dataprep.md  
+  - name: Real-world scenarios
+    items:
+    - name: Classify UCI incomes - with a TDSP project
+      href: tutorial-classifying-uci-incomes.md
+    - name: Biomedical entity recognition with a TDSP project
+      href: sample-tdsp-nlp.md    
 - name: How-to guides
   items:
   - name: Use Azure ML Workbench
     items:
     - name: Working with Python IDEs
       href: how-to-configure-your-IDE.md
-    - name: Placeholder - Use Jupyter Notebooks
-      href: doc-template-how-to.md
+    - name: Use Jupyter Notebooks      
+      href: how-to-use-jupyter-notebooks.md
     - name: Integration with Git repo
       href: using-git-ml-project.md
-    - name: Placehoder - Roaming and sharing projects
-      href: doc-template-how-to.md
-    - name: Structure a project with TDSP 
+    - name: (Roaming and sharing projects)
+    - name: Structure a project with TDSP
       href: how-to-use-tdsp-in-azure-ml.md
   - name: Compute environment
     items: 
@@ -69,12 +70,13 @@
       href: how-to-use-mmlspark.md
   - name: Deploy models
     items:
-    - name: Deploy web service
-      href: model-management-service-deploy.md
+    - name: (Setup Model Management Environment)
     - name: Create Docker image
       href: model-management-image-creation.md
     - name: Consume web service
       href: model-management-consumption.md  
+    - name: Deploy web service
+      href: model-management-service-deploy.md
   - name: End-to-end examples
     items:
     - name: Awesome ADS example 1
@@ -87,6 +89,8 @@
       href: known-issues-and-troubleshooting-guide.md
 - name: Reference
   items:  
+  - name: Service limitations
+    href: reference-service-limits.md
   - name: Data Preparation
     items:
     - name: Python extensions for data preparation
@@ -109,22 +113,19 @@
       href: data-prep-appendix9-sample-destination-connections-python.md
     - name: Sample Data Preparation Column Transforms in Python
       href: data-prep-appendix10-sample-custom-column-transforms-python.md  
-    - name: placeholder - Data Preparation Execution API 
-      href: doc-template-how-to.md  
+    - name: (Data Preparation Execution API)
   - name: Experimentation    
     items:
     - name: Execution configuration
       href: experiment-execution-configuration-reference.md
-    - name: Logging Library
-      href: doc-template-how-to.md
+    - name: (Logging Python SDK)
   - name: Model management
     items:
     - name: Model management API
       href: model-management-api-reference.md
     - name: Model management CLI
       href: model-management-cli-reference.md
-    - name: placeholder - Model Management Python libraries
-      href: doc-template-how-to.md  
+    - name: (Model Management Python libraries)
 - name: Resources
   items:  
   - name: FAQ
