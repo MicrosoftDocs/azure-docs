@@ -87,7 +87,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ag
 To get the loginServer name, run the following command.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer --output table
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 Now, tag the *azure-vote-front* image with the loginServer of the container registry. Also, add *:redis-v1* to the end of the image name. This tag indicates the image version.
