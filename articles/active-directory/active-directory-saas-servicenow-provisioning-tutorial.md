@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configuring ServiceNow for Automatic User Provisioning | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and ServiceNow.
+title: 'Tutorial: Configuring ServiceNow for Automatic User Provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to ServiceNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 09/15/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Configuring ServiceNow for Automatic User Provisioning
+# Tutorial: Configuring ServiceNow for Automatic User Provisioning with Azure Active Directory
 
 The objective of this tutorial is to show you the steps you need to perform in ServiceNow and Azure AD to automatically provision and de-provision user accounts from Azure AD to ServiceNow.
 
