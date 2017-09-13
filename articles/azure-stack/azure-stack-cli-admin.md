@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 09/25/2017
 ms.author: sngun
 
 ---
 # Enable CLI for Azure Stack users
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 There aren't any Azure Stack operator specific tasks that you can perform by using CLI. But before users can manage resources through CLI, Azure Stack operators must provide them with the following:
 
