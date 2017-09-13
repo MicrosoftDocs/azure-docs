@@ -43,7 +43,7 @@ If you have not done these steps, and would like to follow along, return to [Tut
 
 ## Update manifest file
 
-In this tutorial, Azure Container has been used to store the container images. For this to work, the ACR login server name needs to be added to the container image name in the manifest file.
+In this tutorial, Azure Container Registry (ACR) has been used to store a container image. Before deploying the application, the ACR login server name needs to be updated in the pre-created Kubernetes manifest file.
 
 Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
 
@@ -51,7 +51,7 @@ Get the ACR login server name with the [az acr list](/cli/azure/acr#list) comman
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The manifest file has been pre-created with a repository name of *microsoft*. Open the file with any text editor, and replace the `microsoft` value with the login server name of your ACR instance. 
+The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor, and replace the `microsoft` value with the login server name of your ACR instance. 
 
 In this example, the file is opened with `vi`.
 
@@ -59,7 +59,7 @@ In this example, the file is opened with `vi`.
 vi azure-vote-all-in-one-redis.yml
 ```
 
-Replace `microsoft` with the ACR login server. This is found on line 47 of the manifest file.
+Replace `microsoft` with the ACR login server name. This is found on line 47 of the manifest file.
 
 ```yaml
 containers:
