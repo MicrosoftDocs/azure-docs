@@ -147,6 +147,8 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Videos
+    href: https://www.youtube.com/c/AzureFunctions
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
