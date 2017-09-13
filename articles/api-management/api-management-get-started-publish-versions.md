@@ -47,7 +47,6 @@ Azure API Management allows you to choose the way in which you allow callers to 
 3. Provide a description if you wish.
 4. Select **Create** to set up your new version.
 5. Underneath **Big Conference API** in the API List, you now see two distinct APIs - **Original**, and **v1**.
-
 ![Versions listed under an API in the Azure portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
