@@ -31,8 +31,24 @@ This article explains, how you can address both cases.
 
 ## What you need to know
 
-You can only use Azure AD conditional access to protect cloud apps when the authentication attempt of a client app is based on [modern authentication](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a). In addition to modern authentication, some cloud apps also support legacy authentication protocols. This applies, for example, to SharePoint Online and Exchange Online. 
-When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps. 
+You can use Azure AD conditional access to protect cloud apps when an authentication attempt comes from:
+
+- A web browser
+
+- A client app that uses [modern authentication](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a)
+
+- Exchange ActiveSync 
+
+Some cloud apps also support legacy authentication protocols. This applies, for example, to SharePoint Online and Exchange Online. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps. 
+
+Examples for client apps conditional access does not apply to are:
+
+- Office 2010 and earlier
+
+- Office 2013 when modern authentication is not enabled
+
+
+
  
 ## Control access to SharePoint Online
 
@@ -100,7 +116,7 @@ You can disable legacy authentication protocols for Exchange Online by setting A
 
 You can use the following issuance authorization rules to enable or block traffic at the AD FS level. 
 
-### Example 1
+### Block legacy traffic from the extranet
 
 By applying the following three rules: 
 
@@ -130,7 +146,7 @@ By applying the following three rules:
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-### Example 2
+### Block legacy traffic from anywhere
 
 By applying the following three rules:
 
