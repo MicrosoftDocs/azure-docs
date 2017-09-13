@@ -18,10 +18,13 @@ Today, online viewers are generating billions of video views across popular and 
 
 ## How it works
 
-The Content Moderator video moderation capability is powered by the adult content classifier running within the **Azure Media Services**. The capability is currently in private preview and available at no charge. Here are the steps you need to follow to try the service:
+The Content Moderator video moderation capability is powered by the adult content classifier running within the **Azure Media Services (AMS)**. The capability is currently in private preview and available at no charge. Here are the steps you need to follow to try the service:
 
-1. [Create a **Media Services** account](https://ms.portal.azure.com/#create/Microsoft.MediaService) on the Azure portal.
-1. [Contact us](https://cognitive.uservoice.com/ "Contact Us") with your Azure Subscription ID for enabling the Content Moderator in your region.
+1. [Create a **Azure Media Services** account](https://ms.portal.azure.com/#create/Microsoft.MediaService) in your Azure subscription.
+1. [Contact us](https://cognitive.uservoice.com/ "Contact Us") with this information for enabling the Content Moderator in your region.
+   1. Your Azure subscription Id
+   1. Your Azure Media Services account name
+   1. Your region
 
 ## Code Sample
 
