@@ -20,6 +20,10 @@ ms.author: bryanla
 
 Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine's MSI access to an Azure storage account, using the Azure portal.
 
+## Prerequisites
+
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+
 ## Use RBAC to assign the MSI access to another resource
 
 After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-portal-windows-vm.md):
