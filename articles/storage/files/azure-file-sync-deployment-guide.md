@@ -61,7 +61,7 @@ For every server, including server nodes in a Failover Cluster, you intend to us
 3. [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). We always recommend using the latest version of the of Azure PowerShell modules.
 
 ## Install the Azure File Sync agent
-The Azure File Sync agent is a downloadable package which enables a Windows Server to be synchronized with an Azure File share. The agent can be downloaded from the [Microsoft Download Center](https://aka.ms/FabianUhseToPopulate). Once downloaded, double click on the MSI package to start the Azure File Sync agent installation.
+The Azure File Sync agent is a downloadable package which enables a Windows Server to be synchronized with an Azure File share. The agent can be downloaded from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Once downloaded, double click on the MSI package to start the Azure File Sync agent installation.
 
 > [!Important]  
 > If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent will need to be installed on every node in the cluster.

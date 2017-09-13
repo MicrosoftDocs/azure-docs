@@ -37,7 +37,7 @@ To register a Windows Server with a Storage Sync Service, you must first prepare
 
 ## Register a server with Storage Sync Service
 ### Install the Azure File Sync agent
-1. Download the Azure File Sync agent.
+1. [Download the Azure File Sync agent](https://go.microsoft.com/fwlink/?linkid=858257).
 2. Start the Azure File Sync agent installer.
     
     ![The first pane of the Azure File Sync agent installer](media/azure-file-sync-server-registration/install-afs-agent-1.png)
