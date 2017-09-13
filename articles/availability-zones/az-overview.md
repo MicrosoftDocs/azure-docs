@@ -23,7 +23,7 @@ ms.custom: mvc I am an ITPro and application developer, and I want to protect (u
 
 Availability Zones are fault-isolated locations within an Azure region. An Availability Zone represents one or more datacenters within a region. Each Availability Zone has independent power source, network, cooling, and is logically separate from the other Availability Zones within the Azure region. The physical and logical separation of Availability Zones within a region, protects applications and data from zone-level failures. There is a minimum of three zones in all enabled regions. [Enable](az-overview.md#get-started-with-the-availability-zones-preview) the Availability Zones Preview in my subscription.
 
-! conceptual view of one zone going down in a region (./media/az-overview/three-zones-per-region.png) John to provide artwork that shows Availability Zones.
+! [conceptual view of one zone going down in a region](./media/az-overview/availability-zones-and-region.png)
 
 ## Enabled regions
 
