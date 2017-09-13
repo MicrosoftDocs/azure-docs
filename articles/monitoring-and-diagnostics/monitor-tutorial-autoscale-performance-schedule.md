@@ -83,7 +83,7 @@ It is always recommended to have a scale-in rule to accompany a scale-out rule. 
 
 8. **Save** the autoscale setting
 
-    ![Save autoscale setting](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting.jpg)
+    ![Save autoscale setting](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.jpg)
 
 ## Trigger scale-out action
 To trigger the scale-out condition in the autoscale setting just created, the Web App must have more than 10 requests in less than 5 minutes.
