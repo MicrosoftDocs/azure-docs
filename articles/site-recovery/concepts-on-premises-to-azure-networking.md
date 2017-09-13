@@ -70,14 +70,13 @@ For Woodgrove to be able to replicate its VMs to Azure while retaining the IP ad
 
 **Infrastructure after failover**
 
-    ![After subnet failover](./media/site-recovery-network-design/network-design9.png)
+![After subnet failover](./media/site-recovery-network-design/network-design9.png)
 
 #### Site-to-site connection
 
 In addition to the vnet-to-vnet connection, after failover, Woodgrove can set up site-to-site VPN connectivity:
-
-    - When you set up a site-to-site connection, in the Azure network you can only route traffic to the on-premises location (local-ntwork) if the IP address range is different from the on-premises IP address range. This is because Azure doesn’t support stretched subnets. So, if you have subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network. This is expected because Azure doesn’t know that there are no active VMs in the subnet, and that the subnet is being created for disaster recovery only.
-    - To be able to correctly route network traffic out of an Azure network, the subnets in the network and the local-network mustn't conflict.
+- When you set up a site-to-site connection, in the Azure network you can only route traffic to the on-premises location (local-ntwork) if the IP address range is different from the on-premises IP address range. This is because Azure doesn’t support stretched subnets. So, if you have subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network. This is expected because Azure doesn’t know that there are no active VMs in the subnet, and that the subnet is being created for disaster recovery only.
+- To be able to correctly route network traffic out of an Azure network, the subnets in the network and the local-network mustn't conflict.
 
 
 
