@@ -23,7 +23,7 @@ ms.custom: it-pro
 Using Azure Active Directory (Azure AD) with an Azure AD Premium or Azure AD Basic license, you can use groups to assign access to a SaaS application that's integrated with Azure AD. For example, if you want to assign access for the marketing department to use five different SaaS applications, you can create a group that contains the users in the marketing department, and then assign that group to these five SaaS applications that are needed by the marketing department. This way you can save time by managing the membership of the marketing department in one place. Users then are assigned to the application when they are added as members of the marketing group, and have their assignments removed from the application when they are removed from the marketing group. This capability can be used with hundreds of applications that you can add from within the Azure AD Application Gallery.
 
 > [!IMPORTANT]
-> You can see the Users and Groups tab only after you have startted an Azure AD Premium trial or purchased Azure AD Premium or Azure AD Basic licenses.
+> You can use this feature only after you start an Azure AD Premium trial or purchase Azure AD Premium or Azure AD Basic licenses.
 > Nested group memberships are not supported for group-based assignment to applications at this time.
 
 **To assign access for a user or group to a SaaS application**
