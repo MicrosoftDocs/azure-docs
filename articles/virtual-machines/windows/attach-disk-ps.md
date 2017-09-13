@@ -50,15 +50,33 @@ $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
-
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
-
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
+
+### Using managed disks in an Availability Zone
+To create a disk in an Availability Zone, use [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) with the `-Zone` parameter. For more information, see [Overview of Availability Zones](../../availability-zones/az-overview.md). The following example creates a disk in zone *1*:
+
+```powershell
+$rgName = 'myResourceGroup'
+$vmName = 'myVM'
+$location = 'East US 2' 
+$storageType = 'PremiumLRS'
+$dataDiskName = $vmName + '_datadisk1'
+
+$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
+$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+```
+
 
 ### Using unmanaged disks in a storage account
 
