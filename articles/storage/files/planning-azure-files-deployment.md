@@ -31,7 +31,7 @@ The following table illustrates the trade-offs when deciding how your users will
 | | Direct cloud access | Azure File Sync |
 |------------------------|------------|-----------------|
 | Supported protocol | SMB 2.1, SMB 3.0, and File REST API. | On-premises to data over SMB (any supported version), NFS, FTPS, etc. |
-| Latency to on-premises | As fast as on-premises connection speed allows. For very fast connections, or connections close to the Azure datacenter, using an Azure File share may be indistinguishable from using an on-premises file server. For slower connections, or connections very far aware from the Azure datacenter, accessing directly via SMB may be significantly slower than using an on-premises file server. | High latency connections mitigated by the fact that the on-premises file server has a fast cache of the data. |
+| Latency to on-premises | As fast as on-premises connection speed allows. For very fast connections, or connections close to the Azure datacenter, using an Azure File share may be indistinguishable from using an on-premises file server. For slower connections, or connections very far away from the Azure datacenter, accessing directly via SMB may be significantly slower than using an on-premises file server. | High latency connections mitigated by the fact that the on-premises file server has a fast cache of the data. |
 | Access Control | Enforced via SAS token. | File System ACLS enforced by on-premises file server; Azure File Sync stores them and replicates them to each Server in the Sync Group. |
 
 ## Data security
