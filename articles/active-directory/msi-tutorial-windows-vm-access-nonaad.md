@@ -77,6 +77,9 @@ First, we need to create a Key Vault and grant our VM’s identity access to the
 7. Click **OK** to finishing adding the new access policy, and **OK** to finish access policy selection. 
 8. Click **Create** to finish creating the Key Vault. 
 
+![Alt image text](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+
+
 Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
 
 1. Select **All Resources**, and find and select the Key Vault you just created. 
