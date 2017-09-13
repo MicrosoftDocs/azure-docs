@@ -85,7 +85,7 @@ The [Application Insights profiler](../application-insights/app-insights-profile
 > [!NOTE]
 > Ability to profile Virtual Machines, Virtual machine scale sets (VMSS), Cloud Services and Services Fabric is in preview.   
 
-In addition, you are proactively notified by email about certain types of errors, such as slow page load times, by the Smart Detection tool.  You don’t need to do any configuration on this tool. For more information, see [Smart Detection - Performance Anomalies](../application-insights/app-insights-proactive-performance-diagnostics.md) and [Smart Detection - Performance Anomalies](https://azure.microsoft.com/blog/Enhancments-ApplicationInsights-SmartDetection/preview).
+In addition, you are proactively notified by email about certain types of errors, such as slow page load times, by the Smart Detection tool.  You don’t need to do any configuration on this tool. For more information, see [Smart Detection - Performance Anomalies](../application-insights/app-insights-proactive-performance-diagnostics.md).
 
 
 
