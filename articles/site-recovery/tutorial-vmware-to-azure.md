@@ -56,7 +56,7 @@ Get a Microsoft [Azure account](http://azure.microsoft.com/).
 
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
-- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need.
+- Review the [permissions](site-recovery-role-based-linked-access-control.md) you need.
 - Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
 
 
