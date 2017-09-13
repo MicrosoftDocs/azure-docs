@@ -126,9 +126,8 @@ Select the target VMM server and cloud:
 
 Before you start:
 
-- Make sure that all hosts using the policy have the same operating system.
-- If hosts are running different versions of Windows Server, you need multiple replication policies.
-
+    - Make sure that all hosts using the policy have the same operating system.
+    - If hosts are running different versions of Windows Server, you need multiple replication policies.
 
 1. To create a new replication policy, click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
 2. In **Create and associate policy**, specify a policy name. The source and target type should be **Hyper-V**.
@@ -147,6 +146,7 @@ Before you start:
 6. In **Initial replication method**, if you're replicating over the network, specify whether to start the initial replication or schedule it. To save network bandwidth, you might want to schedule it outside your busy hours. Then click **OK**.
 
      ![Replication policy](./media/tutorial-vmm-to-vmm/replication-policy.png)
+     
 7. The new policy is automatically associated with the VMM cloud. In **Replication policy**, click **OK**. 
 
 
