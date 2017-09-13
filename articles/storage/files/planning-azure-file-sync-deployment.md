@@ -50,13 +50,26 @@ A Server Endpoint represents a specific location on a Registered Server, like D:
 Cloud tiering is an optional feature of Azure File Sync, which enables infrequently used or access files to be tiered to Azure Files. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point, representing a URL to the file in Azure Files. A tiered file has the "offline" attribute set in NTFS, so third party applications can identify tiered files. When a user opens a tiered file, the Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know the file is not stored locally on the system. This functionality is also known as Hierarchical Storage Management (HSM).
 
 ## Interoperability with Windows Server
+### Supported versions of Windows Server
+At present, the supported versions of Windows Server by Azure File Sync are:
+
+| Version | Supported SKUs | Supported Deployment Options |
+|---------|----------------|------------------------------|
+| Windows Server 2016 | Datacenter and Standard | Full (Server with a UI) |
+| Windows Server 2012 R2 | Datacenter and Standard | Full (Server with a UI) |
+
+Future versions of Windows Server will be added as they are released, older versions of Windows may be added based on user feedback.
+
+> [!Important]  
+> We recommend keeping all of your Windows Servers used with Azure File Sync up to date with the latest updates from Windows Update. 
+
 ### File system features
 | Feature | Support Status | Notes |
 |---------|----------------|-------|
 | Access Control Lists (ACLs) | Fully supported | Windows ACLs are preserved by Azure File Sync, and are enforced by Windows Server on Server Endpoints. Windows ACLs are not (yet) supported by Azure Files if Files are accessed directly in the cloud. |
 | Hard Links | Skipped | |
 | Symbolic Links | Skipped | |
-| Mount points | Partially supported | Mount points may be  |
+| Mount points | Partially supported | Mount points may be the root of a Server Endpoint, but will be skipped if contained in Server Endpoint's namespace. |
 | Junctions | Skipped | |
 | Reparse points | Skipped | |
 | NTFS Compression | Fully supported | |
@@ -64,7 +77,13 @@ Cloud tiering is an optional feature of Azure File Sync, which enables infrequen
 | Alternate Data Streams (ADS) | Preserved, but not synced | |
 
 > [!Note]  
-> Only NTFS volumes are supported; ReFS, FAT, FAT32 are not supported by Azure File Sync.
+> Only NTFS volumes are supported.
+
+### Failover Clustering
+Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSV).
+
+> [!Note]  
+> The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work properly.
 
 ### Windows Server Data Deduplication
 For volumes without cloud tiering enabled, Azure File Sync supports Data Deduplication being enabled on the volume. We do not support interop between Azure File Sync with cloud tiering enabled and Data Deduplication at this time.
@@ -109,6 +128,13 @@ Azure File Sync is only available in the following regions in Preview:
 | Australia East | New South Wales, Australia |
 
 In Preview, we only support sync with an Azure File share in the same region as the Storage Sync Service.
+
+## Azure File Sync agent update policy
+Updates to the Azure File Sync agent will be released on a regular basis to add new functionality and to address any issues found. We recommend enabling Microsoft Update to get all updates to the Azure File Sync agent as we release them. That said, we understand that some organizations like to strictly control updates. For deployments using older versions of the Azure File Sync agent:
+
+- The Storage Sync Service will honor the previous major version for three months after the initial release of a new major version. For example, version 1.\* would be supported by the Storage Sync Service until three months after the release of version 2.\*.
+- After three months have elapsed, the Storage Sync Service will begin to block Registered Servers using the expired version from syncing with their Sync Groups.
+- Within the three months for a previous major version, all bug fixes will go only to the current major version.
 
 ## Next steps
 * [Planning for an Azure Files deployment](planning-azure-files-deployment.md)
