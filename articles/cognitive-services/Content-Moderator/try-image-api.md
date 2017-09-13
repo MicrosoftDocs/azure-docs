@@ -17,9 +17,7 @@ ms.author: sajagtap
 Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) to initiate scan-and-review moderation workflows with text content. The moderation job scans your content for profanity, comparing it against custom and/or shared blacklists.
 
 ## Try with the API console
-Before you can test-drive the API from the online console, you will need the **Ocp-Apim-Subscription-Key**. This is found under the Settings tab, as shown below.
-
-![Content Moderator credentials in the review tool](Review-Tool-User-Guide/images/credentials-2-reviewtool.png)
+Before you can test-drive the API from the online console, you will need the **Ocp-Apim-Subscription-Key**. This is found under the **Settings** tab, as shown in the [Overview](overview.md) article.
 
 1.	Navigate to the **[Image Moderation API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)** page. Click the button that most closely describes your location, under Open API testing console.
 

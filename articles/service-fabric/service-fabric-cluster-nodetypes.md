@@ -1,6 +1,6 @@
 ﻿---
-title: Service Fabric node types and VM Scale Sets | Microsoft Docs
-description: Describes how Service Fabric node types relate to VM Scale Sets and how to remote connect to a VM Scale Set instance or a cluster node.
+title: Azure Service Fabric node types and virtual machine scale sets | Microsoft Docs
+description: Learn how Azure Service Fabric node types relate to virtual machine scale sets, and how to remotely connect to a scale set instance or cluster node.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -17,47 +17,47 @@ ms.date: 06/05/2017
 ms.author: chackdan
 
 ---
-# The relationship between Service Fabric node types and Virtual Machine Scale Sets
-Virtual Machine Scale Sets are an Azure Compute resource. They can be used to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate virtual machine scale set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
+# Azure Service Fabric node types and virtual machine scale sets
+Virtual machine scale sets are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Set up a separate scale set for each node type that you define in an Azure Service Fabric cluster. You can independently scale each node type up or down, have different sets of ports open, and use different capacity metrics.
 
-The following screen shot shows a cluster that has two node types: FrontEnd and BackEnd.  Each node type has five nodes each.
+The following figure shows a cluster that has two node types, named FrontEnd and BackEnd. Each node type has five nodes.
 
-![Screen shot of a cluster that has two Node Types][NodeTypes]
+![A cluster that has two node types][NodeTypes]
 
-## Mapping virtual machine scale set instances to nodes
-As you can see above, the virtual machine scale set instances start from instance 0 and then goes up. The numbering is reflected in the names. For example, BackEnd_0 is instance 0 of the BackEnd virtual machine scale set. This particular virtual machine scale set has five instances, named BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 and BackEnd_4.
+## Map virtual machine scale set instances to nodes
+As shown in the preceding figure, scale set instances start at instance 0, and then increase by 1. The numbering is reflected in the node names. For example, node BackEnd_0 is instance 0 of the BackEnd scale set. This particular scale set has five instances, named BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3, and BackEnd_4.
 
-When you scale up a virtual machine scale set a new instance is created. The new virtual machine scale set instance name will typically be the virtual machine scale set name + the next instance number. In our example, it is BackEnd_5.
+When you scale up a scale set, a new instance is created. The new scale set instance name typically is the scale set name plus the next instance number. In our example, it is BackEnd_5.
 
-## Mapping virtual machine scale set load balancers to each node type/VM Scale Set
-If you have deployed your cluster from the portal or have used the sample Resource Manager template, you get a list of all resources under a Resource Group. You see the load balancers each virtual machine scale set or node type.
-
-The name would something like: **LB-&lt;NodeType name&gt;**. For example, LB-sfcluster4doc-0, as shown in this screenshot:
+## Map scale set load balancers to node types and scale sets
+If you deployed your cluster in the Azure portal or used the sample Azure Resource Manager template, all resources under a resource group are listed. You can see the load balancers for each scale set or node type. The load balancer name uses the following format: **LB-&lt;node type name&gt;**. An example is LB-sfcluster4doc-0, as shown in the following figure:
 
 ![Resources][Resources]
+<a name="remote-connect-to-a-vm-scale-set"></a>
+## Remotely connect to a scale set instance or cluster node
+Set up a separate scale set for each node type that you defined in a cluster. You can independently scale the node types up or down. You also can use different VM SKUs. Unlike single-instance VMs, scale set instances don't have their own virtual IP addresses. This can be challenging when you are looking for an IP address and port that you can use to remotely connect to a specific instance.
 
-## Remote connect to a virtual machine scale set instance or a cluster node
-Every Node type that is defined in a cluster is set up as a separate virtual machine scale set.  That means the node types can be scaled up or down independently. Additionally, they can be made of different VM SKUs. Unlike single instance VMs, the virtual machine scale set instances do not get a virtual IP address of their own. So it can be a bit challenging when you are looking for an IP address and port that you can use to remote connect to a specific instance.
+To find an IP address and port that you can use to remotely connect to a specific instance, complete the following steps.
 
-Here are the steps you can follow to discover them.
+**Step 1**: Find the virtual IP address for the node type by getting the inbound NAT rules for Remote Desktop Protocol (RDP).
 
-### Step 1: Find out the virtual IP address for the node type and then Inbound NAT rules for RDP
-In order to get that, you need to get the inbound NAT rules values that were defined as a part of the resource definition for **Microsoft.Network/loadBalancers**.
+First, get the inbound NAT rules values that were defined as part of the resource definition for `Microsoft.Network/loadBalancers`.
 
-In the portal, navigate to the Load balancer blade and then **Settings**.
+In the Azure portal, on the load balancer page, select **Settings** > **Inbound NAT rules**. This gives you the IP address and port that you can use to remotely connect to the first scale set instance. 
 
-![LBBlade][LBBlade]
+![Load balancer][LBBlade]
 
-In **Settings**, click on **Inbound NAT rules**. This now gives you the IP address and port that you can use to remote connect to the first virtual machine scale set instance. In the screenshot below, it is **104.42.106.156** and **3389**
+In the following figure, the IP address and port are **104.42.106.156** and **3389**.
 
-![NATRules][NATRules]
+![NAT rules][NATRules]
 
-### Step 2: Find out the port that you can use to remote connect to the specific virtual machine scale set instance/node
-Earlier in this document, I talked about how the virtual machine scale set instances map to the nodes. We use that to figure out the exact port.
+**Step 2**: Find the port that you can use to remotely connect to the specific scale set instance or node.
 
-The ports are allocated in ascending order of the virtual machine scale set instance. so in my example for the FrontEnd node type, the ports for each of the five instances are the following. you now need to do the same mapping for your virtual machine scale set instance.
+Scale set instances map to nodes. Use the scale set information to determine the exact port to use.
 
-| **Virtual machine scale set Instance** | **Port** |
+Ports are allocated in an ascending order that matches the scale set instance. For the earlier example of the FrontEnd node type, the following table lists the ports for each of the five node instances. Apply the same mapping to your scale set instance.
+
+| **Virtual machine scale set instance** | **Port** |
 | --- | --- |
 | FrontEnd_0 |3389 |
 | FrontEnd_1 |3390 |
@@ -66,74 +66,79 @@ The ports are allocated in ascending order of the virtual machine scale set inst
 | FrontEnd_4 |3393 |
 | FrontEnd_5 |3394 |
 
-### Step 3: Remote connect to the specific virtual machine scale set instance
-In the screenshot below I use Remote Desktop Connection to connect to the FrontEnd_1:
+**Step 3**: Remotely connect to the specific scale set instance.
 
-![RDP][RDP]
+The following figure demonstrates using Remote Desktop Connection to connect to the FrontEnd_1 scale set instance:
 
-## How to change the RDP port range values
+![Remote Desktop Connection][RDP]
+
+## Change the RDP port range values
+
 ### Before cluster deployment
-When you are setting up the cluster using a Resource Manager template, you can specify the range in the **inboundNatPools**.
+When you set up the cluster by using a Resource Manager template, specify the range in `inboundNatPools`.
 
-Go to the resource definition for **Microsoft.Network/loadBalancers**. Under that you find the description for **inboundNatPools**.  Replace the *frontendPortRangeStart* and *frontendPortRangeEnd* values.
+Go to the resource definition for `Microsoft.Network/loadBalancers`. Locate the description for `inboundNatPools`.  Replace the `frontendPortRangeStart` and `frontendPortRangeEnd` values.
 
-![InboundNatPools][InboundNatPools]
+![inboundNatPools values][InboundNatPools]
 
 ### After cluster deployment
-After cluster deployment is a bit more involved and may result in the VMs getting recycled. Set new values using Azure PowerShell. Make sure that Azure PowerShell 1.0 or later is installed on your machine. If you do not have Azure Powershell 1.0 or later, I strongly suggest that you follow the steps outlined in [How to install and configure Azure PowerShell.](/powershell/azure/overview)
+Changing the RDP port range values after the cluster has been deployed is more complex. To ensure that you don't recycle the VMs, use Azure PowerShell to set new values. 
 
-Sign in to your Azure account. If this PowerShell command fails for some reason, you should check whether you have Azure PowerShell installed correctly.
+> [!NOTE]
+> Ensure that you have Azure PowerShell 1.0 or a later version installed on your computer. If you don't have Azure Powershell 1.0 or a later version, we recommend that you follow the steps described in [How to install and configure Azure PowerShell.](/powershell/azure/overview)
 
-```
-Login-AzureRmAccount
-```
+1. Sign in to your Azure account. If the following PowerShell command fails, verify that you installed PowerShell correctly.
 
-Run the following to get details on your load balancer and you see the values for the description for **inboundNatPools**:
+    ```
+    Login-AzureRmAccount
+    ```
 
-```
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
-```
+2. To get details about your load balancer, and to see the values for the description for `inboundNatPools`, run the following code:
 
-Now set *frontendPortRangeEnd* and *frontendPortRangeStart* to the values you want.
+    ```
+    Get-AzureRmResource -ResourceGroupName <resource group name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
+    ```
 
-```
-$PropertiesObject = @{
-    #Property = value;
-}
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load Balancer name> -ApiVersion <use the API version that get returned> -Force
-```
+3. Set `frontendPortRangeEnd` and `frontendPortRangeStart` to the values that you want.
 
-## How to change the RDP username & password for nodes
+    ```
+    $PropertiesObject = @{
+        #Property = value;
+    }
+    Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <resource group name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name> -ApiVersion <use the API version that is returned> -Force
+    ```
 
-The following steps outline how to change the password for all nodes of a given Node Type. These changes will apply to all current and future nodes in the virtual machine scale set.
+## Change the RDP user name and password for nodes
 
-### Step 1: Open PowerShell with elevated privileges (Administrator mode). 
-### Step 2: Run the following commands to log in and select your subscription for the session. Change the `SUBSCRIPTIONID` parameter to your subscription ID. 
+To change the password for all nodes of a specific node type, complete the following steps. These changes will apply to all current and future nodes in the scale set.
 
-```powershell
-Login-AzureRmAccount
-Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
-```
+1. Open PowerShell as an administrator. 
+2. To log in and select your subscription for the session, run the following commands. Change the `SUBSCRIPTIONID` parameter to your subscription ID. 
 
-### Step 3: Run the following script, with the appropriate `NODETYPENAME`, `RESOURCEGROUP`, `USERNAME` and `PASSWORD` values. The `USERNAME` and `PASSWORD` values will be the new credentials that should be used in future RDP sessions. 
+    ```powershell
+    Login-AzureRmAccount
+    Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
+    ```
 
-```powershell
-$nodeTypeName = 'NODETYPENAME'
-$resourceGroup = 'RESOURCEGROUP'
-$publicConfig = @{'UserName' = 'USERNAME'}
-$privateConfig = @{'Password' = 'PASSWORD'}
-$extName = 'VMAccessAgent'
-$publisher = 'Microsoft.Compute'
-$node = Get-AzureRmVmss -ResourceGroupName $resourceGroup -VMScaleSetName $nodeTypeName
-$node = Add-AzureRmVmssExtension -VirtualMachineScaleSet $node -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion '2.0' -AutoUpgradeMinorVersion $true
+3. Run the following script. Use the relevant `NODETYPENAME`, `RESOURCEGROUP`, `USERNAME`, and `PASSWORD` values. The `USERNAME` and `PASSWORD` values are the new credentials that you use in future RDP sessions. 
 
-Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
-```
+    ```powershell
+    $nodeTypeName = 'NODETYPENAME'
+    $resourceGroup = 'RESOURCEGROUP'
+    $publicConfig = @{'UserName' = 'USERNAME'}
+    $privateConfig = @{'Password' = 'PASSWORD'}
+    $extName = 'VMAccessAgent'
+    $publisher = 'Microsoft.Compute'
+    $node = Get-AzureRmVmss -ResourceGroupName $resourceGroup -VMScaleSetName $nodeTypeName
+    $node = Add-AzureRmVmssExtension -VirtualMachineScaleSet $node -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion '2.0' -AutoUpgradeMinorVersion $true
+
+    Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
+    ```
 
 ## Next steps
-* [Overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md)
-* [Cluster security](service-fabric-cluster-security.md)
-* [ Service Fabric SDK and getting started](service-fabric-get-started.md)
+* See the [overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md).
+* Learn about [cluster security](service-fabric-cluster-security.md).
+* Learn about the [Service Fabric SDK and getting started](service-fabric-get-started.md).
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png
