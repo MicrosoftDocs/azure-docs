@@ -63,4 +63,4 @@ Get-AzureRmPublicIpAddress `
 ```
 
 ## Next step
-- Learn to [create a zoned VM with PowerShell] (../../virtual-machines/create-powershell-availability-zone.md)
+- Learn more about [Availability Zones] (../availability-zones/az-overview.md)

@@ -21,13 +21,12 @@ ms.custom:
 
 # Create a Public IP in an availability zone with the Azure CLI
 
-You can deploy a Public IP in an Azure availability zone (preview). An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. You learn how to:
+You can deploy a Public IP in an Azure availability zone (preview). An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. You learn how to:
 
 > * Create a Public IP in an availability zone
 > * Identify related resources created in the availability zone
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] 
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.xxx [*TBD*] or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -51,4 +50,4 @@ az network public-ip show -g MyResourceGroup -n MyPublicIP
 
 ## Next step
 
-- Learn to [create a zoned VM with Azure CLI] (../virtual-machines/create-cli-availability-zone.md)
+- Learn more about [Availability Zones] (../availability-zones/az-overview.md)
