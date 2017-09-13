@@ -76,7 +76,7 @@ First use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) c
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
 ```
 
-Mow you can get information about the IP address:
+Now you can get information about the IP address:
 
 ```azurecli-interactive
 az network public-ip show --resource-group myResourceGroupVM --name $ipaddressname
