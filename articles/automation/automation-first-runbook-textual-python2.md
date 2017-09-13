@@ -54,7 +54,6 @@ We start by creating a simple runbook that outputs the text *Hello World*.
 Now we add a simple command to print the text "Hello World":
 
 ```python
-#!/usr/bin/env python2
 print("Hello World!")
 ```
 
@@ -112,7 +111,7 @@ To manage Azure resources, the script has to authenticate using the credentials 
    import automationassets
 
    def get_automation_runas_credential(runas_connection):
-    from OpenSSL import crypto
+       from OpenSSL import crypto
        import binascii
        from msrestazure import azure_active_directory
        import adal
