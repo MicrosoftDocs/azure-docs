@@ -19,32 +19,28 @@ ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
 
-# Overview of Availability Zones
+# Overview of Availability Zones in Azure (Preview)
 
-Though the cloud feels like it's everywhere, in reality, your data and applications are running in specific physical locations. Unforeseen events can have catastrophic impacts on those physical locations. And for this reason, it makes sense to distribute your data and applications to ensure their availability. Region pairs help with availability by pairing one Azure region with another region within the same geography (such as US, Europe, or Asia). Availability Zones expands the level of control you have to maintain the availability of your applications and data. An Availability Zone is a physically separate zone within an Azure region. There are three Availability Zones per Azure region. Each Availability Zone has a distinct power source, network, cooling, and is logically separate from the other Availability Zones within the Azure region. If one Availability Zone is compromised, then replicated data is instantly available in another zone.
+Availability Zones are fault-isolated locations within an Azure region. An Availability Zone represents one or more datacenters within a region. Each Availability Zone has independent power source, network, cooling, and is logically separate from the other Availability Zones within the Azure region. The physical and logical separation of Availability Zones within a region, protects applications and data from zone-level failures. There is a minimum of three zones in all enabled regions. [Enable](az-overview.md#get-started-with-the-availability-zones-preview) the Availability Zones Preview in my subscription.
 
-Availability Zones protect against hardware, network, cooling, and power failures that can compromise a datacenter.  
+![conceptual view of one zone going down in a region](./media/az-overview/availability-zones-and-region.png)
 
-! conceptual view of one zone going down in a region (./media/az-overview/three-zones-per-region.png) John to provide artwork that shows Availability Zones.
-
-
-## Supported Regions
+## Enabled regions
 
 - East US 2
 - West Europe
 
-
-## Supported Services
+## Availability Zone-aware services
 
 The Azure services that support Availability Zones are:
 |Service | API version |
 |------- | ------------ |
-| Linux Virtual Machines |   |
-| Windows Virtual Machines |  |
-| Public IP  |   |
-| Zonal Virtual Machine Scale Sets|    |
-| Managed Disks |    |
-| Software Load Balancer |   |
+| Linux Virtual Machines | 3-30-2017   |
+| Windows Virtual Machines | 3-30-2017 |
+| Public IP  | 8-01-2017  |
+| Zonal Virtual Machine Scale Sets| 3-30-2017  |
+| Managed Disks | 3-30-2017   |
+| Software Load Balancer | 8-01-2017  |
 
 ## Supported virtual machines SKUs
 
@@ -52,20 +48,20 @@ The Azure services that support Availability Zones are:
 - D2_v2
 - DS2_v2
 
-## Get Started with the Availability Zones preview
+## Get started with the Availability Zones preview
 
-The Availability Zone preview is available in the East US 2 and West Europe regions for specific Azure services. 
+The Availability Zones preview is available in the East US 2 and West Europe regions for specific Azure services. 
 
-1. Follow the instructions to sign up for the Availablity Zones (link to signup) preview in your subscription. 
+1. Follow the instructions to [sign up for the Availability Zones preview](http://aka.ms/azenroll) in your subscription. 
 2. Choose the Azure subscription to use.
-3. Use one of the following links to start using Availabilty Zones with your service. 
-    - Create a virtual machine.
-    - Create a public IP.
-    - Creat a zonal virtual machine scale set.
-    - Create a Managed Disk.
-    - Create a Software Load Balancer.
+3. Choose the Availability Zones-enabled region
+4. Use one of the following links to start using Availability Zones with your service. 
+    - Create a virtual machine
+    - Create a public IP
+    - Create a zonal virtual machine scale set
+    - Create a Managed Disk
+    - Create a Software Load Balancer
 
 ## Next steps
-- Quickstart templates - this link comes from Raj.
+- [Quickstart templates](http://aka.ms/azqs)
 - [Information on Azure Resiliency](https://azure.microsoft.com/features/resiliency)
-- FAQ - this information comes from John Day
