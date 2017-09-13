@@ -218,7 +218,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 Configure URL rule paths for the back-end pools. This step configures the relative path used by Application Gateway and defines the mapping between the URL path and the back-end pool that's assigned to handle the incoming traffic.
 
 > [!IMPORTANT]
-> Each path must start with a "/," and an asterisk is only allowed at the end. Valid examples are /xyz, /xyz/*, or /xyz//*. The string fed to the path matcher does not include any text after the first "?" or "#," and those characters are not allowed. 
+> Each path must start with a "/," and an asterisk is only allowed at the end. Valid examples are /xyz, /xyz*, or /xyz/*. The string fed to the path matcher does not include any text after the first "?" or "#," and those characters are not allowed. 
 
 The following example creates two rules: one for an "/image/" path routing traffic to back-end **pool1**, and another for a "/video/" path routing traffic to back-end **pool2**. These rules ensure that traffic for each set of URLs is routed to the back end. For example, http://contoso.com/image/figure1.jpg goes to **pool1** and http://contoso.com/video/example.mp4 goes to **pool2**.
 
