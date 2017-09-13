@@ -1,6 +1,6 @@
 ---
-title: Develop for Azure File storage with Java | Microsoft Docs
-description: Learn how to develop Java applications and services that use Azure File storage to store file data.
+title: Develop for Azure Files with Java | Microsoft Docs
+description: Learn how to develop Java applications and services that use Azure Files to store file data.
 services: storage
 documentationcenter: java
 author: robinsh
@@ -17,13 +17,13 @@ ms.date: 05/27/2017
 ms.author: robinsh
 ---
 
-# Develop for Azure File storage with Java
+# Develop for Azure Files with Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## About this tutorial
-This tutorial will demonstrate the basics of using Java to develop applications or services that use Azure File storage to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Java and Azure File storage:
+This tutorial will demonstrate the basics of using Java to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Java and Azure Files:
 
 * Create and delete Azure File shares
 * Create and delete directories
@@ -31,12 +31,12 @@ This tutorial will demonstrate the basics of using Java to develop applications 
 * Upload, download, and delete a file
 
 > [!Note]  
-> Because Azure File storage may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure File storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure File storage.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
 
 ## Create a Java application
 To build the samples, you will need the Java Development Kit (JDK) and the [Azure Storage SDK for Java][]. You should also have created an Azure storage account.
 
-## Setup your application to use Azure File storage
+## Setup your application to use Azure Files
 To use the Azure storage APIs, add the following statement to the top of the Java file where you intend to access the storage service from.
 
 ```java
@@ -46,7 +46,7 @@ import com.microsoft.azure.storage.file.*;
 ```
 
 ## Setup an Azure storage connection string
-To use Azure File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string which we'll use to connect to your storage account. Let's define a static variable to do that.
+To use Azure Files, you need to connect to your Azure storage account. The first step would be to configure a connection string which we'll use to connect to your storage account. Let's define a static variable to do that.
 
 ```java
 // Configure the connection-string with your values
@@ -76,14 +76,14 @@ try {
 **CloudStorageAccount.parse** throws an InvalidKeyException so you'll need to put it inside a try/catch block.
 
 ## Create an Azure File share
-All files and directories in Azure File storage reside in a container called a **Share**. Your storage account can have as much shares as your account capacity allows. To obtain access to a share and its contents, you need to use a Azure File storage client.
+All files and directories in Azure Files reside in a container called a **Share**. Your storage account can have as much shares as your account capacity allows. To obtain access to a share and its contents, you need to use a Azure Files client.
 
 ```java
-// Create the Azure File storage client.
+// Create the Azure Files client.
 CloudFileClient fileClient = storageAccount.createCloudFileClient();
 ```
 
-Using the Azure File storage client, you can then obtain a reference to a share.
+Using the Azure Files client, you can then obtain a reference to a share.
 
 ```java
 // Get a reference to the file share
@@ -124,7 +124,7 @@ try
 ```
 
 ## Create a directory
-You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. Azure File storage allows you to create as much directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
+You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. Azure Files allows you to create as much directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -189,7 +189,7 @@ Now that you have a reference to the root directory of the share, you can upload
 ```
 
 ## Download a file
-One of the more frequent operations you will perform against Azure File storage is to download files. In the following example, the code downloads SampleFile.txt and displays its contents.
+One of the more frequent operations you will perform against Azure Files is to download files. In the following example, the code downloads SampleFile.txt and displays its contents.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -206,7 +206,7 @@ System.out.println(file.downloadText());
 ```
 
 ## Delete a file
-Another common Azure File storage operation is file deletion. The following code deletes a file named SampleFile.txt stored inside a directory named **sampledir**.
+Another common Azure Files operation is file deletion. The following code deletes a file named SampleFile.txt stored inside a directory named **sampledir**.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -233,5 +233,5 @@ If you would like to learn more about other Azure storage APIs, follow these lin
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md* [Troubleshooting Azure File storage problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-)
+* [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md)
+* [Troubleshooting Azure Files problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)

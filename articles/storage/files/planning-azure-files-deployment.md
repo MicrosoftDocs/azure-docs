@@ -21,7 +21,7 @@ ms.author: wgries
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. Because Azure Files is fully managed, deploying it in production scenarios is much easier than deploying and managing a file server or NAS device. This article addresses the topics to consider when deploying an Azure File share for production use within your organization.
 
 ## Management concepts
- The following diagram illustrates the Azure File storage management constructs:
+ The following diagram illustrates the Azure Files management constructs:
 
 ![File Structure](./media/storage-files-introduction/files-concepts.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Use Azure File storage with Linux | Microsoft Docs
+title: Use Azure Files with Linux | Microsoft Docs
 description: Learn how to mount an Azure File share over SMB on Linux.
 services: storage
 documentationcenter: na
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
 ---
-# Use Azure File storage with Linux
-[Azure File storage](../storage-dotnet-how-to-use-files.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Linux distributions using the [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from the [Samba project](https://www.samba.org/). This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
+# Use Azure Files with Linux
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Linux distributions using the [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from the [Samba project](https://www.samba.org/). This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
 
 > [!NOTE]  
 > In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0. Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure File share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu from 16.04 and above.
@@ -103,10 +103,10 @@ ms.author: renash
 ## Feedback
 Linux users, we want to hear from you!
 
-The Azure File storage for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure File storage Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
+The Azure Files for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure Files Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
 
 ## Next steps
-See these links for more information about Azure File storage.
+See these links for more information about Azure Files.
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [How to use AzCopy with Microsoft Azure storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Using the Azure CLI with Azure storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)

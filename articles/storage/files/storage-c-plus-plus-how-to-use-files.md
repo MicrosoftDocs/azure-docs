@@ -1,6 +1,6 @@
 ---
-title: Develop for Azure File storage with C++ | Microsoft Docs
-description: Learn how to develop C++ applications and services that use Azure File storage to store file data.
+title: Develop for Azure Files with C++ | Microsoft Docs
+description: Learn how to develop C++ applications and services that use Azure Files to store file data.
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -17,14 +17,14 @@ ms.date: 05/27/2017
 ms.author: renashahmsft
 ---
 
-# Develop for Azure File storage with C++
+# Develop for Azure Files with C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## About this tutorial
 
-In this tutorial, you'll learn how to perform basic operations on Azure File storage. Through samples written in C++, you'll learn how to create shares and directories, upload, list, and delete files. If you are new to Azure File storage , going through the concepts in the sections that follow will be helpful in understanding the samples.
+In this tutorial, you'll learn how to perform basic operations on Azure Files. Through samples written in C++, you'll learn how to create shares and directories, upload, list, and delete files. If you are new to Azure Files, going through the concepts in the sections that follow will be helpful in understanding the samples.
 
 
 * Create and delete Azure File shares
@@ -35,7 +35,7 @@ In this tutorial, you'll learn how to perform basic operations on Azure File sto
 * Create a shared access signature (SAS key) for a file that uses a shared access policy defined on the share.
 
 > [!Note]  
-> Because Azure File storage may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [Azure File storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure File storage.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
 
 ## Create a C++ application
 To build the samples, you will need to install the Azure Storage Client Library 2.4.0 for C++. You should also have created an Azure storage account.
@@ -49,8 +49,8 @@ To install the Azure Storage Client 2.4.0 for C++, you can use one of the follow
 Install-Package wastorage
 ```
 
-## Set up your application to use Azure File storage
-Add the following include statements to the top of the C++ source file where you want to manipulate Azure File storage:
+## Set up your application to use Azure Files
+Add the following include statements to the top of the C++ source file where you want to manipulate Azure Files:
 
 ```cpp
 #include <was/storage_account.h>
@@ -76,15 +76,15 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## Create an Azure File share
-All files and directories in Azure File storage reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use a Azure File storage client.
+All files and directories in an Azure File share reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use a Azure Files client.
 
 ```cpp
-// Create the Azure File storage client.
+// Create the Azure Files client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-Using the Azure File storage client, you can then obtain a reference to a share.
+Using the Azure Files client, you can then obtain a reference to a share.
 
 ```cpp
 // Get a reference to the file share
@@ -115,7 +115,7 @@ share.delete_share_if_exists();
 ```
 
 ## Create a directory
-You can organize storage by putting files inside subdirectories instead of having all of them in the root directory. Azure File storage allows you to create as many directories as your account will allow. The code below will create a directory named **my-sample-directory** under the root directory as well as a subdirectory named **my-sample-subdirectory**.
+You can organize storage by putting files inside subdirectories instead of having all of them in the root directory. Azure Files allows you to create as many directories as your account will allow. The code below will create a directory named **my-sample-directory** under the root directory as well as a subdirectory named **my-sample-subdirectory**.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -236,7 +236,7 @@ outfile.close();
 ```
 
 ## Delete a file
-Another common Azure File storage operation is file deletion. The following code deletes a file named my-sample-file-3 stored under the root directory.
+Another common Azure Files operation is file deletion. The following code deletes a file named my-sample-file-3 stored under the root directory.
 
 ```cpp
 // Get a reference to the root directory for the share.    

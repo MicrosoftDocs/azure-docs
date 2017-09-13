@@ -1,6 +1,6 @@
 ---
-title: Develop for Azure File storage with Python | Microsoft Docs
-description: Learn how to develop Python applications and services that use Azure File storage to store file data.
+title: Develop for Azure Files with Python | Microsoft Docs
+description: Learn how to develop Python applications and services that use Azure Files to store file data.
 services: storage
 documentationcenter: python
 author: robinsh
@@ -17,13 +17,13 @@ ms.date: 12/08/2016
 ms.author: robinsh
 ---
 
-# Develop for Azure File storage with Python
+# Develop for Azure Files with Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## About this tutorial
-This tutorial will demonstrate the basics of using Python to develop applications or services that use Azure File storage to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Python and Azure File storage:
+This tutorial will demonstrate the basics of using Python to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Python and Azure Files:
 
 * Create Azure File shares
 * Create directories
@@ -31,16 +31,16 @@ This tutorial will demonstrate the basics of using Python to develop application
 * Upload, download, and delete a file
 
 > [!Note]  
-> Because Azure File storage may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Python I/O classes and functions. This article will describe how to write applications that use the Azure Storage Python SDK, which uses the [Azure File storage REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure File storage.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Python I/O classes and functions. This article will describe how to write applications that use the Azure Storage Python SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
 
-### Set up your application to use Azure File storage
+### Set up your application to use Azure Files
 Add the following near the top of any Python source file in which you wish to programmatically access Azure Storage.
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### Set up a connection to Azure File storage 
+### Set up a connection to Azure Files 
 The `FileService` object lets you work with shares, directories and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
 
 ```python
@@ -55,7 +55,7 @@ file_service.create_share('myshare')
 ```
 
 ### Create a directory
-You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. Azure File storage allows you to create as many directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
+You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. Azure Files allows you to create as many directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -106,7 +106,7 @@ file_service.delete_file('myshare', None, 'myfile')
 ```
 
 ## Next steps
-Now that you've learned how to manipulate Azure File storage with Python, follow these links to learn more.
+Now that you've learned how to manipulate Azure Files with Python, follow these links to learn more.
 
 * [Python Developer Center](/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)

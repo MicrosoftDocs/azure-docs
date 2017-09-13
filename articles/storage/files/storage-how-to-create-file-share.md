@@ -1,6 +1,6 @@
 ---
 title: How to create an Azure File Share | Microsoft Docs
-description: How to create an Azure file share in Azure File storage using the Azure portal, PowerShell, and the Azure CLI.
+description: How to create an Azure file share in Azure Files using the Azure portal, PowerShell, and the Azure CLI.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ---
-# Create a File Share in Azure File storage
+# Create a File Share in Azure Files
 You can create Azure File shares using [Azure portal](https://portal.azure.com/), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API.In this tutorial, you will learn:
 * [How to create an Azure File share using the Azure portal](#Create file share through the Portal)
 * [How to create an Azure File share using Powershell](#Create file share using PowerShell)
@@ -92,7 +92,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 * [Connect and Mount File Share - Linux](../storage-how-to-use-files-linux.md)
 * [Connect and Mount File Share - macOS](storage-how-to-use-files-mac.md)
 
-See these links for more information about Azure File storage.
+See these links for more information about Azure Files.
 
 * [FAQ](../storage-files-faq.md)
 * [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      

@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure File storage problems in Windows | Microsoft Docs
-description: Troubleshooting Azure File storage problems in Windows
+title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
+description: Troubleshooting Azure Files problems in Windows
 services: storage
 documentationcenter: ''
 author: genlin
@@ -17,9 +17,9 @@ ms.date: 06/28/2017
 ms.author: genli
 
 ---
-# Troubleshoot Azure File storage problems in Windows
+# Troubleshoot Azure Files problems in Windows
 
-This article lists common problems that are related to Microsoft Azure File storage when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
+This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
 
 
 <a id="error53-67-87"></a>
@@ -46,7 +46,7 @@ Connect from a client that does one of the following:
 
 ### Cause 2: Port 445 is blocked
 
-System error 53 or system error 67 can occur if port 445 outbound communication to an Azure File storage datacenter is blocked. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+System error 53 or system error 67 can occur if port 445 outbound communication to an Azure Files datacenter is blocked. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 To understand whether this is the reason behind the "System error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
@@ -64,7 +64,7 @@ Work with your IT department to open port 445 outbound to [Azure IP ranges](http
 
 ### Cause 3: NTLMv1 is enabled
 
-System error 53 or system error 87 can occur if NTLMv1 communication is enabled on the client. Azure File storage supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication is blocked for Azure File storage. 
+System error 53 or system error 87 can occur if NTLMv1 communication is enabled on the client. Azure Files supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication is blocked for Azure Files. 
 
 To determine whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
 
@@ -90,7 +90,7 @@ Error 1816 happens when you reach the upper limit of concurrent open handles tha
 Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
-## Slow file copying to and from Azure File storage in Windows
+## Slow file copying to and from Azure Files in Windows
 
 You might see slow performance when you try to transfer files to the Azure File service.
 
@@ -149,7 +149,7 @@ You can use either of the following steps to work around the problem:
 - Put double quotation marks around the key to work around this problem--unless the forward slash is the first character. If it is, either use the interactive mode and enter your password separately or regenerate your keys to get a key that doesn't start with a forward slash.
 
 <a id="cannotaccess"></a>
-## Application or service cannot access a mounted Azure File storage drive
+## Application or service cannot access a mounted Azure Files drive
 
 ### Cause
 
@@ -170,7 +170,7 @@ After you follow these instructions, you might receive the following error messa
 When a file is copied over the network, the file is decrypted on the source computer, transmitted in plaintext, and re-encrypted at the destination. However, you might see the following error when you're trying to copy an encrypted file: "You are copying the file to a destination that does not support encryption."
 
 ### Cause
-This problem can occur if you are using Encrypting File System (EFS). BitLocker-encrypted files can be copied to Azure File storage. However, Azure File storage does not support NTFS EFS.
+This problem can occur if you are using Encrypting File System (EFS). BitLocker-encrypted files can be copied to Azure Files. However, Azure Files does not support NTFS EFS.
 
 ### Workaround
 To copy a file over the network, you must first decrypt it. Use one of the following methods:

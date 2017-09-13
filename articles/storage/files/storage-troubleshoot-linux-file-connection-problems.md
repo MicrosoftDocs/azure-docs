@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure File storage problems in Linux | Microsoft Docs
-description: Troubleshooting Azure File storage problems in Linux
+title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
+description: Troubleshooting Azure Files problems in Linux
 services: storage
 documentationcenter: ''
 author: genlin
@@ -17,9 +17,9 @@ ms.date: 07/11/2017
 ms.author: genli
 
 ---
-# Troubleshoot Azure File storage problems in Linux
+# Troubleshoot Azure Files problems in Linux
 
-This article lists common problems that are related to Microsoft Azure File storage when you connect from Linux clients. It also provides possible causes and resolutions for these problems.
+This article lists common problems that are related to Microsoft Azure Files when you connect from Linux clients. It also provides possible causes and resolutions for these problems.
 
 <a id="permissiondenied"></a>
 ## "[permission denied] Disk quota exceeded" when you try to open a file
@@ -37,7 +37,7 @@ You have reached the upper limit of concurrent open handles that are allowed for
 Reduce the number of concurrent open handles by closing some handles, and then retry the operation. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
-## Slow file copying to and from Azure File storage in Linux
+## Slow file copying to and from Azure Files in Linux
 
 -	If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 -	If you know the final size of a file that you are extending by using writes, and your software doesn’t experience compatibility problems when an unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
@@ -75,15 +75,15 @@ You can work around this problem by specifying a hard mount. This forces the cli
 If you cannot upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
 
 <a id="error115"></a>
-## "Mount error(115): Operation now in progress" when you mount Azure File storage by using SMB 3.0
+## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.0
 
 ### Cause
 
-Some Linux distributions do not yet support encryption features in SMB 3.0 and users might receive a "115" error message if they try to mount Azure File storage by using SMB 3.0 because of a missing feature.
+Some Linux distributions do not yet support encryption features in SMB 3.0 and users might receive a "115" error message if they try to mount Azure Files by using SMB 3.0 because of a missing feature.
 
 ### Solution
 
-Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure File share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure File storage by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
+Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure File share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
@@ -106,7 +106,7 @@ You can also check whether the correct options are being used by running the  **
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-If the **cache=strict** or **serverino** option is not present, unmount and mount Azure File storage again by running the mount command from the [documentation](../storage-how-to-use-files-linux.md). Then, recheck that the **/etc/fstab** entry has the correct options.
+If the **cache=strict** or **serverino** option is not present, unmount and mount Azure Files again by running the mount command from the [documentation](../storage-how-to-use-files-linux.md). Then, recheck that the **/etc/fstab** entry has the correct options.
 
 <a id="timestampslost"></a>
 ## Time stamps were lost in copying files from Windows to Linux

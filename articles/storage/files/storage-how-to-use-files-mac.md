@@ -18,7 +18,7 @@ ms.author: renash
 ---
 
 # Mount Azure File share over SMB with macOS
-[Azure File storage](../storage-dotnet-how-to-use-files.md) is Microsoft's service that enables you to create and use network file shares in the Azure using the industry standard. Azure File shares can be mounted in macOS Sierra (10.12) and El Capitan (10.11). This article shows two different ways to mount an Azure File share on macOS with the Finder UI and using the Terminal.
+[Azure Files](storage-files-introduction.md) is Microsoft's service that enables you to create and use network file shares in the Azure using the industry standard. Azure File shares can be mounted in macOS Sierra (10.12) and El Capitan (10.11). This article shows two different ways to mount an Azure File share on macOS with the Finder UI and using the Terminal.
 
 > [!Note]  
 > Before mounting an Azure File share over SMB, we recommend disabling SMB packet signing. Not doing so may yield poor performance when accessing the Azure File share from macOS. Your SMB connection will be encrypted, so this does not affect the security of your connection. From the terminal, the following commands will disable SMB packet signing, as described by this [Apple support article on disabling SMB packet signing](https://support.apple.com/HT205926):  
@@ -61,7 +61,7 @@ ms.author: renash
     ![A snapshot of the mounted Azure File share](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## Next steps
-See these links for more information about Azure File storage.
+See these links for more information about Azure Files.
 
 * [Apple Support Article - How to connect with File Sharing on your Mac](https://support.apple.com/HT204445)
 * [FAQ](../storage-files-faq.md)
