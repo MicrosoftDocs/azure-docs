@@ -66,11 +66,19 @@ Tip 5: Want to try Azure #CosmosDB for free? No signup or credit card required, 
 
 ## Tip 6: Migrate your MEAN app
 
-Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmosDB! https://aka.ms/gfh6i5 Full video:  https://aka.ms/aoojih  
+Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmosDB! [https://aka.ms/gfh6i5](https://aka.ms/gfh6i5) Full video: [https://aka.ms/aoojih](https://aka.ms/aoojih)
+
+> [!VIDEO https://www.youtube.com/embed/1DzwI5HmU5w]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+
+## Tip 7: Build a Node.js app using Graph API
+
+TTip 7: Build a Node.js app by using Graph API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/X79feg](https://aka.ms/X79feg)
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
-[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907982218353451009)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313762492686352384)
 
 ## Next steps
 
