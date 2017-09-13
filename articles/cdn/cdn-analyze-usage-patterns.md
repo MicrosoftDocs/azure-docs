@@ -1,5 +1,5 @@
 ---
-title: Analyze Azure CDN usage patterns | Microsoft Docs
+title: Core reports from Verizon | Microsoft Docs
 description: 'You can view usage patterns for your CDN using the following reports: Bandwidth, Data Transferred, Hits, Cache Statuses, Cache Hit Ratio, IPV4/IPV6 Data Transferred.'
 services: cdn
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 
 ---
-# Analyze Azure CDN usage patterns
+# Core reports from Verizon
 
 [!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-The guide below goes through the steps to view the core reports via the Manage portal for Verizon profiles. You may also export core analytics data to storage, event hub, or log analytics (oms) for both Verizon and Akamai profiles [through the azure portal](cdn-log-analysis.md).
+This guide shows the steps to view the core reports via the Manage portal for Verizon profiles. You may also export core analytics data to storage, event hub, or log analytics (oms) for both Verizon and Akamai profiles [through the azure portal](cdn-log-analysis.md).
 
 You can view usage patterns for your CDN using the following reports:
 

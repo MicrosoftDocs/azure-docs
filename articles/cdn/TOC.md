@@ -37,11 +37,13 @@
 ### [HTTP/2 support](cdn-http2.md)
 
 ## Analyze
-### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
-### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
-### [View real-time statistics](cdn-real-time-stats.md)
-### [Analyze edge node performance](cdn-edge-performance.md)
-### [Export metrics with Diagnostics Logs](cdn-log-analysis.md)
+### [Analyze Azure CDN usage patterns](cdn-log-analysis.md)
+#### [Core reports from Verizon](cdn-analyze-usage-patterns.md)
+#### [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
+### [Analytics tools for Azure CDN from Verizon]
+#### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
+#### [View real-time statistics](cdn-real-time-stats.md)
+#### [Analyze edge node performance](cdn-edge-performance.md)
 
 ## Develop
 ### [.NET](cdn-app-dev-net.md)
