@@ -69,7 +69,8 @@ Some applications may log an occasional error that shouldn't necessarily raise a
 In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time window, then an alert should be created.  In this case you would set the threshold to **less than 1**.
 
 >[!NOTE]
->If you create an alert with a small time window in order to be notified as soon as the event is created, if queued logged data to be indexed by the Log Analytics Service slows for any reason, you may receive  false alerts.  This is especially noticeable when you create an alert rule to search for the absence of an event.  
+>While the Log Analytics service designed to collect and index data at scale, sometimes latency or other factors can cause queuing of logged data that hasn't been indexed by the service.  If you created an alert with a short time window so you could be notified as soon as the event is created, this could result in receiving false alerts.  This is especially noticeable when you create an alert rule to search for the absence of an event.
+>
 
 #### Performance alerts
 [Performance data](log-analytics-data-sources-performance-counters.md) is stored as records in the OMS repository similar to events.  If you want to alert when a performance counter exceeds a particular threshold, then that threshold should be included in the query.
