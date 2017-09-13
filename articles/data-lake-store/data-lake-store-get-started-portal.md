@@ -97,23 +97,19 @@ You can create folders under your Data Lake Store account to manage and store da
     ![Create folders in Data Lake account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
 ## <a name="uploaddata"></a>Upload data to Azure Data Lake Store account
-You can upload your data to an Azure Data Lake Store account directly at the root level or to a folder that you created within the account. In the following screenshot, follow the steps to upload a file to a subfolder from the **Data Explorer** blade. In this screen capture, the file is uploaded to a subfolder shown in the breadcrumbs (marked in a red box).
+You can upload your data to an Azure Data Lake Store account directly at the root level or to a folder that you created within the account. 
+
+1. From the **Data Explorer** blade, click **Upload**. 
+2. In the **Upload files** blade, navigate to the files you want to upload, and then click **Add selected files**. You can also select more than one file to upload.
+
+    ![Upload data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 
 If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-![Upload data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
+## <a name="properties"></a>Actions available on the stored data
+Click the ellipsis icon against a file, and from the pop-up menu, click the action you want to perform on the data.
 
-## <a name="properties"></a>Properties and actions available on the stored data
-Click the newly added file to open the **Properties** blade. The properties associated with the file and the actions you can perform on the file are available in this blade. You can also copy the full path to file in your Azure Data Lake Store account, highlighted in the red box in the following screenshot:
-
-![Properties on the data](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
-
-* Click **Preview** to see a preview of the file, directly from the browser. You can specify the format of the preview as well. Click **Preview**, click **Format** in the **File Preview** blade, and in the **File Preview Format** blade specify the options such as number of rows to display, encoding to use, delimiter to use, etc.
-  
-  ![File preview format](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "File preview format")
-* Click **Download** to download the file to your computer.
-* Click **Rename file** to rename the file.
-* Click **Delete file** to delete the file.
+![Properties on the data](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data") 
 
 ## Secure your data
 You can secure the data stored in your Azure Data Lake Store account using Azure Active Directory and access control (ACLs). For instructions on how to do that, see [Securing data in Azure Data Lake Store](data-lake-store-secure-data.md).
