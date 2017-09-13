@@ -24,8 +24,6 @@
     href: storage-how-to-use-files-portal.md
   - name: Working with Files with PowerShell
     href: storage-how-to-use-files-powershell.md
-  - name: Working with Files with CLI
-    href: storage-how-to-use-files-cli.md
 - name: How To  
   items:
   - name: Plan
@@ -34,22 +32,12 @@
         href: planning-azure-files-deployment.md
       - name: Plan for an Azure File Sync deployment
         href: planning-azure-file-sync-deployment.md
-      - name: Understanding scalability and performance
-        href: azure-files-scalability-performance.md
-      - name: Understanding how to backup Azure Files
-        href: understanding-file-share-backup.md
-      - name: Evaluating file sync options
-        href: evaluting-sync-options.md
-      - name: Understanding data security and encryption
-        href: azure-files-data-security-encryption.md
   - name: Deploy
     items:
       - name: Azure Files deployment guide
         href: azure-files-deployment-guide.md
       - name: Azure File Sync deployment guide
         href: azure-file-sync-deployment-guide.md
-      - name: Configuring Azure Backup
-        href: configuring-azure-backup-files.md
   - name: Manage
     items: 
       - name: Work with Azure File share metrics and diagnostics
@@ -76,8 +64,6 @@
       href: troubleshoot-azure-file-sync.md
   - name: Develop
     items:
-    - name: Understanding concurrency
-      href: understanding-concurrency.md
     - name: .NET
       href: storage-dotnet-how-to-use-files.md
     - name: Java
@@ -88,24 +74,12 @@
       href: storage-python-how-to-use-file-storage.md
     - name: C++
       href: storage-c-plus-plus-how-to-use-files.md
-    - name: Ruby
-      href: storage-ruby-how-to-use-files.md
     - name: Samples
       href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
-  - name: Deploy an SFTP server
-    href: azure-files-deploy-sftp-server.md
-  - name: Deploy FTPS server
-    href: azure-files-deploy-ftps-server.md
-  - name: Migrate to Azure File Sync from DFS Replication
-    href: azure-file-sync-migrate-dfsr-deployment.md
-  - name: NFS access to Azure Files with Azure File Sync
-    href: azure-file-sync-nfs-endpoint.md
 - name: Reference
   items:
   - name: Azure Files PowerShell
     href: azure-files-powershell.md
-  - name: Azure Files CLI
-    href: azure-files-cli.md
   - name: Azure File Sync PowerShell
     href: azure-file-sync-powershell.md
   - name: .NET API
@@ -118,8 +92,6 @@
     href: azure-files-node-api.md
   - name: C++ API
     href: azure-files-c-plus-plus-api.md
-  - name: Ruby API
-    href: azure-files-ruby-api.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api
   - name: Related services/products 
