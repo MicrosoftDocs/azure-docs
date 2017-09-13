@@ -29,7 +29,7 @@ The B-series comes in the following six VM sizes:
 ## Q & A about this preview
 
 ### Q: How can I participate in this preview?
-**A**: Request quota for the B-series in one of the supported regions.  After your quota has been approved then you can use the portal or the APIs to do your deployment as you normally would. For more information, see [Resource Manager core quota increase requests](../articles/azure-supportability/resource-manager-core-quotas-request.md)
+**A**: Request quota for the B-series in one of the supported regions.  After your quota has been approved then you can use the portal or the APIs to do your deployment as you normally would. For more information, see [Resource Manager core quota increase requests](../articles/azure-supportability/resource-manager-core-quotas-request.md).
 
 ### Q: How do you get 135% baseline performance from a VM?
 **A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size. For example, if your application leverages 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
@@ -40,10 +40,10 @@ The B-series comes in the following six VM sizes:
 ### Q: How can I monitor my credit balance and consumption
 **A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)
+For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### Q: How are credits accumulated?
-**A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base performance level
+**A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base performance level.
 
 **Example**:  I deploy a VM using the B1ms size for my small time and attendance database application. This size allows my application to use up to 20% of a vCPU as my baseline, which is .2 credits per minute I can use or bank. 
 
@@ -60,10 +60,10 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 
 ### Q: Which regions can I access the preview from?
 **A**:  The B-series preview will be available in the following regions:
-•	US - West 2
-•	US - East
-•	Europe - West
-•	Asia Pacific - Southeast
+- US - West 2
+- US - East
+- Europe - West
+- Asia Pacific - Southeast
 
 After the preview has completed we will release the B-series to all remaining regions.
 	
