@@ -1,8 +1,8 @@
 # Overview
 ## [Developer guide](azure-developer-guide.md) 
 
-## [Overview of Azure services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Portal overview](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Overview of Azure services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
+## [Portal overview](https://docs.microsoft.com/azure/azure-portal-overview)
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Quickstart
@@ -47,7 +47,7 @@
 ## [Service Fabric overview](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # How to guides
-## Plan
+## [Plan](https://docs.microsoft.com/azure/architecture/guide/)
 ### [Web application architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [VM architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Connect to on-premises networks](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
