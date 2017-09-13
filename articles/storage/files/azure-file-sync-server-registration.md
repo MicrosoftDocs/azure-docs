@@ -1,6 +1,6 @@
 ---
-title: Planning for an Azure Files deployment | Microsoft Docs
-description: Learn what to consider when planning for an Azure Files deployment.
+title: Register/unregister a server with Azure File Sync (preview) | Microsoft Docs
+description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
 services: storage
 documentationcenter: ''
 author: wmgries
@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: wgries
 ---
 
-# Register/unregister a server with Azure File Sync
+# Register/unregister a server with Azure File Sync (preview)
 With Azure File Sync (preview), shares can be replicated to Windows Servers on-premises or in Azure. You and your users would then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. 
 
 Before a Windows Server can be used as a *Server Endpoint* in an Azure File Sync *Sync Group*, it must be registered with a *Storage Sync Service*. Note that a server can only be registered with one *Storage Sync Service* at a time.

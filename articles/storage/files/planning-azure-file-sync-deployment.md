@@ -1,5 +1,5 @@
 ---
-title: Planning for an Azure File Sync deployment | Microsoft Docs
+title: Planning for an Azure File Sync (preview) deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/08/2016
 ms.author: wgries
 ---
 
-# Planning for an Azure File Sync deployment
+# Planning for an Azure File Sync (preview) deployment
 With Azure File Sync (preview), shares can be replicated to Windows Servers on-premises or in Azure. You and your users would then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. 
 
 This guide describes what to consider when deploying Azure File Sync. It is recommended that you read the [Planning for an Azure Files deployment](planning-azure-files-deployment.md) guide before testing. 
