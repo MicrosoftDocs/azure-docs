@@ -13,30 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
 
 ---
 # Azure Active Directory Authentication Libraries
-The Azure Active Directory Authentication Library (ADAL) enables client application developers to easily authenticate users to cloud or on-premises Active Directory (AD), and obtain access tokens for securing API calls. ADAL makes authentication easier for developers through features such as:
- - support for asynchronous method calls
- - a configurable token cache that stores access tokens and refresh tokens
- - automatic token refresh when an access token expires and a refresh token is available
- - and more
- 
-By handling most of the complexity, ADAL helps developers focus on business logic and easily secure resources, without being an expert in security.
+The Azure Active Directory Authentication Library (ADAL) enables application developers to authenticate users to cloud or on-premises Active Directory (AD), and obtain tokens for securing API calls. ADAL makes authentication easier for developers through features such as:
+ - Configurable token cache that stores access tokens and refresh tokens
+ - Automatic token refresh when an access token expires and a refresh token is available
+ - Support for asynchronous method calls
+ - And more
 
-ADAL is available on a variety of platforms.
+> [!NOTE]
+> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries). 
+> 
+> 
 
 ### Client Libraries
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
-| .NET Client, Windows Store, UWP, Xamarin iOS and Android |MSAL for .NET (preview) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Desktop app](~/articles/active-directory/develop/guidedsetups/active-directory-windesktop.md) |[Reference](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) | 
-| JavaScript |MSAL for JavaScript (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Single Page App](~/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) | [Reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) | 
-| iOS |MSAL for iOS (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS app](~/articles/active-directory/develop/GuidedSetups/active-directory-ios.md) | [Reference](https://azuread.github.io/docs/objc/) |
-| Android |MSAL for Android (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android app](~/articles/active-directory/develop/GuidedSetups/active-directory-android.md) | [Reference](http://javadoc.io/doc/com.microsoft.identity.client/msal/0.1.1) |
 | .NET Client, Windows Store, UWP, Xamarin iOS and Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Desktop app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Reference](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) | 
 | .NET Client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Desktop app](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | | 
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Single Page App](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
@@ -45,6 +42,7 @@ ADAL is available on a variety of platforms.
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
 | Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java web app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
 | Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) | | |
+
 ### Server Libraries 
 
 | Platform | Library | Download | Source Code | Sample | Reference
@@ -56,7 +54,16 @@ ADAL is available on a variety of platforms.
 | .NET |Identity Protocol Extensions for .NET 4.5 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET |JWT Handler for .NET 4.5 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 
+### v2.0 Client Libraries (MSAL)
 
+The [Azure AD v2.0 endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) combines Azure AD and Microsoft Accounts behind a single endpoint. To access this endpoint, developers can use the [production-supported preview MSAL libraries](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries) instead of ADAL.
+
+| Platform | Library | Download | Source Code | Sample | Reference
+| --- | --- | --- | --- | --- | --- |
+| .NET Client, Windows Store, UWP, Xamarin iOS and Android |MSAL for .NET (preview) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Desktop app](~/articles/active-directory/develop/guidedsetups/active-directory-windesktop.md) |[Reference](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) | 
+| JavaScript |MSAL for JavaScript (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Single Page App](~/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) | [Reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) | 
+| iOS |MSAL for iOS (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS app](~/articles/active-directory/develop/GuidedSetups/active-directory-ios.md) | [Reference](https://azuread.github.io/docs/objc/) |
+| Android |MSAL for Android (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android app](~/articles/active-directory/develop/GuidedSetups/active-directory-android.md) | [Reference](http://javadoc.io/doc/com.microsoft.identity.client/msal/0.1.1) |
 
 ## Scenarios
 

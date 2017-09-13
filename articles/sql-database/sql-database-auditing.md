@@ -79,7 +79,7 @@ The following section describes the configuration of auditing using the Azure po
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via PowerShell or the REST API. For more information, see the [Automation (PowerShell/REST API)](#subheading-7) section.
+6. If you want to customize the audited events, you can do this via PowerShell or the REST API. 
 7. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 8. Click **Save**.
 
