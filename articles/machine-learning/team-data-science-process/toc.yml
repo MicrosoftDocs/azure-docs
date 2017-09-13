@@ -16,7 +16,6 @@
     href: lifecycle-acceptance.md
   - name: With Azure ML
     href: http://aka.ms/datascienceprocess
-    maintainContext: true
 - name: Roles and tasks
   href: roles-tasks.md
   items:
