@@ -72,9 +72,9 @@ Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmos
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
 
-## Tip 7: Build a Node.js app using Graph API
+## Tip 7: Build a Node.js app by using Graph API
 
-TTip 7: Build a Node.js app by using Graph API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/X79feg](https://aka.ms/X79feg)
+Tip 7: Build a Node.js app by using Graph API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/X79feg](https://aka.ms/X79feg)
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
