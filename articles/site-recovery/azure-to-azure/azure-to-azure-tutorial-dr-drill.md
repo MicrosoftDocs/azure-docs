@@ -35,11 +35,11 @@ that you have already [enabled replication for Azure virtual machines (VMs)](azu
   recovery site network. If you must test failover in your production network, be aware of the
   following items:
 
-  1. The primary virtual machine must be shutdown when you are doing the test failover. Otherwise,
-     there will be two VMs with the same identity running in the same network at the same time. That
+  1. The primary virtual machine must be shut down when you are doing the test failover. Otherwise,
+     there are two VMs with the same identity running in the same network at the same time. That
      duplication can cause to undesired consequences.
 
-  2. Any changes made in the test failover VMs are lost when you cleanup the test VMs. These
+  2. Any changes made in the test failover VMs are lost when you clean up the test VMs. These
      changes are not replicated back to the primary VM.
 
   3. Testing in your production environment requires downtime of your production application. Users
@@ -47,7 +47,7 @@ that you have already [enabled replication for Azure virtual machines (VMs)](azu
      is in progress.
 
 - If you want to access replicated VMs after failover from an on-premises site, you need to prepare
-  to connect to these VMs. On-premises machines need to be configured to allow outbound network
+  to connect to these VMs. Configure on-premises machines to allow outbound network
   traffic for RDP or SSH so that you can connect to the remote VMs. The VMs must have public
   interfaces so that your on-premises machines have something to connect to.
 

@@ -36,7 +36,7 @@ For example, if your target location is the central US, create the vault in **Ce
 
    ![New vault](./media/azure-to-azure-tutorial-enable-replication/new-vault-settings.png)
 
-   The new vault will appear on the **Dashboard** > **All resources** and on the main **Recovery
+   The new vault is added to the **Dashboard** under **All resources** and on the main **Recovery
    Services vaults** page.
 
 ## Verify target resources
@@ -70,42 +70,18 @@ to the following URLs used by Site Recovery.
 
 ### Outbound connectivity for IP address ranges
 
-- When using any IP-based firewall, proxy, or NSG rules to control outbound connectivity, the
-  following IP ranges need to be whitelisted. Download a list of IP Ranges from the following links:
+When using any IP-based firewall, proxy, or NSG rules to control outbound connectivity, the
+following IP ranges need to be whitelisted. Download a list of IP Ranges from the following links:
 
-  - [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653
+  - [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
   - [Windows Azure Datacenter IP Ranges in China](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
-    | **Target location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP** |
-    | ------------------- | ----------------------------- | -------------------------------- |
-    | East Asia | 52.175.17.132</br>40.83.121.61 | 13.94.47.61 |
-    | Southeast Asia | 52.187.58.193</br>52.187.169.104 | 13.76.179.223 |
-    | Central India | 52.172.187.37</br>52.172.157.193 | 104.211.98.185 |
-    | South India | 52.172.46.220</br>52.172.13.124 | 104.211.224.190 |
-    | North Central US | 23.96.195.247</br>23.96.217.22 | 168.62.249.226 |
-    | North Europe | 40.69.212.238</br>13.74.36.46 | 52.169.18.8 |
-    | West Europe | 52.166.13.64</br>52.166.6.245 | 40.68.93.145 |
-    | East US | 13.82.88.226</br>40.71.38.173 | 104.45.147.24 |
-    | West US | 40.83.179.48</br>13.91.45.163 | 104.40.26.199 |
-    | South Central US | 13.84.148.14</br>13.84.172.239 | 104.210.146.250 |
-    | Central US | 40.69.144.231</br>40.69.167.116 | 52.165.34.144 |
-    | East US 2 | 52.184.158.163</br>52.225.216.31 | 40.79.44.59 |
-    | Japan East | 52.185.150.140</br>13.78.87.185 | 138.91.1.105 |
-    | Japan West | 52.175.146.69</br>52.175.145.200 | 138.91.17.38 |
-    | Brazil South | 191.234.185.172</br>104.41.62.15 | 23.97.97.36 |
-    | Australia East | 104.210.113.114</br>40.126.226.199 | 191.239.64.144 |
-    | Australia Southeast | 13.70.159.158</br>13.73.114.68 | 191.239.160.45 |
-    | Canada Central | 52.228.36.192</br>52.228.39.52 | 40.85.226.62 |
-    | Canada East | 52.229.125.98</br>52.229.126.170 | 40.86.225.142 |
-    | West Central US | 52.161.20.168</br>13.78.230.131 | 13.78.149.209 |
-    | West US 2 | 52.183.45.166</br>52.175.207.234 | 13.66.228.204 |
-    | UK West | 51.141.3.203</br>51.140.226.176 | 51.141.14.113 |
-    | UK South | 51.140.43.158</br>51.140.29.146 | 51.140.189.52 |
-
-- You can use this [Azure Site Recovery script to create required rules on Network Security Group](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
+Use these lists to configure the network access controls in your network. You can use this
+[script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create
+required rules on Network Security.
 
 ## Verify Azure VM certificates
 
@@ -132,14 +108,14 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
 
 - **Site Recovery Operator** - This role has permissions to execute and manager Failover and
   Failback operations. A user with this role can't enable or disable replication, create or delete
-  vaults, register new infrastructure or assign access rights to other users. This role is best
-  suited for a disaster recovery operator who can failover virtual machines or applications when
+  vaults, register new infrastructure, or assign access rights to other users. This role is best
+  suited for a disaster recovery operator who can fail over virtual machines or applications when
   instructed by application owners and IT administrators. Post resolution of the disaster, the DR
-  operator can re-protect and failback the virtual machines.
+  operator can reprotect and failback the virtual machines.
 
 - **Site Recovery Reader** - This role has permissions to view all Site Recovery management
   operations. This role is best suited for an IT monitoring executive who can monitor the current
-  state of protection and raise support tickets if required.
+  state of protection and raise support tickets.
 
 Learn more on [Azure RBAC built-in roles](../active-directory/role-based-access-built-in-roles.md)
 
@@ -165,7 +141,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 
 ### Configure settings
 
-Review Site Recovery default settings for the target region. You can change these setting based on
+Review Site Recovery default settings for the target region. You can change these settings based on
 your requirements.
 
 ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
