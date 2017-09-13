@@ -37,16 +37,16 @@ Here are the two ways that you can start  initiate a run of your workflow:
 All triggers contain these top-level elements:  
   
 ```json
-"<trigger-name>" : {
-    "type": "<trigger-type>",
-    "inputs": { <call-settings> },
+"trigger-name" : {
+    "type": "trigger-type",
+    "inputs": { call-settings },
     "recurrence": {  
         "frequency": "Second|Minute|Hour|Day|Week|Month",
-        "interval": "<recurrence-interval-based-on-frequency>"
+        "interval": recurrence-interval-based-on-frequency
     },
-    "conditions": [ <array-of-required-conditions > ],
-    "splitOn" : "<property-used-for-creating-separate-workflows>",
-    "operationOptions": "<operation-options-for-trigger>"
+    "conditions": [ array-of-required-conditions ],
+    "splitOn" : "property-used-for-creating-separate-workflows",
+    "operationOptions": "operation-options-for-trigger"
 }
 ```
 
@@ -75,7 +75,7 @@ and provides an easy way for running a workflow.
 Here's a basic recurrence trigger example that runs daily:
 
 ```json
-"<trigger-name>" : {
+"myRecurrenceTrigger" : {
     "type": "Recurrence",
     "recurrence": {
         "frequency": "Day",
@@ -89,7 +89,7 @@ you can schedule the logic app to start on a specific Monday
 like this example: 
 
 ```json
-"<trigger-name" : {
+"myRecurrenceTrigger" : {
     "type": "Recurrence",
     "recurrence": {
         "frequency": "Week",
@@ -102,18 +102,21 @@ like this example:
 Here's the definition for this trigger: 
 
 ```json
-"<trigger-name>" : {
+"myRecurrenceTrigger" : {
     "type": "Recurrence",
     "recurrence": {
-        "frequency": "Second|Minute|Hour|Day|Week|Month",
-        "interval": <recurrence-interval-based-on-frequency>,
+        "frequency": "second|minute|hour|day|week|month",
+        "interval": recurrence-interval-based-on-frequency,
         "schedule": {
-            "hours": [ <one-or-more-hour-marks> ], // Applies only when frequency is "Day" or "Week". Separate values with commas. 
-            "minutes": [ <one-or-more-minute-marks> ], // Applies only when frequency is "Day" or "Week". Separate values with commas. 
-            "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] // Applies only when frequency is "Week". Separate values with commas. 
+            // Applies only when frequency is "Day" or "Week". Separate values with commas.
+            "hours": [ one-or-more-hour-marks ], 
+            // Applies only when frequency is "Day" or "Week". Separate values with commas.
+            "minutes": [ one-or-more-minute-marks ], 
+            // Applies only when frequency is "Week". Separate values with commas.
+            "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
         },
-        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
-        "timeZone": "<time-zone>"
+        "startTime": "start-date-time-with-format-YYYY-MM-DDThh:mm:ss",
+        "timeZone": "specify-time-zone"
     }
 }
 ```
@@ -134,7 +137,8 @@ For example:
 ``` json
 {
     "triggers": {
-        "Recurrence": {
+        "myRecurrenceTrigger": {
+            "type": "Recurrence",
             "recurrence": {
                 "frequency": "Week",
                 "interval": 1,
@@ -153,8 +157,7 @@ For example:
                 },
                "startTime": "2017-09-07T14:00:00",
                "timeZone": "Pacific Standard Time"
-            },
-            "type": "Recurrence"
+            }
         }
     }
 }
@@ -170,17 +173,17 @@ calling your logic app through an HTTP request.
 A request trigger looks like this example:  
   
 ```json
-"<trigger-name>" : {
-    "type" : "Request",
+"myRequestTrigger": {
+    "type": "Request",
     "kind": "Http",
-    "inputs" : {
-        "schema" : {
-            "properties" : {
-                "myInputProperty1" : { "type" : "string" },
-                "myInputProperty2" : { "type" : "number" }
+    "inputs": {
+        "schema": {
+            "type": "Object",
+            "properties": {
+                "myInputProperty1": { "type" : "string" },
+                "myInputProperty2": { "type" : "number" }
             },
-        "required" : [ "myInputProperty1" ],
-        "type" : "object"
+            "required": [ "myInputProperty1" ]
         }
     }
 } 
@@ -221,9 +224,9 @@ You can define this policy with the `retryPolicy` object as shown here:
   
 ```json
 "retryPolicy": {
-    "type": "<type-of-retry-policy>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+    "type": "retry-policy-type",
+    "interval": retry-interval,
+    "count": number-of-retry-attempts
 }
 ```
  
@@ -262,7 +265,7 @@ The API connection trigger is similar to the HTTP trigger in its basic functiona
 However, the parameters for identifying the action are different. Here is an example:  
   
 ```json
-"dailyReport" : {
+"myDailyReportTrigger": {
     "type": "ApiConnection",
     "inputs": {
         "host": {
@@ -307,9 +310,9 @@ You can define this policy with the `retryPolicy` object as shown here:
   
 ```json
 "retryPolicy": {
-    "type": "<type-of-retry-policy>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+    "type": "retry-policy-type",
+    "interval": retry-interval,
+    "count": number-of-retry-attempts
 }
 ```
 
@@ -328,7 +331,7 @@ but the HTTPWebhook trigger also calls a specified URL for registering and unreg
 Here's an example of what an HTTPWebhook trigger might look like:  
 
 ```json
-"myappspottrigger": {
+"myAppsSpotTrigger": {
     "type": "HttpWebhook",
     "inputs": {
         "subscribe": {
@@ -405,14 +408,16 @@ to determine whether the workflow should run or not.
 For example:  
 
 ```json
-"dailyReport": {
-    "type": "recurrence",
-    "conditions": [ {
-        "expression": "@parameters('sendReports')"
-    } ],
+"myDailyReportTrigger": {
+    "type": "Recurrence",
+    "conditions": [ 
+        {
+            "expression": "@parameters('sendReports')"
+        } 
+    ],
     "recurrence": {
         "frequency": "Day",
-        "interval": "1"
+        "interval": 1
     }
 }
 ```
@@ -442,7 +447,7 @@ when you want to poll an endpoint that can have multiple new items between polli
   
 With `splitOn`, you specify the property inside the response payload that contains the array of items, 
 each of which you want to use to start a run of the trigger. For example, 
-imagine you have an API that returns the following response:  
+imagine you have an API that returns this response:  
   
 ```json
 {
@@ -450,11 +455,11 @@ imagine you have an API that returns the following response:
     "rows": [
         {  
             "id" : 938109380,
-            "name" : "mycoolrow"
+            "name" : "myFirstRow"
         },
         {
             "id" : 938109381,
-            "name" : "another row"
+            "name" : "mySecondRow"
         }
     ]
 }
@@ -464,38 +469,45 @@ Your logic app only needs the `rows` content,
 so you can construct your trigger like this example:  
 
 ```json
-"mysplitter": {
+"mySplitterTrigger": {
     "type": "Http",
     "recurrence": {
-        "frequency": "Minute",
+        "frequency": "minute",
         "interval": 1
     },
     "intputs": {
         "uri": "https://mydomain.com/myAPI",
         "method": "GET"
     },
-    "splitOn": "@triggerBody()?.Rows"
+    "splitOn": "@triggerBody()?.rows"
 }
 ```
-  
-Then, in the workflow definition, `@triggerBody().name` returns `mycoolrow` for the first run, 
-and `another row` for the second run. The trigger outputs look like this example:  
-  
+> [!NOTE]  
+> If you use the `SplitOn` command, you can't get the properties that are outside the array, 
+> so for this example, you can't get the `status` property in the response returned from the API.
+> Also, in this example, we use the `?` operator so we can 
+> avoid a failure if the `rows` property doesn't exist. 
+
+So in the workflow definition, `@triggerBody().name` returns `myFirstRow` for the first run, 
+and `mySecondRow` for the second run. The trigger outputs look like this example:  
+
 ```json
 {
     "body": {
-        "id": 938109381,
-        "name": "another row"
+        "id": 938109380,
+        "name": "mySecondRow"
     }
 }
 ```
 
-So if you use `SplitOn`, you can't get the properties that are outside the array, 
-in this case, the `Status` field.  
-  
-> [!NOTE]  
-> In this example, we use the `?` operator so we can 
-> avoid a failure if the `Rows` property is not present. 
+```json
+{
+    "body": {
+        "id": 938109381,
+        "name": "mySecondRow"
+    }
+}
+```
   
 ## Single run instance
 
@@ -506,7 +518,7 @@ To configure this setting, set the `operationOptions` property to `singleInstanc
 
 ```json
 "triggers": {
-    "mytrigger": {
+    "myHTTPTrigger": {
         "type": "Http",
         "inputs": { ... },
         "recurrence": { ... },
@@ -556,11 +568,11 @@ response to determine whether the workflow should run.
 For example:
   
 ```json
-"latestNews": {
+"myLatestNewsAction": {
     "type": "Http",
     "inputs": {
         "method": "GET",
-        "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest"
     }
 }
 ```
@@ -588,9 +600,9 @@ You can define this policy with the `retryPolicy` object as shown here:
   
 ```json
 "retryPolicy": {
-    "type": "<type-of-retry-policy>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+    "type": "retry-policy-type",
+    "interval": retry-interval,
+    "count": number-of-retry-attempts
 }
 ```
 This example HTTP action retries fetching the latest news two times 
@@ -598,7 +610,7 @@ if there are intermittent failures for a total of three executions and
 a 30-second delay between each attempt:
   
 ```json
-"latestNews": {
+"myLatestNewsAction": {
     "type": "Http",
     "inputs": {
         "method": "GET",
@@ -632,7 +644,7 @@ In this case, the action's output is based on the initial 202 response from the 
 For example:
   
 ```json
-"invokeLongRunningOperation": {
+"invokeLongRunningOperationAction": {
     "type": "Http",
     "inputs": {
         "method": "POST",
@@ -652,8 +664,8 @@ The limit timeout is specified in ISO 8601 format.
 You can specify limits as shown here:
 
 ``` json
-"<action-name>": {
-    "type": "workflow|webhook|http|apiconnectionwebhook|apiconnection",
+"action-name": {
+    "type": "Workflow|Webhook|Http|ApiConnectionWebhook|ApiConnection",
     "inputs": { },
     "limit": {
         "timeout": "PT10S"
@@ -679,9 +691,9 @@ Here is an example APIConnection action:
                 "name": "@parameters('$connections')['office365']['connectionId']"
             }
         },
-        "method": "post",
+        "method": "POST",
         "body": {
-            "Subject": "New Tweet from @{triggerBody()['TweetedBy']}",
+            "Subject": "New tweet from @{triggerBody()['TweetedBy']}",
             "Body": "@{triggerBody()['TweetText']}",
             "To": "me@example.com"
         },
@@ -711,9 +723,9 @@ You can define this policy with the `retryPolicy` object as shown here:
   
 ```json
 "retryPolicy": {
-    "type": "<type-of-retry-policy>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+    "type": "retry-policy-type",
+    "interval": retry-interval,
+    "count": number-of-retry-attempts
 }
 ```
 
@@ -726,7 +738,7 @@ action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
 
 ```json
 "Send_approval_email": {
-    "type": "apiconnectionwebhook",
+    "type": "ApiConnectionWebhook",
     "inputs": {
         "host": {
             "api": {
@@ -769,10 +781,10 @@ This action contains the entire response payload from an HTTP request
 and includes a `statusCode`, `body`, and `headers`:
   
 ```json
-"myresponse": {
+"myResponseAction": {
     "type": "response",
     "inputs": {
-        "statusCode" : 200,
+        "statusCode": 200,
         "body": {
             "contentFieldOne": "value100",
             "anotherField": 10.001
@@ -807,7 +819,7 @@ This action lets you represent and call an [Azure function](../azure-functions/f
 for example:
 
 ```json
-"<your-Azure-Function-name": {
+"my-Azure-Function-name": {
    "type": "Function",
     "inputs": {
         "function": {
@@ -817,7 +829,7 @@ for example:
             "extrafield": "specialValue"
         },  
         "headers": {
-            "x-ms-date" : "@utcnow()"
+            "x-ms-date": "@utcnow()"
         },
         "method": "POST",
     	"body": {
@@ -855,12 +867,12 @@ This action suspends workflow execution for the specified interval.
 This example causes the workflow to wait 15 minutes:
   
 ```json
-"waitForFifteenMinutes": {
+"waitForFifteenMinutesAction": {
     "type": "Wait",
     "inputs": {
         "interval": {
-            "unit" : "minute",
-            "count" : 15
+            "unit": "minute",
+            "count": 15
         }
     }
 }
@@ -870,11 +882,11 @@ Alternatively, to wait until a specific moment in time,
 you can use this example:
   
 ```json
-"waitUntilOctober": {
+"waitUntilOctoberAction": {
     "type": "Wait",
     "inputs": {
         "until": {
-            "timestamp" : "2017-10-01T00:00:00Z"
+            "timestamp": "2017-10-01T00:00:00Z"
         }
     }
 }
@@ -903,7 +915,7 @@ This action's outputs are based on what you define in the `response` action for 
 If you haven't defined a `response` action, then the outputs are empty.
 
 ```json
-"myNestedWorkflow": {
+"myNestedWorkflowAction": {
     "type": "Workflow",
     "inputs": {
         "host": {
@@ -949,7 +961,7 @@ For example, you can use the compose action
 for merging outputs from multiple actions:
 
 ```json
-"composeUserRecord": {
+"composeUserRecordAction": {
     "type": "Compose",
     "inputs": {
         "firstName": "@actions('getUser').firstName",
@@ -965,7 +977,7 @@ This action lets you project each element of an array into a new value.
 For example, to convert an array of numbers into an array of objects, you can use:
 
 ```json
-"SelectNumbers" : {
+"selectNumbersAction": {
     "type": "Select",
     "inputs": {
         "from": [ 1, 3, 0, 5, 4, 2 ],
@@ -990,8 +1002,8 @@ This action lets you filter an array based on a condition.
 This example selects numbers greater than two:
 
 ```json
-"FilterNumbers": {
-    "type": "query",
+"filterNumbersAction": {
+    "type": "Query",
     "inputs": {
         "from": [ 1, 3, 0, 5, 4, 2 ],
         "where": "@greater(item(), 2)"
@@ -1033,7 +1045,7 @@ For example, suppose that you have a `@triggerBody()` with this array:
 And you define a table action like this example:
 
 ```json
-"ConvertToTable": {
+"convertToTableAction": {
     "type": "Table",
     "inputs": {
         "from": "@triggerBody()",
@@ -1049,7 +1061,7 @@ The result from this example looks like this HTML table:
 To customize this table, you can specify the columns explicitly, for example:
 
 ```json
-"ConvertToTable": {
+"ConvertToTableAction": {
     "type": "Table",
     "inputs": {
         "from": "@triggerBody()",
@@ -1089,7 +1101,7 @@ The terminate action doesn't affect any finished actions.
 For example, to stop a run that has "Failed" status, you can use this example:
 
 ```json
-"HandleUnexpectedResponse": {
+"handleUnexpectedResponseAction": {
     "type": "Terminate",
     "inputs": {
         "runStatus": "Failed",
@@ -1183,7 +1195,7 @@ This action lets you logically group actions in a workflow.
 
 ```json
 "myScope": {
-    "type": "scope",
+    "type": "Scope",
     "actions": {
         "call_bing": {
             "type": "Http",
@@ -1207,7 +1219,7 @@ By default, the `foreach` loop runs in parallel and can run 20 executions in par
 To set execution rules, use the `operationOptions` parameter.
 
 ```json
-"forEach_email": {
+"forEach_EmailAction": {
     "type": "Foreach",
     "foreach": "@body('email_filter')",
     "actions": {
@@ -1245,8 +1257,8 @@ To set execution rules, use the `operationOptions` parameter.
 This looping action runs inner actions until a condition results to true.
 
 ```json
- "RunUntilSucceeded": {
-    "type": "Until"
+ "runUntilSucceededAction": {
+    "type": "Until",
     "actions": {
         "Http": {
             "type": "Http",
