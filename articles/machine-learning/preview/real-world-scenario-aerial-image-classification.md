@@ -23,7 +23,11 @@ This example demonstrates how to use Azure Machine Learning (AML) Workbench to c
   - [Comparing model performance using the Workbench Run History feature](#comparing)
 - [Deployment](#deployment)
 - [Visualization](#visualization)
-- [Cleanup](#cleanup)
+- [Conclusions and next steps](#conclusions)
+   - [Cleanup](#cleanup)
+- [References](#references)
+- [Contact](#contact)
+- [Disclaimer](#disclaimer)
 
 <a name="usecasedescription"></a>
 ## Use case description
@@ -153,8 +157,7 @@ Your cluster's deployment may take up to 30 minutes (including provisioning and 
 <a name="installbait"></a>
 #### Install Batch AI Training Software Development Kit and Command Line Interface
 
-Follow the instructions on the Batch AI Training website to create a Batch AI Training account and install its Python SDK and CLI.
-[Instructions may change in public preview. I've contacted the BAIT team about staying in the loop when their plans are finalized.]
+You will need a Batch AI Training account for portions of this example. Sign up for an account at the Batch AI Training website and wait to receive your credentials via email. Follow the instructions in the email to install the Batch AI Training Python SDK and Command Line Interface.
 
 <a name="baitresources"></a>
 #### Create Batch AI Training resources
@@ -350,9 +353,13 @@ The "Model prediction analysis" Jupyter notebook in the "Code\04_Result_Analysis
 6. Read along with the notebook to learn more about its analyses and visualizations.
 
 
-<a name="cleanup"></a>
-## Cleanup
+<a name="conclusions"></a>
+## Conclusions and next steps
 
+Azure Machine Learning Workbench helps data scientists seamless transition between multiple compute targets. In this example, we showed how models trained on GPU clusters can later be deployed on Spark clusters with minimal hassle. Azure Machine Learning Workbench's run history feature tracked the performance of multiple models and helped us identify the most accurate model. Workbench's Jupyter notebooks feature helped us visualize our models' predictions in an interactive, graphical environment.
+
+<a name="cleanup"></a>
+### Cleanup
 When you have completed the tutorial, we recommend that you delete all of the resources you have created.
 
 1. Remove the storage account, HDInsight cluster, and Azure resource group you created by executing the following command from the Azure Command Line Interface:
@@ -367,3 +374,19 @@ When you have completed the tutorial, we recommend that you delete all of the re
     az batchai cluster delete --cluster_name landuseclassifier --resource_group landuseclassifier
     az batchai file_server delete --file_server_name landuseclassifier --resource_group landuseclassifier
     ```
+
+<a name="references"></a>
+## References
+
+- [The Embarrassingly Parallel Image Classification repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
+   - Describes dataset construction from freely available imagery and labels
+
+<a name="contact"></a>
+## Contact
+
+Please feel free to contact Mary Wahl ([mawah@microsoft.com](mailto:mawah@microsoft.com)) with any questions or comments.
+
+<a name="disclaimer"></a>
+## Disclaimer
+
+Leave this session as what it is for now. We will update the content once we get more concrete answers from the legal team.
