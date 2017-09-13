@@ -2,7 +2,7 @@
 
 [//]: # "![Data_Diagram](https://www.usb-antivirus.com/wp-content/uploads/2014/11/tutorial-windwos-10-2-320x202.png)"
 
-* Documentation site for GitHub repository (TODO).
+**[Find the code on GitHub repository](https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis)**
 
 [//]: # (**The above info will be included in the Readme on GitHub**)
 
@@ -61,10 +61,10 @@ There are nine data fields in the data file. The data field names and the descri
 | `ID` | String | The ID of the bill/resolution. The format of this field is [bill_type][number]-[congress]. For example, "hconres1-93" means the bill type is "hconres" (stands for House Concurrent Resolution, refer to [this document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), the bill number is '1' and the congress number is '93'. | No |
 | `Text` | String | The content of the bill/resolution. | No |
 | `Date` | String | The date of the bill/resolution that proposed. In a format of 'yyyy-mm-dd'. | No |
-| `SponsorName` | String | The name of the primary sponsor that proposed the bill/resolution. | No |
+| `SponsorName` | String | The name of the primary sponsor that proposed the bill/resolution. | Yes |
 | `Type` | String | The title type of the primary sponsor, either 'rep' (representative) or 'sen' (senator). | Yes |
 | `State` | String | The state of the primary sponsor. | Yes |
-| `District` | Float | The district number of the primary sponsor if the title of the sponsor is a representative. | Yes |
+| `District` | Integer | The district number of the primary sponsor if the title of the sponsor is a representative. | Yes |
 | `Party` | String | The party of the primary sponsor. | Yes |
 | `Subjects` | String | The subject terms added cumulatively by the Library of Congress to the bill. The terms are concatenated by commas. These terms are written by a human in the Library of Congress, and are not usually present when information on the bill is first published. They can be added at any time. Thus by the end of life of a bill, some subject may appear to not be relevant (anymore). | Yes |
 
@@ -79,7 +79,6 @@ The files in this example are organized as follows.
 | `Data` | Folder | The data folder used to save intermediate files for Notebooks |
 | `documentAnalysis` | Folder | The Python package folder |
 | `notebooks` | Folder | The iPython Notebooks folder |
-| `Image` | Folder | The folder used to save images for the README file |
 | `documentAnalysis/__init__.py` | Python file | The Python package init file |
 | `documentAnalysis/configs.py` | Python file | The configuration file used by the document analysis Python package, constants were defined in this file |
 | `documentAnalysis/preprocessText.py` | Python file | The Python file used to preprocess the data for downstream tasks |
@@ -95,6 +94,7 @@ The files in this example are organized as follows.
 | `step2.py` | Python file | Step 2 of document collection analysis: phrase learning |
 | `step3.py` | Python file | Step 3 of document collection analysis: train and evaluate LDA topic model |
 | `runme.py` | Python file | Example of run all steps in one file |
+| `winprocess.py` | Python file | The python script for multiprocessing used by Notebooks |
 | `readme.md` | Markdown file | The README markdown file |
 
 ### Data Ingestion & Transformation
