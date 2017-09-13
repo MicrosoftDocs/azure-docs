@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/10/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 
 ---
@@ -45,12 +45,20 @@ This article summarizes supported configurations and components for Azure Site R
 **Move Compute, Storage and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network) after enabling replication, you need to disable replication and enable replication for the virtual machine again.
 
 
+
 ## Support for deployment models
 
 **Deployment model** | **Supported / Not supported** | **Remarks**  
 --- | --- | ---
 **Classic** | Supported | You can only replicate a classic virtual machine and recover it as a classic virtual machine. You cannot recover it as a Resource Manager virtual machine. If you deploy a classic VM without a virtual network and directly to an Azure region, it is not supported.
 **Resource Manager** | Supported |
+
+>[!NOTE]
+>
+> 1. Replicating Azure virtual machines from one subscription to another for disaster recovery scenarios is not supported.
+> 2. Migrating Azure virtual machines across subscriptions is not supported.
+> 3. Migrating Azure virtual machines within the same region is not supported.
+> 4. Migrating Azure virtual machines from Classic deployment model to Resource manager deployment model is not supported.
 
 ## Support for replicated machine OS versions
 

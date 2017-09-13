@@ -67,13 +67,13 @@ Once your function app is deployed, you can find it among **App Services** Azure
 3. Select **Generic Webhook - C#**.
 4. Name your webhook and press **Create**.
 
-## Files
+### Files
 
 Your Azure Function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** (C#) files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
 
 ![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### function.json
+#### function.json
 
 The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. 
 
@@ -96,7 +96,7 @@ The function.json file defines the function bindings and other configuration set
 }
 ```
 
-### project.json
+#### project.json
 
 The project.json file contains dependencies. 
 
@@ -115,7 +115,7 @@ The project.json file contains dependencies.
 }
 ```
 	
-### run.csx
+#### run.csx
 
 The code in this section shows an implementation of an Azure Function that is a webhook. In this sample, the function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes.
 
@@ -342,7 +342,7 @@ internal sealed class NotificationMessage
 
 Save and run your function.
 
-## Function output
+### Function output
 
 Once the webhook is triggered, the example above produces the following output, your values will vary.
 
@@ -503,7 +503,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 		    }
 		}
 
-## Next stepS
+## Next steps
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

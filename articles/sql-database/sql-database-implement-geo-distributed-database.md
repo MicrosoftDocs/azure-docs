@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,business continuity
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/26/2017
@@ -382,6 +382,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## Next steps 
+
+## Next steps
 
 For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).
