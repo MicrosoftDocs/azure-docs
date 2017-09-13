@@ -50,6 +50,9 @@ In the CLI window, type in the following command to install `matplotlib` Python 
 ```batch
 C:\Temp\myIris> pip install matplotlib
 ```
+>[!NOTE]
+>If you skip the above `pip install` command, `iris_sklearn.py` can still successfully run, except it does not produce the confusion matrix and multi-class ROC curve plots.
+
 Return to the Workbench app. In the **Run Control Panel**, choose **local** as the execution environment, and `iris_sklearn.py` as the script to run. Fill the **Arguments** field with a value of `0.01`. Click on the **Run** button. A job is immediately scheduled and listed in the **Jobs** panel on the right side of the Workbench window. The status of the job transitions from **Submitting**, to **Running**, and finally to **Completed** in a few seconds.
 
 ![run sklearn](media/tutorial-classifying-iris/run_sklearn.png)
@@ -93,13 +96,9 @@ Enter a series of different numerical values in the **Arguments** field ranging 
 ## Step 3. Review Run History
 In Azure ML Workbench, every script execution is captured as a run history record. You can view the run history of a particular script by opening the **Runs** view.
 
-![run history list view]()
-
 The statistics captured across multiple runs are rendered in the graphs above and the list below. Play with the configurations and filter controls to see all your options.
 
 Click on an individual run to see the run detail view. All the statistics for the selected run are listed in the _Run Properties_ section. The files written into the `outputs` folder are listed in the **Output Files** section, and can be downloaded or promoted (more on promotion later). The two plots, confusion matrix and multi-class ROC curve, are rendered in the **Output Images** section. All the log files can also be found in the **Log Files** section.
-
-![run history details view]()
 
 ## Step 4. Execute Scripts in the Local Docker Environment
 >[!IMPORTANT]
@@ -138,9 +137,6 @@ C:\Temp\myIris> az set account -s <subscriptionId>
 REM verify your current subscription is set correctly
 C:\Temp\myIris> az account show
 ```
-<!--
-For more information on authentication in the command line window, please reference [CLI Execution Authentication](Execution.md#cli-execution-authentication). 
--->
 
 Once you are authenticated and the current Azure subscription context is set, type the following commands in the CLI window: 
 
@@ -178,9 +174,7 @@ This script starts an `iris_sklearn.py` job with a regularization rate of `10.0`
 REM Submit iris_sklearn.py multiple times with different regularization rates
 C:\Temp\myIris> python run.py
 ```
-When `run.py` finishes, you might see a graph like this in your run history list view.
-
-![run.py graph]()
+When `run.py` finishes, you see a graph in your run history list view.
 
 ## Step 5a (optional). Execute in a Docker Container on a Remote Machine
 To execute your script in a Docker container on a remote Linux machine, you need to have SSH access (username and password) to that remote machine. And that remote machine must have Docker engine installed and running. The easiest way to obtain such a Linux machine is to create a [Ubuntu-based Data Science Virtual Machine (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) on Azure. (Note the CentOS-based DSVM is NOT supported.) 
@@ -188,10 +182,18 @@ To execute your script in a Docker container on a remote Linux machine, you need
 Once the VM is created, you can attach the VM as an execution environment by generating a pair of `.runconfig` and `.compute` file using the below command. Let's name the new environment `myvm`.
 ```batch
 REM create myvm compute target
-C:\Temp\myIris\> az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password>
+C:\Temp\myIris> az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password>
 ```
 >[!NOTE]
 >The IP Address area can also be publicly addressable FQDN (fully qualified domain name), such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add FQDN to your DSVM and use it here instead of IP address, since you might turn off the VM at some point to save on cost. Additionally, the next time you start the VM, the IP address might have changed.
+
+Next, run the following command the construct the Docker image in the VM to get it ready for running the scripts.
+```
+REM prepare the myvm compute target
+C:\Temp\myIris> az ml experiment prepare -c myvm
+```
+>[!NOTE]
+>You can also change the value of `PrepareEnvironment` in `myvm.runconfig` from default `false` to `true`. This will automatically prepare the Docker container at the first run.
 
 Edit the generated `myvm.runconfig` file under `aml_config` and change the Framework from default `PySpark` to `Python`:
 ```yaml
@@ -221,16 +223,21 @@ C:\Temp\myIris> az ml experiment submit -c myvm-spark .\iris_pyspark.py
 You can also run this script in an actual Spark cluster. If you have access to a Spark for Azure HDInsight cluster, generate an HDI run configuration using the following command:
 ```batch
 REM create a compute target that points to a HDI cluster
-C:\Temp\myIris\> az ml computetarget attach --name myhdi --address <cluster name>-ssh.azurehdinsight.net --username <username> --password <password> --cluster
+C:\Temp\myIris> az ml computetarget attach --name myhdi --address <cluster name>-ssh.azurehdinsight.net --username <username> --password <password> --cluster
+
+REM prepare the HDI cluster
+C:\Temp\myIris> az ml experiment prepare -c myhdi
 ```
->Note: the `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is NOT ༖༗. That is the other user created during provisioning to enable access the cluster's admin web UI. 
+>[!NOTE]
+>The `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDI provisioning. It is not `admin`. That is the other user created during provisioning to enable access the cluster's admin web site. 
 
 Issue the following command and the script runs in the HDI cluster:
 ```batch
 REM execute iris_pyspark on the HDI cluster
 C:\Temp\myIris> az ml experiment submit -c myhdi .\iris_pyspark.py
 ```
->Note: When you execute against a remote HDI cluster, you can also view the YARN job execution details at `https://<cluster_name>.azurehdinsight.net/yarnui` using the `admin` user account.
+>[!NOTE]
+>When you execute against a remote HDI cluster, you can also view the YARN job execution details at `https://<cluster_name>.azurehdinsight.net/yarnui` using the `admin` user account.
 
 Now that we have created the Logistic Regression model, let's deploy it as a real-time web service.
 
