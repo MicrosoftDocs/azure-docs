@@ -15,16 +15,16 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# How to use different Hardware Security Module with Device Provisioning Service Client SDK
+# How to use different Hardware Security Modules with Device Provisioning Service Client SDK
 These steps show how to use different [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) with Device Provisioning Service Client SDK in C using physical device and simulator.  The provisioning service supports two authentication modes: X509 and Trusted Platform Module (TPM).
 
 ## Prerequisites
 
 Prepare your development environment according to the section titled "Prepare the development environment" in the [Create and provision simulated device] (./quick-create-simulated-device.md) guide.
 
-## Enable authentication with different HSM
+## Enable authentication with different HSMs
 
-Authentication mode (X509 or TPM) must be enabled for physical device or simulator before they can be enrolled in Azure Portal.  Navigate to the root folder for azure-iot-device-auth.  Run the specified command depending on the authentication mode you choose.
+Authentication mode (X509 or TPM) must be enabled for physical device or simulator before they can be enrolled in Azure Portal.  Navigate to the root folder for azure-iot-sdk-c.  Run the specified command depending on the authentication mode you choose.
 
 ### Use X509 with simulator
 
