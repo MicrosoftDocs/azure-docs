@@ -49,7 +49,6 @@ There are two types of roles that StorSimple users can choose from: built-in or 
 
 A StorSimple Infrastructure Admin (StorSimple Infra Admin) can manage the infrastructre management for the StorSimple devices. The following examples shows a custom role for a StorSimple Infrastructure Admin.
 
-
 ```
 {
     "Name":  "Stor Simple Infra Admin",
@@ -81,5 +80,5 @@ A StorSimple Infrastructure Admin (StorSimple Infra Admin) can manage the infras
 
 ## Next steps
 
-Learn how to [apply normal and maintenance mode updates](storsimple-update-device.md) on your StorSimple device.
+Learn how to [Assign custom roles for internal and external users](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md).
 
