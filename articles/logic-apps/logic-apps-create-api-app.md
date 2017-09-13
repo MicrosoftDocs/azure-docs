@@ -233,7 +233,7 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > So for this pattern, you have to add a 
 > [**Webhook** action](../connectors/connectors-native-webhook.md)
 > and specify the URL, headers, and body for your request. 
-> See also [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md#api-connection-webhook-action). 
+> See also [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). 
 > To pass in the callback URL, you can use the `@listCallbackUrl()` 
 > workflow function in any of the previous fields as necessary.
 
