@@ -40,14 +40,12 @@ and only one trigger, which starts your logic app workflow
 and passes in any data as part of that trigger. 
 Some connectors provide triggers, which come in these types:
 
-* *Polling triggers*: These triggers regularly check for 
-new data at a service endpoint. When new data exists, 
-the trigger creates and runs a new workflow instance with the data as input.
+* *Polling triggers*: Regularly checks a service endpoint for new data. 
+When new data exists, the trigger creates and runs a new workflow instance with the data as input.
 
-* *Push triggers*: These triggers listen for data at an endpoint, 
-which means they wait for an event to happen. When the event happens, 
-the trigger fires instantly, creating and running a new workflow 
-instance with any data as input.
+* *Push triggers*: Listens for data at a service endpoint and waits until a specific event happens. 
+When the event happens, the trigger fires immediately, creating and running a new workflow 
+instance that uses any available data as input.
 
 Here are just a few popular trigger examples:
 

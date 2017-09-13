@@ -60,13 +60,13 @@ different *inputs* that defines its behavior.
 | **Recurrence** | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running the workflow. | 
 | **Request**  | Makes your logic app into an endpoint that you can call, also known as a "manual" trigger. | 
 | **HTTP** | Checks, or *polls*, an HTTP web endpoint. The HTTP endpoint must conform to a specific triggering contract either by using a "202" asynchronous pattern or by returning an array. | 
-| **ApiConnection** | Polls like an HTTP trigger, but uses [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
+| **ApiConnection** | Polls like an HTTP trigger, but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
 | **HTTPWebhook** | Makes your logic app into a callable endpoint, like the Request trigger, but calls a specified URL for registering and unregistering. |
 | **ApiConnectionWebhook** | Works like the **HTTPWebhook** trigger, but uses Microsoft-managed APIs. | 
 ||| 
 
 For information about other details, see 
-[Workflow Definition Language](logic-apps-workflow-definition-language.md). 
+[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
   
 ## Recurrence trigger  
 
@@ -110,7 +110,7 @@ Here's the definition for this trigger:
         "schedule": {
             "hours": [ <one-or-more-hour-marks> ], // Applies only when frequency is "Day" or "Week". Separate values with commas. 
             "minutes": [ <one-or-more-minute-marks> ], // Applies only when frequency is "Day" or "Week". Separate values with commas. 
-            "weekDays": [ "Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday" ] // Applies only when frequency is "Week". 
+            "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] // Applies only when frequency is "Week". Separate values with commas. 
         },
         "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
         "timeZone": "<time-zone>"
@@ -788,16 +788,18 @@ and includes a `statusCode`, `body`, and `headers`:
 
 The response action has special restrictions that don't apply to other actions, specifically:  
   
-* You can't have response actions in parallel branches within a logic app definition 
-because the incoming request requires a deterministic response.
+* You can't have response actions in parallel branches within a logic 
+app definition because the incoming request requires a deterministic response.
   
-* If the workflow reaches a response action after the incoming request already received a response, 
-the response action is considered failed or a "conflict". As a result, the logic app run is marked `Failed`.
+* If the workflow reaches a response action after the 
+incoming request already received a response, 
+the response action is considered failed or in conflict. 
+As a result, the logic app run is marked `Failed`.
   
-* A workflow with response actions can't use `splitOn` in the trigger defintion 
-because one call creates multiple runs. So as a result, 
-validate for this case when the workflow is PUT, 
-and cause a "bad request".
+* A workflow with response actions can't use the `splitOn` command 
+in the trigger definition because the call creates multiple runs. 
+As a result, check for this case when the workflow operation is PUT, 
+and return a "bad request" response.
 
 ## Function action   
 
@@ -884,11 +886,11 @@ you can use this example:
   
 | Element name | Required | Type | Description | 
 | ------------ | -------- | ---- | ----------- | 
-| until | No | Object | The wait duration based on a point in time. |
+| until | No | Object | The wait duration based on a point in time |
 | until timestamp | Yes | String | The point in time in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) when the wait expires | 
-| interval | No | Object | The wait duration based on an amount of time |
-| interval unit | Yes | String | One of these frequency units: "Second", "Minute", *"Hour", "Day", "Week", or "Month" |  
-| interval count | Yes | String | The duration based on the specified interval unit | 
+| interval | No | Object | The wait duration based on the interval unit and count |
+| interval unit | Yes | String | The unit of time - use only one of these values: "second", "minute", "hour", "day", "week", or "month" |  
+| interval count | Yes | Integer | A positive integer representing the number of interval units used for the wait duration | 
 ||||| 
 
 ## Workflow action   
@@ -1007,7 +1009,7 @@ has elements from the input array that satisfy the condition.
 | Name | Required | Type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | from | Yes | Array | The source array |
-| where | Yes | String | The condition appled to each element from the source array |
+| where | Yes | String | The condition that's applied to each element from the source array |
 ||||| 
 
 ## Table action
@@ -1172,7 +1174,7 @@ Here are examples that show how conditions can use expressions in an action:
 | `"expression": "@greater(actions('act1').output.value, parameters('threshold'))"` | Supports comparison functions. For this example, the action only runs when the output of `act1` is greater than the threshold. | 
 | `"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"` | Supports logic functions for creating nested Boolean expressions. For this example, the action runs when the output of `act1` is above the threshold or below 100. | 
 | `"expression": "@equals(length(actions('act1').outputs.errors), 0))"` | To check whether an array has any items, you can use array functions. For this example, the action runs when the `errors` array is empty. | 
-| `"expression": "parameters('hasSpecialAction')"` | Error, this isn't a valid condition because @ is required for conditions. |  
+| `"expression": "parameters('hasSpecialAction')"` | Error, not a valid condition because @ is required for conditions. |  
 |||
 
 ## Scope action
