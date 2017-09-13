@@ -95,9 +95,9 @@ Build the SDK prior to creating device enrollment.
       cmake -G "Visual Studio 14 2015" ..
       ```
     This command builds x86 libraries. To build for x64, modify the cmake generator argument: 
-      ```
-      cmake .. -G "Visual Studio 14 2015 Win64"
-      ```
+    ```
+    cmake .. -G "Visual Studio 14 2015 Win64"
+    ```
 
 - If project generation completes successfully, you should see a Visual Studio solution file (.sln) under the `cmake` folder. To build the SDK:
     - Open **cmake\azure_iot_sdks.sln** in Visual Studio and build it, **OR**
