@@ -66,5 +66,7 @@
       items:
       - name: With the Azure portal
         href: msi-howto-assign-access-portal.md
-      - name: with PowerShell
+      - name: With PowerShell
         href: msi-howto-assign-access-powershell.md
+      - name: With Azure CLI
+        href: msi-howto-assign-access-cli.md 
