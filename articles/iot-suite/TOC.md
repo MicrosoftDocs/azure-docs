@@ -28,8 +28,6 @@
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
 #### [Node.js](iot-suite-connecting-devices-node.md)
 ### [Modify the deployment](iot-suite-remote-monitoring-cli.md)
-### [Integrate with Power BI](iot-suite-remote-monitoring-powerbi.md)
-### [Use Service Fabric](iot-suite-remote-monitoring-service-fabric.md)
 
 ### Concepts
 #### [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
