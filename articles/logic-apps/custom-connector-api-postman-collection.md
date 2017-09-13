@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/1/2017
+ms.date: 09/25/2017
 ms.author: LADocs; estfan
 ---
 
@@ -43,7 +43,7 @@ you can start with a [free Azure account](https://azure.microsoft.com/free/).
 Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * If you have an Azure subscription, sign up for the Text Analytics APIs by completing 
-[Task 1 here](../cognitive-services/text-analytics/text-analytics-howto-signup.md). 
+[Task 1 here](../cognitive-services/text-analytics/text-analytics-how-to-signup.md). 
 
 ## Create a Postman collection
 
