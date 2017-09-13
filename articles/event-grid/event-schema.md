@@ -156,8 +156,7 @@ This sample event shows the schema of an event hubs event raised when the Captur
 ]
 
 ```
-
-
+-
 
 ## Azure Blob storage
 
@@ -203,7 +202,7 @@ This sample event shows the schema of a storage event raised when a blob is crea
 
 ## Custom topics
 
-The data payload of your custom events is defined by you and can be any well formatted JSON file. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
+The data payload of your custom events is defined by you and can be any well-formatted JSON file. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
 
 ### Example event
 
