@@ -11,8 +11,8 @@
 ### [Add operations](api-management-howto-add-operations.md)
 ### [Create an API](api-management-howto-create-apis.md)
 ### [Import an API definition](api-management-howto-import-api.md)
-### [Get started with Revisions](api-management-getstarted-revise-api.md)
-### [Get started with Versions](api-management-getstarted-publish-versions.md)
+### [Get started with revisions](api-management-get-started-revise-api.md)
+### [Get started with versions](api-management-get-started-publish-versions.md)
 ## Secure your backend
 ### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)

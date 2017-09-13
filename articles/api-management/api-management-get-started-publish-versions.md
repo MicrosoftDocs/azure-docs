@@ -1,5 +1,4 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Publish versions of your API using Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to publish multiple versions in API Management.
 services: api-management
@@ -48,7 +47,9 @@ Azure API Management allows you to choose the way in which you allow callers to 
 3. Provide a description if you wish.
 4. Select **Create** to set up your new version.
 5. Underneath **Big Conference API** in the API List, you now see two distinct APIs - **Original**, and **v1**.
+
 ![Versions listed under an API in the Azure portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
+
     > [!Note]
     > If you add a version to a non-versioned API, we always create an **Original** for you - responding on the default URL. This ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original is not created.
 

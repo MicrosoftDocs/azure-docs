@@ -1,5 +1,4 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Use revisions to update your API in Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to make non-breaking changes using revisions in API Management.
 services: api-management
