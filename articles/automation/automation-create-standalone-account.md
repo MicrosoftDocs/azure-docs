@@ -42,7 +42,8 @@ In this section, perform the following steps to create an Azure Automation accou
 2. Click **New**.<br><br> ![Select New option in Azure portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Search for **Automation** and then in the search results select **Automation & Control***.<br><br> ![Search and select Automation from Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. In the Automation Accounts blade, click **Add**.<br><br>![Add Automation Account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-   
+
+
    > [!NOTE]
    > If you see the following warning in the **Add Automation Account** blade, it is because your account is not a member of the Subscription Admins role and co-admin of the subscription.<br><br>![Add Automation Account Warning](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
@@ -67,6 +68,7 @@ When the Automation account is successfully created, several resources are autom
 | --- | --- |
 | AzureAutomationTutorial Runbook |An example Graphical runbook that demonstrates how to authenticate using the Run As account and gets all the Resource Manager resources. |
 | AzureAutomationTutorialScript Runbook |An example PowerShell runbook that demonstrates how to authenticate using the Run As account and gets all the Resource Manager resources. |
+| AzureAutomationTutorialPython2 Runbook |An example python runbook that demonstrates how to authenticate using the Run As account and then lists the resource groups present in the specified subscription. |
 | AzureRunAsCertificate |Certificate asset automatically created during Automation account creation or using the PowerShell script below for an existing account.  It allows you to authenticate with Azure so that you can manage Azure Resource Manager resources from runbooks.  This certificate has a one-year lifespan. |
 | AzureRunAsConnection |Connection asset automatically created during Automation account creation or using the PowerShell script below for an existing account. |
 
@@ -84,3 +86,4 @@ The following table summarizes resources for the Classic Run As account.<br>
 * To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md).
+* To get started with Python2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md).

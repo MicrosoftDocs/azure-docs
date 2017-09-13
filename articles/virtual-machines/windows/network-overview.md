@@ -1,4 +1,4 @@
-﻿---
+---
 title: Virtual networks and Windows virtual machines in Azure | Microsoft Docs
 description: Learn about networking as it relates to the basics of creating Windows virtual machines in Azure.
 services: virtual-machines-windows

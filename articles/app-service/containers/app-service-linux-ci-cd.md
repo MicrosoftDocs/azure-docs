@@ -1,6 +1,6 @@
 ---
-title: Continuous Deployment with Azure Web Apps for Containers | Microsoft Docs
-description: How to setup continuous deployment in Azure Web Apps for Containers.
+title: Continuous Deployment with Azure Web App for Containers | Microsoft Docs
+description: How to setup continuous deployment in Azure Web App for Containers.
 keywords: azure app service, linux, oss, acr
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Continuous deployment with Azure Web Apps for Containers
+# Continuous deployment with Azure Web App for Containers
 
 In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
@@ -47,7 +47,7 @@ In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the v
 You can obtain the Webhook URL using [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and executing the following command
 
 ```azurecli-interactive
-az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
+az webapp deployment container show-cd-url -n sname1 -g rgname
 ``` 
 
 For the Webhook URL, you need to have the following endpoint:
