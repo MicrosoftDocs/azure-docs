@@ -40,7 +40,7 @@ Before beginning this tutorial, it is necessary to create an HDInsight cluster a
 
 Prerequisites:
 - An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available)
-- [Azure Machine Learning Workbench](./index.md)
+- [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Follow the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
 
