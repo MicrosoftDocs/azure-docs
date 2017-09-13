@@ -37,7 +37,7 @@ Here are the two ways that you can start  initiate a run of your workflow:
 All triggers contain these top-level elements:  
   
 ```json
-"trigger-name" : {
+"trigger-name": {
     "type": "trigger-type",
     "inputs": { call-settings },
     "recurrence": {  
@@ -45,7 +45,7 @@ All triggers contain these top-level elements:
         "interval": recurrence-interval-based-on-frequency
     },
     "conditions": [ array-of-required-conditions ],
-    "splitOn" : "property-used-for-creating-separate-workflows",
+    "splitOn": "property-used-for-creating-separate-workflows",
     "operationOptions": "operation-options-for-trigger"
 }
 ```
@@ -75,7 +75,7 @@ and provides an easy way for running a workflow.
 Here's a basic recurrence trigger example that runs daily:
 
 ```json
-"myRecurrenceTrigger" : {
+"myRecurrenceTrigger": {
     "type": "Recurrence",
     "recurrence": {
         "frequency": "Day",
@@ -89,7 +89,7 @@ you can schedule the logic app to start on a specific Monday
 like this example: 
 
 ```json
-"myRecurrenceTrigger" : {
+"myRecurrenceTrigger": {
     "type": "Recurrence",
     "recurrence": {
         "frequency": "Week",
@@ -102,7 +102,7 @@ like this example:
 Here's the definition for this trigger: 
 
 ```json
-"myRecurrenceTrigger" : {
+"myRecurrenceTrigger": {
     "type": "Recurrence",
     "recurrence": {
         "frequency": "second|minute|hour|day|week|month",
