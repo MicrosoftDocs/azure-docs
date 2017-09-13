@@ -8,7 +8,6 @@ description: Learn how to build and manage powerful applications using Microsoft
 ---
 <div id="main" class="v2">
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure Documentation</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="/azure/guides/developer/azure-developer-guide">
@@ -64,9 +63,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                     </div>
                 </a>
             </li>
-        </ul>
+        </ul>             
     </div>
     <div class="container">
+        <h1 class="screenReader">Microsoft Azure Documentation</h1>   
         <ul class="pivots">
             <li>
                 <a href="#get-started">Get Started</a>

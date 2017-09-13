@@ -128,7 +128,7 @@ These limits apply to a single logic app definition.
 
 ### Integration account limits
 
-These limits apply to artifacts that you add to an integration account.
+These limits apply to artifacts that you can add to an integration account.
 
 |Name|Limit|Notes|
 |----|-----|-----|
@@ -139,6 +139,21 @@ These limits apply to artifacts that you add to an integration account.
 |Runtime endpoint: Tracking calls per 5 minutes |45,000|Can distribute the workload across multiple accounts as needed.|
 |Runtime endpoint: Blocking concurrent calls |~1,000|Decrease the number of concurrent requests or reduce the duration as needed.|
 ||||
+
+These limits apply to the number of artifacts that you can add to an integration account.
+
+Free pricing tier
+
+|Name|Limit|Notes|
+|----|----|----|
+|Agreements|10||
+|Other artifact types|25|Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts.|
+
+Standard pricing tier
+
+|Name|Limit|Notes|
+|----|----|----|
+|Any type of artifact|500|Artifact types include agreements, partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts.|
 
 ### B2B protocols (AS2, X12, EDIFACT) message size
 
