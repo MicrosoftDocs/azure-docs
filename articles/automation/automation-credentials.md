@@ -42,8 +42,16 @@ The activities in the following table are used to access credentials in a runboo
 
 > [!NOTE]
 > You should avoid using variables in the –Name parameter of Get-AutomationPSCredential since this can complicate discovering dependencies between runbooks or DSC configurations, and credential assets at design time.
-> 
-> 
+
+## Python2 functions
+The function in the following table is used to access credentials in a Python2 runbook.
+
+| Function | Description |
+|:---|:---|
+| automationassets.get_automation_credential | Retrieves information about a credential asset. |
+
+> [!NOTE]
+> You must import the "automationassets" module at the top of your Python runbook in order to access the asset functions.
 
 ## Creating a new credential asset
 
@@ -92,9 +100,21 @@ The following image shows an example of using a credential in a graphical runboo
 ## Using a PowerShell credential in DSC
 While DSC configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if desired. For more information, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
+## Using credentials in Python2
+The following sample shows an example of accessing credentials in Python2 runbooks.
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a credential
+    cred = automationassets.get_automation_credential("credtest")
+    print cred["username"]
+    print cred["password"]
+
 ## Next Steps
 * To learn more about links in graphical authoring, see [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
 * To understand the different authentication methods with Automation, see [Azure Automation Security](automation-security-overview.md)
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md) 
+* To get started with Python2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md) 
 

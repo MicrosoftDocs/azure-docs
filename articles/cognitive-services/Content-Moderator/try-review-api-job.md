@@ -22,9 +22,8 @@ Before you can test-drive the API from the online console, you will need a few v
 - teamName: The team name you created when you set up your review tool account. 
 - ContentId: A string, this is passed to the API and returned through the callback, and is useful for associating internal identifiers or metadata with the results of a moderation job.
 - Workflowname: The name of the workflow you have created. For a quick test, you can use “Default”.
-- Ocp-Apim-Subscription-Key: This is found under the Settings tab, as shown below.
+- Ocp-Apim-Subscription-Key: This is found under the Settings tab, as shown in the [Overview](overview.md) article.
 
-![Content Moderator credentials in the review tool](Review-Tool-User-Guide/images/credentials-2-reviewtool.png)
 
 The simplest way to access a testing console is from the Credentials window.
 1.	From the Credentials window, click **[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)**.

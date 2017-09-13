@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Documentation (preview features)
+title: Azure Machine Learning (preview) Documentation
 metadata:
-  title: Azure Machine Learning Documentation (preview features)
+  title: Azure Machine Learning (preview) Documentation
   meta.description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
   author: czeumault
@@ -14,30 +14,29 @@ metadata:
   ms.date: 09/06/2017
   ms.author: carolz
 abstract:
-  description: Azure Machine Learning is an integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface.
+  description: The preview featues of Azure Machine Learning enable building, deploying, and managing ML and AI models using any Python tools and libraries.  You can use a wide variety of data and compute services in Azure in order to store and process your data.
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to set up the Azure Machine Learning environment, then create and run a model:'
+    text: 'Learn how to set up the Azure Machine Learning environment to create and deploy models:'
   - type: list
     style: unordered
     items:
-    - html: <a href="installation">Installation</a>
-    - html: <a href="model-management-configuration">Set up Model Management</a>
+    - html: <a href="quick-start-installation">Installation</a>
     - html: <a href="quick-start-iris">Iris quickstart</a>
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prepare your data, set up an experiment, and operationalize your model:'
+    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models:'
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-iris-azure-cli">Iris tutorial using CLI</a>
-    - html: <a href="tutorial-bikeshare-dataprep">Bike Share Forecast - Data preparation</a>
-    - html: Bike Share Forecast - Experimentation
-    - html: <a href="tutorial-bikerental-operationalization">Bike Share Forecast - Operationalization</a>
+    - html: <a href="tutorial-classifying-iris-part-1">Prepare data</a>
+    - html: <a href="tutorial-classifying-iris-part-2">Build a model</a>
+    - html: <a href="tutorial-classifying-iris-part-3">Deploy a model</a>
+    - html: <a href="tutorial-bikeshare-dataprep">Extended data prep tutorial</a>
 
 - title: Samples
   items:
@@ -59,3 +58,4 @@ sections:
       html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
       html: <p><a href="model-management-api-reference">Model Management REST API</a></p>
+      

@@ -24,7 +24,7 @@ The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine im
 
   * [Caffe](http://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity
   * [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe
-  * [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
   * [H2O](https://www.h2o.ai/): An open-source big data platform and graphical user interface
   * [Keras](https://keras.io/): A high-level neural network API in Python for Theano and TensorFlow
   * [MXNet](http://mxnet.io/): A flexible, efficient deep learning library with many language bindings
@@ -137,7 +137,7 @@ After you sign in to the VM by using either the SSH client or XFCE graphical des
 ### Deep Learning Libraries
 
 #### CNTK
-The Microsoft Cognitive Toolki - also known as CNTK - is an open source, deep learning toolkit. Python bindings are available in the root and py35 Conda environments. It also has a command-line tool (cntk) that is already in the PATH.
+The Microsoft Cognitive Toolkit is an open source, deep learning toolkit. Python bindings are available in the root and py35 Conda environments. It also has a command-line tool (cntk) that is already in the PATH.
 
 Sample Python notebooks are available in JupyterHub. To run a basic sample at the command-line, execute the following commands in the shell:
 
@@ -160,7 +160,7 @@ Some example notebooks are available in JupyterHub.
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. To start H2O from the command-line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`; there are various [command line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you may like to configure. The Flow Web UI can be accessed by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
 
 #### Keras
-Keras is a high-level neural network API in Python that is capable of running on top of either Tensorflow or Theano. It is available in the root and py35 Python environments. 
+Keras is a high-level neural network API in Python that is capable of running on top of either TensorFlow or Theano. It is available in the root and py35 Python environments. 
 
 #### MXNet
 MXNet is a deep learning framework designed for both efficiency and flexibility. It has R and Python bindings included on the DSVM. Sample notebooks are included in JupyterHub, and sample code is available in /dsvm/samples/mxnet.

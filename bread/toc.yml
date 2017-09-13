@@ -128,6 +128,9 @@
     - name: Language Understanding Intelligent Service (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
+    - name: Text Analytics
+      tocHref: /azure/cognitive-services/text-analytics/
+      topicHref: /azure/cognitive-services/text-analytics/overview
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
@@ -204,6 +207,19 @@
   - name: Machine Learning
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
+    items:
+      - name: Preview features
+        tocHref: /azure/machine-learning/preview
+        topicHref: /azure/machine-learning/preview/
+      - name: Studio
+        tocHref: /azure/machine-learning/studio
+        topicHref: /azure/machine-learning/studio/
+      - name: Team Data Science Process
+        tocHref: /azure/machine-learning/team-data-science-process
+        topicHref: /azure/machine-learning/team-data-science-process/overview
+      - name: Data Science Virtual Machine
+        tocHref: /azure/machine-learning/data-science-virtual-machine
+        topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
