@@ -1,4 +1,4 @@
-# [Team Data Science Process Documentation](index.yml)
+# [Team Data Science Process Documentation]
 # [Overview](overview.md)
 # [Lifecycle](lifecycle.md)
 ## [1. Business Understanding](lifecycle-business-understanding.md)

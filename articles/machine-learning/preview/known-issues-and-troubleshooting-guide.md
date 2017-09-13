@@ -50,6 +50,7 @@ You can find out the build number of the installed app by clicking on the **Help
 
 ![check version number](media/quick-start-installation/version.png)
 
+<!-- Commented-out until we move the script files elsewhere (Gary)
 ## Remove prior installations of Azure Machine Learning Workbench
 When a new release becomes available, Azure Machine Learning Workbench will auto-update on its own replacing your existing local installation. It is usually unnecessary to remove prior installations. However, you can run the following scripts if you'd like to clean up your current install and start fresh: 
 
@@ -60,7 +61,7 @@ When a new release becomes available, Azure Machine Learning Workbench will auto
   * You may need to execute `_chmod a+x ./cleanup_mac.sh_` before you can run the downloaded script.
 
 >Note: to run these clean-up scripts, you might need elevated privileges. Also, these scripts will not delete your existing projects.
-
+-->
 
 
 

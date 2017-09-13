@@ -32,7 +32,7 @@ Follow the [Provision and Installation](./quick-start-installation.md) guide to 
 3. Fill in the **project name**, and the **directory** to store the files. The **project description** is optional but helpful. Choose the default **My Projects** workgroup, and select the **Classifying Iris** sample project as the project template.
 
     >[!TIP]
-    >Optionally, you can fill in the Git repo text field with the URL of a Git repo that lives in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must exist, and it must be empty with no master branch. Adding a Git repo now lets you enable roaming and sharing scenarios later. [Read more](how-to-use-git.md).
+    >Optionally, you can fill in the Git repo text field with the URL of a Git repo that lives in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must exist, and it must be empty with no master branch. Adding a Git repo now lets you enable roaming and sharing scenarios later. [Read more](using-git-ml-project.md).
 
 4. Click on the **Create** button to create the project. A new project is created and opened for you. At this point, you can explore the project home page, data sources, notebooks, source code files. You can open the project in VS Code or other editors simply by opening the project directory. 
 
