@@ -139,7 +139,7 @@ For the project, we use the TDSP folder structure and documentation templates (F
 
 The step-by-step data science workflow was as follows:
 
-### 1. [Data Acquisition and Understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/01_DataPreparation)
+### 1. [Data Acquisition and Understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_Data_Acquisition_and_Understanding/ReadMe.md)
 The MEDLINE abstract fields present in each file are 
         
         abstract
@@ -160,7 +160,7 @@ The MEDLINE abstract fields present in each file are
         pubdate: Publication date
         title
 
-This amount to a total of 24 million abstracts but nearly 10 million documents do not have a field for abstracts. Since the amount of data to be processed is huge and cannot be loaded into memory at a single instance, we rely on Sparks Distributed Computing capabilities for processing. Once the data is available in Spark as a data frame, we can apply other pre-processing techniques on it like training the Word Embedding Model. Refer to [GItHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_DataPreparation/ReadMe.md) to get started.
+This amount to a total of 24 million abstracts but nearly 10 million documents do not have a field for abstracts. Since the amount of data to be processed is huge and cannot be loaded into memory at a single instance, we rely on Sparks Distributed Computing capabilities for processing. Once the data is available in Spark as a data frame, we can apply other pre-processing techniques on it like training the Word Embedding Model. Refer to [GItHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/01_Data_Acquisition_and_Understanding) to get started.
 
 
 Data after parsing XMLs
@@ -178,7 +178,7 @@ Modeling is the stage where we show how you can use the data downloaded in the p
 Once we have the word embeddings ready, we can make a deep neural network that uses the learned embeddings to initialize the Embedding layer. We mark the embedding layer as non-trainable but that is not mandatory. The training of the word embedding model is unsupervised and hence we are able to take advantage of unstructured texts. However, to train an entity recognition model we need labeled data. The more the better.
 
 
-#### [Featurizing/Embedding Words with Word2Vec](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_DataPreparation/ReadMe.md)
+#### [Featurizing/Embedding Words with Word2Vec](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/01_FeatureEngineering)
 Word2Vec is the name given to a class of neural network models that, given an unlabeled training corpus, produce a vector for each word in the corpus that encodes its semantic information. These models are simple neural networks with one hidden layer. The word vectors/embeddings are learned by backpropagation and stochastic gradient descent. There are two types of word2vec models, namely, the Skip-Gram and the continuous-bag-of-words. Since we are using the MLlib's implementation of the word2vec, which supports the Skip-gram model, we briefly describe the model here. [For details](https://arxiv.org/pdf/1301.3781.pdf).
 
 ![Skip Gram Model](./media/sample-tdsp-nlp/skip-gram.png)
@@ -191,7 +191,7 @@ Once we have the embeddings, we would like to visualize them and see the relatio
 
 ![W2V similarity](./media/sample-tdsp-nlp/w2v-sim.png)
 
-We have shown two different ways of visualizing the embeddings. The first, uses a PCA to project the high dimensional vector to a 2-D vector space. This leads to a significant loss of information and the visualization is not as accurate. The second is to use PCA with t-SNE. t-SNE is a nonlinear dimensionality reduction technique that is well-suited for embedding high-dimensional data into a space of two or three dimensions, which can then be visualized in a scatter plot.  It models each high-dimensional object by a two- or three-dimensional point in such a way that similar objects are modeled by nearby points and dissimilar objects are modeled by distant points. It works in two parts. First, it creates a probability distribution over the pairs in the higher dimensional space in a way that similar objects have a high probability of being picked and dissimilar points have  low probability of getting picked. Second, it defines a similar probability distribution over the points in a low dimensional map and minimizes the KL Divergence between the two distributions with respect to location of points on the map. The location of the points in the low dimension is obtained by minimizing the KL Divergence using Gradient Descent. But t-SNE might not be always reliable. Refer [link](https://distill.pub/2016/misread-tsne/) Refer [GitHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/02_Modeling/01_FeatureEngineering/ReadMe.md) for details about the implementation.
+We have shown two different ways of visualizing the embeddings. The first, uses a PCA to project the high dimensional vector to a 2-D vector space. This leads to a significant loss of information and the visualization is not as accurate. The second is to use PCA with t-SNE. t-SNE is a nonlinear dimensionality reduction technique that is well-suited for embedding high-dimensional data into a space of two or three dimensions, which can then be visualized in a scatter plot.  It models each high-dimensional object by a two- or three-dimensional point in such a way that similar objects are modeled by nearby points and dissimilar objects are modeled by distant points. It works in two parts. First, it creates a probability distribution over the pairs in the higher dimensional space in a way that similar objects have a high probability of being picked and dissimilar points have  low probability of getting picked. Second, it defines a similar probability distribution over the points in a low dimensional map and minimizes the KL Divergence between the two distributions with respect to location of points on the map. The location of the points in the low dimension is obtained by minimizing the KL Divergence using Gradient Descent. But t-SNE might not be always reliable. Reference to t-SNE [link](https://distill.pub/2016/misread-tsne/). Reference to [GitHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/01_FeatureEngineering) for details about the implementation.
 
 As you see below, t-SNE visualization provides more separation and potential clustering patterns. 
 
@@ -219,7 +219,7 @@ Vanilla RNNs actually suffer from the [Vanishing Gradient Problem](https://en.wi
 
 Let’s try to put together our own LSTM-based Recurrent Neural Network and try to extract Entities like Drugs, Diseases etc. from Medical Data. The first step is to obtain a large amount of labeled data and as you would have guessed, that's not easy! Most of the medical data contains lot of sensitive information about the person and hence are not publicly available. We rely on a combination of two different datasets that are publicly available. The first dataset is from Semeval 2013 - Task 9.1 (Drug Recognition) and the other is from BioCreative V CDR task. We are combining and auto labeling these two datasets so that we can detect both drugs and diseases from medical texts and evaluate our word embeddings. 
 
-Refer [GitHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/02_Modeling/02_ModelCreation/ReadMe.md) for implementation details
+Refer [GitHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/02_ModelCreation) for implementation details
 
 The model architecture that we have used across all the codes and for comparison is presented below. The parameter that changes for different datasets is the maximum sequence length (613 here).
 
@@ -247,7 +247,7 @@ We also compare the performance of Tensorflow vs CNTK and see that CNTK performs
 ![Model Comparison 6](./media/sample-tdsp-nlp/mc6.png)
 
 
-### 3. [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/03_Deployment/ReadMe.md)
+### 3. [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/03_Deployment)
 We  deployed a web-service on a cluster in the [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information on the operationalization process [here](model-management-service-deploy.md ).
 
 
