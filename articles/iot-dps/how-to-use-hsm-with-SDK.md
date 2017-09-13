@@ -57,7 +57,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
 ```
 
 ## Build the SDK
-You need to build the SDK prior to creating device enrollment.
+Build the SDK prior to creating device enrollment.
 
 ### Linux
 - To build the SDK in Linux:
@@ -68,7 +68,7 @@ You need to build the SDK prior to creating device enrollment.
   cmake ..
   cmake --build .  # append '-- -j <n>' to run <n> jobs in parallel
   ```
-- To build Debug binaries, add the corresponding CMake option to the project generation command above, for example:
+- To build Debug binaries, add the corresponding CMake option to the project generation command following, for example:
   ```
   cmake -DCMAKE_BUILD_TYPE=Debug ..
   ```
@@ -86,7 +86,7 @@ You need to build the SDK prior to creating device enrollment.
 
 ### Windows
 - To build the SDK in Windows, take the following steps to generate project files:
-    - Open a "Developer Command Prompt for VS2015".
+    - Open a "Developer Command Prompt for VS2015"
     - Run the following CMake commands from the root of the repository:
     ```
     cd azure-iot-sdk-c
@@ -94,9 +94,9 @@ You need to build the SDK prior to creating device enrollment.
     cd cmake
     cmake -G "Visual Studio 14 2015" ..
     ```
-    This builds x86 libraries. To build for x64, modify the cmake generator argument: `cmake .. -G "Visual Studio 14 2015 Win64"`
+    This command builds x86 libraries. To build for x64, modify the cmake generator argument: `cmake .. -G "Visual Studio 14 2015 Win64"`
 
-- If project generation completes successfully, you should see a Visual Studio solution file (.sln) under the `cmake` folder. To build the SDK, do one of the following:
+- If project generation completes successfully, you should see a Visual Studio solution file (.sln) under the `cmake` folder. To build the SDK:
     - Open **cmake\azure_iot_sdks.sln** in Visual Studio and build it, **OR**
     - Run the following command in the command prompt you used to generate the project files:
     ```
@@ -132,13 +132,13 @@ If you are using TPM, follow instructions in ["Create and provision a simulated 
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
-   - X509 Individual Enrollment: On the the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, upload the signer certificate as required by the blade. Once complete, click the **Save** button. 
+2. Log in to the Azure Portal, click on the **All resources** button on the left-hand menu and open your DPS service.
+   - X509 Individual Enrollment: On the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, upload the signer certificate as required by the blade. Once complete, click the **Save** button. 
    - X509 Group Enrollment: On the provisioning service  summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the root CA certificate as required by the blade. Once complete, click the **Save** button. 
 
 ## Connecting to IoT Hub after provisioning
 
-Once the device has been provisioned with the provisioning service , this API will use the HSM authentication mode to connect with IoT Hub:
+Once the device has been provisioned with the provisioning service, this API uses the HSM authentication mode to connect with IoT Hub:
     
     ```
     IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
