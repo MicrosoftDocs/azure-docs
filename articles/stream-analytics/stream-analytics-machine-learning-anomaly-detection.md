@@ -3,7 +3,7 @@ title: Anomaly Detection in Azure Usage Guide  (Preview)| Microsoft Docs
 description: Use stream analytics and machine learning to detect anomalies.
 services: stream-analytics
 documentationcenter: ''
-author: dubansal
+author: jeanb
 manager: jhubbard
 
 ms.service: stream-analytics
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/28/2017
-ms.author: dubansal
+ms.author: jeanb
 ---
 
 # Using the ANOMALYDETECTION operator
@@ -20,7 +20,7 @@ ms.author: dubansal
 > [!IMPORTANT]
 > This functionality is in preview. We do not recommend use in production.
 
-The **ANOMALYDETECTION** operator can be used to detect anomalies in event streams.
+The **ANOMALYDETECTION** operator can be used to detect anomalies in **live event streams** coming from IoT Hub and Event Hub.
 For example, a slow decrease in free memory over a long time can be indicative
 of a memory leak, or the number of web service requests that are stable in a
 range might dramatically increase or decrease.
