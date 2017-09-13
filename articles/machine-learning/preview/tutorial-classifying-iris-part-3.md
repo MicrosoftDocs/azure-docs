@@ -28,7 +28,7 @@ pickle.dump(clf1, f)
 f.close()
 ```
 
-When you executed the `iris_sklearn.py` script, the model was written to the `outputs` folder with the name `model.pkl`. This folder lives in the execution environment you choose to run the script, and not in your local project folder. You can find it in the run history detail page. There you can retrieve the binary file by clicking on the download button next to the file name. Read more about the `outputs` folder in the [Persisting Changes](PersistingChanges.md) article.
+When you executed the `iris_sklearn.py` script, the model was written to the `outputs` folder with the name `model.pkl`. This folder lives in the execution environment you choose to run the script, and not in your local project folder. You can find it in the run history detail page. There you can retrieve the binary file by clicking on the download button next to the file name. Read more about the `outputs` folder in the [How to read and write large data files](how-to-read-write-files.md) article.
 
 ![Download Pickle](media/tutorial-classifying-iris/download_model.png)
 
