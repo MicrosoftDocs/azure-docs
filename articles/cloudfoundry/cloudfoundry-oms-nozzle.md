@@ -66,7 +66,7 @@ To create the workspace manually:
    * **Pricing tier**: Select **OK** to complete.
 > For more information, see [Get started with Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Alternatively, you can create the OMS workspace through the OMS template. With this method, you can also load the pre-configured OMS views and alerts. For more information, see the [Azure OMS Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+Alternatively, you can create the OMS workspace through the OMS template. With this method, the template loads the pre-configured OMS views and alerts automatically. For more information, see the [Azure OMS Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
 
 ## Deploy the Nozzle
 
