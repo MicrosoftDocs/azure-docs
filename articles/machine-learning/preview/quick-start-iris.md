@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.date: 09/01/2017
 ---
 
-# Quickstart: Classifying Iris Flower Dataset
+# Quickstart: classifying iris flower dataset
 In this quickstart, you take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model to predict the type of iris based on some of its physical characteristics.  This quickstart uses [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) algorithm from the popular Python [scikit-learn](http://scikit-learn.org/stable/index.html) library to build the model.  You learn the following tasks in this quickstart: 
 
 - Create a new project
@@ -24,7 +24,7 @@ In this quickstart, you take a quick tour of Azure Machine Learning preview feat
 ## Prerequisite
 Follow the [Provision and Installation](./quick-start-installation.md) guide to create Azure resources and install the Azure ML Workbench app.
 
-## Create a New Project
+## Create a new project
 1. Launch the Azure ML Workbench app. 
 
 2. Click on **File** --> **New Project** (or click on the **+** sign in the **PROJECTS** pane). 
@@ -36,7 +36,7 @@ Follow the [Provision and Installation](./quick-start-installation.md) guide to 
 
 4. Click on the **Create** button to create the project. A new project is created and opened for you. At this point, you can explore the project home page, data sources, notebooks, source code files. You can open the project in VS Code or other editors simply by opening the project directory. 
 
-## Run a Python Script
+## Run a Python script
 Let's execute a script on your local computer. 
 
 1. Each project opens to its own **project dashboard**. Select `local` as the execution target from the command bar near the top of the application to the left of the run button, and `iris_sklearn.py` as the script to run.  There are a number of other files included in the sample you can check out later. 
@@ -51,7 +51,7 @@ Let's execute a script on your local computer.
 
 6. Repeat steps 2-4 several times. Each time, use different argument values ranging from `10` to `0.001`.
 
-## View Run History
+## View run history
 1. Navigate to the **Runs** view, and click on **iris_sklearn.py**. The run list shows every run that was executed on `iris_sklearn.py`. Each entry in this list corresponds to the run initiated when you clicked on the **Run** button in step 3 before. 
 
 2. The run list also displays the top metrics, a set of default graphs, and a list of metrics for each run. You can customize this view by sorting, filtering, and adjusting the configurations.
@@ -60,14 +60,14 @@ Let's execute a script on your local computer.
 
 4. In the **Output Files** section, expand the `outputs` folder, and select the `model.pkl` file. Click the **Download** button and select the project root folder to download the `model.pkl` file. This file is a serialized instance of the model you created above which you want to publish as a web service. 
 
-## Create Web Service Schema and Scoring File
+## Create web service schema and scoring file
 You now generate the script required to deploy the model as a web service.
 
 1. Choose the `local` environment and the `iris_score.py` script in the command bar, then click the **Run** button. This script creates a JSON file in the `outputs` folder, which captures the input data schema required by the model.
 
 2. Go to the run detail page of the `iris_score.py` run, and download the created `service_schema.json` file from the **Output Files** section to the project root folder.
 
-## Deploy the Web Service
+## Deploy the web service
 >[!IMPORTANT]
 >You must have Docker engine installed and running in order to deploy the web service locally.  See the [Docker installation instructions](https://docs.docker.com/engine/installation/) and the tips in the [Provisioning and Installation Guide](./quick-start-installation.md). 
 
@@ -117,6 +117,6 @@ az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25
 
 Check out the output here. We've predicted that, based on the input petal width, petal length, sepal width, and sepal length, the iris is probably a versicolor iris. 
 
-# Next Steps
+## Next steps
 - Full-length [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
 - Advanced data preparation tutorial: [Bike Share Forecasting Data Preparation](./doc-template-tutorial.md)
