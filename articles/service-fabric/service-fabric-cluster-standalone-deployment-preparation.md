@@ -19,7 +19,7 @@ ms.author: dekapur;maburlik;chackdan
 
 <a id="preparemachines"></a>
 
-## Plan and prepare your Service Fabric Standalone cluster deployment
+# Plan and prepare your Service Fabric Standalone cluster deployment
 Perform the following steps before you create your cluster.
 
 ### Step 1: Plan your cluster infrastructure
