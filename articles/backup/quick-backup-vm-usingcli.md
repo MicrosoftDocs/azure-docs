@@ -19,23 +19,24 @@ ms.author: pvrk
 ms.custom: mvc
 ---
 
-# Backup a virtual machine with the Azure CLI
+# Backup a virtual machine with Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to backup an azure virtual machine.
+Azure CLI is used to create and manage Azure resources from the command line and/or in scripts to be used for automation. This guide details steps to backup an Azure virtual machine using Azure CLI.
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+this quickstart requires Azure CLI version 2.0.4 or later. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use CLI locally, this quickstart requires Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Getting help with Azure CLI
 
-This tutorial assumes that you are familiar with the command-line interface (Bash, Terminal, Command prompt)
+This tutorial assumes that you are familiar with the command-line interface (Bash, Terminal, Command prompt).
 
-The --help or -h parameter can be used to view help for specific commands. When in doubt about the parameters needed by a command, refer to help using --help, -h or azure help [command].
+When in doubt about the parameters needed by a command, use --help or -h as a parameter.
 
 ```azurecli-interactive 
     az account set --help
@@ -47,13 +48,13 @@ The --help or -h parameter can be used to view help for specific commands. When 
 To log in using an organizational account, use the following command:
 
 ```azurecli-interactive 
-    az login -u username -p password
+    az login -u <username> -p <password>
 ```
 or if you want to log in by typing interactively
 ```azurecli-interactive 
-    azure login
+    az login
 ```
-If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:
+If you have multiple subscriptions and want to use a specific one, type the following to see the subscriptions for your account:
 
 ```azurecli-interactive 
     az account list
@@ -63,7 +64,7 @@ Then, to specify the subscription to use, type:
 ```azurecli-interactive 
     az account set <subscription name>
 ```     
-## Register the Key Vault resource provider
+## Register the Azure Backup resource provider
 Make sure that Azure Backup resource provider is registered in your subscription:
 
 ```azurecli-interactive
@@ -73,7 +74,7 @@ az provider register –namespace Microsoft.RecoveryServices
 This only needs to be done once per subscription.
 
 ## Create a new resource group
-When using Azure Resource Manager, all related resources are created inside a resource group. A resource group is a logical container into which Azure resources are deployed and managed.
+A resource group is a logical container, in a region of Azure, into which Azure resources are deployed and managed.
 Let's create a resource group named "MyResourceGroup" in the *eastus* region of Azure.  To do so type the following command:
 
 ```azurecli-interactive
@@ -82,15 +83,19 @@ az group create -n MyResourceGroup -l eastus
 
 ## Create a Recovery Services vault
 
-Create a Recovery Services vault with the 'az backup vault create' command in the east US region under resource group myResourceGroup. 
-
 The following example creates a Recovery Services vault named *myRSVault* in 'MyResourceGroup' in the *eastus* region of Azure
 
 ```azurecli-interactive 
-az backup vault create --name myRSVault --region eastus --resource-group myResourceGroup
+az backup vault create --name myRSVault --location eastus --resource-group myResourceGroup
 ```
 
-When the RS Vault has been created, the Azure CLI shows information similar to the following example.
+You can also use the short parameters for name, location and resource group as shown in the below example
+
+```azurecli-interactive 
+az backup vault create -n myRSVault -l eastus -g myResourceGroup
+```
+
+When the RS Vault has been created, the command output shows information similar to the following example.
 
 ```azurecli-interactive 
 {
@@ -111,20 +116,32 @@ When the RS Vault has been created, the Azure CLI shows information similar to t
 
 }
 ```
+
+> [!TIP]
+> The preceding output is in **json** format. You can specify which output format to use by specifying the `--output` argument in your CLI commands, or set it globally using `az configure`.
+>
+
+
 ### Specify storage redundancy
 
-To specify the type of storage redundancy: [Locally Redundant Stobgrage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) or [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Specify the type of storage redundancy: [Locally Redundant Stobgrage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) or [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
 The following example sets the storage redundancy option for myRSVault to GeoRedundant.
 
 ```azurecli-interactive 
 az backup vault set-backup-properties --name myRSVault --resource-group myResourceGroup --backup-storage-redundancy GeoRedundant
 ```
 
+> [!NOTE]
+> You cannot change the storage redundancy after an item is backed up to the vault.
+
 Assign the vault to an object to be used in subsequent commands
 
 ```azurecli-interactive 
 az backup vault show --name myRSVault --resource-group myResourceGroup > myVault
 ```
+
+> [!NOTE]
+> when using show commands to assign values to variables, the output of the command must be in **json** format
 
 ## Get the default policy 
 
