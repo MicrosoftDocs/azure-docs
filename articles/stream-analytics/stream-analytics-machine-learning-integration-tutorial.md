@@ -4,7 +4,7 @@ description: How to use a user-defined function and Machine Learning in a Stream
 keywords: ''
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
-ms.author: jeffstok
+ms.author: samacha
 ---
 
 # Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
@@ -220,7 +220,7 @@ Stream Analytics uses a declarative, SQL-based query to examine the input and pr
     SELECT text, sentiment(text) as result from datainput  
     )  
 
-    Select text, result.[Scored Labels]  
+    Select text, result.[Score]  
     Into datamloutput
     From sentiment  
     ```    
@@ -264,8 +264,7 @@ You also can view Azure Machine Learning function-related metrics. The following
 
 * **Function Requests** indicates the number of requests sent to a Machine Learning web service.  
 * **Function Events** indicates the number of events in the request. By default, each request to a Machine Learning web service contains up to 1,000 events.  
-  
-    ![Stream Analytics Machine Learning, Machine Learning monitor view](./media/stream-analytics-machine-learning-integration-tutorial/job-monitor.png)  
+
 
 ## Next steps
 

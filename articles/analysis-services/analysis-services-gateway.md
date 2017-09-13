@@ -95,13 +95,13 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
 
 ### General
 
-**Q**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
+**Q**: Do I need a gateway for data sources in the cloud, such as Azure SQL Database? <br/>
 **A**: No. A gateway connects to on-premises data sources only.
 
 **Q**: Does the gateway have to be installed on the same machine as the data source? <br/>
 **A**: No. The gateway connects to the data source using the connection information that was provided. 
 Consider the gateway as a client application in this sense. 
-The gateway just needs the capability to connect to the server name that was provided.
+The gateway just needs the capability to connect to the server name that was provided, typically on the same network.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -137,7 +137,7 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 **A**: See the ports and hosts that the gateway uses.
 
 **Q**: What is the actual Windows service called?<br/>
-**A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
+**A**: In Services, the gateway is called On-premises data gateway service.
 
 **Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
 **A**: No. The Windows service must have a valid Windows account. By default, 
@@ -163,7 +163,7 @@ You can also look at tools that your data source has for tracing queries.
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
 **Q**: Where are the gateway logs? <br/>
-**A**: See Tools later in this topic.
+**A**: See Logs later in this topic.
 
 ### <a name="update"></a>Update to the latest version
 

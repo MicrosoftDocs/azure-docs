@@ -12,21 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
 
-# How to enable native client apps to interact with proxy Applications
+# How to enable native client apps to interact with proxy applications
 
-In addition to web applications, Azure Active Directory Application Proxy can also be used to publish native client apps. Native client apps differ from web apps because they are installed on a device, while web apps are accessed through a browser. 
+In addition to web applications, Azure Active Directory Application Proxy can also be used to publish native client apps that are configured with the Azure AD Authentication Library (ADAL). Native client apps differ from web apps because they are installed on a device, while web apps are accessed through a browser. 
 
-Application Proxy supports native client apps by accepting Azure AD issued tokens that are sent in standard Authorize HTTP headers.
+Application Proxy supports native client apps by accepting Azure AD issued tokens sent in the header. The Application Proxy service performs authentication on behalf of the users. This solution does not use application tokens for authentication. 
 
 ![Relationship between end users, Azure Active Directory, and published applications](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library. 
+Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+
+This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library. 
 
 ## Step 1: Publish your application
 Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
@@ -86,9 +88,10 @@ The variables in the sample code should be replaced as follows:
 * **App ID** of the native app can be found on the **Properties** page of the native application.
 * **Redirect URI of the native app** can be found on the **Redirect URIs** page of the native application.
 
+Once the ADAL is edited with these parameters, your users should be able to authenticate to native client apps even when they're outside of the corporate network. 
 
-## See also
+## Next steps
 
 For more information about the native application flow, see [Native application to web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+Learn about setting up [Single sign-on for Application Proxy](application-proxy-sso-overview.md)

@@ -385,8 +385,8 @@ If you need role-based access control (RBAC) for your line-of-business app in az
 the Azure Active Directory team. It shows you how to enable roles for your Azure Active Directory application, and then 
 authorize users with the `[Authorize]` decoration.
 
-If your line-of-business app needs access to on-premises data, see 
-[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md).
+<!-- If your line-of-business app needs access to on-premises data, see 
+[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md). -->
 
 <a name="bkmk_resources"></a>
 

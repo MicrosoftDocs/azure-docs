@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/01/2017
 ms.author: byvinyal
 
 ---
@@ -51,7 +51,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
-* [Azure RemoteApp](#azure-remoteapp-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
@@ -64,6 +63,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
+* [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics / Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
@@ -226,6 +226,9 @@ To learn more about limits on a more granular level, such as document size, quer
 ### IoT Hub limits
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
+### IoT Hub Device Provisioning Service limits
+[!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
+
 ### Data Factory limits
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
@@ -243,9 +246,6 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Azure Event Grid limits
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
-
-### Azure RemoteApp limits
-[!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
