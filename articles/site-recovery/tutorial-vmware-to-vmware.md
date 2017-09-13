@@ -125,7 +125,7 @@ Scout Update 4 is a cumulative update. It has all the fixes from Update 1 to Upd
 
 * Support has been added for vCenter/vSphere 6.0, 6.1 and 6.2
 * Support has been added for following Linux operating systems:
-  * Red Hat Enterprise Linux (RHEL)7.0, 7.1 and 7.2
+  * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 and 7.2
   * CentOS 7.0, 7.1 and 7.2
   * Red Hat Enterprise Linux (RHEL) 6.8
   * CentOS 6.8
@@ -144,7 +144,7 @@ Scout Update 4 is a cumulative update. It has all the fixes from Update 1 to Upd
 * VMware vCLI 6.0 download link was added to the Windows master target base installer.
 * More checks and logs for network configuratios changes during failover and disaster recovery drills were added.
 * A fix for an issue that causes retention information not to be reported to the CX.  
-* For physical clusters, a fix for an issue that caused volume resize operation in the vContinuum wizard to fail, during a source volume shrink happened.
+* For physical clusters, a fix for an issue that caused volume resize operation in the vContinuum wizard to fail, when the source volume shrinks.
 * A fix for a cluster protection issue, that failed with error "Failed to find the disk signature" when the cluster disk is a PRDM disk.
 * A fix for cxps transport server crash caused by an out-of-range exception.
 * Server name and IP address columns are now resizable in the Push Installation page of the vContinuum wizard.
@@ -163,7 +163,7 @@ Scout Update 4 is a cumulative update. It has all the fixes from Update 1 to Upd
 Update 3 includes the following bug fixes and enhancements:
 
 * The configuration server and RX aren't registered in the vault when they're behind the proxy.
-* The number of hours in which the recovery point objective (RPO) isn't met isn't updated in the health report.
+* The number of hours in which the recovery point objective (RPO) isn't achieved does not get updated in the health report.
 * The configuration server isn't syncing with RX when the ESX hardware details, or network details, contain any UTF-8 characters.
 * Windows Server 2008 R2 domain controllers don't start after recovery.
 * Offline synchronization isn't working as expected.
