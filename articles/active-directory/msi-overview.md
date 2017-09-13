@@ -62,8 +62,8 @@ The following services support Azure AD authentication and have been tested with
 | --- | --- | --- | --- |
 | Azure Resource Manager | https://management.azure.com/ | Available | Sept 2017 |
 | Azure Key Vault | https://vault.azure.net/ | Available | Sept 2017 |
-| Azure SQL | https://database.windows.net/ | Coming soon | Available | Sept 2017 |
-| Azure Data Lake | https://management.core.windows.net/ | Coming soon | Available | Sept 2017 |
+| Azure SQL | https://database.windows.net/ | Available | Sept 2017 |
+| Azure Data Lake | https://datalake.azure.net/ | Available | Sept 2017 |
 
 ## How much does Managed Service Identity cost?
 
