@@ -28,7 +28,7 @@ Following is the link to the public GitHub repository:
 
 
 ## Detailed documentation in GitHub repository
-We provide summary documentation here about the sample. More extensive documentation can be found on the GitHub site in the file: [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/ProjectReport.md](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/ProjectReport.md).
+We provide summary documentation here about the sample. More extensive documentation can be found on the GitHub site in the file: [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/ProjectReport.md](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/ProjectReport.md).
 
 
 ## Prerequisites
