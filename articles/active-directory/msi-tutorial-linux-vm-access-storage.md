@@ -18,6 +18,9 @@ ms.author: elkuzmen
 
 
 # Use Managed Service Identity (MSI) with a Linux VM to access Storage Credentials
+
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+
 This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to access Storage Keys. You can use Storage Keys as usual when doing storage operations, for example when using Storage SDK. For this tutorial we will upload and download blobs using Azure CLI. You will learn how to:
 
 

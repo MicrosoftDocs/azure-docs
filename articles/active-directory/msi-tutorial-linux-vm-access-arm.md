@@ -17,6 +17,9 @@ ms.author: elkuzmen
 ---
 
 # Use Managed Service Identity with a Linux VM to access Azure Resource Manager
+
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+
 This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine, and then use that identity to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
 You will learn how to:
 
