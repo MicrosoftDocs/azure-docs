@@ -69,8 +69,9 @@ There is no charge for the profiler service. Your web app must be hosted in at l
 
 ## Overhead and sampling algorithm
 
-The Profiler randomly runs 2 minutes every hour on each Virtual Machine that hosts the application with Profiler enabled to capture traces. When the Profiler is running, it adds 15% overhead to the throughput of the server.
-The sampling algorithm is the same for all hosting services on Azure, though the more servers available for hosting the application, the less impact Profiler has on the overall application performance. This is because more servers will be available serving the web requests while one of the servers is having overhead from the Profiler.
+The Profiler randomly runs 2 minutes every hour on each Virtual Machine that hosts the application with Profiler enabled to capture traces. When the Profiler is running, it adds between 5-15% CPU overhead to the server.
+The more servers available for hosting the application, the less impact Profiler has on the overall application performance. This is because the sampling algorithm results in the profiler running on only run on 5% of servers at any given time, and more servers will be available to serve web requests to offset the servers having overhead from the Profiler.
+
 
 ## Viewing profiler data
 
@@ -218,6 +219,23 @@ When you see parallel threads in your traces, you need to determine which thread
 ### Error report in the profiling viewer
 
 File a support ticket from the portal. Please include the correlation ID from the error message.
+
+### Deployment error Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+If you are redeploying your web app to an App Services resource with the Profiler enabled, you might encounter the error similar to the following:
+Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+This error will happen if you run Web Deploy from scripts or on VSTS Deployment Pipeline.
+The solution to this problem is to add the following additional deployment parameters to the Web Deploy task:
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+This will delete the folder used by the App Insights Profiler and unblock the redeploy process. It will not affect the currently running Profiler instance.
+
 
 ## Manual installation
 
