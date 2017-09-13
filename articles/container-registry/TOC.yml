@@ -37,6 +37,8 @@
     href: /cli/azure/acr
   - name: REST
     href: /rest/api/containerregistry
+  - name: PowerShell
+    href: /powershell/module/azurerm.containerregistry
 - name: Resources
   items:
   - name: Azure Roadmap
