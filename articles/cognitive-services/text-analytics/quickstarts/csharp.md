@@ -33,7 +33,7 @@ The Language Detection API detects the language of a text document, using the [
 
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the `accessKey` value with an access key valid for your subscription.
 1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
@@ -58,17 +58,17 @@ namespace TextAnalyticsCSharpCore
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace the subscriptionKey string value with your valid subscription key.
-        const string subscriptionKey = "enter key here";
+        // Replace the accessKey string value with your valid access key.
+        const string accessKey = "enter key here";
 
         // Replace or verify the region.
         //
-        // You must use the same region in your REST API call as you used to obtain your subscription keys.
-        // For example, if you obtained your subscription keys from the westus region, replace 
+        // You must use the same region in your REST API call as you used to obtain your access keys.
+        // For example, if you obtained your access keys from the westus region, replace 
         // "westcentralus" in the URI below with "westus".
         //
-        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-        // a free trial subscription key, you should not need to change this region.
+        // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+        // a free trial access key, you should not need to change this region.
         const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages";
 
 
@@ -95,7 +95,7 @@ namespace TextAnalyticsCSharpCore
             var client = new HttpClient();
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", accessKey);
 
             HttpResponseMessage response;
 
@@ -258,7 +258,7 @@ The Sentiment Analysis API detexts the sentiment of a set of text records, using
 
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the `accessKey` value with an access key valid for your subscription.
 1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
@@ -284,17 +284,17 @@ namespace TextAnalyticsCSharpCore
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace the subscriptionKey string value with your valid subscription key.
-        const string subscriptionKey = "enterKeyHere";
+        // Replace the accessKey string value with your valid access key.
+        const string accessKey = "enterKeyHere";
 
         // Replace or verify the region.
         //
-        // You must use the same region in your REST API call as you used to obtain your subscription keys.
-        // For example, if you obtained your subscription keys from the westus region, replace 
+        // You must use the same region in your REST API call as you used to obtain your access keys.
+        // For example, if you obtained your access keys from the westus region, replace 
         // "westcentralus" in the URI below with "westus".
         //
-        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-        // a free trial subscription key, you should not need to change this region.
+        // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+        // a free trial access key, you should not need to change this region.
         const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment";
 
         static void Main()
@@ -319,7 +319,7 @@ namespace TextAnalyticsCSharpCore
             var client = new HttpClient();
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", accessKey);
 
             HttpResponseMessage response;
 
@@ -454,7 +454,7 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the `accessKey` value with an access key valid for your subscription.
 1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
@@ -481,17 +481,17 @@ namespace TextAnalyticsCSharpCore
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace the subscriptionKey string value with your valid subscription key.
-        const string subscriptionKey = "enterKeyHere";
+        // Replace the accessKey string value with your valid access key.
+        const string accessKey = "enterKeyHere";
 
         // Replace or verify the region.
         //
-        // You must use the same region in your REST API call as you used to obtain your subscription keys.
-        // For example, if you obtained your subscription keys from the westus region, replace 
+        // You must use the same region in your REST API call as you used to obtain your access keys.
+        // For example, if you obtained your access keys from the westus region, replace 
         // "westcentralus" in the URI below with "westus".
         //
-        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-        // a free trial subscription key, you should not need to change this region.
+        // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+        // a free trial access key, you should not need to change this region.
         const string uriBase = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases";
 
 
@@ -519,7 +519,7 @@ namespace TextAnalyticsCSharpCore
             var client = new HttpClient();
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", accessKey);
 
             HttpResponseMessage response;
 
