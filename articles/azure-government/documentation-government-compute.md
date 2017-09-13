@@ -1,5 +1,6 @@
 ---
-title: Azure Government Compute | Microsoft Docsdescription: This provides a comparision of features and guidance on developing applications for Azure Government
+title: Azure Government Compute | Microsoft Docs
+description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
