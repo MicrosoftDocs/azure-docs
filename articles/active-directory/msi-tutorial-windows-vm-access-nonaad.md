@@ -3,7 +3,7 @@ title: Use a Windows VM MSI to access KeyVault
 description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access KeyVault. 
 services: active-directory
 documentationcenter: ''
-author: elizakuzmenko
+author: elkuzmen
 manager: mbaldwin
 editor: bryanla
 
@@ -73,6 +73,9 @@ First, we need to create a Key Vault and grant our VM’s identity access to the
 6. Choose **Select Principal**, and in the search field enter the name of the VM you created earlier.  Select the VM in the result list and click **Select**. 
 7. Click **OK** to finishing adding the new access policy, and **OK** to finish access policy selection. 
 8. Click **Create** to finish creating the Key Vault. 
+
+![Alt image text](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+
 
 Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
 

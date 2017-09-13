@@ -3,7 +3,7 @@ title: Use a Windows VM MSI to access Azure storage
 description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access Azure storage.
 services: active-directory
 documentationcenter: ''
-author: elizakuzmenko
+author: elkuzmen
 manager: mbaldwin
 editor: bryanla
 

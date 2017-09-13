@@ -3,7 +3,7 @@ title: Use a Linux VM MSI to access KeyVault
 description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: elizakuzmenko
+author: elkuzmen
 manager: mbaldwin
 editor: bryanla
 
@@ -17,7 +17,7 @@ ms.author: elkuzmen
 ---
 
 # Use Managed Service Identity (MSI) with a Linux VM to access Key Vault 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and then use that identity to access the Azure Key Vault. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You will learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and then use that identity to access the Azure Key Vault. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
 
 
 > [!div class="checklist"]
@@ -30,12 +30,12 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Windo
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-## Login to Azure
-Login to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+## Log in to Azure
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 
 ## Create a Linux Virtual Machine in a new Resource Group
-For this tutorial, we will create a new Linux VM. You can also enable MSI on an existing VM.
+For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
@@ -44,13 +44,13 @@ For this tutorial, we will create a new Linux VM. You can also enable MSI on an 
 ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choose a **Subscription** for the virtual machine in the dropdown.
-5. To select a new **Resource Group** you would like the virtual machine to be creatd in, choose **Create New**. When complete, click **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
+5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
+6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings page, keep the defaults and click **OK**.
 
 ## Enable MSI on your VM
 A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the VM.  
 
-1. Select the **Virtual Machine** that you wnat to enable MSI on.
+1. Select the **Virtual Machine** that you want to enable MSI on.
 2. On the left navigation bar click **Configuration**.
 3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
@@ -63,7 +63,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 
 ## Grant your VM access to a Secret stored in a Key Vault  
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  However,not all Azure services support Azure AD authentication. To use MSI with services that don’t support Azure AD authentication, you can store the credentials you need for those services in Azure Key Vault, and use MSI to authenticate to Key Vault to retrieve the credentials. 
+Using MSI your code can get access tokens to authenticate to resources that support Azure Active Directory authentication. However, not all Azure services support Azure AD authentication. To use MSI with services that don’t support it, you can store the credentials you need for those services in Azure Key Vault, and use MSI to authenticate to Key Vault to retrieve the credentials. 
 
 First, we need to create a Key Vault and grant our VM’s identity access to the Key Vault.   
 
@@ -75,6 +75,8 @@ First, we need to create a Key Vault and grant our VM’s identity access to the
 6. Choose **Select Principal**, and in the search field enter the name of the VM you created earlier.  Select the VM in the result list and click **Select**. 
 7. Click **OK** to finishing adding the new access policy, and **OK** to finish access policy selection. 
 8. Click **Create** to finish creating the Key Vault. 
+
+![Alt image text](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
 
