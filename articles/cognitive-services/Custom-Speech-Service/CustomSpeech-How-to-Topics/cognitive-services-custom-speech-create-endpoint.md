@@ -34,7 +34,12 @@ The following table shows how scale units map to available concurrent requests:
 | 3 | 15 |
 | n | 5 * n |
 
-You can also select whether content logging is switched on or off. That is, you're selecting whether the endpoint traffic is stored for Microsoft internal use.
+You can also select whether content logging is switched on or off. That is, you're selecting whether the endpoint traffic is stored for Microsoft internal use. If it is not selected, storing the traffic will be suppressed. Suppressing content logging results in additional cost. Consult the [pricing information page](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) for details.
+
+> [!NOTE]
+> Content Logging is called "No Trace" on pricing page.
+>
+
 
 In addition, Microsoft provides a rough estimate of costs so that you are aware of the impact on the costs of scale units and content logging. This estimate is a rough estimate and might differ from your actual costs.
 

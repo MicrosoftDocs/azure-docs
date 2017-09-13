@@ -18,9 +18,7 @@
   items: 
   - name: The review tool
     href: quick-start.md
-- name: How to
-  items:
-  - name: Test drive moderation APIs
+  - name: Try the moderation APIs
     items: 
     - name: Image API
       href: try-image-api.md
@@ -30,6 +28,16 @@
       href: try-text-api.md
     - name: Term list API
       href: try-terms-list-api.md
+  - name: Try the review APIs
+    items: 
+    - name: Jobs
+      href: try-review-api-job.md
+    - name: Reviews
+      href: try-review-api-review.md
+    - name: Workflows
+      href: try-review-api-workflow.md
+- name: How to
+  items:
   - name: Use the review tool
     items:
     - name: Human in the loop
@@ -52,14 +60,6 @@
       href: Review-Tool-User-Guide/Workflows.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
-  - name: Test drive review APIs
-    items: 
-    - name: Jobs
-      href: try-review-api-job.md
-    - name: Reviews
-      href: try-review-api-review.md
-    - name: Workflows
-      href: try-review-api-workflow.md
 - name: API References
   items: 
   - name: All APIs  

@@ -46,5 +46,5 @@ Because of its advanced features, you'll usually use the Advanced Analytics port
 
 ## Next steps
 
-- Walk through a tutorial on using the [Log Search portal](log-analytics-log-search-log-search-portal.md) or the [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal) to create queries.
-- Check out a [tutorial on writing queries](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) using the new query language.
+- Walk through a tutorial on using the [Log Search portal](log-analytics-log-search-log-search-portal.md) or the [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587) to create queries.
+- Check out a [tutorial on writing queries](https://go.microsoft.com/fwlink/?linkid=856078) using the new query language.

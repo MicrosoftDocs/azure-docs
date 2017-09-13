@@ -4,7 +4,7 @@ description: Learn best practices and patterns for Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, patterns, best practice, functions, event processing, webhooks, dynamic compute, serverless architecture

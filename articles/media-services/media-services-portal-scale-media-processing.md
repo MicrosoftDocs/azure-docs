@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of scaling media processi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da

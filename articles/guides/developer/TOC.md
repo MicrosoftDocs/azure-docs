@@ -11,10 +11,10 @@
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Quickstart
-## [Web Apps](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started)
+## [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
 ## Virtual machines
-### [Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal)
-### [Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hero-tutorial)
+### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 ## [Serverless](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function)
 ## Microservices
 ### [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio)
@@ -22,16 +22,15 @@
 
 # Tutorials
 ## Create and deploy a web app
-### [ASP.NET](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started)
-### [Java](https://docs.microsoft.com/azure/app-service-web/web-sites-python-ptvs-django-mysql)
-### [Node.js](https://docs.microsoft.com/azure/app-service-web/app-service-web-nodejs-get-started)
-### [PHP](https://docs.microsoft.com/azure/app-service-web/app-service-web-php-get-started)
-### [Python](https://docs.microsoft.com/azure/app-service-web/web-sites-python-ptvs-django-mysql)
+### [.NET with SQL DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
+### [Node.js with Mongo DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
+### [PHP with MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
+### [Java with MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
 ## Deploy complex VM templates
-### [Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-dotnet-core-1-landing?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-dotnet-core-1-landing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Create an Azure connected function](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [Docker deploy web app on Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-using-custom-docker-image) 
+## [Docker deploy web app on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
 
 # Samples
 ## Azure CLI
@@ -54,12 +53,13 @@
 
 # How to guides
 ## Plan
-### [Web application architectures](https://docs.microsoft.com/azure/guidance/guidance-ra-app-service)
-### [VM architectures](https://docs.microsoft.com/azure/guidance/guidance-ra-compute)
-### [Connect to on-premises networks](https://docs.microsoft.com/azure/guidance/guidance-ra-hybrid-networking)
+### [Web application architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
+### [VM architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [Connect to on-premises networks](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
 ### [Microservices patterns/scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios)
 ## Develop
-### [WordPress apps](https://docs.microsoft.com/azure/app-service-web/web-sites-php-web-site-gallery)
+### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template)
+### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
 ### [Serverless apps](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Microservices cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Deploy
@@ -71,7 +71,7 @@
 ### [Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [File shares](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
 ### [Key-value pairs](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON documents](https://docs.microsoft.com/azure/documentdb/documentdb-get-started)
+### [JSON documents](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
 ### [Relational tables](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Message queues](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
@@ -81,7 +81,7 @@
 ### [Microservice apps](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Secure
-### [Web and mobile apps](https://docs.microsoft.com/azure/app-service-web/web-sites-security)
+### [Web and mobile apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
 
 ## Backup
 ### [Web and mobile apps](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)

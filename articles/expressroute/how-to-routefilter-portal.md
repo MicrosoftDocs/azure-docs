@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2017
+ms.date: 09/11/2017
 ms.author: ganesr;cherylmc
 
 ---
@@ -110,6 +110,10 @@ You can attach the route filter to a circuit by selecting the "add Circuit" butt
 
 ![Create a route filter](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
 
+If the connectivity provider configures peering for your ExpressRoute circuit refresh the circuit from the ExpressRoute circuit blade before you select the "add Circuit" button.
+
+![Create a route filter](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
+
 ## <a name="getproperties"></a>To get the properties of a route filter
 
 You can view properties of a route filter when you open the resource in the portal.
@@ -129,17 +133,17 @@ You can update the list of BGP community values attached to a circuit by selecti
 
 ## <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
-**This operation can be performed in PowerShell only.**
+To detach a circuit from the route filter, right click on the circuit and click on "disassociate".
 
-Once a route filter is detached from the ExpressRoute circuit, no prefixes are advertised through the BGP session. You can detach a route filter from an ExpressRoute circuit using the following command:
-  
-```powershell
-$ckt.Peerings[0].RouteFilter = $null
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
+![Create a route filter](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+
 
 ## <a name="delete"></a>To delete a route filter
 
 You can delete a route filter by selecting the delete button. 
 
 ![Create a route filter](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+
+## Next steps
+
+For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
