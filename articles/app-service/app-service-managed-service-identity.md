@@ -10,7 +10,7 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 09/13/2017
 ms.author: mahender
 
 ---
@@ -37,6 +37,8 @@ To set up a managed service identity in the portal, you will first create an app
 3. Select **Managed service identity**.
 
 4. Switch **Register with Azure Active Directory** to **On**. Click **Save**.
+
+![Managed Service Identity in App Service](media/app-service-managed-service-identity/msi-blade.png)
 
 ### Using an Azure Resource Manager template
 
