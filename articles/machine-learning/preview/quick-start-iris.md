@@ -97,6 +97,9 @@ Web services are currently created and deployed from the CLI, so now open the co
     # verify the current subscription
     az account show
     ```
+    >[!TIP]
+    >You can also check to see if you have a valid az-cli token by using `az account get-access-token` command.
+        
 3. Now you are ready to deploy the model as a web service. Type the following command:
 
     ```shell
