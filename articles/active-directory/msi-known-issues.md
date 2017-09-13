@@ -49,3 +49,7 @@ Once the VM is started, the tag can be removed by using following command:
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## Does MSI work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
+
+No, MSI is not yet integrated with ADAL or MSAL.
