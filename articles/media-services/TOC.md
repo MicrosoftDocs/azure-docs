@@ -183,9 +183,9 @@
 ### [Deliver by Download](media-services-deliver-asset-download.md)
 ### [Failover streaming scenario](media-services-implement-failover.md)
 
-## Playback
-### [Playback media with existing players](media-services-playback-content-with-existing-players.md)
-### [Playback media with Media Player](media-services-develop-video-players.md)
+## Play back
+### [Play back media with existing players](media-services-playback-content-with-existing-players.md)
+### [Play back media with Media Player](media-services-develop-video-players.md)
 ### Other playback options
 #### [Smooth streaming Windows Store application](media-services-build-smooth-streaming-apps.md)
 #### [HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
