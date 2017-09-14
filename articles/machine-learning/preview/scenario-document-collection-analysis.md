@@ -215,10 +215,6 @@ This real world scenario highlights how to use well-known text analytics techniq
 
 * **Michael Roder, Andreas Both, Alexander Hinneburg**, [_Exploring the Space of Topic Coherence Measures_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Proceedings of the eighth ACM international conference on Web search and data mining. ACM, 2015.
 
-## Acknowledgement
-
-Thanks T.J Hazen for the great technical discussions on the NLP topics. Thanks Peter Morgan and John Pelak for deep involvement of implementing this work on the Azure Machine Learning Workbench.
-
 ## Contact
 
 Feel free to contact Ke Huang (kehuan@microsoft.com) and Timothy J. Hazen (TJ.Hazen@microsoft.com) with any question or comment.
