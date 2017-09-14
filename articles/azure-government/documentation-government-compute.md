@@ -17,6 +17,7 @@ ms.date: 8/30/2017
 ms.author: kydeeds
 
 ---
+
 # Azure Government Compute
 ## Virtual Machines
 For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
