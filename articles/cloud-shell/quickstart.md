@@ -73,7 +73,7 @@ Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. 
 Delete your resource group and any resources within it: <br>
 Run `az group delete -n MyRG`
 
-## Next Steps
+## Next steps
 [Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) <br>
 [Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Learn about Azure File storage](../storage/files/storage-files-introduction.md) <br>
