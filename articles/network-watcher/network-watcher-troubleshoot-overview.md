@@ -3,7 +3,7 @@ title: Introduction to resource troubleshooting in Azure Network Watcher | Micro
 description: This page provides an overview of the Network Watcher resource troubleshooting capabilities
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/19/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Introduction to resource troubleshooting in Azure Network Watcher

@@ -140,6 +140,17 @@ After you get your services running, regularly check how much they're costing yo
 
 We recommend that you check the costs you see with the estimates you saw when you selected the services. If the costs wildly differ from estimates, double check the pricing plan (A1 vs A0 VM, for example) that you've selected for your resources. 
 
+#### <a name="EA"></a> Preview Enterprise Agreement cost views within Azure Portal 
+
+Enterprise cost views are currently in Public Preview. Items to note:
+- Subscription costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level. 
+- Amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal.  
+- If you are not seeing costs, it might be due to one of the following reasons:
+    - You are an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs. 
+    - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
+    - You purchased Azure through a channel partner, and the partner has not released pricing information.  
+- When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
+- Spending limit, billing alerts, and invoice guidance do not pertain to EA Subscriptions.
 
 #### View costs for all your subscriptions in the Billing page
 
@@ -172,18 +183,6 @@ The tags that you set earlier show up in the detail usage .csv files:
 ### Billing API
 
 Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
-
-## <a name="EA"></a> Preview Enterprise Agreement cost views within Azure Portal 
-
-Enterprise cost views are currently in Public Preview. Items to note:
-- Subscription costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level. 
-- Amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal.  
-- If you are not seeing costs, it might be due to one of the following reasons:
-    - You are an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs. 
-    - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
-    - You purchased Azure through a channel partner, and the partner has not released pricing information.  
-- When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
-- Spending limit, billing alerts, and invoice guidance do not pertain to EA Subscriptions.
 
 ## <a name="other-offers"></a> Additional resources for EA, CSP, and Sponsorship
 

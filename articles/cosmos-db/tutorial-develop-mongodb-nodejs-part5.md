@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/23/2017
+ms.date: 09/05/2017
 ms.author: mimig
 
 ---
@@ -38,6 +38,9 @@ Part 5 of the tutorial builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.
 ## Prerequisites
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 4](tutorial-develop-mongodb-nodejs-part4.md) of the tutorial.
+
+> [!TIP]
+> This tutorial walks you through the steps to build the application step-by-step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
 ## Use Mongoose to connect to Azure Cosmos DB
 

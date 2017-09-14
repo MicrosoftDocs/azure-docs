@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/23/2017
+ms.date: 09/05/2017
 ms.author: mimig
 
 ---
@@ -32,6 +32,9 @@ Part 6 of the tutorial builds on [Part 5](tutorial-develop-mongodb-nodejs-part5.
 ## Prerequisites
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 5](tutorial-develop-mongodb-nodejs-part5.md) of the tutorial.
+
+> [!TIP]
+> This tutorial walks you through the steps to build the application step-by-step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
 ## Add a Post function to the hero service
 
@@ -75,7 +78,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     };
     ```
 
-4. In **routes.js**, add a router for the `post` function after the `get` router. This router will post one hero at a time. Structuring the router file this way cleanly shows you all of the available API endpoints and leaves the real work to the **hero.service.js** file.
+4. In **routes.js**, add a router for the `post` function after the `get` router. This router posts one hero at a time. Structuring the router file this way cleanly shows you all of the available API endpoints and leaves the real work to the **hero.service.js** file.
 
     ```javascript
     router.post('/hero', (req, res) => {
