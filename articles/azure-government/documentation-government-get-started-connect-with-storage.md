@@ -4,7 +4,7 @@ description: This provides a quickstart-guide for getting started with Storage i
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhong
+author: yujhongmicrosoft
 manager: zakramer
 
 ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
