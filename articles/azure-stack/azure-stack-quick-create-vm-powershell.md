@@ -26,7 +26,7 @@ This guide details using PowerShell to create a Windows Server 2016 virtual mach
 
 ## Prerequisites
 
-1. The Azure Stack marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack cloud administrator [adds the Windows Server 2016 image to the Azure Stack marketplace](azure-stack-add-default-image.md). 
+1. The Azure Stack marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack operator [adds the Windows Server 2016 image to the Azure Stack marketplace](azure-stack-add-default-image.md). 
 2. Azure Stack requires specific version of Azure PowerShell module to create and manage the resources. Use the steps described in [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) topic to install the required version.
 3. [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) 
 

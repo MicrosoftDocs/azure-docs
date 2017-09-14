@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/10/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 
 ---
@@ -45,12 +45,20 @@ This article summarizes supported configurations and components for Azure Site R
 **Move Compute, Storage and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network) after enabling replication, you need to disable replication and enable replication for the virtual machine again.
 
 
+
 ## Support for deployment models
 
 **Deployment model** | **Supported / Not supported** | **Remarks**  
 --- | --- | ---
 **Classic** | Supported | You can only replicate a classic virtual machine and recover it as a classic virtual machine. You cannot recover it as a Resource Manager virtual machine. If you deploy a classic VM without a virtual network and directly to an Azure region, it is not supported.
 **Resource Manager** | Supported |
+
+>[!NOTE]
+>
+> 1. Replicating Azure virtual machines from one subscription to another for disaster recovery scenarios is not supported.
+> 2. Migrating Azure virtual machines across subscriptions is not supported.
+> 3. Migrating Azure virtual machines within the same region is not supported.
+> 4. Migrating Azure virtual machines from Classic deployment model to Resource manager deployment model is not supported.
 
 ## Support for replicated machine OS versions
 
@@ -69,12 +77,15 @@ The below support is applicable for any workload running on the mentioned OS.
 
 #### Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
-- CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
 - SUSE Linux Enterprise Server 11 SP3
+- SUSE Linux Enterprise Server 11 SP4
+
+(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.)
 
 >[!NOTE]
 >
@@ -86,7 +97,9 @@ The below support is applicable for any workload running on the mentioned OS.
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic to 3.13.0-121-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-81-generic |
+14.04 LTS | 9.11 | 3.13.0-24-generic to 3.13.0-125-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-83-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic to 4.4.0-81-generic,<br/>4.8.0-34-generic to 4.8.0-56-generic,<br/>4.10.0-14-generic to 4.10.0-24-generic |
+16.04 LTS | 9.11 | 4.4.0-21-generic to 4.4.0-83-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-27-generic |
 
 ## Supported file systems and guest storage configurations on Azure virtual machines running Linux OS
 
@@ -104,6 +117,8 @@ America | Canada East, Canada Central, South Central US, West Central US, East U
 Europe | UK West, UK South, North Europe, West Europe
 Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 Australia	| Australia East, Australia Southeast
+Azure Government | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
+Germany | Germany Central, Germany Northeast
 
 >[!NOTE]
 >

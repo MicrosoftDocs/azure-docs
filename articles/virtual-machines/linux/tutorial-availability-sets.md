@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
@@ -66,6 +66,32 @@ az vm availability-set create \
 
 Availability Sets allow you to isolate resources across "fault domains" and "update domains". A **fault domain** represents an isolated collection of server + network + storage resources. In the preceding example, we indicate that we want our availability set to be distributed across at least two fault domains when our VMs are deployed. We also indicate that we want our availability set distributed across two **update domains**.  Two update domains ensure that when Azure performs software updates our VM resources are isolated, preventing all the software running underneath our VM from being updated at the same time.
 
+## Configure virtual network
+Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
+
+### Create network resources
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* with a subnet named *mySubnet*:
+
+```azurecli-interactive 
+az network vnet create \
+    --resource-group myResourceGroupAvailability \
+    --name myVnet \
+    --subnet-name mySubnet
+```
+Virtual NICs are created with [az network nic create](/cli/azure/network/nic#create). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
+
+```bash
+for i in `seq 1 3`; do
+    az network nic create \
+        --resource-group myResourceGroupAvailability \
+        --name myNic$i \
+        --vnet-name myVnet \
+        --subnet mySubnet \
+        --lb-name myLoadBalancer \
+        --lb-address-pools myBackEndPool
+done
+```
+
 ## Create VMs inside an availability set
 
 VMs must be created within the availability set to make sure they are correctly distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
@@ -78,6 +104,7 @@ for i in `seq 1 2`; do
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
+     --nics myNic$i \
      --size Standard_DS1_v2  \
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \

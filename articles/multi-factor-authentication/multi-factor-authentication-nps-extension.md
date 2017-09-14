@@ -3,7 +3,7 @@ title: Use existing NPS servers to provide Azure MFA capabilities | Microsoft Do
 description: The Network Policy Server extension for Azure Multi-Factor Authentication is a simple solution to add cloud-based two-step vericiation capabilities to your existing authentication infrastructure.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ---
@@ -169,7 +169,7 @@ This section includes design considerations and suggestions for successful NPS e
 ### Configuration limitations
 
 - The NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
-- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension cannot be configured to use a different identifier like alternate login ID or custom AD field other than UPN.  
+- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. See [Advanced configuration options for the NPS extension for Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md) for more information.
 - Not all encryption protocols support all verification methods.
    - **PAP** supports phone call, one-way text message, mobile app notification, and mobile app verification code
    - **CHAPV2** and **EAP** support phone call and mobile app notification
@@ -239,5 +239,7 @@ Verify that https://adnotifications.windowsazure.com is reachable from the serve
 ## Next steps
 
 - Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](nps-extension-advanced-configuration.md)
+
+- Learn how to integrate [Remote Desktop Gateway](nps-extension-remote-desktop-gateway.md) and [VPN servers](nps-extension-vpn.md) using the NPS extension
 
 - [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)

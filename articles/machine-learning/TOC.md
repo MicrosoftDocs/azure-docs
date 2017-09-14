@@ -3,8 +3,8 @@
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [Overview](http://aka.ms/datascienceprocess)
-### [Lifecycle](data-science-process-overview.md)
+### [Overview](data-science-process-overview.md)
+### [Lifecycle](data-science-process-lifecycle.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
 ####[Spark with PySpark and Scala](data-science-process-walkthroughs-spark.md)
 ##### [Explore data](machine-learning-data-science-spark-data-exploration-modeling.md)
@@ -14,6 +14,7 @@
 ####[U-SQL with Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
 ####[R, Python and T-SQL with SQL Server](data-science-process-walkthroughs-sql-server.md)
 ####[T-SQL and Python with SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
+### [With Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [What's the Studio?](machine-learning-what-is-ml-studio.md)

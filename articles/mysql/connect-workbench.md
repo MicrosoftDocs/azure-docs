@@ -6,9 +6,9 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/23/2017
 ---
 
@@ -65,7 +65,7 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
 6.   A new SQL tab opens with a blank editor where you can type your queries.
 
     > [!NOTE]
-    > SSL is enforced by default on your server, and requires extra configuration in order to connect successfully. See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you want to disable SSL for this Quickstart, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
+    > By default, SSL connection security is required and enforced on your Azure Database for MySQL server. Typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server. For more information on SSL, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you need to disable SSL, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
 
 ## Create a table, insert data, read data, update data, delete data
 1. Copy and paste the sample SQL code into a blank SQL tab to illustrate some sample data.
@@ -102,7 +102,7 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
     ![MySQL Workbench SQL Tab to run sample SQL code](media/connect-workbench/3-workbench-sql-tab.png)
 
 2. To run the sample SQL Code, click the lightening bolt icon in the toolbar of the **SQL File** tab.
-3. Notice the three tabbed results in the **Result Set** section in the middle of the page. 
+3. Notice the three tabbed results in the **Result Grid** section in the middle of the page. 
 4. Notice the **Output** list at the bottom of the page. The status of each command is shown. 
 
 Now, you have connected to Azure Database for MySQL using MySQL Workbench, and have queried data using the SQL language.
