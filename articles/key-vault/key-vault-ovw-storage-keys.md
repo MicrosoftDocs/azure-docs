@@ -42,8 +42,6 @@ Key Vault performs several internal management functions on your behalf when you
 
 ## Developer experience
 
-**Frank, what's the value of this section? Amit provided this but to me it's value isn't clear.**
-
 ### Before Azure Key Vault Storage Keys 
 
 Developers used to need to do the following practices with a storage account key to get access to Azure storage. 
@@ -64,6 +62,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -P
 //Get secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
+
 -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
 //Get a SAS token from Key Vault
@@ -162,7 +161,6 @@ Setting the regeneration period using the following commands.
 
 ```powershell
 $regenPeriod = [System.Timespan]::FromDays(3)
-
 Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -RegenerationPeriod $regenPeriod
 ```
 
@@ -180,22 +178,18 @@ Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Contain
 Get the corresponding SAS tokens and make calls to storage.
 
 ```powershell
-$sasToken1 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas1).SecretValueTextsToken2 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas2).SecretValueText
+$sasToken1 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas1).SecretValueText
+$sasToken2 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas2).SecretValueText
 ```
 
 ### Create storage
 
 Notice that trying to access with *$sastoken1* fails, but that we are able to access with *$sastoken2*. 
 
-**Frank, the meaning here is unclear to me. Where is $sasToken2 from? Why are the two calls that generate *$sastoken1* and *$sastoken2* not shown? What, in this example, indicates failure of $sastoken1?**
-
 ```powershell
 $context1 = New-AzureStorageContext -SasToken $sasToken1 -StorageAccountName yourtest1
-
 $context2 = New-AzureStorageContext -SasToken $sasToken2 -StorageAccountName yourtest1
-
 Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt"  -Context $context1
-
 Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
 ```
 
