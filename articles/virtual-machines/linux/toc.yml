@@ -213,6 +213,10 @@
       href: manage-availability.md
     - name: Vertically scale
       href: vertical-scaling-automation.md
+    - name: Availability zones
+      items:
+      - name: Create a VM in zone - Azure CLI
+        href: create-cli-availability-zone.md  
   - name: Use automation tools
     items:
     - name: Ansible
