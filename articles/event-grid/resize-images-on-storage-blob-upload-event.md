@@ -162,7 +162,7 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbs
+myThumbContainerName=thumbs myImageContainerName=image
 ```
 
 You can now deploy a function code project to this function app.
@@ -212,7 +212,6 @@ An event subscription tells Event Grid, which provider-generated events you want
 
 4. Click **Create** to add the event subscription. This creates a event subscription that triggers the **imageresizer** function when a blob is added to the images container. Resized images are added to the thumbs Blob storage container.
 
-Repeat the previous steps from the **imagedelete** function in the portal. This time choose only the **Blob deleted** value for **Event types**. This creates a event subscription that triggers the **imagedelete** function when a blob is deleted from the images Blob storage container. This makes sure that orphaned thumbnails aren't left-behind in the thumbs container. 
 
 Now that the backend services are configured, you publish the sample web app to Azure. 
 
@@ -276,7 +275,7 @@ After the web app is deployed and configured, you can test the entire image uplo
 
 ## Test the sample app
 
-To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net>`.
+To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
 
 Click the **Upload photos** region to select and upload a file. 
 
