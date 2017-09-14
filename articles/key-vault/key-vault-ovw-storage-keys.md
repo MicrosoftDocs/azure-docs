@@ -112,11 +112,13 @@ Key Vault needs permissions to *list* and *regenerate* keys for a storage accoun
     >[!NOTE]
     > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
 
-## Example
+## Working example
 
 The following example demonstrates creating a Key Vault managed Azure Storage Account and the associated Shared Access Signature (SAS) definitions.
 
 ### Assumptions
+
+The following statements are givens for this working example.
 
 - Your storage resource is located at: */subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1*
 
@@ -124,7 +126,7 @@ The following example demonstrates creating a Key Vault managed Azure Storage Ac
 
 ### Get a service principal
 
-``` powershell
+```powershell
 Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 ```
 
