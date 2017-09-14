@@ -40,10 +40,10 @@ Login-AzureRmAccount
 ```
 ## Create resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* is created in the *eastus2* region. East US 2 is one of the Azure regions that supports availability zones in preview.
+Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* is created in the *westeurope* region. *westeurope* is one of the Azure regions that supports availability zones in preview.
 
 ```powershell
-New-AzureRmResourceGroup -Name AzTest -Location eastus2
+New-AzureRmResourceGroup -Name AzTest -Location westeurope
 ```
 
 ## Create a zonal Public IP
@@ -54,7 +54,7 @@ Create a Public IP in an Availability Zone using the following command:
     New-AzureRmPublicIpAddress `
         -ResourceGroupName AzTest `
         -Name pstestMyPublicIP `
-        -Location eastus2 `
+        -Location westeurope `
         -AllocationMethod Static `
         -Zone 2
 ```
