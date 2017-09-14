@@ -150,7 +150,10 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
 
 #### Issues
 
-* **InMage_Scout_Standard_8.0.1_GA.zip** base package now has an updated configuration server base installer (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**), and a Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**). For all new installations, use the new configuration server and Windows master target GA bits.
+* **InMage_Scout_Standard_8.0.1_GA.zip** base package has:
+	* An updated configuration server base installer (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
+	* A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
+	* For all new installations, use the new configuration server and Windows master target GA bits.
 * Update 4 can be applied directly on 8.0.1 GA.
 * The configuration server and RX updates can’t be rolled back after they've been applied.
 
@@ -163,17 +166,17 @@ All Site Recovery updates are cumulative. Update 3 contains all fixes from Updat
 Update 3 fixes the following issues:
 
 * The configuration server and RX aren't registered in the vault when they're behind the proxy.
-* The number of hours in which the recovery point objective (RPO) isn't achieved isn't updated in the health report.
+* The number of hours in which the recovery point objective (RPO) wasn't reached is not updated in the health report.
 * The configuration server isn't syncing with RX when the ESX hardware details, or network details, contain any UTF-8 characters.
 * Windows Server 2008 R2 domain controllers don't start after recovery.
 * Offline synchronization isn't working as expected.
-* After VM failover, replication-pair deletion is stuck in the configuration server console for a long time, and users can't complete the failback or resume operations.
+* After VM failover, replication-pair deletion doesn't progress in the configuration server console for a long time. Users can't complete the failback or resume operations.
 * Overall snapshot operations by the consistency job have been optimized, to help reduce application disconnects such as SQL Server clients.
-* The performance of the consistency tool (VACP.exe) has been improved, by reducing the memory usage required for creating snapshots on Windows.
+* Consistency tool (VACP.exe) performance has been improved. Memory usage required for creating snapshots on Windows has been reduced.
 * The push install service crashes when the password is larger than 16 characters.
 * vContinuum doesn't check and prompt for new vCenter credentials, when credentials are modified.
 * On Linux, the master target cache manager (cachemgr) isn't downloading files from the process server. This results in replication pair throttling.
-* When the physical failover cluster (MSCS) disk order isn't the same on all nodes, replication isn't set for some of the cluster volumes. The cluster needs to be reprotected to take advantage of this fix.  
+* When the physical failover cluster (MSCS) disk order isn't the same on all nodes, replication isn't set for some of the cluster volumes. The cluster must be reprotected to take advantage of this fix.  
 * SMTP functionality isn't working as expected, after RX is upgraded from Scout 7.1 to Scout 8.0.1.
 * More statistics have been added in the log for the rollback operation, to track the time taken to complete it.
 * Support has been added for Linux operating systems on the source server:
@@ -182,7 +185,7 @@ Update 3 fixes the following issues:
 * The configuration server and RX consoles now show notifications for the pair, which goes into bitmap mode.
 * The following security fixes have been added in RX:
 	* Authorization bypass via parameter tampering: Restricted access to non-applicable users.
-	* Cross-site request forgery: The page-token concept was implement, which generates randomly for every page. With this in place, you'll see that there's only a single sign-in instance for the same user, and page refresh doesn't work, it redirects to the dashboard.
+	* Cross-site request forgery: The page-token concept was implemented, and it generates randomly for every page. This means there's only a single sign-in instance for the same user, and page refresh doesn't work. Instead, it redirects to the dashboard.
 	* Malicious file upload: Files are restricted to specific extensions: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip.
 	* Persistent cross-site scripting: Input validations were added.
 
@@ -190,14 +193,14 @@ Update 3 fixes the following issues:
 
 Fixes in Update 2 include:
 
-* **Configuration server**: Fix for an issue that prevented the 31-day free metering feature from working as expected, when the configuration server was registered in Site Recovery.
+* **Configuration server**:Issues that prevented the 31-day free metering feature from working as expected, when the configuration server was registered in Site Recovery.
 * **Unified agent**: Fix for an issue in Update 1 that resulted in the update not being installed on the master target server, during upgrade from version 8.0 to 8.0.1.
 
 ### Azure Site Recovery Scout 8.0.1 Update 1
 Update 1 includes the following bug fixes and new features:
 
 * 31 days of free protection per server instance. This enables you to test functionality, or set up a proof-of-concept.
-* All operations on the server, including failover and failback, are free for the first 31 days. This starts from the time that a server is first protected with Site Recovery Scout. From the 32nd day onwards, each protected server is charged at the standard instance rate for Site Recovery protection to a customer-owned site.
+* All operations on the server, including failover and failback, are free for the first 31 days. The time starts when a server is first protected with Site Recovery Scout. From the 32nd day, each protected server is charged at the standard instance rate for Site Recovery protection to a customer-owned site.
 * At any time, the number of protected servers currently being charged is available on the **Dashboard** in the vault.
 * Support was added for vSphere Command-Line Interface (vCLI) 5.5 Update 2.
 * Support was added for these Linux operating systems on the source server:
@@ -207,13 +210,13 @@ Update 1 includes the following bug fixes and new features:
 	* CentOS 5 Update 11
 * Bug fixes to address the following issues:
   * Vault registration fails for the configuration server, or RX server.
-  * Cluster volumes don't appear as expected when clustered VM are reprotected as they resume.
+  * Cluster volumes don't appear as expected when clustered VMs are reprotected as they resume.
   * Failback fails when the master target server is hosted on a different ESXi server from the on-premises production VMs.
-  * Configuration file permissions are changed when you upgrade to 8.0.1. This affects protection and operations.
+  * Configuration file permissions are changed when you upgrade to 8.0.1. This change affects protection and operations.
   * The resynchronization threshold isn't enforced as expected, causing inconsistent replication behavior.
   * The RPO settings don't appear correctly in the configuration server console. The uncompressed data value incorrectly shows the compressed value.
   * The Remove operation doesn't delete as expected in the vContinuum wizard, and replication isn't deleted from the configuration server console.
   * In the vContinuum wizard, the disk is automatically unselected when you click **Details** in the disk view, during protection of MSCS VMs.
-  * In the physical-to-virtual (P2V) scenario, required HP services (such as CIMnotify and CqMgHost) aren't moved to manual in VM recovery. This results in additional boot time.
+  * In the physical-to-virtual (P2V) scenario, required HP services (such as CIMnotify and CqMgHost) aren't moved to manual in VM recovery. This issue results in additional boot time.
   * Linux VM protection fails when there are more than 26 disks on the master target server.
 
