@@ -187,7 +187,7 @@ you might want to later update the settings for that specific connection.
      ![Go to your logic app, select "API Connections"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
    * Or, from the main Azure left menu, go to 
-    **More Services** > **Web & Mobile Services** > **API Connections** 
+    **More Services** > **Web + Mobile** > **API Connections** 
     for all API connections, including gateway connections, 
     that are associated with your Azure subscription. 
 

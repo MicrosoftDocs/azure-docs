@@ -1,11 +1,11 @@
 ---
-title: Deploy and explore the multi-tenant Wingtip SaaS application that uses Azure SQL Database | Microsoft Docs 
+title: Deploy and explore a multi-tenant SaaS application that uses Azure SQL Database | Microsoft Docs 
 description: "Deploy and explore the Wingtip SaaS multi-tenant application, that demonstrates SaaS patterns using Azure SQL Database."
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid: 
