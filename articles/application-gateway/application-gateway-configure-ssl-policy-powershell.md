@@ -133,7 +133,7 @@ Set-AzureRmApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custo
 Get-AzureRmApplicationGatewaySslPolicy -ApplicationGateway $gw
 
 # update the gateway with validated SSL policy
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzureRmApplicationGateway -ApplicationGateway $gw 
 ```
 
 ## Create an application gateway with a pre-defined SSL policy
