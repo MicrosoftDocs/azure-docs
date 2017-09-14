@@ -16,37 +16,6 @@ metadata:
 abstract:
   description: Use Azure Backup to back up and restore your data. With Azure Backup you can back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
 sections:
-- title: ""
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Learn about Azure Backup
-      href: /azure/backup/backup-introduction-to-azure-backup
-      image: 
-        src: https://docs.microsoft.com/azure/backup/media/index/backup.svg
-        href: /azure/backup/backup-introduction-to-azure-backup
-    - title: Azure Backup Video Library
-      href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-      image: 
-        src: https://docs.microsoft.com/azure/backup/media/index/video-library.svg
-        href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-    - title: Get Started backing up files and folders with Azure Backup
-      href: /azure/backup/backup-try-azure-backup-in-10-mins
-      image: 
-        src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-        href: /azure/backup/backup-try-azure-backup-in-10-mins
-    - title: Get Started backing up a VMware server with Azure Backup Server
-      href: /azure/backup/backup-azure-backup-server-vmware
-      image: 
-        src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-        href: /azure/backup/backup-azure-backup-server-vmware
-    - title: Get Started protecting Azure virtual machines with Azure Backup
-      href: /azure/backup/backup-azure-vms-first-look-arm
-      image: 
-        src: https://docs.microsoft.com/azure/backup/media/index/get-started.svg
-        href: /azure/backup/backup-azure-vms-first-look-arm
 - title: Quickstarts
   items:
   - type: paragraph
@@ -62,7 +31,7 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
       text: Back up VMs - PowerShell
       href: /azure/backup/quick-backup-vm-powershell
-- title: Tutorials
+- title: Step-by-step Tutorials
   items:
   - type: paragraph
     text: Learn to back up and recover virtual machines at scale.
