@@ -167,5 +167,6 @@ If you want to use the Gnome desktop to install a complete SAP demo system insid
    ```
 
 ## SAP support for Oracle on Linux in the cloud
-There is a support restriction from Oracle on Linux in virtualized environments. Although this is not an Azure-specific topic, it's important to understand. SAP does not support Oracle on SUSE or Red Hat in a public cloud like Azure. To discuss this topic, contact Oracle directly.
+There is a support restriction from Oracle on Linux in virtualized environments. Although this is not an Azure-specific topic, it's important to understand. SAP does not support Oracle on SUSE or Red Hat in a public cloud like Azure. 
+In the meantime running Oracle DB in Azure is fully supported by SAP on Oracle Linux (see SAP Note 1928533). If other combinations are required, contact Oracle directly.
 
