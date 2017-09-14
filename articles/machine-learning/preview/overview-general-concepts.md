@@ -13,8 +13,6 @@ ms.date: 09/06/2017
 
 # Azure Machine Learning - Concepts
 
-Welcome to Azure Machine Learning. Our new release includes the Experimentation Service, Model Management, and our Workbench application. This document defines are a few key concepts that will help you understand our new services and application. 
-
 - **Subscription:** An Azure subscription grants you access to Azure services and the Azure Platform Management Portal. Because Azure Machine Learning is deeply integrated with Visual Studio Team Services, Azure Blob Storage, Azure Key Vault, and other Azure services, Workbench requires that each user have a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources. Note: During Public Preview, your subscription must have access to Azure resources in ‘EAST US 2’ or ‘West Central US’. Azure Machine Learning is currently deployed only in these regions.
 
 

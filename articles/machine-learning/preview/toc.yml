@@ -73,10 +73,10 @@
     - name: (Setup Model Management Environment)
     - name: Create Docker image
       href: model-management-image-creation.md
+    - name: Consume web service
+      href: model-management-consumption.md  
     - name: Deploy web service
       href: model-management-service-deploy.md
-    - name: placeholder - Consume web service
-      href: doc-template-how-to.md  
   - name: End-to-end examples
     items:
     - name: Awesome ADS example 1

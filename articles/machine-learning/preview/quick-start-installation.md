@@ -12,8 +12,8 @@ ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/13/2017
 ---
+# Provision and install Azure Machine Learning preview features
 
-# Install Azure Machine Learning preview features
 This Quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning. It shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools.
 
 ## Prerequisites
