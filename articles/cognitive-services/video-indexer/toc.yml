@@ -31,3 +31,5 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Video Indexer Node.js module
+    href: https://www.npmjs.com/package/video-indexer 
