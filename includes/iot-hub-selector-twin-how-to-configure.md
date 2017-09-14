@@ -2,6 +2,7 @@
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
+> * [Java](../articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md)
 > 
 > 
 
