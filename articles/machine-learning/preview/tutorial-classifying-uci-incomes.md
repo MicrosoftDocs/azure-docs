@@ -28,7 +28,7 @@ We provide summary documentation here about the sample. More extensive documenta
 
 Standardization of the structure and documentation of data science projects, that is anchored to an established [data science lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), is key to facilitating effective collaboration on data science teams. Creating Azure Machine Learning Workbench projects with the [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) template provides a framework for such standardization.
 
-We had previously released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). But it was not possible, until now to instantiate the TDSP structure and templates within a data science tool. We have now enabled creation of Azure Machine Learning Workbench projects that are instantiated with [TDSP structure and documentation templates](https://github.com/amlsamples/tdsp). Instructions on how to use TDSP structure and templates in Azure Machine Learning Workbench is provided [here](how-to-use-tdsp-in-azure-ml.md). Here we provide an example of how an actual machine learning project can be created using TDSP structure, populated with project-specific code and documents, and executed within the Azure Machine Learning Workbench.
+We had previously released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). But it was not possible, until now to instantiate the TDSP structure and templates within a data science tool. We have now enabled creation of Azure Machine Learning Workbench projects that are instantiated with [TDSP structure and documentation templates for Azure ML Workbench](https://github.com/amlsamples/tdsp). Instructions on how to use TDSP structure and templates in Azure Machine Learning Workbench is provided [here](how-to-use-tdsp-in-azure-ml.md). Here we provide an example of how an actual machine learning project can be created using TDSP structure, populated with project-specific code and documents, and executed within the Azure Machine Learning Workbench.
 
 
 ### Purpose & Scope
@@ -46,7 +46,7 @@ The primary purpose of this sample is to show how to instantiate and execute a d
 <img src="./media/tutorial-classifying-uci-incomes/tdsp-lifecycle.jpg" width="800" height="600">
 
 ## Pre-requisites
-### Required
+### Required: Subscription, Hardware, Software
 1. An Azure [subscription](https://azure.microsoft.com/en-us/free/)
 2. This tutorial was tested on an Azure Data Science Virtual Machine (DSVM) Windows Server 2016, (VM Size: [DS3_V2](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes), with 4 virtual CPUs and 14-Gb RAM). 
 3. Please review [how to get started and FAQs](faq.md) on Azure ML Workbench and its related services.
@@ -62,7 +62,7 @@ The primary purpose of this sample is to show how to instantiate and execute a d
 * [Read and write files](how-to-read-write-files.md)
 * [Deploying an ML model as a web service](model-management-service-deploy.md)
 
-### Informational: Data 
+### Informational: Data
 The dataset for this sample is from the UCI ML Repository [[link]](https://archive.ics.uci.edu/ml/datasets/adult). It is taken from the 1994 US Census database and contains census and income information for about 50,000 individuals. This is structured dataset having numerical and categorical features, and a categorical target for binary classification. 
 
 ## Use Case Overview
@@ -71,7 +71,7 @@ The problem is to understand how socio-economic data captured in US Census can h
 ## Data Description
 For detailed information about the data, see the [description](https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names) in the UCI repository. 
 
-This data was extracted from the census bureau database found at: http://www.census.gov/ftp/pub/DES/www/welcome.html. 
+This data was extracted from the Census Bureau database found at: https://www.census.gov/en.html. 
 
     There are a total of 48,842 instances (prior to any filtering), mix of continuous and discrete (train=32,561, test=16,281)
     Probability for the label '>50K'  : 23.93% / 24.78% (without unknowns)
@@ -83,10 +83,12 @@ This data was extracted from the census bureau database found at: http://www.cen
 ## Project Structure and Reporting
 
 ### Structure
-For this project, we use the TDSP folder structure and documentation templates (Figure 1), which follows the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). Project is created based on instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/Docs/how-to-use-tdsp-in-azure-ml.md).
+For this project, we use the TDSP folder structure and documentation templates (Figure 1), which follows the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). 
+
+Project is created based on instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/Docs/how-to-use-tdsp-in-azure-ml.md).
 
 
-<img src="./media/tutorial-classifying-uci-incomes/instantiation-3.png" width="900" height="600">
+<img src="./media/tutorial-classifying-uci-incomes/instantiation-3.png" width="900" height="500">
 
 
 The step-by-step data science workflow was as follows:
