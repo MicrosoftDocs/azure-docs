@@ -48,7 +48,7 @@ For more information on Azure Storage Explorer, click [here](https://docs.micros
 ### Quickstart - Connect VS with Storage Account
 
 #### Prerequisites
-* Download Visual Studio 2017 and Connect to Azure Government. For more information, click [here](documentation-government-get-started-connect-with-vs). 
+* Download Visual Studio 2017 and Connect to Azure Government. For more information, click [here](documentation-government-get-started-connect-with-vs.md). 
 * Have an active Azure Government subscription.
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/en-us/overview/clouds/government/) before you begin.
 
