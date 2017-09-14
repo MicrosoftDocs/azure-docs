@@ -117,7 +117,7 @@ Use the following command to delete your Data Lake Store account.
 When prompted, enter **Y** to delete the account.
 
 ## Next steps
-* [Performance tuning guidance for using PowerShell with Azure Data Lake Store](data-lakes-store-performance-tuning-powershell.md)
+* [Performance tuning guidance for using PowerShell with Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 * [Use Azure Data Lake Store for big data requirements](data-lake-store-data-scenarios.md) 
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
