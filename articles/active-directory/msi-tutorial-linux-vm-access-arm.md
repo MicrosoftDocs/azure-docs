@@ -74,21 +74,19 @@ Using MSI your code can get access tokens to authenticate to resources that supp
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
  ## Get an access token using the VM Identity and use it to call Resource Manager 
-  
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the Windows Subsystem for Linux.  
+ To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). 
 
- 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
  
-
 
 The CURL request for the access token is below.  
 
 ```bash
 curl http://localhost:50432/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
 ```
+
 
 >[!Note]
 >The value of the “resource” parameter must be an exact match for what is expected by Azure AD. In the case of the ARM resource ID, you must include the trailing slash on the URI. 

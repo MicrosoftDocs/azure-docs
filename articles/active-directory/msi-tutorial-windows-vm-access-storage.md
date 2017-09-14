@@ -30,7 +30,7 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Windo
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Create a Windows virtual machine in a new resource group
 For this tutorial, we create a new Windows VM. You can also enable MSI on an existing VM.
