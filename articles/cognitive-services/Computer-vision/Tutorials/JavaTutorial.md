@@ -105,8 +105,7 @@ Copy and paste the following code into the **analyzeImageButtonActionPerformed**
             BufferedImage bImage = ImageIO.read(analyzeImageUrl);
             scaleAndShowImage(bImage, analyzeImage);
         } catch(IOException e) {
-            System.out.println("Error loading Analyze image.");
-            System.out.println(e.getMessage());
+            analyzeResponseTextArea.setText("Error loading Analyze image: " + e.getMessage());
             return;
         }
         
@@ -230,8 +229,7 @@ Copy and paste the following code into the **landmarkImageButtonActionPerformed*
             BufferedImage bImage = ImageIO.read(landmarkImageUrl);
             scaleAndShowImage(bImage, landmarkImage);
         } catch(IOException e) {
-            System.out.println("Error loading Landmark image.");
-            System.out.println(e.getMessage());
+            landmarkResponseTextArea.setText("Error loading Landmark image: " + e.getMessage());
             return;
         }
         
@@ -355,8 +353,7 @@ Copy and paste the following code into the **celebritiesImageButtonActionPerform
             BufferedImage bImage = ImageIO.read(celebritiesImageUrl);
             scaleAndShowImage(bImage, celebritiesImage);
         } catch(IOException e) {
-            System.out.println("Error loading Celebrity image.");
-            System.out.println(e.getMessage());
+            celebritiesResponseTextArea.setText("Error loading Celebrity image: " + e.getMessage());
             return;
         }
         
@@ -454,7 +451,7 @@ Press **F6** to run the application. Put your subscription key into the **Subscr
 
 The Thumbnail feature of Computer Vision generates a thumnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumnail on this area, to generate more aesthetically pleasing thumbnail images.
 
-To complete the Celebrities feature of the tutorial application, perform the following steps:
+To complete the Thumbnail feature of the tutorial application, perform the following steps:
 
 #### Thumbnail step 1: Add the event handler code for the form button
 
@@ -481,8 +478,7 @@ Copy and paste the following code into the **thumbnailImageButtonActionPerformed
             BufferedImage bImage = ImageIO.read(thumbnailImageUrl);
             scaleAndShowImage(bImage, thumbnailSourceImage);
         } catch(IOException e) {
-            System.out.println("Error loading image.");
-            System.out.println(e.getMessage());
+            thumbnailResponseTextArea.setText("Error loading image to thumbnail: " + e.getMessage());
             return;
         }
         
@@ -603,8 +599,7 @@ Copy and paste the following code into the **ocrImageButtonActionPerformed** met
             BufferedImage bImage = ImageIO.read(ocrImageUrl);
             scaleAndShowImage(bImage, ocrImage);
         } catch(IOException e) {
-            System.out.println("Error loading OCR image.");
-            System.out.println(e.getMessage());
+            ocrResponseTextArea.setText("Error loading OCR image: " + e.getMessage());
             return;
         }
         
@@ -715,8 +710,7 @@ Copy and paste the following code into the **handwritingImageButtonActionPerform
             BufferedImage bImage = ImageIO.read(handwritingImageUrl);
             scaleAndShowImage(bImage, handwritingImage);
         } catch(IOException e) {
-            System.out.println("Error loading handwritten image.");
-            System.out.println(e.getMessage());
+            handwritingResponseTextArea.setText("Error loading Handwriting image: " + e.getMessage());
             return;
         }
         
