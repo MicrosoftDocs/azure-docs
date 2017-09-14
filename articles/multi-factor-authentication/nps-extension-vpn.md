@@ -4,7 +4,7 @@ description: This article discusses integrating your VPN infrastructure with Azu
 services: active-directory
 keywords: Azure MFA, integrate VPN, Azure Active Directory, Network Policy Server extension
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
 
@@ -417,8 +417,6 @@ To verify the configuration, you need to establish a new VPN connection with VPN
  ![Verify Configuration](./media/nps-extension-vpn/image42.png)
 
 If you successfully authenticate with the secondary verification method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to resource. 
-
-Upon successfully entering your credentials for primary authentication, the VPN. If you successfully authenticate with the secondary verification method you previously configured in Azure MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to resource. 
 
 In the example below, the Authenticator app on a Windows phone is used to provide the secondary authentication.
 

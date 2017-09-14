@@ -19,42 +19,41 @@ ms.author: mimig
 ---
 # Node.js Web Application using Storage
 ## Overview
-In this tutorial, you will extend the application created in the
-[Node.js Web Application using Express] tutorial by using the Microsoft
+In this tutorial, the application you created in the
+[Node.js Web Application using Express] tutorial is extended using the Microsoft
 Azure Client Libraries for Node.js to work with data management services. You
-will extend your application to create a web-based task-list application
+extend your application by creating a web-based task-list application
 that you can deploy to Azure. The task list allows a user to
 retrieve tasks, add new tasks, and mark tasks as completed.
 
 The task items are stored in Azure Storage. Azure
 Storage provides unstructured data storage that is fault-tolerant and
 highly available. Azure Storage includes several data structures
-where you can store and access data, and you can leverage the storage
+where you can store and access data. You can use the storage
 services from the APIs included in the Azure SDK for Node.js or
 via REST APIs. For more information, see [Storing and Accessing Data in Azure].
 
 This tutorial assumes that you have completed the [Node.js Web
 Application] and [Node.js with Express][Node.js Web Application using Express] tutorials.
 
-You will learn:
+It contains the following information:
 
 * How to work with the Jade template engine
 * How to work with Azure Data Management services
 
-A screenshot of the completed application is below:
+The following screenshot shows the completed application:
 
 ![The completed web page in internet explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## Setting Storage Credentials in Web.Config
-To access Azure Storage, you need to pass in storage
-credentials. To do this, you utilize web.config application settings.
-Those settings will be passed as environment variables to Node, which
+You must pass in storage credentials to access Azure Storage. This is done by utilizing the web.config application settings.
+The web.config settings are passed as environment variables to Node, which
 are then read by the Azure SDK.
 
 > [!NOTE]
 > Storage credentials are only used when the application is
 > deployed to Azure. When running in the emulator, the application
-> will use the storage emulator.
+> uses the storage emulator.
 >
 >
 
@@ -63,13 +62,13 @@ and add them to the web.config settings:
 
 1. If it is not already open, start the Azure PowerShell from the **Start** menu by expanding **All Programs, Azure**, right-click **Azure PowerShell**, and then select **Run As Administrator**.
 2. Change directories to the folder containing your application. For example, C:\\node\\tasklist\\WebRole1.
-3. From the Azure Powershell window enter the following cmdlet to retrieve the storage account information:
+3. From the Azure Powershell window, enter the following cmdlet to retrieve the storage account information:
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
     ```
 
-   This retrieves the list of storage accounts and account keys associated with your hosted service.
+   The preceding cmdlet retrieves the list of storage accounts and account keys associated with your hosted service.
 
    > [!NOTE]
    > Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.
@@ -119,11 +118,11 @@ and add them to the web.config settings:
   ```
 
 ## Using the Table service in a node application
-In this section you will extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks. You will also modify the existing **app.js** and create a new **tasklist.js** file that uses the model.
+In this section, the basic application created by the **express** command is extended by adding a **task.js** file containing the model for your tasks. Modify the existing **app.js** file and create a new **tasklist.js** file that uses the model.
 
 ### Create the model
 1. In the **WebRole1** directory, create a new directory named **models**.
-2. In the **models** directory, create a new file named **task.js**. This file will contain the model for the tasks created by your application.
+2. In the **models** directory, create a new file named **task.js**. This file contains the model for the tasks created by your application.
 3. At the beginning of the **task.js** file, add the following code to reference required libraries:
 
     ```nodejs
@@ -132,7 +131,7 @@ In this section you will extend the basic application created by the **express**
     var entityGen = azure.TableUtilities.entityGenerator;
     ```
 
-4. Next, you will add code to define and export the Task object. This object is responsible for connecting to the table.
+4. Next, add code to define and export the Task object. The Task object is responsible for connecting to the table.
 
     ```nodejs
     module.exports = Task;
@@ -207,7 +206,7 @@ In this section you will extend the basic application created by the **express**
 
 ### Create the controller
 1. In the **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
-2. Add the following code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
+2. Add the following code to **tasklist.js**. This code loads the azure and async modules, which are used by **tasklist.js** and defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
 
     ```nodejs
     var azure = require('azure-storage');
@@ -285,7 +284,7 @@ In this section you will extend the basic application created by the **express**
     app.use('/users', users);
     ```
 
-    Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+    Replace the preceding lines with the following code. This code initializes an instance of <strong>Task</strong> with a connection to your storage account. The <strong>Task</strong> is passed to the <strong>TaskList</strong>, which uses it to communicate with the Table service:
 
     ```nodejs
     var TaskList = require('./routes/tasklist');
@@ -302,7 +301,7 @@ In this section you will extend the basic application created by the **express**
 
 ### Modify the index view
 1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
-2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
+2. Replace the contents of the **index.jade** file with the following code. This code defines the view for displaying existing tasks, and defines a form for adding new tasks and marking existing ones as completed.
 
     ```
     extends layout
@@ -346,10 +345,10 @@ In this section you will extend the basic application created by the **express**
 3. Save and close **index.jade** file.
 
 ### Modify the global layout
-The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.
+The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step, modify the **layout.jade** file to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.
 
 1. Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.
-2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
+2. From the **views** folder, open the **layout.jade** file in your text editor and replace the contents with the following:
 
     doctype html
     html
@@ -372,7 +371,7 @@ Use the following command to start the application in the emulator.
 PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 ```
 
-The browser will open and displays the following page:
+The browser opens and displays the following page:
 
 ![A web paged titled My Task List with a table containing tasks and fields to add a new task.](./media/table-storage-cloud-service-nodejs/node44.png)
 
@@ -404,7 +403,7 @@ After the deployment is complete, you should see a response similar to the follo
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
 ```
 
-As before, because you specified the **-launch** option, the browser opens and displays your application running in Azure when publishing is completed.
+By specifying the **-launch** option in the previous cmdlet, the browser opens and displays your application running in Azure when publishing is completed.
 
 ![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Azure.](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
@@ -436,7 +435,7 @@ The following steps show you how to stop and delete your application.
 
    When prompted, enter **Y** to delete the service.
 
-   Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
+   Deleting the service may take several minutes. After the service is deleted, you will receive a message indicating that the service was deleted.
 
 [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx

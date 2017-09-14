@@ -3,7 +3,7 @@ title: Choose between Azure MFA cloud or server | Microsoft Docs
 description: Choose the multi-factor authentication security solution that is right for you by asking, what am I trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
-ms.author: kgremban
+ms.date: 08/25/2017
+ms.author: joflore
 
 ---
 # Choose the Azure Multi-Factor Authentication solution for you
@@ -49,7 +49,7 @@ Next, looking at where our users are located helps to determine the correct solu
 | On-premises Active Directory | |● |
 
 ## What features do I need?
-The following table compares the features that are available with Multi-Factor Authentication in the cloud and with the Multi-Factor Authentication Server.
+The following table compares the features that are available with Multi-Factor Authentication in the cloud and the Multi-Factor Authentication Server.
 
 | Feature | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
@@ -74,12 +74,9 @@ The following table compares the features that are available with Multi-Factor A
 
 ## Next steps
 
-Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication. **Select the icon that represents your scenario**
+Now that you understand the difference between Azure Multi-Factor Authentication in the cloud or the MFA Server on-premises, it's time to set up and use Azure Multi-Factor Authentication. **Select the icon that represents your scenario**
 
 <center>
 
-
-
-
-[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Server](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![MFA in the cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![MFA Server](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </center>

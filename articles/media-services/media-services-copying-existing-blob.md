@@ -4,7 +4,7 @@ description: This topic shows how to copy an existing blob into a Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346

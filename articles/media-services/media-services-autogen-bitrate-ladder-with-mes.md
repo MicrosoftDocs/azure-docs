@@ -4,7 +4,7 @@ description: This topic shows how to use Media Encoder Standard (MES) to auto-ge
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
