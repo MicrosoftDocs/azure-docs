@@ -149,36 +149,64 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
-    href: ../../azure-subscription-service-limits.md#app-service-limits
+    href: ../azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates & Release Notes
-    href: https://azure.microsoft.com/updates/?product=app-service
+    items:
+    - name: Azure Updates
+      href: https://azure.microsoft.com/updates/?product=app-service
+    - name: Azure SDK for .NET 3.0
+      href: azure-sdk-dotnet-release-notes-3-0.md
+    - name: Azure SDK for .NET 2.9
+      href: azure-sdk-dotnet-release-notes-2-9.md
+    - name: Azure SDK for .NET 2.8
+      href: azure-sdk-dotnet-release-notes-2-8.md
+    - name: Azure SDK for .NET 2.7
+      href: azure-sdk-dotnet-release-notes-2-7.md
+    - name: Azure SDK for .NET 2.6
+      href: azure-sdk-dotnet-release-notes-2-6.md
+    - name: Azure SDK for .NET 2.5.1
+      href: app-service-release-notes.md
+    - name: Azure SDK for .NET 2.5
+      href: https://msdn.microsoft.com/library/azure/dn873976.aspx
+    - name: Azure SDK for .NET 2.4
+      href: https://msdn.microsoft.com/library/azure/dn794167.aspx
+    - name: Azure SDK for .NET 2.3
+      href: https://msdn.microsoft.com/library/azure/dn655054.aspx
+    - name: Azure SDK for .NET 2.2
+      href: https://msdn.microsoft.com/library/azure/dn459835.aspx
+    - name: Azure SDK for .NET 2.1
+      href: https://msdn.microsoft.com/library/azure/dn407359.aspx
+    - name: Azure SDK for .NET 2.0
+      href: https://msdn.microsoft.com/library/azure/dn169556.aspx
   - name: Best practices
-    href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: app-service-best-practices.md
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=app-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=app-service
   - name: Cookbooks
     items:
+    - name: Reference Architectures
+      href: ../guidance/guidance-ra-app-service.md
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio
-      href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: web-sites-dotnet-troubleshoot-visual-studio.md
     - name: Troubleshoot Node.js app
-      href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
     - name: Troubleshoot HTTP 502 & 503
-      href: ../app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
-      href: ../app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: app-service-web-troubleshoot-performance-degradation.md
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: ../app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        href: app-service-web-availability-performance-application-issues-faq.md
       - name: Deployment FAQ
-        href: ../app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        href: app-service-web-deployment-faq.md
       - name: Open source technologies FAQ
-        href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        href: app-service-web-open-source-technologies-faq.md
       - name: Configuration and management FAQ
-        href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        href: app-service-web-configuration-and-management-faq.md

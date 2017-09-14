@@ -149,8 +149,6 @@
     href: /powershell
   - name: REST API
     href: /rest/api/appservice/
-  - name: App Service Environment
-    href: ../app-service/app-service-environment/readme.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -160,7 +158,9 @@
   - name: Quota Information
     href: ../azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates & Release Notes
-    href: https://azure.microsoft.com/updates/?product=app-service
+    items:
+    - name: Azure Updates
+      href: https://azure.microsoft.com/updates/?product=app-service
     - name: Azure SDK for .NET 3.0
       href: azure-sdk-dotnet-release-notes-3-0.md
     - name: Azure SDK for .NET 2.9
