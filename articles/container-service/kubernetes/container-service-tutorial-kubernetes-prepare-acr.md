@@ -57,7 +57,7 @@ Throughout the rest of this tutorial, we use '<acrname>` as a placeholder for th
 
 ## Container registry login
 
-Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to log into the ACR instance. You need to provide the unique name given to the container registry when it was created.
+Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to log in to the ACR instance. You need to provide the unique name given to the container registry when it was created.
 
 ```azurecli
 az acr login --name <acrName>
