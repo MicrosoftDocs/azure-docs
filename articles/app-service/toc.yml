@@ -114,6 +114,8 @@
         href: app-service-mobile-how-to-configure-microsoft-authentication.md
       - name: Authenticate with Twitter
         href: app-service-mobile-how-to-configure-twitter-authentication.md
+    - name: Use Managed Service Identity
+      href: app-service-managed-service-identity.md
     - name: Configure TLS mutual authentication
       href: app-service-web-configure-tls-mutual-auth.md
   - name: Scale app
@@ -138,6 +140,12 @@
       href: app-service-web-app-cloning.md
     - name: Move resources
       href: app-service-move-resources.md
+  - name: Run background tasks
+    items:
+    - name: Create WebJobs
+      href: web-sites-create-web-jobs.md
+    - name: Develop WebJobs using VS
+      href: websites-dotnet-deploy-webjobs.md
 - name: Reference
   items:
   - name: CLI 2.0

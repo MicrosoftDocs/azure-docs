@@ -146,6 +146,7 @@
 ## Integrate
 ### [How to send email using SendGrid with Azure](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Export to PowerApps and Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Use Managed Service Identity](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Troubleshoot
 ### General troubleshooting for Mobile Apps
