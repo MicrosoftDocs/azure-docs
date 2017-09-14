@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Create a Windows virtual machine with using New-AzVM in Cloud Shell (Preview)
 
-The New-AzVM (Preview) cmdlet is a simplified way of creating a new VM using PowerShell. This guide details using the preview of PowerShell in Azure Cloud Shell and the New-AzVM cmdlet to create a new Azure virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server using RDP.  
+The New-AzVM (Preview) cmdlet is a simplified way of creating a new VM using PowerShell. This guide details how to use PowerShell in Azure Cloud Shell, with the New-AzVM cmdlet preinstalled, to create a new Azure virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server using RDP.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -32,14 +32,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Make sure that **PowerShell (Preview)** is selected in Cloud Shell.
 
-We will be using a new cmdlet [New-AzVM](/powershell/module/azurerm.network/new-azvm) to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace as the OS. You can use New-AzVM alone and it will use all default values. In this example, we are going to specify the name of the VM as *myVM* and the resource group name as *myResourceGroup* and let the cmdlet create the resource group and the rest of the necessary resources. 
+We will be using a new cmdlet [New-AzVM](/powershell/module/azurerm.network/new-azvm) to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace as the OS. You can use New-AzVM alone and it will use all default values. In this example, we are going to specify the resource group name as *myResourceGroup*, the name of the VM as *myVM*, and let the cmdlet create the resource group and the rest of the required resources. 
 
-You will be asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic.
+You will be asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic. The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character.
 
 In Azure Cloud Shell, type:
 
 ```powershell-interactive
-New-AzVm -Name myVM -ResourceGroupName myResourceGroup
+New-AzVm -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 It will take a minute to create the VM and the associated resources. When finished, you can see all of the resources that were created using the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
@@ -47,18 +47,6 @@ It will take a minute to create the VM and the associated resources. When finish
 ```powershell-interactive
 Find-AzureRmResource -ResourceGroupNameEquals myResourceGroup | Format-table
 ```
-
-You should have the following resources in your resource group:
-
-|Resource type | Resource name |
-|----------|----------|
-|Virtual machine | my VM | 
-|BGInfo extension | myVM/BGInfo|                               
-|Disk   | myVM_OsDisk_1_ad87d7102f4e41bab682fe531a3af316 |
-| NIC | myVMNetworkInterface |
-| Public IP | myVMPublicIpAddress |                       
-| Network security group | myVMSecurityGroup |
-| vNET | myVMVirtualNetwork |
 
 ## Connect to virtual machine
 
