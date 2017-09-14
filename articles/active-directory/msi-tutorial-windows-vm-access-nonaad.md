@@ -93,7 +93,7 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
  
 ## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
 
-Now that you have created a secret, stored it in a Key Vault, and granted your VM MSI access to the Key Vault, you can write code to retrieve the secret at run time.  To keep this example simple we’ll use simple REST calls using PowerShell.  If you don’t have PowerShell installed, download it [here](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.3.1).
+Now that you have created a secret, stored it in a Key Vault, and granted your VM MSI access to the Key Vault, you can write code to retrieve the secret at run time.  To keep this example simple we’ll use simple REST calls using PowerShell.  If you don’t have PowerShell installed, download it [here](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1).
 
 First, we’ll use the VM’s MSI to get an access token to authenticate to Key Vault:
  

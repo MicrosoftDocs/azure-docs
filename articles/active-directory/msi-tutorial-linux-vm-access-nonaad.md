@@ -105,7 +105,7 @@ To complete these steps, you will need an SSH client.  If you are using Windows
     ```bash
     curl http://localhost:50432/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
     ```
-    The response includes the access token you need to access ARM. 
+    The response includes the access token you need to access Resource Manager. 
     
     Response:  
     
