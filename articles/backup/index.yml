@@ -51,14 +51,40 @@ sections:
   items:
   - type: paragraph
     text: Learn how to back up an Azure virtual machine in Azure.
-- title: Step-by-Step Tutorials
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Back up VMs - Portal
+      href: https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Back up VMs - PowerShell
+      href: https://docs.microsoft.com/en-us/azure/backup/quick-backup-vm-powershell
+- title: Tutorials
   items:
   - type: paragraph
     text: Learn to back up and recover virtual machines at scale.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/backup/tutorial-backup-azure-vm">Back up Azure VMs at scale</a>
+    - html: <a href="/azure/backup/backup-azure-arm-restore-vms">Recover Azure VMs using VM templates</a>
+    - html: <a href="/azure/backup/backup-azure-restore-files-from-vm">Recover files from an Azure VM recovery point</a>
+    - html: <a href="/azure/backup/backup-try-azure-backup-in-10-mins">Back up on-premises Windows Server to Azure</a>
+    - html: <a href="/azure/backup/backup-azure-restore-windows-server">Recover files from Azure on-premises Windows Server</a>
+    - html: <a href="/azure/backup/backup-azure-backup-server-vmware">Back up on-premises VMware virtual machines to Azure</a>
+    - html: <a href="/azure/backup/backup-azure-alternate-dpm-server">Restore data from on-premises VMware virtual machines</a>
 - title: Samples
   items:
   - type: paragraph
     text: Use the following samples to protect your data in Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/backup/powershell-backup-samples">PowerShell</a>
 - title: Reference
   items:
   - type: list
