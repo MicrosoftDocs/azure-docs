@@ -77,8 +77,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 
 To deny network access by default:
 ```azurecli
-az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-ac
-tion Allow
+az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
 ```
 To allow network access by default:
 ```azurecli
@@ -122,6 +121,7 @@ In order to apply a Virtual Network rule to a storage account, the user must hav
 ```PowerShell
 (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
 ```
+
 3. Enable Service Endpoint for Azure Storage on an existing Virtual Network and Subnet
 ```PowerShell
 Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"  -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzureRmVirtualNetwork
@@ -149,22 +149,23 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
 ```
+
 2. Enable Service Endpoint for Azure Storage on an existing Virtual Network and Subnet
 ```azurecli
 az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
 ```
+
 3. Add a network rule for a Virtual Network and subnet.  
 ```azurecli
 subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
 az storage account network-rule add --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
-
 ```
+
 4. Remove a network rule for a Virtual Network and subnet. 
 ```azurecli
 subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
 az storage account network-rule remove --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
 ```
-
 
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or network rules will have no effect.
@@ -206,10 +207,12 @@ If your network is connected to the Azure network using [ExpressRoute](/azure/ex
 ```PowerShell
 (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
 ```
+
 3. Add a network rule for an individual IP address.  
 ```PowerShell
 Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19" 
-```    
+``` 
+
 4. Add a network rule for an IP address range.  
 ```PowerShell
 Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24" 
@@ -235,14 +238,17 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
 ```
+
 3. Add a network rule for an individual IP address.
 ```azurecli
 az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
 ```
+
 4. Add a network rule for an IP address range.  
 ```azurecli
 az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
 ```
+
 5. Remove a network rule for an individual IP address.  
 ```azurecli
 az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
@@ -303,6 +309,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or removing exceptions will have no effect.
 >
+
 #### CLIv2
 1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 2. Display the exceptions for the storage account network rules.
@@ -314,6 +321,7 @@ az storage account show --resource-group "myresourcegroup" --name "mystorageacco
 ```azurecli
 az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
 ```
+
 4. Remove the exceptions to the storage account network rules.
 ```azurecli
 az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass None
@@ -322,6 +330,7 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to Deny, or removing exceptions will have no effect.
 >
+
 ## Next steps
 Learn more about Azure Network Service Endpoints here.
 
