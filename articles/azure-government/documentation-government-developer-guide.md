@@ -17,10 +17,7 @@ ms.date: 03/19/2017
 ms.author: stemi
 
 ---
-# Azure Government developer guide
-The Azure Government environment is a physical instance that is separate from the rest of the Microsoft network. This guide discusses the differences that application developers and administrators must understand to interact and work with the different national clouds.
 
-## Overview
 Azure Government is a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of United States federal agencies, state and local governments, and their solution providers. Azure Government offers physical isolation from non-US government deployments and provides screened US personnel.
 
 Microsoft provides various tools to help developers create and deploy cloud applications to the global Microsoft Azure service (“global service”) and Microsoft Azure Government services.
@@ -51,7 +48,7 @@ Most of the currently available technical content assumes that applications are 
 * Feature configurations in Azure Government might differ from those in the global service. 
     -   Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Government Cloud Services environment.
 
-Currently, US Gov Virginia, US Gov Arizona, US Gov Texas and US Gov Iowa are the datacenters that support Azure Government. For current datacenters and available services, see [Products available by region](https://azure.microsoft.com/regions/services).
+Currently, US DoD East, US DoD Central, US Gov Virginia, US Gov Arizona, US Gov Texas and US Gov Iowa are the datacenters that support Azure Government. For current datacenters and available services, see [Products available by region](https://azure.microsoft.com/regions/services).
 
 ### Quickstarts
 Navigate through the links below to get started using Azure Government.
@@ -60,7 +57,7 @@ Navigate through the links below to get started using Azure Government.
 * [Connect with Visual Studio](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs)
 * [Connect with PowerShell](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-ps)
 * [Connect with CLI](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli)
-* [Connect with Azure Storage](documentation-government-get-started-connect-to-storage.md)
+* [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
 
 ### Azure Government Video Library 
 The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Government) contains many helpful videos to get you up and running with Azure Government. 
@@ -92,16 +89,6 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Gallery Url | https://gallery.usgovcloudapi.net/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ |
 | Publish Settings File Url | https://manage.windowsazure.us/publishsettings/index |
-
-## Azure Government and Office 365 GCC
-While Azure Government has its own Active Directory instance and API endpoints, the [Office 365 Government Community Cloud (GCC)](https://technet.microsoft.com/library/mt774967.aspx) does not.
-
-This means that government customers that have both Azure Government and Office 365 subscriptions will have two Active Directories and two sets of user accounts.
-
-If you are building an application that interacts with both Azure Government and Office 365 GCC, your application will need to allow the user to sign in with two different identities:
-
-* Sign in with their Azure Government account via the Azure Government Active Directory endpoint to interact with Azure Government APIs.
-* Sign in with their Office 365 GCC account via the normal Active Directory endpoint to interact with the normal Office 365 and Microsoft Graph APIs.
 
 ## Next steps
 For more information about Azure Government, see the following resources:
