@@ -116,9 +116,9 @@ Key Vault needs permissions to *list* and *regenerate* keys for a storage accoun
 
 ### Assumptions
 
-- Our storage resource is located at: */subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1*
+- Your storage resource is located at: */subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1*
 
-- The name of our key vault is: *yourtest1*
+- The name of your key vault is: *yourtest1*
 
 ### Get a service principal
 
@@ -126,11 +126,11 @@ Key Vault needs permissions to *list* and *regenerate* keys for a storage accoun
 Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 ```
 
-The output of the preceeding command will include your  ServicePrincipal, which we will call *yourServicePrincipalId*. 
+The output of the preceeding command will include your  ServicePrincipal, which we'll call *yourServicePrincipalId*. 
 
 ### Set permissions
 
-Make sure you have permissions to storage set to *all*.
+Make sure you have your storage permissions set to *all*.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
@@ -138,7 +138,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrin
 
 ### Allow access
 
-Firstly, we need to give the Key Vault service access to the storage accounts, before we can create a managed storage account and SAS definitions.
+You need to give the Key Vault service access to the storage accounts, before you can create a managed storage account and SAS definitions.
 
 ```powershell
 New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
@@ -146,7 +146,7 @@ New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName '
 
 ### Create storage account
 
-Now let's create a Managed Storage Account and two SAS definitions (the account SAS provides access to the blob service with different permissions).
+Now create a Managed Storage Account and two SAS definitions. The account SAS provides access to the blob service with different permissions.
 
 ```powershell
 Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -DisableAutoRegenerateKey
@@ -154,7 +154,7 @@ Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -Accoun
 
 ### Regeneration
 
-If you would like to set the regeneration period it can be done using the following commands.
+Setting the regeneration period using the following.
 
 ```powershell
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -164,7 +164,7 @@ Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -Accoun
 
 ### Set SAS definitions
 
-Now let's set the SAS definitions in Key Vault for the now managed storage account.
+Set the SAS definitions in Key Vault for your managed storage account.
 
 ```powershell
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1  -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
@@ -173,7 +173,7 @@ Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Contain
 
 ### Get token
 
-Next lets get the corresponding SAS tokens and make calls to storage.
+Get the corresponding SAS tokens and make calls to storage.
 
 ```powershell
 $sasToken1 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas1).SecretValueTextsToken2 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas2).SecretValueText
@@ -181,7 +181,9 @@ $sasToken1 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-bl
 
 ### Create storage
 
-We notice that trying to access with *$sastoken1* fails, but that we are able to access with *$sastoken2*.
+Notice that trying to access with *$sastoken1* fails, but that we are able to access with *$sastoken2*. 
+
+**Frank, the meaning here is unclear to me. Where is $sasToken2 from? What indicates failer of $sastoken1?**
 
 ```powershell
 $context1 = New-AzureStorageContext -SasToken $sasToken1 -StorageAccountName yourtest1
