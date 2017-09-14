@@ -79,7 +79,7 @@ The following section describes the configuration of auditing using the Azure po
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via PowerShell or the REST API. For more information, see the [Automation (PowerShell/REST API)](#subheading-7) section.
+6. If you want to customize the audited events, you can do this via PowerShell or the REST API. 
 7. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 8. Click **Save**.
 
@@ -168,8 +168,8 @@ In production, you are likely to refresh your storage keys periodically. When re
 3. Go back to the auditing configuration blade, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the auditing configuration blade.
 4. Go back to the storage configuration blade and regenerate the secondary access key (in preparation for the next key's refresh cycle).
 
-## <a id="subheading-7"></a>Automation (PowerShell/REST API)
-You can also configure auditing in Azure SQL Database by using the following automation tools:
+## Manage SQL database auditing using Azure PowerShell
+
 
 * **PowerShell cmdlets**:
 
@@ -181,6 +181,8 @@ You can also configure auditing in Azure SQL Database by using the following aut
    * [Set-AzureRMSqlServerAuditing][106]
 
    For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## Manage SQL database auditing using REST API
 
 * **REST API - Blob auditing**:
 
