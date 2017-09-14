@@ -56,6 +56,7 @@ The Java solution currently uses the .NET authentication, simulation, and revers
 
 The following sections describe options to customize the presentation and visualizations layer in the remote monitoring solution:
 
+<!--
 ### Change the logo in the UI
 
 The default deployment uses the Contoso company name and logo in the UI. To change these UI elements to display your company name and logo:
@@ -71,6 +72,7 @@ The following steps describe how to add a new KPI to display on the **Dashboard*
 1. Step 1
 
 1. Step 2
+-->
 
 ### Customize the map
 
@@ -127,9 +129,11 @@ To learn how to add a new device type in the _device simulator_ microservice, se
 
 The following sections describe options to define custom methods and jobs in the remote monitoring solution:
 
+<!--
 #### Using the simulator service
 
-<!-- TODO: add steps for the simulator microservice here -->
+TODO: add steps for the simulator microservice here
+-->
 
 #### Using a physical device
 
