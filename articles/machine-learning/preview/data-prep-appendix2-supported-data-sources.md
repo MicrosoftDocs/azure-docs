@@ -1,5 +1,5 @@
 ---
-title: Supported Data Sources for this Release  | Microsoft Docs
+title: Supported Data Sources | Microsoft Docs
 description: Tells which data sources are supported for AML workbench
 author: cforbe
 ms.author: cforbe@microsoft.com
@@ -15,7 +15,7 @@ File - Choose a single file and read it into Data Prep, the file type is parsed 
 
 Directory - Choose a directory or set of files within a directory (the file picker is multiselect), using either approach results in the files being read in as a single dataflow with the files appended to each other (with headers stripped out of needed)
 ### CSV File ###
-Read a Comma Separated Value file from storage
+Read a Comma Separated Value file from storage.
 
 #### Options: ####
 - Separator
@@ -26,7 +26,7 @@ Read a Comma Separated Value file from storage
 - Lines To Skip
 
 ### TSV File ###
-Read a Tab Separated Value file from storage
+Read a Tab Separated Value file from storage.
 
 #### Options: ####
 - Comment
@@ -35,7 +35,7 @@ Read a Tab Separated Value file from storage
 - Lines To Skip
 
 ### Excel (.xls/xlsx) ###
-Read an Excel file, one sheet at a time by specifying sheet name or number
+Read an Excel file, one sheet at a time by specifying sheet name or number.
 
 #### Options: ####
 - Sheet Name/Number
@@ -43,7 +43,7 @@ Read an Excel file, one sheet at a time by specifying sheet name or number
 - Lines To Skip
 
 ### JSON File ###
-Read a JSON file from storage, note the file will be "flattened" on read
+Read a JSON file from storage, note the file will be "flattened" on read.
 
 #### Options: ####
 - None
@@ -51,10 +51,10 @@ Read a JSON file from storage, note the file will be "flattened" on read
 
 ## Locations ##
 ### Local ###
-Local hard drive or mapped network storage location
+Local hard drive or mapped network storage location.
 
 ### Azure BLOB ###
-Azure Storage (BLOB), requires an Azure subscription
+Azure Storage (BLOB), requires an Azure subscription.
 
 ### Azure Data Lake ###
-Azure Data Lake Storage, requires an Azure subscription
+Azure Data Lake Storage, requires an Azure subscription.
