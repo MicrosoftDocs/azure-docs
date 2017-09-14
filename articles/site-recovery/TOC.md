@@ -7,6 +7,8 @@
 ## [Disaster recovery to Azure for physical servers](tutorial-physical-to-azure.md)
 ## [Disaster recovery to a secondary VMM site for Hyper-V VMs](tutorial-vmm-to-vmm.md)
 ## [Disaster recovery to a secondary site for VMware VMs and physical servers](tutorial-vmware-to-vmware.md)
+## [Run a disaster recovery drill to Azure](tutorial-dr-drill-azure.md)
+## [Run a disaster recovery drill to a secondary VMM site](tutorial-dr-drill-secondary.md)
 
 # Samples
 ## [Automate Hyper-V replication to Azure (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
