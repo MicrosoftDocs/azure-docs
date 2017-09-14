@@ -18,23 +18,17 @@ ms.author: yujhong
 
 ---
 # Connect to Storage in Azure Government
-
-## Overview 
 Azure Government uses the same underlying technologies as commercial Azure, enabling you to use the development tools you’re already familiar with.
+In order to use these services in Azure Government, you must define different endpoint mappings, as shown below for the Storage service. 
 
-However, Azure Government provides a physical and network-isolated instance of Azure, which results in a higher level of compliance and security. As a result, we use different physical endpoints for our services such as Azure Storage. 
-### Microsoft Azure Storage Explorer
-
+## Connecting Storage Explorer to Azure Government
 [The Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) is a cross-platform tool for working with Azure Storage. Government customers will now be able to take advantage of all the latest features of the Azure Storage Explorer such as being able to create and manage blobs, queues, tables, and file shares.
-
-### Quickstart- Storage Explorer with Azure Government
-
-#### Prerequisites
+### Prerequisites
 * Download and install the latest version of Azure Storage Explorer [here](https://azure.microsoft.com/en-us/features/storage-explorer/). 
 * Have an active Azure Government subscription.
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/en-us/overview/clouds/government/) before you begin.
 
-#### Getting Started with Storage Explorer
+### Getting Started with Storage Explorer
 1. Open the Azure Storage Explorer desktop application.
 
 2. You will be prompted to add an Azure account; in the dropdown choose the “Azure US Government” option:
@@ -45,16 +39,16 @@ If you don't have an Azure Government subscription, create a [free account](http
     ![storage2](./media/documentation-government-get-started-connect-with-storage-img2.png)
 
 For more information on Azure Storage Explorer, click [here](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-### Quickstart - Connect VS with Storage Account
 
-#### Prerequisites
-* Download Visual Studio 2017 and Connect to Azure Government. For more information, click [here](documentation-government-get-started-connect-with-vs.md). 
+## Connecting to the Storage API 
+
+### Prerequisites
 * Have an active Azure Government subscription.
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/en-us/overview/clouds/government/) before you begin.
+* Download Visual Studio 2017 and [Connect to Azure Government](documentation-government-get-started-connect-with-vs.md).
 
-The Azure Storage Explorer is great for quickly connecting to your storage accounts. However the URL for storage is different than the URL for storage in commercial Azure – specifically, the domain ends with “core.usgovcloudapi.net”, rather than “core.windows.net”.
-
-![storage3](./media/documentation-government-get-started-connect-with-storage-img3.png)
+### Getting Started with Storage API
+One important difference to note when connecting with the Storage API is that the URL for storage is different than the URL for storage in commercial Azure – specifically, the domain ends with “core.usgovcloudapi.net”, rather than “core.windows.net”.
 
 These endpoint differences must be taken into account when you connect to storage in Azure Government with C#.
 1. Go to the [Azure Government portal](https://portal.azure.us) and select your storage account and then click the “Access Keys” tab:
