@@ -19,7 +19,7 @@ Metrics for many resources can be visualized through the Azure portal. This meth
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
