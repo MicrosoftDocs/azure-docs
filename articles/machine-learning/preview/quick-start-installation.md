@@ -31,7 +31,7 @@ This Quickstart shows you how to create experimentation and model management acc
 
 ## Provision Azure Machine Learning accounts
 Use the Azure portal to provision Azure Machine Learning accounts. 
-1. Open your preferred web browser, and go to the Azure portal. [http://portal.azure.com](http://portal.azure.com). 
+1. Go to the Azure portal. [http://portal.azure.com](http://portal.azure.com). 
 
 2. Enter your credentials to sign in to the portal. 
 
