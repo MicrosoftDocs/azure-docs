@@ -62,7 +62,7 @@ Now you create the resources you need to set up your Azure Stack environment as 
 Before you start the configuration, you need:
 * An Azure Stack deployment.
 
-   For information about deploying Azure Stack, see [Azure Stack POC deployment quickstart](azure-stack-deploy-overview.md).
+   For information about deploying Azure Stack Development Kit, see [Azure Stack Development Kit deployment quickstart](azure-stack-deploy-overview.md).
 * An offer on Azure Stack that your user can subscribe to.
 
   For instructions, see [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md).
@@ -191,16 +191,16 @@ For each tenant VNet you want to connect, repeat the previous steps from **Creat
 
 ### Configure the NAT virtual machine for gateway traversal
 > [!IMPORTANT]
-> This section is for Azure Stack POC deployments only. The NAT is not needed for multi-node deployments.
+> This section is for Azure Stack Development Kit deployments only. The NAT is not needed for multi-node deployments.
 
-The POC self-contained and isolated from the
+The Azure Stack Development Kit is self-contained and isolated from the
 network on which the physical host is deployed. So, the “External” VIP network
 that the gateways are connected to is not external, but instead
 is hidden behind a router doing Network Address Translation (NAT).
  
-The router is a Windows Server virtual machine (**MAS-BGPNAT01**) running the
-Routing and Remote Access Services (RRAS) role in the POC
-infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to allow the Site-to-Site VPN Connection to connect on both ends.
+The router is a Windows Server virtual machine (**AzS-BGPNAT01**) running the
+Routing and Remote Access Services (RRAS) role in the Azure Stack Development Kit
+infrastructure. You must configure NAT on the AzS-BGPNAT01 virtual machine to allow the Site-to-Site VPN Connection to connect on both ends.
 
 #### Configure the NAT
 
@@ -214,7 +214,7 @@ infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to al
     -AsPlainText `
     -Force
    Get-AzureStackNatServerAddress `
-    -HostComputer "mas-bgpnat01" `
+    -HostComputer "azs-bgpnat01" `
     -Password $Password
    ```
 4. To configure the NAT, copy and edit the following PowerShell script and run in an elevated Windows PowerShell ISE. Edit the script to replace the *External BGPNAT address* and *Internal IP address* (which you noted previously in the **Create the Connection** section).
@@ -224,14 +224,14 @@ infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to al
    ```
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
-    -ComputerName mas-bgpnat01 `
+    -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
       -IPAddress <External BGPNAT address> `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
-    -ComputerName mas-bgpnat01 `
+    -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
       -IPAddress <External BGPNAT address> `
@@ -240,7 +240,7 @@ infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to al
    # create a static NAT mapping to map the external address to the Gateway
    # Public IP Address to map the ISAKMP port 500 for PHASE 1 of the IPSEC tunnel
    Invoke-Command `
-    -ComputerName mas-bgpnat01 `
+    -ComputerName azs-bgpnat01 `
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
@@ -251,7 +251,7 @@ infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to al
    # Finally, configure NAT traversal which uses port 4500 to
    # successfully establish the complete IPSEC tunnel over NAT devices
    Invoke-Command `
-    -ComputerName mas-bgpnat01 `
+    -ComputerName azs-bgpnat01 `
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
@@ -546,7 +546,7 @@ route-map VNET-ONLY permit 10
 
 ## Test the connection
 
-Test your connection after establishing the Site-to-Site connection and the ExpressRoute circuit. This task is simple.  Log on to one of the virtual machines you created in your Azure VNet and ping the virtual machine you created in the Azure Stack POC environment, or vice versa. 
+Test your connection after establishing the Site-to-Site connection and the ExpressRoute circuit. This task is simple.  Log on to one of the virtual machines you created in your Azure VNet and ping the virtual machine you created in the Azure Stack environment, or vice versa. 
 
 To ensure you are sending the traffic through the Site-to-Site and ExpressRoute connections, you must ping the dedicated IP (DIP) address of the virtual machine at both ends and not the VIP address of the virtual machine. So, you must find and note the address on the other end of the connection.
 
