@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 09/14/2017
 ms.author: jeedes
 
 ---
@@ -106,12 +106,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![BitaBIZ Domain and URLs single sign-on information](./media/active-directory-saas-bitabiz-tutorial/tutorial_bitabiz_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.bitabiz.com/<instanceid>`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.bitabiz.com/api/samlazure/auth`
+    In the **Identifier** textbox, type a URL using the following pattern: `https://www.bitabiz.com/<instanceId>`
 
 	> [!NOTE] 
-	> The values in these URLs are for demonstration only. Update the values with the actual identifier URL and reply URL, which are explained later in the tutorial.
+	> The value in the above URL is for demonstration only. Update the value with the actual identifier, which is explained later in the tutorial.
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -145,18 +143,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![BitaBIZ Configuration](./media/active-directory-saas-bitabiz-tutorial/settings3.png)
 
-	a. Copy the value from the **Entity ID (”Identifier” in Azure AD)** textbox and paste it into the **Identifier** textbox on the **BitaBIZ Domain and URLs** section. 
+	a. Copy the value from the **Entity ID (”Identifier” in Azure AD)** textbox and paste it into the **Identifier** textbox on the **BitaBIZ Domain and URLs** section in Azure portal. 
 	
-	b. Copy the value from the **Assertion Consumer Service URL (”Reply URL” in Azure AD)** textbox and paste it into the **Reply URL** textbox on the **BitaBIZ Domain and URLs** section.  
+	b. Copy the value from the **Assertion Consumer Service URL (”Reply URL” in Azure AD)** textbox and paste it into the **Reply URL** textbox on the **BitaBIZ Domain and URLs** section Azure portal.  
 	
-	c. Paste **SAML Single Sign-On Service URL**, which you have copied from Azure portal into the **Azure AD Single Sign-On Service URL** textbox.
-
-	d.Paste **SAML Entity ID**, which you have copied from Azure portal into the **Azure AD SAML Entity ID** textbox.
+	c. In the **Azure AD Single Sign-On Service URL** textbox, paste **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+	
+	d. In the **Azure AD SAML Entity ID** textbox, paste **SAML Entity ID**, which you have copied from Azure portal.
 
 	e. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Azure AD Signing Certificate (Base64 encoded)** textbox.
-
-	> [!NOTE]
-	> SAML Signing certificate includes “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----”.
 
 	f. Add your business e-mail domain name that is, mycompany.com in **Domain name** textbox to assign SSO to the users in your company with this email domain (NOT MANDATORY).
 	
@@ -230,13 +225,15 @@ In the case of BitaBIZ, provisioning is a manual task.
 
 	c. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
 
-	d. Select a date in **Date of employment**.	
-	
-	e. Click **Save employee**. An e-mail invite is forwarded to the new employee.
+	d. Select a date in **Date of employment**.
 
+	e. For other properties of user please refer to the [BitaBIZ docs](https://help.bitabiz.dk/manage-or-set-up-your-account/on-boarding-employees/new-employee).	
+	
+	f. Click **Save employee**. An e-mail invite is forwarded to the new employee.
+	
 	> [!NOTE]
     > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
-
+	
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to BitaBIZ.
