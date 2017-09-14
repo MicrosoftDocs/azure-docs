@@ -46,21 +46,21 @@
         href: msi-qs-configure-template-windows-vm.md  
     - name: Use MSI to access Azure Resource Manager
       items:
-      - name: With Windows VM
+      - name: With a Windows VM
         href: msi-tutorial-windows-vm-access-arm.md
-      - name: With Linux VM
+      - name: With a Linux VM
         href: msi-tutorial-linux-vm-access-arm.md
     - name: Use MSI to access Azure storage
       items:
-      - name: With Windows VM
+      - name: With a Windows VM
         href: msi-tutorial-windows-vm-access-storage.md
-      - name: With Linux VM
+      - name: With a Linux VM
         href: msi-tutorial-linux-vm-access-storage.md
-    - name: Use MSI to access non-Azure AD resource
+    - name: Use MSI to access a non-Azure AD resource
       items:
-      - name: With Windows VM
+      - name: With a Windows VM
         href: msi-tutorial-windows-vm-access-nonaad.md
-      - name: With Linux VM
+      - name: With a Linux VM
         href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Assign an MSI access to an Azure resource
       items:

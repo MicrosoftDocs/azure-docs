@@ -32,8 +32,8 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+## Sign in to Azure
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create a Windows virtual machine in a new resource group
 For this tutorial, we create a new Windows VM. You can also enable MSI on an existing VM.
@@ -45,7 +45,7 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
 
-![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## Enable MSI on your VM
 A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the Virtual Machine.  
@@ -55,11 +55,11 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
-![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check which extensions are on this **Windows VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforWindows** will appear on the list.
 
-![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 
 ## Create a new Storage Account 
@@ -71,7 +71,7 @@ You can use Storage keys as usual when doing Storage operations, in this example
 4. Ensure the **Subscription** and **Resource Group** are the one that you used when you created your **Linux Virtual Machine** in the step above.
 
 
-![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## Grant your VM identity access to use Storage Keys 
 Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.   
@@ -84,7 +84,7 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown. And for **Resource Group**, select **All resource groups**.  
 7. Finally, in **Select** choose your Windows Virtual Machine in the dropdown and click **Save**. 
 
-![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## Get an access token using the VM Identity and use it to call Azure Resource Manager 
 You will need to use **PowerShell** in this portion.  If you don’t have installed, download it [here](https://docs.microsoft.com/en-us.powershell/azure/overview?view=azurermps-4.3.1). 
@@ -94,11 +94,12 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
 4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
-```powershell
-   $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-```
-
-**Note:** The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    ```powershell
+       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+    ```
+    
+> [!NOTE]
+> The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
 
 Next, extract the full response, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
 
@@ -116,7 +117,8 @@ Finally, call Azure Resource Manager using the access token. In this example, we
 ```powershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
 ```
-**Note:** The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
+> [!NOTE]
+> The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
 
 ## Get the Storage Keys from Azure Resource Manager 
 
@@ -141,7 +143,9 @@ echo "This is a test text file." > test.txt
 ```
 
 **Upload the file using the Azure CLI and authenticating with the Storage Key**
-Note: First remember to install Azure storage commandlets “Install-Module Azure.Storage”. 
+
+> [!NOTE]
+> First remember to install Azure storage commandlets “Install-Module Azure.Storage”. 
 
 PowerShell request:
 

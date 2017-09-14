@@ -33,8 +33,8 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+## Sign in to Azure
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 
 ## Create a Linux Virtual Machine in a new Resource Group
@@ -44,7 +44,7 @@ For this tutorial, we will create a new Linux VM. You can also enable MSI on an 
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials will allow you to login to the VM.
 
-![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choose a **Subscription** for the virtual machine in the dropdown.
 5. To select a new **Resource Group** you would like the virtual machine to be creatd in, choose **Create New**. When complete, click **OK**.
@@ -58,11 +58,11 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
-![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** will appear on the list.
 
-![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 
 ## Create a new Storage Account 
@@ -75,7 +75,7 @@ You can use Storage keys as usual when doing Storage operations, in this example
 
 
 
-![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## Grant your VM identity access to use Storage Keys 
 
@@ -89,10 +89,10 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown. And for **Resource Group**, select **All resource groups**.  
 7. Finally, in **Select** choose your Linux Virtual Machine in the dropdown and click **Save**. 
 
-![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
  ## Get an access token using the VM Identity and use it to call Azure Resource Manager
-You will need to use the Bash terminal, pick and then download your Linux distribution [here](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+You will need to use the Bash terminal, pick and then download your Linux distribution [here](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
 
 1. In the portal, navigate to your Linux virtual machine and in the **Overview**, click **Connect**. You will be prompted to use Bash, make note of your SSH and VM IP in the alert. 
@@ -108,7 +108,8 @@ You will need to use the Bash terminal, pick and then download your Linux distri
 curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50432/oauth2/token   
 ```
 
-**Note:** Ensure that the URL for the resource you are trying to request access for contains the proper formatting with a slash at the end such as  'https:<RESOURCE>/'
+> [!NOTE]
+> Ensure that the URL for the resource you are trying to request access for contains the proper formatting with a slash at the end such as  'https:<RESOURCE>/'
 
 ```powershell
 {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEP"}
@@ -116,7 +117,8 @@ curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=
 
 ## The CURL request to get Storage Keys from Azure Resource Manager  
 
-**Note:** The text in the URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
+> [!NOTE]
+> The text in the URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
 
 ```bash 
 curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –request POST -d"" -H "Authorization: Bearer <ACCESS TOKEN>" 

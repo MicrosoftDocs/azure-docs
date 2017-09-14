@@ -1,5 +1,5 @@
 ---
-title: Use a Linux VM MSI to access KeyVault 
+title: Use a Linux VM MSI to access Azure Key Vault 
 description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 09/14/2017
 ms.author: elkuzmen
 ---
 
-# Use Managed Service Identity (MSI) with a Linux VM to access Key Vault 
+# Use Managed Service Identity (MSI) with a Linux VM to access Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
@@ -32,8 +32,8 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Windo
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-## Log in to Azure
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+## Sign in to Azure
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 
 ## Create a Linux Virtual Machine in a new Resource Group
@@ -43,7 +43,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials will allow you to login to the VM.
 
-![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choose a **Subscription** for the virtual machine in the dropdown.
 5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
@@ -57,11 +57,11 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
-![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** will appear on the list.
 
-![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 
 ## Grant your VM access to a Secret stored in a Key Vault  
@@ -78,7 +78,7 @@ First, we need to create a Key Vault and grant our VM’s identity access to the
 7. Click **OK** to finishing adding the new access policy, and **OK** to finish access policy selection. 
 8. Click **Create** to finish creating the Key Vault. 
 
-![Alt image text](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Alt image text](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
 
@@ -90,7 +90,7 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
 6. Click **Create** to create the secret. 
  
 ## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
-To complete these steps, you will need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/about).   
+To complete these steps, you will need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about).   
 
 
  
