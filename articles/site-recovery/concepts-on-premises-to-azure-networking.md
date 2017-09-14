@@ -35,7 +35,7 @@ When planning your replication and failover strategy, one of the key questions i
 - **Use different IP address**: You can select to use a different IP address range for the replicated Azure VM network. In this scenario the VM gets a new IP address after failover, and a DNS update is required.
 - **Retain same IP address**: You might want to use the same IP address range as that in your primary on-premises site, for the Azure network after failover. Keeping the same IP addresses simplifies the recovery by reducing network related issues after failover. However, when you're replicating to Azure, you will need to update routes with the new location of the IP addresses after failover. 
 
-## Retaining an IP addresses
+## Retaining IP addresses
 
 Site Recovery provides the capability to retain fixed IP addresses when failing over to Azure, with a subnet failover.
 
@@ -81,9 +81,12 @@ In addition to the vnet-to-vnet connection, after failover, Woodgrove can set up
 
 
 
-## Changing an IP addresses
+## Assigning new IP addresses
 
 This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers. 
+
+## Next steps
+[Run a failover](site-recovery-failover.md)
 
 
 
