@@ -51,7 +51,6 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger) | Yes | Yes |
 | [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | Yes | Yes |
 | Application Gateway | Yes | Yes |
-| Network Watcher | Yes | Yes |
 
 ## [Storage](documentation-government-services-storage.md)
 
