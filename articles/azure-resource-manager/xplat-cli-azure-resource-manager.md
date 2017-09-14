@@ -70,7 +70,7 @@ az account set -s "Example Subscription Two"
 
 To show the current subscription context, use **az account show** without a parameter:
 
-```
+```azurecli-interactive
 az account show
 ```
 
@@ -134,7 +134,7 @@ Tags enable you to organize your resources according to different properties. Fo
 The following command applies two tags to your storage account:
 
 ```azurecli-interactive
-az resource tag --tags Dept=IT Environment=Test -g TestRG1 -n tfstorage0913 --resource-type "Microsoft.Storage/storageAccounts"
+az resource tag --tags Dept=IT Environment=Test -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts"
 ```
 
 Tags are updated as a single object. To add a tag to a resource that already includes tags, first retrieve the existing tags. Add the new tag to the object that contains the existing tags, and reapply all the tags to the resource.
