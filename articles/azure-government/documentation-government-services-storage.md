@@ -21,7 +21,7 @@ ms.author: zsk0646
 # Azure Government storage
 
 ## Azure Storage
-Azure Storage is generally available in Azure Government. For a Quickstart that will help you get started with Storage in Azure Government, [click here](). For general details on Azure Storage, see [Azure Storage public documentation](../storage/index.md).
+Azure Storage is generally available in Azure Government. For a Quickstart that will help you get started with Storage in Azure Government, [click here](documentation-government-get-started-connect-to-storage.md). For general details on Azure Storage, see [Azure Storage public documentation](../storage/index.md).
 
 ### Storage pairing in Azure Government
 The following map shows the primary and secondary region pairings used for geo-redundant storage and read-access geo-redundant storage accounts in Azure Government.
