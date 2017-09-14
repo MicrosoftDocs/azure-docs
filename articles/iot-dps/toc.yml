@@ -33,6 +33,8 @@
   items:
   - name: Manage device enrollments
     href: how-to-manage-enrollments.md
+  - name: Use HSM with SDK
+    href: use-hsm-with-sdk.md
 - name: Reference
   items:
   - name: REST
