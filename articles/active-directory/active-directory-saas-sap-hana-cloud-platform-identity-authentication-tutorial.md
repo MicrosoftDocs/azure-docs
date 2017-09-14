@@ -143,23 +143,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudauth-tutorial/attribute.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, if your SAP application expects an attribute for example "firstName". On the SAML token attributes dialog, add the "firstName" attribute. configure SAML token attribute as shown in the preceding image and perform the following steps:
-	
+
 	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
+	| ------------------- | -------------------- |
 	| firstName | user.givenname |
 	
-
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
-
+	
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_attribute_04.png)
-
+	
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_attribute_05.png)
-
+	
 	b. In the **Name** textbox, type the attribute name shown for that row.
-
+	
 	c. From the **Value** list, type the attribute value shown for that row.
 	
-	d. Click **Ok**.	 
+	d. Click **Ok**.
 
 7. Click **Save** button.
 
