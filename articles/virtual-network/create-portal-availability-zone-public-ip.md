@@ -55,5 +55,6 @@ Log in to the Azure portal at https://portal.azure.com.
 
     ![Create zonal Public IP](./media/create-portal-availability-zone-public-ip/create-portal-zonal-public-ip.png) 
 
-## Next steps
-- Learn to [create a zoned VM with the Azure Portal] (../availability-zones/create-portal-availability-zone.md)
+## Next step
+
+- Learn more about [Availability Zones] (../availability-zones/az-overview.md)
