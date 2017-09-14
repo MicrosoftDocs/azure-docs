@@ -153,13 +153,13 @@ Consider switching to 64-bit processes so you can take advantage of the addition
 
 Also note that a 64-bit environment requires a Basic or Standard service plan. Free and Shared plans always run in a 32-bit environment.
 
-For more information, see [Configure web apps in App Service](https://docs.microsoft.com/azure/app-service/web-sites-configure).
+For more information, see [Configure web apps in App Service](web-sites-configure.md).
 
 ## Why does my request time out after 240 seconds?
 
 Azure Load Balancer has a default idle timeout setting of four minutes. This is generally a reasonable response time limit for a web request. If your web app requires background processing, we recommend using Azure WebJobs. The Azure web app can call WebJobs and be notified when background processing is finished. You can choose from multiple methods for using WebJobs, including queues and triggers.
 
-WebJobs is designed for background processing. You can do as much background processing as you want in a WebJob. For more information about WebJobs, see [Run background tasks with WebJobs](https://docs.microsoft.com/azure/app-service/web-sites-create-web-jobs).
+WebJobs is designed for background processing. You can do as much background processing as you want in a WebJob. For more information about WebJobs, see [Run background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 ## ASP.NET Core applications that are hosted in App Service sometimes stop responding. How do I fix this issue?
 
