@@ -113,6 +113,6 @@ In this article, you learned about the resources available to help you customize
 For more conceptual information about the remote monitoring preconfigured solution, see:
 
 * [Modify the preconfigured solution from the CLI](iot-suite-remote-monitoring-cli.md)
-* [Security](iot-suite-remote-monitoring-security.md)
+* [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
 <!-- Next tutorials in the sequence -->

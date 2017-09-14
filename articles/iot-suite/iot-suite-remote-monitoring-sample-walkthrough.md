@@ -140,4 +140,3 @@ For more conceptual information about the remote monitoring preconfigured soluti
 
 * [Customize the preconfigured solution](iot-suite-remote-monitoring-customize.md)
 * [Modify the preconfigured solution from the CLI](iot-suite-remote-monitoring-cli.md)
-* [Security](iot-suite-remote-monitoring-security.md)
