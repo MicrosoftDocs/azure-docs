@@ -39,7 +39,7 @@ Specifically, this HDFS connector supports:
 
 ## Prerequisites
 
-To copy data from/to an HDFS that is not publicly accessible, you need to set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](concepts-integration-runtime.md) article to learn details.
+To copy data from/to an HDFS that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](concepts-integration-runtime.md) article to learn details.
 
 ## Getting started
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
@@ -184,7 +184,7 @@ Learn more on how to use DistCp to copy data from HDFS efficiently from the next
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) is a Hadoop native command-line tool to do distributed copy in a Hadoop cluster. When run a Distcp command, it will first list all the files to be copied, create several Map jobs into the Hadoop cluster, and each Map job will do binary copy from source to sink.
 
-Copy Activity support using DistCp to copy files as-is into Azure Blob (including [staged copy](copy-activity-performance.md) or Azure Data Lake Store, in which case it can fully leverage your cluster's power instead of running on the self-hosted Integration Runtime. It will provide better copy throughput especially if your cluster is very powerful. Based on your configuration in Azure Data Factory, Copy activity automatically construct a distcp command, submit to your Hadoop cluster, and monitor the copy status.
+Copy Activity support using DistCp to copy files as-is into Azure Blob (including [staged copy](copy-activity-performance.md) or Azure Data Lake Store, in which case it can fully leverage your cluster's power instead of running on the Self-hosted Integration Runtime. It will provide better copy throughput especially if your cluster is very powerful. Based on your configuration in Azure Data Factory, Copy activity automatically construct a distcp command, submit to your Hadoop cluster, and monitor the copy status.
 
 ### Prerequsites
 
@@ -243,18 +243,18 @@ Below is an example of copy activity configuration to copy data from HDFS to Azu
 ## Use Kerberos authentication for HDFS connector
 
 There are two options to set up the on-premises environment so as to use Kerberos Authentication in HDFS connector. You can choose the one better fits your case.
-* Option 1: [Join self-hosted Integration Runtime machine in Kerberos realm](#kerberos-join-realm)
+* Option 1: [Join Self-hosted Integration Runtime machine in Kerberos realm](#kerberos-join-realm)
 * Option 2: [Enable mutual trust between Windows domain and Kerberos realm](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Option 1: Join self-hosted Integration Runtime machine in Kerberos realm
+### <a name="kerberos-join-realm"></a>Option 1: Join Self-hosted Integration Runtime machine in Kerberos realm
 
 #### Requirements
 
-* The self-hosted Integration Runtime machine needs to join the Kerberos realm and can’t join any Windows domain.
+* The Self-hosted Integration Runtime machine needs to join the Kerberos realm and can’t join any Windows domain.
 
 #### How to configure
 
-**On self-hosted Integration Runtime machine:**
+**On Self-hosted Integration Runtime machine:**
 
 1.	Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
 
@@ -280,7 +280,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 #### Requirements
 
-*	The self-hosted Integration Runtime machine must join a Windows domain.
+*	The Self-hosted Integration Runtime machine must join a Windows domain.
 *	You need permission to update the domain controller's settings.
 
 #### How to configure
@@ -371,7 +371,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
         ![Map Security Identity](media/connector-hdfs/map-security-identity.png)
 
-**On self-hosted Integration Runtime machine:**
+**On Self-hosted Integration Runtime machine:**
 
 * Run the following **Ksetup** commands to add a realm entry.
 

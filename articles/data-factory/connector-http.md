@@ -92,10 +92,10 @@ To use ClientCertificate authentication, set "authenticationType" property to **
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 encoded certificate data. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| certThumbprint | The thumbprint of the certificate that is installed on your self-hosted Integration Runtime machine's cert store. Applies only when self-hosted type of Integration Runtime is specified in connectVia. | Specify either the `embeddedCertData` or `certThumbprint`. |
+| certThumbprint | The thumbprint of the certificate that is installed on your Self-hosted Integration Runtime machine's cert store. Applies only when Self-hosted type of Integration Runtime is specified in connectVia. | Specify either the `embeddedCertData` or `certThumbprint`. |
 | password | Password associated with the certificate. | No |
 
-If you use "certThumbprint" for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the self-hosted Integration Runtime:
+If you use "certThumbprint" for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the Self-hosted Integration Runtime:
 
 1. Launch Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets the **Local Computer**.
 2. Expand **Certificates**, **Personal**, and click **Certificates**.

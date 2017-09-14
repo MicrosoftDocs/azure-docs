@@ -36,7 +36,7 @@ Specifically, this ODBC connector supports copying data from/to **any ODBC-compa
 
 To use this ODBC connector, you need to:
 
-- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+- Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the ODBC driver for the data store on the Integration Runtime machine.
 
 ## Getting started
@@ -235,6 +235,37 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
     }
 ]
 ```
+
+## GE Historian store
+
+You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example:
+
+```json
+{
+    "name": "HistorianLinkedService",
+    "properties":
+    {
+        "type": "OnPremisesOdbc",
+        "typeProperties":
+        {
+            "connectionString": "DSN=<name of the GE Historian store>",
+            "authenticationType": "Basic",
+            "userName": "<user name>",
+            "password": "<password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for GE Historian to connect to the GE Historian data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
+
+Before you use the GE Historian store in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in the next section.
+
+Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
 
 ## Troubleshoot connectivity issues
 

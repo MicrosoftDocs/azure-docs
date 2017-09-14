@@ -37,7 +37,7 @@ Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and ab
 
 To use this PostgreSQL connector, you need to:
 
-- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+- Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 or above on the Integration Runtime machine.
 
 ## Getting started

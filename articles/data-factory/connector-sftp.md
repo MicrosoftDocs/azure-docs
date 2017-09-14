@@ -92,7 +92,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | username | User who has access to the SFTP server |Yes |
-| privateKeyPath | Specify absolute path to the private key file that Integration Runtime can access. Applies only when self-hosted type of Integration Runtime is specified in "connectVia". | Specify either the `privateKeyPath` or `privateKeyContent`.  |
+| privateKeyPath | Specify absolute path to the private key file that Integration Runtime can access. Applies only when Self-hosted type of Integration Runtime is specified in "connectVia". | Specify either the `privateKeyPath` or `privateKeyContent`.  |
 | privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. | Specify either the `privateKeyPath` or `privateKeyContent`. |
 | passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. | Yes if the private key file is protected by a pass phrase. |
 

@@ -47,7 +47,7 @@ The following properties are supported for Azure Search linked service:
 | key | Admin key for the Azure Search service. | Yes |
 
 > [!IMPORTANT]
-> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer a managed-elastic Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Managed-elastic Integration Runtime] (concepts-integration-runtime.md#managed-elastic-integration-runtime).
+> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer a Azure Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Azure Integration Runtime] (concepts-integration-runtime.md#azure-integration-runtime).
 
 **Example:**
 

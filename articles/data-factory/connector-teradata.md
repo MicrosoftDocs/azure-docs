@@ -39,7 +39,7 @@ Specifically, this Teradata connector supports:
 
 To use this Teradata connector, you need to:
 
-- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+- Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the Integration Runtime machine.
 
 ## Getting started
