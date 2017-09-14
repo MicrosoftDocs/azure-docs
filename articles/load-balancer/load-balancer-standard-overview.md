@@ -19,8 +19,6 @@ ms.author: kumud
 
 # Azure Load Balancer Standard (Preview)
 
-
-
 The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures.  Applications using Load Balancer enjoy low latency, high throughput, and up to millions of flows for all TCP and UDP applications. Load Balancer fully onboards to the VNet and can now be used with any Virtual Machine instance within a Virtual Network. Diagnostics insights allow you to understand, manage, and troubleshoot this vital component of your virtual data center. Use Azure Monitor to show data path health from frontend to VM, per endpoint health probes, and traffic counters. Network Security Groups are now mandatory for any VM instance associated with a Standard SKU Load Balancer or Public IP.  And you can use Load Balancer Standard with Availability Zones to construct zone-redundant, zonal architectures with cross-zone load balancing and no dependency on DNS records.
 
 Load Balancer Standard can be used in a public or internal configuration and continues to support the following fundamental scenarios:
@@ -180,7 +178,7 @@ The 2017-08-01 API version for Microsoft.Network/loadBalancers introduces SKUs t
 
 ### Public IP
 
-The [existing Public IP resource](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm) becomes the Basic SKU and remains Generally Available with all its abilities, performance characteristcs, and limitations.
+The [existing Public IP resource](../virtual-network/virtual-network-ip-addresses-overview-arm.md) becomes the Basic SKU and remains Generally Available with all its abilities, performance characteristcs, and limitations.
 
 Public IP Standard SKU is a new offer and currently in Preview.
 
