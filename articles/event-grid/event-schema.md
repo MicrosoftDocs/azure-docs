@@ -58,7 +58,7 @@ Azure subscriptions can now emit management events from Azure Resource Manager s
 [
     {
     "topic":"/subscriptions/{subscription-id}",
-    "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
+    "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
     "eventTime":"2017-08-16T03:54:38.2696833Z",
     "id":"25b3b0d0-d79b-44d5-9963-440d4e6a9bba",
@@ -67,12 +67,12 @@ Azure subscriptions can now emit management events from Azure Resource Manager s
         "claims":"{azure_resource_manager_claims}",
         "correlationId":"54ef1e39-6a82-44b3-abc1-bdeb6ce4d3c6",
         "httpRequest":"",
-        "resourceProvider":"Microsoft.EventGrid",
-        "resourceUri":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
-        "operationName":"Microsoft.EventGrid/eventSubscriptions/write",
+        "resourceProvider":"Microsoft.Resources",
+        "resourceUri":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/",
+        "operationName":"Microsoft.Resources/subscriptions/resourcegroups/write",
         "status":"Succeeded",
         "subscriptionId":"{subscription-id}",
-        "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
+        "tenantId":"{tenant-id}"
         },
     }
 ]
