@@ -1,6 +1,6 @@
 ---
 title: "20 days of Azure Cosmos DB tips | Microsoft Docs"
-description: Find all of the tips from the "20 days of Azure Cosmos DB" twitter series in one place.
+description: Find all of the tips from Simona Cotin's 20 days of Azure Cosmos DB tips series in one place.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
