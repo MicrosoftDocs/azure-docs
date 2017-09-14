@@ -35,11 +35,11 @@ you can build *custom connectors* with their own triggers and actions.
 Custom connectors expand the integrations, reach, discoverability, 
 and use for your service or product, which can help increase and accelerate customer adoption.
 
-For example, this diagram shows the interaction between an API, 
-the custom connector for that API, and a logic app that works with 
-that API through the custom connector:
+For example, this diagram shows the interaction between a Web API, 
+a custom Logic Apps connector created for that API, 
+and a logic app that works with that API by using the custom connector:
 
-![Conceptual overview for Microsoft Cognitive Services API, custom connector, and logic app](./media/custom-connector-overview/custom-connector-conceptual.png)
+![Conceptual overview for a Web API, custom connector, and logic app](./media/custom-connector-overview/custom-connector-conceptual.png)
 
 This overview outlines the general high-level tasks for creating, securing, 
 registering, and using plus optionally sharing or certifying your connectors:
