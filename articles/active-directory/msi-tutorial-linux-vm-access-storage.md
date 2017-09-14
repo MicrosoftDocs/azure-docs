@@ -84,7 +84,8 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 7. Finally, in **Select** choose your Linux Virtual Machine in the dropdown and click **Save**. 
     ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
- ## Get an access token using the VM Identity and use it to call Azure Resource Manager
+## Get an access token using the VM Identity and use it to call Azure Resource Manager
+
 You will need to use the Bash terminal, pick and then download your Linux distribution [here](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
 
