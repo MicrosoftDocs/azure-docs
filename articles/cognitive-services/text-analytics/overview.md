@@ -83,15 +83,15 @@ All three Text Analytics APIs accept raw text data. The current limit is 5,000 c
 
 |Limits | |
 |------------------------|---------------|
-| Maximum size of a single document | 5,000 characters as measured by String Length. |
+| Maximum size of a single document | 5,000 characters as measured by `String.Length`. |
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
 The rate limit is 100 calls per minute. Note that you can submit a large quantities of documents in a single call (up to 1000 documents). 
 
-## Encoding
+## Unicode encoding
 
-Text Analytics API uses UTF-8 encoding.
+Text Analytics API uses Unicode encoding for text representation and character count calculations. Requests can be submitted in both UTF-8 and UTF-16 with no measurable differences in the character count. Unicode codepoints are used as the heuristic for character length and are considered equivalent for the purposes of text analytics data limits. If you use `String.Length(strlen`) to get the character count, you are using the same methods we use to measure data size
 
 ## Next steps
 
