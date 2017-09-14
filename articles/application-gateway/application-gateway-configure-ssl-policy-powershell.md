@@ -108,7 +108,7 @@ CipherSuites:
 
 ## Configure a custom SSL policy
 
-If you are planning to set a custom SSL policy, you will need to pass the following parameters: PolicyType, MinProtocolVersion, CipherSuite, and ApplicationGateway. If you attempt to pass other parameters, you will get an error when you create or update the Application Gateway. 
+When configuring a custom SSL policy, you pass the following parameters: PolicyType, MinProtocolVersion, CipherSuite, and ApplicationGateway. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway. 
 
 The following example sets a custom SSL policy on an application gateway. It sets the minimum protocol version to `TLSv1_1` and enables the following cipher suites:
 
@@ -134,7 +134,7 @@ Set-AzureRmApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custo
 
 ## Create an application gateway with a pre-defined SSL policy
 
-If you are planning to set a Predefined SSL policy, you will need to pass the following parameters: PolicyType, PolicyName, and ApplicationGateway. If you attempt to pass other parameters, you will get an error when you create or update the Application Gateway.
+When configuring a Predefined SSL policy, you pass the following parameters: PolicyType, PolicyName, and ApplicationGateway. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway.
 
 The following example creates a new application gateway with a pre-defined SSL policy.
 
@@ -174,9 +174,10 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.Re
 ```
 
 ## Update an existing application gateway with a pre-defined SSL policy
-As with a new Application Gateway, if you are planning to set a custom SSL policy, you will need to pass the following parameters: PolicyType, MinProtocolVersion, CipherSuite, and ApplicationGateway. If you are planning to set a Predefined SSL policy, you will need to pass the following parameters: PolicyType, PolicyName, and ApplicationGateway. If you attempt to pass other parameters, you will get an error when you create or update the Application Gateway.
 
-In the following example, there are code samples for both Custom Policy and Predefined Policy. Please only use one.
+To set a custom SSL policy, pass the following parameters: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, and **ApplicationGateway**. To set a Predefined SSL policy, pass the following parameters: **PolicyType**, **PolicyName**, and **ApplicationGateway**. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway.
+
+In the following example, there are code samples for both Custom Policy and Predefined Policy. Uncomment the policy you want to use.
 
 ```powershell
 # You have to change these parameters to match your environment.
@@ -186,13 +187,13 @@ $RG = "YourResourceGroupName"
 $AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
 # SSL Custom Policy
-set-azurermapplicationgatewaysslpolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
 
 # SSL Predefined Policy
-Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
 
 # Update AppGW
-# The SSL policy options are not validated nor are they updated on the Application Gateway until this cmdlet is executed.
+# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
 $SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
 
 
