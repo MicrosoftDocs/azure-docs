@@ -36,7 +36,7 @@ The following diagram outlines the logical components of the remote monitoring p
 
 ## Why microservices?
 
-Cloud architecture has evolved since Microsoft released the first preconfigured solutions. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) have emerged as a proven practice to achieve scale and flexibility without sacrificing development speed. Several Microsoft services use this architectural pattern internally with great reliability and scalability results. The updated preconfigured solutions put these learnings in practice so you can benefit from them.
+Cloud architecture has evolved since Microsoft released the first preconfigured solutions. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) have emerged as a proven practice to achieve scale and flexibility without sacrificing development speed. Several Microsoft services use this architectural pattern internally with great reliability and scalability results. The updated preconfigured solutions put these learnings into practice so you can also benefit from them.
 
 ## Device connectivity
 
