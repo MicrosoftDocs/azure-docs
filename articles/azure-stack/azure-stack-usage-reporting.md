@@ -53,7 +53,7 @@ To set up usage data reporting in Azure Stack, you must [register your Azure Sta
 
 3. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Azure account administrator and select the Azure subscription that you used to register the Azure Stack. You can view the Azure Stack usage data, the amount charged for each of the used resources as shown in the following image:  
 
-   ![billing flow](media/azure-stack-usage-reporting/pricng-details.png)
+   ![billing flow](media/azure-stack-usage-reporting/pricing-details.png)
 
 For the Azure Stack Development Kit, resources are not charged so, the price is shown as $0.00. For the Azure Stack integrated systems, the actual cost of each of these resources is displayed.
 
