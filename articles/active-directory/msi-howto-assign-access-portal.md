@@ -18,6 +18,8 @@ ms.author: bryanla
 
 # Assign a Managed Service Identity (MSI) access to a resource using the Azure portal
 
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+
 Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine's MSI access to an Azure storage account, using the Azure portal.
 
 ## Prerequisites
