@@ -22,6 +22,8 @@ ms.author: saeeda
 
 Azure Active Directory B2C (Azure AD B2C) supports changing the complexity requirements for passwords supplied by an end user when creating an account.  By default, Azure AD B2C uses `Strong` passwords.  Azure AD B2C also supports configuration options to control the complexity of passwords that customers can use.
 
+To enable this feature in your tenant, please contact Microsoft support.
+
 ## When password rules are enforced
 
 During sign-up or password reset, an end user must supply a password that meets the complexity rules.  Password complexity rules are enforced per policy.  It is possible to have one policy require a four-digit pin during sign-up while another policy requires a eight character string during sign-up.  For example, you may use a policy with different password complexity for adults than for children.
