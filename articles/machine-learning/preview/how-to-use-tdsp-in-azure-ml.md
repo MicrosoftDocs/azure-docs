@@ -55,7 +55,7 @@ To create a new project with the Team Data Science Process structure and documen
 
 Open Azure Machine Learning Workbench. Under **Projects** on top left, click on **+** and select **New Project** to create a new project.
 
-<img src="./Images/instantiation-1.png" width="800" height="600">
+<img src="./media/how-to-use-tdsp-in-azure-ml/instantiation-1.png" width="800" height="600">
 
 
 ### Creating a new TDSP-structured project
@@ -70,14 +70,14 @@ Specify the parameters and information in the relevant boxes:
 
 Then in the **Search** box, type in *TDSP*. When the **TDSP Template** shows up, click on it to select that template. Then click the **Create** button to create your new project with the TDSP structure.
 
-<img src="./Images/instantiation-2.png" width="800" height="600">
+<img src="./media/how-to-use-tdsp-in-azure-ml/instantiation-2.png" width="800" height="600">
 
 
 ## Examine the TDSP project structure
 
 After your new project is created, you can examine its structure. It contains all of the aspects of standardized documentation for business understanding, the stages of the TDSP lifecycle, data location, definition, and architecture in this documentation template. This structure is derived from the TDSP structure published [here](https://github.com/Azure/Azure-TDSP-ProjectTemplate), with some modifications. For example, several of the document templates are merged into one markdown, namely, [ProjectReport](https://github.com/amlsamples/tdsp/blob/master/ProjectReport.md). 
 
-<img src="./Images/instantiation-3.png" width="800" height="600">
+<img src="./media/how-to-use-tdsp-in-azure-ml/instantiation-3.png" width="800" height="600">
 
 
 ## Using the TDSP structure and templates
@@ -86,7 +86,7 @@ The template is not populated with any code in the **Code** folder, or docs in t
 
 For an example of how a project structure can look like during execution or after completion is given below.
 
-<img src="./Images/instantiation-4.png" width="800" height="500">
+<img src="./media/how-to-use-tdsp-in-azure-ml/instantiation-4.png" width="800" height="500">
 
 
 
