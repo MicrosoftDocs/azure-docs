@@ -1,6 +1,6 @@
 ---
 title: Set up disaster recovery to Azure for physical on-premises servers with Azure Site Recovery | Microsoft Docs
-description: Learn how to set up disaster recovery to Azure for on-premises Windows/Linux servers, with the Azure Site Recovery service.
+description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -122,9 +122,9 @@ Do the following before you start:
 - Make sure the machine can access these URLs:
         [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-        - Any IP address-based firewall rules should allow communication to Azure.
-        - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-        - Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
+- Any IP address-based firewall rules should allow communication to Azure.
+- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
+- Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
 Run Unified Setup as a Local Administrator, to install the configuration server, the process server, and the master target server.
 
@@ -179,4 +179,6 @@ Enable replication for each server.
 
 To monitor servers you add, you can check the last discovered time for them in **Configuration Servers** > **Last Contact At**. To add machines without waiting for a scheduled discovery time, highlight the configuration server (don’t click it), and click **Refresh**.
 
+## Next steps
 
+[Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
