@@ -187,11 +187,11 @@
       href: manage-availability.md
     - name: Vertically scale
       href: vertical-scaling-automation.md
-    - name: Availability zones
+    - name: Create VM in availability zone
       items:
-      - name: Create a VM in zone - PowerShell
+      - name: PowerShell
         href: create-powershell-availability-zone.md
-      - name: Create a VM in zone - Portal
+      - name: Portal
         href: create-portal-availability-zone.md    
   - name: Use automation tools
     items:
