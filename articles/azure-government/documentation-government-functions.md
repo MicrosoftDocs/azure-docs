@@ -4,7 +4,7 @@ description: This provides a series of quickstarts for using Functions with Azur
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhong
+author: yujhongmicrosoft
 manager: zakramer
 
 ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
@@ -115,7 +115,8 @@ In the following command substitute a unique function app name where you see the
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --plan testPlan
 ```
->[!NOTE] By default, a function app is created with the App Service plan, which means that dedicated VMs are allocated to your App Service apps and the functions host is always running.
+>[!NOTE] 
+>By default, a function app is created with the App Service plan, which means that dedicated VMs are allocated to your App Service apps and the functions host is always running.
 For more information about the App Service plan, [click here](../azure-functions/functions-scale.md#app-service-plan). 
 >
 >
@@ -208,11 +209,12 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
 * Make sure Visual Studio has been installed:
     -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
-    >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >[!NOTE] 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
 * Function app running in Visual Studio
-    - To create one, complete the Quickstart section above, [Create function using Visual Studio](documentation-government-functions#create-function-using-visual-studio). 
+    - To create one, complete the Quickstart section above, [Create function using Visual Studio](documentation-government-functions.md#create-function-using-visual-studio). 
 
 ### Create trigger function
 
@@ -237,14 +239,14 @@ Go down to the "Add" button and click on "New Item" as shown below.
     ![triggerfunctioncreate3](./media/documentation-government-function7.png)
     
     Click on the storage account that corresponds to this function app and you will see an "Access keys" section under "Settings".
-    Once you navigate to this section you will be able to see two Default keys: Primary and Secondary
+    Once you navigate to this section you will be able to see two Default keys.
 
     ![triggerfunctioncreate4](./media/documentation-government-function8.png)
 6. Copy the Connection String for your Key1, go back to your "local.settings.json" file and paste the string for each of the 3 values in the "Values" parameter. Also make sure "AccountName" = your storage account name. 
 
     ![triggerfunctioncreate5](./media/documentation-government-function9.png)
 7. Once this has been set, you can run your Timer trigger function locally. 
-8. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions#create-function-using-visual-studio).
+8. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
 
 ## Use Azure Queues for Output Bindings
 
@@ -256,7 +258,8 @@ This tutorial will walk through how to update an existing function by adding out
 
    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
-    >[!NOTE] After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+    >[!NOTE] 
+    > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
     >
 
@@ -296,7 +299,7 @@ In order to connect the function to your output Queue, you must create an output
 4. Click on your Queue and you should be able to see the output of your function.
 
     ![triggerfunctioncreate7](./media/documentation-government-function11.png)
-5. Now that you have tested the output binding locally, go throuogh the same steps for deployment that you did in the [section above](documentation-government-functions#create-function-using-visual-studio). 
+5. Now that you have tested the output binding locally, go throuogh the same steps for deployment that you did in the [section above](documentation-government-functions.md#create-function-using-visual-studio). 
 
 ### Clean up resources
 
