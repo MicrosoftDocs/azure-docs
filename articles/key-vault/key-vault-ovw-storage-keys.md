@@ -114,6 +114,8 @@ Key Vault needs permissions to *list* and *regenerate* keys for a storage accoun
 
 ## Example
 
+The following example demonstrates creating a Key Vault managed Azure Storage Account and the associated Shared Access Signature (SAS) definitions.
+
 ### Assumptions
 
 - Your storage resource is located at: */subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1*
@@ -195,7 +197,7 @@ Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt"  -Context
 Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
 ```
 
-### Summary
+### Example summary
 
 You are able access the storage blob content with the SAS token that has write access.
 
@@ -203,14 +205,12 @@ You are able access the storage blob content with the SAS token that has write a
 
 - [Get-AzureKeyVaultManagedStorageAccount
 ](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
-
 - [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount?view=azurermps-4.3.1)
-- 
-- Get-AzureKeyVaultManagedStorageSasDefinition
-- Update-AzureKeyVaultManagedStorageAccountKey
-- Remove-AzureKeyVaultManagedStorageAccount
-- Remove-AzureKeyVaultManagedStorageSasDefinition
-- Set-AzureKeyVaultManagedStorageSasDefinition
+- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
+- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey?view=azurermps-4.3.1)
+- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
+- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
+- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
 
 
 
