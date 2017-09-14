@@ -25,6 +25,12 @@
     href: tutorial-classifying-iris-part-3.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md   
+  - name: Real-world examples
+    items:
+    - name: Classify US incomes - TDSP project
+      href: tutorial-classifying-uci-incomes.md
+    - name: Biomedical entity recognition - TDSP project
+      href: sample-tdsp-nlp.md       
 - name: How-to guides
   items:
   - name: Use Azure ML Workbench
@@ -67,12 +73,6 @@
       href: model-management-consumption.md  
     - name: Deploy web service
       href: model-management-service-deploy.md
-  - name: End-to-end examples
-    items:
-    - name: Classify US incomes - TDSP project
-      href: tutorial-classifying-uci-incomes.md
-    - name: Biomedical entity recognition - TDSP project
-      href: sample-tdsp-nlp.md       
 - name: Reference
   items:  
   - name: Service limitations
