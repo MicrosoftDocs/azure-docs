@@ -43,7 +43,7 @@ If you have not done these steps, and would like to follow along, return to [Tut
 
 ## Update manifest file
 
-In this tutorial, Azure Container Registry (ACR) has been used to store a container image. Before deploying the application, the ACR login server name needs to be updated in the pre-created Kubernetes manifest file.
+In this tutorial, Azure Container Registry (ACR) has been used to store a container image. Before running the application, the ACR login server name needs to be updated in the Kubernetes manifest file.
 
 Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
 
@@ -51,7 +51,7 @@ Get the ACR login server name with the [az acr list](/cli/azure/acr#list) comman
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor, in this example, the file is opened with `vi`.
+The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `vi`.
 
 ```bash
 vi azure-vote-all-in-one-redis.yml
