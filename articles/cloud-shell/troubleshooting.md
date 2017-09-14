@@ -24,11 +24,11 @@ Known resolutions for issues in Azure Cloud Shell:
   - **Details**: The selected subscription does not have Storage RP registered.
   - **Resolution**: [Register your Storage resource provider](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound)
 
-## [TODO]
-When using an Azure Active Directory subscription, I cannot create storage due to Error: 400 DisallowedOperation. To resolve this, please use an Azure subscription capable of creating storage resources. AD subscriptions are not able to create Azure resources.
+## Error: 400 DisallowedOperation
+ - **Details**: When using an Azure Active Directory subscription, you cannot create storage.
+ - **Resolution**: Use an Azure subscription capable of creating storage resources. AD subscriptions are not able to create Azure resources.
 
-
-## PowerShell Resolutions
+## PowerShell resolutions
 
 ### No $Home directory persistence
   - **Details**: Any application (such as: git, vim, and others) that writes data to $Home will not be persisted across PowerShell sessions.
@@ -36,8 +36,8 @@ When using an Azure Active Directory subscription, I cannot create storage due t
   [TODO] Add an example
 
 ### Ctrl+C doesn't exit out of a Cmdlet prompt
-
-[TODO] from an issue
+ - **Details**: When attemtping to exit a Cmdlet prompt, `Ctrl+C` does not exit the prompt.
+ - **Resolution**: To exit the prompt, press `Ctrl+C` then `Enter`.
 
 ### GUI applications are not supported
   - **Details**: If a user tries to launch a GUI app (for example, git clone a 2FA enabled private repo. It pops up a 2FA authentication dialog box), the prompt does not return.
