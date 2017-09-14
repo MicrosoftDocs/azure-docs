@@ -162,7 +162,7 @@ resource "random_id" "randomId" {
 }
 ```
 
-Now you can create a storage account. The following section creates a storage account, with the name based on the random text generated in the preceeding step:
+Now you can create a storage account. The following section creates a storage account, with the name based on the random text generated in the preceding step:
 
 ```tf
 resource "azurerm_storage_account" "mystorageaccount" {
