@@ -126,7 +126,3 @@ TDSP project template for Azure Machine Learning Workbench: [https://github.com/
 ## Contact
 
 Feel free to contact Debraj GuhaThakurta (debraj.guhathakurta@microsoft.com) or Xibin Gao (xibingao@microsoft.com) with any question or comments on this sample.
-
-## Disclaimer
-
-To be added.
