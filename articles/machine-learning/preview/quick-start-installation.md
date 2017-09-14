@@ -37,7 +37,7 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 
 3. Select the **New** button (+) in the upper-left corner of the portal.
 
-4. Type in `Machine Learning` into the search bar. Select the search result named **ML Experimentation (preview)**. 
+4. Type in "Machine Learning" into the search bar. Select the search result named **ML Experimentation (preview)**. 
 
 5. Click **Create** to begin the creation process for your _Machine Learning Experimentation account_. 
 
@@ -53,6 +53,8 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
 [AmlWorkbenchSetup.exe](https://vienna.blob.core.windows.net/windows/AmlWorkbenchSetup.exe)
 
 2. Double-click the downloaded installer `AmlWorkbenchSetup.exe`. 
+>[!IMPORTANT]
+>Download the installer fully on disk, then launch it from there. Do not launch it directly off your browser's download widget.
 
 3. Finish the installation by following the on-screen instructions.
 
@@ -79,31 +81,34 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 >[!NOTE]
 >You need to have [Homebrew](https://brew.sh/) installed if you don't already:
 
-    ```console
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ```
+```console
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+>[!NOTE]
+>If you are using Python greater than 3.5, you need to execute this command to enable the correct certificates. 
+
+```bash
+$ /Applications/Python\ 3.6/Install\ Certificates.command
+```
 
 2. Download the latest Azure ML Workbench installer
 [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg)
 
-3. If you are using Python greater than 3.5, you need to execute this command to enable the correct certificates. 
+>[!IMPORTANT]
+>Download the installer fully on disk, then launch it from there. Do not launch it directly off your browser's download widget.
 
-   ```bash
-   $ /Applications/Python\ 3.6/Install\ Certificates.command
-   ```
+3. Double-click the downloaded installer `AmlWorkbench.dmg`.
 
-4. Double-click the downloaded installer `AmlWorkbench.dmg`.
+4. Finish the installation by following the on-screen instructions.
 
-5. Finish the installation by following the on-screen instructions.
-
-6. Azure ML Workbench is installed in the following directory: `/Applications/AmlWorkbench.app`
+5. Azure ML Workbench is installed in the following directory: `/Applications/AmlWorkbench.app`
 
 ## Run Azure ML Workbench to log in the first time
-1. Click on the **Launch Azure ML Workbench** button when the installation process is complete. If you close the installer, you can still find the shortcut to the Machine Learning Workbench on your desktop named **Azure Machine Learning Workbench**. Double-click it to open the app.
+1. Click on the **Launch Azure ML Workbench** button when the installer wizard is complete. If you close the installer, you can still find the shortcut to the Machine Learning Workbench on your desktop named **Azure Machine Learning Workbench**. Double-click it to open the app.
 
 2. Log in to the Workbench using the same account you used earlier to provision your Azure resources. 
 
-3. When the login process has succeeded, ML Workbench attempts to find the ML Experimentation accounts you created earlier. It searches within the entire set of Azure subscriptions to which your credentials are attached. When at least one ML Experimentation Account is found, Azure ML Workbench loads that account. It lists the Workspaces and Projects found in that account. 
+3. When the login process has succeeded, Azure ML Workbench attempts to find the ML Experimentation accounts you created earlier. It searches within the entire set of Azure subscriptions to which your credentials are attached. When at least one Experimentation Account is found, Azure ML Workbench opens with that account. It then lists the Workspaces and Projects found in that account. 
 
 Once the installation process is complete and you log in successfully, move on to installing optional components.
 
