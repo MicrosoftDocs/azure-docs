@@ -16,7 +16,7 @@ metadata:
 abstract:
   description: Use Azure Backup to back up and restore your data. With Azure Backup you can back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
 sections:
-- title: Quickstarts
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
     text: Learn how to back up an Azure virtual machine in Azure.
