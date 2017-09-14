@@ -8,7 +8,6 @@ description: Learn how to build and manage powerful applications using Microsoft
 ---
 <div id="main" class="v2">
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure Documentation</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="/azure/guides/developer/azure-developer-guide">
@@ -67,6 +66,7 @@ description: Learn how to build and manage powerful applications using Microsoft
         </ul>
     </div>
     <div class="container">
+        <h1 class="screenReader">Microsoft Azure Documentation</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">Get Started</a>
@@ -101,43 +101,41 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
-												<div class="cols cols2">
-													<div>
+                                                <ul class="noBullet">
+													<li>
 														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
 															<img src="media/index/logo_NET.svg" alt="">
 															.NET</a>
-													</div>
-													<div>
+													</li>
+													<li>
 														<a class="barLink" href="/python/azure/">
 															<img src="media/index/logo_python.svg" alt="">
 															Python</a>
-													</div>
-													<div>
+													</li>
+													<li>
 														<a class="barLink" href="/java/azure/">
 															<img src="media/index/logo_java.svg" alt="">
 															Java</a>
-													</div>
-													<div>
+													</li>
+													<li>
 														<a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
 															<img src="media/index/logo_PHP.svg" alt="">
 															PHP</a>
-													</div>
-													<div>
+													</li>
+													<li>
 														<a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
 															<img src="media/index/logo_nodejs.svg" alt="">
 															Node.js</a>
-													</div>
-												</div>
-                                                <div>
-                                                    <h4>App Models</h4>
-                                                    <ul class="noBullet">
-                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
-                                                        <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
-                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
-                                                        <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
-                                                    </ul>
-                                                </div>
+													</li>
+												</ul>
+                                                <h4>App Models</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/app-service-web/">Web apps</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">Serverless functions</a></li>
+                                                    <li><a class="barLink" href="/azure/container-instances/">Container instances</a></li>
+                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
+                                                    <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -151,13 +149,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h3>Manage data and AI</h3>
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a></li>
-                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a></li>
-                                                    <li><a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/mysql/">MySQL database as a service</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
@@ -175,18 +173,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
-												<div class="cols">
-													<div>
+												<ul class="noBullet">
+													<li>
 														<a class="barLink" href="/cli/azure/overview">
 															<img src="media/index/azure_dev-7.svg" alt="">
 															Azure CLI</a>
-													</div>
-													<div>
+													</li>
+													<li>
 														<a class="barLink" href="/powershell/azure/overview">
 															<img src="media/index/azure_dev-8.svg" alt="">
 															Azure PowerShell</a>
-													</div>
-												</div>
+													</li>
+												</ul>
                                             </div>
                                         </div>
                                     </div>
@@ -198,18 +196,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
-												<div class="cols">
-													<div>
+												<ul class="noBullet">
+													<li>
 														<a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
 															<img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt="">
 															Visual Studio Team Services</a>
-													</div>
-													<div>
+													</li>
+													<li>
 														<a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
 															<img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">
 															Jenkins on Azure VMs</a>
-													</div>
-												</div>
+													</li>
+												</ul>
                                             </div>
                                         </div>
                                     </div>
@@ -316,7 +314,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Cosmos DB</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2003,8 +2001,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cosmos DB</h3>
-                                                    <p>Managed NoSQL document database-as-a-service</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>Globally distributed, multi-model database for any scale</p>
                                                 </div>
                                             </div>
                                         </div>
