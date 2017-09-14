@@ -14,14 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 09/13/2017
 ms.author: cjiang
 
 ---
-# Associate an Office 365 tenant to an Azure subscription
-Link your separate Azure and Office 365 subscriptions so that you can access the Office 365 tenant from your Azure subscription. To link your subscriptions, sign in to Azure with the Azure service administrator account, add a directory, and add the Office 365 organizational accounts to the Azure Active Directory tenant.
+# Link an Office 365 tenant to an Azure subscription
+Link your separate Azure and Office 365 subscriptions so that you can access the Office 365 tenant from your Azure subscription. To link your subscriptions, sign in to Azure with the Azure service administrator account, add a directory, and add the Office 365 work or school accounts to the Azure Active Directory tenant.
 
-If you want an Office 365 subscription for users in your Azure Active Directory instance or you have an Office 365 account but not an Azure account, see [Sign up for Azure with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md). 
+**Want to move your existing Azure subscription to your Office 365 work or school account?** If you signed up for Azure using a personal Microsoft account, and want to use it or sign in with your Office 365 account, we strongly recommend transferring the subscription. See [Transfer Azure subscription ownership to another account](billing-subscription-transfer.md). 
+
+**Want to sign up for Azure using Office 365?** See [Sign up for Azure with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md). 
 
 ## Before you begin
 * You must have the credentials of the Azure subscription service administrator. Co-administrator accounts can't do some of the steps in this article. To change your service administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
@@ -88,5 +90,4 @@ To add an admin to your Azure subscription, see [Add or change Azure administrat
 ## Need help? Contact support.
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-
 
