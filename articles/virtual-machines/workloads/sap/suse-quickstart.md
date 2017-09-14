@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 09/14/2017
 ms.author: hermannd
 
 ---
@@ -27,7 +27,7 @@ Further documentation about SAP on Linux VMs can be found here : [Using SAP on L
 The following information should help you avoid some potential pitfalls.
 
 ## SUSE images on Azure for running SAP
-For running SAP NetWeaver on Azure, use only SUSE Linux Enterprise Server SLES 12 ( SPx ) - see also SAP note 1928533. A special SUSE image is in the Azure Marketplace ("SLES 11 SP3 for SAP CAL"), but this is not intended for general usage. Do not use this image because it's reserved for the [SAP Cloud Appliance Library](https://cal.sap.com/) solution.  
+For running SAP NetWeaver on Azure, use SUSE Linux Enterprise Server SLES 12 ( SPx ) or SLES for SAP - see also SAP note 1928533. A special SUSE image is in the Azure Marketplace ("SLES 11 SP3 for SAP CAL"), but this is not intended for general usage. Do not use this image because it's reserved for the [SAP Cloud Appliance Library](https://cal.sap.com/) solution.  
 
 You should use Azure Resource Manager for all new tests and installations on Azure. To look for SUSE SLES images and versions by using Azure PowerShell or the Azure command-line interface (CLI), use the following commands. You can then use the output, for example, to define the OS image in a JSON template for deploying a new SUSE Linux VM.
 These PowerShell commands are valid for Azure PowerShell version 1.0.1 and later.
