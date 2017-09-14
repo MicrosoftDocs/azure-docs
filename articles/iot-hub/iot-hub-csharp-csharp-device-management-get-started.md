@@ -29,7 +29,6 @@ This tutorial shows you how to:
 
 At the end of this tutorial, you have three .NET console apps:
 
-* **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your device app.
 * **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
 * **TriggerReboot**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
 
@@ -41,7 +40,7 @@ To complete this tutorial, you need the following:
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 <a id="DeviceIdentity_csharp"></a>
-[!INCLUDE [iot-hub-get-started-create-device-identity-csharp](../../includes/iot-hub-get-started-create-device-identity-csharp.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## Trigger a remote reboot on the device using a direct method
 In this section, you create a .NET console app (using C#) that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
@@ -101,113 +100,105 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 ## Create a simulated device app
 In this section, you will
 
-* Create a Node.js console app that responds to a direct method called by the cloud
+* Create a .NET console app that responds to a direct method called by the cloud
 * Trigger a simulated device reboot
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted
 
-1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateManagedDevice**.
    
-    ```
-    npm init
-    ```
-2. At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+    ![New Visual C# Windows Classic device app][img-createdeviceapp]
+    
+2. In Solution Explorer, right-click the **SimulateManagedDevice** project, and then click **Manage NuGet Packages...**.
+3. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
    
-    ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
-    ```
-3. Using a text editor, create a new **dmpatterns_getstarted_device.js** file in the **manageddevice** folder.
-4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_device.js** file:
+    ![NuGet Package Manager window Client app][img-clientnuget]
+4. Add the following `using` statements at the top of the **Program.cs** file:
    
-    ```
-    'use strict';
+        using Microsoft.Azure.Devices.Client;
+        using Microsoft.Azure.Devices.Shared;
+
+5. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
    
-    var Client = require('azure-iot-device').Client;
-    var Protocol = require('azure-iot-device-mqtt').Mqtt;
-    ```
-5. Add a **connectionString** variable and use it to create a **Client** instance.  Replace the connection string with your device connection string.  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
-6. Add the following function to implement the direct method on the device
-   
-    ```
-    var onReboot = function(request, response) {
-   
-        // Respond the cloud app for the direct method
-        response.send(200, 'Reboot started', function(err) {
-            if (!err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+        static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+        static DeviceClient Client = null;
+
+6. Add the following to implement the direct method on the device:
+
+        static Task<MethodResponse> onReboot(MethodRequest methodRequest, object userContext)
+        {
+            // In a production device, you would trigger a reboot scheduled to start after this method returns
+            // For this sample, we simulate the reboot by writing to the console and updating the reported properties 
+            try
+            {
+                Console.WriteLine("Rebooting!");
+
+                // Update device twim with reboot time. 
+                // In production this could be done from reboot code triggered from this method and scheduled after it returns.
+                TwinCollection reportedProperties, reboot, lastReboot;
+                lastReboot = new TwinCollection();
+                reboot = new TwinCollection();
+                reportedProperties = new TwinCollection();
+                lastReboot["lastReboot"] = DateTime.Now;
+                reboot["reboot"] = lastReboot;
+                reportedProperties["iothubDM"] = reboot;
+                Client.UpdateReportedPropertiesAsync(reportedProperties).Wait();
             }
-        });
-   
-        // Report the reboot before the physical restart
-        var date = new Date();
-        var patch = {
-            iothubDM : {
-                reboot : {
-                    lastReboot : date.toISOString(),
-                }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
             }
-        };
-   
-        // Get device Twin
-        client.getTwin(function(err, twin) {
-            if (err) {
-                console.error('could not get twin');
-            } else {
-                console.log('twin acquired');
-                twin.properties.reported.update(patch, function(err) {
-                    if (err) throw err;
-                    console.log('Device reboot twin state reported')
-                });  
-            }
-        });
-   
-        // Add your device's reboot API for physical restart.
-        console.log('Rebooting!');
-    };
-    ```
-7. Add the following code to open the connection to your IoT hub and start the direct method listener:
-   
-    ```
-    client.open(function(err) {
-        if (err) {
-            console.error('Could not open IotHub client');
-        }  else {
-            console.log('Client opened.  Waiting for reboot method.');
-            client.onDeviceMethod('reboot', onReboot);
+
+            string result = "'Reboot started.'";
+            return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
         }
-    });
-    ```
-8. Save and close the **dmpatterns_getstarted_device.js** file.
+
+7. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
    
+        try
+        {
+            Console.WriteLine("Connecting to hub");
+            Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
+
+            // setup callback for "reboot" method
+            Client.SetMethodHandlerAsync("reboot", WriteLineToConsole, null).Wait();
+            Console.WriteLine("Waiting for reboot method\n Press enter to exit.");
+            Console.ReadLine();
+
+            Console.WriteLine("Exiting...");
+
+            // as a good practice, remove the "reboot" handler
+            Client.SetMethodHandlerAsync("reboot", null, null).Wait();
+            Client.CloseAsync().Wait();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Error in sample: {0}", ex.Message);
+        }
+        
+8. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **SimulateManagedDevice** project in the dropdown menu.        
+
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
 
 
 ## Run the apps
 You are now ready to run the apps.
+1. Run the .NET device app **SimulateManagedDevice**.  Right-click the **SimulateMagagedDevice** project, select **Debug**, and then select **Start new instance**. It should start listening for method calls from your IoT Hub: 
 
-1. At the command prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
+    ![Device app run][img-deviceapprun]
+2. Now that the device is connected and waiting for method invocations, run the .NET **TriggerReboot** app to invoke the reboot method in the simulated device app. Right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**. You should see the device response written in the console.
    
-    ```
-    node dmpatterns_getstarted_device.js
-    ```
-2. Run the C# console app **TriggerReboot**. Right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**.
-
-3. You see the device response to the direct method in the console.
+    ![Service app run][img-serviceapprun]
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
-[img-servicenuget]: media/iot-hub-csharp-node-device-management-get-started/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-node-device-management-get-started/createnetapp.png
+[img-servicenuget]: media/iot-hub-csharp-csharp-device-management-get-started/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-csharp-device-management-get-started/createnetapp.png
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
@@ -219,4 +210,5 @@ You are now ready to run the apps.
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
