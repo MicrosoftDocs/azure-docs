@@ -12,11 +12,11 @@ keywords: Docker, Containers, Micro-services, Mesos, Azure, Kubernetes
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ---
 [!INCLUDE [container-service-faq.md](../../../includes/container-service-faq.md)]
