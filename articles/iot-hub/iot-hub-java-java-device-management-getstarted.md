@@ -156,6 +156,12 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     }
     ```
 
+1. Modify the signature of the **main** method to throw the following exception:
+
+    ```java
+    public static void main(String[] args) throws IOException
+    ```
+
 1. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
 
     ```java
