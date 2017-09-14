@@ -81,7 +81,7 @@ Azure Active Directory also allows you to register native clients, which provide
 2. Select your directory, and then select the **Applications** tab at the top. Click **ADD** at the bottom to create a new app registration.
 3. Click **Add an application my organization is developing**.
 4. In the Add Application Wizard, enter a **Name** for your application and click the  **Native Client Application** type. Then click to continue.
-5. In the **Redirect URI** box, enter your site's */.auth/login/done* endpoint, using the HTTPS scheme. This value should be similar to *https://contoso.azurewebsites.net/.auth/login/done*. If creating a Windows application, instead use the [package SID](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) as the URI.
+5. In the **Redirect URI** box, enter your site's */.auth/login/done* endpoint, using the HTTPS scheme. This value should be similar to *https://contoso.azurewebsites.net/.auth/login/done*. If creating a Windows application, instead use the [package SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) as the URI.
 6. Once the native application has been added, click the **Configure** tab. Find the **Client ID** and make a note of this value.
 7. Scroll the page down to the **Permissions to other applications** section and click **Add application**.
 8. Search for the web application that you registered earlier and click the plus icon. Then click the check to close the dialog. If the web application cannot be found, navigate to its registration and add a new reply URL (e.g., the HTTP version of your current URL), click save, and then repeat these steps - the application should show up in the list.

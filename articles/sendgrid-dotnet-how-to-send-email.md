@@ -41,7 +41,7 @@ For more information, visit [https://sendgrid.com](https://sendgrid.com) or
 SendGrid's [C# library][sendgrid-csharp] GitHub repo.
 
 ## Create a SendGrid Account
-[!INCLUDE [sendgrid-sign-up](../../includes/sendgrid-sign-up.md)]
+[!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## Reference the SendGrid .NET Class Library
 The [SendGrid NuGet package](https://www.nuget.org/packages/Sendgrid) is the easiest way to get the SendGrid API and to configure your application with all dependencies. NuGet is a Visual Studio extension included with Microsoft Visual Studio 2015 and above that makes it easy to install and update libraries and tools.

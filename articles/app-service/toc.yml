@@ -1,5 +1,4 @@
 - name: App Service Documentation
-  href: index.yml
 - name: Overview
   items:
   - name: About Web Apps
@@ -59,8 +58,6 @@
     href: app-service-how-works-readme.md
   - name: App Service plans
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
-  - name: App Service Environment
-    href: app-service-environment/intro.md
   - name: Authentication and authorization
     href: app-service-authentication-overview.md
 - name: How-To guides

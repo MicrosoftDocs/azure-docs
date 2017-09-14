@@ -77,5 +77,5 @@ To get started with App Service Environments, see [How To Create An App Service 
 [Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
-[AppScale]: web-sites-scale/
+[AppScale]: ../web-sites-scale.md
 [AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/

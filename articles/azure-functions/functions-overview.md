@@ -34,7 +34,7 @@ Here are some key features of Azure Functions:
 * **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
 * **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
 * **Simplified integration** - Easily leverage Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) for some examples.  
-* **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and other [supported development tools](../app-service/app-service-deploy-local-git.md#deploy-using-an-ide).  
+* **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), [Visual Studio Team Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md), and other [supported development tools](../app-service/app-service-deploy-local-git.md).  
 * **Open-source** - The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## What can I do with Functions?
@@ -44,7 +44,7 @@ Functions provides templates to get you started with key scenarios, including th
 
 * **HTTPTrigger** - Trigger the execution of your code by using an HTTP request. For an example, see [Create your first function](functions-create-first-azure-function.md).
 * **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create a function triggered by a timer](functions-create-scheduled-function.md).
-* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a function triggered by a GitHub webhook](functions-create-a-web-hook-or-api-function.md).
+* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
 * **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks. For an example, see [Create a function triggered by a generic webhook](functions-create-generic-webhook-triggered-function.md).
 * **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this function for image resizing. For more information, see [Blob storage bindings](functions-bindings-storage-blob.md).
 * **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create a function that connects to other Azure services](functions-create-an-azure-connected-function.md).

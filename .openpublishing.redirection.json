@@ -2505,6 +2505,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service-web/web-sites-create-web-jobs.md",
+            "redirect_url": "/azure/app-service/web-sites-create-web-jobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/websites-dotnet-deploy-webjobs.md",
+            "redirect_url": "/azure/app-service/websites-dotnet-deploy-webjobs",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-acs-differences-tp2.md",
             "redirect_url": "/azure/azure-stack/azure-stack-acs-differences",
             "redirect_document_id": false

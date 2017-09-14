@@ -28,7 +28,7 @@ This article describes how to deploy an Azure App Service app (API app, web app,
 Open an existing app solution or project in Visual Studio, [create a project](../app-service/app-service-web-get-started-dotnet.md#create-and-publish-the-web-app), or [download a sample app](../app-service/app-service-web-get-started-dotnet.md#download-the-sample-application). Then, run the app in Visual Studio to make sure it works locally.
 
 ## Deploy to Azure Germany
-After Visual Studio is configured to connect to your Azure Germany account (which you already did as a prerequisite), [instructions to deploy an App Service app](../app-service/app-service-web-get-started-dotnet) are exactly same as they are for global Azure.
+After Visual Studio is configured to connect to your Azure Germany account (which you already did as a prerequisite), [instructions to deploy an App Service app](../app-service/app-service-web-get-started-dotnet.md) are exactly same as they are for global Azure.
 
 ## Next steps
 * [Deploy an ASP.NET web app to Azure App Service by using Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
