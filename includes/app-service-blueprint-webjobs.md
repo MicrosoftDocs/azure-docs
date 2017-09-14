@@ -5,7 +5,7 @@
 * [How to Deploy Azure WebJobs using Visual Studio](../articles/app-service/websites-dotnet-deploy-webjobs.md)
 * [How to deploy WebJobs using the Azure Management Portal](../articles/app-service/web-sites-create-web-jobs.md)
 * [The Add Azure WebJob Dialog](../articles/app-service/websites-dotnet-deploy-webjobs.md#configure)
-* [Create a Scheduled WebJob in the Azure Management Portal](../articles/app-service/web-sites-create-web-jobs.md#CreateScheduled)
+* [Create a Scheduled WebJob in the Azure Management Portal](../articles/app-service/web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Scheduling Azure WebJobs with cron expressions](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
 ## Videos
