@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2017
+ms.date: 09/14/2017
 ms.author: jeedes
 
 ---
@@ -108,8 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. **Reply URL** is the **"Post-back URL (Assertion Consumer Service URL)"** from Help Scout, starts with `https://` 
 
 	> [!NOTE] 
-	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You will get these values from the **Single Sign-On** tab under Authentication section, by signing on to your Help Scout admin portal.
-	For more details on this please refer to the [Help Scout docs](http://docs.helpscout.net/article/906-enabling-sso-with-azure-ad-as-the-identity-provider) or contact [Help Scout support](mailto:help@helpscout.com). 
+	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
 
 4. If you wish to configure the application in **SP** initiated mode, check **Show advanced URL settings** and perform the following step:
 
@@ -130,7 +129,37 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/config.png) 
 
-8. To configure single sign-on on the Help Scout side, login to Help Scout admin portal and upload the **Certificate (Base64)** downloaded from Azure portal to the Help Scout Company SAML SSO connection settings page along with the copied value of **“SAML Single Sign-On Service URL.”** For more details on this, please refer to the [Help Scout docs](http://docs.helpscout.net/article/906-enabling-sso-with-azure-ad-as-the-identity-provider) or contact [Help Scout support](mailto:help@helpscout.com). 
+8. In a different web browser window, log in to your Help Scout company site as an administrator.
+
+9. Once you are logged in click on **"Manage"** from the top menu and then select **"Company"** from the dropdown menu.
+
+	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
+ 
+10. Select **"Authentication"** from the left-hand menu. 
+
+	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
+
+11. This takes you to the SAML settings section and perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
+ 
+	a. Copy the **Post-back URL (Assertion Consumer Service URL)** value and paste the value in the **Reply URL** box in the Azure portal, under Help Scout **Domain and URLs** section.
+	
+	b. Copy the **Audience URI (Service Provider Entity ID)** value and paste the value in the **Identifier** box in the Azure portal, under Help Scout **Domain and URLs** section.
+
+12. Toggle **Enable SAML** on and perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
+ 
+	a. In **Single Sign-On URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+	
+	b. Click **Upload Certificate** to upload the **Certificate(Base64)** downloaded from Azure portal.
+
+	c. Enter your organization's email domain(s) e.x.- `contoso.com` in the **Email Domains** textbox. You can separate multiple domains with a comma. Anytime a Help Scout User or Administrator who enters that specific domain on the [Help Scout log-in page](https://secure.helpscout.net/members/login/) will be routed to Identity Provider to authenticate with their credentials.
+
+	d. Lastly, you can toggle **Force SAML Sign-on** if you want Users to only log in to Help Scout via through this method. If you'd still like to leave the option for them to sign in with their Help Scout credentials, you can leave it toggled off. Even if this is enabled, an Account Owner will always be able to log in to Help Scout with their account password.
+
+	e. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
