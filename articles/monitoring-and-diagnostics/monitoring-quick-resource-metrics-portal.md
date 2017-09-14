@@ -15,15 +15,15 @@ ms.custom: mvc
 
 # How do I browse metrics for my resources in Azure Portal
 
-Metrics for many resources can be visualized through the Azure Portal. This method provides a browser-based user interface to discover and plot metrics for Azure resources. This Quickstart steps through creating a Logic App, creating a job, and visualizing the metrics for the logic app.
+Metrics for many resources can be visualized through the Azure portal. This method provides a browser-based user interface to discover and plot metrics for Azure resources. This Quickstart steps through creating a Logic App, creating a job, and visualizing the metrics for the logic app.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create logic app
+## Create a Logic App
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
@@ -35,7 +35,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 4. The logic app should be pinned to your dashboard. Navigate to the logic app by clicking on it.
 
-5. In the logic app blade, select the **Logic App Designer**
+5. In the Logic App blade, select the **Logic App Designer**
 
 6. In the designer select the **Recurrence** trigger.
 
@@ -47,7 +47,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 10. Set the **Method** as post and the **Uri** to a web address of your choice
 
-    ![Configure the logic app trigger in the portal blade](/media/monitoring-quick-resource-metrics-portal/create-logic-app-triggers.jpg)
+    ![Configure the logic app trigger in the portal blade](./media/monitoring-quick-resource-metrics-portal/create-logic-app-triggers.jpg)
 
 11. Click **Save**
 
@@ -63,7 +63,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 5. You should now see a chart plotting the total number of runs your logic app has started over the past hour
 
-    ![Plot a metric chart for the logic app resource](/media/monitoring-quick-resource-metrics-portal/logic-app-metric-chart.jpg)
+    ![Plot a metric chart for the logic app resource](./media/monitoring-quick-resource-metrics-portal/logic-app-metric-chart.jpg)
 
 ## Clean up resources
 
