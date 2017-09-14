@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Make sure that **PowerShell** is selected in Cloud Shell.
 
-We will be using a new cmdlet [New-AzVM](/powershell/module/azurerm.network/new-azvm) to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace as the OS. You can use New-AzVM alone and it will use all default values. In this example, we are going to specify the resource group name as *myResourceGroup*, the name of the VM as *myVM*, and let the cmdlet create the resource group and the rest of the required resources. 
+We will use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace as the OS. You can use New-AzVM alone and it will use all default values. In this example, we are going to specify the resource group name as *myResourceGroup*, the name of the VM as *myVM*, and let the cmdlet create the resource group and the rest of the required resources. 
 
 You will be asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic. The password must be 12-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character.
 
