@@ -61,9 +61,9 @@ This tutorial covers the following tasks:
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
-3. Your Solution Explorer should now include the packages you installed, as shown below. 
+3. Your Solution Explorer should now include the packages you installed, as shown here. 
    
-   Next, we'll need to write some code. To do this, add a new **Azure Function** item to the project. This one is named **Search.cs**, because the point of this Azure Function is to provide database searching.  
+   Next, we need to write some code. To do this, add a new **Azure Function** item to the project. This one is named **Search.cs**, because the point of this Azure Function is to provide database searching.  
  
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/05-add-function.png)
 
@@ -90,7 +90,7 @@ This tutorial covers the following tasks:
    using System.Threading.Tasks;
    ```
 
-6. Next, replace the Azure Function's class code with the code below. The code will simply search the Cosmos DB database using the Graph API for either all the people, or for the specific person identified via the name querystring parameter.
+6. Next, replace the Azure Function's class code with the code below. The code will search the Azure Cosmos DB database using the Graph API for either all the people, or for the specific person identified by the `name` query string parameter.
 
    ```csharp
    public static class Search
@@ -105,7 +105,7 @@ This tutorial covers the following tasks:
        {
            log.Info("C# HTTP trigger function processed a request.");
 
-           // the person objects will be free-form in structure
+           // the person objects are free-form in structure
            List<dynamic> results = new List<dynamic>();
 
            // open the client's connection
@@ -152,17 +152,17 @@ This tutorial covers the following tasks:
    }
    ```
 
-   The code is basically the same connection logic as in the original console application which seeded the database, with a simple query to retrieve the matching records.
+   The code is basically the same connection logic as in the original console application that seeded the database, with a simple query to retrieve the matching records.
 
 ## Debug the Azure Function Locally
 
 Now that the code is complete, you can use the Azure Function's local debugging tools and emulator to run the code locally to test it.
 
-1. Before the code will run properly, you must configure it for local execution with your Cosmos DB connection information. You can use the local.settings.json file to configure the Azure Function for local execution much in the same way you would use the App.config file to configure the original console application for execution.
+1. Before the code will run properly, you must configure it for local execution with your Azure Cosmos DB connection information. You can use the local.settings.json file to configure the Azure Function for local execution much in the same way you would use the App.config file to configure the original console application for execution.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
 
-2. After you configure the Azure Function app with your Cosmos DB endpoint and authorization key so that it knows how to find your Cosmos DB database, press F5 to launch the local debugging tool, func.exe, with the Azure Function code hosted and ready for use.
+2. After you configure the Azure Function app with your Azure Cosmos DB endpoint and authorization key so that it knows how to find your Azure Cosmos DB database, press F5 to launch the local debugging tool, func.exe, with the Azure Function code hosted and ready for use.
 
    At the end of the initial output from func.exe, we see that Azure Function is being hosted at localhost:7071. This will be helpful to test it in a client.
 
@@ -200,11 +200,11 @@ After the Azure Function is validated and seems to be working properly, the last
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/14-new-function-app.png)
 
-4. After the Azure Function is published, you can go to the Azure Portal blade for your Azure Function. There, you can see a link to the Azure Function's **Application settings**. You'll need to go here, as this is where you'll configure the live Azure Function for connectivity to the Cosmos DB database with your Person data.
+4. After the Azure Function is published, you can go to the Azure portal blade for your Azure Function. There, you can see a link to the Azure Function's **Application settings**. You'll need to go here, as this is where you'll configure the live Azure Function for connectivity to the Azure Cosmos DB database with your Person data.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
 
-5. Just as you did earlier in the console application's App.config file and in the Azure Function app's local.settings.json file, you'll need to configure the published Azure Function with the Endpoint and AuthKey values appropriate for your Cosmos DB database. This way, you never have to check in configuration code that contains your keys - you can configure them in the portal and be sure they're not stored in source control.
+5. Just as you did earlier in the console application's App.config file and in the Azure Function app's local.settings.json file, you'll need to configure the published Azure Function with the Endpoint and AuthKey values appropriate for your Azure Cosmos DB database. This way, you never have to check in configuration code that contains your keys - you can configure them in the portal and be sure they're not stored in source control.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/16-app-settings.png)
 
@@ -212,10 +212,6 @@ After the Azure Function is validated and seems to be working properly, the last
 
   ![Update Nuget packages](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
 
-## Summary
-This article summarizes how to write a basic Azure Function to search a super-small Cosmos DB database using the Graph API, but there's so much more opportunity here. It's a quick-and-dirty introduction to using Cosmos DB and Functions together - it really drives home the flexibility of using a serverless back-end together with a schemaless data storage mechanism. These two tools are powerful when used together, to enable really rapid, fluid evolution of an API that can evolve around the underlying data structure.
-
-I'll definitely be investigating Cosmos DB and Azure Functions together for some upcoming side project ideas on my backlog, and encourage you to take a look at it. The sample code in my fork of the repository - though kind of brute-force still - demonstrates how easy it is to get up and running with a serverless front-end atop a Graph database with worldwide distribution capability.
 
 ## Next steps
 
