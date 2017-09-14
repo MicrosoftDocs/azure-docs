@@ -23,6 +23,11 @@ Key Vault is generally available in Azure Government.
 
 For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
 
+## Azure Active Directory Premium
+Azure Active Directory Premium is in Limited Preview in Azure Government.
+
+For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md). For details on how to sign up for Preview, see the [announcement blog](../key-vault/index.md).
+
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
 
