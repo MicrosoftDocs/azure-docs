@@ -93,7 +93,7 @@
 ### [View deployment operations](resource-manager-deployment-operations.md)
 
 ## Troubleshoot
-### [Common deployment error](resource-manager-common-deployment-errors.md)
+### [Common deployment errors](resource-manager-common-deployment-errors.md)
 ### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
 ### Resolve Errors
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
@@ -108,9 +108,11 @@
 #### Linux
 ##### [Deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 ##### [Provisioning and allocation issues](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [Common error messages](../virtual-machines/linux/error-messages.md)
 #### Windows
 ##### [Deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ##### [Provisioning and allocation issues](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [Common error messages](../virtual-machines/windows/error-messages.md)
 
 # Reference
 ## [Template format](/azure/templates/)

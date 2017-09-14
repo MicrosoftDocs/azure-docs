@@ -22,7 +22,7 @@ This article describes the cause of the RequestDisallowedByPolicy error, it also
 
 ## Symptom
 
-When you try to do an action during deployment, you might receive a **RequestDisallowedByPolicy** error that prevents the action be performed. The following is a sample of the error:
+When you try to do an action during deployment, you might receive a **RequestDisallowedByPolicy** error that prevents the action from completing. The following example shows the error:
 
 ```json
 {
@@ -39,7 +39,7 @@ To retrieve details about the policy that blocked your deployment, use the follo
 
 ### Method 1
 
-In PowerShell, provide that policy identifier as the **Id** parameter to retrieve details about the policy that blocked your deployment.
+In PowerShell, provide that policy identifier as the `Id` parameter to retrieve details about the policy that blocked your deployment.
 
 ```PowerShell
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
@@ -55,7 +55,7 @@ az policy definition show --name regionPolicyAssignment
 
 ## Solution
 
-For security or compliance, your IT department might enforce a resource policy that prohibits creating Public IP addresses, Network Security Groups, User-Defined Routes, or route tables. In the sample of the error message that is described in the "Symptoms" section, the policy is named **regionPolicyDefinition**, but it could be different.
+For security or compliance, your IT department might enforce a resource policy that prohibits creating Public IP addresses, Network Security Groups, User-Defined Routes, or route tables. The error message in the **Symptoms** section shows a policy named **regionPolicyDefinition**. Your policy might have a different name.
 To resolve this problem, work with your IT department to review the resource policies, and determine how to perform the requested action in compliance with those policies.
 
 For more information, see the following articles:
