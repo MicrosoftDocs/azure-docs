@@ -3,7 +3,7 @@
 - name: Machine Learning Studio
   href: studio/index.yml
 - name: Data Science Virtual Machine
-  href: data-science-virtual-machine/virtual-machine-overview.md
+  href: data-science-virtual-machine/overview.md
 - name: Team Data Science Process
   href: team-data-science-process/overview.md
 
