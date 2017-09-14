@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/15/2017
 ms.author: LADocs; jehollan
 ---
 
@@ -92,13 +92,13 @@ In this example, set these properties to run your workflow every week.
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
    For example, suppose that today is Monday, September 4, 2017. 
-   The following recurrence trigger doesn't fire until after the 
+   The following recurrence trigger doesn't fire *any sooner* than the 
    start date and time, which is Monday, September 18, 2017 at 8:00 AM PST. 
    However, the recurrence schedule is set for 10:30 AM, 12:30 PM, 
-   and 2:30 PM on Mondays only. So the first time the trigger fires 
-   and creates a logic app workflow instance is 10:30 AM, not 8:00 AM. 
-   Later runs happen at 12:30 PM and 2:30 PM on the same day with 
-   each run creating their own workflow instance. After that, 
+   and 2:30 PM on Mondays only. So the first time that the trigger fires 
+   and creates a logic app workflow instance is at 10:30 AM, not 8:00 AM. 
+   Future runs happen at 12:30 PM and 2:30 PM on the same day. 
+   Each run creates their own workflow instance. After that, 
    the entire schedule repeats all over again next Monday. 
    [*What are some other example occurrences?*](#example-recurrences)
 
