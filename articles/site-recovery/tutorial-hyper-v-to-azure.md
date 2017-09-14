@@ -86,7 +86,7 @@ Set up an [Azure storage account](../storage/common/storage-create-storage-accou
     
     - Any IP address-based firewall rules should allow communication to Azure.
     - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-    - Allow IP address ranges for the Azur
+    - Allow IP address ranges for the Azure region of your subscription, and for West US (used for access control and identity management).
 
 ### Prepare VMM servers
 
@@ -240,4 +240,5 @@ When you create a new policy it's automatically associated with the VMM cloud, o
 
  You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the virtual machine is ready for failover.
 
-
+## Next steps
+[Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
