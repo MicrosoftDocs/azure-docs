@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/14/2017
 ---
 # Provision and install Azure Machine Learning preview features
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
