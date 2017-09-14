@@ -47,7 +47,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to a new solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **TriggerReboot**.
 
-    ![New Visual C# Windows Classic Desktop project][img-createapp]
+    ![New Visual C# Windows Classic Desktop project][img-createserviceapp]
 
 2. In Solution Explorer, right-click the **TriggerReboot** project, and then click **Manage NuGet Packages**.
 3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
@@ -133,7 +133,6 @@ In this section, you will
                 Console.WriteLine("Rebooting!");
 
                 // Update device twim with reboot time. 
-                // In production this could be done from reboot code triggered from this method and scheduled after it returns.
                 TwinCollection reportedProperties, reboot, lastReboot;
                 lastReboot = new TwinCollection();
                 reboot = new TwinCollection();
@@ -198,7 +197,11 @@ You are now ready to run the apps.
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 [img-servicenuget]: media/iot-hub-csharp-csharp-device-management-get-started/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-csharp-device-management-get-started/createnetapp.png
+[img-creatserviceeapp]: media/iot-hub-csharp-csharp-device-management-get-started/creatserviceapp.png
+[img-clientnuget]: media/iot-hub-csharp-csharp-device-management-get-started/clientsdknuget.png
+[img-createdeviceapp]: media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png
+[img-deviceapprun]: media/iot-hub-csharp-csharp-device-management-get-started/deviceapprun.png
+[img-serviceapprun]: media/iot-hub-csharp-csharp-device-management-get-started/serviceapprun.png
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
