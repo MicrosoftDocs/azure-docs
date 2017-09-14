@@ -14,7 +14,7 @@ ms.date: 09/13/2017
 
 Before Azure Key Vault Storage Account Keys, developers had to manage their own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure Storage Account. 
 
-The ASA key feature manages secret rotation for you. It also removes the need for your direct contact with an ASA key by offering Shared Access Signatures (SAS) as a method. 
+The Azure Storage Account (ASA) key feature manages secret rotation for you. It also removes the need for your direct contact with an ASA key by offering Shared Access Signatures (SAS) as a method. 
 
 For more general information on Azure Storage Accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
