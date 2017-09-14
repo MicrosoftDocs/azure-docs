@@ -49,8 +49,7 @@ Key Vault performs several internal management functions on your behalf when you
 Developers used to need to do the following practices with a storage account key to get access to Azure storage. 
  
 ```powershell
-//create storage account using connection string containing account name 
-// and the storage key 
+//create an Azure Storage Account using a connection string containing an account name and a storage key 
 
 var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -59,15 +58,15 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 ### After Azure Key Vault Storage Keys 
 
 ```powershell
-//Please make sure to set storage permissions appropriately on your key vault
+//Make sure to set storage permissions appropriately on your key vault
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
 
-//Use PowerShell command to get Secret URI 
+//Get secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
 -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
-//Get SAS token from Key Vault
+//Get a SAS token from Key Vault
 
 var secret = await kv.GetSecretAsync("SecretUri");
 
@@ -75,18 +74,17 @@ var secret = await kv.GetSecretAsync("SecretUri");
 
 var accountSasCredential = new StorageCredentials(secret.Value); 
 
-// Use credentials and the Blob storage endpoint to create a new Blob service client. 
+// Use the storage credentials and the Blob storage endpoint to create a new Blob service client. 
 
 var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null); 
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
-// If SAS token is about to expire then Get sasToken again from Key Vault and update it.
+// If your SAS token is about to expire, Get sasToken again from Key Vault and update it.
 
 accountSasCredential.UpdateSASToken(sasToken);
+```
 
-  ```
- 
  ### Developer guidance
 
 - Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself, you will interfere with Key Vault's processes. 
