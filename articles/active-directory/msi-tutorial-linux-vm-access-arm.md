@@ -29,7 +29,7 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 
 ## Create a Linux Virtual Machine in a new Resource Group
