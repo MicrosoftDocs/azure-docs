@@ -16,9 +16,9 @@
     href: review-api.md
 - name: Get started
   items: 
-  - name: The review tool
+  - name: Review Tool
     href: quick-start.md
-  - name: Try the moderation APIs
+  - name: Moderation APIs
     items: 
     - name: Images
       href: try-image-api.md
@@ -28,7 +28,7 @@
       href: try-text-api.md
     - name: Term lists
       href: try-terms-list-api.md
-  - name: Try the review APIs
+  - name: Review APIs
     items: 
     - name: Jobs
       href: try-review-api-job.md
@@ -36,9 +36,9 @@
       href: try-review-api-review.md
     - name: Workflows
       href: try-review-api-workflow.md
-- name: How to
+- name: How-to Guides
   items:
-  - name: Use the review tool
+  - name: Review Tool
     items:
     - name: Human in the loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
@@ -54,7 +54,7 @@
       href: Review-Tool-User-Guide/Text-Reviews.md
     - name: Verify credentials
       href: Review-Tool-User-Guide/Credentials.md
-    - name: Use Connectors
+    - name: Use connectors
       href: Review-Tool-User-Guide/Connectors.md
     - name: Use workflows
       href: Review-Tool-User-Guide/Workflows.md
