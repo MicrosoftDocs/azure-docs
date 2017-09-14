@@ -58,8 +58,7 @@ Please make sure you have the following:
 * [Visual Studio](https://www.visualstudio.com/downloads/), with the C++ language components installed.
 
 ## Step 1: Create an Azure Cosmos DB account
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your C++ application](#SetupNode).
-<!---Loc Comment: Please, check link [Setup your C++ application] since it's not redirecting to any location.--->
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your C++ application](#SetupC++).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
