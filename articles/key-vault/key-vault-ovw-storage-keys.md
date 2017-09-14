@@ -214,9 +214,7 @@ You are able access the storage blob content with the SAS token that has write a
 - [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
 - [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
 
-
-
-### Storage account onboarding 
+## Storage account onboarding 
 
 Example: As a Key Vault object owner you add a storage account object to your Azure Key Vault to onboard a storage account.
 
