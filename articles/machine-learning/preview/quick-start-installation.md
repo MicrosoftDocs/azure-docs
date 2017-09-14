@@ -40,22 +40,28 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 
 4. Type in `Machine Learning` into the search bar. Select the search result named **ML Experimentation (preview)**. 
 
-5. Click **Create** to begin the creation process for your Machine Learning Experimentation account. 
+5. Click **Create** to open the form to configuring a new Machine Learning Experimentation account. 
 
-6. Fill out the Machine Learning Experimentation form with the following information.
+6. Fill out the Machine Learning Experimentation form with the following information:
 
-    Setting|Suggested value|Description
-    ---|---|---
-    Experimentation account name |**|Choose a unique name that identifies your account. 
-    Subscription |*Your subscription*|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
-    Resource Group |*myresourcegroup*| You may make a new resource group name, or use an existing one from your subscription.
-    Location |*The region closest to your users*| Choose the location that's closest to your users.
-    Number of seats | 2 | Type the number of seats. impacts the [Machine Learning pricing](https://azure.microsoft.com/en-us/pricing/details/machine-learning/). The first two seats are free. 
-    Storage Account |*| Choose **Create new** and provide a name  to create a new storage account, or choose **Use existing** and select your existing storage account from the drop down. The storage account is required and is used to hold project artifacts and run history data. 
-    Pricing Tier |  | Click **Pricing tier** to specify the service tier and performance level for your new database. Click **Ok** to save the pricing tier selection. 
-    | Pin to dashboard | Check | Check the **Pin to dashboard** option to allow easy tracking of your Machine Learning Experimentation account on the front dashboard page of your Azure portal.
+   Setting|Suggested value|Description
+   ---|---|---
+   Experimentation account name |*experiment*|Choose a unique name that identifies your account. You could use your own name, or a departmental or project name that best identifies the experiment.
+   Subscription |*Your subscription*|The Azure subscription that you want to use for your experiment. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
+   Resource Group |*myresourcegroup*| You may make a new resource group name, or use an existing one from your subscription.
+   Location |*The region closest to your users*| Choose the location that's closest to your users and the data resources.
+   Number of seats | 2 | Type the number of seats. This selection impacts the [pricing](https://azure.microsoft.com/pricing/details/machine-learning/). The first two seats are free. 
+   Storage Account |*MLStorage*| Choose **Create new** and provide a name  to create a new Azure storage account, or choose **Use existing** and select your existing storage account from the drop-down. The storage account is required and is used to hold project artifacts and run history data. 
+   Workspace for Experimentation account |**MLWorkspace**| If you have an existing workspace, the value will be prepopulated. If you do not have an existing workspace, type a name for the new workspace.
+   Assign owner for the workspace |Your account| Select your own account as the workspace owner.
+   Create Model Management Account |*check*| As part of the Experimentation account creation experience, you have the option of also creating the Machine Learning Model Management account. This resource is used once you are ready to deploy and manage your models as real-time web services. We recommend creating the Model Management account at the same time as the Experimentation account.
+   Account Name | mymodelmanagement | Choose a unique name that identifies your Model Management account. 
+   Model Management pricing tier |  | Click **No pricing tier selected** to specify the pricing tier for your new Model Management account. Click **Ok** to save the pricing tier selection. 
+   Pin to dashboard | Check | Check the **Pin to dashboard** option to allow easy tracking of your Machine Learning Experimentation account on the front dashboard page of your Azure portal.
 
-7. As part of the Experimentation account creation experience, you have the option of also creating the _Machine Learning Model Management account_. This resource is used once you are ready to deploy and manage your models as real-time web services. We recommend creating the Model Management account at the same time as the Experimentation account.
+7. Click **Create** to begin the creation process.
+ 
+8. On the upper right of the Azure portal toolbar, click **Notifications** (bell icon) to monitor the deployment process. 
 
 Depending on which operating system you use on your local computer, follow one of the next two sections to install Azure ML Workbench on your computer. 
 
