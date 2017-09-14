@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM MSI to access KeyVault
-description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access KeyVault. 
+title: Use a Windows VM MSI to access Azure Key Vault
+description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access Azure Key Vault. 
 services: active-directory
 documentationcenter: ''
 author: elkuzmen
@@ -16,7 +16,7 @@ ms.date: 09/14/2017
 ms.author: elkuzmen
 ---
 
-# Use Managed Service Identity (MSI) with a Windows VM to access KeyVault 
+# Use Managed Service Identity (MSI) with a Windows VM to access Azure Key Vault 
 This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and then use that identity to access the Azure Key Vault. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
 You will learn how to:
 
@@ -29,8 +29,8 @@ You will learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+## Sign in to Azure
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 
 ## Create a Windows virtual machine in a new resource group
@@ -43,7 +43,7 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
 
-![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## Enable MSI on your VM 
 A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your Virtual Machine. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
@@ -53,11 +53,11 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 3.	You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
 4.	Ensure you click **Save** to save the configuration.  
 
-![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-configured.png)
+    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-configured.png)
 
 5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** appears in the list.
 
-![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 
 ## Grant your VM access to a Secret stored in a Key Vault  
@@ -74,7 +74,7 @@ First, we need to create a Key Vault and grant our VM’s identity access to the
 7. Click **OK** to finishing adding the new access policy, and **OK** to finish access policy selection. 
 8. Click **Create** to finish creating the Key Vault. 
 
-![Alt image text](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Alt image text](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
 Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
@@ -86,8 +86,8 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
 5. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
 6. Click **Create** to create the secret. 
  
-## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
-Now that you have created a secret, stored it in a Key Vault, and granted your VM MSI access to the Key Vault, you can write code to retrieve the secret at run time.  To keep this example simple we’ll use simple REST calls using PowerShell.  If you don’t have PowerShell installed, download it [here](https://docs.microsoft.com/en-us.powershell/azure/overview?view=azurermps-4.3.1).
+## Get an access token using the VM identity and use it retrieve the secret from the Azure Key Vault  
+Now that you have created a secret, stored it in a Key Vault, and granted your VM MSI access to the Key Vault, you can write code to retrieve the secret at run time.  To keep this example simple we’ll use simple REST calls using PowerShell.  If you don’t have PowerShell installed, download it [here](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1).
 
 First, we’ll use the VM’s MSI to get an access token to authenticate to Key Vault:
  
