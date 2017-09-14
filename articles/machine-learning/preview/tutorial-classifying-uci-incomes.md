@@ -18,9 +18,9 @@ ms.author: bradsev
 
 ---
 
-# Income Classification from US Census Data with a Team Data Science Process project in Azure Machine Learning Workbench
+# US Income Classification with a Team Data Science Process project
 
-## [Link of the  GitHub repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)
+## [Link To GitHub Repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)
 We provide summary documentation here about the sample. More extensive documentation can be found on the GitHub site.
 
 
@@ -45,10 +45,10 @@ The primary purpose of this sample is to show how to instantiate and execute a d
 
 <img src="./media/tutorial-classifying-uci-incomes/tdsp-lifecycle.jpg" width="800" height="600">
 
-## Pre-requisites
-### Required: Subscription, Hardware, Software
-1. An Azure [subscription](https://azure.microsoft.com/en-us/free/)
-2. This tutorial was tested on an Azure Data Science Virtual Machine (DSVM) Windows Server 2016, (VM Size: [DS3_V2](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes), with 4 virtual CPUs and 14-Gb RAM). 
+## Pre-Requisites
+### Required: Subscription, hardware, software
+1. An Azure [subscription](https://azure.microsoft.com)
+2. This tutorial was tested on an Azure Data Science Virtual Machine (DSVM) Windows Server 2016, (VM Size: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), with 4 virtual CPUs and 14-Gb RAM). 
 3. Please review [how to get started and FAQs](faq.md) on Azure ML Workbench and its related services.
 4. Make sure that you have properly installed Azure ML Workbench by following the [installation guide](https://github.com/Azure/ViennaDocs/blob/master/Documentation/Installation.md).
 
@@ -73,14 +73,15 @@ For detailed information about the data, see the [description](https://archive.i
 
 This data was extracted from the Census Bureau database found at: https://www.census.gov/en.html. 
 
-    There are a total of 48,842 instances (prior to any filtering), mix of continuous and discrete (train=32,561, test=16,281)
-    Probability for the label '>50K'  : 23.93% / 24.78% (without unknowns)
-    Probability for the label '<=50K' : 76.07% / 75.22% (without unknowns)
-    TARGET: Income class >50K, <=50K.
-    FEATURES: Age, work class, education level, education level, race, sex, hours of work per week, etc.
+There are a total of 48,842 instances (prior to any filtering), mix of continuous and discrete (train=32,561, test=16,281)
+Probability for the label '>50 K'  : 23.93% / 24.78% (without unknowns)
+Probability for the label '<=50 K' : 76.07% / 75.22% (without unknowns)
+
+* TARGET: Income class >50K, <=50 K.
+* FEATURES: Age, work class, education level, education level, race, sex, hours of work per week, etc.
 
 
-## Project Structure and Reporting
+## Project Structure & Reporting
 
 ### Structure
 For this project, we use the TDSP folder structure and documentation templates (Figure 1), which follows the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). 
@@ -93,7 +94,7 @@ Project is created based on instructions provided [here](https://github.com/amls
 
 The step-by-step data science workflow was as follows:
 
-1. [**Data Acquisition and Understanding**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/Code/01_Data_Acquisition_and_Understanding)
+* [**Data Acquisition and Understanding**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/Code/01_Data_Acquisition_and_Understanding)
 
 Data was downloaded in .csv form from URLs at UCI ML Repository [[link]](https://archive.ics.uci.edu/ml/datasets/adult). Features, target, and their transformations are described in detail in the ProjectReport.md file.
 
@@ -102,11 +103,11 @@ Data exploration is performed using the Python 3 [IDEAR (Interactive Data Explor
 The location of the final data exploration report is [here](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/Docs/DeliveralbeDocs).
 
 
-2. [**Modeling**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/Code/02_Modeling)
+* [**Modeling**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/Code/02_Modeling)
 We created two models with 3-fold cross-validation: Elastic Net and Random forest. We used [59-point sampling](http://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf)  for random grid search as a strategy for cross-validation. Accuracy of the models were measured using AUC (Area under curve) on the test data set. AUC of both Elastic Net and Random Forest models were > 0.85. We save both models in pickled.pkl files, and output the ROC plots for both models. In addition, for model interpretation, feature importance for the Random Forest model are output in a .csv file and plotted in a pdf (top predictive features only).
 
-3. [**Deployment**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/Code/03_Deployment)
-We  deployed a web-service on a cluster in the [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information on the operationalization process [here](model-management-service-deploy.md).
+* [**Deployment**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/Code/03_Deployment)
+We  deployed a web-service on a cluster in the [Azure Container Service (ACS)](https://azure.microsoft.com/services/container-service/). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information on the operationalization process [here](model-management-service-deploy.md).
 
 
 ### Reporting
@@ -122,7 +123,3 @@ In this sample, we showed now to use TDSP structure and templates in Azure Machi
 Team Data Science Process (TDSP):  [https://github.com/Azure/Microsoft-TDSP](https://github.com/Azure/Microsoft-TDSP)
 
 TDSP project template for Azure Machine Learning Workbench: [https://github.com/amlsamples/tdsp](https://github.com/amlsamples/tdsp)
-
-## Contact
-
-Feel free to contact Debraj GuhaThakurta (debraj.guhathakurta@microsoft.com) or Xibin Gao (xibingao@microsoft.com) with any question or comments on this sample.
