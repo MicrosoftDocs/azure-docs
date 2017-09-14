@@ -1,6 +1,6 @@
 ---
 title: Browse resource metrics in Azure Portal | Microsoft Docs
-description: Azure Monitor: Quickstart guide to help users visualize metrics for a Logic App
+description: Visualize and understand the metrics being emmited for a Logic App in the portal
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
