@@ -1,4 +1,4 @@
-Create deployment credentials with the [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) command.
+In the Cloud Shell, create deployment credentials with the [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) command.
 
 A deployment user is required for FTP and local Git deployment to a web app. The user name and password are account level. _They are different from your Azure subscription credentials._
 

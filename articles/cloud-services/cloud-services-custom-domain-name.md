@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure a custom domain name in Cloud Services | Microsoft Docs
 description: Learn how to expose your Azure application or data on a custom domain by configuring DNS settings.
 services: cloud-services
@@ -38,7 +38,7 @@ Do you already understand what CNAME and A records are? [Jump past the explanati
 <p/>
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

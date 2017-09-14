@@ -2,7 +2,7 @@
 title: Azure Machine Learning Documentation - Tutorials, API Reference | Microsoft Docs
 description: Documentation, videos, and example models for Machine Learning, a cloud service for data scientists and developers using predictive analytics in applications.
 services: machine-learning
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,6 +2,7 @@
 ## [What is Azure Analysis Services?](analysis-services-overview.md)
 ## [Supported data sources](analysis-services-datasource.md)
 ## [Authentication and user permissions](analysis-services-manage-users.md)
+## [Connecting to on-premises data sources](analysis-services-gateway.md)
 ## [Compatibility level](analysis-services-compat-level.md)
 ## [High availability](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [Manage a server](analysis-services-manage.md)
 ## [Manage database users](analysis-services-database-users.md)
 ## [Manage server administrators](analysis-services-server-admins.md)
-## [Install On-premises data gateway](analysis-services-gateway.md)
+## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
 ## [Get client libraries](analysis-services-data-providers.md)
 ## [Backup and restore](analysis-services-backup.md)
 ## [Connect with Excel](analysis-services-connect-excel.md)

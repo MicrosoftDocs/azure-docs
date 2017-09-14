@@ -1,4 +1,4 @@
----
+﻿---
 title: User retention analysis for web applications with Azure Application Insights | Microsoft docs
 description: How many users return to your app?
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: sewhee
+ms.author: bwren
 ---
 
 # User retention analysis for web applications with Application Insights
@@ -64,7 +64,7 @@ Or in ASP.NET server code:
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](app-insights-usage-segmentation.md)
     - [Funnels](usage-funnels.md)
-    - [Flows](app-insights-usage-flows.md)
+    - [User Flows](app-insights-usage-flows.md)
     - [Workbooks](app-insights-usage-workbooks.md)
     - [Add user context](app-insights-usage-send-user-context.md)
 

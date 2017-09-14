@@ -215,7 +215,6 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
 * [Submit Hadoop Jobs in HDInsight][hdinsight-submit-jobs]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
-* [Debug Hadoop in HDInsight: Error messages][hdinsight-errors]
 
 ## Appendix A - The Word count source code
 
@@ -981,8 +980,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-errors]: hdinsight-debug-jobs.md
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

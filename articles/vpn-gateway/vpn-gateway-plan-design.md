@@ -22,7 +22,7 @@ ms.author: cherylmc
 
 Planning and designing your cross-premises and VNet-to-VNet configurations can be either simple, or complicated, depending on your networking needs. This article walks you through basic planning and design considerations.
 
-## Planning
+## <a name="planning"></a>Planning
 
 ### <a name="compare"></a>Cross-premises connectivity options
 
@@ -36,13 +36,13 @@ If you want to connect your on-premises sites securely to a virtual network, you
 * What type of VPN gateway is required for the solution you want to create?
 * Which gateway SKU should you use?
 
-### Planning table
+### <a name="planningtable"></a>Planning table
 
 The following table can help you decide the best connectivity option for your solution.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### Gateway SKUs
+### <a name="gwsku"></a>Gateway SKUs
 
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -56,7 +56,7 @@ The following list outlines the common workflow for cloud connectivity:
 4. Create and configure connections to on-premises networks or other virtual networks (as needed).
 5. Create and configure a Point-to-Site connection for your Azure VPN gateway (as needed).
 
-## Design
+## <a name="design"></a>Design
 ### <a name="topologies"></a>Connection topologies
 
 Start by looking at the diagrams in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article. The article contains basic diagrams, the deployment models for each topology, and the available deployment tools you can use to deploy your configuration.
@@ -65,7 +65,7 @@ Start by looking at the diagrams in the [About VPN Gateway](vpn-gateway-about-vp
 
 The following sections discuss the VPN gateway basics. 
 
-#### Networking services limits
+#### <a name="servicelimits"></a>Networking services limits
 
 Scroll through the tables to view [networking services limits](../azure-subscription-service-limits.md#networking-limits). The limits listed may impact your design.
 

@@ -4,7 +4,7 @@ description: Learn how to configure Azure function app settings.
 services: ''
 documentationcenter: .net
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
-ms.author: rachelap, glenga
+ms.author: glenga
 
 ---
 # How to manage a function app in the Azure portal 

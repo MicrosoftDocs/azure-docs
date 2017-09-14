@@ -37,6 +37,7 @@
 ### [Apps that use queues](service-bus-create-queues.md)
 ### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
 ### [Authentication and authorization](service-bus-authentication-and-authorization.md)
+#### [Migrate from ACS to SAS](service-bus-migrate-acs-sas.md)
 #### [Authentication with Shared Access Signatures](service-bus-sas.md)
 ### [Partitioned queues and topics](service-bus-partitioning.md)
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
@@ -52,7 +53,13 @@
 
 ## Manage
 ### [Service Bus management libraries](service-bus-management-libraries.md)
-### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
+### [Use Azure Resource Manager templates](service-bus-resource-manager-overview.md)
+#### [Create a namespace](service-bus-resource-manager-namespace.md)
+#### [Create a namespace and a queue](service-bus-resource-manager-namespace-queue.md)
+#### [Create a namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
+#### [Create an authorization rule for namespace and queue](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Create a namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Using PowerShell to provision entities](service-bus-manage-with-ps.md)
 
 # Reference
@@ -77,7 +84,7 @@
 ## [ServiceBus360](https://www.servicebus360.com/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azureservicebus)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

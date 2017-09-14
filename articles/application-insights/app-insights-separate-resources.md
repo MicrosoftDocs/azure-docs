@@ -1,4 +1,4 @@
----
+﻿---
 title: Separating telemetry from development, test, and release in Azure Application Insights | Microsoft Docs
 description: Direct telemetry to different resources for development, test, and production stamps.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Separating telemetry from Development, Test, and Production

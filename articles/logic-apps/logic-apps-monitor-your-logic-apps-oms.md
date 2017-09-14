@@ -88,7 +88,8 @@ and choose **Log Analytics** as shown:
 
    ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. On your OMS homepage, choose **Solutions Gallery**.
+4. On your OMS homepage, if the upgrade banner appears, choose the banner so that you 
+upgrade your OMS workspace first. Then choose **Solutions Gallery**.
 
    ![Choose "Solutions Gallery"](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
@@ -110,6 +111,11 @@ go to the overview page for your OMS workspace.
 Review the details on the **Logic Apps Management** tile.
 
    ![Overview tile showing logic app run count and status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+
+   > [!Note]
+   > If this upgrade banner appears instead of the Logic Apps Management tile, choose the banner so that you upgrade your OMS workspace first.
+  
+   > ![Upgrade "OMS Workspace"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. To view a summary with more details about your logic app runs, 
 choose the **Logic Apps Management** tile.

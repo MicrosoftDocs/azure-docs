@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 6: Create measures | Microsoft D
 description: Describes how to create measures in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''

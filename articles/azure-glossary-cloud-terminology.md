@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure glossary - Azure dictionary | Microsoft Docs
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/16/2017
 ms.author: monicar
 
 ---
@@ -26,8 +26,8 @@ The Microsoft Azure glossary is a short dictionary of cloud terminology for the 
 * [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
 
 ## account
-A work or school, or personal Microsoft account that is used to access and manage an Azure subscription.  
-See [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account, or an Office 365 user name and password. You can also create an account to manage an Azure subscription when you sign up for the [free trial](https://azure.microsoft.com).  
+See [Sign up for an Azure subscription with your Office 365 account](billing/billing-use-existing-office-365-account-azure-subscription.md) and [Accounts you can use to sign in](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## API app
 Another name for [App Service app](#app-service-app).
@@ -115,11 +115,11 @@ The agreement that describes Microsoft’s commitments for uptime and connectivi
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>shared access signature (SAS)
-A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](storage/storage-dotnet-shared-access-signature-part-1.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) to grant devices permission to send telemetry.
+A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) to grant devices permission to send telemetry.
 
 ## storage account
 An account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. The storage account name defines the unique namespace for Azure Storage data objects.  
-See [About Azure storage accounts](storage/storage-create-storage-account.md)
+See [About Azure storage accounts](storage/common/storage-create-storage-account.md)
 
 ## subscription
 A customer's agreement with Microsoft that enables them to obtain Azure services. The subscription pricing and related terms are governed by the offer chosen for the subscription.
