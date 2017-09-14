@@ -60,20 +60,43 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
 
 ## Install Azure ML Workbench on macOS operating system.
 Install the Azure Machine Learning Workbench on your computer running macOS Sierra or newer.
-1. Download the latest Azure ML Workbench installer
+
+1. Install openssl library.
+
+>[!IMPORTANT]
+>You need to have the latest openssl library installed. See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/en-US/dotnet/core/macos-prerequisites) for details.
+
+Open terminal window and type the following command:
+
+```
+brew update
+brew install openssl
+mkdir -p /usr/local/lib
+ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+```
+
+>[!NOTE]
+>You need to have [Homebrew](https://brew.sh/) installed if you don't already:
+
+    ```console
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ```
+
+2. Download the latest Azure ML Workbench installer
 [AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg)
 
-2. If you are using Python greater than 3.5, you need to execute this command to enable the correct certificates. 
+3. If you are using Python greater than 3.5, you need to execute this command to enable the correct certificates. 
 
    ```bash
    $ /Applications/Python\ 3.6/Install\ Certificates.command
    ```
 
-3. Double-click the downloaded installer `AmlWorkbench.dmg`.
+4. Double-click the downloaded installer `AmlWorkbench.dmg`.
 
-4. Finish the installation by following the on-screen instructions.
+5. Finish the installation by following the on-screen instructions.
 
-5. Azure ML Workbench is installed in the following directory: `/Applications/AmlWorkbench.app`
+6. Azure ML Workbench is installed in the following directory: `/Applications/AmlWorkbench.app`
 
 ## Run Azure ML Workbench to log in the first time
 1. Click on the **Launch Azure ML Workbench** button when the installation process is complete. If you close the installer, you can still find the shortcut to the Machine Learning Workbench on your desktop named **Azure Machine Learning Workbench**. Double-click it to open the app.
