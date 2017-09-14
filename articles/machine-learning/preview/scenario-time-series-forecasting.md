@@ -7,9 +7,11 @@
 1. Please ensure that you have properly installed Azure ML Workbench by following the [installation guide](https://github.com/Azure/ViennaDocs/blob/master/Documentation/Installation.md).
 2. This sample assumes that you are running Azure ML Workbench on Windows 10 with [Docker engine](https://www.docker.com/) locally installed. If you are using macOS, the instruction is largely the same.
 3. This sample requires that you update the Pandas installation to version 0.20.3. Run the following command in the CLI to upgrade the package.
+
     ```
     conda install pandas==0.20.3
     ```
+
 Notes:
 
 - The sample was built and tested on a Windows 10 machine with the following specification: Intel Core i7-6600U CPU @ 2.60 GHz, 16-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.2-ce-win27 (13194).
