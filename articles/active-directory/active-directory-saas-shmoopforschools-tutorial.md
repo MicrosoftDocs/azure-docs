@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute.png)
 
 	> [!NOTE]
-	> Please click [here](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to know how to configure Role in Azure AD
+	> You need to configure the custom role for the user in Azure AD. Please click [here](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to know how to configure Role in Azure AD
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
