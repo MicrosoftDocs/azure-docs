@@ -63,7 +63,7 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
 ## Install Azure ML Workbench on macOS operating system.
 Install the Azure Machine Learning Workbench on your computer running macOS Sierra or newer.
 
-1. Install openssl library using [Homebrew](http://brew.sh).See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/en-US/dotnet/core/macos-prerequisites) for more details.
+1. Install openssl library using [Homebrew](http://brew.sh). See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/en-US/dotnet/core/macos-prerequisites) for more details.
 ```console
 # only run this if you have Python 3.6 or later installed
 $ /Applications/Python\ 3.6/Install\ Certificates.command
