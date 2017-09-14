@@ -3,7 +3,7 @@ title: Access and usage reports for Azure MFA | Microsoft Docs
 description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
+ms.author: joflore
 
 ---
 # Reports in Azure Multi-Factor Authentication
