@@ -79,9 +79,6 @@
     items:
     - name: General purpose
       href: sizes-general.md
-      items:
-      - name: Burstable sizes
-        href: b-series-burstable.md
     - name: Compute optimized
       href: sizes-compute.md
     - name: Memory optimized

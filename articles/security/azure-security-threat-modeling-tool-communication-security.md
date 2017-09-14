@@ -98,7 +98,7 @@ ms.author: rodsan
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | EnvironmentType - Azure |
-| **References**              | [Enable HTTPS for an app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
+| **References**              | [Enable HTTPS for an app in Azure App Service](../app-service/app-service-web-tutorial-custom-ssl.md) |
 | **Steps** | By default, Azure already enables HTTPS for every app with a wildcard certificate for the *.azurewebsites.net domain. However, like all wildcard domains, it is not as secure as using a custom domain with own certificate [Refer](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). It is recommended to enable SSL for the custom domain which the deployed app will be accessed through|
 
 ## <a id="appservice-https"></a>Force all traffic to Azure App Service over HTTPS connection
@@ -109,7 +109,7 @@ ms.author: rodsan
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | EnvironmentType - Azure |
-| **References**              | [Enforce HTTPS on Azure App Service]https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/#4-enforce-https-on-your-app) |
+| **References**              | [Enforce HTTPS on Azure App Service](../app-service/app-service-web-tutorial-custom-ssl.md#4-enforce-https-on-your-app) |
 | **Steps** | <p>Though Azure already enables HTTPS for Azure app services with a wildcard certificate for the domain *.azurewebsites.net, it do not enforce HTTPS. Visitors may still access the app using HTTP, which may compromise the app's security and hence HTTPS has to be enforced explicitly. ASP.NET MVC applications should use the [RequireHttps filter](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) that forces an unsecured HTTP request to be re-sent over HTTPS.</p><p>Alternatively, the URL Rewrite module, which is included with Azure App Service can be used to enforce HTTPS. URL Rewrite module enables developers to define rules that are applied to incoming requests before the requests are handed to your application. URL Rewrite rules are defined in a web.config file stored in the root of the application</p>|
 
 ### Example

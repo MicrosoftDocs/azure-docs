@@ -20,13 +20,13 @@
     href: quick-start.md
   - name: Try the moderation APIs
     items: 
-    - name: Images
+    - name: Image API
       href: try-image-api.md
-    - name: Image lists
+    - name: Image list API
       href: try-image-list-api.md
-    - name: Text
+    - name: Text API
       href: try-text-api.md
-    - name: Term lists
+    - name: Term list API
       href: try-terms-list-api.md
   - name: Try the review APIs
     items: 

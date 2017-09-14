@@ -34,7 +34,7 @@ Here are some key features of Azure Functions:
 * **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
 * **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
 * **Simplified integration** - Easily leverage Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) for some examples.  
-* **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and other [supported development tools](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
+* **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and other [supported development tools](../app-service/app-service-deploy-local-git.md#deploy-using-an-ide).  
 * **Open-source** - The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## What can I do with Functions?
@@ -84,6 +84,6 @@ For more information about hosting plans, see [Azure Functions hosting plan comp
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
   Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
-* [Learn more about Azure App Service](../app-service/app-service-value-prop-what-is.md)  
+* [Learn more about Azure App Service](../app-service/app-service-web-overview.md)  
   Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics. 
 
