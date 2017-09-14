@@ -1,27 +1,23 @@
 - name: Data Science Virtual Machine documentation
+  href: index.yml
 - name: Overview
-  href: virtual-machine-overview.md
   items:
-  - name: Deep Learning
-    href: deep-learning-dsvm-overview.md
-- name: Get Started
+  - name: What is the Data Science VM?
+    href: overview.md
+- name: Get started
   items:
-  - name: Windows DSVM
+  - name: Windows Data Science VM
     href: provision-vm.md
-  - name: Linux Ubuntu DSVM
+  - name: Linux Ubuntu Data Science VM
     href: dsvm-ubuntu-intro.md
-  - name: Linux CentOS DSVM
+  - name: Linux CentOS Data Science VM
     href: linux-dsvm-intro.md
-  - name: Deep Learning
-    href: provision-deep-learning-dsvm.md
-- name: How To
+- name: How to
   items:
-  - name: Use Windows DSVM
+  - name: Use Windows Data Science VM
     href: vm-do-ten-things.md
-  - name: Use Linux DSVM
+  - name: Use Linux Data Science VM
     href: linux-dsvm-walkthrough.md
-  - name: Using Deep Learning
-    href: use-deep-learning-dsvm.md
 - name: Resources
   items:
   - name: Blog
