@@ -12,7 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 09/14/2017
 ms.author: tomfitz
 
 ---
@@ -121,7 +121,7 @@ The following command creates a storage account. Instead of using the name shown
 az storage account create -n myuniquestorage -g TestRG1 -l westus --sku Standard_LRS
 ```
 
-If you need to retrieve this resource later, use the following cmdlet:
+If you need to retrieve this resource later, use the following command:
 
 ```azurecli-interactive
 az storage account show --name myuniquestorage --resource-group TestRG1
@@ -147,30 +147,30 @@ az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --reso
 
 ## Search for resources
 
-Use the **Find-AzureRmResource** cmdlet to retrieve resources for different search conditions.
+Use the **az resource list** command to retrieve resources for different search conditions.
 
-* To get a resource by name, provide the **ResourceNameContains** parameter:
+* To get a resource by name, provide the **name** parameter:
 
-  ```powershell
-  Find-AzureRmResource -ResourceNameContains mystoragename
+  ```azurecli-interactive
+  az resource list -n myuniquestorage
   ```
 
-* To get all the resources in a resource group, provide the **ResourceGroupNameContains** parameter:
+* To get all the resources in a resource group, provide the **resource-group** parameter:
 
-  ```powershell
-  Find-AzureRmResource -ResourceGroupNameContains TestRG1
+  ```azurecli-interactive
+  az resource list --resource-group TestRG1
   ```
 
-* To get all the resources with a tag name and value, provide the **TagName** and **TagValue** parameters:
+* To get all the resources with a tag name and value, provide the **tag** parameter:
 
-  ```powershell
-  Find-AzureRmResource -TagName Dept -TagValue IT
+  ```azurecli-interactive
+  az resource list --tag Dept=IT
   ```
 
-* To all the resources with a particular resource type, provide the **ResourceType** parameter:
+* To all the resources with a particular resource type, provide the **resource-type** parameter:
 
-  ```powershell
-  Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
+  ```azurecli-interactive
+  az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
 
 ## Lock a resource
@@ -179,16 +179,16 @@ When you need to make sure a critical resource is not accidentally deleted or mo
 
 To create or delete management locks, you must have access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.
 
-To apply a lock, use the following cmdlet:
+To apply a lock, use the following command:
 
-```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
+```azurecli-interactive
+az lock create --lock-type CanNotDelete --resource-name myuniquestorage --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --name storagelock
 ```
 
 The locked resource in the preceding example cannot be deleted until the lock is removed. To remove a lock, use:
 
-```powershell
-Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
+```azurecli-interactive
+az lock delete --name storagelock --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --resource-name myuniquestorage
 ```
 
 For more information about setting locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
@@ -196,22 +196,22 @@ For more information about setting locks, see [Lock resources with Azure Resourc
 ## Remove resources or resource group
 You can remove a resource or resource group. When you remove a resource group, you also remove all the resources within that resource group.
 
-* To delete a resource from the resource group, use the **Remove-AzureRmResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
+* To delete a resource from the resource group, use the delete command for the resource type you are deleting. The command deletes the resource, but does not delete the resource group.
 
-  ```powershell
-  Remove-AzureRmResource -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
+  ```azurecli-interactive
+  az storage account delete -n myuniquestorage -g TestRG1
   ```
 
-* To delete a resource group and all its resources, use the **Remove-AzureRmResourceGroup** cmdlet.
+* To delete a resource group and all its resources, use the **az group delete** command.
 
-  ```powershell
-  Remove-AzureRmResourceGroup -Name TestRG1
+  ```azurecli-interactive
+  az group delete -n TestRG1
   ```
 
-For both cmdlets, you are asked to confirm that you wish to remove the resource or resource group. If the operation successfully deletes the resource or resource group, it returns **True**.
+For both commands, you are asked to confirm that you wish to remove the resource or resource group.
 
 ## Next steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
-* To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
+* To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy-cli.md).
 * You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
