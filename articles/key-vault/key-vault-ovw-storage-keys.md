@@ -8,7 +8,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 09/13/2017
+ms.date: 09/14/2017
 ---
 # Azure Key Vault Storage Account Keys
 
@@ -25,7 +25,7 @@ The Azure Storage Account keys feature is initially available through the REST, 
 
 ## What Key Vault manages
 
-Key Vault performs several internal management functions on your behalf when you use Storage Account Keys.
+Key Vault performs several internal management functions on your behalf when you use Managed Storage Account Keys.
 
 - Azure Key Vault manages keys of an Azure Storage Account (ASA).
     - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.  
@@ -40,7 +40,9 @@ Key Vault performs several internal management functions on your behalf when you
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.  
 - A SAS definition name must be 1-102 characters in length containing only 0-9, a-z, A-Z.
 
-## Developer experience 
+## Developer experience
+
+**Frank, what's the value of this section? Amit provided this but to me it's value isn't clear.**
 
 ### Before Azure Key Vault Storage Keys 
 
