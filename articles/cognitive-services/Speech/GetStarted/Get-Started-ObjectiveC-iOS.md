@@ -31,9 +31,9 @@ Download the Speech API client library and the example for iOS from the [SDK](ht
 
 Install the .pkg file on your Mac. The .pkg file installs on your Mac hard drive in the root (or personal) Documents directory under **SpeechSDK**. Inside the folder, there is a fully buildable example and an SDK library. The buildable example is in the **samples\SpeechRecognitionServerExample** directory. The library is in **SpeechSDK\SpeechSDK.framework**.
 
-### Subscribe to the Bing Speech API, and get a free trial subscription key
+### Subscribe to the Bing Speech API, and get a free-trial subscription key
 
-Before you create the example, you must subscribe to the Bing Speech API, which is part of Azure Cognitive Services. For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
+Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure. For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
 
 <a name="Step1"> </a>
 ## Step 1: Install the example application, and create the application framework
@@ -153,7 +153,7 @@ You also must provide the recognition mode:
 
 * **ShortPhrase mode**. An utterance up to 15 seconds long. As data is sent to the service, the client receives multiple partial results and one final multiple n-best choice result.
 
-* **LongDictation mode**. An utterance up to 2 minutes long. As data is sent to the service, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
+* **LongDictation mode**. An utterance up to two minutes long. As data is sent to the service, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
 
 ### Attach event handlers
 You can attach various event handlers to the client you created:

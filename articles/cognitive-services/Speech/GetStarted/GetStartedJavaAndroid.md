@@ -26,7 +26,7 @@ The following example was developed for [Android Studio](http://developer.androi
 Download the [Bing Speech API client library for Android](https://github.com/microsoft/cognitive-speech-stt-android). Save the downloaded files to a folder of your choice. Inside, there is both a fully buildable example and the SDK library. The buildable example is in the **SpeechRecoExample** directory under **samples**. To find the two libraries you need to use in your own apps, go to **armeabi** > **libs** > **SpeechSDK** and **x86** > **libs** > **SpeechSDK**. The size of the **libandroid_platform.so** file is 22 MB, but it gets reduced to 4 MB at deployment time. 
 
 ### Subscribe to the Bing Speech API, and get a free-trial subscription key 
-Before you create the example, you must subscribe to the Bing Speech API, which is part of Azure Cognitive Services. Select the yellow **Try for free** button on one of the offered services, in this case Speech API, and follow the directions. 
+Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure. Select the yellow **Try for free** button on one of the offered services, in this case Speech API, and follow the directions. 
 
 For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial. 
 
@@ -39,13 +39,13 @@ Create an Android application project to implement use of the Bing Speech API.
 2. Paste your subscription key into the **primaryKey** string in the **..\samples\SpeechRecoExample\res\values** folder. 
     
     >[!NOTE]
-    >If you don't want to use intent at this point, you don't have to worry about the LUIS values.)
+    >If you don't want to use intent at this point, you don't have to worry about the LUIS values.
 
 3. Create a new application project.
 
 4. Use files downloaded from the **speech_SpeechToText-SDK-Android** zip package to do the following:
 
-    a. Copy the **speechsdk.jar** file, found in the **SpeechSDK** folder inside the **Bin** folder, to the **your-application\app\libs** folder.
+    a. Go to **Bin** > **SpeechSDK**, and copy the **speechsdk.jar** file to the **your-application\app\libs** folder.
 
     b. Right-click "**app**" in the project tree, and select **Open module settings**. Select the **Dependencies** tab, and select **+** to add a **File dependency**.
 
@@ -135,13 +135,13 @@ zh-CN    |   en-AU  | en-CA  |    sv-SE
 *ar-EG supports Modern Standard Arabic (MSA).
 
 ### Select a recognition mode
-You also need to provide the recognition mode. 
+You also need to provide the recognition mode: 
 
 * **ShortPhrase mode**. An utterance up to 15 seconds long. As data is sent to the service, the client receives multiple partial results and one final multiple n-best choice result.
-* **LongDictation mode:** An utterance up to 2 minutes long. As data is sent to the service, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
+* **LongDictation mode:** An utterance up to two minutes long. As data is sent to the service, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
 
 ### Attach an event handler
-From the created client, you can attach various event handlers.
+From the created client, you can attach various event handlers:
 
 * **Partial results events**. This event gets called every time the speech recognition server has an idea of what you might be saying. It's called even before you finish speaking (if you use the microphone client) or finish sending data (if you use the data client).
 * **Error events**. This event is called when the server detects an error.

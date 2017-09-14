@@ -28,7 +28,7 @@ The following example was developed for Windows 8+ and .NET Framework 4.5+ using
 Download the Bing Speech API client library and the example through the [SDK](https://github.com/microsoft/cognitive-speech-stt-windows). Extract the downloaded zip file to a folder of your choice. Many users choose the Visual Studio 2015 folder.
 
 ### Subscribe to the Bing Speech API, and get a free-trial subscription key
-Before you create the example, you must subscribe to the Bing Speech API, which is part of Azure Cognitive Services (previously Project Oxford). 
+Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure (previously Project Oxford). 
 
 For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
 
@@ -67,7 +67,7 @@ For subscription and key management details, see [Subscriptions](https://www.mic
 
   a. **ShortPhrase mode**. An utterance up to 15 seconds long. As data is sent to the server, the client receives multiple partial results and one final multiple n-best choice result.
 
-  b. **LongDictation mode**. An utterance up to 2 minutes long. As data is sent to the server, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
+  b. **LongDictation mode**. An utterance up to two minutes long. As data is sent to the server, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
 
   c. **Intent detection**. The server returns additional structured information about the speech input. To use intent, you need to first train a model. For more information, see [LUIS](https://www.luis.ai/).
 

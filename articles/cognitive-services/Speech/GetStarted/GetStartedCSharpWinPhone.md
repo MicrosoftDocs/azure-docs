@@ -17,7 +17,7 @@ You can access the Windows.Media.SpeechRecognition [client library](https://msdn
 Extract the downloaded zip file to a folder of your choice. Many users choose the Visual Studio 2015 folder. If the Windows Phone tools aren't already installed, you might need to download the optional add-on to Visual Studio.
 
 ### Subscribe to the Bing Speech API, and get a free-trial subscription key
-Before you create the example, you must subscribe to the Bing Speech API, which is part of Azure Cognitive Services (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this example.
+Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this example.
 
 ## <a name="Step1">Step 1: Install the Windows Phone 8.1 example application</a>
 1. Start Visual Studio 2015, and select **File** > **Open** > **Project/Solution**.
@@ -43,7 +43,7 @@ Before you create the example, you must subscribe to the Bing Speech API, which 
 
     ![Windows Phone demo](../Images/WindowsPhone_demo.png)
 
-4. Tap the app to open a simple user interface. Tap the **Listen** button, and speak a sentence or two. (Make sure the microphone is on.) The spoken audio returns as text and appears in the square window immediately after your speech. A confidence level accompanies the returned text.
+4. Tap the app to open the user interface. Tap the **Listen** button, and speak a sentence or two. (Make sure the microphone is on.) The spoken audio returns as text and appears in the square window immediately after your speech. A confidence level accompanies the returned text.
 
 <a name="Review"> </a>
 ## Review and learn
