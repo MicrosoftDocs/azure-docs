@@ -52,6 +52,7 @@ The following Azure services support Managed Service Identity.
 | Service | Status | Date |
 | --- | --- | --- |
 | Azure Virtual Machines | Preview | September 2017 |
+| Azure Virtual Machine Scale Sets | Preview | September 2017 |
 | Azure App Service | Preview | September 2017 |
 | Azure Functions | Preview | September 2017 |
 
