@@ -88,81 +88,47 @@ az group deployment create \
 ## Create a key vault and upload a certificate
 The Service Fabric cluster Resource Manager template in the next step is configured to create a secure cluster with certificate security. The certificate is used to secure node-to-node communication for your cluster and to manage user access to your Service Fabric cluster. API Management also uses this certificate to access the Service Fabric Naming Service for service discovery. This requires having a certificate in Key Vault for cluster security.
 
-To upload the certificate to keyvault first format the certificate and add additional data to it so that Service Fabric knows how to use it. The format is a base64 encoded JSON blob containing the following keys: 'data', 'dataType' and 'password'. Data should be the base64 encoded byte array of the PFX file. The following Python script properly encodes the PFX file to be uploaded to a key vault. Save the Python script as *servicefabric.py*.
+To make the process easier, we have provided a [helper script](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). Before you use this helper script, ensure that you already have Azure command-line interface (CLI) installed, and it is in your path. Make sure that the script has permissions to execute by running `chmod +x cert_helper.py` after downloading it. The first step is to sign in to your Azure account by using CLI with the `azure login` command. After signing in to your Azure account, use the helper script with your CA signed certificate, as the following command shows:
 
-```python
-#!/usr/bin/env python
-from __future__ import print_function
-
-import argparse
-import base64
-import json
-
-def formatCertificateToKeyvaultSecret(args):
-	f = open(args.cert_file, 'rb')
-	try:
-		ba = bytearray(f.read())
-		cert_base64 = base64.b64encode(ba)
-		json_blob = {
-			'data': cert_base64,
-			'dataType': 'pfx',
-			'password': args.password
-		}
-		blob_data = json.dumps(json_blob)
-		content_bytes = bytearray(blob_data)
-		content = base64.b64encode(content_bytes)
-		return content
-	finally:
-		f.close()
-
-def main():
-	parser = argparse.ArgumentParser()
-	
-	subparsers = parser.add_subparsers()
-	
-	formatCertSecretParser = subparsers.add_parser('format-secret', help='Formats the certificate into the expected format for service fabric, normally followed by uploading this to keyvault')
-	formatCertSecretParser.add_argument('-c', '--pkcs12-cert', dest='cert_file', required=True, help='The pkcs12 cert that you want to format as a secret for Service Fabric Keyvault')
-	formatCertSecretParser.add_argument('-p', '--password', dest='password', required=True, help='The password for the certificate')
-	formatCertSecretParser.set_defaults(func=formatCertificateToKeyvaultSecret)
-	
-	args = parser.parse_args()
-	print(args.func(args))
-
-if __name__ == "__main__":
-	main()
+```sh
+./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
 ```
 
-The following script creates and formats a self-signed certificate, creates a key vault in Azure, and uploads the cluster certificate to the key vault.
-```bash
-VaultResourceGroupName="linuxkeyvaultgroup"
-VaultName="sflinuxvault"
-Location="southcentralus"
-PfxPath="clusterCert.pfx"
-CertPwd="mypa$$word!"
-SecretName="ClusterCert"
+The -ifile parameter can take a .pfx file or a .pem file as input, with the certificate type (pfx or pem, or ss if it is a self-signed certificate).
+The parameter -h prints out the help text.
 
-password="$(openssl rand -base64 32)"
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout clusterCert.key -out clusterCert.crt -subj "/CN=sflinuxcluster.southcentralus.cloudapp.azure.com"
-openssl pkcs12 -export -out clusterCert.pfx -inkey clusterCert.key -in clusterCert.crt -passout pass:"$password"
 
-az group create --name $VaultResourceGroupName --location $Location
+This command returns the following three strings as the output:
 
-az keyvault create --name $VaultName --resource-group $VaultResourceGroupName --enabled-for-deployment true --enabled-for-template-deployment true
+* SourceVaultID, which is the ID for the new KeyVault ResourceGroup it created for you
+* CertificateUrl for accessing the certificate
+* CertificateThumbprint, which is used for authentication
 
-formatted_secret=$(./servicefabric.py format-secret --pkcs12-cert $PfxPath --password $password)
-echo "Formatted secret:"
-echo "$formatted_secret"
+The following example shows how to use the command:
 
-az keyvault secret set --vault-name $VaultName --name $SecretName --value $formatted_secret
-
-CERT_THUMB=$(openssl x509 -in clusterCert.crt -noout -fingerprint | awk -F= '{print $NF}' | sed -e 's/://g')
-SECRET_URL=$(az keyvault secret show --vault-name $VaultName --name $SecretName | python -c 'import json,sys;print json.load(sys.stdin)["id"]')
-KEYVAULTID=$(az keyvault show --name $VaultName | python -c 'import json,sys;print json.load(sys.stdin)["id"]')
-
-echo "Thumbprint: $CERT_THUMB"
-echo "Secret URL: $SECRET_URL"
-echo "Vault ID: $KEYVAULTID"
+```sh
+./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "East US" -p "pfxtest"
 ```
+Executing the preceding command gives you the three strings as follows:
+
+```sh
+SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
+CertificateUrl: https://myvault.vault.azure.net/secrets/mycert/00000000000000000000000000000000
+CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
+```
+
+The certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
+
+These subject names are the entries you need to create a secure Service Fabric cluster (without Azure AD), as described at [Configure Resource Manager template parameters](#configure-arm). You can connect to the secure cluster by following the instructions for [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md). Linux preview clusters do not support Azure AD authentication. You can assign admin and client roles as described in the [Assign roles to users](#assign-roles) section. When you specify admin and client roles for a Linux preview cluster, you have to provide certificate thumbprints for authentication. (You do not provide the subject name, because no chain validation or revocation is being performed in this preview release.)
+
+If you want to use a self-signed certificate for testing, you can use the same script to generate one. You can then upload the certificate to your key vault by providing the flag `ss` instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
+
+```sh
+./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net"
+```
+This command returns the same three strings: SourceVault, CertificateUrl, and CertificateThumbprint. You can then use the strings to create both a secure Linux cluster and a location where the self-signed certificate is placed. You need the self-signed certificate to connect to the cluster. You can connect to the secure cluster by following the instructions for [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md).
+
+The certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
 
 ## Deploy the Service Fabric cluster
 Once the network resources have finished deploying and you've uploaded a certificate to a key vault, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. For this tutorial, the Service Fabric Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.
