@@ -1,5 +1,5 @@
 ---
-title: Architecture of Azure IoT Suite remote monitoring | Microsoft Docs
+title: Architecture of remote monitoring solution - Azure | Microsoft Docs
 description: A walkthrough of the architecture of the remote monitoring preconfigured solution.
 services: ''
 suite: iot-suite

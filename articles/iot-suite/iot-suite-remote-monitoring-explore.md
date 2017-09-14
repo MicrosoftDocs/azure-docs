@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Suite remote monitoring | Microsoft Docs 
+title: Get started with the remote monitoring solution - Azure | Microsoft Docs 
 description: This tutorial uses simulated scenarios to introduce the remote monitoring preconfigured solution. These scenarios are created when you deploy the remote monitoring preconfigured solution for the first time.
 services: ''
 suite: iot-suite

@@ -1,5 +1,5 @@
 ---
-title: Predictive maintenance preconfigured solution | Microsoft Docs
+title: Predictive maintenance solution overview - Azure | Microsoft Docs
 description: A description of the Azure IoT Suite predictive maintenance preconfigured solution.
 services: ''
 suite: iot-suite

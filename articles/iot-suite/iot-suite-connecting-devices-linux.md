@@ -1,5 +1,5 @@
 ---
-title: Connect a device using C on Linux | Microsoft Docs
+title: Provision Linux devices to Remote Monitoring in C - Azure | Microsoft Docs
 description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux.
 services: ''
 suite: iot-suite
