@@ -41,14 +41,15 @@ set PATH=%LOCALAPPDATA%\amlworkbench\Python;%LOCALAPPDATA%\amlworkbench\Python\S
 $env:Path = $env:LOCALAPPDATA+"\amlworkbench\Python;"+$env:LOCALAPPDATA+"\amlworkbench\Python\Scripts;"+$env:Path
 
 # For Mac Shell
-PATH=/Users/$USER/Library/Caches/AmlWorkbench/Python/bin:$PATH
+PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 ```
 To make the change permanent, you can use SETX for Windows. For Mac, you can use setenv.
 
 ## Step 1. CLI context
-The first step is to open the CLI from the AMLWorkbench App. Doing so will make sure we use the right python environment and we have the CLI accessible. 
+The first step is to open the CLI from the AMLWorkbench App. Doing so ensure we use the right python environment and we have the ML CLI commands available. 
 
 We then need to set the right context in your CLI to access and manage Azure resources.
+
 ```
 # Authenticate to Azure
 az login
@@ -63,7 +64,7 @@ az login
 az account set -s d128f140-94e6-4175-87a7-954b9d27db16
 ```
 
-## Step 2. Create a new Vienna project.
+## Step 2. Create a new Azure Machine Learning Experimentation Account and Workspace
 We start by creating a new Experimentation account and a new workspace. 
 
 ```
@@ -79,9 +80,9 @@ az ml workspace create --name <workspace name> --account <experimentation accoun
 
 Example:
 ```
-az group create --name ahmet --location eastus2
-az ml account experimentation create --name ahmetexp --resource-group ahmet
-az ml workspace create --name ahmetw --account ahmetexp --resource-group ahmet
+az group create --name amlsample --location eastus2
+az ml account experimentation create --name amlsampleexp --resource-group amlsample
+az ml workspace create --name amlsamplew --account amlsampleexp --resource-group amlsample
 ```
 
 ## Step 2.1a Create a new project
@@ -96,21 +97,23 @@ az ml project create --name <project name> --workspace <workspace name> --accoun
 
 Example:
 ```
-az ml project create --name 8_21_1 --workspace ahmetw --account ahmetexp --resource-group ahmet --path c:\Users\ahgyger\Documents\Vienna_Demo\8_21\
+az ml project create --name 8_21_1 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\Vienna_Demo\8_21\
 
-az ml project create --name 8_21_2 --workspace ahmetw --account ahmetexp --resource-group ahmet --path c:\Users\ahgyger\Documents\Vienna_Demo\ --repo https://ahgyger.visualstudio.com/vienna/_git/8_21
+az ml project create --name 8_21_2 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\Vienna_Demo\ --repo https://ahgyger.visualstudio.com/vienna/_git/8_21
 ```
 
-## Step 2.1b (optional) Create a new project from an online template
+## Step 2.1b (optional) Create a new project from an online template (sample)
 In this example, we use a template from a git hub project and use it when creating our new project. 
 ```
-# Create a new project from a template
-az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <path to project folder> --template-url <template url>
+az ml project sample list
+
+# Create a new project from a sample
+az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <path to project folder> --template-url <template url (sample github_link)>
 ```
 
 Example: 
 ```
-az ml project create --name 8_21_3 --workspace ahmetw --account ahmetexp --resource-group ahmet --path c:\Users\ahgyger\Documents\Vienna_Demo\ --repo https://ahgyger.visualstudio.com/vienna/_git/8_21 --template-url http://github.com/hning86/ViennaSample-Iris
+az ml project create --name 8_21_3 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\Vienna_Demo\ --repo https://ahgyger.visualstudio.com/vienna/_git/8_21 --template-url http://github.com/hning86/ViennaSample-Iris
 ```
 ## Step 2.2 (optional) Share a workspace with co-worker. 
 To give access to a co-worker. 
@@ -119,7 +122,7 @@ You need to use the real email address of the co-worker, not an alias.
 ```
 # Get the workspace ID
 az ml workspace show --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
-az ml workspace show --name ahmetw --account ahmetexp --resource-group ahmet 
+az ml workspace show --name amlsamplew --account amlsampleexp --resource-group amlsample 
 
 # Add user to the workspace
 az role assignment create --assignee <user-email> --role owner --scope <arm workspace "id" (from previous command)>
@@ -127,8 +130,8 @@ az role assignment create --assignee <user-email> --role owner --scope <arm work
 
 Example:
 ```
-az ml workspace show --name ahmetw --account ahmetexp --resource-group ahmet 
-az role assignment create --assignee roastala@microsoft.com --role owner --scope "/subscriptions/d128f140-94e6-4175-87a7-954b9d27db16/resourceGroups/ahmet/providers/Microsoft.MachineLearningExperimentation/accounts/ahmetexp/workspaces/ahmetw"
+az ml workspace show --name amlsamplew --account amlsampleexp --resource-group amlsample 
+az role assignment create --assignee roastala@microsoft.com --role owner --scope "/subscriptions/d128f140-94e6-4175-87a7-954b9d27db16/resourceGroups/amlsample/providers/Microsoft.MachineLearningExperimentation/accounts/amlsampleexp/workspaces/amlsamplew"
 ```
 ## Step 3 Create a compute context
 First, we create a new Ubuntu DSVM (Data Science Virtual Machine). 
@@ -143,30 +146,33 @@ Params.json:
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-     "adminUsername": { "value" : "ahmet"},
+     "adminUsername": { "value" : "amlsample"},
      "adminPassword": { "value" : "password1."},
-     "vmName": { "value" : "ahmetdsvm821"},
+     "vmName": { "value" : "amlsampledsvm821"},
      "vmSize": { "value" : "Standard_DS2_v2"}
   }
 }
 
 # Create the new VM
-az group deployment create --resource-group  ahmet  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json --parameters @params.json
+az group deployment create --resource-group  amlsample  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json --parameters @params.json
 ```
 
 Once we have the VM, we can attach the compute context for our project. 
 ```
+# List IP address of the VM we just created.
 az vm list-ip-addresses --resource-group <resource group name> --name <VM Name>
+
+# Create the compute target
 az ml computetarget attach --name <compute target name> --address <IP address> --username <VM username> --password <VM password> --project <path to project>
 ```
 
 Example: 
 ```
 # Get the Public IP of the VM 
-az vm list-ip-addresses --resource-group ahmet --name ahmetdsvm821
+az vm list-ip-addresses --resource-group amlsample --name amlsampledsvm821
 
 # Attach the compute context a project 
-az ml computetarget attach --name remotevm --address 40.123.47.223 --username ahmet --password password1. --project c:\Users\ahgyger\Documents\Vienna_Demo\8_21_2
+az ml computetarget attach --name remotevm --address 40.123.47.223 --username amlsample --password password1. --project c:\Users\ahgyger\Documents\Vienna_Demo\8_21_2
 ```
 
 ## Step 4.a Execute the sample locally 
@@ -189,14 +195,15 @@ az ml experiment submit --run-configuration remotevm --project c:\Users\ahgyger\
 ```
 
 ## Step 5. Execute multiple iterations of iris_sklearn.py with a descending regularization rate. 
-With some creativity, it's quite simple to put together a python script that will try different regularization rate. 
+With some creativity, it's simple to put together a python script that submitting different regularization rate. 
 (You might have to edit the file to point to the right project path.)
+
 ```
 python run.py
 ```
 
 ## Step 6. View run history
-Below command will list all the previous runs executed. 
+Following command lists all the previous runs executed. 
 
 ```
 az ml history list
@@ -215,36 +222,69 @@ To view the artifacts created by a previous run, we can use the info command of 
 ```
 az ml history info --run <run id>
 ```
-To download the artifacts from a run, you can simply use below command:
+To download the artifacts from a run, you can use below command:
 ```
 az ml history info --run <run id> --artifacts <artifact location>
 ```
 ## Step 7. Promote artifacts of a run 
-One of the runs we made have a better AUC, we want to use it to create a scoring web-service (operationalization). In order to do so, we first need to promote the artifacts. 
+One of the runs we made have a better AUC, we want to use it to create a scoring web-service (operationalization). In order to do so, we first need to promote the artifacts into an asset.
+
 ```
-az ml history promote --run <run id> --assets <URL to asset (can be a file or a folder)>
+# Promote a run
+az ml history promote --run <Run ID> --artifact-path <path to artifact (from history show)> --name <.link file name> 
+
+Example:
+az ml history promote -r "9_13_1505346632975" --artifact-path outputs/model.pkl --name pickle
 ```
+This creates an __assets__ folder in your project directory containing the pickle.link. This link file is used to track the version of the promoted file.
 
 ## Step 8. Download the files to be operationalized
-We can now download the artifacts promoted in the previous step. 
+We now need to download the promoted file, so we can use them to create our prediction web-service. 
+
+
 ```
-az ml asset download --link-file <URL to link file (generate during promote step)> --output-directory <path to save the files>
+# Download asset
+az ml asset download --link-file <path to .link file> --output-location <output folder>
+
+Example: 
+az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
+## Step 9. Setup your operationalization environment
+We setup the current environment as the default environment. 
 
-
-## Step 9. Create a Vienna Hosting Account 
 ```
-az ml hostacct create -n <hosting account name> -l eastus2 -g <resource group> --sku-name <S1 | S2 | S3> --sku-tier Standard
+# Create new environment
+az ml env setup -l <region> -n <environment name>
+
+# Set your environment for current context
+az ml env set -g <resource-group> -n <environment name>
+
+Example:
+az ml env setup -l eastus2 -n amlsamplesenv
+az ml env set -g amlsamplesenvrg -n amlsamplesenv
 ```
 
+## Step 10. Create a ModelManagement Account 
+The Model Management account enables to manage your model and operationalize them. 
 
-
-
-## Step 10. Create an operationalization environment
-At this point we will change our focus to operationalization. To operationalize a trained model (that we serialize into a pickle file) we need to create an linux DSVM. 
 ```
-# Deploy a linux DSVM (should be doable from local...)
+# Create a Model Management Account
+az ml account modelmanagement create --name <modelmanagement name> --resource-group <resource-group> --location <region>
+
+Example:
+az ml account modelmanagement create -n amlsamplesacct -g amlsamplesenvrg -l eastus2
+```
+
+## Step 11. Create a Prediction Web-Service
+We then create a web-service that can do prediction. 
+
+```
+# Create Web-Service
+az ml service create realtime -m modelfilename -f score.py -r python –n <webservice name>
+
+Example:
+az ml service create realtime -m modelfilename -f score.py -r python –n amlsamplews
 ```
 
 ## Deleting all the resources 
@@ -252,7 +292,8 @@ Let's complete this tutorial by deleting all the resources we have created, unle
 
 To do so, we simply delete the resource group holding all our resources. 
 ```
-az group delete --name ahmet
+az group delete --name amlsample
+az group delete --name amlsamplesenvrg
 ```
 
 
@@ -267,4 +308,5 @@ In this tutorial, you have learned to use the Azure Machine Learning preview fea
 
 
 Next, learn how to use manage your model, review this tutorial: 
-[Another Tutorial](model-management-overview.md) 
+[What is Azure Machine Learning](./overview-what-is-azure-ml.md) 
+[Classifying Iris Tutorial](./tutorial-classifying-iris-part-1.md)
