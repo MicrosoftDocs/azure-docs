@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Create a Windows virtual machine with using New-AzVM in Cloud Shell (Preview)
 
-The New-AzVM (Preview) cmdlet is a simlified way of creating a new VM using PowerShell. This guide details using the preview of PowerShell in Azure Cloud Shell and the New-AzVM cmdlet to create a new Azure virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server using RDP.  
+The New-AzVM (Preview) cmdlet is a simplified way of creating a new VM using PowerShell. This guide details using the preview of PowerShell in Azure Cloud Shell and the New-AzVM cmdlet to create a new Azure virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server using RDP.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the VM
 
-Make sure that **PowerShell(preview)** is select in Cloud Shell.
+Make sure that **PowerShell (Preview)** is selected in Cloud Shell.
 
 We will be using a new cmdlet [New-AzVM](/powershell/module/azurerm.network/new-azvm) to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace as the OS. You can use New-AzVM alone and it will use all default values. In this example, we are going to specify the name of the VM as *myVM* and the resource group name as *myResourceGroup* and let the cmdlet create the resource group and the rest of the necessary resources. 
 
@@ -70,7 +70,7 @@ Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azur
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Use the following command to create a remote desktop session with the virtual machine. Replace the <publicIPAddress> with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
+Use the following command to create a remote desktop session with the virtual machine. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
 
 ```bash 
 mstsc /v:<publicIpAddress>
