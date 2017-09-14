@@ -208,7 +208,7 @@ As you see below, t-SNE visualization provides more separation and potential clu
 
 ![Points closest to Cancer](./media/sample-tdsp-nlp/nearesttocancer.png)
 
-#### [Training the Neural Entity Extractor](Code/02_Modeling/02_ModelCreation/ReadMe.md)
+#### [Training the Neural Entity Extractor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/02_ModelCreation/ReadMe.md)
 Traditional Neural Network Models suffer from a problem that they treat each input and output as independent of the other inputs and outputs. This may not be a good idea for tasks such as Machine translation, Entity Extraction, or any other sequence to sequence labeling tasks. Recurrent Neural Network models overcome this problem as they can pass information computed until now to the next node. This property is called having memory in the network since it is able to use the previously computed information. The below picture represents this.
 
 ![RNN](./media/sample-tdsp-nlp/rnn-expanded.png)
