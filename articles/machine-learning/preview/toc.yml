@@ -13,7 +13,7 @@
   items:
   - name: Provisioning and installation
     href: quick-start-installation.md
-  - name: Quick tour
+  - name: Create a classification project
     href: quick-start-iris.md  
 - name: Tutorials
   items:
@@ -45,17 +45,17 @@
       href: how-to-use-gpu.md    
   - name: Acquire and understand data
     items:    
-    - name: Accesing Data with the Data Source Wizard
+    - name: Access data with the Data Source Wizard
       href: data-source-wizard.md
     - name: Get started with data preparation
       href: data-prep-getting-started.md
-    - name: Data prepartion guide
+    - name: Data preparation guide
       href: data-prep-user-guide.md
   - name: Develop models
     items:    
     - name: Track run history and model metrics
       href: how-to-use-run-history-model-metrics.md    
-    - name: Reading and writing files
+    - name: Read and write files
       href: how-to-read-write-files.md
     - name: MMLSpark library
       href: how-to-use-mmlspark.md
@@ -63,7 +63,7 @@
     items:
     - name: Create Docker image
       href: model-management-image-creation.md
-    - name: Consume web service
+    - name: Consume a web service
       href: model-management-consumption.md  
     - name: Deploy web service
       href: model-management-service-deploy.md
@@ -81,23 +81,23 @@
     items:
     - name: Python extensions for data preparation
       href: data-prep-python-extensibility-overview.md
-    - name: Supported Data Sources
+    - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
-    - name: Supported Data Preparation Tranforms
+    - name: Supported data preparation Tranforms
       href: data-prep-appendix3-supported-transforms.md
-    - name: Supported Data Preparation Inspectors
+    - name: Supported data preparation inspectors
       href: data-prep-appendix4-supported-inspectors.md
-    - name: Supported Data Preparation Data Destinations
+    - name: Supported data preparation data destinations
       href: data-prep-appendix5-supported-destinations.md
-    - name: Sample Data Preparation Filter Expressions in Python
+    - name: Sample of filter expressions in Python
       href: data-prep-appendix6-sample-filter-expressions-python.md
-    - name: Sample Data Preparation Filter Expressions in Python
+    - name: Sample of custom DataFlow transforms in Python
       href: data-prep-appendix7-sample-transform-data-flow-python.md
-    - name: Sample Data Preparation Source Connections in Python
+    - name: Sample of source connections in Python
       href: data-prep-appendix8-sample-source-connections-python.md
-    - name: Sample Data Preparation Destination Connections in Python
+    - name: Sample of destination connections in Python
       href: data-prep-appendix9-sample-destination-connections-python.md
-    - name: Sample Data Preparation Column Transforms in Python
+    - name: Sample of column transforms in Python
       href: data-prep-appendix10-sample-custom-column-transforms-python.md  
   - name: Experimentation    
     items:
@@ -113,5 +113,5 @@
   items:  
   - name: FAQ
     href: faq.md
-  - name: Known issues & troubleshooting guide
+  - name: Known issues and troubleshooting guide
     href: known-issues-and-troubleshooting-guide.md
