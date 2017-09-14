@@ -60,7 +60,7 @@ Privileged operations management
 Administration in Azure Stack is a well-defined process. Azure Stack has three entry points for management: 
 1. The Admin Portal provides a point-and-click experience for daily management operations. For information on the Admin Portal, please see here: <LINK> 
 2. The Azure Resource Manager exposes all the management operations of the Admin Portal via a REST/Powershell API. For information on Azure Resource Manager, please see here: <LINK> 
-3. For specific low-level operations, e.g. data center integration or support scenarios, Azure Stack exposes a PowerShell endpoint called Privileged Endpoint. This endpoint exposes only a whitelisted set of cmdlets and it is heavily audited. For information on the Privileged Endpoint, please see here: <LINK> 
+3. For specific low-level operations, for example data center integration or support scenarios, Azure Stack exposes a PowerShell endpoint called Privileged Endpoint. This endpoint exposes only a whitelisted set of cmdlets and it is heavily audited. For information on the Privileged Endpoint, please see here: <LINK> 
 
 ## Network controls
 Azure Stack infrastructure comes with multiple layers of network Access Control List(ACL).  The ACLs     prevent unauthorized access to the infrastructure components and limit infrastructure communications to only the paths that are required for its functioning. 
