@@ -93,6 +93,7 @@ The template is not populated with any code in the **Code** folder, or docs in t
 
 For an example of how a project structure can look like during execution or after completion is given below.
 
+
 <img src="./media/how-to-use-tdsp-in-azure-ml/instantiation-4.png" width="800" height="500">
 
 
