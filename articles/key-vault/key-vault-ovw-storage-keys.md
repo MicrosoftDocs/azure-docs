@@ -85,7 +85,7 @@ accountSasCredential.UpdateSASToken(sasToken);
 
   ```
  
- ### Developer best practices 
+ ### Developer guidance
 
 - Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself, you will interfere with Key Vault's processes. 
 - Do not allow ASA keys to be managed by more than one Key Vault object. 
@@ -128,7 +128,7 @@ The following example demonstrates creating a Key Vault managed Azure Storage Ac
 Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 ```
 
-The output of the preceeding command will include your  ServicePrincipal, which we'll call *yourServicePrincipalId*. 
+The output of the preceding command will include your  ServicePrincipal, which we'll call *yourServicePrincipalId*. 
 
 ### Set permissions
 
@@ -185,7 +185,7 @@ $sasToken1 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-bl
 
 Notice that trying to access with *$sastoken1* fails, but that we are able to access with *$sastoken2*. 
 
-**Frank, the meaning here is unclear to me. Where is $sasToken2 from? What indicates failer of $sastoken1?**
+**Frank, the meaning here is unclear to me. Where is $sasToken2 from? Why are the two calls that generate *$sastoken1* and *$sastoken2* not shown? What, in this example, indicates failure of $sastoken1?**
 
 ```powershell
 $context1 = New-AzureStorageContext -SasToken $sasToken1 -StorageAccountName yourtest1
@@ -218,7 +218,7 @@ You are able access the storage blob content with the SAS token that has write a
 
 Example: As a Key Vault object owner you add a storage account object to your Azure Key Vault to onboard a storage account.
 
-During onboarding, Key Vault needs to verify that the identity of the onboarding account has permissions to *list* and to *regenerate* storage keys. In order to verify these permissions, Key Vault gets an OBO (On Behalf Of) token from the authentication service, audience set to Azure Resource Manager, and makes a *list* key call to the Azure Storage service. If the *list* call fails, the Key Vault object creation fails with a HTTP status code of *Forbidden*. The keys listed in this fashion are cached with your key vault entity storage. 
+During onboarding, Key Vault needs to verify that the identity of the onboarding account has permissions to *list* and to *regenerate* storage keys. In order to verify these permissions, Key Vault gets an OBO (On Behalf Of) token from the authentication service, audience set to Azure Resource Manager, and makes a *list* key call to the Azure Storage service. If the *list* call fails, the Key Vault object creation fails with an HTTP status code of *Forbidden*. The keys listed in this fashion are cached with your key vault entity storage. 
 
 Key Vault must verify that the identity has *regenerate* permissions before it can take ownership of regenerating your keys. To verify that the identity, via OBO token, as well as the Key Vault first party identity has these permissions:
 
