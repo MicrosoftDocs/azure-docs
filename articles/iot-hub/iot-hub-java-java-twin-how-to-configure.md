@@ -22,7 +22,7 @@ ms.author: dobett
 
 At the end of this tutorial, you have two Java console apps:
 
-* **simulated-device**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
+* **simulated-device**, a simulated device app that waits for a desired configuration update, and reports the status of a simulated configuration update process.
 * **set-configuration**, a back-end app, which sets the desired configuration on a device and queries the configuration update process.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ At the end of this tutorial, you have two Java console apps:
 > 
 > 
 
-To complete this tutorial you need the following:
+To complete this tutorial, you need the following:
 
 * The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
 * [Maven 3](https://maven.apache.org/install.html) 
@@ -44,7 +44,7 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 
 <a id="#create-the-simulated-device-app"></a>
 ## Create the simulated device app
-In this section, you create a Java console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
+In this section, you create a Java console app that connects to your hub as **myDeviceId**, waits for a desired configuration update, and then reports updates on the simulated configuration update process.
 
 1. Create an empty folder called dt-get-started.
 
@@ -122,7 +122,7 @@ In this section, you create a Java console app that connects to your hub as **my
 	}
     ```
 
-1. Add the following class under the **App** class:
+1. Add the following nested class to the **App** class:
 
     ```java
     private static class TelemetryConfig extends Device 
@@ -242,7 +242,7 @@ In this section, you create a Java console app that connects to your hub as **my
    > 
 
 ## Create the service app
-In this section, you will create a Java console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
+In this section, you create a Java console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
 
 1. In the dt-get-started folder, create a Maven project called **set-configuration** using the following command at your command prompt. Note this is a single, long command:
 
@@ -315,6 +315,8 @@ In this section, you will create a Java console app that updates the *desired pr
 	try {
 		twinClient.getTwin(device);
 
+        // make sure a differing value exists before calling the updateTwin() method, else a null device exception will be thrown
+        // this allows the program to be run multiple times for demonstration purposes
 		String desiredProperties = device.desiredPropertiesToString();
 		if (desiredProperties.contains("sendFrequency=" + sendFrequency))
 		{
