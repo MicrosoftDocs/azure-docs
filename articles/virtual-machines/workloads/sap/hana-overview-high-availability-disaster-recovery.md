@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
+ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -217,7 +217,15 @@ In this step, you authorize the SAP HANA user account that you created, so that 
 
 Enter the `hdbuserstore` command as follows:
 
-![Enter the hdbuserstore command](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**For non MDC HANA setup**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**For MDC HANA setup**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 In the following example, the user is **SCADMIN01**, the hostname is **lhanad01**, and the instance number is **01**:
 ```
@@ -227,8 +235,8 @@ If you have an SAP HANA scale-out configuration, you should manage all scripting
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### Step 6: Get the snapshot scripts, configure the snapshots, and test the configuration and connectivity
@@ -282,7 +290,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -387,7 +395,7 @@ For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
