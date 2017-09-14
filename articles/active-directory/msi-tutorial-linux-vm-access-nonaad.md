@@ -99,13 +99,7 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
 5. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
 6. Click **Create** to create the secret. 
  
-<<<<<<< HEAD
-## Get an access token using the VM identity and use it retrieve the secret from Key Vault  
-To complete these steps, you will need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about).   
-
-=======
 ## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
 
 To complete these steps, you will need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about).   
  
