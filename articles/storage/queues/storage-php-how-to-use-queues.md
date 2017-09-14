@@ -89,9 +89,11 @@ A **QueueRestProxy** object lets you create a queue by using the **createQueue**
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -130,6 +132,8 @@ use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
+
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
@@ -157,6 +161,8 @@ require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -203,6 +209,8 @@ require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
+
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
@@ -245,6 +253,8 @@ use MicrosoftAzure\Storage\Common\ServiceException;
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
+
 // Get message.
 $listMessagesResult = $queueRestProxy->listMessages("myqueue");
 $messages = $listMessagesResult->getQueueMessages();
@@ -285,6 +295,8 @@ require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -333,6 +345,8 @@ require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
+
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
@@ -361,6 +375,8 @@ require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
