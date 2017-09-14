@@ -45,7 +45,7 @@ You are now ready to begin to set up your Azure environment to route monitoring 
 
    ![Pick a storage account](media/monitor-tutorial-archive-monitoring-data/activity-log-storage.png)
 
-5. Optionally, set a number of days to retain the monitoring data in the storage account by using the **Retention (days)** sliders. Azure Monitor will automatically delete data older than the number of days specified. A retention of zero days stores the data indefinitely.
+5. Optionally, set a number of days to retain the monitoring data in the storage account by using the **Retention (days)** sliders. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
 
 6. Click **Save** and close this section.
 
@@ -77,7 +77,7 @@ Now we configure resource-level data (resource metrics and diagnostic logs) to b
 
    ![Diagnostic settings categories](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
    
-6. Optionally, set a number of days to retain the monitoring data in the storage account by using the **Retention (days)** sliders. Azure Monitor will automatically delete data older than the number of days specified. A retention of zero days stores the data indefinitely.
+6. Optionally, set a number of days to retain the monitoring data in the storage account by using the **Retention (days)** sliders. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
 
 7. Click **Save**.
 
@@ -119,13 +119,13 @@ Monitoring data from your virtual machines is now flowing into the storage accou
 
 ## View the monitoring data in the storage account
 
-If you have followed the steps above, data has begun flowing to your storage account.
+If you have followed the preceding steps, data has begun flowing to your storage account.
 
 1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](./monitor-quick-audit-subscription-portal.md). You may need to wait up to five minutes before the event appears in the storage account.
 
 2. In the portal, navigate to the **Storage Accounts** section by finding it on the left-hand navigation bar.
 
-3. Identfy the storage account you created in the preceding section and click on it.
+3. Identify the storage account you created in the preceding section and click on it.
 
 4. Click on **Blobs**, then on the container labeled **insights-operational-logs** and finally on the container labeled **name=default**. This is the container that has your Activity Log in it. Monitoring data is broken out into containers by resource ID (just the subscription ID for the Activity Log), then by date and time. The full format for these blobs is:
 
@@ -133,11 +133,11 @@ If you have followed the steps above, data has begun flowing to your storage acc
    > 
    > 
 
-5. Navigate to the PT1H.json file by clicking into the containers for resouce ID, date, and time. Click on the PT1H.json file and click **Download**. Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since log events are broken into individual blobs per hour.
+5. Navigate to the PT1H.json file by clicking into the containers for resource ID, date, and time. Click on the PT1H.json file and click **Download**. Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since log events are broken into individual blobs per hour.
 
 You can now view the JSON event that was stored in the storage account. For resource diagnostic logs, the format for the blobs is:
 
-   > insights-logs-{log category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+   > insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
    > 
    >
 
