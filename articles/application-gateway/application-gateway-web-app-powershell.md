@@ -25,6 +25,8 @@ Application gateway allows you to have an Azure Web App or other multi-tenant se
 
 The following example adds a web app as a back-end pool member to an existing application gateway. Both the switch `-PickHostNamefromBackendHttpSettings`on the Probe configuration and `-PickHostNameFromBackendAddress` on the back-end http settings must be provided in order for web apps to work.
 
+Note: If multiple web apps are added to the same backend address pool and `-PickHostNameFromBackendAddress` is used, you risk having the wrong web app serving the content. Example, if the backend address pool has both www.contoso.com and www.adventureworks.com, when using `-PickHostNamefromBackendHttpSettings` can result in www.adventureworks.com being served by the www.contoso.com web app instead as we randomly were assigned www.contoso.com as the backend pool server instead of www.adventureworks.com. It is recommended to use multi-site HTTP listeners to host multiple web apps behind a single load balancer.
+
 ```powershell
 # FQDN of the web app
 $webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
