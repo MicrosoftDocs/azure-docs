@@ -29,6 +29,7 @@ In this case, there are no special configuration required in Azure ML Workbench.
 
 1. Open AML Workbench. go to **File** and **Open Command Prompt**. 
 2. From command line, install GPU-enabled deep learning framework such as the Microsoft Cognitive Toolkit, TensorFlow, and etc. For example:
+
 ```batch
 REM install latest TensorFlow with GPU support
 C:\MyProj> pip install tensorflow-gpu
@@ -36,8 +37,10 @@ C:\MyProj> pip install tensorflow-gpu
 REM install Microsoft Cognitive Toolkit 2.1 (1-bit SGD) with GPU support on Windows
 C:\MyProj> pip install https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-win_amd64.whl
 ```
+
 3. Write Python code that leverages the deep learning libraries.
 4. Choose _local_ as compute environment and execute the Python code.
+
 ```batch
 REM execute Python script in local environment
 C:\MyProj> az ml experiment submit -c local my-deep-learning-script.py
