@@ -350,6 +350,14 @@ In this section, you create a Java console app that updates the *desired propert
 			reportedProperties = device.reportedPropertiesToString();
 		}
 			
+        SqlQuery sqlQuery = SqlQuery.createSqlQuery("*", SqlQuery.FromType.DEVICES, "properties.reported.telemetryConfig='{configId=0001, sendFrequency=" + sendFrequency + "}'", null);
+
+      	Query twinQuery = twinClient.queryTwin(sqlQuery.getQuery(), 100);
+      	while (twinClient.hasNextDeviceTwin(twinQuery)) {
+       		DeviceTwinDevice d = twinClient.getNextDeviceTwin(twinQuery);
+        	System.out.println(d.getDeviceId() + " found with changed telemetryConfig");
+      	}
+
 		System.out.println("Config report for: " + deviceId);
 		twinClient.getTwin(device);
 		System.out.println(device);
