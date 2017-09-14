@@ -83,11 +83,11 @@
       href: data-prep-python-extensibility-overview.md
     - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
-    - name: Supported data preparation Tranforms
+    - name: Supported tranforms
       href: data-prep-appendix3-supported-transforms.md
-    - name: Supported data preparation inspectors
+    - name: Supported inspectors
       href: data-prep-appendix4-supported-inspectors.md
-    - name: Supported data preparation data destinations
+    - name: Supported data destinations
       href: data-prep-appendix5-supported-destinations.md
     - name: Sample of filter expressions in Python
       href: data-prep-appendix6-sample-filter-expressions-python.md
@@ -105,9 +105,9 @@
       href: experiment-execution-configuration-reference.md
   - name: Model management
     items:
-    - name: Model management API
+    - name: Model management API reference
       href: model-management-api-reference.md
-    - name: Model management CLI
+    - name: Model management CLI reference
       href: model-management-cli-reference.md
 - name: Resources
   items:  
