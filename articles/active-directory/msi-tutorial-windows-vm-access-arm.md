@@ -16,7 +16,7 @@ ms.date: 09/14/2017
 ms.author: elkuzmen
 ---
 
-# Use a Windows VM Managed Service Identity (MSI) to access Azure Resource Manager
+# Use a Windows VM Managed Service Identity (MSI) to access Resource Manager
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
@@ -31,7 +31,6 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Windo
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
-
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a Windows virtual machine in a new resource group
@@ -55,16 +54,13 @@ A VM MSI enables you to get access tokens from Azure AD without you needing to p
 2.	On the left navigation bar click **Configuration**. 
 3.	You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
 4.	Ensure you click **Save** to save the configuration.  
-5. If you wish to check and verify which extensions are on this VM, click Extensions. If MSI is enabled, then ManagedIdentityExtensionforWindows appears in the list.
-
     ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-configured.png)
 
-5. If you wish to check and verify which extensions are on this VM, click Extensions. If MSI is enabled, then ManagedIdentityExtensionforWindows will appear in the list.
+5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** will appear in the list.
 
     ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
-## Grant your VM access to a Resource Group in Resource Manager 
-
+## Grant your VM access to a resource group in Resource Manager
 Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s identity access to a resource in Resource Manager, in this case the Resource Group in which the VM is contained.  
 
 1.	Navigate to the tab for **Resource Groups**. 

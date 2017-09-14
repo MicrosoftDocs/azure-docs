@@ -34,7 +34,6 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
-
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 
@@ -90,7 +89,6 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 5. In the next dropdown, **Assign access** to the resource **Virtual Machine**.  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown. And for **Resource Group**, select **All resource groups**.  
 7. Finally, in **Select** choose your Linux Virtual Machine in the dropdown and click **Save**. 
-
     ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## Get an access token using the VM Identity and use it to call Azure Resource Manager
