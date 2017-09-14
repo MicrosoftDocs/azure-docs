@@ -1,6 +1,6 @@
 ---
 title: Receive a notification when a metric value is abnormal | Microsoft Docs
-description: Azure Monitor: Quickstart guide to help users create a metric for a Logic App
+description: A quickstart guide to help users create a metric for a Logic App
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
