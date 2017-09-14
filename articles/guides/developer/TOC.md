@@ -1,13 +1,8 @@
 # Overview
 ## [Developer guide](azure-developer-guide.md) 
-### [What is Azure?](azure-developer-guide.md#what-is-azure)
-### [Where do I start?](azure-developer-guide.md#where-do-i-start)
-### [Azure regions](azure-developer-guide.md#azure-regions)
-### [How do I manage my applications and projects?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Understanding accounts, subscriptions, and billing](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Overview of Azure services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Portal overview](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Overview of Azure services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
+## [Portal overview](https://docs.microsoft.com/azure/azure-portal-overview)
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Quickstart
@@ -52,7 +47,7 @@
 ## [Service Fabric overview](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # How to guides
-## Plan
+## [Plan](https://docs.microsoft.com/azure/architecture/guide/)
 ### [Web application architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [VM architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Connect to on-premises networks](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
