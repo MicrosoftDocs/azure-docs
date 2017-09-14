@@ -124,10 +124,7 @@ Select the target VMM server and cloud:
 
 ## Set up a replication policy
 
-Before you start:
-
-    - Make sure that all hosts using the policy have the same operating system.
-    - If hosts are running different versions of Windows Server, you need multiple replication policies.
+Before you start, make sure that all hosts using the policy have the same operating system. If hosts are running different versions of Windows Server, you need multiple replication policies.
 
 1. To create a new replication policy, click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
 2. In **Create and associate policy**, specify a policy name. The source and target type should be **Hyper-V**.
@@ -160,4 +157,6 @@ Before you start:
 
 You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the virtual machine is ready for failover.
 
+## Next steps
 
+[Run a disaster recovery drill](site-recovery-test-failover-vmm-to-vmm.md)
