@@ -28,8 +28,9 @@ It is important to keep in mind that in Azure Stack there are two security postu
 As in Azure, the security posture of the Azure Stack infrastructure is defined by Microsoft, while the security of the workloads running on top of it is tenants’ responsibility. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
 
 Azure Stack was designed with a security posture to defend against modern threats, and was built to meet the requirements from the major compliance standards. As a result, the security posture of the Azure Stack infrastructure is built on two pillars:
-1.	Assume Breach, where starting from the assumption that the system has already been breached, we focus on detecting and limiting the impact of breaches versus only trying to prevent attacks. 
-2.	Hardened by Default, where since the infrastructure runs on well-defined hardware and software, we enable, configure, and validate security features that are usually left to customers to implement.
+
+ - Assume Breach, where starting from the assumption that the system has already been breached, we focus on *detecting and limiting the impact of breaches* versus only trying to prevent attacks. 
+ - Hardened by Default, where since the infrastructure runs on well-defined hardware and software, we *enable, configure, and validate security features* that are usually left to customers to implement.
 
 ## Data at rest encryption
 All Azure Stack infrastructure and tenant data is encrypted at rest using Bitlocker. This encryption protects against physical loss or theft of Azure Stack storage components. 
