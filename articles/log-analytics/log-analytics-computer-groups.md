@@ -53,7 +53,7 @@ Following are example searches that you can save as a computer group.
 >[!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md) then the following changes are made to the procedure to create a new computer group.
 >  
-> - The query to create a computer group must include `distinct Computer`.  Following is an example of a query to create a computer group.<br>`Heartbeat | where Computer contains "srv" `
+> - The query to create a computer group must include `distinct Computer`.  Following is an example of a query to create a computer group.<br>`Heartbeat | where Computer contains "srv | distinct Computer" `
 > - When you create a new computer group, you must specify an alias in addition to the name.  You use the alias when using the computer group in a query as described below.  
 
 ### Log search API
@@ -100,7 +100,7 @@ Computer groups are typically used with the **IN** clause in the log search as i
 >[!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you use a Computer group in a query by treating its alias as a function as in the following example:
 > 
->  `UpdateSummary | where Computer IN (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (MyComputerGroup)`
 
 ## Computer group records
 A record is created in the OMS repository for each computer group membership created from Active Directory or WSUS.  These records have a type of **ComputerGroup** and have the properties in the following table.  Records are not created for computer groups based on log searches.
