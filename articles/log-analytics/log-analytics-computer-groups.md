@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/14/2017
 ms.author: bwren
 
 ---
@@ -53,7 +53,7 @@ Following are example searches that you can save as a computer group.
 >[!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md) then the following changes are made to the procedure to create a new computer group.
 >  
-> - The query to create a computer group must include `distinct Computer`.  Following is an example of a query to create a computer group.<br>`Heartbeat | where Computer contains "srv | distinct Computer" `
+> - The query to create a computer group must include `distinct Computer`.  Following is an example of a query to create a computer group.<br>`Heartbeat | where Computer contains "srv" | distinct Computer `
 > - When you create a new computer group, you must specify an alias in addition to the name.  You use the alias when using the computer group in a query as described below.  
 
 ### Log search API
