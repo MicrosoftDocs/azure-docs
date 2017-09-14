@@ -79,6 +79,9 @@
     items:
     - name: General purpose
       href: sizes-general.md
+      items:
+      - name: Burstable sizes
+        href: b-series-burstable.md
     - name: Compute optimized
       href: sizes-compute.md
     - name: Memory optimized
@@ -184,6 +187,12 @@
       href: manage-availability.md
     - name: Vertically scale
       href: vertical-scaling-automation.md
+    - name: Availability zones
+      items:
+      - name: Create a VM in zone - PowerShell
+        href: create-powershell-availability-zone.md
+      - name: Create a VM in zone - Portal
+        href: create-portal-availability-zone.md    
   - name: Use automation tools
     items:
     - name: Chef
