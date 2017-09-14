@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/11/2017
+ms.date: 09/14/2017
 ms.author: cynthn
-ms.custom: mvc
+
 ---
 
-# Create a Windows virtual machine with using New-AzVM in Cloud Shell (Preview)
+# Create a Windows virtual machine with using New-AzVM (Preview) in Cloud Shell 
 
 The New-AzVM (Preview) cmdlet is a simplified way of creating a new VM using PowerShell. This guide details how to use PowerShell in Azure Cloud Shell, with the New-AzVM cmdlet preinstalled, to create a new Azure virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server using RDP.  
 
@@ -30,11 +30,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the VM
 
-Make sure that **PowerShell (Preview)** is selected in Cloud Shell.
+Make sure that **PowerShell** is selected in Cloud Shell.
 
 We will be using a new cmdlet [New-AzVM](/powershell/module/azurerm.network/new-azvm) to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace as the OS. You can use New-AzVM alone and it will use all default values. In this example, we are going to specify the resource group name as *myResourceGroup*, the name of the VM as *myVM*, and let the cmdlet create the resource group and the rest of the required resources. 
 
-You will be asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic. The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character.
+You will be asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic. The password must be 12-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character.
 
 In Azure Cloud Shell, type:
 
