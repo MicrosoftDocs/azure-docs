@@ -34,10 +34,12 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 
 ## Create a Linux Virtual Machine in a new Resource Group
+
 For this tutorial, we will create a new Linux VM. You can also enable MSI on an existing VM.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
@@ -51,6 +53,7 @@ For this tutorial, we will create a new Linux VM. You can also enable MSI on an 
 6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
 
 ## Enable MSI on your VM
+
 A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables Managed Service Identity for the VM.  
 
 1. Select the **Virtual Machine** that you wnat to enable MSI on.
@@ -66,14 +69,13 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 
 ## Create a new Storage Account 
+
 You can use Storage keys as usual when doing Storage operations, in this example we will focus on uploading and downloading blobs using the Azure CLI. 
 
 1. Navigate to the side-bar and select **Storage**.  
 2. Create a new **Storage Account**.  
 3. In **Deployment model**, enter in **Resource Manager** and **Account kind** with **General Purpose**.  
 4. Ensure the **Subscription** and **Resource Group** are the one that you used when you created your **Linux Virtual Machine** in the step above.
-
-
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -91,7 +93,8 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
- ## Get an access token using the VM Identity and use it to call Azure Resource Manager
+## Get an access token using the VM Identity and use it to call Azure Resource Manager
+
 You will need to use the Bash terminal, pick and then download your Linux distribution [here](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
 
@@ -101,20 +104,19 @@ You will need to use the Bash terminal, pick and then download your Linux distri
 4. Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
 5. Then, you can make a request using CURL to get the authorization token for the Linux VM you are logged into. The **Azure Resource Manager** endpoint is https://management.azure.com.  
 
-
-**The CURL request for the access token is below**
-
-```bash
-curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50432/oauth2/token   
-```
-
-> [!NOTE]
-> Ensure that the URL for the resource you are trying to request access for contains the proper formatting with a slash at the end such as  'https:<RESOURCE>/'
-
-```powershell
-{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEP"}
- ```
-
+    The CURL request for the access token is below:
+    
+    ```bash
+    curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50432/oauth2/token   
+    ```
+    
+    > [!NOTE]
+    > Ensure that the URL for the resource you are trying to request access for contains the proper formatting with a slash at the end such as  'https:<RESOURCE>/'
+    
+    ```powershell
+    {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEP"}
+     ```
+    
 ## The CURL request to get Storage Keys from Azure Resource Manager  
 
 > [!NOTE]
@@ -213,11 +215,9 @@ Response:
 }
 ```
 
-
-
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
+For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

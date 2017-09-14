@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a Windows virtual machine in a new resource group
 
@@ -78,6 +78,7 @@ Using MSI your code can get access tokens to authenticate to resources that supp
     ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## Get an access token using the VM identity and use it to call Azure Resource Manager 
+
 You will need to use **PowerShell** in this portion.  If you don’t have installed, download it [here](https://docs.microsoft.com/en-us.powershell/azure/overview?view=azurermps-4.3.1). 
 
 1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
@@ -103,18 +104,20 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
     $ArmToken = $content.access_token
     ```
     
-Finally, call Azure Resource Manager using the access token. In this example, we're also using PowerShell's Invoke-WebRequest to make the call to Azure Resource Manager, and include the access token in the Authorization header.
+    Finally, call Azure Resource Manager using the access token. In this example, we're also using PowerShell's Invoke-WebRequest to make the call to Azure Resource Manager, and include the access token in the Authorization header.
+    
+    ```powershell
+    (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
+    ```
+    > [!NOTE] 
+    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
+        
+    The following command returns the details of the Resource Group:
 
-```powershell
-(Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
-```
-> [!NOTE] 
-> The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
+    ```powershell
+    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}}
+    ```
 
-The following command returns the details of the Resource Group:
-```powershell
-{"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}}
-```
 ## Related content
 
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
