@@ -25,7 +25,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a storage account
 
-First you need to set up a storage account to which the monitoring data will be archived. To do this, [follow the steps here](./storage/common/storage-create-storage-account.md).
+First you need to set up a storage account to which the monitoring data will be archived. To do this, [follow the steps here](/storage/common/storage-create-storage-account.md).
 
 ## Route subscription logs to the storage account
 
@@ -55,7 +55,7 @@ Monitoring data from your subscription is now flowing into the storage account.
 
 Now we configure resource-level data (resource metrics and diagnostic logs) to be routed to the storage account by setting up **resource diagnostic settings**.
 
-1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](./logic-apps/logic-apps-create-a-logic-app.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
+1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](/logic-apps/logic-apps-create-a-logic-app.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
 
 2. Click on a resource in the list, and then click **Turn on diagnostics**.
    
@@ -85,7 +85,7 @@ Monitoring data from your resource is now flowing into the storage account.
 
 ## Route virtual machine (guest OS) data to the storage account
 
-1. If you do not already have a virtual machine in your subscription, [create a virtual machine](./virtual-machines/windows/quick-create-portal.md).
+1. If you do not already have a virtual machine in your subscription, [create a virtual machine](/virtual-machines/windows/quick-create-portal.md).
 
 2. In the left-hand navigation list in the portal, click on **Virtual Machines**.
 
@@ -121,7 +121,7 @@ Monitoring data from your virtual machines is now flowing into the storage accou
 
 If you have followed the steps above, data has begun flowing to your storage account.
 
-1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](link-to-tutorial-audit-sub). You may need to wait up to five minutes before the event appears in the storage account.
+1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](./monitor-quick-audit-subscription-portal.md). You may need to wait up to five minutes before the event appears in the storage account.
 
 2. In the portal, navigate to the **Storage Accounts** section by finding it on the left-hand navigation bar.
 
@@ -162,4 +162,4 @@ You have now successfully set up monitoring data to be archived to a storage acc
 In this tutorial, you learned how to set up monitoring data from your Azure environment (subscription, resource, and guest OS) to be archived to a storage account. To make more meaning out of your data and derive insights, try sending your data into Log Analytics as well.
 
 > [!div class="nextstepaction"]
-> [Get started with Log Analytics](./log-analytics/log-analytics-get-started.md)
+> [Get started with Log Analytics](/log-analytics/log-analytics-get-started.md)
