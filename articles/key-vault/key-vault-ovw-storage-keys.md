@@ -14,7 +14,7 @@ ms.date: 09/13/2017
 
 Before Azure Key Vault Storage Account Keys, developers had to manage their own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure Storage Account. 
 
-The ASA key feature manages secret rotation for you and removes the need for your direct contact with an ASA key by offering Shared Access Signatures (SAS) as a method. 
+The ASA key feature manages secret rotation for you. It also removes the need for your direct contact with an ASA key by offering Shared Access Signatures (SAS) as a method. 
 
 For more general information on Azure Storage Accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -110,7 +110,7 @@ Key Vault needs permissions to *list* and *regenerate* keys for a storage accoun
     `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
 
     >[!NOTE]
-    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role"*.
+    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
 
 ## Example
 
@@ -156,7 +156,7 @@ Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -Accoun
 
 ### Regeneration
 
-Setting the regeneration period using the following.
+Setting the regeneration period using the following commands.
 
 ```powershell
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -201,7 +201,7 @@ Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context
 
 You are able access the storage blob content with the SAS token that has write access.
 
-### Relevent Powershell cmdlets
+### Relevant Powershell cmdlets
 
 - [Get-AzureKeyVaultManagedStorageAccount
 ](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
