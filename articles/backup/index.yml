@@ -57,11 +57,11 @@ sections:
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
       text: Back up VMs - Portal
-      href: https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm
+      href: /azure/backup/backup-azure-vms-first-look-arm
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
       text: Back up VMs - PowerShell
-      href: https://docs.microsoft.com/en-us/azure/backup/quick-backup-vm-powershell
+      href: /azure/backup/quick-backup-vm-powershell
 - title: Tutorials
   items:
   - type: paragraph
@@ -73,7 +73,7 @@ sections:
     - html: <a href="/azure/backup/backup-azure-arm-restore-vms">Recover Azure VMs using VM templates</a>
     - html: <a href="/azure/backup/backup-azure-restore-files-from-vm">Recover files from an Azure VM recovery point</a>
     - html: <a href="/azure/backup/backup-try-azure-backup-in-10-mins">Back up on-premises Windows Server to Azure</a>
-    - html: <a href="/azure/backup/backup-azure-restore-windows-server">Recover files from Azure on-premises Windows Server</a>
+    - html: <a href="/azure/backup/backup-azure-restore-windows-server">Recover files from Azure to an on-premises Windows Server</a>
     - html: <a href="/azure/backup/backup-azure-backup-server-vmware">Back up on-premises VMware virtual machines to Azure</a>
     - html: <a href="/azure/backup/backup-azure-alternate-dpm-server">Restore data from on-premises VMware virtual machines</a>
 - title: Samples
