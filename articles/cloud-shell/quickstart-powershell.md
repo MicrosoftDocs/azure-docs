@@ -1,4 +1,4 @@
-# PowerShell in Azure Cloud Shell Quickstart
+# PowerShell in Azure Cloud Shell quickstart
 
 This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://aka.ms/PSCloudPreview).
 
@@ -8,11 +8,11 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 ## Start cloud shell
 
 1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal <br>
-![](media/quickstart-powershell/shell-icon.png)
+  ![](media/quickstart-powershell/shell-icon.png)
 
 2. Select the PowerShell environment from the drop-down on the left-hand side of shell window <br>
 
-![](media/quickstart-powershell/environment-ps.png)
+  ![](media/quickstart-powershell/environment-ps.png)
 
 3. Select PowerShell
 
@@ -50,7 +50,7 @@ MyResourceGroup         MyVM1       eastus            Standard_DS1  Windows    S
 MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    Succeeded           deallocated
 ```
 
-## Navigate Azure Resources
+## Navigate Azure resources
 
  1. List your subscriptions
 
@@ -78,7 +78,8 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     Demo       northcentralus  Succeeded         Standard_F1    WindowsServer 2016-Datacenter latest    AdminUser     demo219
     ```
 
-> Note: You may notice that the second time when you type `dir`, PowerShell is able to display the items much faster.
+> [!NOTE]
+> You may notice that the second time when you type `dir`, PowerShell is able to display the items much faster.
 This is because the child items are cached in memory for a better user experience.
 However, you can always use `dir -force` to get fresh data.
 
@@ -112,7 +113,8 @@ However, you can always use `dir -force` to get fresh data.
   WindowsRegisteredOrganization                           :
    ...
   ```
-  > Note: You may see the following error due to the default windows firewall settings for WinRM
+  > [!NOTE]
+  > You may see the following error due to the default windows firewall settings for WinRM
 
   *Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.*
 
@@ -183,7 +185,7 @@ Hello World!
 
 Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file should still exist under the `CloudDrive` folder mounts your Azure cloud files share.
 
-## User Custom Profile
+## User custom profile
 
 If you want to customize your environment, you can create a PowerShell profile, name it as `Microsoft.PowerShell_profile.ps1` and save it under the clouddrive so that it can be loaded to every PowerShell session when you launch the Cloud Shell.
 
