@@ -46,13 +46,13 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 
    Setting|Suggested value|Description
    ---|---|---
-   Experimentation account name |*experiment*|Choose a unique name that identifies your account. You could use your own name, or a departmental or project name that best identifies the experiment.
-   Subscription |*Your subscription*|The Azure subscription that you want to use for your experiment. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
-   Resource Group |*myresourcegroup*| You may make a new resource group name, or use an existing one from your subscription.
-   Location |*The region closest to your users*| Choose the location that's closest to your users and the data resources.
+   Experimentation account name | _Unique name_ |Choose a unique name that identifies your account. You could use your own name, or a departmental or project name that best identifies the experiment.
+   Subscription |_Your subscription_|The Azure subscription that you want to use for your experiment. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
+   Resource Group |_Your resource group_| You may make a new resource group name, or use an existing one from your subscription.
+   Location |_The region closest to your users_| Choose the location that's closest to your users and the data resources.
    Number of seats | 2 | Type the number of seats. This selection impacts the [pricing](https://azure.microsoft.com/pricing/details/machine-learning/). The first two seats are free. 
-   Storage Account |*MLStorage*| Choose **Create new** and provide a name  to create a new Azure storage account, or choose **Use existing** and select your existing storage account from the drop-down. The storage account is required and is used to hold project artifacts and run history data. 
-   Workspace for Experimentation account |**MLWorkspace**| If you have an existing workspace, the value will be prepopulated. If you do not have an existing workspace, type a name for the new workspace.
+   Storage Account |_Unique name_| Choose **Create new** and provide a name  to create a new Azure storage account, or choose **Use existing** and select your existing storage account from the drop-down. The storage account is required and is used to hold project artifacts and run history data. 
+   Workspace for Experimentation account |_Unique name_| If you have an existing workspace, the value will be prepopulated. If you do not have an existing workspace, type a name for the new workspace.
    Assign owner for the workspace |Your account| Select your own account as the workspace owner.
    Create Model Management Account |*check*| As part of the Experimentation account creation experience, you have the option of also creating the Machine Learning Model Management account. This resource is used once you are ready to deploy and manage your models as real-time web services. We recommend creating the Model Management account at the same time as the Experimentation account.
    Account Name | mymodelmanagement | Choose a unique name that identifies your Model Management account. 
@@ -129,7 +129,7 @@ You need Docker to execute scripts in a local Docker container, or to deploy mod
 > When using Docker on Windows, the Docker container runs inside of a guest Linux VM on the Windows host via Hyper-V. You can see the Linux VM by opening up Hyper-V manager on your Windows OS.
 
 ## Next steps
-You have now successfully installed the Workbench desktop app and command-line interface. Follow the Classifying Iris Quickstart to get a tour of the Azure ML preview feature experience.
+You have now successfully installed the Workbench desktop app and command-line interface. Follow the classifying iris Quickstart to get a tour of the Azure ML preview feature experience.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Classifying Iris Flower Dataset](quick-start-iris.md)
+> [Quickstart: classifying iris flower dataset](quick-start-iris.md)
