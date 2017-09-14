@@ -50,8 +50,6 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 2.	On the left navigation bar click **Configuration**. 
 3.	You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
 4.	Ensure you click **Save** to save the configuration.  
-5. If you wish to check and verify which extensions are on this VM, click Extensions. If MSI is enabled, then ManagedIdentityExtensionforWindows appears in the list.
-
     ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-configured.png)
 
 5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** will appear in the list.
