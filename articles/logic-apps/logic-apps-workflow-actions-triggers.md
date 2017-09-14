@@ -70,8 +70,8 @@ For information about other details, see
   
 ## Recurrence trigger  
 
-This trigger runs based on a defined schedule 
-and provides an easy way for running a workflow. 
+This trigger runs based on the recurrence and schedule that you specify 
+and provides an easy way for regularly running a workflow. 
 Here's a basic recurrence trigger example that runs daily:
 
 ```json
@@ -83,7 +83,7 @@ Here's a basic recurrence trigger example that runs daily:
     }
 }
 ```
-You can also schedule a future date and time for firing the trigger. 
+You can also schedule a start date and time for firing the trigger. 
 For example, to start a weekly report every Monday, 
 you can schedule the logic app to start on a specific Monday 
 like this example: 
@@ -108,11 +108,11 @@ Here's the definition for this trigger:
         "frequency": "second|minute|hour|day|week|month",
         "interval": recurrence-interval-based-on-frequency,
         "schedule": {
-            // Applies only when frequency is "Day" or "Week". Separate values with commas.
+            // Applies only when frequency is Day or Week. Separate values with commas.
             "hours": [ one-or-more-hour-marks ], 
-            // Applies only when frequency is "Day" or "Week". Separate values with commas.
+            // Applies only when frequency is Day or Week. Separate values with commas.
             "minutes": [ one-or-more-minute-marks ], 
-            // Applies only when frequency is "Week". Separate values with commas.
+            // Applies only when frequency is Week. Separate values with commas.
             "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
         },
         "startTime": "start-date-time-with-format-YYYY-MM-DDThh:mm:ss",
@@ -126,13 +126,15 @@ Here's the definition for this trigger:
 | frequency | Yes | String | The unit of time for how often the trigger fires. Use only one of these values: "second", "minute", "hour", "day", "week", or "month" | 
 | interval | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
 | timeZone | No | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
-| startTime | No | String | Specify the start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running workflows](../connectors/connectors-native-recurrence.md). | 
+| startTime | No | String | Specify the start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
 | weekDays | No | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
-| hours | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers, separated by commas, from 0 to 23 as the hour marks for the times when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM. | 
-| minutes | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minute marks for the times when you want to run the workflow. <p>For example, "30" is the half-hour mark. With the previous example for hours, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
+| hours | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
+| minutes | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
 |||||| 
 
-For example: 
+For example, this recurrence trigger specifies that your logic app runs weekly 
+every Monday at 10:30 AM, 12:30 PM, and 2:30 PM Pacific Standard Time, 
+starting no sooner than September 9, 2017 at 2:00 PM:
 
 ``` json
 {
@@ -163,8 +165,8 @@ For example:
 }
 ```
 
-For more information and examples about this trigger, 
-see [Create and schedule regularly running workflows](../connectors/connectors-native-recurrence.md).
+For more information with recurrence and start time examples for this trigger, 
+see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md).
 
 ## Request trigger
 
