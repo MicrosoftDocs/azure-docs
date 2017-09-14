@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 09/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -159,7 +159,7 @@ In a federated Azure AD configuration, devices rely on Active Directory Federati
 Windows current devices authenticate by using Integrated Windows Authentication (IWA) to an active WS-Trust endpoint (1.3 or 2005 versions) hosted by the on-premises federation service.
 
 > [!NOTE]
-> When you use AD FS, you must enable either **adfs/services/trust/13/windowstransport** or **adfs/services/trust/2005/windowstransport**. If you are using the Web Authentication Proxy service, also ensure that this endpoint is published through the proxy. To see what endpoints are enabled, in the AD FS management console, go to **Service** > **Endpoints**.
+> When you use AD FS, you must enable either **adfs/services/trust/13/windowstransport** or **adfs/services/trust/2005/windowstransport**. To see what endpoints are enabled, in the AD FS management console, go to **Service** > **Endpoints**.
 >
 > If you don’t use AD FS as your on-premises federation service, follow instructions from your vendor to ensure that the vendor support WS-Trust 1.3 or 2005 endpoints, and to ensure that these are published through the Metadata Exchange (MEX) file.
 >

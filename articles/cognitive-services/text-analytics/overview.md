@@ -39,7 +39,7 @@ Text analysis can mean different things, but in Cognitive Services, APIs provide
 
 4. Post the request to the endpoint established during sign-up, appending the desired resource: sentiment analysis, key phrase extraction, or language detection.
 
-5. Stream or store the response locally. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code.
+5. Stream or store the response locally. Depending on the request, results are either a sentiment score, a collection of extracted key phrases, or a language code.
 
 Output is returned as a single JSON document, with results for each text document you posted, based on ID. You can subsequently analyze, visualize, or categorize the results into actionable insights.
 
@@ -79,15 +79,19 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 ## Data limits
 
-All three Text Analytics APIs accept raw text data. The current limit is 10 KB for each document; if you need to analyze larger documents, you can break them up into 10 KB chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
+All three Text Analytics APIs accept raw text data. The current limit is 5,000 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
 
 |Limits | |
 |------------------------|---------------|
-| Maximum size of a single document | 10 KB |
+| Maximum size of a single document | 5,000 characters as measured by String Length. |
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
 The rate limit is 100 calls per minute. Note that you can submit a large quantities of documents in a single call (up to 1000 documents). 
+
+## Encoding
+
+Text Analytics API uses UTF-8 encoding.
 
 ## Next steps
 
