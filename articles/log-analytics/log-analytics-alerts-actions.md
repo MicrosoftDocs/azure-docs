@@ -45,7 +45,7 @@ Email actions require the properties in the following table.
 
 Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it will use any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](log-analytics-alerts-webhooks.md).
 
-Webhook actions require the properties in the following table.
+ Webhook actions require the properties in the following table.
 
 | Property | Description |
 |:--- |:--- |
@@ -93,7 +93,7 @@ For example, to create a custom payload that includes just the alert name and th
     }
 
 
-You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in OMS Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
+You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in OMS Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md). Also note that commonly used Unicode characters (i.e., the ones in the Basic Multilingual Plane) in the JSON payload must be defined using the \uXXXX notation where XXXX is the four character code from [Wikipedia](https://en.wikipedia.org/wiki/List_of_Unicode_characters).
 
 ## Runbook actions
 Runbook actions start a runbook in Azure Automation.  In order to use this type of action, you must have the [Automation solution](log-analytics-add-solutions.md) installed and configured in your OMS workspace.  You can select from the runbooks in the automation account that you configured in the Automation solution.
