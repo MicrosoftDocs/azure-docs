@@ -1,6 +1,6 @@
 ---
-title: Maintenance notifications Windows VMs in Azure | Microsoft Docs
-description: View maintenance notifications for Windows virtual machines running in Azure.
+title: React to maintenance notifications for Windows VMs in Azure | Microsoft Docs
+description: View maintenance notifications for Windows virtual machines running in Azure and start self-service maintenance.
 services: virtual-machines-windows
 documentationcenter: ''
 author: zivr
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 09/14/2017
 ms.author: zivr
 
 ---
 
 
-# View maintenance notifications for Windows virtual machines
+# React to planned maintenance notifications for Windows virtual machines
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
