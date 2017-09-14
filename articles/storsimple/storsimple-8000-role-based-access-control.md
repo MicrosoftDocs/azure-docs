@@ -17,7 +17,7 @@ ms.date: 09/14/2017
 ms.author: alkohli
 
 ---
-# Use Role-based Access Control for StorSimple
+# Role-based Access Control for StorSimple
 
 This article provides a brief description of how Azure Role-Based Access Control (RBAC) can be used for your StorSimple device. RBAC offers fine-grained access management for Azure. Use RBAC to grant just the right amount of access to the StorSimple users to do their jobs instead of giving everyone unrestricted access. For more information on the basics of access management in Azure, refer to [Get started with Role-based Access Control in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
@@ -50,7 +50,7 @@ To view the different roles available for a StorSimple device user in the Azure 
 
 ## Create a custom role for StorSimple Infrastructure Administrator
 
-A StorSimple Infrastructure Admin (StorSimple Infra Admin) can manage the infrastructre management for the StorSimple devices. The following examples shows a custom role for a StorSimple Infrastructure Admin.
+A StorSimple Infrastructure Admin (StorSimple Infra Admin) can manage the infrastructre management for the StorSimple devices. The following examples walks you through the process of creating a custom role for a StorSimple Infrastructure Admin.
 
 In this example, we will start with the built-in role **Reader** which allows users to view all the resource scopes but not to edit them or create new ones.
 
@@ -123,6 +123,47 @@ This role should now appear in the list of roles in the **Access control** blade
 
 For more information, go to [Create a custom RBAC role using PowerShell](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
 
+### Sample output for custom role creation via the PowerShell
+
+```
+PS C:\WINDOWS\system32> Login-AzureRMAccount
+
+Environment           : AzureCloud
+Account               : alkohli@microsoft.com
+TenantId              : 72f988bf-86f1-41af-91ab-2d7cd011db47
+SubscriptionId        : 2136cf2e-684f-487b-9fc4-0accc9c0166e
+SubscriptionName      : Internal Consumption
+CurrentStorageAccount :
+
+PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader"
+
+Name             : Reader
+Id               : acdd72a7-3385-48ef-bd42-f606fba81ae7
+IsCustom         : False
+Description      : Lets you view everything, but not make any changes.
+Actions          : {*/read}
+NotActions       : {}
+AssignableScopes : {/}
+
+PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+
+PS C:\WINDOWS\system32> New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+
+Name             : StorSimple infra admin
+Id               : ff2e8f83-e352-4097-968f-a78d01aff144
+IsCustom         : True
+Description      : Lets you view everything, but not make any changes except for Clear alerts, Clear settings, install,
+                   download etc.
+Actions          : {Microsoft.StorSimple/managers/alerts/read,
+                   Microsoft.StorSimple/managers/devices/volumeContainers/read,
+                   Microsoft.StorSimple/managers/devices/jobs/read,
+                   Microsoft.StorSimple/managers/devices/alertSettings/read...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/2136cf2e-684f-487b-9fc4-0accc9c0166e/}
+
+PS C:\WINDOWS\system32>
+```
+
 
 ## Add users to the custom role
 
@@ -156,7 +197,7 @@ Once this role is created, you can view the permissions associated with this rol
 
     ![View permissions for StorSimple Infra Admin role](./media/storsimple-8000-role-based-access-control/rbac-roles-view-permissions.png)
 
-3. The permissions associated with this user are displayed.
+3. The permissions associated with this role are displayed.
 
     ![View users in StorSimple Infra Admin role](./media/storsimple-8000-role-based-access-control/rbac-infra-admin-permissions1.png)
 
