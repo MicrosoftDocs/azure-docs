@@ -43,31 +43,36 @@ This tutorial covers the following tasks:
 - Complete the [Build a .NET application using the Graph API](tutorial-develop-graph-dotnet.md) tutorial, or get the example code from the [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) GitHub repo and build the project.
 ## Building a Function using Visual Studio
 
-1. Add an **Azure Functions** project to your solution.
+1. Add an **Azure Functions** project to your solution by right-clicking on the project node in **Solution Explorer**, the choose **Add** > **New Item**. Choose **Azure Functions** from the dialog box, and name it **PeopleDataFunctions**.
 
    ![Add an Azure Function project to the solution](./media/tutorial-functions-http-trigger/01-add-function-project.png)
 
 2. After you create the Azure Functions project, there are a few NuGet related updates and installs to perform. 
 
-    a. To make sure you have the latest Functions SDK, use the NuGet Manager to update the **Microsoft.NET.Sdk.Functions** package.
+    a. To make sure you have the latest Functions SDK, use the NuGet Manager to update the **Microsoft.NET.Sdk.Functions** package. In **Solution Explorer**, right-click the project, and select **Manage NuGet Packages**. In the **Installed** tab, select Microsoft.NET.Sdk.Functions, then click **Update**.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. Next, install the the **Microsoft.Azure.Graphs** package to get the Graph API .NET Client SDK.
+    b. In the **Browse** tab, enter **azure.graphs** to find the **Microsoft.Azure.Graphs** package, and then  click **Install**. This package contains the Graph API .NET Client SDK.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
-    c. To support local debugging, install the **Mono.CSharp** package.
+    c. In the **Browse** tab, enter **mono.csharp** to find the **Mono.CSharp** package, and then click **Install**.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
 3. Your Solution Explorer should now include the packages you installed, as shown here. 
    
-   Next, we need to write some code. To do this, add a new **Azure Function** item to the project. This one is named **Search.cs**, because the point of this Azure Function is to provide database searching.  
+   Next, we need to write some code, so we'll add a new **Azure Function** item to the project. 
+
+    a. Right mouse click on the project node in **Solution Explorer**, then choose **Add** > **New Item**.   
+    b. In the **Add New Item** dialog, select **Visual C#**, select **Azure Function**, type **Search** as the name for your project, and click **OK**.  
  
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/05-add-function.png)
 
-4. The Azure Function will respond to HTTP requests, so the Http trigger template is appropriate here. We want this Azure Function to be "wide open," too, so we'll set the **Access rights** to **Anonymous**, which lets everyone through.
+4. The Azure Function will respond to HTTP requests, so the Http trigger template is appropriate here.
+   
+   In the **New Azure Function** box, select **Http trigger**,  We want this Azure Function to be "wide open," too, so we'll set the **Access rights** to **Anonymous**, which lets everyone through. Click **OK**.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 
@@ -168,7 +173,7 @@ Now that the code is complete, you can use the Azure Function's local debugging 
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
 
-3. To test the Azure Function, use [Visual Studio Code](http://code.visualstudio.com/) with Huachao Mao's extension, [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST Client offers local or remote HTTP request capability in a single right-click. We'll add the URL of our person search function and execute the HTTP request.
+3. To test the Azure Function, use [Visual Studio Code](http://code.visualstudio.com/) with Huachao Mao's extension, [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST Client offers local or remote HTTP request capability in a single right-click. We'll add the URL of our person search function and execute the HTTP request. Right-click the first URL, then select **Send Request**.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
 
@@ -184,11 +189,11 @@ After the Azure Function is validated and seems to be working properly, the last
 
 ## Publish the Azure Function
 
-1. Right-click the project, then select **Publish**.
+1. In **Solution Explorer**, right-click the project, then select **Publish**.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/12-publish-function.png)
 
-2. We're ready to publish this to the cloud to test it in a publicly available scenario. Select the first option, **Azure Function App**, and select **Create New** to create a new Azure Function in your Azure subscription.
+2. We're ready to publish this to the cloud to test it in a publicly available scenario. In the **Publish** tab, select **Azure Function App**, select **Create New** to create an Azure Function in your Azure subscription, then click **Publish**.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/13-publish-panel.png)
 
@@ -222,3 +227,10 @@ In this tutorial, you've done the following:
 > * Created an HTTP trigger
 > * Published the Azure Function
 > * Connected the Function to the Azure Cosmos DB database
+
+You can now proceed to the Concepts section for more information about Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Global distribution](distribute-data-globally.md) 
+
+This article is based on a blog from [Brady Gaster's Schemaless & Serverless](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) blog series. Visit his blog for additional posts in the series.

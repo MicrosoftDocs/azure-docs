@@ -100,7 +100,7 @@ In this tutorial, you've done the following:
 > * Exported the SSL certificate
 > * Learned how to use the certificate in Java, Python and Node.js
 
-You can now proceed to the Concepts section for more information about Cosmos DB.
+You can now proceed to the Query Azure Cosmos DB Graph API by using an Azure Function tutorial.
 
 > [!div class="nextstepaction"]
-> [Global distribution](distribute-data-globally.md) 
+> [Query Azure Cosmos DB Graph API by using an Azure Function](tutorial-functions-http-trigger.md) 
