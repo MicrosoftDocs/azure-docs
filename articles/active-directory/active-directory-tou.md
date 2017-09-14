@@ -12,19 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2017
+ms.date: 09/14/2017
 ms.author: billmath
 
 ---
 
-# Azure Active Directory Terms of Use (Public Preview)
-Azure AD Terms of Use provides a simple method for you and your organization to present disclaimers and legal information to your users.  Currently Azure AD Terms of Use uses the pdf format to present this to your end-users.  This document describes how to get going with Azure AD Terms of Use.  For end user information see
+# Azure Active Directory Terms of Use (Preview)
+Azure AD Terms of Use provides a simple method for an organization to ensure that end users see relevant disclaimers or other information needed for legal or compliance requirements. 
 
-## Get started with Azure AD Terms of Use
-To get started with Azure AD TOU, use the following steps:
+Azure AD Terms of Use uses the pdf format to allow organizations to present content to end-users.   This can be any content, such as existing contract documents, allowing you to collect end-user agreements during user sign-in.  Futhermore, they can use the terms of use for applications, groups of users, or if you have multiple terms of use for different purposes.
 
-1. [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
-2. View the Azure AD Terms of User dashboard at [https://aka.ms/aadconnecthealth](https://aka.ms/aadtou).
+Azure AD Terms of Use uses the pdf format to present this to your end-users.  
+
+This remainder of this document describes how to get going with Azure AD Terms of Use.  
+
+## Azure AD Terms of Use Prerequisites
+Use the following steps to configure Azure AD Terms of Use:
+
+1. Sign in to Azure AD as a global administrator in the directory where you want to setup Azure AD Terms of Use.
+2. Ensure that the directory has an Azure AD Premium P1, P2, EMS E3 or EMS E5 subscription.  If you do not [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+3. View the Azure AD Terms of User dashboard at [https://aka.ms/aadconnecthealth](https://aka.ms/aadtou).
 
 ## About Azure AD Terms of Use
 When you setup Azure AD Terms of Use you start in the Azure AD Terms of user blade.  
