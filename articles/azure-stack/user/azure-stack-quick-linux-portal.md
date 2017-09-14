@@ -6,11 +6,13 @@ author: vhorne
 manager: byronr
 
 ms.topic: hero-article
-ms.date: 09/15/2017
+ms.date: 09/25/2017
 ms.author: victorh
 ---
 
 # Create a Linux virtual machine with the Azure Stack portal
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Azure Stack virtual machines can be created through the Azure Stack portal. This method provides a browser-based user interface to create and configure a virtual machine and all related resources. This Quickstart shows you how to quickly create a Linux virtual machine and install a web server on it.
 
