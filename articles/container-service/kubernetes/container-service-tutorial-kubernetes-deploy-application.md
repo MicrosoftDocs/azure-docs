@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -37,7 +37,7 @@ This tutorial assumes a basic understanding of Kubernetes concepts, for detailed
 
 In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created. 
 
-To complete this tutorial, you need the pre-created *azure-vote-all-in-one-redis.yml* Kubernetes manifest file. This file was downloaded with the Azure Vote git repo in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
+To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
 
 If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
@@ -51,13 +51,13 @@ Get the ACR login server name with the [az acr list](/cli/azure/acr#list) comman
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The manifest file has been pre-created with a login server name of *microsoft*. Open the file with any text editor, in this example, the file is opened with *vi*.
+The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor, in this example, the file is opened with `vi`.
 
 ```bash
 vi azure-vote-all-in-one-redis.yml
 ```
 
-Replace `microsoft` with the ACR login server name. This value is found on line 47 of the manifest file.
+Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.
 
 ```yaml
 containers:
@@ -94,7 +94,7 @@ To monitor progress, use the [kubectl get service](https://review.docs.microsoft
 kubectl get service azure-vote-front --watch
 ```
 
-Initially, the **EXTERNAL-IP** for the *azure-vote-front* service appears as *pending*. Once the EXTERNAL-IP address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process.
+Initially, the **EXTERNAL-IP** for the `azure-vote-front` service appears as `pending`. Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `CTRL-C` to stop the kubectl watch process.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE

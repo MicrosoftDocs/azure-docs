@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -39,13 +39,13 @@ In previous tutorials, a container image was created and uploaded to an Azure Co
 
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-The following example creates a cluster named *myK8sCluster* in a Resource Group named *myResourceGroup*. This Resource Group was created in the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md).
+The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md).
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the deployment command. 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#create) command. 
 
 After several minutes, the deployment completes, and returns json formatted information about the ACS deployment.
 
@@ -53,7 +53,7 @@ After several minutes, the deployment completes, and returns json formatted info
 
 To connect to the Kubernetes cluster from your client computer, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you're using Azure CloudShell, *kubectl* is already installed. If you want to install it locally, use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
 
 If running in Linux or macOS, you may need to run with sudo. On Windows, ensure your shell has been run as administrator.
 
@@ -61,11 +61,11 @@ If running in Linux or macOS, you may need to run with sudo. On Windows, ensure 
 az acs kubernetes install-cli 
 ```
 
-On Windows, the default installation is `c:\program files (x86)\kubectl.exe`. You may need to add this file to the Windows path. 
+On Windows, the default installation is *c:\program files (x86)\kubectl.exe*. You may need to add this file to the Windows path. 
 
 ## Connect with kubectl
 
-To configure *kubectl* to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command.
+To configure kubectl to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster

@@ -15,14 +15,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Update an application in Kubernetes
 
-After you deploy an application in Kubernetes, it can be updated by specifying a new container image or image version. When you update an application, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update, and provides a rollback mechanism if a deployment failure occurs. 
+After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When doing so, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update. It also provides a rollback mechanism if a deployment failure occurs. 
 
 In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks that you complete include:
 
@@ -38,15 +38,15 @@ In subsequent tutorials, Operations Management Suite is configured to monitor th
 
 In previous tutorials, an application was packaged into a container image, the image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
 
-An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside you will find a directory named *azure-vote* and a file named *docker-compose.yml*.
+An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside you will find a directory named `azure-vote` and a file named `docker-compose.yml`.
 
 If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## Update application
 
-For this tutorial, a change will be made to the application, and these changes deployed to the Kubernetes cluster. The application source code can be found inside of the **azure-vote** directory.
+For this tutorial, a change will be made to the application, and the updated application deployed to the Kubernetes cluster. 
 
-Open the *config_file.cfg* file with any code or text editor. In this example *vi* is used.
+The application source code can be found inside of the `azure-vote` directory. Open the `config_file.cfg` file with any code or text editor. In this example `vi` is used.
 
 ```bash
 vi azure-vote/azure-vote/config_file.cfg
@@ -66,7 +66,7 @@ Save and close the file.
 
 ## Update container image
 
-Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application. The `--build` argument is used to instruct Docker Compose too re-create the application image.
+Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application. The `--build` argument is used to instruct Docker Compose to re-create the application image.
 
 ```bash
 docker-compose up --build -d
@@ -80,21 +80,21 @@ Browse to http://localhost:8080 to see the updated application.
 
 ## Tag and push images
 
-Tag the *azure-vote-front* image with the loginServer of the container registry.
+Tag the `azure-vote-front` image with the loginServer of the container registry. 
 
-If you're using Azure Container Registry, get the login server name with the [az acr list](/cli/azure/acr#list) command.
+Get the login server name with the [az acr list](/cli/azure/acr#list) command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image. Replace `<acrLoginServer>` with your Azure Container Registry login server name or public registry hostname.
+Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image. Replace `<acrLoginServer>` with your Azure Container Registry login server name or public registry hostname. Also notice that the image version is updated to `redis-v2`.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name or public registry hostname.
+Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -118,7 +118,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-If you don't have multiple pods running the azure-vote-front image, scale the *azure-vote-front* deployment.
+If you do not have multiple pods running the azure-vote-front image, scale the `azure-vote-front` deployment.
 
 
 ```azurecli-interactive
@@ -149,7 +149,7 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 ## Test updated application
 
-Get the external IP address of the *azure-vote-front* service.
+Get the external IP address of the `azure-vote-front` service.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front
