@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.date: 09/07/2017
 ---
 
-# Installing Azure Machine Learning preview features
+# Provision and install Azure Machine Learning preview features
 
 In these articles, you will learn to use Azure Machine Learning preview features, starting with these two things:
 - How to create and deploy Azure Machine Learning Experimentation and Model Management accounts
