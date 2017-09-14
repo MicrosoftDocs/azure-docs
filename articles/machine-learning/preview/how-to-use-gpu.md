@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/14/2017
 ---
 # How to use GPU in Azure Machine Learning
 Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipped with GPUs as execution target. 
@@ -66,7 +66,7 @@ Click OK to save the **Basics** information.
 ### Create a New Project in Azure ML Workbench 
 You can use the _Classifying MNIST using TensorFlow_ example, or the _Classifying MNIST dataset with CNTK_ example.
 
-### Create a new Compute Context
+### Create a new Compute Target
 Launch the command line from Azure ML Workbench. Enter the following command. Replace the placeholder text from the example below with your own values for the name, IP address, username, and password. 
 
 ```batch
@@ -76,11 +76,11 @@ C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_add
 ### Configure Azure ML Workbench to Access GPU
 Go back to the project and open **File View**, and hit the **Refresh** button. Now you see two new configuration files `my_dsvm.compute` and `my_dsvm.runconfig`.
  
-Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:gpu` and add a new line `nvidiaDocker: true`. So the file should have these two lines:
+Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:plus-gpu-0.7.9` and add a new line `nvidiaDocker: true`. So the file should have these two lines:
  
 ```yaml
 ...
-baseDockerImage: microsoft/mmlspark:gpu
+baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.9
 nvidiaDocker: true
 ```
  
