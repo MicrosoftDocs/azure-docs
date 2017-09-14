@@ -17,7 +17,7 @@ ms.date: 9/08/2017
 ms.author: yujhong
 
 ---
-# Connect with Storage in Azure Government
+# Connect to Storage in Azure Government
 
 ## Overview 
 Azure Government uses the same underlying technologies as commercial Azure, enabling you to use the development tools you’re already familiar with.
