@@ -1,6 +1,6 @@
 ---
 title: Receive a notification when an important action occurs in your Azure subscription  | Microsoft Docs
-description: Learn how to use an Activity Log alert to receive an email notification when a highly-priviledged operation is performed in your subscription.
+description: Learn how to use an Activity Log alert to receive an email notification when a highly-privileged operation is performed in your subscription.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -13,7 +13,7 @@ ms.author: johnkem
 ms.custom: mvc
 ---
 
-# Create an alert to receive a notification when an important action occurs in your Azure subscription
+# Receive a notification when an action occurs in your Azure subscription
 
 The **Azure Activity Log** provides a history of subscription-level events in Azure. It offers information about *who* created, updated, or deleted *what* resources and *when* they did it. You can create an **Activity Log alert** to receive email, SMS, or webhook notifications when an activity occurs that match your alert conditions. This Quickstart steps through authoring an Activity Log alert to become notified when a network security group is created.
 
