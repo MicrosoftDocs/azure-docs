@@ -160,11 +160,17 @@ Also, let's assume that the name of our key vault is: yourtest1
 * Cmdlets relevant to the feature are:<br>
     ```
         Get-AzureKeyVaultManagedStorageAccount
+        
         Add-AzureKeyVaultManagedStorageAccount
+        
         Get-AzureKeyVaultManagedStorageSasDefinition
+        
         Update-AzureKeyVaultManagedStorageAccountKey
+        
         Remove-AzureKeyVaultManagedStorageAccount
+        
         Remove-AzureKeyVaultManagedStorageSasDefinition
+        
         Set-AzureKeyVaultManagedStorageSasDefinition
     ```
 
