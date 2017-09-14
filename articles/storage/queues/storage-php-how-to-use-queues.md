@@ -23,16 +23,16 @@ ms.author: robinsh
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios by using the Azure Queue storage service. The samples are written via classes from the Windows SDK for PHP. The covered scenarios include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues.
+This guide shows you how to perform common scenarios by using the Azure Queue storage service. The samples are written via classes from the [Azure Storage Client Library for PHP][download]. The covered scenarios include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a PHP application
-The only requirement for creating a PHP application that accesses Azure Queue storage is the referencing of classes from the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses Azure Queue storage is the referencing of classes in the [Azure Storage Client Library for PHP][download] from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Queue storage features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
+In this guide, you use the Queue storage service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure Client Libraries
 [!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
@@ -45,18 +45,13 @@ To use the APIs for Azure Queue storage, you need to:
 
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
-> [!NOTE]
-> This example (and other examples in this article) assumes that you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you will need to reference the `WindowsAzure.php` autoloader file.
-> 
-> 
-
 ```php
 require_once 'vendor/autoload.php';
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
 ```
 
-In the examples below, the `require_once` statement will be shown always, but only the classes that are necessary for the example to execute will be referenced.
+In the examples below, the `require_once` statement is shown always, but only the classes that are necessary for the example to execute are referenced.
 
 ## Set up an Azure storage connection
 To instantiate an Azure Queue storage client, you must first have a valid connection string. The format for the queue service connection string is as follows.
@@ -76,17 +71,15 @@ UseDevelopmentStorage=true
 To create any Azure service client, you need to use the **ServicesBuilder** class. You can use either of the following techniques:
 
 * Pass the connection string directly to it.
-* Use **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
-  * By default, it comes with support for one external source—environmental variables.
-  * You can add new sources by extending the **ConnectionStringSource** class.
-
-For the examples outlined here, the connection string will be passed directly.
+* Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service-web/web-sites-configure.md) document for configuring connection strings.
+For the examples outlined here, the connection string is passed directly.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 ```
 
@@ -133,7 +126,7 @@ To add a message to a queue, use **QueueRestProxy->createMessage**. The method t
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
 
@@ -161,7 +154,7 @@ You can peek at a message (or messages) at the front of a queue without removing
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
 
@@ -207,7 +200,7 @@ Your code removes a message from a queue in two steps. First, you call **QueueRe
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create queue REST proxy.
@@ -246,7 +239,7 @@ You can change the contents of a message in-place in the queue by calling **Queu
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create queue REST proxy.
@@ -289,7 +282,7 @@ There are two ways that you can customize message retrieval from a queue. First,
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
 
@@ -337,7 +330,7 @@ You can get an estimate of the number of messages in a queue. The **QueueRestPro
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create queue REST proxy.
@@ -366,7 +359,7 @@ To delete a queue and all the messages in it, call the **QueueRestProxy->deleteQ
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create queue REST proxy.
@@ -389,11 +382,12 @@ catch(ServiceException $e){
 ## Next steps
 Now that you've learned the basics of Azure Queue storage, follow these links to learn about more complex storage tasks:
 
-* Visit the [Azure Storage Team blog](http://blogs.msdn.com/b/windowsazurestorage/).
+* Visit the [API Reference for Azure Storage PHP Client Library](http://azure.github.io/azure-storage-php/)
+* See the [Advanced Queue example](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 For more information, see also the [PHP Developer Center](/develop/php/).
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 

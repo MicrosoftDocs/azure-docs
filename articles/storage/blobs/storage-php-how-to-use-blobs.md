@@ -32,9 +32,9 @@ This guide shows you how to perform common scenarios using the Azure blob servic
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a PHP application
-The only requirement for creating a PHP application that accesses the Azure blob service is the referencing of classes in the Azure Storage Client Library for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Azure blob service is the referencing of classes in the [Azure Storage Client Library for PHP][download] from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you use service features, which can be called within a PHP application locally or in code running within an Azure web role, worker role, or website.
+In this guide, you use the Blob storage service features, which can be called within a PHP application locally or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure Client Libraries
 [!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
