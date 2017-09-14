@@ -38,7 +38,7 @@ In some high memory-consumption scenarios, your app might truly require more com
 
 ## How do I automate App Service web apps by using PowerShell?
 
-You can use PowerShell cmdlets to manage and maintain App Service web apps. In our blog post [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), we describe how to use Azure Resource Manager-based PowerShell cmdlets to automate common tasks. The blog post also has sample code for various web apps management tasks. 
+You can use PowerShell cmdlets to manage and maintain App Service web apps. In our blog post [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), we describe how to use Azure Resource Manager-based PowerShell cmdlets to automate common tasks. The blog post also has sample code for various web apps management tasks.
 For descriptions and syntax for all App Service web apps cmdlets, see [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
 
 ## How do I view my web app's event logs?
@@ -72,6 +72,10 @@ You have two options for viewing process-level information for your web app:
     2. Select the **Process Explorer** menu.
     3. For the **w3wp.exe** process, select **Properties**.
 
+## How do I know which application code slowed down the performance?
+
+If you are using Application Insights to monitor the web app, you can enable the [Application Insights Profiler](../application-insights/app-insights-profiler.md) to view Profiler Traces and determine which application code caused performance issues. 
+
 ## When I browse to my app, I see "Error 403 - This web app is stopped." How do I resolve this?
 
 Three conditions can cause this error:
@@ -84,7 +88,7 @@ To see what is causing the error and to resolve the issue, follow the steps in [
 
 ## Where can I learn more about quotas and limits for various App Service plans?
 
-For information about quotas and limits, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits). 
+For information about quotas and limits, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
 
 ## How do I decrease the response time for the first request after idle time?
 
