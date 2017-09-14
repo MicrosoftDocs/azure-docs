@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/07/2017
+ms.date: 09/13/2017
 ms.author: ryanwi
 
 ---
@@ -38,8 +38,7 @@ In this tutorial series you learn how to:
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md)
-- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](/cli/azure/install-azure-cli).
 - Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster-arm.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster-arm.md) on Azure
 
 ## Sign-in to Azure and select your subscription
@@ -51,6 +50,11 @@ Sign in to your Azure account select your subscription:
 Login-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
+```
+
+```azurecli
+az login
+az account set --subscription <guid>
 ```
 
 ## Deploy API Management
@@ -65,11 +69,16 @@ Download the following Resource Manager template and parameters file:
 
 Fill in the empty parameters in the `apim.parameters.json` for your deployment.
 
-Use the following PowerShell command to deploy the Resource Manager template and parameter files for API Management:
+Use the following script to deploy the Resource Manager template and parameter files for API Management:
 
 ```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
+$ResourceGroupName = "tutorialgroup"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+```
+
+```azurecli
+ResourceGroupName="tutorialgroup"
+az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
 ```
 
 ## Configure API Management
@@ -84,18 +93,18 @@ To configure the Service Fabric backend, you first need to configure API Managem
 
 The API Management REST API is currently the only way to configure a backend service. The first step is to enable the API Management REST API and secure it.
 
- 1. In the API Management service, select **Management API - PREVIEW** under **Security**.
+ 1. In the API Management service, select **Management API** under **Security**.
  2. Check the **Enable API Management REST API** checkbox.
- 3. Note the Management API URL - this is the URL we'll use later to set up the Service Fabric backend
- 4. Generate an **access Token** by selecting an expiry date and a key, then click the **Generate** button toward the bottom of the page.
- 5. Copy the **access token** and save it - we'll use this in the following steps. Note this is different from the primary key and secondary key.
+ 3. Note the **Management API URL**, which we use later to set up the Service Fabric backend.
+ 4. Generate an **Access Token** by selecting an expiry date and a key, then click the **Generate** button toward the bottom of the page.
+ 5. Copy the **access token** and save it.  We'll use the access token in the following steps. Note this is different from the primary key and secondary key.
 
 #### Upload a Service Fabric client certificate
 
 API Management must authenticate with your Service Fabric cluster for service discovery using a client certificate that has access to your cluster. For simplicity, this tutorial uses the same certificate specified previously when creating the [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster-arm.md#createvaultandcert_anchor) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster-arm.md#createvaultandcert_anchor), which by default can be used to access your cluster.
 
- 1. In the API Management service, select **Client certificates - PREVIEW** under **Security**.
- 2. Click the **+ Add** button
+ 1. In the API Management service, select **Client certificates** under **Security**.
+ 2. Click the **+ Add** button.
  2. Select the private key file (.pfx) of the cluster certificate that you specified when creating your Service Fabric cluster, give it a name, and provide the private key password.
 
 > [!NOTE]
@@ -154,16 +163,16 @@ import json
 #specify url
 url = 'https://ryanwiapimgmt.management.azure-api.net/backends/servicefabric?api-version=2016-10-10'
 
-token = "SharedAccessSignature integration&201709291702&BNOlZ55mla885ultt7+avRgtJn2TvuKW4rE57ya8miL51Ts/vDqny70lHzbhScLsHIqcm7+Dsw029i6WmL5mQw=="
+token = "SharedAccessSignature integration&201710140514&Lqnbei7n2Sot6doiNtxMFPUi/m9LsNa+1ZK/PdxqFl49JFWjXh1wW5Gd99r/tIOeHp6dU8UV5iZUdOPfcrm5hg=="
 
 payload = {
     "description": "My Service Fabric backend",
     "url": "fabric:/ApiApplication/ApiWebService",
     "protocol": "http",
-    "resourceId": "https://apimgmtcluster.westus.cloudapp.azure.com:19080",
+    "resourceId": "https://tutorialcluster.eastus.cloudapp.azure.com:19080",
     "properties": {
         "serviceFabricCluster": {
-            "managementEndpoints": [ "https://apimgmtcluster.westus.cloudapp.azure.com:19080" ],
+            "managementEndpoints": [ "https://tutorialcluster.eastus.cloudapp.azure.com:19080" ],
             "clientCertificateThumbprint": "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80",
             "serverCertificateThumbprints": [ "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80" ],
             "maxPartitionResolutionRetries" : 5
@@ -232,20 +241,23 @@ An ASP.NET Core stateless service named `fabric:/ApiApplication/WebApiService` s
 Now we're ready to create an operation in API Management that external clients use to communicate with the ASP.NET Core stateless service running in the Service Fabric cluster.
 
  1. Log in to the Azure portal and navigate to your API Management service deployment.
- 2. In the API Management service blade, select **APIs - Preview**
- 3. Add a new API by clicking the **Blank API** box and filling out the dialog box:
+ 2. In the API Management service blade, select **APIs**
+ 3. Add a new API by clicking **+API**, then **Blank API** box, and filling out the dialog box:
 
-     - **Web service URL**: For Service Fabric backends, this URL value is not used. You can put any value here. For this tutorial, use: `http://servicefabric`.
-     - **Name**: Provide any name for your API. For this tutorial, use `Service Fabric App`.
-     - **URL scheme**: Select either HTTP, HTTPS, or both. For this tutorial, use `both`.
-     - **API URL Suffix**: Provide a suffix for our API. For this tutorial, use `myapp`.
+     - **Web service URL**: For Service Fabric backends, this URL value is not used. You can put any value here. For this tutorial, use: "http://servicefabric".
+     - **Display Name**: Provide any name for your API. For this tutorial, use "Service Fabric App".
+     - **Name**: Enter "service-fabric-app".
+     - **URL scheme**: Select either **HTTP**, **HTTPS**, or **both**. For this tutorial, use **both**.
+     - **API URL Suffix**: Provide a suffix for our API. For this tutorial, use "myapp".
  
- 4. Once the API is created, click **+ Add operation** to add a front-end API operation. Fill out the values:
+ 4. Select **Service Fabric App** from the list of APIs and click **+ Add operation** to add a front-end API operation. Fill out the values:
     
-     - **URL**: Select `GET` and provide a URL path for the API. For this tutorial, use `/api/values`.
+     - **URL**: Select **GET** and provide a URL path for the API. For this tutorial, use "/api/values".
      
-       By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, in this case `/api/values`, then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you will also need to specify a path rewrite in your operation policy later.
-     - **Display name**: Provide any name for the API. For this tutorial, use `Values`.
+       By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, in this case "/api/values", then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you will also need to specify a path rewrite in your operation policy later.
+     - **Display name**: Provide any name for the API. For this tutorial, use "Values".
+
+5. Click **Save**.
 
 ## Configure a backend policy
 
@@ -257,7 +269,7 @@ The backend policy ties everything together. This is where you configure the bac
 
 For this tutorial, create a backend policy that routes requests directly to the ASP.NET Core stateless service deployed earlier:
 
- 1. Select and edit the **inbound policies** for the `Values` operation by clicking the edit icon, and then selecting **Code View**.
+ 1. Select and edit the **inbound policies** for the Values operation by clicking the edit icon, and then selecting **Code View**.
  2. In the policy code editor, add a `set-backend-service` policy under inbound policies as shown here and click the **Save** button:
     
     ```xml
@@ -284,20 +296,44 @@ For a full set of Service Fabric back-end policy attributes, refer to the [API M
 
 Before you can call the API, it must be added to a product where you can grant access to users. 
 
- 1. In the API Management service, select **Products - PREVIEW**.
+ 1. In the API Management service, select **Products**.
  2. By default, API Management providers two products: Starter and Unlimited. Select the Unlimited product.
- 3. Select APIs.
- 4. Click the **+ Add** button.
- 5. Select the `Service Fabric App` API you created in the previous steps and click the **Select** button.
+ 3. Select **+Add APIs**.
+ 4. Select the `Service Fabric App` API you created in the previous steps and click the **Select** button.
 
 ### Test it
 
 You can now try sending a request to your back-end service in Service Fabric through API Management directly from the Azure portal.
 
- 1. In the API Management service, select **API - PREVIEW**.
- 2. In the `Service Fabric App` API you created in the previous steps, select the **Test** tab.
- 3. Click the **Send** button to send a test request to the backend service.
+ 1. In the API Management service, select **API**.
+ 2. In the **Service Fabric App** API you created in the previous steps, select the **Test** tab and then the **Values** operation.
+ 3. Click the **Send** button to send a test request to the backend service.  You should see a HTTP response similar to:
 
+    ```http
+    HTTP/1.1 200 OK
+
+    Transfer-Encoding: chunked
+
+    Content-Type: application/json; charset=utf-8
+
+    Vary: Origin
+
+    Access-Control-Allow-Origin: https://apimanagement.hosting.portal.azure.net
+
+    Access-Control-Allow-Credentials: true
+
+    Access-Control-Expose-Headers: Transfer-Encoding,Date,Server,Vary,Ocp-Apim-Trace-Location
+
+    Ocp-Apim-Trace-Location: https://apimgmtstuvyx3wa3oqhdbwy.blob.core.windows.net/apiinspectorcontainer/RaVVuJBQ9yxtdyH55BAsjQ2-1?sv=2015-07-08&sr=b&sig=Ab6dPyLpTGAU6TdmlEVu32DMfdCXTiKAASUlwSq3jcY%3D&se=2017-09-15T05%3A49%3A53Z&sp=r&traceId=ed9f1f4332e34883a774c34aa899b832
+
+    Date: Thu, 14 Sep 2017 05:49:56 GMT
+
+
+    [
+    "value1",
+    "value2"
+    ]
+    ```
 
 ## Clean up resources
 
@@ -306,11 +342,13 @@ A cluster is made up of other Azure resources in addition to the cluster resourc
 Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzureRMResourceGroup cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId "Subcription ID"
-
-$ResourceGroupName = "sfclustertutorialgroup"
+$ResourceGroupName = "tutorialgroup"
 Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
+```
+
+```azurecli
+ResourceGroupName="tutorialgroup"
+az group delete --name $ResourceGroupName
 ```
 
 ## Next steps
