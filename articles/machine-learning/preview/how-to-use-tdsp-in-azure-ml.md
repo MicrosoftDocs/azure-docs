@@ -47,7 +47,7 @@ These are the things you should keep in mind *before* creating a new project:
 * Storing files such as Office Word, PowerPoint etc. can increase the size of Docs folder substantially. Find a [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), or other collaborative resource to store such files.
 * For handling large files and outputs in Azure ML Workbench, read [this](http://aka.ms/aml-largefiles).
 
-## Instantiating TDSP structure and templates from the Azure ML Workbench gallery template
+## Instantiating TDSP structure from gallery template
 
 To create a new project with the Team Data Science Process structure and documentation templates, complete the following procedures: 
 
