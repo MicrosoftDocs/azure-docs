@@ -36,7 +36,7 @@ Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
 
 To use this MySQL connector, you need to:
 
-- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+- Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version 6.6.5 or above on the Integration Runtime machine.
 
 > [!TIP]

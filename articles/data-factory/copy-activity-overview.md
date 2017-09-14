@@ -19,6 +19,7 @@ ms.author: shlo
 # Copy Activity in Azure Data Factory
 
 ## Overview
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-data-movement-activities.md)
 > * [Version 2 - Preview](copy-activity-overview.md)
@@ -32,7 +33,7 @@ In Azure Data Factory, you can use Copy Activity to copy data among data stores 
 
 Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, you can choose different flavor of Integration Runtime:
 
-* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **managed-elastic Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md).
+* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md).
 * When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
@@ -129,7 +130,7 @@ The following template of a copy activity lists exhausted supported properties. 
 | source | Specify the copy source type and the corresponding properties on how to retrieve data.<br/><br/>Learn details from the "Copy activity properties" section in connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | sink | Specify the copy sink type and the corresponding properties on how to write data.<br/><br/>Learn details from the "Copy activity properties" section in connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | translator | Specify explicit column mappings from source to sink. Applies when the default copy behavior cannot fulfill your need.<br/><br/>Learn details from [Schema and data type mapping](copy-activity-schema-and-type-mapping.md). | No |
-| cloudDataMovementUnits | Specify the powerfulness of managed-elastic [Integration Runtime](concepts-integration-runtime.md) to empower data copy.<br/><br/>Learn details from [Cloud data movement units](copy-activity-performance.md). | No |
+| cloudDataMovementUnits | Specify the powerfulness of [Azure Integration Runtime](concepts-integration-runtime.md) to empower data copy.<br/><br/>Learn details from [Cloud data movement units](copy-activity-performance.md). | No |
 | parallelCopies | Specify the parallelism that you want Copy Activity to use when reading data from source and writing data to sink.<br/><br/>Learn details from [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
 | enableStaging<br/>stagingSettings | Choose to stage the interim data in aa blob storage instead of directly copy data from source to sink.<br/><br/>Learn the useful scenarios and configuration details from [Staged copy](copy-activity-performance.md#staged-copy). | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when copying data from source to sink.<br/><br/>Learn details from [Fault tolerance](copy-activity-fault-tolerance.md). | No |
