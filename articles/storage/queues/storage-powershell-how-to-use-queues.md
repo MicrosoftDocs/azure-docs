@@ -74,7 +74,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-### How to create a queue
+## Create a queue
 
 The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet to create a queue named 'queuename'.
 
@@ -85,7 +85,7 @@ $queue = New-AzureStorageQueue –Name $queueName -Context $ctx
 
 For information on naming conventions for Azure Queue Service, see [Naming Queues and Metadata](http://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-### How to retrieve a queue
+## Retrieve a queue
 
 You can query and retrieve a specific queue or a list of all the queues in a Storage account. The following examples demonstrate how to retrieve all queues in the storage account, and a specific queue; both commands use the [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet.
 
@@ -99,7 +99,7 @@ $queue
 Get-AzureStorageQueue -Context $ctx | select Name
 ```
 
-#### How to add a message to a queue
+## Add a message to a queue
 
 To add a message to a queue, first create a new instance of the [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) class. Next, call the [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
 
@@ -123,7 +123,7 @@ $queue.CloudQueue.AddMessage($QueueMessage)
 
 If you use the [Azure Storage Explorer](http://storageexplorer.com), you can connect to your Azure account and view the queues in the storage account, and drill down into one to view the messages on the queue. 
 
-#### How to read a message from the queue, then delete it
+## Read a message from the queue, then delete it
 
 Messages are read in best-try first-in-first-out order. This is not guaranteed. When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.  
 
@@ -157,7 +157,7 @@ $ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
 $ queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
-### How to delete a queue
+## Delete a queue
 To delete a queue and all the messages contained in it, call the Remove-AzureStorageQueue cmdlet. The following example shows how to delete the specific queue used in this exercise using the Remove-AzureStorageQueue cmdlet.
 
 ```powershell
