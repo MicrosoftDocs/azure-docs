@@ -51,7 +51,7 @@ use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
 ```
 
-In the examples below, the `require_once` statement is shown always, but only the classes that are necessary for the example to execute are referenced.
+In the following examples, the `require_once` statement is shown always, but only the classes that are necessary for the example to execute are referenced.
 
 ## Set up an Azure storage connection
 To instantiate an Azure Queue storage client, you must first have a valid connection string. The format for the queue service connection string is as follows.
@@ -195,7 +195,7 @@ else{
 ```
 
 ## De-queue the next message
-Your code removes a message from a queue in two steps. First, you call **QueueRestProxy->listMessages**, which makes the message invisible to any other code that's reading from the queue. By default, this message will stay invisible for 30 seconds. (If the message is not deleted in this time period, it will become visible on the queue again.) To finish removing the message from the queue, you must call **QueueRestProxy->deleteMessage**. This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **deleteMessage** right after the message has been processed.
+Your code removes a message from a queue in two steps. First, you call **QueueRestProxy->listMessages**, which makes the message invisible to any other code that's reading from the queue. By default, this message stays invisible for 30 seconds. (If the message is not deleted in this time period, it becomes visible on the queue again.) To finish removing the message from the queue, you must call **QueueRestProxy->deleteMessage**. This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **deleteMessage** right after the message has been processed.
 
 ```php
 require_once 'vendor/autoload.php';
