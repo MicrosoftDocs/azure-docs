@@ -45,6 +45,12 @@
       href: azure-stack-add-default-image.md
     - name: Create a test VM
       href: azure-stack-provision-vm.md
+  - name: Datacenter integration
+    items:
+    - name: Integrate DNS
+      href: azure-stack-integrate-dns.md
+    - name: Publish endpoints
+      href: azure-stack-integrate-endpoints.md  
   - name: Manage
     items:
     - name: Region management
