@@ -201,7 +201,7 @@ start date and time, and how the Logic Apps engine executes these recurrences:
 | Start time at present or in the future | Runs the first workload at the specified start time. <p>Runs future workloads based on calculations from the last run time. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p>Runs future workloads based on the specified schedule. | 
 ||||
 
-**Example 1**: Specify a past start time with a recurrence but no schedule.
+**Example for a past start time with recurrence but no schedule** 
 
 | Start time | Current time | Recurrence | Schedule |
 | ---------- | ------------ | ---------- | -------- | 
