@@ -90,7 +90,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 In the preceding example, we created a resource group called **NRP-RG** and location **West US**.
 
-## Create Virtual Network and a private IP address for frontend IP pool
+## Create a virtual network and a private IP address for a front-end IP pool
 
 Creates a subnet for the virtual network and assigns to variable $backendSubnet
 
@@ -106,7 +106,7 @@ $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Locati
 
 Creates the virtual network and adds the subnet lb-subnet-be to the virtual network NRPVNet and assigns to variable $vnet
 
-## Create Frontend IP pool and backend address pool
+## Create a front-end IP pool and back-end address pool
 
 Setting up a frontend IP pool for the incoming load balancer network traffic and backend address pool to receive the load balanced traffic.
 
@@ -126,7 +126,7 @@ Set up a backend address pool used to receive incoming traffic from frontend IP 
 $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 ```
 
-## Create LB rules, NAT rules, probe, and load balancer
+## Create load balancing rules, NAT rules, probe, and load balancer
 
 After creating the frontend IP pool and the backend address pool, create the rules that belong to the load balancer resource:
 
