@@ -16,11 +16,11 @@ ms.date: 08/31/2017
 # Tutorial: Iris Classification (on the command-line interface)
 In this tutorial, you learn to use the Azure Machine Learning preview features to: 
 > [!div class="checklist"]
-> * Setting up an experimentation account, creating workspace
-> * Creating projects
-> * Submitting experiments to multiple compute target
-> * Promoting and registering a trained model
-> * Deploying a web-service to score new data
+> * Set up an experimentation account, creating workspace
+> * Create projects
+> * Submit experiments to multiple compute target
+> * Promote and register a trained model
+> * Deploy a web-service to score new data
 
 ## Prerequisites
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -68,7 +68,7 @@ az account set -s d128f140-94e6-4175-87a7-954b9d27db16
 We start by creating a new Experimentation account and a new workspace. 
 
 ```
-# Create a new ARM resource group
+# Create a new Azure Resource Manager resource group
 az group create --name <resource group name> --location eastus2
 
 # Create a new experimentation account 
@@ -300,11 +300,11 @@ az group delete --name amlsamplesenvrg
 ## Next Steps
 In this tutorial, you have learned to use the Azure Machine Learning preview features to 
 > [!div class="checklist"]
-> * Setting up an experimentation account, creating workspace
-> * Creating projects
-> * Submitting experiments to multiple compute target
-> * Promoting and registering a trained model
-> * Deploying a web-service to score new data
+> * Set up an experimentation account, creating workspace
+> * Create projects
+> * Submit experiments to multiple compute target
+> * Promote and register a trained model
+> * Deploy a web-service to score new data
 
 
 Next, learn how to use manage your model, review this tutorial: 

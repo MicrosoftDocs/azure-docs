@@ -53,7 +53,7 @@ Open iris_sklearn.py, right click and select **Machine Learning: Submit Job**.
 1. Select your platform: "Azure Machine Learning".
 2. Select your run-configuration: "Docker-Python."
 
-> Note:
+> [!NOTE]
 > If it is the first time your submit a job, you receive a message "No Machine Learning configuration found, creating...". A JSON file is opened, save it (**Ctrl+S**).
 
 Once the job is submitted, the embedded-terminal displays the progress of the runs. 

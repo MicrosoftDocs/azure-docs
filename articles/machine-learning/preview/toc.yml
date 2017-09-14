@@ -27,6 +27,7 @@
   - name: Classify iris part 3 - model deployment
     href: tutorial-classifying-iris-part-3.md
   - name: (Classify iris - CLI edition)
+    href: tutorial-iris-azure-cli.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md  
   - name: Real-world scenarios
