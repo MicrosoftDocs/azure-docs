@@ -25,9 +25,8 @@ you can create a logic app workflow that starts with the
 **Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
 Although some [connectors](../connectors/apis-list.md) 
 provide recurrence triggers for specific events, other connectors don't. 
-With this trigger, you can set a future date and time for when the trigger 
-fires and the recurrence schedule for performing tasks, such as these 
-examples and more:
+With this trigger, you can set a future date and time for starting the recurrence 
+and the recurrence schedule for performing tasks, such as these examples and more:
 
 * Get internal data: [Run a SQL stored procedure](../connectors/connectors-create-api-sqlazure.md) every day.
 * Get external data: Pull weather reports from NOAA every 15 minutes.
@@ -46,6 +45,9 @@ minutes, hours, days, weeks, or months.
 * Run and repeat each week, but only for specific days, such as Saturday and Sunday.
 * Run and repeat each week, but only for specific days and times, 
 such as Monday through Friday at 8:00 AM and 5:00 PM.
+
+When the recurrence trigger fires each time, 
+Logic Apps creates and runs a new instance of your logic app workflow.
 
 ## Prerequisites
 
@@ -89,22 +91,25 @@ In this example, set these properties to run your workflow every week.
    
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   For example, suppose that today is September 4, 2017. 
-   This trigger doesn't fire until two weeks from today 
-   on September 18, 2017 at 8:00 AM PST. The workflow 
-   repeats at 10:30 AM, 12:30 PM, and 2:30 PM, 
-   and only on Mondays each week. 
-   When you select "Day" or "Week", the trigger also 
-   shows a preview for your specified recurrence. 
-   [*What are some other example occurrences?*](#example-recurrences)
-   
+   For example, suppose that today is Monday, September 4, 2017. 
+   The following recurrence trigger doesn't fire until after the 
+   start date and time, which is Monday, September 18, 2017 at 8:00 AM PST. 
+   However, the recurrence schedule is set for 10:30 AM, 12:30 PM, 
+   and 2:30 PM on Mondays only. So the first time the trigger fires 
+   and creates a logic app workflow instance is 10:30 AM, not 8:00 AM. 
+   Later runs happen at 12:30 PM and 2:30 PM on the same day with 
+   each run creating their own workflow instance. After that, 
+   the entire schedule repeats all over again next Monday. 
+
    ![Advanced scheduling example](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
- 
+
+   > [!NOTE]
+   > The trigger Shows a preview for your specified recurrence 
+   > only when you select "Day" or "Week". 
+   > [*What are some other example occurrences?*](#example-recurrences)
+
 6. Now build your remaining workflow with actions or flow control statements. 
 For more actions that you can add, see [Connectors](../connectors/apis-list.md). 
-
-   When the trigger fires each time, Logic Apps creates and 
-   runs a new instance of your logic app workflow.
 
 ## Trigger details
 
@@ -117,8 +122,8 @@ You can configure these properties for the recurrence trigger.
 | **Time zone** | No | timeZone | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. | 
 | **Start time** | No | startTime | String | Provide a start time in this format: <p>YYYY-MM-DDThh:mm:ss if you select a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and select a time zone such as Pacific Time. Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](#start-time) | 
 | **On these days** | No | weekDays | String or string array | If you select "Week", you can select one or more days when you want to run the workflow: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday**, and **Sunday** | 
-| **At these hours** | No | hours | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 23 as the hour marks for the times when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM. | 
-| **At these minutes** | No | minutes | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 59 as the minute marks for the times when you want to run the workflow. <p>For example, "30" is the half-hour mark. With the previous example for hours, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
+| **At these hours** | No | hours | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 23 as the hours of the day when you want the workflow to run. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
+| **At these minutes** | No | minutes | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 59 as the minutes of the hour when you want the workflow to run. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
 ||||| 
 
 ## JSON example
@@ -129,6 +134,7 @@ Here is an example recurrence trigger definition:
 {
     "triggers": {
         "Recurrence": {
+            "type": "Recurrence",
             "recurrence": {
                 "frequency": "Week",
                 "interval": 1,
@@ -147,8 +153,7 @@ Here is an example recurrence trigger definition:
                 },
                "startTime": "2017-09-07T14:00:00",
                "timeZone": "Pacific Standard Time"
-            },
-            "type": "Recurrence"
+            }
         }
     }
 }
@@ -163,20 +168,24 @@ Here is an example recurrence trigger definition:
 
 | Recurrence | Interval | Frequency | Start time | On these days | At these hours | At these minutes | Note |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
-| Run at 8:00 AM every day | 1 | Day | {none} | {unavailable} | 8 | {none} || 
-| Run at 8:30 AM every day | 1 | Day | {none} | {unavailable} | 8 | 30 || 
+| Run at 8:00 AM every day, with start date and time | 1 | Day | {*your-start-day*}T08:00:00Z | {unavailable} | {none} | {none} | This schedule runs 8:00 AM every day, based on the specified start time. | 
+| Run at 8:00 AM every day, without start date and time | 1 | Day | {none} | {unavailable} | 8 | {none} | This schedule runs at 8:00 AM every day, based on the specified schedule. | 
+| Run at 8:30 AM every day, with start date and time | 1 | Day | {*your-start-day*}T08:30:00Z | {unavailable} | {none} | {none} | This schedule runs 8:00 AM every day, based on the specified start time. | 
+| Run at 8:30 AM every day, without start date and time | 1 | Day | {none} | {unavailable} | 8 | 30 | This schedule runs at 8:30 AM every day, based on the specified schedule. | 
 | Run at 8:30 AM and 4:30 PM every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30 || 
 | Run at 8:30 AM and 4:45 every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30, 45 || 
 | Run every 15 minutes | 1 | Day | {none} | {unavailable} | {none} | 0, 15, 30, 45 || 
-| Run every hour | 1 | Day | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | To control the minutes portion, you can specify minute marks or a start time, or you can use the creation time. For example, if the start time or creation time is 8:25 AM, this schedule runs at 8:25 AM, 9:25 AM, 10:25 AM, and so on. <p>This schedule is equivalent to a frequency of "Hour", an interval of one, and no schedule. However, the difference is that you can use this schedule with a different frequency and interval. For example, if frequency is "Month", the schedule runs once per month, rather than every day. | 
-| Run every hour, on the hour | 1 | Day | {none} | {unavailable} | {none} | 0 | For example, 12:00 AM, 1:00 AM, 2:00 AM, and so on. This schedule is equivalent to a frequency of "Hour" and a start time with zero minutes. <p>If the frequency is "Week" or "Month," this schedule respectively runs only one day per week or one day per month. | 
-| Run every 15 minutes past the hour, every hour | 1 | Day | {none} | {unavailable} | {none} | 15 | This schedule runs at 00:15 AM, 1:15 AM, 2:15 AM, and so on. | 
-| Run every Saturday at start time | 1 | Week | {your-start-time} | "Saturday" | {none} | {none} | For example, if you specify a start time of "2017-09-09T14:00:00", this schedule doesn't start until September 9, 2017 at 2:00 PM, but then runs every Saturday at 2:00 PM. | 
-| Run every week on Saturday at 5 PM | 1 | Week | {none} | "Saturday" | 17 | {none} | This schedule runs every Saturday at 5:00 PM. | 
-| Run every week on Tuesday, Thursday at 5 PM | 1 | Week | {none} | "Tuesday", "Thursday" | 17 | {none} | This schedule runs every Tuesday and Thursday at 5:00 PM. | 
-| Run every hour during working hours | 1 | Week | {none} | Select all days except Saturday and Sunday. | Select the hour marks for your specific working hours | Select any minute marks, as appropriate. | For example, if your working hours are 8:00 AM to 5:00 PM, then select "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" as your hour marks. <p>If your working hours are 8:30 AM to 5:30 PM, select the previous hour marks plus the "30" minute mark. | 
-| Run once every day on weekends | 1 | Week | {none} | "Saturday", "Sunday" | Select the hour mark that you want. | Select any minute mark as appropriate. | This schedule runs every Saturday and Sunday at your specified time. | 
-| Run every 15 minutes biweekly on Mondays only | 2 | Week | {none} | "Monday" | {none} | 0, 15, 30, 45 | This schedule runs every other Monday at every 15-minute mark. | 
+| Run every hour, every day | 1 | Day | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | To control the minutes portion, you can specify minute marks or a start time, or you can use the creation time. For example, if the start time or creation time is 8:25 AM, this schedule runs at 8:25 AM, 9:25 AM, 10:25 AM, and so on. <p>This schedule is equivalent to a frequency of "Hour", an interval of one, and no schedule. However, the difference is that you can use this schedule with a different frequency and interval. For example, if frequency is "Month", the schedule runs every hour for one day per month, not every day. | 
+| Run every hour, on the hour, with start date and time | 1 | Hour | Specify a start date and time with "00" as the minutes. | {unavailable} | {none} | 0 | This schedule runs at 12:00 AM, 1:00 AM, 2:00 AM, and so on. <p>If the frequency is "Week" or "Month," this schedule respectively runs only one day per week or one day per month. | 
+| Run every hour, on the hour, without start date and time | 1 | Day | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0 | This schedule runs at 12:00 AM, 1:00 AM, 2:00 AM, and so on. Also, this schedule is equivalent to a frequency of "Hour" and a start time with "00" minutes. <p>If the frequency is "Week" or "Month," this schedule respectively runs only one day per week or one day per month. | 
+| Run every 15 minutes past the hour, every hour, with start date and time | 1 | Hour | Specify a start time with "15" as the minutes. | {unavailable} | {none} | 15 | This schedule runs at 00:15 AM, 1:15 AM, 2:15 AM, and so on. | 
+| Run every 15 minutes past the hour, every hour, without start date and time | 1 | Day | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | This schedule runs at 00:15 AM, 1:15 AM, 2:15 AM, and so on. Also, this schedule is equivalent to a frequency of "Hour" and a start time with "15" minutes. | 
+| Run every Saturday at 5 PM, with start date and time | 1 | Week | Specify a Saturday start date and this time: "T17:00:00" | "Saturday" | {none} | {none} | This schedule doesn't start until the specified start date and time, for example, "2017-09-09T17:00:00", which is September 9, 2017 at 5:00 PM. Future runs happen every Saturday at 5:00 PM. | 
+| Run every Saturday at 5 PM, without start date and time | 1 | Week | {none} | "Saturday" | 17 | 00 | This schedule runs every Saturday at 5:00 PM. | 
+| Run every Tuesday, Thursday at 5 PM | 1 | Week | {none} | "Tuesday", "Thursday" | 17 | {none} | This schedule runs every Tuesday and Thursday at 5:00 PM. | 
+| Run every hour during working hours | 1 | Week | {none} | Select all days except Saturday and Sunday. | Select the hours of the day that you want. | Select any minute marks, as appropriate. | For example, if your working hours are 8:00 AM to 5:00 PM, then select "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" as the hours of the day. <p>If your working hours are 8:30 AM to 5:30 PM, select the previous hours of the day plus "30" as minutes of the hour. | 
+| Run once every day on weekends | 1 | Week | {none} | "Saturday", "Sunday" | Select the hours of the day that you want. | Select any minutes of the hour as appropriate. | This schedule runs every Saturday and Sunday at your specified time. | 
+| Run every 15 minutes biweekly on Mondays only | 2 | Week | {none} | "Monday" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | This schedule runs every other Monday at every 15-minute mark. | 
 |||||
 
 <a name="start-time"></a>
@@ -187,9 +196,9 @@ with the start date and time:
 
 | Start time | Recurrence without schedule | Recurrence with schedule | 
 | ---------- | --------------------------- | ------------------------ | 
-| {none} | Run once immediately, then run future workloads based on the last run time. | Run once immediately, then run future workloads based on your specified recurrence schedule. | 
-| Start time at present or in the future | Run once at your specified start time, then run future workloads based on the last run time. | Run once, but no earlier than the specified start time. Run future workloads based on your specified recurrence schedule. | 
-| Start time in the past | Calculate the first future run time based on the start time, then run at that time. Run future workloads based on calculations from the last run time. | Calculate the first future run time based on the start time, then run at that time. Run future workloads based on your specified recurrence schedule. | 
+| {none} | Run once immediately, then run future workloads based on the last run time. | Run once immediately, then run future workloads based on your specified schedule. | 
+| Start time at present or in the future | Run once at your specified start time, then run future workloads based on the last run time. | Run once, but no earlier than the specified start time. Run future workloads based on your specified schedule. | 
+| Start time in the past | Calculate run times based on the start time, discard any run times in the past, and run the first workload at the next start time in the future. Run future workloads based on calculations from the last run time. | Calculate the first future run time based on the start time, then run at that time. Run future workloads based on your specified schedule. | 
 ||||
 
 ## Next steps
