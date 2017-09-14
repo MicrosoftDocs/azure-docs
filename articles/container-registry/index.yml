@@ -27,11 +27,11 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
       text: Azure CLI
       href: /azure/container-registry/container-registry-get-started-azure-cli
-    - image: 
+    - image:
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
       text: Azure Portal
       href: /azure/container-registry/container-registry-get-started-portal
-    - image: 
+    - image:
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-registry/container-registry-get-started-powershell
@@ -43,7 +43,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Use Container Registry with Azure Container Instances</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry with Azure Container Instances</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry with Azure Container Service</a>
 
 - title: Reference
