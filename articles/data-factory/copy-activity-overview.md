@@ -46,6 +46,8 @@ Copy Activity goes through the following stages to copy data from a source to a 
 
 ## Supported data stores and formats
 
+Learn about Integration Runtime from [Integration Runtime](concept-integration-runtime.md).
+
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
 
 ### Supported file formats

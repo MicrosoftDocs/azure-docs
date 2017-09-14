@@ -1,4 +1,4 @@
-| Category | Data store | Supported as a source | Supported as a sink | Supported Integration Runtime Type |
+| Category | Data store | Supported as a source | Supported as a sink | Supported [Integration Runtime](../articles/data-factory/concept-integration-runtime.md) Type |
 |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |Self-hosted, Azure |
 | &nbsp; |[Azure Cosmos DB (DocumentDB API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |Self-hosted, Azure |
@@ -24,11 +24,11 @@
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |Self-hosted, Azure |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |Self-hosted, Azure |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |Self-hosted, Azure |
-| **Others** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | | |Self-hosted, Azure |
-| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | | |Self-hosted, Azure |
+| **Others** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |Self-hosted, Azure |
+| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |Self-hosted, Azure |
 | &nbsp; |[Generic HTTP](../articles/data-factory/connector-http.md) |✓ | |Self-hosted, Azure |
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |✓ | |Self-hosted, Azure |
 | &nbsp; |[Generic ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ |Self-hosted |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ | |Self-hosted, Azure |
 | &nbsp; |[Web Table (table from HTML)](../articles/data-factory/connector-web-table.md) |✓ | |Self-hosted, Azure |
-| &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-store) |✓ | | |Self-hosted |
+| &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-store) |✓ | |Self-hosted |
