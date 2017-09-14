@@ -6,7 +6,7 @@ keywords:
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 08/18/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: storage
 ---
 
