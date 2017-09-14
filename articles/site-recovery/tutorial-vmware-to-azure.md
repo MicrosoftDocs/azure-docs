@@ -233,7 +233,7 @@ You can track progress of the **Enable Protection** job in **Settings** > **Jobs
 To monitor VMs you add, you can check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don’t click it), and click **Refresh**.
 
 ## Next steps
-[Run a disaster recovery drill](site-recovery-test-failover-to-azure)
+[Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
 
 
 
