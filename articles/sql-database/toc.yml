@@ -261,10 +261,6 @@
       href: sql-database-long-term-backup-retention-configure.md
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
-    - name: Geo-replicate- T-SQL - Configure
-      href: sql-database-geo-replication-transact-sql.md
-    - name: Geo-replicate - T-SQL - Failover
-      href: sql-database-geo-replication-failover-transact-sql.md
     - name: Recover single table
       href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
   - name: Load & move data
