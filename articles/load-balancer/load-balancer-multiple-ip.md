@@ -81,7 +81,7 @@ Configure your frontend IP pool for each website (Contoso and Fabrikam) as follo
 5. Under **Settings**, select **Frontend Pools**. Then click **Add** towards the top of the blade that shows up.
 6. Type a name for your frontend IP address (*farbikamfe* or *contosofe*).
 7. Click **IP address** and on the **Choose Public IP address** blade, select the IP addresses for your frontend (*PublicIP1* or *PublicIP2*).
-8. To create the second frontend IP address, repeat steps 3 to 7 within this section .
+8. To create the second frontend IP address, repeat steps 3 to 7 within this section.
 9. When the frontend IP pool configuration is complete, both frontend IP addresses are displayed in the **Frontend IP Pool** blade of your load balancer. 
     
 ### STEP 4: Configure the backend pool   
@@ -117,7 +117,7 @@ Configure load balancing rules (*HTTPc* and *HTTPf*) for each website as follows
 4. For **Port** and **Backend port**, keep the default value **80**.
 5. For **Floating IP (direct server return)**, click **Enabled**.
 6. Click **OK**.
-7. To create the second Load Balancer rule, repeat steps 1 to 6 within this section .
+7. To create the second Load Balancer rule, repeat steps 1 to 6 within this section.
 8. When the load balancing rules configuration is complete, both rules ((*HTTPc* and *HTTPf*) are displayed in the **Load balancing rules** blade of your load balancer.
 
 ### STEP 7: Configure DNS records

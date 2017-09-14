@@ -75,7 +75,7 @@ Figure 4 - On-premises network traffic routed to the ILB endpoint
 
 Internal Load Balancer configurations do not support SNAT. In the context of this document, SNAT refers to port masquerading source  network address translation.  This applies to scenarios where a VM in a load balancer pool needs to reach the respective internal Load Balancer's frontend IP address. This scenario is not supported for internal Load Balancer. Connection failures will occur when the flow is load balanced to the VM which originated the flow. You must use a proxy style load balancer for such scenarios.
 
-## Next Steps
+## Next steps
 
 [Azure Resource Manager support for Azure Load Balancer](load-balancer-arm.md)
 

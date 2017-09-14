@@ -156,7 +156,7 @@ The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sour
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-## Next Steps
+## Next steps
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
