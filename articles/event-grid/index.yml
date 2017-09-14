@@ -41,6 +41,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p>
     - title: REST APIs
       html: <p><a href="/rest/api/eventgrid">REST</a></p>  
     - title: Schemas
