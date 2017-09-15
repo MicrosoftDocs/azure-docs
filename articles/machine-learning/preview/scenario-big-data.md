@@ -22,7 +22,7 @@ ms.author: daden
 
 The public GitHub repository for this example contains all materials, including code samples: 
  
- [https://github.com/Azure/MachineLearningSamples-BigDat(https://github.com/Azure/MachineLearningSamples-BigData)
+[https://github.com/Azure/MachineLearningSamples-BigData](https://github.com/Azure/MachineLearningSamples-BigData)
 
 
 
@@ -112,7 +112,7 @@ The files in this example are organized as follows.
 | `README.md` | Markdown file | The README markdown file |
 
 
-You can create an Azure ML Workbench project with a pre-created git repository by  follow this [instruction](./tutorial-classifying-iris-part-1.md). In the project directory, clone the Git repository at https://github.com/Azure/MachineLearningSamples-BigData to download the files. Run git status to inspect the status of the files for version tracking. 
+You can create an Azure ML Workbench project with a pre-created git repository by following this [instruction](./tutorial-classifying-iris-part-1.md). In the project directory, clone the Git repository at https://github.com/Azure/MachineLearningSamples-BigData to download the files. Run git status to inspect the status of the files for version tracking. 
 
 ### Data flow
 
@@ -184,7 +184,7 @@ Run the script `etl.py` on DSVM Docker with debug parameter `FILTER_IP` which fi
 
 ```az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/etl.py ./Config/storageconfig.json FILTER_IP```
 
-Navigate to the side panel, click "Run" to see the run history of  `etl.py`. Notice that the run time is around two minutes. Providing FILTER_IP as the second arguments provides a faster iteration if you plan to change your code to include new features. You might need to run this step multiple times when dealing with your own machine learning problems to explore the dataset or create new features. With the customized restriction on what data to load and further filtering of what data to process, you can  thus speed up the iteration process in your model development. As you experiment, you should periodically save the changes in your code to the git repository.  
+Navigate to the side panel, click "Run" to see the run history of  `etl.py`. Notice that the run time is around two minutes. If you plan to change your code to include new features , providing FILTER_IP as the second arguments provides a faster iteration. You might need to run this step multiple times when dealing with your own machine learning problems to explore the dataset or create new features. With the customized restriction on what data to load and further filtering of what data to process, you can  thus speed up the iteration process in your model development. As you experiment, you should periodically save the changes in your code to the git repository.  
 
 
 Next,  run the script `etl.py` on DSVM Docker without debug parameter FILTER_IP
