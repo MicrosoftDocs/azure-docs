@@ -19,7 +19,7 @@ ms.author: robinsh
 
 # Perform Azure Blob storage operations with Azure PowerShell
 
-Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This article covers basic operations in Azure Blob storage such as uploading, downloading, and deleting blobw. You learn how to:
+Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This article covers basic operations in Azure Blob storage such as uploading, downloading, and deleting blobs. You learn how to:
 
 > [!div class="checklist"]
 > * Create a container 
@@ -45,10 +45,10 @@ You may want images in your container to be accessible publicly. For example, if
 
 To create the container, set the container name, then create the container, setting the permissions to 'blob'. Container names must start with a letter or a number, and can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, please see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Create a new container with [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Set the access level to public. The container name in this example is *blobshowto*.
+Create a new container with [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Set the access level to public. The container name in this example is *howtoblobs*.
 
 ```powershell
-$containerName = "blobshowto"
+$containerName = "howtoblobs"
 New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 ```
 

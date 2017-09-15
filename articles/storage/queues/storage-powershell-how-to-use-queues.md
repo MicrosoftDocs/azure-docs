@@ -52,10 +52,10 @@ $location = "eastus"
 
 Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. 
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. Store the resource group name in a variable for future use. In this example, a resource group named *queueshowtorg* is created in the *eastus* region.
+An Azure resource group is a logical container into which Azure resources are deployed and managed. Store the resource group name in a variable for future use. In this example, a resource group named *howtoqueuesrg* is created in the *eastus* region.
 
 ```powershell
-$resourceGroup = "rgqueue"
+$resourceGroup = "howtoqueuesrg"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
@@ -64,7 +64,7 @@ New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 Create a standard general-purpose storage account with locally-redundant storage (LRS) using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Get the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials.
 
 ```powershell
-$storageAccountName = "queuetest"
+$storageAccountName = "howtoqueuestorage"
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
