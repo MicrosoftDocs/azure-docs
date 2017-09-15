@@ -284,6 +284,8 @@
       href: set-throughput.md
     - name: Monitor SLAs
       href: monitor-accounts.md
+    - name: Diagnostic logging
+      href: logging.md
     - name: Manage keys and consistency
       href: manage-account.md
     - name: Security
