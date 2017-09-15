@@ -32,7 +32,9 @@
     - name: Classify UCI incomes - with a TDSP project
       href: tutorial-classifying-uci-incomes.md
     - name: Biomedical entity recognition with a TDSP project
-      href: sample-tdsp-nlp.md    
+      href: sample-tdsp-nlp.md
+    - name: Aerial Image Classification
+      href: real-world-scenario-aerial-image-classification.md
 - name: How-to guides
   items:
   - name: Use Azure ML Workbench

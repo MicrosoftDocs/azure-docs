@@ -1,6 +1,14 @@
+---
+title: Aerial Image Classification  | Microsoft Docs
+description: Provides instructions for real world scenario on aerial image classification
+author: mawah
+ms.author: mawah@microsoft.com
+ms.date: 9/14/2017
+---
+
 # Aerial Image Classification
 
-This example demonstrates how to use Azure Machine Learning (AML) Workbench to coordinate distributed training and operationalization of image classification models. We use the [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) package to featurize images using pretrained CNTK models and to train classifiers using the derived features. We then apply the trained models in parallel fashion to large image sets in the cloud. These steps are performed on an [Azure HDInsight Spark](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/) cluster, allowing us to scale the speed of training and operationalization by adding or removing worker nodes.
+This example demonstrates how to use Azure Machine Learning Workbench to coordinate distributed training and operationalization of image classification models. We use the [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) package to featurize images using pretrained CNTK models and to train classifiers using the derived features. We then apply the trained models in parallel fashion to large image sets in the cloud. These steps are performed on an [Azure HDInsight Spark](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/) cluster, allowing us to scale the speed of training and operationalization by adding or removing worker nodes.
 
 The form of transfer learning we demonstrate has major advantages over retraining or fine-tuning a deep neural network: it does not require GPU compute, is inherently fast and arbitrarily scalable, and fits fewer parameters. This method is therefore an excellent choice when few training samples are available -- as is often the case for custom use cases. Many users report that transfer learning produces highly performant models, allowing them to avoid deep neural networks trained from scratch at much greater cost.
 
@@ -12,58 +20,29 @@ The public GitHub repository for this real world scenario contains all materials
 
 [https://github.com/Azure/MachineLearningSamples-AerialImageClassification](https://github.com/Azure/MachineLearningSamples-AerialImageClassification)
 
-## Outline
-- [Use case description](#usecasedescription)
-- [Scenario Structure](#structure)
-- [Set up the execution environment](#excenv)
-  - [Set up Azure resources](#resources)
-     - [Prerequisites](#prerequisites)
-     - [Create the resource group](#clilogin)
-     - [Create the storage account](#storage)
-     - [Create the HDInsight Spark cluster](#hdinsight)
-  - [Prepare the AML Workbench execution environment](#amlwb)
-     - [Register the HDInsight cluster as an AML Workbench compute context](#register)
-     - [Install local dependencies](#dependencies)
-- [Data acquisition and understanding](#dataunderstanding)
-- [Modeling](#modeling)
-  - [Training models with MMLSpark](#mmlsparktrain)
-  - [Comparing model performance using the Workbench Run History feature](#comparing)
-- [Deployment](#deployment)
-- [Visualization](#visualization)
-- [Conclusions and next steps](#conclusions)
-   - [Cleanup](#cleanup)
-- [References](#references)
-- [Contact](#contact)
-- [Disclaimer](#disclaimer)
-
-<a name="usecasedescription"></a>
 ## Use case description
 
 In this scenario, we train deep neural networks (DNNs) to classify the type of land shown in aerial images of 224-meter x 224-meter plots. Land use classification models can be used to track urbanization, deforestation, loss of wetlands, and other major environmental trends using periodically collected aerial imagery. We have prepared training and validation image sets based on imagery from the U.S. National Agriculture Imagery Program and land use labels published by the U.S. National Land Cover Database. Example images in each land use class are shown below:
 
-![Example regions for each land use label](media/real-world-scenario-aerial-image-classification/example_labels.PNG)
+![Example regions for each land use label](media/real-world-scenario-aerial-image-classification/example-labels.PNG)
 
 After training and validating the classifier model, we will apply it to aerial images spanning Middlesex County, MA -- home of Microsoft's New England Research & Development (NERD) Center -- to demonstrate how these models can be used to study trends in urban development.
 
 To produce an image classifier using transfer learning, data scientists often construct multiple models with a range of methods and select the most performant model. Azure Machine Learning Workbench can help data scientists coordinate training across different compute environments, track and compare the performance of multiple models, and apply a chosen model to large datasets on the cloud.
 
-
-<a name="structure"></a>
-## Scenario Structure
+## Scenario structure
 
 In this example, image data and pretrained models are housed in an Azure storage account. An Azure HDInsight Spark cluster reads these files and constructs an image classification model using MMLSpark. The trained model and its predictions are then written to the storage account, where they can be analyzed and visualized by a Jupyter notebook running locally. Azure Machine Learning Workbench coordinates remote execution of scripts on the Spark cluster. It also tracks accuracy metrics for multiple models trained using different methods, allowing the user to select the most performant model.
 
-![Schematic for the aerial image classification real world scenario](media/real-world-scenario-aerial-image-classification/scenario_schematic.PNG)
+![Schematic for the aerial image classification real world scenario](media/real-world-scenario-aerial-image-classification/scenario-schematic.PNG)
 
 The [step-by-step instructions](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) begin by guiding you through the creation and preparation of an Azure storage account and Spark cluster, including data transfer and dependency installation. They then describe how to launch training jobs and compare the performance of the resulting models. Finally, they illustrate how to apply a chosen model to a large image set on the Spark cluster and analyze the prediction results locally.
 
 
-<a name="excenv"></a>
 ## Set up the execution environment
 
 The following instructions guide you through the process of setting up execution environment for this example.
 
-<a name="prerequisites"></a>
 ### Prerequisites
 - An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available)
     - This sample creates an HDInsight Spark cluster with 40 worker nodes (168 cores total). Ensure that your account has enough available cores by reviewing the "Usage + quotas" tab for your subscription in Azure Portal.
@@ -74,12 +53,10 @@ The following instructions guide you through the process of setting up execution
 
 This example was tested on a Windows 10 PC; you should be able to run it from any Windows machine, including Azure Data Science Virtual Machines. Minor modifications may be required (for example, changes to filepaths) when running this example on macOS.
 
-<a name="resources"></a>
 ### Set up Azure resources
 
 This example requires an HDInsight Spark cluster and an Azure storage account to host relevant files. Follow these instructions to create these resources in a new Azure resource group:
 
-<a name="clilogin"></a>
 #### Create the resource group
 
 Load the Aerial Image Classification project in Azure Machine Learning Workbench as follows:
@@ -92,7 +69,7 @@ Load the Aerial Image Classification project in Azure Machine Learning Workbench
 
     Your screen should update as the new project is loaded in Workbench.
 
-1. From your AML Workbench project, open a Command Line Interface (CLI) by clicking File -> Open Command Prompt.
+1. From your Azure Machine Learning Workbench project, open a Command Line Interface (CLI) by clicking File -> Open Command Prompt.
 1. From the command line interface, log in to your Azure account by running the following command:
 
     ````
@@ -119,7 +96,6 @@ Load the Aerial Image Classification project in Azure Machine Learning Workbench
     az group create --location eastus --name %AZURE_RESOURCE_GROUP%
     ```
 
-<a name="storage"></a>
 #### Create the storage account
 
 We now create the storage account that hosts project files that must be accessed by the HDInsight Spark.
@@ -141,7 +117,7 @@ We now create the storage account that hosts project files that must be accessed
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
     ```
-1. In your favorite text editor, load the `settings.cfg` file from the AML Workbench project's "Code" subdirectory, and insert the storage account name and key as indicated. Save and close the `settings.cfg` file.
+1. In your favorite text editor, load the `settings.cfg` file from the Azure Machine Learning Workbench project's "Code" subdirectory, and insert the storage account name and key as indicated. Save and close the `settings.cfg` file.
 1. If you have not already done so, download and install the [AzCopy](http://aka.ms/downloadazcopy) utility.
 1. Issue the following commands to copy all of the sample data, pretrained models, and model training scripts to the appropriate locations in your storage account:
 
@@ -154,7 +130,6 @@ We now create the storage account that hosts project files that must be accessed
 
     Expect file transfer to take up to 20 minutes. While you wait, you can proceed to the following section. You may need to open another Command Line Interface through Workbench and redefine the temporary variables there.
 
-<a name="hdinsight"></a>
 #### Create the HDInsight Spark cluster
 
 Our recommended method to create an HDInsight cluster uses the HDInsight Spark cluster Resource Manager template included in the "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" subfolder of this project.
@@ -171,11 +146,9 @@ Our recommended method to create an HDInsight cluster uses the HDInsight Spark c
 
 Your cluster's deployment may take up to 30 minutes (including provisioning and script action execution).
 
-<a name="amlwb"></a>
-### Prepare the AML Workbench execution environment
+### Prepare the Azure Machine Learning Workbench execution environment
 
-<a name="register"></a>
-#### Register the HDInsight cluster as an AML Workbench compute target
+#### Register the HDInsight cluster as an Azure Machine Learning Workbench compute target
 
 Once HDInsight cluster creation is complete, register the cluster as a compute target for your project as follows:
 
@@ -192,25 +165,23 @@ Once HDInsight cluster creation is complete, register the cluster as a compute t
    az ml experiment prepare -c myhdi
    ```
 
-<a name="dependencies"></a>
 #### Install local dependencies
 
-Open a CLI from AML Workbench and install dependencies needed for local execution by issuing the following command:
+Open a CLI from Azure Machine Learning Workbench and install dependencies needed for local execution by issuing the following command:
 
 ```
 pip install matplotlib azure-storage==0.36.0 pillow scikit-learn
 ```
 
-<a name="dataunderstanding"></a>
 ## Data acquisition and understanding
 
 This scenario uses publicly available aerial imagery data from the [National Agriculture Imagery Program](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) at 1-meter resolution. We have generated sets of 224 pixel x 224 pixel PNG files cropped from the original NAIP data and sorted according to land use labels from the [National Land Cover Database](https://www.mrlc.gov/nlcd2011.php). A sample image with label "Developed" is shown at full size:
 
-![A sample tile of developed land](media/real-world-scenario-aerial-image-classification/sample_tile_developed.png)
+![A sample tile of developed land](media/real-world-scenario-aerial-image-classification/sample-tile-developed.png)
 
 Class-balanced sets of ~44k and 11k images are used for model training and validation, respectively. We demonstrate model deployment on a ~67k image set tiling Middlesex County, MA -- home of Microsoft's New England Research and Development (NERD) center. For more information on how these image sets were constructed, see the [Embarrassingly Parallel Image Classification git repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
-![Location of Middlesex County, Massachusetts](media/real-world-scenario-aerial-image-classification/middlesex_ma.png)
+![Location of Middlesex County, Massachusetts](media/real-world-scenario-aerial-image-classification/middlesex-ma.png)
 
 During setup, the aerial image sets used in this example were transferred to the storage account that you created. The training, validation, and operationalization images are all 224 pixel x 224 pixel PNG files at a resolution of one pixel per square meter. The training and validation images have been organized into subfolders based on their land use label. (The land use labels of the operationalization images are unknown and in many cases ambiguous; some of these images contain multiple land types.) For more information on how these image sets were constructed, see the [Embarrassingly Parallel Image Classification git repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
@@ -223,12 +194,10 @@ To view example images in your Azure storage account (optional):
 5. Click on any image and download it to view the image.
 6. If desired, click on the containers named "test" and "middlesexma2016" to view their contents as well.
 
-<a name="modeling"></a>
 ## Modeling
 
-<a name="mmlsparktrain"></a>
 ### Training models with MMLSpark
-The `run_mmlspark.py` script in the "Code\02_Modeling" subfolder of the Workbench project is used to train an [MMLSpark](https://github.com/Azure/mmlspark) model for image classification. The script first featurizes the training set images using an image classifier DNN pretrained on the ImageNet dataset (either AlexNet or an 18-layer ResNet). The script then uses the featurized images to train an MMLSpark model (either a random forest or a logistic regression model) to classify the images. The test image set is then featurized and scored with the trained model. The accuracy of the model's predictions on the test set is calculated and logged to AML Workbench's run history feature. Finally, the trained MMLSpark model and its predictions on the test set are saved to blob storage.
+The `run_mmlspark.py` script in the "Code\02_Modeling" subfolder of the Workbench project is used to train an [MMLSpark](https://github.com/Azure/mmlspark) model for image classification. The script first featurizes the training set images using an image classifier DNN pretrained on the ImageNet dataset (either AlexNet or an 18-layer ResNet). The script then uses the featurized images to train an MMLSpark model (either a random forest or a logistic regression model) to classify the images. The test image set is then featurized and scored with the trained model. The accuracy of the model's predictions on the test set is calculated and logged to Azure Machine Learning Workbench's run history feature. Finally, the trained MMLSpark model and its predictions on the test set are saved to blob storage.
 
 Select a unique output model name for your trained model, a pretrained model type, and an MMLSpark model type. Write your selections where indicated in the following command template, then begin retraining by executing the command from an Azure ML Command Line Interface:
 
@@ -238,14 +207,12 @@ az ml experiment submit -c myhdi Code\02_Modeling\run_mmlspark.py --config_filen
 
 An additional `--sample_frac` parameter can be used to train and test the model with a subset of available data. Using a small sample fraction decreases runtime and memory requirements at the expense of trained model accuracy. For more information on this and other parameters, run `python Code\02_Modeling\run_mmlspark.py -h`.
 
-Users are encouraged to run this script several times with different input parameters. The performance of the resulting models can then be compared in AML Workbench's Run History feature.
+Users are encouraged to run this script several times with different input parameters. The performance of the resulting models can then be compared in Azure Machine Learning Workbench's Run History feature.
 
-<a name="comparing"></a>
 ### Comparing model performance using the Workbench Run History feature
 
 After you have executed two or more training runs of either type, navigate to the Run History feature in Workbench by clicking the clock icon along the left-hand menu bar. Select `run_mmlspark.py` from the list of scripts at left. A pane loads comparing the test set accuracy for all runs. To see more detail, scroll down and click on the name of an individual run.
 
-<a name="deployment"></a>
 ## Deployment
 
 To apply one of your trained models to aerial images tiling Middlesex County, MA using remote execution on HDInsight, insert your desired model's name into the following command and execute it:
@@ -258,7 +225,6 @@ An additional `--sample_frac` parameter can be used to operationalize the model 
 
 This script writes the model's predictions to your storage account. The predictions can be examined as described in the next section.
 
-<a name="visualization"></a>
 ## Visualization
 
 The "Model prediction analysis" Jupyter notebook in the "Code\04_Result_Analysis" subfolder of the Workbench project visualizes a model's predictions. Load and run the notebook as follows:
@@ -269,12 +235,11 @@ The "Model prediction analysis" Jupyter notebook in the "Code\04_Result_Analysis
 5. Click on "Cell -> Run All" to execute all cells in the notebook.
 6. Read along with the notebook to learn more about the analyses and visualizations it presents.
 
-
-<a name="conclusions"></a>
-## Conclusions and next steps
+## Conclusions
 
 Azure Machine Learning Workbench helps data scientists easily deploy their code on remote compute targets. In this example, local code was deployed for remote execution on an HDInsight cluster. Azure Machine Learning Workbench's run history feature tracked the performance of multiple models and helped us identify the most accurate model. Workbench's Jupyter notebooks feature helped visualize our models' predictions in an interactive, graphical environment.
 
+## Next steps
 To dive deeper into this example:
 - In Vienna's Run History feature, click the gear symbols to select which graphs and metrics are displayed.
 - Examine the sample scripts for statements calling the `run_logger`. Check that you understand how each metric is being recorded.
@@ -282,8 +247,6 @@ To dive deeper into this example:
 - Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
 - Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.
 
-
-<a name="cleanup"></a>
 ### Cleanup
 When you have completed the example, we recommend that you delete all of the resources you have created by executing the following command from the Azure Command Line Interface:
 
@@ -291,15 +254,9 @@ When you have completed the example, we recommend that you delete all of the res
   az group delete --name %AZURE_RESOURCE_GROUP%
   ```
 
-<a name="references"></a>
 ## References
 
 - [The Embarrassingly Parallel Image Classification repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
    - Describes dataset construction from freely available imagery and labels
 - [MMLSpark](https://github.com/Azure/mmlspark) GitHub repository
    - Contains additional examples of model training and evaluation with MMLSpark
-
-<a name="contact"></a>
-## Contact
-
-Please feel free to contact Mary Wahl ([mawah@microsoft.com](mailto:mawah@microsoft.com)) with any questions or comments.
