@@ -51,8 +51,8 @@ While you are looking at the VM details you will be able to see more maintenance
 At the top of the VM details view, a new notification ribbon will be added if your VM is included in a planned maintenance wave. In addition, a new option is added to start maintenance when possible. 
 
 
-Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. From there you will be able to start maintenance on your VM.
+Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. From there you will be able to **start maintenance** on your VM.
 
 Once you start maintenance, your virtual machine will be rebooted and the maintenance status will be updated to reflect the result within few minutes.
 
-If you missed the window where you can start maintenance, you will still be able to see the winddow when your VM will be rebooted by Azure. 
+If you missed the window where you can start maintenance, you will still be able to see the window when your VM will be rebooted by Azure. 

@@ -1,5 +1,5 @@
 ---
-title: React to maintenance notifications for Linux VMs in Azure | Microsoft Docs
+title: Handling maintenance notifications for Linux VMs in Azure | Microsoft Docs
 description: View maintenance notifications for Linux virtual machines running in Azure and start self-service maintenance.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: zivr
 ---
 
 
-# React to planned maintenance notifications for Linux virtual machines
+# Handling planned maintenance notifications for Linux virtual machines
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
@@ -29,7 +29,13 @@ Azure periodically performs updates to improve the reliability, performance, and
 - If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
 
 
-Both self-service maintenance and scheduled maintenance phases begin with an e-mail notification sent to the subscription admin and co-admin by default. You can also configure who receives maintenance notifications.
+Planned maintenance which requires a reboot is scheduled in waves. Each wave has different scope (regions).
+
+- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can set activity log alerts to add more recipients and channels such as email, SMS, and Webhook to the maintenance notification. 
+- Soon after the notification, a self-service window is set during which you can discover which of your virtual machines is included in this wave and start the maintenance on your own schedule using proactive redeploy. 
+- Following the self-service window, a scheduled maintenance window begins. Azure will schedule and apply the required maintenance to your virtual machine. 
+
+The goal in having two windows is to give you enough time to start maintenance and reboot your virtual machine while knowing when Azure will automatically proceed with the maintenance..
 
 You can use the Azure CLI or portal to query for the maintenance windows for your VMs and start self-service maintenance.
 
@@ -71,4 +77,4 @@ az vm perform-maintenance rgName vmName
 
 ## Next Steps
 
-To learn more about VM maintenance, see [Planned maintenance for Windows virtual machines](planned-maintenance.md).
+Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).
