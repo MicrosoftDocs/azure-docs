@@ -4,7 +4,7 @@ description: Information about the Multi-factor Authentication client and the di
 keywords: 
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ---
 # How to get Azure Multi-Factor Authentication
 
@@ -61,7 +61,6 @@ The following table provides a list of the features that are available in the va
 | Remember MFA for trusted devices |● |● |● |
 | MFA SDK | | |● (Requires Multi-Factor Auth provider and full Azure subscription) |
 | MFA for on-premises applications | | |● |
-| Conditional access policies | | | ● |
 
 ## How to get Azure Multi-Factor Authentication
 If you would like the full functionality offered by Azure Multi-Factor Authentication, there are several options:

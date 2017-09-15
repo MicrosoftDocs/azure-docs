@@ -33,6 +33,8 @@ This multi-part tutorial covers the following tasks:
 > * [Use Mongoose to connect to Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
 > * [Add Post, Put, and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)
 
+Want to do build this same app with React? See the [React tutorial video series](tutorial-develop-mongodb-react.md).
+
 ## Video walkthrough
 
 > [!VIDEO https://www.youtube.com/embed/vlZRP0mDabM]

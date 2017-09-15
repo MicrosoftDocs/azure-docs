@@ -4,7 +4,7 @@ description: This article will describe how you can find what the next hop type 
 services: network-watcher
 documentationcenter: na
 author: georgewallace
-manager: timlt
+manager: jimdial
 editor:
 
 ms.assetid: 0700c274-3e0d-4dca-acfa-3ceac8990613
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 
