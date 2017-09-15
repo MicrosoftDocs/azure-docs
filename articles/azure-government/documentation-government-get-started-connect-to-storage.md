@@ -22,11 +22,11 @@ Azure Government uses the same underlying technologies as commercial Azure, enab
 In order to use these services in Azure Government, you must define different endpoint mappings, as shown below for the Storage service. 
 
 ## Connecting Storage Explorer to Azure Government
-[The Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) is a cross-platform tool for working with Azure Storage. Government customers will now be able to take advantage of all the latest features of the Azure Storage Explorer such as being able to create and manage blobs, queues, tables, and file shares.
+[The Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a cross-platform tool for working with Azure Storage. Government customers will now be able to take advantage of all the latest features of the Azure Storage Explorer such as being able to create and manage blobs, queues, tables, and file shares.
 ### Prerequisites
-* Download and install the latest version of Azure Storage Explorer [here](https://azure.microsoft.com/en-us/features/storage-explorer/). 
+* Download and install the latest version of Azure Storage Explorer [here](https://azure.microsoft.com/features/storage-explorer/). 
 * Have an active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/en-us/overview/clouds/government/) before you begin.
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
 ### Getting Started with Storage Explorer
 1. Open the Azure Storage Explorer desktop application.
@@ -44,7 +44,7 @@ For more information on Azure Storage Explorer, click [here](https://docs.micros
 
 ### Prerequisites
 * Have an active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/en-us/overview/clouds/government/) before you begin.
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 * Download Visual Studio 2017 and [Connect to Azure Government](documentation-government-get-started-connect-with-vs.md).
 
 ### Getting Started with Storage API
@@ -77,4 +77,8 @@ These endpoint differences must be taken into account when you connect to storag
     var contact = result.Result as ContactEntity;
     Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
     ```
+## Next Steps
 For more information on Azure Storage, [click here](https://docs.microsoft.com/en-us/azure/storage/). 
+
+For supplemental information and updates, subscribe to the
+<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
