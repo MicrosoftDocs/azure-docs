@@ -52,11 +52,11 @@ This scenario details the construction of a machine learning energy demand forec
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
-- An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml) following the [quick start installation guide](./quick-start-installation) to install the program and create a workspace.
+- An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
 - This sample assumes that you are running Azure ML Workbench on Windows 10 with [Docker engine](https://www.docker.com/) locally installed. If you are using macOS, the instruction is largely the same.
 - Azure Machine Learning Operationalization. See here for [installation](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-windows.md) on Windows 10.
 - This sample requires that you update the Pandas installation to version 0.20.3 or higher. Run the following command in the CLI to upgrade the package.
-    ```azure-cli
+    ```
     conda install pandas>=0.20.3
     ```
 
