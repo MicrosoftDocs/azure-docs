@@ -17,13 +17,13 @@ ms.date: 09/13/2017
 ms.author: yurid
 
 ---
-# Partner and Solutions Integration in Azure Security Center
+# Partner and solutions integration in Azure Security Center
 
-In this article, we describe how Azure Security Center integrates with partners to help you enhance overall security. Security Center offers an integrated experience in Azure, and takes advantage of the Azure Marketplace for partner certification and billing.
+In this article, we describe how Azure Security Center integrates with partners to help you enhance overall security. Security Center offers an integrated experience in Azure and takes advantage of the Azure Marketplace for partner certification and billing.
 
-## Why deploy partner solutions from Security Center
+## Deploy partner solutions from Security Center
 
-Four main reasons to leverage partner integration in Security Center are:
+There are four main reasons to use partner integration in Security Center:
 
 - **Ease of deployment**. Deploying a partner solution by following the Security Center recommendation is much easier. The deployment process can be fully automated by using a default setup and network topology. Alternatively, customers can choose a semi-automated option for more flexibility and customization.
 - **Integrated detections**. Security events from partner solutions are automatically collected, aggregated, and displayed as part of Security Center alerts and incidents. These events also are fused with detections from other sources to provide advanced threat-detection capabilities.
@@ -33,14 +33,14 @@ Four main reasons to leverage partner integration in Security Center are:
 
 ## Partners that integrate with Security Center
 
-Currently the native integration of partner’s solutions that are available in Azure Marketplace with Security Center are:
+Currently, the native integration of partners' solutions that are available in Azure Marketplace with Security Center are:
 
 - Endpoint protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, and [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
 - Web application firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), and [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
 - Next-generation firewall ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), and [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
 - Vulnerability assessment ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
 
-Over time, Security Center will expand the number of partners within these categories, and add new categories. 
+Over time, Security Center will expand the number of partners within these categories and add new categories. 
 
 ## Deploy a partner solution
 
@@ -57,11 +57,11 @@ After deployment, to view information about the health of the solution and perfo
 
 ![Partner solutions integration](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
-The content that you see in the when you open Security Solutions may vary according to your infrastructure. Using the previous image as example, this page has three sections:
+The content that you see when you open Security Solutions might vary according to your infrastructure. Using the previous image as an example, this page has three sections:
 
-- **Connected solutions**: displays solutions connected to Security Center.
-- **Discovered solutions**: displays solutions that are not connected to Security Center. You can connect these solutions and they will then display under connected solutions.  If Security Center does not detect any unconnected solutions, then this section is hidden.
-- **Add data sources**: displays Azure and non-Azure data sources that you can add to Security Center.
+- **Connected solutions**. Displays solutions connected to Security Center.
+- **Discovered solutions**. Displays solutions that aren't connected to Security Center. You can connect these solutions, and they then display under **Connected solutions**. If Security Center doesn't detect any unconnected solutions, this section is hidden.
+- **Add data sources**. Displays Azure and non-Azure data sources that you can add to Security Center.
 
 ### Connected solutions
 
@@ -69,18 +69,18 @@ The **Connected solutions** section shows all security solutions that are curren
 
 ![Connected solutions](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
 
-The information that you see on each may vary according to the solution. Some information available on each tile may include:
+The information that you see might vary according to the solution. Some information available on each tile might include:
 
-- Company icon for the partner.  If Security Center does not have the company icon, then the first character(s) of the partner name are displayed.
-- Solution type.
-- The computer name may be displayed.
-- Health status.  If a health indicator is not sent, then Security Center will show the date and time of the last received event to indicate if the appliance is reporting or not. If Security Center doesn’t receive the health indicator from a particular solution, the solution’s tile won’t appear in this section.
+- **Company icon for the partner**. If Security Center doesn't have the company icon, the first characters of the partner name are displayed.
+- **Solution type**.
+- **Computer name**.The computer name might be displayed.
+- **Health status**. If a health indicator isn't sent, Security Center shows the date and time of the last received event to indicate whether the appliance is reporting or not. If Security Center doesn't receive the health indicator from a particular solution, the solution's tile won't appear in this section.
 
 > [!NOTE]
-> Watch Security Center shows the date and time of the last received event to indicate if the appliance is reporting or not. Solutions that are not sending health indicator are displayed as connected if alert, or event were sent in the last 14 days.
+> Security Center shows the date and time of the last received event to indicate whether the appliance is reporting or not. Solutions that aren't sending health indicators are displayed as connected if alert or if events were sent in the last 14 days.
 >  
 
-Some of these solutions might be fully integrated in Azure, others might be on-premises. Since Security Center supports [Common Event Format (CEF)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef), it can connect with solutions that use CEF, such as  a Firewall that supports CEF. Once this solution is added to Security Center, Firewall sends logs in CEF format to Security Center, which handles it to [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). Firewall is a non-Azure resource, and sends events but not a health indicator.  The only information that Security Center has about health is the last time that this appliance sent an event.  For all non-Azure resources, Security Center displays in the health area of the tile the date and time that the last event was received, which indicates that the non-Azure resource is still reporting.
+Some of these solutions might be fully integrated in Azure; others might be on-premises. Because Security Center supports [Common Event Format (CEF)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef), it can connect with solutions that use CEF, such as a Firewall that supports CEF. After this solution is added to Security Center, Firewall sends logs in CEF format to Security Center, which handles it to [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). Firewall is a non-Azure resource that sends events but not health indicators. The only information that Security Center has about health is the last time this appliance sent an event. For all non-Azure resources, in the health area of the tile, Security Center displays the date and time that the last event was received. This information indicates that the non-Azure resource is still reporting.
 
 ### Discovered solutions
 
