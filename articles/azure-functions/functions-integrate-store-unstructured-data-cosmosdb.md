@@ -49,7 +49,7 @@ To complete this tutorial:
     | ------------ | ---------------- | ------------------------------------------ |
     | **Document parameter name** | taskDocument | Name that refers to the Cosmos DB object in code. |
     | **Database name** | taskDatabase | Name of database to save documents. |
-    | **Collection name** | TaskCollection | Name of collection of Cosmos DB databases. |
+    | **Collection name** | TaskCollection | Name of the database collection. |
     | **If true, creates the Cosmos DB database and collection** | Checked | The collection doesn't already exist, so create it. |
 
 4. Select **New** next to the **Cosmos DB document connection** label, and select **+ Create new**. 
@@ -124,7 +124,9 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
     ![Search for the Cosmos DB service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Select the database you created, then select **Data Explorer**. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata. 
+2. Choose your Cosmos DB account, then select the **Data Explorer**. 
+
+3. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata. 
 
     ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 

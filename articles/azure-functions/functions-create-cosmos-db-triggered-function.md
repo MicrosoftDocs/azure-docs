@@ -22,7 +22,7 @@ ms.custom:
 
 Learn how to create a function triggered when data is added to a database in Azure Cosmos DB.
 
-![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/function-app-in-portal-editor.png)
+![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
 ## Prerequisites
 
@@ -46,29 +46,56 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Select the **QueueTrigger** template for your desired language, and  use the settings as specified in the table.
+2. Select the **CosmosDBTrigger** template for your desired language.
 
     ![Create the Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+
+3. Configure the new trigger with the settings as specified in the table below the image:
+
+    ![Create the Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
     
-    | Setting | Suggested value | Description |
-    |---|---|---|
-    | **Queue name**   | myqueue-items    | Name of the queue to connect to in your Storage account. |
-    | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
-    | **Name your function** | Unique in your function app | Name of this queue triggered function. |
+    | Setting      | Suggested value  | Description                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **Name your function** | Default | Use the default function name suggested by the template. |
+    | **Database name** | taskDatabase | Name of database with the collection to be monitored. |
+    | **Collection name** | TaskCollection | Name of collection to be monitored. |
+    | **Create lease collection if it doesn't exist** | Checked | The collection doesn't already exist, so create it. |
 
-3. Click **Create** to create your function.
+4. Select **New** next to the **Cosmos DB account connection** label, and select **+ Create new**. 
+ 
+    ![Configure Cosmos DB connection](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-Next, you connect to your Azure Storage account and create the **myqueue-items** storage queue.
+6. Use the **New account** settings as specified in the table:
 
+    | Setting      | Suggested value  | Description                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **ID** | Name of database | Unique ID for the Cosmos DB database  |
+    | **API** | SQL (DocumentDB) | This topic uses the document database API.  |
+    | **Subscription** | Azure Subscription | Azure Subscription  |
+    | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
+    | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
 
+6. Click **OK** to create the database. It may take a few minutes to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Cosmos DB account connection**. 
+
+7. Click **Create** to create your Cosmos DB triggered function. After the function is created, the template-based function code is displayed.  
+
+    ![Cosmos DB function template in C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
+
+Note that this function template writes the number of documents and the first document ID to the logs. Next, you connect to your Cosmos DB account and add a document to the database collection. 
 
 ## Test the function
 
-1. Back in the Azure portal, browse to your function expand the **Logs** at the bottom of the page and make sure that log streaming isn't paused.
+1. On the left side of the Azure portal, expand the icon bar, type `cosmos` in the search field, and select **Azure Cosmos DB**.
 
-1. In Storage Explorer, expand your storage account, **Queues**, and **myqueue-items**, then click **Add message**.
+    ![Search for the Cosmos DB service](./media/functions-create-cosmos-db-triggered-function/functions-search-cosmos-db.png)
 
-    ![Add a message to the queue.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
+2. Choose your Cosmos DB account, then select the **Data Explorer**. 
+ 
+3. In **Collections**, expand **taskDatabase**, and choose **New Collection**.
+
+    ![Create a new taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
+
+4. In the  
 
 1. Type your "Hello World!" message in **Message text** and click **OK**.
 
