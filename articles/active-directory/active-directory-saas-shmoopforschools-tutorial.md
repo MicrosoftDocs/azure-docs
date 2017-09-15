@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute.png)
 
 	> [!NOTE]
-	> There are two supported roles, one is teacher and another one is student which you need to configure for the user in Azure AD accordingly. For more details please [refer this link](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to configure Role in Azure AD.
+	> There are two supported roles, one is **teacher** and another one is **student** which you need to configure for the user in Azure AD accordingly. For more details please [refer this link](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to configure Role in Azure AD.
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
