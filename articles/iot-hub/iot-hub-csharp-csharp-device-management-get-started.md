@@ -176,7 +176,7 @@ In this section, you will
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-8. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **SimulateManagedDevice** project in the dropdown menu.        
+8. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **SimulateManagedDevice** project in the dropdown menu. Build the solution.       
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
@@ -186,10 +186,9 @@ In this section, you will
 You are now ready to run the apps.
 1. Run the .NET device app **SimulateManagedDevice**.  Right-click the **SimulateManagedDevice** project, select **Debug**, and then select **Start new instance**. It should start listening for method calls from your IoT Hub: 
 
-    ![Device app run][img-deviceapprun]
-2. Now that the device is connected and waiting for method invocations, run the .NET **TriggerReboot** app to invoke the reboot method in the simulated device app. Right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**. You should see the device response written in the console.
+2. Now that the device is connected and waiting for method invocations, run the .NET **TriggerReboot** app to invoke the reboot method in the simulated device app. Right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**. You should see "Rebooting!" written in the **SimulatedManagedDevice** console and the reported properties of the device, which include the last reboot time,  written in the **TriggerReboot** console.
    
-    ![Service app run][img-serviceapprun]
+    ![Service and device app run][img-combinedrun]
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
@@ -200,8 +199,7 @@ You are now ready to run the apps.
 [img-createserviceapp]: media/iot-hub-csharp-csharp-device-management-get-started/createserviceapp.png
 [img-clientnuget]: media/iot-hub-csharp-csharp-device-management-get-started/clientsdknuget.png
 [img-createdeviceapp]: media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png
-[img-deviceapprun]: media/iot-hub-csharp-csharp-device-management-get-started/deviceapprun.png
-[img-serviceapprun]: media/iot-hub-csharp-csharp-device-management-get-started/serviceapprun.png
+[img-combinedrun]: media/iot-hub-csharp-csharp-device-management-get-started/combinedrun.png
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
