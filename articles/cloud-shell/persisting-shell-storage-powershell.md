@@ -1,7 +1,7 @@
 ---
 title: Persist files in Azure Cloud Shell (Preview) | Microsoft Docs
 description: Walkthrough of how Azure Cloud Shell persists files.
-services: 
+services: azure
 documentationcenter: ''
 author: maertendmsft
 manager: timlt
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
 ---
-[!include [features-introblock](persisting-shell-storage-introblock.md)]
+[!include [features-introblock](includes/persisting-shell-storage-introblock.md)]
 
 ## How Cloud Shell works
 Cloud Shell persists files through the following method: 
 * Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction.
 
-##List Cloud Drive file shares
+## List Cloud Drive file shares
 The `Get-CloudDrive` command retrieves the file share information currently mounted by the Cloud Drive in the Cloud Shell. <br>
 ![Running Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
@@ -32,7 +32,7 @@ You can unmount a file share that's mounted to Cloud Shell at any time. If the f
 The `Dismount-CloudDrive` command unmounts a file share from the current storage account. Dismounting the Cloud Drive terminates the current session. The user will be prompted to create and mount a new file share during the next session.
 ![Running Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
-[!include [features-endblock](persisting-shell-storage-endblock.md)]
+[!include [features-endblock](includes/persisting-shell-storage-endblock.md)]
 
 ## Next steps
 [Quickstart for PowerShell](quickstart-powershell.md) <br>

@@ -4,6 +4,9 @@ Cloud Shell takes advantage of Azure File storage to persist files across sessio
 ## Set up a `clouddrive` file share
 On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
 
+> [!NOTE]
+> Bash and PowerShell share the same file share. Meaning only one file share can be associated with automatic mounting in Cloud Shell.
+
 ### Create new storage
 
 When you use basic settings and select only a subscription, Cloud Shell creates three resources on your behalf in the supported region that's nearest to you:
