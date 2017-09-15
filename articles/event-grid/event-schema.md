@@ -131,7 +131,7 @@ Event Hubs events are currently only emitted when a file is automatically sent t
 
 ### Example event
 
-This sample event shows the schema of an event hubs event raised when the Capture feature stores a file: 
+This sample event shows the schema of an Event Hubs event raised when the Capture feature stores a file: 
 
 ```json
 [
@@ -161,7 +161,8 @@ This sample event shows the schema of an event hubs event raised when the Captur
 
 ## Azure Blob storage
 
-Azure Blob storage in private preview with sign-up for integration with Event Grid.
+[!IMPORTANT]
+You must be registered for the Blob storage events preview to complete this tutorial. Learn more about the preview program on the Preview site.
 
 ### Available event types
 
@@ -203,7 +204,7 @@ This sample event shows the schema of a storage event raised when a blob is crea
 
 ## Custom topics
 
-The data payload of your custom events is defined by you and can be any well formatted JSON file. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
+The data payload of your custom events is defined by you and can be any well formatted JSON object. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
 
 ### Example event
 
