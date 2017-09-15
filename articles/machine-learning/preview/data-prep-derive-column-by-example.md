@@ -1,50 +1,80 @@
-# Derive Column by Example
+---
+title: Derive Column by Example transformation using Azure Machine Learning Workbench
+description: The reference document for the 'Derive Column by Example' transform
+services: machine-learning
+author: ranvijaykumar
+ms.author: ranku
+manager: mwinkle
+ms.reviewer: 
+ms.service: machine-learning
+ms.workload: data-services
+ms.custom: mvc, reference
+ms.topic: article
+ms.date: 09/14/2017
+---
+
+# Derive Column by Example Transformation
 
 ## Overview
 
-The **Derive Column by Example** transform enable users to create a column as a derivative or one or more existing columns by providing examples of output. The derivative can be any combination of the supported String, Date, and Number transformations. 
+The **Derive Column by Example** transform enables users to create a derivative of one or more existing columns using user provided examples of the derived result. The derivative can be any combination of the supported String, Date, and Number transformations. 
 
 Following String, Date, and Number transformations are supported:
 
-**String Transformations:** Substring including intelligent extraction of Number and Dates, Concatenation, Case Manipulation, Mapping Constant Values, Padding.
+**String transformations:** 
 
-**Date Transformations:** Date Format change, Extracting Date Parts, Mapping Date to time periods.
+Substring including intelligent extraction of Number and Dates, Concatenation, Case Manipulation, Mapping Constant Values.
 
-**Number Transformations:** Round, Floor, Ceiling, Binning, Division or Multiplication by a power of 10.
+**Date transformations:** 
 
-**Composite Transformations:** Any combination of above Transformations.
+Date Format change, Extracting Date Parts, Mapping Time to Time Bins.
 
-## How to perform this transformation
+The date transformations are fairly generic with a few notable limitations:
+* Timezones are unsupported.
+* Some common formats that are unsupported:
+    * ISO 8601 week of year format (for example “2009-W53-7”) 
+    * Unix epoch time.
+* All formats are case-sensitive (notably “4am” is not recognized as a time although “4AM” is).
 
-Follow these steps to perform this transform:
+**Number transformations:** 
+
+Round, Floor, Ceiling, Binning, Padding with zeros or space, Division or Multiplication by a power of 1000.
+
+**Composite transformations:** 
+
+Any combination of String, Number, or Date Transformations.
+
+## How to use this transformation
+
+To perform this transform, follow these steps:
 1. Select one or more columns that you want to derive the value from. 
-2. Select **Derive Column by Example** from the **Transforms** menu. Or, Right click on the header of any of the selected columns and select **Derive Column by Example** from the context menu. The Transform Editor opens and a new column is added next to the right most selected column. Selected columns can be identified by looking at the checkboxes at the top of the column headers. Addition and removal of columns from the selection can be done by using the checkboxes in the column headers.
-3. Type an example of the *output* against a row, and press enter. At this point, the Workbench analyzes the input column and the provided output to synthesize a program that will transform the given inputs into output. The synthesized program is executed against all the rows in the data grid. For ambiguous and complicated cases, multiple examples may be needed. Depending on whether you are in Basic Mode or Advanced Mode, multiple examples can be provided in different ways.
+2. Select **Derive Column by Example** from the **Transforms** menu. Or, Right click on the header of any of the selected columns and select **Derive Column by Example** from the context menu. The Transform Editor opens and a new column is added next to the right most selected column. Selected columns can be identified by the checkboxes in the column headers. Addition and removal of columns from the selection can be done by using the checkboxes in the column headers.
+3. Type an example of the *output* against a row, and press enter. At this point, the Workbench analyzes the input column as well as the provided output to synthesize a program that can transform the given inputs into output. The synthesized program is executed against all the rows in the data grid. For ambiguous and complicated cases, multiple examples may be needed. Depending on whether you are in Basic Mode or Advanced Mode, multiple examples can be provided in different ways.
 4. Review the output and Click **OK** to accept the transform.
 
 ### Transform Editor: Basic Mode
 
-Basic Mode provides an inline editing experience in the data grid. Examples can be provided by navigating to the cell of interest and typing the value. 
+Basic Mode provides an inline editing experience in the data grid. You can provide examples of the output by navigating to the cell of interest and typing the value. 
 
-The workbench analyses the data and tries to identify the edge cases that should be reviewed by the user. While the data is being analyzed, **Analyzing Data** is shown in the header of the Transform Editor. One the analysis is complete, either **No Suggestions** or, **Review next suggested row** is displayed in the header. User can navigate through the edge cases by clicking on **Review next suggested row**. In case the value is incorrect for a row, the user should key in the correct value as additional example. 
+The workbench analyses the data and tries to identify the edge cases that should be reviewed by the user. While the data is being analyzed, **Analyzing Data** is shown in the header of the Transform Editor. One the analysis is complete, either **No Suggestions** or, **Review next suggested row** is displayed in the header. You can navigate through the edge cases by clicking on **Review next suggested row**. In case the value is incorrect for a row, you should key in the correct value as additional example. 
 
 ### Transform Editor: Advanced Mode
 
-Advanced Mode provides a richer experience for Deriving columns by example. All the examples are shown at one place. User can also review all the edge cases at one place by clicking on **Show suggested examples**. 
+Advanced Mode provides a richer experience for Deriving columns by example. All the examples are shown at one place. You can also review all the edge cases at one place by clicking on **Show suggested examples**. 
 
-In the advanced mode, user can add any row as an example row by double clicking on the row in the grid. 
+In the advanced mode, you can add any row as an example row by double-clicking on the row in the grid. One a row is copied as an example row, you can also edit the data in the source columns to make a synthetic example. By doing so, you can add cases that are not currently present in the sample data.
 
-User can switch between the **Basic Mode** and the **Advanced Mode** by clicking on the corresponding link in the header of the Transform Editor.
+User can switch between the **Basic Mode** and the **Advanced Mode** by clicking the links in the Transform Editor.
 
 ### Editing existing transformation
 
-An existing **By-Example** transform can be edited by selecting **Edit** option in the dropdown menu of the Transformation Step. Clicking on **Edit** opens the Transform Editor in **Advanced Mode**, and all the examples that were provided during creation of the transform are shown.
+A user can edit an existing **Derive Column By Example** transform by selecting **Edit** option of the Transformation Step. Clicking on **Edit** opens the Transform Editor in **Advanced Mode**, and all the examples that were provided during creation of the transform are shown.
 
-## Examples of String Transformations By Example
+## Examples of String Transformations By example
 
-In these examples, values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+Note: Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
 
-### S1. Extracting File Names from File Paths
+### S1. Extracting file names from file paths
 
 Number of Examples that were required for this case: 2
 
@@ -61,7 +91,7 @@ Number of Examples that were required for this case: 2
 |C:\Python27\Tools\Scripts\byteyears.py|byteyears.py|
 |C:\Python27\Tools\Scripts\checkappend.py|checkappend.py|
 
-### S2. Case Manipulation during String Extraction
+### S2. Case manipulation during string extraction
 
 Number of Examples that were required for this case: 3
 
@@ -80,7 +110,7 @@ Number of Examples that were required for this case: 3
 |RT202 PKWY & KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
 |BROOK RD & COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
 
-### S3. Date Format Manipulation during String Extraction
+### S3. Date-format manipulation during string extraction
 
 Number of Examples that were required for this case: 1
 
@@ -95,29 +125,31 @@ Number of Examples that were required for this case: 1
 |ROSEMONT AVE & DEAD END;  LOWER MERION; Station 313; 2015-12-10 @ 18:43:07;|12 Oct 2015 6PM|
 |AVIGNON DR & DEAD END; LOWER MERION; 2015-12-10 @ 20:01:29-Station:STA24;|12 Oct 2015 8PM|
 
-### S4. Concatenating Strings
+### S4. Concatenating strings
 
 Number of Examples that were required for this case: 1
 
+Note: In this example, special character · represents spaces in the Output column.
+
 |First Name|Middle Initial|Last Name|Output|
 |:-----|:-----|:-----|:-----|
-|Laquanda||Lohmann|Laquanda  Lohmann|
-|Claudio|A|Chew|**Claudio A Chew**|
-|Sarah-Jane|S|Smith|Sarah-Jane S Smith|
-|Brandi||Blumenthal|Brandi  Blumenthal|
-|Jesusita|R|Journey|Jesusita R Journey|
-|Hermina||Hults|Hermina  Hults|
-|Anne-Marie|W|Jones|Anne-Marie W Jones|
-|Rico||Ropp|Rico  Ropp|
-|Lauren-May||Fullmer|Lauren-May  Fullmer|
-|Marc|T|Maine|Marc T Maine|
-|Angie||Adelman|Angie  Adelman|
-|John-Paul||Smith|John-Paul  Smith|
-|Song|W|Staller|Song W Staller|
-|Jill||Jefferies|Jill  Jefferies|
-|Ruby-Grace|M|Simmons|Ruby-Grace M Simmons|
+|Laquanda||Lohmann|Laquanda··Lohmann|
+|Claudio|A|Chew|**Claudio·A·Chew**|
+|Sarah-Jane|S|Smith|Sarah-Jane·S·Smith|
+|Brandi||Blumenthal|Brandi··Blumenthal|
+|Jesusita|R|Journey|Jesusita·R·Journey|
+|Hermina||Hults|Hermina··Hults|
+|Anne-Marie|W|Jones|Anne-Marie·W·Jones|
+|Rico||Ropp|Rico··Ropp|
+|Lauren-May||Fullmer|Lauren-May··Fullmer|
+|Marc|T|Maine|Marc·T·Maine|
+|Angie||Adelman|Angie··Adelman|
+|John-Paul||Smith|John-Paul··Smith|
+|Song|W|Staller|Song·W·Staller|
+|Jill||Jefferies|Jill··Jefferies|
+|Ruby-Grace|M|Simmons|Ruby-Grace·M·Simmons|
 
-### S5. Generating Initials
+### S5. Generating initials
 
 Number of Examples that were required for this case: 2
 
@@ -139,40 +171,8 @@ Number of Examples that were required for this case: 2
 |Jill Jefferies|J.J.|
 |Ruby-Grace Simmons|R.S.|
 
-### S6. Padding
 
-Number of Examples that were required for this case: 1
-
-|Code|Output|
-|-----:|-----:|
-|5828|**05828**|
-|44130|44130|
-|49007|49007|
-|29682|29682|
-|4759|04759|
-|10029|10029|
-|7204|07204|
-
-### S7. Number Formatting
-
-Note the special number formatting for Indian Rupee achieved using a single example. 
-
-Number of Examples that were required for this case: 1
-
-|Amount|Output|
-|-----:|-----:|
-|36345645.34|**₹3,63,45,645**|
-|12.31|₹12|
-|2323.23|₹2,323|
-|121|₹121|
-|56343|₹56,343|
-|34534.21|₹34,534|
-|74563.22|₹74,563|
-|3214523.67|₹32,14,524|
-|23.54|₹24|
-|454676.99|₹4,54,677|
-
-### S8. Mapping constant values
+### S6. Mapping constant values
 
 Number of Examples that were required for this case: 3
 
@@ -188,33 +188,33 @@ Number of Examples that were required for this case: 3
 |Male|0|
 |Female|1|
 
-## Examples of Number Transformations By Example
+## Examples of Number Transformations By example
 
-In these examples, values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+Note: Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
 
-### N1. Rounding down to nearest 10
+### N1. Rounding to nearest 10
 
 Number of Examples that were required for this case: 1
 
 |Input|Output|
 |-----:|-----:|
 |112|**110**|
-|117|110|
+|117|120|
 |11112|11110|
-|11119|11110|
-|548|540|
+|11119|11120|
+|548|550|
 
-### N2. Rounding to nearest 10
+### N2. Rounding down to nearest 10
 
 Number of Examples that were required for this case: 2
 
 |Input|Output|
 |-----:|-----:|
 |112|**110**|
-|117|**120**|
+|117|**110**|
 |11112|11110|
-|11119|11120|
-|548|550|
+|11119|11110|
+|548|540|
 
 ### N3. Rounding to nearest 0.05
 
@@ -254,11 +254,25 @@ Number of Examples that were required for this case: 1
 |-1202.3433|-1202343.3|
 |1202.3433|1202343.3|
 
-## Examples of Date Transformations By Example
+### N6. Padding
 
-In these examples, values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+Number of Examples that were required for this case: 1
 
-### D1. Extracting Date Parts
+|Code|Output|
+|-----:|-----:|
+|5828|**05828**|
+|44130|44130|
+|49007|49007|
+|29682|29682|
+|4759|04759|
+|10029|10029|
+|7204|07204|
+
+## Examples of Date Transformations By example
+
+Note: Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+
+### D1. Extracting date parts
 
 These Date parts were extracted using different by-example transformations on the same data set. Bold strings represent the examples that were given in their respective transformation.
 
@@ -285,7 +299,7 @@ These Date parts were extracted using different by-example transformations on th
 |03-Mar-2024 10:17:49|Sun|3|Mar|2024|10|17|49|
 |14-Apr-2010 00:23:13|Wed|14|Apr|2010|0|23|13|
 
-### D2. Formatting Dates
+### D2. Formatting dates
 
 These Date formattings were done using different by-example transformations on the same data set. Bold strings represent the examples that were given in their respective transformation.
 
@@ -313,11 +327,11 @@ These Date formattings were done using different by-example transformations on t
 |14-Apr-2010 00:23:13|4/14/2010|Wednesday, April 14, 2010|04142010 0:23|14/4/2010 12:23 AM|Q2 2010
 
 
-### D3. Mapping Dates to Date Periods
+### D3. Mapping time to time periods
 
 These Datetimes to period mappings were done using different by-example transformations on the same data set. Bold strings represent the examples that were given in their respective transformation.
 
-|DateTime|Period(Seconds)|Period(Minutes)|Period(Two Hours)|Period(30 Mins)|
+|DateTime|Period(Seconds)|Period(Minutes)|Period(Two Hours)|Period(30 Minutes)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
 |17-Jan-1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
@@ -340,11 +354,11 @@ These Datetimes to period mappings were done using different by-example transfor
 |03-Mar-2024 10:17:49|40-60|15-30|9AM-11AM|10:00-10:30|
 |14-Apr-2010 00:23:13|0-20|15-30|11PM-1AM|0:00-0:30|
 
-## Examples of Composite Transformations By Example
+## Examples of Composite Transformations By example
 
 |tripduration|starttime|start station id|start station latitude|start station longitude|usertype|Column|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-|61|2016-01-08 16:09:32|107|42.3625|-71.08822|Subscriber|A Subscriber picked a bike from station 107, lat/long (42.363,-71.088), on Jan 08, 2016 at around 4PM. The trip duration was 61 minutes|
+|61|2016-01-08 16:09:32|107|42.3625|-71.08822|Subscriber|**A Subscriber picked a bike from station 107, lat/long (42.363,-71.088), on Jan 08, 2016 at around 4PM. The trip duration was 61 minutes**|
 |61|2016-01-17 09:28:10|74|42.373268|-71.118579|Customer|A Customer picked a bike from station 74, lat/long (42.373,-71.119), on Jan 17, 2016 at around 9AM. The trip duration was 61 minutes|
 |62|2016-01-25 08:10:26|176|42.386748020450561|-71.119018793106079|Subscriber|A Subscriber picked a bike from station 176, lat/long (42.387,-71.119), on Jan 25, 2016 at around 8AM. The trip duration was 62 minutes|
 |63|2016-01-08 10:10:29|107|42.3625|-71.08822|Subscriber|A Subscriber picked a bike from station 107, lat/long (42.363,-71.088), on Jan 08, 2016 at around 10AM. The trip duration was 63 minutes|
@@ -356,12 +370,8 @@ These Datetimes to period mappings were done using different by-example transfor
 |69|2016-01-15 08:13:09|176|42.386748020450561|-71.119018793106079|Subscriber|A Subscriber picked a bike from station 176, lat/long (42.387,-71.119), on Jan 15, 2016 at around 8AM. The trip duration was 69 minutes|
 
 
-## Technical Notes
+## Technical notes
 
-<TBD>
+### Conditional Transformations
+In some cases, a single transformation cannot be found that satisfies the given examples. In such cases, Derive Column by Example Transform attempts to group the inputs based on some pattern and learn separate transformation for each group. We call this **Conditional Transformation**. **Conditional Transformation** is attempted only for transformations with a single input column. 
 
-
-## See Also
-
-Split column by Example, Combine columns by example
- 
