@@ -1,5 +1,5 @@
 ---
-title: Document Collection Analysis | Microsoft Docs | Azure
+title: Document Collection Analysis - Azure | Microsoft Docs
 description: How to summarize and analyze a large collection of documents, including techniques such as phrase learning, topic modeling, and topic model analysis using Azure ML Workbench.
 services: machine-learning
 documentationcenter: ''
