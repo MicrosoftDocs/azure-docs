@@ -1,3 +1,22 @@
+---
+title: Document Collection Analysis | Microsoft Docs
+description: How to summarize and analyze a large collection of documents, including techniques such as phrase learning, topic modeling, and topic model analysis using Azure ML Workbench.
+services: machine-learning
+documentationcenter: ''
+author: kehuan
+manager: tihazen
+editor: kehuan
+
+ms.assetid: 
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/15/2017
+ms.author: kehuan
+---
+
 # Document Collection Analysis
 
 [//]: # "![Data_Diagram](https://www.usb-antivirus.com/wp-content/uploads/2014/11/tutorial-windwos-10-2-320x202.png)"
@@ -7,14 +26,6 @@
 ## Introduction
 
 This scenario demonstrates how to summarize and analyze a large collection of documents, including techniques such as phrase learning, topic modeling, and topic model analysis using Azure ML Workbench. Azure Machine Learning Workbench provides for easy scale up for very large document collection, and provides mechanisms to train and tune models within a variety of compute contexts, ranging from local compute to Data Science Virtual Machines to Spark Cluster. Easy development is provided through Jupyter notebooks within Azure Machine Learning Workbench.
-
-## Prerequisites
-
-The prerequisites to run this example are as follows:
-
-1. Make sure that you have properly installed [Azure Machine Learning Workbench](./overview-what-is-azure-ml) by following the [quick start installation guide](./quick-start-installation).
-
-1. This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
 
 ## Overview
 
@@ -44,13 +55,21 @@ The machine learning techniques/algorithms used in this scenario include:
 
 1. Topical trends and anomaly detection
 
+## Prerequisites
+
+The prerequisites to run this example are as follows:
+
+* Make sure that you have properly installed [Azure Machine Learning Workbench](./overview-what-is-azure-ml) by following the [quick start installation guide](./quick-start-installation).
+
+* This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
+
 ## Data Description
 
 The dataset used in this scenario contains text summaries and associated meta data for each legislative action taking by the US Congress. The data is collected from [GovTrack.us](https://www.govtrack.us/), which tracks the activities of United States Congress and helps Americans participate in their national legislative process. The bulk data can be downloaded via [this link](https://www.govtrack.us/data/congress/) using a manual script, which is not included in this scenario. The details of how to download the data could be found in the [GovTrack API documentation](https://www.govtrack.us/developers/api).
 
 ### Data Source
 
-In this scenario, the raw data collected is a series of legislative actions introduced by the US Congress (proposed bills and resolutions) from 1973 to June 2017 (the 93rd to the 115th Congresses). The data collected is in JSON format and contains a rich set of information about the legislative actions. Refer to this [this GitHub link](https://github.com/unitedstates/congress/wiki/bills) for detailed description of the data fields. For the demonstration purpose within this scenario, only a subset of data fields were extracted from the JSON files. A pre-compiled TSV file `CongressionalDataAll_Jun_2017.tsv` containing records of those legislative actions is provided in this scenario. The TSV file can be downloaded automatically either by the notebooks `1_Preprocess_Text.ipynb` under the notebook folder or `preprocessText.py` in the Python package.
+In this scenario, the raw data collected is a series of legislative actions introduced by the US Congress (proposed bills and resolutions) from 1973 to June 2017 (the 93rd to the 115th Congresses). The data collected is in JSON format and contains a rich set of information about the legislative actions. Refer to [this GitHub link](https://github.com/unitedstates/congress/wiki/bills) for detailed description of the data fields. For the demonstration purpose within this scenario, only a subset of data fields were extracted from the JSON files. A pre-compiled TSV file `CongressionalDataAll_Jun_2017.tsv` containing records of those legislative actions is provided in this scenario. The TSV file can be downloaded automatically either by the notebooks `1_Preprocess_Text.ipynb` under the notebook folder or `preprocessText.py` in the Python package.
 
 ### Data Structure
 
@@ -159,7 +178,7 @@ For the perplexity evaluation, a 'U' shape curve is expected to find out the bes
 
 In this scenario, the perplexity increases significantly after 200 topics, while the coherence value decreases significantly after 200 topics as well. Based on those graphs and the desire for more general topics versus over clustered topics, choose 200 topics should be a good option.
 
-You can train one LDA topic model in one experiment run, or train and evaluate multiple LDA models with different topic number configurations in a single experiment run. The details of how to use the document analysis package can be found in `step3.py` file. An example code snippet is as follows.
+You can train one LDA topic model in one experiment run, or train and evaluate multiple LDA models with different topic number configurations in a single experiment run. It is recommended to run multiple times for one configuration and then get the average coherence and/or perplexity evaluations. The details of how to use the document analysis package can be found in `step3.py` file. An example code snippet is as follows.
 
 ```python
 topicmodeler = TopicModeler(docs,
@@ -211,10 +230,6 @@ This real world scenario highlights how to use well-known text analytics techniq
 
 * **Timothy J. Hazen, Fred Richardson**, [_Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Spoken Language Technology Workshop (SLT), 2012 IEEE. IEEE, 2012.
 
-* **Timothy J. Hazen**, [_Latent Topic Modeling for Audio Corpus Summarization_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). Twelfth Annual Conference of the International Speech Communication Association. 2011.
+* **Timothy J. Hazen**, [_Latent Topic Modeling for Audio Corpus Summarization_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). 12th Annual Conference of the International Speech Communication Association. 2011.
 
 * **Michael Roder, Andreas Both, Alexander Hinneburg**, [_Exploring the Space of Topic Coherence Measures_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Proceedings of the eighth ACM international conference on Web search and data mining. ACM, 2015.
-
-## Contact
-
-Feel free to contact Ke Huang (kehuan@microsoft.com) and Timothy J. Hazen (TJ.Hazen@microsoft.com) with any question or comment.
