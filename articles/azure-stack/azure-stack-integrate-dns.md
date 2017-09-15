@@ -86,7 +86,7 @@ After you run this command, Azure Stack services and user virtual machines that 
 ## Resolving Azure Stack DNS names from outside Azure Stack
 The authoritative servers are the ones that hold the external DNS zone information, and any user-created zones. Integrate with these servers to enable zone delegation or conditional forwarding to resolve Azure Stack DNS names from outside Azure Stack.
 
-## Obtaining the DNS Servers external endpoint information
+## Get DNS Server external endpoint information
 
 To integrate your Azure Stack deployment with your DNS infrastructure, you need the following information:
 
@@ -133,4 +133,4 @@ Most DNS registrars require you to provide a minimum of two DNS servers to compl
 
 ## Next steps
 
-Azure Stack datacenter integration - Identity
+[Azure Stack datacenter integration - publish endpoints](azure-stack-integrate-endpoints.md)

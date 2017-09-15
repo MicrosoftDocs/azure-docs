@@ -29,9 +29,9 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 ## Deploy the App Service resource provider
 
 1. [Prepare the Azure Stack Development Kit host](azure-stack-app-service-before-you-get-started.md). This includes deploying the SQL Server resource provider, which is required for creating some apps.
-2. [Download the installer and helper scripts](azure-stack-app-service-deploy.md#download-the-required-components).
-3. [Run the helper script to create required certificates](azure-stack-app-service-deploy.md#create-certificates-required-by-app-service-on-azure-stack).
-4. [Install the App Service resource provider](azure-stack-app-service-deploy.md#use-the-installer-to-download-and-install-app-service-on-azure-stack) (it will take a couple hours to install and for all the worker roles to appear).
+2. [Download the installer and helper scripts](azure-stack-app-service-deploy.md).
+3. [Run the helper script to create required certificates](azure-stack-app-service-deploy.md).
+4. [Install the App Service resource provider](azure-stack-app-service-deploy.md) (it will take a couple hours to install and for all the worker roles to appear).
 5. [Validate the installation](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation).
 
 ## Create an offer

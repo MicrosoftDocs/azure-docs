@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: sngun
 
 ---
-# Enable CLI for Azure Stack users
+# Enable Azure CLI for Azure Stack users
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
