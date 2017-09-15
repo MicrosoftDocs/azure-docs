@@ -15,9 +15,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
-
+ms.author: LADocs; estfan; millopis
 ---
+
 # Install the on-premises data gateway for Azure Logic Apps
 
 Before your logic apps can access data sources on premises, 
@@ -58,6 +58,7 @@ For information about how to use the gateway with other services, see these arti
 *   [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
+
 ## Requirements
 
 **Minimum**:
@@ -194,14 +195,29 @@ that was previously used to install the gateway.
 4. Provide the name and recovery key for the 
 gateway that you want to migrate, restore, or take over.
 
+<a name="windows-service-account"></a>
+
+## Windows service account
+
+The on-premises data gateway runs as a Windows service and is set up to 
+use `NT SERVICE\PBIEgwService` for the Windows service logon credentials. 
+By default, the gateway has the "Log on as a service" right 
+for the machine where you install the gateway. 
+To create and maintain the gateway in the Azure portal, 
+the Windows service account must have at least **Contributor** permissions. 
+
+> [!NOTE]
+> The Windows service account differs from the account 
+> used for connecting to on-premises data sources, 
+> and from the Azure work or school account used to sign in to cloud services.
+
 <a name="restart-gateway"></a>
+
 ## Restart the gateway
 
-The gateway runs as a Windows service. Like any other Windows service, 
-you can start and stop the service in multiple ways. 
+Like any other Windows service, you can start and stop the service in multiple ways. 
 For example, you can open a command prompt with elevated permissions 
-on the computer where the gateway is running, 
-and run either these commands:
+on the computer where the gateway is running, and run either these commands:
 
 * To stop the service, run this command:
   
@@ -210,18 +226,6 @@ and run either these commands:
 * To start the service, run this command:
   
     `net start PBIEgwService`
-
-### Windows service account
-
-The on-premises data gateway is set up to use `NT SERVICE\PBIEgwService` 
-for the Windows service logon credentials. 
-By default, the gateway has the "Log on as a service" right 
-for the machine where you install the gateway.
-
-> [!NOTE]
-> The Windows service account differs from the account 
-> used for connecting to on-premises data sources, 
-> and from the Azure work or school account used to sign in to cloud services.
 
 ## Configure a firewall or proxy
 
