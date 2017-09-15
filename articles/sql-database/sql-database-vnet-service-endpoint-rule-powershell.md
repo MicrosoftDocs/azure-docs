@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: "Virtual Service endpoints"
+ms.custom: "VNet Service endpoints"
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -20,7 +20,10 @@ ms.author: genemi
 ---
 # Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database
 
-This article provides and explains a PowerShell script that creates an Azure *Virtual Service endpoint*, and adds it to your Azure SQL Database server thereby creating a *rule*.
+This article provides and explains a PowerShell script that takes the following actions:
+
+1. Creates a Microsoft Azure *Virtual Service endpoint* on your subnet.
+2. Adds the endpoint to the firewall of your Azure SQL Database server, to create a *virtual network rule*.
 
 Your motivations for creating a rule are explained in: [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
