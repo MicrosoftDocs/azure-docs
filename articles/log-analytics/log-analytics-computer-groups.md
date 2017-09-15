@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: bwren
 
 ---
@@ -100,7 +100,7 @@ Computer groups are typically used with the **IN** clause in the log search as i
 >[!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you use a Computer group in a query by treating its alias as a function as in the following example:
 > 
->  `UpdateSummary | where Computer in (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (mycomputergroup)`
 
 ## Computer group records
 A record is created in the OMS repository for each computer group membership created from Active Directory or WSUS.  These records have a type of **ComputerGroup** and have the properties in the following table.  Records are not created for computer groups based on log searches.
