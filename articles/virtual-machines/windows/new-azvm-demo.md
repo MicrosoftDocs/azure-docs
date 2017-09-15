@@ -30,17 +30,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the VM
 
-Make sure that **PowerShell** is selected in Cloud Shell.
+We will use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM alone and it will use default values for the resource names. In this example, we are going to specify the resource group name as *myResourceGroup*, the name of the VM as *myVM*, and let the cmdlet create the resource group and the rest of the required resources. 
 
-We will use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace as the OS. You can use New-AzVM alone and it will use all default values. In this example, we are going to specify the resource group name as *myResourceGroup*, the name of the VM as *myVM*, and let the cmdlet create the resource group and the rest of the required resources. 
-
-You will be asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic. The password must be 12-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character.
-
-In Azure Cloud Shell, type:
+Make sure that **PowerShell** is selected in Cloud Shell and type:
 
 ```powershell-interactive
 New-AzVm -ResourceGroupName myResourceGroup -Name myVM
 ```
+
+You will be asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic. The password must be 12-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character.
 
 It will take a minute to create the VM and the associated resources. When finished, you can see all of the resources that were created using the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
 
