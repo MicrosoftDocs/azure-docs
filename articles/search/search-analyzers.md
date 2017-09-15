@@ -17,24 +17,16 @@ ms.author: heidist
 
 # Analyzers in Azure Search
 
-An *analyzer* is a component of [full text search processing](search-lucene-query-architecture.md) responsible for processing query terms and the contents of indexed documents. During indexing, an analyzer transforms terms into tokens, which are written to the index. At query time, an analyzer performs the same transformations (terms into tokens), but this time for read operations during queries. 
+An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and the contents of indexed documents. During indexing, an analyzer transforms text into tokens, which are written as terms into the index. During search, an analyzer performs the same transformations on query terms used to retrieve documents with matching terms from the index.
 
 The following transformations are typical during analysis:
 
 + Non-essential words (stopwords) and punctuation are removed.
-+ Phrases and hyphenated terms are broken down into component parts.
-+ Terms are lower-cased.
++ Phrases and hyphenated words are broken down into component parts.
++ Upper-case words are lower-cased.
 + Words are reduced to root forms so that a match can be found regardless of tense.
 
 Azure Search provides a default analyzer. You can override it on a field-by-field basis with an alternative analyzer. The purpose of this article is to describe the range of choices and provide best practices for customizing the process of lexical analysis for a given field. It also shows example configurations for key scenarios.
-
-## How analysis fits into full text search processing
-
-Analyzers operate on term inputs passed in by the query parser, and return analyzed terms that are added to a query tree object.
-
- ![Lucene query architecture diagram in Azure Search][1]
-
-Analyzers are used only on a single term query or a phrase query. Analyzers are not used for query types with incomplete terms – prefix query, wildcard query, regex query – or on fuzzy queries. For those query types, terms are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
 
 ## Supported analyzers
 
@@ -52,18 +44,20 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
 1. For custom analyzers only, create an `analyzer` section in the index definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Custom Analyzers > Create](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
-2. On each field for which you want to use the analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). Valid values include a predefined analyzer, a language analyzer, or a custom analyzer previously defined in the index schema.
+2. On each searchable field for which you want to use the analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). Valid values include a predefined analyzer, a language analyzer, or a custom analyzer previously defined in the index schema.
 
- Alternatively, instead of one `analyzer` property, you can set different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
+  Alternatively, instead of one `analyzer` property, you can set different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
 
-3. [Build the index](https://docs.microsoft.com/rest/api/searchservice/create-index) to invoke text analysis. 
-
-> [!Note]
-> Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. Adding or changing an `analyzer` attribute on any existing field requires that you drop and build the index. On new fields, where `analyzer` is part of the original definition, a rebuild is not a requirement. 
+3. Analysis occurs during indexing. If you add an `analyzer` to an existing index, note the following steps:
+ 
+ | Scenario | Steps |
+ |----------|-------|
+ | Add a new field (not indexed yet). | Analysis occurs when you add or update documents that provide content for the new field. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
+ | Add an analyzer to an existing indexed field. | The inverted index for that field must be recreated from the ground up and document contents for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
 
 ## Best practices
 
-This section provides advice on how to work with analyzers more efficiently.
+This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
@@ -77,7 +71,7 @@ Overriding the standard analyzer requires an index rebuild. If possible, decide 
 
 ### Compare analyzers side by side
 
-We recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The response consists of tokenized terms, as generated by a specific analyzer for text you provide. 
+We recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The response consists of tokens, as generated by a specific analyzer for text you provide. 
 
 > [!Tip]
 > The [Search Analyzer Demo](http://alice.unearth.ai/) shows a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. For each search input you provide, results from each analyzer are displayed in adjacent panes.
@@ -188,7 +182,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
 <a name="Example3"></a>
 ### Example 3: Different analyzers for indexing and search operations
 
-The preview APIs include additional index attributes for specifying different analyzers for indexing and search. The `searchAnalyzer` and `indexAnalyzer` attributes must be specified as a pair, replacing the single `analyzer` attribute.
+The APIs include additional index attributes for specifying different analyzers for indexing and search. The `searchAnalyzer` and `indexAnalyzer` attributes must be specified as a pair, replacing the single `analyzer` attribute.
 
 
 ~~~~
@@ -231,7 +225,7 @@ Fields containing strings in different languages can use a language analyzer, wh
            "name":"text",
            "type":"Edm.String",
            "searchable":true,
-           "IndexAnalyzer":"whitespace",
+           "indexAnalyzer":"whitespace",
            "searchAnalyzer":"simple"
         },
         {
