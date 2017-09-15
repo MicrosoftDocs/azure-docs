@@ -3,7 +3,7 @@ title: Azure API Management cross domain policies | Microsoft Docs
 description: Learn about the cross domain policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 

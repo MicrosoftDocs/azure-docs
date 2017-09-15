@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 08/28/2017
 ms.author: raprasa
 
 ---
@@ -54,7 +54,7 @@ If you want to maintain your own snapshots, you can use the export to JSON optio
 If you accidentally delete your database or collection, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. If you need to restore your database because of data corruption issue, see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from penetrating the backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.
 
 ## Handling data corruption
-Azure Cosmos DB retains the last two backups of every partition in the system. This model works very well when a container (collection of documents, graph, table) or a database is accidentally deleted since one of the last versions can be restored. However, in the case when when users may introduce a data corruption issue, Azure Cosmos DB may be unaware of the data corruption, and it is possible that the corruption may have penetrated the backups. As soon as corruption is detected, you should delete the corrupted container (collection/graph/table) so that backups are protected from being overwritten with corrupted data. Since the last backup could be four hours old, the user can employ [change feed](change-feed.md) to capture and store the last four hours worth of data before deleting the container.
+Azure Cosmos DB retains the last two backups of every partition in the system. This model works very well when a container (collection of documents, graph, table) or a database is accidentally deleted since one of the last versions can be restored. However, in the case when when users may introduce a data corruption issue, Azure Cosmos DB may be unaware of the data corruption, and it is possible that the corruption may have penetrated the backups. As soon as corruption is detected, the user should delete the corrupted container (collection/graph/table) so that backups are protected from being overwritten with corrupted data. Since the last backup could be four hours old, the user can employ [change feed](change-feed.md) to capture and store the last four hours worth of data before deleting the container.
 
 ## Next steps
 

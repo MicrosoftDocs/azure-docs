@@ -3,8 +3,8 @@ title: Command-line build for Azure | Microsoft Docs
 description: Command-line build for Azure
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Building Azure projects from the command line

@@ -4,7 +4,7 @@ description: Information about the Multi-factor Authentication client and the di
 keywords: 
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
-ms.author: kgremban
+ms.date: 08/25/2017
+ms.author: joflore
 ---
 # How to get Azure Multi-Factor Authentication
 
-When it comes to protecting your accounts, two-step verification should be standard across your organization. This feature is especially important for administrative accounts that have privileged access to resources. For this reason, Microsoft offers basic two-step verification features to Office 365 and Azure administrators. If you want to upgrade the features for your admins, or extend two-step verification to the rest of your users, you can purchase Azure Multi-Factor Authentication. 
+When it comes to protecting your accounts, two-step verification should be standard across your organization. This feature is especially important for administrative accounts that have privileged access to resources. For this reason, Microsoft offers basic two-step verification features to Office 365 and Azure administrators for no extra cost. If you want to upgrade the features for your admins or extend two-step verification to the rest of your users, you can purchase Azure Multi-Factor Authentication. 
 
-This article covers explains the difference between the versions offered to administrators and the full Azure MFA version, and specifies which features are available in each. If you're ready to deploy the complete Azure MFA offering, the later sections covers implementation options and how Microsoft calculates consumption.
+This article explains the difference between the versions offered to administrators and the full Azure MFA version. If you're ready to deploy the complete Azure MFA offering, the later section covers implementation options and how Microsoft calculates consumption.
 
 >[!IMPORTANT]
 >This article is meant to be a guide to help you understand the different ways to buy Azure Multi-Factor Authentication. For specific details about pricing and billing, you should always refer to the [Multi-Factor Authentication pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
@@ -34,7 +34,7 @@ The following table describes the differences between three versions of multi-fa
 | --- | --- |
 | Multi-Factor Authentication for Office 365 |This version works exclusively with Office 365 applications and is managed from the Office 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 subscription. |
 | Multi-Factor Authentication for Azure Administrators | Global administrators of Azure tenants can enable two-step verification for their global admin accounts at no additional cost.|
-| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure classic portal](https://manage.windowsazure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is included in Azure Active Directory Premium (P1 and P2 plans) and Enterprise Mobility + Security (E3 and E5 plans), and can be deployed either [in the cloud or on premises](multi-factor-authentication-get-started.md). |
+| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure classic portal](https://manage.windowsazure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is included in [Azure Active Directory Premium plans](https://www.microsoft.com/cloud-platform/azure-active-directory-features) and [Enterprise Mobility + Security plans](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing), and can be deployed either in the cloud or on-premises. |
 
 ## Feature comparison of versions
 The following table provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
@@ -69,11 +69,11 @@ If you would like the full functionality offered by Azure Multi-Factor Authentic
 
 Purchase Azure Multi-Factor Authentication licenses and assign them to your users in Azure Active Directory. 
 
-If you use this option, you should create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses. Otherwise, you might be billed twice.
+If you use this option, only create an Azure Multi-Factor Authentication Provider if you need to provide two-step verification for some users that don't have licenses. Otherwise, you might be billed twice.
 
 ### Option 2 - Bundled licenses that include MFA
 
-Purchase licenses that include Azure Multi-Factor Authentication, like Azure Active Directory Premium (P1 or P2) or Enterprise Mobility + Security (E3 or E5), and assign them to your users in Azure Active Directory. 
+Purchase licenses that include Azure Multi-Factor Authentication, like Azure Active Directory Premium or Enterprise Mobility + Security, and assign them to your users in Azure Active Directory. 
 
 If you use this option, you should create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses. Otherwise, you might be billed twice. 
 
@@ -83,7 +83,7 @@ Create an Azure Multi-Factor Authentication Provider within an Azure subscriptio
 
 When using an Azure Multi-Factor Authentication Provider, there are two usage models available that are billed through your Azure subscription:  
 
-1. **Per User** - For enterprises that want to enable two-step verification for a fixed number of employees who regularly need authentication. Per-user billing is based on the number of users enabled for MFA in your Azure AD tenant and/or your Azure MFA Server. If users are enabled for MFA in both Azure AD and Azure MFA Server, and domain sync (Azure AD Connect) is enabled, then we count the larger set of users. If domain sync isn't enabled, then we count the sum of all users enabled for MFA in Azure AD and Azure MFA Server. Billing is prorated and reported to the Commerce system daily. 
+1. **Per User** - For enterprises that want to enable two-step verification for a fixed number of employees who regularly need authentication. Per-user billing is based on the number of users enabled for MFA in your Azure AD tenant and your Azure MFA Server. If users are enabled for MFA in both Azure AD and Azure MFA Server, and domain sync (Azure AD Connect) is enabled, then we count the larger set of users. If domain sync isn't enabled, then we count the sum of all users enabled for MFA in Azure AD and Azure MFA Server. Billing is prorated and reported to the Commerce system daily. 
 
   > [!NOTE]
   > Billing example 1: 
@@ -92,7 +92,7 @@ When using an Azure Multi-Factor Authentication Provider, there are two usage mo
   > Billing example 2:
   > You have a mixture of users with licenses and users without, so you have a per-user Azure MFA Provider to make up the difference. There are 4,500 Enterprise Mobility + Security licenses on your tenant, but 5,000 users enabled for MFA. Your Azure subscription is billed for 500 users, prorated and reported daily as 16.13 users. 
 
-2. **Per Authentication** - For enterprises that want to enable two-step verification for a large group of users who infrequently need authentication. Billing is based on the number of two-step verification requests received by the Azure MFA cloud service, regardless of whether those verifications succeed or are denied. This billing appears on your Azure usage statement in packs of 10 authentications, and is reported to the Commerce system daily. 
+2. **Per Authentication** - For enterprises that want to enable two-step verification for a large group of users who infrequently need authentication. Billing is based on the number of two-step verification requests, regardless of whether those verifications succeed or are denied. This billing appears on your Azure usage statement in packs of 10 authentications, and is reported daily. 
 
   > [!NOTE]
   > Billing example 3:

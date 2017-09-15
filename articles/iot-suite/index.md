@@ -2,7 +2,7 @@
 title: Azure IoT Suite Documentation - Tutorials, API Reference | Microsoft Docs
 description: 
 services: iot-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:	

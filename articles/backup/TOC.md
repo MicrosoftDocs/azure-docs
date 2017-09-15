@@ -8,9 +8,27 @@
 ## [Back up VMware servers](backup-azure-backup-server-vmware.md)
 
 # How to
+
+## Azure Backup Server
+### [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md)
+### Install or upgrade
+#### [Prepare Azure Backup Server workloads in Azure portal](backup-azure-microsoft-azure-backup.md)
+#### [Prepare Azure Backup Server workloads in classic portal](backup-azure-microsoft-azure-backup-classic.md)
+#### [Add storage to Azure Backup Server](backup-mabs-add-storage.md)
+#### [Upgrade Azure Backup Server to v.2](backup-mabs-upgrade-to-v2.md)
+#### [Unattended installation of Azure Backup Server](backup-mabs-unattended-install.md)
+### Protect workloads
+#### [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
+#### [Use Azure Backup Server to back up Exchange](backup-azure-exchange-mabs.md)
+#### [Use Azure Backup Server to back up a SharePoint farm](backup-azure-backup-sharepoint-mabs.md)
+#### [Use Azure Backup Server to back up SQL](backup-azure-sql-mabs.md)
+#### [Protect system state and bare metal recovery](backup-mabs-system-state-and-bmr.md)
+### [Recover data from Azure Backup Server](backup-azure-alternate-dpm-server.md)
+
 ## Azure VMs
 ### Prepare the VM
 #### [Prepare Resource Manager-deployed virtual machines](backup-azure-arm-vms-prepare.md)
+#### [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
 #### [Prepare Azure virtual machines](backup-azure-vms-prepare.md)
 ### Plan your environment
 #### [Plan VM backup infrastructure](backup-azure-vms-introduction.md)
@@ -29,6 +47,32 @@
 #### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
 #### [Restore Key Vault key and secret for encrypted VMs](backup-azure-restore-key-secret.md)
 
+## Configure Azure Backup reports
+### [Configure Azure Backup reports](backup-azure-configure-reports.md)
+### [Data model for Azure Backup reports](backup-azure-reports-data-model.md)
+### [Log Analytics data model for Azure Backup](backup-azure-log-analytics-data-model.md)
+
+## Data Protection Manager
+### [Prepare DPM workloads in Azure portal](backup-azure-dpm-introduction.md)
+### [Prepare DPM workloads in classic portal](backup-azure-dpm-introduction-classic.md)
+### [Use System Center DPM to back up Exchange server](backup-azure-backup-exchange-server.md)
+### [Recover data to an alternate DPM server](backup-azure-alternate-dpm-server.md)
+### [Use DPM to back up SQL Server workloads](backup-azure-backup-sql.md)
+### [Use DPM to back up a SharePoint farm](backup-azure-backup-sharepoint.md)
+
+## Use PowerShell
+### [Azure VMs in Azure portal](backup-azure-vms-automation.md)
+### [Azure VMs in classic portal](backup-azure-vms-classic-automation.md)
+### [DPM in Azure portal](backup-dpm-automation.md)
+### [DPM in classic portal](backup-dpm-automation-classic.md)
+### [Windows Server in Azure portal](backup-client-automation.md)
+### [Windows Server in classic portal](backup-client-automation-classic.md)
+
+## Azure SQL Database
+### [Configure long-term backup retention](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [View backups in a Recovery Services vault](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Restore from long-term backup retention](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Delete long-term Azure SQL backups](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
 
 ## Windows Server
 ### [Back up Windows Server files and folders](backup-configure-vault.md)
@@ -41,48 +85,10 @@
 #### [Manage Backup vaults using the classic deployment model](backup-azure-manage-windows-server-classic.md)
 #### [Recover files to a Windows Server using the classic deployment model](backup-azure-restore-windows-server-classic.md)
 
-## Azure Backup Server
-### [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md)
-### Install or upgrade
-#### [Prepare Azure Backup Server workloads in Azure portal](backup-azure-microsoft-azure-backup.md)
-#### [Prepare Azure Backup Server workloads in classic portal](backup-azure-microsoft-azure-backup-classic.md)
-#### [Add storage to Azure Backup Server](backup-mabs-add-storage.md)
-#### [Upgrade Azure Backup Server to v.2](backup-mabs-upgrade-to-v2.md)
-#### [Unattended installation of Azure Backup Server](backup-mabs-unattended-install.md)
-### Protect workloads
-#### [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
-#### [Use Azure Backup Server to back up Exchange](backup-azure-exchange-mabs.md)
-#### [Use Azure Backup Server to back up a SharePoint farm](backup-azure-backup-sharepoint-mabs.md)
-#### [Use Azure Backup Server to back up SQL](backup-azure-sql-mabs.md)
-#### [Protect system state and bare metal recovery](backup-mabs-system-state-and-bmr.md)
-### [Recover data from Azure Backup Server](backup-azure-alternate-dpm-server.md)
-
-## Data Protection Manager
-### [Prepare DPM workloads in Azure portal](backup-azure-dpm-introduction.md)
-### [Prepare DPM workloads in classic portal](backup-azure-dpm-introduction-classic.md)
-### [Use System Center DPM to back up Exchange server](backup-azure-backup-exchange-server.md)
-### [Recover data to an alternate DPM server](backup-azure-alternate-dpm-server.md)
-### [Use DPM to back up SQL Server workloads](backup-azure-backup-sql.md)
-### [Use DPM to back up a SharePoint farm](backup-azure-backup-sharepoint.md)
-
-## Azure SQL Database
-### [Configure long-term backup retention](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [View backups in a Recovery Services vault](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Restore from long-term backup retention](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Delete long-term Azure SQL backups](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
-
-## Use PowerShell
-### [Azure VMs in Azure portal](backup-azure-vms-automation.md)
-### [Azure VMs in classic portal](backup-azure-vms-classic-automation.md)
-### [DPM in Azure portal](backup-dpm-automation.md)
-### [DPM in classic portal](backup-dpm-automation-classic.md)
-### [Windows Server in Azure portal](backup-client-automation.md)
-### [Windows Server in classic portal](backup-client-automation-classic.md)
-
-## FAQ
-### [FAQ on Recovery Services vault](backup-azure-backup-faq.md)
-### [FAQ on Azure VM backup](backup-azure-vm-backup-faq.md)
-### [FAQ on file-folder backup using Azure Backup agent](backup-azure-file-folder-backup-faq.md)
+## Recovery Services vault
+### [Overview of Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
+### [Upgrading a Backup vault to Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md)
+### [Delete a Recovery Services vault](backup-azure-delete-vault.md)
 
 ## Troubleshoot
 ### [Azure VM backup problems in Azure portal](backup-azure-vms-troubleshoot.md)
@@ -92,17 +98,17 @@
 ### [Troubleshoot Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 
 # Concepts
-## [Overview of Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
-## [Upgrading a Backup vault to Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Delete a Recovery Services vault](backup-azure-delete-vault.md)
+
+## FAQ
+### [FAQ on Recovery Services vault](backup-azure-backup-faq.md)
+### [FAQ on Azure VM backup](backup-azure-vm-backup-faq.md)
+### [FAQ on file-folder backup using Azure Backup agent](backup-azure-file-folder-backup-faq.md)
+
 ## [Role-Based Access Control](backup-rbac-rs-vault.md)
 ## [Security for hybrid backups](backup-azure-security-feature.md)
-## [Configure Azure Backup reports](backup-azure-configure-reports.md)
-## [Data model for Azure Backup reports](backup-azure-reports-data-model.md)
-## [Log Analytics data model for Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
-## [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
+
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.recoveryservices.backup)

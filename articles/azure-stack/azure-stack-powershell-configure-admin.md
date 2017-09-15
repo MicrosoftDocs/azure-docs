@@ -24,7 +24,7 @@ As an Azure Stack operator, you can configure your Azure Stack Development Kit's
 
 ## Prerequisites
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn): 
+Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn): 
 
 * Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
 * Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
@@ -36,7 +36,6 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
 ### Azure Active Directory (AAD) based deployments
        
   ```powershell
-
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
@@ -65,7 +64,6 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
 ### Active Directory Federation Services (AD FS) based deployments
          
   ```powershell
-
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
