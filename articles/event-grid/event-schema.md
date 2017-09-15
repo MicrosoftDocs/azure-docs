@@ -160,8 +160,8 @@ This sample event shows the schema of an Event Hubs event raised when the Captur
 
 ## Azure Blob storage
 
-[!IMPORTANT]
-You must be registered for the Blob storage events preview to complete this tutorial. For more information about the preview program, see [Azure Blob storage events](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview). 
+>[!IMPORTANT]
+>You must be registered for the Blob storage events preview to complete this tutorial. For more information about the preview program, see [Azure Blob storage events](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview). 
 
 ### Available event types
 
