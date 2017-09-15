@@ -55,7 +55,7 @@ An event has now been added to the Activity Log that describes the creation of t
 
 4. Under **Alert via** select **New** action group and provide a **name** and **short name** for the action group. The action group defines the set of actions taken when the alert is activated (when the criteria match a new event).
 
-5. Under **Actions** add one or more actions by providing a **Name** for the action, the **Action type** (for example, email or SMS), and **Details** for that particular action type (for example, a webhook URL or email address).
+5. Under **Actions** add one or more actions by providing a **Name** for the action, the **Action type** (for example, email or SMS), and **Details** for that particular action type (for example, a webhook URL , email address, or SMS number).
 
     ![Create a network security group in the portal](./media/monitor-quick-notify-action-in-subscription/activity-log-alert-actions.png)
 
