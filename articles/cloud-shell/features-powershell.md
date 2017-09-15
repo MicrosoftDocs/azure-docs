@@ -42,7 +42,10 @@ Since, each request for Cloud Shell is allocating a temporary machine, files out
 
 ### Azure drive (Azure:)
 
-PowerShell in Cloud Shell starts you in Azure drive (`Azure:`). Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation. You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure) to manage these resources. Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are instantly reflected in the Azure drive.
+PowerShell in Cloud Shell starts you in Azure drive (`Azure:`). 
+Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
+You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure) to manage these resources.
+Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are instantly reflected in the Azure drive.
 
 ![](media/features-powershell/azure-drive.png)
 
@@ -52,7 +55,7 @@ PowerShell in Cloud Shell starts you in Azure drive (`Azure:`). Azure drive enab
 
     ![](media/features-powershell/resource-group-autocomplete.png)
 
-- **Get-AzureRmCommand**: This cmdlet returns the list of commands applicable in the context of the location under Azure drive (`Azure:`). For example, it shows only storage related commands when user is under `Azure:\<subscription name>\StorageAccounts`
+- **Get-AzureRmCommand**: This cmdlet returns the list of commands applicable in the context of the location under Azure drive (`Azure:`). For example, it shows only storage-related commands when user is under `Azure:\<subscription name>\StorageAccounts`
 
     ![](media/features-powershell/get-azurermcommand.png)
 
