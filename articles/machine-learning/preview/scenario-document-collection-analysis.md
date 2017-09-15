@@ -19,9 +19,11 @@ ms.author: kehuan
 
 # Document Collection Analysis
 
-[//]: # "![Data_Diagram](https://www.usb-antivirus.com/wp-content/uploads/2014/11/tutorial-windwos-10-2-320x202.png)"
+## Link to the Gallery GitHub repository
 
-**[Find the code on GitHub repository](https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis)**
+The public GitHub repository for this real world scenario contains all materials, including code samples, needed for this example:
+
+[https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis](https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis)
 
 ## Introduction
 
@@ -63,15 +65,15 @@ The prerequisites to run this example are as follows:
 
 * This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
 
-## Data Description
+## Data description
 
 The dataset used in this scenario contains text summaries and associated meta data for each legislative action taking by the US Congress. The data is collected from [GovTrack.us](https://www.govtrack.us/), which tracks the activities of United States Congress and helps Americans participate in their national legislative process. The bulk data can be downloaded via [this link](https://www.govtrack.us/data/congress/) using a manual script, which is not included in this scenario. The details of how to download the data could be found in the [GovTrack API documentation](https://www.govtrack.us/developers/api).
 
-### Data Source
+### Data source
 
 In this scenario, the raw data collected is a series of legislative actions introduced by the US Congress (proposed bills and resolutions) from 1973 to June 2017 (the 93rd to the 115th Congresses). The data collected is in JSON format and contains a rich set of information about the legislative actions. Refer to [this GitHub link](https://github.com/unitedstates/congress/wiki/bills) for detailed description of the data fields. For the demonstration purpose within this scenario, only a subset of data fields were extracted from the JSON files. A pre-compiled TSV file `CongressionalDataAll_Jun_2017.tsv` containing records of those legislative actions is provided in this scenario. The TSV file can be downloaded automatically either by the notebooks `1_Preprocess_Text.ipynb` under the notebook folder or `preprocessText.py` in the Python package.
 
-### Data Structure
+### Data structure
 
 There are nine data fields in the data file. The data field names and the descriptions are listed as follows.
 
@@ -87,7 +89,7 @@ There are nine data fields in the data file. The data field names and the descri
 | `Party` | String | The party of the primary sponsor. | Yes |
 | `Subjects` | String | The subject terms added cumulatively by the Library of Congress to the bill. The terms are concatenated by commas. These terms are written by a human in the Library of Congress, and are not usually present when information on the bill is first published. They can be added at any time. Thus by the end of life of a bill, some subject may not be relevant anymore. | Yes |
 
-## Scenario Structure
+## Scenario structure
 
 The document collection analysis example is organized into two types of deliverables. The first type is a series of iPython Notebooks that show the step-by-step descriptions of the entire workflow. The second type is a Python package as well as some code examples of how to use that package. The Python package is generic enough to serve many use cases.
 
@@ -116,11 +118,11 @@ The files in this example are organized as follows.
 | `notebooks/winprocess.py` | Python file | The python script for multiprocessing used by notebooks |
 | `README.md` | Markdown file | The README markdown file |
 
-### Data Ingestion & Transformation
+### Data ingestion and transformation
 
 The compiled dataset `CongressionalDataAll_Jun_2017.tsv` is saved in Blob Storage and is accessible both from within the notebooks and the Python scripts. There are two steps for data ingestion and transformation: preprocessing the text data, and phrase learning.
 
-#### Preprocess Text Data
+#### Preprocess text data
 
 The preprocessing step applies natural language processing techniques to clean and prepare the raw text data. It serves as a precursor for the unsupervised phrase learning and latent topic modeling. The detailed step-by-step description can be found in the notebook `1_Preprocess_Text.ipynb`. There is also a Python script `step1.py` corresponds to this notebook.
 
@@ -136,7 +138,7 @@ textDF = getData()
 cleanedDataFrame = CleanAndSplitText(textDF, saveDF=True)
 ```
 
-#### Phrase Learning
+#### Phrase learning
 
 The phrase learning step implements a basic framework to learn key phrases among a large collection of documents. It is described in the paper entitled "[Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf)", which was originally presented in the 2012 IEEE Workshop on Spoken Language Technology. The detailed implementation of phrase learning step is shown in the iPython Notebook `2_Phrase_Learning.ipynb` and the Python script `step2.py`.
 
@@ -164,7 +166,7 @@ phraseLearner.RunConfiguration(textData,
 > The phrase learning step is implemented with multiprocessing. However, more CPU cores do **NOT** mean a faster execution time. In our tests, the performance is not improved with more than eight cores due to the overhead of multiprocessing. It took about two and a half hours to learn 25,000 phrases on a machine with eight cores (3.6 GHz).
 >
 
-### Topic Modeling
+### Topic modeling
 
 Learning a latent topic model use LDA is the third step in this scenario. The [gensim](https://radimrehurek.com/gensim/) Python package is required in this step to learn an [LDA topic model](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation). The corresponding notebook for this step is `3_Topic_Model_Training.ipynb`. You can also refer to `step3.py` for how to use the document analysis package.
 
@@ -210,7 +212,7 @@ perplex = topicmodeler.EvaluatePerplexity(lda)
 > The execution time to train an LDA topic model depends on multiple factors such as the size of corpus, hyper parameter configuration, as well as the number of cores on the machine. Using multiple CPU cores trains a model faster. However, with the same hyper parameter setting more cores means fewer updates during training. It is recommended to have **at least 100 updates to train a converged LDA model**. The relationship between number of updates and hyper parameters is discussed in [this post](https://groups.google.com/forum/#!topic/gensim/ojySenxQHi4) and [this post](http://miningthedetails.com/blog/python/lda/GensimLDA/). In our tests, it took about 3 hours to train an LDA model with 200 topics using the configuration of `workers=15`, `passes=10`, `chunksize=1000` on a machine with 16 cores (2.0 GHz).
 >
 
-### Topic Summarization and Analysis
+### Topic summarization and analysis
 
 The topic summarization and analysis consists of two notebooks, while there are no corresponding functions in the document analysis package.
 
