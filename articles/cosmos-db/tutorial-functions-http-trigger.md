@@ -21,7 +21,7 @@ ms.author: mimig
 
 Azure Cosmos DB is a globally distributed, multi-model database that is both schemaless and serverless. Azure Function is a serverless compute service that enables you to run code on-demand. Pair up these two Azure services and you have the foundation for a serverless architecture that enables you to focus on building great apps and not worry about provisioning and maintaining servers for your compute and database needs.
 
-This tutorial builds on the code created in the [Graph API Quickstart for .NET](create-graph-dotnet.md) by adding an Azure Function project that contains an HTTP trigger. The Azure Function searches the Azure Cosmos DB database for *all* the people in the database, or a *specific* person in the database. 
+This tutorial builds on the code created in the [Graph API Quickstart for .NET](create-graph-dotnet.md). This tutorial adds an Azure Function that contains an HTTP trigger. The HTTP trigger uses an Azure Cosmos DB input binding to retrieve data from the graph database created in the quickstart.  
 
 This tutorial covers the following tasks:
 
@@ -72,7 +72,7 @@ This tutorial covers the following tasks:
 
 4. The Azure Function will respond to HTTP requests, so the Http trigger template is appropriate here.
    
-   In the **New Azure Function** box, select **Http trigger**,  We want this Azure Function to be "wide open," too, so we'll set the **Access rights** to **Anonymous**, which lets everyone through. Click **OK**.
+   In the **New Azure Function** box, select **Http trigger**,  We want this Azure Function to be "wide open," too, so we set the **Access rights** to **Anonymous**, which lets everyone through. Click **OK**.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 
@@ -95,7 +95,7 @@ This tutorial covers the following tasks:
    using System.Threading.Tasks;
    ```
 
-6. Next, replace the Azure Function's class code with the code below. The code will search the Azure Cosmos DB database using the Graph API for either all the people, or for the specific person identified by the `name` query string parameter.
+6. Next, replace the Azure Function's class code with the code below. The code searches the Azure Cosmos DB database using the Graph API for either all the people, or for the specific person identified by the `name` query string parameter.
 
    ```csharp
    public static class Search
@@ -163,13 +163,13 @@ This tutorial covers the following tasks:
 
 Now that the code is complete, you can use the Azure Function's local debugging tools and emulator to run the code locally to test it.
 
-1. Before the code will run properly, you must configure it for local execution with your Azure Cosmos DB connection information. You can use the local.settings.json file to configure the Azure Function for local execution much in the same way you would use the App.config file to configure the original console application for execution.
+1. Before the code runs properly, you must configure it for local execution with your Azure Cosmos DB connection information. You can use the local.settings.json file to configure the Azure Function for local execution much in the same way you would use the App.config file to configure the original console application for execution.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
 
 2. After you configure the Azure Function app with your Azure Cosmos DB endpoint and authorization key so that it knows how to find your Azure Cosmos DB database, press F5 to launch the local debugging tool, func.exe, with the Azure Function code hosted and ready for use.
 
-   At the end of the initial output from func.exe, we see that Azure Function is being hosted at localhost:7071. This will be helpful to test it in a client.
+   At the end of the initial output from func.exe, we see that Azure Function is being hosted at localhost:7071. This is helpful to test it in a client.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
 
@@ -213,7 +213,7 @@ After the Azure Function is validated and seems to be working properly, the last
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/16-app-settings.png)
 
-6. Once the Azure Function is configured properly in your Azure subscription, you can again use the Visual Studio Code REST Client extension to query the publicly-available Azure Function URL.
+6. Once the Azure Function is configured properly in your Azure subscription, you can again use the Visual Studio Code REST Client extension to query the publicly available Azure Function URL.
 
   ![Update Nuget packages](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
 
