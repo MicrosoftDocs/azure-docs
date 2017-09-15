@@ -51,8 +51,12 @@
     href: container-service-connect.md
   - name: Scale an ACS cluster
     href: container-service-scale.md
+  - name: Load balance a Kubernetes ACS cluster
+    href: container-service-kubernetes-load-balancing.md
   - name: Monitor
     items:
+    - name: Monitor with OMS
+      href: container-service-kubernetes-oms.md
     - name: Monitor with Datadog
       href: container-service-kubernetes-datadog.md
     - name: Monitor with Sysdig
@@ -70,7 +74,9 @@
   - name: Azure CLI 2.0
     href: /cli/azure/acs
   - name: REST
-    href: /rest/api/compute/containerservices
+    href: /rest/api/container-services
+  - name: PowerShell
+    href: /powershell/module/azurerm.compute/#container_service
 - name: Resources
   items:
   - name: Azure Roadmap

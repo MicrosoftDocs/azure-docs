@@ -21,6 +21,9 @@ ms.author: tonguyen
 # Understand your bill for Microsoft Azure
 To understand your Azure bill, compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal.
 
+>[!NOTE]
+>This article does not apply to Enterprise Agreement (EA) customers. If you’re an EA customer, [you can find invoice documentation on the Enterprise Portal.](https://ea.azure.com/helpdocs/understandingYourInvoice)  
+
 To obtain a PDF of your invoice and a copy of your detailed daily usage file CSV download, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
 
 For detailed terms and descriptions of your invoice and detailed daily usage file, see [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) and [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md). 
@@ -48,7 +51,7 @@ Your usage charges are displayed at the meter level. The following terms mean th
  | --- | --- |
 |Billing cycle | Billing Period |
  |Name |Meter Category |
- |Type |Meter Sub-category |
+ |Type |Meter Subcategory |
  |Resource |Meter Name |
  |Region |Meter Region |
  |Consumed |Consumed Quantity |
