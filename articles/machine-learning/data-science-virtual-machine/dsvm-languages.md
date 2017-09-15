@@ -34,7 +34,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 | Related Tools on the DSVM      | PySpark, R, Julia      |
 ### How to use / run it?    
 
-**Windows** :
+**Windows**:
 
 * Running in command prompt
 
@@ -58,14 +58,14 @@ Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Communi
 
 * Using in Jupyter
 
-Open Jupyter and click on the `New` button to create a new notebook. At this point you can choose the kernel type as _Python [Conda Root]_ for Python 2.7 and _Python [Conda env:py35]_ for Python 3.5 environment. 
+Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as _Python [Conda Root]_ for Python 2.7 and _Python [Conda env:py35]_ for Python 3.5 environment. 
 
 * Installing Python packages
 
 The default Python environments on the DSVM are global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or py35 environment using the `activate` command as an Administrator. Then you can use the package manager like `conda` or `pip` to install or update packages. 
 
 
-**Linux** :
+**Linux**:
 
 * Running in terminal
 
@@ -87,11 +87,11 @@ Use PyCharm installed in the Visual Studio Community edition.
 
 * Using in Jupyter
 
-Open Jupyter and click on the `New` button to create a new notebook. At this point you can choose the kernel type as _Python [Conda Root]_ for Python 2.7 and _Python [Conda env:py35]_ for Python 3.5 environment. 
+Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as _Python [Conda Root]_ for Python 2.7 and _Python [Conda env:py35]_ for Python 3.5 environment. 
 
 * Installing Python packages
 
-The default Python environments on the DSVM are global environments readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or py35 environment using the `source activate` command as an Administrator or users with sudo permission. Then you can use a package manager like `conda` or `pip` to install or update packages. 
+The default Python environments on the DSVM are global environments readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or py35 environment using the `source activate` command as an Administrator or a user with sudo permission. Then you can use a package manager like `conda` or `pip` to install or update packages. 
 
 ## R
 
@@ -104,7 +104,7 @@ The default Python environments on the DSVM are global environments readable by 
 | Related Tools on the DSVM      | SparkR, Python, Julia      |
 ### How to use / run it?    
 
-**Windows** :
+**Windows**:
 
 * Running in command prompt
 
@@ -116,13 +116,13 @@ Use RTools for Visual Studio (RTVS) installed in the Visual Studio Community edi
 
 * Using in Jupyter
 
-Open Jupyter and click on the `New` button to create a new notebook. At this point you can choose the kernel type as _R_ to use Jupyter R kernel (IRKernel). 
+Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as _R_ to use Jupyter R kernel (IRKernel). 
 
 * Installing R packages
 
 R is installed on the DSVM in a  global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, run R using one of the methods above. Then you can run the R package manager `install.packages()` to install or update packages. 
 
-**Linux** :
+**Linux**:
 
 * Running in terminal
 
@@ -134,7 +134,7 @@ Use RStudio installed on the Linux DSVM.
 
 * Using in Jupyter
 
-Open Jupyter and click on the `New` button to create a new notebook. At this point you can choose the kernel type as _R_ to use Jupyter R kernel (IRKernel). 
+Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as _R_ to use Jupyter R kernel (IRKernel). 
 
 * Installing R packages
 
@@ -152,7 +152,7 @@ R is installed on the DSVM in a  global environment readable by all users. But o
 | Related Tools on the DSVM      | Python, R      |
 ### How to use / run it?    
 
-**Windows** :
+**Windows**:
 
 * Running in command prompt
 
@@ -163,14 +163,14 @@ Use `Juno` the Julia IDE installed on the DSVM and available as a desktop shortc
 
 * Using in Jupyter
 
-Open Jupyter and click on the `New` button to create a new notebook. At this point you can choose the kernel type as `Julia VERSION` 
+Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as `Julia VERSION` 
 
 * Installing Julia packages
 
 The default Julia location is a global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, run Julia using one of the methods above. Then you can run the Julia package manager commands like `Pkg.add()` to install or update packages. 
 
 
-**Linux** :
+**Linux**:
 * Running in terminal.
 
 Open terminal and just run `julia`. 
@@ -180,7 +180,7 @@ Use `Juno` the Julia IDE installed on the DSVM and available as a Application me
 
 * Using in Jupyter
 
-Open Jupyter and click on the `New` button to create a new notebook. At this point you can choose the kernel type as `Julia VERSION` 
+Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as `Julia VERSION` 
 
 * Installing Julia packages
 
