@@ -169,4 +169,4 @@ Please follow these two articles (either approach can work) for more details on 
 
 
 ## Next steps
-Learn how to use the Team Data Science Process to organize your project structure, see [Structure a project with TDSP](how-to-use-tdsp-in-azure.md)
+Learn how to use the Team Data Science Process to organize your project structure, see [Structure a project with TDSP](how-to-use-tdsp-in-azure-ml.md)
