@@ -23,3 +23,12 @@ By using the advanced option, you can associate existing resources. When the sto
 
 ### Restrict resource creation with an Azure resource policy
 Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) that are triggered by this specific tag.
+
+## Supported storage regions
+The Azure files must reside in the same region as the Cloud Shell machine that you're mounting them to. Cloud Shell machines exist in the following regions:
+|Area|Region|
+|---|---|
+|Americas|East US, South Central US, West US|
+|Europe|North Europe, West Europe|
+|Asia Pacific|India Central, Southeast Asia|
+

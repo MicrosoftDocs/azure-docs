@@ -20,24 +20,15 @@ ms.author: damaerte
 
 ## How Cloud Shell works
 Cloud Shell persists files through the following method: 
-* Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction. `/Home/<User>/clouddrive` is mapped to `$home\clouddrive`.
- 
-## Supported storage regions
-The Azure files must reside in the same region as the Cloud Shell machine that you're mounting them to. Cloud Shell machines exist in the following regions:
-|Area|Region|
-|---|---|
-|Americas|East US, South Central US, West US|
-|Europe|North Europe, West Europe|
-|Asia Pacific|India Central, Southeast Asia|
+* Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction.
 
-## `Get-Clouddrive`
+##List Cloud Drive file shares
 The `Get-Clouddrive` command retrieves the file share information currently mounted by the cloud drive in the Cloud Shell. <br>
 ![Running Get-Clouddrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
 ## Unmount `clouddrive`
 You can unmount a file share that's mounted to Cloud Shell at any time. If the file share has been removed, you will be prompted to create and mount a new file share at the next session.
 
-### `Dismount-Clouddrive`
 The `Dismount-Clouddrive` command unmounts a file share from the current storage account. Dismounting the cloud drive will terminate the current session. The user will be prompted to create and mount a new file share during the next session.
 ![Running Dismount-Clouddrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 

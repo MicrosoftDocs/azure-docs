@@ -40,14 +40,6 @@ If you mount an existing file share, the storage accounts must be:
 * Locally redundant storage or geo-redundant storage to support file shares.
 * Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
-### Supported storage regions
-The Azure files must reside in the same region as the Cloud Shell machine that you're mounting them to. Cloud Shell machines exist in the following regions:
-|Area|Region|
-|---|---|
-|Americas|East US, South Central US, West US|
-|Europe|North Europe, West Europe|
-|Asia Pacific|India Central, Southeast Asia|
-
 ### The `clouddrive mount` command
 
 > [!NOTE]
