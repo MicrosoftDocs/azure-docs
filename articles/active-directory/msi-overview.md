@@ -64,7 +64,6 @@ The following services support Azure AD authentication and have been tested with
 | --- | --- | --- | --- |
 | Azure Resource Manager | https://management.azure.com/ | Available | September 2017 |
 | Azure Key Vault | https://vault.azure.net/ | Available | September 2017 |
-| Azure SQL | https://database.windows.net/ | Available | September 2017 |
 | Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 |
 
 ## How much does Managed Service Identity cost?
@@ -86,7 +85,7 @@ Now that you understand the basics, try a Managed Service Identity tutorial to s
 - [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md)
 - [Access Azure Storage with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage.md)
 - [Access Azure Storage with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage.md)
-- [Access a non-Azure AD resource with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-nonaad.md)
+- [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md)
 - [Access a non-Azure AD resource with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-nonaad.md)
 - [User Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity)
 
