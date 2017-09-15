@@ -7,7 +7,6 @@ author: anjayajodha
 manager: byronr
 editor: ''
 
-ms.assetid: d2155c59-902e-4f63-ac58-d19e6a765380
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -25,9 +24,9 @@ You can deploy Linux virtual machines on Azure Stack by adding a Linux-based ima
 
 ## Marketplace Management
 
-Before you can download Linux images from the Azure Marketplace, you need to register your Azure Stack with Azure.
+To download Linux images from the Azure Marketplace, use the procedures in the following article. Select the Linux images that you want to offer users on your Azure Stack.
 
-For more information about downloading marketplace items, see [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md). Follow the procedures in this article and select the Linux images that you want to offer users on your Azure Stack.
+[Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
 ## Download an image
 
