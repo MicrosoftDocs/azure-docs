@@ -3,7 +3,7 @@ title: Get started with Azure IoT Hub device management (.NET/.NET) | Microsoft 
 description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure IoT device SDK for .NET to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: .net
-author: v-jamebr
+author: JimacoMS2
 manager: timlt
 editor: ''
 
