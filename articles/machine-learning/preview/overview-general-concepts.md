@@ -16,7 +16,7 @@ ms.date: 09/06/2017
 - **Subscription:** An Azure subscription grants you access to resources in Azure. Because Azure Machine Learning is deeply integrated with compute, storage, and many other Azure resources and services, Workbench requires that each user have access to a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources.
 
 
-- **Team:** A 'Team' is the top-level resource in Workbench. It contains your work spaces, projects, and project assets. A 'Team' is associated with an Azure Resource Group. Teams contain 'Members', who can gain access to the work groups, projects, and assets associated with a Team. 
+- **Experimentation Account:** Experimentation account is an Azure resource required by Azure ML, and a billing vehicle. It contains your workspaces, which in turn contain projects. You can add multiple users to an experimentation account. You must have access to an experimentation account in order to use Azure ML Workbench to run experiments. 
 
 
 - **Work Group:** A Work Group is the primary component for sharing in Workbench. Projects are grouped within a Work Group and then shared to team members. Work Groups function as a security boundary for your project and project assets.  
