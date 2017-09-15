@@ -38,6 +38,8 @@
       href: sample-tdsp-nlp.md
     - name: Aerial Image Classification
       href: scenario-aerial-image-classification.md
+    - name: Document Collection Analysis
+      href: scenario-document-collection-analysis.md
 - name: How-to guides
   items:
   - name: Use Azure ML Workbench
@@ -130,6 +132,8 @@
     items:
     - name: Model Management API
       href: model-management-api-reference.md
+    - name: Model Management configuration
+      href: model-management-configuration.md
     - name: Model Management CLI
       href: model-management-cli-reference.md
     - name: Model Data Collection API
