@@ -31,6 +31,7 @@ This tutorial describes how to fail over a VMware VM to Azure. After you've fail
 > * Fail over from Azure to on-premises
 > * Reprotect on-premises VMs, to start replicating to Azure again
 
+## Overview
 Failover and failback has four stages:
 
 1. **Fail over to Azure**: Fail machines over from the on-premises site to Azure.
@@ -97,7 +98,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 
 
 
-## Prerequisites for reprotection and failback
+## Prepare for failback
 
 To complete reprotection and failback, make sure you have all these prerequisites in place.
 
@@ -172,7 +173,7 @@ When you fail back to an alternate location, the data is recovered to the same d
 - Back up the configuration server regularly. If needed, restore it with the same IP address so that failback works. 
 
 
-## Set up a process server in Azure
+### Set up a process server in Azure
 
 A process server in Azure uses this architecture.
 
@@ -186,7 +187,7 @@ Here's a list of the ports you need to open.
 
 To set up a process server in Azure, follow the instructions in [this article](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
-## Set up an additional master target server
+### Set up an additional master target server
 
 - To install a Windows master target server, download and run the Unified Setup file, from the Site Recovery portal.
 - To install a Linux master target server, follow [these instructions](site-recovery-how-to-install-linux-master-target.md).
