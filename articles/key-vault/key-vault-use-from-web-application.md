@@ -2,7 +2,6 @@
 title: Use Azure Key Vault from a Web Application | Microsoft Docs
 description: Use this tutorial to help you learn how to use Azure Key Vault from a web application.
 services: key-vault
-documentationcenter: ''
 author: adhurwit
 manager: mbaldwin
 tags: azure-resource-manager
@@ -10,8 +9,6 @@ tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
