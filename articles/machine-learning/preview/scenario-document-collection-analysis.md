@@ -1,5 +1,5 @@
 ---
-title: Document Collection Analysis | Microsoft Docs
+title: Document Collection Analysis | Microsoft Docs | Azure
 description: How to summarize and analyze a large collection of documents, including techniques such as phrase learning, topic modeling, and topic model analysis using Azure ML Workbench.
 services: machine-learning
 documentationcenter: ''
@@ -61,7 +61,7 @@ The machine learning techniques/algorithms used in this scenario include:
 
 The prerequisites to run this example are as follows:
 
-* Make sure that you have properly installed [Azure Machine Learning Workbench](./overview-what-is-azure-ml) by following the [quick start installation guide](./quick-start-installation).
+* Make sure that you have properly installed [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) by following the [quick start installation guide](./quick-start-installation.md).
 
 * This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
 
@@ -97,7 +97,7 @@ The files in this example are organized as follows.
 
 | File Name | Type | Description |
 |-----------|------|-------------|
-| `aml_config` | Folder | Azure Machine Learning Workbench configuration folder, refer to [this documentation](./experiment-execution-configuration-reference) for detailed experiment execution configuration |
+| `aml_config` | Folder | Azure Machine Learning Workbench configuration folder, refer to [this documentation](./experiment-execution-configuration-reference.md) for detailed experiment execution configuration |
 | `Code` | Folder | The code folder used to save the Python scripts and Python package |
 | `Data` | Folder | The data folder used to save intermediate files |
 | `notebooks` | Folder | The Jupyter notebooks folder |
