@@ -17,14 +17,13 @@ ms.date: 09/25/2017
 ms.author: helaw
 
 ---
-# Understand Azure Stack security controls
+# Understand Azure Stack security posture
 
 *Applies to: Azure Stack integrated systems*
 
 Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack was designed for these scenarios, and it is important to understand the controls already in place when adopting Azure Stack.
 
-In Azure Stack, there are two security “layers” that coexist. The first layer comprises the Azure Stack infrastructure, which goes from the hardware components all the way up to the Azure Resource Manager, and includes the Administrator and the Tenant portals. The second layer consists of the workloads that tenants create, deploy, and manage and includes things like virtual machines or App Services web sites.  
-
+In Azure Stack, there are two security posture “layers” that coexist. The first layer comprises the Azure Stack infrastructure, which goes from the hardware components all the way up to the Azure Resource Manager, and includes the Administrator and the Tenant portals. The second layer consists of the workloads that tenants create, deploy, and manage and includes things like virtual machines or App Services web sites.  
 
 ## Security approach
 Azure Stack was designed with a security posture to defend against modern threats, and was built to meet the requirements from the major compliance standards. As a result, the security posture of the Azure Stack infrastructure is built on two pillars:
@@ -32,9 +31,7 @@ Azure Stack was designed with a security posture to defend against modern threat
  - Assume Breach, where starting from the assumption that the system has already been breached, we focus on *detecting and limiting the impact of breaches* versus only trying to prevent attacks. 
  - Hardened by Default, where since the infrastructure runs on well-defined hardware and software, we *enable, configure, and validate security features* that are usually left to customers to implement.
 
-As in Azure, the security posture of the Azure Stack infrastructure is defined by Microsoft, while the security of the workloads running on top of it is tenants’ responsibility. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
-
-Because Azure Stack is delivered as an integrated system, the internal security controls enabled on the Azure Stack infrastructure are defined by Microsoft.  Conversely, the security of the workloads of it is tenants’ responsibility. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
+Because Azure Stack is delivered as an integrated system, the security posture of the Azure Stack infrastructure is defined by Microsoft.  Just like in Azure, tenants are responsible for defining the security posture of their tenant workloads. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
 
 ## Data at rest encryption
 All Azure Stack infrastructure and tenant data is encrypted at rest using Bitlocker. This encryption protects against physical loss or theft of Azure Stack storage components. 
@@ -62,10 +59,10 @@ Another Windows Server 2016 security feature in Azure Stack is Windows Defender 
 ## Antimalware
 Every component in Azure Stack (both Hyper-V hosts and Virtual Machines) is protected with Windows Defender Antivirus.
 
-## Privileged operations management
-Administration in Azure Stack is a well-defined process. Azure Stack has three entry points for management: 
+## Constrained Administration Model
+Administration in Azure Stack is controlled through the use of three entry points, each with a specific purpose: 
 1. The [Administrator Portal](azure-stack-manage-portals.md) provides a point-and-click experience for daily management operations.
-2. Azure Resource Manager exposes all the management operations of the Administrator Portal via a REST/Powershell API. 
+2. Azure Resource Manager exposes all the management operations of the Administrator Portal via a REST API, used by PowerShell and Azure CLI. 
 3. For specific low-level operations, for example data center integration or support scenarios, Azure Stack exposes a PowerShell endpoint called Privileged Endpoint. This endpoint exposes only a whitelisted set of cmdlets and it is heavily audited.
 
 ## Network controls
