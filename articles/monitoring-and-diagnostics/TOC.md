@@ -19,6 +19,7 @@
 ## [Sources of monitoring data](monitoring-data-sources.md)
 ## [Roles permissions and security](monitoring-roles-permissions-security.md)
 ## [Partner integrations](monitoring-partners.md)
+
 ## Additional Overviews
 ### [Monitoring tools across Azure](monitoring-overview.md)
 ### [Metrics](monitoring-overview-metrics.md)
@@ -84,7 +85,7 @@
 
 
 # Reference
-## [CLI 2.0](cli/azure/monitor?view=azure-cli-latest)
+## [CLI 2.0](/cli/azure/monitor?view=azure-cli-latest)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [REST](/rest/api/monitor/)
 ## [Metrics supported](monitoring-supported-metrics.md)
