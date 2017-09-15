@@ -43,7 +43,6 @@ Intelligent Insights analyzes database usage based on the previous 1-hour usage 
 Once performance degradation issue is detected from multiple observed metrics using artificial intelligence, analysis is performed outputting a diagnostic log with an intelligent insight on what is happening with your database. Intelligent Insights makes it easy to track the database performance issue from its first appearance until resolution. This is achieved through tracking and outputting in the diagnostics log states of each detected issue through its lifecycle from initial issue detection, verification of performance improvement and its completion. Updates are provided in the diagnostic log every 15 minutes. 
 
 ![Server](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
-Intelligent Insights example
 
 Metrics used to measure and detect database performance issues are based on query duration, timeout requests, excessive wait times, and errored request and are further elaborated in [Detection Metrics](sql-database-intelligent-insights.md#Detection%20%Metrics) section of this document.
 
@@ -62,7 +61,7 @@ Identified Azure SQL Database performance degradations are recorded in the diagn
 ||- Errored out requests [%] |
 | Impact value | Value of a metric measured |
 | Impacted queries and error codes | Query hash or error code. These can be used to easily correlate to a particular query impacted. Metric of an impact to the query with specific values is provided consisting of either query duration increase, waiting time, timeout counts, or error codes. |
-| Detections | Detection identified at the database during the time of an event. There are 15 detection patterns. See [Troubleshoot database performance issues with Intelligent Insights document](sql-database-intelligent-insights-troubleshoot-performance.md). |
+| Detections | Detection identified at the database during the time of an event. There are 15 detection patterns. See [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
 | Root-cause analysis | Root Cause Analysis (RCA) of the issue identified in a humanly readable format. Some insights might contain a performance improvement recommendation where possible. |
 |||
 
