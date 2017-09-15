@@ -7,6 +7,7 @@
 
 ## [Back up VMs - Portal](backup-azure-vms-first-look-arm.md)
 ## [Back up VMs - PowerShell](quick-backup-vm-powershell.md)
+## [Back up VMs - CLI](quick-backup-vm-cli.md)
 
 # Tutorials
 
