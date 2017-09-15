@@ -13,7 +13,7 @@
 ### [2- Deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- Configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
-## Containerize an existing .NET application
+## Containerize an existing .NET app
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
