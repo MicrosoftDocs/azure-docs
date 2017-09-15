@@ -9,6 +9,8 @@
 ## [Disaster recovery to a secondary site for VMware VMs and physical servers](tutorial-vmware-to-vmware.md)
 ## [Run a disaster recovery drill to Azure](tutorial-dr-drill-azure.md)
 ## [Run a disaster recovery drill to a secondary VMM site](tutorial-dr-drill-secondary.md)
+## [Fail over and fail back VMware VMs and physical servers replicated to Azure](tutorial-vmware-to-azure-failover-failback.md)
+## [Fail over and fail back Hyper-V VMs replicated to Azure](tutorial-hyper-v-to-azure-failover-failback.md)
 
 # Samples
 ## [Automate Hyper-V replication to Azure (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
