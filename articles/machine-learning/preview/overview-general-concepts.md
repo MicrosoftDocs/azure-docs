@@ -22,7 +22,7 @@ ms.date: 09/06/2017
 - **Model Management Account** A model management account is also an Azure resource required by Azure ML for managing models. You can use it to register models and manifests, build containerized web services and deploy them locally or in the cloud. It is also the other billing vehicle of Azure ML.
 
 
-- **Workspace:** A Workspace is the primary component for sharing and collaboration in Azure ML. Projects are grouped within a workspace. A workspace can then be shared with multiple users that have been added to the exerimentaiton account.
+- **Workspace:** A Workspace is the primary component for sharing and collaboration in Azure ML. Projects are grouped within a workspace. A workspace can then be shared with multiple users that have been added to the experimentation account.
 
 
 - **Project:** In Azure Machine Learning, a project is the logical container for all the work being done to solve a problem. It maps to a single file folder on your local disk, and you can add any files or sub folders to it. A project can optionally be associated with a Git repository for source control and collaboration.  
@@ -40,7 +40,6 @@ ms.date: 09/06/2017
 - **Environment:** In Azure Machine Learning, an environment denotes a particular computing resource that is used for deploying and managing your models. It can be your local computer, a Linux VM on Azure, or a Kubernetes cluster running in Azure Container Service, depending on context and configuration. Your model is hosted in a Docker container running in these environments and exposed as a REST API endpoint.
 
 
-<<<<<<< HEAD
 - **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. Managed models are registered with an Azure Machine Learning Model Management account.
 
 
@@ -51,14 +50,4 @@ ms.date: 09/06/2017
 
 
 - **Images:** You can use manifests to generate (and regenerate) Docker images. Containerized Docker images create flexibility to run them in the cloud, on local machines, or on IoT device. Images are self-contained, and include all dependencies required for scoring new data with models. 
-=======
-- **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. Managed models refer to models that have been registered with an Azure Machine Learning Model Management account. 
- 
-- **Deployment:** Model Management allows you to deploy models as containerized web service locally or in Kubernetes cluster in Azure. Each web service is counted as a single deployment. 
-
-
-- **Manifests:** When the Model Management system deploys a model into production it includes a manifest that typically encompasses model or models, dependent libraries and packages, scoring scripts, sample data, and input schemas. The manifest can be used to create a web service in a Docker image. Using Model Management, you can auto-generate, create versions, and manage your manifests. 
-
-- **Images:** You can use manifests to generate (and regenerate) Docker images. Docker image allows flexibility to deploy in the cloud, on local machines, or on IoT device. Images are self-contained, and include all dependencies required for making predictions.
->>>>>>> 66ea5a22d6e4ddc842ff7da4e022df92c10571a5
 
