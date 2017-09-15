@@ -100,7 +100,7 @@ The following solutions are known to support skipping offline files:
 - [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
 
 ### Backup solutions
-Similiar to anti-virus solutions, backup solutions may cause the recall of tiered files. We recommend using a cloud backup solution to backup the Azure File share rather than using an on-premises backup product.
+Like anti-virus solutions, backup solutions may cause the recall of tiered files. We recommend using a cloud backup solution to backup the Azure File share rather than using an on-premises backup product.
 
 ### Encryption solutions
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
