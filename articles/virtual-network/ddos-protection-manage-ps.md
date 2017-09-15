@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: kumud
 
 ---
-# Manage DDoS using Azure PowerShell
+# Manage DDoS Protection using Azure PowerShell
 
 This article shows you how to use Azure PowerShell to enable DDoS Protection, disable DDoS Protection, and use telemetry to mitigate an attack. 
 
