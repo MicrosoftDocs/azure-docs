@@ -64,7 +64,8 @@ To create the workspace manually:
    * **Resource group**: You can create a new resource group, or use the same one with your CF deployment.
    * **Location**: Enter the location.
    * **Pricing tier**: Select **OK** to complete.
-> For more information, see [Get started with Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+
+For more information, see [Get started with Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
 Alternatively, you can create the OMS workspace through the OMS template. With this method, the template loads the pre-configured OMS views and alerts automatically. For more information, see the [Azure OMS Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
 
@@ -74,7 +75,7 @@ There are a couple of different ways to deploy the Nozzle: as a PCF tile or as a
 
 ### Deploy the Nozzle as a PCF Ops Manager tile
 
-If you've deployed PCF by using Ops Manager, follow these steps to [Install and configure the Nozzle for PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). The Nozzle is installed as a tile with Ops Manager.
+If you've deployed PCF by using Ops Manager, follow the steps to [install and configure the Nozzle for PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). The Nozzle is installed as a tile with Ops Manager.
 
 ### Deploy the Nozzle as a CF application
 
@@ -161,7 +162,7 @@ Make sure the OMS Nozzle application is running.
 
 ### 1. Import the OMS view
 
-From the OMS portal, browse to **View Designer** -> **Import** -> **Browse**, and select one of the omsview files. For example, select *Cloud Foundry.omsview*, and save the view. Now a tile is displayed on the OMS **Overview** page. Select it to see visualized metrics.
+From the OMS portal, browse to **View Designer** > **Import** > **Browse**, and select one of the omsview files. For example, select *Cloud Foundry.omsview*, and save the view. Now a tile is displayed on the OMS **Overview** page. Select it to see visualized metrics.
 
 You can customize these views or create new views through **View Designer**.
 
@@ -189,7 +190,7 @@ You can scale the Nozzle and the loggregator.
 ### Scale the Nozzle
 
 You should start with at least two instances of the Nozzle. The firehose distributes the workload across all instances of the Nozzle.
-To make sure the Nozzle can keep up with the data traffic from the firehose, set up the **slowConsumerAlert** alert (listed in the preceding section, "Create Alert Rules"). After you have been alerted, follow the [guidance for slow Nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed.
+To make sure the Nozzle can keep up with the data traffic from the firehose, set up the **slowConsumerAlert** alert (listed in the preceding section, "Create alert rules"). After you have been alerted, follow the [guidance for slow Nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed.
 To scale up the Nozzle, use Apps Manager or the CF CLI to increase the instance numbers or the memory or disk resources for the Nozzle.
 
 ### Scale the loggregator
@@ -201,7 +202,7 @@ To scale up the loggregator, either increase the Doppler buffer size, or add add
 
 To update the Nozzle with a newer version, download the new Nozzle release, follow the steps in the preceding "Deploy the Nozzle" section, and push the application again.
 
-### Remove the Nozzle from the Ops Manager
+### Remove the Nozzle from Ops Manager
 
 1. Sign in to Ops Manager.
 2. Locate the **Microsoft Azure Log Analytics Nozzle for PCF** tile.
@@ -209,7 +210,7 @@ To update the Nozzle with a newer version, download the new Nozzle release, foll
 
 ### Remove the Nozzle from your development computer
 
-On your CF CLI window, type:
+In your CF CLI window, type:
 ```
 cf delete <App Name> -r
 ```
@@ -223,6 +224,6 @@ To open an Azure support request, choose "Virtual Machine running Cloud Foundry"
 
 ## Next step
 
-In addition to the Cloud Foundry metrics covered in the Nozzle, you can also use OMS agent to gain insights into VM-level operational data (such as Syslog, Performance, Alerts, Inventory). OMS agent is installed as a Bosh add-on to your CF VMs.
+In addition to the Cloud Foundry metrics covered in the Nozzle, you can use the OMS agent to gain insights into VM-level operational data (such as Syslog, Performance, Alerts, Inventory). The OMS agent is installed as a Bosh add-on to your CF VMs.
 
 For details, see [Deploy OMS agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease).
