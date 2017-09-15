@@ -184,7 +184,7 @@ In this section, you will
 
 ## Run the apps
 You are now ready to run the apps.
-1. Run the .NET device app **SimulateManagedDevice**.  Right-click the **SimulateMagagedDevice** project, select **Debug**, and then select **Start new instance**. It should start listening for method calls from your IoT Hub: 
+1. Run the .NET device app **SimulateManagedDevice**.  Right-click the **SimulateManagedDevice** project, select **Debug**, and then select **Start new instance**. It should start listening for method calls from your IoT Hub: 
 
     ![Device app run][img-deviceapprun]
 2. Now that the device is connected and waiting for method invocations, run the .NET **TriggerReboot** app to invoke the reboot method in the simulated device app. Right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**. You should see the device response written in the console.
