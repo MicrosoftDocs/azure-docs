@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-
 ---
-# Access data sources on premises from logic apps with the on-premises data gateway
+
+# Connect to data sources on premises from logic apps with on-premises data gateway
 
 To access data sources on premises from your logic apps, 
 set up an on-premises data gateway that logic apps 

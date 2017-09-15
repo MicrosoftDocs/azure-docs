@@ -88,9 +88,18 @@ Also, gateway performance might suffer over a wireless network.
 
 * During installation, you must sign in with a 
 [work or school account](https://docs.microsoft.com/azure/active-directory/sign-up-organization) 
-that's managed by Azure Active Directory (Azure AD), not a Microsoft account. 
+that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
 
-  You have to use the same work or school account later in the Azure portal when you create 
+  > [!TIP]
+  > If you have a Microsoft account for a Visual Studio 
+  > subscription with MSDN benefits that you want to use, first 
+  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) 
+  > with your Microsoft account, or use the default directory. 
+  > Add a user with a password to the directory, 
+  > then give that user access to your subscription. 
+  > You can then sign in during gateway installation with this username and password.
+
+  You must use the same work or school account later in the Azure portal when you create 
   and associate a gateway resource with your gateway installation. You then select this 
   gateway resource when you create the connection between your logic app and the 
   on-premises data source. [Why must I use an Azure AD work or school account?](#why-azure-work-school-account)
