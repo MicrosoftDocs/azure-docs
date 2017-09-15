@@ -33,14 +33,15 @@ Bash in Cloud Shell runs on `Ubuntu 16.04 LTS`.
 Bash in Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
 
 ### SSH into Azure Linux virtual machines
-When creating a Linux VM from Azure CLI 2.0, a default SSH key can be created and placed into your $Home directory. This enables direct SSH connections to Azure Linux VMs right from Cloud Shell. Keys are held in the acc_<user>.img file in your file share, use best practices when using or sharing access to your file share.
+
+Creating a Linux VM from Azure CLI 2.0 can create a default SSH key and place it in your `$Home` directory. Placing SSH keys in `$Home`  enables direct SSH connections to Azure Linux VMs directly from Cloud Shell. Keys are held in acc_<user>.img in your file share, use best practices when using or sharing access to your file share or keys.
 
 ### $Home persistence
 
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
 Once completed, Cloud Shell will automatically attach your storage (mounted as `$Home\clouddrive`) for all future sessions.
 Additionally, in Bash in Cloud Shell your `$Home` directory is persisted as an .img in your Azure File share.
-Since Cloud Shell is allocated on a per-request basis using a temporary machine, files outside of `$Home` and machine state are not persisted across sessions.
+Files outside of `$Home` and machine state are not persisted across sessions.
 
 [Learn more about persisting files in Bash in Cloud Shell.](persisting-shell-storage.md)
 
