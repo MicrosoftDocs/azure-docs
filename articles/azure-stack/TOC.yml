@@ -163,6 +163,10 @@
         href: azure-stack-tenant-resource-usage-api.md
       - name: Usage FAQ
         href: azure-stack-usage-related-faq.md
+    - name: Connect to Azure
+      items:
+      - name: Connect using ExpressRoute
+        href: azure-stack-connect-expressroute.md
   - name: Troubleshoot
     items:
     - name: Known issues
