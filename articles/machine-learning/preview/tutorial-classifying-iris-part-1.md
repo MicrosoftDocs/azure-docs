@@ -60,15 +60,15 @@ Select the **File(s)/Directory** option, and choose the `iris.csv` local file. A
 >[!IMPORTANT]
 >Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
 
-A new file `iris-1.dsource` is created. The file is named uniquely with a dash-one since the sample project already comes with an unnumbered `iris.dsource` file.  The file opens in the **Data View**. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
+A new file `iris-1.dsource` is created. The file is named uniquely with a dash-one since the sample project already comes with an unnumbered `iris.dsource` file.  The file opens and the data is shown. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
 
 ![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
-Now click on the **Metrics** button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also switch over to the **Data View** to see the data itself. 
+Now click on the **Metrics** button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also click the **Data** button to see the data again. 
 
 ![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-Click on the **Prepare** button next to the **Metrics** button. A new file named `iris-1.dprep` is created. The file is uniquely named with a dash-one since the sample project already comes with an unnumbered `iris.dprep` file. The file opens in data preparation editor. 
+Click on the **Prepare** button next to the **Metrics** button. Choose **Iris.dprep** file. The file opens in data preparation editor with a new dataflow named **Iris**. 
 
 Now let's do some simple data preparation. Rename the column names by clicking on each column header and make the header text editable. Enter `Sepal Length`, `Sepal Width`, `Petal Length`, `Petal Width`, and `Species` for the five columns respectively.
 
