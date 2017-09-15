@@ -32,4 +32,4 @@ The Tools, Platforms and Utilities included in the **DSVM** have been organized 
 4. **[Development Tools & IDEs](dsvm-tools-development.md)**
 5. **[Data Ingestion Tools](dsvm-tools-ingestion.md)**
 6. **[Data Exploration & Visualization Tools](dsvm-tools-explore-and-visualize.md)**
-7. **[Data Platforms](dsvm-platforms.md)**
+7. **[Data Platforms](dsvm-data-platforms.md)**
