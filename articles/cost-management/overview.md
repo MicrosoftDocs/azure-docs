@@ -25,7 +25,7 @@ Reports help you monitor spending to analyze and track cloud usage, costs, and t
 
 You can forecast future spending by reviewing historical data and by analyzing your cost over time trends. Cost Management also includes projected cost reports.
 
-You can use the cost allocation feature to analyze your costs based on your tagging policy. Custom account and entity tags to add more cost allocation capabilities. Use Category Manager to better organize your tags and achieve more governance.
+You can use the cost allocation feature to analyze your costs based on your tagging policy. Use custom account, resource, and entity tags add additional cost allocation capabilities. Use Category Manager to better organize your tags and achieve additional governance.
 
 Use Cost Allocation for showback/chargeback to show resource utilization and associated costs to influence consumption behaviors or charge tenant customers.
 
@@ -35,7 +35,7 @@ You can create alerts for unusual spending or overspending. Alerts notify stakeh
 
 ## Improve efficiency
 
-Determine optimal VM needs and identify idle VMs. Using information in Inefficiency reports, you can create a plan to down-size or remove idle VMs.
+Determine optimal VM usage and identify idle VMs. Using information in Inefficiency reports, you can create a plan to down-size or remove idle VMs.
 
 If you provisioned AWS Reserved Instances, you can improve your reserved instances utilization with Optimization reports where you can view buying recommendations, modify unused reservations, and plan provisioning.
 
@@ -43,9 +43,6 @@ If you provisioned AWS Reserved Instances, you can improve your reserved instanc
 
 Now that you’re familiar with Cost Management, the next step is to register your cloud environment and start exploring your data.
 
-- [Create a trial registration with an Azure Enterprise Agreement enrollment](quick-register-ea.md)
-
-<!---
-- Create a trial registration with an Azure Cloud Solution Provider (CSP) account
-- Create a trial registration with a standard Azure subscription (web direct)
--->
+- [Register an Azure Enterprise Agreement](quick-register-ea.md)
+- [Register an individual Azure subscription](quick-register-azure-sub.md)
+- [Register using the CSP Partner program](quick-register-csp.md)
