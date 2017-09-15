@@ -20,7 +20,7 @@ ms.author: elkuzmen
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to access Storage Keys. You can use Storage Keys as usual when doing storage operations, for example when using Storage SDK. For this tutorial we will upload and download blobs using Azure Storage PowerShell. You will learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine and then use that identity to access Storage Keys. You can use Storage Keys as usual when doing storage operations, for example when using Storage SDK. For this tutorial we will upload and download blobs using Azure Storage PowerShell. You will learn how to:
 
 
 > [!div class="checklist"]
@@ -70,7 +70,7 @@ For this tutorial you will create a new Storage account. You can also skip this 
 1. Navigate to the side-bar and select **Storage**.  
 2. Create a new **Storage Account**.  
 3. In **Deployment model**, enter in **Resource Manager** and **Account kind** with **General Purpose**.  
-4. Ensure the **Subscription** and **Resource Group** are the one that you used when you created your **Linux Virtual Machine** in the step above.
+4. Ensure the **Subscription** and **Resource Group** are the one that you used when you created your **Windows Virtual Machine** in the step above.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -115,12 +115,15 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
     $ArmToken = $content.access_token
     ```
  
-  
-## Get the Storage Keys from Azure Resource Manager 
+## Get storage keys from Azure Resource Manager to make storage calls 
+
+Now we will use PowerShell to make a call to Resource Manager using the access token we retrieved in the previous section, to retrieve the storage access key. Once we have the storage access key, we can call storage upload/download operations.
 
 ```powershell
-PS C:\> $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/97f51385-2edc-4b69-bed8-7778dd4cb761/resourceGroups/SKwan_Test/providers/Microsoft.Storage/storageAccounts/skwanteststorage/listKeys/?api-version=2016-12-01 -Method POST$ -Headers @{Authorization="Bearer $ARMToken"}
+PS C:\> $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT>/listKeys/?api-version=2016-12-01 -Method POST$ -Headers @{Authorization="Bearer $ARMToken"}
 ```
+> [!NOTE] 
+> The URL is case-sensitive, so ensure you use the exact same case used earlier, when you named the Resource Group, including the uppercase "G" in "resourceGroups." 
 
 ```powershell
 PS C:\> $keysContent = $keysResponse.Content | ConvertFrom-Json
@@ -130,13 +133,13 @@ PS C:\> $keysContent = $keysResponse.Content | ConvertFrom-Json
 PS C:\> $key = $keysContent.keys[0].value
 ```
 
-**Create a file to be uploaded using Azure CLI**
+**Create a file to be uploaded**
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-**Upload the file using the Azure CLI and authenticating with the Storage Key**
+**Upload the file using the Azure Storage PowerShell and authenticate with the storage key**
 
 > [!NOTE]
 > First remember to install Azure storage commandlets “Install-Module Azure.Storage”. 
@@ -145,8 +148,8 @@ PowerShell request:
 
 
 ```powershell
-PS C:\> $ctx = New-AzureStorageContext -StorageAccountName skwanteststorage -StorageAccountKey $key
-PS C:\> Set-AzureStorageBlobContent -File test.txt -Container testcontainer -Blob testblob -Context $ctx
+PS C:\> $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
+PS C:\> Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 Response:
@@ -168,7 +171,7 @@ Name              : testblob
 PowerShell request:
 
 ```powershell
-PS C:\> Get-AzureStorageBlobContent -Blob <blob name> -Container <container name> -Destination <file> -Context $ctx
+PS C:\> Get-AzureStorageBlobContent -Blob <blob name> -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 Response:
