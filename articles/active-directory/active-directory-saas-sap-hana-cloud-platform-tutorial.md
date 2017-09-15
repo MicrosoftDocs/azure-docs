@@ -219,7 +219,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |email |
    
      >[!NOTE]
-     >The configuration of the Attributes depends on how the application(s) on HCP are developed, that is, which attribute(s) they expect in the SAML response and under which name (Principal Attribute) they access this attribute in the code.
+     >The configuration of the Attributes depends on how the application(s) on SCP are developed, that is, which attribute(s) they expect in the SAML response and under which name (Principal Attribute) they access this attribute in the code.
      > 
     
     b. The **Default Attribute** in the screenshot is just for illustration purposes. It is not required to make the scenario work.  
