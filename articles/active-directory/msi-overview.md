@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: skwan
 
 ---
@@ -64,7 +64,6 @@ The following services support Azure AD authentication and have been tested with
 | --- | --- | --- | --- |
 | Azure Resource Manager | https://management.azure.com/ | Available | September 2017 |
 | Azure Key Vault | https://vault.azure.net/ | Available | September 2017 |
-| Azure SQL | https://database.windows.net/ | Available | September 2017 |
 | Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 |
 
 ## How much does Managed Service Identity cost?
@@ -80,13 +79,41 @@ We would love to hear from you!
 
 ## Try Managed Service Identity
 
+To get started quickly with the basics of enabling MSI on an Azure resource :
+
+| For Azure resource | Enable/remove MSI using |
+| ------------------ | ------------------------------------ |
+| Azure VM (Windows) | [The Azure portal](msi-qs-configure-portal-windows-vm.md) |
+|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
+|                    | [Azure CLI](msi-qs-configure-cli-windows-vm.md)|
+|                    | [Azure Resource Manager templates](msi-qs-configure-template-windows-vm.md) |
+
+Then learn how to use Role Based Access Control (RBAC) to give an MSI permission to access another Azure resource :
+
+| From MSI-enabled resource | Assign access to another Azure resource using |
+| ------------------------ | ---------------------------------------------------------- |
+| Azure VM (Windows) | [The Azure portal](msi-howto-assign-access-portal.md) |
+|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
+|                    | [Azure CLI](msi-howto-assign-access-CLI.md) |
+
 Now that you understand the basics, try a Managed Service Identity tutorial to see how to access different Azure resources.
+
+| From MSI-enabled resource | Learn how to |
+| ------- | -------- |
+| Azure VM (Windows) | [Access Azure Resource Manager with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Access Azure Storage with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
+| Azure VM (Linux)   | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Access Azure Storage with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-nonaad.md) |
+| Azure App Service  | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Function     | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
 - [Access Azure Resource Manager with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-arm.md)
 - [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md)
 - [Access Azure Storage with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage.md)
 - [Access Azure Storage with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage.md)
-- [Access a non-Azure AD resource with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-nonaad.md)
+- [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md)
 - [Access a non-Azure AD resource with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-nonaad.md)
 - [User Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity)
 
