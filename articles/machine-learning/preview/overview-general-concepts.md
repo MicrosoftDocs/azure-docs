@@ -35,13 +35,9 @@ ms.date: 09/06/2017
 - **Compute Target:** A compute target is the compute resource that you configure for executing your experiment. It can be your local computer (Windows or macOS), Docker container running on your local computer or in a Linux VM on Azure, or an HDInsight Spark cluster. 
 
 
-- **Environment:** In Azure Machine Learning, an environment denotes a set of Azure resources that are available for experiment execution or model deployment. Environments must be provisioned to your Experimentation Service through the CLI or Workbench UI. When you provision a new environment, the Experimentation Service creates a number of Azure resources in your subscription including a storage account, an Azure Container Registry entry, a Kubernetes ACS cluster, and an App Insights account for user logs.  
+- **Run:** The Experimentation Service defines a run as the lifetime of an experiment execution in a compute target. Azure ML captures information of each run automatically and present the entire history of a particular experiment in the form of run history.
 
-
-- **Execution Target:** An execution target is the run time environment that you have selected for your experiment. Execution options include local Python (3.5.2), Conda Python environments inside Docker containers (local or remote), or HDInsight Spark clusters on Azure.
-
- 
-- **Run:** The Experimentation Service defines a run as the execution of a given file in an environment. Run status is available in the Workbench UI. 
+- **Environment:** In Azure Machine Learning, an environment denotes a particular computing resource that is used for deploying and management your models. It can be your local computer, an Azure Linux VM, or a Kubernetes cluster running Azure Container Service depending on context and configuration. Your model is hosted in a Docker container running in these environments and exposed as a REST API endpoint.
 
 
 - **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. ‘Managed’ models have been registered with an Azure Machine Learning Model Management account. 
