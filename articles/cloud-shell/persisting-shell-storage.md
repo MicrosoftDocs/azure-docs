@@ -17,7 +17,7 @@ ms.date: 07/17/2017
 ms.author: juluk
 ---
 
-[!include [features-introblock](includes/persisting-shell-storage-introblock.md)]
+[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## How Cloud Shell works 
 Cloud Shell persists files through both of the following methods: 
@@ -90,7 +90,7 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](includes/persisting-shell-storage-endblock.md)]
+[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) <br>
