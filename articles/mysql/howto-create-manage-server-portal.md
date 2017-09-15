@@ -42,6 +42,7 @@ Follow these steps to create an Azure Database for MySQL server named “mysqlse
 | *Version* | 5.6 (choose Azure Database for MySQL server version) |
 
 4. Click **Pricing tier** to specify the service tier and performance level for your new server. Compute Unit can be configured between 50 and 100 in Basic tier, between 100 and 200 in Standard tier, and storage can be added based on the included amount. For this HowTo guide, let’s choose 50 Compute Unit and 50 GB. Click **OK** to save your selection.
+
 ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
 5. Click **Create** to provision the server. Provisioning takes a few minutes.
@@ -58,6 +59,7 @@ After new server is provisioned, the user has two options for editing an existin
 1. On the server **Overview** blade, click **Reset password** to populate a password input and confirmation window.
 
 2. Enter new password and confirm the password in the window as shown:
+
 ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Click **OK** to save the new password.
