@@ -1,12 +1,10 @@
-- name: Azure Machine Learning (preview features) Documentation
+- name: Azure Machine Learning services (preview) Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Azure Machine Learning?
     href: overview-what-is-azure-ml.md
-  - name: Key concepts
-    href: overview-general-concepts.md
   - name: Model management overview
     href: model-management-overview.md
 - name: Quickstarts
@@ -17,16 +15,20 @@
     href: quick-start-iris.md  
 - name: Tutorials
   items:
-  - name: Classify Iris part 1 - data preparation
+  - name: 1 - Prepare data
     href: tutorial-classifying-iris-part-1.md
-  - name: Classify Iris part 2 - model building
+  - name: 2 - Build a model 
     href: tutorial-classifying-iris-part-2.md
-  - name: Classify Iris part 3 - model deployment
+  - name: 3 - Deploy a model
     href: tutorial-classifying-iris-part-3.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md   
+- name: Concepts   
+  items: 
+  - name: Key concepts
+    href: overview-general-concepts.md
 - name: How-to guides
-  items:
+  items:  
   - name: Use Azure ML Workbench
     items:
     - name: Working with Python IDEs
@@ -113,5 +115,9 @@
   items:  
   - name: FAQ
     href: faq.md
+  - name: Team Data Science Process documentation
+    href: ../team-data-science-process/toc.yml
+  - name: Data Science VM documentation
+    href: ../data-science-virtual-machine/toc.yml
   - name: Known issues and troubleshooting guide
     href: known-issues-and-troubleshooting-guide.md

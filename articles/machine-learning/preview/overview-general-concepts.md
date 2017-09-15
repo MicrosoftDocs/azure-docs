@@ -13,40 +13,41 @@ ms.date: 09/06/2017
 
 # Azure Machine Learning - Concepts
 
-- **Subscription:** An Azure subscription grants you access to Azure services and the Azure Platform Management Portal. Because Azure Machine Learning is deeply integrated with Visual Studio Team Services, Azure Blob Storage, Azure Key Vault, and other Azure services, Workbench requires that each user have a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources. Note: During Public Preview, your subscription must have access to Azure resources in ‘EAST US 2’ or ‘West Central US’. Azure Machine Learning is currently deployed only in these regions.
+- **Subscription:** An Azure subscription grants you access to resources in Azure. Because Azure Machine Learning is deeply integrated with compute, storage, and many other Azure resources and services, Workbench requires that each user have access to a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources.
 
 
-- **Team:** A 'Team' is the top-level resource in Workbench. It contains your work spaces, projects, and project assets. A 'Team' is associated with an Azure Resource Group. Teams contain 'Members', who can gain access to the work groups, projects, and assets associated with a Team. 
+- **Experimentation Account:** Experimentation account is an Azure resource required by Azure ML, and a billing vehicle. It contains your workspaces, which in turn contain projects. You can add multiple users, referred to as _seats_, to an experimentation account. You must have access to an experimentation account in order to use Azure ML Workbench to run experiments. 
 
 
-- **Work Group:** A Work Group is the primary component for sharing in Workbench. Projects are grouped within a Work Group and then shared to team members. Work Groups function as a security boundary for your project and project assets.  
+- **Model Management Account** A model management account is also an Azure resource required by Azure ML for managing models. You can use it to register models and manifests, build containerized web services and deploy them locally or in the cloud. It is also the other billing vehicle of Azure ML.
 
 
-- **Project:** In Azure Machine Learning, a project is the logical container for all the work being done in a solution. Projects are backed up in GIT repositories and published to the Experimentation Service for sharing and collaboration.  
-
-- **Experiment:** In Workbench, experiments are code or scripts that define the data, the data pipeline, the algorithm, and the execution of a solution. Currently, Azure Machine Learning supports Python or PySpark experiments only. 
+- **Workspace:** A Workspace is the primary component for sharing and collaboration in Azure ML. Projects are grouped within a workspace. A workspace can then be shared with multiple users that have been added to the experimentation account.
 
 
-- **Model:** In Azure Machine Learning, models refer to the product of a machine learning experiment. They are recipes that when applied correctly to data, result in a predicted value. Models are composed of an algorithm and a set of coefficients. Models can be deployed to production and used to generate predictions. Once in production, models can be monitored for performance and data drift, and retrained as required. 
+- **Project:** In Azure Machine Learning, a project is the logical container for all the work being done to solve a problem. It maps to a single file folder on your local disk, and you can add any files or sub folders to it. A project can optionally be associated with a Git repository for source control and collaboration.  
+
+- **Experiment:** In Azure ML, an experiment is one or more source code file(s) that can be executed from a single entry point. It may contain tasks such as data ingestion, feature engineering, model training, or model evaluation. Currently, Azure ML supports Python or PySpark experiments only.
 
 
-- **Environment:** In Azure Machine Learning, an environment denotes a set of Azure resources that are available for experiment execution or model deployment. Environments must be provisioned to your Experimentation Service through the CLI or Workbench UI. When you provision a new environment, the Experimentation Service creates a number of Azure resources in your subscription including a storage account, an Azure Container Registry entry, a Kubernetes ACS cluster, and an App Insights account for user logs.  
+- **Model:** In Azure Machine Learning, models refer to the product of a machine learning experiment. They are recipes that when applied correctly to data, generate predicted values. Models can be deployed to test or production environments, and used for scoring new data. Once in production, models can be monitored for performance and data drift, and retrained as required. 
+
+- **Compute Target:** A compute target is the compute resource that you configure for executing your experiments. It can be your local computer (Windows or macOS), Docker container running on your local computer or in a Linux VM on Azure, or an HDInsight Spark cluster.
 
 
-- **Execution Target:** An execution target is the run time environment that you have selected for your experiment. Execution options include local Python (3.5.2), Conda Python environments inside Docker containers (local or remote), or HDInsight Spark clusters on Azure.
+- **Run:** The Experimentation Service defines a run as the lifetime of an experiment execution in a compute target. Azure ML captures information of each run automatically and present the entire history of a particular experiment in the form of run history.
 
- 
-- **Run:** The Experimentation Service defines a run as the execution of a given file in an environment. Run status is available in the Workbench UI. 
-
-
-- **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. ‘Managed’ models have been registered with an Azure Machine Learning Model Management account. 
- 
-
-- **Deployment:** Model Management allows you to deploy models as packaged web service containers in Azure. Each web service is counted as a single deployment. 
+- **Environment:** In Azure Machine Learning, an environment denotes a particular computing resource that is used for deploying and managing your models. It can be your local computer, a Linux VM on Azure, or a Kubernetes cluster running in Azure Container Service, depending on context and configuration. Your model is hosted in a Docker container running in these environments and exposed as a REST API endpoint.
 
 
-- **Manifests:** When the Model Management system deploys a model into production it includes a manifest that encompasses the model, dependencies, a scoring script, sample data, and a schema. The manifest is the recipe used to create a Docker container image. Using Model Management, you can auto-generate, create versions, and manage your manifests. 
+- **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. Managed models are registered with an Azure Machine Learning Model Management account.
 
 
-- **Images:** You can use manifests to generate (and regenerate) Docker images. Containerized Docker images create flexibility to run images in the cloud, on local machines, or on IoT device. Images are self-contained, and include all dependencies required for generating predictions. 
+- **Deployment:** Model Management allows you to deploy models as web service packaged in Docker images in Azure. Each web service is counted as a single deployment.
+
+
+- **Manifests:** When the Model Management system deploys a model into production, it includes a manifest that can encompass model, dependencies, scoring script, sample data, and schema. The manifest is the recipe used to create a Docker container image. Using Model Management, you can auto-generate the manifests, create different versions, and manage these manifests. 
+
+
+- **Images:** You can use manifests to generate (and regenerate) Docker images. Containerized Docker images create flexibility to run them in the cloud, on local machines, or on IoT device. Images are self-contained, and include all dependencies required for scoring new data with models. 
 
