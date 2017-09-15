@@ -3,7 +3,7 @@ title: Intelligent Insights performance diagnostics log for Azure SQL Database |
 description: Intelligent Insights lets you know what is happening with your database performance.”
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: v-daljep
 manager: drasumic
 editor: 
 
