@@ -45,9 +45,9 @@ All external infrastructure endpoints, such as the REST endpoints or the Azure S
 While self-signed certificates can be used for these external endpoints, Microsoft strongly advises against using them. 
 
 ## Secret management
-Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are autonomatically rotated frequently, because they are Group Managed Service accounts, which rotate every 24 hours.
+Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are automatically rotated frequently, because they are Group Managed Service accounts, which rotate every 24 hours.
 
-The remaining secrets that are not autonomously managed can be rotated manually with a script in the Privileged Endpoint.
+The remaining secrets that are not Group Managed Service accounts can be rotated manually with a script in the Privileged Endpoint.
 
 ## Code Integrity
 Azure Stack makes use of the latest Windows Server 2016 security features. One of them is Windows Defender Device Guard, which provides application whitelisting, and ensures that only authorized code runs within the Azure Stack infrastructure. 
