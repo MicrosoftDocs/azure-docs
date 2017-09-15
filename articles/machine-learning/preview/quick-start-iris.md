@@ -124,7 +124,7 @@ Check out the output here. Based on the input petal width, petal length, sepal w
 You have now used the Azure Machine Learning preview features using the Iris flower dataset to build a model to predict the type of iris based on some of its physical characteristics.  You have used the logic regression algorithm from the popular Python scikit-learn library to build the model. 
 
 ## Next steps
-For a more in-depth view of the same data set, follow the Classifying Iris Tutorial. 
+For a more in-depth view of the same data set, follow the full-length Classifying Iris Tutorial. 
 
 > [!div class="nextstepaction"]
-> Full-length [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
+> [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
