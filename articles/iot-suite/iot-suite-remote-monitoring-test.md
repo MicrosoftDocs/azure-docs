@@ -1,5 +1,5 @@
 ---
-title: SAdvance device simulation in the Azure IoT Suite remote monitoring solution | Microsoft Docs
+title: Device simulation in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to use the device simulator with the remote monitoring preconfigured solution.
 services: ''
 suite: iot-suite

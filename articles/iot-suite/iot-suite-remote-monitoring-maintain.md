@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot and remediation on the Azure IoT Suite remote monitoring solution | Microsoft Docs
+title: Troubleshoot devices in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to troubleshoot and remediate device issues in the remote monitoring solution.
 services: ''
 suite: iot-suite

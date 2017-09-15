@@ -1,5 +1,5 @@
 ---
-title: Detect device issues on Azure IoT Suite remote monitoring | Microsoft Docs
+title: Detect device issues in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the remote monitoring solution.
 services: ''
 suite: iot-suite

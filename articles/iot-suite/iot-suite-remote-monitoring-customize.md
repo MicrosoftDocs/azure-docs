@@ -1,6 +1,6 @@
 ---
-title: Customize Azure IoT Suite remote monitoring solution | Microsoft Docs 
-description: This article provides information about how you can access the source code and customize the remote monitoring preconfigured solution.
+title: Customize the remote monitoring solution - Azure | Microsoft Docs 
+description: This article provides information about how you can access the source code for the remote monitoring preconfigured solution.
 services: ''
 suite: iot-suite
 author: dominicbetts

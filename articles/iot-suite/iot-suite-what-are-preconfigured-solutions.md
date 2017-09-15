@@ -1,5 +1,5 @@
 ---
-title: What is Azure IoT Suite | Microsoft Docs
+title: Azure IoT Suite preconfigured solutions overview | Microsoft Docs
 description: A description of the Azure IoT Suite  preconfigured solutions and their architecture with links to additional resources.
 services: ''
 suite: iot-suite

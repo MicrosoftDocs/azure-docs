@@ -1,5 +1,5 @@
 ---
-title: Connect a device using Node.js to Azure IoT Suite | Microsoft Docs
+title: Provision devices to Remote Monitoring in Node.js - Azure | Microsoft Docs
 description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in Node.js.
 services: ''
 suite: iot-suite
