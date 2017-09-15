@@ -63,7 +63,7 @@ Now run the following steps to add the image to the Azure Stack marketplace:
    # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
    $GraphAudience = "<GraphAuidence endpoint for your environment>"
 
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
+   #Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint $ArmEndpoint 
