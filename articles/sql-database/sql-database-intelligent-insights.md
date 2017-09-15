@@ -5,7 +5,7 @@ services: sql-database
 documentationcenter: ''
 author: danimir
 manager: drasumic
-editor: 
+editor: carlrab
 
 ms.assetid: 
 ms.service: sql-database
