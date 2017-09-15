@@ -30,8 +30,8 @@ No. You can only create a single managed domain serviced by Azure AD Domain Serv
 #### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. This functionality is currently in preview.
 
-#### Can I migrate my existing managed domain from a classic virtual network to a resource manager virtual network?
-Not currently. We will deliver a mechanism to migrate your existing managed domain from a classic virtual network to a resource manager virtual network in the future. Stay tuned for updates.
+#### Can I migrate my existing managed domain from a classic virtual network to a Resource Manager virtual network?
+Not currently. We will deliver a mechanism to migrate your existing managed domain from a classic virtual network to a Resource Manager virtual network in the future.
 
 #### Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
 No. We are working on adding support for CSP subscriptions.
@@ -48,8 +48,8 @@ PowerShell/automated deployment of Azure AD Domain Services is not available cur
 #### Is Azure AD Domain Services available in the new Azure portal?
 Yes. Azure AD Domain Services can be configured using the [Azure portal](https://portal.azure.com). We expect to stop supporting the [classic Azure portal](https://manage.windowsazure.com) in the future.
 
-#### Can I enable Azure AD Domain Services using a resource manager template?
-No. There are certain tasks that need to be performed as part of enabling Azure AD Domain Services which are not possible through a resource manager template. Use the new Azure portal to enable Azure AD Domain Services for your directory.
+#### Can I enable Azure AD Domain Services using a Resource Manager template?
+No. Some tasks need to be performed as part of enabling Azure AD Domain Services. These tasks are not possible through a Resource Manager template. Use the new Azure portal to enable Azure AD Domain Services for your directory.
 
 #### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure, or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you cannot add additional domain controllers (read-write or read-only) for the managed domain.
@@ -84,7 +84,7 @@ Yes. For more information, see the [pricing page](https://azure.microsoft.com/pr
 This service is included in the free trial for Azure. You can sign up for a [free one-month trial of Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 #### Can I pause an Azure AD Domain Services managed domain? 
-No. Once you have enabled an Azure AD Domain Services managed domain, the service is available within your selected virtual network until you disable/delete the managed domain. There is no way to pause the service. Billing will continue on an hourly basis until you delete the managed domain.
+No. Once you have enabled an Azure AD Domain Services managed domain, the service is available within your selected virtual network until you disable/delete the managed domain. There is no way to pause the service. Billing continues on an hourly basis until you delete the managed domain.
 
 #### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?
 No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free, Basic, and, Premium). You are billed on an hourly basis, depending on usage.
