@@ -12,7 +12,7 @@ ms.date: 09/15/2017
 ms.author: sajagtap
 ---
 
-# Quick Start #
+# Get started with Content Moderator
 
 There are a few things you need to do before you can try out Content Moderator tools. You will first need to sign up for Content Moderator, then create a review team. After that, you can upload images or submit simple text to try the automated moderation and human review capabilities without writing any code.
 
