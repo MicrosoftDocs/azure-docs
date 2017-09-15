@@ -233,7 +233,7 @@ upper limit of 5 GB.
 ## How to receive messages from a subscription
 To receive messages from a subscription, use a
 **ServiceBusContract** object. Received messages can work in two
-different modes: **ReceiveAndDelete** and **PeekLock**.
+different modes: **ReceiveAndDelete** and **PeekLock** (the default).
 
 When using the **ReceiveAndDelete** mode, receive is a single-shot
 operation - that is, when Service Bus receives a read request for a
@@ -258,7 +258,7 @@ on the received message. When Service Bus sees the **Delete** call, it
 will mark the message as being consumed and remove it from the topic.
 
 The example below demonstrates how messages can be received and
-processed using **PeekLock** mode (not the default mode). The example
+processed using **PeekLock** mode (the default mode). The example
 below performs a loop and processes messages in the "HighMessages" subscription and then exits when there are no more messages (alternatively, it could be set to wait for new messages).
 
 ```java
