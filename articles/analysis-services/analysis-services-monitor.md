@@ -22,7 +22,7 @@ ms.author: owend
 
 Analysis Services provides metrics to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-To perform more in-depth diganostics, track performance, and identify trends across multiple service resources in a resource group or subscription, use [Azure Monitor](https://azure.microsoft.com/services/monitor/). Azure Monitor (service) may result in a billable service.
+To perform more in-depth diagnostics, track performance, and identify trends across multiple service resources in a resource group or subscription, use [Azure Monitor](https://azure.microsoft.com/services/monitor/). Azure Monitor (service) may result in a billable service.
 
 
 ## To monitor metrics for an Analysis Services server
@@ -77,7 +77,7 @@ Use this table to determine which metrics are best for you monitoring scenario. 
 |ProcessingPoolIdleIOJobThreads|Threads: Processing pool idle I/O job threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|
 |ProcessingPoolIdleNonIOThreads|Threads: Processing pool idle non-I/O threads|Count|Average|Number of idle threads in the processing thread pool dedicated to non-I/O jobs.|
 |QueryPoolIdleThreads|Threads: Query pool idle threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|
-|QueryPoolJobQueueLength|Threads: Query pool job queue lengt|Count|Average|Number of jobs in the queue of the query thread pool.|
+|QueryPoolJobQueueLength|Threads: Query pool job queue length|Count|Average|Number of jobs in the queue of the query thread pool.|
 |ShortParsingBusyThreads|Threads: Short parsing busy threads|Count|Average|Number of busy threads in the short parsing thread pool.|
 |ShortParsingIdleThreads|Threads: Short parsing idle threads|Count|Average|Number of idle threads in the short parsing thread pool.|
 |ShortParsingJobQueueLength|Threads: Short parsing job queue length|Count|Average|Number of jobs in the queue of the short parsing thread pool.|
