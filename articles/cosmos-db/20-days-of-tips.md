@@ -1,6 +1,6 @@
 ---
 title: "20 days of Azure Cosmos DB tips | Microsoft Docs"
-description: Find all of the tips from the "20 days of Azure Cosmos DB" twitter series in one place.
+description: Find all of the tips from Simona Cotin's 20 days of Azure Cosmos DB tips series in one place.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 09/14/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -55,6 +55,38 @@ Tip 4: Are gremlins your jam? #cosmosdb loves Gremlin too! View, query and edit 
 > [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/906199438737203201)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311965366943834112)
+
+## Tip 5: Try Azure Cosmos DB free
+
+Tip 5: Want to try Azure #CosmosDB for free? No signup or credit card required, just go to [https://aka.ms/d81vxr](https://aka.ms/d81vxr) and start coding!  
+
+> [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907258302576431107)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313024454544932864)
+
+## Tip 6: Migrate your MEAN app
+
+Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmosDB! [https://aka.ms/gfh6i5](https://aka.ms/gfh6i5) Full video: [https://aka.ms/aoojih](https://aka.ms/aoojih)
+
+> [!VIDEO https://www.youtube.com/embed/1DzwI5HmU5w]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+
+## Tip 7: Build a Node.js app by using Graph API
+
+Tip 7: Build a Node.js app by using Graph API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/X79feg](https://aka.ms/X79feg)
+
+> [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907982218353451009)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313762492686352384)
+
+## Tip 8: Build a Node.js app by using SQL API
+
+Tip 8: Build a @nodejs app by using SQL API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+
+> [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908344625101815808)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314096399197757440)
 
 ## Next steps
 
