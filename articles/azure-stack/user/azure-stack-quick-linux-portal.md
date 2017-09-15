@@ -62,7 +62,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
    ![Virtual machine basics](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. Select a size for the virtual machine. To see more sizes, select **View all**. When done, click **Select**.
+5. Select **D1_V2** for the virtual machine.
 
    ![Machine size](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
@@ -89,7 +89,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
    ![Linus session](media/azure-stack-quick-linux-portal/Putty05.PNG)
 
-## Install NGINX on the virtual machine
+## Install NGINX
 
 Use the following bash script to update package sources and install the latest NGINX package on the virtual machine. 
 
