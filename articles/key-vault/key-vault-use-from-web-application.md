@@ -55,9 +55,9 @@ There are two packages that your web application needs to have installed.
 Both of these packages can be installed using the Package Manager Console using the Install-Package command.
 
 ```
-    // this is currently the latest stable version of ADAL
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
-    Install-Package Microsoft.Azure.KeyVault
+// this is currently the latest stable version of ADAL
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+Install-Package Microsoft.Azure.KeyVault
 ```
 
 ## <a id="webconfig"></a>Modify Web.Config
@@ -146,8 +146,8 @@ Another way to authenticate an Azure AD application is by using a Client ID and 
 For our purposes, we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  Also, for the beginning and ending date of the certificate, use the current date plus 1 year.
 
 ```
-    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
-    pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
 Make note of the end date and the password for the .pfx (in this example: 07/31/2016 and test123). You will need them below.
@@ -158,23 +158,23 @@ For more information on creating a test certificate, see [How to: Create Your Ow
 
 Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure portal does not support this workflow; this can be completed through PowerShell. Run the following commands to assoicate the certificate with the Azure AD application:
 
-```cs
-    $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-    $x509.Import("C:\data\KVWebApp.cer")
-    $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+```powershell
+$x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+$x509.Import("C:\data\KVWebApp.cer")
+$credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
 
-    # If you used different dates for makecert then adjust these values
-    $now = [System.DateTime]::Now
-    $yearfromnow = $now.AddYears(1)
+# If you used different dates for makecert then adjust these values
+$now = [System.DateTime]::Now
+$yearfromnow = $now.AddYears(1)
 
-    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
+$adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
 
-    $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
+$sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
-    # get the thumbprint to use in your app settings
-    $x509.Thumbprint
+# get the thumbprint to use in your app settings
+$x509.Thumbprint
 ```
 
 After you have run these commands, you can see the application in Azure AD. When searching, ensure you select "Applications my company owns" instead of "Applications my company uses" in the search dialog.
@@ -240,8 +240,8 @@ I have put all of this code into my Web App project's Utils class for ease of us
 The last code change is in the Application_Start method. First we need to call the GetCert() method to load the ClientAssertionCertificate. And then we change the callback method that we supply when creating a new KeyVaultClient. Note that this replaces the code that we had in the preceding example.
 
 ```cs
-    Utils.GetCert();
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
+Utils.GetCert();
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 ```
 
 ### Add a Certificate to your Web App through the Azure portal
