@@ -10,7 +10,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 09/15/2017
 ---
 # How to Use Microsoft Machine Learning Library for Apache Spark
 
@@ -43,13 +43,17 @@ To complete this and the following step, you need to first [create an Azure HDIn
 By default, Azure Machine Learning Workbench installs MMLSpark package on your cluster when you run your experiment. You can control this behavior and install other Spark packages by editing a file named _aml_config/spark_dependencies.yml_ in your project folder.
 
 ```
-configuration: {}
+# Spark configuration properties.
+configuration:
+  "spark.app.name": "Azure ML Experiment"
+  "spark.yarn.maxAppAttempts": 1
+
 repositories:
   - "https://mmlspark.azureedge.net/maven"
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.7"
+    version: "0.7.9"
 ```
 
 You can also install MMLSpark directly on your HDInsight Spark cluster using [Script Action](https://github.com/Azure/mmlspark#hdinsight).
