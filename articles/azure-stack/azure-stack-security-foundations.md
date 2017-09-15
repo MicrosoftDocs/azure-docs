@@ -56,7 +56,7 @@ Authorized code is signed by either Microsoft or the OEM partner, and it is incl
 The Device Guard policy also prevents third-party agents or software from running in the Azure Stack infrastructure.
 
 ## Credential Guard
-Another Windows Server 2016 security feature in Azure Stack is Windows Defender Credential Guard, which is used to protect Azure Stack infrastructure credentials from Pass-the-Hash and Pass-the-ticket attacks.
+Another Windows Server 2016 security feature in Azure Stack is Windows Defender Credential Guard, which is used to protect Azure Stack infrastructure credentials from Pass-the-Hash and Pass-the-Ticket attacks.
 
 ## Antimalware
 Every component in Azure Stack (both Hyper-V hosts and Virtual Machines) is protected with Windows Defender Antivirus.
