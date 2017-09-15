@@ -1,5 +1,5 @@
 ---
-title: Income Classification from US Census Data with a Team Data Science Process Project in Azure Machine Learning Workbench | Microsoft Docs
+title: Income Classification With Team Data Science Process (TDSP) Project | Microsoft Docs
 description: How to use the Team Data Science Process template to create a project in Azure Machine Learning Workbench that classifies UCI income.
 services: machine-learning
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: bradsev
 
 ---
 
-# US Income Classification with a Team Data Science Process project
+# Income Classification With Team Data Science Process (TDSP) Project
 
 ## [Link To GitHub Repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)
 We provide summary documentation here about the sample. More extensive documentation can be found on the GitHub site.
