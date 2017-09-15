@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 09/25/2017
 ms.author: mimig
 
 ---
 # Azure Cosmos DB diagnostic logging
 
-Once you've started using one or more Azure Cosmos DB databases, you will likely want to monitor how and when your databases are accessed, and by whom. You can monitor your databases by enabling diagnostic logging for Azure Cosmos DB, and collecting those logs in an Azure Storage account, streaming them to EventHubs, and/or exporting them into an OMS workspace via Log Analytics.
+Once you've started using one or more Azure Cosmos DB databases, you will likely want to monitor how and when your databases are accessed, and by whom. You can monitor your databases by enabling diagnostic logging for Azure Cosmos DB, and collecting those logs in an [Azure Storage](https://azure.microsoft.com/services/storage/) account, streaming them to [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/), and/or exporting them into an [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) workspace via [Log Analytics](https://azure.microsoft.com/services/log-analytics/).
 
-![Turn on diagnostic logging for Azure Cosmos DB in the Azure portal](./media/logging/azure-cosmos-db-logging-overview.png)
+![Diagnostic logging to Storage, Event Hubs, or Operations Management Suite via Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
 Use this tutorial to get started with Azure Cosmos DB logging via the Azure portal, CLI, or PowerShell.
 
@@ -50,7 +50,7 @@ To complete this tutorial, you must have the following resources:
 
     * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow instructions to create a resource manager, general purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Log Analytics**. To use this option, either use one of the existing workspaces or create a new OMS workspace by following the prompts in the portal.
+    * **Send to Log Analytics**. To use this option, either use one of the existing workspaces or create a new Operations Managment Suite workspace by following the prompts in the portal.
     * **Log DataPlaneRequests**. If you are archiving to a storage account, you can select the retention period for the diagnostic logs by selecting **DataPlaneRequests** and choosing the number of days to retain logs. Logs are autodeleted after the retention period expires. 
 
 3. Click **Save**.
@@ -114,7 +114,9 @@ Get-AzureRmSubscription
 
 Then, to specify the subscription that's associated with the Azure Cosmos DB account you are logging, type:
 
-    Set-AzureRmContext -SubscriptionId <subscription ID>
+```powershell
+Set-AzureRmContext -SubscriptionId <subscription ID>
+```
 
 > [!NOTE]
 > It is important to specify the subscription if you have multiple subscriptions associated with your account.
@@ -128,9 +130,10 @@ Although you can use an existing storage account for your logs, in this tutorial
 
 For additional ease of management, in this tutorial we use the same resource group as the one that contains our Azure Cosmos DB database. Substitute values for ContosoResourceGroup, contosocosmosdblogs, and 'North Central US' for your own values, as applicable:
 
-    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
-    -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
-
+```powershell
+$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+-Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
+```
 
 > [!NOTE]
 > If you decide to use an existing storage account, it must use the same subscription as your Azure Cosmos DB subscription and it must use the Resource Manager deployment model, rather than the Classic deployment model.
@@ -140,18 +143,22 @@ For additional ease of management, in this tutorial we use the same resource gro
 ### <a id="identify"></a>Identify the Azure Cosmos DB account for your logs
 Set the Azure Cosmos DB account name to a variable named **account**, where ResourceName is the name of the Azure Cosmos DB account.
 
-    $account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup`
-     -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+```powershell
+$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup`
+ -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 
 
 ### <a id="enable"></a>Enable logging
 To enable logging for Azure Cosmos DB, use the Set-AzureRmDiagnosticSetting cmdlet, together with the variables for the new storage account and the Azure Cosmos DB account. Run the following command, setting the **-Enabled** flag to **$true**:
 
-    Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+```powershell
+Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+```
 
 The output for the command should resemble the following:
 
-    StorageAccountId : /subscriptions/<subscription-ID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.S
+```powershell
+StorageAccountId : /subscriptions/<subscription-ID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.S
                        torage/storageAccounts/contosocosmosdblogs
     ServiceBusRuleId :
     Metrics          : {}
@@ -164,39 +171,48 @@ The output for the command should resemble the following:
     Type             :
     Location         :
     Tags             :
+```
 
 This confirms that logging is now enabled for your database, saving information to your storage account.
 
 Optionally you can also set retention policy for your logs such that older logs will be automatically deleted. For example, set retention policy using **-RetentionEnabled** flag to **$true** and set **-RetentionInDays** parameter to **90** so that logs older than 90 days will be automatically deleted.
 
-    Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
-     -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
-      -RetentionEnabled $true -RetentionInDays 90
+```powershell
+Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+ -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
+  -RetentionEnabled $true -RetentionInDays 90
+```
 
 ### <a id="access"></a>Access your logs
 Azure Cosmos DB logs are stored in the **data-plane-requets** container in the storage account you provided. 
 
 First, create a variable for the container name. This will be used throughout the rest of the walk-through.
 
+```powershell
     $container = 'insights-logs-dataplanerequests'
+```
 
 To list all the blobs in this container, type:
 
-    Get-AzureStorageBlob -Container $container -Context $sa.Context
+```powershell
+Get-AzureStorageBlob -Container $container -Context $sa.Context
+```
 
 The output will look something similar to this:
 
-    ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
-    BlobType          : BlockBlob
-    Length            : 10510193
-    ContentType       : application/octet-stream
-    LastModified      : 6/28/2017 7:49:04 PM +00:00
-    SnapshotTime      :
-    ContinuationToken :
-    Context           : Microsoft.WindowsAzure.Commands.Common.Storage.`
-                        LazyAzureStorageContext
-    Name              : resourceId=contosocosmosdb/y=2017/m=06/d=28/h=19/`
-                        m=00/PT1H.json
+```powershell
+ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
+BlobType          : BlockBlob
+Length            : 10510193
+ContentType       : application/octet-stream
+LastModified      : 6/28/2017 7:49:04 PM +00:00
+SnapshotTime      :
+ContinuationToken :
+Context           : Microsoft.WindowsAzure.Commands.Common.Storage.`
+                    LazyAzureStorageContext
+Name              : resourceId=contosocosmosdb/y=2017/m=06/d=28/h=19/`
+                    m=00/PT1H.json
+```
 
 As you can see from this output, the blobs follow a naming convention: **resourceId=<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**
 
@@ -206,17 +222,23 @@ Because the same storage account can be used to collect logs for multiple resour
 
 First, create a folder to download the blobs. For example:
 
-    New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
-     -ItemType Directory -Force
+```powershell
+New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
+ -ItemType Directory -Force
+```
 
 Then get a list of all blobs:  
 
-    $blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+```powershell
+$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+```
 
 Pipe this list through 'Get-AzureStorageBlobContent' to download the blobs into our destination folder:
 
-    $blobs | Get-AzureStorageBlobContent`
-     -Destination 'C:\Users\username\ContosoCosmosDBLogs'
+```powershell
+$blobs | Get-AzureStorageBlobContent`
+ -Destination 'C:\Users\username\ContosoCosmosDBLogs'
+```
 
 When you run this second command, the **/** delimiter in the blob names creates a full folder structure under the destination folder, and this structure will be used to download and store the blobs as files.
 
@@ -224,18 +246,24 @@ To selectively download blobs, use wildcards. For example:
 
 * If you have multiple databases and want to download logs for just one database, named CONTOSOCOSMOSDB3:
 
-        Get-AzureStorageBlob -Container $container`
-         -Context $sa.Context -Blob '*/VAULTS/CONTOSOCOSMOSDB3
-* If you have multiple resource groups and want to download logs for just one resource group,`
-         use -Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
+    ```powershell
+    Get-AzureStorageBlob -Container $container`
+     -Context $sa.Context -Blob '*/VAULTS/CONTOSOCOSMOSDB3
+    ```
 
-        Get-AzureStorageBlob -Container $container`
-         -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+* If you have multiple resource groups and want to download logs for just one resource group, use 
+
+    ```powershell
+    -Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
+    Get-AzureStorageBlob -Container $container`
+    -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 * If you want to download all the logs for the month of July 2017, use `-Blob '*/year=2017/m=07/*'`:
 
-        Get-AzureStorageBlob -Container $container`
-         -Context $sa.Context -Blob '*/year=2017/m=07/*'
-
+    ```powershell
+    Get-AzureStorageBlob -Container $container`
+     -Context $sa.Context -Blob '*/year=2017/m=07/*'
+    ```
+    
 You're now ready to start looking at what's in the logs. But before moving onto that, two more parameters for Get-AzureRmDiagnosticSetting that you might need to know:
 
 * To query the  status of diagnostic settings for your database resource: `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
