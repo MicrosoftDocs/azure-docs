@@ -67,7 +67,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## SSH into your VM
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](http://www.putty.org/) can be used to create the connection. Make sure to replace with the correct public IP address of your virtual machine. In our example above, our IP address was 192.168.102.36.
+From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](http://www.putty.org/) can be used to create the connection. Make sure to replace with the correct public IP address of your virtual machine. In our example above, the IP address was 192.168.102.36.
 
 ```bash
 ssh <publicIpAddress>
