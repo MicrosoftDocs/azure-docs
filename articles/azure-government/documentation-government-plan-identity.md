@@ -99,13 +99,13 @@ There are a few important points that set the foundation of this section:
 - 2) Azure commercial subscriptions trust directories in AAD commercial and Azure Government subscriptions trust directories in AAD Government.
 - 3) If you have both Azure commercial and Azure Government subscriptions, separate identities for both are required.
 
-The currently supported identity scenarios to simultaneoulsy manage Azure commercial and Azure Government subscriptions are:
+The currently supported identity scenarios to simultaneously manage Azure commercial and Azure Government subscriptions are:
 
 - Cloud identities - Cloud identities are used to manage both subscriptions
 - Hybrid and cloud identities - Hybrid identity for one subscription, cloud identity for the other
 - Hybrid identities - Hybrid identities are used to manage both subscriptions.
 
-      A common scenario, having both Office 365 and Azure subscriptions, are conveyed in each of the following scenarios.
+      A common scenario, having both Office 365 and Azure subscriptions, are conveyed in each of the following scenarios:
 
 ### Using cloud identities for multi-cloud subscription administration
 
@@ -121,13 +121,13 @@ The following diagram is the simplest of the scenarios to implement.
 <div></div>
 </div>
 
-While using cloud identities is the simpliest approach, it is also the least secure because passwords are used as an authentication factor. This is especially concerning with the topic of adminisrative accounts used for subscription administration. We recommend [Azure Multi-Factor Authentication](..\multi-factor-authentication\multi-factor-authentication.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
+While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure Multi-Factor Authentication](..\multi-factor-authentication\multi-factor-authentication.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
 
 See [How Azure Multi-Factor Authentication works](..\multi-factor-authentication\multi-factor-authentication-how-it-works.md) to learn more about the available methods for two-step verification.
 
 ### Using hybrid and cloud identities for multi-cloud subscription administration
 
-In this scenario we include administrator identities through directory synchronization to the commercial tenant while cloud identities are still used in the government tenant:
+In this scenario, we include administrator identities through directory synchronization to the commercial tenant while cloud identities are still used in the government tenant:
 
 <div id="imagecontainer">
 <div></div>
@@ -139,11 +139,11 @@ In this scenario we include administrator identities through directory synchroni
 <div></div>
 </div>
 
-Using hybrid identities for administrative accounts allows the use of smartcards (physical or virtual); which, are key for government agencies using Common Access Cards (CACs) or Personal Identity Verification (PIV) cards. In this scenario ADFS serves as the identity provider and implements the two-step verification (**for example**, smart card + PIN).
+Using hybrid identities for administrative accounts allows the use of smartcards (physical or virtual). Government agencies using Common Access Cards (CACs) or Personal Identity Verification (PIV) cards benefit from this. In this scenario ADFS serves as the identity provider and implements the two-step verification (**for example**, smart card + PIN).
 
 ### Using hybrid identities for multi-cloud subscription administration
 
-In this scenario, shown below, hybrid identities are used to administrator subscriptions in both clouds:
+In this scenario, hybrid identities are used to administrator subscriptions in both clouds:
 
 <div id="imagecontainer">
 <div></div>
