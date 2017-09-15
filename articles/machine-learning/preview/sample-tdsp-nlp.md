@@ -79,12 +79,12 @@ Objectives of the sample are:
 3. Demonstrate an end-to-end work-flow of how to train and operationalize deep learning models on large amounts of text data using Azure Machine Learning Workbench and multiple compute contexts (Spark, GPU VMs).
 4. Demonstrate the following capabilities within Azure Machine Learning Workbench:
 
-        Instantiation of [Team Data Science Process (TDSP) structure and templates](how-to-use-tdsp-in-azure-ml.md)
-        Execution of code in Jupyter notebooks as well as Python files
-        Run history tracking for Python files 
-        Execution of jobs on remote Spark compute context using HDInsight Spark 2.1 clusters
-        Execution of jobs in remote GPU VMs on Azure
-        Easy operationalization of Deep Learning models as web-services on Azure Container Services
+    * Instantiation of [Team Data Science Process (TDSP) structure and templates](how-to-use-tdsp-in-azure-ml.md)
+    * Execution of code in Jupyter notebooks as well as Python files
+    * Run history tracking for Python files 
+    * Execution of jobs on remote Spark compute context using HDInsight Spark 2.1 clusters
+    * Execution of jobs in remote GPU VMs on Azure
+    * Easy operationalization of Deep Learning models as web-services on Azure Container Services
 
 ### Summary: Results and Deployment
 Our results show that training a domain-specific word embedding model boosts the accuracy of biomedical NER when compared to embeddings trained on generic data such as Google News. The in-domain word embedding model can detect 7012 entities correctly (out of 9475) with a F1 score of 0.73 compared to 5274 entities with F1 score of 0.61 for generic word embedding model.
@@ -254,11 +254,3 @@ We  deployed a web-service on a cluster in the [Azure Container Service (ACS)](h
 ## Conclusion & Next Steps
 
 In this report, we went over the details of how you could train a Word Embedding Model using Word2Vec on Spark and then use the Embeddings obtained for training a Neural Network for Entity Extraction. We have shown the pipeline for Bio-Medical domain but the pipeline is generic. You just need enough data and you can easily adapt the workflow presented here for a different domain.
-
-## Contact
-
-Feel free to contact Mohamed Abdel-Hady (mohamed.abdel-hady@microsof.com) Debraj GuhaThakurta (debraj.guhathakurta@microsoft.com) with any question or comments.
-
-## Disclaimer
-
-To be added.
