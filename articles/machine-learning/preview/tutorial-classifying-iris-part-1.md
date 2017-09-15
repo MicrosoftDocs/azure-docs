@@ -42,14 +42,14 @@ Fill in the project name (this tutorial assumes you use `myIris`). Choose the di
 Click on the **Create** button to create the project. The project is now created and opened for you.
 
 ## Step 3. Create a data preparation package
-Open the `iris.csv` file from the File View. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
+Open the `iris.csv` file from the **File View**. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
 
 ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
 >[!NOTE]
 >Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
 
-In the Data Pane, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
+In the **Data View**, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
 
 ![data view](media/tutorial-classifying-iris/data_view.png)
 
