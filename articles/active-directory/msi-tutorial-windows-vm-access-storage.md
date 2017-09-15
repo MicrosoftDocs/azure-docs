@@ -20,12 +20,11 @@ ms.author: elkuzmen
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to access Storage Keys. You can use Storage Keys as usual when doing storage operations, for example when using Storage SDK. For this tutorial we will upload and download blobs using Azure CLI. You will learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to access Storage Keys. You can use Storage Keys as usual when doing storage operations, for example when using Storage SDK. For this tutorial we will upload and download blobs using Azure Storage PowerShell. You will learn how to:
 
 
 > [!div class="checklist"]
 > * Enable MSI on a Windows Virtual Machine 
-> * Create a new Storage Account
 > * Grant your VM access to Storage 
 > * Get an access token for your Storage Account using the VM identity 
 
@@ -66,7 +65,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 ## Create a new Storage Account 
 
-You can use Storage keys as usual when doing Storage operations, in this example we will focus on uploading and downloading blobs using the Azure CLI. 
+For this tutorial you will create a new Storage account. You can also skip this step and grant your VM MSI access to the keys of an existing Storage account. 
 
 1. Navigate to the side-bar and select **Storage**.  
 2. Create a new **Storage Account**.  
@@ -77,7 +76,7 @@ You can use Storage keys as usual when doing Storage operations, in this example
 
 ## Grant your VM identity access to use Storage Keys 
 
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve Storage keys from the Resource Manager, and use those keys to access storage.  In this step, you will grant your VM MSI access to the keys to your Storage account.   
 
 1. Navigate to tab for **Storage**.  
 2. Select the specific **Storage Account** you created earlier.   
@@ -99,7 +98,7 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
 4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body {@resource="https://management.azure.com/"} -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -108,22 +107,15 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
     Next, extract the full response, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
     
     ```powershell
-    $content = $repsonse.Content | ConvertFrom-Json
+    $content = $response.Content | ConvertFrom-Json
     ```
     Next, extract the access token from the response.
     
     ```powershell
     $ArmToken = $content.access_token
     ```
-    
-    Finally, call Azure Resource Manager using the access token. In this example, we're also using PowerShell's Invoke-WebRequest to make the call to Azure Resource Manager, and include the access token in the Authorization header.
-    
-    ```powershell
-    (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
-    ```
-    > [!NOTE]
-    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
-    
+ 
+  
 ## Get the Storage Keys from Azure Resource Manager 
 
 ```powershell
