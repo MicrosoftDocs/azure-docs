@@ -1,6 +1,6 @@
 ---
 title: Iris Quickstart for Azure Machine Learning  | Microsoft Docs
-description: This Quickstart demonstrates how to use Azure Machine Learning to process the timeless Iris flower dataset with the preview features Azure Machine Learning.
+description: This Quickstart demonstrates how to use Azure Machine Learning preview features to process the timeless Iris flower dataset.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl
@@ -10,11 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 09/01/2017
+ms.date: 09/15/2017
 ---
 
-# Quickstart: classifying iris flower dataset
-In this quickstart, you take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model to predict the type of iris based on some of its physical characteristics.  This quickstart uses [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) algorithm from the popular Python [scikit-learn](http://scikit-learn.org/stable/index.html) library to build the model.  You learn the following tasks in this quickstart: 
+# Quickstart: Classifying the Iris flower data set
+Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
+
+In this quickstart, you take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model to predict the type of iris based on some of its physical characteristics.  This quickstart uses [logistic regression](https://en.wikipedia.org/wiki/logistic_regression) algorithm from the popular Python [scikit-learn](http://scikit-learn.org/stable/index.html) library to build the model.  You learn the following tasks in this quickstart: 
 
 - Create a new project
 - Create a model by executing a script
@@ -31,8 +33,8 @@ Follow the [Provision and Installation](./quick-start-installation.md) guide to 
 
 3. Fill in the **project name**, and the **directory** to store the files. The **project description** is optional but helpful. Choose the default **My Projects** workgroup, and select the **Classifying Iris** sample project as the project template.
 
-    >[!TIP]
-    >Optionally, you can fill in the Git repo text field with the URL of a Git repo that lives in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must exist, and it must be empty with no master branch. Adding a Git repo now lets you enable roaming and sharing scenarios later. [Read more](using-git-ml-project.md).
+   >[!TIP]
+   >Optionally, you can fill in the Git repo text field with the URL of a Git repo that lives in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must exist, and it must be empty with no master branch. Adding a Git repo now lets you enable roaming and sharing scenarios later. [Read more](using-git-ml-project.md).
 
 4. Click on the **Create** button to create the project. A new project is created and opened for you. At this point, you can explore the project home page, data sources, notebooks, source code files. You can open the project in VS Code or other editors simply by opening the project directory. 
 
@@ -72,41 +74,43 @@ You now generate the script required to deploy the model as a web service.
 >You must have Docker engine installed and running in order to deploy the web service locally.  See the [Docker installation instructions](https://docs.docker.com/engine/installation/) and the tips in the [Provisioning and Installation Guide](./quick-start-installation.md). 
 
 >[!IMPORTANT]
->You must also have created a Model Management account in Azure in order to deploy a web service. See the [Provisioning and Installation Guide](quick-start-installation.md) for details.
+>You must also have created a Model Management account in Azure in order to deploy a web service. See the [Provision and install Azure Machine Learning preview features](quick-start-installation.md) Quickstart for details.
 
 Web services are currently created and deployed from the CLI, so now open the command-line window to create and test the web service.
 
 1. In the top menu of the Workbench, click **File** --> **Open Command-line Interface**.
 
 2. When the command window opens, type the following command to log in to Azure first.
-    >[!TIP]
-    >You only need to do this once until the cached authentication token expires.
+   >[!TIP]
+   >You only need to do this once until the cached authentication token expires.
 
-    ```shell
-    az login
-    ```
+   ```shell
+   az login
+   ```
    
-    If you have access to multiple Azure subscriptions, you need make sure the one you are using for Azure ML is the **current** subscription. You use the following commands to verify or find the subscription and set it to current.
-    ```shell
-    # show all subscriptions and their IDs
-    az account list -o table
+   If you have access to multiple Azure subscriptions, you need make sure the one you are using for Azure ML is the current subscription. You use the following commands to verify or find the subscription and set it to current.
 
-    # set a subscriptiion as the current subscription
-    az account set -s <subscriptionId>
+   ```shell
+   # show all subscriptions and their IDs
+   az account list -o table
 
-    # verify the current subscription
-    az account show
-    ```
-    >[!TIP]
-    >You can also check to see if you have a valid az-cli token by using `az account get-access-token` command.
-        
+   # set a subscription as the current subscription
+   az account set -s <subscriptionId>
+
+   # verify the current subscription
+   az account show
+   ```
+
+   >[!TIP]
+   >You can also check to see if you have a valid az-cli token by using `az account get-access-token` command.
+
 3. Now you are ready to deploy the model as a web service. Type the following command:
 
-    ```shell
-    az ml service create realtime --model-file model.pkl -f score.py -n irisapp -s service_schema.json -r python
-    ```
- 
-    The command creates a Docker image in the cloud, which hosts a web service for the model. This Docker container is then pulled down and deployed on your local computer where you can easily test it. 
+   ```shell
+   az ml service create realtime --model-file model.pkl -f score.py -n irisapp -s service_schema.json -r python
+   ```
+
+   The command creates a Docker image in the cloud, which hosts a web service for the model. This Docker container is then pulled down and deployed on your local computer where you can easily test it. 
 
 ## Test the web service
 The Docker container is now running on your local computer. You can invoke the web service and see the result.  While you could use curl or any other HTTP tool, there is a CLI command that makes it easy to test the web service. 
@@ -115,8 +119,12 @@ The Docker container is now running on your local computer. You can invoke the w
 az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]} 
 ```
 
-Check out the output here. We've predicted that, based on the input petal width, petal length, sepal width, and sepal length, the iris is probably a versicolor iris. 
+Check out the output here. Based on the input petal width, petal length, sepal width, and sepal length, the result predict that the iris is probably a versicolor iris.
+
+You have now used the Azure Machine Learning preview features using the Iris flower dataset to build a model to predict the type of iris based on some of its physical characteristics.  You have used the logic regression algorithm from the popular Python scikit-learn library to build the model. 
 
 ## Next steps
-- Full-length [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
-- Advanced data preparation tutorial: [Bike Share Forecasting Data Preparation](./doc-template-tutorial.md)
+For a more in-depth view of the same data set, follow the full-length Classifying Iris Tutorial. 
+
+> [!div class="nextstepaction"]
+> [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
