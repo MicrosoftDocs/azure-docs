@@ -55,7 +55,6 @@ The following information identifies the Azure Government boundary for Azure Bat
 | --- | --- |
 | |
 
-
 ## Azure Functions
 The [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
 
