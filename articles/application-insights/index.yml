@@ -1,0 +1,40 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Application Insights Documentation
+metadata:
+  title: Application Insights Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Application Insights is an extensible Application Performance Management (APM) service for web developers building and managing apps on multiple platforms. Learn how to detect & diagnose issues and understand usage for your web apps and services using our quickstarts, tutorials, references, and other documentation.
+  services: application-insights
+  author: czeumault
+  manager: carolz
+  ms.service: application-insights
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/15/2017
+  ms.author: carolz
+abstract:
+  description: Application Insights is an extensible Application Performance Management (APM) service for web developers building and managing apps on multiple platforms. Learn how to detect & diagnose issues and understand usage for your web apps and services using our quickstarts, tutorials, references, and other documentation.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to start monitoring your application with Azure Application Insights.
+- title: Step-by-step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to continuously improve the performance & usage of your live web applications.
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Languages
+      html: <p><a href="https://docs.loganalytics.io/">Analytics</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">Data access API</a></p>
+    - title: Data model
+      html: <p><a href="application-insights-data-model-request-telemetry">Request</a></p><p><a href="application-insights-data-model-dependency-telemetry">Dependency</a></p><p><a href="application-insights-data-model-exception-telemetry">Exception</a></p><p><a href="application-insights-data-model-trace-telemetry">Trace</a></p><p><a href="application-insights-data-model-event-telemetry">Event</a></p><p><a href="application-insights-data-model-metric-telemetry">Metric</a></p><p><a href="application-insights-data-model-context">Contect</a></p>
+    - title: Telemetry correlation
+      html: <p><a href="application-insights-correlation">Telemetry correlation</a></p>
+    - title: Code samples
+      html: <p><a href="https://azure.microsoft.com/en-us/resources/samples/?service=application-insights">Code samples</a></p>
