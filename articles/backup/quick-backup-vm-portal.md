@@ -1,5 +1,5 @@
 ---
-title: `Quickstart - Back up virtual machines in Azure | Microsoft Docs`
+title: Quickstart - Back up virtual machines in Azure | Microsoft Docs
 description: This quickstart details how to back up Azure virtual machines to a Recovery Services vault.
 services: backup
 documentationcenter: ''
@@ -8,7 +8,8 @@ manager: carmonm
 editor: ''
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup
 
-ms.assetid: ms.service: backup
+ms.assetid: 
+ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,8 +18,6 @@ ms.date: 9/15/2017
 ms.author: trinadhk;jimpark;markgal;
 
 ---
-
-
 # Back up Azure virtual machines with the Azure portal
 
 You can back up Azure virtual machines through the Azure portal. Before you back up data to Azure, you must first create a Recovery Services vault, which is where your data is stored. This article details creating the Recovery Services vault and then backing up your virtual machines, in the Azure portal. 
