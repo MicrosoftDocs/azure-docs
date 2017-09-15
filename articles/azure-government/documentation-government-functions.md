@@ -188,7 +188,7 @@ If you don't have cURL available in your command line, enter the same URL in the
 
 Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs). 
 
-Once that is confirmed, the steps to create a function using Visual Studio to Azure Government are essentially the same as creating one in Azure commercial, which can be found [here](../azure-functions/functions-create-your-first-function-visual-studio). 
+Once that is confirmed, the steps to create a function using Visual Studio to Azure Government are essentially the same as creating one in Azure commercial, which can be found [here](../azure-functions/functions-create-your-first-function-visual-studio.md). 
 
 ### Test your function in Azure Government 
 
