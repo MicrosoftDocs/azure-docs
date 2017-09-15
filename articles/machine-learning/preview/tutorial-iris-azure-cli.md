@@ -85,7 +85,7 @@ az ml account experimentation create --name amlsampleexp --resource-group amlsam
 az ml workspace create --name amlsamplew --account amlsampleexp --resource-group amlsample
 ```
 
-## Step 2.1a Create a new project
+## Step 2.a Create a new project
 Our next step is to create a new project. We have different options, we can create a project with or without a git repository. 
 ```
 # Create a new project
@@ -102,7 +102,7 @@ az ml project create --name 8_21_1 --workspace amlsamplew --account amlsampleexp
 az ml project create --name 8_21_2 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\Vienna_Demo\ --repo https://ahgyger.visualstudio.com/vienna/_git/8_21
 ```
 
-## Step 2.1b (optional) Create a new project from an online template (sample)
+## Step 2.b (optional) Create a new project from an online template (sample)
 In this example, we use a template from a git hub project and use it when creating our new project. 
 ```
 az ml project sample list
@@ -115,7 +115,7 @@ Example:
 ```
 az ml project create --name 8_21_3 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\Vienna_Demo\ --repo https://ahgyger.visualstudio.com/vienna/_git/8_21 --template-url http://github.com/hning86/ViennaSample-Iris
 ```
-## Step 2.2 (optional) Share a workspace with co-worker. 
+## Step 2.c (optional) Share a workspace with co-worker. 
 To give access to a co-worker. 
 You need to use the real email address of the co-worker, not an alias. 
 
@@ -133,7 +133,7 @@ Example:
 az ml workspace show --name amlsamplew --account amlsampleexp --resource-group amlsample 
 az role assignment create --assignee roastala@microsoft.com --role owner --scope "/subscriptions/d128f140-94e6-4175-87a7-954b9d27db16/resourceGroups/amlsample/providers/Microsoft.MachineLearningExperimentation/accounts/amlsampleexp/workspaces/amlsamplew"
 ```
-## Step 3 Create a compute context
+## Step 3 Create a cloud compute environment
 First, we create a new Ubuntu DSVM (Data Science Virtual Machine). 
 ```
 az group deployment create --resource-group  <resource group name>  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json --parameters <path to json file>
@@ -214,10 +214,8 @@ Example:
 ```
 az ml history list --path c:\Users\ahgyger\Documents\Vienna_Demo\8_21_2 -o table
 ```
-> Not working:
-> Custom metrics are not showing up...
 
-## Step 6.1 View artifacts created by a given run 
+## Step 6.a View artifacts created by a given run 
 To view the artifacts created by a previous run, we can use the info command of run history.
 ```
 az ml history info --run <run id>
@@ -308,5 +306,4 @@ In this tutorial, you have learned to use the Azure Machine Learning preview fea
 
 
 Next, learn how to use manage your model, review this tutorial: 
-[What is Azure Machine Learning](./overview-what-is-azure-ml.md) 
-[Classifying Iris Tutorial](./tutorial-classifying-iris-part-1.md)
+[Model Management: Models, manifests, and images](./model-management-image-creation.md)

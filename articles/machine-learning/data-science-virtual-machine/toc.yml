@@ -2,34 +2,32 @@
 - name: Overview
   href: virtual-machine-overview.md
   items:
-  - name: Deep Learning VM Overview
+  - name: Deep Learning
     href: deep-learning-dsvm-overview.md
 - name: Get Started
   items:
-  - name: Provision a Windows DSVM
+  - name: Windows DSVM
     href: provision-vm.md
-  - name: Provision a Linux CentOS DSVM
-    href: linux-dsvm-intro.md
-  - name: Provision a Linux Ubuntu DSVM
+  - name: Linux Ubuntu DSVM
     href: dsvm-ubuntu-intro.md
-  - name: Provision a Deep Learning DSVM
+  - name: Linux CentOS DSVM
+    href: linux-dsvm-intro.md
+  - name: Deep Learning
     href: provision-deep-learning-dsvm.md
 - name: How To
   items:
-  - name: Use a Windows DSVM
+  - name: Use Windows DSVM
     href: vm-do-ten-things.md
-  - name: Use a Linux DSVM
+  - name: Use Linux DSVM
     href: linux-dsvm-walkthrough.md
-  - name: Use a Deep Learning DSVM
+  - name: Using Deep Learning
     href: use-deep-learning-dsvm.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: http://blogs.technet.com/b/machinelearning/
+    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
+    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+    href: https://stackoverflow.com/search?q=dsvm
 
