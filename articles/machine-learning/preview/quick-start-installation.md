@@ -63,31 +63,31 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
 ## Install Azure ML Workbench on macOS operating system.
 Install the Azure Machine Learning Workbench on your computer running macOS Sierra or newer.
 
- 1. Install openssl library using [Homebrew](http://brew.sh). See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/en-US/dotnet/core/macos-prerequisites) for more details.
+1. Install openssl library using [Homebrew](http://brew.sh). See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/en-US/dotnet/core/macos-prerequisites) for more details.
+    ```console
+    # only needed if you have Python 3.6 or later installed
+    /Applications/Python\ 3.6/Install\ Certificates.command
 
-```console
-# only needed if you have Python 3.6 or later installed
-/Applications/Python\ 3.6/Install\ Certificates.command
+    # install Homebrew first if you don't have it already
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# install Homebrew first if you don't have it already
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # install latest openssl needed for .NET Core 1.x
+    brew update
+    brew install openssl
+    mkdir -p /usr/local/lib
+    ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+    ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+    ```
 
-# install latest openssl needed for .NET Core
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
- 2. Download the latest Azure ML Workbench installer
+2. Download the latest Azure ML Workbench installer
 **[AmlWorkbench.dmg](https://vienna.blob.core.windows.net/osx/AmlWorkbench.dmg)**.
->[!IMPORTANT]
->Download the installer fully on disk, then launch it from there. Do not launch it directly off your browser's download widget.
 
- 3. Double-click the downloaded installer _AmlWorkbench.dmg_.
+    >[!IMPORTANT]
+    >Download the installer fully on disk, then launch it from there. Do not launch it directly off your browser's download widget.
 
- 4. Finish the installation by following the on-screen instructions.
+3. Double-click the downloaded installer _AmlWorkbench.dmg_.
+
+4. Finish the installation by following the on-screen instructions.
 
 Azure ML Workbench is installed in the following directory: _/Applications/AmlWorkbench.app_
 
