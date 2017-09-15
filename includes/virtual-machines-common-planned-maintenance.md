@@ -8,6 +8,8 @@ This page describes how Microsoft Azure performs both types of maintenance. For 
 
 Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
+For "how-to" information on managing planned maintence, see "Handling planned maintenance notifications" for [Linux](../articles/linux/maintenance-notifications.md) or [Windows](../articles/windows/maintenance-notifications.md).
+
 ## In-place VM migration
 
 When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.

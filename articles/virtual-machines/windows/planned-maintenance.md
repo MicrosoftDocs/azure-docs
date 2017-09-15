@@ -24,7 +24,7 @@ ms.author: cynthn
 
 ## Next steps
 
-The [Azure Metadata Service](instance-metadata-service.md) enables you to discover information about your Virtual Machine hosted in Azure. 
+For information on managing planned maintence, see [Handling planned maintenance notifications](maintenance-notifications.md).
 
 
 
