@@ -5,19 +5,19 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 > [!NOTE]
 > A [Bash in Azure Cloud Shell](quickstart.md) guide is also available.
 
-## Start cloud shell
+## Start Cloud Shell
 
 1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal <br>
+
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. Select the PowerShell environment from the drop-down on the left-hand side of shell window <br>
+2. Select the PowerShell environment from the drop-down <br>
 
   ![](media/quickstart-powershell/environment-ps.png)
 
 3. Select PowerShell
 
-4. The PowerShell Cloud Shell appears at the bottom part of the portal
-5. `Azure PowerShell drive` appears as follows
+4. The `Azure PS drive` appears as follows
 
   ```powershell
   Requesting a Cloud Shell... Succeeded.
@@ -193,13 +193,13 @@ For how to create a profile, refer to [About Profiles][profile].
 
 ## Run az cli commands
 
-To see examples of running `az cli` commands, follow the [Azure Cloud Shell quickstart][bashqs].
+To see examples of running `az cli` commands, follow the [Bash in Cloud Shell quickstart][bashqs].
 
 ## Exit the shell
 
 Type `exit` to close the session.
 
-[bashqs]:https://docs.microsoft.com/azure/cloud-shell/quickstart
+[bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
 [customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
 [profile]: https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
