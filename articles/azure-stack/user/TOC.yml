@@ -7,17 +7,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Windows VM - Portal
+  - name: Create Windows VM - Portal
     href: azure-stack-quick-create-vm-windows-powershell.md
-  - name: Create a Windows VM - PowerShell
+  - name: Create Windows VM - PowerShell
     href: azure-stack-quick-create-vm-windows-powershell.md
-  - name: Create a Windows VM - CLI
+  - name: Create Windows VM - CLI
     href: azure-stack-quick-create-vm-windows-cli.md
-  - name: Create a Linux VM - Portal
+  - name: Create Linux VM - Portal
     href: azure-stack-quick-linux-portal.md
-  - name: Create a Linux VM - PowerShell
+  - name: Create Linux VM - PowerShell
     href: azure-stack-quick-create-vm-linux-powershell.md
-  - name: Create a Linux VM - CLI
+  - name: Create Linux VM - CLI
     href: azure-stack-quick-create-vm-linux-cli.md                   
 - name: Tutorials
   items:
