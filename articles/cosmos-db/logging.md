@@ -19,7 +19,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB diagnostic logging
 
-Once you've started using one or more Azure Cosmos DB databases, you will likely want to monitor how and when your databases are accessed, and by whom. You can monitor your databases by enabling diagnostic logging for Azure Cosmos DB, and collecting those logs in an [Azure Storage](https://azure.microsoft.com/services/storage/) account, streaming them to [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/), and/or exporting them into an [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) workspace via [Log Analytics](https://azure.microsoft.com/services/log-analytics/).
+Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed, and by whom. Diagnostic logging in Azure Cosmos DB enables you to perform this monitoring. By enabling diagnostic logging, you can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/), and/or export them into an [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) workspace via [Log Analytics](https://azure.microsoft.com/services/log-analytics/).
 
 ![Diagnostic logging to Storage, Event Hubs, or Operations Management Suite via Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -27,15 +27,15 @@ Use this tutorial to get started with Azure Cosmos DB logging via the Azure port
 
 ## What is logged?
 
-* All authenticated REST API requests are logged, which includes failed requests as a result of access permissions, system errors or bad requests.
+* All authenticated REST API requests are logged, which includes failed requests as a result of access permissions, system errors, or bad requests.
 * Operations on the database itself, which includes CRUD operations on all documents, containers, and databases.
-* Operations on account keys, which include creating, modifying, or deleting these keys; operations such as sign, verify, encrypt, decrypt, wrap and unwrap keys, get secrets, list keys and secrets and their versions.
-* Unauthenticated requests that result in a 401 response. For example, requests that do not have a bearer token, or are malformed or expired, or have an invalid token.  
+* Operations on account keys, which include creating, modifying, or deleting these keys.
+* Unauthenticated requests that result in a 401 response. For example, requests that do not have a bearer token, or are malformed or expired, or have an invalid token.
 
 ## Prerequisites
 To complete this tutorial, you must have the following resources:
 
-* An existing Azure Cosmos DB account, database, and container. For instructions on creating these, see [Create a database account using the Azure portal](create-documentdb-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
+* An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account using the Azure portal](create-documentdb-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
 
 
 ## Turn on logging in the Azure portal
@@ -48,9 +48,9 @@ To complete this tutorial, you must have the following resources:
 
     * **Name**. Enter a name for the logs to create.
 
-    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow instructions to create a resource manager, general purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop down menu.
+    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow instructions to create a Resource Manager, general-purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Log Analytics**. To use this option, either use one of the existing workspaces or create a new Operations Managment Suite workspace by following the prompts in the portal.
+    * **Send to Log Analytics**. To use this option, either use one of the existing workspaces or create a new Operations Management Suite workspace by following the prompts in the portal.
     * **Log DataPlaneRequests**. If you are archiving to a storage account, you can select the retention period for the diagnostic logs by selecting **DataPlaneRequests** and choosing the number of days to retain logs. Logs are autodeleted after the retention period expires. 
 
 3. Click **Save**.
@@ -119,7 +119,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
-> It is important to specify the subscription if you have multiple subscriptions associated with your account.
+> If you have multiple subscriptions associated with your account it is important to specify the subscription.
 >   
 >
 
@@ -158,7 +158,7 @@ Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId 
 The output for the command should resemble the following:
 
 ```powershell
-StorageAccountId : /subscriptions/<subscription-ID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.S
+StorageAccountId: /subscriptions/<subscription-ID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.S
                        torage/storageAccounts/contosocosmosdblogs
     ServiceBusRuleId :
     Metrics          : {}
@@ -205,9 +205,9 @@ ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
 BlobType          : BlockBlob
 Length            : 10510193
 ContentType       : application/octet-stream
-LastModified      : 6/28/2017 7:49:04 PM +00:00
+LastModified      : 9/28/2017 7:49:04 PM +00:00
 SnapshotTime      :
-ContinuationToken :
+ContinuationToken:
 Context           : Microsoft.WindowsAzure.Commands.Common.Storage.`
                     LazyAzureStorageContext
 Name              : resourceId=contosocosmosdb/y=2017/m=06/d=28/h=19/`
@@ -240,7 +240,7 @@ $blobs | Get-AzureStorageBlobContent`
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
-When you run this second command, the **/** delimiter in the blob names creates a full folder structure under the destination folder, and this structure will be used to download and store the blobs as files.
+When you run this second command, the **/** delimiter in the blob names creates a full folder structure under the destination folder. This folder structure is used to download and store the blobs as files.
 
 To selectively download blobs, use wildcards. For example:
 
@@ -263,14 +263,14 @@ To selectively download blobs, use wildcards. For example:
     Get-AzureStorageBlob -Container $container`
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
-    
+
 You're now ready to start looking at what's in the logs. But before moving onto that, two more parameters for Get-AzureRmDiagnosticSetting that you might need to know:
 
 * To query the  status of diagnostic settings for your database resource: `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 * To disable logging for your database vault resource: `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
 ## <a id="interpret"></a>Interpret your Azure Cosmos DB logs
-Individual blobs are stored as text, formatted as a JSON blob. This is an example log entry:
+Individual blobs are stored as text, formatted as a JSON blob. This JSON is an example log entry:
 
     {
         "records":
@@ -295,11 +295,11 @@ The following table lists the field names and descriptions.
 
 | Field name | Description |
 | --- | --- |
-| time |The date and time (UTC) when the operation occured. |
+| time |The date and time (UTC) when the operation occurred. |
 | resourceId |The Azure Cosmos DB account for which logs are enabled.|
 | category |For Azure Cosmos DB logs, DataPlaneRequests is the only available value. |
-| operationName |Name of the operation. This can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
-| properties |The contents of this field are described in the table below. |
+| operationName |Name of the operation. This value can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
+| properties |The contents of this field are described in the following table. |
 
 The following table lists the fields logged inside the properties field.
 
@@ -307,7 +307,7 @@ The following table lists the fields logged inside the properties field.
 | --- | --- |
 | activityId | The unique GUID for the logged operation. |
 | userAgent |A string that specifies the client user agent performing the request. The format is {user agent name}/{version}.|
-| resourceType | The type of the resource accessed, this can be any of the following resource types: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
+| resourceType | The type of the resource accessed. This value can be any of the following resource types: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
 | statusCode |The response status of the operation. |
 | documentResourceId | The unique ID for the document.|
 | clientIpAddress |The client's IP address. |
@@ -324,11 +324,11 @@ Logs are made available in your account two hours from the time the Azure Cosmos
 * Use standard Azure access control methods to secure your logs by restricting who can access them.
 * Delete logs that you no longer want to keep in your storage account.
 * The retention period for data plane requests archived to a 
-Storage account is configured in the portal when **Log DataPlaneRequests** is selected. See [Turn on logging in the Azure portal](#turn-on-logging-in-the-azure-portal) to change that setting.
+Storage account is configured in the portal when **Log DataPlaneRequests** is selected. To change that setting, see [Turn on logging in the Azure portal](#turn-on-logging-in-the-azure-portal).
 
 ## Next steps
 
-- Read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles to gain an understanding of not only how to enable logging, but the metrics and log categories supported by the various Azure services.
+- To gain an understanding of not only how to enable logging, but also the metrics and log categories supported by the various Azure services read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles.
 - Read these articles to learn about event hubs:
    - [What are Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)?
    - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
