@@ -247,7 +247,7 @@ To dive deeper into this example:
 - Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
 - Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.
 
-### Cleanup
+## Cleanup
 When you have completed the example, we recommend that you delete all of the resources you have created by executing the following command from the Azure Command Line Interface:
 
   ```
