@@ -7,7 +7,7 @@
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS Protection](ddos-protection-overview.md)
 ## [DDoS Protection FAQ](ddos-protection-faq.md)
-## [How DDos Protection works](ddos-protection-how-works.md)
+## [How DDoS Protection works](ddos-protection-how-works.md)
 ## Classic
 ### [IP addressing](virtual-network-ip-addresses-overview-classic.md)
 ### [Access control lists](virtual-networks-acl.md)
@@ -136,6 +136,7 @@
 ### DDoS Protection
 #### [Disable DDoS Protection](ddos-protection-disable.md)
 #### [Enable DDoS Protection](ddos-protection-enable.md)
+#### [Configure DDoS Protection telemetry](ddos-protection-telemetry.md)
 
 ## Troubleshoot
 ### Network security groups
