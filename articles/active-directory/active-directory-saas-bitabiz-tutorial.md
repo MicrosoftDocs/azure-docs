@@ -225,7 +225,7 @@ In the case of BitaBIZ, provisioning is a manual task.
 
 	d. Select a date in **Date of employment**.
 
-	e. There are other non-mandatory user attributes which can be set up for the user. Please refer the [BitaBIZ docs](https://help.bitabiz.dk/manage-or-set-up-your-account/on-boarding-employees/new-employee).	
+	e. There are other non-mandatory user attributes which can be set up for the user. Please refer the [Employee Setup Doc](https://help.bitabiz.dk/manage-or-set-up-your-account/on-boarding-employees/new-employee) for more details.	
 	
 	f. Click **Save employee**.
 	
