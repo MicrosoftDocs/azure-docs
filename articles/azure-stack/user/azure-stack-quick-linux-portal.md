@@ -6,11 +6,13 @@ author: vhorne
 manager: byronr
 
 ms.topic: hero-article
-ms.date: 09/15/2017
+ms.date: 09/25/2017
 ms.author: victorh
 ---
 
 # Create a Linux virtual machine with the Azure Stack portal
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Azure Stack virtual machines can be created through the Azure Stack portal. This method provides a browser-based user interface to create and configure a virtual machine and all related resources. This Quickstart shows you how to quickly create a Linux virtual machine and install a web server on it.
 
@@ -60,7 +62,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
    ![Virtual machine basics](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. Select a size for the virtual machine. To see more sizes, select **View all**. When done, click **Select**.
+5. Select **D1_V2** for the virtual machine.
 
    ![Machine size](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
@@ -87,7 +89,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
    ![Linus session](media/azure-stack-quick-linux-portal/Putty05.PNG)
 
-## Install NGINX on the virtual machine
+## Install NGINX
 
 Use the following bash script to update package sources and install the latest NGINX package on the virtual machine. 
 
