@@ -19,7 +19,10 @@ ms.date: 09/06/2017
 - **Experimentation Account:** Experimentation account is an Azure resource required by Azure ML, and a billing vehicle. It contains your workspaces, which in turn contain projects. You can add multiple users to an experimentation account. You must have access to an experimentation account in order to use Azure ML Workbench to run experiments. 
 
 
-- **Work Group:** A Work Group is the primary component for sharing in Workbench. Projects are grouped within a Work Group and then shared to team members. Work Groups function as a security boundary for your project and project assets.  
+- **Model Management Account** A model management account is also an Azure resource required by Azure ML for manage models. You can use it to register models and manifests, build containerized web services and deploy them locally or in the cloud. It is also the other billing vehicle of Azure ML
+
+
+- **Workspace:** A Workspace is the primary component for sharing and collaboration in Azure ML. Projects are grouped within a workspace. A workspace can then be shared with multiple users.  
 
 
 - **Project:** In Azure Machine Learning, a project is the logical container for all the work being done in a solution. Projects are backed up in GIT repositories and published to the Experimentation Service for sharing and collaboration.  
