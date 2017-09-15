@@ -20,7 +20,7 @@ ms.author: gokuma;bradsev
 ---
 
 # Deep Learning and AI frameworks
-The [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) and the [Deep Learning VM](http://aka.ms/dsvm/deeplearning) supports a number of deep learning frameworks to help build AI applications including ones with cognitive caoabilities like image and language understanding. 
+The [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) and the [Deep Learning VM](http://aka.ms/dsvm/deeplearning) supports a number of deep learning frameworks to help build Artificial Intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding. 
 
 Here are the details on all the deep learning frameworks available on the DSVM.
 
@@ -35,16 +35,16 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | Related Tools on the DSVM      | Keras      |
 | How to use / run it?    | Open Jupyter, then look for the CNTK folder  |
 
-## Tensorflow
+## TensorFlow
 
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Windows, Linux     |
-| How is it configured / installed on the DSVM?  | On Linux, Tensorflow is installed in Python 2.7, in the _root_ environment, as well as Python 3.5, in the _py35_ environment. On Windos, Tensorflow is installed in Python 3.5, in the _py35_ environment.  |
+| How is it configured / installed on the DSVM?  | On Linux, TensorFlow is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment. On Windows, Tensorflow is installed in Python 3.5(_py35_) environment.  |
 | Links to Samples      | Sample Jupyter notebooks are included.     |
 | Related Tools on the DSVM      | Keras      |
-| How to use / run it?    | Open Jupyter, then look for the tensorflow folder.  |
+| How to use / run it?    | Open Jupyter, then look for the TensorFlow folder.  |
 
 ## Keras
 
@@ -52,10 +52,10 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Windows, Linux     |
-| How is it configured / installed on the DSVM?  | Keras is installed in Python 2.7, in the _root_ environment, as well as Python 3.5, in the _py35_ environment.   |
+| How is it configured / installed on the DSVM?  | Keras is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
 | Links to Samples      | https://github.com/fchollet/keras/tree/master/examples      |
-| Related Tools on the DSVM      | Microsoft Cognitive Toolkit, Tensorflow, Theano      |
-| How to use / run it?    | Download the samples from Github location above, copy it to a directory under ~/notebooks and open it in Jupyter   |
+| Related Tools on the DSVM      | Microsoft Cognitive Toolkit, TensorLlow, Theano      |
+| How to use / run it?    | Download the samples from the Github location, copy it to a directory under ~/notebooks and open it in Jupyter   |
 
 
 
@@ -78,7 +78,7 @@ cd /opt/caffe/examples
 jupyter notebook
 ```
 
-A new browser window will open with sample notebooks.
+A new browser window opens with sample notebooks.
 
 ## Caffe2
 
@@ -86,7 +86,7 @@ A new browser window will open with sample notebooks.
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Linux     |
-| How is it configured / installed on the DSVM?  | Caffe2 is installed in `/opt/caffe2`. It is also available for Python 2.7 in the _root_ conda environment.     |
+| How is it configured / installed on the DSVM?  | Caffe2 is installed in `/opt/caffe2`. It is also available for Python 2.7(_root_) conda environment.     |
 | Links to Samples      | Sample Jupyter notebooks are included     |
 | Related Tools on the DSVM      | Caffe      |
 | How to use / run it?    | Open Jupyter, then navigate to the Caffe2 directory to find sample notebooks. Some notebooks require the Caffe2 root to be set in the Python code; enter /opt/caffe2.   |
@@ -98,7 +98,7 @@ A new browser window will open with sample notebooks.
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Windows, Linux     |
-| How is it configured / installed on the DSVM?  | Chainer is installed in Python 2.7, in the _root_ environment, as well as Python 3.5, in the _py35_ environment. ChainerRL and ChainerCV are also installed.   |
+| How is it configured / installed on the DSVM?  | Chainer is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment. ChainerRL and ChainerCV are also installed.   |
 | Links to Samples      | Sample Jupyter notebooks are included.      |
 | Related Tools on the DSVM      | Caffe      |
 
@@ -123,7 +123,7 @@ Connect to the VM using X2Go. At a terminal, start the Deep Water server:
 
     java -jar /dsvm/tools/deep_water/h2o.jar
 
-Then open a browser and connect to _localhost:54321_.
+Then open a browser and connect to `http://localhost:54321`.
 
 
 
@@ -133,7 +133,7 @@ Then open a browser and connect to _localhost:54321_.
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Windows, Linux     |
-| How is it configured / installed on the DSVM?  | MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Linux. Python bindings are installed for Python 2.7, in the _root_ environment, as well as Python 3.5, in the _py35_ environment. R bindings are also installed.   |
+| How is it configured / installed on the DSVM?  | MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Linux. Python bindings are installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment. R bindings are also installed.   |
 | Links to Samples      | Sample Jupyter notebooks are included.    |
 | Related Tools on the DSVM      | Keras      |
 | How to use / run it?    | Open Jupyter, then look for the mxnet folder  |
@@ -151,7 +151,7 @@ Log in to the VM with X2Go. At a terminal, start the service:
 
     sudo systemctl start digits
 
-The service will take about one minute to start. Start a web browser and navigate to _localhost:5000_.
+The service takes about one minute to start. Start a web browser and navigate to `http://localhost:5000`.
 
 
 
@@ -161,7 +161,7 @@ The service will take about one minute to start. Start a web browser and navigat
 | ------------- | ------------- |
 | What is it?   | NVIDIA tool for querying GPU activity      |
 | Supported DSVM Editions      | Windows, Linux     |
-| How is it configured / installed on the DSVM?  | Torch is installed in `/dsvm/tools/torch`. PyTorch is installed in Python 2.7, in the _root_ environment, as well as Python 3.5, in the _py35_ environment.   |
+| How is it configured / installed on the DSVM?  | _nvidia-smi_ is available on the system path.   |
 | How to use / run it? | Start a command prompt (on Windows) or a terminal (on Linux), then run _nvidia-smi_.
 
 
@@ -172,7 +172,7 @@ The service will take about one minute to start. Start a web browser and navigat
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Linux     |
-| How is it configured / installed on the DSVM?  | Theano is installed in Python 2.7, in the _root_ environment, as well as Python 3.5, in the _py35_ environment.   |
+| How is it configured / installed on the DSVM?  | Theano is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
 | Related Tools on the DSVM      | Keras      |
 | How to use / run it?    | At a terminal, activate the Python version you want (root or py35), run python, then import theano. In Jupyter, select the Python 2.7 or 3.5 kernel, then import theano.  |
 
@@ -184,6 +184,6 @@ The service will take about one minute to start. Start a web browser and navigat
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Linux     |
-| How is it configured / installed on the DSVM?  | Torch is installed in `/dsvm/tools/torch`. PyTorch is installed in Python 2.7, in the _root_ environment, as well as Python 3.5, in the _py35_ environment.   |
+| How is it configured / installed on the DSVM?  | Torch is installed in `/dsvm/tools/torch`. PyTorch is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
 | Links to Samples      | Torch samples are located at `/dsvm/samples/torch`. PyTorch samples are located at `/dsvm/samples/pytorch`.      |
 
