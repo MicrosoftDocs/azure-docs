@@ -38,6 +38,8 @@
       href: sample-tdsp-nlp.md
     - name: Aerial Image Classification
       href: scenario-aerial-image-classification.md
+    - name: Document Collection Analysis
+      href: scenario-document-collection-analysis.md
 - name: How-to guides
   items:
   - name: Use Azure ML Workbench
