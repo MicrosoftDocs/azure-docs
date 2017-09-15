@@ -74,7 +74,7 @@ There are three application settings that need to be added to the web.config fil
     <add key="SecretUri" value="secreturi" />
 ```
 
-If you are not going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise leave these dummy values because we will be adding the actual values in the Azure Portal for an additional level of security.
+If you are not going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise leave these dummy values because we will be adding the actual values in the Azure portal for an additional level of security.
 
 ## <a id="gettoken"></a>Add Method to Get an Access Token
 
