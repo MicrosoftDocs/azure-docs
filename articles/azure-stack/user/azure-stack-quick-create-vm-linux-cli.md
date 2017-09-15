@@ -13,24 +13,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/25/2017
 ms.author: sngun
 ---
 
 # Create a Linux virtual machine by using CLI in Azure Stack
 
-Azure CLI is used to create and manage Azure Stack resources from the command line. This guide details using Azure CLI to create a Linux virtual machine in Azure Stack. You can run the steps described in this article either from the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
+Azure CLI is used to create and manage Azure Stack resources from the command line. This Quickstart details using Azure CLI to create a Linux virtual machine in Azure Stack.  Once the VM is created, a web server is installed and port 80 is opened to allow web traffic.
 
-> [!NOTE]
-> Cloud Shell is not yet supported in Azure Stack.
 
 ## Prerequisites
 
-1. The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, make sure that the Azure Stack operator download the “Ubuntu Server 16.04 LTS” image.    
+1. Make sure that your Azure Stack operator has added the “Ubuntu Server 16.04 LTS” image to the Azure Stack marketplace.  You can browse the marketplace in the Azure Stack portal to check.  
 
-2. Azure Stack requires the 2.0 version of Azure CLI to create and manage the resources. Use the steps described in [Install and configure CLI](azure-stack-connect-cli.md) topic to install the required version.  
+2. Azure Stack requires Azure CLI 2.0 to create and manage the resources. Use the steps in [Install and configure CLI](azure-stack-connect-cli.md) topic to install the required version.  
 
 3. Make sure that your Azure Stack cloud administrator has [set up a public endpoint that contains the virtual machine image aliases](azure-stack-connect-cli.md#set-up-the-virtual-machine-aliases-endpoint).
+
+4.  If you are running these steps against Azure Stack Development Kit, you can run the steps from the [host](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
+
 
 ## Create a resource group
 

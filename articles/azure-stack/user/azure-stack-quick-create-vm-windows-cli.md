@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/25/2017
 ms.author: sngun
 ---
 
@@ -21,12 +21,9 @@ ms.author: sngun
 
 Azure CLI is used to create and manage Azure Stack resources from the command line. This guide details using Azure CLI to create a Windows Server 2016 virtual machine in Azure Stack. You can run the steps described in this article either from the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
 
-> [!NOTE]
-> Cloud Shell is not yet supported in Azure Stack.
-
 ## Prerequisites
 
-1. The Azure Stack marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack operator adds the Windows Server 2016 image to the Azure Stack marketplace. 
+1. Make sure your Azure Stack operator has added the Windows Server 2016 image to the Azure Stack marketplace. 
 2. Azure Stack requires the 2.0 version of Azure CLI to create and manage the resources. Use the steps described in [Install and configure CLI](azure-stack-connect-cli.md) topic to install the required version.  
 3. Make sure that your Azure Stack cloud administrator has [set up a public endpoint that contains the virtual machine image aliases](azure-stack-connect-cli.md#set-up-the-virtual-machine-aliases-endpoint).
 
@@ -68,8 +65,8 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
-```bash
-mstsc /v:<Public IP Address>
+```
+mstsc /v <Public IP Address>
 ```
 
 ## Clean up resources
