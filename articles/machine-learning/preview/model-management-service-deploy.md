@@ -15,12 +15,12 @@ ms.date: 09/05/2017
 
 Azure Machine Learning model management provides interfaces to deploy models as REST API web services. You can deploy models you create using frameworks such as Spark, the Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow, and Python. 
 
-This document covers the steps to deploy your models as web services using the Azure Machine Learning Model Management Command-line Interface (CLI). 
+This document covers the steps to deploy your models as web services using the Azure Machine Learning model management command-line interface (CLI)." 
 
 ## Deploying web services
 Using the CLIs, you can deploy web services to run on the local machine or on a cluster.
 
-We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use. For more info on setting up your environment for deployment, see [this document](model-management-configuration.md). 
+We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use. For more info on setting up your environment for cluster deployment, see [this document](model-management-configuration.md). 
 
 The following are the deployment steps:
 1. Use your saved, trained, Machine Learning model
@@ -28,7 +28,7 @@ The following are the deployment steps:
 3. Create an image
 4. Create and deploy the web service
 
-#### 1. Save your model
+### 1. Save your model
 Start with your saved trained model file, for example, mymodel.pkl. The file extension varies based on the platform you use to train and save the model. 
 
 As an example, you can use Python's Pickle library to save a trained model to a file. Here is an [example](http://scikit-learn.org/stable/modules/model_persistence.html) using the Iris dataset:
@@ -42,7 +42,7 @@ clf.fit(X, y)
 saved_model = pickle.dumps(clf)
 ```
 
-#### 2. Create a schema.json file
+### 2. Create a schema.json file
 This step is optional. 
 
 Create a schema to automatically validate the input and output of your web service. The CLIs also use the schema to generate a Swagger document for your web service.
@@ -74,12 +74,12 @@ inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
 generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
 ```
 
-#### 3. Create a score.py file
+### 3. Create a score.py file
 You provide a score.py file, which loads your model and returns the prediction result(s) using the model.
 
 The file must include two functions: init and run.
 
-##### Init function
+#### Init function
 Use the init function to load the saved model.
 
 Example of a simple init function loading the model:
@@ -91,7 +91,7 @@ def init():
     model = joblib.load('model.pkl')
 ```
 
-##### Run function
+#### Run function
 The run function uses the model and the input data to return a prediction.
 
 Example of a simple run function processing the input and returning the prediction result:
@@ -105,25 +105,28 @@ def run(input_df):
         return (str(e))
 ```
 
-#### 4. Create an image 
+### 4. Create an image 
 Create an image using the model. Also include schema, conda python [dependencies file](https://github.com/conda/conda-env), and the score and schema files.
 
 ```
 az ml image create -n <image name> -m <model file> -f <score.py file> -s <schema file> -r <run-time e.g. python> -c <conda dependencies file>
 ```
 
->Note: for more details on the command parameters, type -h at the end of the command for example, az ml image create -h.
+>[!NOTE]
+>For more details on the command parameters, type -h at the end of the command for example, az ml image create -h.
 
-#### 5. Create and deploy the web service
+
+### 5. Create and deploy the web service
 Deploy the service using the following command:
 
 ```
 az ml service create realtime --image-id <image id> -n <service name>
 ```
 
->Note: you can also use a single command to perform both actions. Use -h with the service create command for more details.
+>[!NOTE] 
+>You can also use a single command to perform both actions. Use -h with the service create command for more details.
 
-#### 6. Test the service
+### 6. Test the service
 Use the following command to get information on how to call the service:
 
 ```
@@ -141,3 +144,6 @@ The following example calls a sample Iris web service:
 ```
 az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\": 3.0, \"sepal width\": 3.6, \"petal width\": 1.3, \"petal length\":0.25}]}"
 ```
+
+## Next steps
+Now that you have tested your web service to run locally, you can deploy it to a cluster for large-scale use. For details on setting up a cluster for web service deployment, see [this document](model-management-configuration.md). 
