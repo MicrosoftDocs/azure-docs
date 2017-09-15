@@ -25,9 +25,9 @@ ms.date: 09/06/2017
 - **Workspace:** A Workspace is the primary component for sharing and collaboration in Azure ML. Projects are grouped within a workspace. A workspace can then be shared with multiple users.  
 
 
-- **Project:** In Azure Machine Learning, a project is the logical container for all the work being done in a solution. Projects are backed up in GIT repositories and published to the Experimentation Service for sharing and collaboration.  
+- **Project:** In Azure Machine Learning, a project is the logical container for all the work being done to solve a problem. It maps to a single file folder on your local disk, and you can add any files or sub folders to it. A project can be associated with a Git repository for source control and collaboration.  
 
-- **Experiment:** In Workbench, experiments are code or scripts that define the data, the data pipeline, the algorithm, and the execution of a solution. Currently, Azure Machine Learning supports Python or PySpark experiments only. 
+- **Experiment:** In Azure ML, an experiment is one or more source code file(s) that can be executed from a single entry point. It may contain tasks such as data ingestion, feature engineering, model training, or model evaluation. Currently, Azure ML supports Python or PySpark experiments only. 
 
 
 - **Model:** In Azure Machine Learning, models refer to the product of a machine learning experiment. They are recipes that when applied correctly to data, result in a predicted value. Models are composed of an algorithm and a set of coefficients. Models can be deployed to production and used to generate predictions. Once in production, models can be monitored for performance and data drift, and retrained as required. 
