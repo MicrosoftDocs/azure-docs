@@ -80,6 +80,8 @@
       href: model-management-consumption.md  
     - name: Deploy web service
       href: model-management-service-deploy.md
+    - name: Model Data Collection
+      href: how-to-use-model-data-collection.md
   - name: End-to-end examples
     items:
     - name: Awesome ADS example 1
@@ -124,10 +126,12 @@
     - name: (Logging Python SDK)
   - name: Model management
     items:
-    - name: Model management API
+    - name: Model Management API
       href: model-management-api-reference.md
-    - name: Model management CLI
+    - name: Model Management CLI
       href: model-management-cli-reference.md
+    - name: Model Data Collection API
+      href: model-data-collection-api-reference.md
     - name: (Model Management Python libraries)
 - name: Resources
   items:  

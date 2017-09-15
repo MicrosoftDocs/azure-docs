@@ -1,9 +1,9 @@
 ---
-title: Model Management API reference | Microsoft Docs
+title: Azure Machine Learning Model Management Account API reference | Microsoft Docs
 description: The REST API reference for Azure Machine Learning Model Management.
 services: machine-learning
-author: get2chhavi
-ms.author: chhavib
+author: chhavib
+ms.author: chhavib, aashishb
 manager: neerajkh
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,61 +12,57 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 08/28/2017
 ---
-# Azure Machine Learning model management account API reference
+# Azure Machine Learning Model Management Account API reference
 
-For environment set up information, see [Hosting Account getting started]().
+For environment set up information, see [Model Management Account Setup](model-management-configuration.md).
 
-The Azure Machine Learning model management API implements the following operations:
+The Azure Machine Learning Model Management API implements the following operations:
 
-- Create or Update Model Management Account
-- Patch Model Management Account
-- Get Model Management Account
-- Delete Model Management Account
-- Get Available Operations
+- Create or update a Model Management Account
+- Get a Model Management Account
+- Patch a Model Management Account
+- Delete a Model Management Account
+- Get all Model Management Accounts in a Resource Group
+- Get all Model Management Account in a Subscription
+- Get all available Operations
 
-## Create or Update Azure Machine Learning model management account
 
-Creates or updates a Hosting Account.
+## Create or update a Model Management Account
 
-If the hosting account does not exist in current location, it is created. If the hosting account exists in the specified location, it is updated using the supplied request body.
-
-**Note**: When you are creating a Hosting Account, you specify the name of the acount to create by including it request URI.
+Creates or updates a Model Management Account. This call will overwrite an existing Model Management Account. Note that there is no warning or confirmation. This is a nonrecoverable operation. If your intent is to create a new Model Management Account, call the Get operation first to verify that it does not exist.
 
 ### Request
 
 | Method | Request URI |
 |------------|------------|
-| PUT | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningOperationalization/hostingAccounts/{hostingAccountName}?api-version={api_version} |
+| PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningModelManagement/accounts/{modelManagementAccountName} |
 
 ### Properties
 
 | Property | Description |
 |--------------------|--------------------|
-| subscriptionId | **Required**. The name of the resource group. |
-| hostingAccountName | **Required**. The name of the hosting account. Follow Resource Manager resource name pattern. Unique per resource group. |
-| api-version | **Required**. Version of the API to be used with the request. The current version is ``. |
+| subscriptionId | **Required**. Azure subscription ID. |
+| resourceGroupName | **Required**. Name of the resource group in which the Model Management Account is located. |
+| modelManagementAccountName | **Required**. Name of the Model Management Account. |
+| api-version | **Required**. The version of the Microsoft.MachineLearning resource provider API to use.|
 
-### Request Header
+### Request header
 
 [Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
 
-### Request Body
+### Request body
 
 ```
 {
-  "location": "<Location>",
+  "location": "string",
   "tags": {
-    "<string>": "<string>",
-    ...,
-    ...,
-    ...
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
   },
   "sku": {
-    "name": "<string>",
-    "tier": "Free | Basic | Standard | Premium"
-  },
-  "properties": {
-      "description": <account description>
+    "name": "S1",
+    "capacity": 0
   }
 }
 
@@ -76,452 +72,651 @@ If the hosting account does not exist in current location, it is created. If the
 |-----------|-----------|
 | location | **Required** Location of the resource. |
 | tags | **Optional** String-string key value pairs. |
-| description | **Optional** The description of the hosting account. |
-| sku | **Required** Billing plan |
-| properties | **Optional**.|
+| sku | **Required** SKU of the Model Management Account account. |
 
-**sku fields**
+**SKU fields**
 | Field | Description |
 |-----------|-----------|
-| name | The name of the billing SKU selected for the Hosting Account.  |
-| tier | The SKU tier. Derived from the SKU name. |
+| name | The name of the billing SKU selected for the Model Management Account.  |
+| capacity | The SKU capacity.|
 
-**properties fields**
-| Field | Description |
-|-----------|-----------|
-| description | The description of the Hosting Account. |
 
 ### Response
 
-### Status Code
+### Status code
 
-- 201 - Created. This will be returned when first time create this hosting account.
-- 200 - OK. This will be returned when the user calling this API on an existing hosting account.
-
-
-### Response Header
-
-| Field Name | Description |
-|-----------------|----------------------|
-|  |  |
+- 201 - Created. This response is returned for a Create Model Management Account operation.
+- 200 - Success. This response is returned for an Update Model Management Account operation. The response payload is identical to the response payload that is returned by the GET operation.
+- Default - Error response describing why the operation failed.
 
 
-### Response Body
 
+### Response body
+
+* For status code 200 and 201
 ```
 {
-  "id": "<resourc ID>",
-  "name": <Hosting account name>,
-  "location": <Location>,
+  "id": "string",
+  "name": "string",
+  "location": "string",
+  "type": "string",
   "tags": {
-      <string>: <string>,
-      -,
-      -,
-      -
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
   },
   "sku": {
-    "name": "<string>",
-    "tier": "Free | Basic | Standard | Premium"
-  },
-  "properties": {
-      "description": <account description>,
-      "createOn": "<datetime>",
-      "modifiedOn": "<datetime>",
-      "modelManagementSwaggerLocation": "<url of MMS swagger>"
+    "name": "S1",
+    "capacity": 0
   }
 }
 ```
 
-| Field | Description |
-|-----------|-----------|
-| id | Azure Resource Mananger resource ID. |
-| name | The name of the Hosting Account. |
-| location | A URL specifying the location of the resource. |
-| tags |  Contains resource tags defined as key/value pairs. |
-| sku | Contains details about the billing SKU associated with the Hosting Account. |
-| properties | The set of properties specific to the Hosting Account resource.|
-
-**sku fields**
-| Field | Description |
-|-----------|-----------|
-| name | The name of the billing SKU selected for the Hosting Account.  |
-| tier | The SKU tier. Derived from the SKU name. |
-
-
-**properties fields**
-| Field | Description |
-|-----------|-----------|
-| description | The description of the Hosting Account. |
-| id | Resource Manager resource ID. |
-| createdOn |   The date and time the Hosting Account was created. |
-| modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
-
-#-------------------------------------------------
-## Patch model management account
-
-Updates the specified Azure Machine Learning model management account.
-
-If a field in the request is set in the Hosting Account, the value is updated. If a field is only in the request, it is added to the existing Hosting Account.
-
-### Request
-
-| Method | Request URI |
-|------------|------------|
-| PATCH | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningOperationalization/hostingAccounts/{hostingAccountName}?api-version={api_version} |
-
-
-### Properties
-
-| Property | Description |
-|--------------------|--------------------|
-| subscriptionId | **Required**. The subscription ID. |
-| resourceGroupName | **Required**. The name of the resource group. |
-| hostingAccountName | **Required**. The name of the hosting account. Follow Resource Manager resource name pattern. Unique per resource group. |
-| api-version | **Required**. Version of the API to be used with the request. The current version is ``. |
-
-
-### Request Header
-
-[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
-
-### Request Body
-All fields in the request are optional, but at least one field must be included for the request to be valid.
-
-```
-{
-  "tags": {
-    "<string>": "<string>",
-    ...,
-    ...,
-    ...
-  },
-  "properties": {
-    "description": "<account description>"
-  }
-}
-
-```
-
-| Field | Description |
-|-----------|-----------|
-|  |  |
-
-### Response
-
-### Status Code
-
-- 200 - OK, if the patch succeeded or request body is empty.
-
-### Response Header
-
-| Field Name | Description |
-|-----------------|----------------------|
-|  |  |
-
-
-### Response Body
-
-```
-{
-  "id": "/subscriptions/{id}/resourceGroups/{group}/providers/Microsoft.MachineLearningOperationalization/hostingAccounts/{name}",
-  "name": <Hosting account name>,
-  "location": <Location>,
-  "tags": {
-      <string>: <string>,
-      -,
-      -,
-      -
-  },
-  "sku": {
-    "name": "<string>",
-    "tier": "Free | Basic | Standard | Premium"
-  },
-  "properties": {
-      "description": <account description>,
-      "createOn": "<datetime>",
-      "modifiedOn": "<datetime>",
-      "modelManagementSwaggerLocation": "<url of MMS swagger>"
-  }
-}
-
-
-```
 | Field | Description |
 |-----------|-----------|
 | id | Azure Resource Manager resource ID. |
-| name | The name of the Hosting Account. |
+| name | The name of the Model Management Account. |
 | location | A URL specifying the location of the resource. |
+| type | Specifies the type of the resource. |
 | tags |  Contains resource tags defined as key/value pairs. |
-| sku | Contains details about the billing SKU associated with the Hosting Account. |
-| properties | The set of properties specific to the Hosting Account resource.|
+| sku | Contains details about the billing SKU associated with the Model Management Account. |
 
-**sku fields**
+**SKU fields**
 | Field | Description |
 |-----------|-----------|
-| name | The name of the billing SKU selected for the Hosting Account.  |
-| tier | The SKU tier. Derived from the SKU name. |
+| name | The name of the billing SKU selected for the Model Management Account.  |
+| capacity | Capacity of the current SKU. |
 
-
-**properties fields**
-| Field | Description |
-|-----------|-----------|
-| description | The description of the Hosting Account. |
-| id | Resource Manager resource ID. |
-| createdOn |   The date and time the Hosting Account was created. |
-| modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
-
-
-#-------------------------------------------------
-## Get model management account
-
-Gets information for the specified Hosting Account.
-
-**Note**: The access keys are not returned as part of the response.
-
-### Request
-
-| Method | Request URI |
-|------------|------------|
-| GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningOperationalization/hostingAccounts/{hostingAccountName}?api-version={api_version} |
-
-### Properties
-
-| Property | Description |
-|--------------------|--------------------|
-| subscriptionId | **Required**. The subscription ID. |
-| resourceGroupName | **Required**. The name of the resource group. |
-| hostingAccountName | **Required**. The name of the hosting account. Follow Resource Manager resource name pattern. Unique per resource group. |
-| api-version | **Required**. Version of the API to be used with the request. The current version is ``. |
-
-
-### Request Header
-
-[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
-
-### Request Body
-
-Empty.
-
-### Response
-
-### Status Code
-
--  200 - OK.
-
-### Response Body
+* For status code default
 
 ```
 {
-  "id": "/subscriptions/{id}/resourceGroups/{group}/providers/Microsoft.MachineLearningOperationalization/hostingAccounts/{name}",
-  "name": <Hosting account name>,
-  "location": <Location>,
-  "tags": {
-      <string>: <string>,
-      -,
-      -,
-      -
-  },
-  "sku": {
-    "name": "<string>",
-    "tier": "Free | Basic | Standard | Premium"
-  },
-  "properties": {
-      "description": <account description>,
-      "createOn": "<datetime>",
-      "modifiedOn": "<datetime>",
-      "modelManagementSwaggerLocation": "<url of MMS swagger>"
-  }
-}
-```
-
-| Field | Description |
-|-----------|-----------|
-| id | Resource Manager resource ID. |
-| name | The name of the Hosting Account. |
-| location | A URL specifying the location of the resource. |
-| tags |  Contains resource tags defined as key/value pairs. |
-| sku | Contains details about the billing SKU associated with the Hosting Account. |
-| properties | The set of properties specific to the Hosting Account resource.|
-
-**sku fields**
-| Field | Description |
-|-----------|-----------|
-| name | The name of the billing SKU selected for the Hosting Account.  |
-| tier | The SKU tier. Derived from the SKU name. |
-
-
-**properties fields**
-| Field | Description |
-|-----------|-----------|
-| description | The description of the Hosting Account. |
-| id | Resource Manager resource ID. |
-| createdOn |   The date and time the Hosting Account was created. |
-| modifiedOn |  The date and time the Hosting Account was last modificatied. |
-| modelManagementSwaggerLocation | The URI of the swagger spec for the Model Management API. |
-
-#-------------------------------------------------
-## Get Hosting Account In a Resource group and Subscription
-
-Gets the Hosting Account information under the same resource group or subscription.
-
-**Note**: The access keys are not returned as part of the response.
-
-### Request
-
-Get in resource group
-| Method | Request URI |
-|------------|------------|
-| GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningOperationalization/hostingAccounts?api-version={api_version} |
-
-get in subsription
-| Method | Request URI |
-|------------|------------|
-| GET | https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.MachineLearningOperationalization/hostingAccounts?api-version={api_version} |
-
-
-### Properties
-
-| Property | Description |
-|--------------------|--------------------|
-| subscriptionId | **Required**. The subscription ID. |
-| resourceGroupName | **Required**. The name of the resource group. |
-| hostingAccountName | **Required**. The name of the hosting account. Follow Resource Manager resource name pattern. Unique per resource group. |
-| api-version | **Required**. Version of the API to be used with the request. The current version is ``. |
-
-
-### Request Header
-
-[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
-
-### Request Body
-
-Empty.
-
-### Response
-
-### Status Code
-
-- 200 - OK.
-
-### Response Body
-```
-{
-
-  {
-    "value": [
-      {
-        <one GET-HostingAccont result>
-      },
-      {
-        <one GET-HostingAccont, result>
-      },
-      -,
-      -,
-      -
-    ],
-    "nextLink": "<originalRequestUrl>?$skipToken=<opaqueString>"
-  }
-}
-```
-
-| Field | Description |
-|-----------|-----------|
-| value | An array of Hosting Account objects. If the return collection is empty, an empty value array is returned. For the object defintion, see the reponse body for Get Hosting Account |
-| nextLink | A continuation link (absolute URI) to the next page of results in the list. |
-
-#-------------------------------------------------
-## Delete model management account
-
-Deletes the specified hosting account. Models, packages, and deployments are not deleted.
-
-### Request
-
-| Method | Request URI |
-|------------|------------|
-| DELETE | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningOperationalization/hostingAccounts/{hostingAccountName}?api-version={api_version} |
-
-### Properties
-
-| Property | Description |
-|--------------------|--------------------|
-| subscriptionId | **Required**. The subscription ID. |
-| resourceGroupName | **Required**. The name of the resource group. |
-| hostingAccountName | **Required**. The name of the hosting account. Follow Resource Manager resource name pattern. Unique per resource group. |
-| api-version | **Required**. Version of the API to be used with the request. The current version is ``. |
-
-
-### Request Header
-
-[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
-
-### Request Body
-
-Empty
-
-### Response
-
-### Status Code
-
-- 200 - OK, when the deletion succeeds.
-- 204 - NoContent, when the hosting account does not exist and the request is well formed.
-
-### Response Body
-
-Empty.
-
-
-#-------------------------------------------------
-## Get Available Operations
-
-### Request
-
-| Method | Request URI |
-|------------|------------|
-|  |  |
-GET   https://<endpoint>/providers/Microsoft.MachineLearningOperationalization/operations?api-version={api_version}
-
-### Properties
-
-| Property | Description |
-|--------------------|--------------------|
-| subscriptionId | **Required**. The subscription ID. |
-| resourceGroupName | **Required**. The name of the resource group. |
-| hostingAccountName | **Required**. The name of the hosting account. Follow Resource Manager resource name pattern. Unique per resource group. |
-| api-version | **Required**. Version of the API to be used with the request. The current version is ``. |
-
-
-### Request Header
-
-[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
-
-### Request Body
-
-Empty
-
-### Response
-
-### Status Code
-
-- 200 - OK
-
-### Response Body
-
-```
-{
-  "value": [
+  "code": "string",
+  "message": "string",
+  "details": [
     {
-      "name": "Microsoft.MachineLearning/hostingAccount/{read|write|delete}",
-      "display": {
-        "provider": "Machine Learning",
-        "resource": "Hosting Account",
-        "operation": "Create Hosting Account",
-        "description": ""
-      },
-      "origin": "-user|system|user",
-      "properties": {}
+      "code": "string",
+      "message": "string"
     }
   ]
 }
 ```
+
+| Field | Description |
+|-----------|-----------|
+| code | Error code. |
+| message | Error message. |
+| details | Error details. |
+
+## Get a Model Management Account
+
+Gets the Model Management Account Definiton as specified by a subscription, resource group, and name.
+
+### Request
+
+| Method | Request URI |
+|------------|------------|
+| GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningModelManagement/accounts/{modelManagementAccountName} |
+
+### Properties
+
+| Property | Description |
+|--------------------|--------------------|
+| subscriptionId | **Required**. Azure subscription ID. |
+| resourceGroupName | **Required**. Name of the resource group in which the Model Management Account is located. |
+| modelManagementAccountName | **Required**. Name of the Model Management Account |
+| api-version | **Required**. The version of the Microsoft.MachineLearning resource provider API to use.|
+
+### Request header
+
+[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
+
+### Request body
+
+Empty.
+
+### Response
+
+### Status code
+
+- 200 - Success.
+- Default - Error response describing why the operation failed.
+
+
+
+### Response body
+
+* For status code 200
+```
+{
+  "id": "string",
+  "name": "string",
+  "location": "string",
+  "type": "string",
+  "tags": {
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  },
+  "sku": {
+    "name": "S1",
+    "capacity": 0
+  }
+}
+```
+
+| Field | Description |
+|-----------|-----------|
+| id | Azure Resource Manager resource ID. |
+| name | The name of the Model Management Account. |
+| location | A URL specifying the location of the resource. |
+| type | Specifies the type of the resource. |
+| tags |  Contains resource tags defined as key/value pairs. |
+| sku | Contains details about the billing SKU associated with the Model Management Account. |
+
+**SKU fields**
+| Field | Description |
+|-----------|-----------|
+| name | The name of the billing SKU selected for the Model Management Account.  |
+| capacity | Capacity of the current SKU. |
+
+* For status code default
+
+```
+{
+  "code": "string",
+  "message": "string",
+  "details": [
+    {
+      "code": "string",
+      "message": "string"
+    }
+  ]
+}
+
+
+```
+| Field | Description |
+|-----------|-----------|
+| code | Error code. |
+| message | Error message. |
+| details | Error details. |
+
+## Patch a Model Management Account
+
+Modifies an existing Model Management Account resource.
+
+### Request
+
+| Method | Request URI |
+|------------|------------|
+| PATCH | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningModelManagement/accounts/{modelManagementAccountName} |
+
+### Properties
+
+| Property | Description |
+|--------------------|--------------------|
+| subscriptionId | **Required**. Azure subscription ID. |
+| resourceGroupName | **Required**. Name of the resource group in which the Model Management Account is located. |
+| modelManagementAccountName | **Required**. Name of the Model Management Account. |
+| api-version | **Required**. The version of the Microsoft.MachineLearning resource provider API to use.|
+| payload | **Required**. Payload to use to patch the Model Management Account.|
+
+### Request header
+
+[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
+
+### Request body
+
+```
+{
+  "tags": {
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  },
+  "sku": {
+    "name": "S1",
+    "capacity": 0
+  },
+  "properties": {
+    "description": "string"
+  }
+}
+
+```
+
+| Field | Description |
+|-----------|-----------|
+| tags | **Optional** String-string key value pairs. |
+| sku | **Required** The SKU of the Model Management Account account. |
+| properties | **Required** Properties to be patched. |
+
+**SKU fields**
+| Field | Description |
+|-----------|-----------|
+| name | The name of the billing SKU selected for the Model Management Account.  |
+| capacity | The SKU capacity.|
+
+
+### Response
+
+### Status code
+
+- 200 - Success. The response payload is identical to the response payload that is returned by the GET operation.
+- Default - Error response describing why the operation failed.
+
+
+
+### Response body
+
+* For status code 200
+```
+{
+  "id": "string",
+  "name": "string",
+  "location": "string",
+  "type": "string",
+  "tags": {
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  },
+  "sku": {
+    "name": "S1",
+    "capacity": 0
+  }
+}
+```
+
+| Field | Description |
+|-----------|-----------|
+| id | Azure Resource Manager resource ID. |
+| name | The name of the Model Management Account. |
+| location | A URL specifying the location of the resource. |
+| type | Specifies the type of the resource. |
+| tags |  Contains resource tags defined as key/value pairs. |
+| sku | Contains details about the billing SKU associated with the Model Management Account. |
+
+**SKU fields**
+| Field | Description |
+|-----------|-----------|
+| name | The name of the billing SKU selected for the Model Management Account.  |
+| capacity | Capacity of the current SKU. |
+
+* For status code default
+
+```
+{
+  "code": "string",
+  "message": "string",
+  "details": [
+    {
+      "code": "string",
+      "message": "string"
+    }
+  ]
+}
+```
+
+| Field | Description |
+|-----------|-----------|
+| code | Error code. |
+| message | Error message. |
+| details | Error details. |
+
+
+## Delete a Model Management Account
+
+Deletes the specified Model Management Account.
+
+### Request
+
+| Method | Request URI |
+|------------|------------|
+| DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningModelManagement/accounts/{modelManagementAccountName} |
+
+### Properties
+
+| Property | Description |
+|--------------------|--------------------|
+| subscriptionId | **Required**. Azure subscription ID. |
+| resourceGroupName | **Required**. Name of the resource group in which the Model Management Account is located. |
+| modelManagementAccountName | **Required**. Name of the Model Management Account. |
+| api-version | **Required**. The version of the Microsoft.MachineLearning resource provider API to use.|
+
+### Request header
+
+[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
+
+### Request body
+
+Empty.
+
+
+### Response
+
+### Status code
+
+- 200 - Success. The object exists and was deleted successfully.
+- 204 - No Content. The resource does not exist and the request is well formed
+- Default - Error response describing why the operation failed.
+
+
+
+### Response body
+
+* For status code 200 and 204
+
+    Empty.
+  
+* For status code default
+
+```
+{
+  "code": "string",
+  "message": "string",
+  "details": [
+    {
+      "code": "string",
+      "message": "string"
+    }
+  ]
+}
+```
+
+| Field | Description |
+|-----------|-----------|
+| code | Error code. |
+| message | Error message. |
+| details | Error details. |
+
+## Get all Model Management Accounts in a resource group
+
+Gets the Model Management Accounts in the specified resource group.
+
+### Request
+
+| Method | Request URI |
+|------------|------------|
+| GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningModelManagement/accounts |
+
+### Properties
+
+| Property | Description |
+|--------------------|--------------------|
+| subscriptionId | **Required**. Azure subscription ID. |
+| resourceGroupName | **Required**. Name of the resource group in which the Model Management Account is located. |
+| $skiptoken | Continuation token for pagination. |
+| api-version | **Required**. The version of the Microsoft.MachineLearning resource provider API to use.|
+
+### Request header
+
+[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
+
+### Request body
+
+Empty.
+
+### Response
+
+### Status code
+
+- 200 - Success. The response includes a paginated array of Model Management Account objects and a URI to the next set of results, if any. For more information on the limit of the number of items in a resource group, see https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/.
+- Default - Error response describing why the operation failed.
+
+
+
+### Response body
+
+* For status code 200
+```
+{
+  "value": [
+    {
+      "id": "string",
+      "name": "string",
+      "location": "string",
+      "type": "string",
+      "tags": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      },
+      "sku": {
+        "name": "S1",
+        "capacity": 0
+      }
+    }
+  ],
+  "nextLink": "string"
+}
+```
+
+| Field | Description |
+|-----------|-----------|
+| id | Azure Resource Manager resource ID. |
+| name | The name of the Model Management Account. |
+| location | A URL specifying the location of the resource. |
+| type | Specifies the type of the resource. |
+| tags |  Contains resource tags defined as key/value pairs. |
+| sku | Contains details about the billing SKU associated with the Model Management Account. |
+| nextLink | A continuation link (absolute URI) to the next page of results in the list. |
+
+**SKU fields**
+| Field | Description |
+|-----------|-----------|
+| name | The name of the billing SKU selected for the Model Management Account.  |
+| capacity | Capacity of the current SKU. |
+
+* For status code default
+
+```
+{
+  "code": "string",
+  "message": "string",
+  "details": [
+    {
+      "code": "string",
+      "message": "string"
+    }
+  ]
+}
+
+
+```
+| Field | Description |
+|-----------|-----------|
+| code | Error code. |
+| message | Error message. |
+| details | Error details. |
+
+## Get all Model Management Accounts in a subscription
+
+Gets the Model Management Accounts in the specified subscription.
+
+### Request
+
+| Method | Request URI |
+|------------|------------|
+| GET | /subscriptions/{subscriptionId}/providers/Microsoft.MachineLearningModelManagement/accounts |
+
+### Properties
+
+| Property | Description |
+|--------------------|--------------------|
+| subscriptionId | **Required**. Azure subscription ID. |
+| $skiptoken | Continuation token for pagination. |
+| api-version | **Required**. The version of the Microsoft.MachineLearning resource provider API to use.|
+
+### Request header
+
+[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
+
+### Request body
+
+Empty.
+
+### Response
+
+### Status code
+
+- 200 - Success. The response includes a paginated array of Model Management Account objects and a URI to the next set of results, if any. 
+- Default - Error response describing why the operation failed.
+
+
+
+### Response body
+
+* For status code 200
+```
+{
+  "value": [
+    {
+      "id": "string",
+      "name": "string",
+      "location": "string",
+      "type": "string",
+      "tags": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      },
+      "sku": {
+        "name": "S1",
+        "capacity": 0
+      }
+    }
+  ],
+  "nextLink": "string"
+}
+```
+
+| Field | Description |
+|-----------|-----------|
+| id | Azure Resource Manager resource ID. |
+| name | The name of the Model Management Account. |
+| location | A URL specifying the location of the resource. |
+| type | Specifies the type of the resource. |
+| tags |  Contains resource tags defined as key/value pairs. |
+| sku | Contains details about the billing SKU associated with the Model Management Account. |
+| nextLink | A continuation link (absolute URI) to the next page of results in the list. |
+
+**SKU fields**
+| Field | Description |
+|-----------|-----------|
+| name | The name of the billing SKU selected for the Model Management Account.  |
+| capacity | Capacity of the current SKU. |
+
+* For status code default
+
+```
+{
+  "code": "string",
+  "message": "string",
+  "details": [
+    {
+      "code": "string",
+      "message": "string"
+    }
+  ]
+}
+
+
+```
+| Field | Description |
+|-----------|-----------|
+| code | Error code. |
+| message | Error message. |
+| details | Error details. |
+
+## Get all available operations
+
+Gets all available operations.
+
+### Request
+
+| Method | Request URI |
+|------------|------------|
+| GET | /providers/Microsoft.MachineLearningModelManagement/operations |
+
+### Properties
+
+| Property | Description |
+|--------------------|--------------------|
+| api-version | **Required**. The version of the Microsoft.MachineLearning resource provider API to use.|
+
+### Request header
+
+[Common Resource Manager header fields](https://docs.microsoft.com/en-us/rest/api/#request-header)
+
+### Request body
+
+Empty.
+
+### Response
+
+### Status code
+
+- 200 - Success.
+- Default - Error response describing why the operation failed.
+
+
+
+### Response body
+
+* For status code 200
+```
+{
+  "value": [
+    {
+      "name": "string",
+      "display": {
+        "provider": "string",
+        "resource": "string",
+        "operation": "string",
+        "description": "string"
+      },
+      "origin": "string"
+    }
+  ]
+}
+```
+
+| Field | Description |
+|-----------|-----------|
+| name | Name of the operation. |
+| display | Description of the operation. |
+| origin | The operation origin. |
+
+**Display fields**
+| Field | Description |
+|-----------|-----------|
+| provider | Resource provider name.  |
+| resource | Resource name. |
+| operation | Operation name. |
+| description | Description of the operation. |
+
+* For status code default
+
+```
+{
+  "code": "string",
+  "message": "string",
+  "details": [
+    {
+      "code": "string",
+      "message": "string"
+    }
+  ]
+}
+
+
+```
+| Field | Description |
+|-----------|-----------|
+| code | Error code. |
+| message | Error message. |
+| details | Error details. |
+
+
