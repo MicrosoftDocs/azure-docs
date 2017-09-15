@@ -35,8 +35,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
 ## Create a Linux Virtual Machine in a new Resource Group
 
 For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
