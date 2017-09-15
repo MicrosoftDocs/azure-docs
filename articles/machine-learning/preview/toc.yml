@@ -17,11 +17,11 @@
     href: quick-start-iris.md  
 - name: Tutorials
   items:
-  - name: Classify iris part 1 - data preparation
+  - name: Classify Iris part 1 - data preparation
     href: tutorial-classifying-iris-part-1.md
-  - name: Classify iris part 2 - model building
+  - name: Classify Iris part 2 - model building
     href: tutorial-classifying-iris-part-2.md
-  - name: Classify iris part 3 - model deployment
+  - name: Classify Iris part 3 - model deployment
     href: tutorial-classifying-iris-part-3.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md   
