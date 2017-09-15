@@ -1,0 +1,33 @@
+- name: Data Science Virtual Machine documentation
+- name: Overview
+  href: virtual-machine-overview.md
+  items:
+  - name: Deep Learning
+    href: deep-learning-dsvm-overview.md
+- name: Get Started
+  items:
+  - name: Windows DSVM
+    href: provision-vm.md
+  - name: Linux Ubuntu DSVM
+    href: dsvm-ubuntu-intro.md
+  - name: Linux CentOS DSVM
+    href: linux-dsvm-intro.md
+  - name: Deep Learning
+    href: provision-deep-learning-dsvm.md
+- name: How To
+  items:
+  - name: Use Windows DSVM
+    href: vm-do-ten-things.md
+  - name: Use Linux DSVM
+    href: linux-dsvm-walkthrough.md
+  - name: Using Deep Learning
+    href: use-deep-learning-dsvm.md
+- name: Resources
+  items:
+  - name: Blog
+    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
+  - name: MSDN forum
+    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=dsvm
+

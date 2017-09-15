@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Machine Learning Studio Documentation
+metadata:
+  title: Azure Machine Learning Studio Documentation
+  description: Learn how to use Azure Machine Learning Studio.
+  services: machine-learning
+  author: carolz
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/24/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data.'
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to get started using Machine Learning Studio:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="create-experiment">Create your first experiment</a>
+    - html: <a href="algorithm-choice">Choose the best algorithm</a>
+    - html: <a href="deploy-consume-web-service-guide">Operationalize your model</a>
+    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Learn about Data Science</a>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Follow extended tutorials about creating and deploying models:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="walkthrough-develop-predictive-solution">Create and deploy a predictive solution</a>
+    - html: <a href="azure-ml-customer-churn-scenario">Customer churn example</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell module (New)</a></p><p><a href="powershell-module">PowerShell module (Classic)</a></p>
+    - title: Modules
+      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithm & Module reference</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/machinelearning">REST management APIs</a></p><p><a href="web-service-error-codes">Web service error codes</a></p>
