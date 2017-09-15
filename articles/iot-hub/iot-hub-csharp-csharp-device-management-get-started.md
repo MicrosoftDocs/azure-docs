@@ -97,6 +97,9 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         
 8. Build the solution.
 
+> [!NOTE]
+> This tutorial performs only a single query for the device's reported properties. In production code, we recommend polling to detect changes in the reported properties.
+
 ## Create a simulated device app
 In this section, you will
 
