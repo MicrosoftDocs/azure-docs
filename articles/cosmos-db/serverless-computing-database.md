@@ -50,6 +50,8 @@ The following use cases demonstrate a few ways you can make the most of your Azu
 
     Implementation: Using a [Timer trigger](../azure-functions/functions-bindings-timer.md), you can retrieve the bank account balance information stored in an Azure Cosmos DB container using the **input bindings**. The timer can be set to a daily or weekly cadence, where the user can set a threshold for what would be considered as a low balance, then follow that with an action from the Azure Function. The container can also include the email address of the account owner, which should be notified. The output binding can be a [SendGrid integration](../azure-functions/functions-bindings-sendgrid.md) that can send an email from a service account to the affected accounts.
 
+    The following images show the code in the Azure portal for this scenario.
+
     ![Index.js file for a Timer trigger for a financial scenario](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
 
     ![Run.csx file for a Timer trigger for a financial scenario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
