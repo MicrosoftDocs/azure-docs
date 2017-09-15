@@ -1,14 +1,13 @@
 ---
-title: Getting started with Data Preparation  | Microsoft Docs
+title: Getting started with Data Preparation for Azure Machine Learning | Microsoft Docs
 description: This is the getting started guide for the data prep section of AML workbench
 author: cforbe
-ms.author: cforbe@microsoft.com
+ms.author: cforbe
 ms.date: 9/7/2017
 ---
 
 # Getting started with Data Preparation #
 
-## Introduction ##
 Welcome to the Data Preparation Getting Started Guide. 
 
 Data Preparation provides a set of tools for efficiently exploring, understanding, and fixing problems in data. It allows you to consume data in many forms and transform that data into cleansed data that is better suited for downstream usage.
@@ -111,7 +110,7 @@ To undo a Transformation, go the Steps List on the right-hand side of the UI. (T
 #### Step 5: Output ####
 When finished with your data preparation, you can write the Dataflow to an output. A Dataflow can have many outputs. From the Transforms menu, you can select which output you want the dataset to be written as. You can also select the output's destination. The list of outputs and destinations are listed in Appendix 5.
 
-### List of Appendices ###
+## List of Appendices ##
 <!-- Commenting out this link because it's currently broken, Appendix 1 doesn't exist at the moment (Gary)
 [Appendix 1 - Supported Platforms](data-prep-appendix1-supported-platforms.md)  
 -->

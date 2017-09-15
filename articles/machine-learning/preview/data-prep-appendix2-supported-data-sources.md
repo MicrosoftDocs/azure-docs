@@ -1,8 +1,8 @@
 ---
-title: Supported Data Sources | Microsoft Docs
+title: Supported Data Sources for Azure Machine Learning | Microsoft Docs
 description: Tells which data sources are supported for AML workbench
 author: cforbe
-ms.author: cforbe@microsoft.com
+ms.author: cforbe
 ms.date: 9/7/2017
 ---
 # Supported Data Sources #
