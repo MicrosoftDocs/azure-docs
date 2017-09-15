@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2017
+ms.date: 09/15/2017
 ms.author: jejiang
 
 ---
@@ -31,6 +31,7 @@ Please make sure you have the following:
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
     * Alternatively, you can use the [Azure Cosmos DB Emulator](local-emulator.md)  if you'd like to use a local environment that emulates the Azure DocumentDB service for development purposes.
 * [Visual Studio](http://www.visualstudio.com/).
+* Install the newest CosmosDBConnectedService bits. You can install it from [Here](https://urlmanager.cloudapp.net/app/html/index.html#/go.microsoft.com.fwlink).
 
 ## Create an Azure Cosmos DB account
 
@@ -82,7 +83,8 @@ Let's start by [creating an Azure Cosmos DB account](create-documentdb-dotnet.md
 
 After open Data Explorer, we can Create and Delete database, Create and Delete Colletion, Create and Delete documents, Filter Document, Create and Delete Stored Procedure, Create and Delete Triggers, Create and Delete User Defined Function to perform server-side business logic. The usage of Data Explorer please refer to [CosmosDB docs on Microsoft website](https://docs.microsoft.com/en-us/azure/cosmos-db/).
 
-
+## Demo
+* Use CosmosDB ConnectedServiceVS (video): [Use CosmosDB ConnectedServiceVS](https://urlmanager.cloudapp.net/app/html/index.html#/go.microsoft.com.fwlink )
 
 
 
