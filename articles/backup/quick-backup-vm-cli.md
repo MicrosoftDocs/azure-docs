@@ -19,7 +19,7 @@ ms.author: pvrk
 ms.custom: mvc
 ---
 
-# Backup a virtual machine with Azure CLI
+# Back up a virtual machine with Azure CLI
 
 Azure CLI is used to create and manage Azure resources from the command line and/or in scripts to be used for automation. This guide details steps to backup an Azure virtual machine using Azure CLI.
 
@@ -27,7 +27,7 @@ Azure CLI is used to create and manage Azure resources from the command line and
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-this quickstart requires Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This quickstart requires Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## Getting help with Azure CLI
@@ -41,7 +41,7 @@ When in doubt about the parameters needed by a command, use --help or -h as a pa
 
     az account set -h
 ```
-## Connecting to your Subscriptions
+## Connecting to your subscriptions
 
 To log in using an organizational account, use the following command:
 
@@ -175,4 +175,4 @@ az backup vault delete -n myRSVault -g myResourceGroup
 az group delete -n myResourceGroup
 ```
 
-In this quick start, you’ve learnt how to create a recovery services vault and protect a virtual machine to this vault.
+In this quick start, you’ve learned how to create a recovery services vault and protect a virtual machine to this vault.
