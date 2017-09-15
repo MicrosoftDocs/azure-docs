@@ -57,8 +57,8 @@ Next, you create a function in the new function app.
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Name your function** | Default | Use the default function name suggested by the template. |
-    | **Database name** | taskDatabase | Name of database with the collection to be monitored. |
-    | **Collection name** | TaskCollection | Name of collection to be monitored. |
+    | **Database name** | Tasks | Name of database with the collection to be monitored. |
+    | **Collection name** | Items | Name of collection to be monitored. |
     | **Create lease collection if it doesn't exist** | Checked | The collection doesn't already exist, so create it. |
 
 4. Select **New** next to the **Cosmos DB account connection** label, and select **+ Create new**. 
@@ -81,29 +81,57 @@ Next, you create a function in the new function app.
 
     ![Cosmos DB function template in C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
 
-Note that this function template writes the number of documents and the first document ID to the logs. Next, you connect to your Cosmos DB account and add a document to the database collection. 
+Note that this function template writes the number of documents and the first document ID to the logs. Next, you connect to your Cosmos DB account and create the **Tasks** collection in the database. 
 
-## Test the function
+## Create the collection
 
-1. On the left side of the Azure portal, expand the icon bar, type `cosmos` in the search field, and select **Azure Cosmos DB**.
+1. Open the [Azure portal](https://portal.azure.com) again in a new tab in the browser. 
+
+2. On the left side of the portal, expand the icon bar, type `cosmos` in the search field, and select **Azure Cosmos DB**.
 
     ![Search for the Cosmos DB service](./media/functions-create-cosmos-db-triggered-function/functions-search-cosmos-db.png)
 
 2. Choose your Cosmos DB account, then select the **Data Explorer**. 
  
-3. In **Collections**, expand **taskDatabase**, and choose **New Collection**.
+3. In **Collections**, right-click **taskDatabase**, and select **New Collection**.
 
-    ![Create a new taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
+    ![Create a collection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
 
-4. In the  
+4. In **Add Collection**, use the settings shown in the table below the image. 
+ 
+    ![Define the taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
+ 
+    | Setting|Suggested value|Description |
+    | ---|---|--- |
+    | **Database id** | Tasks |The name for your new database. This must match the name defined in your function binding. |
+    | **Collection id** | Items | The name for the new collection. This must match the name defined in your function binding.  |
+    | **Storage capacity** | Fixed (10 GB)|Use the default value. This value is the storage capacity of the database. |
+    | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |
+    | **[Partition key](../cosmos-db/partition-data.md#designing-for-partitioning.md)**|/category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
 
-1. Type your "Hello World!" message in **Message text** and click **OK**.
+1. Click **OK** to create the **Tasks** collection. It may take a short time for the collection to get created.
 
-1. Wait for a few seconds, then go back to your function logs and verify that the new message has been read from the queue.
+After the collection specified in the function binding exists, you can test the function by adding documents to this new collection.
 
-    ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
+## Test the function
 
-1. Back in Storage Explorer, click **Refresh** and verify that the message has been processed and is no longer in the queue.
+1. Expand the new **taskCollection** collection in Data Explorer, choose **Documents**, then select **New Document**.
+
+    ![Create a document in taskCollection](./media/functions-create-cosmos-db-triggered-function/create-document-in-collection.png)
+
+2. Replace the contents of the new document with the following content, then choose **Save**.
+
+        {
+            "id": "task1",
+            "category": "general",
+            "description": "some task"
+        }
+
+1. Switch to the first browser tab that contains your function in the portal. Expand the function logs, verify that the new document has triggered the function, and check for the `task1` document ID value written to the logs. 
+
+    ![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-view-logs.png)
+
+4. (Optional) Go back to your document, make a change, and click **Update**. Then, go back to the function logs and verify that the update has also triggered the function.
 
 ## Clean up resources
 
@@ -111,7 +139,7 @@ Note that this function template writes the number of documents and the first do
 
 ## Next steps
 
-You have created a function that runs when a message is added to a storage queue.
+You have created a function that runs when a document is added or modified in Cosmos DB.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
