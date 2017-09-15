@@ -125,5 +125,5 @@ See the Azure DDoS Protection service pricing page for up-to-date pricing inform
 
 ## Next steps
 
-- Learn more about how [DDoS Protection](ddos-protection-how-works.md) works.
-- Learn more about [DDoS Protection telemetry](ddos-protection-telemetry.md).
+- Learn more about managing DDoS Protection using [Azure PowerShell](ddos-protection-manage-ps.md) or the [Azure portal](ddos-protection-manage-portal.md)
+- Learn more about [DDoS Protection](ddos-protection-overview.md).
