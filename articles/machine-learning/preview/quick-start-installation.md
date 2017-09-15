@@ -79,8 +79,7 @@ Follow the steps listed below in order to provision Experimentation and Model Ma
     
 3. You can create Model Management account along with the Experimentation account (recommended) or separately. We will discuss both the approaches in this step
 
-    As part of the Experimentation account creation, you will see the following screen:
-    
+    As part of the Experimentation account creation, you will see the following screen: 
 
     Here is a brief description of each field:
     
