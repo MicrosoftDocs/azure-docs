@@ -102,7 +102,7 @@ Install the Azure Machine Learning Workbench on your computer running macOS Sier
 5. Azure ML Workbench is installed in the following directory: `/Applications/AmlWorkbench.app`
 
 ## Run Azure ML Workbench to log in the first time
-1. Click on the **Launch Azure ML Workbench** button when the installation process is complete. If you close the installer, you can still find the shortcut to the Machine Learning Workbench on your desktop and start menu named **Azure Machine Learning Workbench**. Double-click it to open the app.
+1. Click on the **Launch Workbench** button on the last screen of the Installer once the installation process is complete. If you have closed the installer, find the shortcut to the Machine Learning Workbench on your desktop and start menu named **Azure Machine Learning Workbench**. Double-click it to open the app.
 
 2. Log in to the Workbench using the same account you used earlier to provision your Azure resources. 
 
