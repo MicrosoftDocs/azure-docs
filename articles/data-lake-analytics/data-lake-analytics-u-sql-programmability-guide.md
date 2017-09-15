@@ -2514,7 +2514,7 @@ This class interface should contain definition for `IEnumerable` interface rowse
 SqlUserDefinedReducer is an optional attribute for User-defined Reducer definition. It used to define IsRecursive property.
 
 * bool     IsRecursive    
-* **true**  = Indicates whether this Reducer is idempotent
+* **true**  = Indicates whether this Reducer is associative and commutative
 
 The main programmability objects are *input* and *output*. Input object is used to enumerate input rows and Output – to set output rows as a result of reducing activity.
 
