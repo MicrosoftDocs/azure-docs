@@ -26,7 +26,6 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 
 > [!div class="checklist"]
 > * Enable MSI on a Linux Virtual Machine 
-> * Create a new Storage Account
 > * Grant your VM access to Storage
 > * Get an access token for your Storage Account using the VM identity to access Storage Keys 
 
@@ -69,7 +68,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 ## Create a new Storage Account 
 
-You can use Storage keys as usual when doing Storage operations, in this example we will focus on uploading and downloading blobs using the Azure CLI. 
+For this tutorial you will create a new Storage account.  You can also skip this step and grant your VM MSI access to the keys of an existing Storage account. 
 
 1. Navigate to the side-bar and select **Storage**.  
 2. Create a new **Storage Account**.  
@@ -80,7 +79,7 @@ You can use Storage keys as usual when doing Storage operations, in this example
 
 ## Grant your VM identity access to use Storage Keys 
 
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve Storage keys from the Resource Manager, and use those keys to access storage.  In this step, you will grant your VM MSI access to the keys to your Storage account.   
 
 1. Navigate to tab for **Storage**.  
 2. Select the specific **Storage Account** you created earlier.   
