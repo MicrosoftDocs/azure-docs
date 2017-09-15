@@ -51,7 +51,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 > [!NOTE]
 > Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need a licensing server in the cloud for your solution, or connect to an on-premises license server.
 
-## Engineering applications
+### Engineering applications
 
 
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
