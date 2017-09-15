@@ -30,13 +30,14 @@ Contoso wants to test a new smart lightbulb device. To perform the tests, you cr
 
 | Name   | Values      |
 | ------ | ----------- |
-| Status | 1=On, 0=Off |
+| Status | "on", "off" |
 
 *Methods*
 
 | Name        |
 | ----------- |
-| Turn on-off |
+| Switch on   |
+| Switch off  |
 
 *Behavior*
 
@@ -45,8 +46,7 @@ Contoso wants to test a new smart lightbulb device. To perform the tests, you cr
 | Initial color            | White  |
 | Initial brightness       | 75     |
 | Initial remaining life   | 10,000 |
-| Initial telemetry status | 1      |
-| Always on                | 1      |
+| Initial telemetry status | "on"   |
 
 This tutorial shows you how to use the device simulator with the remote monitoring preconfigured solution:
 
@@ -68,9 +68,7 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## The device simulation service
 
-The device simulation service in the preconfigured solution enables you to make changes to the built-in device types and create new device types. You can use custom device types to test the behavior of the remote monitoring solution before you connect your physical devices to the solution.
-
-<!-- Provide detailed steps here -->
+The device simulation service in the preconfigured solution enables you to make changes to the built-in simulated device types and create new simulated device types. You can use custom device types to test the behavior of the remote monitoring solution before you connect your physical devices to the solution.
 
 ## Create a simulated device type
 
@@ -88,6 +86,7 @@ The easiest way to create a new device type in the simulation microservice is to
     | --------------------------- | ----------------------------- |
     | chiller-01.json             | lightbulb-01.json             |
     | scripts/chiller-01-state.js | scripts/lightbulb-01-state.js |
+    | scripts/reboot-method.js    | scripts/SwitchOn-method.js    |
 
 ### Define the characteristics of the new device type
 
@@ -103,7 +102,6 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
     "Description": "Smart lightbulb device.",
     "Protocol": "MQTT",
     ```
-    <!-- TODO update the above snippet -->
 
 1. In the `lightbulb-01.json` file, update the simulation definition as shown in the following snippet:
 
@@ -111,7 +109,7 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
     "Simulation": {
       "InitialState": {
         "online": true,
-        "status": 1
+        "status": "on"
       },
       "Script": {
         "Type": "javascript",
@@ -120,7 +118,6 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
       }
     },
     ```
-    <!-- TODO update the above snippet -->
 
 1. In the `lightbulb-01.json` file, update the device type properties as shown in the following snippet:
 
@@ -132,56 +129,68 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
       "EstimatedRemainingLife": 10000
     },
     ```
-    <!-- TODO update the above snippet -->
 
 1. In the `lightbulb-01.json` file, update the device type telemetry definitions as shown in the following snippet:
 
     ```json
     "Telemetry": [
       {
-        "Interval": "00:00:15",
-        "MessageTemplate": "{\"status\":${status},\"}",
+        "Interval": "00:00:20",
+        "MessageTemplate": "{\"status\":\"${status}\"}",
         "MessageSchema": {
-          "Name": "lightbulb-statuse;v1",
+          "Name": "lightbulb-status;v1",
           "Format": "JSON",
           "Fields": {
-            "status": "integer"
+            "status": "text"
           }
         }
       }
     ],
     ```
-    <!-- TODO update the above snippet -->
 
 1. In the `lightbulb-01.json` file, update the device type methods as shown in the following snippet:
 
     ```json
     "CloudToDeviceMethods": {
-      "Toggle": {
+      "SwitchOn": {
         "Type": "javascript",
-        "Path": "TBD.js"
-      }
+        "Path": "SwitchOn-method.js"
+      },
+      "SwitchOff": {
+        "Type": "javascript",
+        "Path": "SwitchOff-method.js"
+      },
     }
     ```
-    <!-- TODO update the above snippet -->
 
 1. Save the `lightbulb-01.json` file.
 
 ### Simulate custom device behavior
 
-The `scripts/scripts/lightbulb-01-state.js` file defines the simulated behavior of the type. The following steps update the `scripts/scripts/lightbulb-01-state.js` file to define the behavior of the **Lightbulb** device:
+The `scripts/lightbulb-01-state.js` file defines the simulation behavior of the **Lightbulb** type. The following steps update the `scripts/lightbulb-01-state.js` file to define the behavior of the **Lightbulb** device:
 
-1. Edit the state definition in the `scripts/scripts/lightbulb-01-state.js` file as shown in the following snippet:
+1. Edit the state definition in the `scripts/lightbulb-01-state.js` file as shown in the following snippet:
 
     ```js
     // Default state
     var state = {
-        online: true,
-        status: 1,
-        color: White,
-        brightness: 75,
-        remaining_life: 10000
+      online: true,
+      status: "on"
     };
+    ```
+
+1. Replace the **vary** function with the following **flip** function:
+
+    ```js
+    /**
+    * Simple formula that sometimes flips the status of the lightbulb
+    */
+    function flip(value) {
+      if (Math.random() < 0.2) {
+        return (value == "on") ? "off" : "on"
+      }
+      return value;
+    }
     ```
 
 1. Edit the **main** function to implement the behavior as shown in the following snippet:
@@ -189,45 +198,82 @@ The `scripts/scripts/lightbulb-01-state.js` file defines the simulated behavior 
     ```js
     function main(context, previousState) {
 
-        // Restore the global state before generating the new telemetry, so that
-        // the telemetry can apply changes using the previous function state.
-        restoreState(previousState);
+      // Restore the global state before generating the new telemetry, so that
+      // the telemetry can apply changes using the previous function state.
+      restoreState(previousState);
 
-        // TODO - Make this flip every so often
-        state.status = 1;
+      // Make this flip every so often
+      state.status = flip(state.status);
 
-        // 75 +/- 5%,  Min 25, Max 100
-        state.brightness = vary(75, 5, 0, 100);
-
-        // TODO - modify this to change color.
-        state.color = "White";
-
-        // TODO - fix the countdown!
-        state.remaining_life = state.remaining_life--;
-
-        return state;
+      return state;
     }
     ```
-    <!-- TODO update the above snippet -->
 
-1. Save the `scripts/scripts/lightbulb-01-state.js` file.
+1. Save the `scripts/lightbulb-01-state.js` file.
+
+The `scripts/SwitchOn-method.js` file implements the **Switch On** method in a **Lightbulb** device. The following steps update the `scripts/SwitchOn-method.js` file:
+
+1. Edit the state definition in the `scripts/SwitchOn-method.js` file as shown in the following snippet:
+
+    ```js
+    var state = {
+       status: "on"
+    };
+    ```
+
+1. To switch the lightbulb on, edit the **main** function as follows:
+
+    ```js
+    function main(context, previousState) {
+        log("Executing lightbulb Switch On method.");
+        state.status = "on";
+        updateState(state);
+    }
+    ```
+
+1. Save the `scripts/SwitchOn-method.js` file.
+
+1. Make a copy the `scripts/SwitchOn-method.js` file called `scripts/SwitchOff-method.js`.
+
+1. To switch the lightbulb off, edit the **main** function in the `scripts/SwitchOff-method.js` file as follows:
+
+    ```js
+    function main(context, previousState) {
+        log("Executing lightbulb Switch Off method.");
+        state.status = "off";
+        updateState(state);
+    }
+    ```
+
+1. Save the `scripts/SwitchOff-method.js` file.
 
 ### Test the Lightbulb device type
 
-To test the **Lightbulb** device type, you:
+To test the **Lightbulb** device type, you can first test your device type behaves as expected by running a local copy of the **device-simulation** service. When you have tested and debugged your new device type locally, you can rebuild the container and redeploy the **device-simulation** service to Azure.
 
-1. Update the **device-simulation** service to include the new model.
-1. Create one or more instances of the new simulated device type.
+To test and debug your changes locally, see [Running the service with Visual Studio](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#running-the-service-with-visual-studio) or [Build and Run from the command line](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#build-and-run-from-the-command-line).
 
-The following steps describe how to add new simulated instances to the solution:
+Configure the project to copy the new **Lightbulb** device files to the output directory.
 
-<!-- What will be the recomended way to do this when the REST API exists? Postman, Node.js script, other? -->
+When you run the **device-simulation** service locally, it sends telemetry to your remote monitoring solution. On the **Devices** page, you can provision instances of your new type:
+
+<!-- TODO Add screenshot here -->
+
+You can view the telemetry from the simulated device:
+
+<!-- TODO Add screenshot here -->
+
+You can call the **SwitchOn** and **SwitchOff** methods on your device:
+
+<!-- TODO Add screenshot here -->
+
+To build a Docker image with the new device type for deployment to Azure, see [Building a customized Docker image](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#building-a-customized-docker-image).
 
 ## Create a physical device type
 
-To define a new physical device type, you upload a model definition to the **Devices** page in the solution.
+To define a new physical device type, you upload a model definition to the **Devices** page in the solution. The device model definition is a JSON file similar to the device model files that you use with the device simulation service. You are given the opportunity to upload a device type definition whne you provision a new physical device on the **Devices** page:
 
-<!-- TODO Expand on this -->
+<!-- TODO Add screenshot here -->
 
 ## Add a new telemetry type
 
@@ -252,6 +298,12 @@ The following steps show you how to find the files that define the built-in **Ch
 The following steps show you how to add a new **Internal Temperature** type to the **Chiller** device type:
 
 1. Open the `chiller-01.json` file.
+
+1. Update the **SchemaVersion** value as follows:
+
+    ```json
+    "SchemaVersion": "1.1.0",
+    ```
 
 1. In the **InitialState** section, add the follwing two definitions:
 
@@ -300,12 +352,21 @@ The following steps show you how to add a new **Internal Temperature** type to t
 
 To test the updated **Chiller** device type, you:
 
-1. Update the **device-simulation** service with the updated model.
-1. Create one or more instances of the new simulated device type.
+To test the updated **Chiller** device type, you can first test your device type behaves as expected by running a local copy of the **device-simulation** service. When you have tested and debugged your updated device type locally, you can rebuild the container and redeploy the **device-simulation** service to Azure.
 
-The following steps describe how to add new simulated instances to the solution:
+When you run the **device-simulation** service locally, it sends telemetry to your remote monitoring solution. On the **Devices** page, you can provision instances of your updated type.
 
-<!-- What will be the recomended way to do this when the REST API exists? Postman, Node.js script, other? -->
+To test and debug your changes locally, see [Running the service with Visual Studio](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#running-the-service-with-visual-studio) or [Build and Run from the command line](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#build-and-run-from-the-command-line).
+
+When you run the **device-simulation** service locally, it sends telemetry to your remote monitoring solution. On the **Devices** page, you can provision instances of your updated type:
+
+<!-- TODO Add screenshot here -->
+
+You can view the new **Internal temperature** telemetry from the simulated device:
+
+<!-- TODO Add screenshot here -->
+
+To build a Docker image with the new device type for deployment to Azure, see [Building a customized Docker image](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#building-a-customized-docker-image).
 
 ## Next steps
 
