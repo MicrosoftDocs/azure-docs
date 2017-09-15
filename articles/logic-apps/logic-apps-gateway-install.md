@@ -91,8 +91,8 @@ Also, gateway performance might suffer over a wireless network.
 that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
 
   > [!TIP]
-  > If you have a Microsoft account for a Visual Studio 
-  > subscription with MSDN benefits that you want to use, first 
+  > If you want to use a Microsoft account that has a 
+  > Visual Studio with MSDN subscription, first 
   > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) 
   > with your Microsoft account, or use the default directory. 
   > Add a user with a password to the directory, 
