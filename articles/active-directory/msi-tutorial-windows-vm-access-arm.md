@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: elkuzmen
 ---
 
@@ -54,7 +54,7 @@ A VM MSI enables you to get access tokens from Azure AD without you needing to p
 2.	On the left navigation bar click **Configuration**. 
 3.	You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
 4.	Ensure you click **Save** to save the configuration.  
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-configured.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** will appear in the list.
 
@@ -83,7 +83,7 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
 4.	Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body {@resource="https://management.azure.com/"} -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -92,7 +92,7 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
     Next, extract the full response, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
     
     ```powershell
-    $content = $repsonse.Content | ConvertFrom-Json
+    $content = $response.Content | ConvertFrom-Json
     ```
     Next, extract the access token from the response.
     
@@ -106,7 +106,7 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
     (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
     ```
     > [!NOTE] 
-    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
+    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroups."
         
     The following command returns the details of the Resource Group:
 

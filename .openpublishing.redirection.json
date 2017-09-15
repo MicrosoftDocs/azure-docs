@@ -40,6 +40,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/batch/batch-hpc-solutions.md",
+            "redirect_url": "/azure/virtual-machines/linux/high-performance-computing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/big-compute-resources.md",
+            "redirect_url": "/azure/virtual-machines/linux/high-performance-computing",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/architecture-overview.md",
             "redirect_url": "/azure/architecture",
             "redirect_document_id": false
@@ -10305,6 +10315,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/planned-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/planned-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/maintenance-and-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/azure-vm-network-overview.md",
+            "redirect_url": "/azure/virtual-machines/linux/network-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
@@ -10788,7 +10813,7 @@
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
             "redirect_document_id": false
-        },            
+        },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
@@ -10937,6 +10962,26 @@
         {
             "source_path": "articles/azure-toolkit-for-intellij-sign-in-instructions.md",
             "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/containers.md",
+            "redirect_url": "https://azure.microsoft.com/overview/containers/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/containers.md",
+            "redirect_url": "https://azure.microsoft.com/overview/containers/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/terraform-install-configure.md",
+            "redirect_url": "/azure/virtual-machines/linux/terraform-install-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/terraform-create-complete-vm.md",
+            "redirect_url": "/azure/virtual-machines/linux/terraform-create-complete-vm",
             "redirect_document_id": false
         },
         {
