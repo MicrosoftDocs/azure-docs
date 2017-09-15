@@ -121,7 +121,7 @@ Monitoring data from your virtual machines is now flowing into the storage accou
 
 If you have followed the preceding steps, data has begun flowing to your storage account.
 
-1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](../monitor-quick-audit-subscription-portal.md). You may need to wait up to five minutes before the event appears in the storage account.
+1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](./monitor-quick-audit-subscription-portal.md). You may need to wait up to five minutes before the event appears in the storage account.
 
 2. In the portal, navigate to the **Storage Accounts** section by finding it on the left-hand navigation bar.
 
