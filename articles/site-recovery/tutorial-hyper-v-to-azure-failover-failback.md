@@ -26,16 +26,13 @@ This tutorial describes how to fail over a Hyper-V VM to Azure. After you've fai
 
 > [!div class="checklist"]
 > * Fail over Hyper-V VMs from on-premises to Azure
-> * Prepare prerequisites for failback 
-> * Reprotect Azure VMs to the on-premises site 
-> * Fail over from Azure to on-premises
-> * Reprotect on-premises VMs, to start replicating to Azure again
+> * Fail back from Azure to on-premises, and start replicating to Azure again
 
-Failover and failback has four stages:
+## Overview
+Failover and failback has two stages:
 
 1. **Fail over to Azure**: Fail machines over from the on-premises site to Azure.
-2. **Fail back from Azure to on-premises**: Run a planned failover from Azure to on-premises.
-3. **Reprotect on-premises VMs**: After the planned failover, enable reverse replication.  This starts replication for the on-premises to Azure again. 
+2. **Fail back from Azure to on-premises**: Run a planned failover from Azure to on-premises. After the planned failover, you enable reverse replication, to start replicating from on-premises to Azure again. 
 
 
 ## Fail over to Azure
