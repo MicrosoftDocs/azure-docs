@@ -66,6 +66,43 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 
 Now, depending on which operating system you use on your local computer, follow one of the next two sections to install Azure ML Workbench on your computer. 
 
+## Provisioning
+
+Follow the steps listed below in order to provision Experimentation and Model Management accounts for Azure Machine Learning Workbench:
+
+1. Launch the Azure portal by browsing to [http://portal.azure.com](http://portal.azure.com). Login to the portal.
+2. Click on **More services** and search for `Machine Learning`. Look for `Machine Learning Experimentation (preview)` in the search results. Click on `Machine Learning Experimentation (preview)` to get started with creating your _Machine Learning Experimentation account_. Cick on **+Add** button on the new screen.
+
+    ![ML Experimentation Account](media/quick-start-installation/ibiza-search-ml.png)
+    
+3. You can create Model Management account along with the Experimentation account (recommended) or separately. We will discuss both the approaches in this step
+
+    As part of the Experimentation account creation, you will see the following screen: 
+
+    Here is a brief description of each field:
+    
+* Experimentation account name: Name of the experimentation account you're about to create
+* Subscription: Your Azure subscription
+* Resource group: Create a new or pick an existing resource group
+* Location: Pick an Azure region eg. East US 2
+* Number of seats: Provide the number of seats for your experimentation account
+* Storage account: Create a new or pick an existing storage account for storing run outputs and other data.
+* Workspace: Pick a workspace for the experimentation account
+* Assign owner for workspace: Assign an owner for the workspace
+* Create Model Management account: As part of the Experimentation account creation experience, you have the option of also creating the _Machine Learning Model Management account_. You need this resource when you are ready to deploy and manage your models as real-time web services. We recommended that you create the Model Management account at the same time as the Experimentation account.
+   
+     Provide all the details and click on **Create** button
+    
+    ![ML Experimentation Account](media/quick-start-installation/ibiza-experimentation-account-screen.png)
+    
+    If you need to create a model management account only then you can select `Machine Learning Model Management (preview)` from the step 2 above. Click on `Machine Learning Model Management (preview)` to get started with creating your _Machine Learning Model Management account_. Cick on **+Add** button on the new screen. 
+    You will see the following screen:
+    
+    Once you have provided all the information for Model Management account in the screen shown below, click on **Create**
+    
+    ![ML Experimentation Account](media/quick-start-installation/ibiza-model-management-account-screen.png)
+        
+
 ## Install Azure ML Workbench on Windows operating system
 Install the Azure Machine Learning Workbench on your computer running Windows 10, Windows Server 2016, or newer.
 

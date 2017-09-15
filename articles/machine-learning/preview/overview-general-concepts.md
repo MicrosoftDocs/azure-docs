@@ -1,6 +1,6 @@
 ---
 title: Conceptual overview of Azure Machine Learning preview features | Microsoft Docs
-description: A conceptual overview of the preview features of Azure Machine Learning.
+description: A conceptual overview of the preview features of Azure Machine Learning, such as subscriptions, accounts, workspaces, projects, etc.
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -13,7 +13,11 @@ ms.date: 09/06/2017
 
 # Azure Machine Learning - Concepts
 
-- **Subscription:** An Azure subscription grants you access to resources in Azure. Because Azure Machine Learning is deeply integrated with compute, storage, and many other Azure resources and services, Workbench requires that each user have access to a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources.
+This article defines and describes the concepts you need to know to use Azure Machine Learning. 
+
+![Hierarchy of concepts](media/overview-general-concepts/1-hierarchy.png)
+
+- **Subscription:** An Azure subscription grants you access to resources in Azure. Because Azure Machine Learning is deeply integrated with compute, storage, and many other Azure resources and services, Workbench requires that each user has access to a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources.
 
 
 - **Experimentation Account:** Experimentation account is an Azure resource required by Azure ML, and a billing vehicle. It contains your workspaces, which in turn contain projects. You can add multiple users, referred to as _seats_, to an experimentation account. You must have access to an experimentation account in order to use Azure ML Workbench to run experiments. 
@@ -35,7 +39,7 @@ ms.date: 09/06/2017
 - **Compute Target:** A compute target is the compute resource that you configure for executing your experiments. It can be your local computer (Windows or macOS), Docker container running on your local computer or in a Linux VM on Azure, or an HDInsight Spark cluster.
 
 
-- **Run:** The Experimentation Service defines a run as the lifetime of an experiment execution in a compute target. Azure ML captures information of each run automatically and present the entire history of a particular experiment in the form of run history.
+- **Run:** The Experimentation Service defines a run as the lifetime of an experiment execution in a compute target. Azure ML captures information of each run automatically and presents the entire history of a particular experiment in the form of run history.
 
 - **Environment:** In Azure Machine Learning, an environment denotes a particular computing resource that is used for deploying and managing your models. It can be your local computer, a Linux VM on Azure, or a Kubernetes cluster running in Azure Container Service, depending on context and configuration. Your model is hosted in a Docker container running in these environments and exposed as a REST API endpoint.
 
