@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: helaw
 
 ---
-# Understand Azure Stack security posture
+# Azure Stack infrastructure security posture
 
 *Applies to: Azure Stack integrated systems*
 
@@ -46,7 +46,7 @@ Azure Stack infrastructure uses a multitude of secrets, like passwords, to funct
 
 The remaining secrets that are not Group Managed Service accounts can be rotated manually with a script in the Privileged Endpoint.
 
-## Code Integrity
+## Code integrity
 Azure Stack makes use of the latest Windows Server 2016 security features. One of them is Windows Defender Device Guard, which provides application whitelisting, and ensures that only authorized code runs within the Azure Stack infrastructure. 
 
 Authorized code is signed by either Microsoft or the OEM partner, and it is included in the list of allowed software that is specified in a policy defined by Microsoft. In other words, only software that has been approved to run in the Azure Stack infrastructure can be executed. Any attempt to execute unauthorized code will be blocked and an audit will be generated.
@@ -59,7 +59,7 @@ Another Windows Server 2016 security feature in Azure Stack is Windows Defender 
 ## Antimalware
 Every component in Azure Stack (both Hyper-V hosts and Virtual Machines) is protected with Windows Defender Antivirus.
 
-## Constrained Administration Model
+## Constrained administration model
 Administration in Azure Stack is controlled through the use of three entry points, each with a specific purpose: 
 1. The [Administrator Portal](azure-stack-manage-portals.md) provides a point-and-click experience for daily management operations.
 2. Azure Resource Manager exposes all the management operations of the Administrator Portal via a REST API, used by PowerShell and Azure CLI. 
