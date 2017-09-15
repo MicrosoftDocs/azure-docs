@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 09/15/2017
 ms.author: adhurwit
 
 ---
@@ -51,22 +51,24 @@ There are two packages that your web application needs to have installed.
 
 Both of these packages can be installed using the Package Manager Console using the Install-Package command.
 
+```
     // this is currently the latest stable version of ADAL
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
     Install-Package Microsoft.Azure.KeyVault
-
+```
 
 ## <a id="webconfig"></a>Modify Web.Config
 There are three application settings that need to be added to the web.config file as follows.
 
+```
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
     <add key="ClientId" value="clientid" />
     <add key="ClientSecret" value="clientsecret" />
 
     <!-- SecretUri is the URI for the secret in Azure Key Vault -->
     <add key="SecretUri" value="secreturi" />
-
+```
 
 If you are not going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise leave these dummy values because we will be adding the actual values in the Azure Portal for an additional level of security.
 
