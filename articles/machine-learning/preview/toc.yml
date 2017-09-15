@@ -1,47 +1,38 @@
-- name: Azure Machine Learning (preview features) Documentation
+- name: Azure Machine Learning services (preview) Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Azure Machine Learning?
     href: overview-what-is-azure-ml.md
-  - name: Key concepts
-    href: overview-general-concepts.md
   - name: Model management overview
     href: model-management-overview.md
 - name: Quickstarts
   items:
   - name: Provisioning and installation
     href: quick-start-installation.md
-  - name: Quick tour
+  - name: Create a classification project
     href: quick-start-iris.md  
-  - name: Visual Studio Code Tools for Machine Learning
-    href: quickstart-ml-tools.md
-  - name: Data prep quickstart
 - name: Tutorials
   items:
-  - name: Classify iris part 1 - data preparation
+  - name: 1 - Prepare data
     href: tutorial-classifying-iris-part-1.md
-  - name: Classify iris part 2 - model building
+  - name: 2 - Build a model 
     href: tutorial-classifying-iris-part-2.md
-  - name: Classify iris part 3 - model deployment
+  - name: 3 - Deploy a model
     href: tutorial-classifying-iris-part-3.md
+  - name: Prepare bike share data
+    href: tutorial-bikeshare-dataprep.md   
+- name: Concepts   
+  items: 
+  - name: Key concepts
+    href: overview-general-concepts.md
   - name: Classify iris - CLI edition
     href: tutorial-iris-azure-cli.md
   - name: Advanced data preparation (Bike-share)
     href: tutorial-bikeshare-dataprep.md  
-  - name: Real-world scenarios
-    items:
-    - name: Classify UCI incomes - with a TDSP project
-      href: tutorial-classifying-uci-incomes.md
-    - name: Biomedical entity recognition with a TDSP project
-      href: sample-tdsp-nlp.md
-    - name: Aerial Image Classification
-      href: scenario-aerial-image-classification.md
-    - name: Document Collection Analysis
-      href: scenario-document-collection-analysis.md
 - name: How-to guides
-  items:
+  items:  
   - name: Use Azure ML Workbench
     items:
     - name: Working with Python IDEs
@@ -50,7 +41,6 @@
       href: how-to-use-jupyter-notebooks.md
     - name: Integration with Git repo
       href: using-git-ml-project.md
-    - name: (Roaming and sharing projects)
     - name: Structure a project with TDSP
       href: how-to-use-tdsp-in-azure-ml.md
   - name: Compute environment
@@ -61,73 +51,70 @@
       href: how-to-use-gpu.md    
   - name: Acquire and understand data
     items:    
-    - name: Accesing Data with the Data Source Wizard
+    - name: Access data with the Data Source Wizard
       href: data-source-wizard.md
     - name: Get started with data preparation
       href: data-prep-getting-started.md
-    - name: Data prepartion guide
+    - name: Data preparation guide
       href: data-prep-user-guide.md
   - name: Develop models
     items:    
     - name: Track run history and model metrics
       href: how-to-use-run-history-model-metrics.md    
-    - name: Reading and writing files
+    - name: Read and write files
       href: how-to-read-write-files.md
     - name: MMLSpark library
       href: how-to-use-mmlspark.md
   - name: Deploy models
     items:
-    - name: (Setup Model Management Environment)
     - name: Create Docker image
       href: model-management-image-creation.md
-    - name: Consume web service
+    - name: Consume a web service
       href: model-management-consumption.md  
     - name: Deploy web service
       href: model-management-service-deploy.md
     - name: Model Data Collection
       href: how-to-use-model-data-collection.md
-  - name: End-to-end examples
+  - name: Real-world examples
     items:
-    - name: Awesome ADS example 1
-      href: doc-template-how-to.md 
-    - name: Awesome ADS example 2
-      href: doc-template-how-to.md
-    - name: Awesome ADS example 3
-      href: doc-template-how-to.md
-    - name: Known issues & troubleshooting guide
-      href: known-issues-and-troubleshooting-guide.md
+    - name: Classify US incomes - TDSP project
+      href: tutorial-classifying-uci-incomes.md
+    - name: Biomedical entity recognition - TDSP project
+      href: sample-tdsp-nlp.md  
+    - name: Aerial Image Classification
+      href: scenario-aerial-image-classification.md
+    - name: Document Collection Analysis
+      href: scenario-document-collection-analysis.md         
 - name: Reference
   items:  
   - name: Service limitations
     href: reference-service-limits.md
-  - name: Data Preparation
+  - name: Data preparation
     items:
     - name: Python extensions for data preparation
       href: data-prep-python-extensibility-overview.md
-    - name: Supported Data Sources
+    - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
-    - name: Supported Data Preparation Tranforms
+    - name: Supported tranforms
       href: data-prep-appendix3-supported-transforms.md
-    - name: Supported Data Preparation Inspectors
+    - name: Supported inspectors
       href: data-prep-appendix4-supported-inspectors.md
-    - name: Supported Data Preparation Data Destinations
+    - name: Supported data destinations
       href: data-prep-appendix5-supported-destinations.md
-    - name: Sample Data Preparation Filter Expressions in Python
+    - name: Sample of filter expressions in Python
       href: data-prep-appendix6-sample-filter-expressions-python.md
-    - name: Sample Data Preparation Filter Expressions in Python
+    - name: Sample of custom DataFlow transforms in Python
       href: data-prep-appendix7-sample-transform-data-flow-python.md
-    - name: Sample Data Preparation Source Connections in Python
+    - name: Sample of source connections in Python
       href: data-prep-appendix8-sample-source-connections-python.md
-    - name: Sample Data Preparation Destination Connections in Python
+    - name: Sample of destination connections in Python
       href: data-prep-appendix9-sample-destination-connections-python.md
-    - name: Sample Data Preparation Column Transforms in Python
+    - name: Sample of column transforms in Python
       href: data-prep-appendix10-sample-custom-column-transforms-python.md  
-    - name: (Data Preparation Execution API)
   - name: Experimentation    
     items:
     - name: Execution configuration
       href: experiment-execution-configuration-reference.md
-    - name: (Logging Python SDK)
   - name: Model management
     items:
     - name: Model Management API
@@ -138,8 +125,13 @@
       href: model-management-cli-reference.md
     - name: Model Data Collection API
       href: model-data-collection-api-reference.md
-    - name: (Model Management Python libraries)
 - name: Resources
   items:  
   - name: FAQ
     href: faq.md
+  - name: Team Data Science Process documentation
+    href: ../team-data-science-process/overview.md
+  - name: Data Science VM documentation
+    href: ../data-science-virtual-machine/overview.md
+  - name: Known issues and troubleshooting guide
+    href: known-issues-and-troubleshooting-guide.md
