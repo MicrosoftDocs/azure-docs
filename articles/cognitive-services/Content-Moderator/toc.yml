@@ -6,7 +6,7 @@
     href: overview.md
 - name: Quickstarts
   items: 
-  - name: Review Tool
+  - name: Review tool
     href: quick-start.md
   - name: Moderation APIs
     items: 
@@ -38,9 +38,9 @@
     href: video-moderation-api.md
   - name: Review APIs
     href: review-api.md
-- name: How-to Guides
+- name: How-to guides
   items:
-  - name: Review Tool
+  - name: Review tool
     items:
     - name: Human in the loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
