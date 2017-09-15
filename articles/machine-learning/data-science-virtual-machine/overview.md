@@ -25,7 +25,6 @@ The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’
 
 This topic discusses what you can do with the Data Science VM, outlines some of the key scenarios for using the VM, itemizes the key features available on the Windows and Linux versions, and provides instructions on how to get started using them.
 
-For an introduction to the Deep Learning Data Science VM, see [Introduction to the Deep Learning Data Science Virtual Machine](deep-learning-dsvm-overview.md). 
 
 ## What can I do with the Data Science Virtual Machine?
 The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment. This VM saves you considerable time that you would spend if you had rolled out a comparable environment on your own. Instead, start your data science project immediately in a newly created VM instance. 
