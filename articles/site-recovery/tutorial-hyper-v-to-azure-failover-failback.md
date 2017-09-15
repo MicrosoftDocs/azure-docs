@@ -1,5 +1,5 @@
 ---
-title: Fail over and fail back Hyper-V VMs replicated to Azure with Site Recove | Microsoft Docs
+title: Fail over and fail back Hyper-V VMs replicated to Azure with Site Recovery | Microsoft Docs
 description: Learn how to fail over Hyper-V VMs to Azure, and fail back to the on-premises site, with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
@@ -108,7 +108,7 @@ To complete failback, make sure that the primary site VMM server/Hyper-V server 
 
 After failover to Azure, Hyper-V VMs aren't protected by Site Recovery, and Azure is now the active location.
 
-. Follow these procedures to fail back to the original primary site. This procedure describes how to run a planned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine on the **Virtual Machines** tab.
+Follow these procedures to fail back to the original primary site. This procedure describes how to run a planned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine on the **Virtual Machines** tab.
 
 1. In **Settings** > **Replicated items** click the VM > **Planned Failover**.
 2. In **Confirm Planned Failover**, verify the failover direction (from Azure), and select the source and target locations. 
