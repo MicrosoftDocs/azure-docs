@@ -10,7 +10,7 @@ The `clouddrive` directory syncs with the Azure portal storage blade. Use this b
 
 ### Upload files
 
-![Local files to be uploaded](../articles/cloud-shellmedia/persisting-shell-storage/upload.png)
+![Local files to be uploaded](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
 1. Go to your mounted file share.
 2. Select the **Upload** button.
 3. Select the file or files that you want to upload.
