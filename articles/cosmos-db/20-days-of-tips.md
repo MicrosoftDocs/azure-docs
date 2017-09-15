@@ -1,6 +1,6 @@
 ---
 title: "20 days of Azure Cosmos DB tips | Microsoft Docs"
-description: Find all of the tips from the "20 days of Azure Cosmos DB" twitter series in one place.
+description: Find all of the tips from Simona Cotin's 20 days of Azure Cosmos DB tips series in one place.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -66,19 +66,11 @@ Tip 5: Want to try Azure #CosmosDB for free? No signup or credit card required, 
 
 ## Tip 6: Migrate your MEAN app
 
-Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmosDB! [https://aka.ms/gfh6i5](https://aka.ms/gfh6i5) Full video: [https://aka.ms/aoojih](https://aka.ms/aoojih)
-
-> [!VIDEO https://www.youtube.com/embed/1DzwI5HmU5w]
-
-[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
-
-## Tip 7: Build a Node.js app by using Graph API
-
-Tip 7: Build a Node.js app by using Graph API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/X79feg](https://aka.ms/X79feg)
+Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmosDB! https://aka.ms/gfh6i5 Full video:  https://aka.ms/aoojih  
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
-[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907982218353451009)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313762492686352384)
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
 
 ## Next steps
 
