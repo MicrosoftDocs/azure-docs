@@ -1,6 +1,6 @@
 ---
 title: Iris Quickstart for Azure Machine Learning  | Microsoft Docs
-description: This Quickstart demonstrates how to use Azure Machine Learning to process the timeless Iris flower dataset with Azure Machine Learning.
+description: This Quickstart demonstrates how to use Azure Machine Learning preview features to process the timeless Iris flower dataset.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl
