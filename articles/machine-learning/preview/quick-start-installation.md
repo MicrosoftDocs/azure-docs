@@ -16,7 +16,7 @@ ms.date: 09/14/2017
 # Provision and install Azure Machine Learning preview features
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
-This Quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning. It shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools.
+This Quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning. It also shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools.
 
 ## Prerequisites
 * An Azure account - you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -25,11 +25,9 @@ This Quickstart shows you how to create experimentation and model management acc
    * macOS Sierra (or newer)
 
 ### Optional prerequisites
-* Local Docker engine for running dev/test scenarios locally.
+* Docker engine for running dev/test scenarios locally.
 * Access to an Ubuntu Linux VM for scale-up computation.
 * Access to HDInsight for Spark cluster for scale-out computation.
-* Access to an Azure Container Service (ACS) Kubernetes cluster for scale-out model deployment.
-* Docker must be installed on local machine for local web service deployment.
 
 ## Provision Azure Machine Learning accounts
 Use the Azure portal to provision Azure Machine Learning accounts. 
@@ -66,7 +64,7 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 
    The notification will show "Deployment in progress...". The status will change to "Deployment succeeded" once it is done. Your Machine Learning Experimentation account page will open upon success.
 
-9. Now, depending on which operating system you use on your local computer, follow one of the next two sections to install Azure ML Workbench on your computer. 
+Now, depending on which operating system you use on your local computer, follow one of the next two sections to install Azure ML Workbench on your computer. 
 
 ## Install Azure ML Workbench on Windows operating system
 Install the Azure Machine Learning Workbench on your computer running Windows 10, Windows Server 2016, or newer.
@@ -74,15 +72,18 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
 1. Download the latest Azure ML Workbench installer
 **[AmlWorkbenchSetup.exe](https://aka.ms/azureml-wb-msi)**
 
-2. Double-click the downloaded installer _AmlWorkbenchSetup.exe_.
+2. Double-click the downloaded installer _AmlWorkbenchSetup.exe_ from your File Explorer.
 
     >[!IMPORTANT]
     >Download the installer fully on disk, then launch it from there. Do not launch it directly off your browser's download widget.
 
 3. Finish the installation by following the on-screen instructions.
-   The installer will download all the necessary dependent component such as Python, Miniconda, Azure ML CLI, Azure ML SDK, Azure ML Data Profile. The installation may take around half an hour to finish all the components. 
 
-4. Azure ML Workbench is installed in the following directory on your account user profile: _C:\Users\<username>\AppData\Local\AmlWorkbench_
+   The installer will download all the necessary dependent component such as Python, Miniconda, and other related libraries. The installation may take around half an hour to finish all the components. 
+
+4. Azure ML Workbench is now installed in the following directory:
+    
+    _C:\Users\<username>\AppData\Local\AmlWorkbench_
 
 ## Install Azure Machine Learning Workbench on macOS operating system.
 Install the Azure Machine Learning Workbench on your computer running macOS Sierra or newer.
@@ -109,20 +110,25 @@ Install the Azure Machine Learning Workbench on your computer running macOS Sier
     >[!IMPORTANT]
     >Download the installer fully on disk, then launch it from there. Do not launch it directly off your browser's download widget.
 
-3. Double-click the downloaded installer _AmlWorkbench.dmg_.
+3. Double-click the downloaded installer _AmlWorkbench.dmg_ from Finder.
 
 4. Finish the installation by following the on-screen instructions.
 
-   The installer will download all the necessary dependent component such as Python, Miniconda, Azure ML CLI, Azure ML SDK, Azure ML Data Profile. The installation may take around half an hour to finish all the components. 
+      The installer will download all the necessary dependent component such as Python, Miniconda, and other related libraries. The installation may take around half an hour to finish all the components. 
 
-5. Azure ML Workbench is installed in the following directory: _/Applications/AmlWorkbench.app_
+5. Azure ML Workbench is now installed in the following directory: 
+    
+    _/Applications/AmlWorkbench.app_
 
 ## Run Azure ML Workbench to log in the first time
 1. Click on the **Launch Workbench** button on the last screen of the installer once the installation process is complete. If you have closed the installer, find the shortcut to the Machine Learning Workbench on your desktop and start menu named **Azure Machine Learning Workbench**. Double-click it to open the app.
 
 2. Log in to the Workbench using the same account you used earlier to provision your Azure resources. 
 
-3. When the login process has succeeded, Azure ML Workbench attempts to find the ML Experimentation accounts you created earlier. It searches within the entire set of Azure subscriptions to which your credentials are attached. When at least one Experimentation Account is found, Azure ML Workbench opens with that account. It then lists the Workspaces and Projects found in that account. 
+3. When the login process has succeeded, Azure ML Workbench attempts to find the ML Experimentation accounts you created earlier. It searches for all Azure subscriptions to which your credential has access. When at least one Experimentation Account is found, Azure ML Workbench opens with that account. It then lists the Workspaces and Projects found in that account. 
+
+    >[!TIP]
+    >You can switch to a different Experimentation Account, if you have access to more than one, by clicking on the avatar icon in the lower left corner of the Workbench app.
 
 Once the installation process is complete and you log in successfully, move on to installing optional components.
 
@@ -131,7 +137,7 @@ Azure ML Workbench can run experiments in various compute targets. To use these 
 * Execute on your local **Windows or macOS computer**
    * There is no additional requirements.
 * Execute in a **local Docker container**
-   * You must have Docker engine installed and running. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
+   * This requires a local Docker installation. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
 * Execute in a **Docker container on a remote Linux machine**
    * You must have SSH access (username and password) to the Linux VM, and you must have Docker engine installed and running on that machine.
    * We recommend you [create a Ubuntu-based DSVM (Data Science Virtual Machine) on Azure](../data-science-virtual-machine/dsvm-ubuntu-intro.md), which has Docker pre-installed so it is ready to go. Also make sure you use username/password for credentials, not SSH public key.
@@ -140,11 +146,12 @@ Azure ML Workbench can run experiments in various compute targets. To use these 
 * Deploy a web service to run **locally on your machine**
    * This requires a local Docker installation. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
 * Deploy a web service to run in an **Azure Container Service Kubernetes cluster**
-   * You can set up the cluster in advance, or use Model Management CLI setup command to create it for you.
+   * You need permission to create Azure Container Service clusters in your Azure subscription. They are created using Azure ML CLI command when you deploy models.
 
 ## Special note on Docker for Windows 
 You need Docker to execute scripts in a local Docker container, or to deploy model via a containerized web service locally. We have some tips for installing and configuring Docker for Azure Machine Learning on Windows.  Make sure you follow these instructions:
 - Only Windows 10 is supported for running Docker for Windows.
+- Windows in a Virtual Machine is not supported.
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and have it up and running.
 - Make sure your Docker engine is running in [Linux Container mode](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 - Optionally, for better execution performance, share C drive (or whichever drive the system _%temp%_ folder is) in the Docker for Windows configuration.
