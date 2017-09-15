@@ -31,18 +31,18 @@ In this article, you'll learn how to use Storage Explorer (Preview) to work with
 ## Prerequisites
 
 - Azure subscription. If you don't have, create a  [free Azure account](https://azure.microsoft.com/en-us/free/) first.
-- Create your own Cosmos DB account on Azure Portal, remember to choose “SQL (Document DB)” API or “Mongo” API, refer this: [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-documentdb-dotnet).
-- Install the newest Azure Storage Explorer bits. You can install it from [Here](https://urlmanager.cloudapp.net/app/html/index.html#/go.microsoft.com.fwlink).
+- Create your own Cosmos DB account on Azure portal, remember to choose “SQL (Document DB)” API or “Mongo” API, refer this: [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-documentdb-dotnet).
+- Install the newest Azure Storage Explorer bits. You can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858559).
 
 
 
 ## Connect to Azure subscription
 
-1. After installing the **Azure Storage Explorer**, click the third **plug in** icon on the left, then choose **Add an Azure Account**.
+1. After installing the **Azure Storage Explorer**, click the third **plug-in** icon on the left, then choose **Add an Azure Account**.
        
    ![plug in icon](./media/cosmosdb-in-storage-explorer-get-started/plug-in-icon.png)
 
-   ![connect to Azure subacription](./media/cosmosdb-in-storage-explorer-get-started/connect-to-azure-subscription.png)
+   ![connect to Azure subscription](./media/cosmosdb-in-storage-explorer-get-started/connect-to-azure-subscription.png)
 
 2. In the **Azure Sign In** dialog box, select **Sign in**, and then enter your Azure credentials.
 
@@ -58,9 +58,9 @@ In this article, you'll learn how to use Storage Explorer (Preview) to work with
 
 ## Connect to Cosmos DB by Connection String
 
-1. Find **Local and Attached** in the left tree, right-click **Azure Cosmos DB Accouts**, choose **Connect to Cosmos DB...**
+1. Find **Local and Attached** in the left tree, right-click **Azure Cosmos DB Accounts**, choose **Connect to Cosmos DB...**
 
-    ![connect to cosmosdb by connection string](./media/cosmosdb-in-storage-explorer-get-started/connect-to-cosmosdb-by-connection-string.png)
+    ![connect to Cosmos DB by connection string](./media/cosmosdb-in-storage-explorer-get-started/connect-to-cosmosdb-by-connection-string.png)
 
 2. Choose Cosmos DB API, paste your **Connection String**, click **OK** to connect Cosmos DB account.
 
@@ -75,11 +75,11 @@ You can manage Cosmos DB account by doing following operations:
 * Document: create, edit, delete and filter
 * Stored Procedure: create, edit and delete
 * Trigger: create, edit and delete
-* User Defined Functions: create, edit and delete
+* User-Defined Functions: create, edit and delete
 * Another scenario when user use partition key
 
 ### Open in Portal, Add to Quick Access, Search,  Refresh
-1. Right-click a Cosmos DB account or a database, you can choose **Open in Portal** and manage the resource in browser on Azure Portal.
+1. Right-click a Cosmos DB account or a database, you can choose **Open in Portal** and manage the resource in browser on Azure portal.
 
      ![open in portal](./media/cosmosdb-in-storage-explorer-get-started/open-in-portal.png)
 
@@ -90,21 +90,19 @@ You can manage Cosmos DB account by doing following operations:
 
 ### Database and Collection management
 
-1. **Create Database**: Right-click the Cosmos DB account, choose **Create Database** , then appear a node to input the database name, **Enter** to complete.
+1. **Create Database**: Right-click the Cosmos DB account, choose **Create Database**, then appear a node to input the database name, **Enter** to complete.
 
     ![create database](./media/cosmosdb-in-storage-explorer-get-started/create-database.png) 
-2. **Delete Database**: Right-click the database, click **Delete Database**, Click **Yes** on the pop up window, the database node will be deleted and the Cosmos DB account refresh automatically.
+2. **Delete Database**: Right-click the database, click **Delete Database**, Click **Yes** on the pop-up window, the database node will be deleted and the Cosmos DB account refresh automatically.
 
     ![detele database1](./media/cosmosdb-in-storage-explorer-get-started/delete-database1.png)  
     ![delete database2](./media/cosmosdb-in-storage-explorer-get-started/delete-database2.png) 
 
-3. **Create Collection**: Right-click your database, choose **Create Collection**, and then provide the following information like Collection id, Storage capacity,etc. Click **OK** to finish. 
-
-    For partition key setting. refer this:  [Design for partitioning](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data#designing-for-partitioning) .
-If using partition key when create collection, once completing the creation, the partition key value can't be changed in documents, the Stored Procedure, Trigger, and UDF can't be changed once savedd.
+3. **Create Collection**: Right-click your database, choose **Create Collection**, and then provide the following information like Collection ID, Storage capacity, etc. Click **OK** to finish. For partition key setting. refer this:  [Design for partitioning](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data#designing-for-partitioning).
+If using partition key when create collection, once completing the creation, the partition key value can't be changed in documents, the Stored Procedure, Trigger, and UDF can't be changed once saved.
     ![create collection1](./media/cosmosdb-in-storage-explorer-get-started/create-collection.png)
     ![create collection2](./media/cosmosdb-in-storage-explorer-get-started/create-collection2.png) 
-4. **Delete Collection**: Right-click the collection, click **Delete Collection**, Click **Yes** on the pop up window, the collection node will be deleted and the database refresh automatically.
+4. **Delete Collection**: Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node will be deleted and the database refresh automatically.
 
     ![delete collection](./media/cosmosdb-in-storage-explorer-get-started/delete-collection.png) 
 
@@ -120,18 +118,18 @@ If using partition key when create collection, once completing the creation, the
     ![filter](./media/cosmosdb-in-storage-explorer-get-started/filter.png)
 
 ### Stored Procedure, Trigger, and UDF
-1. **Stored Procedure**: In the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure** , enter name in the left, type the stored procedure scripts in the right window, click **Create** button to complete. 
+1. **Stored Procedure**: In the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter name in the left, type the stored procedure scripts in the right window, click **Create** button to complete. 
 
-    You can also edit existing stored procedure through double click, click **Update** to save or **Discard** to cancle the change.
+    You can also edit existing stored procedure through double-click, click **Update** to save or **Discard** to cancel the change.
 
     ![stored procedure](./media/cosmosdb-in-storage-explorer-get-started/stored-procedure.png)
 
-2. The operations for **Triggers** and **UDF** are very similiar to **Stored Procedure**.
+2. The operations for **Triggers** and **UDF** are very similar to **Stored Procedure**.
 
 ## <a name="seealso"></a>See also
 * [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 
 ### Demo
-* Use Cosmos DB in Azure Storage Explorer (video): [Use Cosmos DB in Azure Storage Explorer](https://urlmanager.cloudapp.net/app/html/index.html#/go.microsoft.com.fwlink)
+* Use Cosmos DB in Azure Storage Explorer (video): [Use Cosmos DB in Azure Storage Explorer](https://go.microsoft.com/fwlink/?linkid=858559)
 * Storage Explorer Overview (video): [Storage Explorer Overview](https://azure.microsoft.com/en-us/resources/videos/storage-explorer-overview/)
 

@@ -99,6 +99,8 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
+  - name: Azure Storage Explorer
+    href: cosmosdb-in-storage-explorer-get-started.md
 - name: Concepts
   items:
   - name: Global distribution
