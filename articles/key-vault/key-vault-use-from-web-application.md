@@ -128,11 +128,11 @@ var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri
 Utils.EncryptSecret = sec.Value;
 ```
 
-## <a id="portalsettings"></a>Add App Settings in the Azure Portal (optional)
+## <a id="portalsettings"></a>Add App Settings in the Azure portal (optional)
 
-If you have an Azure Web App, you can now add the actual values for the AppSettings in the Azure Portal. By doing this, the actual values will not be in the web.config but protected via the Portal where you have separate access control capabilities. These values will be substituted for the values that you entered in your web.config. Make sure that the names are the same.
+If you have an Azure Web App, you can now add the actual values for the AppSettings in the Azure portal. By doing this, the actual values will not be in the web.config but protected via the Portal where you have separate access control capabilities. These values will be substituted for the values that you entered in your web.config. Make sure that the names are the same.
 
-![Application Settings displayed in Azure Portal][1]
+![Application Settings displayed in Azure portal][1]
 
 ## Authenticate with a Certificate instead of a Client Secret
 
@@ -158,7 +158,7 @@ For more information on creating a test certificate, see [How to: Create Your Ow
 
 ### Associate the Certificate with an Azure AD application
 
-Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure Portal does not support this workflow; this can be completed through PowerShell. Run the following commands to assoicate the certificate with the Azure AD application:
+Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure portal does not support this workflow; this can be completed through PowerShell. Run the following commands to assoicate the certificate with the Azure AD application:
 
 ```cs
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
@@ -246,11 +246,11 @@ The last code change is in the Application_Start method. First we need to call t
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 ```
 
-### Add a Certificate to your Web App through the Azure Portal
+### Add a Certificate to your Web App through the Azure portal
 
-Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure Portal and navigate to your Web App. On the Settings blade for your Web App, click on the entry for "Custom domains and SSL". On the blade that opens you will be able to upload the Certificate that you created in the preceding example, KVWebApp.pfx, make sure that you remember the password for the pfx.
+Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure portal and navigate to your Web App. On the Settings blade for your Web App, click on the entry for "Custom domains and SSL". On the blade that opens you will be able to upload the Certificate that you created in the preceding example, KVWebApp.pfx, make sure that you remember the password for the pfx.
 
-![Adding a Certificate to a Web App in the Azure Portal][2]
+![Adding a Certificate to a Web App in the Azure portal][2]
 
 The last thing that you need to do is to add an Application Setting to your Web App that has the name WEBSITE\_LOAD\_CERTIFICATES and a value of *. This will ensure that all Certificates are loaded. If you wanted to load only the Certificates that you have uploaded, then you can enter a comma-separated list of their thumbprints.
 
