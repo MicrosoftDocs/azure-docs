@@ -19,9 +19,9 @@ Several layers of your Azure environment produce log and metric data that can be
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a storage account
 
@@ -129,17 +129,13 @@ If you have followed the preceding steps, data has begun flowing to your storage
 
 4. Click on **Blobs**, then on the container labeled **insights-operational-logs** and finally on the container labeled **name=default**. This is the container that has your Activity Log in it. Monitoring data is broken out into containers by resource ID (just the subscription ID for the Activity Log), then by date and time. The full format for these blobs is:
 
-   > insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
-   > 
-   > 
+   insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 
 5. Navigate to the PT1H.json file by clicking into the containers for resource ID, date, and time. Click on the PT1H.json file and click **Download**. Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since log events are broken into individual blobs per hour.
 
-You can now view the JSON event that was stored in the storage account. For resource diagnostic logs, the format for the blobs is:
+   You can now view the JSON event that was stored in the storage account. For resource diagnostic logs, the format for the blobs is:
 
-   > insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
-   > 
-   >
+   insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 
 6. Guest OS monitoring data is stored in tables. navigate back to the storage account home, and click **Tables**. There are tables for metrics, performance counters, and event logs.
 
