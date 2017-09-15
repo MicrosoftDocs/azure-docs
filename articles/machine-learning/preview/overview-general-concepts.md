@@ -45,8 +45,7 @@ ms.date: 09/06/2017
 - **Deployment:** Model Management allows you to deploy models as containerized web service locally or in Kubernetes cluster in Azure. Each web service is counted as a single deployment. 
 
 
-- **Manifests:** When the Model Management system deploys a model into production it includes a manifest that encompasses the model, dependencies, a scoring script, sample data, and a schema. The manifest is the recipe used to create a Docker container image. Using Model Management, you can auto-generate, create versions, and manage your manifests. 
+- **Manifests:** When the Model Management system deploys a model into production it includes a manifest that typically encompasses model or models, dependent libraries and packages, scoring scripts, sample data, and input schemas. The manifest can be used to create a web service in a Docker image. Using Model Management, you can auto-generate, create versions, and manage your manifests. 
 
-
-- **Images:** You can use manifests to generate (and regenerate) Docker images. Containerized Docker images create flexibility to run images in the cloud, on local machines, or on IoT device. Images are self-contained, and include all dependencies required for generating predictions. 
+- **Images:** You can use manifests to generate (and regenerate) Docker images. Docker image allows flexibility to deploy in the cloud, on local machines, or on IoT device. Images are self-contained, and include all dependencies required for making predictions.
 
