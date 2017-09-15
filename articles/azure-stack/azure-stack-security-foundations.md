@@ -23,7 +23,7 @@ ms.author: helaw
 
 Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack was designed for these scenarios, and it is important to understand the controls already in place when adopting Azure Stack.
 
-In Azure Stack, there are two security posture “layers” that coexist. The first layer comprises the Azure Stack infrastructure, which goes from the hardware components all the way up to the Azure Resource Manager, and includes the Administrator and the Tenant portals. The second layer consists of the workloads that tenants create, deploy, and manage and includes things like virtual machines or App Services web sites.  
+In Azure Stack, there are two security posture layers that coexist. The first layer comprises the Azure Stack infrastructure, which goes from the hardware components all the way up to the Azure Resource Manager, and includes the Administrator and the Tenant portals. The second layer consists of the workloads that tenants create, deploy, and manage and includes things like virtual machines or App Services web sites.  
 
 ## Security approach
 Azure Stack was designed with a security posture to defend against modern threats, and was built to meet the requirements from the major compliance standards. As a result, the security posture of the Azure Stack infrastructure is built on two pillars:
@@ -38,7 +38,9 @@ All Azure Stack infrastructure and tenant data is encrypted at rest using Bitloc
 
 ## Data in transit encryption
 The Azure Stack infrastructure components communicate using channels encrypted with TLS 1.2. Encryption certificates are self-managed by the infrastructure. 
-All external infrastructure endpoints, such as the REST endpoints or the Azure Stack portal, support TLS 1.2 for secure communications. Encryption certificates, either from a 3rd party or your enterprise Certificate Authority, must be provided for those endpoints. 
+
+All external infrastructure endpoints, such as the REST endpoints or the Azure Stack portal, support TLS 1.2 for secure communications. Encryption certificates, either from a third party or your enterprise Certificate Authority, must be provided for those endpoints. 
+
 While self-signed certificates can be used for these external endpoints, Microsoft strongly advises against using them. 
 
 ## Secret management
@@ -49,9 +51,9 @@ The remaining secrets that are not Group Managed Service accounts can be rotated
 ## Code integrity
 Azure Stack makes use of the latest Windows Server 2016 security features. One of them is Windows Defender Device Guard, which provides application whitelisting, and ensures that only authorized code runs within the Azure Stack infrastructure. 
 
-Authorized code is signed by either Microsoft or the OEM partner, and it is included in the list of allowed software that is specified in a policy defined by Microsoft. In other words, only software that has been approved to run in the Azure Stack infrastructure can be executed. Any attempt to execute unauthorized code will be blocked and an audit will be generated.
+Authorized code is signed by either Microsoft or the OEM partner, and it is included in the list of allowed software that is specified in a policy defined by Microsoft. In other words, only software that has been approved to run in the Azure Stack infrastructure can be executed. Any attempt to execute unauthorized code are blocked and an audit is generated.
 
-The Device Guard policy also prevents third party agents or software from running in the Azure Stack infrastructure.
+The Device Guard policy also prevents third-party agents or software from running in the Azure Stack infrastructure.
 
 ## Credential Guard
 Another Windows Server 2016 security feature in Azure Stack is Windows Defender Credential Guard, which is used to protect Azure Stack infrastructure credentials from Pass-the-Hash and Pass-the-ticket attacks.
