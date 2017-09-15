@@ -1,5 +1,5 @@
 ---
-title: Monitor and respond to events with Log Analytics Alerts | Microsoft Docs
+title: Monitor and respond to events with Azure Log Analytics Alerts | Microsoft Docs
 description: This tutorial helps you understand alerts in Log Analytics to identify important information in your OMS repository and proactively notify you of issues or invoke actions to attempt to correct them.
 services: log-analytics
 documentationcenter: ''
@@ -42,8 +42,8 @@ In the following example, we create a metric measurement alert rule which will c
    a. Provide a **Name** for your alert, such as *VM processor utilization exceeded >90*  
    b. For **Time Window**, specify a time range for the query, such as *30*.  The query returns only records that were created within this range of the current time.  
    c. **Alert Frequency** specifies how often the query should be run.  For this example, specify *5* minutes, which will occur within our time window specified.  
-   e. Select **Metric Measurement** and enter *90* for **Aggregated Value** and enter *3* for **Trigger alert based on**   
-   f. Under **Actions**, disable email notification.
+   d. Select **Metric Measurement** and enter *90* for **Aggregated Value** and enter *3* for **Trigger alert based on**   
+   e. Under **Actions**, disable email notification.
 7. Click **Save** to complete the alert rule. It will start running immediately.<br><br> ![Alert rule example](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
 
 Alert records created by alert rules in Log Analytics have a Type of **Alert** and a SourceSystem of **OMS**.<br><br> ![Example of Alert events generated](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
