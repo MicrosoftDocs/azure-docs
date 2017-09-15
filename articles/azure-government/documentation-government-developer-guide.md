@@ -69,6 +69,7 @@ The Azure Blueprint program is designed to facilitate the secure and compliant u
 For more information on Azure Government Compliance, refer to the [compliance documentation](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-plan-compliance) and watch this [video](https://channel9.msdn.com/blogs/Azure-Government/Compliance-on-Azure-Government). 
 
 ## Endpoint mapping
+
 To learn about mapping global Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
 
 > [!NOTE]
