@@ -1,5 +1,5 @@
 ---
-title: Azure Stack datacenter integration - publish endpoints
+title: Azure Stack datacenter integration - Publish endpoints
 description: Learn how to publish Azure Stack endpoints in your datacenter
 services: azure-stack
 author: troettinger
@@ -10,7 +10,7 @@ ms.author: victorh
 keywords:
 ---
 
-# Azure Stack datacenter integration - publish endpoints
+# Azure Stack datacenter integration - Publish endpoints
 
 *Applies to: Azure Stack integrated systems*
 
@@ -105,4 +105,4 @@ If non-public routable IP addresses are used for the public VIP pool of Azure St
 
 ## Next steps
 
-Azure Stack datacenter integration - IT service management
+[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)
