@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/28/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 # Manage Azure policy using the Azure Stack Policy Module
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 The Azure Stack Policy module allows you to configure an Azure subscription with the same versioning and service availability as Azure Stack.  The module uses the **New-AzureRMPolicyAssignment** cmdlet to create an Azure policy, which limits the resource types and services available in a subscription.  Once complete, you can use your Azure subscription to develop apps targeted for Azure Stack.  
 
 ## Install the module

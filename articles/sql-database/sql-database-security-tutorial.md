@@ -184,7 +184,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 5. Click **Save**.
 
 > [!IMPORTANT]
-> If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#subheading-7) section for more details.
+> If you want to customize the audited events, you can do this via PowerShell or REST API - see [SQL database auditing](sql-database-auditing.md) for more details.
 >
 
 ## Enable SQL Database threat detection
