@@ -128,7 +128,6 @@ Event Hubs events are currently only emitted when a file is automatically sent t
 ### Available event types
 
 - **Microsoft.EventHub.CaptureFileCreated**: Raised when a capture file is created.
-
 ### Example event
 
 This sample event shows the schema of an Event Hubs event raised when the Capture feature stores a file: 
@@ -156,7 +155,6 @@ This sample event shows the schema of an Event Hubs event raised when the Captur
 ]
 
 ```
-
 
 
 ## Azure Blob storage
@@ -204,7 +202,11 @@ This sample event shows the schema of a storage event raised when a blob is crea
 
 ## Custom topics
 
+<<<<<<< HEAD
 The data payload of your custom events is defined by you and can be any well formatted JSON object. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
+=======
+The data payload of your custom events is defined by you and can be any well-formatted JSON file. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
+>>>>>>> d0ac84875053261feac2b94ef80a0f96b7063d81
 
 ### Example event
 
