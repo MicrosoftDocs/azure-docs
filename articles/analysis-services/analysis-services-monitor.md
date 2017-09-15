@@ -36,7 +36,7 @@ To perform more in-depth diagnostics, track performance, and identify trends acr
     ![Monitor chart](./media/analysis-services-monitor/aas-monitor-chart.png)
 
 ## Server metrics
-Use this table to determine which metrics are best for you monitoring scenario. Only metrics of the same unit can be shown on the same chart.
+Use this table to determine which metrics are best for your monitoring scenario. Only metrics of the same unit can be shown on the same chart.
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
@@ -54,7 +54,7 @@ Use this table to determine which metrics are best for you monitoring scenario. 
 |MemoryLimitHigh|Memory: Memory Limit High|Bytes|Average|High memory limit, from configuration file.|
 |MemoryLimitLow|Memory: Memory Limit Low|Bytes|Average|Low memory limit, from configuration file.|
 |MemoryLimitVertiPaq|Memory: Memory Limit VertiPaq|Bytes|Average|In-memory limit, from configuration file.|
-|MemoryUsage|Memory: Memory Usage|Bytes|Average|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory which was mapped or allocated by the in-memory analytics engine (VertiPaq) in excess of the engine Memory Limit.|
+|MemoryUsage|Memory: Memory Usage|Bytes|Average|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory, which was mapped or allocated by the in-memory analytics engine (VertiPaq) in excess of the engine Memory Limit.|
 |Quota|Memory: Quota|Bytes|Average|Current memory quota, in bytes. Memory quota is also known as a memory grant or memory reservation.|
 |QuotaBlocked|Memory: Quota Blocked|Count|Average|Current number of quota requests that are blocked until other memory quotas are freed.|
 |VertiPaqNonpaged|Memory: VertiPaq Nonpaged|Bytes|Average|Bytes of memory locked in the working set for use by the in-memory engine.|
@@ -82,7 +82,7 @@ Use this table to determine which metrics are best for you monitoring scenario. 
 |ShortParsingIdleThreads|Threads: Short parsing idle threads|Count|Average|Number of idle threads in the short parsing thread pool.|
 |ShortParsingJobQueueLength|Threads: Short parsing job queue length|Count|Average|Number of jobs in the queue of the short parsing thread pool.|
 |TotalConnectionFailures|Total Connection Failures|Count|Average|Total failed connection attempts.|
-|TotalConnectionRequests|Total Connection Requests|Count|Average|Total connection requests. These are arrivals.|
+|TotalConnectionRequests|Total Connection Requests|Count|Average|Total connection requests. |
 
 ## Next steps
 [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
