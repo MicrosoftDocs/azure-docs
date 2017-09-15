@@ -27,6 +27,10 @@
   items: 
   - name: Key concepts
     href: overview-general-concepts.md
+  - name: Classify iris - CLI edition
+    href: tutorial-iris-azure-cli.md
+  - name: Advanced data preparation (Bike-share)
+    href: tutorial-bikeshare-dataprep.md  
 - name: How-to guides
   items:  
   - name: Use Azure ML Workbench
@@ -76,7 +80,11 @@
     - name: Classify US incomes - TDSP project
       href: tutorial-classifying-uci-incomes.md
     - name: Biomedical entity recognition - TDSP project
-      href: sample-tdsp-nlp.md           
+      href: sample-tdsp-nlp.md  
+    - name: Aerial Image Classification
+      href: scenario-aerial-image-classification.md
+    - name: Document Collection Analysis
+      href: scenario-document-collection-analysis.md         
 - name: Reference
   items:  
   - name: Service limitations
