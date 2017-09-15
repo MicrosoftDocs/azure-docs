@@ -87,35 +87,66 @@ az group deployment create \
 ## Deploy the Service Fabric cluster
 Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. For this tutorial series, the Service Fabric Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.
 
-The Service Fabric cluster Resource Manager template in the next step is configured to create a secure cluster with certificate security. The certificate is used to secure node-to-node communication for your cluster and to manage user access to your Service Fabric cluster. API Management also uses this certificate to access the Service Fabric Naming Service for service discovery. This requires having a certificate in Key Vault for cluster security.
-
-The certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
-
-Download the following Resource Manager template and parameters file:
-- [cluster.json][cluster-arm]
-- [cluster.parameters.json][cluster-parameters-arm]
-
-Fill in the empty parameters in the `cluster.parameters.json` file for your deployment, including the [Key Vault information](service-fabric-cluster-creation-via-arm.md#set-up-a-key-vault) for your cluster certificate.
-
-Use the following script to deploy the Resource Manager template and parameter files to create the Service Fabric cluster:
+### Simple deployment
+We'll discuss the template deployment later, but the simplest way to deploy a cluster to Azure is to use the Azure CLI [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command:
 
 ```azurecli
-az group deployment create \
-    --name ClusterDeployment \
-    --resource-group $ResourceGroupName \
-    --template-file cluster.json \
-    --parameters @cluster.parameters.json
+ResourceGroupName="aztestclustergroup" 
+ClusterName="aztestcluster" 
+Location="southcentralus" 
+Password="q6D7nN%6ck@6" 
+Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+VaultName="aztestkeyvault" 
+
+az group create --name $ResourceGroupName --location $Location 
+
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+  --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
+  --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+  --vault-resource-group $ResourceGroupName --vm-password "NewJobYay!123" --vm-user-name "sfadmin"
+```
+
+This command creates a self-signed certificate, adds it to a keyvault and downloads the certificate locally.  The new certificate is used to secure the cluster when it deploys.  You can also use an existing certificate instead of creating a new one.  Either way, the certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
+
+### Template deployment
+Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  Download the following Resource Manager template and parameters file:
+- [linuxcluster.json][cluster-arm]
+- [linuxcluster.parameters.json][cluster-parameters-arm]
+
+Fill in the empty **clusterName**, **adminUserName**, and **adminPassword** parameters in the `linuxcluster.parameters.json` file for your deployment.  Leave the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters blank if you want to create a self-signed certificate.  If you have an existing certificate uploaded to a keyvault, fill in those parameter values.
+
+Use the following script to deploy the cluster using the Resource Manager template and parameter files.  A self-signed certificate is created in the specified key vault and is used to secure the cluster.  The certificate is also downloaded locally.
+
+```azurecli
+ResourceGroupName="aztestclustergroup"
+Location="southcentralus"
+Password="q6D7nN%6ck@6"
+Subject="aztestcluster.southcentralus.cloudapp.azure.com"
+VaultName="aztestkeyvault"
+az group create --name $ResourceGroupName --location $Location
+
+az sf cluster create --resource-group $ResourceGroupName --location $Location \
+   --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
+   --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
+   --template-file portalcluster.json --parameter-file portalcluster.parameters.json
+
 ```
 
 ## Connect to the secure cluster
-Connect to the cluster using the Service Fabric CLI, which provides many cmdlets for managing Service Fabric clusters, applications, and services.  Connect to the secure cluster using the key created previously.
+Connect to the cluster using the Service Fabric CLI `sfctl cluster select` command using your key.  Note, only use the **--no-verify** option for a self-signed certificate.
 
 ```azurecli
 sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 \
---cert ./client.crt --key ./keyfile.key
+--pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Check that you are connected and the cluster is healthy using the [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet.
+You can also connect using a cert and key:
+```azurecli
+sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 \
+--cert ./client.crt --key ./keyfile.key --no-verify
+```
+
+Check that you are connected and the cluster is healthy using the `sfctl cluster health` command.
 
 ```powershell
 sfctl cluster health
@@ -154,5 +185,5 @@ Next, advance to the following tutorial to learn how to deploy an existing appli
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
 [network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
 
-[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
-[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.json
+[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.parameters.json
