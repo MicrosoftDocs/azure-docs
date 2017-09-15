@@ -17,7 +17,7 @@
     href: quick-start-iris.md  
   - name: Visual Studio Code Tools for Machine Learning
     href: quickstart-ml-tools.md
-  - name: (Data prep quickstart)
+  - name: Data prep quickstart
 - name: Tutorials
   items:
   - name: Classify iris part 1 - data preparation
@@ -26,7 +26,7 @@
     href: tutorial-classifying-iris-part-2.md
   - name: Classify iris part 3 - model deployment
     href: tutorial-classifying-iris-part-3.md
-  - name: (Classify iris - CLI edition)
+  - name: Classify iris - CLI edition
     href: tutorial-iris-azure-cli.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md  
