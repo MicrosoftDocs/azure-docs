@@ -157,10 +157,10 @@ In this tutorial, you learned how to:
 > * Automatically deploy and upgrade an application
 
 Now that you have deployed an application and configured continuous integration, try the following:
+- [Monitor and diagnose the Voting app](service-fabric-tytorial-monitoring-aspnet.md)
 - [Upgrade an app](service-fabric-application-upgrade.md)
 - [Test an app](service-fabric-testability-overview.md) 
-- [Monitor and diagnose](service-fabric-diagnostics-overview.md)
-[here](../application-insights/app-insights-api-custom-events-metrics.md)
+
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png

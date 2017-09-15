@@ -191,3 +191,15 @@ public async Task<IActionResult> Delete(string name)
 Once you're done making these changes, **Start** the application so that it builds and deploys the latest version of it. Once the application is done deploying, head over to [localhost:8080](localhost:8080), and add and delete some voting options. Then, go back to your Application Insights resource to see the traces for the latest run (as before, traces can take 1-2 min to show up in Application Insights). For all the votes you added and deleted, you should now see a "Custom Event* along with all the response telemetry. 
 ![custom events](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
+## Next steps
+In this tutorial, you learned how to:
+> [!div class="checklist"]
+> * Configure Application Insights for your application
+> * Collect response telemetry to trace HTTP-based communication between services
+> * Use the App Map feature in Application Insights
+> * Add custom events using the Application Insights API
+
+Now that you have , try the following:
+- [Upgrade an app](service-fabric-application-upgrade.md)
+- [Test an app](service-fabric-testability-overview.md) 
+- [Explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
