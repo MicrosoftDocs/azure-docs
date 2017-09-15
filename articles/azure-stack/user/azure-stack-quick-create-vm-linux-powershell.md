@@ -180,7 +180,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 
-# Get-Content "C:\Users\AzureStackAdmin\Desktop\VMWithPS\SSH_Public.pub"
+# Adds the SSH Key to the virtual machine
 Add-AzureRmVMSshPublicKey -VM $VirtualMachine -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 #Create the virtual machine.
