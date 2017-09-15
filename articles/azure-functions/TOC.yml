@@ -17,14 +17,16 @@
     href: functions-create-your-first-function-visual-studio.md
   - name: Triggers
     items:
+    - name: Blob storage
+      href: functions-create-storage-blob-triggered-function.md
+    - name: Cosmos DB
+      href: functions-create-cosmos-db-triggered-function.md
     - name: Timer
       href: functions-create-scheduled-function.md
     - name: Generic webhook
       href: functions-create-generic-webhook-triggered-function.md
     - name: GitHub webhook
       href: functions-create-github-webhook-triggered-function.md
-    - name: Blob storage
-      href: functions-create-storage-blob-triggered-function.md
     - name: Queue storage
       href: functions-create-storage-queue-triggered-function.md
   - name: Integrate
