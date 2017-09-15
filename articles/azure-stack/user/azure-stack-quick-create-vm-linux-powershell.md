@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Create a Linux virtual machine by using PowerShell in Azure Stack 
 
-* Applies to: Azure Stack integrated systems*
+*Applies to: Azure Stack integrated systems*
 
 Azure PowerShell is used to create and manage resource in Azure Stack from a commandline or in scripts.  This guide details using the PowerShell to create a virtual machine running Ubuntu server in Azure Stack.
 
