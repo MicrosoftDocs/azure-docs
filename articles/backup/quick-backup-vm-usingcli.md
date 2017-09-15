@@ -27,10 +27,8 @@ Azure CLI is used to create and manage Azure resources from the command line and
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-this quickstart requires Azure CLI version 2.0.4 or later. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+this quickstart requires Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-If you choose to install and use CLI locally, this quickstart requires Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Getting help with Azure CLI
 
@@ -62,7 +60,7 @@ If you have multiple subscriptions and want to use a specific one, type the foll
 
 Then, to specify the subscription to use, type:
 ```azurecli-interactive 
-    az account set <subscription name>
+    az account set -s "<subscription name>"
 ```     
 ## Register the Azure Backup resource provider
 Make sure that Azure Backup resource provider is registered in your subscription:
@@ -128,49 +126,53 @@ Specify the type of storage redundancy: [Locally Redundant Stobgrage (LRS)](../s
 The following example sets the storage redundancy option for myRSVault to GeoRedundant.
 
 ```azurecli-interactive 
-az backup vault set-backup-properties --name myRSVault --resource-group myResourceGroup --backup-storage-redundancy GeoRedundant
+az backup vault backup-properties set -n myRSVault -g myResourceGroup --backup-storage-redundancy GeoRedundant
 ```
 
 > [!NOTE]
 > You cannot change the storage redundancy after an item is backed up to the vault.
 
-Assign the vault to an object to be used in subsequent commands
-
-```azurecli-interactive 
-az backup vault show --name myRSVault --resource-group myResourceGroup > myVault
-```
-
-> [!NOTE]
-> when using show commands to assign values to variables, the output of the command must be in **json** format
-
 ## Get the default policy 
 
-By default, a policy is provided per vault which can be used to backup Azure VMs
-
-```azurecli-interactive 
-az backup policy get-default-for-vm --vault myVault > defVMPolicy
-```
-You can view the policy and modify the details using any file editor
+A policy defines when a backup is performed and for how long each backup is retained. By default, a policy is provided per vault named as "DefaultPolicy"
 
 ## Enable protection for the virtual machine
 
 Assume we have an Azure virtual machine ready to be backed up, with the name myVM under the resource Group VMResourceGroup. Make sure your VM is meeting the [prerequisites](https://docs.microsoft.com/azure/backup/backup-azure-vms-prepare) for Azure Backup
 
-Get the Azure VM resource using VM CLI commands
-
-```azurecli-interactive 
-az vm get-instance-view -g VMResourceGroup -n MyVM > newVM
-```
 Then enable protection for this VM with the default policy to myRSVault.
 
 ```azurecli-interactive 
-az backup protection enable—for-vm –-vault myRSVault –-policy defVMPolicy --vm newVM
+az backup protection enable—for-vm -n myRSVault -g myResourceGroup -p DefaultPolicy --vm-name myVM --vm-rg VMResourceGroup
+```
+## On-demand backup
+Once you enable protection, the VM will backed up to the vault as per the policy. If you want to take a backup outside of policy, you need to specify until when this backup needs to be retained
+
+```azurecli-interactive 
+az backup protection backup-now -n myRSVault -g myResourceGroup -c myVM -i myVM --retain-until <dd-mm-yyyy>
+```
+## Status of backup
+
+You can monitor the status of the backup by querying about jobs using the following command
+
+```azurecli-interactive 
+az backup job list -n myRSVault -g myResourceGroup -o table
+```
+## Clean up resources
+
+Deleting a vault requires removing resources within the vault. First, you need to disable the protection of the VM and delete the corresponding backup data
+
+```azurecli-interactive 
+az backup protection disable -n myRSVault -g myResourceGroup -c myVM -i myVM --delete-backup-data true
+```
+On confirmation, all the backups of myVM will be deleted from this vault. Now, you can proceed to delete the vault and the resource group
+
+```azurecli-interactive 
+az backup vault delete -n myRSVault -g myResourceGroup
 ```
 
-## Next steps
+```azurecli-interactive 
+az group delete -n myResourceGroup
+```
 
-In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
-
-
-> [!div class="nextstepaction"]
-> [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
+In this quick start, you’ve learnt how to create a recovery services vault and protect a virtual machine to this vault.
