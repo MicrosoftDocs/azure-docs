@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: jeedes
 
 ---
@@ -145,19 +145,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Copy the value from the **Entity ID (”Identifier” in Azure AD)** textbox and paste it into the **Identifier** textbox on the **BitaBIZ Domain and URLs** section in Azure portal. 
 	
-	b. Copy the value from the **Assertion Consumer Service URL (”Reply URL” in Azure AD)** textbox and paste it into the **Reply URL** textbox on the **BitaBIZ Domain and URLs** section Azure portal.  
+	b. In the **Azure AD Single Sign-On Service URL** textbox, paste **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 	
-	c. In the **Azure AD Single Sign-On Service URL** textbox, paste **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
-	
-	d. In the **Azure AD SAML Entity ID** textbox, paste **SAML Entity ID**, which you have copied from Azure portal.
+	c. In the **Azure AD SAML Entity ID** textbox, paste **SAML Entity ID**, which you have copied from Azure portal.
 
-	e. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Azure AD Signing Certificate (Base64 encoded)** textbox.
+	d. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Azure AD Signing Certificate (Base64 encoded)** textbox.
 
-	f. Add your business e-mail domain name that is, mycompany.com in **Domain name** textbox to assign SSO to the users in your company with this email domain (NOT MANDATORY).
+	e. Add your business e-mail domain name that is, mycompany.com in **Domain name** textbox to assign SSO to the users in your company with this email domain (NOT MANDATORY).
 	
-	g. Mark **SSO enabled** the BitaBIZ account.
+	f. Mark **SSO enabled** the BitaBIZ account.
 	
-	h. Click **Save Azure AD configuration** to save and activate the SSO configuration.
+	g. Click **Save Azure AD configuration** to save and activate the SSO configuration.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -227,9 +225,9 @@ In the case of BitaBIZ, provisioning is a manual task.
 
 	d. Select a date in **Date of employment**.
 
-	e. For other properties of user please refer to the [BitaBIZ docs](https://help.bitabiz.dk/manage-or-set-up-your-account/on-boarding-employees/new-employee).	
+	e. There are other non-mandatory user attributes which can be set up for the user. Please refer the [BitaBIZ docs](https://help.bitabiz.dk/manage-or-set-up-your-account/on-boarding-employees/new-employee).	
 	
-	f. Click **Save employee**. An e-mail invite is forwarded to the new employee.
+	f. Click **Save employee**.
 	
 	> [!NOTE]
     > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
