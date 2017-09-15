@@ -57,7 +57,6 @@ Both of these packages can be installed using the Package Manager Console using 
 ```
     // this is currently the latest stable version of ADAL
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
-
     Install-Package Microsoft.Azure.KeyVault
 ```
 
@@ -121,7 +120,6 @@ using System.Web.Configuration;
 
 // I put my GetToken method in a Utils class. Change for wherever you placed your method.
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
-
 var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
 //I put a variable in a Utils class to hold the secret for general  application use.
@@ -233,7 +231,7 @@ public static async Task<string> GetAccessToken(string authority, string resourc
 {
     var context = new AuthenticationContext(authority, TokenCache.DefaultShared);
     var result = await context.AcquireTokenAsync(resource, AssertionCert);
- return result.AccessToken;
+    return result.AccessToken;
 }
 ```
 
