@@ -1,14 +1,13 @@
 ---
-title: Getting Started with Data Preparation  | Microsoft Docs
+title: Getting started with Data Preparation for Azure Machine Learning | Microsoft Docs
 description: This is the getting started guide for the data prep section of AML workbench
 author: cforbe
-ms.author: cforbe@microsoft.com
+ms.author: cforbe
 ms.date: 9/7/2017
 ---
 
-# Getting Started with Data Preparation #
+# Getting started with Data Preparation #
 
-## Introduction ##
 Welcome to the Data Preparation Getting Started Guide. 
 
 Data Preparation provides a set of tools for efficiently exploring, understanding, and fixing problems in data. It allows you to consume data in many forms and transform that data into cleansed data that is better suited for downstream usage.
@@ -21,9 +20,9 @@ After Azure ML Workbench is installed on Windows, open the application by clicki
 
 On OS X/macOS, there a new application becomes available.  Within Spotlight, another option is to type Azure ML Workbench.
 
-When Azure ML Workbench is first launched, the Home screen is visible.  From the Home screen, create a new project by clicking "+" on the menu and complete the form.  Navigate to the Data section of the project by selecting the Data icon [<INSERT DATA ICON>] on the left of the screen.  Click "+" again to "Add a Data Source." The Data Source Wizard should launch and adds a "package.dprep" file to the project after completing the wizard.  Summary statistics are shown within a new tab.  After reviewing the summary statistics, click on "Prepare" at the top of the screen to start preparation. You can also Double-click on the .dprep file to launch the Data Prep experience. [More information about the Data Source Wizard](data-source-wizard.md) 
+When Azure ML Workbench is first launched, the Home screen is visible.  From the Home screen, create a new project by clicking "+" on the menu and complete the form.  Navigate to the Data section of the project by selecting the Data icon ![data source icon](media/data-prep-getting-started/data-source-icon.png) on the left of the screen.  Click "+" again to "Add a Data Source." The Data Source Wizard should launch and adds a "package.dprep" file to the project after completing the wizard.  Summary statistics are shown within a new tab.  After reviewing the summary statistics, click on "Prepare" at the top of the screen to start preparation. You can also Double-click on the .dprep file to launch the Data Prep experience. [More information about the Data Source Wizard](data-source-wizard.md) 
 
-## Building Blocks of Data Preparation ##
+## Building blocks of Data Preparation ##
 ### The Package ###
 A Package is the primary container for your work. A Package is the artifact that is saved to and loaded from disk. While working inside the client, the Package is constantly AutoSaved in the background. If you do not choose a name through a Save action, it is given a default name.
 
@@ -68,9 +67,9 @@ There are two special Inspectors.  The first is the Data Grid and is the default
 Data Preparation assumes a basic five-step methodology/approach to data preparation.
 
 #### Step 1: Ingestion ####
-Import data for Data Preparation by using the New Data Source option within the project view.  Another options it to use the Open Data Source option in the Dataflow menu. All initial ingestion of data is handled through the Data Source Wizard.
+Import data for Data Preparation by using the **New Data Source** option within the project view.  Another options it to use the **Open Data Source** option in the Dataflow menu. All initial ingestion of data is handled through the Data Source Wizard.
 
-#### Step 2: Understand/Profile the Data ####
+#### Step 2: Understand/profile the Data ####
 First, look at the Data Quality Bar at the top of each column. Green represents the rows that have values. Gray represents rows with a missing value, null, etc. Red indicates error values. Hover over the bar to get a tool tip with the exact numbers of rows in each of the three buckets. The Data Quality Bar uses a logarithmic scale so always check the actual numbers to get a rough feel for the volume of missing data.
 
 ![columns](media/data-prep-getting-started/columns.png)
@@ -106,12 +105,12 @@ The primary way to determine if the Transform had the right impact is to use the
 
 ![halo inspector](media/data-prep-getting-started/halo1.png) ![halo inspector](media/data-prep-getting-started/halo2.png)
 
-To undo a Transformation, go the Steps List on the right-hand side of the UI. (The Steps List panel may need to be popped back out. To open it, click the double chevron pointing left). In the panel, select the Transform that was executed that you wish to undo. Select the drop-down on the right-hand side of the UI block. Select either “Edit” to make changes or “Delete” to remove the Transform from the Steps List and the Dataflow.
+To undo a Transformation, go the Steps List on the right-hand side of the UI. (The Steps List panel may need to be popped back out. To open it, click the double chevron pointing left). In the panel, select the Transform that was executed that you wish to undo. Select the drop-down on the right-hand side of the UI block. Select either **Edit** to make changes or **Delete** to remove the Transform from the Steps List and the Dataflow.
 
 #### Step 5: Output ####
 When finished with your data preparation, you can write the Dataflow to an output. A Dataflow can have many outputs. From the Transforms menu, you can select which output you want the dataset to be written as. You can also select the output's destination. The list of outputs and destinations are listed in Appendix 5.
 
-### List of Appendices ###
+## List of Appendices ##
 <!-- Commenting out this link because it's currently broken, Appendix 1 doesn't exist at the moment (Gary)
 [Appendix 1 - Supported Platforms](data-prep-appendix1-supported-platforms.md)  
 -->
