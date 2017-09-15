@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/29/2016
+ms.date: 09/15/2017
 ms.author: yuaxu
 
 ---
@@ -21,8 +21,7 @@ ms.author: yuaxu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application.
-You'll create a blank Xamarin.Android app that receives push notifications by using Google Cloud Messaging (GCM). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application. You'll create a blank Xamarin.Android app that receives push notifications by using Google Cloud Messaging (GCM). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
 This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.
 
@@ -54,7 +53,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 <ol start="7">
 
-<li><p>Click the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then click <b>Save</b>.</p>
+<li><p>Choose the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then select <b>Save</b>.</p>
 </li>
 </ol>
 &emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
@@ -62,12 +61,12 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 Your notification hub is now configured to work with GCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
 ## Connect your app to the notification hub
-### Create a new project
-1. In Xamarin Studio, click **New Solution**, click **Android App**, and click **Next**.
+First, you create a new project.
+1. In Xamarin Studio, choose **New Solution** > **Android App** and then select **Next**.
    
       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
 
-2. Enter your **App Name** and **Identifier**. Click the **Target Plaforms** you want to support and then click **Next** and **Create**.
+2. Enter your **App Name** and **Identifier**. Choose the **Target Plaforms** you want to support and then choose **Next** and **Create**.
    
       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
@@ -85,8 +84,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 2. Optionally, set the **Minimum Android version** to another API Level.
 3. Optionally, set the **Target Android version** to the another API version that you want to target (must be API level 8 or higher).
-
-Click **OK** and close the Project Options dialog.
+4. Choose **OK** and close the Project Options dialog.
 
 ### Add the required components to your project
 The Google Cloud Messaging Client available on the Xamarin Component Store simplifies the process of supporting push notifications in Xamarin.Android.
@@ -99,7 +97,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 1. Gather the following information for your Android app and notification hub:
    
    * **GoogleProjectNumber**:  Get this Project Number value from the overview of your app on the Google Developer Portal. You made a note of this value earlier when you created the app on the portal.
-   * **Listen connection string**: On the dashboard in the [Azure Classic Portal], click **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
+   * **Listen connection string**: On the dashboard in the [Azure Classic Portal], choose **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
    * **Hub name**: This is the name of your hub from the [Azure Classic Portal]. For example, *mynotificationhub2*.
      
      Create a **Constants.cs** class for your Xamarin project and define the following constant values in the class. Replace the placeholders with your values.
@@ -333,20 +331,20 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 If you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
 > [!IMPORTANT]
-> In order to receive push notifications, you must set up a Google account on your Android Virtual Device. (In the emulator, navigate to **Settings** and click **Add Account**.) Also, make sure that the emulator is connected to the Internet.
+> In order to receive push notifications, you must set up a Google account on your Android Virtual Device. (In the emulator, navigate to **Settings** and choose **Add Account**.) Also, make sure that the emulator is connected to the Internet.
 > 
 > [!NOTE]
 > Notification design in Android version 5.0 and later represents a significant departure from that of previous versions. For more information, see [Android Notifications](http://go.microsoft.com/fwlink/?LinkId=615880).
 > 
 > 
 
-1. From **Tools**, click **Open Android Emulator Manager**, select your device, and then click **Edit**.
+1. From **Tools**, choose **Open Android Emulator Manager**, select your device, and then choose **Edit**.
    
       ![][18]
-2. Select **Google APIs** in **Target**, and then click **OK**.
+2. Select **Google APIs** in **Target**, and then choose **OK**.
    
       ![][19]
-3. On the top toolbar, click **Run**, and then select your app. This starts the emulator and runs the app.
+3. On the top toolbar, choose **Run**, and then select your app. This starts the emulator and runs the app.
    
    The app retrieves the *registrationId* from GCM and registers with the notification hub.
 
@@ -371,7 +369,7 @@ In this section, we will send notifications by using a .NET console app
 1. Create a new Visual C# console application:
    
       ![][20]
-2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
+2. In Visual Studio, choose **Tools** > **NuGet Package Manager**, and then select **Package Manager Console**.
    
     This displays the Package Manager Console in Visual Studio.
 3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
@@ -408,8 +406,8 @@ In this section, we will send notifications by using a .NET console app
 4. Create a new scheduled job, insert a name, and select **On demand**.
    
       ![][23]
-5. When the job is created, click the job name. Then click the **Script** tab on the top bar.
-6. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
+5. When the job is created, select the job name. Then choose the **Script** tab on the top bar.
+6. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Choose **Save**.
    
         var azure = require('azure');
         var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
@@ -425,7 +423,7 @@ In this section, we will send notifications by using a .NET console app
             }
           }
         );
-7. Click **Run Once** on the bottom bar. You should receive a toast notification.
+7. Choose **Run Once** on the bottom bar. You should receive a toast notification.
 
 ## Next steps
 In this simple example, you broadcasted notifications to all your Android devices. In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users]. If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and in the [Notification Hubs How-To for Android].
