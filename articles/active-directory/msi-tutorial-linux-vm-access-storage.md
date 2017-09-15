@@ -113,7 +113,7 @@ You will need to use the Bash terminal, pick and then download your Linux distri
     The CURL request for the access token is below:
     
     ```bash
-    curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50432/oauth2/token   
+    curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50342/oauth2/token   
     ```
     
     > [!NOTE]
