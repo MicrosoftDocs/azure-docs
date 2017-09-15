@@ -19,6 +19,8 @@ ms.author: sngun
 ---
 # Enable Azure CLI for Azure Stack users
 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 There aren't any Azure Stack operator specific tasks that you can perform by using CLI. But before users can manage resources through CLI, Azure Stack operators must provide them with the following:
 
 * **The Azure Stack CA root certificate** - The root certificate is required if your users are using CLI from a workstation outside the Azure Stack development kit.  
