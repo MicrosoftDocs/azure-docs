@@ -1,5 +1,5 @@
 ---
-title: Enable CLI for Azure Stack users | Microsoft Docs
+title: Enable Azure CLI for Azure Stack users | Microsoft Docs
 description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
 services: azure-stack
 documentationcenter: ''
