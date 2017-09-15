@@ -24,7 +24,7 @@ The public GitHub repository for this real world scenario contains all materials
 
 In this scenario, we train deep neural networks (DNNs) to classify the type of land shown in aerial images of 224-meter x 224-meter plots. Land use classification models can be used to track urbanization, deforestation, loss of wetlands, and other major environmental trends using periodically collected aerial imagery. We have prepared training and validation image sets based on imagery from the U.S. National Agriculture Imagery Program and land use labels published by the U.S. National Land Cover Database. Example images in each land use class are shown below:
 
-![Example regions for each land use label](media/real-world-scenario-aerial-image-classification/example-labels.PNG)
+![Example regions for each land use label](media/real-world-scenario-aerial-image-classification/example-labels.png)
 
 After training and validating the classifier model, we will apply it to aerial images spanning Middlesex County, MA -- home of Microsoft's New England Research & Development (NERD) Center -- to demonstrate how these models can be used to study trends in urban development.
 
@@ -34,7 +34,7 @@ To produce an image classifier using transfer learning, data scientists often co
 
 In this example, image data and pretrained models are housed in an Azure storage account. An Azure HDInsight Spark cluster reads these files and constructs an image classification model using MMLSpark. The trained model and its predictions are then written to the storage account, where they can be analyzed and visualized by a Jupyter notebook running locally. Azure Machine Learning Workbench coordinates remote execution of scripts on the Spark cluster. It also tracks accuracy metrics for multiple models trained using different methods, allowing the user to select the most performant model.
 
-![Schematic for the aerial image classification real world scenario](media/real-world-scenario-aerial-image-classification/scenario-schematic.PNG)
+![Schematic for the aerial image classification real world scenario](media/real-world-scenario-aerial-image-classification/scenario-schematic.png)
 
 The [step-by-step instructions](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) begin by guiding you through the creation and preparation of an Azure storage account and Spark cluster, including data transfer and dependency installation. They then describe how to launch training jobs and compare the performance of the resulting models. Finally, they illustrate how to apply a chosen model to a large image set on the Spark cluster and analyze the prediction results locally.
 
