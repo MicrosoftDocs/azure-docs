@@ -43,14 +43,6 @@
         href: azure-stack-compute-overview.md
       - name: VM considerations
         href: azure-stack-vm-considerations.md
-      - name: Create VM-Windows-PowerShell
-        href: azure-stack-quick-create-vm-windows-powershell.md
-      - name: Create VM-Windows-CLI
-        href: azure-stack-quick-create-vm-windows-cli.md
-      - name: Create VM-Linux-PowerShell
-        href: azure-stack-quick-create-vm-linux-powershell.md
-      - name: Create VM-Linux-CLI
-        href: azure-stack-quick-create-vm-linux-cli.md
     - name: Storage
       items:
       - name: Overview
