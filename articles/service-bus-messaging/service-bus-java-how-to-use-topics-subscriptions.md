@@ -47,7 +47,7 @@ to filter/restrict which messages to a topic are received by which topic
 subscriptions.
 
 Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
+large number of messages across a large number of users and
 applications.
 
 ## Create a service namespace
@@ -132,12 +132,7 @@ restricts the set of messages passed to the subscription's virtual
 queue.
 
 ### Create a subscription with the default (MatchAll) filter
-The **MatchAll** filter is the default filter that is used if no filter
-is specified when a new subscription is created. When the **MatchAll**
-filter is used, all messages published to the topic are placed in the
-subscription's virtual queue. The following example creates a
-subscription named "AllMessages" and uses the default **MatchAll**
-filter.
+If no filter is specified when a new subscription is created, the **MatchAll** filter is the default filter that is used. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "AllMessages" and uses the default **MatchAll** filter.
 
 ```java
 SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
@@ -183,9 +178,7 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", rul
 service.deleteRule("TestTopic", "LowMessages", "$Default");
 ```
 
-When a message is now sent to `TestTopic`, it will always be
-delivered to receivers subscribed to the `AllMessages` subscription, and selectively delivered to receivers subscribed to the `HighMessages` and `LowMessages` subscriptions (depending upon the
-message content).
+When a message is now sent to `TestTopic`, it is always delivered to receivers subscribed to the `AllMessages` subscription, and selectively delivered to receivers subscribed to the `HighMessages` and `LowMessages` subscriptions (depending upon the message content).
 
 ## Send messages to a topic
 To send a message to a Service Bus topic, your application obtains a
@@ -203,15 +196,13 @@ standard methods (such as **setLabel** and **TimeToLive**), a dictionary
 that is used to hold custom application-specific properties, and a body
 of arbitrary application data. An application can set the body of the
 message by passing any serializable object into the constructor of the
-[BrokeredMessage][BrokeredMessage], and the appropriate **DataContractSerializer** will
-then be used to serialize the object. Alternatively, a
+[BrokeredMessage][BrokeredMessage], and the appropriate **DataContractSerializer** is then used to serialize the object. Alternatively, a
 **java.io.InputStream** can be provided.
 
 The following example demonstrates how to send five test messages to the
-`TestTopic` **MessageSender** we obtained in the code snippet above.
+`TestTopic` **MessageSender** we obtained in the previous code snippet.
 Note how the **MessageNumber** property value of each message varies on
-the iteration of the loop (this will determine which subscriptions
-receive it):
+the iteration of the loop (this determines which subscriptions receive it):
 
 ```java
 for (int i=0; i<5; i++)  {
@@ -242,9 +233,9 @@ application. **ReceiveAndDelete** mode is the simplest model and works
 best for scenarios in which an application can tolerate not processing a
 message in the event of a failure. To understand this, consider a
 scenario in which the consumer issues the receive request and then
-crashes before processing it. Because Service Bus will have marked the
+crashes before processing it. Because Service Bus has marked the
 message as being consumed, then when the application restarts and begins
-consuming messages again, it will have missed the message that was
+consuming messages again, it has missed the message that was
 consumed prior to the crash.
 
 In **PeekLock** mode, receive becomes a two stage operation, which makes
@@ -255,11 +246,11 @@ then returns it to the application. After the application finishes
 processing the message (or stores it reliably for future processing), it
 completes the second stage of the receive process by calling **Delete**
 on the received message. When Service Bus sees the **Delete** call, it
-will mark the message as being consumed and remove it from the topic.
+marks the message as being consumed and removes it from the topic.
 
-The example below demonstrates how messages can be received and
-processed using **PeekLock** mode (the default mode). The example
-below performs a loop and processes messages in the "HighMessages" subscription and then exits when there are no more messages (alternatively, it could be set to wait for new messages).
+The following example demonstrates how messages can be received and
+processed using **PeekLock** (the default mode). The example
+performs a loop and processes messages in the `HighMessages` subscription and then exits when there are no more messages (alternatively, it can be set to wait for new messages).
 
 ```java
 try
@@ -319,7 +310,7 @@ Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
 then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This will cause Service Bus
+(instead of the **deleteMessage** method). This causes Service Bus
 to unlock the message within the topic and make it available to be
 received again, either by the same consuming application or by another
 consuming application.
@@ -327,18 +318,16 @@ consuming application.
 There is also a timeout associated with a message locked within the
 topic, and if the application fails to process the message before the
 lock timeout expires (for example, if the application crashes), then Service
-Bus will unlock the message automatically and make it available to be
+Bus unlocks the message automatically and makes it available to be
 received again.
 
 In the event that the application crashes after processing the message
 but before the **deleteMessage** request is issued, then the message
-will be redelivered to the application when it restarts. This is often
-called **At Least Once Processing**, that is, each message will be
-processed at least once but in certain situations the same message may
-be redelivered. If the scenario cannot tolerate duplicate processing,
+is redelivered to the application when it restarts. This is often
+called **At Least Once Processing**; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing,
 then application developers should add additional logic to their
 application to handle duplicate message delivery. This is often achieved
-using the **getMessageId** method of the message, which will remain
+using the **getMessageId** method of the message, which remains
 constant across delivery attempts.
 
 ## Delete topics and subscriptions
