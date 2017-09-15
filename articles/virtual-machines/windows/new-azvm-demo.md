@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: cynthn
 
 ---
@@ -58,7 +58,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
 
-```bash 
+```powershell-interactive
 mstsc /v:<publicIpAddress>
 ```
 
