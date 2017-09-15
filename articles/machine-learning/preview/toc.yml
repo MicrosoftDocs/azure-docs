@@ -15,12 +15,9 @@
     href: quick-start-installation.md
   - name: Quick tour
     href: quick-start-iris.md  
-<<<<<<< HEAD
   - name: Visual Studio Code Tools for Machine Learning
     href: quickstart-ml-tools.md
   - name: (Data prep quickstart)
-=======
->>>>>>> 202492c176fe10d4e4b8a021e55a110c9f20fac6
 - name: Tutorials
   items:
   - name: Classify iris part 1 - data preparation
