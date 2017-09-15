@@ -165,6 +165,8 @@
         href: azure-stack-usage-related-faq.md
     - name: Connect to Azure
       items:
+      - name: Connect using VPN
+        href: azure-stack-connect-vpn.md
       - name: Connect using ExpressRoute
         href: azure-stack-connect-expressroute.md
   - name: Troubleshoot
