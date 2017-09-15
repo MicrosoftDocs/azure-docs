@@ -1,14 +1,20 @@
 # Overview
 ## [What is Site Recovery?](site-recovery-overview.md)
 
+# Quickstarts
+## Configure disaster recovery for an Azure VM
+
 # Tutorials
+## [Disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)
 ## [Disaster recovery to Azure for VMware VMs](tutorial-vmware-to-azure.md)
 ## [Disaster recovery to Azure for Hyper-V VMs](tutorial-hyper-v-to-azure.md)
 ## [Disaster recovery to Azure for physical servers](tutorial-physical-to-azure.md)
 ## [Disaster recovery to a secondary VMM site for Hyper-V VMs](tutorial-vmm-to-vmm.md)
 ## [Disaster recovery to a secondary site for VMware VMs and physical servers](tutorial-vmware-to-vmware.md)
-## [Run a disaster recovery drill to Azure](tutorial-dr-drill-azure.md)
+## [Run a disaster recovery drill between Azure regions](azure-to-azure-tutorial-dr-drill.md)
+## [Run a disaster recovery drill from on-premises to Azure](tutorial-dr-drill-azure.md)
 ## [Run a disaster recovery drill to a secondary VMM site](tutorial-dr-drill-secondary.md)
+## [Fail over and fail back Azure VMs replicated to a secondary region](azure-to-azure-tutorial-failover-failback.md)
 ## [Fail over and fail back VMware VMs and physical servers replicated to Azure](tutorial-vmware-to-azure-failover-failback.md)
 ## [Fail over and fail back Hyper-V VMs replicated to Azure](tutorial-hyper-v-to-azure-failover-failback.md)
 
