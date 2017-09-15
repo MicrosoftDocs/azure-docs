@@ -27,7 +27,7 @@ Use this tutorial to get started with Azure Cosmos DB logging via the Azure port
 
 ## What is logged?
 
-* All authenticated REST API requests are logged, which includes failed requests as a result of access permissions, system errors, or bad requests.
+* All authenticated REST DocumentDB (SQL) API requests are logged, which includes failed requests as a result of access permissions, system errors, or bad requests. Support for MongoDB, Graph, and Table APIs is not currently available.
 * Operations on the database itself, which includes CRUD operations on all documents, containers, and databases.
 * Operations on account keys, which include creating, modifying, or deleting these keys.
 * Unauthenticated requests that result in a 401 response. For example, requests that do not have a bearer token, or are malformed or expired, or have an invalid token.
