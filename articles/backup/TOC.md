@@ -5,18 +5,11 @@
 
 # Quickstarts
 
-## [Back up VMs - Portal](backup-azure-vms-first-look-arm.md)
 ## [Back up VMs - PowerShell](quick-backup-vm-powershell.md)
 
 # Tutorials
 
 ## [Back up Azure VMs at scale](tutorial-backup-azure-vm.md)
-## [Recover Azure VMs using VM templates](backup-azure-arm-restore-vms.md)
-## [Recover files from an Azure VM recovery point](backup-azure-restore-files-from-vm.md)
-## [Back up on-premises Windows Server to Azure](backup-try-azure-backup-in-10-mins.md)
-## [Recover files from Azure to an on-premises Windows Server](backup-azure-restore-windows-server.md)
-## [Back up on-premises VMware virtual machines to Azure](backup-azure-backup-server-vmware.md)
-## [Restore data from on-premises VMware virtual machines](backup-azure-alternate-dpm-server.md)
 
 # Samples
 
