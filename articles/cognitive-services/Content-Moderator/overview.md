@@ -37,7 +37,7 @@ Microsoft Content Moderator enables all three scenarios. It can be used by human
 
 Content moderation consists of several web service APIs and human-in-the-loop capabilities via a review tool as shown below:
 
-![Content Moderator Block Diagram](images/content-moderator-block-diagram.PNG)
+![Content Moderator Block Diagram](images/content-moderator-block-diagram.png)
 
 - A review tool that uses the following APIs.
 - Text Moderation API – Scan and tag text.
