@@ -69,7 +69,7 @@ Following the steps can be used to reprotect a virtual machine using the default
 2. Notice that the direction of protection, secondary to primary region, is already selected.
 
 3. Review the **Resource group, Network, Storage, and Availability sets** information. Any
-resources marked (new) are created as part of the reprotect operation.
+   resources marked (new) are created as part of the reprotect operation.
 
 4. Click OK to trigger a reprotect job. This job seeds the target site with the latest data. Next,
    the job replicates the deltas to the primary region. The virtual machine is now in a protected

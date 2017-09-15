@@ -18,7 +18,7 @@ ms.custom: mvc
 # Run a test failover for Azure VM replication
 
 This tutorial explains the steps to run a test failover from one Azure region to another using the
-[Azure Site Recovery](../site-recovery-overview.md) service in the Azure portal. These steps assume
+[Azure Site Recovery](site-recovery-overview.md) service in the Azure portal. These steps assume
 that you have already [enabled replication for Azure virtual machines (VMs)](azure-to-azure-tutorial-enable-replication.md).
 
 > [!NOTE]
@@ -81,7 +81,7 @@ that you have already [enabled replication for Azure virtual machines (VMs)](azu
 
 ## Next steps
 
-Learn more about different types of [failovers](../site-recovery-failover.md), and how to run them.
+Learn more about different types of [failovers](site-recovery-failover.md), and how to run them.
 
 Get help and ask questions in the
 [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
