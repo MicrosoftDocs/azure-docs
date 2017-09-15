@@ -139,9 +139,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
 	
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
 	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
+	
+	b. In the **Name** textbox, type the attribute name shown for that row.
 	
 	c. From the **Value** list, type the attribute value shown for that row.
 	
