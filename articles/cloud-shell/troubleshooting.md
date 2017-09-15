@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell (Preview) troubleshooting | Microsoft Docs
 description: Troubleshooting Azure Cloud Shell
-services: 
+services: azure
 documentationcenter: ''
 author: maertendMSFT
 manager: angelc
