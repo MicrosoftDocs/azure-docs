@@ -31,8 +31,8 @@ In this article, you'll learn how to use Storage Explorer (Preview) to work with
 ## Prerequisites
 
 - Azure subscription. If you don't have, create a  [free Azure account](https://azure.microsoft.com/en-us/free/) first.
-- Create your own Cosmos DB account on Azure portal, remember to choose “SQL (Document DB)” API or “Mongo” API, refer this: [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-documentdb-dotnet).
-- Install the newest Azure Storage Explorer bits. You can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858559).
+- Create your own Cosmos DB account on Azure portal, remember to choose “SQL (Document DB)” API or “Mongo” API, refer to this: [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-documentdb-dotnet).
+- Install the newest Azure Storage Explorer bits. You can install it by the following links: [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
 
 
 
@@ -57,6 +57,8 @@ In this article, you'll learn how to use Storage Explorer (Preview) to work with
     So far, you have successfully connected to your **Cosmos DB account** through Azure subscription.
 
 ## Connect to Cosmos DB by Connection String
+
+Instead of connecting to subscription, you can also choose to connect to Cosmos DB by Connection String, following steps below:
 
 1. Find **Local and Attached** in the left tree, right-click **Azure Cosmos DB Accounts**, choose **Connect to Cosmos DB...**
 
