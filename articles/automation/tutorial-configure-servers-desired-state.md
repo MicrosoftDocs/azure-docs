@@ -1,5 +1,5 @@
 ---
-title: Configure servers to a desired state and manage drift | Microsoft Docs
+title: Configure servers to a desired state and manage drift with Azure Automation | Microsoft Docs
 description: Tutorial - Manage server configurations with Azure Automation DSC
 services: automation
 documentationcenter: automation
