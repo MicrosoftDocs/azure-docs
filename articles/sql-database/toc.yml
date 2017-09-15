@@ -43,11 +43,7 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
-  - name: 4 - Improve SQL DB performance
-    href: sql-database-performance-tutorial.md
-  - name: 5 - Implement multi-tenant app
-    href: sql-database-multi-tenant-application.md
-  - name: 6 - Implement a geo-distributed database
+  - name: 4 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
 - name: Samples
   items:
@@ -65,6 +61,10 @@
       href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
+    - name: Resource limits
+      href: sql-database-resource-limits.md  
+    - name: Single databases
+      href: sql-database-single-database-resources.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
     - name: Connectivity architecture
@@ -75,8 +75,6 @@
       href: sql-database-what-is-a-dtu.md
     - name: DTU benchmark
       href: sql-database-benchmark-overview.md
-    - name: Limits
-      href: sql-database-resource-limits.md
     - name: PaaS or IaaS
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Auditing
@@ -263,10 +261,6 @@
       href: sql-database-long-term-backup-retention-configure.md
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
-    - name: Geo-replicate- T-SQL - Configure
-      href: sql-database-geo-replication-transact-sql.md
-    - name: Geo-replicate - T-SQL - Failover
-      href: sql-database-geo-replication-failover-transact-sql.md
     - name: Recover single table
       href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
   - name: Load & move data
@@ -301,8 +295,6 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
-    - name: Azure RemoteApp
-      href: sql-database-ssms-remoteapp.md
   - name: Scale out
     items:
     - name: Create sharded app
