@@ -27,9 +27,9 @@ This tutorial shows you how to:
 * Create a simulated device app that contains a direct method that reboots that device. Direct methods are invoked from the cloud.
 * Create a .NET console app that calls the reboot direct method in the simulated device app through your IoT hub.
 
-At the end of this tutorial, you have three .NET console apps:
+At the end of this tutorial, you have two .NET console apps:
 
-* **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
+* **SimulateManagedDevice**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
 * **TriggerReboot**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
 
 To complete this tutorial, you need the following:
