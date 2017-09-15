@@ -124,7 +124,7 @@ You need an ExpressRoute or VPN site-to-site connection from Azure to on-premise
 - The on-premises VM is turned off during reprotection. This helps ensure data consistency during replication. Don't turn on the VM after reprotection finishes.
 - Use the same master target server to reprotect a replication group. If you use a different master target server to reprotect a replication group, the server cannot provide a common point in time.
 - Site Recovery only supports failback to a virtual machine file system (VMFS), or vSAN datastore. An NFS datastore isn't supported. The datastore selection input on the reprotect screen will be empty if you're using NFS datastores, or it will show the vSatastore but the job will fail. To fail back, create a VMFS datastore on-premises and fail back to it. This failback triggers a full download of the VMDK.
-- * If you used a template to create VMs, make sure that each VM has its own UUID for the disks. If the on-premises VM UUID clashes with that of the master target because they were created from the same template, reprotection fails. 
+- If you used a template to create VMs, make sure that each VM has its own UUID for the disks. If the on-premises VM UUID clashes with that of the master target because they were created from the same template, reprotection fails. 
 
 
 
