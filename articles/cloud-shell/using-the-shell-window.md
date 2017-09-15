@@ -1,6 +1,6 @@
 ---
 title: Using the Azure Cloud Shell (Preview) window | Microsoft Docs
-description: Walkthrough the Azure Cloud Shell window.
+description: Overview of how to use the Azure Cloud Shell window.
 services: 
 documentationcenter: ''
 author: jluk
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/25/2017
 ms.author: juluk
 ---
 
@@ -21,21 +21,26 @@ ms.author: juluk
 
 This document explains how to use the Cloud Shell window.
 
-## Concurrent sessions
-Cloud Shell enables multiple concurrent sessions across browser tabs by allowing each session to exist as a separate Bash process.
-If exiting a session, be sure to exit from each session window as each process runs independently although they run on the same machine.
+## Swap between Bash and PowerShell
+![](media/using-the-shell-window/env-selector.png)
+
+Use the environment selector in the Cloud Shell toolbar to swap between Bash and PowerShell environments.
 
 ## Restart Cloud Shell
-![](media/using-the-shell-window/recycle.png)
+![](media/using-the-shell-window/restart.png)
 > [!WARNING]
 > Restarting Cloud Shell will reset machine state and any files not persisted by your file share will be lost.
 
-* Click the restart icon on the toolbar to receive a new Cloud Shell environment.
+* Click the restart icon in the Cloud Shell toolbar to reset machine state.
 
 ## Minimize & maximize Cloud Shell window
 ![](media/using-the-shell-window/minmax.png)
 * Click the minimize icon on the top right of the window to hide it. Click the Cloud Shell icon again to unhide.
 * Click the maximize icon to set window to max height. To restore window to previous size, click restore.
+
+## Concurrent sessions
+Cloud Shell enables multiple concurrent sessions across browser tabs by allowing each session to exist as a separate Bash process.
+If exiting a session, be sure to exit from each session window as each process runs independently although they run on the same machine.
 
 ## Copy and paste
 * Windows: `Ctrl-insert` to copy and `Shift-insert` to paste. Right-click dropdown can also enable copy/paste.
@@ -52,4 +57,6 @@ If exiting a session, be sure to exit from each session window as each process r
 Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md)
+
+[Bash in Cloud Shell Quickstart](quickstart.md)
+[PowerShell in Cloud Shell Quickstart](quickstart-powershell.md)
