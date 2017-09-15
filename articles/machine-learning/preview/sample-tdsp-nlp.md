@@ -1,6 +1,6 @@
 ---
-title: Bio-medical entity recognition using Natural Language Processing with Deep Learning in an Azure Machine Learning Workbench TDSP template | Microsoft Docs
-description: A TDSP project quickstart that uses Natural Language Processing with Deep Learning for bio-medical entity recognition in Azure Machine Learning Workbench.
+title: Bio-medical entity recognition with a TDSP project | Microsoft Docs
+description: A Team Data Science Process (TDSP) project quickstart that uses Natural Language Processing with Deep Learning for bio-medical entity recognition in Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -18,7 +18,7 @@ ms.author: bradsev
 
 ---
 
-# Bio-medical entity recognition using Natural Language Processing with Deep Learning in an Azure Machine Learning Workbench TDSP template
+# Bio-medical entity recognition with a TDSP project
 
 
 ## Link of the Gallery GitHub repository
