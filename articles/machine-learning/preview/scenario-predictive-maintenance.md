@@ -13,9 +13,9 @@ ms.custom: mvc
 ms.date: 09/25/2017 
 --- 
 
-# Predictive Maintenance Real World Scenario
+# Predictive maintenance real world scenario
 
-## Link of the Gallery GitHub repository
+## Link of the gallery GitHub repository
 
 Following is the link to the public GitHub repository: 
 [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
@@ -24,14 +24,14 @@ Following is the link to the public GitHub repository:
 
 The impact of unscheduled equipment downtime can be detrimental for any business. It is critical to therefore keep field equipment running in order to maximize utilization and performance and by minimizing costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
-For this tutorial, we use a relatively [large-scale data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) to walk the user through the main steps from data ingestion, feature engineering, model building, and then finally model operationalization and deployment. The code for the entire process is written in PySpark and implemented using Jupyter notebooks within Azure ML Workbench. The best model is finally operationalized using Azure Machine Learning Model Management for use in a production environment for making realtime failure predictions.   
+For this scenario, we use a relatively [large-scale data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) to walk the user through the main steps from data ingestion, feature engineering, model building, and then finally model operationalization and deployment. The code for the entire process is written in PySpark and implemented using Jupyter notebooks within Azure ML Workbench. The best model is finally operationalized using Azure Machine Learning Model Management for use in a production environment for making realtime failure predictions.   
 
 
-## Use Case Overview
+## Use case overview
 
 A major problem faced by businesses in asset-heavy industries is the significant costs that are associated with delays to mechanical problems. Most businesses are interested in predicting when these problems arise in order to proactively prevent them before they occur. This reduces the costs by reducing downtime and, in some cases, increasing safety. Refer to the [playbook for predictive maintenance](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) for a detailed explanation of common use cases and the modeling approach for predictive maintenance.
 
-This tutorial leverages the ideas from the playbook with the aim of providing the steps to implement a predictive model for a scenario, which is based on a synthesis of multiple real-world business problems. This example brings together common data elements observed among many predictive maintenance use cases.
+This scenario leverages the ideas from the playbook with the aim of providing the steps to implement a predictive model for a scenario, which is based on a synthesis of multiple real-world business problems. This example brings together common data elements observed among many predictive maintenance use cases.
 
 The business problem for this simulated data is to predict issues caused by component failures. The business question therefore is “*What is the probability that a machine goes down due to failure of a component*?” This problem is formatted as a multiclass classification problem (multiple components per machine) and a machine learning algorithm is used to create the predictive model. The model is trained on historical data collected from machines. In this tutorial, the user goes through the various steps of implementing such a model within the Azure Machine Learning Workbench environment.
 
@@ -45,7 +45,7 @@ The business problem for this simulated data is to predict issues caused by comp
 * The tutorial was built and tested on a Windows 10 machine with the following specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). 
 * Model operationalization was done using this version of Azure ML CLI: azure-cli-ml==0.1.0a22
 
-## Data Description
+## Data description
 
 The [simulated data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) consists of five comma-separated values (.csv) files. 
 
@@ -57,7 +57,7 @@ The [simulated data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/
 
 See the [Data Ingestion](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/data_ingestion.ipynb) Jupyter Notebook tutorial in Code section to download the raw data sets from the GitHub repository and create the PySpark data sets for this analysis.
 
-## Scenario Structure
+## Scenario structure
 The content for the tutorial is available at the [GitHub repository](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance). 
 
 In the repository, there is a [Readme](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) file, which outlines the processes from preparing the data until building a few models and then finally operationalizing one of the best models. The four Jupyter notebooks are available in the [Code](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) folder within the repository.   
