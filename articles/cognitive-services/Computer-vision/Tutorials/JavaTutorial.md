@@ -8,7 +8,7 @@ manager: JuliaNik
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 09/15/2017
 ms.author: v-royhar
 ---
 
@@ -16,8 +16,8 @@ ms.author: v-royhar
 
 This tutorial shows the features of the Microsoft Cognitive Services Computer Vision REST API: 
 * [Prerequisites](#Prerequisites) 
-* [Download the example](#DownloadExample)
-* [Build and run the example](#BuildAndRun)
+* [Download the tutorial project](#DownloadExample)
+* [Build and run the tutorial project](#BuildAndRun)
 * [Add the tutorial code](#AddTutorialCode)
 * [Analyze an image](#Analyze)
 * [Recognize a landmark](#Landmark)
@@ -27,7 +27,7 @@ This tutorial shows the features of the Microsoft Cognitive Services Computer Vi
 * [Read handwritten text (handwriting recognition)](#Handwriting)
 * [Next steps](#NextSteps)
 
-Explore a simple Java Swing application that uses the Computer Vision REST API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag, and describe visual features, including faces, in an image. This example lets you submit an image URL for analysis or processing. You can use this open source example as a template for building your own app in Java to use the Computer Vision REST API.
+Explore a Java Swing application that uses the Computer Vision REST API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag, and describe visual features, including faces, in an image. This example lets you submit an image URL for analysis or processing. You can use this open source example as a template for building your own app in Java to use the Computer Vision REST API.
 
 The Java Swing form application has already been written, but has no functionality. In this tutorial, you add the code specific to the Computer Vision REST API to complete the application's functionality.
 
@@ -41,25 +41,27 @@ This tutorial has been developed using the NetBeans IDE. Specifically, the **Jav
 
 Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
 
-### <a name="DownloadExample">Download the example</a>
+### <a name="DownloadExample">Download the tutorial project</a>
 
-Download the [ComputerVisionJavaTutorial.zip](./media/javatutorial/ComputerVisionJavaTutorial.zip) file. There is no need to extract the contents of the .zip file because NetBeans imports the project from the .zip file.
+1. Go to the [Cognitive Services Java Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) repository.
+1. Click the **Clone or download** button.
+1. Click **Download ZIP** to download a .zip file of the tutorial project.
 
-If you would prefer to use the finished tutorial with all of the tutorial code already added, download the [ComputerVisionJavaTutorialFinished.zip](./media/javatutorial/ComputerVisionJavaTutorialFinished.zip) file.
+There is no need to extract the contents of the .zip file because NetBeans imports the project from the .zip file.
 
-### <a name="ImportExample">Import the example</a>
+### <a name="ImportExample">Import the tutorial project</a>
 
-Import the ComputerVisionJavaTutorial.zip into NetBeans.
+Import the **cognitive-services-java-computer-vision-tutorial-master.zip** file into NetBeans.
 
 1. In NetBeans, click **File** > **Import Project** > **From ZIP...**. The **Import Project(s) from ZIP** dialog box appears.
-1. In the **ZIP File:** field, click the **Browse** button to locate the **ComputerVisionJavaTutorial.zip** file, then click **Open**.
-1. Click **Import** from the **Import Projec(s) from ZIP** dialog box.
+1. In the **ZIP File:** field, click the **Browse** button to locate the **cognitive-services-java-computer-vision-tutorial-master.zip** file, then click **Open**.
+1. Click **Import** from the **Import Project(s) from ZIP** dialog box.
 1. In the **Projects** panel, expand **ComputerVision** > **Source Packages** > **&lt;default package&gt;**. 
    Some versions of NetBeans use **src** instead of **Source Packages** > **&lt;default package&gt;**. In that case, expand **src**.
-1. Double-click **MainFrame.java** to load the file into the NetBeans editor. This opens in the **Design** tab of the **MainFrame.java** file.
+1. Double-click **MainFrame.java** to load the file into the NetBeans editor. The **Design** tab of the **MainFrame.java** file appears.
 1. Click the **Source** tab to view the Java source code.
 
-### <a name="BuildAndRun">Build and run the example</a>
+### <a name="BuildAndRun">Build and run the tutorial project</a>
 
 1. Press **F6** to build and run the tutorial application.
 
@@ -837,7 +839,7 @@ Copy and paste the following **HandwritingImage** method to just underneath the 
 
 #### Handwriting Recognition step 3: Run the application
 
-Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Read Handwritten Text** tab, enter a URL to an image of handwritten text, then click the **Read Image** button to analyze an image and see the result.
+To run the application, press **F6**. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Read Handwritten Text** tab, enter a URL to an image of handwritten text, then click the **Read Image** button to analyze an image and see the result.
 
 ## <a name="NextSteps">Next Steps</a>
 
