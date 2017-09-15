@@ -5,6 +5,9 @@
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
 ## [FAQ](virtual-networks-faq.md)
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
+## [DDoS Protection](ddos-protection-overview.md)
+## [DDoS Protection FAQ](ddos-protection-faq.md)
+## [How DDos Protection works](ddos-protection-how-works.md)
 ## Classic
 ### [IP addressing](virtual-network-ip-addresses-overview-classic.md)
 ### [Access control lists](virtual-networks-acl.md)
@@ -130,6 +133,9 @@
 ### Virtual machines
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
 ### [Public IP addresses](virtual-network-public-ip-address.md)
+### DDoS Protection
+#### [Disable DDoS Protection](ddos-protection-disable.md)
+#### [Enable DDoS Protection](ddos-protection-enable.md)
 
 ## Troubleshoot
 ### Network security groups
