@@ -145,7 +145,7 @@ To configure the **Set usage quota per subscription** policy, position your curs
 </quota>
 ```
 
-Similarly to the **Set usage quota per subscription** policy, **Set usage quota per subscription** policy allows setting caps for on the product's APIs and operations. In this tutorial we will not use that capability, so delete the **api** and **operation** elements from the **quota** element, as shown in the following example.
+Similarly to the **Limit call rate per subscription** policy, **Set usage quota per subscription** policy allows setting caps for on the product's APIs and operations. In this tutorial we will not use that capability, so delete the **api** and **operation** elements from the **quota** element, as shown in the following example.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
