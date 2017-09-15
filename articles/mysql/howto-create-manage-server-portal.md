@@ -30,16 +30,16 @@ Follow these steps to create an Azure Database for MySQL server named “mysqlse
 
 3. Fill out the Azure Database for MySQL form by using the following information:
 
-| **Form Field** | **Field Description** |
-|----------------|-----------------------|
-| *Server name* | azure-mysql (server name is globally unique) |
-| *Subscription* | MySQLaaS (select from the drop-down menu) |
-| *Resource group* | myresource (create a new resource group or use an existing one) |
-| *Server admin login* | myadmin (setup admin account name) |
-| *Password* | setup admin account password |
-| *Confirm password* | confirm admin account password |
-| *Location* | North Europe (select between North Europe and West US) |
-| *Version* | 5.6 (choose Azure Database for MySQL server version) |
+    | **Form Field** | **Field Description** |
+    |----------------|-----------------------|
+    | *Server name* | azure-mysql (server name is globally unique) |
+    | *Subscription* | MySQLaaS (select from the drop-down menu) |
+    | *Resource group* | myresource (create a new resource group or use an existing one) |
+    | *Server admin login* | myadmin (setup admin account name) |
+    | *Password* | setup admin account password |
+    | *Confirm password* | confirm admin account password |
+    | *Location* | North Europe (select between North Europe and West US) |
+    | *Version* | 5.6 (choose Azure Database for MySQL server version) |
 
 4. Click **Pricing tier** to specify the service tier and performance level for your new server. Compute Unit can be configured between 50 and 100 in Basic tier, between 100 and 200 in Standard tier, and storage can be added based on the included amount. For this HowTo guide, let’s choose 50 Compute Unit and 50 GB. Click **OK** to save your selection.
 
