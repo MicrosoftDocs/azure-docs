@@ -28,7 +28,7 @@ The Free tier of Security Center is automatically enabled on all Azure subscript
 You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To learn more about the Azure portal, see the [portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 ## Permissions
-In Security Center, you only see information related to an Azure resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to. See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
+In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to. See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection
 Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Security Center provisions the Microsoft Monitoring Agent on all existing supported Azure VMs and any new ones that are created. See [Enable data collection](security-center-enable-data-collection.md) to learn more about how data collection works.
@@ -61,6 +61,9 @@ You can configure security policies for your Azure subscriptions and resource gr
 1. On the Security Center main menu, select **Security policy**.
 2. Under **Security Center - Security policy**, select a subscription.
 3. Under **Security policy - Data Collection**, **Automatic provisioning** is turned on. Security Center provisions the Microsoft Monitoring Agent on all existing supported Azure VMs and any new ones that are created.
+
+    ![Security policy][12]
+
 4. On the **Security policy** blade, select the policy component **Security policy**.
 
      ![Security policy][11]
@@ -103,6 +106,8 @@ You can configure security policies for your Azure subscriptions and resource gr
    ![Partner solutions][9]
 3. Select a partner solution. A blade opens and shows you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
 
+   ![Partner solutions][13]
+
 ## Next steps
 This article introduced you to the security monitoring and policy management components of Security Center. Now that you're familiar with Security Center, try the following steps:
 
@@ -117,8 +122,6 @@ This article introduced you to the security monitoring and policy management com
 <!--Image references-->
 [1]: ./media/security-center-get-started/azure-menu.png
 [2]: ./media/security-center-get-started/security-center-pin.png
-[3]: ./media/security-center-get-started/security-policy.png
-[4]: ./media/security-center-get-started/prevention-policy.png
 [5]: ./media/security-center-get-started/recommendations.png
 [6]: ./media/security-center-get-started/resources-health.png
 [7]: ./media/security-center-get-started/security-alert.png
@@ -126,3 +129,5 @@ This article introduced you to the security monitoring and policy management com
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/welcome.png
 [11]: ./media/security-center-get-started/show-recommendations-for.png
+[12]: ./media/security-center-get-started/automatic-provisioning.png
+[13]: ./media/security-center-get-started/partner-solutions-detail.png
