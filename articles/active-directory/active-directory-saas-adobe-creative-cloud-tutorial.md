@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Adobe Creative Cloud Domain and URLs single sign-on information](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.okta.com/saml2/service-provider/<token>`
+    a. In the **Identifier** textbox,  type the value as: `https://www.okta.com/saml2/service-provider/<token>`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
@@ -160,20 +160,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 11. Go to **Identity** on the left navigation pane and click your domain. Then perform the following steps on **Single Sign On Configuration Required** section.
 
 	![Settings](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "Settings")
+	
+	a. Click **Browse** to upload the downloaded certificate from Azure AD to **IDP Certificate**.
+	
+	b. In the **IDP issuer** textbox, put the value of **SAML Entity Id** which you copied from **Configure sign-on** section in Azure portal.
+	
+	c. In the **IDP Login URL** textbox, put the value of **SAML SSO Service URL** which you copied from **Configure sign-on** section in Azure portal.
+	
+	d. Select **HTTP - Redirect** as **IDP Binding**.
+	
+	e. Select **Email Address** as **User Login Setting**.
+	
+	f. Click **Save** button.
 
-12. Click **Browse** to upload the downloaded certificate from Azure AD to **IDP Certificate**.
-
-13. In the **IDP issuer** textbox, put the value of **SAML Entity Id** which you copied from **Configure sign-on** section in Azure portal.
-
-14. In the **IDP Login URL** textbox, put the value of **SAML SSO Service URL** which you copied from **Configure sign-on** section in Azure portal.
-
-15. Select **HTTP - Redirect** as **IDP Binding**.
-
-16. Select **Email Address** as **User Login Setting**.
- 
-17. Click **Save** button.
-
-18. The dashboard will now present the XML **"Download Metadata"** file. It contains Adobe’s EntityDescriptor URL and AssertionConsumerService URL. Please open the file and configure them in the Azure AD application.
+12. The dashboard will now present the XML **"Download Metadata"** file. It contains Adobe’s EntityDescriptor URL and AssertionConsumerService URL. Please open the file and configure them in the Azure AD application.
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
