@@ -65,13 +65,13 @@ Install the Azure Machine Learning Workbench on your computer running macOS Sier
 
 1. Install openssl library using [Homebrew](http://brew.sh). See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/en-US/dotnet/core/macos-prerequisites) for more details.
 ```console
-# only needed if you have Python 3.6 or later installed
-$ /Applications/Python\ 3.6/Install\ Certificates.command
+#only needed if you have Python 3.6 or later installed
+/Applications/Python\ 3.6/Install\ Certificates.command
 
-# install Homebrew first if you don't have it already
+#install Homebrew first if you don't have it already
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# install latest openssl needed for .NET Core
+#install latest openssl needed for .NET Core
 brew update
 brew install openssl
 mkdir -p /usr/local/lib
