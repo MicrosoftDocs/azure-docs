@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Adobe Creative Cloud, you need the following items:
 
 - An Azure AD subscription
-- An Adobe Creative Cloud single-sign on enabled subscription
+- An Adobe Creative Cloud single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Adobe Creative Cloud Domain and URLs single sign-on information](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url.png)
 
-    a. In the **Identifier** textbox,  type the value as: `https://www.okta.com/saml2/service-provider/<token>`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.okta.com/saml2/service-provider/<token>`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
@@ -220,31 +220,20 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an Adobe Creative Cloud test user
 
-In order to enable Azure AD users to log into Adobe Creative Cloud, they must be provisioned into Adobe Creative Cloud.  
-In the case of Adobe Creative Cloud, provisioning is a manual task.
+In order to enable Azure AD users to log into Adobe Creative Cloud, they must be provisioned into Adobe Creative Cloud. In the case of Adobe Creative Cloud, provisioning is a manual task.
 
 ### To provision a user accounts, perform the following steps:
 
 1. Log in to your Adobe Creative Cloud company site as an administrator.
 
-2. Click **People**.
+2. Add the user within Adobe’s console as Federated ID and assign them to a group for entitlement
 
-    ![People](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_001.png "People")
+	![The Adobe Creative Cloud link in the Applications list](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
 
-3. Click **Invite User**.
-
-	![Invite Users](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_002.png "Invite Users")
-
-4. On the **Invite People** dialog page, perform the following steps:
-
-	![Invite People](./media/active-directory-saas-adobe-creative-cloud-tutorial/create_aaduser_003.png "Invite People")
-
-	a. In the **Email** textbox, type the email address of Britta Simon account.
-	
-    b. Click **Invite**.
-
-	> [!NOTE]
-    > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
+3. At this point, type your email address/upn into the Adobe signin form, press tab, and you should be federated back to Azure AD:
+	* Web access: www.adobe.com > sign-in
+	* Within the desktop app utility > sign-in
+	* Within the application > help > sign-in
 
 ### Assign the Azure AD test user
 
