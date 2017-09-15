@@ -4,17 +4,7 @@
   items: 
   - name: About Content Moderator
     href: overview.md
-  - name: Image moderation
-    href: image-moderation-api.md
-  - name: Text moderation
-    href: text-moderation-api.md
-  - name: Text moderation - languages
-    href: Text-Moderation-API-Languages.md
-  - name: Video moderation
-    href: video-moderation-api.md
-  - name: Review APIs
-    href: review-api.md
-- name: Get started
+- name: Quickstarts
   items: 
   - name: Review Tool
     href: quick-start.md
@@ -36,6 +26,18 @@
       href: try-review-api-review.md
     - name: Workflows
       href: try-review-api-workflow.md
+- name: Concepts
+  items: 
+  - name: Image moderation
+    href: image-moderation-api.md
+  - name: Text moderation
+    href: text-moderation-api.md
+  - name: Text moderation - languages
+    href: Text-Moderation-API-Languages.md
+  - name: Video moderation
+    href: video-moderation-api.md
+  - name: Review APIs
+    href: review-api.md
 - name: How-to Guides
   items:
   - name: Review Tool
