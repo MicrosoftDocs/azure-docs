@@ -61,7 +61,7 @@ You can provision physical devices from the dashboard in the solution portal.
 
 ### IoT Hub
 
-The [IoT hub](../iot-hub/index.md) ingests data sent from the devices into the cloud and makes it available to the `stream-analytics` microservice.
+The [IoT hub](../iot-hub/index.md) ingests data sent from the devices into the cloud and makes it available to the `telemetry-agent` microservice.
 
 The IoT hub in the solution also:
 
@@ -89,7 +89,7 @@ The solution includes the following components in the data processing and analyt
 
 The solution includes two microservices to handle device telemetry.
 
-The `stream-analytics` microservice:
+The `telemetry-agent` microservice:
 
 * Stores telemetry in Cosmos DB.
 * Analyzes the telemetry stream from devices.
@@ -97,7 +97,7 @@ The `stream-analytics` microservice:
 
 The alarms are stored in Cosmos DB.
 
-The `device-telemetry` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
+The `telemetry-agent` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
 
 * Define monitoring rules such as the thresholds that trigger alarms
 * Retrieve the list of past alarms.
