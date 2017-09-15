@@ -104,12 +104,12 @@ This step also associates your gateway resource with your Azure subscription.
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 Make sure to use the same Azure work or school email address used to install the gateway.
 
-2. On the left menu in Azure, 
+2. On the main Azure menu, 
 choose **New** > **Enterprise Integration** > **On-premises data gateway** as shown here:
 
    ![Find "On-premises data gateway"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. On the **Create connection gateway** blade, 
+3. On the **Create connection gateway** page, 
 provide these details to create your data gateway resource:
 
     * **Name**: Enter a name for your gateway resource. 
@@ -149,7 +149,7 @@ provide these details to create your data gateway resource:
     ![Provide details to create your on-premises data gateway](./media/logic-apps-gateway-connection/createblade.png)
 
     To find or view your data gateway at any time, 
-    from the main Azure left menu, go to 
+    from the main Azure menu, go to 
     **More Services** > **Enterprise Integration** > **On-premises Data Gateways**.
 
     ![Go to "More services", "Enterprise Integration", "On-premises Data Gateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
@@ -192,19 +192,19 @@ you might want to later update the settings for that specific connection.
 
 1. To find the gateway connection:
 
-   * On the logic app blade, under **Development Tools**, select **API Connections**. 
+   * On the logic app menu, under **Development Tools**, select **API Connections**. 
    
      The **API Connections** pane shows all API connections 
      associated with your logic app, including gateway connections.
 
      ![Go to your logic app, select "API Connections"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * Or, from the main Azure left menu, go to 
+   * Or, from the main Azure menu, go to 
     **More Services** > **Web + Mobile** > **API Connections** 
     for all API connections, including gateway connections, 
     that are associated with your Azure subscription. 
 
-   * Or, on the main Azure left menu, go to **All resources** 
+   * Or, on the main Azure menu, go to **All resources** 
    for all API connections, including gateway connections, 
    that are associated with your Azure subscription.
 
@@ -224,7 +224,7 @@ or remove the gateway resource,
 you can delete the gateway resource without 
 affecting the gateway installation. 
 
-1. From the main Azure left menu, go to **All resources**. 
+1. From the main Azure menu, go to **All resources**. 
 2. Find and select your data gateway resource.
 3. Choose **On-premises Data Gateway**, and on the resource toolbar, choose **Delete**.
 
