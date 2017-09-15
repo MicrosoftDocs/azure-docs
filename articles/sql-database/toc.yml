@@ -159,6 +159,8 @@
       href: sql-database-advisor.md
     - name: Automatic tuning
       href: sql-database-automatic-tuning.md
+    - name: Intelligent Insights
+      href: sql-database-intelligent-insights.md
     - name: Manual tuning
       href: sql-database-performance-guidance.md
     - name: Operate query store
