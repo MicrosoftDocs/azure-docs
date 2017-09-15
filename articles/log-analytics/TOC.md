@@ -1,13 +1,22 @@
 # Overview
 ## [What is Log Analytics?](log-analytics-overview.md)
-## [Data security](log-analytics-security.md)
 
-# Get Started
-## [Sign up for Log Analytics](log-analytics-get-started.md)
+# Quickstarts
+## [Collect - Azure VMs](log-analytics-quick-collect-azurevm.md)
+
+# Tutorials
+## [1 - Analyze data](log-analytics-tutorial-viewdata.md)
+## [2 - Visualize data](log-analytics-tutorial-dashboards.md)
+## [3 - Alert on data](log-analytics-tutorial-response.md)
+
+# Samples
+## [PowerShell](powershell-samples.md)
+
+# Concepts
+## [FAQ](log-analytics-faq.md)
+## [Data Consumption](log-analytics-usage.md)
 ## [Manage access](log-analytics-manage-access.md)
-## [Usage data](log-analytics-usage.md)
-## [Log Analytics FAQ](log-analytics-faq.md)
-## [Service providers](log-analytics-service-providers.md)
+## [Features for Service providers](log-analytics-service-providers.md)
 
 # How To
 ## Collect data
