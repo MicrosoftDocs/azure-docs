@@ -40,10 +40,9 @@ ms.date: 09/06/2017
 - **Environment:** In Azure Machine Learning, an environment denotes a particular computing resource that is used for deploying and management your models. It can be your local computer, an Azure Linux VM, or a Kubernetes cluster running Azure Container Service depending on context and configuration. Your model is hosted in a Docker container running in these environments and exposed as a REST API endpoint.
 
 
-- **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. ‘Managed’ models have been registered with an Azure Machine Learning Model Management account. 
+- **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. Managed models refer to models that have been registered with an Azure Machine Learning Model Management account. 
  
-
-- **Deployment:** Model Management allows you to deploy models as packaged web service containers in Azure. Each web service is counted as a single deployment. 
+- **Deployment:** Model Management allows you to deploy models as containerized web service locally or in Kubernetes cluster in Azure. Each web service is counted as a single deployment. 
 
 
 - **Manifests:** When the Model Management system deploys a model into production it includes a manifest that encompasses the model, dependencies, a scoring script, sample data, and a schema. The manifest is the recipe used to create a Docker container image. Using Model Management, you can auto-generate, create versions, and manage your manifests. 
