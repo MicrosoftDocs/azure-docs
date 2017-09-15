@@ -402,7 +402,7 @@ For snapshot of the volume storing the boot LUN
 The following parameters need to be specified:
 
 - The first parameter characterizes the type of the snapshot backup. The values allowed are **hana**, **logs**, and **boot**. 
-- The second parameter is **HANA SID** (like HM3) or **none**. If the first parameters value provided is **hana** or **logs**, then the value of this parameter is **HANA SID** (like HM3), else for boot lun backup, the value is **none**. 
+- The second parameter is **HANA SID** (like HM3) or **none**. If the first parameters value provided is **hana** or **logs**, then the value of this parameter is **HANA SID** (like HM3), else for boot volume backup, the value is **none**. 
 - The third parameter is a snapshot or backup label for the type of snapshot. It has two purposes. The one purpose for you is to give it a name, so that you know what these snapshots are about. The second purpose is for the script azure\_hana\_backup.pl to determine the number of storage snapshots that are retained under that specific label. If you schedule two storage snapshot backups of the same type (like **hana**), with two different labels, and define that 30 snapshots should be kept for each, you are going to end up with 60 storage snapshots of the volumes affected. 
 - The fourth parameter defines the retention of the snapshots indirectly, by defining the number of snapshots of with the same snapshot prefix (label) to be kept. This parameter is important for a scheduled execution through cron. 
 
