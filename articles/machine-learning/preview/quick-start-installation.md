@@ -53,8 +53,9 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
 **[AmlWorkbenchSetup.exe](https://vienna.blob.core.windows.net/windows/AmlWorkbenchSetup.exe)**
 
 2. Double-click the downloaded installer _AmlWorkbenchSetup.exe_.
->[!IMPORTANT]
->Download the installer fully on disk, then launch it from there. Do not launch it directly off your browser's download widget.
+
+    >[!IMPORTANT]
+    >Download the installer fully on disk, then launch it from there. Do not launch it directly off your browser's download widget.
 
 3. Finish the installation by following the on-screen instructions.
 
@@ -64,7 +65,7 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
 Install the Azure Machine Learning Workbench on your computer running macOS Sierra or newer.
 
 1. Install openssl library using [Homebrew](http://brew.sh). See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/en-US/dotnet/core/macos-prerequisites) for more details.
-    ```console
+    ```
     # only needed if you have Python 3.6 or later installed
     /Applications/Python\ 3.6/Install\ Certificates.command
 
@@ -100,7 +101,7 @@ Azure ML Workbench is installed in the following directory: _/Applications/AmlWo
 
 Once the installation process is complete and you log in successfully, move on to installing optional components.
 
-### Install optional components
+## Install optional components
 Azure ML Workbench can run experiments in various compute targets. To use these execution targets, install additional components, and create or obtain access to additional computation resources in Azure:
 * Execute on your local **Windows or macOS computer**
    * There is no additional requirements.
@@ -108,15 +109,15 @@ Azure ML Workbench can run experiments in various compute targets. To use these 
    * You must have Docker engine installed and running. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
 * Execute in a **Docker container on a remote Linux machine**
    * You must have SSH access (username and password) to the Linux VM, and you must have Docker engine installed and running on that machine.
-   * We recommend you [create a Ubuntu-based DSVM (Data Science Virtual Machine) on Azure](../data-science-virtual-machine/dsvm-ubuntu-intro.md), which has Docker pre-installed so it is ready to go.
+   * We recommend you [create a Ubuntu-based DSVM (Data Science Virtual Machine) on Azure](../data-science-virtual-machine/dsvm-ubuntu-intro.md), which has Docker pre-installed so it is ready to go. Also make sure you use username/password for credentials, not SSH public key.
 * Execute in an **HDInsight Spark cluster**
    * You must have SSH access (username and password) to the head node of that HDInsight Spark cluster. Here are the instructions on [provisioning a HDInsight Spark cluster](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md).
-* Deploy a web service to run locally on your machine
+* Deploy a web service to run **locally on your machine**
    * This requires a local Docker installation. Follow [Docker installation instructions](https://docs.docker.com/engine/installation/) to install Docker on your operation system.
-* Deploy a web service to run in an Azure Container Service Kubernetes cluster
+* Deploy a web service to run in an **Azure Container Service Kubernetes cluster**
    * You can set up the cluster in advance, or use Model Management CLI setup command to create it for you.
 
-#### Special note on Docker for Windows 
+## Special note on Docker for Windows 
 You need Docker to execute scripts in a local Docker container, or to deploy model via a containerized web service locally. We have some tips for installing and configuring Docker for Azure Machine Learning on Windows.  Make sure you follow these instructions:
 - Only Windows 10 is supported for running Docker for Windows.
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and have it up and running.
