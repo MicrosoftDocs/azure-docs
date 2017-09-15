@@ -108,7 +108,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 
 > [!NOTE]
 >* Currently, the new feature Managed Service Identity (MSI) is the easiest way to authenticate. For further details please see the following link to the sample using [Key Vault with MSI in an application in .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and related [MSI with App Service and Functions tutorial](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity). 
->* Using Client ID and Client Secret is another way to authenticate an Azure AD application. And using it in your web application allows for a separation of duties and more control over your key management. But it does rely on putting the Client Secret in your configuration settings which for some can be as risky as putting the secret that you want to protect in your configuration settings. See below for a discussion on how to use a Client ID and Certificate instead of Client ID and Client Secret to authenticate the Azure AD application.
+>* Using Client ID and Client Secret is another way to authenticate an Azure AD application. And using it in your web application allows for a separation of duties and more control over your key management. But it does rely on putting the Client Secret in your configuration settings, which for some can be as risky as putting the secret that you want to protect in your configuration settings. See the following for a discussion on how to use a Client ID and Certificate instead of Client ID and Client Secret to authenticate the Azure AD application.
 
 ## <a id="appstart"></a>Retrieve the secret on Application Start
 
@@ -130,7 +130,7 @@ Utils.EncryptSecret = sec.Value;
 
 ## <a id="portalsettings"></a>Add App Settings in the Azure Portal (optional)
 
-If you have an Azure Web App you can now add the actual values for the AppSettings in the Azure Portal. By doing this, the actual values will not be in the web.config but protected via the Portal where you have separate access control capabilities. These values will be substituted for the values that you entered in your web.config. Make sure that the names are the same.
+If you have an Azure Web App, you can now add the actual values for the AppSettings in the Azure Portal. By doing this, the actual values will not be in the web.config but protected via the Portal where you have separate access control capabilities. These values will be substituted for the values that you entered in your web.config. Make sure that the names are the same.
 
 ![Application Settings displayed in Azure Portal][1]
 
@@ -145,7 +145,7 @@ Another way to authenticate an Azure AD application is by using a Client ID and 
 
 ### Get or Create a Certificate
 
-For our purposes we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  Also, for the beginning and ending date of the certificate, use the current date plus 1 year.
+For our purposes, we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  Also, for the beginning and ending date of the certificate, use the current date plus 1 year.
 
 ```
     makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
@@ -226,7 +226,7 @@ public static void GetCert()
 }
 ```
 
-Here is the new code to get the access token. This replaces the GetToken method above. I have given it a different name for convenience.
+Here is the new code to get the access token. This replaces the GetToken method in the preceding example. I have given it a different name for convenience.
 
 ```cs
 public static async Task<string> GetAccessToken(string authority, string resource, string scope)
@@ -239,7 +239,7 @@ public static async Task<string> GetAccessToken(string authority, string resourc
 
 I have put all of this code into my Web App project's Utils class for ease of use.
 
-The last code change is in the Application_Start method. First we need to call the GetCert() method to load the ClientAssertionCertificate. And then we change the callback method that we supply when creating a new KeyVaultClient. Note that this replaces the code that we had above.
+The last code change is in the Application_Start method. First we need to call the GetCert() method to load the ClientAssertionCertificate. And then we change the callback method that we supply when creating a new KeyVaultClient. Note that this replaces the code that we had in the preceding example.
 
 ```cs
     Utils.GetCert();
@@ -248,7 +248,7 @@ The last code change is in the Application_Start method. First we need to call t
 
 ### Add a Certificate to your Web App through the Azure Portal
 
-Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure Portal and navigate to your Web App. On the Settings blade for your Web App, click on the entry for "Custom domains and SSL". On the blade that opens you will be able to upload the Certificate that you created above, KVWebApp.pfx, make sure that you remember the password for the pfx.
+Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure Portal and navigate to your Web App. On the Settings blade for your Web App, click on the entry for "Custom domains and SSL". On the blade that opens you will be able to upload the Certificate that you created in the preceding example, KVWebApp.pfx, make sure that you remember the password for the pfx.
 
 ![Adding a Certificate to a Web App in the Azure Portal][2]
 
