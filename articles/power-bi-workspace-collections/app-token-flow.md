@@ -1,6 +1,6 @@
 ---
-title: Authenticating and authorizing with Power BI Embedded
-description: Authenticating and authorizing with Power BI Embedded
+title: Authenticating and authorizing with Power BI Workspace Collections | Microsoft Docs
+description: Authenticating and authorizing with Power BI Workspace Collections.
 services: power-bi-embedded
 documentationcenter: ''
 author: guyinacube
