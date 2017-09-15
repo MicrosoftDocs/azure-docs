@@ -23,15 +23,18 @@ ms.author: helaw
 
 Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack was designed for these scenarios, and it is important to understand the controls already in place when adopting Azure Stack.
 
-In Azure Stack, there are two security posture “layers” that coexist. The first layer comprises the Azure Stack infrastructure, which goes from the hardware components all the way up to the Azure Resource Manager, and includes the Admin and the Tenant portals. The second layer consists of the workloads that tenants create, deploy, and manage and includes things like virtual machines or App Services web sites.  
+In Azure Stack, there are two security “layers” that coexist. The first layer comprises the Azure Stack infrastructure, which goes from the hardware components all the way up to the Azure Resource Manager, and includes the Administrator and the Tenant portals. The second layer consists of the workloads that tenants create, deploy, and manage and includes things like virtual machines or App Services web sites.  
 
-As in Azure, the security posture of the Azure Stack infrastructure is defined by Microsoft, while the security of the workloads running on top of it is tenants’ responsibility. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
 
 ## Security approach
 Azure Stack was designed with a security posture to defend against modern threats, and was built to meet the requirements from the major compliance standards. As a result, the security posture of the Azure Stack infrastructure is built on two pillars:
 
  - Assume Breach, where starting from the assumption that the system has already been breached, we focus on *detecting and limiting the impact of breaches* versus only trying to prevent attacks. 
  - Hardened by Default, where since the infrastructure runs on well-defined hardware and software, we *enable, configure, and validate security features* that are usually left to customers to implement.
+
+As in Azure, the security posture of the Azure Stack infrastructure is defined by Microsoft, while the security of the workloads running on top of it is tenants’ responsibility. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
+
+Because Azure Stack is delivered as an integrated system, the internal security controls enabled on the Azure Stack infrastructure are defined by Microsoft.  Conversely, the security of the workloads of it is tenants’ responsibility. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
 
 ## Data at rest encryption
 All Azure Stack infrastructure and tenant data is encrypted at rest using Bitlocker. This encryption protects against physical loss or theft of Azure Stack storage components. 
@@ -42,7 +45,8 @@ All external infrastructure endpoints, such as the REST endpoints or the Azure S
 While self-signed certificates can be used for these external endpoints, Microsoft strongly advises against using them. 
 
 ## Secret management
-Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are autonomously rotated at a very high frequency because they are Group Managed Service accounts, and rotate every 24 hours.
+Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are autonomatically rotated frequently, because they are Group Managed Service accounts, which rotate every 24 hours.
+
 The remaining secrets that are not autonomously managed can be rotated manually with a script in the Privileged Endpoint.
 
 ## Code Integrity
