@@ -1,6 +1,6 @@
 ---
-title: Iris Quickstart for Azure Machine Learning  | Microsoft Docs
-description: This Quickstart demonstrates how to use Azure Machine Learning preview features to process the timeless Iris flower dataset.
+title: Iris Quickstart for Azure Machine Learning services (preview)  | Microsoft Docs
+description: This Quickstart demonstrates how to use Azure Machine Learning services (preview) to process the timeless Iris flower dataset.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl
@@ -14,7 +14,7 @@ ms.date: 09/15/2017
 ---
 
 # Quickstart: Classifying the Iris flower data set
-Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
+Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
 In this quickstart, you take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model to predict the type of iris based on some of its physical characteristics.  This quickstart uses [logistic regression](https://en.wikipedia.org/wiki/logistic_regression) algorithm from the popular Python [scikit-learn](http://scikit-learn.org/stable/index.html) library to build the model.  You learn the following tasks in this quickstart: 
 
