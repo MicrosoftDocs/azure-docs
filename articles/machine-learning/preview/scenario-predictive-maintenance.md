@@ -1,34 +1,24 @@
---- 
-title: 'Predictive Maintenance Real World Scenario | Microsoft Docs' 
-description: Predictive Maintenance Real World Scenario guide
-services: machine-learning 
+--- 
+title: 'Predictive Maintenance Real World Scenario| Microsoft Docs' 
+description: Predictive Maintenance Real World Scenario using PySpark 
+services: machine-learning 
 author: jaymathe
 ms.author: jaymathe
-manager: jhubbard 
-ms.reviewer: garyericson, jasonwhowell, mldocs 
-ms.service: machine-learning 
-ms.workload: data-services 
-ms.topic: article 
-ms.custom: mvc 
-ms.date: 09/25/2017 
---- 
-
+manager: jhubbard 
+ms.reviewer: garyericson, jasonwhowell, mldocs 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.topic: article 
+ms.custom: mvc 
+ms.date: 09/25/2017 
+--- 
 
 # Predictive Maintenance Real World Scenario
 
-## Prerequisites
+## Link of the Gallery GitHub repository
 
-Note this section is included in the Readme file on GitHub repo.
-
-1. Ensure that you have properly installed Azure ML Workbench by following the [installation guide](https://github.com/Azure/ViennaDocs/blob/master/Documentation/Installation.md).
-2. Intermediate results for use across Jupyter notebooks in this tutorial is stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are available at this [link](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
-3. For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
-4. This tutorial assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
-
-Notes:
- 
-* The tutorial was built and tested on a Windows 10 machine with the following specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). 
-* Model operationalization was done using this version of Azure ML CLI: azure-cli-ml==0.1.0a22
+Following is the link to the public GitHub repository: 
+[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 ## Introduction
 
@@ -45,6 +35,15 @@ This tutorial leverages the ideas from the playbook with the aim of providing th
 
 The business problem for this simulated data is to predict issues caused by component failures. The business question therefore is “*What is the probability that a machine goes down due to failure of a component*?” This problem is formatted as a multiclass classification problem (multiple components per machine) and a machine learning algorithm is used to create the predictive model. The model is trained on historical data collected from machines. In this tutorial, the user goes through the various steps of implementing such a model within the Azure Machine Learning Workbench environment.
 
+## Prerequisites
+
+* An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml) following the [quick start installation guide](./quick-start-installation) to install the program and create a workspace.
+* Intermediate results for use across Jupyter notebooks in this tutorial is stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are available at this [link](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
+* For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
+* This tutorial assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
+* The tutorial was built and tested on a Windows 10 machine with the following specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). 
+* Model operationalization was done using this version of Azure ML CLI: azure-cli-ml==0.1.0a22
 
 ## Data Description
 
@@ -56,7 +55,7 @@ The [simulated data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/
 * [Telemetry](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): The telemetry time-series data consists of voltage, rotation, pressure, and vibration sensor measurements collected from each machine in real time. The data is averaged over an hour and stored in the telemetry logs
 * [Failures](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): Failures correspond to component replacements within the maintenance log. Each record contains the Machine ID, component type, and replacement date and time. These records are used to create the machine learning labels that the model is trying to predict.
 
-See the [Data Ingestion](https://msdata.visualstudio.com/AlgorithmsAndDataScience/_git/ViennaPredMaintTut?path=%2FCode%2Fdata_ingestion.ipynb&version=GBmaster&_a=contents) Jupyter Notebook tutorial in Code section to download the raw data sets from the GitHub repository and create the PySpark data sets for this analysis.
+See the [Data Ingestion](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/data_ingestion.ipynb) Jupyter Notebook tutorial in Code section to download the raw data sets from the GitHub repository and create the PySpark data sets for this analysis.
 
 ## Scenario Structure
 The content for the tutorial is available at the [GitHub repository](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance). 
@@ -73,7 +72,7 @@ Next we describe the step-by-step tutorial workflow. The end to end tutorial is 
 
 * [Model operationalization & Deployment](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/operationalization.ipynb): The best model built in the previous step is then saved as a .model file along with the relevant .json scheme file for deployment. The init() and run() functions are first tested locally before operationalizing the model using Azure Machine Learning Model Management environment for use in a production environment for making realtime failure predictions.  
 
-## Conclusion & Next Steps
+## Conclusion
 
 This tutorial gives the reader an overview of how to build an end to end predictive maintenance solution using PySpark within the Jupyter notebook environment in Azure ML Workbench. The tutorial also guides the reader on how the best model can be easily operationalized and deployed using Azure Machine Learning Model Management environment for use in a production environment for making realtime failure predictions. Then the reader can edit relevant parts of the tutorial to taper it to their business needs.  
 
@@ -87,10 +86,4 @@ This use case has been previously developed on multiple platforms as listed belo
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
-## Acknowledgement
 
-Multiple team members from across various organizations within Microsoft worked collaboratively to help build this end to end tutorial.  
-
-## Contact
-
-For additional information contact Jaya Mathew (jaymathe@microsoft.com) and John Ehrlinger (john.ehrlinger@microsoft.com) with any question or comment.
