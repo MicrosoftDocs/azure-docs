@@ -35,6 +35,7 @@ In this tutorial series you learn how to:
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Configure CI/CD using Visual Studio Team Services
+> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -159,7 +160,7 @@ Now that you have deployed an application and configured continuous integration,
 - [Upgrade an app](service-fabric-application-upgrade.md)
 - [Test an app](service-fabric-testability-overview.md) 
 - [Monitor and diagnose](service-fabric-diagnostics-overview.md)
-
+[here](../application-insights/app-insights-api-custom-events-metrics.md)
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
