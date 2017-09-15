@@ -42,7 +42,7 @@ This action is the same as a Docker restart.
 
 **Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?**
 
-Yes, you can do that through the Security Compliance Manager (SCM) site.
+Yes, you can do that through the source control management (SCM) site.
 
 **How can I create a Linux App Service plan through an SDK or an Azure Resource Manager template?**
 
@@ -73,10 +73,6 @@ Yes.
 Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.lock file), and Kudu will then trigger a composer install for you.
 
 ## Custom containers
-
-**I'm using my own custom container. My app resides in the `/home/` directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?**
-
-We mount an SMB share to the `/home/` directory, which overrides any content that's there.
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
@@ -119,7 +115,7 @@ No, the platform handles HTTPS termination at the shared front ends.
 
 ## Pricing and SLA
 
-**What's the pricing now that the service is generally available?**
+**What is the pricing, now that the service is generally available?**
 
 You are charged the normal Azure App Service pricing for the number of hours that your app runs.
 
