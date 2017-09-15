@@ -287,7 +287,7 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
 10. From the virtual machine in Azure, ping the virtual machine in Azure Stack, through
    the tunnel. To do this, you ping the DIP that you recorded from Azs-VM.
    In the example environment, this is **10.0.10.4**, but be sure to ping the address you
-   noted in your lab. You should see a result that looks like the screenshot:
+   noted in your lab. You should see a result that looks like the following screenshot:
    
     ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. A reply from the remote virtual machine indicates a successful test! You can
