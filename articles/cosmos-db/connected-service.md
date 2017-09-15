@@ -79,19 +79,19 @@ Let's start by [creating an Azure Cosmos DB account](create-documentdb-dotnet.md
     ![Screen shot of the open Create CosmosDB Account entry point window](./media/connected-service/connected-service-click-new-db-account.png)
 2. On the **Create CosmosDB Account** blade, specify the configuration that you want for this Azure CosmosDB account.
 
-* Complete the fields on the **Create CosmosDB Account** blade, using the information in the following screenshot as a guide. When you set up your account, choose unique values that do not match those in the screenshot. 
+* Complete the fields on the **Create CosmosDB Account** blade, using the information in the following screenshot as a gui. 
 
    ![The new Azure Cosmos DB blade](./media/connected-service/connected-service-create-new-account.png)        
 3. Click **Create** to create the account.
 
 ## Use Data Explorer
 
-After open Data Explorer, we can Create and Delete database, Create and Delete Collection, Create and Delete documents, Filter Document, Create and Delete Stored Procedure. Also we can  Create and Delete Triggers, Create and Delete User Defined Function to perform server-side business logic. The usage of Data Explorer refers to [CosmosDB docs on Microsoft website](https://docs.microsoft.com/en-us/azure/cosmos-db/).
+After opening Data Explorer, we can Create and Delete database, Create and Delete Collection, Create and Delete documents, Filter Document, Create and Delete Stored Procedure. Also we can  Create and Delete Triggers, Create and Delete User Defined Function to perform server-side business logic. For how to use Data Explorer, refers to [CosmosDB docs on Microsoft website](https://docs.microsoft.com/en-us/azure/cosmos-db/).
 
    ![The new Azure Cosmos DB blade](./media/connected-service/connected-service-dataexplorerui.png)
 
 ## Demo
-* Use CosmosDB ConnectedServiceVS (video): [Use CosmosDB ConnectedServiceVS](https://go.microsoft.com/fwlink/?linkid=858556)
+* Use CosmosDB ConnectedService in VisualStudio(video): [Use CosmosDB ConnectedService in VisualStudio](https://go.microsoft.com/fwlink/?linkid=858556)
 
 
 
