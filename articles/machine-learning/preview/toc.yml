@@ -15,6 +15,9 @@
     href: quick-start-installation.md
   - name: Quick tour
     href: quick-start-iris.md  
+  - name: Visual Studio Code Tools for Machine Learning
+    href: quickstart-ml-tools.md
+  - name: Data prep quickstart
 - name: Tutorials
   items:
   - name: Classify iris part 1 - data preparation
@@ -23,7 +26,8 @@
     href: tutorial-classifying-iris-part-2.md
   - name: Classify iris part 3 - model deployment
     href: tutorial-classifying-iris-part-3.md
-  - name: (Classify iris - CLI edition)
+  - name: Classify iris - CLI edition
+    href: tutorial-iris-azure-cli.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md  
   - name: Real-world scenarios
@@ -31,7 +35,9 @@
     - name: Classify UCI incomes - with a TDSP project
       href: tutorial-classifying-uci-incomes.md
     - name: Biomedical entity recognition with a TDSP project
-      href: sample-tdsp-nlp.md    
+      href: sample-tdsp-nlp.md
+    - name: Aerial Image Classification
+      href: scenario-aerial-image-classification.md
 - name: How-to guides
   items:
   - name: Use Azure ML Workbench

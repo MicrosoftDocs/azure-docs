@@ -1,6 +1,6 @@
 ---
-title: Classifying Iris Tutorial Part 1 for Azure Machine Learning Server | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning end-to-end. This is part 1 data preparation.
+title: Iris Tutorial for Machine Learning services (preview) | Microsoft Docs
+description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end-to-end. This is part 1 on data preparation.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ---
 
 # Classifying Iris part 1: Prepare data
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
-This tutorial is part one of a three part series. In part one, you use the Azure Machine Learning Workbench to learn how to:
+This tutorial is part one of a three part series. In this tutorial, let's walk through the basics of Azure Machine Learning services (preview). In part one, you use the Azure Machine Learning Workbench to learn how to:
 > [!div class="checklist"]
 > * Create a project in the Azure Machine Learning Workbench
 > * Create a data preparation package
