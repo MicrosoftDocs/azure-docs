@@ -13,7 +13,9 @@ ms.topic: hero-article
 ms.date: 09/15/2017
 ---
 
-# Quickstart: classifying iris flower dataset
+# Quickstart: Classifying the Iris flower data set
+Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
+
 In this quickstart, you take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model to predict the type of iris based on some of its physical characteristics.  This quickstart uses [logistic regression](https://en.wikipedia.org/wiki/logistic_regression) algorithm from the popular Python [scikit-learn](http://scikit-learn.org/stable/index.html) library to build the model.  You learn the following tasks in this quickstart: 
 
 - Create a new project
@@ -72,7 +74,7 @@ You now generate the script required to deploy the model as a web service.
 >You must have Docker engine installed and running in order to deploy the web service locally.  See the [Docker installation instructions](https://docs.docker.com/engine/installation/) and the tips in the [Provisioning and Installation Guide](./quick-start-installation.md). 
 
 >[!IMPORTANT]
->You must also have created a Model Management account in Azure in order to deploy a web service. See the [Provisioning and Installation Guide](quick-start-installation.md) for details.
+>You must also have created a Model Management account in Azure in order to deploy a web service. See the [Provision and install Azure Machine Learning preview features](quick-start-installation.md) Quickstart for details.
 
 Web services are currently created and deployed from the CLI, so now open the command-line window to create and test the web service.
 
@@ -86,27 +88,29 @@ Web services are currently created and deployed from the CLI, so now open the co
    az login
    ```
    
-   If you have access to multiple Azure subscriptions, you need make sure the one you are using for Azure ML is the **current** subscription. You use the following commands to verify or find the subscription and set it to current.
+   If you have access to multiple Azure subscriptions, you need make sure the one you are using for Azure ML is the current subscription. You use the following commands to verify or find the subscription and set it to current.
+
    ```shell
    # show all subscriptions and their IDs
    az account list -o table
 
-   # set a subscriptiion as the current subscription
+   # set a subscription as the current subscription
    az account set -s <subscriptionId>
 
    # verify the current subscription
    az account show
    ```
+
    >[!TIP]
    >You can also check to see if you have a valid az-cli token by using `az account get-access-token` command.
 
 3. Now you are ready to deploy the model as a web service. Type the following command:
 
-    ```shell
-    az ml service create realtime --model-file model.pkl -f score.py -n irisapp -s service_schema.json -r python
-    ```
- 
-    The command creates a Docker image in the cloud, which hosts a web service for the model. This Docker container is then pulled down and deployed on your local computer where you can easily test it. 
+   ```shell
+   az ml service create realtime --model-file model.pkl -f score.py -n irisapp -s service_schema.json -r python
+   ```
+
+   The command creates a Docker image in the cloud, which hosts a web service for the model. This Docker container is then pulled down and deployed on your local computer where you can easily test it. 
 
 ## Test the web service
 The Docker container is now running on your local computer. You can invoke the web service and see the result.  While you could use curl or any other HTTP tool, there is a CLI command that makes it easy to test the web service. 
@@ -115,8 +119,12 @@ The Docker container is now running on your local computer. You can invoke the w
 az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]} 
 ```
 
-Check out the output here. We've predicted that, based on the input petal width, petal length, sepal width, and sepal length, the iris is probably a versicolor iris. 
+Check out the output here. Based on the input petal width, petal length, sepal width, and sepal length, the result predict that the iris is probably a versicolor iris.
+
+You have now used the Azure Machine Learning preview features using the Iris flower dataset to build a model to predict the type of iris based on some of its physical characteristics.  You have used the logic regression algorithm from the popular Python scikit-learn library to build the model. 
 
 ## Next steps
-- Full-length [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
-- Advanced data preparation tutorial: [Bike Share Forecasting Data Preparation](./doc-template-tutorial.md)
+For a more in-depth view of the same data set, follow the Classifying Iris Tutorial. 
+
+> [!div class="nextstepaction"]
+> Full-length [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md).
