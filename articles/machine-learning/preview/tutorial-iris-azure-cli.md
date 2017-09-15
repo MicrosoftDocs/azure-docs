@@ -125,7 +125,7 @@ az ml workspace show --name <workspace name> --account <experimentation account 
 az ml workspace show --name amlsamplew --account amlsampleexp --resource-group amlsample 
 
 # Add user to the workspace
-az role assignment create --assignee <user-email> --role owner --scope <arm workspace "id" (from previous command)>
+az role assignment create --assignee <user-email> --role owner --scope <Azure Resource Workspace ID (from previous command)>
 ```
 
 Example:
