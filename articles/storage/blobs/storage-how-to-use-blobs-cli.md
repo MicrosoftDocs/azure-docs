@@ -17,7 +17,7 @@ ms.date: 06/15/2017
 ms.author: marsma
 ---
 
-# Perform Blob storage operations with the Azure CLI
+# Perform Blob storage operations with Azure CLI
 
 Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This tutorial covers basic operations in Azure Blob storage such as uploading, downloading, and deleting blobs. You learn how to:
 
@@ -31,7 +31,7 @@ Azure Blob storage is a service for storing large amounts of unstructured object
 > * Display and modify blob properties and metadata
 > * Manage security with a shared access signature (SAS)
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+This tutorial requires Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -49,9 +49,9 @@ az storage container create --name mystoragecontainer
 
 Container names must start with a letter or number, and can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-## Enable public read access for container
+## Enable public read access for a container
 
-A newly created container is private by default. That is, nobody can access the container without a [shared access signature](#create-a-shared-access-signature-sas) or the access keys for the storage account. Using the Azure CLI, you can modify this behavior by setting container permissions to one of three levels:
+A newly created container is private by default. That is, nobody can access the container without a [shared access signature](#create-a-shared-access-signature-sas) or the access keys for the storage account. Using Azure CLI, you can modify this behavior by setting container permissions to one of three levels:
 
 | | |
 |---|---|
@@ -271,7 +271,7 @@ In this tutorial, you learned the basics of working with blobs in Azure Storage:
 > * Display and modify blob properties and metadata
 > * Manage security with a shared access signature (SAS)
 
-The following resources provide additional information about working with the Azure CLI, as well as working with the resources in your storage account.
+The following resources provide additional information about working with Azure CLI, as well as working with the resources in your storage account.
 
 * Azure CLI
   * [Log in with Azure CLI 2.0](/cli/azure/authenticate-azure-cli) - Learn about the different methods of authenticating with the CLI, including non-interactive login via [service principal](/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal) for running unattended Azure CLI scripts.

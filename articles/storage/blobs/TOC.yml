@@ -30,7 +30,7 @@
       href: storage-xamarin-blob-storage.md
     - name: PowerShell
       href: storage-how-to-use-blobs-powershell.md 
-    - name: CLI 2.0
+    - name: Azure CLI 2.0
       href: storage-how-to-use-blobs-cli.md
 - name: How to
   items:

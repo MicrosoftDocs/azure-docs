@@ -1,4 +1,4 @@
-## Log in to Azure
+## Sign in to Azure
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
 

@@ -31,7 +31,7 @@ Azure Queue storage is a service for storing large numbers of messages that can 
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-## Log in to Azure
+## Sign in to Azure
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
 
