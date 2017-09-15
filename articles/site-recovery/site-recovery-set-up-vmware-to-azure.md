@@ -32,7 +32,11 @@ The article assumes that you have already created:
 - A virtual machine on which to install the configuration server.
 
 ## Configuration server minimum requirements
-The configuration server software should be deployed on a highly available VMware virtual machine. The following table lists the minimum hardware, software, and network requirements for a configuration server.
+The following table lists the minimum hardware, software, and network requirements for a configuration server.
+
+> [!IMPORTANT]
+> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Avaialble(HA)** virtual machine.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]

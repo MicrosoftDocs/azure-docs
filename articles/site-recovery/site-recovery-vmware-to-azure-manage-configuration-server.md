@@ -30,6 +30,11 @@ The following are the minimum hardware, software, and network configuration requ
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## Downloading the Configuration Server software
+
+> [!IMPORTANT]
+> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Avaialble(HA)** virtual machine.
+
+
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).
 
