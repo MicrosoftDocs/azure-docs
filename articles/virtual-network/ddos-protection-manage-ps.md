@@ -1,5 +1,5 @@
 ---
-title: Manage DDoS using the Azure PowerShell | Microsoft Docs
+title: Manage DDoS Protection using Azure PowerShell | Microsoft Docs
 description: Learn how to manage Azure DDoS Protection using Azure PowerShell.
 services: virtual-network
 documentationcenter: na

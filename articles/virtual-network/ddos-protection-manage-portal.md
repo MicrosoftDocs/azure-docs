@@ -1,5 +1,5 @@
 ---
-title: Manage Azure DDoS Protection using the Azure portal | Microsoft Docs
+title: Manage DDoS Protection using the Azure portal | Microsoft Docs
 description: Learn how to use the Azure DDoS Protection service telemetry while under an attack using the Azure Monitor.
 services: virtual-network
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: kumud
 
 ---
 
-# Manage Azure DDoS Protection using the Azure portal
+# Manage DDoS Protection using the Azure portal
 
 This article shows you how to use the Azure portal to enable DDoS Protection, disable DDoS Protection, and use telemetry to mitigate an attack. 
 
