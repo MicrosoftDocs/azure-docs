@@ -37,10 +37,10 @@
   - name: Azure Machine Learning Workbench
     href: walkthroughs-aml-with-tdsp.md
     items:
-    - name: Classify incomes
+    - name: US income classification
       href: ../preview/tutorial-classifying-uci-incomes.md
       maintainContext: true
-    - name: Bio-medical entity recognition with NLP
+    - name: Biomedical entity recognition
       href: ../preview/sample-tdsp-nlp.md
       maintainContext: true
   - name: Spark with PySpark and Scala
@@ -146,16 +146,8 @@
           href: sql-server-virtual-machine.md
         - name: Use data pipeline
           href: automated-data-pipeline-cheat-sheet.md
-        - name: Process data with Spark
-          href: spark-data-exploration-modeling.md
-        - name: Overview
+        - name: Use Spark 
           href: spark-overview.md
-        - name: Explore data
-          href: spark-data-exploration-modeling.md
-        - name: Score models
-          href: spark-model-consumption.md
-        - name: Advanced data exploration
-          href: spark-advanced-data-exploration-modeling.md
         - name: Use Scala and Spark
           href: scala-walkthrough.md
   - name: Develop models
@@ -208,7 +200,7 @@
       - name: Anomaly detection
         href: apps-anomaly-detection-api.md
       - name: Cognitive Services
-        href: https://azure.microsoft.com/services/cognitive-services/
+        href: https://docs.microsoft.com/en-us/azure/cognitive-services/
       - name: Predictive maintenance
         items:
         - name: Overview
