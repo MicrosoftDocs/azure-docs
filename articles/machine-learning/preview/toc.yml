@@ -38,9 +38,14 @@
       href: sample-tdsp-nlp.md
     - name: Aerial Image Classification
       href: scenario-aerial-image-classification.md
+<<<<<<< HEAD
     - name: Server Workload Forcasting on Terabytes Data
       href: scenario-big-data.md
 
+=======
+    - name: Document Collection Analysis
+      href: scenario-document-collection-analysis.md
+>>>>>>> 465f4e68ebc8eb92bb5deaadc6e539f1f64e185c
 - name: How-to guides
   items:
   - name: Use Azure ML Workbench
