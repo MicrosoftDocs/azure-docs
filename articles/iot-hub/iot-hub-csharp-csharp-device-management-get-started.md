@@ -197,7 +197,7 @@ You are now ready to run the apps.
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 [img-servicenuget]: media/iot-hub-csharp-csharp-device-management-get-started/servicesdknuget.png
-[img-createserviceeapp]: media/iot-hub-csharp-csharp-device-management-get-started/creatserviceapp.png
+[img-createserviceapp]: media/iot-hub-csharp-csharp-device-management-get-started/createserviceapp.png
 [img-clientnuget]: media/iot-hub-csharp-csharp-device-management-get-started/clientsdknuget.png
 [img-createdeviceapp]: media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png
 [img-deviceapprun]: media/iot-hub-csharp-csharp-device-management-get-started/deviceapprun.png
