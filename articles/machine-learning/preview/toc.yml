@@ -71,7 +71,7 @@
       href: model-management-service-deploy.md
     - name: Model Data Collection
       href: how-to-use-model-data-collection.md
-  - name: End-to-end examples
+  - name: Real-world examples
     items:
     - name: Classify US incomes - TDSP project
       href: tutorial-classifying-uci-incomes.md
@@ -109,12 +109,6 @@
       href: experiment-execution-configuration-reference.md
   - name: Model management
     items:
-<<<<<<< HEAD
-    - name: Model management API reference
-      href: model-management-api-reference.md
-    - name: Model management CLI reference
-      href: model-management-cli-reference.md
-=======
     - name: Model Management API
       href: model-management-api-reference.md
     - name: Model Management configuration
@@ -123,15 +117,13 @@
       href: model-management-cli-reference.md
     - name: Model Data Collection API
       href: model-data-collection-api-reference.md
-    - name: (Model Management Python libraries)
->>>>>>> 913e4f023f7bba152659011f69a1bed0e491d6d7
 - name: Resources
   items:  
   - name: FAQ
     href: faq.md
   - name: Team Data Science Process documentation
-    href: ../team-data-science-process/toc.yml
+    href: ../team-data-science-process/overview.md
   - name: Data Science VM documentation
-    href: ../data-science-virtual-machine/toc.yml
+    href: ../data-science-virtual-machine/overview.md
   - name: Known issues and troubleshooting guide
     href: known-issues-and-troubleshooting-guide.md
