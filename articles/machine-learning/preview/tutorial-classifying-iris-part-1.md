@@ -1,6 +1,6 @@
 ---
-title: Iris Tutorial for Machine Learning Server | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning end-to-end. This is part 1 on data preparation.
+title: Iris Tutorial for Machine Learning services (preview) | Microsoft Docs
+description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end-to-end. This is part 1 on data preparation.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -15,7 +15,7 @@ ms.date: 09/06/2017
 
 # Classifying Iris Part 1: Prepare Data
 
-In this tutorial, let's walk through the basics of Azure Machine Learning by creating a data preparation package, building a model and deploying it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The screenshots are Windows-specific, but the macOS experience is almost identical.
+In this tutorial, let's walk through the basics of Azure Machine Learning services (preview) by creating a data preparation package, building a model and deploying it as a real-time web service. We use the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The screenshots are Windows-specific, but the macOS experience is almost identical.
 
 This is part 1 of a 3 part tutorial, covering project setup, and data preparation.
 
