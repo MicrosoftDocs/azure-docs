@@ -36,7 +36,9 @@ The following operating system versions are supported for development:
 ## Runtime and common SDK Installation Methods
 
 ### 1. Script installation
-The following command automatically installs the Service Fabric runtime and common SDK. It also sets-up the Azure Service Fabric CLI 'sfctl'.
+
+A script is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with **sfctl** CLI. Run the manual installation steps in the next section to determine what is being installed and the licenses that are being agreed to. Running the script assumes you agree to the licenses for all the software that is being installed. 
+
 After the script is executed successfully, you can directly skip to [Set up a local cluster](#set-up-a-local-cluster).
 
 ```bash
