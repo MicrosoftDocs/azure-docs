@@ -42,7 +42,7 @@ We had previously released a [GitHub repository for the TDSP project structure a
 
 ## Things to remember *before* creating a new project
 These are the things you should keep in mind *before* creating a new project:
-* Project and its contents are required to be less 25 Mb in size. This includes all docs (primarily markdowns), code, and sample_data. The project is intended to have small files to facilitate execution and version control in Azure ML Workbench. 
+* Project and its contents are required to be less than 25 Mb in size. This includes all docs (primarily markdowns), code, and sample_data. The project is intended to have small files to facilitate execution and version control in Azure ML Workbench. 
 * The Sample\_Data folder is only for small data files (less than 5 Mb) with which you can test your code or do early development.
 * Storing files such as Office Word, PowerPoint etc. can increase the size of Docs folder substantially. Find a [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), or other collaborative resource to store such files.
 * For handling large files and outputs in Azure ML Workbench, read [this](http://aka.ms/aml-largefiles).
