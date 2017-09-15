@@ -17,6 +17,7 @@ ms.date: 01/03/2016
 ms.author: sdubeymsft
 
 ---
+
 # Deploy to Azure App Services using Visual Studio 2017
 This article describes how to deploy an Azure App Services app (API App, Web App, Mobile App) to Azure Government using Visual Studio 2017.
 
