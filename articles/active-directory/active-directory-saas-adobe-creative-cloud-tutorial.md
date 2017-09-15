@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_certificate.png)
 	 
-6. Adobe Creative Cloud application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **"Attribute"** tab of the application. The following screenshot shows an example for this.
+6. Adobe Creative Cloud application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attribute** tab of the application. The following screenshot shows an example for this.
 
 	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute.png)
 
