@@ -42,8 +42,8 @@ Failover and failback has two stages:
 To complete failover:
 
 - Make sure you've completed a [disaster recovery drill](tutorial-dr-drill-azure.md) to check that everything's working as expected.
-- Optionally prepare to connect to Azure VMs after test failover.
-- Verify the VM properties before you run the test failover.
+- Optionally prepare to connect to Azure VMs before you fail over.
+- Verify the VM properties before you run the failover.
 
 #### Prepare to connect to Azure VMs after failover
 
