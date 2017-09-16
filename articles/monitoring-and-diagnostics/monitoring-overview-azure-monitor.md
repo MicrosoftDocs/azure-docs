@@ -38,9 +38,9 @@ The overview page provides a starting point for navigation, including on-boardin
 
 When you open the overview page, you can select among the subscriptions you have read access to.  For a selected subscription, you can see:
 
+- **Triggered alerts and alert sources** - This table shows summary counts, alert sources, and how many times alerts fired for the selected time duration. It applies to both metric and activity log alerts.
 - **Activity Log Errors** - If any of your Azure resources log events with error-level severity, you can view a high-level count and click through to the activity log page to investigate each event.
 - **Azure Service Health** - You can see a count of Service Health service issues, planned maintenance events, and health advisories. Azure Service Health provides personalized information when problems in the Azure infrastructure impact your services.  See [Azure Service Health](../service-health/service-health-overview.md) for more information.  
-- **Triggered alerts and alert sources** - This table shows summary counts, alert sources, and how many times alerts fired for the selected time duration. It applies to both metric and activity log alerts.
 - **Application Insights** - See KPIs for each AppInsights resource in the current subscription. The KPIs are optimized for server-side application monitoring across ASP.NET web apps, Java, Node, and General application types. The KPIs include metrics for request rate, response duration, failure rate, and availability %. 
 
 If you have not on-boarded to Log Analytics or Application Insights, or if you have not configured any Azure Alerts in the current subscription, the overview page provides links to begin your on-boarding process.
