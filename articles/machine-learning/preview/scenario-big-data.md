@@ -173,7 +173,7 @@ Once the commandline is successfully finished executing you will see the followi
 Navigate to dockerdsvm.runconfig and change the configuration of the following fields as shown below:
 
     PrepareEnvironment: true 
-    CondaDependenciesFile: Config/conda_dependencies2.yml 
+    CondaDependenciesFile: Config/conda_dependencies.yml 
     SparkDependenciesFile: Config/dsvm_spark_dependencies.yml
 
 By setting "PrepareEnvironment" to true, you allow Azure ML Workbench to create the runtime environment whenever you submit a job. `Config/conda_dependencies.yml` and `Config/dsvm_spark_dependencies.yml` contains the customization of the runtime environment. You can always modify the Conda dependencies, Spark configuration and Spark dependencies by editing these two YMAL files. For this example, we added `azure-storage` and `azure-ml-api-sdk` as extra python packages in  `Config/conda_dependencies.yml`, and we added "`spark.default.parallelism`", "`spark.executor.instances`", and "`spark.executor.cores` etc. in `Config/dsvm_spark_dependencies.yml` 

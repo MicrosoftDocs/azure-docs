@@ -42,14 +42,14 @@ Fill in the project name (this tutorial assumes you use `myIris`). Choose the di
 Click on the **Create** button to create the project. The project is now created and opened for you.
 
 ## Step 3. Create a data preparation package
-Open the `iris.csv` file from the File View. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
+Open the `iris.csv` file from the **File View**. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
 
 ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
 >[!NOTE]
 >Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
 
-In the Data Pane, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
+In the **Data View**, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
 
 ![data view](media/tutorial-classifying-iris/data_view.png)
 
@@ -60,15 +60,15 @@ Select the **File(s)/Directory** option, and choose the `iris.csv` local file. A
 >[!IMPORTANT]
 >Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
 
-A new file `iris-1.dsource` is created. The file is named uniquely with a dash-one since the sample project already comes with an unnumbered `iris.dsource` file.  The file opens in the **Data View**. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
+A new file `iris-1.dsource` is created. The file is named uniquely with a dash-one since the sample project already comes with an unnumbered `iris.dsource` file.  The file opens and the data is shown. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
 
 ![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
-Now click on the **Metrics** button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also switch over to the **Data View** to see the data itself. 
+Now click on the **Metrics** button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also click the **Data** button to see the data again. 
 
 ![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-Click on the **Prepare** button next to the **Metrics** button. A new file named `iris-1.dprep` is created. The file is uniquely named with a dash-one since the sample project already comes with an unnumbered `iris.dprep` file. The file opens in data preparation editor. 
+Click on the **Prepare** button next to the **Metrics** button. Choose **Iris.dprep** file. The file opens in data preparation editor with a new dataflow named **Iris**. 
 
 Now let's do some simple data preparation. Rename the column names by clicking on each column header and make the header text editable. Enter `Sepal Length`, `Sepal Width`, `Petal Length`, `Petal Width`, and `Species` for the five columns respectively.
 
@@ -88,11 +88,11 @@ As you are working on column renaming and filtering out the null value row, each
 
 ## Step 4. Generate Python/PySpark code to invoke data prep package
 
-Now close the DataPrep editor. (Don't worry, it is auto-saved.) Right-click on the `iris-1.dprep` file to bring up context menu, and choose **Generate Data Access Code File**. 
+Now close the DataPrep editor. (Don't worry, it is auto-saved.) Right-click on the **iris.dprep** file to bring up context menu, and choose **Generate Data Access Code File**. 
 
 ![generate code](media/tutorial-classifying-iris/generate_code.png)
 
-An `iris-1.py` file is created with following two lines of code prepopulated (along with some comments):
+An **iris-1.py** file is created with following two lines of code prepopulated (along with some comments):
 
 ```python
 # This code snippet will load the referenced package and return a DataFrame.
@@ -102,7 +102,7 @@ An `iris-1.py` file is created with following two lines of code prepopulated (al
 from azureml.dataprep.package import run
 df = run('iris.dprep', dataflow_idx=0)
 ```
-This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` can be a _[pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)_ if executed in Python runtime, or a [_Spark DataFrame_](https://spark.apache.org/docs/latest/sql-programming-guide.html) if executed in a Spark context. For more information on how to prepare data in Azure ML Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
+This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` can be a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) if executed in Python runtime, or a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) if executed in a Spark context. For more information on how to prepare data in Azure Machine Learning Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
 
 In this part one of the three part tutorial series, you have used the Azure Machine Learning Workbench to:
 > [!div class="checklist"]
