@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 09/16/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -196,19 +196,7 @@ This is, for example, the case for apps that have access to sensitive data.
 If you want to add another layer of protection to these apps, you can configure a conditional access policy that requires multi-factor authentication when users are accessing these apps.
 
 
-### Requiring multi-factor authentication for access from networks that are not trusted
 
-This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
-However, the main difference is the condition for this requirement.  
-While the focus of the previous scenario was on apps with access to sensitve data, the focus of this scenario is on trusted locations.  
-In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust.
-
-
-### Only trusted devices can access Office 365 services
-
-If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
-
-Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access.
 
 ## Next steps
 
