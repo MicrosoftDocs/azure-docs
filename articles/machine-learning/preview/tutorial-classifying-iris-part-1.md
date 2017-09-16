@@ -88,11 +88,11 @@ As you are working on column renaming and filtering out the null value row, each
 
 ## Step 4. Generate Python/PySpark code to invoke data prep package
 
-Now close the DataPrep editor. (Don't worry, it is auto-saved.) Right-click on the `iris-1.dprep` file to bring up context menu, and choose **Generate Data Access Code File**. 
+Now close the DataPrep editor. (Don't worry, it is auto-saved.) Right-click on the **iris.dprep** file to bring up context menu, and choose **Generate Data Access Code File**. 
 
 ![generate code](media/tutorial-classifying-iris/generate_code.png)
 
-An `iris-1.py` file is created with following two lines of code prepopulated (along with some comments):
+An **iris-1.py** file is created with following two lines of code prepopulated (along with some comments):
 
 ```python
 # This code snippet will load the referenced package and return a DataFrame.
@@ -102,7 +102,7 @@ An `iris-1.py` file is created with following two lines of code prepopulated (al
 from azureml.dataprep.package import run
 df = run('iris.dprep', dataflow_idx=0)
 ```
-This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` can be a _[pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)_ if executed in Python runtime, or a [_Spark DataFrame_](https://spark.apache.org/docs/latest/sql-programming-guide.html) if executed in a Spark context. For more information on how to prepare data in Azure ML Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
+This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` can be a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) if executed in Python runtime, or a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) if executed in a Spark context. For more information on how to prepare data in Azure Machine Learning Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
 
 In this part one of the three part tutorial series, you have used the Azure Machine Learning Workbench to:
 > [!div class="checklist"]
