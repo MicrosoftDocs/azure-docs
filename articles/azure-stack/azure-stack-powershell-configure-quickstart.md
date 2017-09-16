@@ -13,12 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/25/2017
 ms.author: sngun
 
 ---
 
 # Get up and running with PowerShell in Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 This article is a quick start to install and configure Azure Stack environment with PowerShell. This script provided in this article is scoped to by the **Azure Stack operator** only.
 

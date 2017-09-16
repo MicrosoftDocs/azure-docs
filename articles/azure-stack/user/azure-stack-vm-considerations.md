@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/4/2017
+ms.date: 9/15/2017
 ms.author: sngun
 
 ---
@@ -49,7 +49,7 @@ The Azure Stack Development Kit supports the following sizes:
 |Memory optimized|D-series|D11-D14|
 |Memory optimized |Dv2-series|D11v2-D14v2|
 
-Virtual machine sizes in Azure Stack and Azure are consistent in terms of the memory, CPU cores, network bandwidth, disk performance, and other factors that define the size. For example, the Standard D size virtual machine in Azure and Azure Stack is consistent. 
+Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. For example, this includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
 
 ## Virtual machine extensions 
 

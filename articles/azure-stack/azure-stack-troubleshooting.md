@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 # Microsoft Azure Stack troubleshooting
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 This document provides common troubleshooting information for Azure Stack. 
 
 Because the Azure Stack Technical Development Kit is offered as an evaluation environment, there is no official support from Microsoft Customer Support Services.  If you are experiencing an issue not documented, make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further assistance and information.  
