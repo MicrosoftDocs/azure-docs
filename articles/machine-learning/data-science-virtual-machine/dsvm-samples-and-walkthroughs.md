@@ -23,7 +23,7 @@ ms.author: gokuma;bradsev
 # Samples on the Data Science Virtual Machines (DSVM)
 
 The DSVMs come with included fully worked-out samples in the form of Jupyter Notebooks and some that are not based on Jupyter. You can access Jupyter by clicking on the `Jupyter` icon on the desktop or application menu.  
->[AZURE.NOTE]
+> [!NOTE]
 > Refer to [Access Jupyter](#access-jupyter) section to enable Jupyter Notebooks on your DSVM.
 
 ## Quick Reference of Samples
