@@ -32,7 +32,7 @@ This page (currently in public preview) is a landing page that helps users:
 - Understand the monitoring capabilities offered by Azure.
 - Discover, configure, and on-board Azure’s platform and premium monitoring capabilities.
 
-The overview page provides a starting point for navigation, including on-boarding. It shows curated notable issues from different services and allows the user to navigate to them in context.  If you are new to Azure, the overview page can help you ensure that you have integrated access to all the visibility Azure provides.
+The overview page provides a starting point for navigation, including on-boarding. It shows curated notable issues from different services and allows the user to navigate to them in context.
  
 ![Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview-azure-monitor/monitor-overview-ux.png)
 
@@ -91,10 +91,10 @@ There is not necessarily a 1:1 mapping between your resource and a particular Ho
 The activity log is the same as for compute resources.  
 
 ## Uses for Monitoring Data
-Once you collect your data, you can do the following with it in Azure Monitor
+Once you collect your data, you can do the following with it in Azure Monitor.
 
 ### Route
-You can stream monitoring data to other locations in real time.
+You can stream monitoring data to other locations. 
 
 Examples include:
 
@@ -107,7 +107,7 @@ Some monitoring data is already stored and available in Azure Monitor for a set 
 - Activity log entries are stored for 90 days. 
 - Diagnostics logs are not stored at all. 
 
-If you want to store data longer than the time periods listed above, you can use an Azure storage. Monitoring data is kept in your storage acccount based on a retention policy you set. You do have to pay for the space the data takes up in Azure storage. 
+If you want to store data longer than the time periods listed above, you can use an Azure storage. Monitoring data is kept in your storage account based on a retention policy you set. You do have to pay for the space the data takes up in Azure storage. 
 
 A few ways to use this data:
 
