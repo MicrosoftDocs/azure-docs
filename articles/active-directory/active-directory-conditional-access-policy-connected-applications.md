@@ -53,7 +53,9 @@ In a device-based conditional access policy, you can require trusted devices to 
 Devices can be marked as compliant in the directory by:
 
 - Intune 
-- A third-party mobile device management system that integrates with Azure AD  
+- A third-party mobile device managed system that manages Windows 10 devices via Azure AD integration 
+ 
+  
 
 Only devices that are connected to Azure AD can be marked as compliant. To connect a device to Azure Active Directory, you have the following options: 
 
