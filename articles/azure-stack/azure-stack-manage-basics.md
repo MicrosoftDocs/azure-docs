@@ -115,6 +115,18 @@ Before a user can access services, they must [subscribe to an offer](azure-stack
 
 ## Where to get support
 
+### Integrated systems
+
+For an integrated system, there is a coordinated escalation and resolution process between Microsoft and our original equipment manufacturer (OEM) hardware partners.
+
+If there is a cloud services issue, support is offered through Microsoft Customer Support Services (CSS). If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this opens a site where you can directly open a support request.
+
+If there is an issue with deployment, patch and update, hardware (including field replaceable units), and any hardware-branded software, such as software running on the hardware lifecycle host, contact your OEM hardware vendor first.
+
+For anything else, contact Microsoft CSS.
+
+### Development kit
+
 For the development kit, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this opens the forums site directly. These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft CSS.
 
 ## Next steps
