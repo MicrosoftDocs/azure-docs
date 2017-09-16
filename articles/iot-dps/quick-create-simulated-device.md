@@ -39,7 +39,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 5. Create a folder in your local copy of this GitHub repo for CMake build process. 
 
     ```cmd/sh
-    cd azure-iot-device-auth
+    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
@@ -53,7 +53,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 7. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
 
     ```cmd/sh
-    .\azure-iot-device-auth\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+    .\azure-iot-sdk-c\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
 ## Create a device enrollment entry in the Device Provisioning Service
@@ -64,11 +64,20 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 3. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-4. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **TPM** as the identity attestation *Mechanism*, and enter the *Registration ID* and *Endorsement key* as required by the blade. Once complete, click the **Save** button. 
+4. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+
+5. Under the **Add enrollment list entry**, enter the following information:
+    - Select **TPM** as the identity attestation *Mechanism*.
+    - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
+    - Select an IoT hub linked with your provisioning service.
+    - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
+    - Update the **Initial device twin state** with the desired initial configuration for the device.
+    - Once complete, click the **Save** button. 
 
     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
+
 
 <a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
@@ -89,6 +98,8 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 4. Right-click the **dps_client_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
+
+    If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
 ## Clean up resources
