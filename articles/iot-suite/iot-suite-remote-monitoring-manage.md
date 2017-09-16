@@ -16,6 +16,7 @@ ms.workload: NA
 
 # Manage and configure your devices
 
+This tutorial shows the  device management capabilities of the Remote monitoring solution. To introduce these capabilities, we showcase a scenario in the Contoso IoT application:
 Contoso has ordered new machinery to expand one of their facilities to increase output. While you wait for the new machinery to be delivered, you want to run a simulation to verify the behavior of your solution. As an operator, you want to manage and configure the devices in the remote monitoring solution.
 
 To provide an extensible way to manage and configure devices, the remote monitoring solution uses IoT Hub features such as [jobs](../iot-hub/iot-hub-devguide-jobs.md) and [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To learn how a device developer implements methods on a physical device, see [Customize the remote monitoring preconfigured solution](iot-suite-remote-monitoring-customize.md).
@@ -76,7 +77,9 @@ To track the status of the job on the **Maintenance** page, choose **View**:
 
 ### Methods in other devices
 
-Other device types support different methods. The device model specifies the methods the device should support. To schedule a method to run on multiple devices, you can select multiple devices in the list on the **Devices** page. The **Schedule** panel shows the types of method common to all the devices you selected.
+When you explore the different simulated device types, you will ses that other device types support different methods. In a deployment with physical devices, the device model specifies the methods the device should support and the device developer is usually responsible for developing the code that makes the device act accordingly. 
+
+To schedule a method to run on multiple devices, you can select multiple devices in the list on the **Devices** page. The **Schedule** panel shows the types of method common to all the devices you selected.
 
 ## Reconfigure a device
 

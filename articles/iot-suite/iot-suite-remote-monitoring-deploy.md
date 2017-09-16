@@ -16,9 +16,9 @@ ms.workload: NA
 
 # Deploy the remote monitoring preconfigured solution (azureiotsuite.com)
 
-This tutorial shows you how to provision the remote monitoring preconfigured solution. You deploy the solution from azureiotsuite.com.
+This tutorial shows you how to provision the Remote monitoring preconfigured solution. You deploy the solution from azureiotsuite.com.
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Configure the preconfigured solution

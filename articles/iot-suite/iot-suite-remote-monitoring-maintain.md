@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/07/2017
+ms.date: 09/16/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -16,9 +16,8 @@ ms.workload: NA
 
 # Troubleshoot and remediate device issues
 
+This tutorial shows you how to use the **Maintenance** page in the solution to troubleshoot and remediate these device issues. To introduce these capabilities, we showcase a scenario in the Contoso IoT application: 
 Contoso is testing a new **Prototype** device in the field. As a Contoso operator, you notice during testing that the **Prototype** device is erroneously triggering a temperature alarm on the dashboard. You must now investigate the behavior of this faulty **Prototype** device.
-
-This tutorial shows you how to use the **Maintenance** page in the solution to troubleshoot and remediate these device issues.
 
 In this tutorial, you learn how to:
 
@@ -50,13 +49,13 @@ You can now see a list of alarms on the **Maintenance** page:
 
 To display details of the alarm, choose the alarm in the **Alarms** list. The detail view shows:
 
-* When the alarm fired
+* When the alarm was triggered
 * Status information about the devices associated with the alarm
 * Telemetry from the devices associated with the alarm
 
 <!-- TODO insert screenshot -->
 
-To acknowledge you have seen the alarm, select the **Alarm occurrences** and choose **Acknowledge**.
+To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowledge**. This will allow other operators to see that you are have seen it and are working on it.
 
 <!-- TODO insert screenshot -->
 
