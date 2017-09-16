@@ -34,7 +34,7 @@ This page (currently in public preview) is a landing page that helps users:
 
 The overview page provides a starting point for navigation, including on-boarding. It shows curated notable issues from different services and allows the user to navigate to them in context.
  
-![Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview-azure-monitor/monitor-overview-ux.png)
+![Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 When you open the overview page, you can select among the subscriptions you have read access to.  For a selected subscription, you can see:
 
@@ -154,7 +154,8 @@ In general, you can manipulate data tracking, routing, and retrieval using one o
 ## Next steps
 Learn more about
 - A video walkthrough of just Azure Monitor is available at  
-[Get Started with Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). An additional video explaining a scenario where you can use Azure Monitor is available at [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) and [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977)
+[Get Started with Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 
+- A video explaining a scenario where you can use Azure Monitor is available at [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) and [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977).
 - Run through the Azure Monitor interface in [Getting Started with Azure Monitor](monitoring-get-started.md)
 - Set up the [Azure Diagnostics Extensions](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, Virtual machine scale sets, or Service Fabric application.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
