@@ -65,9 +65,9 @@ Azure AD features pre-integrated support for a variety of popular SaaS apps and 
 
 All of the "Featured" apps in the Azure AD application gallery support automated user provisioning. [The list of featured apps can be viewed here.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 
-In order for an application to support automated user provisioning, it must first provide the necessary endpoints that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support this, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers. 
+In order for an application to support automated user provisioning, it must first provide the necessary user management endpoints that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers. 
 
-To contact the Azure AD engineering team to request provisioning support for additional applications, please submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/category/172035-user-provisioning).	
+To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/category/172035-user-provisioning).	
 	
 	
 ## How do I set up automatic provisioning to an application?
@@ -87,15 +87,15 @@ In the application management screen, provisioning is configured in the **Provis
 
 * **Admin credentials** must be provided to the Azure AD provisioning service that will allow it to connect to the user management API provided by the application.
 
-* **Attribute mappings** can be configured that specify which fields in the source system (.e.g Azure AD) will have their contents synchronized to which fields in the target system (e.g. ServiceNow). If the target application supports it, this section will allow you to optionally configure provisioning of groups in addition to user accounts. "Matching properties" allow you to select which fields are used to match accounts between the systems. "[Expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md)" allow you to modify and transform the values retrieved from the source system before they are written to the target system. For more information, see [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md).
+* **Attribute mappings** can be configured that specify which fields in the source system (example: Azure AD) will have their contents synchronized to which fields in the target system (example: ServiceNow). If the target application supports it, this section will allow you to optionally configure provisioning of groups in addition to user accounts. "Matching properties" allow you to select which fields are used to match accounts between the systems. "[Expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md)" allow you to modify and transform the values retrieved from the source system before they are written to the target system. For more information, see [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md).
 
 ![Settings](./media/active-directory-saas-app-provisioning/provisioning_settings1.PNG)
 
 * **Scoping filters** tell the provisioning service which users and group in the source system should be provisioned and/or deprovisioned to the target system. There are two aspects to scoping filters that are evaluated together that determine who is in scope for provisioning:
 
-* **Filter on attribute values** - The "Source Object Scope" menu in the attribute mappings allows filtering on specific attribute values. For example, you can specific that only users with a "Department" attribute of "Sales" should be in scope for provisioning.
+* **Filter on attribute values** - The "Source Object Scope" menu in the attribute mappings allows filtering on specific attribute values. For example, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning.
 
-* **Filter on assignments** - The "Scope" menu in the Provisioning > Settings section of the portal allow you to specify whether only "assigned" users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+* **Filter on assignments** - The "Scope" menu in the Provisioning > Settings section of the portal allows you to specify whether only "assigned" users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
 	
 * **Settings** control the operation of the provisioning service for an application, including whether it is currently running or not.
 
@@ -109,9 +109,9 @@ In the application management screen, provisioning is configured in the **Provis
    * Azure AD will attempt to match any existing users in the SaaS app with their corresponding identities in the directory. When a user is matched, they are *not* automatically enabled for single sign-on. In order for a user to have access to the application, they must be explicitly assigned to the app in Azure AD, either directly or via group membership.
    * If you have already specified which users should be assigned to the application, and if Azure AD fails to find existing accounts for those users, Azure AD will provision new accounts for them in the application.
 2. Once the initial synchronization has been completed as described above, Azure AD will check every 20 minutes for the following changes:
-   * If new users have been assigned to the application (either directly or through group membership), then they will be provisioned a new account in the SaaS app.
-   * If a user's access has been removed, then their account in the SaaS app will be marked as disabled (users are never fully deleted, which protects you from data loss in the event of a misconfiguration).
-   * If a user was recently assigned to the application and they already had an account in the SaaS app, that account will be marked as enabled, and certain user properties may be updated if they are out-of-date compared to the directory.
+   * If new users have been assigned to the application (either directly or through group membership), then they are provisioned with a new account in the SaaS app.
+   * If a user's access has been removed, then their account in the SaaS app is marked as disabled (users are never fully deleted, which protects you from data loss in the event of a misconfiguration).
+   * If a user was recently assigned to the application and they already had an account in the SaaS app, that account is marked as enabled, and certain user properties may be updated if they are out-of-date compared to the directory.
    * If a user's information (such as phone number, office location) has been changed in the directory, then that information will also be updated in the SaaS application.
 
 
@@ -126,7 +126,7 @@ If the SaaS app is returning several errors (such as in the case of invalid admi
 
 After an initial full sync has completed, incremental changes typically happen within 20-40 minutes. If you are trying to provision most of your directory, then it depends on the number of users and groups you have. Performance is dependent on the performance of the user management APIs that the provisioning services uses to read data from the source system and write the data to the target system. 
 
-Performance will also be slower if there are many errors (recorded in the [audit logs](active-directory-saas-provisioning-reporting.md)) and the provisioning service has gone into a "quarantine" state.
+Performance is also slower if there are many errors (recorded in the [audit logs](active-directory-saas-provisioning-reporting.md)) and the provisioning service has gone into a "quarantine" state.
 
 **What is an initial full sync, and why does it take longer than subsequent syncs?**
 
@@ -147,7 +147,7 @@ All failures are recorded in the Azure AD audit logs. For more information, see 
 
 **How can I submit feedback to the engineering team?**
 
-Please contact us through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+Contact us through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
 ## Related Articles
