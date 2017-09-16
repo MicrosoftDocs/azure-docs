@@ -67,13 +67,18 @@ Launch Visual Studio 2017 with elevated privileges. You can do this by right-cli
 
 Follow these steps to configure Application Insights for both VotingWeb and VotingData services:
 1. Right-click on the name of the service, and click **Configure Application Insights...**.
+
     ![Configure AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+
 2. Click **Start Free**.
 3. Sign in to your account (with which you also set up your Azure subscription) and select the subscription in which you created the Application Insights resource. Find the resource under *Existing Application Insights resource* in the "Resource" dropdown. Click **Register** to add Application Insights to your service.
-    ![Register AI](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
-4. Click **Finish** once the dialog box that pops up completes the action.
-    ![AI registration complete](./media/service-fabric-tutorial-monitoring-aspnet/register-ai-complete.png)
 
+    ![Register AI](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
+
+4. Click **Finish** once the dialog box that pops up completes the action.
+
+    ![AI registration complete](./media/service-fabric-tutorial-monitoring-aspnet/register-ai-complete.png)
+    
 Make sure to do the above steps for **both** of the services in the application to finish configuring Application Insights for the application. The same Application Insights resource is used for both of the services in order to see incoming and outgoing requests and communication between the services.
 
 ## Add the Microsoft.ApplicationInsights.ServiceFabric.Native NuGet to the services
@@ -89,13 +94,16 @@ Here are the steps to set up the NuGet:
 5. Click **OK** on the *Review Changes* dialog box that pops up, and accept the *License Acceptance*. This will complete adding the NuGet to the services.
 6. You now need to set up the telemetry initializer in the two services. To this, open up *VotingWeb.cs* and *VotingData.cs*. For both of them, do the following two steps:
     1. Add these two *using* statements at the top of each *\<ServiceName>.cs*:
+    
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
+    
     2. In the nested *return* statement of *CreateServiceInstanceListeners()* or *CreateServiceReplicaListeners()*, under *ConfigureServices* > *services*, in between the two Singleton services declared, add:
     `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
     This will add the *Service Context* to your telemetry, allowing you to better understand the source of your telemetry in Application Insights. Your nested *return* statement in *VotingWeb.cs* should look like this:
+    
     ```csharp
     return new WebHostBuilder().UseWebListener()
         .ConfigureServices(
@@ -110,7 +118,9 @@ Here are the steps to set up the NuGet:
         .UseUrls(url)
         .Build();
     ```
+
     Similarly, in *VotingData.cs*, you should have:
+
     ```csharp
     return new WebHostBuilder()
         .UseKestrel()
@@ -138,6 +148,7 @@ Feel free to *Remove* some of the voting options as well when you're done adding
 ## View telemetry and the App map in Application Insights 
 
 Head over to your Application Insights resource in Azure portal, and in the left navigation bar of the resource, click on **Previews** under *Configure*. Turn **On** the *Multi-role Application Map* in the list of available previews.
+
 ![AI enable AppMap](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
 
 Click **Overview** to go back to the landing page of your resource. Then click **Search** in the top to see the traces coming in. It takes a few minutes for traces to appear in Application Insights. In the case that you do not see any, wait a minute and hit the **Refresh** button at the top.
@@ -147,6 +158,7 @@ Scrolling down on the *Search* window will show you all the incoming telemetry y
 ![AI sample request trace](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 You can click on one of the traces to view more details about it. There is useful information about the request that is provided by Application Insights, including the *Response time* and the *Request URL*. In addition, since you added the Service Fabric specific NuGet, you will also get data about your application in the context of a Service Fabric cluster in the *Custom Data* section below. This includes the service context, so you can see the *PartitionID* and *ReplicaId* of the source of the request, and better localize issues when diagnosing errors in your application.
+
 ![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
 ## Add custom instrumentation to your application
@@ -163,6 +175,7 @@ Let's add some custom events to *VoteDataController.cs* to track when votes are 
     2. Add an event to show that the deletion did not take place in the *else* statement, before the return statement:
     `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
 Here's an example of what your *Delete()* function may look like after adding the events:
+
 ```csharp
 // DELETE api/VoteData/name
 [HttpDelete("{name}")]
@@ -189,6 +202,7 @@ public async Task<IActionResult> Delete(string name)
 ```
 
 Once you're done making these changes, **Start** the application so that it builds and deploys the latest version of it. Once the application is done deploying, head over to [localhost:8080](localhost:8080), and add and delete some voting options. Then, go back to your Application Insights resource to see the traces for the latest run (as before, traces can take 1-2 min to show up in Application Insights). For all the votes you added and deleted, you should now see a "Custom Event* along with all the response telemetry. 
+
 ![custom events](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
 ## Next steps
