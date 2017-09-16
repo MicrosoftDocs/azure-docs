@@ -13,7 +13,9 @@
     href: azure-stack-quick-create-vm-windows-powershell.md
   - name: Create Windows VM - CLI
     href: azure-stack-quick-create-vm-windows-cli.md
-  - name: Create Linux VM - Portal
+  - name: Create a Windows VM - Portal
+    href: azure-stack-quick-windows-portal.md
+  - name: Create a Linux VM - Portal
     href: azure-stack-quick-linux-portal.md
   - name: Create Linux VM - PowerShell
     href: azure-stack-quick-create-vm-linux-powershell.md
