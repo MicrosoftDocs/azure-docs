@@ -49,13 +49,13 @@ Some common motivations for using this feature include:
 	
 The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems, by connecting to user management API endpoints provided by each application vendor. These user management API endpoints allow Azure AD to programmatically create, update, and remove users. For selected applications the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. 
 
-![Provisioning](./media/active-directory-saas-app-provisioning/provisiong0.PNG)
+![Provisioning](./media/active-directory-saas-app-provisioning/provisioning0.PNG)
 *Figure 1: The Azure AD Provisioning Service*
 
-![Outbound Provisioning](./media/active-directory-saas-app-provisioning/provisiong1.PNG)
+![Outbound Provisioning](./media/active-directory-saas-app-provisioning/provisioning1.PNG)
 *Figure 2: "Outbound" user provisioning workflow from Azure AD to popular SaaS applications*
 
-![Inbound Provisioning](./media/active-directory-saas-app-provisioning/provisiong2.PNG)
+![Inbound Provisioning](./media/active-directory-saas-app-provisioning/provisioning2.PNG)
 *Figure 3: "Inbound" user provisioning workflow from popular Human Capital Management (HCM) applications to Azure Active Directory and Windows Server Active Directory*
 
 
@@ -78,7 +78,7 @@ Configuration of the Azure AD provisioning service for a selected application st
 
     * Use the “non-gallery application” option for custom-developed SCIM integrations
 
-![Gallery](./media/active-directory-saas-app-provisioning/gallery.PNG)
+![Gallery](./media/active-directory-saas-app-provisioning/gallery.png)
 
 In the application management screen, provisioning is configured in the **Provisioning** tab.
 
