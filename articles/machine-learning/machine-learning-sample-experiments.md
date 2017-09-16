@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
-ms.author: cgronlun;olgali
+ms.author: cgronlun
 
 ---
 # Copy example experiments to create new machine learning experiments

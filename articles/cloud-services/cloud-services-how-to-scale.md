@@ -33,7 +33,7 @@ You should consider the following information before you configure scaling for y
 
     Larger role instances use more cores. You can scale an application only within the limit of cores for your subscription. For example, say your subscription has a limit of 20 cores. If you run an application with two medium-sized cloud services (a total of 4 cores), you can only scale up other cloud service deployments in your subscription by the remaining 16 cores. For more information about sizes, see [Cloud Service Sizes](cloud-services-sizes-specs.md).
 
-* You must create a queue and associate it with a role before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md).
+* You must create a queue and associate it with a role before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 * You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 

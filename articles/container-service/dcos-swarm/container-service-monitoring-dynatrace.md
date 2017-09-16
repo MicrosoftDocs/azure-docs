@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
+ms.custom: mvc
 
 ---
 # Monitor an Azure Container Service DC/OS cluster with Dynatrace SaaS/Managed

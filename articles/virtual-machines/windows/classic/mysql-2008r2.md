@@ -32,7 +32,7 @@ If you don't already have a VM running Windows Server 2016, you can use this [tu
 ## Attach a data disk
 After the virtual machine is created, you can optionally attach a data disk. Adding a data disk is recommended for production workloads and to avoid running out of space on the OS drive (C:), which includes the operating system.
 
-See [How to attach a data disk to a Windows virtual machine](../attach-disk-portal.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
+See [How to attach a data disk to a Windows virtual machine](../attach-managed-disk-portal.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
 ## Log on to the virtual machine
 Next, you'll [log on to the virtual machine](./connect-logon.md) so you can install MySQL.

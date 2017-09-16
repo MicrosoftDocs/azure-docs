@@ -26,7 +26,7 @@ By doing this, you can automate deployment of Azure resources. You can maintain 
 templates in a central,secure location such as Azure Storage.
 
 In this topic, we create a PowerShell runbook that uses an Resource Manager template stored in
-[Azure Storage](../storage/storage-introduction.md) to deploy a new Azure Storage account.
+[Azure Storage](../storage/common/storage-introduction.md) to deploy a new Azure Storage account.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ To complete this tutorial, you need the following:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
 * [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
-* [Azure Storage account](../storage/storage-create-storage-account.md) in which to store the Resource Manager template
+* [Azure Storage account](../storage/common/storage-create-storage-account.md) in which to store the Resource Manager template
 * Azure Powershell installed on a local machine. See [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) for information about how to get Azure PowerShell.
 
 ## Create the Resource Manager template
@@ -94,7 +94,7 @@ Save the file locally as `TemplateTest.json`.
 
 Now we use PowerShell to create an Azure Storage file share and upload the `TemplateTest.json` file.
 For instructions on how to create a file share and upload a file in the Azure portal, see
-[Get started with Azure File storage on Windows](../storage/storage-dotnet-how-to-use-files.md).
+[Get started with Azure File storage on Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
 Launch PowerShell on your local machine, and run the following commands to create a file share
 and upload the Resource Manager template to that file share.
@@ -251,7 +251,7 @@ and Resource Manager templates to deploy all your Azure resources.
 ## Next steps
 
 * To learn more about Resource Manager templates, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
-* To get started with Azure Storage, see [Introduction to Azure Storage](../storage/storage-introduction.md).
+* To get started with Azure Storage, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
 * To find other useful Azure Automation runbooks, see
 [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
 * To find other useful Resource Manager templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)

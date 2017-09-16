@@ -2,8 +2,8 @@
 title: Azure Data Lake Analytics Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn big data analysis with Data Lake Analytics. Tutorials show you how to run batch, real-time, and interactive analytics, and how to write U-SQL queries.
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

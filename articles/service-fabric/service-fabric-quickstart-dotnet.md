@@ -10,11 +10,12 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/21/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
+ms.custom: mvc
 
 ---
 
@@ -90,12 +91,18 @@ To look at what happens in the code, complete the following steps:
 2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
-    - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service. The controller in the front-end service then uses the ReverseProxy to send a PUT request to the back-end service.
+    - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+    
+    ![Add Vote Front-End Service](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+
+    - First we construct the URL to the ReverseProxy for our back-end service **(1)**.
+    - Then we send the HTTP PUT Request to the ReverseProxy **(2)**.
+    - Finally the we return the response from the back-end service to the client **(3)**.
 
 4. Press **F5** to continue
     - You are now at the break point in the back-end service.
     
-    ![Add Vote Async Method](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+    ![Add Vote Back-End Service](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
     - In the first line in the method **(1)** we are using the `StateManager` to get or add a reliable dictionary called `counts`.
     - All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
@@ -105,7 +112,9 @@ To look at what happens in the code, complete the following steps:
 To stop the debugging session, press **Shift+F5**.
 
 ## Deploy the application to Azure
-To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric) to get access to a cluster. 
+To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
+
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
@@ -127,7 +136,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 ![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
-Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Azure CLI 2.0. In this example, we are using Service Fabric Explorer.
+Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, we are using Service Fabric Explorer.
 
 Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 

@@ -56,7 +56,7 @@ To ensure that virtual machines for your organization are compatible with an app
             {
               "field": "Microsoft.Compute/imageSku",
               "in": [
-                "2012-Datacenter"
+                "2012-R2-Datacenter"
               ]
             },
             {
@@ -82,6 +82,23 @@ Use a wild card to modify the preceding policy to allow any Windows Server Datac
 {
   "field": "Microsoft.Compute/imageSku",
   "like": "*Datacenter"
+}
+```
+
+Use anyOf to modify the preceding policy to allow any Windows Server 2012 R2 Datacenter or higher image:
+
+```json
+{
+  "anyOf": [
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2012-R2-Datacenter*"
+    },
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2016-Datacenter*"
+    }
+  ]
 }
 ```
 

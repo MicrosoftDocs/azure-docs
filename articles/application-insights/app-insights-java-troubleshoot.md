@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Troubleshooting and Q and A for Application Insights for Java

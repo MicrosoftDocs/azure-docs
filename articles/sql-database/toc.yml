@@ -43,41 +43,59 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
-  - name: 4 - Improve SQL DB performance
-    href: sql-database-performance-tutorial.md
-  - name: 5 - Implement multi-tenant app
-    href: sql-database-multi-tenant-application.md
-  - name: 6 - Implement a geo-distributed database
+  - name: 4 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=sql-database
+    href: https://azure.microsoft.com/resources/samples/?service=sql-database
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Databases & servers
+  - name: Service features
     items:
     - name: Overview
       href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
+    - name: Resource limits
+      href: sql-database-resource-limits.md  
+    - name: Single databases
+      href: sql-database-single-database-resources.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
     - name: Connectivity architecture
       href: sql-database-connectivity-architecture.md 
+    - name: Firewall rules
+      href: sql-database-firewall-configure.md      
     - name: DTUs and eDTUs
       href: sql-database-what-is-a-dtu.md
     - name: DTU benchmark
       href: sql-database-benchmark-overview.md
-    - name: Limits
-      href: sql-database-resource-limits.md
     - name: PaaS or IaaS
       href: sql-database-paas-vs-sql-server-iaas.md  
-    - name: Features
+    - name: Auditing
+      href: sql-database-auditing.md
+    - name: Threat detection
+      href: sql-database-threat-detection.md
+    - name: Database backups
+      href: sql-database-automated-backups.md
+    - name: Backup retention
+      href: sql-database-long-term-retention.md
+    - name: Failover groups
+      href: sql-database-geo-replication-overview.md
+    - name: Elastic client library
+      href: sql-database-elastic-database-client-library.md
+    - name: Elastic queries
+      href: sql-database-elastic-query-overview.md
+    - name: Elastic transactions
+      href: sql-database-elastic-transactions-overview.md
+    - name: Elastic jobs
+      href: sql-database-elastic-jobs-overview.md
+    - name: SQL Server common features
       href: sql-database-features.md
   - name: Security
     items:
@@ -85,38 +103,22 @@
       href: sql-database-security-overview.md
     - name: Access control
       href: sql-database-control-access.md
-    - name: Firewall rules
-      href: sql-database-firewall-configure.md
     - name: Azure AD
       href: sql-database-aad-authentication.md
     - name: Logins and users
       href: sql-database-manage-logins.md
     - name: Multi-factor auth
       href: sql-database-ssms-mfa-authentication.md
-    - name: Auditing
-      href: sql-database-auditing.md
     - name: Table auditing & TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-    - name: Threat detection
-      href: sql-database-threat-detection.md
-    - name: TDE with SQL DB
-      href: https://msdn.microsoft.com/library/dn948096
-    - name: Always encrypted
-      href: https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine
     - name: Data masking
       href: sql-database-dynamic-data-masking-get-started.md
   - name: Business continuity
     items:
     - name: Overview
       href: sql-database-business-continuity.md
-    - name: Database backups
-      href: sql-database-automated-backups.md
-    - name: Backup retention
-      href: sql-database-long-term-retention.md
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
-    - name: Failover groups
-      href: sql-database-geo-replication-overview.md
     - name: Configure security
       href: sql-database-geo-replication-security-config.md
     - name: App design & recovery
@@ -163,16 +165,10 @@
       href: sql-database-compatibility-level-query-performance-130.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
-  - name: Scale out apps
+  - name: Scale out
     items:
     - name: Overview
       href: sql-database-elastic-scale-introduction.md
-    - name: SaaS design patterns
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: SaaS app security
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Elastic client library
-      href: sql-database-elastic-database-client-library.md
     - name: Shard maps
       href: sql-database-elastic-scale-shard-map-management.md
     - name: Query routing
@@ -189,16 +185,12 @@
       href: sql-database-elastic-scale-working-with-dapper.md
     - name: Elastic tools FAQ
       href: sql-database-elastic-scale-faq.md
-    - name: Elastic queries
-      href: sql-database-elastic-query-overview.md
-    - name: Horizontal data
-      href: sql-database-elastic-query-horizontal-partitioning.md
-    - name: Vertical data
-      href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Transactions
-      href: sql-database-elastic-transactions-overview.md
-    - name: Elastic jobs
-      href: sql-database-elastic-jobs-overview.md
+  - name: Multi-tenant SaaS
+    items:
+    - name: SaaS design patterns
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: SaaS app security
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
   - name: Develop databases
     items:
     - name: JSON data
@@ -229,6 +221,26 @@
       href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: How-to guides
   items:
+  - name: Service features
+    items:
+    - name: Upgrade elastic database client library
+      href: sql-database-elastic-scale-upgrade-client-library.md
+    - name: Install elastic job
+      href: sql-database-elastic-jobs-service-installation.md
+    - name: Create job - Portal
+      href: sql-database-elastic-jobs-create-and-manage.md
+    - name: Create job - PowerShell
+      href: sql-database-elastic-jobs-powershell.md
+    - name: Create job - Sample app
+      href: sql-database-elastic-jobs-getting-started.md
+    - name: Uninstall elastic job
+      href: sql-database-elastic-jobs-uninstall.md
+    - name: Query vertically partitioned data
+      href: sql-database-elastic-query-getting-started-vertical.md
+    - name: Report across scaled-out data tier
+      href: sql-database-elastic-query-horizontal-partitioning.md
+    - name: Query across tables with different schemas
+      href: sql-database-elastic-query-vertical-partitioning.md
   - name: Security
     items:
     - name: Configure Azure AD auth
@@ -249,10 +261,6 @@
       href: sql-database-long-term-backup-retention-configure.md
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
-    - name: Geo-replicate- T-SQL - Configure
-      href: sql-database-geo-replication-transact-sql.md
-    - name: Geo-replicate - T-SQL - Failover
-      href: sql-database-geo-replication-failover-transact-sql.md
     - name: Recover single table
       href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
   - name: Load & move data
@@ -287,12 +295,12 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
-    - name: Azure RemoteApp
-      href: sql-database-ssms-remoteapp.md
-  - name: Scale out apps
+  - name: Scale out
     items:
     - name: Create sharded app
       href: sql-database-elastic-scale-get-started.md
+    - name: Query horizontally-sharded data
+      href: sql-database-elastic-query-getting-started.md
     - name: Move sharded data
       href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
     - name: Security configuration
@@ -307,24 +315,26 @@
       href: sql-database-elastic-database-perf-counters.md
     - name: Use entity framework
       href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-    - name: Upgrade clients
-      href: sql-database-elastic-scale-upgrade-client-library.md
-    - name: Install elastic job
-      href: sql-database-elastic-jobs-service-installation.md
-    - name: Create job - Portal
-      href: sql-database-elastic-jobs-create-and-manage.md
-    - name: Create job - PowerShell
-      href: sql-database-elastic-jobs-powershell.md
-    - name: Create job - Sample app
-      href: sql-database-elastic-jobs-getting-started.md
-    - name: Uninstall elastic job
-      href: sql-database-elastic-jobs-uninstall.md
-    - name: Query horizontal data
-      href: sql-database-elastic-query-getting-started.md
-    - name: Query vertical data
-      href: sql-database-elastic-query-getting-started-vertical.md
-    - name: SaaS app tutorial
+  - name: Multi-tenant SaaS
+    items:
+    - name: Tutorial intro
       href: sql-database-wtp-overview.md
+    - name: Deploy example app
+      href: sql-database-saas-tutorial.md
+    - name: Provision tenants
+      href: sql-database-saas-tutorial-provision-and-catalog.md
+    - name: Monitor database performance
+      href: sql-database-saas-tutorial-performance-monitoring.md 
+    - name: Monitor with log analytics
+      href: sql-database-saas-tutorial-log-analytics.md 
+    - name: Restore single tenant
+      href: sql-database-saas-tutorial-restore-single-tenant.md 
+    - name: Manage tenant schema
+      href: sql-database-saas-tutorial-schema-management.md 
+    - name: Run ad-hoc queries
+      href: sql-database-saas-tutorial-adhoc-analytics.md 
+    - name: ETL for analysis
+      href: sql-database-saas-tutorial-tenant-analytics.md 
   - name: Develop apps
     items:
     - name: C and C ++
@@ -334,9 +344,9 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/#sql
+    href: /powershell/module/azurerm.sql/#sql
   - name: PowerShell (Elastic DB)
-    href: https://docs.microsoft.com/en-us/powershell/module/elasticdatabasejobs/#elasticdatabasejobs
+    href: /powershell/module/elasticdatabasejobs/#elasticdatabasejobs
   - name: Azure CLI 2.0
     href: /cli/azure/sql
   - name: .NET
@@ -344,40 +354,40 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.sql
   - name: Node.js
-    href: https://msdn.microsoft.com/library/mt652093.aspx
+    href: /sql/connect/node-js/node-js-driver-for-sql-server
   - name: Python
-    href: https://msdn.microsoft.com/library/mt652092.aspx
+    href: /sql/connect/python/python-driver-for-sql-server
   - name: Ruby
-    href: https://msdn.microsoft.com/library/mt691981.aspx
+    href: /sql/connect/ruby/ruby-driver-for-sql-server
   - name: PHP
-    href: https://msdn.microsoft.com/library/dn865013.aspx
+    href: /sql/connect/php/microsoft-php-driver-for-sql-server
   - name: T-SQL
-    href: https://msdn.microsoft.com/library/bb510741.aspx
+    href: /sql/t-sql/language-reference
   - name: REST
-    href: https://msdn.microsoft.com/library/mt163571.aspx
+    href: /rest/api/sql/
   - name: SQL Server tools
-    href: https://msdn.microsoft.com/library/mt238365.aspx
+    href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
-    href: https://msdn.microsoft.com/library/mt238290.aspx
+    href: /sql/ssms/download-sql-server-management-studio-ssms
   - name: SQL Server Data Tools (SSDT)
-    href: https://msdn.microsoft.com/library/mt204009.aspx
+    href: /sql/ssdt/download-sql-server-data-tools-ssdt
   - name: BCP
-    href: https://msdn.microsoft.com/library/ms162802.aspx
+    href: /sql/tools/bcp-utility
   - name: SQLCMD
-    href: https://msdn.microsoft.com/library/ms162773.aspx
+    href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
     href: https://msdn.microsoft.com/hh550080.aspx
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server drivers
-    href: https://msdn.microsoft.com/library/mt654049.aspx
+    href: /sql/connect/sql-server-drivers
     items:
     - name: ADO.NET
-      href: https://msdn.microsoft.com/library/mt657768.aspx
+      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
     - name: JDBC
-      href: https://msdn.microsoft.com/library/mt484311.aspx
+      href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
     - name: ODBC
-      href: https://msdn.microsoft.com/library/mt654048.aspx
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -398,17 +408,8 @@
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
     href: https://azure.microsoft.com/updates/?service=sql-database
-  - name: Architecture guidance
-    href: https://docs.microsoft.com/sql/#pivot=architecture
-  - name: Customer implementations
-    href: sql-database-customer-implementations.md
-  - name: Sample applications
-    items:
-    - name: Tailspin Surveys
-      href: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-    - name: Contoso Clinic
-      href: https://github.com/Microsoft/azure-sql-security-sample
-    - name: Elastic pool telemetry
-      href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
-    - name: Elastic pool custom dashboard
-      href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+  - name: Architecture center
+    href: /azure/architecture/
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+  

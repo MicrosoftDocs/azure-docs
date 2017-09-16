@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 08/11/2017
 ms.author: trinadhk; jimpark;
 
 ---
@@ -28,7 +28,7 @@ ms.author: trinadhk; jimpark;
 Restore a virtual machine to a new VM from the backups stored in an Azure Backup vault with the following steps.
 
 > [!IMPORTANT]
-> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **October 15, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/> **Starting November 1, 2017**:
 >- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
 >- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 >

@@ -184,20 +184,15 @@ $ gradle
 
 This will produce a Service Fabric application package that can be deployed using Service Fabric CLI tools.
 
-### Deploy with XPlat CLI
+### Deploy Service Fabric CLI
 
-If using the XPlat CLI, the install.sh script contains the necessary Azure CLI commands to deploy the application 
-package. Run the install.sh script to deploy the application.
+The install.sh script contains the necessary Service Fabric CLI (sfctl) commands to deploy the application package.
+Run the install.sh script to deploy the application.
 
 ```bash
 $ ./install.sh
 ```
 
-### Deploy with Azure CLI 2.0
+## Next steps
 
-If using the Azure CLI 2.0, see the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## Related articles
-
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)

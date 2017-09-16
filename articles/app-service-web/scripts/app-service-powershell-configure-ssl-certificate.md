@@ -12,7 +12,7 @@ ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc

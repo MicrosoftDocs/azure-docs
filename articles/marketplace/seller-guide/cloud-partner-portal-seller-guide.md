@@ -211,7 +211,7 @@ The Marketplace offers reports on your orders, usage, and customers that are acc
   - Trending offers
   - Marketplace license type
 
-Detailed reports show customer information, like company name and geographic location down to the postal code, so you can comp your sellers. The following list includes the specific attributes we provide about your customers:
+Detailed reports show customer information, like company name and geographic location down to the postal code, so you can compare your customers. The following list includes the specific attributes we provide about your customers:
 
 - Reseller
 - FirstName

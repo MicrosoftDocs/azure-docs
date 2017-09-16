@@ -4,7 +4,7 @@ description: Learn how to scale Stream Analytics jobs by configuring input parti
 keywords: data streaming, streaming data processing, tune analytics
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Scale Azure Stream Analytics jobs to increase stream data processing throughput
@@ -27,7 +27,7 @@ A Stream Analytics job definition includes inputs, a query, and output. Inputs a
 A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure event hub or in Azure blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md) and [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
 
 ## Partitions in event hubs and Azure storage
-Scaling a Stream Analytics job takes advantage of partitions in the input or output. Partitioning lets you divide data into subsets based on a partition key. A process that consumes the data (such as a Streaming Analytics job) can consume and write different partitions in parallel, which increases throughput. When you work with Streaming Analytics, you can take advantage of partitioning in event hubs and in Blob storage. 
+Scaling a Stream Analytics job takes advantage of partitions in the input or output. Partitioning lets you divide data into subsets based on a partition key. A process that consumes the data (such as a Streaming Analytics job) can consume and write different partitions in parallel, which increases throughput. When you work with Stream Analytics, you can take advantage of partitioning in event hubs and in Blob storage. 
 
 For more information about partitions, see the following articles:
 
@@ -334,7 +334,7 @@ And the following graph shows a visualization of the relationship between SUs an
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

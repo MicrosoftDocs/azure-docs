@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 09/11/2017
 ms.author: seanmck
+ms.custom: mvc
 ---
 
 # Deploy and use Azure Container Registry
@@ -34,7 +35,7 @@ In subsequent tutorials, you deploy the container from your private registry to 
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.12 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Deploy Azure Container Registry
 
@@ -54,39 +55,19 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for the container registry name that you chose.
 
-## Get Azure Container Registry information
+## Container registry login
 
-Once the container registry is created, you can query its login server and password. The following code returns these values. Note each value down, they are referenced throughout this tutorial.
-
-Container registry login server (update with your registry name):
+You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to complete the operation. You need to provide the unique name given to the container registry when it was created.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer
-```
-
-Throughout the rest of this tutorial, we use `<acrLoginServer>` as a placeholder for the container registry login server value.
-
-Container registry password:
-
-```azurecli
-az acr credential show --name <acrName> --query passwords[0].value
-```
-
-Throughout the rest of this tutorial, we use `<acrPassword>` as a placeholder for the container registry password value.
-
-## Login to the container registry
-
-You must login to your container registry instance before pushing images to it. Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to complete the operation. When running docker login, you need to provide th registry login server name and credentials.
-
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+az acr login --name <acrName>
 ```
 
 The command returns a 'Login Succeeded’ message once completed.
 
 ## Tag container image
 
-In order to deploy a container image from a private registry, the image needs to be tagged with the `loginServer` name of the registry.
+To deploy a container image from a private registry, the image needs to be tagged with the `loginServer` name of the registry.
 
 To see a list of current images, use the `docker images` command.
 
@@ -99,6 +80,12 @@ Output:
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```
+
+To get the loginServer name, run the following command.
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
 ```
 
 Tag the *aci-tutorial-app* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version number.
@@ -133,10 +120,10 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 
 ## List images in Azure Container Registry
 
-To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the container registry name.
 
 ```azurecli
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+az acr repository list --name <acrName> --output table
 ```
 
 Output:
@@ -150,7 +137,7 @@ aci-tutorial-app
 And then to see the tags for a specific image, use the [az acr repository show-tags](/cli/azure/acr/repository#show-tags) command.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository aci-tutorial-app --output table
+az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
 Output:

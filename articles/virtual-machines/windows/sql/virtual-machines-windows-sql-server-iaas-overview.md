@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: rothja
 manager: jhubbard
-editor: ''
 tags: azure-service-management
 
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
@@ -14,43 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/27/2017
+ms.date: 09/12/2017
 ms.author: jroth
-
 ---
 # Overview of SQL Server on Azure Virtual Machines
 This topic describes your options for running SQL Server on Azure virtual machines (VMs), along with [links to portal images](#option-1-create-a-sql-vm-with-per-minute-licensing) and an overview of [common tasks](#manage-your-sql-vm).
 
 > [!NOTE]
 > If you're already familiar with SQL Server and just want to see how to deploy a SQL Server VM, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
 
-## Overview
-If you are a database administrator or a developer, Azure VMs provide a way to move your on-premises SQL Server workloads and applications to the Cloud. The following video provides a technical overview of SQL Server Azure VMs.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-The video covers the following areas:
-
-| Time | Area |
-| --- | --- |
-| 00:21 |What are Azure VMs? |
-| 01:45 |Security |
-| 02:50 |Connectivity |
-| 03:30 |Storage reliability and performance |
-| 05:20 |VM sizes |
-| 05:54 |High availability and SLA |
-| 07:30 |Configuration support |
-| 08:00 |Monitoring |
-| 08:32 |Demo: Create a SQL Server 2016 VM |
-
-> [!NOTE]
-> The video focuses on SQL Server 2016, but Azure provides VM images for many versions of SQL Server, including 2012, 2014, and 2016. 
-> 
-> 
+If you are a database administrator or a developer, Azure VMs provide a way to move your on-premises SQL Server workloads and applications to the Cloud.
 
 ## Scenarios
 There are many reasons that you might choose to host your data in Azure. If your application is moving to Azure, it improves performance to also move the data. But there are other benefits. You automatically have access to multiple data centers for a global presence and disaster recovery. The data is also highly secured and durable.
@@ -122,7 +94,7 @@ Azure VMs can use [Automated Patching](virtual-machines-windows-sql-automated-pa
 ### Customer experience improvement program (CEIP)
 The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. 
 
-For more information, see the CEIP section of the [Accept License Terms](https://msdn.microsoft.com/library/ms143343.aspx) topic. 
+For more information about data collection, see the [SQL Server Privacy Statement](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## Next steps
 

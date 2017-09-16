@@ -67,7 +67,7 @@ Because App Service deploys a number of virtual machines, it requires a Windows 
 
 ## <a name="SQL-Server"></a>SQL Server
 
-App Service on Azure Stack requires access to a SQL Server instance to create and host two databases to run the App Service resource provider. You can choose the SQL Server instance to use when you complete the options in the App Service on Azure Stack installer.
+App Service on Azure Stack requires access to a SQL Server instance to create and host two databases to run the App Service resource provider.  Should you choose to deploy a SQL Server VM on Azure Stack it must have the SQL connectivity level set to **Public**.  You can choose the SQL Server instance to use when you complete the options in the App Service on Azure Stack installer.
 
 ## Next steps
 

@@ -92,9 +92,11 @@
 
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
+#### [Send user context](app-insights-usage-send-user-context.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
 #### [Funnels](usage-funnels.md)
 #### [Retention](app-insights-usage-retention.md)
+#### [User Flows](app-insights-usage-flows.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
 
 ### Analytics
@@ -131,7 +133,7 @@
 ### [Export to Power BI](app-insights-export-power-bi.md)
 
 ## Secure
-### [Data collection, retention and storage](app-insights-data-retention-privacy.md)
+### [Data collection, retention, and storage](app-insights-data-retention-privacy.md)
 ### [Resources, roles, and access control](app-insights-resources-roles-access-control.md)
 ### [IP addresses](app-insights-ip-addresses.md)
 

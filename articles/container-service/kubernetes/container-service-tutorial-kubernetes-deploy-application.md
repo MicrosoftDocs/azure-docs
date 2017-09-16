@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: aurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Run applications in Kubernetes
@@ -24,7 +25,7 @@ ms.author: nepeters
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]
-> * Download Kubernetes manifest files
+> * Update Kubernetes manifest files
 > * Run application in Kubernetes
 > * Test the application
 
@@ -34,29 +35,15 @@ This tutorial assumes a basic understanding of Kubernetes concepts, for detailed
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created. 
 
-At minimum, this tutorial requires a Kubernetes cluster.
+To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
 
-## Get manifest file
-
-For this tutorial, [Kubernetes objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) are deployed using a Kubernetes manifest. A Kubernetes manifest is a YAML or JSON formatted file containing Kubernetes object deployment and configuration instructions.
-
-The application manifest file for this tutorial is available in the Azure Vote application repo, which was cloned in a previous tutorial. If you have not already done so, clone the repo with the following command: 
-
-```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-The manifest file is found in the following directory of the cloned repo.
-
-```bash
-/azure-voting-app-redis/kubernetes-manifests/
-```
+If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## Update manifest file
 
-If using Azure Container Registry to store the container images, the manifest needs to be updated with the ACR loginServer name.
+In this tutorial, Azure Container Registry (ACR) has been used to store a container image. Before running the application, the ACR login server name needs to be updated in the Kubernetes manifest file.
 
 Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
 
@@ -64,7 +51,13 @@ Get the ACR login server name with the [az acr list](/cli/azure/acr#list) comman
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The sample manifest has been pre-created with a repository name of *microsoft*. Open the file with any text editor, and replace the *microsoft* value with the login server name of your ACR instance.
+The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `vi`.
+
+```bash
+vi azure-vote-all-in-one-redis.yml
+```
+
+Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.
 
 ```yaml
 containers:
@@ -72,12 +65,14 @@ containers:
   image: microsoft/azure-vote-front:redis-v1
 ```
 
+Save and close the file.
+
 ## Deploy application
 
 Use the [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) command to run the application. This command parses the manifest file and create the defined Kubernetes objects.
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yaml
+kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 Output:
@@ -99,7 +94,7 @@ To monitor progress, use the [kubectl get service](https://review.docs.microsoft
 kubectl get service azure-vote-front --watch
 ```
 
-Initially, the **EXTERNAL-IP** for the *azure-vote-front* service appears as *pending*. Once the EXTERNAL-IP address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process.
+Initially, the **EXTERNAL-IP** for the `azure-vote-front` service appears as `pending`. Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `CTRL-C` to stop the kubectl watch process.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE

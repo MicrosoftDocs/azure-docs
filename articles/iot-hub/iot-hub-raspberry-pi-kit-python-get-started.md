@@ -104,7 +104,7 @@ To enable SSH and I2C, you can find more reference documents on [raspberrypi.org
 
 Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](#connect-pi-to-the-network).
 
-![The Raspberry Pi and sensor connection](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![The Raspberry Pi and sensor connection](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 The BME280 sensor can collect temperature and humidity data. And the LED will blink if there is a communication between device and the cloud. 
 
@@ -112,27 +112,27 @@ For sensor pins, use the following wiring:
 
 | Start (Sensor & LED)     | End (Board)            | Cable Color   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD (Pin 5G)         | GPIO 4 (Pin 7)         | White cable   |
-| LED GND (Pin 6G)         | GND (Pin 6)            | Black cable   |
-| VDD (Pin 18F)            | 3.3V PWR (Pin 17)      | White cable   |
-| GND (Pin 20F)            | GND (Pin 20)           | Black cable   |
-| SCK (Pin 21F)            | SPI0 SCLK (Pin 23)     | Orange cable  |
-| SDO (Pin 22F)            | SPI0 MISO (Pin 21)     | Yellow cable  |
-| SDI (Pin 23F)            | SPI0 MOSI (Pin 19)     | Green cable   |
-| CS (Pin 24F)             | SPI0 CS (Pin 24)       | Blue cable    |
+| VDD (Pin 5G)             | 3.3V PWR (Pin 1)       | White cable   |
+| GND (Pin 7G)             | GND (Pin 6)            | Brown cable   |
+| SDI (Pin 10G)            | I2C1 SDA (Pin 3)       | Red cable     |
+| SCK (Pin 8G)             | I2C1 SCL (Pin 5)       | Orange cable  |
+| LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | White cable   |
+| LED GND (Pin 17F)        | GND (Pin 20)           | Black cable   |
 
 Click to view [Raspberry Pi 2 & 3 Pin mappings](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) for your reference.
 
 After you've successfully connected BME280 to your Raspberry Pi, it should be like below image.
 
-![Connected Pi and BME280](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Connected Pi and BME280](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### Connect Pi to the network
 
 Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Connected to wired network](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Connected to wired network](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Make sure that Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while Pi is connected to a wired network, you might not see the IP address in the devdisco output.
 
 ## Run a sample application on Pi
 

@@ -658,7 +658,7 @@ savings by pausing and scaling to meet your business needs.
 
 [Migrating Data to Azure SQL Data Warehouse][]
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Query Monitoring]: sql-data-warehouse-manage-monitor.md
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/

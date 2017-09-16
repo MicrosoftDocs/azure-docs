@@ -3,7 +3,7 @@ title: Check connectivity with Azure Network Watcher - Azure CLI 2.0 | Microsoft
 description: This page explains how to use connectivity check with Network Watcher using Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Check connectivity with Azure Network Watcher using Azure CLI 2.0
@@ -24,13 +24,6 @@ ms.author: gwallace
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
-
-This article takes you through some connectivity check scenarios.
-
-* [Check connectivity to a virtual machine](#check-connectivity-to-a-virtual-machine)
-* [Validate routing issues](#validate-routing-issues)
-* [Check website latency](#check-website-latency)
-* [Check connectivity to a storage endpoint](#check-connectivity-to-a-storage-endpoint)
 
 ## Before you begin
 

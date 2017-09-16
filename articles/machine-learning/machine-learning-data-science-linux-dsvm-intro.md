@@ -58,7 +58,7 @@ An [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) image is also av
 Before you can create a Linux Data Science Virtual Machine, you must have the following:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
-* **An Azure storage account**: To create one, see [Create an Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM, if you do not want to use an existing account.
+* **An Azure storage account**: To create one, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM, if you do not want to use an existing account.
 
 ## Create your Linux Data Science Virtual Machine
 Here are the steps to create an instance of the Linux Data Science Virtual Machine:

@@ -2,43 +2,8 @@
   href: ../index.md
 - name: Overview
   items: 
-  - name: Learn about the Content Moderator API
+  - name: About Content Moderator
     href: overview.md
-- name: Get started
-  items: 
-  - name: Get started with Content Moderator
-    href: quick-start.md
-- name: How to
-  items: 
-  - name: Review tool user guide
-    items:
-    - name: Human in the loop
-      href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Settings
-      href: Review-Tool-User-Guide/Configure.md
-    - name: Team and subteams
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: About Tags
-      href: Review-Tool-User-Guide/Tags.md
-    - name: Image reviews
-      href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Text reviews
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Verifying credentials
-      href: Review-Tool-User-Guide/Credentials.md
-    - name: About Connectors
-      href: Review-Tool-User-Guide/Connectors.md
-    - name: Using workflows
-      href: Review-Tool-User-Guide/Workflows.md
-    - name: View dashboard
-      href: Review-Tool-User-Guide/View-Dashboard.md
-- name: Reference
-  items: 
-  - name: API Reference Guide  
-    href: api-reference.md
-    items:
-  - name: Review APIs
-    href: review-api.md
   - name: Image moderation
     href: image-moderation-api.md
   - name: Text moderation
@@ -47,6 +12,58 @@
     href: Text-Moderation-API-Languages.md
   - name: Video moderation
     href: video-moderation-api.md
+  - name: Review APIs
+    href: review-api.md
+- name: Get started
+  items: 
+  - name: The review tool
+    href: quick-start.md
+  - name: Try the moderation APIs
+    items: 
+    - name: Images
+      href: try-image-api.md
+    - name: Image lists
+      href: try-image-list-api.md
+    - name: Text
+      href: try-text-api.md
+    - name: Term lists
+      href: try-terms-list-api.md
+  - name: Try the review APIs
+    items: 
+    - name: Jobs
+      href: try-review-api-job.md
+    - name: Reviews
+      href: try-review-api-review.md
+    - name: Workflows
+      href: try-review-api-workflow.md
+- name: How to
+  items:
+  - name: Use the review tool
+    items:
+    - name: Human in the loop
+      href: Review-Tool-User-Guide/human-in-the-loop.md
+    - name: Use settings
+      href: Review-Tool-User-Guide/Configure.md
+    - name: Manage team
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Use tags
+      href: Review-Tool-User-Guide/Tags.md
+    - name: Review images
+      href: Review-Tool-User-Guide/Review-Moderated-Images.md
+    - name: Review text
+      href: Review-Tool-User-Guide/Text-Reviews.md
+    - name: Verify credentials
+      href: Review-Tool-User-Guide/Credentials.md
+    - name: Use Connectors
+      href: Review-Tool-User-Guide/Connectors.md
+    - name: Use workflows
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: View dashboard
+      href: Review-Tool-User-Guide/View-Dashboard.md
+- name: API References
+  items: 
+  - name: All APIs  
+    href: api-reference.md 
 - name: Resources
   items:  
   - name: Azure Roadmap

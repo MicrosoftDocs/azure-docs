@@ -1,5 +1,5 @@
 ---
-title: Visual Search Application Tutorial
+title: Visual Search mobile app tutorial
 description: Open Source C# application implementing visual search using the Cognitive Services Computer Vision API, Bing Web Search API, and Xamarin.Forms cross-platform framework.
 services: bing-web-search, computer-vision
 author: Aristoddle 
@@ -12,7 +12,7 @@ ms.date: 06/22/2017
 ms.author: t-jolanz
 ---
 
-# Visual Search Mobile App Tutorial
+# Visual Search mobile app tutorial
 
 ## Introduction  
 This tutorial explores the [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/) and [Bing Web Search API](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/) endpoints and how they can be used to build a basic visual search application with [Xamarin.Forms](https://developer.xamarin.com/guides/xamarin-forms/).  Overall, this tutorial covers the following topics: 

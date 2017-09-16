@@ -113,7 +113,7 @@ Specify the Azure storage account to be used for replication, and the Azure netw
    ![Storage](./media/vmm-to-azure-walkthrough-source-target/gs-createstorage.png)
 
 
-   * If you want to create a storage account using the classic model, do that in the Azure portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
+   * If you want to create a storage account using the classic model, do that in the Azure portal. [Learn more](../storage/common/storage-create-storage-account.md)
    * If you’re using a premium storage account for replicated data, set up an additional standard storage account, to store replication logs that capture ongoing changes to on-premises data.
 5. If you haven't created an Azure network, and you want to create one using Resource Manager, click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
 

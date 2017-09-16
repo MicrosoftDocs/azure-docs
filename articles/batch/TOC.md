@@ -19,6 +19,7 @@
 ### [Compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
 ### [Count tasks by state](batch-get-task-counts.md)
+### [Create a pool with a custom image](batch-custom-images.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
@@ -63,11 +64,10 @@
 # Related
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Data processing with Batch and Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
+## [Batch, HPC, and Big Compute solutions in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Big Compute resources](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
