@@ -35,7 +35,7 @@ The following are the data platform tools supported on the DSVM.
 | Links to Samples      |    A small sample of New York City Dataset is loaded into the SQL database `nyctaxi`. <br/> Jupyter sample showing Microsoft R and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Related Tools on the DSVM       | SQL Server Management Studio <br/> ODBC/JDBC Drivers<br/> pyodbc, RODBC<br />Apache Drill      |
 
->[AZURE.NOTE]
+> [!NOTE]
 > The SQL Server 2016 developer edition can only be used for development and test purposes. You need a license or one of the SQL Server VMs to run it in production. 
 
 
