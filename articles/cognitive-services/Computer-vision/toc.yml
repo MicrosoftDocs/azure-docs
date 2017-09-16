@@ -31,6 +31,8 @@
   items:
   - name: C#
     href: Tutorials/CSharpTutorial.md
+  - name: JavaScript
+    href: Tutorials/JavaScriptTutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
 - name: Reference
