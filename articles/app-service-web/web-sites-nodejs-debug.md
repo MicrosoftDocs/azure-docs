@@ -4,8 +4,8 @@ description: Learn how to debug a Node.js web app in Azure App Service.
 tags: azure-portal
 services: app-service\web
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: ''
 
 ms.assetid: a48f906c-1a3e-43bc-ae84-7d2dde175b15
@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
+ms.date: 08/17/2016
+ms.author: tarcher
 
 ---
 # How to debug a Node.js web app in Azure App Service

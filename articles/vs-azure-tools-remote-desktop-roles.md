@@ -3,8 +3,8 @@ title: Using Remote Desktop with Azure Roles | Microsoft Docs
 description: Using Remote Desktop with Azure Roles
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Using Remote Desktop with Azure Roles

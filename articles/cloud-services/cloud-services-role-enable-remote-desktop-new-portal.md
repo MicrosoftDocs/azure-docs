@@ -68,4 +68,4 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 ## Additional resources
 
 [How to Configure Cloud Services](cloud-services-how-to-configure.md)
-[Cloud services FAQ - Remote Desktop](cloud-services-faq.md#remote-desktop)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md)

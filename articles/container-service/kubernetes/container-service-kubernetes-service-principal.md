@@ -3,7 +3,7 @@ title: Service principal for Azure Kubernetes cluster | Microsoft Docs
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service
 services: container-service
 documentationcenter: ''
-author: dlepow
+author: neilpeterson
 manager: timlt
 editor: ''
 tags: acs, azure-container-service, kubernetes
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
-ms.author: danlep
+ms.date: 08/29/2017
+ms.author: nepeters
 ms.custom: mvc
 
 ---
@@ -131,13 +131,8 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * When you use the `az acs create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../../container-registry/container-registry-intro.md) created in the same subscription.
 
-
-
-
 ## Next steps
 
 * [Get started with Kubernetes](container-service-kubernetes-walkthrough.md) in your container service cluster.
 
 * To troubleshoot the service principal for Kubernetes, see the [ACS Engine documentation](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).
-
-

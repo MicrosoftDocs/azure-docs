@@ -129,7 +129,7 @@ strings and app settings.
 into the source slot as in a manual swap.
 - When you cancel the swap: Reapplies the configuration elements of the source slot to the source slot.
 
-You can preview exactly how the app will behave with the destination slot's configuration. Once you completes validation, you complete
+You can preview exactly how the app will behave with the destination slot's configuration. Once you complete validation, you complete
 the swap in a separate step. This step has the added advantage that the source slot is already warmed up with the desired configuration,
 and clients will not experience any downtime.  
 
@@ -287,7 +287,7 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 
 ## Next Steps
 [Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introduction to App Service on Linux](./app-service-linux-intro.md)
+[Introduction to App Service on Linux](../app-service/containers/app-service-linux-intro.md)
 [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

@@ -22,7 +22,7 @@ This topic shows several [resource policies](resource-manager-policy.md) you can
 
 ## Define permitted storage account types
 
-The following policy restricts which [storage account types](../storage/storage-redundancy.md) can be deployed:
+The following policy restricts which [storage account types](../storage/common/storage-redundancy.md) can be deployed:
 
 ```json
 {
@@ -53,7 +53,7 @@ A similar policy rule with a parameter for accepting the allowed SKUs is availab
 
 ## Define permitted access tier
 
-The following policy specifies the type of [access tier](../storage/storage-blob-storage-tiers.md) that can be specified for storage accounts:
+The following policy specifies the type of [access tier](../storage/blobs/storage-blob-storage-tiers.md) that can be specified for storage accounts:
 
 ```json
 {
@@ -83,7 +83,7 @@ The following policy specifies the type of [access tier](../storage/storage-blob
 
 ## Ensure encryption is enabled
 
-The following policy requires all storage accounts to enable [Storage service encryption](../storage/storage-service-encryption.md):
+The following policy requires all storage accounts to enable [Storage service encryption](../storage/common/storage-service-encryption.md):
 
 ```json
 {

@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of uploading files into a
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9

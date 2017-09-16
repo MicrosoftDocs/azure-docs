@@ -48,6 +48,8 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | --- | --- | --- | --- |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Performance Features and Optimizations__ |
 | [Dynamic Site Acceleration](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Adaptive Image Compression](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Object Prefetch](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&#x2713;**  |  |  |
 | [Video Streaming Optimization](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
 | [Large File Optimization](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
 | [Global Server Load balancing (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -58,7 +60,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [HTTP/2 support](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Security__ |
 | HTTPS support with CDN endpoint |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Custom domain HTTPS | |**&#x2713;** |**&#x2713;** |
+| [Custom domain HTTPS](cdn-custom-ssl.md) | |**&#x2713;** |**&#x2713;** |
 | [Custom domain name support](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Geo-filtering](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Token authentication](cdn-token-auth.md)|  |  |**&#x2713;**| 

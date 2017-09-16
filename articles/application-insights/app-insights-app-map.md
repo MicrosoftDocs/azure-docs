@@ -1,4 +1,4 @@
----
+﻿---
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: A visual presentation of the dependencies between app components, labeled with KPIs and alerts.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Application Map in Application Insights
