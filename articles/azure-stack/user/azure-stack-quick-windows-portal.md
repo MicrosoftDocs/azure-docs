@@ -26,6 +26,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 1. Click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**. If you don't see **Windows Server 2016 Datacenter Eval** entry, contact your Azure Stack operator. Ask that they add it to the marketplace as explained in the [Add the Windows Server 2016 VM image to the Azure Stack marketplace](../azure-stack-add-default-image.md) article. 
     ![](media/azure-stack-quick-windows-portal/image01.png)
 2. Under **Basics**, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, select a **Location**, and then click **OK**.
+
     ![](media/azure-stack-quick-windows-portal/image02.png)
 3. Under **Choose a size**, click **A1 Standard** > **Select**.
     ![](media/azure-stack-quick-windows-portal/image03.png)
