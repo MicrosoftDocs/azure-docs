@@ -75,7 +75,7 @@ You can run Spark by submitting Spark jobs on the command line with `spark-submi
 
 You can use Spark from R using libraries like SparkR, Sparklyr, or Microsoft R Server that are available on the DSVM. See pointers to samples in the preceding table. 
 
->[AZURE.NOTE]
+> [!NOTE]
 > Running Microsoft R Server in Spark context of DSVM is only supported on the Ubuntu Linux DSVM edition. 
 
 
