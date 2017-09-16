@@ -11,10 +11,6 @@
 ## [Autoscale on performance and schedule](monitor-tutorial-autoscale-performance-schedule.md)
 ## [Archive monitoring data](monitor-tutorial-archive-monitoring-data.md)
 
-# Samples
-## [Powershell](powershell-samples.md)
-## [Azure CLI](insights-cli-samples.md)
-  
 # Concepts
 ## [Sources of monitoring data](monitoring-data-sources.md)
 ## [Roles permissions and security](monitoring-roles-permissions-security.md)
