@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/15/2017
+ms.date: 9/16/2017
 ms.author: trinadhk;jimpark;markgal;
 
 ---
@@ -24,9 +24,9 @@ You can back up Azure virtual machines through the Azure portal. Before you back
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. Then see the quickstart for [creating a Windows virtual machine in Azure](../virtual-machines/windows/quick-create-portal.md). This quickstart assumes you already have a virtual machine running in Azure.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at http://portal.azure.com.
 
 ## Back up your virtual machine
 
