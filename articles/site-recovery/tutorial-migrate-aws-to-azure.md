@@ -79,7 +79,7 @@ Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-su
 - The network should be in the same region as the Recovery Services vault.
 
 
-## Set up an Azure storage account
+### Set up an Azure storage account
 
 Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
@@ -131,12 +131,10 @@ Do the following before you start:
 - On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
 - Make sure TLS 1.0 is enabled on the machine.
 - Make sure the machine can access these URLs:
-        
-        [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
-        - Any IP address-based firewall rules should allow communication to Azure.
-        - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-        - Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+- Any IP address-based firewall rules should allow communication to Azure.
+- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
+- Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
 Run Unified Setup as a Local Administrator, to install the configuration server, the process server, and the master target server.
 
