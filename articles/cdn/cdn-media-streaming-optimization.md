@@ -56,7 +56,7 @@ If the Azure Content Delivery Network from Akamai detects that the asset is a st
 The short negative caching time is useful for origin offload when many users request a fragment that doesn’t exist yet. An example is a live stream where the packets aren't available from the origin that second. The longer caching interval also helps offload requests from the origin because video content isn't typically modified.
  
 
-|    | General<br> web<br>delivery | General<br> media<br> streaming | Video-on-demand <br>media<br> streaming  
+|   | General web delivery | General media streaming | Video-on-demand media streaming  
 --- | --- | --- | ---
 Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302, and 410 | 7 days |365 days | 365 days   
 Caching: Negative <br> HTTP 204, 305, 404, <br> and 405 | None | 1 second | 1 second
