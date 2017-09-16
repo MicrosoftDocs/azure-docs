@@ -63,7 +63,6 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
-        static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
 6. Add the following method to the **Program** class.  This code gets the device twin for the rebooting device and outputs the reported properties.
