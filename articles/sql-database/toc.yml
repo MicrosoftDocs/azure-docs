@@ -71,6 +71,8 @@
       href: sql-database-connectivity-architecture.md 
     - name: Firewall rules
       href: sql-database-firewall-configure.md      
+    - name: Firewall virtual network rules
+      href: sql-database-vnet-service-endpoint-rule-overview.md
     - name: DTUs and eDTUs
       href: sql-database-what-is-a-dtu.md
     - name: DTU benchmark
@@ -255,6 +257,8 @@
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Configure multi-factor auth
       href: sql-database-ssms-mfa-authentication-configure.md
+    - name: Virtual network rules by PowerShell
+      href: sql-database-vnet-service-endpoint-rule-powershell.md
   - name: Business continuity
     items:
     - name: Configure vault - backups

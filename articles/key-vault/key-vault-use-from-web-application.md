@@ -33,7 +33,8 @@ To complete this tutorial, you must have the following:
 * A web application. We will be showing the steps for an ASP.NET MVC application deployed in Azure as a Web App.
 
 > [!NOTE]
-> It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](key-vault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application.
+>* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called Managed Service Identity (MSI), which can automatically provision AAD Identities. Please refer to the following [link](https://docs.microsoft.com/azure/active-directory/msi-overview) for further details. 
+>* It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](key-vault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application.
 > 
 > 
 
@@ -96,7 +97,8 @@ Following is the code to get an access token from Azure Active Directory. This c
     }
 
 > [!NOTE]
-> Using a Client ID and Client Secret is the easiest way to authenticate an Azure AD application. And using it in your web application allows for a separation of duties and more control over your key management. But it does rely on putting the Client Secret in your configuration settings which for some can be as risky as putting the secret that you want to protect in your configuration settings. See below for a discussion on how to use a Client ID and Certificate instead of Client ID and Client Secret to authenticate the Azure AD application.
+>* Currently, the new feature Managed Service Identity (MSI) is the easiest way to authenticate. For further details please see the following link to the sample using [Key Vault with MSI in an application in .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and related [MSI with App Service and Functions tutorial](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity). 
+>* Using Client ID and Client Secret is another way to authenticate an Azure AD application. And using it in your web application allows for a separation of duties and more control over your key management. But it does rely on putting the Client Secret in your configuration settings which for some can be as risky as putting the secret that you want to protect in your configuration settings. See below for a discussion on how to use a Client ID and Certificate instead of Client ID and Client Secret to authenticate the Azure AD application.
 > 
 > 
 
