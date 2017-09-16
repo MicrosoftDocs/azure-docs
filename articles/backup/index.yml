@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Backup Documentation
+metadata:
+  title: Azure Backup Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Use Azure Backup to back up and restore your data. With Azure Backup you can back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
+  services: backup
+  author: czeumault
+  manager: carolz
+  ms.service: backup
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/11/2017
+  ms.author: carolz
+abstract:
+  description: Use Azure Backup to back up and restore your data. With Azure Backup you can back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to back up an Azure virtual machine in Azure.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Back up VMs - Portal
+      href: /azure/backup/backup-azure-vms-first-look-arm
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Back up VMs - PowerShell
+      href: /azure/backup/quick-backup-vm-powershell
+- title: Step-by-step Tutorials
+  items:
+  - type: paragraph
+    text: Learn to back up and recover virtual machines at scale.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/backup/tutorial-backup-azure-vm">Back up Azure VMs at scale</a>
+    - html: <a href="/azure/backup/backup-azure-arm-restore-vms">Recover Azure VMs using VM templates</a>
+    - html: <a href="/azure/backup/backup-azure-restore-files-from-vm">Recover files from an Azure VM recovery point</a>
+    - html: <a href="/azure/backup/backup-try-azure-backup-in-10-mins">Back up on-premises Windows Server to Azure</a>
+    - html: <a href="/azure/backup/backup-azure-restore-windows-server">Recover files from Azure to an on-premises Windows Server</a>
+    - html: <a href="/azure/backup/backup-azure-backup-server-vmware">Back up on-premises VMware virtual machines to Azure</a>
+    - html: <a href="/azure/backup/backup-azure-alternate-dpm-server">Restore data from on-premises VMware virtual machines</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Use the following samples to protect your data in Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/backup/powershell-backup-samples">PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/recoveryservices">Recovery Services REST API Reference</a></p>
