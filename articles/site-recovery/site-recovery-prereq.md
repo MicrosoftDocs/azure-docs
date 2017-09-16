@@ -54,7 +54,7 @@ The following components are required for disaster recovery of VMware VMs or phy
 Set up an on-premises machine as the configuration server to orchestrate communication between the on-premises site and Azure. The below table talks about the system and software requirements of a virtual machine that can be configured as a configuration server.
 
 > [!IMPORTANT]
-> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Avaialble(HA)** virtual machine.
+> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Avaialble (HA)** virtual machine.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
