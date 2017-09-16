@@ -74,9 +74,9 @@ To contact the Azure AD engineering team to request provisioning support for add
 
 Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://potal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
 
-    * All applications in the **Featured applications** section support automatic provisioning
+* All applications in the **Featured applications** section support automatic provisioning
 
-    * Use the “non-gallery application” option for custom-developed SCIM integrations
+* Use the “non-gallery application” option for custom-developed SCIM integrations
 
 ![Gallery](./media/active-directory-saas-app-provisioning/gallery.png)
 
