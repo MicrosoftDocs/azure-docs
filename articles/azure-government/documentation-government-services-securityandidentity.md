@@ -39,6 +39,8 @@ For details on this service and how to use it, see the [Azure Active Directory D
 
 **B2B Collaboration** is currently not available.
 
+**Group-Based Licensing** is currently not available.
+
 Support for Intune enabled **Conditional Access** scenarios is coming soon.
 
 ## Next Steps
