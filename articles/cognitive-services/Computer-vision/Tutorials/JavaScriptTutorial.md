@@ -731,4 +731,3 @@ Save the **handwriting.html** file and open it in a Web browser. Put your subscr
 
 - [Computer Vision API C&#35; Tutorial](CSharpTutorial.md)
 - [Computer Vision API Python Tutorial](PythonTutorial.md)
-- [Computer Vision API Java Tutorial](JavaTutorial.md)
