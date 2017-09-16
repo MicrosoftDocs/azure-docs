@@ -18,11 +18,6 @@
 ## [Fail over and fail back VMware VMs and physical servers replicated to Azure](tutorial-vmware-to-azure-failover-failback.md)
 ## [Fail over and fail back Hyper-V VMs replicated to Azure](tutorial-hyper-v-to-azure-failover-failback.md)
 
-# Samples
-## [Automate Hyper-V replication to Azure (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
-## [Automate Hyper-V replication to Azure (with VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-### [Automate Hyper-V replication to a secondary VMM site](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-
 # Concepts
 
 ## [Azure to Azure replication architecture](concepts-azure-to-azure-architecture.md)
@@ -73,6 +68,10 @@
 ### Fail back from Azure
 #### [Fail back from Azure to VMware](site-recovery-failback-azure-to-vmware.md)
 #### [Fail back from Azure to Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)
+## Automate
+### [Set up Hyper-V replication to Azure (no VMM) using PowerShell](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Set up Hyper-V replication to Azure (with VMM) using PowerShell](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+### [Set up Hyper-V replication to a secondary VMM site using PowerShell](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Migrate
 ### [Migrate to Azure](site-recovery-migrate-to-azure.md)
 ### [Migrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
