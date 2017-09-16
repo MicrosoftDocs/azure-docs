@@ -87,15 +87,15 @@ In the application management screen, provisioning is configured in the **Provis
 
 * **Admin credentials** must be provided to the Azure AD provisioning service that will allow it to connect to the user management API provided by the application.
 
-* **Attribute mappings** can be configured that specify which fields in the source system (.e.g Azure AD) will have their contents synchronized to which fields in the target system (e.g. ServiceNow). If the target application support it, this section will allow you to optionally configure provisioning of groups in addition to user accounts. "Matching properties" allow you to select which fields are used to match accounts between the systems. "[Expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md)" allow you to modify and transform the values retrieved from the source system before they are written to the target system. For more information, see [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md).
+* **Attribute mappings** can be configured that specify which fields in the source system (.e.g Azure AD) will have their contents synchronized to which fields in the target system (e.g. ServiceNow). If the target application supports it, this section will allow you to optionally configure provisioning of groups in addition to user accounts. "Matching properties" allow you to select which fields are used to match accounts between the systems. "[Expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md)" allow you to modify and transform the values retrieved from the source system before they are written to the target system. For more information, see [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md).
 
 ![Settings](./media/active-directory-saas-app-provisioning/provisioning_settings1.PNG)
 
 * **Scoping filters** tell the provisioning service which users and group in the source system should be provisioned and/or deprovisioned to the target system. There are two aspects to scoping filters that are evaluated together that determine who is in scope for provisioning:
 
-    * **Filter on attribute values** - The "Source Object Scope" menu in the attribute mappings allows filtering on specific attribute values. For example, you can specific that only users with a "Department" attribute of "Sales" should be in scope for provisioning.
-	
-	* **Filter on assignments** - The "Scope" menu in the Provisioning > Settings section of the portal allow you to specify whether only "assigned" users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+* **Filter on attribute values** - The "Source Object Scope" menu in the attribute mappings allows filtering on specific attribute values. For example, you can specific that only users with a "Department" attribute of "Sales" should be in scope for provisioning.
+
+* **Filter on assignments** - The "Scope" menu in the Provisioning > Settings section of the portal allow you to specify whether only "assigned" users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
 	
 * **Settings** control the operation of the provisioning service for an application, including whether it is currently running or not.
 
@@ -112,7 +112,7 @@ In the application management screen, provisioning is configured in the **Provis
    * If new users have been assigned to the application (either directly or through group membership), then they will be provisioned a new account in the SaaS app.
    * If a user's access has been removed, then their account in the SaaS app will be marked as disabled (users are never fully deleted, which protects you from data loss in the event of a misconfiguration).
    * If a user was recently assigned to the application and they already had an account in the SaaS app, that account will be marked as enabled, and certain user properties may be updated if they are out-of-date compared to the directory.
-   * If a user's information (such as phone number, office location, etc) has been changed in the directory, then that information will also be updated in the SaaS application.
+   * If a user's information (such as phone number, office location) has been changed in the directory, then that information will also be updated in the SaaS application.
 
 
 ## Frequently Asked Questions
