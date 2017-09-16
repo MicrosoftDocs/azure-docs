@@ -18,7 +18,7 @@ Entities describe information relevant to the intent, and sometimes they are ess
 
 For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent), that you can add as entities.
 
-You do not need to create entities for every concept in your app, but only for those required for the app to take action. You can add up to **30** entities in a single LUIS app. 
+You do not need to create entities for every concept in your app, but only for those required for the app to take action. 
 
 You can add, edit or delete entities in your app through the **Entities list** on the **Entities** page. Luis offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
 
