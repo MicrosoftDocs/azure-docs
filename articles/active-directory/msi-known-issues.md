@@ -20,6 +20,21 @@ ms.author: skwan
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
+## Frequently Asked Questions (FAQs)
+
+### Does MSI work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
+
+No, MSI is not yet integrated with ADAL or MSAL.
+
+### What are the supported Linux distributions?
+
+The following Linux distributions support MSI: 
+
+- CoreOS Stable
+- CentOS 7.1
+- RedHat 7.2
+- Ubuntu 15.04
+
 ## Known issues
 
 ### Configuration blade does not appear in the Azure portal
@@ -51,7 +66,3 @@ Once the VM is started, the tag can be removed by using following command:
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-
-## Does MSI work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
-
-No, MSI is not yet integrated with ADAL or MSAL.
