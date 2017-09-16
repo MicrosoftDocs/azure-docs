@@ -52,7 +52,6 @@ The following Azure services support Managed Service Identity.
 | Service | Status | Date |
 | --- | --- | --- |
 | Azure Virtual Machines | Preview | September 2017 |
-| Azure Virtual Machine Scale Sets | Preview | September 2017 |
 | Azure App Service | Preview | September 2017 |
 | Azure Functions | Preview | September 2017 |
 
@@ -108,19 +107,5 @@ Now that you understand the basics, try a Managed Service Identity tutorial to s
 |                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Function     | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
