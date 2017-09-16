@@ -12,6 +12,7 @@
 ### [1- Build a .NET application](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- Deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- Configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- Monitor and Diagnose](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Lift and shift an app
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
