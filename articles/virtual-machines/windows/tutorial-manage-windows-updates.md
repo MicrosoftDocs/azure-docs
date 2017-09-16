@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Manage Windows updates
 
-By using the Update management solution, you can manage package updates and patches for your Azure Linux virtual machines.
+By using the Update management solution, you can manage updates and patches for your Azure Windows virtual machines.
 Directly from your VM, you can quickly assess the status of available updates, schedule installation of required updates,
 and review deployment results to verify updates were applied successfully to the VM.
 
@@ -37,15 +37,15 @@ If you don't already have a VM to use, you can create one using the [Windows qui
 Enable the Update management solution for your VM
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. In the menu on the left, select **Virtual machines**.
+1. In the screen on the left, select **Virtual machines**.
 1. From the list, select a VM.
-1. On the VM menu, in the **Operations** section, click **Update management**. The **Enable backup** menu opens.
+1. On the VM screen, in the **Operations** section, click **Update management**. The **Enable backup** screen opens.
 
 Validation is performed to determine if the Update management solution is enabled for this VM.  The validation includes checks for Log Analytics workspace and linked Automation account, if the solution is in the workspace, and if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker.  If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
 
    ![Update Management onboard configuration banner](./media/tutorial-manage-windows-updates/manageupdates-onboard-solution-banner.png)
 
-Click the banner to enable the solution. The **Enable Update Management** menu opens. Configure the settings, and click **Enable**.
+Click the banner to enable the solution. The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
 
    ![Enable Update management solution](./media/tutorial-manage-windows-updates/manageupdates-update-enable.png)
 
@@ -53,7 +53,7 @@ Enabling the solution can take up to 15 minutes, and during this time you should
 
 ## View update assessment
 
-AFter the **Update management** solution is enabled, the **Update management** menu appears. You can see a list of missing updates on the **Missing updates** tab.
+AFter the **Update management** solution is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
 
    ![View update status](./media/tutorial-manage-windows-updates/manageupdates-view-status-win.png)
 
@@ -62,8 +62,8 @@ AFter the **Update management** solution is enabled, the **Update management** m
 To install updates, schedule a deployment that follows your release schedule and service window. 
 You can choose which update types to include in the deployment. For example you can include critical or security updates and exclude update rollups.
 
-Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** menu. 
-In the **New update deployment** menu, specify the following:
+Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. 
+In the **New update deployment** screen, specify the following:
 
 * **Name** - Provide a unique name to identify the update deployment.
 * **Update classification** - Select the types of software the update deployment will include in the deployment. The classification types are:
@@ -79,7 +79,7 @@ In the **New update deployment** menu, specify the following:
 * **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time.
    You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
 
-   ![Update Schedule Settings menu](./media/tutorial-manage-windows-updates/manageupdates-schedule-win.png)
+   ![Update Schedule Settings screen](./media/tutorial-manage-windows-updates/manageupdates-schedule-win.png)
 
 * **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within.  This helps ensure changes are performed within your defined service windows.
 
@@ -91,7 +91,7 @@ Notice that the **Scheduled** table shows the deployment schedule you just creat
 
 ## View results of an update deployment
 
-After the scheduled deployment is started, you can see the status for that deployment on the **Update deployments** tab on the **Update management** menu.
+After the scheduled deployment is started, you can see the status for that deployment on the **Update deployments** tab on the **Update management** screen.
 If it is currently running, it's status shows as **In progress**. After it completes, if successful, it changes to **Succeeded**.
 If there is a failure with one or more updates in the deployment, the status is **Partially failed**.
 Click the completed update deployment to see the dashboard for that update deployment.
