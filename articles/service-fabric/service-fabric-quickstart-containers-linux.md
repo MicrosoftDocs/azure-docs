@@ -21,186 +21,125 @@ ms.author: ryanwi
 # Deploy a Service Fabric Linux container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
-Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a prebuilt Docker container image in a Service Fabric application. When you're finished, you'll have a running nginx container.  This quickstart describes deploying a Linux container, read [this quickstart](service-fabric-quickstart-containers.md) to deploy a Windows container.
+This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a python web front end and a Redis instance running in a Service Fabric cluster. 
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
 
 In this quickstart, you learn how to:
 > [!div class="checklist"]
-> * Package a Docker image container
-> * Configure communication
-> * Build and package the Service Fabric application
-> * Deploy the container application to Azure
+> * Deploy Linux containers to Service Fabric
+> * Scale and failover containers in Service Fabric
 
-## Prerequisites
-Install the [Service Fabric SDK, Service Fabric CLI, and the Service Fabric yeoman template generators](service-fabric-get-started-linux.md).
+## Prerequisite
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/) before you begin.
   
-## Package a Docker image container with Yeoman
-The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.  
+If you choose to install and use the command line interface (CLI) locally ensure you are running the Azure CLI version 2.0.4 or later. To find the version, run az --version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-Name your application "MyFirstContainer" and name the application service "MyContainerService."
+## Get application package
+To deploy containers to Service Fabric, you need a set of manifest files (the application definition), which describe the individual containers and the application.
 
-Provide the container image name "nginx:latest" (the [nginx container image](https://hub.docker.com/r/_/nginx/) on Docker Hub). 
+In the cloud shell, use git to clone a copy of the application definition.
 
-This image has a workload entry-point defined, so you need to explicitly specify input commands. 
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-Specify an instance count of "1".
-
-![Service Fabric Yeoman generator for containers][sf-yeoman]
-
-## Configure communication and container port-to-host port mapping
-Configure an HTTP endpoint so clients can communicate with your service.  Open the *./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xml* file and declare an endpoint resource in the **ServiceManifest** element.  Add the protocol, port, and name. For this quickstart, the service listens on port 80: 
-
-```xml
-<Resources>
-  <Endpoints>
-    <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-  </Endpoints>
-</Resources>
-
-```
-Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
-
-Map a container port to a service `Endpoint` using a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this quickstart, `ContainerPort` is 80 (the container exposes port 80) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint previously defined in the service manifest).  Incoming requests to the service on port 80 are mapped to port 80 on the container.  
-
-```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
-    <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
+cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
-## Build and package the Service Fabric application
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. Save all your changes.  To build and package the application, run the following:
+## Deploy the containers to a Service Fabric cluster in Azure
+To deploy the application to a cluster in Azure, user your own cluster, or use a Party Cluster.
 
-```bash
-cd MyFirstContainer
-gradle
-```
-## Create a cluster
-To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a party cluster.
-
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a party cluster, [follow the instructions](http://aka.ms/tryservicefabric).  
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure. It is maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
-Take note of the connection endpoint, which you use in the following step.
+> [!Note]
+> The web front-end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
+>
 
-## Deploy the application to Azure
-Once the application is built, you can deploy it to the Azure cluster using the Service Fabric CLI.
+### Deploy the application manifests 
+Install the Service Fabric command line (sfctl) in your CLI environment
 
-Connect to the Service Fabric cluster in Azure.
-
-```bash
-sfctl cluster select --endpoint http://lnxt10vkfz6.westus.cloudapp.azure.com:19080
+```azurecli-interactive
+pip3 install --user sfctl 
+export PATH=$PATH:~/.local/bin
 ```
 
-Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint is the management endpoint of you cluster - for example,`http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-```bash
+```azurecli-interactive
+sfctl cluster select --endpoint http://<my-azure-service-fabric-cluster-url>:<port>
+```
+
+Use the install script provided in the template to copy the application definition to the cluster, register the application type, and create an instance of the application.
+
+```azurecli-interactive
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://lnxt10vkfz6.westus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+Open a browser and navigate to Service Fabric Explorer at http://<my-azure-service-fabric-cluster-url>:19080/Explorer - for example,`http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Expand the Application's node to see that there is now an entry for your application type and the instance you created.
 
 ![Service Fabric Explorer][sfx]
 
-Connect to the running container.  Open a web browser pointing to the IP address returned on port 80, for example "lnxt10vkfz6.westus.cloudapp.azure.com:80". You should see the nginx welcome page display in the browser.
+Connect to the running container.  Open a web browser pointing to the URL of your cluster  - for example,`http://linh1x87d1d.westus.cloudapp.azure.com:19080`. You should see the Voting application in the browser.
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
+
+## Fail over a container in a cluster
+Service Fabric makes sure your container instances automatically moves to other nodes in the cluster, should a failure occur. You can also manually drain a node for containers and move then gracefully to other nodes in the cluster. You have multiple ways of scaling your services, in this example, we are using Service Fabric Explorer.
+
+To fail over the front-end container, do the following steps:
+
+1. Open Service Fabric Explorer in your cluster - for example,`http://<my-azure-cluster-url>:19080`.
+2. Click on the **fabric:/Voting/azurevotefront** node in the tree-view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that container is currently running on - for example `_nodetype_4`
+3. Expand the **Nodes** node in the treeview. Click on the ellipsis (three dots) next to the node which is running the container.
+4. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.
+
+![sfx][sfxquickstartshownodetype]application
+
+## Scale applications and services in a cluster
+Service Fabric services can easily be scaled across a cluster to accommodate for the load on the services. You scale a service by changing the number of instances running in the cluster.
+
+To scale the web front-end service, do the following steps:
+
+1. Open Service Fabric Explorer in your cluster - for example,`http://<my-cluster-url>.cloudapp.azure.com:19080`.
+2. Click on the ellipsis (three dots) next to the **fabric:/Voting/azurevotefront** node in the treeview and choose **Scale Service**.
+
+    ![sfxscale][sfxscale]
+
+    You can now choose to scale the number of instances of the web front-end service.
+
+3. Change the number to **2** and click **Scale Service**.
+4. Click on the **fabric:/Voting/azurevotefront** node in the tree-view and expand the partition node (represented by a GUID).
+
+    ![sfxscaledone][sfxscaledone]
+
+    You can now see that the service has two instances. In the tree view, you can see which nodes the instances run on.
+
+By this simple management task, we doubled the resources available for our front-end service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
 
 ## Clean up
-Use the uninstall script provided in the template to delete the application instance from the cluster and unregister the application type.
+Use the uninstall script provided in the template to delete the application instance from the cluster and unregister the application type. This command takes some time to clean up the instance and the 'install'sh' command should not be run immediately after this script. 
 
 ```bash
 ./uninstall.sh
 ```
 
-## Complete example Service Fabric application and service manifests
-Here are the complete service and application manifests used in this quickstart.
-
-### ServiceManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="MyContainerServicePkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
-
-   <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="MyContainerServiceType" UseImplicitHost="true">
-   </StatelessServiceType>
-   </ServiceTypes>
-   
-   <CodePackage Name="code" Version="1.0.0">
-      <EntryPoint>
-         <ContainerHost>
-            <ImageName>nginx:latest</ImageName>
-            <Commands></Commands>
-         </ContainerHost>
-      </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
-   </CodePackage>
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- </ServiceManifest>
-
-```
-### ApplicationManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest  ApplicationTypeName="MyFirstContainerType" ApplicationTypeVersion="1.0.0"
-                      xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
-   <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-      </ContainerHostPolicies>
-    </Policies>
-</ServiceManifestImport>
-   
-   <DefaultServices>
-      <Service Name="MyContainerService">
-        <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
-        cluster, set InstanceCount to -1 for the container service to run on every node in 
-        the cluster.
-        -->
-        <StatelessService ServiceTypeName="MyContainerServiceType" InstanceCount="1">
-            <SingletonPartition />
-        </StatelessService>
-      </Service>
-   </DefaultServices>
-   
-</ApplicationManifest>
-
-```
-
 ## Next steps
-In this quickstart, you learn how to:
+In this quickstart, you learned how to:
 > [!div class="checklist"]
-> * Package a Docker image container
-> * Configure communication
-> * Build and package the Service Fabric application
-> * Deploy the container application to Azure
+> * Deploy a Linux container application to Azure
+> * Failover a container in a Service Fabric cluster
+> * Scale a container in a Service Fabric cluster
 
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
+* Check out the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 
-[sfx]: ./media/service-fabric-quickstart-containers-linux/SFX.png
-[nginx]: ./media/service-fabric-quickstart-containers-linux/nginx.png
-[sf-yeoman]: ./media/service-fabric-quickstart-containers-linux/YoSF.png
+[sfx]: ./media/service-fabric-quickstart-containers-linux/sfxquickstart.png
+[quickstartpic]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
+[sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/sfxquickstartshownodetype.png
+[sfxscale]: ./media/service-fabric-quickstart-containers-linux/sfxquickstartscale.png
+[sfxscaledone]: ./media/service-fabric-quickstart-containers-linux/sfxquickstartscaledone.png

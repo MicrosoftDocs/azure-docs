@@ -17,6 +17,14 @@
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
+## Create a Linux container app
+### [1- Create container images](service-fabric-tutorial-create-container-images.md)
+### [2- Create an Azure Container Registry](service-fabric-tutorial-prepare-acr.md)
+### [3- Package containers for Service Fabric](service-fabric-tutorial-package-containers.md)
+### [4- Build and run the container application](service-fabric-tutorial-deploy-run-containers.md)
+### [5- Demonstrate fail over and scaling](service-fabric-tutorial-containers-failover.md)
+
+
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
