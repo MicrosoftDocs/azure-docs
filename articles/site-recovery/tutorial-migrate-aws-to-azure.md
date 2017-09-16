@@ -4,7 +4,7 @@ description: This article describes how to migrate VMs running in Amazon Web Ser
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
@@ -67,13 +67,13 @@ Get a Microsoft [Azure account](http://azure.microsoft.com/).
 
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
-- Review the [permissions](site-recovery-role-based-linked-access-control#permissions-required-to-enable-replication-for-new-virtual-machines) you need.
-- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure).
+- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need.
+- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
 
 
 ### Set up an Azure network
 
-Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet).
+Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet.md).
 
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault.

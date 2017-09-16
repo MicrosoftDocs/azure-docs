@@ -40,7 +40,7 @@ You migrate a machine by enabling replication for it, and failing it over to Azu
 
 Here's what you need to do for this tutorial.
 
-- Make sure that machines that you want to replicate comply with [operating system requirements](site-recovery-support-matrix-to-azure#support-for-replicated-machine-os-versions), [file storage requirements](site-recovery-support-matrix-to-azure.md#supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers), and [prerequisites for Azure VMs](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Make sure that machines that you want to replicate comply with [operating system requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [file storage requirements](site-recovery-support-matrix-to-azure.md#supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers), and [prerequisites for Azure VMs](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 - Prepare Azure, including an Azure subscription, an Azure virtual network, and a storage account.
 - Make sure your Azure account has permissions to create VMs.
 - Prepare on-premises prerequisites for VMware, physical servers, or Hyper-V.
@@ -61,13 +61,13 @@ Get a Microsoft [Azure account](http://azure.microsoft.com/).
 
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
-- Review the [permissions](site-recovery-role-based-linked-access-control#permissions-required-to-enable-replication-for-new-virtual-machines) you need.
-- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure).
+- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need.
+- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
 
 
 ### Set up an Azure network
 
-Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet).
+Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet.md).
 
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault.
@@ -117,7 +117,7 @@ Select what you want to replicate, and where you want to replicate to.
 
 - [Set up](tutorial-vmware-to-azure.md#set-up-the-source-environment) the source environment for VMware VMs.
 - [Set up](tutorial-physical-to-azure.md#set-up-the-source-environment) the source environment for physical servers.
-- [Set up](tutorial-hyper-v-to-azure#set-up-the-source-environment) the source environment for Hyper-V VMs.
+- [Set up](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) the source environment for Hyper-V VMs.
 
 ## Set up the target environment
 
@@ -135,13 +135,13 @@ If you're migrating Hyper-V VMs in System Center VMM clouds, you need to map an 
 
 - [Set up a replication policy](tutorial-vmware-to-azure.md#create-a-replication-policy) for VMware VMs.
 - [Set up a replication policy](tutorial-physical-to-azure.md#create-a-replication-policy) for physical servers.
-- [Set up a replication policy](tutorial-hyper-v-to-azure#create-a-replication-policy) for Hyper-V VMs.
+- [Set up a replication policy](tutorial-hyper-v-to-azure.md#create-a-replication-policy) for Hyper-V VMs.
 
 ## Enable replication
 
 - [Enable replication](tutorial-vmware-to-azure.md#enable-replication) for VMware VMs.
 - [Enable replication](tutorial-physical-to-azure.md#enable-replication) for physical servers.
-- [Enable replication](tutorial-hyper-v-to-azure#enable-replication) for Hyper-V VMs.
+- [Enable replication](tutorial-hyper-v-to-azure.md#enable-replication) for Hyper-V VMs.
 
 
 ## Run a disaster recovery drill
