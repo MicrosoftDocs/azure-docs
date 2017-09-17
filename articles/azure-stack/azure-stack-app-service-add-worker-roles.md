@@ -40,10 +40,10 @@ Add additional workers directly within the App Service Resource Provider Admin.
 4. Click **Scale Instances**.
   ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 5. In the **Scale Instances** blade:
-  1. Select the **Role Type**. In this preview, this option is limited to Web Worker.
-  2. Select the **Worker Tier** you would like to deploy this worker into, default choices are Small, Medium, Large, or Shared. If, you have created your own worker tiers, your worker tiers will also be available for selection.
-  3. Choose how many additional **Role Instances** you want to add.
-  4. Click **OK** to deploy the additional workers.
+    1. Select the **Role Type**. In this preview, this option is limited to Web Worker.
+    2. Select the **Worker Tier** you would like to deploy this worker into, default choices are Small, Medium, Large, or Shared. If, you have created your own worker tiers, your worker tiers will also be available for selection.
+    3. Choose how many additional **Role Instances** you want to add.
+    4. Click **OK** to deploy the additional workers.
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
 7. You can monitor the progress of the readiness of the new workers by viewing the workers in the **Roles** blade.
