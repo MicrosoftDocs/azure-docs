@@ -27,15 +27,15 @@ For customers with Software Assurance, Azure Hybrid Use Benefit - AHUB allows yo
 > [!NOTE]
 > Azure Hybrid Use Benefit can't be used with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images. You get a 409 error such as: Changing property 'LicenseType' is not allowed; if you try to convert a Windows Server VM that has additional software cost. 
 >
->
+
 
 > [!NOTE]
 > For classic VMs, only deploying new VM from on-prem custom images is supported. To take advantage of the capabilities supported in this article, you must first migrate classic VMs to Resource Manager model.
 >
->
+
 
 ## Ways to use Azure Hybrid Use Benefit
-There are few ways to use Windows VMs with the Azure Hybrid Use Benefit:
+There are few ways to use Windows virtual machines with the Azure Hybrid Use Benefit:
 
 1. You can deploy VMs from one of the provided  [Windows Server images on the Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
 2. You can convert a running Windows Server VM to using AHUB
