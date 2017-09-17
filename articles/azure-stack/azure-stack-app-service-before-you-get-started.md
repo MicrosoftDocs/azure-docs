@@ -76,7 +76,7 @@ The certificate must be in .pfx format and should be a two-subject wildcard cert
 
 | Format | Example |
 | --- | --- |
-| \*.appservice.<region>.<DomainName>.<extension> | \*.appservice.redmond.azurestack.external |
+| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
 | \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
 
 #### API certificate
@@ -85,7 +85,7 @@ The API certificate is placed on the Management role and is used by the resource
 
 | Format | Example |
 | --- | --- |
-| Api.appservice.<region>.<DomainName>.<extension> | api.appservice.redmond.azurestack.external |
+| Api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### Publishing certificate
 
@@ -93,7 +93,7 @@ The certificate for the Publisher role secures the FTPS traffic for application 
 
 | Format | Example |
 | --- | --- |
-| ftp.appservice.<region>.<DomainName>.<extension> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### Identity certificate
 
@@ -101,7 +101,7 @@ The certificate for the Identity Application enables integration between the AAD
 
 | Format | Example |
 | --- | --- |
-| sso.appservice.<region>.<DomainName>.<extension> | sso.appservice.redmond.azurestack.external |
+| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 #### Extract the Azure Stack Azure Resource Manager Root Certificate
 
@@ -120,35 +120,36 @@ Azure App Service requires the use of a file server.
 ### Provision groups and accounts in Active Directory
 
 1. Create the following Active Directory global security groups:
-  - FileShareOwners
-  - FileShareUsers
+    - FileShareOwners
+    - FileShareUsers
 2. Create the following Active Directory accounts as service accounts:
-  - FileShareOwner
-  - FileShareUser
-  As a security best practice, the users for these accounts (and for all Web Roles) should be distinct from each other and have strong user names and passwords. 
-  Set the passwords with the following conditions:
-    - Enable **Password never expires**.
-    - Enable **User cannot change password**.
-    - Disable **User must change password at next logon**.
+    - FileShareOwner
+    - FileShareUser
+    
+    As a security best practice, the users for these accounts (and for all Web Roles) should be distinct from each other and have strong user names and passwords.
+    Set the passwords with the following conditions:
+     - Enable **Password never expires**.
+     - Enable **User cannot change password**.
+     - Disable **User must change password at next logon**.
 3. Add the accounts to the group memberships as follows:
-  - Add **FileShareOwner** to the **FileShareOwners** group.
-  - Add **FileShareUser** to the **FileShareUsers** group.
+    - Add **FileShareOwner** to the **FileShareOwners** group.
+    - Add **FileShareUser** to the **FileShareUsers** group.
 
 ### Provision groups and accounts in a workgroup
 
 On a workgroup, run net and WMIC commands to provision groups and accounts.
 
 1. Run the following commands to create the FileShareOwner and FileShareUser accounts. Replace <password> with your own values.
-  - net user FileShareOwner <password> /add /expires:never /passwordchg:no
-  - net user FileShareUser <password> /add /expires:never /passwordchg:no
+    - net user FileShareOwner <password> /add /expires:never /passwordchg:no
+    - net user FileShareUser <password> /add /expires:never /passwordchg:no
 2. Set the passwords for the accounts just created to never expire by running the following WMIC commands:
-  - WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-  - WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+    - WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+    - WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
 3. Create the local groups FileShareUsers and FileShareOwners, and add the accounts in the first step to them.
-  - net localgroup FileShareUsers /add
-  - net localgroup FileShareUsers FileShareUser /add
-  - net localgroup FileShareOwners /add
-  - net localgroup FileShareOwners FileShareOwner /add
+    - net localgroup FileShareUsers /add
+    - net localgroup FileShareUsers FileShareUser /add
+    - net localgroup FileShareOwners /add
+    - net localgroup FileShareOwners FileShareOwner /add
 
 ### Provision the content share
 
