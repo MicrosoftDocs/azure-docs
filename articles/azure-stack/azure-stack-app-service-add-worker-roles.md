@@ -39,7 +39,7 @@ Add additional workers directly within the App Service Resource Provider Admin.
 3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
 4. Click **Scale Instances**.
   ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-5. In the **Scale Instances** blade:
+5. Under **Scale Instances**:
     1. Select the **Role Type**. In this preview, this option is limited to Web Worker.
     2. Select the **Worker Tier** you would like to deploy this worker into, default choices are Small, Medium, Large, or Shared. If, you have created your own worker tiers, your worker tiers will also be available for selection.
     3. Choose how many additional **Role Instances** you want to add.
