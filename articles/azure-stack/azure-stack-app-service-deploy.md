@@ -19,7 +19,7 @@ ms.author: anwestg
 ---
 # Add an App Service resource provider to Azure Stack
 
-As an Azure Stack cloud operator, you can give your users the ability to create web, mobile, and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
+As an Azure Stack cloud operator, you can give your users the ability to create web and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
 To add the App Service resource provider to your Azure Stack deployment, you must complete three top-level tasks:
 
@@ -139,7 +139,7 @@ To deploy App Service resource provider, follow these steps:
     | Management | 1 | Standard_A2 - (2 Cores, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
     | Publisher | 1 | Standard_A1 - (1 Core, 1792 MB) | Publishes content via FTP and web deployment. |
     | FrontEnd | 1 | Standard_A1 - (1 Core, 1792 MB) | Routes requests to App Service applications. |
-    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web, mobile, or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
+    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image08.png)    
 
@@ -188,14 +188,14 @@ To deploy App Service resource provider, follow these steps:
 
 ## Test drive App Service on Azure Stack
 
-After you deploy and register the App Service resource provider, test it to make sure that users can deploy web, mobile, and API apps.
+After you deploy and register the App Service resource provider, test it to make sure that users can deploy web and API apps.
 
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
 >
 You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
 >
-As of the third technical preview, to create web, mobile, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription. 
+As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription. 
 
 1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
 
