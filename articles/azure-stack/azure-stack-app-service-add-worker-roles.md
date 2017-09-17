@@ -3,7 +3,7 @@ title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
 description: Detailed guidance for scaling Azure Stack App Services
 services: azure-stack
 documentationcenter: ''
-author: anwestg
+author: apwestgarth
 manager: slinehan
 editor: anwestg
 
@@ -17,6 +17,7 @@ ms.date: 9/25/2017
 ms.author: anwestg
 
 ---
+
 
 # App Service on Azure Stack: Adding more worker roles 
 
