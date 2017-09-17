@@ -175,11 +175,14 @@ choose the fields that you want included in the mail.
 
    ![Select data to include in email](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
+   > [!TIP] 
+   > To add blank lines in your content, press Shift + Enter.
+
    | Setting | Suggested value | Description | 
    | ------- | --------------- | ----------- | 
    | **To** | *recipient-email-address* | Enter the recipient's email address. For testing purposes, you can use your own email address. | 
    | **Subject** | New CNN post: **Feed title** | Enter the content for the email's subject. <p>For this tutorial, enter the suggested text and select the trigger's **Feed title** field, which displays the feed item's title. | 
-   | **Body** | Article summary: **Feed summary** <p>Date published: **Feed updated on** | Enter the content for the email's body. <p>For this tutorial, enter the suggested text, then select the trigger's **Feed summary**, which displays the feed item's abstract, and **Feed updated on**, which shows the item's published date and time. <p>**Tip:** To add blank lines in your content, press Shift + Enter. | 
+   | **Body** | Article summary: **Feed summary** <p>Date published: **Feed updated on** | Enter the content for the email's body. <p>For this tutorial, enter the suggested text, then select the trigger's **Feed summary**, which displays the feed item's abstract, and **Feed updated on**, which shows the item's published date and time. <p>URL: **Primary feed link**, which shows the link for the feed item. | 
    |||| 
 
    > [!NOTE] 
@@ -194,19 +197,20 @@ choose the fields that you want included in the mail.
 
    To test your logic app now, continue to the next section.
 
-## 4. Run and check your logic app
+## 4. Run and test your logic app workflow
 
 1. To manually run your logic app for testing, 
 on the designer toolbar bar, choose **Run**. Otherwise, 
 you can let your logic app check the specified RSS feed 
 based on the schedule that you set up.
 
-   If your logic app finds new items, 
-   the logic app sends email that includes your selected data. 
    If no new items are found, your logic app skips 
-   the action that sends email.
+   the action that sends email. But if your logic app finds new items, 
+   the logic app sends email that includes your selected data, for example:
 
-2. To review your logic app' runs and trigger history, 
+   ![Email sent for new RSS feed item](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+
+2. To review your logic app's runs and trigger history, 
 on your logic app menu, choose **Overview**.
 To view more details about a run, choose the row for that run.
 
