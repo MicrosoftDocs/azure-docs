@@ -105,9 +105,11 @@ so that you can build your logic app from scratch.
 ## 2. Add a trigger for starting the workflow
 
 Every logic app must start with a [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
-The trigger fires when a specific event happens or when new data meets 
-the condition that you've set. The Logic Apps engine then creates 
-an logic app instance that runs your specified workflow.
+The trigger fires when a specific event happens or when new data 
+meets the condition that you've set. The Logic Apps engine then 
+creates a logic app instance for running your workflow. 
+Each time that the trigger fires, the engine creates another 
+separate instance that runs your logic app workflow.
 
 1. In the search box, type "rss" as your filter. 
 Select this trigger: **RSS - When a feed item is published** 
