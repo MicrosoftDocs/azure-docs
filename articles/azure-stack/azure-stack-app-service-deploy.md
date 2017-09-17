@@ -82,7 +82,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image01.png)
 
-3. Review and accept the Microsoft Software Prerelease License Terms and then click **Next**.
+3. Review and accept the Microsoft Software License Terms and then click **Next**.
 
 4. Review and accept the third-party license terms and then click **Next**.
 
@@ -96,7 +96,7 @@ To deploy App Service resource provider, follow these steps:
         - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select your subscription.
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
+    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE\<REGION\>**.
     5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
     6. Click **Next**.
 
