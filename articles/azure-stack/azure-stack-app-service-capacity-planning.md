@@ -83,7 +83,7 @@ When deciding on the number of shared Web Worker roles to use, review these cons
    
    For information on adding more worker instances, see [Adding more worker roles](azure-stack-app-service-add-worker-roles.md).
    
-** File server role
+## File server role
 
 For the File Server role, you can use the Standalone file server for development and testing. For production purposes, you should use a pre-configured Windows File Server, or a pre-configured non-Windows file server.
 
