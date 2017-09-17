@@ -127,6 +127,10 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
+      - name: Add hosting servers
+        href: azure-stack-sql-resource-provider-hosting-servers.md
+      - name: Create SQL databases
+        href: azure-stack-sql-resource-provider-databases.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
