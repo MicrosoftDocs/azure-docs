@@ -1,6 +1,9 @@
 # Overview
 ## [What is Site Recovery?](site-recovery-overview.md)
 
+# Quickstarts
+## Configure disaster recovery for an Azure VM
+
 # Tutorials
 ## [Disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)
 ## [Disaster recovery to Azure for VMware VMs](tutorial-vmware-to-azure.md)
