@@ -22,7 +22,7 @@ ms.author: rithorn
 Within enterprise enrollments, there are multiple settings that could cause users within the enrollment to not be able to view costs.  These settings are managed by the enrollment administrator, or by the partner if the enrollment is not purchased directly with Microsoft.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the [Azure RBAC Roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
 
 ## Enabling access to costs
-If you are not seeing costs, or receiving a message on cost views are disabled, it might be due to one of the following reasons:
+If you are not seeing costs, or that cost views are disabled, it might be due to one of the following reasons:
 
 1. You’ve purchased Azure through a channel partner, and the partner hasn’t released pricing yet. To release pricing, contact your partner to do update the setting within the [Enterprise portal](https://ea.azure.com).
 2. Alternatively, if you’re an EA Direct customer, there are a couple of possibilities:
