@@ -4,10 +4,10 @@ description: Service Fabric tutorial - Create Container Images
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
-manager: mfussel
+manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: Docker, Containers, Micro-services, Service Fabric, Azure
+keywords: Docker, Containers, Microservices, Service Fabric, Azure
 
 ms.assetid: 
 ms.service: service-fabric
@@ -19,13 +19,12 @@ ms.author: suhuruli
 ms.custom: mvc
 ---
 
-# Create container images to be used with Service Fabric
+# Create container images
 
 This tutorial is part one of a tutorial series that demonstrates how to use containers in a Linux Service Fabric cluster. In this tutorial series, you learn how to: 
 
 > [!div class="checklist"]
 > * Create container images
-> * Push container images to Azure Container Registry
 > * Package Containers for Service Fabric using Yeoman
 > * Build and Run a Service Fabric Application with Containers
 > * How failover and scaling are handled in Service Fabric
@@ -35,29 +34,30 @@ In this tutorial, a multi-container application is prepared for use with Service
 > [!div class="checklist"]
 > * Cloning application source from GitHub  
 > * Creating a container image from the application source
+> * Deploying an Azure Container Registry (ACR) instance
+> * Tagging a container image for ACR
+> * Uploading the image to ACR
 
 In subsequent tutorials, these images are pushed to the Azure Container Registry and used by a Service Fabric application.
 
 ## Prerequisites
 
-- This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics. 
+- Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment. 
+- This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-- Proper Linux dev environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment. 
+- Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/en-us/free/).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Get application code
 
-The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end Redis instance. The components are packaged into custom container images. 
+The sample application used in this tutorial is a voting app. The application consists of a front-end web component and a back-end Redis instance. The components are packaged into container images. 
 
 Use git to download a copy of the application to your development environment.
 
-```bash
+```azurecli-interactive
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
-```
 
-Change directories so that you are working from the cloned directory.
-
-```
-cd Linux/container-tutorial
 ```
 
 Inside the cloned directory, is the 'azure-vote' directory. The directory contains the front-end source code and the 'redis' directory that contains a Dockerfile to  build the redis image. These directories contain the necessary assets for this tutorial set. 
@@ -93,15 +93,147 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ```
 
+## Deploy Azure Container Registry
+
+First run the [az login](/cli/azure/login) command to log in to your Azure account. 
+
+Next, use the [az account](/cli/azure/account#set) command to choose your subscription to create the Azure Container registry. 
+
+```azurecli
+az account set --subscription <subscription_id>
+```
+
+When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *westus* region.
+
+```azurecli
+az group create --name myResourceGroup --location westus
+```
+
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**.
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+```
+
+Throughout the rest of this tutorial, we use "acrname" as a placeholder for the container registry name that you chose.
+
+## Container registry login
+
+Log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to complete the operation. Provide the unique name given to the container registry when it was created.
+
+```azurecli
+az acr login --name <acrName>
+```
+
+The command returns a 'Login Succeeded’ message once completed.
+
+## Tag container images
+
+Each container image needs to be tagged with the loginServer name of the registry. This tag is used for routing when pushing container images to an image registry.
+
+To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
+
+```bash
+docker images
+```
+
+Output:
+
+```bash
+REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
+azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
+azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
+redis                        latest              9813a7e8fcc0        2 days ago           107MB
+tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
+```
+
+To get the loginServer name, run the following command:
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
+```
+
+Now, tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version.
+
+```bash
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+```
+
+Next, tag the *azure-vote-back* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version.
+
+```bash
+docker tag azure-vote-front <acrLoginServer>/azure-vote-back:v1
+```
+
+Once tagged, run 'docker images' to verify the operation.
+
+
+Output:
+
+```bash
+REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
+azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
+<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
+azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
+redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
+
+```
+
+## Push images to registry
+
+Push the *azure-vote-front* image to the registry. 
+
+Using the following example, replace the ACR loginServer name with the loginServer from your environment.
+
+```bash
+docker push <acrLoginServer>/azure-vote-front:v1
+```
+
+Push the *azure-vote-back* image to the registry. 
+
+Using the following example, replace the ACR loginServer name with the loginServer from your environment.
+
+```bash
+docker push <acrLoginServer>/azure-vote-back:v1
+```
+
+The docker push commands take a couple of minutes to complete.
+
+## List images in registry
+
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the ACR instance name.
+
+```azurecli
+az acr repository list --name <acrName> --output table
+```
+
+Output:
+
+```azurecli
+Result
+----------------
+azure-vote-back
+azure-vote-front
+```
+
+At tutorial completion, the container image has been stored in a private Azure Container Registry instance. This image is deployed from ACR to a Service Fabric cluster in subsequent tutorials.
+
 ## Next steps
 
-In this tutorial, an application was pulled from Github and container images created for the application. The following steps were completed:
+In this tutorial, an application was pulled from Github and container images were created and pushed to a registry. The following steps were completed:
 
 > [!div class="checklist"]
-> * Cloning the application source from GitHub  
-> * Created a container image from application source
+> * Cloning application source from GitHub  
+> * Creating a container image from the application source
+> * Deploying an Azure Container Registry (ACR) instance
+> * Tagging a container image for ACR
+> * Uploading the image to ACR
 
-Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
+Advance to the next tutorial to learn about packaging containers into a Service Fabric application using Yeoman. 
 
 > [!div class="nextstepaction"]
-> [Push images to Azure Container Registry](service-fabric-tutorial-prepare-acr.md)
+> [Package and deploy containers as a Service Fabric application](service-fabric-tutorial-package-containers.md)

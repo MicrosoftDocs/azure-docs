@@ -19,10 +19,8 @@
 
 ## Create a Linux container app
 ### [1- Create container images](service-fabric-tutorial-create-container-images.md)
-### [2- Create an Azure Container Registry](service-fabric-tutorial-prepare-acr.md)
-### [3- Package containers for Service Fabric](service-fabric-tutorial-package-containers.md)
-### [4- Build and run the container application](service-fabric-tutorial-deploy-run-containers.md)
-### [5- Demonstrate fail over and scaling](service-fabric-tutorial-containers-failover.md)
+### [2- Package and deploy containers](service-fabric-tutorial-package-containers.md)
+### [3- Demonstrate fail over and scaling](service-fabric-tutorial-containers-failover.md)
 
 
 # Samples

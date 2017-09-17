@@ -21,7 +21,7 @@ ms.author: ryanwi
 # Deploy a Service Fabric Linux container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
-This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a python web front end and a Redis instance running in a Service Fabric cluster. 
+This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a python web front-end and a Redis back-end running in a Service Fabric cluster. 
 
 ![quickstartpic][quickstartpic]
 
@@ -49,14 +49,14 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
 ## Deploy the containers to a Service Fabric cluster in Azure
-To deploy the application to a cluster in Azure, user your own cluster, or use a Party Cluster.
+To deploy the application to a cluster in Azure, use your own cluster, or use a Party Cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure. It is maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
 > [!Note]
-> The web front-end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
+> The web front-end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using a Party Cluster, this port is open.
 >
 
 ### Deploy the application manifests 
@@ -67,54 +67,54 @@ pip3 install --user sfctl
 export PATH=$PATH:~/.local/bin
 ```
 
-Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint is the management endpoint of you cluster - for example,`http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint is the management endpoint of you cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
-sfctl cluster select --endpoint http://<my-azure-service-fabric-cluster-url>:<port>
+sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
-Use the install script provided in the template to copy the application definition to the cluster, register the application type, and create an instance of the application.
+Use the install script provided to copy the Voting application definition to the cluster, register the application type, and create an instance of the application.
 
 ```azurecli-interactive
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://<my-azure-service-fabric-cluster-url>:19080/Explorer - for example,`http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Expand the Application's node to see that there is now an entry for your application type and the instance you created.
+Open a browser and navigate to Service Fabric Explorer at http://\<my-azure-service-fabric-cluster-url>:80 - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Expand the Applications node to see that there is now an entry for the Voting application type and the instance you created.
 
 ![Service Fabric Explorer][sfx]
 
-Connect to the running container.  Open a web browser pointing to the URL of your cluster  - for example,`http://linh1x87d1d.westus.cloudapp.azure.com:19080`. You should see the Voting application in the browser.
+Connect to the running container.  Open a web browser pointing to the URL of your cluster  - for example,`http://linh1x87d1d.westus.cloudapp.azure.com:80`. You should see the Voting application in the browser.
 
 ![quickstartpic][quickstartpic]
 
 ## Fail over a container in a cluster
-Service Fabric makes sure your container instances automatically moves to other nodes in the cluster, should a failure occur. You can also manually drain a node for containers and move then gracefully to other nodes in the cluster. You have multiple ways of scaling your services, in this example, we are using Service Fabric Explorer.
+Service Fabric makes sure your container instances automatically move to other nodes in the cluster, should a failure occur. You can also manually drain a node for containers and move then gracefully to other nodes in the cluster. You have multiple ways of scaling your services, in this example, we are using Service Fabric Explorer.
 
 To fail over the front-end container, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example,`http://<my-azure-cluster-url>:19080`.
-2. Click on the **fabric:/Voting/azurevotefront** node in the tree-view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that container is currently running on - for example `_nodetype_4`
-3. Expand the **Nodes** node in the treeview. Click on the ellipsis (three dots) next to the node which is running the container.
+1. Open Service Fabric Explorer in your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+2. Click on the **fabric:/Voting/azurevotefront** node in the tree view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that the container is currently running on - for example `_nodetype_4`
+3. Expand the **Nodes** node in the tree view. Click on the ellipsis (three dots) next to the node which is running the container.
 4. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.
 
-![sfx][sfxquickstartshownodetype]application
+![sfxquickstartshownodetype][sfxquickstartshownodetype]
 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for the load on the services. You scale a service by changing the number of instances running in the cluster.
 
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example,`http://<my-cluster-url>.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in your cluster - for example,`http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 2. Click on the ellipsis (three dots) next to the **fabric:/Voting/azurevotefront** node in the treeview and choose **Scale Service**.
 
-    ![sfxscale][sfxscale]
+    ![containersquickstartscale][containersquickstartscale]
 
     You can now choose to scale the number of instances of the web front-end service.
 
 3. Change the number to **2** and click **Scale Service**.
 4. Click on the **fabric:/Voting/azurevotefront** node in the tree-view and expand the partition node (represented by a GUID).
 
-    ![sfxscaledone][sfxscaledone]
+    ![containersquickstartscaledone][containersquickstartscaledone]
 
     You can now see that the service has two instances. In the tree view, you can see which nodes the instances run on.
 
@@ -138,8 +138,8 @@ In this quickstart, you learned how to:
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 * Check out the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 
-[sfx]: ./media/service-fabric-quickstart-containers-linux/sfxquickstart.png
-[quickstartpic]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
-[sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/sfxquickstartshownodetype.png
-[sfxscale]: ./media/service-fabric-quickstart-containers-linux/sfxquickstartscale.png
-[sfxscaledone]: ./media/service-fabric-quickstart-containers-linux/sfxquickstartscaledone.png
+[sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
+[quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png
+[sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/containersquickstartrestart.png
+[containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
+[containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
