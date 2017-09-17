@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/30/2017
+ms.date: 09/16/2017
 ms.author: maheshu
 
 ---
@@ -23,12 +23,10 @@ In preceding tasks, you enabled Azure Active Directory Domain Services for your 
 The steps involved are different for cloud-only user accounts vs user accounts that are synchronized from your on-premises directory using Azure AD Connect.  If your Azure AD tenant has a combination of cloud only users and users from your on-premises AD, you need to perform both steps.
 
 <br>
-
-> [!div class="op_single_selector"]
-> * **Cloud-only user accounts**: [Synchronize passwords for cloud-only user accounts to your managed domain](active-directory-ds-getting-started-password-sync.md)
-> * **On-premises user accounts**: [Synchronize passwords for user accounts synced from your on-premises AD to your managed domain](active-directory-ds-getting-started-password-sync-synced-tenant.md)
->
->
+| **Type of users** | **Steps to enable password synchronization to your managed domain** |
+| --- |:---:|
+| **Cloud user accounts created in Azure AD** |**&#x2713;** Follow the steps below |
+| **User accounts synced from an on-premises directory** |**&#x2713;** [Synchronize passwords for user accounts synced from your on-premises AD to your managed domain](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
