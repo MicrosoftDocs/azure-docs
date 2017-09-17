@@ -54,7 +54,5 @@ To complete registration, you must be a partner program administrator with acces
 
 In this quick start, you used your CSP information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
 
-<!---
 > [!div class="nextstepaction"]
-> [Azure Windows virtual machine tutorials](./tutorial-create-accounts.md)
--->
+> [Assign access to cost management data](./tutorial-user-access.md)

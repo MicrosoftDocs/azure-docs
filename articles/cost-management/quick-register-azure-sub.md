@@ -45,7 +45,5 @@ You use your Azure subscription to register with Azure Cost Management by Cloudy
 
 In this quick start, you used your Azure Enterprise Agreement information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
 
-<!---
 > [!div class="nextstepaction"]
-> [Azure Windows virtual machine tutorials](./tutorial-create-accounts.md)
--->
+> [Assign access to cost management data](./tutorial-user-access.md)
