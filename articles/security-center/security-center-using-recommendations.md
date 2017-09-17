@@ -89,7 +89,7 @@ Jeff learns that [Microsoft Security Response Center (MSRC)](../security/azure-s
 1. Jeff selects **Provide security contact details** under **Recommendations**, which opens **Provide security contact details**.
 2. Jeff selects the Azure subscription to provide contact information on. A second **Provide security contact details** blade opens.
    ![Security contact details][6]
-3. Under **Provide security contact details** blade, Jeff enters:
+3. Under **Provide security contact details**, Jeff enters:
 
   - the security contact email addresses separated by commas (there is not a limit to the number of email addresses that he can enter)
   - one security contact phone number
@@ -103,8 +103,17 @@ Finally, Jeff reviews the low priority recommendation **Remediate OS vulnerabili
 ## Conclusion
 Monitoring recommendations in Security Center may help you eliminate security vulnerabilities before an attack occurs. You can prevent a security incident by implementing and maintaining protections with security policies in Security Center.
 
-## Next step
-This scenario showed you how to use security policies and recommendations in Security Center to help mitigate a security attack.  See the [incident response scenario](security-center-incident-response.md) to learn how to have an incident response plan in place before an attack takes place.
+## Next steps
+This scenario showed you how to use security policies and recommendations in Security Center to help mitigate a security attack. See the [incident response scenario](security-center-incident-response.md) to learn how to have an incident response plan in place before an attack takes place.
+
+To learn more about Security Center, see:
+
+* [Security health monitoring](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
+* [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
+* [Monitoring and processing security events](security-center-events-dashboard.md) - Learn how to monitor and process security events collected over time.
+* [Monitoring partner solutions](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
+* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png
