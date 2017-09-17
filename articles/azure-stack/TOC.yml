@@ -131,6 +131,8 @@
       items:
       - name: App Service on Azure Stack overview
         href: azure-stack-app-service-overview.md
+      - name: Capacity planning
+        href: azure-stack-app-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
       - name: Deploy App Service resource provider
@@ -141,8 +143,6 @@
         href: azure-stack-app-service-add-worker-roles.md
       - name: Configure deployment sources
         href: azure-stack-app-service-configure-deployment-sources.md
-      - name: Enable FTP in App Service on Azure Stack
-        href: azure-stack-app-service-enable-ftp.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview
