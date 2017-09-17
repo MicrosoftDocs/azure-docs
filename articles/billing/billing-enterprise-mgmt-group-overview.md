@@ -58,7 +58,7 @@ The users from the Enterprise portal are added with a role to manage the mapped 
 |    Account Owner                                 |    Resource Policy Contributor                   |    Can view costs, manage resource policy and view hierarchy at and   below the account node       |
 
 
-## View management groups in the [Azure portal](http://azure.microsoft.com)
+## View management groups in the [Azure portal](http://portal.azure.com)
 
 View an enrollment, department, or account costs.  
 1.	Sign in to the Azure portal.
