@@ -132,7 +132,7 @@
       - name: App Service on Azure Stack overview
         href: azure-stack-app-service-overview.md
       - name: Capacity planning
-        href: azure-stack-app-capacity-planning.md
+        href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
       - name: Deploy App Service resource provider
