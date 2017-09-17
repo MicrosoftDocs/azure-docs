@@ -23,49 +23,11 @@ As an Azure Stack cloud operator, you can give your users the ability to create 
 
 To add the App Service resource provider to your Azure Stack deployment, you must complete three top-level tasks:
 
-1.	Download and extract the installation and helper files.
-2.	Create the required certificates.
-3.	Run the appservice.exe installer file.
-
-## Download and extract the installation and helper files
-
-1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
-
-2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
-
-3. Extract the files from the helper scripts zip file:
-
-   - Create-AppServiceCerts.ps1
+1.	[Download and extract the installation and helper files](azure-stack-app-service-before-you-get-started.md).
+2.	[Create the required certificates](azure-stack-app-service-before-you-get-started.md#certificates-required-for-the-azure-stack-development-kit).
+3.	Run the App Service resource provider installer.
    
-## Create the required certificates
-
-This first script works with the Azure Stack certificate authority to create these three certificates that are needed by App Service. 
-
-| Certificate | Certificate file name example |
-| --- | --- |
-| Default SSL certificate | \_.appservice.local.AzureStack.external.pfx |
-| API SSL certificate | api.appservice.local.AzureStack.external.pfx |
-| Publisher SSL certificate | ftp.appservice.local.AzureStack.external.pfx |
-
-If you use a different domain suffix, your certificate files don't use *local.AzureStack.external*. Instead, your custom domain information is used.
-
-To create the certificates, follow these steps:
-
-1. On the Azure Stack host, open a PowerShell session as azurestack\AzureStackAdmin.
-
-2.	Run the **Create-AppServiceCerts.ps1** script from the folder where you extracted the helper scripts. The script creates three certificates that App Service needs.
-
-3.	To secure the .pfx files, enter a password. Make a note of the password. It is needed for the App Service on Azure Stack installer process.
-
-### Create-AppServiceCerts.ps1 parameters
-
-| Parameter | Required/optional | Default value | Description |
-| --- | --- | --- | --- |
-| pfxPassword | Required | Null | Password used to protect the certificate private key |
-| DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix |
-| CertificateAuthority | Required | AzS-CA01.azurestack.local | Certificate authority endpoint |
-
-## Install the App Service resource provider
+## Run the App Service resource provider installer
 
 Installing the App Service resource provider into your Azure Stack environment can take up to an hour. During this process, the installer will:
 
