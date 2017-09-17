@@ -33,10 +33,10 @@ The structure shown here is a sample representation of a management group hierar
 
 ![Hierarchy Tree](media/billing-enterprise-mgmt-groups/tree.png)
 
-## Azure Active Directory's realtion to management groups
+## Azure Active Directory's relation to management groups
 Like subscriptions, management groups also have a trust relationship with Azure AD. A management group hierarchy trusts a single directory to authenticate users. All admins associated with a management group hierarchy must belong to the same directory.
 
-## Azure Enterprise Enrollment's realtion to management groups
+## Azure Enterprise Enrollment's relation to management groups
 The introduction of management groups is the first step in unifying the Enterprise portal (https://ea.azure.com) and the Azure portal.
 
 The [Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/) enrollment defines the shape and use of Azure services within a company and is the core governance structure. Within the enrollment, customers can subdivide the environment into departments, accounts, and finally, subscriptions. 
@@ -52,9 +52,9 @@ The users from the Enterprise portal are added with a role to manage the mapped 
 |    EA role                                       |    Role on the mapped management   group node    |    Permissions on management   group node                                                          |
 |--------------------------------------------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------|
 |    EA Administrator                              |    Resource Policy Contributor                   |    Can view costs, manage resource policy and view hierarchy at and   below the enrollment node    |
-|    EA Administrator in read only mode            |    Billing Reader                                |    Can read costs and view hierarchy at and below the enrollment node                              |
+|    EA Administrator in read-only mode            |    Billing Reader                                |    Can read costs and view hierarchy at and below the enrollment node                              |
 |    Department Administrator                      |    Billing Reader                                |    Can read costs and view hierarchy and below the department node                                 |
-|    Department Administrator in read only mode    |    Billing Reader                                |    Can read costs and view hierarchy and below the department node                                 |
+|    Department Administrator in read-only mode    |    Billing Reader                                |    Can read costs and view hierarchy and below the department node                                 |
 |    Account Owner                                 |    Resource Policy Contributor                   |    Can view costs, manage resource policy and view hierarchy at and   below the account node       |
 
 
