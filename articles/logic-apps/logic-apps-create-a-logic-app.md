@@ -68,7 +68,7 @@ Outlook.com, Gmail, or another supported provider. This tutorial uses Office 365
 
    ![Azure portal, New, Enterprise Integration, Logic App](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-3. Create your logic app with the settings specified in the following table.
+3. Create your logic app with the settings specified in the table.
 
    ![Provide logic app details](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
@@ -162,16 +162,16 @@ For example:
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
 
-4. Provide the details and choose the data fields that 
-you want in the mail, as specified in the following table.
+4. Provide the details specified in the table and 
+choose the fields that you want included in the mail.
 
-   > [!TIP]
-   > To select fields available in your workflow, 
-   > click in an edit box so that the **Dynamic content** list opens, 
-   > or choose **Add dynamic content**. For more fields, if available, 
-   > choose **See more** for each section in the list. 
-   > 
-   > To close the **Dynamic content** list, choose **Add dynamic content**.
+   * To select fields available available for your workflow, 
+   click in an edit box so that the **Dynamic content** list opens, 
+   or choose **Add dynamic content**. To view any other available fields, 
+   choose **See more** for each section in the list.
+   
+   * To close the **Dynamic content** list, 
+   choose **Add dynamic content**.
 
    ![Select data to include in email](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
