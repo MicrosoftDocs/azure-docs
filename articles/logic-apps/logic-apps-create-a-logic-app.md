@@ -145,6 +145,8 @@ choose **+ New step** > **Add an action**.
    The designer shows [available connectors](../connectors/apis-list.md) so 
    that you can select an action to perform when your trigger fires.
 
+   ![Select from action list](./media/logic-apps-create-a-logic-app/logic-app-actions.png)
+
 2. In the search box, enter "send email" as your filter. 
 Based on your email provider, find and select the matching connector. 
 Then select the "send email" action for your connector. 
