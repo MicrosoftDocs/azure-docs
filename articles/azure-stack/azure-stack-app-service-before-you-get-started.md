@@ -54,7 +54,7 @@ This first script works with the Azure Stack certificate authority to create fou
 Run the script on the Azure Stack Development Kit host and ensure that you're running PowerShell as azurestack\AzureStackAdmin.
 
 1. In a PowerShell session running as azurestack\AzureStackAdmin, execute the Create-AppServiceCerts.ps1 script from the folder where you extracted the helper scripts. The script creates four certificates in the same folder as the create certificates script that App Service needs.
-2. Enter a password to secure the .pfx files, and make a note of it. You will need to enter it in the App Service on Azure Stack installer.
+2. Enter a password to secure the .pfx files, and make a note of it. You'll need to enter it in the App Service on Azure Stack installer.
 
 #### Create-AppServiceCerts.ps1 parameters
 
@@ -66,13 +66,13 @@ Run the script on the Azure Stack Development Kit host and ensure that you're ru
 
 ### Certificates required for a production deployment of Azure App Service on Azure Stack
 
-To operate the resource provider in production you must provide the following four certificates:
+To operate the resource provider in production, you must provide the following four certificates:
 
 #### Default Domain Certificate
 
-The default domain certificate is placed on the Front End role and is used by user applications for wildcard or default domain requests to Azure App Service.  The certificate is also used for source control operations (KUDU).
+The default domain certificate is placed on the Front End role. It is used by user applications for wildcard or default domain requests to Azure App Service. The certificate is also used for source control operations (KUDU).
 
-The certificate must be in .pfx format and should be a two-subject wildcard certificate.  This allows both the default domain and the scm endpoint for source control operations to be covered by one certificate.
+The certificate must be in .pfx format and should be a two-subject wildcard certificate. This allows both the default domain and the scm endpoint for source control operations to be covered by one certificate.
 
 | Format | Example |
 | --- | --- |
@@ -81,7 +81,7 @@ The certificate must be in .pfx format and should be a two-subject wildcard cert
 
 #### API certificate
 
-The API certificate is placed on the Management role and is used by the resource provider to secure api calls.  The certificate for publishing must contain a subject that matches the API DNS entry:
+The API certificate is placed on the Management role and is used by the resource provider to secure api calls. The certificate for publishing must contain a subject that matches the API DNS entry:
 
 | Format | Example |
 | --- | --- |
@@ -97,7 +97,10 @@ The certificate for the Publisher role secures the FTPS traffic for application 
 
 #### Identity certificate
 
-The certificate for the Identity Application enables integration between the AAD/ADFS directory, Azure Stack and App Service to enable integration with the Compute Resource Provider and to enable Single Sign On Scenarios for Advanced Developer Tools within Azure App Service on Azure Stack.  The certificate for Identity must contain a subject that matches the following:
+The certificate for the Identity Application enables:
+- integration between the AAD/ADFS directory, Azure Stack, and App Service to support integration with the Compute Resource Provider
+- Single Sign On Scenarios for Advanced Developer Tools within Azure App Service on Azure Stack.
+The certificate for Identity must contain a subject that matches the following format:
 
 | Format | Example |
 | --- | --- |
@@ -142,7 +145,7 @@ On a workgroup, run net and WMIC commands to provision groups and accounts.
 1. Run the following commands to create the FileShareOwner and FileShareUser accounts. Replace <password> with your own values.
     - net user FileShareOwner <password> /add /expires:never /passwordchg:no
     - net user FileShareUser <password> /add /expires:never /passwordchg:no
-2. Set the passwords for the accounts just created to never expire by running the following WMIC commands:
+2. Set the passwords for the accounts to never expire by running the following WMIC commands:
     - WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
     - WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
 3. Create the local groups FileShareUsers and FileShareOwners, and add the accounts in the first step to them.
@@ -172,13 +175,13 @@ net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 On the Failover cluster, create the following UNC clustered resources:
 1.	WebSites
 
-### Add the FileShareOwners group to the local Administrators group to enable WinRM
+### To enable WinRM, add the FileShareOwners group to the local Administrators group
 
 In order for Windows Remote Management to work properly, you must add the FileShareOwners group to the local Administrators group.
 
 #### Active Directory
 
-Run the following commands at an elevated command prompt on the File Server, or on every File Server Failover Cluster node. Replace the value for <DOMAIN> with the domain name you will use.
+Run the following commands at an elevated command prompt on the File Server or on every File Server Failover Cluster node. Replace the value for <DOMAIN> with the domain name you want to use.
 
 ```powershell
 set DOMAIN=<DOMAIN>
@@ -193,7 +196,7 @@ net localgroup Administrators FileShareOwners /add
 
 ### Configure access control to the shares
 
-Run the following commands at an elevated command prompt on the File Server or on the File Server Failover Cluster node which is the current cluster resource owner. Replace values in italics with values specific to your environment.
+Run the following commands at an elevated command prompt on the File Server or on the File Server Failover Cluster node, which is the current cluster resource owner. Replace values in italics with values specific to your environment.
 
 #### Active Directory
 ```powershell
@@ -230,7 +233,9 @@ For any of the SQL Server roles, you can use a default instance or a named insta
 
 ## Create AAD application
 
-Configure an Azure AD service principal for virtual machine scale set integration on Worker tiers and SSO for the Azure Functions portal and advanced developer tools.
+Configure an Azure AD service principal to support the following:
+- Virtual machine scale set integration on Worker tiers.
+- SSO for the Azure Functions portal and advanced developer tools.
 
 These steps apply to Azure AD secured Azure Stack environments only.
 
@@ -262,11 +267,13 @@ Follow these steps:
 | CertificateFilePath | Required | Null | Path to the identity application certificate file generated earlier. |
 | CertificatePassword | Required | Null | Password used to protect the certificate private key. |
 | DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix. |
-| AdfsMachineName | Optional | AD FS machine name, for example, AzS-ADFS01.azurestack.local | Ignore in the case of Azure AD deployment, but required in AD FS deployment. |
+| AdfsMachineName | Optional | AD FS machine name, for example, AzS-ADFS01.azurestack.local | Required in an AD FS deployment. Ignore in an Azure AD deployment. |
 
 ## Create Active Directory Federation Services application
 
-For Azure Stack environments secured by AD FS, you must configure an AD FS service principal for virtual machine scale set integration on Worker tiers and SSO for the Azure Functions portal and advanced developer tools.
+For Azure Stack environments secured by AD FS, you must configure an AD FS service principal to support the following:
+- Virtual machine scale set integration on Worker tiers.
+- SSO for the Azure Functions portal and advanced developer tools.
 
 Administrators need to configure SSO to:
 - Configure a service principal for virtual machine scale set integration on Worker tiers.
@@ -290,7 +297,7 @@ Follow these steps:
 | CertificateFilePath | Required | Null | Path to the identity application certificate file generated earlier. |
 | CertificatePassword | Required | Null | Password used to protect the certificate private key. |
 | DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix. |
-| AdfsMachineName | Optional | AD FS machine name, for example, AzS-ADFS01.azurestack.local | Ignore in the case of Azure AD deployment, but required in AD FS deployment. |
+| AdfsMachineName | Optional | AD FS machine name, for example, AzS-ADFS01.azurestack.local | Required in an AD FS deployment. Ignore in an Azure AD deployment. |
 
 
 ## Next steps
