@@ -20,7 +20,7 @@ ms.author: anwestg
 
 # App Service on Azure Stack overview
 
-Azure App Service on Azure Stack is a platform-as-a-service (PaaS) offering of Microsoft Azure available to Azure Stack. The service lets your customers - internal or external - create web, API, and Azure Functions applications for any platform or device. They can integrate your apps with on-premises applications and automate their business processes. The platform lets you as an administrator run customer apps on fully managed virtual machines (VMs), with their choice of shared VM resources or dedicated VMs.
+Azure App Service on Azure Stack is a platform-as-a-service (PaaS) offering of Microsoft Azure available to Azure Stack. The service lets your customers - internal or external - create web, API, and Azure Functions applications for any platform or device. They can integrate your apps with on-premises applications and automate their business processes. Azure Stack cloud operators can run customer apps on fully managed virtual machines (VMs), with their choice of shared VM resources or dedicated VMs.
 
 Azure App Service includes capabilities for automating business processes and hosting cloud APIs. As a single integrated service, Azure App Service lets you compose various components -- websites, RESTful APIs, and business processes -- into a single solution.
 
@@ -40,7 +40,7 @@ App Service offers several app types, each of which is intended to host a specif
 
 The word app here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a web app is the compute resources that Azure Stack provides for hosting your application code.
 
-Your application may be composed of multiple App Service apps of different kinds. For example If your application is composed of a web front end and a RESTful API back end you could:
+Your application can be composed of multiple App Service apps of different kinds. For example, if your application is composed of a web front end and a RESTful API back end, you can:
 - Deploy both (front end and api) to a single web app
 - Deploy your front-end code to a web app and your back-end code to an API app.
 
@@ -50,7 +50,7 @@ Your application may be composed of multiple App Service apps of different kinds
 
 The App Service resource provider uses the same code that Azure App Service uses. As a result, some common concepts are worth describing. In App Service, the pricing container for applications is called the App Service plan. It represents the set of dedicated virtual machines used to hold your apps. Within a given subscription, you can have multiple App Service plans.
 
-In Azure, there are shared and dedicated workers. A shared worker supports high-density multitenant app hosting, and there is only one set of shared workers. Dedicated servers are used by only one tenant and come in three sizes: small, medium, and large. The needs of on-premises customers can't always be described by using those terms. In App Service on Azure Stack, resource provider administrators can define the worker tiers they want to make available. Administrators can define multiple sets of shared workers or different sets of dedicated workers based on their unique hosting needs. By using those worker-tier definitions, they can then define their own pricing SKUs.
+In Azure, there are shared and dedicated workers. A shared worker supports high-density multitenant app hosting, and there is only one set of shared workers. Dedicated servers are used by only one tenant and come in three sizes: small, medium, and large. The needs of on-premises customers can't always be described by using those terms. In App Service on Azure Stack, resource provider administrators can define the worker tiers they want to make available. Based on your unique hosting needs, you can define multiple sets of shared workers or different sets of dedicated workers. By using those worker-tier definitions, they can then define their own pricing SKUs.
 
 ## Portal features
 
