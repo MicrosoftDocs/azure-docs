@@ -45,7 +45,7 @@ You can create a new administrative user with less than full sysadmin privileges
 
 3.	Login: Create, Select, Alter, Drop, Revoke
 
-4.	Select Operations: [master].[sys].[availability_group_listeners] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, [master].[sys].[dm_os_sys_memory], SERVERPROPERTY, [master].[sys].[availability_groups] (AlwaysOn), sys.master_files
+4.	Select Operations: \[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[sys\].\[dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[sys\].\[availability_groups\] (AlwaysOn), sys.master_files
 
 
 
@@ -57,15 +57,15 @@ To add a standalone hosting server that is already provisioned, follow these ste
 1. Sign in to the Azure Stack admin portal as a service administrator
 
 2. Click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers**
-![](./media/azure-stack-sql-rp-deploy/sqlhostingservers.PNG)
+![](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
-![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.PNG)
+![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
 3. Fill the form with the connection details of your SQL Server instance.
 
-	![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.PNG)
+	![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
     > [!NOTE]
     > As long as the SQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
