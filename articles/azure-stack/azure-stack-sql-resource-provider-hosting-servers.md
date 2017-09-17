@@ -56,7 +56,8 @@ To add a standalone hosting server that is already provisioned, follow these ste
 
 1. Sign in to the Azure Stack admin portal as a service administrator
 
-2. Click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers**
+2. Click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers**.
+
 ![](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
