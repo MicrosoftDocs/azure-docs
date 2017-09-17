@@ -33,6 +33,7 @@ For customers with Software Assurance, Azure Hybrid Use Benefit - AHUB allows yo
 > For classic VMs, only deploying new VM from on-prem custom images is supported. To take advantage of the capabilities supported in this article, you must first migrate classic VMs to Resource Manager model.
 >
 >
+
 ## Ways to use Azure Hybrid Use Benefit
 There are few ways to use Windows VMs with the Azure Hybrid Use Benefit:
 
