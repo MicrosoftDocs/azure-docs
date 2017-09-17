@@ -56,6 +56,6 @@ You can update database credentials (login settings).
 ## Verify SQL AlwaysOn databases
 AlwaysOn databases should show as synchronized and available on all instances and in the Availability group. After failover the database should seamlessly connect. You can use SQL Server Management Studio to verify that a database is synchronizing:
 
-![Verify AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.PNG)
+![Verify AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
 
