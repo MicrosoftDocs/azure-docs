@@ -22,7 +22,7 @@ ms.author: JeffGo
 
 You can deploy a MySQL resource provider on Azure Stack. After you deploy the resource provider, you can create MySQL servers and databases through Azure Resource Manager deployment templates and provide MySQL databases as a service. MySQL databases, which are common on web sites, support many website platforms. As an example, after you deploy the resource provider, you can create WordPress websites from the Azure Web Apps platform as a service (PaaS) add-on for Azure Stack.
 
-To deploy the MySQL provider on a system that does not have internet access, you can copy the file [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) to a local share and provide that share name when prompted (see below). You must also install the Azure and Azure Stack PowerShell modules.
+To deploy the MySQL provider on a system that does not have internet access, you can copy the file [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) to a local share. Then, provide that share name when prompted. You must also install the Azure and Azure Stack PowerShell modules.
 
 
 ## MySQL Server Resource Provider Adapter architecture
@@ -33,9 +33,11 @@ The resource provider is made up of three components:
 - **The resource provider itself**, which processes provisioning requests and exposes database resources.
 - **Servers that host MySQL Server**, which provide capacity for databases, called Hosting Servers. 
 
-This release no longer creates a MySQL instance. You must create them and/or provide access to external SQL instances. You can visit the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) for an example template that can create a MySQL server for you or download and deploy a MySQL Server from the Marketplace.
+This release no longer creates a MySQL instance. You must create them and/or provide access to external SQL instances. Visit the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) for an example template that can:
+- create a MySQL server for you
+- download and deploy a MySQL Server from the Marketplace.
 
-![NOTE] Any hosting servers installed on a multi-node Azure Stack must be created from a tenant subscription, not the Default Provider Subscription. In other words, they must be created from the tenant portal or from a PowerShell session with an appropriate login. All hosting servers are chargeable VMs and must have appropriate licenses. The service administrator can be the owner of that subscription.
+![NOTE] Hosting servers installed on a multi-node Azure Stack must be created from a tenant subscription. They can't be created from the Default Provider Subscription. In other words, they must be created from the tenant portal or from a PowerShell session with an appropriate login. All hosting servers are chargeable VMs and must have appropriate licenses. The service administrator can be the owner of that subscription.
 
 ### Required Privileges
 The system account must have the following privileges:
@@ -48,23 +50,23 @@ The system account must have the following privileges:
 1. If you have not already done so, register your development kit and download the Windows Server 2016 EVAL image downloadable through Marketplace Management. You now have the option to use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). The .NET 3.5 runtime is no longer required.
 
 2. Sign in to a host that can access the Privileged Endpoint VM.
-    a. On Azure Stack Development Kit (ASDK) installations, this should be the physical host and you must sign in as the domain administrator. This should be AzureStack\AzureStackAdmin.
-    b. On multi-node systems, this will need to be a system that can access the Privileged Endpoint.
+    a. On Azure Stack Development Kit (ASDK) installations, the host should be the physical host and you must sign in as the domain administrator (for example, AzureStack\AzureStackAdmin).
+    b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
 
 3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it to a temporary directory.
 
-4. The Azure Stack root certificate is retrieved from the Emergency Console JEA endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you will need to provide an appropriate certificate.
+4. The Azure Stack root certificate is retrieved from the Emergency Console JEA endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
     __Optional:__ If you need to provide your own, prepare the certificates and copy to a local directory if you wish to customize the certificates (passed to the installation script). You need the following certificate:
 
-    A wildcard certificate for *.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority (that is, the chain of trust must exist without requiring intermediate certificates.) (A single site certificate can be used with the explicit VM name [SQLVM] used during install.)
+    A wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [SQLVM] used during install.
 
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
 
-6. You will need to install the Azure PowerShell version 1.2.10 as described in ... .
+6. Install Azure PowerShell version 1.2.10 as described in ... .
 
-7. Run the DeploySqlProvider.ps1 script with the parameters listed below.
+7. Run the DeploySqlProvider.ps1 script.
 
 The script performs these steps:
 
@@ -77,13 +79,15 @@ The script performs these steps:
 * Register your resource provider with the local Azure Resource Manager (Tenant and Admin).
 
 
-Either specify at least the required parameters on the command line, or, if you run without any parameters, you are prompted to enter them. 
+You can:
+- specify at least the required parameters on the command line 
+- or, if you run without any parameters, enter them when prompted. 
 
 Here's an example you can run from the PowerShell prompt (but change the account information and passwords as needed):
 
 
 ```
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, this defaults to AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
 $domain = "AzureStack"
 # Extract the downloaded file by executing it and pointing to a temp directory
 $tempDir = "C:\TEMP\MySQLRP"
@@ -109,7 +113,7 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmi
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
-# change this as appropriate
+# change the following as appropriate
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files 
@@ -129,7 +133,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Emergency Console. | _required_ |
-| **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. You must use the same credentials as you used for deploying Azure Stack). | _required_ |
+| **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the MySQL resource provider VM. | _required_ |
 | **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Emergency Console. |  _required_ |
 | **DependencyFilesLocalPath** | Path to a local share containing [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). If you provide one, the certificate file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
@@ -142,7 +146,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | **AcceptLicense** | Skips the prompt to accept the GPL License  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
-Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. You must refresh the admin portal if the MySQLAdapter blade is not available.
+Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. If the MySQLAdapter blade is not available, refresh the admin portal.
 
 > [!NOTE]
 > If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the MySQL RP.
@@ -176,7 +180,13 @@ Depending on the system performance and download speeds, installation may take a
     > [!NOTE]
     > As long as the MySQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The MySQL instance __must__ be allocated exclusively to the RP.
 
-4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings. For example, you could have an enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
+4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings.
+  For example, you can have an enterprise instance providing:
+    - database capacity
+    - automatic backup
+    - reserve high-performance servers for individual departments
+    - and so on.
+    The SKU name should reflect the properties so that tenants can place their databases appropriately. All hosting servers in a SKU should have the same capabilities.
 
     ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
@@ -185,7 +195,7 @@ Depending on the system performance and download speeds, installation may take a
 SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
 
 
-## Create your first MySQL database to test your deployment
+## To test your deployment, create your first MySQL database 
 
 
 1. Sign in to the Azure Stack portal as service admin.
@@ -200,7 +210,7 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 
     ![Select a SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
 
-5. Create a login setting. The login setting can be reused or a new one created. This contains the user name and password for the database.
+5. Create a login setting. The login setting can be reused or a new one created. This setting contains the user name and password for the database.
 
     ![Create a new database login](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
 
@@ -209,7 +219,7 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
     ![Get the connection string for the MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
 
 > [!NOTE]
-> The length of the user names cannot exceed 32 characters with MySQL 5.7 or 16 characters in earlier editions. This is a limitation of the MySQL implementations.
+> The length of the user names cannot exceed 32 characters with MySQL 5.7 or 16 characters in earlier editions. 
 
 
 ## Add capacity
@@ -222,17 +232,18 @@ Create plans and offers to make MySQL databases available for tenants. Add the M
 
 ![Create plans and offers to include databases](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## Updating the adminstrative password
+## Updating the administrative password
 You can modify the password by first changing it on the MySQL server instance. Browse to **ADMINISTRATIVE RESOURCES** &gt; **MySQL Hosting Servers** &gt; and click on the hosting server. In the Settings panel, click on Password.
 
 ![Update the admin password](./media/azure-stack-mysql-rp-deploy/MySQL-update-password.PNG)
+
 ## Removing the MySQL Adapter Resource Provider
 
 To remove the resource provider, it is essential to first remove any dependencies.
 
 1. Ensure you have the original deployment package that you downloaded for this version of the Resource Provider.
 
-2. All tenant databases must be deleted from the resource provider (this will not delete the data). This should be performed by the tenants themselves.
+2. All tenant databases must be deleted from the resource provider (this doesn't delete the data). This should be performed by the tenants themselves.
 
 3. Tenants must unregister from the namespace.
 
