@@ -18,14 +18,14 @@ ms.author: kmouss
 
 ---
 # Azure Hybrid Use Benefit for Windows Server
-For customers with Software Assurance, Azure Hybrid Use Benefit - AHUB allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. You can use AHUB to deploy new virtual machine from any Azure supported platform Windows Server image or Windows custom images. As long as the image doesn't come with additional software such as SQL Server or third party marketplace images. Existing Windows Server virtual machines that aren't charging for additional software can also be converted to using AHUB. This article goes over the steps on how to deploy new VMs with AHUB. The article also shows how you can convert existing Windows Server VMs to using AHUB. For more details about AHUB licensing and cost savings, see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+For customers with Software Assurance, Azure Hybrid Use Benefit - AHUB allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. You can use AHUB to deploy new virtual machine from any Azure supported platform Windows Server image or Windows custom images. As long as the image doesn't come with additional software such as SQL Server or third-party marketplace images. Existing Windows Server virtual machines that aren't charging for additional software can also be converted to using AHUB. This article goes over the steps on how to deploy new VMs with AHUB. The article also shows how you can convert existing Windows Server VMs to using AHUB. For more information about AHUB licensing and cost savings, see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 > [!IMPORTANT]
-> The '[HUB]' Windows Server images that were published for customers with Enterprise Agreement on Azure Marketplace has been retired as of 9/11/2017, please use the standard Windows Server with the "Save Money" option on the portal for Azure Hybrid Use Benefit. For more information, please refer to this [article.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
+> The '[HUB]' Windows Server images that were published for customers with Enterprise Agreement on Azure Marketplace has been retired as of 9/11/2017, use the standard Windows Server with the "Save Money" option on the portal for Azure Hybrid Use Benefit. For more information, please refer to this [article.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
 >
 
 > [!NOTE]
-> Azure Hybrid Use Benefit can't be used with VMs that are charged for additional software such as SQL Server or any of the third party marketplace images. You get a 409 error such as: Changing property 'LicenseType' is not allowed; if you try to convert a Windows Server VM that has additional software cost. 
+> Azure Hybrid Use Benefit can't be used with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images. You get a 409 error such as: Changing property 'LicenseType' is not allowed; if you try to convert a Windows Server VM that has additional software cost. 
 >
 >
 
@@ -39,7 +39,7 @@ There are few ways to use Windows VMs with the Azure Hybrid Use Benefit:
 1. You can deploy VMs from one of the provided  [Windows Server images on the Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
 2. You can convert a running Windows Server VM to using AHUB
 3. You can  [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough)
-4. You can also deploy a new VM scale set with AHUB
+4. You can also deploy a new virtual machine scale set with AHUB
 
 > [!NOTE]
 > Converting an existing virtual machine scale set to use AHUB isn't currently supported
@@ -54,13 +54,13 @@ You can deploy these images directly from the Azure portal. For use in Resource 
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-You can follow the steps to [Create a Windows virtual machine with PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) and pass LicenseType = "Windows_Server". This allows you to use your existing Windows Server license on Azure.
+You can follow the steps to [Create a Windows virtual machine with PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) and pass LicenseType = "Windows_Server.". This allows you to use your existing Windows Server license on Azure.
 
 ### Portal
 You can follow the steps to [Create a Windows virtual machine with the Azure portal](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) and select the option to use your existing Windows Server license.
 
 ## Convert an existing VM to using AHUB
-As long as the VM isn't charging for additional software such as SQL Server or third party Marketplace cost. You can convert existing VM (no downtime is required if the VM is in running state) by executing the following powershell command or directly from the portal.
+As long as the VM isn't charging for additional software such as SQL Server or third-party Marketplace cost. You can convert existing VM (no downtime is required if the VM is in running state) by executing the following powershell command or directly from the portal.
 
 ### Convert to using AHUB
 ```powershell
@@ -69,7 +69,7 @@ As long as the VM isn't charging for additional software such as SQL Server or t
 		Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 ```
 
-### Convert back to pay as you go
+### Convert back to pay-as-you-go
 ```powershell
 		$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
 		$vm.LicenseType = "None"
@@ -131,7 +131,7 @@ Location                 : westus
 LicenseType              : Windows_Server
 ```
 
-This output contrasts with the following VM deployed without Azure Hybrid Use Benefit licensing. For example a VM deployed straight from the Azure Gallery without AHUB:
+This output contrasts with the following VM deployed without Azure Hybrid Use Benefit licensing. For example, a VM deployed straight from the Azure Gallery without AHUB:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -141,7 +141,7 @@ LicenseType              :
 
 ## List all AHUB VMs in a subscription
 
-To see all virtual machines deployed with AHUB and count licenses you are using on your Azure subscription, you can run the followings:
+To see and count all virtual machines deployed with AHUB on your Azure subscription, you can run the following:
 
 ```powershell
 $vms = Get-AzureRMVM 
