@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2017
+ms.date: 09/18/2017
 ms.author: maheshu
 
 ---
@@ -23,14 +23,15 @@ In preceding tasks, you enabled Azure Active Directory Domain Services for your 
 The steps involved are different for cloud-only user accounts vs user accounts that are synchronized from your on-premises directory using Azure AD Connect. 
 
 <br>
-| **Type of user account** | **How to enable password synchronization to your managed domain** |
+| **Type of user account** | **Steps to perform** |
 | --- |---|
 | **Cloud user accounts created in Azure AD** |**&#x2713;** [Follow the instructions in this article](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
 | **User accounts synchronized from an on-premises directory** |**&#x2713;** [Synchronize passwords for user accounts synced from your on-premises AD to your managed domain](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
-> [!TIP] 
+> [!TIP]
+> **You may need to complete both sets of steps.**
 > If your Azure AD tenant has a combination of cloud only users and users from your on-premises AD, you need to complete both sets of steps.
 >
 
@@ -38,7 +39,7 @@ The steps involved are different for cloud-only user accounts vs user accounts t
 To authenticate users on the managed domain, Azure Active Directory Domain Services needs credential hashes in a format that's suitable for NTLM and Kerberos authentication. Azure AD does not generate or store credential hashes in the format that's required for NTLM or Kerberos authentication, until you enable Azure Active Directory Domain Services for your tenant. For obvious security reasons, Azure AD also does not store any password credentials in clear-text form. Therefore, Azure AD does not have a way to automatically generate these NTLM or Kerberos credential hashes based on users' existing credentials.
 
 > [!NOTE]
-> If your organization has cloud-only user accounts, users who need to use Azure Active Directory Domain Services must change their passwords. A cloud-only user account is an account that was created in your Azure AD directory using either the Azure portal or Azure AD PowerShell cmdlets. Such user accounts aren't synchronized from an on-premises directory.
+> **If your organization has cloud-only user accounts, all users who need to use Azure Active Directory Domain Services must change their passwords.** A cloud-only user account is an account that was created in your Azure AD directory using either the Azure portal or Azure AD PowerShell cmdlets. Such user accounts aren't synchronized from an on-premises directory.
 >
 >
 
@@ -69,7 +70,7 @@ Here are the instructions you need to provide users, so they can change their pa
 
 5. Click **submit**.
 
-A few minutes after you have changed your password, the new password is usable in Azure Active Directory Domain Services. After a few more minutes (typically, about 20 minutes), you can sign in to computers that are joined to the managed domain by using the newly changed password.
+A few minutes after you have changed your password, the new password is usable in Azure Active Directory Domain Services. After about 20 minutes, you can sign in to computers joined to the managed domain using the newly changed password.
 
 ## Related Content
 * [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md)
