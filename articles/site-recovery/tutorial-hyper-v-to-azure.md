@@ -19,7 +19,7 @@ ms.author: raynew
 ---
 # Set up disaster recovery to Azure for on-premises Hyper-V VMs
 
-The [Azure Site Recovery](site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
 This tutorial shows you how to set up disaster recovery of on-premises Hyper-V VMs to Azure. The tutorial is relevant for Hyper-V VMs that are managed in System Center Virtual Machine Manager (VMM) clouds, and those that aren't. In this tutorial, you learn how to:
 
@@ -36,10 +36,10 @@ This tutorial shows you how to set up disaster recovery of on-premises Hyper-V V
 
 To complete this tutorial:
 
-- [Review](concepts-hyper-v-to-azure-architecture.md) the scenario architecture and components for Hyper-V disaster recovery.
-- [Review](site-recovery-support-matrix-to-azure.md) the support requirements for all components.
-- Check that VMs you want to replicate comply with [Azure VM requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-- Prepare Azure by creating an Azure subscription, an Azure virtual network, and a storage account.
+- Make sure that you understand the [scenario architecture and components](concepts-hyper-v-to-azure-architecture.md).
+- Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
+- Make sure that VMs you want to replicate comply with [Azure VM requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare on-premises Hyper-V hosts, and VMM servers if relevant.
 
 
@@ -48,15 +48,15 @@ To complete this tutorial:
 Get a Microsoft [Azure account](http://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Find out about supported regions under Geographic Availability, in [Azure Site Recovery Pricing Details]((https://azure.microsoft.com/pricing/details/site-recovery/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Find out which [regions are supported](https://azure.microsoft.com/pricing/details/site-recovery/) for Site Recovery.
 
 ### Verify Azure account permissions
 
-Make sure your Azure account has permissions for replication of VMs to Azure.
+Make sure your Azure account has the permissions it needs to replicate VMs.
 
-- Review the [permissions](site-recovery-role-based-linked-access-control.md) you need.
-- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
+- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure
+- Verify and modify [role-based access](../active-directory/role-based-access-control-configure.md) permissions. 
 
 
 ### Set up an Azure network
@@ -67,7 +67,7 @@ Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-su
 - The network should be in the same region as the Recovery Services vault.
 
 
-## Set up an Azure storage account
+### Set up an Azure storage account
 
 Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
@@ -134,17 +134,17 @@ Select what to replicate, and where to replicate it to.
 Install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register on-premises servers in the vault.
 
 1. In **Prepare Infrastructure**, click **Source**. 
-    - If you're not using VMM, click **+Hyper-V Site**, and specify a site name. Then click **+Hyper-V Server**, to add a host or cluster to the site.
+    - If you're not using VMM, click **+Hyper-V Site**, and specify a site name. Then click **+Hyper-V Server**, and add a host or cluster to the site.
     - If you are using VMM, in **Prepare source**, click **+ VMM** to add a VMM server. In **Add Server**, check that **System Center VMM server** appears in **Server type**.
 2. Download the Provider and agent:
-    - **Without VMM**: If you're not using VMM, download the Recovery Service Provider installation file. Running this file installs the Provider, and the Recovery Services agent.
+    - **Without VMM**: If you're not using VMM, download the Recovery Service Provider installation file. You run this file to install the Provider and agent on each Hyper-V host.
      
         ![Provider without VMM](./media/tutorial-hyper-v-to-azure/download-no-vmm.png)
 
-    - **With VMM**: If you're using VMM, download the Provider and the agent installation files separately. The Provider is installed on the VMM server. The agent is installed on each Hyper-V host.
-    - 
+    - **With VMM**: If you're using VMM, download the Provider and the agent installation files separately. You install the Provider on the VMM server. The agent is installed on each Hyper-V host.
+
         ![Povider and agent with VMM](./media/tutorial-hyper-v-to-azure/download-vmm.png)
-3. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
+1. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 
 ### Run Provider setup
 
@@ -167,25 +167,25 @@ After registration finishes, metadata from the server is retrieved by Azure Site
 
 ## Install the agent on Hyper-V host (with VMM)
 
-If you're using VMM in your deployment, run the Recovery Services agent setup file on each Hyper-V host.
+If you're using VMM in your deployment, run Recovery Services agent setup on each Hyper-V host.
 
 1. In The Setup Wizard > **Prerequisites Check**, click **Next**. Any missing prerequisites will be automatically installed.
 
     ![Prerequisites Recovery Services Agent](./media/tutorial-hyper-v-to-azure/hyperv-agent-prerequisites.png)
 3. In **Installation Settings**, accept or modify the installation location, and the cache location. The cache drive needs at least 5 GB of storage. We recommend a drive with 600 GB or more of free space. Then click **Install**.
-4. After installation is complete, click **Close** to finish the wizard.
+4. In **Installation**, when installation finishes, click **Close** to finish the wizard.
 
 
-#### Set up internet proxy access to Site Recovery from Hyper-V hosts (with VMM)
+#### Set up internet access via a proxy
 
-The Recovery Services agent running on Hyper-V hosts needs internet access to Azure for VM replication. If you're accessing the internet through a proxy, set it up as follows:
+The Recovery Services agent on the Hyper-V host needs internet access to Azure for VM replication. If you're accessing the internet through a proxy, set it up as follows:
 
-1. Open the Microsoft Azure Backup MMC snap-in on the Hyper-V host. By default, a shortcut for Microsoft Azure Backup is available on the desktop or in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+1. Open the Microsoft Azure Backup MMC snap-in on the Hyper-V host. By default, a shortcut for Microsoft Azure Backup is available on the desktop, or in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. In the snap-in, click **Change Properties**.
-3. On the **Proxy Configuration** tab, specify proxy server information.
+3. On the **Proxy Configuration** tab, specify proxy information.
 
     ![Register MARS Agent](./media/tutorial-hyper-v-to-azure/mars-proxy.png)
-4. Check that the agent can reach the URLs described in the [prerequisites](#prepare-hyper-v-hosts).
+4. Check that the agent can reach the [required URLs](#prepare-hyper-v-hosts).
 
 ## Set up the target environment
 
@@ -215,7 +215,7 @@ If you're using VMM, set up network mapping.
 3. In **Copy frequency**, specify how often you want to replicate delta data after the initial replication (every 30 seconds, 5 or 15 minutes).
 
 	> [!NOTE]
-	>  A 30 second frequency isn't supported when replicating to premium storage. The limitation is determined by the number of snapshots per blob (100) supported by premium storage. [Learn more](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
+	>  A 30 second frequency isn't supported when replicating to premium storage. The limitation is determined by the number of snapshots per blob (100) supported by premium storage. [Learn more](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob).
 
 4. In **Recovery point retention**, specify how long the retention window will be (in hours) for each recovery point. Protected machines can be recovered to any point within a window.
 5. In **App-consistent snapshot frequency**, specify how frequently (1-12 hours) recovery points containing application-consistent snapshots will be created. Hyper-V uses two types of snapshots:
@@ -241,4 +241,4 @@ When you create a new policy it's automatically associated with the VMM cloud, o
  You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the virtual machine is ready for failover.
 
 ## Next steps
-[Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
+[Run a disaster recovery drill](tutorial-dr-drill-azure.md)

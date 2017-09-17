@@ -19,7 +19,7 @@ ms.author: raynew
 ---
 # Set up disaster recovery to Azure for on-premises physical servers
 
-The [Azure Site Recovery](site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
 This tutorial shows you how to set up disaster recovery of on-premises physical Windows and Linux servers to Azure. In this tutorial, you learn how to:
 
@@ -34,11 +34,12 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 
 To complete this tutorial:
 
-- [Review](concepts-physical-to-azure-architecture.md) the scenario architecture and components.
-- [Review](site-recovery-support-matrix-to-azure.md) the support requirements for all components.
-- Make sure that machines that you want to replicate comply with [operating system requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [file storage requirements](site-recovery-support-matrix-to-azure.md#supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers), and [prerequisites for Azure VMs](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-- Prepare Azure, including an Azure subscription, an Azure virtual network, and a storage account.
-- Prepare for installation of the Mobility service on each server you want to replicate.
+- Make sure that you understand the [scenario architecture and components](concepts-physical-to-azure-architecture.md).
+- Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
+- Make sure that the servers you want to replicate comply with [Azure VM requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
+- Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
+
 
 
 ### Set up an Azure account
@@ -46,15 +47,15 @@ To complete this tutorial:
 Get a Microsoft [Azure account](http://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Find out about supported regions under Geographic Availability, in [Azure Site Recovery Pricing Details]((https://azure.microsoft.com/pricing/details/site-recovery/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Find out which [regions are supported](https://azure.microsoft.com/pricing/details/site-recovery/) for Site Recovery.
 
 ### Verify Azure account permissions
 
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
-- Review the [permissions](site-recovery-role-based-linked-access-control.md) you need.
-- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
+- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
+- Verify and modify [role-based access](../active-directory/role-based-access-control-configure.md) permissions. 
 
 
 
@@ -122,11 +123,11 @@ Do the following before you start:
 - Make sure the machine can access these URLs:
         [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-- Any IP address-based firewall rules should allow communication to Azure.
+- IP address-based firewall rules should allow communication to Azure.
 - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
 - Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
-Run Unified Setup as a Local Administrator, to install the configuration server, the process server, and the master target server.
+Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
@@ -148,13 +149,14 @@ Select and verify target resources.
 
 1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 2. In **Create replication policy**, specify a policy name.
-3. In **RPO threshold**, specify the RPO limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
-4. In **Recovery point retention**, specify (in hours) how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
+3. In **RPO threshold**, specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
+4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
 5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
     ![Replication policy](./media/tutorial-physical-to-azure/replication-policy.png)
-8. The new policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then the failback policy will be **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.
 
+
+The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
 
 ## Enable replication
 
@@ -163,7 +165,7 @@ Enable replication for each server.
 - Site Recovery will install the Mobility service when replication is enabled.
 - When you enable replication for a server, it can take 15 minutes or longer for changes to take effect, and appear in the portal.
 
-1. Click **Step 2: Replicate application** > **Source**.
+1. Click **Replicate application** > **Source**.
 2. In **Source**, select the configuration server.
 3. In **Machine type**, select **Physical machines**.
 4. Select the process server (the configuration server). Then click **OK**.
@@ -181,4 +183,4 @@ To monitor servers you add, you can check the last discovered time for them in *
 
 ## Next steps
 
-[Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
+[Run a disaster recovery drill](tutorial-dr-drill-azure.md)
