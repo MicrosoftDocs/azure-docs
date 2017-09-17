@@ -167,22 +167,23 @@ choose the fields that you want included in the mail.
 
    * To select fields available for your workflow, 
    click in an edit box so that the **Dynamic content** list opens, 
-   or choose **Add dynamic content**. To view any other available fields, 
-   choose **See more** for each section in the list.
+   or choose **Add dynamic content**. 
+   
+   * To view any other available fields, 
+   choose **See more** for each section in the **Dynamic content** list. 
+
+   * To add blank lines in your content, press Shift + Enter.
    
    * To close the **Dynamic content** list, 
    choose **Add dynamic content**.
 
    ![Select data to include in email](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
-   > [!TIP] 
-   > To add blank lines in your content, press Shift + Enter.
-
    | Setting | Suggested value | Description | 
    | ------- | --------------- | ----------- | 
    | **To** | *recipient-email-address* | Enter the recipient's email address. For testing purposes, you can use your own email address. | 
-   | **Subject** | New CNN post: **Feed title** | Enter the content for the email's subject. <p>For this tutorial, enter the suggested text and select the trigger's **Feed title** field, which displays the feed item's title. | 
-   | **Body** | Article summary: **Feed summary** <p>Date published: **Feed updated on** | Enter the content for the email's body. <p>For this tutorial, enter the suggested text, then select the trigger's **Feed summary**, which displays the feed item's abstract, and **Feed updated on**, which shows the item's published date and time. <p>URL: **Primary feed link**, which shows the link for the feed item. | 
+   | **Subject** | New CNN post: **Feed title** | Enter the content for the email's subject. <p>For this tutorial, enter the suggested text and select the trigger's **Feed title** field, which shows the feed item's title. | 
+   | **Body** | Article summary: **Feed title** <p>Date published: **Feed primary link** <p>URL: **Primary feed link** | Enter the content for the email's body. <p>For this tutorial, enter the suggested text, then select these trigger fields: <p>- **Feed title**, which shows the feed item's title again </br>- **Feed published on**, which shows the item's published date and time </br>- **Primary feed link**, which shows the URL for the feed item | 
    |||| 
 
    > [!NOTE] 
