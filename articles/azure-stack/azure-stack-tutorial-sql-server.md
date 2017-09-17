@@ -33,7 +33,7 @@ The deployment process is described in detail in the [Use SQL databases on Azure
 
 1.	[Deploy the SQL resource provider]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
 2.	[Verify the deployment]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
-3.	[Provide capacity by connecting to a hosting SQL server]( azure-stack-sql-resource-provider-deploy.md#provide-capacity-by-connecting-to-a-hosting-sql-server).
+
 
 ## Create an offer
 
