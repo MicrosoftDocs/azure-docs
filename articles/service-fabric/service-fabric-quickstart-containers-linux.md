@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the command line interface (CLI) locally ensure you are running the Azure CLI version 2.0.4 or later. To find the version, run az --version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+If you choose to install and use the command-line interface (CLI) locally, ensure you are running the Azure CLI version 2.0.4 or later. To find the version, run az --version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
 ## Get application package
 To deploy containers to Service Fabric, you need a set of manifest files (the application definition), which describe the individual containers and the application.
@@ -67,7 +67,7 @@ pip3 install --user sfctl
 export PATH=$PATH:~/.local/bin
 ```
 
-Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint is the management endpoint of you cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint is the management endpoint of your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
@@ -94,7 +94,7 @@ To fail over the front-end container, do the following steps:
 
 1. Open Service Fabric Explorer in your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 2. Click on the **fabric:/Voting/azurevotefront** node in the tree view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that the container is currently running on - for example `_nodetype_4`
-3. Expand the **Nodes** node in the tree view. Click on the ellipsis (three dots) next to the node which is running the container.
+3. Expand the **Nodes** node in the tree view. Click on the ellipsis (three dots) next to the node that is running the container.
 4. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.
 
 ![sfxquickstartshownodetype][sfxquickstartshownodetype]

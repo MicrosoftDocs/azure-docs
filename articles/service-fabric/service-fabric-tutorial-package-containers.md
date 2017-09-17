@@ -67,7 +67,7 @@ yo azuresfcontainer
 4. Press Enter to leave the Commands section empty.
 5. Specify an instance count of 1.
 
-The entries for this container app used are all shown below
+The entries for this container app used are all shown:
 
 ```bash
 ? Name your application TestContainer
@@ -97,7 +97,7 @@ cd TestContainer
 5. Press Enter to leave the Commands section empty.
 6. Specify an instance count of "1". 
 
-The entries for adding the service used are all shown below:
+The entries for adding the service used are all shown:
 
 ```bash
 ? Name of the application service: azurevoteback
@@ -172,7 +172,7 @@ Similarly, modify the Service Manifest for the backend service. For this tutoria
 
 2. Map container ports to a service
     
-In order to expose the containers in the cluster, we also need to create a port binding in the 'ApplicationManifest.xml'. The `PortBinding` policy references the `Endpoints` we just defined in the 'ServiceManifest.xml' files. Incoming requests to these endpoints get mapped to the container ports that are opened and bounded here. In the 'ApplicationManifest.xml' file, add the following code to bind port 80 and 6379 to the endpoints. A full `ApplicationManifest.xml` is available at the end of this document. 
+In order to expose the containers in the cluster, we also need to create a port binding in the 'ApplicationManifest.xml'. The `PortBinding` policy references the `Endpoints` we defined in the 'ServiceManifest.xml' files. Incoming requests to these endpoints get mapped to the container ports that are opened and bounded here. In the 'ApplicationManifest.xml' file, add the following code to bind port 80 and 6379 to the endpoints. A full `ApplicationManifest.xml` is available at the end of this document. 
   
   ```xml
   <ContainerHostPolicies CodePackageRef="Code">
@@ -188,13 +188,13 @@ In order to expose the containers in the cluster, we also need to create a port 
 
 3. Add DNS name to backend service
 
-The frontend service reads an environment variable to know the DNS name of the Redis instance. The environment variable is defined in the Dockerfile as shown below.
+The frontend service reads an environment variable to know the DNS name of the Redis instance. The environment variable is defined in the Dockerfile as shown:
   
   ```Dockerfile
   ENV REDIS redisbackend.testapp
   ```
   
-For Service Fabric to assign this DNS name to the backend service, the name needs to be specified in the `ApplicationManifest.xml`. Add the 'ServiceDnsName' field to the 'Service' field as shown below. 
+For Service Fabric to assign this DNS name to the backend service, the name needs to be specified in the `ApplicationManifest.xml`. Add the 'ServiceDnsName' field to the 'Service' field as shown: 
   
   ```xml
   <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
@@ -204,7 +204,7 @@ For Service Fabric to assign this DNS name to the backend service, the name need
   </Service>
   ```
   
-  The python script that renders the front end uses this DNS name to resolve and connect to the backend redis store as shown below.
+  The python script that renders the front end uses this DNS name to resolve and connect to the backend redis store as shown:
   
   ```python
   # Get DNS Name
@@ -242,7 +242,7 @@ Open a browser and navigate to Service Fabric Explorer at http://lin4hjim3l4.wes
 
 ![Service Fabric Explorer][sfx]
 
-In order to connect to the running application, open a web browser an go to the cluster url - for example http://lin0823ryf2he.cloudapp.azure.com:80. You should see the Voting application in the web UI.
+In order to connect to the running application, open a web browser and go to the cluster url - for example http://lin0823ryf2he.cloudapp.azure.com:80. You should see the Voting application in the web UI.
 
 ![votingapp][votingapp]
 
