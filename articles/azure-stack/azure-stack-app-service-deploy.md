@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 9/25/2017
 ms.author: anwestg
 
 ---
@@ -100,7 +100,7 @@ To deploy App Service resource provider, follow these steps:
     5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
     6. Click **Next**.
 
-    ![App Service Installer](media/azure-stack-app-service-deploy/image02.png)
+    ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
 
 7. Enter the information for your file share and then click **Next**.
 
