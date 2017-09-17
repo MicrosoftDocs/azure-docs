@@ -25,8 +25,8 @@ Azure App Service on Azure Stack has a number of pre-requisite steps that must b
 - Certificates required for Azure App Service on Azure Stack
 - Prepare File Server
 - Prepare SQL Server
-- Create AAD Application
-- Create ADFS Application
+- Create an Azure Active Directory application
+- Create an Active Directory Federation Services application
 
 ## Download the Azure App Service on Azure Stack helper scripts
 
@@ -231,7 +231,7 @@ Enable Mixed Mode authentication.
 The Azure App Service on Azure Stack SQL Server must be accessible from all App Service roles.
 For any of the SQL Server roles, you can use a default instance or a named instance. However, if you use a named instance, be sure that you manually start the SQL Browser Service and open port 1434.
 
-## Create AAD application
+## Create an Azure Active Directory application
 
 Configure an Azure AD service principal to support the following:
 - Virtual machine scale set integration on Worker tiers.
@@ -269,7 +269,7 @@ Follow these steps:
 | DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix. |
 | AdfsMachineName | Optional | AD FS machine name, for example, AzS-ADFS01.azurestack.local | Required in an AD FS deployment. Ignore in an Azure AD deployment. |
 
-## Create Active Directory Federation Services application
+## Create an Active Directory Federation Services application
 
 For Azure Stack environments secured by AD FS, you must configure an AD FS service principal to support the following:
 - Virtual machine scale set integration on Worker tiers.
