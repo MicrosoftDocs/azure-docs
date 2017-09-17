@@ -87,7 +87,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
     6. Click **Next**.
 
-    ![App Service Installer](media/azure-stack-app-service-deploy/image02.png)
+    ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
 
 8. Enter the information for your file share and then click **Next**.
 
