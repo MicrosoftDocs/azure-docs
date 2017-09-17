@@ -140,7 +140,7 @@ You can specify these parameters in the command line. If you do not, or any para
       ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-Next step: [Add hosting servers](azure-stack-sql-resource-provider-hosting-servers.md)
+
 
 
 ## Removing the SQL Adapter Resource Provider
