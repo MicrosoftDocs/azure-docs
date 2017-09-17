@@ -193,22 +193,28 @@ choose the fields that you want included in the mail.
 
 5. When you're done, save your changes. On the designer toolbar, choose **Save**.
 
-   ![Completed logic app](./media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
+   ![Completed logic app](./media/logic-apps-create-a-logic-app/save-complete-logic-app.png)
 
    To test your logic app now, continue to the next section.
 
 ## 4. Run and test your logic app workflow
 
 1. To manually run your logic app for testing, 
-on the designer toolbar bar, choose **Run**. Otherwise, 
-you can let your logic app check the specified RSS feed 
-based on the schedule that you set up.
+on the designer toolbar bar, choose **Run**. 
+Or, you can let your logic app check the specified 
+RSS feed based on the schedule that you set up.
 
-   If no new items are found, your logic app skips 
-   the action that sends email. But if your logic app finds new items, 
-   the logic app sends email that includes your selected data, for example:
+   ![Run logic app](./media/logic-apps-create-a-logic-app/run-complete-logic-app.png)
+
+   If your logic app finds new items, 
+   the logic app sends email that 
+   includes your selected data, for example:
 
    ![Email sent for new RSS feed item](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+
+   If no new items are found, your logic app 
+   skips the action that sends email.  
+   So, nothing else happens.
 
 2. To review your logic app's runs and trigger history, 
 on your logic app menu, choose **Overview**.
@@ -218,25 +224,34 @@ To view more details about a run, choose the row for that run.
 
    For more information about your logic app's status, 
    its runs and trigger history, or to diagnose your logic app, see 
-   [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
+   [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
    > [!TIP]
-   > If you don't find the data that you expect, on the toolbar, 
-   > try choosing **Refresh**.
+   > If you don't find the data that you expect, 
+   > on the toolbar, try choosing **Refresh**.
+
+   Whether the run passed or failed, 
+   the designer shows the steps that passed or failed. 
+
+   ![View details for a logic app run](./media/logic-apps-create-a-logic-app/logic-app-run-details.png)
 
 3. To view the inputs and outputs for each step, 
 expand the step that you want to review. 
 This information can help you diagnose and debug 
-problems in your logic app. For more information, 
-see [Monitor your logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+problems in your logic app. For example:
+
+   ![View step details](./media/logic-apps-create-a-logic-app/logic-app-run-details-expanded.png)
+
+   For more information, see 
+   [Monitor your logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 Congratulations, you've now created and run your first basic logic app. 
-You learned how easily you can create workflows that automate processes, 
-and integrate systems and services - all without code.
+This example shows how easily you can create workflows that automate 
+processes for integrating systems and services - all without code.
 
 > [!NOTE]
 > Your logic app continues running until you turn off your app. 
-> To turn off your app for now, continue to the next section.
+> To temporarily turn off your app, continue to the next section.
 
 ## Clean up resources
 
@@ -246,33 +261,33 @@ When you're done with the tutorial and testing,
 make sure that you disable or delete any resources 
 where you don't want to incur charges.
 
-You can stop your logic app from running and sending email without deleting the app. 
-On your logic app menu, choose **Overview**. On the toolbar, choose **Disable**.
+You can stop your logic app from running and 
+sending email without deleting the app. 
+On your logic app menu, choose **Overview**. 
+On the toolbar, choose **Disable**.
 
 ![Turn off your logic app](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
 
-## Manage your logic app
+## FAQ
 
-To manage your app, you can perform tasks like check the status, 
-edit, view history, turn off, or delete your logic app.
+**Q:** What else can I do with my logic app? </br>
+**A:** There are other tasks that you can perform, 
+for example, edit, view the JSON definition, 
+review the activity log, or delete your logic app.
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
+To find other logic app management tasks, 
+review these commands in the logic app menu:
 
-2. On the left menu, choose **More services**. Under **Enterprise Integration**, 
-choose **Logic Apps**. Select your logic app. 
-
-   In the logic app menu, you can find these logic app management tasks:
-
-   | Task | Steps | 
-   | ---- | ----- | 
-   | View your app's status, runs and trigger history, and general information | Choose **Overview**. | 
-   | Edit your app | Choose **Logic App Designer**. | 
-   | View your app's workflow JSON definition | Choose **Logic App Code View**. | 
-   | View operations performed on your logic app | Choose **Activity log**. | 
-   | View past versions for your logic app | Choose **Versions**. | 
-   | Turn off your app temporarily | Choose **Overview**, then on the toolbar, choose **Disable**. | 
-   | Delete your app | Choose **Overview**, then on the toolbar, choose **Delete**. Enter your logic app's name, and choose **Delete**. | 
-   ||| 
+| Task | Steps | 
+| ---- | ----- | 
+| View your app's status, runs and trigger history, and general information | Choose **Overview**. | 
+| Edit your app | Choose **Logic App Designer**. | 
+| View your app's workflow JSON definition | Choose **Logic App Code View**. | 
+| View operations performed on your logic app | Choose **Activity log**. | 
+| View past versions for your logic app | Choose **Versions**. | 
+| Turn off your app temporarily | Choose **Overview**, then on the toolbar, choose **Disable**. | 
+| Delete your app | Choose **Overview**, then on the toolbar, choose **Delete**. Enter your logic app's name, and choose **Delete**. | 
+||| 
 
 ## Get support
 
