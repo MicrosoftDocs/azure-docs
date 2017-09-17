@@ -28,7 +28,7 @@ With the native integration between [Azure Cosmos DB](https://azure.microsoft.co
 Azure Cosmos DB and Azure Functions enable you to integrate your databases and serverless apps in the following ways:
 
 * Create an event-driven **Azure Cosmos DB trigger** in an Azure Function. This trigger relies on [change feed](change-feed.md) streams to monitor your Azure Cosmos DB container for changes. When any changes are made to a container, the change feed stream is sent to the trigger, which invokes the Azure Function.
-* Alternatively, bind a function to an Azure Cosmos DB collection using an **input binding**. Input bindings read data from a container when a function executes. An input binding to an Azure Cosmos DB container cannot be used in the same function as an Azure Cosmos DB trigger.
+* Alternatively, bind a function to an Azure Cosmos DB collection using an **input binding**. Input bindings read data from a container when a function executes. An input binding to an Azure Cosmos DB container can be used in the same function as an Azure Cosmos DB trigger.
 * Bind a function to an Azure Cosmos DB collection using an **output binding**. Output bindings write data to a container when a function completes. Output bindings can be used in the same function as an Azure Cosmos DB trigger or an input binding.
 
 The following diagram illustrates each of these three integrations: 
