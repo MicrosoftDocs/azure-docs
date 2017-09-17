@@ -30,10 +30,10 @@ In this walkthrough we add a new revision, add an operation to it, then make tha
 1. Browse to the **APIs** page within your API Management service in the Azure portal.
 2. Select **Conference API** from the API list, then select the **Revisions** tab from the menu near the top of the page.
 3. Select **+ Add Revision**
+![Revisions menu near top of screen](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
     > [!TIP]
     > You can also choose **Add Revision** in the context menu (**...**) on the API.
-![Revisions menu near top of screen](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 4. Provide a description for your new revision, to help remember what it will be used for.
 5. Select **Create**
