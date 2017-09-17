@@ -112,7 +112,7 @@ Open command prompt and just type `R`.
 
 * Using in an IDE
 
-Use RTools for Visual Studio (RTVS) installed in the Visual Studio Community edition or RStudio. These are available on the start menu or as a desktop icon. > [!NOTE]
+Use RTools for Visual Studio (RTVS) installed in the Visual Studio Community edition or RStudio. These are available on the start menu or as a desktop icon. 
 
 * Using in Jupyter
 

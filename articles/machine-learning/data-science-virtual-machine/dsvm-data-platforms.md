@@ -35,7 +35,7 @@ The following are the data platform tools supported on the DSVM.
 | Links to Samples      |    A small sample of New York City Dataset is loaded into the SQL database `nyctaxi`. <br/> Jupyter sample showing Microsoft R and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Related Tools on the DSVM       | SQL Server Management Studio <br/> ODBC/JDBC Drivers<br/> pyodbc, RODBC<br />Apache Drill      |
 
->[AZURE.NOTE]
+> [!NOTE]
 > The SQL Server 2016 developer edition can only be used for development and test purposes. You need a license or one of the SQL Server VMs to run it in production. 
 
 
@@ -75,7 +75,7 @@ You can run Spark by submitting Spark jobs on the command line with `spark-submi
 
 You can use Spark from R using libraries like SparkR, Sparklyr, or Microsoft R Server that are available on the DSVM. See pointers to samples in the preceding table. 
 
->[AZURE.NOTE]
+> [!NOTE]
 > Running Microsoft R Server in Spark context of DSVM is only supported on the Ubuntu Linux DSVM edition. 
 
 
