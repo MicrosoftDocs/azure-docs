@@ -21,7 +21,7 @@ ms.author: rithorn
 
 If you’re having trouble finding a subscription or management group in Azure, you might be looking in the wrong directory. This situation could happen when your account exists in multiple Azure Active Directories. Each [active directory is independent](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) and access is not inherited across directories.      
 
-## Switch Directories 
+## Switch directories 
 You can easily switch directories in the Azure portal.
 1.	Sign into the Azure portal, 
 2.  Select your name in the top right of the screen.  A menu pops up. 

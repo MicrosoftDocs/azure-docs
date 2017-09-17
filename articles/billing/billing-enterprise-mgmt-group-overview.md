@@ -58,7 +58,7 @@ The users from the Enterprise portal are added with a role to manage the mapped 
 |    Account Owner                                 |    Resource Policy Contributor                   |    Can view costs, manage resource policy and view hierarchy at and   below the account node       |
 
 
-## View management groups in the Azure portal
+## View management groups in the [Azure portal](http://azure.microsoft.com)
 
 View an enrollment, department, or account costs.  
 1.	Sign in to the Azure portal.
@@ -81,10 +81,10 @@ For management groups with the type of enrollment, the costs section shows you t
 ![Detail Page](media/billing-enterprise-mgmt-groups/enterprise-detail.png)
 
 ### Enabling access to costs
-If you are not seeing costs, see our [Troubleshooting Cost View](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md) document to help/  
+If you are not seeing costs, see our [Troubleshooting Cost View](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md) document for help.  
 
-### Notes about this preview release: 
-* Amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal. This issue is temporary and is being worked on.
+### Delays between the Enterprise portal and Azure portal: 
+* During the preview, amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal. This issue is temporary and is being worked on.
 * A delay of several minutes is expected in the Azure portal when making changes to settings in the Enterprise portal. 
 
 
