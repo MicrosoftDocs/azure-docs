@@ -235,7 +235,7 @@ Create plans and offers to make MySQL databases available for tenants. Add the M
 ## Updating the administrative password
 You can modify the password by first changing it on the MySQL server instance. Browse to **ADMINISTRATIVE RESOURCES** &gt; **MySQL Hosting Servers** &gt; and click on the hosting server. In the Settings panel, click on Password.
 
-![Update the admin password](./media/azure-stack-mysql-rp-deploy/MySQL-update-password.PNG)
+![Update the admin password](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
 ## Removing the MySQL Adapter Resource Provider
 
