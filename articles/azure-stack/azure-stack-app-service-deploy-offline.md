@@ -23,23 +23,12 @@ By following the instructions in this article, you can install the [App Service 
 - not connected to the internet
 - secured by Active Directory Federation Services (AD FS). 
 
-To add the App Service resource provider to your offline Azure Stack deployment, you must complete three top-level tasks:
+To add the App Service resource provider to your offline Azure Stack deployment, you must complete these top-level tasks:
 
 1. Complete the [prerequisite steps](azure-stack-app-service-before-you-get-started.md) (like purchasing certificates, which can take a few days to receive).
-2. Download and extract the installation and helper files to a machine connected to the internet.
-3. Create an offline installation package and copy it to your offline environment.
+2. [Download and extract the installation and helper files](azure-stack-app-service-before-you-get-started.md) to a machine connected to the internet.
+3. Create an offline installation package.
 4. Run the appservice.exe installer file.
-
-
-## Download the required components
-
-Before getting started on the offline Azure Stack environment, you must download the installation and helper files from the internet.
-
-1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
-
-2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
-
-3. Extract the Create-AppServiceCerts.ps1 file from the helper script zip file. 
 
 ## Create an offline installation package
 
