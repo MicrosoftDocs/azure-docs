@@ -38,16 +38,16 @@ The steps involved are different for cloud-only user accounts vs user accounts t
 A synced Azure AD tenant is set to synchronize with your organization's on-premises directory using Azure AD Connect. By default, Azure AD Connect does not synchronize NTLM and Kerberos credential hashes to Azure AD. To use Azure AD Domain Services, you need to configure Azure AD Connect to synchronize credential hashes required for NTLM and Kerberos authentication. The following steps enable synchronization of the required credential hashes from your on-premises directory to your Azure AD tenant.
 
 > [!NOTE]
-> **If your organization has user accounts that are synchronized from your on-premises directory, your must enable synchronization of NTLM and Kerberos hashes in order to use the managed domain.** A synced user account is an account that was created in your on-premises directory and is synchronized to your Azure AD tenant using Azure AD Connect.
+> **If your organization has user accounts that are synchronized from your on-premises directory, you must enable synchronization of NTLM and Kerberos hashes in order to use the managed domain.** A synced user account is an account that was created in your on-premises directory and is synchronized to your Azure AD tenant using Azure AD Connect.
 >
 >
 
 ### Install or update Azure AD Connect
-Install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you need to update it to use the latest version of Azure AD Connect. To avoid known issues/bugs that may have already been fixed, ensure you always use the latest version of Azure AD Connect.
+Install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you need to update it to use the latest version of Azure AD Connect. To avoid known issues/bugs that may have already been fixed, always use the latest version of Azure AD Connect.
 
 **[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Recommended version: **1.1.553.0** - published on June 27, 2017.
+Recommended version: **1.1.614.0** - published on September 5, 2017.
 
 > [!WARNING]
 > You MUST install the latest recommended release of Azure AD Connect to enable the legacy password credentials (required for NTLM and Kerberos authentication) to synchronize to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect or with the legacy DirSync tool.
@@ -57,7 +57,7 @@ Recommended version: **1.1.553.0** - published on June 27, 2017.
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
 ### Enable synchronization of NTLM and Kerberos credential hashes to Azure AD
-Execute the following PowerShell script on each AD forest, to force full password synchronization, and enable all on-premises users’ credential hashes to sync to your Azure AD tenant. This script enables the credential hashes required for NTLM/Kerberos authentication to be synchronized to your Azure AD tenant.
+Execute the following PowerShell script on each AD forest. The script enables all on-premises users' NTLM and Kerberos password hashes to be synchronized to your Azure AD tenant. The script also initiates a full synchronization in Azure AD Connect.
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
