@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 09178/2017
 ms.author: terrylan
 
 ---
@@ -70,15 +70,15 @@ Let’s follow Jeff’s steps to see how he uses Security Center recommendations
 ## How to implement this solution
 Jeff signs in to [Azure portal](https://azure.microsoft.com/features/azure-portal/) and opens the Security Center console. As part of his daily monitoring activities, he checks to see if there are security recommendations by performing the following steps:
 
-1. Jeff selects the **Recommendations** tile to open the **Recommendations** blade.
+1. Jeff selects the **Recommendations** tile to open **Recommendations**.
    ![Select the recommendations tile][3]
-2. Jeff reviews the list of recommendations. He sees that Security Center has provided the list of recommendations in priority order, from highest priority to lowest priority. He decides to address a High priority recommendation on the list. He selects **Install Endpoint Protection** on the **Recommendations** blade.
-3. The **Install Endpoint Protection** blade opens displaying a list of VMs without antimalware enabled. Jeff reviews the list of VMs, selects all VMs, and then selects **Install on 3 VMs**.
+2. Jeff reviews the list of recommendations. He sees that Security Center has provided the list of recommendations in priority order, from highest priority to lowest priority. He decides to address a High priority recommendation on the list. He selects **Install Endpoint Protection** under **Recommendations**.
+3. **Install Endpoint Protection** opens displaying a list of VMs without antimalware enabled. Jeff reviews the list of VMs, selects all VMs, and then selects **Install on 3 VMs**.
    ![Install endpoint protection][4]
-4. The **Select Endpoint Protection** blade opens providing Jeff with two antimalware solutions. Jeff selects the **Microsoft Antimalware** solution.
+4. **Select Endpoint Protection** opens providing Jeff with two antimalware solutions. Jeff selects the **Microsoft Antimalware** solution.
 5. Additional information about the antimalware solution is displayed. Jeff selects **Create**.
    ![Microsoft antimalware][5]
-6. Jeff enters the required configuration settings on the **Install** blade and selects **OK**.
+6. Jeff enters the required configuration settings under **Install** and selects **OK**.
 
 [Microsoft Antimalware](../security/azure-security-antimalware.md) is now active on the selected VMs.
 
@@ -86,10 +86,10 @@ Jeff continues to move through the high priority and medium priority recommendat
 
 Jeff learns that [Microsoft Security Response Center (MSRC)](../security/azure-security-response-center.md) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. If Jeff provides security contact details for Contoso’s Azure subscription, Microsoft contacts Contoso if the MSRC discovers that Contoso’s customer data has been accessed by an unlawful or unauthorized party. Let’s follow Jeff as he applies the **Provide security contact details** recommendation (a recommendation with severity of Medium in the list of recommendations above).
 
-1. Jeff selects **Provide security contact details** on the **Recommendations** blade, which opens the **Provide security contact details** blade.
+1. Jeff selects **Provide security contact details** under **Recommendations**, which opens **Provide security contact details**.
 2. Jeff selects the Azure subscription to provide contact information on. A second **Provide security contact details** blade opens.
    ![Security contact details][6]
-3. On the second **Provide security contact details** blade, Jeff enters:
+3. Under **Provide security contact details** blade, Jeff enters:
 
   - the security contact email addresses separated by commas (there is not a limit to the number of email addresses that he can enter)
   - one security contact phone number
@@ -102,6 +102,9 @@ Finally, Jeff reviews the low priority recommendation **Remediate OS vulnerabili
 
 ## Conclusion
 Monitoring recommendations in Security Center may help you eliminate security vulnerabilities before an attack occurs. You can prevent a security incident by implementing and maintaining protections with security policies in Security Center.
+
+## Next step
+This scenario showed you how to use security policies and recommendations in Security Center to help mitigate a security attack.  See the [incident response scenario](security-center-incident-response.md) to learn how to have an incident response plan in place before an attack takes place.
 
 <!--Image references-->
 [1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png
