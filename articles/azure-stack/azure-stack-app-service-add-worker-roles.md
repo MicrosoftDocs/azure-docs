@@ -36,9 +36,11 @@ Add additional workers directly within the App Service Resource Provider Admin.
 
 1. Log in to the Azure Stack administration portal as the service administrator.
 2. Browse to **App Services**.
+
   ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
 4. Click **Scale Instances**.
+
   ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 5. Under **Scale Instances**:
     1. Select the **Role Type**. In this preview, this option is limited to Web Worker.
