@@ -72,7 +72,11 @@
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
     - name: Manage updates
-      href: azure-stack-updates.md
+      items:
+      - name: Manage updates overview
+        href: azure-stack-updates.md
+      - name: Apply updates
+        href: azure-stack-apply-updates.md      
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
