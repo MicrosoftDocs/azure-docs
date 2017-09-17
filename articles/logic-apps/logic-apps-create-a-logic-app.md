@@ -78,7 +78,7 @@ Outlook.com, Gmail, or another supported provider. This tutorial uses Office 365
    | **Subscription** | *your-Azure-subscription* | Select the Azure subscription that you want to use. | 
    | **Resource group** | *your-Azure-resource-group* | Create or select an Azure resource group, which helps you organize and manage related Azure resources. | 
    | **Location** | *your-Azure-region* | Select the datacenter region for deploying your logic app. | 
-   | | | 
+   |||| 
 
 4. When you're ready, select **Pin to dashboard**, then choose **Create**.
 
@@ -266,8 +266,9 @@ choose **Logic Apps**. Select your logic app.
    | View your app's workflow JSON definition | Choose **Logic App Code View**. | 
    | View operations performed on your logic app | Choose **Activity log**. | 
    | View past versions for your logic app | Choose **Versions**. | 
-   | Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable**. | 
+   | Turn off your app temporarily | Choose **Overview**, then on the toolbar, choose **Disable**. | 
    | Delete your app | Choose **Overview**, then on the toolbar, choose **Delete**. Enter your logic app's name, and choose **Delete**. | 
+   ||| 
 
 ## Get support
 
@@ -278,8 +279,9 @@ choose **Logic Apps**. Select your logic app.
 
 ## Next steps
 
-*  [Add conditions and run workflows](../logic-apps/logic-apps-use-logic-app-features.md)
-*	 [Logic app templates](../logic-apps/logic-apps-use-logic-app-templates.md)
-*  [Create logic apps from Azure Resource Manager templates](../logic-apps/logic-apps-arm-provision.md)
+* [Create your logic app with Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Add conditions and run workflows](../logic-apps/logic-apps-use-logic-app-features.md)
+*	[Logic app templates](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Create logic apps from Azure Resource Manager templates](../logic-apps/logic-apps-arm-provision.md)
 * [Logic Apps usage metering](../logic-apps/logic-apps-pricing.md) 
 * [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps)
