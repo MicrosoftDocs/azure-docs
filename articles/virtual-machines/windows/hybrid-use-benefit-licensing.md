@@ -54,7 +54,7 @@ You can deploy these images directly from the Azure portal. For use in Resource 
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-You can follow the steps to [Create a Windows virtual machine with PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) and pass LicenseType = "Windows_Server.". This allows you to use your existing Windows Server license on Azure.
+You can follow the steps to [Create a Windows virtual machine with PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) and pass LicenseType = "Windows_Server". This option allows you to use your existing Windows Server license on Azure.
 
 ### Portal
 You can follow the steps to [Create a Windows virtual machine with the Azure portal](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) and select the option to use your existing Windows Server license.
@@ -141,7 +141,7 @@ LicenseType              :
 
 ## List all AHUB VMs in a subscription
 
-To see and count all virtual machines deployed with AHUB on your Azure subscription, you can run the following:
+To see and count all virtual machines deployed with AHUB on your Azure subscription, you can run the following command:
 
 ```powershell
 $vms = Get-AzureRMVM 
