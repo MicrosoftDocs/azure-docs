@@ -17,9 +17,11 @@
 ## [Fail over and fail back Azure VMs replicated to a secondary region](azure-to-azure-tutorial-failover-failback.md)
 ## [Fail over and fail back VMware VMs and physical servers replicated to Azure](tutorial-vmware-to-azure-failover-failback.md)
 ## [Fail over and fail back Hyper-V VMs replicated to Azure](tutorial-hyper-v-to-azure-failover-failback.md)
+## [Fail over and fail back Hyper-V VMs between VMM sites](tutorial-vmm-to-vmm-failover-failback.md)
+## [Migrate on-premises machines to Azure](tutorial-migrate-on-premises-to-azure.md)
+## [Migrate AWS instances to Azure](tutorial-migrate-aws-to-azure.md)
 
 # Concepts
-
 ## [Azure to Azure replication architecture](concepts-azure-to-azure-architecture.md)
 ## [VMware to Azure replication architecture](concepts-vmware-to-azure-architecture.md)
 ## [Hyper-V to Azure replication architecture](concepts-hyper-v-to-azure-architecture.md)
