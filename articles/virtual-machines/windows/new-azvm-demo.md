@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Quick Start - Create Windows VM using New-AzVM | Microsoft Docs
-description: Quickly learn to create a Windows virtual machines with the New-AzVMcmdlet.
+title: Create Windows VM using New-AzVM cmdlet in Azure Cloud Shell| Microsoft Docs
+description: Quickly learn to create a Windows virtual machines with the New-AzVMcmdlet in Azure Cloud Shell.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/15/2017
+ms.date: 09/18/2017
 ms.author: cynthn
 
 ---
@@ -30,12 +30,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the VM
 
-We will use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM alone and it will use default values for the resource names. In this example, we are going to specify the resource group name as *myResourceGroup*, the name of the VM as *myVM*, and let the cmdlet create the resource group and the rest of the required resources. 
+We will use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM alone and it will use default values for the resource names. In this example, we will set the **-Name** parameter as *myVM*. The cmdlet will create all the required resources using *myVM* as the name. 
 
 Make sure that **PowerShell** is selected in Cloud Shell and type:
 
 ```powershell-interactive
-New-AzVm -ResourceGroupName myResourceGroup -Name myVM
+New-AzVm -Name myVM
 ```
 
 You will be asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic. The password must be 12-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character.
@@ -43,7 +43,7 @@ You will be asked to create a username and password for the VM, which will be us
 It will take a minute to create the VM and the associated resources. When finished, you can see all of the resources that were created using the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
 
 ```powershell-interactive
-Find-AzureRmResource -ResourceGroupNameEquals myResourceGroup | Format-table
+Find-AzureRmResource -ResourceGroupNameEquals myVM | Format-table
 ```
 
 ## Connect to virtual machine
@@ -53,7 +53,7 @@ After the deployment has completed, create a remote desktop connection with the 
 Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName myVM | Select IpAddress
 ```
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
@@ -67,7 +67,7 @@ mstsc /v:<publicIpAddress>
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name myVM
 ```
 
 ## Next steps
