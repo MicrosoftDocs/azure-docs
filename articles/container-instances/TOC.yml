@@ -7,11 +7,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create container instance - CLI
+  - name: Create container - CLI
     href: container-instances-quickstart.md
-  - name: Create container instance - PowerShell
+  - name: Create container - PowerShell
     href: container-instances-quickstart-powershell.md
-  - name: Create container instance - portal
+  - name: Create container - portal
     href: container-instances-quickstart-portal.md
 - name: Tutorials
   items:
