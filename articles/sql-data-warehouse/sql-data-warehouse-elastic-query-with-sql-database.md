@@ -1,5 +1,5 @@
 --
-title: Elastic Query with SQL Data Warehouse | Microsoft Docs
+title: Elastic Query Tutorial with SQL Data Warehouse | Microsoft Docs
 description: 'Learn how to use Elastic Query with SQL Data Warehouse '
 services: sql-data-warehouse
 documentationcenter: NA
@@ -22,7 +22,7 @@ ms.author: elbutter
 
 # Elastic Query with SQL Data Warehouse
 
-In this tutorial, you will learn how to use Elastic Query to submit a query from SQL Database to SQL Data Warehouse. Elastic Query is functionality that exists between Azure SQL products. For more information about Elastic Query as a concept, see **Elastic Query**[TD]
+In this tutorial, you will learn how to use Elastic Query to submit a query from SQL Database to SQL Data Warehouse. Elastic Query is functionality that exists between Azure SQL products. For more information about Elastic Query as a concept, see **Elastic Query Concepts with SQL Data Warehouse**[TD]
 
 ## Prerequisites for the tutorial
 
