@@ -22,7 +22,7 @@ ms.author: v-daljep
 
 This page provides information on Azure SQL Database performance issues detected through [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. This diagnostics log can be sent to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/), [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/), and [Azure Storage](https://azure.microsoft.com/services/storage/), or a third-party solution for custom DevOps alerting and reporting capabilities. This diagnostics log can be sent to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/), [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/), and [Azure Storage](https://azure.microsoft.com/services/storage/), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
-[!NOTE]***For quick Azure SQL Database performance troubleshooting guide through Intelligent Insights,see [Recommended flow of troubleshooting](sql-database-intelligent-insights-troubleshoot-performance.md#Recommended%20flow%20of%20troubleshooting) flowchart in this document.***
+[!NOTE]***For quick Azure SQL Database performance troubleshooting guide through Intelligent Insights, see [Recommended flow of troubleshooting](sql-database-intelligent-insights-troubleshoot-performance.md#Recommended%20flow%20of%20troubleshooting) flowchart in this document.***
 
 ## Detectable Database Performance Patterns
 
@@ -58,7 +58,7 @@ This detectable performance pattern combines performance issues related to reach
 
 Resources on Azure SQL Database are typically referred as [DTU resources](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu) consisting of a blended measure of CPU and I/O (data and transaction log I/O) resources. This detectable pattern  is recognized when a query performance degradation event was detected that was caused by reaching any of the measured resource limits.
 
-Session limits resource denotes to the number of available concurrent logins to the Azure SQL Database. This performance pattern is recognized in the case applications that are connecting to the Azure SQL Databases have reached the number of available concurrent logins to the database. In case applications attempt to use more sessions than available on a database, the query performance is affected.
+Session limits resource denotes to the number of available concurrent logins to the Azure SQL Database. This performance pattern is recognized in the case applications that are connecting to the Azure SQL Databases have reached the number of available concurrent logins to the database. In case applications attempt to use more sessions than are available on a database, the query performance is affected.
 
 Reaching worker limits is a specific case of reaching resource limits since the workers available to the database are not counted in the DTU usage. Reaching worker limits on a database can cause the rise of a resource-specific wait times and therefore a degradation of query performance.
 
@@ -78,7 +78,7 @@ The detectable performance pattern identifies issues caused by workload increase
 
 This detection is made through combination of several metrics. The basic metric measured is detecting a statistically significant increase in the current workload compared with the previously measured 7-day database workload baseline. The other form of detection is based on measuring a large increase in active worker threads that is large enough to impact the query performance.
 
-In its more severe form where the workload is continuously piling-up due to the SQL engine not being able to handle the workload, the result is continuously growing workload in size (i.e. workload pile-up condition). This issue is detected through detecting a statistically significant increase in number of aborted worker threads. This results in a continuous growth of the workload waiting for query execution representing one of the most severe database performance issues.
+In its more severe form where the workload is continuously piling-up due to the SQL engine not being able to handle the workload, the result is continuously growing workload in size (that is workload pile-up condition). This issue is detected through detecting a statistically significant increase in number of aborted worker threads. This results in a continuous growth of the workload waiting for query execution representing one of the most severe database performance issues.
 
 ### Troubleshooting
 
@@ -94,11 +94,11 @@ The detectable performance pattern identifies a performance condition caused by 
 
 Memory pressure denotes a performance condition in which there is a large enough number of worker threads requesting memory grants in the SQL engine. This is causing a high memory utilization condition in which the SQL engine is not able efficiently allocate memory to all workers requesting it. One of the most common reasons for this issue is related to the amount of memory available to the SQL engine on one hand, and on the other hand an increase in workload that is causing the increase in worker threads and the memory pressure.
 
-More severe form of memory pressure is the memory pile-up condition indicating there is a higher number of worker threads requesting memory grants than there are queries releasing the memory. This number of worker threads requesting memory grants might also be continuously increasing (i.e. piling-up), as the engine is unable to allocate memory efficiency enough to meet the demand. Memory pile-up condition represents one of the most severe database performance issues.
+More severe form of memory pressure is the memory pile-up condition indicating there is a higher number of worker threads requesting memory grants than there are queries releasing the memory. This number of worker threads requesting memory grants might also be continuously increasing (that is piling-up), as the engine is unable to allocate memory efficiency enough to meet the demand. Memory pile-up condition represents one of the most severe database performance issues.
 
 ### Troubleshooting
 
-Diagnostics log outputs the memory object store details with the clerk (i.e. worker thread) marked as the highest reason for high memory usage and relevant timestamps. This information could be used as a basis for the troubleshooting. 
+Diagnostics log outputs the memory object store details with the clerk (that is worker thread) marked as the highest reason for high memory usage and relevant timestamps. This information could be used as a basis for the troubleshooting. 
 
 You might want to consider optimizing, reducing, or removing queries related to the clerks with the highest memory usage. You might also want to make sure that you are not querying data that you do not plan to use. Good practice is to always use a WHERE clause in your queries. In addition, it is recommended that you create non-clustered indexes to seek the data, rather than to scan the data. 
 
@@ -210,7 +210,7 @@ In this case as the system could not successfully identify the root cause for po
 
 ### What is happening
 
-This detectable performance pattern indicates a database performance condition in which there exists a bottleneck of threads trying to access in-memory pages (this condition is not I/O related). The typical scenario for this performance issue is hundreds of concurrent queries that all create, use, and then drop small in-memory tables, i.e. TempDB tables. The system has detected that the number of concurrent queries using TempDB tables has increased with a statistical significance to affect database performance compared to the last 7-day performance baseline.
+This detectable performance pattern indicates a database performance condition in which there exists a bottleneck of threads trying to access in-memory pages (this condition is not I/O related). The typical scenario for this performance issue is hundreds of concurrent queries that all create, use, and then drop small in-memory tables, that is TempDB tables. The system has detected that the number of concurrent queries using TempDB tables has increased with a statistical significance to affect database performance compared to the last 7-day performance baseline.
 
 ### Troubleshooting
 
@@ -274,7 +274,7 @@ For further details on optimizing database-scoped configuration and T-SQL syntax
 
 ### What is happening
 
-This detectable performance pattern indicates a condition in which the client (i.e. application or systems) using the Azure SQL Database is not able to consume the output from the database fast enough as the database is able to send the results. As Azure SQL Database is not staring results of the executed queries in a buffer, it is slowing down and waiting for the client to consume the transmitted query outputs before proceeding. This condition could also be related to a slow network that is not able to sufficiently fast transmit outputs from the Azure SQL database to the consuming client.
+This detectable performance pattern indicates a condition in which the client (that is application or systems) using the Azure SQL Database is not able to consume the output from the database fast enough as the database is able to send the results. As Azure SQL Database is not staring results of the executed queries in a buffer, it is slowing down and waiting for the client to consume the transmitted query outputs before proceeding. This condition could also be related to a slow network that is not able to sufficiently fast transmit outputs from the Azure SQL database to the consuming client.
 
 This condition is generated only if there is a performance regression detected compared to the past 7-day database workload behavior. This ensures that this performance issue is detected only if there has been a statistically significant performance degradation compared to the previous performance behavior.
 
