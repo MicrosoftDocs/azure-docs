@@ -54,7 +54,7 @@ Once you have finalized your Terms of Use and you are ready to use it with Azure
 5. **Browse** to your finalized terms of use pdf and select it.
 6. You can **Enforce** the terms of use using one of the either a template or custom conditional access policy
 7. Click **Create**.
-8. If you selected a custom conditional access template then a new screen appears which allows you to customize the CA policy.
+8. If you selected a custom conditional access template, then a new screen appears which allows you to customize the CA policy.
 7. You should now see your new Terms of Use.</br>
 
 ![Add TOU](media/active-directory-tou/tou3.png)
@@ -91,10 +91,10 @@ Once a terms of use is created and enforced this is what an end user will see if
 The following is some general information that you need to be aware of and can assist with using terms of use.
 
 -	Global administrator, security administrator, or conditional access administrator need read/write access.
--	After creating a Terms of Use using the “access to cloud apps” template the admin will start to see “sad clouds” when access other areas of the portal. If they refresh the browser they will start to see Azure AD token issues
+-	After creating a Terms of Use using the “access to cloud apps” template the admin starts to see “sad clouds” when access other areas of the portal. If they refresh the browser, they will start to see Azure AD token issues
     - This behavior is expected and the reason for this is that the user created a new conditional access policy that they are in scope of. The new policy is not satisfied so they are unable to access any cloud apps until that policy in satisfied.
-    - Resolution: in order to resolve the user must sign out and sign back in. This will allow them to satisfy any remaining controls that they may now fall in scope of.
--	If a tenant already has a conditional access policy enforced with a Terms of Use, the next time a Terms of Use is created the admin (and all active sessions) will start to see “sad clouds” when access other areas of the portal. If they refresh the browser they will start to see Azure AD token issues.
+    - Resolution: in order to resolve the user must sign out and sign back in. This allows them to satisfy any remaining controls that they may now fall in scope of.
+-	If a tenant already has a conditional access policy enforced with a Terms of Use, the next time a Terms of Use is created the admin (and all active sessions) starts to see “sad clouds” when access other areas of the portal. If they refresh the browser, they will start to see Azure AD token issues.
     - This behavior is expected and due to limitation in the conditional access extensibility framework.
-    - Resolution: in order to resolve the user must sign out and sign back in. This will allow them to get a fresh token. 
+    - Resolution: in order to resolve the user must sign out and sign back in. This allows them to get a fresh token. 
 -	If a Terms of Use is enforced using a custom conditional access policy, and the admin wants to delete a Terms of Use, they need to make sure that Terms of Use is not enforced with any policies.
