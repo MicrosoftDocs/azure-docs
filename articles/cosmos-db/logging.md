@@ -27,9 +27,9 @@ Use this tutorial to get started with Azure Cosmos DB logging via the Azure port
 
 ## What is logged?
 
-* All authenticated REST DocumentDB (SQL) API requests are logged, which includes failed requests as a result of access permissions, system errors, or bad requests. Support for MongoDB, Graph, and Table APIs is not currently available.
-* Operations on the database itself, which includes CRUD operations on all documents, containers, and databases.
-* Operations on account keys, which include creating, modifying, or deleting these keys.
+* All authenticated requests are logged, which includes failed requests as a result of access permissions, system errors, or bad requests.
+* Operations on the database itself, which includes CRUD and query operations on all databases, containers (e.g. collections, tables, and graphs), and items (e.g. documents, nodes, and edges).
+* The logs surfaced use backend Cosmos DB operation names, resource names, and status codes. Extended logs specific to MongoDB, Graph, and Table APIs will be added in the future.
 * Unauthenticated requests that result in a 401 response. For example, requests that do not have a bearer token, or are malformed or expired, or have an invalid token.
 
 ## Prerequisites
@@ -308,11 +308,11 @@ The following table lists the fields logged inside the properties field.
 | activityId | The unique GUID for the logged operation. |
 | userAgent |A string that specifies the client user agent performing the request. The format is {user agent name}/{version}.|
 | resourceType | The type of the resource accessed. This value can be any of the following resource types: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
-| statusCode |The response status of the operation. |
-| documentResourceId | The unique ID for the document.|
-| clientIpAddress |The client's IP address. |
+| statusCode |The response status of the operation. Cosmos DB uses standard [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) (e.g. 2xx Success, 4xx Client errors, 5xx Server errors) |
+| documentResourceId | The unique resource ID (_rid) scoped to the request (e.g. the id of the document is shown for an update document request, the id of the collection is shown for issueing a query against a collection, etc).|
+| clientIpAddress |The first three octects of the client's IP address. |
 | requestCharge | The number of RUs used by the operation |
-| collectionRid | The unique ID for the collection.|
+| collectionRid | The unique resource ID (_rid) for the collection.|
 | duration | The duration of operation, in ticks. |
 | requestLength |The length of the request, in bytes. |
 | responseLength | The length of the response, in bytes.|
