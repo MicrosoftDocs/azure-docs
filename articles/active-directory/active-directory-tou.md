@@ -54,16 +54,16 @@ You can have multipe terms of use that target different user groups.  Currently 
 Once you have finalized your Terms of Use and you are ready to use it with Azure services you can use the following procedure to add it
 
 ### To add a terms of use
-1. Navigate to the dashboard at [https://aka.ms/aadtou](https://aka.ms/aadtou)
+1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
 2. Click Add.  This will open another blade.</br>
 ![Add TOU](media/active-directory-tou/tou2.png)
 3. Enter the **Name** for the Terms of Use
-4. Enter **What users will see**.  This is the header that users will see when they sign in.
-5. Select the **Type**.  This is the type of terms of use.  Currently only Collection of personal data is available.
-6. Click on **Users targeted** and select the group that this Terms of Use targets.
-7. **Browse** to your finalized terms of use pdf and select it.
-8. Click **Create**.
-9. You should now see your new Terms of Use.</br>
+4. Enter **Display Name**.  This is the header that users will see when they sign in.
+5. **Browse** to your finalized terms of use pdf and select it.
+6. You can **Enforce** the terms of use using one of the either a template or custom conditional access policy
+7. Click **Create**.
+8. If you selected a custom conditional access template than a new blade will appear which allows you to customize the CA policy.
+7. You should now see your new Terms of Use.</br>
 
 ![Add TOU](media/active-directory-tou/tou3.png)
 
