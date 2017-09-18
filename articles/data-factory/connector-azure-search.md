@@ -73,7 +73,7 @@ The following properties are supported for Azure Search linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Search dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure Search dataset.
 
 To copy data into Azure Search, set the type property of the dataset to **RelationalTable**. The following properties are supported:
 

@@ -106,7 +106,7 @@ When creating an **SAS URI**, considering the following points:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Table dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure Table dataset.
 
 To copy data to/from Azure Table, set the type property of the dataset to **AzureTable**. The following properties are supported:
 

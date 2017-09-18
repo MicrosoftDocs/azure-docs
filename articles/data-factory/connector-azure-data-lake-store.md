@@ -85,7 +85,7 @@ The following properties are supported:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Data Lake Store dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure Data Lake Store dataset.
 
 To copy data to/from Azure Data Lake Store, set the type property of the dataset to **AzureDataLakeStoreFile**. The following properties are supported:
 
