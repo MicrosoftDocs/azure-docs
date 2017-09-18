@@ -146,7 +146,7 @@ You can use a carrier of your choice in order to forward ship the hard disk. The
 In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner. For instance, any package that will cross international borders needs a commercial invoice to be accompanied with the package (except if crossing borders within European Union). You could print out a filled copy of the commercial invoice from carrier website. Example of commercial invoices are [DHL Commercial Invoice](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) and [FedEx Commercial Invoice](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Make sure that Microsoft has not been indicated as the exporter.
+> If the physical media crosses international borders, you are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner. For instance, any package that will cross international borders needs a commercial invoice to be accompanied with the package (except if crossing borders within European Union). You could print out a filled copy of the commercial invoice from carrier website. Example of commercial invoices are [DHL Commercial Invoice](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) and [FedEx Commercial Invoice](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Make sure that Microsoft has not been indicated as the exporter.
 > 
 > 
 
@@ -437,9 +437,9 @@ Please go through the FAQ section below as it covers the most common questions c
 
 ## Frequently asked questions
 
-**Can I copy Azure File storage using the Azure Import/Export service?**
+**Can I import files into an Azure File share using the Azure Import/Export service?**
 
-Yes, the Azure Import/Export service supports import to Azure File Storge. It does not support export of Azure Files at this time.
+Yes, the Azure Import/Export service supports import to Azure Files. It does not support export of an Azure File share at this time.
 
 **Is the Azure Import/Export service available for CSP subscriptions?**
 
