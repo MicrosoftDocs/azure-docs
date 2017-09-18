@@ -1,6 +1,6 @@
 ## View cost data
 
-Azure Cost Management by Cloudyn provides you access to all of your cloud resource data. From the dashboard reports you can find both standard and custom reports in a tabbed view. Below are examples of a popular dashboard and a report that show you cost data right away.
+Azure Cost Management by Cloudyn provides you access to all of your cloud resource data. From the dashboard reports you can find both standard and custom reports in a tabbed view. The following are examples of a popular dashboard and a report that show you cost data right away.
 
 ![Management dashboard](./media/cost-management-create-account-view-data/mgt-dash.png)
 

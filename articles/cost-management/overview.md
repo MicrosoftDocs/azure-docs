@@ -17,7 +17,7 @@ Azure Cost Management by Cloudyn allows you to track cloud usage and expenditure
 
 ## Monitor usage and spending
 
-Monitoring your usage and spending is critically important for cloud infrastructures because organizations pay for the resources they consume over time. When usage exceeds agreement thresholds, unexpected cost overages can quickly occur. A few important factors can make ad-hoc monitoring difficult. First, projecting costs based on average usage assumes your consumption will remain near level over a given billing period. Second, when costs are near or exceed your budget, your cloud service provider might not proactively warn you with alerts. And, cloud service providers might not offer cost projection vs. thresholds or period to period comparison reports.
+Monitoring your usage and spending is critically important for cloud infrastructures because organizations pay for the resources they consume over time. When usage exceeds agreement thresholds, unexpected cost overages can quickly occur. A few important factors can make ad-hoc monitoring difficult. First, projecting costs based on average usage assumes that your consumption remains near level over a given billing period. Second, when costs are near or exceed your budget, your cloud service provider might not proactively warn you with alerts. And, cloud service providers might not offer cost projection vs. thresholds or period to period comparison reports.
 
 Reports help you monitor spending to analyze and track cloud usage, costs, and trends. Using Over Time reports, you can detect anomalies that differ from normal trends. Inefficiencies in your cloud deployment are visible in optimization reports. You can also notice inefficiencies in cost analysis reports.
 

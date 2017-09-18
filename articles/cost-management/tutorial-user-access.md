@@ -32,7 +32,7 @@ When you registered your Azure agreement or account, an account with admin permi
 
 Although you already have admin access, coworkers in your organization might also need to have admin access. In the Cloudyn portal, click **Settings** in the upper right and select **User Management**. Click **Add New User** to add a new user.
 
-Enter required information about the user. You can leave the password field empty and the user will set a new password using information from a confirmation e-mail sent by Cloudyn, when you select **Notify user by email**. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management to allow the user to edit recipient lists.
+Enter required information about the user. You can leave the password field empty so that the user can set a new password when the sign in. A link with sign in information gets sent to by e-mail from Cloudyn when you select **Notify user by email**. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management to allow the user to edit recipient lists.
 
 Under **User has admin access**, the root entity of your organization is selected. Leave root selected and then save the user information.
   ![add new user with admin access](.\media\tutorial-user-access\new-admin-access.png)
@@ -41,18 +41,18 @@ Under **User has admin access**, the root entity of your organization is selecte
 Typical users that need access to cost management data like dashboards and reports should have user access to view them. Create a new user with user access similar to the one you created with admin access, with the following differences:
 
 - Clear **Allow User Management**, **Allow Recipient lists Management**, and clear all in the **User has admin access** list.
-- Select entities that the users needs access to in the **User has user access** list.
+- Select the entities that the user needs access to in the **User has user access** list.
 - You can also allow admin to access to specific entities, as needed.
 
 ![add new user with user access](.\media\tutorial-user-access\new-user-access.png)
 
 ## Create entities
 
-When your define your cost entity hierarchy, it identifies the structure of your organization. How you build and organize the structure is up to you. Individual subscriptions for your cloud accounts are linked to specific entities. So, entities are multi-tenant. You can assign specific users access to only their segment of your business using entities. Doing so keeps data isolated, even across large portions of a business like subsidiaries. And, data isolation helps with governance.  
+When you define your cost entity hierarchy, it identifies the structure of your organization. How you build and organize the structure is up to you. Individual subscriptions for your cloud accounts are linked to specific entities. So, entities are multi-tenant. You can assign specific users access to only their segment of your business using entities. Doing so keeps data isolated, even across large portions of a business like subsidiaries. And, data isolation helps with governance.  
 
 When you registered your Azure agreement or account with Cloudyn, your Azure resource data including usage, performance, billing, and tag data from your subscriptions was copied to your Cloudyn account. That data was used to create entities in Cloudyn.
 
-In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**. Review the entity tree to see how the structure looks. Here's an example of a entity hierarchy that might resemble many IT organizations:
+In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**. Review the entity tree to see how the structure looks. Here's an example of an entity hierarchy that might resemble many IT organizations:
 
 ![entity tree](.\media\tutorial-user-access\entity-tree.png)
 
@@ -61,8 +61,6 @@ Next to **Entities**, click **Add Entity**. Enter information about the person o
 ![add entity](.\media\tutorial-user-access\add-entity.png)
 
 When you're done, **Save** the entity.
-
-We'll look more at entities in later tutorials.
 
 
 ## Next steps
