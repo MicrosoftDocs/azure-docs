@@ -1,6 +1,6 @@
 ---
-title: Create a Windows virtual machine by using CLI in Azure Stack | Microsoft Docs
-description: Create a Windows virtual machine with CLI in Azure Stack.
+title: Create a Windows virtual machine on Azure Stack using Azure CLI | Microsoft Docs
+description: Learn how to create a Windows VM on Azure Stack using Azure CLI
 services: azure-stack
 documentationcenter: ''
 author: SnehaGunda
@@ -17,17 +17,14 @@ ms.date: 09/25/2017
 ms.author: sngun
 ---
 
-# Create a Windows virtual machine by using CLI in Azure Stack
+# Create a Windows virtual machine on Azure Stack using Azure CLI
 
-Azure CLI is used to create and manage Azure Stack resources from the command line. This guide details using Azure CLI to create a Windows Server 2016 virtual machine in Azure Stack. Once the virtual machine is created, you will connect with Remote Desktop.  
+Azure CLI is used to create and manage Azure Stack resources from the command line. This guide details using Azure CLI to create a Windows Server 2016 virtual machine in Azure Stack. Once the virtual machine is created, you will connect with Remote Desktop, Install IIS, then view the default website. 
 
-You can run the steps described in this article either from the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
+Before you begin, make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
 
-## Prerequisites
+Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-connect-cli.md).
 
-1. Make sure your Azure Stack operator has added the Windows Server 2016 image to the Azure Stack marketplace. 
-2. Azure Stack requires the 2.0 version of Azure CLI to create and manage the resources. Use the steps described in [Install and configure CLI](azure-stack-connect-cli.md) topic to install the required version.  
-3. Make sure that your Azure Stack cloud administrator has [set up a public endpoint that contains the virtual machine image aliases](azure-stack-connect-cli.md#set-up-the-virtual-machine-aliases-endpoint).
 
 ## Create a resource group
 
@@ -53,7 +50,7 @@ az vm create \
   --location local
 ```
 
-When the VM is created, you should see the output that is similar to the following example. Make note of the publicIpAaddress, which you will use to access the VM.
+When the VM is created, make note of the *PublicIPAddress* parameter that is output, which you will use to access the VM.
  
 ## Open port 80 for web traffic
 
@@ -70,6 +67,20 @@ Use the following command to create a remote desktop session with the virtual ma
 ```
 mstsc /v <Public IP Address>
 ```
+
+## Install IIS using PowerShell
+
+Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+## View the IIS welcome page
+
+With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the public IP address you documented above to visit the default page. 
+
+![IIS default site](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
 
 ## Clean up resources
 
