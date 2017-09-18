@@ -161,6 +161,8 @@
       href: sql-database-automatic-tuning.md
     - name: Intelligent Insights
       href: sql-database-intelligent-insights.md
+    - name: Intelligence Insights diagnostics log
+      hrref: sql-database-intelligent-insights-use-diagnostics-log.md
     - name: Manual tuning
       href: sql-database-performance-guidance.md
     - name: Operate query store
@@ -291,6 +293,8 @@
       href: sql-database-advisor-portal.md
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
+    - name: Intelligent Insights performance troubleshooting
+      href: sql-database-intelligent-insights-troubleshoot-performance.md
     - name: Use DMVs to monitor perf
       href: sql-database-monitoring-with-dmvs.md
     - name: Create alerts
