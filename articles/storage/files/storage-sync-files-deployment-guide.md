@@ -20,14 +20,14 @@ ms.author: wgries
 # How to deploy Azure File Sync (preview)
 With Azure File Sync (preview), shares can be replicated on-premises or in Azure and accessed through SMB or NFS shares on Windows Server. Azure File Sync is useful for scenarios in which data needs to be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices.
 
-We strongly recommend reading the [Planning for an Azure Files deployment](planning-azure-files-deployment.md) and [Planning for an Azure File Sync deployment](planning-azure-file-sync-deployment.md) before following the steps in this guide.
+We strongly recommend reading the [Planning for an Azure Files deployment](planning-azure-files-deployment.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before following the steps in this guide.
 
 ## Prerequisites
 * A Storage Account and an Azure File share in the same region that you want to deploy Azure File Sync. For more information, see:
-    - [Region availability](planning-azure-file-sync-deployment.md#region-availability) of Azure File Sync,
+    - [Region availability](storage-sync-files-planning.md#region-availability) of Azure File Sync,
     - [Create a Storage Account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for step-by-step directions on how to create a Storage Account, and
     - [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
-* At least one supported Windows Server or Windows Server cluster to sync with Azure File Sync. See [Interoperability with Windows Server](planning-azure-file-sync-deployment.md#interoperability-with-windows-server) for more information on supported versions of Windows Server.
+* At least one supported Windows Server or Windows Server cluster to sync with Azure File Sync. See [Interoperability with Windows Server](storage-sync-files-planning.md#interoperability-with-windows-server) for more information on supported versions of Windows Server.
 
 ## Deploy the Storage Sync Service 
 The Storage Sync Service is the top-level Azure resource representing Azure File Sync. To deploy a Storage Sync Service, navigate to the [Azure portal](https://portal.azure.com/), and search for Azure File Sync. After selecting "Azure File Sync (preview)" from the search results, select "Create" to pop open the "Deploy Storage Sync" tab.
@@ -71,7 +71,7 @@ The Azure File Sync agent is a downloadable package which enables a Windows Serv
 
 The Azure File Sync agent installation package should install relatively quickly without too many additional prompts. We recommend:
 - Leaving the default installation path `C:\Program Files\Azure\StorageSyncAgent`) to simplify troubleshooting and server maintenance.
-- Enabling Microsoft Update to keep Azure File Sync up to date. All updates, including feature updates and hotfixes, to the Azure File Sync agent will occur from Microsoft Update. We always recommend taking the latest update to Azure File Sync. Please see [Azure File Sync update policy](planning-azure-file-sync-deployment.md#azure-file-sync-agent-update-policy) for more information.
+- Enabling Microsoft Update to keep Azure File Sync up to date. All updates, including feature updates and hotfixes, to the Azure File Sync agent will occur from Microsoft Update. We always recommend taking the latest update to Azure File Sync. Please see [Azure File Sync update policy](storage-sync-files-planning.md#azure-file-sync-agent-update-policy) for more information.
 
 At the conclusion of the Azure File Sync agent installation, the Server Registration UI will auto-start. Please see the next section for how to register this server with Azure File Sync.
 

@@ -93,6 +93,6 @@ There are many easy options to bulk transfer data from an existing file share, s
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance. AzCopy is available for Windows and Linux.
 
 ## Next steps
-* [Planning for an Azure File Sync Deployment](planning-azure-file-sync-deployment.md)
+* [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
 * [Deploying Azure Files](storage-files-deployment-guide.md)
 * [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
