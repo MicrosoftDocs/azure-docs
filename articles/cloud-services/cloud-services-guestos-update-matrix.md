@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/14/2017
 ms.author: raiye
 
 ---
@@ -34,6 +34,8 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **September 14, 2017**
+September Guest OS rollout is starting September 14 and has a projected release of October 9.
 
 ###### **August 24, 2017**
 August Guest OS has released.
@@ -61,12 +63,6 @@ May Guest OS rollout is starting May 12 and has a projected release of June 13.
 
 ###### **April 18, 2017**
 April Guest OS rollout is starting April 18 and has a projected release of May 9.
-
-###### **April 10, 2017**
-March Guest OS rollout started March 14, 2017, and released on April 10, 2017.
-
-###### **January 10, 2017**
-The January Guest OS contains patches that only impact OS family 2 (Windows 2008 Server R2). We have therefore released only the OS Family 2 image (WA-GUEST-OS-2.59_201701-01) for this month. For all other OS families, the December OS (201612-01) remains the latest.
 
 
 ## Releases
