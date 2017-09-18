@@ -37,7 +37,7 @@ With service endpoints, Azure service resources can be secured to your virtual n
 
 -__Optimal routing for Azure service traffic from your Virtual Network__
 
-Today, any routes in your Vnet that force Internet traffic through on-premises and/or virtual appliances, known as forced-tunneling, also force Azure service traffic to take the same route as the Internet traffic. Service endpoints provide optimal routing for Azure traffic by always taking service traffic directly from your Vnet to the service on the Microsoft Azure backbone network. This allows you to continue auditing and monitoring the outbound Internet traffic from your VNets, through forced-tunneling, without impacting the service traffic. Learn more about [user-defined routes and forced-tunneling.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)
+Today, any routes in your VNet that force Internet traffic through on-premises and/or virtual appliances, known as forced-tunneling, also force Azure service traffic to take the same route as the Internet traffic. Service endpoints provide optimal routing for Azure traffic. Endpoints always take service traffic directly from your VNet to the service on the Microsoft Azure backbone network. This allows you to continue auditing and monitoring the outbound Internet traffic from your VNets, through forced-tunneling, without impacting the service traffic. Learn more about [user-defined routes and forced-tunneling.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)
 
 - __Simple to set up with less management overhead__
 
@@ -55,32 +55,30 @@ You no longer need reserved, public IP addresses in your VNets to secure Azure r
 - Today, Azure service traffic from your VNet uses public IPs as source IPs. With service endpoints, service traffic switches to use VNet private addresses as the source IPs when accessing the Azure service from your VNet. This switch allows you to access the services without the need for reserved, public IP addresses used in IP firewalls.
 - By sharing identity of your virtual network with the service, endpoints allow Azure service resources to be secured to your VNet and subnet by name.
 
-[!IMPORTANT] Vnet private address space is not unique and cannot be directly used for the Azure service virtual network rules or IP firewall rules.
+[!IMPORTANT] VNet private address space is not unique and cannot be directly used for the Azure service virtual network rules or IP firewall rules.
 
-- Service endpoints do no extend to on-premises. If you want to allow traffic from on-premises, you should also allow NAT IP addresses from your on-premises. NAT IP addresses can be added through IP firewall configuration for Azure service resources. Read more on [configuring access from on-premises.](https://docs.microsoft.com/azure/storage/common/storage-network-security#Configuring-access-from-on-premises-networks)
+- Service endpoints do no extend to on-premises. If you want to allow traffic from on-premises, you should also allow NAT IP addresses from your on-premises or ExpressRoute circuits. NAT IP addresses can be added through IP firewall configuration for Azure service resources. Read more on [configuring access from on-premises.](https://docs.microsoft.com/azure/storage/common/storage-network-security#Configuring-access-from-on-premises-networks)
 
 ![Securing Azure Services to Virtual Networks](media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
 ### __Configuration__
 
 - Service endpoints should be configured per subnet in a VNet.
-- Only one service endpoint can be opened to a specific service from a subnet. You can configure multiple service endpoints for all supported Azure services (Say, Storage, Sql) on a subnet.
-- For supported services, you can secure new or existing resources to VNets using service endpoints. 
+- Only one service endpoint can be enabled to a specific service from a subnet. You can configure multiple service endpoints for all supported Azure services (Say, Storage, Sql) on a subnet.
 - VNets should be in the same region as the Azure service resource. For Azure Storage, if using GRS and RA-GRS accounts, the primary account should be in the same region as the VNet.
 - VNet where the endpoint is configured can be in the same or different subscription as the Azure service resource. For more information on permissions required for setting up endpoints and securing Azure services, see ["Provisioning”](#Provisioning) section below.
+- For supported services, you can secure new or existing resources to VNets using service endpoints.
 
 ### __Considerations__
 
 - On enabling a service endpoint, the source IP addresses of virtual machines in the subnet switch from using public IPv4 addresses to using their private IPv4 address, when communicating with the service from that subnet.
   - Any existing open TCP connections to the service may be closed during this switch. Ensure that no critical tasks are running when enabling or disabling a service endpoint to a service for a subnet. Also,ensure that your applications can automatically connect to Azure services after this switch.
-  - IP address switch only impacts service traffic from your VNet. There is no impact to any other traffic addressed to/from public Ipv4 addresses assigned to your VMs. 
+  - IP address switch only impacts service traffic from your VNet. There is no impact to any other traffic addressed to/from public IPV4 addresses assigned to your VMs. 
   - For Azure services, if you have existing firewall rules using Azure public IPs, these rules stop working with the switch to VNet private addresses.
 - With service endpoints, DNS entries for Azure services remain as is today and continue to resolve to IP addresses assigned to the Azure service.
 - Network security groups (NSGs) with service endpoints:
-
-   By default, NSGs allow outbound Internet traffic and so, also allow traffic from your Vnet to Azure services. This will continue to work as is, with service endpoints.
-
-   If you want to deny all outbound Internet traffic and allow only traffic to specific Azure services,  you can do so using __“Azure service tags”__ in your NSGs. You can specify supported Azure services as destination in your NSG rules and the maintenance of IP addresses underlying each tag is provided by Azure. For more information, see [Azure Service tags for NSGs](https://aka.ms/servicetags)
+  -  By default, NSGs allow outbound Internet traffic and so, also allow traffic from your VNet to Azure services. This will continue to work as is, with service endpoints.
+  - If you want to deny all outbound Internet traffic and allow only traffic to specific Azure services,  you can do so using __“Azure service tags”__ in your NSGs. You can specify supported Azure services as destination in your NSG rules and the maintenance of IP addresses underlying each tag is provided by Azure. For more information, see [Azure Service tags for NSGs.](https://aka.ms/servicetags)
 
 ### __Scenarios__
 
@@ -90,7 +88,7 @@ Service endpoints do not extend to peered, connected VNets. To secure Azure serv
 
 - Filtering outbound traffic from VNet to Azure services:
 
-If you want to inspect or filter the traffic destined to an Azure service from the Virtual network, you can deploy a Network Virtual Appliance (NVA) within that VNet. You can then apply service endpoints to the subnet where the NVA is deployed and secure Azure service resource only to this subnet. This scenario might be helpful if you wish to restrict Azure service access from your VNet only to specific Azure resources, using NVA filtering. For more information, read the [egress with NVAs](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas) article.
+If you want to inspect or filter the traffic destined to an Azure service from the virtual network, you can deploy a Network Virtual Appliance (NVA) within that VNet. You can then apply service endpoints to the subnet where the NVA is deployed and secure Azure service resource only to this subnet. This scenario might be helpful if you wish to restrict Azure service access from your VNet only to specific Azure resources, using NVA filtering. For more information, read the [egress with NVAs](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas) article.
 
 - Securing Azure resources to services deployed directly into VNets:
 
@@ -103,7 +101,7 @@ Once service endpoints are configured to a specific service:
 
 - __Effective routes__ on any NIC in subnet show a more specific “default” route to address prefix range of that service. The route has a nextHopType as "VirtualNetworkServiceEndpoint". This route indicates that a more direct connection to the service is in effect, compared to any forced-tunneling routes.
 
-[!NOTE] Service endpoint route overrides BGP or UDR routes for the address prefix match, as the Azure service.Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+[!NOTE] Service endpoint route overrides BGP or UDR routes for the address prefix match, as the Azure service. Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
 
 - Azure service diagnostics show the “SourceIP” of any request from the VNet, as VNet’s private IP address. This entry indicates that the service access from VNet is coming through the endpoint.
 

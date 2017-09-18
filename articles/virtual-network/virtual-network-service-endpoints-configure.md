@@ -19,11 +19,11 @@ ms.custom:
 ---
 # Configure Virtual Network Service Endpoints
 
-Virtual Network (VNet)Service endpoints allow you to secure Azure service resources to your Azure Virtual Network, fully removing the public Internet access to these resources. Service endpoints provide direct connection from your virtual network to an Azure service, allowing you to use your VNet’s private address space to access the Azure services. Traffic destined to Azure services through service endpoints  always stays on the Microsoft Azure backbone network. Learn more about ["Virtual Network Service Endpoints”](virtual-network-service-endpoints-overview.md).
+Virtual Network (VNet) service endpoints allow you to secure Azure service resources to your Azure Virtual Network, fully removing the public Internet access to these resources. Service endpoints provide direct connection from your virtual network to an Azure service, allowing you to use your VNet’s private address space to access the Azure services. Traffic destined to Azure services through service endpoints  always stays on the Microsoft Azure backbone network. Learn more about ["Virtual network service endpoints”](virtual-network-service-endpoints-overview.md)
 
-This article provides steps to enable and disable service endpoints. Once service endpoints are enabled on a subnet to an Azure service, you can secure specific service resources to a virtual network.
+This article provides steps to enable and disable service endpoints. Once endpoints are enabled on a subnet to an Azure service, you can secure specific service resources to a virtual network.
 
-You can use the [Azure portal](#Azure%20Portal), [Azure PowerShell](#Azure%20Powershell), [Azure command-line interface](#cli), or an Azure Resource Manager [template](#template) to configure virtual network service endpoints.
+Service endpoints can be configured using [Azure portal](#Azure%20portal), [Azure PowerShell](#Azure%20Powershell), [Azure command-line interface](#cli), or an Azure Resource Manager [template](#template).
 
 [!NOTE] During preview, Vnet service endpoints feature is supported for specific regions. For the list of supported regions, refer to  the [Azure Virtual Network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) page.
 
@@ -37,22 +37,26 @@ You can use the [Azure portal](#Azure%20Portal), [Azure PowerShell](#Azure%20Pow
 
 - You can enable the endpoints on a new or existing subnet.
 
-- Locaiton is configured automatically for an endpoint. By default, service endpoints are configured to the VNet's region. For Azure Storage, to support regional failover scenarios, endpoints are automatically configured to [Azure paired regions.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)
+- Location is configured automatically for an endpoint. By default, service endpoints are configured to the VNet's region. For Azure Storage, to support regional failover scenarios, endpoints are automatically configured to [Azure paired regions.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)
 
 [!IMPORTANT] Depending on the size of VNet/subnet, enabling service endpoint may take some time to finish. Ensure no critical tasks are in progress when enabling service endpoints. Service endpoints switch routes on every NIC in your subnet and may terminate any open TCP connections. 
 
 - Service endpoint call returns “succeeded” after traffic flows to the service on all NICs in the subnet have been switched to Vnet private IP addresses.
 
-- To validate if service endpoint is configured correctly, "effective routes" on any NIC in the subnet shows a new "default" route with nextHopType: VirtualNetworkServiceEndpoint, per service, per region.
+- __Effective Routes to validate endpoint configuration__
 
-## __Azure Portal__
+   To validate if service endpoint is configured correctly, "effective routes" on any NIC in the subnet shows a new "default" route with nextHopType: VirtualNetworkServiceEndpoint, per service, per region. Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+
+   [!NOTE] Effection routes can only be viewed if you have one or more network interfaces (NICs) configured and associated with a running virtual machine in the subnet.
+
+## __Azure portal__
 
 ### __Setting up service endpoint on a subnet during VNet Create__
 
 1. Open [Azure portal](https://portal.azure.com/).
-Log in to Azure using your Azure account. If you don't have an Azure account, you can sign up for a free trial. The account must have the necessary [permissions](#permissions) to create a virtual network and service endpoint.
+Log in to Azure using your Azure account. If you don't have an Azure account, you can sign up for a free trial. The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
 2. Click +New > Networking > Virtual network > +Add.
-3. On "Create virtual network" blade, enter the following values, and then click Create:
+3. On "Create virtual network", enter the following values, and then click Create:
 
 Setting | Value
 ------- | -----
@@ -86,10 +90,7 @@ You can confirm that the service endpoints are configured using below steps:
 
 ### __Effective routes to validate endpoint configuration__
 
-You can also view "effective routes" on any NIC in the subnet. If service endpoints are configured, effective routes show new default routes with nextHop as "VirtualNetworkServiceEndpoint", one route entry per service per region.
-Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
-
-[!NOTE] Atleast one network interface (NIC) should be configured and associated with a running virtual machine in the subnet to see effective routes.
+To view effective route on a network interface (NIC) in the subnet, click on any NIC in that subnet. Under "Suppoert + Troubleshooting", click "Effective routes". If endpoint is configured, you will see a new "default" route with address prefixes of the service as destination, and nextHopType as "VirtualNetworkServiceEndpoint".
 
 ![Effective routes for service endpoints](media/virtual-network-service-endpoints-portal/effective-routes.png)
 
@@ -116,7 +117,7 @@ Set-up pre-requisites:
 
 - Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
-- In PowerShell, log in to Azure by entering the `login-azurermaccount` command. The account must have the necessary [permissions](#permissions) to create a virtual network and service endpoint.
+- In PowerShell, log in to Azure by entering the `login-azurermaccount` command. The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
 
 __Get available service endpoints for Azure region__
 Use the command below to get the list of services supported for endpoints, for an Azure region.
@@ -125,7 +126,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Output: 
-Name | Id | Type
+Name | ID | Type
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -216,19 +217,18 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 
 ### __Effective routes to validate endpoint configuration__
 
-You can also view "effective routes" on any NIC in the subnet. If service endpoints are configured, effective routes show new default routes with nextHop as "VirtualNetworkServiceEndpoint", one route entry per service per region.
+If service endpoints are configured, effective routes show new default routes with nextHop as "VirtualNetworkServiceEndpoint", one route entry per service per region.
 Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
 
-[!NOTE] Atleast one network interface (NIC) should be configured and associated with a running virtual machine in the subnet to see effective routes.
-
+[!NOTE] Effection routes can only be viewed if you have one or more network interfaces (NICs) configured and associated with a running virtual machine in the subnet.
 
 ## __Azure CLI__
 
 Set-up pre-requisites:
 - Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. For more information about logging in, see [Get Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
- - The account must have the necessary [permissions](#permissions) to create a virtual network and service endpoint.
+ - The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
 
- For full list of commands for virtual networks , see [Azure CLI Virtual Network commands](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)
+ For full list of commands for virtual networks, see [Azure CLI Virtual Network commands](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)
 
 __Get available service endpoints for Azure region__
 
@@ -258,7 +258,7 @@ az network vnet create -g myRG -n myVNet --address-prefixes 10.0.0.0/16 -l eastU
 az network vnet subnet create -g myRG -n mySubnet --vnet-name myVNet --address-prefix 10.0.1.0/24 --service-endpoints Microsoft.Storage
 ```
 
-You can add multiple endpoints as : 
+To add multiple endpoints: 
 --service-endpoints Microsoft.Storage Microsoft.Sql
 
 Output:
@@ -346,17 +346,17 @@ Output:
 
 ### __Effective routes to validate endpoint configuration__
 
-You can also view "effective routes" on any NIC in the subnet. If service endpoints are configured, effective routes show new default routes with nextHop as "VirtualNetworkServiceEndpoint", one route entry per service per region.
+If service endpoints are configured, effective routes show new default routes with nextHop as "VirtualNetworkServiceEndpoint", one route entry per service per region.
 Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
 
-[!NOTE] Atleast one network interface (NIC) should be configured and associated with a running virtual machine in the subnet to see effective routes.
+[!NOTE] Effection routes can only be viewed if you have one or more network interfaces (NICs) configured and associated with a running virtual machine in the subnet.
 
 
 ## __Resource Manager Template__
 
 ### Securing Azure service resources to VNets
 
-You can secure specific Azure resources to your virtual netwok through service endpoints.
+You can secure specific Azure resources to your virtual network through service endpoints.
 
 Download the sample [Resource Manager template](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to secure a storage account to a subnet in a VNet.
 
@@ -365,7 +365,7 @@ The template also adds a sample IP firewall rule.
 
 You can download the template and modify parts of it to fit your scenario.
 
-Instructions are provided with the template for deploying the template using the Azure portal, PowerShell, or the Azure CLI. Ensure you have the required [permissions](#permissions) to set up the endpoint and secure the account.
+Instructions are provided with the template for deploying the template using the Azure portal, PowerShell, or the Azure CLI. Ensure you have the required [permissions](#provisioning) to set up the endpoint and secure the account.
 
 To secure Azure resources to a subnet:
 
@@ -375,7 +375,7 @@ To secure Azure resources to a subnet:
 ### Deleting service endpoints with resources secured to the subnet
 
 [!NOTE] If Azure service resources are secured to the subnet and the service endpoint is deleted, you 
-cannot access the resource from the subnet anymore.Re-enabling the endpoint alone won't restore access to the resources previously secured to the subnet.
+cannot access the resource from the subnet anymore. Re-enabling the endpoint alone won't restore access to the resources previously secured to the subnet.
 
 To secure the service resource to this subnet again, you need to:
 
@@ -389,7 +389,7 @@ Service endpoints can be configured on Virtual networks independently, by networ
 
 To secure Azure service resources to a VNet, below minimum access rights are required: 
 
-Service  | Role | Perrmissions
+Service  | Role | Permissions
 ---------|------|----------------
 Storage | StorageAdministrator |Microsoft.Network/virtualnetworks/JoinservicetoVnet
 
@@ -401,5 +401,6 @@ VNets and Azure service resources can be in the same or different subscriptions.
 
 For more instructions to secure service resource to VNets, refer to below links:
 
-Securing Azure Storage accounts to Virtual Networks
-Securing Azure SQL DBs to Virtual Networks.
+[Securing Azure Storage accounts to Virtual Networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+
+[Securing Azure SQL to Virtual networks](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
