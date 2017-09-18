@@ -24,7 +24,7 @@ The [Azure Site Recovery](site-recovery-overview.md) service manages and orchest
 This tutorial shows you how to migrate Amazon Web Services (AWS) virtual machines (VMs), to Azure with Site Recovery. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up prerequisites for the deployment
+> * Prepare Azure resources
 > * Create a Recovery Services vault for Site Recovery 
 > * Deploy a configuration server in AWS
 > * Enable replication for VMs
@@ -40,7 +40,7 @@ You migrate a VM by enabling replication for it, and running a failover from AWS
 
 Here's what you need to do for this tutorial.
 
-- Prepare Azure, including an Azure subscription, an Azure virtual network, and a storage account.
+- [Prepare Azure](tutorial-prepare-azure.md), including an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare for installation of the Mobility service on each server you want to replicate.
 - Make sure your account has permissions to create VMs.
 - Make sure the EC2 instances you want to migrate are running one of these operating systems:
@@ -56,42 +56,8 @@ Here's what you need to do for this tutorial.
 - [Check](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) that your EC2 instances match Azure requirements for disk size, VM name etc.
 
 
-### Set up an Azure account
 
-Get a Microsoft [Azure account](http://azure.microsoft.com/).
-
-- You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Learn about supported regions for Site Recovery, under Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
-
-### Verify Azure account permissions
-
-Make sure your Azure account has permissions for replication of VMs to Azure.
-
-- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need.
-- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
-
-
-### Set up an Azure network
-
-Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet.md).
-
-- Azure VMs are placed in this network when they're created after failover.
-- The network should be in the same region as the Recovery Services vault.
-
-
-### Set up an Azure storage account
-
-Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-
-- Site Recovery replicates the AWS VMs to Azure storage. Azure VMs are created from the storage after failover occurs.
-- The storage account must be in the same region as the Recovery Services vault.
-- The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
-- If you set up a premium account, you will also need an additional standard account for log data.
-
-
-
-### Prepare an account for Mobility service installation
+## Prepare an account for Mobility service installation
 
 The Mobility service must be installed on each AWS instance that you want to replicate. Site Recovery installs this service automatically when you enable replication for the VM. To install automatically, you need to prepare an account that Site Recovery will use to access the VM.
 
