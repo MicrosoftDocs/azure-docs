@@ -23,7 +23,7 @@ ms.custom: mvc
 Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter.  Azure Stack is designed to help you in key scenarios, like meeting security and compliance requirements, or where you need to access Azure resources without internet connectivity.  Azure Stack is offered in two versions.
 
 ## Azure Stack Integrated System
-The Azure Stack Integrated System is offered by hardware partners as a pre-built and validated hardware and software solution.  Azure Stack integrated systems are available in sizes from 4-12 nodes. 
+The Azure Stack Integrated System is offered by hardware partners as a pre-built and validated hardware and software solution.  Because Azure Stack is offered as an integrated system of hardware and software, you are offered the right amount of flexibility and control, while still keeping cloud-paced innovation.  Azure Stack integrated systems are available in sizes from 4-12 nodes. Azure Stack integrated systems are fully supported, and updated at a cloud cadence.  
 
 ## Azure Stack Development Kit
 Microsoft Azure Stack Development Kit is a single-node version of Azure Stack, which you can use to evaluate and learn about Azure Stack.  You can also use Azure Stack Development Kit as a developer environment, where you can develop using consistent APIs and tooling.  
