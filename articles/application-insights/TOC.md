@@ -2,7 +2,11 @@
 ## [What is Application Insights?](app-insights-overview.md)
 ## [Performance monitoring overview for DevOps](app-insights-detect-triage-diagnose.md)
 
-# Get started
+# Tutorials
+## [Find run-time exceptions](app-insights-tutorial-runtime-exceptions.md)
+## [Find performance issues](app-insights-tutorial-performance.md)
+
+# Concepts
 ## Monitor Azure
 ### [Azure web apps](app-insights-azure-web-apps.md)
 ### [Azure Cloud Services](app-insights-cloudservices.md)
@@ -29,8 +33,7 @@
 ### [SharePoint sites](app-insights-sharepoint.md)
 ### [More platforms](app-insights-platforms.md)
 
-
-# How to
+# How-to guides
 ## Plan and design
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
