@@ -47,8 +47,7 @@ You can use Azure Import/Export service to copy data to **Block** blobs or **Pag
 To begin the process of importing to or exporting from storage, you first create a job. A job can be an import job or an export job:
 
 * Create an import job when you want to transfer data you have on-premises to blobs in your Azure storage account.
-* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.s
-When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
+* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
 
 * For an import job, you will be shipping hard drives containing your data.
 * For an export job, you will be shipping empty hard drives.
@@ -255,12 +254,8 @@ In this section, we provide step-by-step instructions for creating an import and
 
 > [!IMPORTANT]
 > The service supports one standard storage account per import or export job and does not support premium storage accounts. 
-> 
-> 
-## Create an import job
-Create an import job to copy data to your Azure storage account from hard drives by shipping one or more drives containing data to the specified data center. The import job conveys details about hard disk drives, data to be copied, target storage account, and shipping information to the Azure Import/Export service. Creating an import job is a three-step process. First, prepare your drives using the WAImportExport tool. Second, submit an import job using the Azure portal. Third, ship the drives to the shipping address provided during job creation and update the shipping info in your job details.   
 
-### Prepare your drives
+## Prepare your drives
 The first step when importing data using the Azure Import/Export service is to prepare your drives using the WAImportExport tool. Follow the steps below to prepare your drives.
 
 1. Identify the data to be imported. This could be directories and standalone files on the local server or a network share.  
@@ -360,7 +355,9 @@ See more details about using the WAImportExport tool in [Preparing hard drives f
 
 Also, refer to the [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  
 
-### Create the import job
+## Create the import job
+Create an import job to copy data to your Azure storage account from hard drives by shipping one or more drives containing data to the specified data center. The import job conveys details about hard disk drives, data to be copied, target storage account, and shipping information to the Azure Import/Export service. Creating an import job is a three-step process. First, prepare your drives using the WAImportExport tool. Second, submit an import job using the Azure portal. Third, ship the drives to the shipping address provided during job creation and update the shipping info in your job details.   
+
 1. Once you have prepared your drive, navigate to your storage account in the Azure portal and view the Dashboard. Under **Quick Glance**, click **Create an Import Job**. Review the steps and select the checkbox to indicate that you have prepared your drive and that you have the drive journal file available.
 2. In Step 1, provide contact information for the person responsible for this import job and a valid return address. If you wish to save verbose log data for the import job, check the option to **Save the verbose log in my 'waimportexport' blob container**.
 3. In Step 2, upload the drive journal files that you obtained during the drive preparation step. You will need to upload one file for each drive that you have prepared.
