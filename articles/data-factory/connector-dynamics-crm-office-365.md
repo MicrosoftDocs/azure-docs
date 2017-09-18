@@ -1,5 +1,5 @@
 ---
-title: Copy data from Dynamics CRM and Dynamics 365 by using Azure Data Factory | Microsoft Docs
+title: Copy data from Dynamics CRM and 365 using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Dynamics CRM and 365 to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 08/10/2017
 ms.author: jingwang
 
 ---
-# Copy data from Dynamics 365 and Dynamics CRM by using Azure Data Factory
+# Copy data from Dynamics 365/Dynamics CRM using Azure Data Factory
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Dynamics 365/Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported scenarios
@@ -33,7 +33,7 @@ Specifically, this Dynamics connector supports below Dynamics versions and authe
 *IFD is short for Internet Facing Deployment.*
 
 > [!NOTE]
-> To use Dynamics connector, store your password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy. See how to configure in [linked service properties](#linked-service-properties)] section.
+> To use Dynamics connector, store your password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy. See how to configure in [linked service properties](#linked-service-properties) section.
 
 ## Getting started
 You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
@@ -53,7 +53,7 @@ The following properties are supported for Dynamics linked service:
 | organizationName | The organization name of the Dynamics instance. | No, should specify when there are more than one Dynamics instances associated with the user. |
 | authenticationType | The authentication type to connect to Dynamics server. Specify **"Office365"** for Dynamics Online. | Yes |
 | username | Specify user name to connect to the Dynamics. | Yes |
-| password | Specify password for the user account you specified for the username. Note you have to put the password in the Azure Key Vault, and configure the password as an "AzureKeyVaultSecret". | Yes |
+| password | Specify password for the user account you specified for the username. You have to put the password in the Azure Key Vault, and configure the password as an "AzureKeyVaultSecret". For more information, see the [Store credentials in Key Vault](store-credentials-in-key-vault.md) article. | Yes |
 
 **Example: Dynamics online using Office365 authentication**
 
@@ -94,7 +94,7 @@ The following properties are supported for Dynamics linked service:
 | organizationName | The organization name of the Dynamics instance. | Yes |
 | authenticationType | The authentication type to connect to Dynamics server. Specify **"Ifd"** for Dynamics on-premises with IFD. | Yes |
 | username | Specify user name to connect to the Dynamics. | Yes |
-| password | Specify password for the user account you specified for the username. Note you have to put the password in the Azure Key Vault, and configure the password as an "AzureKeyVaultSecret". | Yes |
+| password | Specify password for the user account you specified for the username. Note you have to put the password in the Azure Key Vault, and configure the password as an "AzureKeyVaultSecret". For more information, see the [Store credentials in Key Vault](store-credentials-in-key-vault.md) article. | Yes |
 
 **Example: Dynamics on-premises with IFD using IFD authentication**
 
@@ -126,7 +126,7 @@ The following properties are supported for Dynamics linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Dynamics dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Dynamics dataset.
 
 To copy data from Dynamics, set the type property of the dataset to **DynamicsEntity**. The following properties are supported:
 
@@ -135,8 +135,8 @@ To copy data from Dynamics, set the type property of the dataset to **DynamicsEn
 | type | The type property of the dataset must be set to: **DynamicsEntity** |Yes |
 | entityName | The logical name of the entity to retrieve. | No (if "query" in activity source is specified) |
 
-> [!IMPORNANT]
-> **The "structure" section in dataset is required for Dynamics**, which defines column name and data type for Dynamics data that you want to copy over. Learn more from dataset structure and the [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
+> [!IMPORTANT]
+> **The "structure" section in dataset is required for Dynamics**, which defines column name and data type for Dynamics data that you want to copy over. Learn more from [dataset structure](concepts-datasets-linked-services.md#dataset-structure) and the [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
 
 **Example:**
 
