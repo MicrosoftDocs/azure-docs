@@ -42,6 +42,7 @@ To complete this tutorial:
 - Make sure that VMs you want to replicate comply with [Azure VM requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare accounts for Site Recovery to work with on-premises VMware servers and VMs.
+- Plan capacity. Figure out your capacity requirement with the VMware to Azure Deployment Planner Tool.
 
 
 ### Set up an Azure account
@@ -76,7 +77,7 @@ Set up an [Azure storage account](../storage/common/storage-create-storage-accou
 - The storage account must be in the same region as the Recovery Services vault.
 - The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
 - If you set up a premium account, you will also need an additional standard account for log data.
-- You can't replicate to premium accounts in Central and South India.
+
 
 
 ### Prepare an account for automatic discovery
@@ -91,6 +92,7 @@ Create the account as follows:
 1. To use a dedicated account, create a role at the vCenter level. Give the role a name. For example, **Azure__Site_Recovery**.
 2. Assign the permissions summarized in the table below to the role. 
 3. Create a user on the vCenter server if you have one, or on the vSphere host. Assign the role to the user. 
+
 
 #### VMware account permissions
 
@@ -110,6 +112,22 @@ The Mobility service must be installed on each VM you want to replicate. Site Re
     - From a CLI, type:
         ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - For Linux, the account should be root on the source Linux server.
+
+### Figure out capacity requirements
+
+1. Download the [Deployment Planner tool](https://aka.ms/asr-deployment-planner) for VMware replication. [Learn more](site-recovery-deployment-planner.md) about running the tool.
+2. You can use the tool you gather information about compatible and incompatible VMs, disks per VM, and data churn per disk. The tool also covers network bandwidth requirements, and the Azure infrastructure needed for successful replication and test failover.
+
+#### Example
+
+1. Use a command like this example to collect profile information about your source environment.
+
+    ```Example: Profile VMs for 30 days, and find the throughput from on-premises to Azure 
+ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+    ```
+2. use a command like this to generate a profile report:
+
+    ``` ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile \\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt ```
 
 
 ## Create a vault
@@ -200,7 +218,7 @@ Select and verify target resources.
 4. In **Recovery point retention**, specify (in hours) how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
     - 24 hours retention is supported for machines replicated to premium storage.
     - 72 hours is supported for standard storage.
-5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
+5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. An app-consistent snapshot takes a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that apps are in a consistent state when the snapshot is taken. Enabling application-consistent snapshots, affects app performance on source VMs. Set a value that's less than the number of additional recovery points you configure. Click **OK** to create the policy.
 
     ![Replication policy](./media/tutorial-vmware-to-azure/replication-policy.png)
 
