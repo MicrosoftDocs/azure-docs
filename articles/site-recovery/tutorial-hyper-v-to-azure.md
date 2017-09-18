@@ -199,18 +199,19 @@ The Recovery Services agent on the Hyper-V host needs internet access to Azure f
 
 #### Install the Provider on the VMM server (Hyper-V with VMM)
 
-1. 1. In **Microsoft Update**, you can opt in for updates so that Provider updates are installed in accordance with your Microsoft Update policy.
+1. In **Microsoft Update**, you can opt in for updates so that Provider updates are installed in accordance with your Microsoft Update policy.
 2. In **Installation**, accept or modify the default Provider installation location and click **Install**. 
 3. Now register the VMM server in the vault. In **Vault Settings**, click **Browse** to select the vault key file that you downloaded. Specify the Azure Site Recovery subscription, and the vault name.
 
     ![Server registration](./media/tutorial-hyper-v-to-azure/provider-vault-settings.png)
 
- 4. In **Proxy Settings**, specify how the Provider running on the VMM server or Hyper-V host connects to Site Recovery over the internet.
+4 In **Proxy Settings**, specify how the Provider running on the VMM server or Hyper-V host connects to Site Recovery over the internet.
+
 	* For a direct connection, select **Connect directly to Azure Site Recovery without a proxy**.
 	* For a proxy, select **Connect to Azure Site Recovery using a proxy server**. Specify the proxy address, port, and credentials if needed.
 	- A VMM RunAs account (DRAProxyAccount) is created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The RunAs account settings can be modified in the VMM console > **Settings** > **Security** > **Run As Accounts**. Restart the VMM service to update changes.
-7. In **Data Encryption**, specify whether to encrypted all data sent to Azure. If you select this option Site Recovery issues a certificate. You'll need this certificate to decrypt data later on.
-8. In **VMM Server**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name. In **Synchronize cloud metadata with the vault**, select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked, and synchronize each cloud individually in the cloud properties in the VMM console.
+5. In **Data Encryption**, specify whether to encrypted all data sent to Azure. If you select this option Site Recovery issues a certificate. You'll need this certificate to decrypt data later on.
+6. In **VMM Server**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name. In **Synchronize cloud metadata with the vault**, select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked, and synchronize each cloud individually in the cloud properties in the VMM console.
 
 After registration finishes, metadata from the server is retrieved by Azure Site Recovery, and the VMM server is displayed in **Site Recovery Infrastructure**.
 
