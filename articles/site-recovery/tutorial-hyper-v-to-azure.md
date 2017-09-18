@@ -149,7 +149,7 @@ For Hyper-V with VMM, download the Provider and agent separately. Run the Provid
         ![Provider without VMM](./media/tutorial-hyper-v-to-azure/download-no-vmm.png)
 
     - **With VMM**: If you're using VMM, download the Provider and the agent installation files separately. 
-        ![Povider and agent with VMM](./media/tutorial-hyper-v-to-azure/download-vmm.png)
+        ![Provider and agent with VMM](./media/tutorial-hyper-v-to-azure/download-vmm.png)
 1. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 
 ### Run Provider setup
@@ -167,7 +167,12 @@ For Hyper-V with VMM, download the Provider and agent separately. Run the Provid
 
 	* For a direct connection, select **Connect directly to Azure Site Recovery without a proxy**.
 	* For a proxy, select **Connect to Azure Site Recovery using a proxy server**. Specify the proxy address, port, and credentials if needed.
+	- - If you're using VMM, a VMM RunAs account (DRAProxyAccount) is created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The RunAs account settings can be modified in the VMM console > **Settings** > **Security** > **Run As Accounts**. Restart the VMM service to update changes.
 6. After installation finishes, click **Register** to register the server in the vault.
+7. In **Registration Key**, select the key that you downloaded from Azure Site Recovery and copied to the VMM server or Hyper-V host.
+9. The encryption setting is only used when you're replicating Hyper-V VMs in VMM clouds to Azure. If you're replicating to a secondary site it's not used.
+10. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
+11. In **Synchronize cloud metadata**, select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked, and synchronize each cloud individually in the cloud properties in the VMM console.
 
 After registration finishes, metadata from the server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure**.
 
@@ -226,7 +231,7 @@ If you're using VMM, set up network mapping.
 4. In **Recovery point retention**, specify how long the retention window will be (in hours) for each recovery point. Protected machines can be recovered to any point within a window.
 5. In **App-consistent snapshot frequency**, specify how frequently (1-12 hours) recovery points containing application-consistent snapshots will be created. Hyper-V uses two types of snapshots:
     - **Standard snapshot**: Provides an incremental snapshot of the entire virtual machine.
-    - **App-consistent snapshot**: Takes a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that apps are in a consistent state when the snapshot is taken. Enabling application-consistent snapshots, affects app performance on source VMs. Set a value that's less than the number of additional recovery points you configure.
+    - **App-consistent snapshot**: Takes a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that apps are in a consistent state when the snapshot is taken. Enabling application-consistent snapshots affects app performance on source VMs. Set a value that's less than the number of additional recovery points you configure.
 6. In **Initial replication start time**, indicate when to start the initial replication. Replication occurs over your internet bandwidth so you might want to schedule it outside peak hours.
 7. In **Encrypt data stored on Azure**, specify whether to encrypt at rest data in Azure storage. Then click **OK**.
 
