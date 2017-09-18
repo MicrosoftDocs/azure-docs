@@ -25,7 +25,7 @@ ms.date: 09/17/2017
     service : Manage operationalized services.
 
 ## Account commands
-A model management account is required to use the services, which allow you to deploy and manage models. Use `az ml account modelmanagement -h` to see the following list.
+A model management account is required to use the services, which allow you to deploy and manage models. Use `az ml account modelmanagement -h` to see the following list:
 
     create: Create a Model Management Account.
     delete: Delete a specified Model Management Account.
@@ -34,9 +34,9 @@ A model management account is required to use the services, which allow you to d
     show  : Show a Model Management Account.
     update: Update an existing Model Management Account.
 
-**Create Model Managment Account**
+**Create Model Management Account**
 
-Create a model managment account using the below command. This account will be used for billing.
+Create a model management account using the following command. This account will be used for billing.
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -66,7 +66,7 @@ Local Arguments:
 
 **Set up the Deployment Environment**
 
-There are two option for deployment: *local* and *cluster*. Setting the `--cluster` (or `-c`) flag enables cluster deployment which provisions an ACS cluster. The basic setup syntax is as follows:
+There are two options for deployment: *local* and *cluster*. Setting the `--cluster` (or `-c`) flag enables cluster deployment, which provisions an ACS cluster. The basic setup syntax is as follows:
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
@@ -234,7 +234,7 @@ To create a service with a previously created image, use the following command:
 
 `az ml service create realtime --image-id [image to deploy] -n [service name]`
 
-To create a service, manifest, and image with a single command, use the following commnad:
+To create a service, manifest, and image with a single command, use the following command:
 
 `az ml service create realtime --model-file [path to model file(s)] -f [path to model scoring file, e.g. score.py] -n [service name] -r [run time included in the image, e.g. spark-py]`
 
