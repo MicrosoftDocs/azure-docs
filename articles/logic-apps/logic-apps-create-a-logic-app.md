@@ -237,7 +237,7 @@ To view more details about a run, choose the row for that run.
 
    ![View details for a logic app run](./media/logic-apps-create-a-logic-app/logic-app-run-details.png)
 
-   For more details about your logic app's status, runs history, 
+   To learn more about your logic app's status, runs history, 
    and trigger history, or to diagnose your logic app, see 
    [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
