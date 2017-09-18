@@ -12,8 +12,8 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: bwren
-
 ---
+
 #  Send user context IDs to enable usage experiences in Azure Application Insights
 
 ## Tracking users
