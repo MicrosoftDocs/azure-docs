@@ -36,35 +36,39 @@ When a Microsoft update package for Azure Stack is available, download the packa
 
 The following procedure shows how to import and install update packages in the administrator portal.
 
-1. In the administrator portal, select **More services**. Under the **Data + Storage** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
+1. In the administrator portal, select **More services**. Then, under the **Data + Storage** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
 
     ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates1.png)
 
 2. In the filter box, type **update**, and select the **updateadminaccount** storage account.
 
-    ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates2.png)
+    ![Shows how to search for updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
 
 3. In the storage account details, under **Services**, select **Blobs**.
  
-    ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates3.png) 
+    ![Shows how to get to Blobs for the storage account](media/azure-stack-apply-updates/ApplyUpdates3.png) 
  
 4. Under **Blob service**, select **+ Container** to create a  container. Enter a name (for example *Update-1709*), and then select **OK**.
  
-     ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates4.png)
+     ![Shows how to add a container in the storage account](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
 5. After the container is created, click the container name, and then click **Upload** to upload the package files to the container.
  
-    ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates5.png)
+    ![Shows how to upload the package files](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
 6. Under **Upload blob**, click the folder icon, browse to the update package's .exe file, and then click **Open** in the file explorer window.
   
 7. Under **Upload blob**, click **Upload**. 
  
-    ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates6.png)
+    ![Shows where to upload each package file](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. 
-9. When done, you can review the notifications (bell icon in the top-right corner of the portal). The notifications should indicate that upload has completed. 
-10. Navigate back to the **Update** tile on the dashboard to review the newly added update package. The tile should indicate that an update is available.
+9. When done, you can review the notifications (bell icon in the top-right corner of the portal). The notifications should indicate that the upload has completed. 
+10. Navigate back to the Update tile on the dashboard. The tile should indicate that an update is available. Click the tile to review the newly added update package.
 11. To install the update, select the package that's marked as **Ready** and either right-click the package and select **Update now**, or click the **Update now** action near the top.
 12. When you click the installing update package, you can view the status in the **Update run details** area. From here, you can also click **Download full logs** to download the log files.
 13. When the update completes, the Update tile shows the updated Azure Stack version.
+
+## Next steps
+
+- [Azure Stack servicing policy](azure-stack-servicing-policy.md)

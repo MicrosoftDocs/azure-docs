@@ -55,7 +55,7 @@
     items:
     - name: Region management
       href: azure-stack-region-management.md
-    - name: Using the portals
+    - name: Using the administrator portal
       href: azure-stack-manage-portals.md
     - name: Connect to Azure Stack
       href: azure-stack-connect-azure-stack.md

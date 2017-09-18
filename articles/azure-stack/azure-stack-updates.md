@@ -23,7 +23,7 @@ ms.author: twooley
 
 Microsoft will release update packages for Azure Stack integrated systems on a regular basis. Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
 
-Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages from your OEM hardware vendor, and are managed separately from Microsoft updates.
+Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
 
 To keep your system under support, you must keep Azure Stack updated to a specific version level. Make sure that you review the [Azure Stack servicing policy](azure-stack-servicing-policy.md).
 
@@ -41,7 +41,7 @@ As updates install, you can easily view high-level status as the update process 
 We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both tenant workloads and portal operations.
 
 ## Using the Update tile to manage updates
-Managing updates from the administrator portal is a simple process. An Azure Stack operator can navigate to the Update tile to:
+Managing updates from the administrator portal is a simple process. An Azure Stack operator can navigate to the Update tile in the dashboard to:
 
 - view important information such as the current version.
 - install updates, and monitor progress.
@@ -49,7 +49,7 @@ Managing updates from the administrator portal is a simple process. An Azure Sta
  
 ## Determine the current version
 
-To determine the current version of Azure Stack, do either of the following in the administrator portal:
+The Update tile shows the current version of Azure Stack. You can get to the Update tile by using either of the following methods in the administrator portal:
 
 - On the dashboard, view the current version in the **Update** tile.
  
