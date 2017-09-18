@@ -95,7 +95,7 @@
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
 ### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
-### Resolve Errors
+### Resolve errors
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
