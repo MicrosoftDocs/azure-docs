@@ -56,7 +56,7 @@ The use of X.509 CA is best understood in relation to a concrete example.  Consi
 
 Company-X has the option of purchasing an X.509 CA certificate from a public root certificate authority or creating one through a self-signed process.  One option would be optimal over the other depending on the application scenario.  Regardless of the option, the process entails two fundamental steps, generating a public/private key pair and signing the public key into a certificate.
 
-[img-csr-flow]: ./media/csr-flow.png
+![img-csr-flow](./media/csr-flow.png)
 
 Details on how to accomplish these steps differ with various service providers.
 
@@ -76,7 +76,7 @@ Company-X needs to register the X.509 CA to IoT Hub where it will serve to authe
 
 Registring the X.509 CA certificate is a two step process, the certificate upload and certificate proof-of-possession.
 
-[img-pop-flow]: ./media/pop-flow.png
+![img-pop-flow](./media/pop-flow.png)
 
 ### X.509 CA Certificate Upload
 
@@ -100,7 +100,7 @@ One way to go about this is to pre-generate certificates for Smart-X-Widgets and
 
 X.509 CA certificate authentication offers elegant solutions to afore listed challenges through the use of certificate chains.  A certificate chain results from a CA signing an intermediate CA that in turn signs another intermediate CA and so goes on until a final intermediate CA signs a device.  In our example, Company-X signs Factory-Y which in turn signs Technician-Z that finally signs Smart-X-Widget.
 
-[img-cert-mfr-chain]: ./media/cert-mfr-chain.png
+![img-cert-mfr-chain](./media/cert-mfr-chain.png)
 
 Above cascade of certificates in the chain presents the logical hand-off of authority.  Many supply chains follow this logical hand-off whereby each intermediate CA gets signed into the chain while receiving all upstream CA certificates, and the last intermediate CA finally signs each device and inject all the authority certificates from the chain into the device. This is common when the contract manufacturing company with a hierarchy of factories commissions a particular factory to do the manufacturing.  While the hirarchy may may be several levels deep (e.g. by geography/product type/manufacturing line), only the factory at the end gets to interact with the device but the chain is maintained from the top of the hierarchy.
 
@@ -108,7 +108,7 @@ Alternate chains may have different intermediate CA interact with the device in 
 
 In our example, both Factory-Y and Technician-Z interact with the Smart-X-Widget.  While Company-X owns Smart-X-Widget, it actually does not physically interact with it in the entire supply chain.  The certificate chain of trust for Smart-X-Widget therefore comprise Company-X signing Factory-Y which in turn signs Technician-Z that will then provide final signature to Smart-X-Widget. The manufacture and installation of Smart-X-Widget comprise Factory-Y and Technician-Z using their respective intermediate CA certificates to sign each and every Smart-X-Widgets. The end result of this entire process are Smart-X-Widgets with unique device certificates and certificate chain of trust going up to Company-X CA certificate.
 
-[img-cert-chain-hierarchy]: ./media/cert-chain-hierarchy.png
+![img-cert-chain-hierarchy](./media/cert-chain-hierarchy.png)
 
 This is a good point to review teh value of the X.509 CA method.  Instead of pre-generating and handing off certificates for every Smart-X-Widget into the supply chain, Company-X only hand to sign Factory-Y once.  Instead of having to track every device throughout the devices life-cycle, Company-X may not track and manage devices through groups that naturally emergy from the supply chain process e.g. devices installed by Technician-Z after July of some year.
 
@@ -129,22 +129,4 @@ In our example, each Smart-X-Widget would upload its device unique certificate t
 ![img-device-pop-flow](./media/device-pop-flow.png)
 
 Notice that the foundation of trust rests in protecting private keys including device private keys.  We therefore cannot stress enough the importance of secure silicon chips in the form of Hardware Secure Modules (HSM) for protecting device private keys, and the overall best practice of never sharing any private keys, like one factory entrusting another with its private key.
-
-[img-CertificateChain]: ./media/CertificateChain.png
-
-
-
-
-
-<!-- Without X.509 CA method... -->
-
-
-
-
-
-
-
-
-<ea add a note about mutual authentication>
-<!-- links and images -->
 
