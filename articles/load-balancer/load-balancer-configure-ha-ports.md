@@ -35,11 +35,11 @@ Figure 1 - Network Virtual Appliances deployed behind an internal Load Balancer 
 
 ## Configuring HA Ports
 
-The configuration of the HA ports involves setting up an Internal Load Balancer, with the NVAs in the backend pool, a corresponding load balancer health probe configuration to detect NVA health, and the Load Balancer rule with HA ports. The general Load Balancer related configuration is covered in [Get Started](load-balancer-get-started-ilb-arm-portal.md). This section highlights the HA ports configuration.
+The configuration of the HA ports involves setting up an Internal Load Balancer, with the NVAs in the backend pool, a corresponding load balancer health probe configuration to detect NVA health, and the Load Balancer rule with HA ports. The general Load Balancer related configuration is covered in [Get Started](load-balancer-get-started-ilb-arm-portal.md). This article highlights the HA ports configuration.
 
-The configuration essentially involves setting the frontend port and backend port value to **0**, and the protocol value to **All**. This sections describes how to configure high availability ports using Azure Portal, PowerShell, and Azure CLI 2.0.
+The configuration essentially involves setting the frontend port and backend port value to **0**, and the protocol value to **All**. This article describes how to configure high availability ports using Azure portal, PowerShell, and Azure CLI 2.0.
 
-### Configure HA ports load balancer rule with the Azure Portal
+### Configure HA ports load balancer rule with the Azure portal
 
 The Azure portal includes the **HA Ports** option via a checkbox for this configuration. When selected, the related port and protocol configuration is automatically populated. 
 
@@ -65,7 +65,7 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 
 ### Configure HA Ports LB Rule via Resource Manager Template
 
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](http://<github link for template>), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described in this article. To deploy this template using click to deploy, follow [this link](http://<github link for template>), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 For instructions on how to deploy this template via PowerShell or CLI, see [Create an internal load balancer using a template](load-balancer-get-started-ilb-arm-template.md).
 
