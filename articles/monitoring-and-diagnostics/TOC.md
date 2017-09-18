@@ -87,6 +87,7 @@
 ## [Metrics supported](monitoring-supported-metrics.md)
 ## [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
 ## [Activity log event schema](monitoring-activity-log-schema.md)
+## [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
 
 
 # Resources
