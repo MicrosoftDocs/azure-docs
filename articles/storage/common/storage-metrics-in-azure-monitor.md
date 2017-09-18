@@ -25,13 +25,13 @@ Azure Monitor provides unified user interfaces for monitoring across different A
 
 # Access Metrics
 
-Azure Monitor provides multiple ways to access metrics. You can access them from Azure Portal, Azure Monitor APIs (REST, and .Net) and third party solutions (Operation Management Suite, Event Hub, etc.) as well. For more information, see  [Azure Monitor Metrics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+Azure Monitor provides multiple ways to access metrics. You can access them from Azure portal, Azure Monitor APIs (REST, and .Net) and third-party solutions (Operation Management Suite, Event Hub, etc.) as well. For more information, see  [Azure Monitor Metrics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
-Metrics are enabled by default, and you can access up to last 30 days of data. If you need to retain data for more days, you can archive metrics data to an Azure Storage account with [diagnostic settings](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#resource-diagnostic-settings) in Azure Monitor.
+Metrics are enabled by default, and you can access up to last 30 days of data. If you need to retain data for more days, you can archive metrics data to an Azure Storage account. It's configured in [diagnostic settings](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#resource-diagnostic-settings) in Azure Monitor.
 
 ## Access Metrics in Portal
 
-You can monitor metrics over time in Azure Portal. Here's an example to view **UsedCapacity** at account level.
+You can monitor metrics over time in Azure portal. Here's an example to view **UsedCapacity** at account level.
 
 ![screenshot](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
@@ -41,7 +41,7 @@ For metrics supporting dimension, you must filter with desired dimension value. 
 
 ## Access Metrics with REST API
 
-Azure Monitor provides [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/) to read metric definition and values. This section shows you how to read storage metrics. As resource id is used in all REST APIS, reading [Understanding resource id for services in Storage](Understanding resource id for services in Storage) first would help you know how to specify right resource id at account and service level.
+Azure Monitor provides [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/) to read metric definition and values. This section shows you how to read storage metrics. As resource ID is used in all REST APIS, it's recommended to read [Understanding resource ID for services in Storage](Understanding resource ID for services in Storage) first.
 
 To simplify testing with REST API, [ArmClient](https://github.com/projectkudu/ARMClient) is used to demonstrate the usage in command line.
 
@@ -55,7 +55,7 @@ List account level metric definition with the REST API:
 
 ```
 
-If you want to list metric definition for Blob, Table, File, or Queue, you need to specify different resource id with the API.
+If you want to list metric definition for Blob, Table, File, or Queue, you need to specify different resource ID with the API.
 
 The response contains metric definition in JSON format:
 
@@ -97,7 +97,7 @@ Read account level metric values with the REST API:
 
 ```
 
-If you want to read metric values for Blob, Table, File, or Queue, you need to specify different resource id with the API.
+If you want to read metric values for Blob, Table, File, or Queue, you need to specify different resource ID with the API.
 
 The response contains metric values in JSON format:
 
@@ -134,39 +134,39 @@ The response contains metric values in JSON format:
 
 # Billing for Metrics
 
-Using metrics in Azure Monitor is free for now. However, if you use additional solutions ingesting metric data, you may be billed by these solutions. For example, you will be billed by Azure Storage if you archive metric data to an Azure Storage account, or billed by Operation Management Suite (OMS) if you stream metric data to OMS for advanced analysis.
+Using metrics in Azure Monitor is free for now. However, if you use additional solutions ingesting metric data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metric data to an Azure Storage account, or billed by Operation Management Suite (OMS) if you stream metric data to OMS for advanced analysis.
 
-# Understanding resource id for services in Storage
+# Understanding resource ID for services in Storage
 
-Resource id is an unique identifier of a resource in Azure. When you use Azure Monitor REST API to read metric definition or value, you need to use resource id for the resource you intend to operate on. The resource id template follows this format:
+Resource ID is a unique identifier of a resource in Azure. When you use Azure Monitor REST API to read metric definition or value, you need to use resource ID for the resource you intend to operate on. The resource ID template follows this format:
 
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 
 ```
 
-Storage provides metrics at both storage account level and sub services level with Azure Monitor. When you are reading metrics at different levels, you require to use different resource id.
+Storage provides metrics at both storage account level and sub services level with Azure Monitor. When you are reading metrics at different levels, you require to use different resource ID.
 
-Resource id for storage account follows the format as below:
+Resource ID for storage account follows the format as following:
 
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
 
 ```
 
-Resource id for sub service follows  the format as below:
+Resource ID for sub service follows  the format as following:
 
 ```
-# Blob service resource id
+# Blob service resource ID
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 
-# Table service resource id
+# Table service resource ID
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 
-# Queue service resource id
+# Queue service resource ID
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 
-# File service resource id
+# File service resource ID
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 
 ```
@@ -180,7 +180,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 
 # Capacity Metrics
 
-Capacity Metric values are sent to Azure Monitor every hour, and the value takes one day to refresh on the changes to a storage account. The time grain defines the time interval that metric values are presented. The supported time grain for all capacity metrics is 1 hour (PT1H).
+Capacity Metric values are sent to Azure Monitor every hour, and the value takes one day to refresh on the changes to a storage account. The time grain defines the time interval that metric values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
@@ -203,7 +203,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 | Metric Name | Description |
 | ------------------- | ----------------- |
 | TableCapacity | The amount of storage used by the storage account’s Table service. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| TableCount   | The number of table in the storage account’s Table service. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| TableCount   | The number of tables in the storage account’s Table service. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | TableEntityCount | The number of table entities in the storage account’s Table service. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 **Queue service**
@@ -230,12 +230,12 @@ Azure Storage provides the following transaction metrics in Azure Monitor.
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-| Transactions | The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Applicable dimensions: ResponseType, GeoType, ApiName <br/> Value example: 1024 |
+| Transactions | The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests that produced errors. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Applicable dimensions: ResponseType, GeoType, ApiName <br/> Value example: 1024 |
 | Ingress | The amount of ingress data. This number includes ingress from an external client into Azure Storage as well as ingress within Azure. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Applicable dimensions: GeoType, ApiName <br/> Value example: 1024 |
 | Egress | The amount of egress data. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Applicable dimensions: GeoType, ApiName <br/> Value example: 1024 |
 | SuccessServerLatency | The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName <br/> Value example: 1024 |
 | SuccessE2ELatency | The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName <br/> Value example: 1024 |
-| Availability | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the total billable requests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. <br/><br/> Unit: Percent <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName <br/> Value example: 99.99 |
+| Availability | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the total billable requests value and dividing it by the number of applicable requests, including those requests that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. <br/><br/> Unit: Percent <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName <br/> Value example: 99.99 |
 
 ## Metrics Dimensions
 
@@ -244,16 +244,16 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | BlobType | The type of blob for Blob metrics only. The supported values are **BlockBlob** and **PageBlob**. Append Blob is included in BlockBlob. |
-| ResponseType | Transaction response type. The available values include: <br/><br/> <li>ServerOtherError: All other server-side errors except described ones </li> <li> ServerBusyError: Authenticated request that returned an HTTP 503 status code. (Not Supported yet) </li> <li> ServerTimeoutError: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li> ThrottlingError: Sum of client-side and server-side throttling error (Will be removed once ServerBusyError and ClientThrottlingError are supported) </li> <li> AuthorizationError: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li> NetworkError: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li> <li> 	ClientThrottlingError: Client-side throttling error (Not supported yet) </li> <li> ClientTimeoutError: Timed-out authenticated request that returned an HTTP 500 status code. If the client’s network timeout or the request timeout is set to a lower value than expected by the storage service, this is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li> ClientOtherError: All other client-side errors except described ones. </li> <li> Success: Successful request|
+| ResponseType | Transaction response type. The available values include: <br/><br/> <li>ServerOtherError: All other server-side errors except described ones </li> <li> ServerBusyError: Authenticated request that returned an HTTP 503 status code. (Not Supported yet) </li> <li> ServerTimeoutError: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li> ThrottlingError: Sum of client-side and server-side throttling error (It will be removed once ServerBusyError and ClientThrottlingError are supported) </li> <li> AuthorizationError: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li> NetworkError: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li> <li> 	ClientThrottlingError: Client-side throttling error (Not supported yet) </li> <li> ClientTimeoutError: Timed-out authenticated request that returned an HTTP 500 status code. If the client’s network timeout or the request timeout is set to a lower value than expected by the storage service, it is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li> ClientOtherError: All other client-side errors except described ones. </li> <li> Success: Successful request|
 | GeoType | Transaction from Primary or Secondary cluster. The available values include Primary and Secondary. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
 | ApiName | The name of operation. For example: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> For all operation names, see [document](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations). |
 
-For the metrics supporting dimension, you need to specify the dimension value to see  corresponding metric value. For example, if you want to look at  **Transactions** value for successful response in Portal or APIS, you need to filter **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter **BlobType** dimension with **BlockBlob**.
+For the metrics supporting dimension, you need to specify the dimension value to see  corresponding metric value. For example, if you look at  **Transactions** value for successful response in Azure portal or Azure Monitor REST APIS, you need to filter **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter **BlobType** dimension with **BlockBlob**.
 
 ## FAQ
 **Q: Will legacy metrics be supported after Azure Monitor managed metrics are introduced?**
 
-Legacy metrics are available in parallel with Azure Monitor managed metrics. The support keeps the same until Azure Storage ends the service on legacy metrics. We will announce the ending plan after we releases Azure Monitor managed metrics officially.
+Legacy metrics are available in parallel with Azure Monitor managed metrics. The support keeps the same until Azure Storage ends the service on legacy metrics. We will announce the ending plan after we release Azure Monitor managed metrics officially.
 
 ## See Also
 
