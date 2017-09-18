@@ -51,7 +51,7 @@ Application Insights collects any failures in your application and lets you view
 
 	![Failed requests window](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. Click **View Details** to see the details for the operation.  This includes a Gannt chart that shows two failed dependencies which collectively took almost half of a second to complete.  You can find out more about analyzing performance issues by completing the tutorial [Find and diagnose performance issues with Azure Application Insights]().
+4. Click **View Details** to see the details for the operation.  This includes a Gannt chart that shows two failed dependencies which collectively took almost half of a second to complete.  You can find out more about analyzing performance issues by completing the tutorial [Find and diagnose performance issues with Azure Application Insights](app-insights-tutorial-performance.md).
 
 	![Failed requests details](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
@@ -102,4 +102,4 @@ If you connect Application Insights to a tracking system such as Visual Studio T
 Now that you've learned how to identify run-time exceptions, advance to the next tutorial to learn how to identify and diagnose performance issues.
 
 > [!div class="nextstepaction"]
-> [Identify performance issues]()
+> [Identify performance issues](app-insights-tutorial-performance.md)
