@@ -116,4 +116,4 @@ Click "Create" to add the Server Endpoint. Your files will now be kept in sync a
 ## Next steps
 - [Manage Azure File Sync network traffic](azure-file-sync-network-throttling.md)
 - [Add/Remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)
-- [Register/deregister a server with Azure File Sync](azure-file-sync-server-registration.md)
+- [Register/deregister a server with Azure File Sync](storage-sync-files-server-registration.md)

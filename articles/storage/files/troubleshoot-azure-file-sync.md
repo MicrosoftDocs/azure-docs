@@ -45,7 +45,7 @@ If a server is not listed under Registered Servers for a Storage Sync Service, p
 ### Server Registration displays the following message after installing the Azure File Sync agent: "This server is already registered"
 ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/troubleshoot-azure-file-sync/server-registration-1.png)
 
-This message will be displayed if the server was previously registered with a Storage Sync Service. To unregister the server with the current Storage Sync Service and register with a new Storage Sync Service, follow the steps to [Unregister a server with Azure File Sync](azure-file-sync-server-registration.md#unregister-the-server-with-storage-sync-service).
+This message will be displayed if the server was previously registered with a Storage Sync Service. To unregister the server with the current Storage Sync Service and register with a new Storage Sync Service, follow the steps to [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## Sync
 ### How to troubleshoot sync not working on a server:

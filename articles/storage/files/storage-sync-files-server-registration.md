@@ -31,7 +31,7 @@ To register a Windows Server with a Storage Sync Service, you must first prepare
 * Ensure that the server is connected to the internet and that Azure is accessible.
 * Disable the IE Enhanced Security Configuration for administrators with the Server Manager UI.
     
-    ![Server Manager UI with the IE Enhanced Security Configuration highlighted](media/azure-file-sync-server-registration/server-manager-ie-config.png)
+    ![Server Manager UI with the IE Enhanced Security Configuration highlighted](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
 * Ensure that the AzureRM PowerShell module is installed on your server. If your server is a member of a Failover Cluster, every node in the cluster will require the AzureRM module. More details on how to install the AzureRM module can be found on the [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -43,11 +43,11 @@ To register a Windows Server with a Storage Sync Service, you must first prepare
 1. [Download the Azure File Sync agent](https://go.microsoft.com/fwlink/?linkid=858257).
 2. Start the Azure File Sync agent installer.
     
-    ![The first pane of the Azure File Sync agent installer](media/azure-file-sync-server-registration/install-afs-agent-1.png)
+    ![The first pane of the Azure File Sync agent installer](media/storage-sync-files-server-registration/install-afs-agent-1.png)
 
 3. Be sure to enable updates to the Azure File Sync agent via Microsoft Update. This is important because critical security fixes and feature enhancements to the server package are shipped via Microsoft Update.
 
-    ![Ensure Microsoft Update is enabled in the Microsoft Update pane of the Azure File Sync agent installer](media/azure-file-sync-server-registration/install-afs-agent-1.png)
+    ![Ensure Microsoft Update is enabled in the Microsoft Update pane of the Azure File Sync agent installer](media/storage-sync-files-server-registration/install-afs-agent-1.png)
 
 4. If the server has not been previously registered, the server registration UI will pop up immediately after completing the installation.
 
@@ -58,15 +58,15 @@ To register a Windows Server with a Storage Sync Service, you must first prepare
 1. If the Server Registration UI did not start immediately after completing the installation of the Azure File Sync agent, it can be started manually by executing `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Click *Sign-in* to access your Azure subscription. 
 
-    ![Opening dialog of the Server Registration UI](media/azure-file-sync-server-registration/server-registration-ui-1.png)
+    ![Opening dialog of the Server Registration UI](media/storage-sync-files-server-registration/server-registration-ui-1.png)
 
 3. Pick the correct subscription, resource group, and Storage Sync Service from the dialog.
 
-    ![Storage Sync Service information](media/azure-file-sync-server-registration/server-registration-ui-2.png)
+    ![Storage Sync Service information](media/storage-sync-files-server-registration/server-registration-ui-2.png)
 
 4. In preview, one more sign-in is required to complete the process. 
 
-    ![Sign in dialog](media/azure-file-sync-server-registration/server-registration-ui-3.png)
+    ![Sign in dialog](media/storage-sync-files-server-registration/server-registration-ui-3.png)
 
 > [!Important]  
 > If the server is a member of a Failover Cluster, each server needs to run the Server Registration. Azure File Sync will automatically recognize each node as a member of the same Failover Cluster, and will group them together.
@@ -91,7 +91,7 @@ Before unregistering the server on the Storage Sync Service, all Server Endpoint
 1. Navigate to the Storage Sync Service where your server is registered.
 2. Remove all Server Endpoints for this server in each Sync Group in the Storage Sync Service. This can be accomplished by right-clicking the relevant Server Endpoint in the Sync Group pane.
 
-    ![Removing a Server Endpoint from a Sync Group](media/azure-file-sync-server-registration/sync-group-server-endpoint-remove-1.png)
+    ![Removing a Server Endpoint from a Sync Group](media/storage-sync-files-server-registration/sync-group-server-endpoint-remove-1.png)
 
 This can also be accomplished with a simple PowerShell script:
 
@@ -117,4 +117,4 @@ Now that all data has been recalled and the server has been removed from all Syn
 1. In the Azure portal, navigate the "Registered Servers" section of the Storage Sync Service.
 2. Right-click on the server you want to unregister and click "Unregister Server".
 
-    ![Unregister Server](media/azure-file-sync-server-registration/unregister-server-1.png)
+    ![Unregister Server](media/storage-sync-files-server-registration/unregister-server-1.png)

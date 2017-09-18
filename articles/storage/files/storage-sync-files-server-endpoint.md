@@ -26,7 +26,7 @@ See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guid
 
 ## Prerequisites
 To create a Server Endpoint, you must first ensure that the following criteria are met: 
-- The server has the Azure File Sync agent installed and has been registered. Instructions for installing the Azure File Sync Agent can be found in the [Register/unregister a server with Azure File Sync (preview)](azure-file-sync-server-registration.md) article. 
+- The server has the Azure File Sync agent installed and has been registered. Instructions for installing the Azure File Sync Agent can be found in the [Register/unregister a server with Azure File Sync (preview)](storage-sync-files-server-registration.md) article. 
 - Ensure that a Storage Sync Service has been deployed. See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for details on how to deploy a Storage Sync Service. 
 - Ensure that a Sync Group has been deployed. Learn how to [Create a Sync Group](storage-sync-files-deployment-guide.md#create-a-sync-group).
 - Ensure that the server is connected to the internet and that Azure is accessible.
@@ -69,6 +69,6 @@ Before unregistering the server on the Storage Sync Service, all Server Endpoint
     ![Removing a Server Endpoint from a Sync Group](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## Next steps
-- [Register/unregister a server with Azure File Sync (preview)](azure-file-sync-server-registration.md)
+- [Register/unregister a server with Azure File Sync (preview)](storage-sync-files-server-registration.md)
 - [Azure File Sync network throttling](azure-file-sync-network-throttling.md)
 - [Planning for an Azure File Sync deployment](planning-azure-file-sync-deployment.md)
