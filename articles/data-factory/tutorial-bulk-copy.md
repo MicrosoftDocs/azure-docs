@@ -571,8 +571,3 @@ You performed the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
-Go through the following tutorials to learn about using Data Factory in more scenarios: 
-
-Tutorial | Description
--------- | -----------
-[Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
