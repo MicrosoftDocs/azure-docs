@@ -35,7 +35,7 @@ You may wish to migrate existing file shares, such as those stored on-premises, 
 Azure File Sync (preview) maybe used to migrate data into an Azure File share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync ingress data into Azure File share can be found in the [Planning for an Azure File Sync deployment](planning-azure-file-sync-deployment.md) and the [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) guides.
 
 ### Azure Import/Export
-The Azure Import/Export service allows you to securely transfer large amounts of data into an Azure File share by shipping hard disk drives to an Azure datacenter. See [Use the Microsoft Azure Import/Export service to transfer data to Azure storage](../common/storage-import-export-service?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a more detailed overview of the service.
+The Azure Import/Export service allows you to securely transfer large amounts of data into an Azure File share by shipping hard disk drives to an Azure datacenter. See [Use the Microsoft Azure Import/Export service to transfer data to Azure storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a more detailed overview of the service.
 
 > [!Note]  
 > The Azure Import/Export service does not support the export of files from an Azure File share at this time.
@@ -149,7 +149,6 @@ done
 ```
 
 ## Next steps
-- [Work with Azure File share metrics and diagnostics](azure-file-share-metrics-diagnostics.md)
 - [Plan for an Azure File Sync deployment](planning-azure-file-sync-deployment.md)
 - [Troubleshoot Azure Files on Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files on Linux](storage-troubleshoot-linux-file-connection-problems.md)

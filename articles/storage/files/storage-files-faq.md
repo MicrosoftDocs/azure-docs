@@ -42,7 +42,7 @@ ms.author: renash
    
     You can start by creating an Azure file share. You can create Azure File shares using Azure Portal, the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API.In this tutorial, you will learn:
 
-    * [Learn how to create Azure File share using the Portal](storage-how-to-create-file-share.md#create-file-share-through-the-portal)
+    * [Learn how to create Azure File share using the Portal](storage-how-to-use-files-portal.md)
     * [Learn how to create Azure File share using Powershell](storage-how-to-create-file-share.md#create-file-share-through-powershell)
     * [Learn how to create Azure File share using CLI](storage-how-to-create-file-share.md#create-file-share-through-command-line-interface-cli)
 

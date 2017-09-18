@@ -295,7 +295,7 @@ AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myf
 
 Note that empty folders are not downloaded.
 
-## Upload Files to File storage
+## Upload files to an Azure File share
 
 Let's look at several ways to upload files using AzCopy.
 

@@ -118,7 +118,3 @@ Now that all data has been recalled and the server has been removed from all Syn
 2. Right-click on the server you want to unregister and click "Unregister Server".
 
     ![Unregister Server](media/azure-file-sync-server-registration/unregister-server-1.png)
-
-### See also
-* [Add/remove an Azure File Sync Server Endpoint](azure-file-sync-server-endpoint.md)
-* [Monitor Azure File Sync health](azure-file-sync-health-monitoring.md)
