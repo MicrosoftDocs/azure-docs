@@ -33,8 +33,8 @@ In this article, you learn about the following:
 * the many storage client libraries available. 
 
 To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
+* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md)
 
 ## Introducing the Azure Storage services
 
@@ -78,7 +78,7 @@ For example, say you want your customers to be able to upload pictures, and you 
 
 ## Table storage
 
-Standard Azure Table Storage is now part of Cosmos DB. To see that documentation, see the [Azure Table Storage Overview](../cosmos-db/table-storage-overview.md). Also available is Premium Tables for Azure Table storage, offering throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB: Table API](https://aka.ms/premiumtables).
+Standard Azure Table Storage is now part of Cosmos DB. To see that documentation, see the [Azure Table Storage Overview](../../cosmos-db/table-storage-overview.md). Also available is Premium Tables for Azure Table storage, offering throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB: Table API](https://aka.ms/premiumtables).
 
 ## Disk storage
 
@@ -218,8 +218,8 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Learn more about Queue storage](../queues/storage-queues-introduction.md)
 
 To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
+* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
