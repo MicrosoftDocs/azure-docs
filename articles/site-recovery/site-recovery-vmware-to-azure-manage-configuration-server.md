@@ -28,7 +28,7 @@ Configuration Server acts as a coordinator between the Site Recovery services an
 ## Prerequisites
 The following are the minimum hardware, software, and network configuration required to set up a Configuration Server.
 > [!IMPORTANT]
-> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Avaialble (HA)** virtual machine.
+> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Available (HA)** virtual machine.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
