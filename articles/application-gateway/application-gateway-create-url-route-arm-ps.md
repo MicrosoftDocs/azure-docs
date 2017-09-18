@@ -3,7 +3,7 @@ title: Create an application gateway by using URL routing rules | Microsoft Docs
 description: This page provides instructions to create and configure an Azure application gateway by using URL routing rules.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Create an application gateway by using path-based routing
