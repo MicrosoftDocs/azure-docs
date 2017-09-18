@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/14/2017
+ms.date: 09/18/2017
 ms.author: billmath
 
 ---
@@ -43,14 +43,14 @@ Use the following steps to configure Azure AD Terms of Use:
 3. View the Azure AD Terms of User dashboard at [https://aka.ms/aadconnecthealth](https://aka.ms/aadtou).
 
 ## About Azure AD Terms of Use
-When you setup Azure AD Terms of Use you start in the Azure AD Terms of user blade.  
+When you setup Azure AD Terms of Use you start in the Azure AD Terms of user screen.  
 
 ![Terms of Use](media/active-directory-tou/tou1.png)
 
 
-On the blade you will notice buttons for Adding, Publishing and Unpublishing terms of use. Azure Terms of Use have 3 distinct states.  These states describe the status of the individual Terms of Use that you are using.  
+On the screen you will notice buttons for Adding, Publishing and Unpublishing terms of use. Azure Terms of Use have 3 distinct states.  These states describe the status of the individual Terms of Use that you are using.  
 
-You can have multipe terms of use that target different user groups.  Currently Azure AD Terms of Use supports X number of individual terms of use.  The following table describes the states in more detail.
+You can have multiple terms of use that target different user groups.  Currently Azure AD Terms of Use supports X number of individual terms of use.  The following table describes the states in more detail.
 
 |Status|Description|
 |-----|-----|
@@ -63,14 +63,14 @@ Once you have finalized your Terms of Use and you are ready to use it with Azure
 
 ### To add a terms of use
 1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
-2. Click Add.  This will open another blade.</br>
+2. Click Add.</br>
 ![Add TOU](media/active-directory-tou/tou2.png)
 3. Enter the **Name** for the Terms of Use
 4. Enter **Display Name**.  This is the header that users will see when they sign in.
 5. **Browse** to your finalized terms of use pdf and select it.
 6. You can **Enforce** the terms of use using one of the either a template or custom conditional access policy
 7. Click **Create**.
-8. If you selected a custom conditional access template than a new blade will appear which allows you to customize the CA policy.
+8. If you selected a custom conditional access template than a new screen will appear which allows you to customize the CA policy.
 7. You should now see your new Terms of Use.</br>
 
 ![Add TOU](media/active-directory-tou/tou3.png)
@@ -96,16 +96,15 @@ When you are ready to unpublish the terms of use so that update it or change it,
 ![Unpublish TOU](media/active-directory-tou/tou6.png)
 
 ## Auditing a Terms of Use
-Azure AD Terms of Use provides easy to use auditing so that you can see who has accepted and when they accepted your terms of use.  To get started with auding use the following procedure:
+Azure AD Terms of Use provides easy to use auditing so that you can see who has accepted and when they accepted your terms of use.  To get started with auditing use the following procedure:
 
 ### To audit terms of use
 1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
-2. Click Audit Event.  This will open another blade.</br>
+2. Click Audit Event.</br>
 ![Audit Event](media/active-directory-tou/tou8.png)
-3. This will navigate to the Azure AD audit logs blade filtered to the activity of the specific terms of use that was selected. 
+3.  On the Azure AD audit logs screen, you can filter the information using the provided drops downs to target specific audit log information.
 ![Audit Event](media/active-directory-tou/tou9.png)
-4.  You can filter the information using the provided drops downs to target sepcific audit log information.
-5.  You can also download the information in a .csv file for use locally.
+4.  You can also download the information in a .csv file for use locally.
 
 ## End user Preview
 Once a terms of use is created an enforced this is what an end user will see if they are in scope.
@@ -115,7 +114,7 @@ Once a terms of use is created an enforced this is what an end user will see if 
 ![Audit Event](media/active-directory-tou/tou11.png)
 
 ## Troubleshooting
-The following is some general inforamtion that you need to be aware of and can assit with troubleshooting any terms of use issues.
+The following is some general information that you need to be aware of and can assist with troubleshooting any terms of use issues.
 
 -	Global administrator, security administrator, or conditional access administrator need read/write access.
 -	After creating a TOU using the “access to cloud apps” template the admin will start to see “sad clouds” when access other areas of the portal. If they refresh the browser they will start to see “AAD token issues”
