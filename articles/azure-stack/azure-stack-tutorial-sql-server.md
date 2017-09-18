@@ -70,6 +70,8 @@ Now that you've deployed the SQL Server resource provider and created an offer, 
 4. Click **SKU** > select the SQL SKU that you created for the SQL Hosting Server > **OK**.
 5. Click **Create**.
 
+## Next steps
+
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
