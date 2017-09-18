@@ -22,7 +22,7 @@ ms.author: zivr
 
 # Handling planned maintenance notifications for Windows virtual machines
 
-Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. A majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
+Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. Updates are changes like patching the hosting environment or upgrading and decommissioning hardware. A majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
 - If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
 
@@ -74,7 +74,7 @@ You can also learn about maintenance status for all virtual machines in a resour
 Get-AzureRmVM -ResourceGroupName rgName --Status
 ```
 
-The following PowerShell function takes your subscription ID and will print out a list of VMs that are scheduled for maintenance.
+The following PowerShell function takes your subscription ID and prints out a list of VMs that are scheduled for maintenance.
 
 ```powershell
 
