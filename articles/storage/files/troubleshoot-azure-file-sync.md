@@ -93,15 +93,15 @@ Further undesired recalls may happen in other scenarios like browsing files in F
 ## General troubleshooting
 If you encounter issues with Azure File Sync on a server, start by performing the following:
 - Review the Diagnostic and Operational event logs in Event Viewer
-    - Sync, Tiering and Recall issues are logged in the diagnostic and operational event logs under `Applications and Services\Microsoft\FileSync\Agent`
-    - Issues managing a server (e.g., configuration settings) are logged in the diagnostic and operational event logs under Microsoft-FileSync-Management
+    - Sync, Tiering, and Recall issues are logged in the diagnostic and operational event logs under `Applications and Services\Microsoft\FileSync\Agent`
+    - Issues managing a server (for example, configuration settings) are logged in the diagnostic and operational event logs under Microsoft-FileSync-Management
 - Verify the Azure File Sync service is running on the server
     - Open the Services MMC snap-in and verify the Storage Sync Agent service (FileSyncSvc) is running
 - Verify the Azure File Sync filter drivers (StorageSync.sys & StorageSyncGuard.sys) are running
     - Open an elevated command prompt, run fltmc and verify the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed
 
 If the issue is not resolved after performing the steps above, run the AFSDiag tool by performing the following steps:
-1. Create a directory that will be used to save the AFSDiag output (e.g., c:\output).
+1. Create a directory that will be used to save the AFSDiag output (for example, c:\output).
 2. Open an elevated PowerShell window and run the following commands (hit enter after each command):
 
     ```PowerShell

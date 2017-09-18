@@ -35,7 +35,7 @@ You can use this service in scenarios such as:
 * Data recovery: Recover large amount of data stored in storage and have it delivered to your on-premises location.
 
 ## Prerequisites
-In this section we list the prerequisites required to use this service. Please review them carefully before shipping your drives.
+In this section, we list the prerequisites required to use this service. Review them carefully before shipping your drives.
 
 ### Storage account
 You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
@@ -73,9 +73,7 @@ Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for 
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS.
 
 > [!IMPORTANT]
-> External hard disk drives that come with a built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs.
-> 
-> 
+> Do not send external HDDs; disks with USB adaptors or disks with external cases are not supported by this service. 
 
 Below is a list of external USB adaptors used to copy data to internal HDDs. 
 Anker 68UPSATAA-02BU
