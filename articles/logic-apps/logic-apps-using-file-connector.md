@@ -57,8 +57,8 @@ set up your connection as specified in the table.
    | Setting | Description |
    | ------- | ----------- |
    | **Root folder** | Specify the root folder for your file system. You can specify a local folder on the machine where the on-premises data gateway is installed, or the folder can be a network share that the machine can access. <p>**Tip:** The root folder is the main parent folder, which is used for relative paths for all file-related actions. | 
-   | **Authentication type** | The authentication that your file system uses | 
-   | **Username** | Provide your username (*domain*\\*username*) for your previously installed gateway. | 
+   | **Authentication type** | The type of authentication that's used by your file system | 
+   | **Username** | Provide your username {*domain*\\*username*} for your previously installed gateway. | 
    | **Password** | Provide your password for your previously installed gateway. | 
    | **Gateway** | Select your previously installed gateway. | 
    ||| 
