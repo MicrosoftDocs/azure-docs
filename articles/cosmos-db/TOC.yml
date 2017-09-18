@@ -93,6 +93,10 @@
       href: local-emulator.md
     - name: Export certificates
       href: local-emulator-export-ssl-certificates.md
+  - name: 6 - Integrate with Functions
+    items:
+    - name: HTTP Trigger
+      href: tutorial-functions-http-trigger.md
 - name: Samples
   items:
   - name: Azure CLI 2.0
