@@ -55,8 +55,8 @@ LUIS also provides the list entity type that is not machine learned but allows u
 ## What are the limits on the number and size of phrase lists?
 The maximum length of a [phrase list](./luis-concept-feature.md) is 5000 items. You may use a maximum of 10 phrase lists per LUIS app.
 
-## What are the limits on the number and size of utterances?
-A LUIS app can be trained with up to 2000 [utterances](./luis-concept-utterance.md). The maximum length of an utterance is 500 characters.
+## What is the limit on the length of an utterance?
+The maximum length of an utterance is 500 characters.
 
 ## What is the best way to start on building my app in LUIS?
 
