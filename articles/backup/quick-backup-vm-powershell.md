@@ -1,127 +1,120 @@
 ---
-title: Use PowerShell to back up Azure virtual machines to Azure | Microsoft Docs 
-description: This Quickstart uses Azure PowerShell to back up an Azure virtual machine to a Recovery Services vault. 
-services: backup 
-keywords: Don’t add or edit keywords without consulting your SEO champ.
-author: trinadhk
-ms.author: trinadhk
-ms.date: 08/30/2017
-ms.topic: article
-ms.service: backup
-ms.devlang: powershell
-manager: vijayts
+title: Azure Quick Start - Backup VM with PowerShell | Microsoft Docs
+description: Learn how to back up your virtual machines with Azure PowerShell
+services: virtual-machines-windows, azure-backup
+documentationcenter: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+editor: 
+tags: azure-resource-manager, virtual-machine-backup
+
+ms.assetid: 
+ms.service: virtual-machines-windows, azure-backup
+ms.devlang: azurecli
+ms.topic: hero-article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 09/18/2017
+ms.author: iainfou
+ms.custom: mvc
 ---
 
-# Back up Azure virtual machines using PowerShell
+# Back up a virtual machine in Azure with PowerShell
+The Azure PowerShell module is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure PowerShell module. You can also perform these steps with the [Azure CLI](quick-backup-vm-cli.md).
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This article details using Azure PowerShell cmdlets to back up an Azure virtual machine. Backing up your data is a good practice for business and data continuity. This quickstart requires an existing virtual machine. 
+This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Before you start, make sure that the latest version of PowerShell is installed. For detailed information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+This quick start requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+
 
 ## Log in to Azure
-
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-## Create a recovery services vault
-
-A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a container that holds the recovery points for the items being backed up. A Recovery Services vault is an Azure resource that can be deployed and managed as part of an Azure resource group.
-
-### Register the provider
-
 The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription.
 
 ```powershell
-PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
-### Create a vault
 
-Use [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault?view=azurermps-4.3.1) to create a Recovery Services vault. Specify the same resource group and location parameters for the vault as was used for the virtual machine.
+## Create a recovery services vault
+A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a container that holds the recovery points for the items being backed up. A Recovery Services vault is an Azure resource that can be deployed and managed as part of an Azure resource group.
+
+Create a Recovery Services vault with [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Specify the same resource group and location parameters for the vault as was used for the virtual machine.
 
 ```powershell
-PS C:\> New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName myResourceGroup -Location EastUS
+New-AzureRmRecoveryServicesVault -Name myRecoveryServicesVault -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-### Specify storage redundancy
-
-Use the [-BackupStorageRedundancy](https://docs.microsoft.com/en-us/powershell/module/AzureRM.RecoveryServices/Set-AzureRmRecoveryServicesBackupProperties?view=azurermps-4.3.1#optional-parameters) parameter to specify the type of storage redundancy: [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) or [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). The following example sets the storage redundancy option for myRSVault to GeoRedundant. Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it may be convenient to store the Backup Recovery Services vault object in a variable.
+By default, the vault is set for Geo-Redundant storage. To use this vault with the remaining steps, set the vault context with [Set-AzureRmRecoveryServicesVaultContext](/powershell/module/AzureRM.RecoveryServices/Set-AzureRmRecoveryServicesVaultContext)
 
 ```powershell
-PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault
-PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+Get-AzureRmRecoveryServicesVault -Name myRecoveryServicesVault | Set-AzureRmRecoveryServicesVaultContext
 ```
 
-## Back up Azure virtual machines
 
-Before you can run the initial backup, you must set the vault context, which is the type of data protected in the vault, and verify the protection policy. The protection policy is the schedule when the backup jobs run, and how long each backup snapshot is retained.
-
-### Set vault context
-
-Use [Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext) to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. The following example sets the vault context for the vault, *myRSVault*.
+## Enable backup for an Azure VM
+The default protection policy triggers a backup job each day at midnight. The default retention policy retains the daily recovery points for 30 days. You can use the default policy to quickly protect your VM. First, set the default policy with [Get-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupProtectionPolicy):
 
 ```powershell
-PS C:\> Get-AzureRmRecoveryServicesVault -Name myRSVault | Set-AzureRmRecoveryServicesVaultContext
+$policy = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "DefaultPolicy"
 ```
 
-### Protection and retention policy
-
-When you create a Recovery Services vault, it comes with default protection and retention policies. The default protection policy triggers a backup job each day at a specified time. The default retention policy retains the daily recovery point for 30 days. You can use the default policy to quickly protect your virtual machine and edit the policy later with different details. For information on modifying these policies, see [Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines](backup-azure-vms-automation.md#create-a-protection-policy).
-
-### Trigger the backup job
-
-Use [Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem) to trigger a backup job. The backup job creates a recovery point. If it is the initial backup, then the recovery point is a full backup. Subsequent backups take an incremental copy. Be sure to use [Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext) to set the vault context before triggering the backup job. The following example assumes vault context was set.
+To enable backup protection for a VM, use [Enable-AzureRmRecoveryServicesBackupProtection](/powershell/module/AzureRM.RecoveryServices.Backup/Enable-AzureRmRecoveryServicesBackupProtection). Specify the policy to use, then the resource group and VM to protect:
 
 ```powershell
-PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-PS C:\> $item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-PS C:\> $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
+Enable-AzureRmRecoveryServicesBackupProtection -Policy $policy -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-## Monitoring a backup job
 
-Depending on the size of the backup job, it can take a while to complete. You can monitor long-running backup jobs, without using the Azure portal. Use [Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob) to view the status of an in-progress job. This cmdlet gets the backup jobs for the vault specified in the vault context. The following example gets the status of an in-progress job as an array, and stores the status in the $joblist variable.
+## Start a backup job
+To start a backup now rather than wait for the default policy to start a job at midnight, use [Backup-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points.
 
 ```powershell
-PS C:\> $joblist = Get-AzureRmRecoveryservicesBackupJob –Status "InProgress"
-PS C:\> $joblist[0]
+$backupcontainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -FriendlyName myVM
+$item = Get-AzureRmRecoveryServicesBackupItem -Container $backupcontainer -WorkloadType "AzureVM"
+$job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
 ```
 
-Instead of polling these jobs for completion, use [Wait-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob) to pause the execution until either the job completes or the specified timeout value is reached.
+As this first backup job creates a full recovery point, the process can take up to 20 minutes.
+
+
+## Monitor a backup job
+To monitor the status of the backup process, use [Get-AzureRmRecoveryservicesBackupJob](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob):
 
 ```powershell
-PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+Get-AzureRmRecoveryservicesBackupJob
 ```
+
+The output is similar to the following example, which shows the backup job is **InProgress**:
+
+```powershell
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID                                
+------------     ---------            ------               ---------                 -------                   -----                                
+myvm             Backup               InProgress           9/18/2017 9:38:02 PM                                9f9e8f14-{snip} 
+myvm             ConfigureBackup      Completed            9/18/2017 9:33:18 PM      9/18/2017 9:33:51 PM      fe79c739-{snip}
+```
+
 
 ## Clean up deployment
-
-If you do not want to retain the Recovery Services vault and backup data, run the following script for your subscription and Recovery Services vault to delete the backup data and vault.
+When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources:
 
 ```powershell
-PS C:\> Login-AzureRmAccount
-PS C:\> Get-AzureRmSubscription
-PS C:\> Select-AzureRmSubscription -SubscriptionId e3d2d341-4ddb-4c5d-9121-69b7e719485e
-PS C:\> $vault = Get-AzureRmRecoveryServicesVault -Name "myRSvault"
-PS C:\> Set-AzureRmRecoveryServicesVaultContext -Vault $vault
-PS C:\> $container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered
-PS C:\> $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType "AzureVM"
-PS C:\> Disable-AzureRmRecoveryServicesBackupProtection -Item $item  -RemoveRecoveryPoints
-PS C:\> Remove-AzureRmRecoveryServicesVault -Vault $vault
+Disable-AzureRmRecoveryServicesBackupProtection -Item $item  -RemoveRecoveryPoints
+$vault = Get-AzureRmRecoveryServicesVault -Name myRecoveryServicesVault
+Remove-AzureRmRecoveryServicesVault -Vault $vault
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
+
 ## Next steps
-
-In this quickstart you used PowerShell to:
-
-> [!div class="checklist"]
-> * Create a Recovery Services vault
-> * Create a backup and retention policy 
-> * Trigger the initial back up of the virtual machine
-
-Continue to the tutorials to learn how to back up multiple Azure virtual machines using the Azure portal. 
+In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
 > [Restore VMs using templates](./tutorial-backup-azure-vm.md)
