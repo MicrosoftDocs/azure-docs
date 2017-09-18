@@ -18,11 +18,11 @@ To get started using the Azure Custom Speech Service, you first need to link you
 ## Get a subscription key
 1. You can get a subscription key from the Azure portal in one of two ways:
 
-    a. Go to the [Azure portal](https://ms.portal.azure.com), and add a new Cognitive Services API by searching for _Cognitive Services_ and then selecting **Cognitive Services APIs**.
+    * Go to the [Azure portal](https://ms.portal.azure.com), and add a new Cognitive Services API by searching for _Cognitive Services_ and then selecting **Cognitive Services APIs**.
 
       ![Cognitive Services search](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 
-    b. Or go directly to the [Cognitive Services APIs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServices).
+    * Or go directly to the [Cognitive Services APIs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServices).
 
         ![Cognitive Services APIs](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
