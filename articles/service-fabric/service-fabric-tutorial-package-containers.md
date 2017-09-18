@@ -85,11 +85,7 @@ The following shows the input and output of running the yo command:
 
 To add another container service to an application already created using yeoman, perform the following steps:
 
-1. Change directory to the root of the existing application.
-
-    ```bash
-    cd TestContainer
-    ```
+1. Change directory to the **TestContainer** directory
 2. Run `yo azuresfcontainer:AddService` 
 3. Name the service 'azurevoteback'
 4. Provide the container image path in ACR for the backend repo - for example 'test.azurecr.io/azure-vote-back:v1'
