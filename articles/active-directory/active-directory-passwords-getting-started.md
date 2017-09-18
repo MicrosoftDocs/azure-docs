@@ -6,7 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/07/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -75,13 +75,7 @@ To enable on-premises identity synchronization to Azure AD, you need to install 
 
 Disabling self-service password reset is as simple as opening your Azure AD tenant and going to **Password Reset > Properties** > choose **None** under **Self Service Password Reset Enabled**
 
-## Next steps
-
-In this quickstart, you’ve learned how to configure self-service password reset for your users. To continue to the Azure portal to complete these steps follow the link below to the portal.
-
-> [!div class="nextstepaction"]
-> [Enable self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### Learn more
 The following links provide additional information regarding password reset using Azure AD
 
 * [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
@@ -93,3 +87,11 @@ The following links provide additional information regarding password reset usin
 * [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
 * [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
 * [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
+
+## Next steps
+
+In this quickstart, you’ve learned how to configure self-service password reset for your users. To continue to the Azure portal to complete these steps follow the link below to the portal.
+
+> [!div class="nextstepaction"]
+> [Enable self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+

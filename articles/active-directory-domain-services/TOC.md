@@ -7,12 +7,6 @@
 ## [Compatible third-party software](active-directory-ds-compatible-software.md)
 
 # Get started
-## Azure classic portal
-### [Task 1: create the administrator group](active-directory-ds-getting-started-create-group.md)
-### [Task 2: create or select virtual network](active-directory-ds-getting-started-vnet.md)
-### [Task 3: enable Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [Task 4: update DNS settings for virtual network](active-directory-ds-getting-started-update-dns.md)
-### [Task 5: enable password synchronization](active-directory-ds-getting-started-password-sync.md)
 ## Azure portal (Preview)
 ### [Task 1: configure basic settings](active-directory-ds-getting-started.md)
 ### [Task 2: configure network settings](active-directory-ds-getting-started-network.md)

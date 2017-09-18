@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 
 ---
-# Example Storm toplogies and components for Apache Storm on HDInsight
+# Example Storm topologies and components for Apache Storm on HDInsight
 
-The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, Power BI, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO.
+The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO.
 
 | Description | Demonstrates | Language/Framework |
 |:--- |:--- |:--- |
@@ -32,7 +32,6 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Create multiple data streams in a C# Storm topology][ec5a4064] |Multiple streams |C# |
 | [Process events from Azure Event Hubs with Storm on HDInsight (C#)][844d1d81] |Event Hubs |C# and Java |
 | [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) |Event Hubs |Java |
-| [Use Power Bi to visualize data from a Storm topology][94d15238] |Power BI |C# |
 | [Analyzing sensor data with Storm and HBase in HDInsight][ab894747] |Event Hubs, HBase, Socket.IO, Web dashboard |C#, Java, JavaScript, HTML |
 | [Process vehicle sensor data from Event Hubs using Storm on HDInsight][246ee964] |Event Hubs, Cosmos DB, Azure Storage Blob (WASB) |C#, Java |
 | [Extract, Transform, and Load (ETL) from Azure Event Hubs to HBase, using Storm on HDInsight][b4b68194] |Event Hubs, HBase |C# |
@@ -42,7 +41,7 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Use Python with Storm on HDInsight](hdinsight-storm-develop-python-topology.md) |Python components with a Flux topology |Python |
 | [Use Kafka with Storm on HDInsight](hdinsight-apache-storm-with-kafka.md) | Apache Storm reading and writing to Apache Kafka | Java |
 
-## Next Steps
+### Next Steps
 
 * [Get started with Apache Storm on HDInsight][2b8c3488]
 * [Learn how to deploy and manage Storm topologies with Storm on HDInsight][6eb0d3b8]
@@ -51,7 +50,6 @@ The following is a list of examples created and maintained by Microsoft for use 
 [6eb0d3b8]: hdinsight-storm-deploy-monitor-topology.md "Learn how to deploy and manage topologies using the web-based Storm Dashboard and Storm UI or the HDInsight Tools for Visual Studio."
 [16fce2d1]: hdinsight-storm-develop-csharp-visual-studio-topology.md "Learn how to create C# Storm topologies by using the HDInsight Tools for Visual Studio."
 [5797064f]: hdinsight-storm-develop-java-topology.md "Learn how to create Storm topologies in Java, using Maven, by creating a basic wordcount topology."
-[94d15238]: hdinsight-storm-power-bi-topology.md "Demonstrates how to write data to Power BI from a C# topology, then create a chart and dashboard from the data."
 [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Demonstrates a basic Storm topology that performs a wordcount, implemented in C#. This also demonstrates how to create multiple data streams within a C# topology."
 [844d1d81]: hdinsight-storm-develop-csharp-event-hub-topology.md "Learn how to read and write data from Azure Event Hubs with Storm on HDInsight."
 [ab894747]: hdinsight-storm-sensor-data-analysis.md "Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hubs, visualize it using D3.js, and (optionally,) store it to HBase."

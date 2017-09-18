@@ -10,6 +10,8 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
+### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
+### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
 ## Optimize content
 ### [Optimization overview](cdn-optimization-overview.md)
 ####[Large file optimization](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Dynamic site acceleration](cdn-dynamic-site-acceleration.md)
  
 ## Manage
-### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
 ### [Manage with PowerShell](cdn-manage-powershell.md)
 ### Configure time-to-live
 #### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
-### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
 ### Cache content by query string

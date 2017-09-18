@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/07/2017
 ms.author: mimig
 
 ---
@@ -60,12 +60,31 @@ There is no limit to the total amount of throughput that a container can support
 For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the DocumentDB API collection, Graph API graph, MongoDB API collection, and Table API tables. 
 
 ### Is a free account available?
+Yes, you can sign up for a time-limited account at no charge, with no commitment. To sign up, visit [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) or read more in the [Try Azure Cosmos DB FAQ](#try-cosmos-db).
+
 If you are new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and and a credit to try all the Azure services. If you have a Visual Studio subscription, you are also eligible for [free Azure credits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
 
 You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
 ### How can I get additional help with Azure Cosmos DB?
 If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) or the [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB), or schedule a one-on-one chat with the Azure Cosmos DB engineering team by sending mail to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
+
+<a id="try-cosmos-db"></a>
+## Try Azure Cosmos DB subscriptions
+
+You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used in addition to an Azure Free Trial or an Azure paid subscription. 
+
+Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscriptions associated with your user ID. 
+
+The following conditions apply to Try Azure Cosmos DB subscriptions:
+
+* One container per subscription for SQL (DocumentDB API), Gremlin (Graph API), and Table accounts.
+* Up to 3 collections per subscription for MongoDB accounts.
+* 10 GB storage capacity.
+* Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe and Southeast Asia
+* Maximum throughput of 5K RU/s.
+* Subscriptions expire after 24 hours, and can be extended to a maximum of 48 hours total.
+* Azure support tickets cannot be created for Try Azure Cosmos DB accounts; however, support is provided for subscribers with existing support plans. 
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
@@ -206,7 +225,7 @@ You can use the Azure portal to browse the data. You can also use the Table API 
 ### Which tools work with the Table API (Preview)? 
 You can use the older version of Azure Explorer (0.8.9).
 
-Tools with the flexibility to take a connection string in the format specified previously can support the new Table API (Preview). A list of table tools is provided on the [Azure Storage Client Tools](../storage/storage-explorers.md) page. 
+Tools with the flexibility to take a connection string in the format specified previously can support the new Table API (Preview). A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page. 
 
 ### Do PowerShell or Azure CLI work with the new Table API (Preview)?
 We plan to add support for PowerShell and Azure CLI for Table API (Preview). 
@@ -333,9 +352,6 @@ You should change TableThroughput when either of the following conditions applie
 ### Can I scale up or scale down the throughput of my Table API (Preview) table? 
 Yes, you can use the Azure Cosmos DB portal’s scale pane to scale the throughput. For more information, see [Set throughput](set-throughput.md).
 
-### Can the premium Table API (Preview) take advantage of the RU-per-minute offering? 
-Yes, the premium Table API (Preview) borrows from the capabilities of Azure Cosmos DB to provide SLAs for performance, latency, availability, and consistency. This capability ensures that the table can use the RU-per-minute offering. For more information, see [Request Units in Azure Cosmos DB](request-units.md). With this capability, customers can avoid provisioning for the peak and smooth out the spikes in the workload.
-
 ### Is a default TableThroughput set for newly provisioned tables?
 Yes, if you do not override the TableThroughput via app.config and do not use a pre-created container in Azure Cosmos DB, the service creates a table with throughput of 400.
  
@@ -396,7 +412,7 @@ The current developer-facing manifestation of this work is the new support for [
 
 It is important to point out that the DocumentDB [SQL dialect](../documentdb/documentdb-sql-query.md) has always been just one of the many APIs that the underlying Azure Cosmos DB can support. For developers who use a fully managed service such as Azure Cosmos DB, the only interface to the service is the APIs that are exposed by the service. Nothing really changes for existing DocumentDB customers. In Azure Cosmos DB, you get exactly the same SQL API that DocumentDB offers. And now (and in the future), you can access other previously inaccessible capabilities 
 
-Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. One of the very first manifestations of scalability is the [RU/m](../cosmos-db/request-units-per-minute.md), but we plan to announce additional capabilities that can help reduce costs for our customers for various workloads. We have made several foundational enhancements to the global distribution subsystem. One of the many such developer-facing features is the Consistent Prefix consistency model, which makes a total five well-defined consistency models. We will release many more interesting capabilities as they mature. 
+Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. We have made several foundational enhancements to the global distribution subsystem. One of the many such developer-facing features is the Consistent Prefix consistency model, which makes a total five well-defined consistency models. We will release many more interesting capabilities as they mature. 
 
 ### What do I need to do to ensure that my DocumentDB resources continue to run on Azure Cosmos DB?
 
@@ -414,7 +430,7 @@ DocumentDB no longer appears in the portal as an Azure service. In its place is 
 
 ### Are there changes to pricing?
 
-No, the cost of running your app on Azure Cosmos DB is the same as it was before. However, you might benefit from the new "Request Unit per minute" feature. For more information, see the [Scale throughput per minute](../cosmos-db/request-units-per-minute.md) article.
+No, the cost of running your app on Azure Cosmos DB is the same as it was before.
 
 ### Are there changes to the SLAs?
 

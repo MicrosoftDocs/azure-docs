@@ -9,7 +9,6 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Containers, DC/OS, Azure
 
-ms.assetid: 91d9a28a-3a52-4194-879e-30f2fa3d946b
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -17,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2016
 ms.author: saudas
+ms.custom: mvc
 
 ---
 # Monitor an Azure Container Service cluster with Sysdig

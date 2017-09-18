@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
@@ -23,6 +23,8 @@ ms.custom: mvc
 Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs), something no other database service can offer.
 
 ![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
+
+You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitment.
 
 ## Solutions that benefit from Azure Cosmos DB
 
@@ -45,7 +47,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
         * Additional data models coming soon 
 
 * **Elastically scale throughput and storage on demand, worldwide**
-    * Easily scale database throughput at [second](request-units.md) and [minute](request-units-per-minute.md) granularities, and change it anytime you want. 
+    * Easily scale database throughput at a [per second](request-units.md) granularity, and change it anytime you want. 
     * Scale storage size [transparently and automatically](partition-data.md) to handle your size requirements now and forever.
 
 * **Build highly responsive and mission-critical applications**

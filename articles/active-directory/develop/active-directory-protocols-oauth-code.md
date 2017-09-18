@@ -262,7 +262,7 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | invalid_client |Client authentication failed. |The client credentials are not valid. To fix, the application administrator updates the credentials. |
 | unsupported_grant_type |The authorization server does not support the authorization grant type. |Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
 | invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
-| interaction_required |The request requires user interaction. For example, an additional authentication step is required. |Retry the request with the same resource. |
+| interaction_required |The request requires user interaction. For example, an additional authentication step is required. | Instead of a non-interactive request, retry with an interactive authorization request for the same resource. |
 | temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition. |
 
 ## Use the access token to access the resource
@@ -325,15 +325,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
-| Parameter | Description |
-| --- | --- |
-| access_token |The new access token that was requested. |
-| expires_in |The remaining lifetime of the token in seconds. A typical value is 3600 (one hour). |
-| expires_on |The date and time on which the token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. |
-| refresh_token |A new OAuth 2.0 refresh_token that can be used to request new access tokens when the one in this response expires. |
-| resource |Identifies the secured resource that the access token can be used to access. |
-| scope |Impersonation permissions granted to the native client application. The default permission is **user_impersonation**. The owner of the target resource can register alternate values in Azure AD. |
-| token_type |The token type. The only supported value is **bearer**. |
 
 ### Successful response
 A successful token response will look like:
@@ -348,6 +339,15 @@ A successful token response will look like:
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+| Parameter | Description |
+| --- | --- |
+| token_type |The token type. The only supported value is **bearer**. |
+| expires_in |The remaining lifetime of the token in seconds. A typical value is 3600 (one hour). |
+| expires_on |The date and time on which the token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. |
+| resource |Identifies the secured resource that the access token can be used to access. |
+| scope |Impersonation permissions granted to the native client application. The default permission is **user_impersonation**. The owner of the target resource can register alternate values in Azure AD. |
+| access_token |The new access token that was requested. |
+| refresh_token |A new OAuth 2.0 refresh_token that can be used to request new access tokens when the one in this response expires. |
 
 ### Error response
 A sample error response could look like this:

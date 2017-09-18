@@ -34,16 +34,16 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Throttle | Free and S1 hubs | S2 hubs | S3 hubs | 
 | -------- | ------- | ------- | ------- |
 | Identity registry operations (create, retrieve, list, update, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
-| Device connections | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
-| Device-to-cloud sends | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
+| Device connections | Higher of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
+| Device-to-cloud sends | Higher of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
 | Cloud-to-device sends | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Cloud-to-device receives <br/> (only when device uses HTTP)| 16.67/sec/unit (1000/min/unit) | 16.67/sec/unit (1000/min/unit) | 833.33/sec/unit (50000/min/unit) |
 | File upload | 1.67 file upload notifications/sec/unit (100/min/unit) | 1.67 file upload notifications/sec/unit (100/min/unit) | 83.33 file upload notifications/sec/unit (5000/min/unit) |
-| Direct methods | 10/sec/unit | 30/sec/unit | 1500/sec/unit | 
-| Device twin reads | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
-| Device twin updates | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
+| Direct methods | 20/sec/unit | 60/sec/unit | 3000/sec/unit | 
+| Device twin reads | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
+| Device twin updates | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Jobs operations <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
-| Jobs per-device operation throughput | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
+| Jobs per-device operation throughput | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 
 It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
 

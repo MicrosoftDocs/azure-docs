@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: micflan
-
+ms.custom: accessibility
 ---
 # Supported browsers and devices for the Azure portal
 You can run the [Azure portal](https://portal.azure.com) on all modern desktop, tablet devices, and browsers.

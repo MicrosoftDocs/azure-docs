@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: billmath
 ---
 
@@ -119,6 +119,9 @@ If you plan to deploy Pass-through Authentication in a production environment, y
 ![Azure Active Directory admin center - Download Authentication Agent button](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory admin center - Download Agent blade](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
+
+>[!NOTE]
+>You can also download the Authentication Agent from [here](https://aka.ms/getauthagent). Ensure that you review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
 
 ## Next steps
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.

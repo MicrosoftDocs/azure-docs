@@ -4,7 +4,7 @@ description: Learn best practices and patterns for Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, patterns, best practice, functions, event processing, webhooks, dynamic compute, serverless architecture
@@ -85,9 +85,9 @@ Don't use verbose logging in production code. It has a negative performance impa
 
 
 
-## Use async code but avoid Task.Result
+## Use async code but avoid blocking calls
 
-Asynchronous programming is a recommended best practice. However, always avoid referencing the `Task.Result` property. This approach can lead to thread exhaustion.
+Asynchronous programming is a recommended best practice. However, always avoid referencing the `Result` property or calling `Wait` method on a `Task` instance. This approach can lead to thread exhaustion.
 
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]

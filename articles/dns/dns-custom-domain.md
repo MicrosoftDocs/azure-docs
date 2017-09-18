@@ -160,7 +160,7 @@ Navigate back to your storage account by clicking **Storage** > **Storage Accoun
 
 Validate DNS resolution by running `nslookup`
 
-To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
+To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
 
 ## Azure CDN
 

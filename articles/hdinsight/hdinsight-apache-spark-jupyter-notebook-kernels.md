@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 
 ---
@@ -65,13 +65,13 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    
    * **sc** - for Spark context
    * **sqlContext** - for Hive context
-
-    So, you don't have to run statements like the following to set the contexts:
-
-      	sc = SparkContext('yarn-client')
-      	sqlContext = HiveContext(sc)
-
-    Instead, you can directly use the preset contexts in your application.
+   
+   So, you don't have to run statements like the following to set the contexts:
+   
+          sc = SparkContext('yarn-client')
+          sqlContext = HiveContext(sc)
+   
+   Instead, you can directly use the preset contexts in your application.
 
 - **Cell magics**. The PySpark kernel provides some predefined “magics”, which are special commands that you can call with `%%` (for example, `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, causes an error.     For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
    

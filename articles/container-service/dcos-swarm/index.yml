@@ -28,6 +28,10 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
       text: Create a DC/OS Cluster
       href: /azure/container-service/container-service-dcos-quickstart
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_docker.svg
+      text: Create a Docker Swarm cluster
+      href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough    
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -55,4 +59,4 @@ sections:
     - title: Command-Line
       html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
     - title: REST
-      html: <p><a href="/rest/api/compute/containerservices">REST API</a></p>
+      html: <p><a href="/rest/api/container-services">REST API</a></p>
