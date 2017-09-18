@@ -29,10 +29,9 @@ The Azure Stack Integrated System is offered through a partnership of Microsoft 
 Microsoft Azure Stack Development Kit is a single-node deployment of Azure Stack, which you can use to evaluate and learn about Azure Stack.  You can also use Azure Stack Development Kit as a developer environment, where you can develop using consistent APIs and tooling.  Azure Stack Development Kit is not intended to be used as a production environment.
 
 Azure Stack development kit has the following limitations:
-* Your deployment of Azure Stack is associated with a single Azure Active Directory or Active Directory Federation Services identity provider. You can create multiple users in this directory and assign subscriptions to each user.
+* Azure Stack deevelopment kit is associated with a single Azure Active Directory or Active Directory Federation Services identity provider. You can create multiple users in this directory and assign subscriptions to each user.
 * With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale or performance evaluation.
 * Networking scenarios are limited due to the single host/NIC requirement.  
-
 
 ## Next steps
 [Key features and concepts](azure-stack-key-features.md)
