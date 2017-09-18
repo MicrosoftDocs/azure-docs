@@ -50,7 +50,7 @@ This message is displayed if the server was previously registered with a Storage
 If sync is failing on a server, perform the following:
 - Verify a Server Endpoint exists in the Azure portal for the directory you want to sync to an Azure File share:
     
-    ![A screenshot of a Sync Group with both a Cloud and Server Endpoint in the Azure portal](media/storage-sync-file-troubleshoot/sync-troubleshoot-1.png)
+    ![A screenshot of a Sync Group with both a Cloud and Server Endpoint in the Azure portal](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
 
 - Review the Operational and Diagnostic event logs with Event Viewer, located under `Applications and Services\Microsoft\FileSync\Agent`.
 - Confirm the server has internet connectivity.
