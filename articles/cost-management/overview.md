@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/12/2017
+ms.date: 09/18/2017
 ms.topic: article
 ms.service: Cost Management
 manager: carmonm
@@ -13,29 +13,32 @@ manager: carmonm
 
 # What is Azure Cost Management?
 
-﻿Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources. It helps you track cloud usage and expenditures with straightforward reports. And, you use the reports for cost allocation and showback/chargebacks. Cost Management also helps to optimize cloud costs by identifying underutilized resources and show where you can increase resource utilization.
-
-Dashboard reports make it easy to see all your data to view data for all your cloud resources. Using the dashboards, you can easily reach all your custom reports that allow you to drill into data using grouping and filtering and you can configure display formats.
+Azure Cost Management by Cloudyn allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cost Management helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
 
 ## Monitor usage and spending
 
-Reports help you monitor spending to analyze and track cloud usage, costs, and trends. Using Over Time reports, you can detect anomalies that differ from normal trends. Inefficiencies in your cloud deployment are visible in optimization reports. You can also notice inefficiencies by analyzing costs.
+Monitoring your usage and spending is critically important for cloud infrastructures because organizations pay for the resources they consume over time. When usage exceeds agreement thresholds, unexpected cost overages can quickly occur. A few important factors can make ad-hoc monitoring difficult. First, projecting costs based on average usage assumes your consumption will remain near level over a given billing period. Second, when costs are near or exceed your budget, your cloud service provider might not proactively warn you with alerts. And, cloud service providers might not offer cost projection vs. thresholds or period to period comparison reports.
+
+Reports help you monitor spending to analyze and track cloud usage, costs, and trends. Using Over Time reports, you can detect anomalies that differ from normal trends. Inefficiencies in your cloud deployment are visible in optimization reports. You can also notice inefficiencies in cost analysis reports.
+
+![Cost Over Time report](media\overview\cost-over-time-rpt.png)
+
 
 ## Manage costs
 
-You can forecast future spending by reviewing historical data and by analyzing your cost over time trends. Cost Management also includes projected cost reports.
+Historical data can help manage costs when you analyze usage and costs over time to identify trends. Trends are then used to forecast future spending. Cost Management also includes many projected cost reports.
 
-You can use the cost allocation feature to analyze your costs based on your tagging policy. Use custom account, resource, and entity tags add additional cost allocation capabilities. Use Category Manager to better organize your tags and achieve additional governance.
+Cost allocation manages costs by analyze your costs based on your tagging policy. You can use tags on your custom accounts, resources, and entities to refine cost allocation. Category Manager organizes your tags to help provide additional governance. And, you use cost allocation for showback/chargeback to show resource utilization and associated costs to influence consumption behaviors or charge tenant customers.
 
-Use Cost Allocation for showback/chargeback to show resource utilization and associated costs to influence consumption behaviors or charge tenant customers.
+Access control helps manage costs by ensuring that users and teams access only the cost management data that they needed. You use entity structure, user management, and scheduled reports with recipient lists to assign access.
 
-You can assign teams assess to cost management data by using Azure Role-Based Access Control. You also use entity structure, user management, and scheduled reports with recipient lists to give team members access to cost data.
-
-You can create alerts for unusual spending or overspending. Alerts notify stakeholders automatically for spending anomalies and overspending risks using alerts and reports that support alerts based on budget and cost thresholds.
+Alerting helps manage costs by notifying you automatically when unusual spending or overspending occurs. Alerts can also notify other stakeholders automatically for spending anomalies and overspending risks. Various reports support alerts based on budget and cost thresholds.
 
 ## Improve efficiency
 
-Determine optimal VM usage and identify idle VMs. Using information in Inefficiency reports, you can create a plan to down-size or remove idle VMs.
+You can determine optimal VM usage and identify idle VMs with Cost Management. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs.
+
+![sizing recommendations](.\media\overview\sizing.png)
 
 If you provisioned AWS Reserved Instances, you can improve your reserved instances utilization with Optimization reports where you can view buying recommendations, modify unused reservations, and plan provisioning.
 
@@ -43,6 +46,4 @@ If you provisioned AWS Reserved Instances, you can improve your reserved instanc
 
 Now that you’re familiar with Cost Management, the next step is to register your cloud environment and start exploring your data.
 
-- [Register an Azure Enterprise Agreement](quick-register-ea.md)
 - [Register an individual Azure subscription](quick-register-azure-sub.md)
-- [Register using the CSP Partner program](quick-register-csp.md)
