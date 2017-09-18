@@ -118,12 +118,14 @@ These limits apply to a single logic app definition.
 |`outputs` limit|10||
 ||||
 
+<a name="custom-connector-limits"></a>
+
 ### Custom connector limits
 
 |Name|Limit|Notes|
 |----|-----|-----|
 |Number of custom connectors that you can create|1,000 per Azure subscription||
-|Number of requests per minute with a custom connector|500||
+|Number of requests per minute for each connection created by a custom connector|500 requests for each connection created by the connector ||
 ||||
 
 ### Integration account limits

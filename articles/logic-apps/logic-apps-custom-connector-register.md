@@ -353,12 +353,8 @@ for example, with all Logic Apps, Flow, and PowerApps users,
 
 ## FAQ
 
-**Q:** Is there a limit on how many connectors that I can create? </br>
-**A:** Yes, for each Azure subscription, you can create up to 1,000 connectors.
-
-**Q:** Is there a limit on how many requests that users can make with a custom connector? </br>
-**A:** Yes, for each connection that's created by a custom connector, 
-you can make up to 500 requests per minute.
+**Q:** Are there any limits for custom connectors? </br>
+**A:** Yes, see the [custom connector limits here](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
 
 ## Get support
 
