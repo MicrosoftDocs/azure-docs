@@ -120,7 +120,7 @@ If this workflow is not possible, relying on [Storage Service Encryption](https:
 
 **Q:** What is the disk "Bek Volume" or "/mnt/azure_bek_disk"?
 
-**A:** "Bek volume" for Windows or "/mnt/azure_bek_disk" for Linux is a temporary storage which stores the encryption keys for Encrypted Azure IaaS VMs.
+**A:** "Bek volume" for Windows or "/mnt/azure_bek_disk" for Linux is a local data volume which securely stores the encryption keys for Encrypted Azure IaaS VMs.
 > [!NOTE]
 > Do not delete or edit any contents in this disk. Do not unmount the disk since the encryption key presence is needed for any encryption operations on the IaaS VM.
 
