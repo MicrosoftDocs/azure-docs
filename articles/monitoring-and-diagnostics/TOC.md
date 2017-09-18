@@ -24,7 +24,7 @@
 ### [Configure alerts with PowerShell](insights-alerts-powershell.md)
 ### [Have a metric alert call a webhook](insights-webhooks-alerts.md)
 ### [Create a metric alert with a Resource Manager template](monitoring-enable-alerts-using-template.md)
-### [Configure a near real-time metric alert(preview) in Azure portal](monitoring-near-real-time-metric-alerts.md)
+
 ## Use autoscale
 ### [Best Practices](insights-autoscale-best-practices.md)
 ### [Common metrics](insights-autoscale-common-metrics.md)
