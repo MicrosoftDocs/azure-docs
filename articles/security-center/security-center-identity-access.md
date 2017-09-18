@@ -1,6 +1,6 @@
 ---
 title: Monitor identity and access in Azure Security Center | Microsoft Docs
-description: This document helps you to use identity and access capability in Azure Security Center to monitor your user's access activity and identity related issues.
+description: Learn how to use the identity and access capability in Azure Security Center to monitor your users' access activity and identity-related issues.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -18,7 +18,7 @@ ms.author: yurid
 
 ---
 # Monitor identity and access in Azure Security Center
-This document helps you use Azure Security Center to monitor users' identity and access activity.
+This article helps you use Azure Security Center to monitor users' identity and access activity.
 
 ## Why monitor identity and access?
 Identity should be the control plane for your enterprise, and protecting your identity should be your top priority. In the past, there were perimeters around organizations, and those perimeters were one of the primary defensive boundaries. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
@@ -55,15 +55,15 @@ To see current activities related to identity and access, you need to access the
 
 	c. **Logons over time**. Helps you to quickly identify the amount of logons over time. It shows a list of the top computer account logon attempts.
 	
-Regardless of which tile you select, the dashboard that appears is based on the [log search  query](https://docs.microsoft.com/azure/security-center/security-center-search). The only difference is the type of query and the result. You can still select an item, for example, a computer, and see relevant data. 
+Regardless of which tile you select, the dashboard that appears is based on the [Log Search](https://docs.microsoft.com/azure/security-center/security-center-search) query. The only difference is the type of query and the result. You can still select an item, for example, a computer, and see relevant data. 
 
 ## See also
-In this document, you learned how to monitor identity and access in Security Center. To learn more about Security Center, see the following:
+In this article, you learned how to monitor identity and access in Security Center. To learn more about Security Center, see the following:
 
 * [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Understand security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
 * [Azure Security Center troubleshooting guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
-* [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using Security Center.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+* [Azure Security Center FAQ](security-center-faq.md). Find answers to frequently asked questions about using Security Center.
+* [Azure security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
 

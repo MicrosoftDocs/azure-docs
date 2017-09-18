@@ -1,6 +1,6 @@
 ---
-title: Threat Intelligence in Azure Security Center | Microsoft Docs
-description: This document helps you to use the threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
+title: Threat intelligence in Azure Security Center | Microsoft Docs
+description: Learn how to use the threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -17,13 +17,13 @@ ms.date: 09/13/2017
 ms.author: yurid
 
 ---
-# Threat Intelligence in Azure Security Center
-This document helps you to use Azure Security Center Threat Intelligence to address security-related issues.
+# Threat intelligence in Azure Security Center
+This article helps you to use Azure Security Center threat intelligence to address security-related issues.
 
 ## What is threat intelligence?
-By using the Threat Intelligence option available in Security Center, IT administrators can identify security threats against the environment. For example, they can identify whether a particular computer is part of a botnet. Computers can become nodes in a botnet when attackers illicitly install malware that secretly connects the computer to the command and control. Threat Intelligence can also identify potential threats coming from underground communication channels, such as the dark web.
+By using the threat intelligence option available in Security Center, IT administrators can identify security threats against the environment. For example, they can identify whether a particular computer is part of a botnet. Computers can become nodes in a botnet when attackers illicitly install malware that secretly connects the computer to the command and control. Threat intelligence can also identify potential threats coming from underground communication channels, such as the dark web.
 
-To build this threat intelligence, Security Center uses data that comes from multiple sources within Microsoft. Security Center uses this data to identify potential threats against your environment. The Threat Intelligence pane is composed of three major options:
+To build this threat intelligence, Security Center uses data that comes from multiple sources within Microsoft. Security Center uses this data to identify potential threats against your environment. The **Threat intelligence** pane is composed of three major options:
 
 - Detected threat types
 - Threat origin
@@ -42,18 +42,18 @@ One of the steps of a [security incident response process](https://docs.microsof
 You can leverage threat intelligence information in Security Center to help with these tasks. 
 
 ## Access the threat intelligence
-To visualize the current threat intelligence for your environment, you must first select the workspace where your information resides. If you don't have multiple workspaces, you bypass the workspace selector and go directly to the **Threat intelligence dashboard**. To access the dashboard:
+To visualize the current threat intelligence for your environment, you must first select the workspace where your information resides. If you don't have multiple workspaces, you bypass the workspace selector and go directly to the **Threat intelligence** dashboard. To access the dashboard:
 
 1. Open the **Security Center** dashboard.
 
-2. In the left pane, under **Detection** select **Threat intelligence**. The **Threat intelligence dashboard** appears.
+2. In the left pane, under **Detection** select **Threat intelligence**. The **Threat intelligence** dashboard appears.
 
 	![Threat intelligence dashboard](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
 	> [!NOTE]
 	> If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. You need to upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, you need to update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing. 
 	> 
-3. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence dashboard** appears.
+3. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
 
 	![Threat intelligence information](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
@@ -72,13 +72,13 @@ Regardless of which tile you select, the dashboard that appears is based on the 
 ### Threat types
 Select the **Threat types** tile to open the **Log Search** dashboard. Filter options appear on the left, and query results appear on the right.
 
-![Threat Intelligence search](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
+![Log Search](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
 
 The query result shows the threats by name. You can use the left pane to select the attribute that you want to filter. For example, to see only the threats that are currently connected to the machines, in **SESSIONSTATE**, select **Connected** > **Apply**.
 
-![Session state](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
+![Session State](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
 
-For Azure VMs, only the network data that flows through the agent appears in the **Threat Intelligence dashboard**. The following data types also are used by threat intelligence:
+For Azure VMs, only the network data that flows through the agent appears in the **Threat intelligence** dashboard. The following data types also are used by threat intelligence:
 
 - CEF Data (Type=CommonSecurityLog)
 - WireData (Type= WireData)
@@ -88,7 +88,7 @@ For Azure VMs, only the network data that flows through the agent appears in the
 
 
 ## See also
-In this document, you learned how to use Threat Intelligence in Security Center to assist you in identifying suspicious activity. To learn more about Security Center, see the following:
+In this article, you learned how to use threat intelligence in Security Center to assist you in identifying suspicious activity. To learn more about Security Center, see the following:
 
 * [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
