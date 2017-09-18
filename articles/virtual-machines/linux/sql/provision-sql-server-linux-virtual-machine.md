@@ -19,7 +19,7 @@ Open the [Azure portal](https://portal.azure.com/).
 
 1. Click **New** on the left.
 
-1. In the **New** blade, click **Compute**.
+1. In the **New** window, click **Compute**.
 
 1. Click **See All** next to the **Featured Apps** heading.
 
@@ -36,16 +36,16 @@ Open the [Azure portal](https://portal.azure.com/).
 
 1. Click **Create**.
 
-1. On the **Basics** blade, fill in the details for your Linux VM. 
+1. In the **Basics** window, fill in the details for your Linux VM. 
 
-    ![Basics blade](./media/provision-sql-server-linux-virtual-machine/basics.png)
+    ![Basics window](./media/provision-sql-server-linux-virtual-machine/basics.png)
 
     > [!Note]
     > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys). 
 
 1. Click **OK**.
 
-1. On the **Size** blade, choose a machine size. For development and functional testing, we recommend a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
+1. In the **Size** window, choose a machine size. For development and functional testing, we recommend a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
 
     ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -53,7 +53,7 @@ Open the [Azure portal](https://portal.azure.com/).
 
 1. Click **Select**.
 
-1. On the **Settings** blade, you can make changes to the settings or keep the default settings.
+1. In the **Settings** window, you can make changes to the settings or keep the default settings.
 
 1. Click **OK**.
 
@@ -78,7 +78,7 @@ To be able to remotely connect to SQL Server on an Azure VM, you must configure 
 
     ![Network security group](./media/provision-sql-server-linux-virtual-machine/networksecuritygroup.png)
 
-1. In the properties of the Network Security Group, selct **Inbound security rules**.
+1. In the properties of the Network Security Group, select **Inbound security rules**.
 
 1. Click the **+Add** button.
 
@@ -108,7 +108,7 @@ If you are running on Windows and do not have a BASH shell, you can install an S
 
 1. Run PuTTY.
 
-1. On the PuTTY configuration screen enter your VM's public IP address.
+1. On the PuTTY configuration screen, enter your VM's public IP address.
 
 1. Click Open and enter your username and password at the prompts.
 
