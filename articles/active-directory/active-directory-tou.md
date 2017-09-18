@@ -105,5 +105,4 @@ The following information is something to be aware of and can assist with using 
     - **Resolution**: in order to resolve the user must sign out and sign back in. Users will get a fresh token. 
 
 -	If a Terms of Use is enforced using a custom conditional access policy be aware of the following:
-    - if the admin wants to delete a Terms of Use:
-        - the admin needs to make sure that Terms of Use is not enforced with any policies.
+    - if the admin wants to delete a Terms of Use, the admin needs to make sure that it is not enforced with any policies.
