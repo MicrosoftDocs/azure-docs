@@ -47,10 +47,10 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az login](https://docs.microsoft.com/cli/azure/#login) | Login to Azure. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Create a resource group with location |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Create a resource group with location |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Create a storage account |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Create a new function app |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Clean up |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Create a new function app |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Clean up |
 
 ## Next steps
 

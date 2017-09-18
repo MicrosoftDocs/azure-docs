@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 09/16/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -105,7 +105,7 @@ If you have policies in the Azure classic portal configured, you should migrate 
 - If you don't migrate your existing policies, you will not be able to implement policies that are granting access
 
 
-## Migration from the Azure classic portal
+### Migration from the Azure classic portal
 
 In this scenario: 
 
@@ -122,7 +122,7 @@ In this scenario:
 - You want to configure a mobile application management conditional access policy in the Azure portal 
  
 
-### Configuration 
+#### Configuration 
 
 - Review your device-based conditional access policies
 
@@ -131,7 +131,7 @@ In this scenario:
 - Add mobile application management conditional access policies
 
 
-## Migrating from Intune 
+### Migrating from Intune 
 
 In this scenario:
 
@@ -142,7 +142,7 @@ In this scenario:
 - You want to migrate to using mobile application management conditional access in the Azure portal
 
 
-### Configuration 
+#### Configuration 
  
 - Review your device-based conditional access policies
 
@@ -153,7 +153,7 @@ In this scenario:
 - Add the control for **Require approved applications** in addition to the device-based control 
  
 
-## Migrating from the Azure classic portal and Intune
+### Migrating from the Azure classic portal and Intune
 
 In this scenario:
 
@@ -166,7 +166,7 @@ In this scenario:
 - You want to migrate both policies to using mobile application management conditional access policies in the Azure portal
 
 
-### Configuration
+#### Configuration
 
 - Review your device-based conditional access policies
 
@@ -178,37 +178,6 @@ In this scenario:
 
 
 
-
-
-
-
-
-
-
-
-
-## Common scenarios
-
-### Requiring multi-factor authentication for apps
-
-Many environments have apps requiring a higher level of protection than the others.
-This is, for example, the case for apps that have access to sensitive data.
-If you want to add another layer of protection to these apps, you can configure a conditional access policy that requires multi-factor authentication when users are accessing these apps.
-
-
-### Requiring multi-factor authentication for access from networks that are not trusted
-
-This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
-However, the main difference is the condition for this requirement.  
-While the focus of the previous scenario was on apps with access to sensitve data, the focus of this scenario is on trusted locations.  
-In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust.
-
-
-### Only trusted devices can access Office 365 services
-
-If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
-
-Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access.
 
 ## Next steps
 
