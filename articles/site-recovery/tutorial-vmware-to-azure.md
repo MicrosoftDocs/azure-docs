@@ -120,7 +120,7 @@ The Mobility service must be installed on each VM you want to replicate. Site Re
 
 #### Example
 
-1. Use a command like this example to collect profile information about your source environment.
+1. Use a command like this example to collect profile information about your source environment. [Learn more](site-recovery-deployment-planner.md#profiling) about profiling and profile parameters.
 
     ```Example: Profile VMs for 30 days, and find the throughput from on-premises to Azure 
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
