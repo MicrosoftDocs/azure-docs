@@ -1,5 +1,5 @@
 ---
-title:Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery | Microsoft Docs
+title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery | Microsoft Docs
 description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery 
 services: site-recovery
 author: rajani-janaki-ram
