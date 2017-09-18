@@ -31,7 +31,7 @@ Run the following prerequisites either from the [Development Kit](azure-stack-co
 
 ## Create and get the key vault and application settings
 
-First, you should create an Azure Key Vault in Azure Stack, and register an application in the Azure Active Directory (Azure AD). You can create and register the key vaults by using the Azure portal or PowerShell. This article shows you the PowerShell way to do the tasks. By default, this PowerShell script creates a new application in Active Directory, however, you can also use one of your existing applications. Make sure to provide a value for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for the `applicationPassword` variable this script generates a random password. 
+First, you should create a key vault in Azure Stack, and register an application in Azure Active Directory (Azure AD). You can create and register the key vaults by using the Azure portal or PowerShell. This article shows you the PowerShell way to do the tasks. By default, this PowerShell script creates a new application in Active Directory. However, you can also use one of your existing applications. Make sure to provide a value for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for the `applicationPassword` variable, this script generates a random password. 
 
 ```powershell
 $vaultName           = 'myVault'
@@ -39,7 +39,7 @@ $resourceGroupName   = 'myResourceGroup'
 $applicationName     = 'myApp'
 $location            = 'local' 
 
-# Password for the application, if not specified, this script will generate a random password during app creation.
+# Password for the application. If not specified, this script will generate a random password during app creation.
 $applicationPassword = '' 
                          
 # Function to generate a random password for the application.
@@ -69,7 +69,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -AADTenantName $aadTenantName `
   -EnvironmentName AzureStackUser
 
-# Sign-in to the user portal.
+# Sign in to the user portal.
 Login-AzureRmAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
@@ -79,7 +79,7 @@ $oneYearFromNow = $now.AddYears(1)
 
 $applicationPassword = GenerateSymmetricKey
 	
-# Create a new AD application.
+# Create a new Azure AD application.
 $identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().ToString("N"))
 $homePage = "http://contoso.com"
 
@@ -130,13 +130,13 @@ Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** valu
 
 ## Download and run the sample application
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this topic. Navigate to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
+Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this topic. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
 
 Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
 
 ![App settings](media/azure-stack-kv-sample-app/appconfig.png)
  
-The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters, such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
+The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
 
 
 ## Next steps
