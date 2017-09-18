@@ -205,7 +205,7 @@ The Recovery Services agent on the Hyper-V host needs internet access to Azure f
 
     ![Server registration](./media/tutorial-hyper-v-to-azure/provider-vault-settings.png)
 
-4 In **Proxy Settings**, specify how the Provider running on the VMM server or Hyper-V host connects to Site Recovery over the internet.
+4. In **Proxy Settings**, specify how the Provider running on the VMM server or Hyper-V host connects to Site Recovery over the internet.
 
 	* For a direct connection, select **Connect directly to Azure Site Recovery without a proxy**.
 	* For a proxy, select **Connect to Azure Site Recovery using a proxy server**. Specify the proxy address, port, and credentials if needed.
