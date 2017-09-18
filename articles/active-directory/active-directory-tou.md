@@ -28,9 +28,9 @@ This remainder of this document describes how to get going with Azure AD Terms o
 Finding it difficult to get employee’s or guests to agree to your terms of use before getting access? Need help figuring out who has or hasn’t agreed to your company terms of use?  With Azure AD Terms of use you now have a simple method that your organization can use to ensure that end users see relevant disclaimers or other information needed for legal or compliance requirements prior to getting access. 
 
 Azure AD Terms of Use can be used in the following scenarios:
--	General terms of use for all users in your organization
--	Specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees) (using dynamic groups)
--	Specific terms of use based on accessing high business impact apps, like Salesforce
+-	General terms of use for all users in your organization.
+-	Specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees) (using dynamic groups).
+-	Specific terms of use based on accessing high business impact apps, like Salesforce.
 
 
 ## Azure AD Terms of Use Prerequisites
@@ -43,7 +43,7 @@ Use the following steps to configure Azure AD Terms of Use:
 
 
 ## Adding a Terms of Use
-Once you have finalized your Terms of Use and you are ready to use it with Azure services you can use the following procedure to add it
+Once you have finalized your Terms of Use, use the following procedure to add it.
 
 ### To add a terms of use
 1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
@@ -81,7 +81,7 @@ Azure AD Terms of Use provides easy to use auditing so that you can see who has 
 4.  You can also download the information in a .csv file for use locally.
 
 ## End user Preview
-Once a terms of use is created and enforced this is what an end user will see if they are in scope.
+Users, who are in scope, will see the following once a terms of use is created and enforced.
 -	Best practice is to have the font within the PDF at size 24.
 ![Audit Event](media/active-directory-tou/tou10.png)
 -	This screen is how it appears on mobiles
@@ -92,9 +92,11 @@ The following information is something to be aware of and can assist with using 
 
 -	Global administrator, security administrator, or conditional access administrator need read/write access.
 -	After creating a Terms of Use, using the “access to cloud apps” template, the admin starts to see “sad clouds” when access other areas of the portal. If they refresh the browser, they start to see Azure AD token issues
-    - This behavior is expected and the reason for this is that the user created a new conditional access policy that they are in scope of. The new policy is not satisfied so they are unable to access any cloud apps until that policy in satisfied.
+    - This behavior is expected.
+    - Reason: the user created a new conditional access policy that they are in scope of. The new policy is not satisfied so they are unable to access any cloud apps until that policy in satisfied.
     - Resolution: in order to resolve the user must sign out and sign back in. This allows them to satisfy any remaining controls that they may now fall in scope of.
 -	If a tenant already has a conditional access policy enforced with a Terms of Use, the next time a Terms of Use is created the admin (and all active sessions) starts to see “sad clouds” when access other areas of the portal. If they refresh the browser, they start to see Azure AD token issues.
-    - This behavior is expected and due to limitation in the conditional access extensibility framework.
+    - This behavior is expected.
+    - Reason: due to limitations in the conditional access extensibility framework.
     - Resolution: in order to resolve the user must sign out and sign back in. Users will get a fresh token. 
 -	If a Terms of Use is enforced using a custom conditional access policy, and the admin wants to delete a Terms of Use, they need to make sure that Terms of Use is not enforced with any policies.
