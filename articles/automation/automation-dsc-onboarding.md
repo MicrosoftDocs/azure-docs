@@ -32,13 +32,13 @@ Azure Automation DSC can be used to manage a variety of machines:
 
 In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation DSC can also be used as a report-only endpoint. This allows you to set (push) desired configuration through DSC on-premises and view rich reporting details on node compliance with the desired state in Azure Automation.
 
+Managing Azure VMs with DSC is included at no extra charge. Please refer to the [**Automation pricing page**](https://azure.microsoft.com/en-us/pricing/details/automation/) for more details.
+
 The following sections outline how you can onboard each type of machine to Azure Automation DSC.
 
 ## Azure virtual machines (classic)
 
 With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the [**Troubleshooting Azure virtual machine onboarding**](#troubleshooting-azure-virtual-machine-onboarding) section below.
-
-Managing Azure VMs with DSC is included at no extra charge. Please refer to the [**Automation pricing page**](https://azure.microsoft.com/en-us/pricing/details/automation/) for more details.
 
 ### Azure portal
 
