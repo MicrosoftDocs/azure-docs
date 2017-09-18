@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Pingboard Domain and URLs single sign-on information SP](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
-     In the **Sign-on URL** textbox, type the value as: `https://<sub-domain>.pingboard.com/sign_in`
+     In the **Sign-on URL** textbox, type the URL using the following pattern: `https://<sub-domain>.pingboard.com/sign_in`
 
 	> [!NOTE] 
 	> Please note that these values are not real. You have to update these values with the actual Reply URL and Sign-On URL. Contact [Pingboard Client support team](https://support.pingboard.com/) to get these values.
