@@ -19,7 +19,7 @@ ms.author: damaerte
 
 # Features and tools for PowerShell in Azure Cloud Shell
 
-[!include [features-introblock](<features-introblock.md)]
+[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > [Bash in Azure Cloud Shell](features.md) is also available.
