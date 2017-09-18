@@ -153,8 +153,8 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell prompts for your tenant ID. Use the Directory ID GUID that you copied from the Azure portal in the prerequisites section.
-5. Sign in to Azure AD as an administrator.
+4. Sign in to Azure AD as an administrator.
+5. PowerShell prompts for your tenant ID. Use the Directory ID GUID that you copied from the Azure portal in the prerequisites section.
 6. PowerShell shows a success message when the script is finished.  
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
