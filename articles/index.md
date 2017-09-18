@@ -1081,6 +1081,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Azure Event Grid</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/cost-management/">
+                                                <img src="media/index/genericAzure.svg.svg" alt="" />
+                                                <p>Cost Management</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -3216,6 +3222,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Azure Event Grid</h3>
                                                     <p>Get reliable event delivery at massive scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cost-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/genericAzure.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cost Management</h3>
+                                                    <p>Manage your cloud spending with transparency and accuracy</p>
                                                 </div>
                                             </div>
                                         </div>
