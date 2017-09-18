@@ -11,7 +11,7 @@ tags: azure-vpn-gateway
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017

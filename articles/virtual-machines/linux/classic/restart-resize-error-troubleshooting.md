@@ -10,7 +10,7 @@ tags: top-support-issue
 
 ms.assetid: 73f2672c-602e-4766-8948-2b180115d299
 ms.service: virtual-machines-linux
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: required
 ms.date: 01/10/2017
