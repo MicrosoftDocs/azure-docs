@@ -49,7 +49,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 1. In the Azure portal > **Hub** menu, select **New** -> **Storage** -> **Storage account**.
 2. Enter a name for your storage account. The name must be unique within Azure, and be between 3 and 24 characters, witn numbers and lowercase letters only.
 3. Use the **Resource Manager** deployment model.
-4. Select **General purpose** > **Standard**
+4. Select **General purpose** > **Standard**.
 5. Select the default **RA-GRS** for storage redundancy. [learn more](../storage/common/storage-redundancy.md).
 6. Select the subscription in which you want to create the new storage account.
 7. Specify a new resource group. [Learn more](../azure-resource-manager/resource-group-overview.md).
