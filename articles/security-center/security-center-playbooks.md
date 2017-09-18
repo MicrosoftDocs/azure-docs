@@ -18,13 +18,13 @@ ms.author: yurid
 
 ---
 # Security Playbook in Azure Security Center (Preview)
-This document helps you to use security playbooks in Azure Security Center to respond to security related issues.
+This document helps you to use security playbooks in Azure Security Center to respond to security-related issues.
 
 ## What is security playbook in Security Center?
 Security playbook is a collection of procedures that can be executed from Security Center once a certain playbook is triggered from selected alert. Security playbook can help to automate and orchestrate your response to a specific security alert detected by Security Center. Security Playbooks in Security Center are based on [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), which means you can use the templates that are provided under the security category in Logic Apps templates, you can modify them based on your needs, or you can create new playbooks using [Azure Logic Apps workflow](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app), and using Security Center as your trigger. 
 
 > [!NOTE]
-> Playbook leverages Azure Logic Apps, therefore charges will apply. Visit [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details. 
+> Playbook leverages Azure Logic Apps, therefore charges apply. Visit [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details. 
 
 ## How to create a security playbook from Security Center?
 Follow these steps to create a new security playbook from Security Center:
@@ -46,7 +46,7 @@ Follow these steps to create a new security playbook from Security Center:
  	
 	![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 
-6. In the **Search all connectors and triggers** field, type *Azure Security Center*, and select **When a response to an Azure Security Center alert is triggered trigger**.
+6. In the **Search all connectors and triggers** field, type *Azure Security Center*, and select **When a response to an Azure Security Center alert is triggered**.
 7. Now you can define what happens when you trigger the playbook. You can add an action, logical condition, switch case conditions or loops.
 
 	![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig5.png)
