@@ -36,15 +36,15 @@ Follow these steps to create a custom alert rule Security Center:
 
 	![Custom alert](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
 	
-4. The Create custom alert rule page appears with the following options:
+4.	The Create custom alert rule page appears with the following options:
 	
 	![Create](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
-5. Type the name for this custom rule in the **Name** field.
-6. Type a brief description that reflects the intent of this rule in the **Description** field.
-7. Select the severity level (High, Medium, Low) according to your needs in the **Severity** field.
-8. Select the subscription in which this rule is applicable in the **Subscription** field.
-9.	Select the workspace that contains the resources that you want to monitor with this rule in the **Workspace** field.
+5.	Type the name for this custom rule in the **Name** field.
+6.	Type a brief description that reflects the intent of this rule in the **Description** field.
+7.	Select the severity level (High, Medium, Low) according to your needs in the **Severity** field.
+8.	Select the subscription in which this rule is applicable in the **Subscription** field.
+9. Select the workspace that contains the resources that you want to monitor with this rule in the **Workspace** field.
 10.	In the **Search Query**  field, the query that you to use to obtain the results. The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
 	![Query](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
