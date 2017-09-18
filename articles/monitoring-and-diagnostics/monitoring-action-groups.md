@@ -55,7 +55,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     b. **Action Type**: Select SMS, email, webhook, or ITSM.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, or ITSM Connection details.
+    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, or ITSM Connection details. For ITSM Action, additionally specify **Work Item** that should be created and other fields based on what your ITSM tool requires. 
 
 > [!NOTE]
 > ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action currently works only for Activity Log Alerts. For other alert types, this action will currently be a no-op.
