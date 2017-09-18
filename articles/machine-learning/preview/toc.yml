@@ -39,10 +39,8 @@
       href: using-git-ml-project.md
     - name: Structure a project with TDSP
       href: how-to-use-tdsp-in-azure-ml.md
-    - name: How to do roaming and collaboration
-      href: roaming-and-collaboration.md
   - name: Use Visual Studio tools
-    href: quickstart-visual-studio-tools.md
+    href: quickstart-ml-tools.md
   - name: Configure compute environment
     items: 
     - name: Configure execution targets
@@ -91,26 +89,16 @@
     items:
     - name: Document Collection Analysis
       href: scenario-document-collection-analysis.md  
-    - name: Q & A Matching
-      href: scenario-qna-matching.md
     - name: Predictive Maintenance
       href: scenario-predictive-maintenance.md
     - name: Aerial Image Classification
       href: scenario-aerial-image-classification.md
-    - name: Server Workload Forecasting on Terabytes Data
-      href: scenario-big-data.md
     - name: Energy Demand Time Series Forecasting
       href: scenario-time-series-forecasting.md
-    - name: Distributed Tuning of Hyperparameters
-      href: scenario-distributed-tuning-of-hyperparameters.md
     - name: Biomedical entity recognition - TDSP project
-      href: scenario-tdsp-biomedical-recognition.md  
-    - name: Customer Churn Prediction
-      href: scenario-churn-prediction.md
-    - name: Sentiment Analysis with Deep Learning
-      href: scenario-sentiment-analysis-deep-learning.md
+      href: sample-tdsp-nlp.md  
     - name: Classify US incomes - TDSP project
-      href: scenario-tdsp-classifying-us-incomes.md
+      href: tutorial-classifying-uci-incomes.md
 - name: Reference
   items:  
   - name: Service limitations
@@ -127,8 +115,6 @@
       href: data-prep-appendix4-supported-inspectors.md
     - name: Supported data destinations
       href: data-prep-appendix5-supported-destinations.md
-    - name: Supported execution and data environment combinations
-      href: data-prep-supported-runtime-data-environments.md
     - name: Sample of filter expressions in Python
       href: data-prep-appendix6-sample-filter-expressions-python.md
     - name: Sample of custom DataFlow transforms in Python
@@ -139,8 +125,7 @@
       href: data-prep-appendix9-sample-destination-connections-python.md
     - name: Sample of column transforms in Python
       href: data-prep-appendix10-sample-custom-column-transforms-python.md  
-    - name: Data preparation execution API
-      href: data-prep-python-execution-api.md
+
   - name: Experimentation    
     items:
     - name: Execution configuration
@@ -156,7 +141,7 @@
 - name: Resources
   items:  
   - name: FAQ
-    href: frequently-asked-questions.md
+    href: faq.md
   - name: Known issues and troubleshooting guide
     href: known-issues-and-troubleshooting-guide.md
   - name: Team Data Science Process documentation
