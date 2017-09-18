@@ -1,5 +1,5 @@
 ---
-title: Copy data from Dynamics CRM and 365 using Azure Data Factory | Microsoft Docs
+title: Copy data from Dynamics CRM and Dynamics 365 by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Dynamics CRM and 365 to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 08/10/2017
 ms.author: jingwang
 
 ---
-# Copy data from Dynamics 365/Dynamics CRM using Azure Data Factory
+# Copy data from Dynamics 365 and Dynamics CRM by using Azure Data Factory
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Dynamics 365/Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported scenarios
@@ -126,7 +126,7 @@ The following properties are supported for Dynamics linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Dynamics dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Dynamics dataset.
 
 To copy data from Dynamics, set the type property of the dataset to **DynamicsEntity**. The following properties are supported:
 
@@ -136,7 +136,7 @@ To copy data from Dynamics, set the type property of the dataset to **DynamicsEn
 | entityName | The logical name of the entity to retrieve. | No (if "query" in activity source is specified) |
 
 > [!IMPORNANT]
-> **The "structure" section in dataset is required for Dynamics**, which defines column name and data type for Dynamics data that you want to copy over. Learn more from [dataset structure](concepts-datasets-linked-services.md#dataset-structure) and the [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
+> **The "structure" section in dataset is required for Dynamics**, which defines column name and data type for Dynamics data that you want to copy over. Learn more from dataset structure and the [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
 
 **Example:**
 
