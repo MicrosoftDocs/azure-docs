@@ -32,7 +32,7 @@ The following diagram shows what the connection configuration should look like w
 To complete the connection configuration, make sure you have the following items before you begin:
 
 * An Azure Stack integrated systems (multi-node) deployment that is directly connected to the Internet. This means that your External Public IP Address range must be directly reachable from the public Internet.
-* A valid Azure subscription.  If you don’t have an Azure subscription, you can create a [free Azure account here](https://azure.microsoft.com/en-us/free/?b=17.06).
+* A valid Azure subscription.  If you don’t have an Azure subscription, you can create a [free Azure account here](https://azure.microsoft.com/free/?b=17.06).
 
 ## Network example values table
 The network example values table shows the sample values that are used in this article. You can use these values or you can refer to them to better understand the examples in this article.
