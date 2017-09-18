@@ -1,0 +1,102 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure for Containers
+metadata:
+  document_id: 
+  title: Azure for Containers - Tutorials, API Reference
+  description: Get started developing apps with Azure using the resources below to find great quickstarts, tutorials, and tools for containers.
+  keywords: Azure, Containers, Docker, API, Kubernetes
+  author: brketels
+  ms.author: brketels
+  manager: listonb
+  ms.date: 09/14/2017
+  ms.topic: article
+  ms.prod: azure
+  featureFlags:
+  - clicktale
+  ms.technology: azure
+  ms.devlang: multiple
+  ms.service: multiple
+sections:
+- items:
+  - type: markdown
+    text: |
+      Get started developing apps with Azure using the resources below to find great tutorials and tools for containers.
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster
+      html: <p>Deploy a Kubernetes cluster in Azure Container Service</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_get-started.svg
+      title: Get Started
+    - href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/cli-samples
+      html: <p>Azure CLI Samples for Azure Container Service</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_code-samples.svg
+      title: Code Samples
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to use containers with Azure services.'
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items: 
+    - href: https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
+      title: Create a containerized app with Azure Container Instances
+      image: 
+        src: https://docs.microsoft.com/azure/media/index/app-service-web.svg
+    - href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough
+      title: Create a Kubernetes cluster for Linux Containers
+      image:
+        src: media/k8s_logo.svg
+    - href: https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough
+      title: Deploy a Docker Swarm cluster
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_docker.svg
+    - href: https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-dcos-quickstart
+      title: Deploy a DC/OS cluster
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+- title: Get Started with Node.js on Azure
+  items:
+  - type: markdown
+    text: <iframe src="https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Welcome-to-the-Azure-for-Nodejs-Developer-Center/player" width="640" height="360" allowFullScreen="true" frameBorder="0"></iframe>
+- title: Free Containers and Azure Video Training on Pluralsight
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+      title: 'Microsoft Azure Virtual Machines - Getting Started'
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/en-us/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Getting Started with Appservice - Manage Linux Web App With Container Registry - in Java</a>
+    - html: <a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-containers/">Service Fabric Container Samples</a>
+    - html: <a href="https://azure.microsoft.com/en-us/resources/samples/container-service-python-manage/">Deploy and connect to a Docker container in an Azure cluster</a>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Azure containers
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Create container images from an application</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Deploy a Kubernetes cluster in Azure Container Service</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitor Kubernetes with OMS</a>
