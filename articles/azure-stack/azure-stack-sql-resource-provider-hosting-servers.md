@@ -33,7 +33,8 @@ A number of SQL IaaS virtual machine images are available through the Marketplac
 
 There are other options for deploying SQL VMs, including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
-![NOTE] Any hosting servers installed on a multi-node Azure Stack must be created from a tenant subscription. They can't be created from the Default Provider Subscription. They must be created from the tenant portal or from a PowerShell session with an appropriate login. All hosting servers are chargeable VMs and must have appropriate SQL licenses. The service administrator _can_ be the owner of that subscription.
+> [!NOTE]
+> Any hosting servers installed on a multi-node Azure Stack must be created from a tenant subscription. They can't be created from the Default Provider Subscription. They must be created from the tenant portal or from a PowerShell session with an appropriate login. All hosting servers are chargeable VMs and must have appropriate SQL licenses. The service administrator _can_ be the owner of that subscription.
 
 
 ### Required Privileges
@@ -146,18 +147,19 @@ Maintenance of the SQL instances is not covered here, except for password rotati
 
  ### Backup/Restore/Disaster Recovery
  The SQL Adapter is not backed up as part of Azure Stack BC-DR process, as it is an add-on component. Scripts will be provided to facilitate:
-- backing up of necessary state information (stored in an Azure Stack storage account)
-- and restoring the RP in the event a complete stack recovery becomes necessary.
+- Backing up of necessary state information (stored in an Azure Stack storage account)
+- Restoring the RP in the event a complete stack recovery becomes necessary.
 Database servers must be recovered first (if necessary), before the RP is restored.
 
- ### Updating SQL credentials
- You are responsible for creating and maintaining system admin accounts on your SQL servers. The RP needs an account with these privileges to manage databases on behalf of tenants - it does not need access to the data in those databases. If you need to update the sa passwords on your SQL servers, you can use the update capability of the RP's administrator interface to change the stored password used by the RP. These passwords are stored in a Key Vault on your Azure Stack instance.
+### Updating SQL credentials
+
+You are responsible for creating and maintaining system admin accounts on your SQL servers. The RP needs an account with these privileges to manage databases on behalf of tenants - it does not need access to the data in those databases. If you need to update the sa passwords on your SQL servers, you can use the update capability of the RP's administrator interface to change the stored password used by the RP. These passwords are stored in a Key Vault on your Azure Stack instance.
 
 To modify the settings, click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers** &gt; **SQL Logins** and select a login name. The change must be made on the SQL instance first (and any replicas, if necessary). In the **Settings** panel, click on **Password**.
 
 ![Update the admin password](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
-## Next Steps
+## Next steps
 
 [Add databases](azure-stack-sql-resource-provider-databases.md)
