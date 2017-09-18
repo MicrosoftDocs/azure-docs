@@ -100,7 +100,7 @@ There are two methods to migrate an existing WordPress site to Azure App Service
 ## Step-by-step instructions
 ### Create a WordPress site
 1. Use the [Azure Marketplace][cdbnstore] to create a MySQL database of the size that you identified in the [Architecture and planning](#planning) section in the region or regions where you will host your site.
-2. Follow the steps in [Create a WordPress web app in Azure App Service][createwordpress] to create a WordPress web app. When you create the web app, select **Use an existing MySQL Database**, and then select the database that you created in step 1.
+2. <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">Create a WordPress web app</a>. When you create the web app, select **Use an existing MySQL Database**, and then select the database that you created in step 1.
 
 If you are migrating an existing WordPress site, see [Migrate an existing WordPress site to Azure](#Migrate-an-existing-WordPress-site-to-Azure) after you create a new web app.
 
@@ -169,7 +169,7 @@ After the WordPress site has been created or migrated, use the following informa
 
 ## Next steps
 * [WordPress optimization](http://codex.wordpress.org/WordPress_Optimization)
-* [Convert WordPress to multisite in Azure App Service](web-sites-php-convert-wordpress-multisite.md)
+<!-- * [Convert WordPress to multisite in Azure App Service](web-sites-php-convert-wordpress-multisite.md) -->
 * [ClearDB upgrade wizard for Azure](http://www.cleardb.com/store/azure/upgrade)
 * [Hosting WordPress in a subfolder of your web app in Azure App Service](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
 * [Step-by-step: Create a WordPress site using Azure](http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx)
@@ -228,7 +228,7 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [import]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressbackup]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressdbbackup]: http://codex.wordpress.org/Backing_Up_Your_Database
-[createwordpress]: web-sites-php-web-site-gallery.md
+[createwordpress]: https://portal.azure.com/#create/WordPress.WordPress
 [velvet]: https://wordpress.org/plugins/velvet-blues-update-urls/
 [mgmtportal]: https://portal.azure.com/
 [wordpressbackup]: http://codex.wordpress.org/WordPress_Backups
