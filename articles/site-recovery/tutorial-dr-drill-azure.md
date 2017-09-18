@@ -73,7 +73,7 @@ Before you run a test failover, verify the VM properties, and make sure that the
 
 1. In **Protected Items**, click **Replicated Items** > VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
-3. In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and [managed disk settings](#managed-disk-considerations)
+3. In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
 4. You can view and modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 5. In **Disks**, you can see information about the operating system and data disks on the VM.
 
