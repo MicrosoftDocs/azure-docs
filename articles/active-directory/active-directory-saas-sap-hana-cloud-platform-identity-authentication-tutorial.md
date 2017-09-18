@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 09/18/2017
 ms.author: jeedes
 
 ---
@@ -129,10 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Identifier** textbox, type a URL using the following pattern: `https://<entity-id>.accounts.ondemand.com`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Identifier. Contact [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value.
-
-	> [!NOTE] 
-	> If you don't know this value, please follow the SAP Cloud Platform Identity Authentication documentation on [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html). 
+	> This value is not real. Update this value with the actual Identifier. Contact [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get this value. If you don't know this value, please follow the SAP Cloud Platform Identity Authentication documentation on [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html). 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -168,9 +165,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![SAP Cloud Platform Identity Authentication Configuration](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_configure.png) 
 
-9. To get SSO configured for your application, go to SAP Cloud Platform Identity Authentication Administration Console. The URL has the following pattern: `https://<tenant-id>.accounts.ondemand.com/admin`
-
-	* Then, follow the documentation on SAP Cloud Platform Identity Authentication to [Configure Microsoft Azure AD as Corporate Identity Provider at SAP Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
+9. To get SSO configured for your application, go to SAP Cloud Platform Identity Authentication Administration Console. The URL has the following pattern: `https://<tenant-id>.accounts.ondemand.com/admin`. Then, follow the documentation on SAP Cloud Platform Identity Authentication to [Configure Microsoft Azure AD as Corporate Identity Provider at SAP Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
 
 10. In the Azure portal, click **Save** button.
 
@@ -179,7 +174,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 12. In the Azure portal, on the **SAP Cloud Platform Identity Authentication** application integration page, click **Linked Sign-on**.
 
  	![Configure Linked Sign-On](./media/active-directory-saas-sapcloudauth-tutorial/linked_sign_on.png)
-13. Then save the configuration.
+
+13. Save the configuration.
 
 >[!NOTE] 
 >The new application will leverage the SSO configuration for the previous SAP application. Please make sure you use the same Corporate Identity Providers in the SAP Cloud Platform Identity Authentication Administration Console.
@@ -229,7 +225,7 @@ SAP Cloud Platform Identity Authentication supports the Identity Federation opti
 
 In the default setting, the Identity Federation option is disabled. If Identity Federation is enabled, only the users that are imported in SAP Cloud Platform Identity Authentication are able to access the application. 
 
-For more information about how to enable or disable Identity Federation with SAP Cloud Platform Identity Authentication, see Enable Identity Federation with SAP Cloud Platform Identity Authentication in [Configure Identity Federation with the User Store of SAP Cloud Platform Identity Authentication.](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
+For more information about how to enable or disable Identity Federation with SAP Cloud Platform Identity Authentication, see Enable Identity Federation with SAP Cloud Platform Identity Authentication in [Configure Identity Federation with the User Store of SAP Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
 
 ### Assign the Azure AD test user
 
