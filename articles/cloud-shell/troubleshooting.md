@@ -33,7 +33,6 @@ Known resolutions for issues in Azure Cloud Shell:
 ### No $Home directory persistence
   - **Details**: Any application (such as: git, vim, and others) that writes data to $Home will not be persisted across PowerShell sessions.
   - **Resolution**: In your PowerShell profile, create a symbolic link to application specific folder in `clouddrive` to $Home.
-  [TODO] Add an example
 
 ### Ctrl+C doesn't exit out of a Cmdlet prompt
  - **Details**: When attemtping to exit a Cmdlet prompt, `Ctrl+C` does not exit the prompt.
