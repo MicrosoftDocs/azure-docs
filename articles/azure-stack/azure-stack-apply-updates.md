@@ -34,7 +34,7 @@ When a Microsoft update package for Azure Stack is available, download the packa
 
 ## Import and install updates
 
-The following procedures shows how to import and install update packages in the administrator portal.
+The following procedure shows how to import and install update packages in the administrator portal.
 
 1. In the administrator portal, select **More services**. Under the **Data + Storage** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
 
@@ -64,7 +64,7 @@ The following procedures shows how to import and install update packages in the 
 
 8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. 
 9. When done, you can review the notifications (bell icon in the top-right corner of the portal). The notifications should indicate that upload has completed. 
-10. Navigate back to the **Update** tile on the dashboard to review the newly-added update package. The tile should indicate that an update is available.
-11. To install the update, select the package marked as **Ready** and either right-click the package and select **Update now**, or click the **Update now** action near the top.
-12. When you click the installing update package, you an view the status in the **Update run details** area. From here, you can also click **Download full logs** to download the log files.
+10. Navigate back to the **Update** tile on the dashboard to review the newly added update package. The tile should indicate that an update is available.
+11. To install the update, select the package that's marked as **Ready** and either right-click the package and select **Update now**, or click the **Update now** action near the top.
+12. When you click the installing update package, you can view the status in the **Update run details** area. From here, you can also click **Download full logs** to download the log files.
 13. When the update completes, the Update tile shows the updated Azure Stack version.

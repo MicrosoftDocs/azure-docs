@@ -34,7 +34,7 @@ To keep your system under support, you must keep Azure Stack updated to a specif
 
 Azure Stack includes an Update resource provider that orchestrates the application of Microsoft software updates. This resource provider ensures that updates are applied across all physical hosts, Service Fabric applications and runtimes, and all infrastructure virtual machines and their associated services.
 
-As updates are installed, you can easily view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
+As updates install, you can easily view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
 
 ## Plan for updates
 
