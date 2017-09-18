@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Pingboard, you need the following items:
 
 - An Azure AD subscription
-- A Pingboard single-sign on enabled subscription
+- A Pingboard single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
      In the **Sign-on URL** textbox, type the value as: `https://<sub-domain>.pingboard.com/sign_in`
 
 	> [!NOTE] 
-	> Please note that these values are not real. You have to update these values with the actual Reply URL and Sign-on URL. Contact [Pingboard Client support team](https://support.pingboard.com/) to get these values.
+	> Please note that these values are not real. You have to update these values with the actual Reply URL and Sign-On URL. Contact [Pingboard Client support team](https://support.pingboard.com/) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -141,7 +141,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Pingboard configuration button](./media/active-directory-saas-pingboard-tutorial/Pingboard_configure.png)
 
-11. On the following page, you will notice that "Azure SSO Integration is enabled.". Open the downloaded Metadata XML file in a notepad and paste the content in **IDP Metadata**.
+11. On the following page, you will notice that "Azure SSO Integration is enabled". Open the downloaded Metadata XML file in a notepad and paste the content in **IDP Metadata**.
 
 	![Pingboard SSO configuration screen](./media/active-directory-saas-pingboard-tutorial/Pingboard_sso_configure.png)
 
@@ -181,8 +181,7 @@ The objective of this section is to create a test user in the Azure Management p
  
 ### Create a Pingboard test user
 
-In order to enable Azure AD users to log into Pingboard, they must be provisioned into Pingboard.  
-In the case of Pingboard, provisioning is a manual task.
+In order to enable Azure AD users to log into Pingboard, they must be provisioned into Pingboard. In the case of Pingboard, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -196,9 +195,9 @@ In the case of Pingboard, provisioning is a manual task.
 
 	![Invite People](./media/active-directory-saas-pingboard-tutorial/create_testuser_name.png)
 
-	a. In the **Full Name** textbox, type the full name of Britta Simon.
+	a. In the **Full Name** textbox, type the full name of user like **Britta Simon**.
 
-	b. In the **Email** textbox, type the email address of Britta Simon account.
+	b. In the **Email** textbox, type the email address of user like **brittasimon@contoso.com**.
 
 	c. In the **Job Title** textbox, type the job title of Britta Simon.
 
