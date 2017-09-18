@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # What is Azure Stack?
 
-Microsoft Azure Stack is an extension of Azure that lets you deliver Azure services from your organization’s datacenter.  Azure Stack is designed to help you in key scenarios, like meeting security and compliance requirements, or where you need to access Azure resources without internet connectivity.  Azure Stack is offered in two versions, 
+Microsoft Azure Stack is an extension of Azure that lets you deliver Azure services from your organization’s datacenter.  Azure Stack is designed to help you in key scenarios, like meeting security and compliance requirements, or where you need to access Azure resources without internet connectivity.  Azure Stack is offered in two deployment options: 
 
 ## Azure Stack Integrated System
 The Azure Stack Integrated System is offered by hardware partners as a validated hardware and software solution.  Because Azure Stack is offered as an integrated system of hardware and software, you are offered the right amount of flexibility and control, while still keeping cloud-paced innovation.  Azure Stack integrated systems are available in sizes from 4-12 nodes depending on your scale requirements.  Azure Stack integrated systems are fully supported, and updated at a cloud cadence.  Use Azure Stack integrated systems for your to enable new scenarios for your production workloads.    
