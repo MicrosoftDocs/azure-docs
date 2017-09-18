@@ -228,18 +228,18 @@ To view more details about a run, choose the row for that run.
 
    ![Monitor and view logic app run and trigger history](./media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
 
-   For more information about your logic app's status, 
-   its runs and trigger history, or to diagnose your logic app, see 
-   [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
-
    > [!TIP]
    > If you don't find the data that you expect, 
    > on the toolbar, try choosing **Refresh**.
 
-   Whether the run passed or failed, 
-   the designer shows the steps that passed or failed. 
+   Whether the run passed or failed, the Run Details view 
+   shows the steps that passed or failed. 
 
    ![View details for a logic app run](./media/logic-apps-create-a-logic-app/logic-app-run-details.png)
+
+   For more details about your logic app's status, runs history, 
+   and trigger history, or to diagnose your logic app, see 
+   [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
 3. To view the inputs and outputs for each step, 
 expand the step that you want to review. 
