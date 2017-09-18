@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/06/2017
+ms.date: 09/18/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -15,6 +15,8 @@ ms.workload: NA
 ---
 
 # Detect issues using threshold-based rules
+
+This tutorial shows the capabilities of the rules engine in the remote monitoring solution. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
 
 Contoso has a rule that generates a critical alert when the pressure reported by a **Chiller** device exceeds 250 PSI. As an operator, you want to identify **Chiller** devices that may have problematic sensors by looking for initial pressure spikes. To identify these devices, you create a rule to generate a warning when the pressure exceeds 150 PSI.
 

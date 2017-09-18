@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/06/2017
+ms.date: 09/16/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -16,7 +16,9 @@ ms.workload: NA
 
 # Perform advanced monitoring using the remote monitoring solution
 
-As an operator, you need to monitor the location and behavior of your trucks in the field. In this tutorial, you use two simulated truck devices to learn how to monitor your devices from the preconfigured solution dashboard.
+This tutorial shows the capabilities of the remote monitoring dashboard. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application:
+
+In this tutorial, you use two simulated Contoso truck devices to learn how to monitor your devices from the preconfigured solution dashboard. As a Contoso operator, you need to monitor the location and behavior of your trucks in the field.
 
 In this tutorial, you learn how to:
 
@@ -65,7 +67,7 @@ To pause the live telemetry display, choose **Hide subchart**. To re-enable the 
 
 ## Use the map
 
-The map displays information about the devices selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
+The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
 
 <!-- TODO Check this is true -->
 If you hover the mouse pointer over a device on the map, you can view summary information that device:
@@ -96,7 +98,7 @@ You can use the **System KPI** filter to adjust the time span for the KPI aggreg
 
 ## Next steps
 
-This tutorial showed you how to use the **Dashboard** page to filter and monitor the devices provisioned in your remote monitoring solution:
+This tutorial showed you how to use the **Dashboard** page to filter and monitor the simulated trucks provisioned in your remote monitoring solution:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

@@ -59,7 +59,7 @@ You can connect physical devices to the solution. You can implement the behavior
 
 You can provision physical devices from the dashboard in the solution portal.
 
-### IoT Hub
+### IoT Hub and the IoT manager microservice
 
 The [IoT hub](../iot-hub/index.md) ingests data sent from the devices into the cloud and makes it available to the `telemetry-agent` microservice.
 
@@ -118,7 +118,7 @@ The solution includes the following components in the presentation part of the l
 
 The web user interface is a React Javascript application. The application:
 
-* Uses Javascript only and runs entirely in the browser.
+* Uses Javascript React only and runs entirely in the browser.
 * Is styled with CSS.
 * Interacts with public facing microservices through AJAX calls.
 

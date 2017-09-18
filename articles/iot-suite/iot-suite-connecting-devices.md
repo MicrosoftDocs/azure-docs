@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/16/2017
 ms.author: dobett
 
 ---
@@ -22,9 +22,11 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
+This tutorial shows you how to connect a physical device to the remote monitoring preconfigured solution.
+
 ## Create a C client solution on Windows
 
-The following steps show you how to create a client application that communicates with the remote monitoring preconfigured solution. This application is written in C and built and run on Windows.
+As with most embedded applications that run on constrained devices, the client code for the device application is written in C. In this tutorial, you build the application on a machine running Windows.
 
 ### Create the starter project
 
