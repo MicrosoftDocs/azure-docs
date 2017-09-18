@@ -7,17 +7,19 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Windows VM - Portal
+  - name: Create Windows VM - Portal
     href: azure-stack-quick-create-vm-windows-powershell.md
-  - name: Create a Windows VM - PowerShell
+  - name: Create Windows VM - PowerShell
     href: azure-stack-quick-create-vm-windows-powershell.md
-  - name: Create a Windows VM - CLI
+  - name: Create Windows VM - CLI
     href: azure-stack-quick-create-vm-windows-cli.md
+  - name: Create a Windows VM - Portal
+    href: azure-stack-quick-windows-portal.md
   - name: Create a Linux VM - Portal
     href: azure-stack-quick-linux-portal.md
-  - name: Create a Linux VM - PowerShell
+  - name: Create Linux VM - PowerShell
     href: azure-stack-quick-create-vm-linux-powershell.md
-  - name: Create a Linux VM - CLI
+  - name: Create Linux VM - CLI
     href: azure-stack-quick-create-vm-linux-cli.md                   
 - name: Tutorials
   items:
@@ -43,14 +45,6 @@
         href: azure-stack-compute-overview.md
       - name: VM considerations
         href: azure-stack-vm-considerations.md
-      - name: Create VM-Windows-PowerShell
-        href: azure-stack-quick-create-vm-windows-powershell.md
-      - name: Create VM-Windows-CLI
-        href: azure-stack-quick-create-vm-windows-cli.md
-      - name: Create VM-Linux-PowerShell
-        href: azure-stack-quick-create-vm-linux-powershell.md
-      - name: Create VM-Linux-CLI
-        href: azure-stack-quick-create-vm-linux-cli.md
     - name: Storage
       items:
       - name: Overview
@@ -83,7 +77,7 @@
         href: azure-stack-kv-deploy-vm-with-secret.md
       - name: Create a VM with a certificate
         href: azure-stack-kv-push-secret-into-vm.md
-      - name: Key Vault sample app
+      - name: KeyVault sample app
         href: azure-stack-kv-sample-app.md
   - name: Build apps
     items:
