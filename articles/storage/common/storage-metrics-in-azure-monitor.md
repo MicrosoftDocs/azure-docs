@@ -41,7 +41,7 @@ For metrics supporting dimension, you must filter with desired dimension value. 
 
 ## Access Metrics with REST API
 
-Azure Monitor provides [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/) to read metric definition and values. This section shows you how to read storage metrics. As resource ID is used in all REST APIS, it's recommended to read [Understanding resource ID for services in Storage](Understanding resource ID for services in Storage) first.
+Azure Monitor provides [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/) to read metric definition and values. This section shows you how to read storage metrics. As resource ID is used in all REST APIS, it's recommended to read [Understanding resource ID for services in Storage](# Understanding resource ID for services in Storage) first.
 
 To simplify testing with REST API, [ArmClient](https://github.com/projectkudu/ARMClient) is used to demonstrate the usage in command line.
 
@@ -134,7 +134,7 @@ The response contains metric values in JSON format:
 
 # Billing for Metrics
 
-Using metrics in Azure Monitor is free for now. However, if you use additional solutions ingesting metric data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metric data to an Azure Storage account, or billed by Operation Management Suite (OMS) if you stream metric data to OMS for advanced analysis.
+Using metrics in Azure Monitor is free for now. However, if you use additional solutions ingesting metric data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metric data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metric data to OMS for advanced analysis.
 
 # Understanding resource ID for services in Storage
 
@@ -147,14 +147,14 @@ Resource ID is a unique identifier of a resource in Azure. When you use Azure Mo
 
 Storage provides metrics at both storage account level and sub services level with Azure Monitor. When you are reading metrics at different levels, you require to use different resource ID.
 
-Resource ID for storage account follows the format as following:
+Resource ID for storage account follows this format:
 
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
 
 ```
 
-Resource ID for sub service follows  the format as following:
+Resource ID for sub service follows this format:
 
 ```
 # Blob service resource ID
@@ -224,7 +224,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 # Transaction Metrics
 
-Transaction metric values are emitted from Azure Storage to Azure Monitor every minute. All transaction metrics are available at both account and service level (Blob, Table, Files, and Queue). The time grain defines the time interval that metric values are presented. The supported time grains the for all transaction metrics are PT1H and PT1M.
+Transaction metric values are emitted from Azure Storage to Azure Monitor every minute. All transaction metrics are available at both account and service level (Blob, Table, Files, and Queue). The time grain defines the time interval that metric values are presented. The supported time grains for all transaction metrics are PT1H and PT1M.
 
 Azure Storage provides the following transaction metrics in Azure Monitor.
 
@@ -248,7 +248,7 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 | GeoType | Transaction from Primary or Secondary cluster. The available values include Primary and Secondary. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
 | ApiName | The name of operation. For example: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> For all operation names, see [document](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations). |
 
-For the metrics supporting dimension, you need to specify the dimension value to see  corresponding metric value. For example, if you look at  **Transactions** value for successful response in Azure portal or Azure Monitor REST APIS, you need to filter **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter **BlobType** dimension with **BlockBlob**.
+For the metrics supporting dimension, you need to specify the dimension value to see  corresponding metric value. For example, if you look at  **Transactions** value for successful responses, you need to filter **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter **BlobType** dimension with **BlockBlob**.
 
 ## FAQ
 **Q: Will legacy metrics be supported after Azure Monitor managed metrics are introduced?**
