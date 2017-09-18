@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/31/2017
+ms.date: 09/30/2017
 ms.author: nitinme
 
 ---
@@ -23,7 +23,7 @@ ms.author: nitinme
 > 
 > 
 
-Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store or Azure Data Lake Analytics, you must first decide how you would like to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
+Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store or Azure Data Lake Analytics, you must decide how to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
 
 * End-user authentication (this article)
 * Service-to-service authentication (pick this option from the drop-down above)
@@ -43,8 +43,10 @@ This article talks about how to create an **Azure AD native application for end-
   
     ![Get AAD domain](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
+* Your Azure tenant ID. For instructions on how to retrieve the tenant ID, see [Get the tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)
+
 ## End-user authentication
-This is the recommended approach if you want an end user to log in to your application via Azure AD. Your application is then able to access Azure resources with the same level of access as the end user that logged in. Your end user needs to provide their credentials periodically in order for your application to maintain access.
+This authentication mechanism is the recommended approach if you want an end user to log in to your application via Azure AD. Your application is then able to access Azure resources with the same level of access as the end user that logged in. Your end user needs to provide their credentials periodically in order for your application to maintain access.
 
 The result of having the end-user login is that your application is given an access token and a refresh token. The access token gets attached to each request made to Data Lake Store or Data Lake Analytics, and it is valid for one hour by default. The refresh token can be used to obtain a new access token, and it is valid for up to two weeks by default. You can use two different approaches for end-user login.
 
@@ -59,8 +61,9 @@ Your application can trigger an OAuth 2.0 authorization pop-up, in which the end
 ### Directly passing in user credentials
 Your application can directly provide user credentials to Azure AD. This method only works with organizational ID user accounts; it is not compatible with personal / “live ID” user accounts, including the accounts ending in @outlook.com or @live.com. Furthermore, this method is not compatible with user accounts that require Azure AD Two-factor Authentication (2FA).
 
-### What do I need to use this approach?
+### What do I need for this approach?
 * Azure AD domain name. This requirement is already listed in the prerequisite of this article.
+* Azure AD tenant ID. This requirement is already listed in the prerequisite of this article.
 * Azure AD **native application**
 * Application ID for the Azure AD native application
 * Redirect URI for the Azure AD native application
@@ -104,7 +107,7 @@ To retrieve the redirect URI, follow the steps below.
  
 4.  In the **Add API Access** blade, click **Select permissions**, select the check box to give **Full access to Data Lake Store**, and then click **Select**.
 
-	![client id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+	![client ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
 	Click **Done**.
 
