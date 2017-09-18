@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 3. Enter the logic app information and check the **Pin to Dashboard** option. When complete, click **Create**.
 
-    ![Enter basic information about your logic app in the portal blade](./media/monitoring-quick-resource-metrics-portal/create-logic-app-portal.jpg)  
+    ![Enter basic information about your logic app in the portal blade](./media/monitor-quick-resource-metrics-portal/create-logic-app-portal.jpg)  
 
 4. The logic app should be pinned to your dashboard. Navigate to the logic app by clicking on it.
 
@@ -39,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 6. In the designer select the **Recurrence** trigger.
 
-    ![Create a recurrence trigger in the logic app designer in the portal blade](./media/monitoring-quick-resource-metrics-portal/logic-app-designer.jpg)  
+    ![Create a recurrence trigger in the logic app designer in the portal blade](./media/monitor-quick-resource-metrics-portal/logic-app-designer.jpg)  
 
 7. Set an **Interval** of 20 and a **Frequency** of second to ensure your logic app is triggered every 20 seconds
 
@@ -47,7 +47,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 10. Set the **Method** as post and the **Uri** to a web address of your choice
 
-    ![Configure the logic app trigger in the portal blade](./media/monitoring-quick-resource-metrics-portal/create-logic-app-triggers.jpg)
+    ![Configure the logic app trigger in the portal blade](./media/monitor-quick-resource-metrics-portal/create-logic-app-triggers.jpg)
 
 11. Click **Save**
 
@@ -63,7 +63,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 5. You should now see a chart plotting the total number of runs your logic app has started over the past hour
 
-    ![Plot a metric chart for the logic app resource](./media/monitoring-quick-resource-metrics-portal/logic-app-metric-chart.jpg)
+    ![Plot a metric chart for the logic app resource](./media/monitor-quick-resource-metrics-portal/logic-app-metric-chart.jpg)
 
 ## Clean up resources
 
@@ -82,4 +82,4 @@ In this quick start, you’ve learned how to plot and visualize metrics for your
 To learn how to create an alert on resource metrics, continue to our quickstart for metric alerts.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor metric alerts quickstart](./monitoring-quick-resource-metric-alert-portal.md)
+> [Azure Monitor metric alerts quickstart](./monitor-quick-resource-metric-alert-portal.md)

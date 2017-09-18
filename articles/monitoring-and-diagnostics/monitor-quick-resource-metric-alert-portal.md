@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 3. Enter the logic app information and check the **Pin to Dashboard** option. When complete, click **Create**.
 
-    ![Enter basic information about your logic app in the portal blade](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.JPG)  
+    ![Enter basic information about your logic app in the portal blade](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.JPG)  
 
 4. The logic app should be pinned to your dashboard. Navigate to the logic app by clicking on it.
 
@@ -39,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 6. In the designer, select the **Recurrence** trigger.
 
-    ![Created a recurrence trigger in the logic app designer in the portal blade](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.JPG)  
+    ![Created a recurrence trigger in the logic app designer in the portal blade](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.JPG)  
 
 7. Set an interval of 20 and a frequency of second to ensure your logic app is triggered every 20 seconds
 
@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 10. Set the **Method** as POST and the **Uri** to a web address of your choice
 
-    ![Configure the logic app trigger in the portal blade](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.JPG)
+    ![Configure the logic app trigger in the portal blade](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.JPG)
 
 11. Click **Save**
 
@@ -65,7 +65,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 5. You should now see a chart plotting the total number of runs that have failed for your logic app over the past hour
 
-    ![Plot a metric chart for the logic app resource](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.JPG)
+    ![Plot a metric chart for the logic app resource](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.JPG)
 
 6. In the top right portion of the metrics blade click the **Add metric alert** button
 
@@ -75,7 +75,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 9. Finally, under **Additional administrator email(s)** enter your email address. This alert ensures that you receive an email in the event your logic app has more than 10 failed runs within a period of 5 minutes
 
-    ![Configure the logic app alert in the portal blade](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.JPG)
+    ![Configure the logic app alert in the portal blade](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.JPG)
 
 ## Receive metric alert notifications for your logic app
 1. Within a few moments, you should receive an email from 'Microsoft Azure Alerts' to inform you the alert has been 'activated'
