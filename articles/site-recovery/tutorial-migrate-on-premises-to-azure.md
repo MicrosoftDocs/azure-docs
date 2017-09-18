@@ -40,63 +40,9 @@ You migrate a machine by enabling replication for it, and failing it over to Azu
 
 Here's what you need to do for this tutorial.
 
-- Make sure that machines that you want to replicate comply with [operating system requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [file storage requirements](site-recovery-support-matrix-to-azure.md#supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers), and [prerequisites for Azure VMs](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-- Prepare Azure, including an Azure subscription, an Azure virtual network, and a storage account.
-- Make sure your Azure account has permissions to create VMs.
-- Prepare on-premises prerequisites for VMware, physical servers, or Hyper-V.
-- Make sure that on-premises management servers (VMware, Hyper-V, System Center VMM) meet [Site Recovery requirements](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-- - Devices exported by paravirtualized drivers aren't supported.
-
-
-
-
-### Set up an Azure account
-
-Get a Microsoft [Azure account](http://azure.microsoft.com/).
-
-- You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Learn about supported regions for Site Recovery, under Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
-
-### Verify Azure account permissions
-
-Make sure your Azure account has permissions for replication of VMs to Azure.
-
-- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need.
-- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
-
-
-### Set up an Azure network
-
-Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet.md).
-
-- Azure VMs are placed in this network when they're created after failover.
-- The network should be in the same region as the Recovery Services vault.
-
-
-### Set up an Azure storage account
-
-Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-
-- Site Recovery replicates the VMs to Azure storage. Azure VMs are created from the storage after failover occurs.
-- The storage account must be in the same region as the Recovery Services vault.
-- The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
-- If you set up a premium account, you will also need an additional standard account for log data.
-
-
-### Prepare for VMware VM migration
-1. [Prepare an account](tutorial-vmware-to-azure.md#prepare-an-account-for-automatic-discovery) for automatic discovery of VMs.
-2. [Prepare an account](tutorial-vmware-to-azure.md#prepare-an-account-for-mobility-service-installation) for Mobility service installation on each VMware VM you want to migrate.
-
-
-### Prepare for physical server migration
-[Prepare an account](tutorial-physical-to-azure.md#prepare-an-account-for-mobility-service-installation) for Mobility service installation on each VMware VM you want to migrate.
-
-### Prepare for Hyper-V VM (in VMM clouds) migration
-
-- If you're migrating Hyper-V VMs in System Center VMM clouds, you need to make sure that VMM servers meet [Site Recovery requirements](tutorial-hyper-v-to-azure.md#prepare-vmm-servers), including URL access. The VMM server should also be [prepared for network mapping](tutorial-hyper-v-to-azure.md#prepare-vmm-for-network-mapping). Network mapping is needed so that Azure VMs are located in a compatible virtual network after failover.
-- Make sure that [Hyper-V hosts](tutorial-hyper-v-to-azure.md#prepare-hyper-v-hosts) and [VMM servers](tutorial-hyper-v-to-azure.md#prepare-hyper-v-hosts) have access to Azure URLs.
-
+- [Prepare](tutorial-prepare-azure.md) Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
+- [Prepare](tutorial-prepare-on-premises-vmware.md) VMware on-premises VMware servers and VMs.
+- Note that devices exported by paravirtualized drivers aren't supported.
 
 
 ## Create a Recovery Services vault
@@ -128,38 +74,24 @@ Select and verify target resources.
 2. Specify the target deployment model.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-## Configure network mapping for VMM
-
-If you're migrating Hyper-V VMs in System Center VMM clouds, you need to map an on-premises VMM VM network to an Azure virtual network. [Learn more](tutorial-hyper-v-to-azure.md#configure-network-mapping-with-vmm).
-
 ## Create a replication policy
 
 - [Set up a replication policy](tutorial-vmware-to-azure.md#create-a-replication-policy) for VMware VMs.
-- [Set up a replication policy](tutorial-physical-to-azure.md#create-a-replication-policy) for physical servers.
-- [Set up a replication policy](tutorial-hyper-v-to-azure.md#create-a-replication-policy) for Hyper-V VMs.
+
 
 ## Enable replication
 
 - [Enable replication](tutorial-vmware-to-azure.md#enable-replication) for VMware VMs.
-- [Enable replication](tutorial-physical-to-azure.md#enable-replication) for physical servers.
-- [Enable replication](tutorial-hyper-v-to-azure.md#enable-replication) for Hyper-V VMs.
 
 
-## Run a test migratoin
+## Run a test migration
 
 Run a [test failover](tutorial-dr-drill-azure.md) to Azure, to make sure everything's working as expected.
 
 
 ## Migrate to Azure
 
-Run a fail over for the machines you want to migrate.
-
-> [!WARNING]
-> **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.  
-
-
-
-### Run a failover to Azure for VMware VMs and physical servers
+Run a failover for the machines you want to migrate.
 
 1. In **Settings** > **Replicated items** click the machine > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
@@ -170,19 +102,12 @@ Run a fail over for the machines you want to migrate.
 
     ![Complete migration](./media/tutorial-migrate-on-premises-to-azure/complete-migration.png)
 
+
+> [!WARNING]
+> **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.  
+
 In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. You might notice longer test failover times for physical servers, VMware Linux machines, VMware VMs that don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
   
-### Run a planned failover for Hyper-V VMs
-
-A planned failover is supported for Hyper-V VMs. A planned failover ensures no data loss. When a planned failover is triggered, the source VMs are shut down. Unsynchronized data is synchronized, and the failover is triggered.
-
-1. In **Settings** > **Replicated items** click the VM > **Planned Failover**.
-2. In **Confirm Planned Failover**, verify the failover direction (to Azure), and select the source and target locations. 
-3. In **Data Synchronization**, select **Synchronize data during failover only (full download)**. This performs a disk download. 
-4. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
-5. After the initial data synchronization is done and you're ready to shut down the Azure VMs click **Jobs** > planned failover job name > **Complete Failover**. This shuts down the on-premises, transfers the latest changes to Azure, and starts the Azure VM.
-6. Check that the Azure VM appears in Azure as expected.
-7. In **Replicated items**, right-click the VM > **Complete migration**. This finishes the migration process, stops replication for the on-premises VM, and stops Site Recovery billing for the VM.
 
 ## Next steps
 
