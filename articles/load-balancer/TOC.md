@@ -4,6 +4,7 @@
 ## [Internet Load Balancer](load-balancer-internet-overview.md)
 ## [Internal Load Balancer](load-balancer-internal-overview.md)
 ## [Understand load balancer probes](load-balancer-custom-probe-overview.md)
+## [Understand High Availability Ports](load-balancer-ha-ports-overview.md)
 ## [Azure Resource Manager support](load-balancer-arm.md)
 ## [IPv6 support](load-balancer-ipv6-overview.md)
 ## [Multiple VIPs](load-balancer-multivip-overview.md)
@@ -45,6 +46,8 @@
 ### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
+## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)
+
 ## Troubleshoot
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
