@@ -75,7 +75,7 @@ Set up an [Azure storage account](../storage/common/storage-create-storage-accou
 - The storage account must be in the same region as the Recovery Services vault.
 - The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
 - If you set up a premium account, you will also need an additional standard account for log data.
-- You can't replicate to premium accounts in Central and South India.
+
 
 
 ### Prepare an account for Mobility service installation
