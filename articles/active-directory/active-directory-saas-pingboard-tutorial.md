@@ -111,15 +111,15 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
 `https://<entity-id>.pingboard.com/auth/saml/consume`
 
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Pingboard Client support team](https://support.pingboard.com/) to get these values. 
-
 4. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
 
 	![Pingboard Domain and URLs single sign-on information SP](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
      In the **Sign-on URL** textbox, type the value as: `https://<sub-domain>.pingboard.com/sign_in`
 	 
+> [!NOTE] 
+	> Please note that these values are not real. You have to update these values with the actual Reply URL and Sign-on URL. Contact [Pingboard Client support team](https://support.pingboard.com/) to get these values.
+
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Pingboard metadata xml](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
