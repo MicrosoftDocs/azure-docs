@@ -1,7 +1,7 @@
 ---
 title: PowerShell in Azure Cloud Shell (Preview) features | Microsoft Docs
 description: Overview of features of PowerShell in Azure Cloud Shell
-services: 
+services: Azure
 documentationcenter: ''
 author: maertendMSFT
 manager: timlt
@@ -38,7 +38,7 @@ To persist files across sessions, Cloud Shell walks you through attaching an Azu
 Once completed, Cloud Shell will automatically attach your storage (mount as `$home\clouddrive`) for all future sessions.
 Since Cloud Shell is allocated on a per-request basis using a temporary machine, files outside of your `$home\clouddrive` and machine state are not persisted across sessions.
 
-[Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage.md)
+[Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage-powershell.md)
 
 ### Azure namespace
 

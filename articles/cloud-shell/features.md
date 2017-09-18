@@ -1,7 +1,7 @@
 ---
 title: Bash in Azure Cloud Shell (Preview) features | Microsoft Docs
 description: Overview of features of Bash in Azure Cloud Shell
-services: 
+services: Azure
 documentationcenter: ''
 author: jluk
 manager: timlt
