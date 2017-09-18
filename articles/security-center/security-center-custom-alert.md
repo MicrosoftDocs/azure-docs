@@ -28,35 +28,34 @@ Custom alert rules in Security Center allow you to define new security alerts ba
 
 ## How to create a custom alert rule in Security Center?
 
-Follow these steps to create a custom alert rule Security Center:
+Open **Security Center** dashboard, and follow these steps to create a custom alert rule Security Center:
 
-1.	Open **Security Center** dashboard.
-2.	In the left pane, under **Detection** click **Custom alert rules (Preview)**.
-3.	In the **Security Center – Custom alert rules (Preview)** page click **New custom alert rule**.
+1.	In the left pane, under **Detection** click **Custom alert rules (Preview)**.
+2.	In the **Security Center – Custom alert rules (Preview)** page click **New custom alert rule**.
 
 	![Custom alert](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
 	
-4.	The Create custom alert rule page appears with the following options:
+3.	The Create custom alert rule page appears with the following options:
 	
 	![Create](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
-5.	Type the name for this custom rule in the **Name** field.
-6.	Type a brief description that reflects the intent of this rule in the **Description** field.
-7.	Select the severity level (High, Medium, Low) according to your needs in the **Severity** field.
-8.	Select the subscription in which this rule is applicable in the **Subscription** field.
-9. Select the workspace that contains the resources that you want to monitor with this rule in the **Workspace** field.
-10.	In the **Search Query**  field, the query that you to use to obtain the results. The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
+4.	Type the name for this custom rule in the **Name** field.
+5.	Type a brief description that reflects the intent of this rule in the **Description** field.
+6.	Select the severity level (High, Medium, Low) according to your needs in the **Severity** field.
+7.	Select the subscription in which this rule is applicable in the **Subscription** field.
+8.	Select the workspace that contains the resources that you want to monitor with this rule in the **Workspace** field.
+9.	In the **Search Query**  field, the query that you to use to obtain the results. The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
 	![Query](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
-11. Select the time span in which the query above will be executed in the **Period** field. Notice that the search result in the bottom of this field will change the according to the time span that you select.
+10.	Select the time span in which the query above will be executed in the **Period** field. Notice that the search result in the bottom of this field will change the according to the time span that you select.
 
 	![Period](./media/security-center-custom-alert/security-center-custom-alert-fig4.png)
 
-12. In the **Evaluation** field select the frequency that this rule should be evaluated and executed.
-13. In the **Number of results** field, select the operator (greater than, or lower than).
-14. In the **Threshold** field type a number that will be used as reference for the operator that was previous selected. 
-15. **Enable Suppress Alerts** option if you want to set a time to wait before Security Center sends another alert for this rule.
-16. Click **OK** to finish.
+11.	In the **Evaluation** field select the frequency that this rule should be evaluated and executed.
+12.	In the **Number of results** field, select the operator (greater than, or lower than).
+13.	In the **Threshold** field type a number that will be used as reference for the operator that was previous selected.
+14.	**Enable Suppress Alerts** option if you want to set a time to wait before Security Center sends another alert for this rule.
+15.	Click **OK** to finish.
 
 After you finish creating the new alert rule, it will appear in the list of custom alert rules. Once the conditions of that rule are met, a new alert will be triggered, and you can see in the **Security Alerts** dashboard.
 
