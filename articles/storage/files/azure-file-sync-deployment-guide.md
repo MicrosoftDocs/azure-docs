@@ -1,6 +1,6 @@
 ---
 title: How to deploy Azure File Sync (preview) | Microsoft Docs
-description: Learn how to deploy Azure File Sync from start to finish
+description: Learn how to deploy Azure File Sync from start to finish.
 services: storage
 documentationcenter: ''
 author: wmgries
@@ -23,7 +23,7 @@ With Azure File Sync (preview), shares can be replicated to Windows Servers on-p
 We strongly recommend reading the [Planning for an Azure Files deployment](planning-azure-files-deployment.md) and [Planning for an Azure File Sync deployment](planning-azure-file-sync-deployment.md) before following the steps in this guide.
 
 ## Prerequisites
-* A Storage Account and an Azure File share in the same region that you want to deploy Azure File Sync. See [Datacenter availability](planning-azure-file-sync-deployment.md#datacenter-availability) for more information on supported regions. See [Create a Storage Account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for step-by-step directions on how to create a storage account and [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
+* A Storage Account and an Azure File share in the same region that you want to deploy Azure File Sync. See [Datacenter availability](planning-azure-file-sync-deployment.md#datacenter-availability) for more information on supported regions. See [Create a Storage Account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for step-by-step directions on how to create a Storage Account and [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
 * At least one supported Windows Server or Windows Server cluster to sync with Azure File Sync. See [Interoperability with Windows Server](planning-azure-file-sync-deployment.md#interoperability-with-windows-server) for more information on supported versions of Windows Server.
 
 ## Deploy the Storage Sync Service 

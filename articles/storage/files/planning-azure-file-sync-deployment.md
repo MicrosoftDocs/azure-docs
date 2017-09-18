@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 09/25/2016
 ms.author: wgries
 ---
 
@@ -117,7 +117,7 @@ In general, Azure File Sync should be able to interop with encryption solutions 
 ### Other Hierarchical Storage Management (HSM) solutions
 No other Hierarchical Storage Management solution should be used with Azure File Sync.
 
-## Datacenter availability
+## Region availability
 Azure File Sync is only available in the following regions in Preview:
 
 | Region | Datacenter location |
