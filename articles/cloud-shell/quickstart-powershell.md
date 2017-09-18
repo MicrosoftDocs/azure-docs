@@ -1,9 +1,28 @@
-# PowerShell in Azure Cloud Shell quickstart
+---
+title: PowerShell in Azure Cloud Shell (Preview) quickstart | Microsoft Docs
+description: Quickstart for PowerShell in Cloud Shell
+services: 
+documentationcenter: ''
+author: maertendmsft
+manager: timlt
+tags: azure-resource-manager
+ 
+ms.assetid: 
+ms.service: azure
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 09/25/2017
+ms.author: damaerte
+---
+
+# Quickstart for PowerShell in Azure Cloud Shell
 
 This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://aka.ms/PSCloudPreview).
 
 > [!NOTE]
-> A [Bash in Azure Cloud Shell](quickstart.md) guide is also available.
+> A [Bash in Azure Cloud Shell](quickstart.md) quickstart is also available.
 
 ## Start Cloud Shell
 
@@ -17,7 +36,7 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 3. Select PowerShell
 
-4. The `Azure PS drive` appears as follows
+4. The `Azure drive` appears as follows
 
   ```powershell
   Requesting a Cloud Shell... Succeeded.

@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell (Preview) quickstart | Microsoft Docs
-description: Quickstart for Bash Cloud Shell
+title: Bash in Azure Cloud Shell (Preview) quickstart | Microsoft Docs
+description: Quickstart for Bash in Cloud Shell
 services: 
 documentationcenter: ''
 author: jluk
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: juluk
 ---
 
-# Quickstart for using Bash in Cloud Shell
+# Quickstart for Bash in Azure Cloud Shell
 
 This document details how to use Bash in Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
 > [!NOTE]
-> A [PowerShell in Azure Cloud Shell](quickstart-powershell.md) guide is also available.
+> A [PowerShell in Azure Cloud Shell](quickstart-powershell.md) quickstart is also available.
 
 ## Start Cloud Shell
 1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
@@ -33,9 +33,9 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 > [!TIP]
 > You are automatically authenticated for Azure CLI 2.0 in every sesssion.
 
-### Select the Bash Environment
+### Select the Bash environment
 1. Select the environment drop down from the the left hand side of shell window <br>
-![](media/quickstart/Environment-Bash.png)
+![](media/quickstart/env-selector.png)
 2. Select Bash
 
 ### Set your subscription
@@ -74,6 +74,6 @@ Delete your resource group and any resources within it: <br>
 Run `az group delete -n MyRG`
 
 ## Next steps
-[Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) <br>
+[Learn about persisting files for Bash in Cloud Shell](persisting-shell-storage.md) <br>
 [Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Learn about Azure File storage](../storage/files/storage-files-introduction.md) <br>

@@ -46,6 +46,7 @@ Capability to let you easily discover and navigate all Azure resources.
 
 > [!NOTE]
 > [TODO: replace old gif]
+> [TODO: note limitations of file writing etc. in Azure drive]
 
 ### Interaction with VMs
 

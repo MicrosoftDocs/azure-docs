@@ -13,16 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/25/2017
 ms.author: damaerte
 ---
 
 # Troubleshooting Azure Cloud Shell
-Known resolutions for issues in Azure Cloud Shell:
-
-## An error about [MissingSubscriptionRegistration](media/troubleshooting/storageRP-error.jpg) occurs during persistent storage creation
-  - **Details**: The selected subscription does not have Storage RP registered.
-  - **Resolution**: [Register your Storage resource provider](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound).
+Known resolutions for issues in Azure Cloud Shell include:
 
 ## Error: 400 DisallowedOperation
  - **Details**: When using an Azure Active Directory subscription, you cannot create storage.
