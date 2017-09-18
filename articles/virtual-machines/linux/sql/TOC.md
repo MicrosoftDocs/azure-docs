@@ -1,5 +1,5 @@
 # Overview
-## [Linux SQL Server VMs](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [Linux SQL Server VMs](sql-server-linux-virtual-machines-overview.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
 
 # Get Started
