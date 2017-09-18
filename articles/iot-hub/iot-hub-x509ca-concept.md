@@ -126,7 +126,7 @@ During the certificate chain upload, the device uploads its device unique certif
 
 In our example, each Smart-X-Widget would upload its device unique certificate together with Factory-Y and Technician-Z X.509 CA certificates and then respond to the proof-of-possession challenge from IoT Hub.
 
-[img-device-pop-flow](/media/device-pop-flow.png)
+[img-device-pop-flow](./media/device-pop-flow.png)
 
 Notice that the foundation of trust rests in protecting private keys including device private keys.  We therefore cannot stress enough the importance of secure silicon chips in the form of Hardware Secure Modules (HSM) for protecting device private keys, and the overall best practice of never sharing any private keys, like one factory entrusting another with its private key.
 
