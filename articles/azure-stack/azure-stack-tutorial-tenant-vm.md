@@ -13,12 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/22/2017
+ms.date: 9/25/2017
 ms.author: victorh
 ms.custom: mvc
 
 ---
 # Make virtual machines available to your Azure Stack users
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 As an Azure Stack cloud administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consume Azure Stack services.
 
 This article shows you how to create an offer, and then test it. 

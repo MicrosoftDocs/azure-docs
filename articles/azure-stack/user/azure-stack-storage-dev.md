@@ -4,7 +4,7 @@ description: Guidance to get started with using Azure Stack Storage development 
 services: azure-stack 
 author: xiaofmao
 ms.author: xiaofmao
-ms.date: 7/21/2017
+ms.date: 9/25/2017
 ms.topic: get-started-article
 ms.service: azure-stack
 
@@ -17,7 +17,10 @@ ms.service: azure-stack
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Get started with Azure Stack Storage development tools 
+# Get started with Azure Stack Storage development tools
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 
 Microsoft Azure Stack provides a set of storage services, including Azure Blob, Table, and Queue storage.
 

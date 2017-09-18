@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 9/25/2017
 ms.author: scottnap
 
 ---
 # Introducing iDNS for Azure Stack
-================================
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 iDNS is a feature in Azure Stack that
 allows you to resolve external DNS names (such as http://www.bing.com).

@@ -5,13 +5,15 @@ services: azure-stack
 keywords: 
 author: ScottNapolitan
 ms.author: victorh
-ms.date: 08/02/2017
+ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
 
 ---
 
 # Considerations for Azure Stack networking
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Networking in Azure Stack provides many of the features you find in Azure, with some differences you should understand before you start deploying.
 

@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/16/2017
+ms.date: 9/25/2017
 ms.author: xiaofmao
 
 ---
 # Tools for Azure Stack Storage
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functionality. You can use a set of Azure Storage tools if you want to manage or move data to or from Azure Stack Storage. This article provides a quick overview of the tools available.
 

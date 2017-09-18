@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/27/2017
+ms.date: 9/25/2017
 ms.author: victorh
 
 ---
 # DNS in Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 Azure Stack includes the following DNS features:
 * Support for DNS hostname resolution
 * Create and manage DNS zones and records using API
