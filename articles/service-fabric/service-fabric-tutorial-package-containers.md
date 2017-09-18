@@ -39,31 +39,31 @@ This tutorial is part two in a series. In this tutorial, a template generator to
 ## Install Yeoman
 Service fabric provides scaffolding tools to help create applications from terminal using Yeoman template generator. Follow the steps below to ensure you have the Yeoman template generator. 
 
-1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew.  
-```bash
-sudo apt-get install npm && sudo apt install nodejs-legacy
-```
+1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
+
+    ```bash
+    sudo apt-get install npm && sudo apt install nodejs-legacy
+    ```
 2. Install Yeoman template generator on your machine from NPM 
 
-```bash
-sudo npm install -g yo
-```
-
+    ```bash
+    sudo npm install -g yo
+    ```
 3. Install the Service Fabric Yeoman container generator
 
-```bash 
-sudo npm install -g generator-azuresfcontainer
-```
+    ```bash 
+    sudo npm install -g generator-azuresfcontainer
+    ```
 
 ## Package a Docker image container with Yeoman
 
-1. To create a Service Fabric container application, in the 'container-tutorial' directory of the cloned repository, run the following command:
+1. To create a Service Fabric container application, in the 'container-tutorial' directory of the cloned repository, run the following command.
+
     ```bash
     yo azuresfcontainer
     ```
 2. Name your application "TestContainer" and name the application service "azurevotefront".
 3. Provide the container image path in ACR for the frontend repo - for example 'test.azurecr.io/azure-vote-front:v1'. 
-
 4. Press Enter to leave the Commands section empty.
 5. Specify an instance count of 1.
 
