@@ -70,7 +70,7 @@ When Azure VMs are created from storage after failover, they're joined to this n
     - Select the subscription in which to create the network.
     - Select the location in which the create the network. The network must be in the same region as the Recovery Services vault.
 
-	The virtual network takes a few seconds to create. Once it’s created, you see it in the Azure portal dashboard.
+	The virtual network takes a few seconds to create. After it’s created, you see it in the Azure portal dashboard.
 
 
 ## Next steps
