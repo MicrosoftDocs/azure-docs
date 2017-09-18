@@ -142,6 +142,7 @@ When you set up the source environment, you install the Azure Site Recovery Prov
     - If you are using VMM, in **Prepare source**, click **+ VMM** to add a VMM server. In **Add Server**, check that **System Center VMM server** appears in **Server type**.
 2. Download the Provider and agent components, depending on your environment.
 	- For Hyper-V only, download the Provider installation file. You run the file on each Hyper-V host to install both the Provider and the agent.
+		
 		![Provider without VMM](./media/tutorial-hyper-v-to-azure/download-no-vmm.png)
 	
 	- For Hyper-V with VMM, download the Provider and agent separately. Run the Provider installation on the VMM server. Run the agent installation on each Hyper-V host.
@@ -155,7 +156,7 @@ When you set up the source environment, you install the Azure Site Recovery Prov
 Install the components as summmarized in the table. 
 
 **Component** | **Details** | **Hyper-V only** | **Hyper-V with VMM**
---- | --- | ---
+--- | --- | --- | ---
 **Azure Site Recovery Provider** | Orchestrates replication to Azure | Install on each Hyper-V host | Install on the VMM server
 **Recovery Services agent** | Handles data replication | Install on each Hyper-V host | Install on Hyper-V host
 
