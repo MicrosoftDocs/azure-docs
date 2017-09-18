@@ -70,5 +70,4 @@ Before unregistering the server on the Storage Sync Service, all Server Endpoint
 
 ## Next steps
 - [Register/unregister a server with Azure File Sync (preview)](storage-sync-files-server-registration.md)
-- [Azure File Sync network throttling](azure-file-sync-network-throttling.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
