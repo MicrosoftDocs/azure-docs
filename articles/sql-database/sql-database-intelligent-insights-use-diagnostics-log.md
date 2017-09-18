@@ -76,7 +76,7 @@ The category name and details of an issue are provided in the following table.
 
 Category and Details
 
-Category (category) property describes categorization of a database performance issue detected. See the following table for all possible categories of detectable performance issues. Further details are available at the [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-detections.md) page.
+Category (category) property describes categorization of a database performance issue detected. See the following table for all possible categories of detectable performance issues. Further details are available at the [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md) page.
 
 Depending on the performance issue category detected, parameters outputted in the diagnostics log file differ accordingly.
 

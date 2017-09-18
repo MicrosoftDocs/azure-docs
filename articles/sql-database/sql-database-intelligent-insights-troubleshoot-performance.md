@@ -34,7 +34,7 @@ Intelligent Insights automatically detects performance issues with Azure SQL Dat
 | [Workload increase](sql-database-intelligent-insights-troubleshoot-performance.md#Workload-increase) | Workload increase or continuous accumulation of workload on the database was detected causing Azure SQL Database performance issues. |
 | [Memory pressure](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Workers requesting memory grants are waiting for memory allocations for statistically significant amounts of time, or there exists a continuous accumulation in increase of workers requesting memory grants affecting Azure SQL Database performance. |
 | [Locking](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Excessive database locking was detected impacting Azure SQL Database performance. |
-| [Increased MAXDOP](sql-database-intelligent-insights-troubleshoot-detections.md#increased-maxdop) | Max degree of parallelism option (MAXDOP) has changed and it is affecting the query execution efficiency.  |
+| [Increased MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Max degree of parallelism option (MAXDOP) has changed and it is affecting the query execution efficiency.  |
 | [Pagelatch contention](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch contention was detected impacting Azure SQL Database performance: Multiple threads are concurrently attempting to access the same in-memory data buffer pages resulting in increased wait times affecting Azure SQL database performance. |
 | [Missing index](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Missing index issue was detected impacting Azure SQL Database performance. |
 | [New query](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | New query was detected affecting query execution with statistical significance to affect Azure SQL Database performance.  |
@@ -302,7 +302,7 @@ On the other hand, if following the reduction of your pricing tier you are unsat
 
 The following flowchart is a recommended approach to troubleshooting performance issues utilizing Intelligent Insights.
 
-![Server](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowcahrt.png)
+![Server](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)
 
 Use Intelligent Insights through Azure portal by navigating to Azure SQL Analytics. Attempt to locate incoming performance alert and click on it. Identify what is going on the detections page. Observe the provided Root Cause Analysis of the issue, query text, query time trends, and incident evolution. Using the Intelligent Insights recommendation on mitigating the performance issue attempt to resolve it.
 
