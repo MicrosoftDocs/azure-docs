@@ -105,6 +105,11 @@ Run the test failover as follows:
 In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. You might notice longer test failover times for physical servers, VMware Linux machines, VMware VMs that don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
 
+## Connect to VMs in Azure
+
+If you [prepared to connect to Azure after failover](#prepare-to-connect-to-azure-vms-after-failover), you can connect to the [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/quick-create-portal.md#connect-to-virtual-machine) machine.
+
+
 
 ## Next steps
 Run a failover and failback for on-premises [VMware VMs](tutorial-vmware-to-azure-failover-failback.md), [Hyper-V VMs(tutorial-hyper-v-to-azure-failover-failback.md), and [physical servers](tutorial-vmware-to-azure-failover-failback.md).
