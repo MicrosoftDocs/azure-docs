@@ -42,7 +42,7 @@ and location that you want to use
 
 * The host location for your API
 
-## Create your connector
+## 1. Create your connector
 
 1. In the Azure portal, on the main Azure menu, choose **New**. 
 In the search box, enter "logic apps connector" as your filter, 
@@ -72,12 +72,21 @@ choose **Pin to dashboard** > **Create**.
    the custom connector menu opens automatically. 
    If not, choose your custom connector from the Azure dashboard.
 
-4. In the connector menu, if not already selected, 
+## 2. Define your connector
+
+Now specify the OpenAPI file or Postman collection for creating your connector, 
+the authentication that your connector uses, 
+the actions and triggers that your custom connector provides, 
+and parameters that actions and triggers can use.
+
+### 2a. Specify the OpenAPI file or Postman collection for your connector
+
+1. In your connector's menu, if not already selected, 
 choose **Logic Apps Connector**. In the toolbar, choose **Edit**.
 
    ![Edit custom connector](./media/logic-apps-custom-connector-register/edit-custom-connector.png)
 
-5. Choose **General** so that you can provide the details 
+2. Choose **General** so that you can provide the details 
 in these tables for creating, securing, and defining the 
 actions and triggers for your custom connector.
 
@@ -110,7 +119,9 @@ actions and triggers for your custom connector.
       | **Base URL** | *connector-base-URL* | Provide the base URL for your Web API. | 
       |||| 
 
-6. Now choose **Security** so you can review or describe the authentication 
+### 2b. Describe the authentication that your connector uses
+
+1. Now choose **Security** so you can review or describe the authentication 
 that your connector uses. Authentication makes sure that your users' 
 identities flow appropriately between your service and any clients.
 
@@ -155,12 +166,14 @@ identities flow appropriately between your service and any clients.
    automatically populates the authentication type *only* when you 
    use the supported authentication types, such as OAuth 2.0 or Basic.
 
-7. To save your connector after entering the security information, 
+2. To save your connector after entering the security information, 
 at the top of the page, choose **Update connector**, 
 then choose **Continue**. 
 
-8. Now choose **Definition** so you can review or define 
-the actions that users can add to their workflows.
+### 2c. Review, update, or define actions and triggers for your connector
+
+1. Now choose **Definition** so you can review, edit, 
+or define new actions and triggers that users can add to their workflows.
 
    Actions and triggers are based on the operations defined in your OpenAPI file 
    or Postman collection, which automatically populate the **Definition** page 
@@ -170,30 +183,35 @@ the actions that users can add to their workflows.
 
    ![Connector definition](./media/logic-apps-custom-connector-register/definition.png)
 
-9. Optionally, if you want to edit the existing actions or add new actions, 
-   continue with these steps:
+2. Optionally, if you want to edit existing actions and triggers, 
+or add new ones, continue with these steps.
 
-   1. To add an action that didn't exist in your OpenAPI file or Postman collection, 
-   under **Actions**, choose **New action**. 
+#### Edit or add actions for your connector
 
-   2. Under **General**, provide this information for the action:
+1. To edit an existing action, choose the number for that action. 
+To add an action that didn't exist in your OpenAPI file or Postman collection, 
+under **Actions**, choose **New action**.
+
+2. Under **General**, provide or edit this information for the action:
    
-      | Setting | Suggested value | Description | 
-      | ------- | --------------- | ----------- | 
-      | **Summary** | *operation-name* | The title for this action | 
-      | **Description** | *operation-description* | The description for this action. <p>**Tip**: Make sure that your description ends with a period. |
-      | **Operation ID** | *operation-identifier* | A unique name for identifying this action. Use camel case, for example: "GetPullRequest"  |
-      |**Visibility**| **none**, **advanced**, **internal**, **important** | The user-facing visibility for this action. For more information, see [OpenAPI extensions](../logic-apps/custom-connector-openapi-extensions.md#visibility) |
-      ||||
+   | Setting | Suggested value | Description | 
+   | ------- | --------------- | ----------- | 
+   | **Summary** | *operation-name* | The title for this action | 
+   | **Description** | *operation-description* | The description for this action. <p>**Tip**: Make sure that your description ends with a period. |
+   | **Operation ID** | *operation-identifier* | A unique name for identifying this action. Use camel case, for example: "GetPullRequest" | 
+   |**Visibility**| **none**, **advanced**, **internal**, or **important** | The user-facing visibility for this action. For more information, see [OpenAPI extensions](../logic-apps/custom-connector-openapi-extensions.md#visibility). | 
+   |||| 
 
-   3. In the **Request** section, choose **Import from sample**. 
+3. Now define the request for the action.
+  
+   1. In the **Request** section, choose **Import from sample**. 
 
-   4. On the **Import from sample** page, paste a sample request. 
+   2. On the **Import from sample** page, paste a sample request. 
 
       Usually, sample requests are available in the API documentation 
       where you can get information for the **Verb**, **URL**, 
-      **Headers**, and **Body** fields. 
-      For example, see the [Text Analytics API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+      **Headers**, and **Body** fields. For example, see the 
+      [Text Analytics API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
       ![Import sample request](./media/logic-apps-custom-connector-register/import-sample-operation-request.png)
 
@@ -207,11 +225,107 @@ the actions that users can add to their workflows.
       For advanced OpenAPI functionality, 
       see [OpenAPI extensions for custom connectors](../logic-apps/custom-connector-openapi-extensions.md).
 
-   5. To finish the request definition, choose **Import**. 
-   Define the response in the same way.
+   3. To finish the request definition, choose **Import**.
 
-10. After you define all your actions, 
-choose **Create** so you can deploy your connector.
+4. Now define the response for the action.
+
+   1. Under **Response**, you can specify a default response. 
+   Choose **Add default response**.
+
+   2. On the **Import from sample** page, paste a sample response, 
+   then choose **Import**.
+
+5. Finally, under **Validation**, 
+review and fix any potential issues identified for the action.
+
+#### Edit or add triggers for your connector
+
+1. To edit an existing trigger, choose the number for that trigger. 
+To add a trigger that didn't exist in your OpenAPI file or Postman collection, 
+under **Triggers**, choose **New trigger**.
+
+2. Under **General**, provide or edit this information for the trigger:
+
+   | Setting | Suggested value | Description | 
+   | ------- | --------------- | ----------- | 
+   | **Summary** | *operation-name* | The title for this trigger | 
+   | **Description** | *operation-description* | The description for this trigger. <p>**Tip**: Make sure that your description ends with a period. | 
+   | **Operation ID** | *operation-identifier* | A unique name for identifying this trigger. Use camel case, for example: "TriggerOnGitHubPushEvent" | 
+   |**Visibility**| **none**, **advanced**, **internal**, or **important** | The user-facing visibility for this trigger. For more information, see [OpenAPI extensions](../logic-apps/custom-connector-openapi-extensions.md#visibility). | 
+   | **Trigger type** | **Webhook** or **Polling** | The type for this trigger. For example, a webhook trigger waits for a specific event to happen before firing. A polling trigger regularly checks a service endpoint based on a specified interval and frequency. | 
+   |||| 
+
+3. Now define the request that creates the trigger. 
+
+   1. In the **Request** section, choose **Import from sample**.
+
+   2. On the **Import from sample** page, paste a sample request. 
+
+      Usually, sample requests are available in the API documentation 
+      where you can get information for the **Verb**, **URL**, 
+      **Headers**, and **Body** fields. For example, see the 
+      [Text Analytics API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+
+      ![Import sample request](./media/logic-apps-custom-connector-register/import-sample-operation-request.png)
+
+      > [!IMPORTANT]
+      > If you create a connector from a Postman collection, 
+      > make sure you that you remove the `Content-type` header from actions and triggers. 
+      > Logic Apps automatically adds this header. 
+      > Also, remove authentication headers that you defined 
+      > in the `Security` section from actions and triggers.
+
+      For advanced OpenAPI functionality, 
+      see [OpenAPI extensions for custom connectors](../logic-apps/custom-connector-openapi-extensions.md).
+
+   3. To finish the request definition, choose **Import**. 
+
+4. Now define the trigger's response. 
+In the **Response** section, based on the trigger's type, 
+follow these steps:
+
+   **Webhook trigger**
+   1. In **Webhook Response**, choose **Import from sample**. 
+
+   2. On the **Import from sample** page, paste a sample response, 
+   then choose **Import**. To view an example response, 
+   see the [GitHub API reference for creating a webhook](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+
+   3. Under **Trigger configuration**, select a parameter to use for the 
+   webhook creation request. Logic Apps uses this parameter value for popluating 
+   the callback URL used by your service to communicate with the trigger.
+
+   **Polling trigger**
+   1. Under **Response**, you can specify a default response. 
+   Choose **Add default response**.
+
+   2. On the **Import from sample** page, paste a sample response, 
+   then choose **Import**.
+
+   3. Under **Trigger configuration**, specify the query parameter, 
+   the value to pass for the parameter, and a *trigger hint* that 
+   specifies a proper polling interval for the next request.
+
+5. Finally, under **Validation**, 
+review and fix any potential issues identified for the trigger.
+
+#### Review reference definitions for your connector
+
+The **References** section automatically populates from your API description 
+and describes any parameter fields that actions and triggers can reference. 
+
+1. Under **References**, choose the number for the 
+reference definition that you want to review.
+
+2. Under **Name**, review or update the reference definition name.
+
+3. Under **Validation**, review and fix any potential 
+issues identified for the reference definition.
+
+## 3. Finish creating your connector
+
+When you're ready, choose **Create** so you can deploy your connector. 
+If you're updating an existing connector, choose **Update connector**.
 
 Congratulations! Now when you create a logic app, 
 you can find your connector in Logic Apps Designer, 
