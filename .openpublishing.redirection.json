@@ -2041,12 +2041,12 @@
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-app-service-documentdb.md",
-            "redirect_url": "/azure/app-service/app-service-cli-app-service-documentdb",
+            "redirect_url": "/azure/app-service/scripts/app-service-cli-app-service-documentdb",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/scripts/app-service-cli-app-service-redis.md",
-            "redirect_url": "/azure/app-service/app-service-cli-app-service-redis",
+            "redirect_url": "/azure/app-service/scripts/app-service-cli-app-service-redis",
             "redirect_document_id": false
         },
         {
@@ -2316,7 +2316,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-webjobs-readme.md",
-            "redirect_url": "/azure/azure-functions/websites-webjobs-resources",
+            "redirect_url": "https://github.com/Azure/azure-webjobs-sdk/wiki",
             "redirect_document_id": false
         },
         {
@@ -2416,7 +2416,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-nodejs-sails.md",
-            "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
+            "redirect_url": "/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app",
             "redirect_document_id": false
         },
         {
