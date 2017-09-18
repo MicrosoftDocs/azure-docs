@@ -29,7 +29,7 @@ This page provides information on using Azure SQL Database performance diagnosti
 
 Diagnostics log uses JSON standard format to output Intelligent insights findings. The exact category property for accessing Intelligent Insights log is a fixed value “SQLInsights”.
 
-The header of the log is common and consists of the timestamp (time) when an entry was created including a resource ID (resourceId) referring to a particular Azure SQL Database the entry relates to. Category (category), level (level) and operation name (operationName) are fixed properties whose value does not change – they indicate that the log entry is informational and that it comes from the intelligent insights (SQLInsights). 
+The header of the log is common and consists of the timestamp (time) when an entry was created including a resource ID (resourceId) referring to a particular Azure SQL Database the entry relates to. Category (category), level (level), and operation name (operationName) are fixed properties whose value does not change – they indicate that the log entry is informational and that it comes from the intelligent insights (SQLInsights). 
 
 ```json
 “time” : “2017-9-25 11:00:00”, // time stamp of the log entry
@@ -39,15 +39,15 @@ The header of the log is common and consists of the timestamp (time) when an ent
 “operationName” : “Insight”, // fixed property
 ```
 
-## Issue Id and database affected
+## Issue ID and database affected
 
-The issue identification property (IssueId) provides a way of uniquely tracking performance issues until resolved. Intelligent Insights observes each issue lifecycle as: Active, Verifying and Completed. Through each of these status phases Intelligent insights can record multiple event records in the log, and for each of these entries the issue Id number remains unique. Intelligent Insights tracks the issue through its lifecycle and generate an insight in the diagnostic log every 15 minutes. 
+The issue identification property (IssueId) provides a way of uniquely tracking performance issues until resolved. Intelligent Insights observes each issue lifecycle as: Active, Verifying, and Completed. Through each of these status phases Intelligent insights can record multiple event records in the log, and for each of these entries the issue ID number remains unique. Intelligent Insights tracks the issue through its lifecycle and generate an insight in the diagnostic log every 15 minutes. 
 
 Once a performance issue is detected and as long as it lasts, the issue is reported as Active under the status (Status) property. Once an issue detected is mitigated, it is being verified until it is resolved upon which it is reported as Verified under the status (Status) property. In the case a detected issue has been fully resolved and verified as resolved, the status (Status) property reports this issue as Completed. 
 
 Along with the Issue ID, the diagnostics log reports the start (intervalStartTime) and end (intervalEndTime) timestamps of the particular event related to an issue reported in the diagnostic log.
 
-Property elastic pool (ElesticPool) indicates to which elastic pool the database with an issue belongs. If the database is not part of an elastic pool, this property will have no value. Database on which an issue has been detected is disclosed in the database name (DatabaseName) property. 
+Property elastic pool (ElesticPool) indicates to which elastic pool the database with an issue belongs. If the database is not part of an elastic pool, this property has no value. Database on which an issue has been detected is disclosed in the database name (DatabaseName) property. 
 
 ```json
 “intervalStartTime_t”: “2017-9-25 11:00”, // start of the issue reported timestamp
@@ -62,23 +62,23 @@ Property elastic pool (ElesticPool) indicates to which elastic pool the database
 
 Next section of the Intelligent insights performance log contains detected performance issues through the built-in artificial intelligence. Detections are disclosed within the JSON property detections consisting of category of an issue, impact of the issues, queries affected and metrics. It should be noted that detections property might contain multiple performance issues detected.
 
-Detected performance issues will be reported with the following Detections property structure:
+Detected performance issues are reported with the following Detections property structure:
 
 ```json
 “detections_s” : [{
 “impact” : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
-“category” : “Category name”,  ",  // type of performance issue detected (please reference the table below)
-“details”: < Details of an issue > // details of an issue (please reference the table below)
+“category” : “Category name”,  ",  // type of performance issue detected (see the following table)
+“details”: < Details of an issue > // details of an issue (see the following table)
 }] 
 ```
 
-Please note that category name and details of an issue are provided in the table below.
+The category name and details of an issue are provided in the following table.
 
 Category and Details
 
-Category (category) property describes categorization of a database performance issue detected. Please reference the below table for all possible categories of detectable performance issues. Further details are available at the [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-detections.md) page.
+Category (category) property describes categorization of a database performance issue detected. See the following table for all possible categories of detectable performance issues. Further details are available at the [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-detections.md) page.
 
-Please note that depending on the performance issue category detected, parameters outputted in the diagnostics log file differ accordingly.
+Depending on the performance issue category detected, parameters outputted in the diagnostics log file differ accordingly.
 
 | Category name - performance issue | Details - parameters outputted |
 | :------------------- | ------------------- |
@@ -113,13 +113,13 @@ Please note that depending on the performance issue category detected, parameter
 
 ### Impact
 
-Impact (impact) property describes how much a detected behavior contributed to the problem database is having, ranging from 1 to 3, whereas 3 is the highest contribution, 2 is moderate, and 1 is the lowest contribution. Please note that impact value might be used as an input for custom alerting automation, depending on your specific needs. Property queries impacted (queries_impacted) provides a list of query hashes that were affected by a particular detection.
+Impact (impact) property describes how much a detected behavior contributed to the problem database is having, ranging from 1 to 3, whereas 3 is the highest contribution, 2 is moderate, and 1 is the lowest contribution. The impact value might be used as an input for custom alerting automation, depending on your specific needs. Property queries impacted (queries_impacted) provides a list of query hashes that were affected by a particular detection.
 
 ### Impacted queries
 
-Next section of intelligent insights log provides information a particular queries that were affected by the detected performance issues. This information is disclosed as an array of objects embedded in the impact property. Impact property consists of entities and metrics. Entities refer to a particular query (type : Query) and unique query hash disclosed under the property value (Value). In addition, each of the queries disclosed is followed by a metric and a value, indicating a detected performance issue.
+Next section of intelligent insights log provides information about particular queries that were affected by the detected performance issues. This information is disclosed as an array of objects embedded in the impact property. Impact property consists of entities and metrics. Entities refer to a particular query (type: Query) and unique query hash disclosed under the property value (Value). In addition, each of the queries disclosed is followed by a metric and a value, indicating a detected performance issue.
 
-In the particular log example below, it can be noted that the query with the hash 0X0000001 was detected to have an increased duration of execution (metric: DurationIncreaseSeconds) with the value of 110 seconds – indicating that this particular query took 110 seconds longer to execute. It should be noted that multiple queries can be detected due to which this particular log section may include multiple query entries.
+In the following log example, it can be noted that the query with the hash 0X0000001 was detected to have an increased duration of execution (metric: DurationIncreaseSeconds) with the value of 110 seconds – indicating that this particular query took 110 seconds longer to execute. It should be noted that multiple queries can be detected due to which this particular log section may include multiple query entries.
 
 ```json
 ”impact” : [{
@@ -155,14 +155,10 @@ The last part of the Intelligent insights performance log pertains to the automa
 
 Intelligent insights performance log can be used with [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) or a third-party solution for custom DevOps alerting and reporting capabilities.
 
-## Next Steps
+## Next steps
 - [Intelligent Insights Concept](sql-database-intelligent-insights.md)
 - [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Monitor Azure SQL Database using Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
 - [Collect and consume log data from your Azure resources](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 
-## Additional Resources
-- [View the latest updates to the Azure SQL Database service](http://azure.microsoft.com/updates/?service=sql-database)
-- [SQL Database Development Overview](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-develop-overview)
-- [Connection libraries for SQL Database and SQL Server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-libraries)
-- [Search the documentation on Microsoft Azure](http://azure.microsoft.com/search/documentation/)
+
