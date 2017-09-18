@@ -50,7 +50,7 @@ You can use the Azure portal, PowerShell, REST API, and CLI to query for the mai
 
 You can also use Azure Powershell to see when VMs are scheduled for maintenance. Planned maintenance information is available from the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) cmdlet when you use the `-status` parameter.
  
-Maintenance information is returned only if there is maintenance planned, if there is no maintenance scheduled that will impact the VM, the cmdlet will not return any maintenance information. 
+Maintenance information is returned only if there is maintenance planned, if there is no maintenance scheduled that impacts the VM, the cmdlet does not return any maintenance information. 
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status

@@ -40,13 +40,13 @@ The goal in having two windows is to give you enough time to start maintenance a
 You can use the Azure CLI, PowerShell, REST API, and the Azure portal to query for the maintenance windows for your VMs and start self-service maintenance.
 
  > [!NOTE]
- > If you try to start maintenance and fail, Azure marks your VM as **skipped** and will not reboot it during the scheduled maintenance window. Instead, you will be contacted in a later time with a new schedule. 
+ > If you try to start maintenance and fail, Azure marks your VM as **skipped** and it is not reboot during the scheduled maintenance window. Instead, you are contacted in a later time with a new schedule. 
 
 ## Find VMs scheduled for maintenance using CLI
 
 Planned maintenance information can be seen using [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view).
  
-Maintenance information is returned only if there is maintenance planned, if there is no maintenance scheduled that will impact the VM, the cmdlet will not return any maintenance information. 
+Maintenance information is returned only if there is maintenance planned, if there is no maintenance scheduled that impacts the VM, the command does not return any maintenance information. 
 
 ```azure-cli
 az vm get-instance-view  - g rgName  -n vmName 
