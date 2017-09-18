@@ -46,10 +46,12 @@ There are three types of alerts off of data available from Azure Monitor -- metr
 
 * **Metric alerts** - This alert triggers when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). For a growing list of available metrics supported by Azure monitor, see [List of metrics supported on Azure Monitor](monitoring-supported-metrics.md).
 * **Near real-time metric alerts (preview)**  - These alerts are similar to metric alerts but differ in a few ways. Firstly, as the name suggests these alerts can trigger in near real-time (as fast as 1 min). They also support monitoring multiple(currently two) metrics.  The alert generates a notification when the alert is "Activated" (when the thresholds for each metric are crossed at the same time and the alert condition is met) as well as when it is "Resolved" (when at least one metric crosses the threshold again and the condition is no longer met).
+
 > [!NOTE]
 > Near real-time metric alerts are currently in public preview. The functionality and user experience is subject to change.
 >
 >
+
 * **Activity log alerts** - A streaming log alert that triggers when an Activity Log event is generated that matches filter criteria that you have assigned. These alerts have only one state, "Activated," since the alert engine simply applies the filter criteria to any new event. These alerts can be used to become notified when a new Service Health incident occurs or when a user or application performs an operation in your subscription, for example, "Delete virtual machine."
 
 For Diagnostic Log data available through Azure Monitor, we suggest routing the data into Log Analytics and using a Log Analytics alert. The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
