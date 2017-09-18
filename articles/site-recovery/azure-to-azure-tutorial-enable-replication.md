@@ -1,6 +1,6 @@
 ---
-title: Set up disaster recovery to a secondary Azure region for Azure VMs with Azure Site Recovery (preview)  | Microsoft Docs
-description: Learn how to configure replication of Azure virtual machines (VMs) to a different region, using the Azure Site Recovery service
+title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (preview)  | Microsoft Docs
+description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
 author: rajani-janaki-ram
 manager: carmonm
@@ -10,11 +10,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/17/2017
+ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
 ---
-# Set up disaster recovery to a secondary Azure region for Azure VMs
+# Set up disaster recovery for Azure VMs to a secondary Azure region
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -26,10 +26,20 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Set up outbound access for VMs
 > * Enable replication for a VM
 
+>[!NOTE]
+>
+> Azure VM replication to a secondary region is currently in preview.
+
+## Prerequisites
+
+To complete this tutorial:
+
+- Make sure that you understand the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
+- Review the [support requirements](site-recovery-support-matrix-azure-to-azure.md) for all components.
 
 ## Create a vault
 
-The Recovery Services vault should be created in the location where you want your VMs to replicate. For example, if your target location is the central US, create the vault in **Central US**.
+Create the vault in any region, except the source region. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
 2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
@@ -52,9 +62,6 @@ The Recovery Services vault should be created in the location where you want you
 
 2. Make sure your subscription has enough resources to support VMs with sizes that match your source
    VMs. Site Recovery picks the same size or the closest possible size for the target VM.
-
-3. Storage accounts must be in the same region as the vault. You can't replicate to premium
-   accounts in Central and South India.
 
 ## Configure outbound network connectivity
 
@@ -147,9 +154,9 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 1. In **Virtual Machines**, select the VMs you want to replicate.
 2. Click **OK**.
 
-### Configure settings
+### Configure replication settings
 
-Review Site Recovery default settings for the target region. You can change these settings based on
+Site Recovery creates default settings and replication policy for the target region. You can change the settings based on
 your requirements.
 
 ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
@@ -194,6 +201,5 @@ your requirements.
 
 ## Next steps
 
-Once your VMs have completed initial replication, verify your disaster recovery
-configuration by [performing a Disaster Recovery drill](azure-to-azure-tutorial-dr-drill.md).
+Run a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to test your configuration.
 
