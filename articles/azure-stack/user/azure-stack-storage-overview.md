@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/19/2017
+ms.date: 9/25/2017
 ms.author: xiaofmao
 
 ---
 # Introduction to Azure Stack storage
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 ## Overview
 Azure Stack Storage is a set of cloud storage services including Blobs, Tables and Queues which are consistent with Azure Storage services.

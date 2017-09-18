@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/24/2017
+ms.date: 9/25/2017
 ms.author: xiaofmao
 
 ---
 # Connect Storage Explorer to an Azure Stack subscription
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
 

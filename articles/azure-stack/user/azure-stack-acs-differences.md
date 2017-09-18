@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 9/25/2017
 ms.author: xiaofmao
 
 ---
 # Azure Stack Storage: Differences and considerations
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 Azure Stack Storage is the set of storage cloud services in
 Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account
 management functionality with Azure-consistent semantics.
