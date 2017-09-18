@@ -135,15 +135,7 @@ Select what to replicate, and where to replicate it to.
 
 ## Set up the source environment
 
-When you set up the source environment, you install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register on-premises servers in the vault. The Provider and agent are installed as summarized in the table.
-
-**Component** | **Hyper-V only** | **Hyper-V with VMM**
---- | --- | ---
-**Azure Site Recovery Provider**<br/><br/> Orchestrates replication to Azure | Installed on each Hyper-V host | Installed on VMM server
-**Recovery Services agent**<br/><br/> Handles data replication | Installed on each Hyper-V host | Installed on Hyper-V host
-
-For Hyper-V only, download the Provider installation file. Run the file on each Hyper-V host to install both the Provider and the agent on each Hyper-V host.
-For Hyper-V with VMM, download the Provider and agent separately. Run the Provider installation on the VMM server. Run the agent installation on each Hyper-V host. 
+When you set up the source environment, you install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register on-premises servers in the vault. 
 
 1. In **Prepare Infrastructure**, click **Source**. 
     - If you're not using VMM, click **+Hyper-V Site**, and specify a site name. Then click **+Hyper-V Server**, and add a host or cluster to the site.
@@ -157,29 +149,50 @@ For Hyper-V with VMM, download the Provider and agent separately. Run the Provid
         ![Provider and agent with VMM](./media/tutorial-hyper-v-to-azure/download-vmm.png)
 1. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 
-### Run Provider setup
+### Run Provider setup 
 
-1. Run the Provider setup file:
-    - **Without VMM**: If you're not using VMM, run setup on each Hyper-V host you added to the Hyper-V site. For a cluster, run setup on each cluster node to register and install it.
-    - **With VMM**: If you're using VMM, run setup on the VMM server
-2. In **Microsoft Update**, you can opt in for updates. If you do, Provider updates are installed in accordance with your Microsoft Update policy.
-3. In **Installation**, accept or modify the default Provider installation location, and click **Install**.
+Now installed the components on the VMM server and Hyper-V hosts. The components are installed as summarized in the table.
+
+**Component** | **Hyper-V only** | **Hyper-V with VMM**
+--- | --- | ---
+**Azure Site Recovery Provider**<br/><br/> Orchestrates replication to Azure | Installed on each Hyper-V host | Installed on VMM server
+**Recovery Services agent**<br/><br/> Handles data replication | Installed on each Hyper-V host | Installed on Hyper-V host
+
+For Hyper-V only, download the Provider installation file. Run the file on each Hyper-V host to install both the Provider and the agent on each Hyper-V host.
+For Hyper-V with VMM, download the Provider and agent separately. Run the Provider installation on the VMM server. Run the agent installation on each Hyper-V host. 
+
+#### Install the provider on Hyper-V hosts without VMM
+
+Run the installation on each Hyper-V host you added to the Hyper-V site. If you're installing on a Hyper-V cluster, run setup on each cluster node. Installing and registering each Hyper-V cluster node ensures that VMs are protected, even if they migrate across nodes.
+
+1. In **Microsoft Update**, you can opt in for updates so that Provider updates are installed in accordance with your Microsoft Update policy.
+2. In **Installation**, accept or modify the default Provider installation location and click **Install**.
 4. In **Vault Settings**, click **Browse** to select the vault key file that you downloaded. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
+5. In **Proxy Settings**, specify how the Provider running on the VMM server or Hyper-V host connects to Site Recovery over the internet.
+	* For a direct connection, select **Connect directly to Azure Site Recovery without a proxy**.
+	* For a proxy, select **Connect to Azure Site Recovery using a proxy server**. Specify the proxy address, port, and credentials if needed.
+6. After the server is registered in the vault, click **Finish**.
+
+Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure** > **Hyper-V Hosts**.
+
+#### Install the Provider on the VMM server (Hyper-V with VMM)
+
+1. 1. In **Microsoft Update**, you can opt in for updates so that Provider updates are installed in accordance with your Microsoft Update policy.
+2. In **Installation**, accept or modify the default Provider installation location and click **Install**. 
+3. Now register the VMM server in the vault. In **Vault Settings**, click **Browse** to select the vault key file that you downloaded. Specify the Azure Site Recovery subscription, and the vault name.
 
     ![Server registration](./media/tutorial-hyper-v-to-azure/provider-vault-settings.png)
 
-5. In **Proxy Settings**, specify how the Provider running on the VMM server or Hyper-V host connects to Site Recovery over the internet.
-
+ 4. In **Proxy Settings**, specify how the Provider running on the VMM server or Hyper-V host connects to Site Recovery over the internet.
 	* For a direct connection, select **Connect directly to Azure Site Recovery without a proxy**.
 	* For a proxy, select **Connect to Azure Site Recovery using a proxy server**. Specify the proxy address, port, and credentials if needed.
-	- - If you're using VMM, a VMM RunAs account (DRAProxyAccount) is created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The RunAs account settings can be modified in the VMM console > **Settings** > **Security** > **Run As Accounts**. Restart the VMM service to update changes.
-6. After installation finishes, click **Register** to register the server in the vault.
-7. In **Registration Key**, select the key that you downloaded from Azure Site Recovery and copied to the VMM server or Hyper-V host.
-9. The encryption setting is only used when you're replicating Hyper-V VMs in VMM clouds to Azure. If you're replicating to a secondary site it's not used.
-10. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
-11. In **Synchronize cloud metadata**, select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked, and synchronize each cloud individually in the cloud properties in the VMM console.
+	- A VMM RunAs account (DRAProxyAccount) is created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The RunAs account settings can be modified in the VMM console > **Settings** > **Security** > **Run As Accounts**. Restart the VMM service to update changes.
+7. In **Data Encryption**, specify whether to encrypted all data sent to Azure. If you select this option Site Recovery issues a certificate. You'll need this certificate to decrypt data later on.
+8. In **VMM Server**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name. In **Synchronize cloud metadata with the vault**, select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked, and synchronize each cloud individually in the cloud properties in the VMM console.
 
-After registration finishes, metadata from the server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure**.
+After registration finishes, metadata from the server is retrieved by Azure Site Recovery, and the VMM server is displayed in **Site Recovery Infrastructure**.
+
+#### Install components on Hyper-V with VMM
 
 ## Install the agent on Hyper-V host (with VMM)
 
