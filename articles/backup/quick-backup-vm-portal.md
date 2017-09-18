@@ -77,13 +77,11 @@ If you are going to continue on to a Backup tutorial that explains how to restor
 2. In the Backup dashboard, click **...More** to show additional options, then click **Stop backup** to open the Stop Backup menu.  
   ![choose additional Backup options from menu](./media/quick-backup-vm-portal/stop-backup-menu-item-in-dashboard.png)
 
-3. In the Stop Backup menu, select the upper drop-down menu and choose **Delete Backup Data**. The Stop Backup menu adjusts to your choice.
-  ![choose delete data option from menu](./media/quick-backup-vm-portal/delete-data-in-vault.png)
+3. In the Stop Backup menu, select the upper drop-down menu and choose **Delete Backup Data**. 
 
-4. In the **Type the name of the Backup item** dialog, type myVM. If you aren't sure what name to type, enter the name you think it should be, and hover over the exclamation point. The name of the backup item to use, appears. You must enter the name of the backup item to delete the data in the vault.
-  ![enter name of backup item to delete](./media/quick-backup-vm-portal/enter-vm-name-to-delete.png)
+4. In the **Type the name of the Backup item** dialog, type *myVM*. 
 
-5. Once the backup item is verified, the Stop backup button is enabled. Optionally you can choose a reason why you are deleting the Recovery Services vault, and provide comments. Click **Stop Backup** to delete the restore point and the Recovery Services vault.</br>
+5. Once the backup item is verified, the Stop backup button is enabled. Click **Stop Backup** to delete the restore point and the Recovery Services vault.</br>
   ![click Stop backup to delete vault](./media/quick-backup-vm-portal/provide-reason-for-delete.png)
 
 In this quickstart you learned how to:
