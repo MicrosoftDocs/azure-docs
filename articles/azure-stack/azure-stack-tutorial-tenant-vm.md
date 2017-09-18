@@ -112,7 +112,9 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to subscribe to an offer.
 
-   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user and click **Get a Subscription**.
+   a. Log in to the user portal as a user and click **Get a Subscription**.
+   - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
 
    ![Get a subscription](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -128,7 +130,9 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
 
-   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user, and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**.  
+   a. Log in to the user portal as a user, and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**.
+      - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
 
    b. In the **Basics** section, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
 
