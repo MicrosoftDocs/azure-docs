@@ -19,10 +19,11 @@ ms.author: erikje
 ---
 # Overview of offering services in Azure Stack
 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 Microsoft Azure Stack is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but are not limited to:
 
 - Platform as a Service (PaaS) services like App Services, Mobile Apps, API Apps, API Functions, SQL, MySQL.
-- Software as a Service (SaaS) services like Sharepoint.
 
 You can even combine services to integrate and build complex solutions for different users.
 
