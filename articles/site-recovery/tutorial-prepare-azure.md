@@ -64,7 +64,7 @@ When Azure VMs are created from storage after failover, they're joined to this n
 1. In the **Favorites** pane of the portal, click **New**.
 2. Click **Networking** > **Virtual network**
 3. Leave **Resource Manager** selected as the deployment model, and click **Create**.
-    - Specify a network name. The name must be unique within the Azure resource group. A resource group is an Azure container that holds related resources. [Learn more](./azure-resource-manager/resource-group-overview#resource-groups).
+    - Specify a network name. The name must be unique within the Azure resource group. 
     - Specify the network address range in CIDR notation. For example 10.0.0.0/16.
     - For this tutorial we don't need a subnet.
     - Select the subscription in which to create the network.
