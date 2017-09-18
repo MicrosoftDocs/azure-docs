@@ -6,7 +6,7 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: article
 ms.date: 06/14/2017
 ---
@@ -21,7 +21,7 @@ To step through this how-to guide, you need:
 Follow these steps to dump and restore your PostgreSQL database:
 
 ## Create a dump file using pg_dump that contains the data to be loaded
-To back up an existing PostgreSQL database on-premise or in a VM, run the following command:
+To back up an existing PostgreSQL database on-premises or in a VM, run the following command:
 ```bash
 pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
 ```

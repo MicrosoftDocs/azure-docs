@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -15,8 +15,8 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2016
-ms.author: chrande; glenga
+ms.date: 08/26/2017
+ms.author: glenga
 
 ---
 # Azure Functions Cosmos DB bindings
@@ -37,16 +37,18 @@ The DocumentDB API input binding retrieves a Cosmos DB document and passes it to
 
 The DocumentDB API input binding has the following properties in *function.json*:
 
-- `name` : Identifier name used in function code for the document
-- `type` : must be set to "documentdb"
-- `databaseName` : The database containing the document
-- `collectionName` : The collection containing the document
-- `id` : The Id of the document to retrieve. This property supports bindings parameters; see [Bind to custom input properties in a binding expression](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) in the article [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
-- `sqlQuery` : A Cosmos DB SQL query used for retrieving multiple documents. The query supports runtime bindings. For example: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection` : The name of the app setting containing your Cosmos DB connection string
-- `direction`  : must be set to `"in"`.
+|Property  |Description  |
+|---------|---------|
+|**name**     | Name of the binding parameter that represents the document in the function.  |
+|**type**     | Must be set to `documentdb`.        |
+|**databaseName** | The database containing the document.        |
+|**collectionName**  | The name of the collection that contains the document. |
+|**id**     | The ID of the document to retrieve. This property supports bindings parameters. To learn more, see [Bind to custom input properties in a binding expression](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
+|**sqlQuery**     | A Cosmos DB SQL query used for retrieving multiple documents. The query supports runtime bindings, such in the example: `SELECT * FROM c where c.departmentId = {departmentId}`.        |
+|**connection**     |The name of the app setting containing your Cosmos DB connection string.        |
+|**direction**     | Must be set to `in`.         |
 
-The properties `id` and `sqlQuery` cannot both be specified. If neither `id` nor `sqlQuery` is set, the entire collection is retrieved.
+You cannot set both the **id** and **sqlQuery** properties. If neither are set, the entire collection is retrieved.
 
 ## Using a DocumentDB API input binding
 
@@ -180,19 +182,20 @@ module.exports = function (context, input) {
 The DocumentDB API output binding lets you write a new document to an Azure Cosmos DB database. 
 It has the following properties in *function.json*:
 
-- `name` : Identifier used in function code for the new document
-- `type` : must be set to `"documentdb"`
-- `databaseName` : The database containing the collection where the new document will be created.
-- `collectionName` : The collection where the new document will be created.
-- `createIfNotExists` : A boolean value to indicate whether the collection will be created if it does not exist. The default is *false*. The reason for this is new collections are created with reserved throughput, which has pricing implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` : The name of the app setting containing your Cosmos DB connection string
-- `direction` : must be set to `"out"`
+|Property  |Description  |
+|---------|---------|
+|**name**     | Name of the binding parameter that represents the document in the function.  |
+|**type**     | Must be set to `documentdb`.        |
+|**databaseName** | The database containing the collection where the document is created.     |
+|**collectionName**  | The name of the collection where the document is created. |
+|**createIfNotExists**     | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false*. This is because new collections are created with reserved throughput, which has cost implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**connection**     |The name of the app setting containing your Cosmos DB connection string.        |
+|**direction**     | Must be set to `out`.         |
 
 ## Using a DocumentDB API output binding
 This section shows you how to use your DocumentDB API output binding in your function code.
 
-When you write to the output parameter in your function, by default a new document is generated in your database, with an automatically generated GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
-the output parameter. 
+By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of output document by specifying the `id` property in the JSON object passed to the output parameter. 
 
 >[!Note]  
 >When you specify the ID of an existing document, it gets overwritten by the new output document. 

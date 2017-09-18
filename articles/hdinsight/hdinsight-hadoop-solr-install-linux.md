@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/07/2017
 ms.author: larryfr
 
 ---
@@ -24,10 +24,10 @@ ms.author: larryfr
 Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop.
 
 > [!IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!IMPORTANT]
-> The sample script used in this document creates a Solr cluster with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries.
+> The sample script used in this document installs Solr 4.9 with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries.
 
 ## <a name="whatis"></a>What is Solr
 
@@ -42,7 +42,7 @@ Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a p
 
 This script makes the following changes to the HDInsight cluster:
 
-* Installs Solr into `/usr/hdp/current/solr`
+* Installs Solr 4.9 into `/usr/hdp/current/solr`
 * Creates a user, **solrusr**, which is used to run the Solr service
 * Sets **solruser** as the owner of `/usr/hdp/current/solr`
 * Adds an [Upstart](http://upstart.ubuntu.com/) configuration that starts Solr automatically.
@@ -316,7 +316,7 @@ Use the following steps to back up Solr data to the default storage for your clu
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
+For more information on working with Solr backup and restores, see [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## Next steps
 

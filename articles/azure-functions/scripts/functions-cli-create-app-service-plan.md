@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create a Function App in an App Service p
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 
@@ -22,11 +22,11 @@ ms.custom: mvc
 
 This sample script creates an Azure Function App, which is a container for your functions. The Function App is created using a dedicated App Service plan, which means your server resources are always on.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 
@@ -42,10 +42,10 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creates an Azure Storage account. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Creates an App Service plan. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Creates an Azure Function app. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Creates an App Service plan. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Creates an Azure Function app. |
 
 ## Next steps
 

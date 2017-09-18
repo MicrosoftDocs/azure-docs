@@ -27,8 +27,10 @@
     href: resize-and-crop-thumbnails.md
 - name: Tutorials
   items:
-  - name: C# Ranking Tutorial
+  - name: C# ranking tutorial
     href: csharp-ranking-tutorial.md
+  - name: Visual Search mobile app tutorial
+    href: computer-vision-web-search-tutorial.md 
 - name: Reference
   items:
   - name: REST v5
@@ -37,6 +39,8 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
   - name: Try it!

@@ -213,7 +213,7 @@ A Point-to-Site (P2S) configuration lets you create a secure connection from an 
 
 Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference center, or when you only have a few clients that need to connect to a virtual network.
 
-P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer. Therefore, P2S is not recommended way to connect to Azure in case you need a persistent connection from many on-premise devices and computers to your Azure network.
+P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer. Therefore, P2S is not recommended way to connect to Azure in case you need a persistent connection from many on-premises devices and computers to your Azure network.
 
 ![Site-to-Site VPN](media/azure-network-security/azure-network-security-fig-6.png)
 
@@ -312,7 +312,7 @@ This flow of communication is possible because Azure uses a series of system rou
 
 -	From a VNet to your on-premises network through a VPN gateway.
 
-Many enterprises have strict security and compliance requirements that require on-premises inspection of all network packets to enforce specific polices. Azure provides a mechanism called [forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) that routes traffic from the VMs to on-premises by creating a custom route or by [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) advertisements through ExpressRoute or VPN. advertisements through ExpressRoute or VPN.
+Many enterprises have strict security and compliance requirements that require on-premises inspection of all network packets to enforce specific polices. Azure provides a mechanism called [forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) that routes traffic from the VMs to on-premises by creating a custom route or by [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) advertisements through ExpressRoute or VPN.
 
 Forced tunneling in Azure is configured via virtual network user-defined routes (UDR). Redirecting traffic to an on-premises site is expressed as a Default Route to the Azure VPN gateway.
 
@@ -384,7 +384,6 @@ Application Gateway enables you to optimize web farm performance and availabilit
 
 
 A [web application firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) is also provided as part of the application gateway. This provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as an Internet facing gateway, internal only gateway, or a combination of both.
-Internet facing gateway, internal only gateway, or a combination of both.
 
 Application Gateway WAF can be run in detection or prevention mode. A common use case is for administrators to run in detection mode to observe traffic for malicious patterns. Once potential exploits are detected, turning to prevention mode blocks suspicious incoming traffic.
 

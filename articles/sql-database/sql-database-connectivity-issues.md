@@ -36,7 +36,7 @@ If your client program is using ADO.NET, your program is told about the transien
 You'll retry the SQL connection or establish it again, depending on the following:
 
 * **A transient error occurs during a connection try**: The connection should be retried after delaying for several seconds.
-* **A transient error occurs during an SQL query command**: The command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
+* **A transient error occurs during a SQL query command**: The command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
@@ -49,10 +49,10 @@ When your program communicates with Azure SQL Database through a 3rd party middl
 
 #### Principles for retry
 * An attempt to open a connection should be retried if the error is transient.
-* An SQL SELECT statement that fails with a transient error should not be retried directly.
+* A SQL SELECT statement that fails with a transient error should not be retried directly.
   
   * Instead, establish a fresh connection, and then retry the SELECT.
-* When an SQL UPDATE statement fails with a transient error, a fresh connection should be established before the UPDATE is retried.
+* When a SQL UPDATE statement fails with a transient error, a fresh connection should be established before the UPDATE is retried.
   
   * The retry logic must ensure that either the entire database transaction completed, or that the entire transaction is rolled back.
 

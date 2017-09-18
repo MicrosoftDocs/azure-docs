@@ -2,7 +2,7 @@
 title: Widevine license template overview | Microsoft Docs
 description: This topic gives an overview of a Widevine license template that used to configure Widevine licenses.
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 06/29/2017
 ms.author: juliako
 
 ---

@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ##[Why use Redis cache](https://azure.microsoft.com/services/cache/)
 ##[Explore premium tier features](cache-premium-tier-intro.md)
 ## Scenarios
@@ -34,6 +34,7 @@
 ###[Output cache provider](cache-aspnet-output-cache-provider.md)
 ## Manage
 ###[Configure in the portal](cache-configure.md)
+###[Configure Geo-replication](cache-how-to-geo-replication.md)
 ###[Import/Export data](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[Schedule updates](cache-administration.md#schedule-updates)
@@ -44,8 +45,11 @@
 ## Scale
 ###[Update to a different size and tier](cache-how-to-scale.md)
 ###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
+## Integrate with Spring Boot
+###[Use a Spring Boot Initializer app with Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 Preview](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
@@ -55,6 +59,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Resources
-## [Redis cache samples](cache-redis-samples.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cache/)
+## [Redis cache samples](cache-redis-samples.md)
 

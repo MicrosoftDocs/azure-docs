@@ -132,7 +132,7 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 	```powershell
 	Add-AzureProvisioningConfig -VM $vmConfig -Windows `
 		-AdminUsername $cred.UserName `
-		-Password $cred.Password
+		-Password $cred.GetNetworkCredential().Password
 	```
 
 4. Set the default NIC and assign it a static IP address.

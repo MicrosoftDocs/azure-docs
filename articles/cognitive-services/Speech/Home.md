@@ -58,7 +58,7 @@ each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicer
 ## Text to speech (speech synthesis)
 *Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech
 conversion in various voices and languages. For the full list of supported languages and voices, see
-[Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts).
+[Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#SupLocales).
 
 ### Text to speech API
 The maximum amount of audio returned for any single request is 15 seconds.

@@ -71,6 +71,34 @@ The Custom Speech Service uses two different URLs for short form and long form r
 
 For more details about invoking the various recognition clients with your custom endpoint, see the [SpeechRecognitionServiceFactory](https://www.microsoft.com/cognitive-services/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop) class. Note that the documentation on this page refers to acoustic model adaptation, but it applies to all endpoints created by using the Custom Speech Service.
 
+## Send requests using the Speech Protocol
+
+The endpoints shown for the [Speech Protocol](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) are endpoints for the Open Source Web Socket Speech Protocol.
+
+Currently, the only official client implementation is for [JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). If you want to start with the
+sample provided there, you will have to make the following changes to the code and build the sample again.
+
+1.  In _src\sdk\speech.browser\SpeechConnectionFactory.ts_ replace the host name "wss://speech.platform.bing.com" with the host name shown as part on the details page of
+your deployment. Do not insert the full URI here but just the *wss* protocol scheme and host name. Example:
+
+    ```JavaScript
+    private get Host(): string {
+        return Storage.Local.GetOrAdd("Host", "wss://<your_key_goes_here>.api.cris.ai");
+    }
+    ```
+
+2.  Set the _recognitionMode_ parameter in _samples\browser\Samples.html_ according to your requirements.
+  * _RecognitionMode.Interactive_ supports requests up to 15 seconds.
+  * _RecognitionMode.Conversation_ and _RecognitionMode.Dictation_ (both are equivalent in Custom Speech Service) support requests up to 10 minutes.
+
+3.  Build the sample using "gulp build" before using it.
+
+> [!NOTE]
+> Please ensure that you use the correct URI for this protocol. The reuqired scheme is *wss* (not *http* as in the client protocol!. You will also have to change the URI of the authorization provider in the implementation of IAuthorizationProvider to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
+
+Please see the documentation of [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedjswebsockets) for more information.
+
+
 ## Send requests by using HTTP
 
 Sending a request to your custom endpoint by using an HTTP post is similar to sending a request by HTTP to the Cognitive Services Bing Speech API. Modify the URL to reflect the address of your custom deployment.

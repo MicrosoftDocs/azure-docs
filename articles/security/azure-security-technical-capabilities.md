@@ -341,7 +341,7 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Securely connect your app with resources in a private network using Point-To-Site VPN](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
-- [Securely connect your app with resources in a private network using Hybrid Connections](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
+- [Securely connect your app with resources in a private network using Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
 Azure App Service uses the same Antimalware solution used by Azure Cloud Services and Virtual Machines. To learn more about this refer to our [Antimalware documentation](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 
@@ -414,7 +414,7 @@ With OMS, you can manage any instance in any cloud, including on-premises, Azure
 
 ![Log analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
-This method allows you to consolidate data from a variety of sources, so you can combine data from your Azure services with your existing on-premise environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
+This method allows you to consolidate data from a variety of sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
 ### Azure security center
 

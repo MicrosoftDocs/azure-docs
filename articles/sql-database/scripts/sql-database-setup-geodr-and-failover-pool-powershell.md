@@ -1,10 +1,10 @@
 ﻿---
-title: Azure PowerShell Script-Set up geo-replication-pooled SQL database | Microsoft Docs
-description: Azure PowerShell Script Sample - Set up active geo-replication for a pooled Azure SQL database using PowerShell
+title: PowerShell example-active geo-replication-pooled Azure SQL database | Microsoft Docs
+description: Azure PowerShell example script to set up active geo-replication for a pooled Azure SQL database
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: jhubbard
 editor: carlrab
 tags: azure-service-management
 
@@ -15,13 +15,13 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
-ms.author: janeng
+ms.date: 07/25/2017
+ms.author: carlrab
 ---
 
-# Configure active geo-replication for a pooled Azure SQL database using PowerShell
+# Use PowerShell to configure active geo-replication for a pooled Azure SQL database
 
-This sample PowerShell script configures active geo-replication for a database in an elastic pool and fails it over to the secondary replica.
+This PowerShell script example configures active geo-replication for an Azure SQL database in an elastic pool and fails it over to the secondary replica of the Azure SQL database.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -34,8 +34,8 @@ This sample PowerShell script configures active geo-replication for a database i
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## Script explanation

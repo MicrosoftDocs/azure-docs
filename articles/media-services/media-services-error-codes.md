@@ -2,7 +2,7 @@
 title: Azure Media Services error codes | Microsoft Docs
 description: The topic gives an overview of Azure Media Services error codes.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako
 
 ---
@@ -24,7 +24,7 @@ When using Microsoft Azure Media Services, you may receive HTTP error codes from
 The request contains invalid information and is rejected due to one of the following reasons:
 
 * An unsupported API version is specified. For the most current version, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-* The API version of Media Services is not specified. For information on how to specify the API version, see [Connecting to Media Services with the Media Services REST API](media-services-rest-connect-programmatically.md).
+* The API version of Media Services is not specified. For information on how to specify the API version, see [Media Services Operations REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > If you are using the .NET or Java SDKs to connect to Media Services, the API version is specified for you whenever you try and perform some action against Media Services.
@@ -44,8 +44,8 @@ The request could not be authenticated (before it can be authorized) due to one 
 
 * Missing authentication header.
 * Bad authentication header value.
-  * The token has expired. If using the REST APIs directly, see [Connecting to Media Services with the Media Services REST API](media-services-rest-connect-programmatically.md) to learn how to generate a new authentication token. If you are using the .NET or Java SDKs, create a CloudMediaContext or MediaContract object to generate the token. For more information on how to do this, see [Connecting to Media Services with the Media Services SDK for .NET](media-services-dotnet-connect-programmatically.md).
-  * The token contains an invalid signature.</li></ul></li></ul>
+  * The token has expired. 
+  * The token contains an invalid signature.
 
 ## 403 Forbidden
 The request is not allowed due to one of the following reasons:

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights Data Model | Microsoft Docs
 description: Describes properties exported from continuous export in JSON, and used as filters.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Application Insights Export Data Model

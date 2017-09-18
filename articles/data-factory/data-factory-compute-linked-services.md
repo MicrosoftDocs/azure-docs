@@ -1,6 +1,6 @@
 ---
 title: Compute environments supported by Azure Data Factory | Microsoft Docs
-description: Learn about compute environments that you can use in Azure Data Factory pipelines to transform/process data.
+description: Learn about compute environments that you can use in Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -11,9 +11,8 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/25/2017
 ms.author: shlo
 
 ---
@@ -80,7 +79,7 @@ This impacts existing Azure Data Factories that have Activities running against 
 
   **Recommendations:** 
   * Before **07/15/2017**, perform tests to ensure the compatibility of the Activities that reference this Linked Services to [the latest supported HDInsight version](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) with information documented in [Hadoop components available with different HDInsight versions](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) and [Hortonworks release notes associated with HDInsight versions](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
-  * After **07/15/2017**, make sure you explicitly specify osType an Version values if you would like to overide the default settings. 
+  * After **07/15/2017**, make sure you explicitly specify osType and version values if you would like to override the default settings. 
 
 >[!Note]
 >Currently Azure Data Factory does not support HDInsight clusters using Azure Data Lake Store as primary store. Use Azure Storage as primary store for HDInsight clusters. 
@@ -96,7 +95,7 @@ In this type of configuration, the computing environment is fully managed by the
 > 
 
 ## Azure HDInsight On-Demand Linked Service
-The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster.
+The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. The storage account must be a general-purpose standard Azure storage account. 
 
 Note the following **important** points about on-demand HDInsight linked service:
 
@@ -118,9 +117,10 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "clusterSize": 4,
+            "version": "3.5",
+            "clusterSize": 1,
             "timeToLive": "00:05:00",
-            "osType": "linux",
+            "osType": "Linux",
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
@@ -343,10 +343,60 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 | apiKey |The published workspace model’s API. |Yes |
 
 ## Azure Data Lake Analytics Linked Service
-You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the [Data Lake Analytics U-SQL activity](data-factory-usql-activity.md) in a pipeline.
+You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
 
-The following example provides JSON definition for an Azure Data Lake Analytics linked service.
+The following table provides descriptions for the generic properties used in the JSON definition. You can further choose between service principal and user credential authentication.
 
+| Property | Description | Required |
+| --- | --- | --- |
+| **type** |The type property should be set to: **AzureDataLakeAnalytics**. |Yes |
+| **accountName** |Azure Data Lake Analytics Account Name. |Yes |
+| **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |No |
+| **subscriptionId** |Azure subscription id |No (If not specified, subscription of the data factory is used). |
+| **resourceGroupName** |Azure resource group name |No (If not specified, resource group of the data factory is used). |
+
+### Service principal authentication (recommended)
+To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+* Application ID
+* Application key 
+* Tenant ID
+
+Use service principal authentication by specifying the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| **servicePrincipalId** | Specify the application's client ID. | Yes |
+| **servicePrincipalKey** | Specify the application's key. | Yes |
+| **tenant** | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
+
+**Example: Service principal authentication**
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
+        }
+    }
+}
+```
+
+### User credential authentication
+Alternatively, you can use user credential authentication for Data Lake Analytics by specifying the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| **authorization** | Click the **Authorize** button in the Data Factory Editor and enter your credential that assigns the autogenerated authorization URL to this property. | Yes |
+| **sessionId** | OAuth session ID from the OAuth authorization session. Each session ID is unique and can be used only once. This setting is automatically generated when you use the Data Factory Editor. | Yes |
+
+**Example: User credential authentication**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -356,40 +406,25 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
             "accountName": "adftestaccount",
             "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
             "authorization": "<authcode>",
-            "sessionId": "<session ID>",
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
+            "sessionId": "<session ID>", 
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
         }
     }
 }
 ```
 
-The following table provides descriptions for the properties used in the JSON definition.
-
-| Property | Description | Required |
-| --- | --- | --- |
-| Type |The type property should be set to: **AzureDataLakeAnalytics**. |Yes |
-| accountName |Azure Data Lake Analytics Account Name. |Yes |
-| dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |No |
-| authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
-| subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
-| resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. This ID is auto-generated in the Data Factory Editor. |Yes |
-
+#### Token expiration
 The authorization code you generated by using the **Authorize** button expires after sometime. See the following table for the expiration times for different types of user accounts. You may see the following error message when the authentication **token expires**: Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
 
 | User type | Expires after |
 |:--- |:--- |
-| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, @outlook.com, for example) |12 hours |
+| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.) |12 hours |
 | Users accounts managed by Azure Active Directory (AAD) |14 days after the last slice run. <br/><br/>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days. |
 
-To avoid/resolve this error, reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for sessionId and authorization properties programmatically using code in the following section: 
+To avoid/resolve this error, reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for **sessionId** and **authorization** properties programmatically using code as follows:
 
-### To programmatically generate sessionId and authorization values
-The following code generates **sessionId** and **authorization** values.  
-
-```CSharp
-
+```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
     linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
 {
@@ -413,9 +448,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-Add a reference to Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll for the WindowsFormsWebAuthenticationDialog class. 
 
-See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. 
+See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll for the WindowsFormsWebAuthenticationDialog class. 
 
 ## Azure SQL Linked Service
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](data-factory-azure-sql-connector.md#linked-service-properties) article for details about this linked service.

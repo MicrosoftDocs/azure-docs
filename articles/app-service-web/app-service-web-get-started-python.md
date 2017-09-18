@@ -4,7 +4,7 @@ description: Deploy your first Python Hello World in Azure App Service Web Apps 
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
@@ -12,29 +12,29 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
 # Create a Python web app in Azure
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart walks through how to develop and deploy a Python app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Python code to the web app.
+[Web Apps for Containers](https://docs.microsoft.com/azure/app-service-web/app-service-linux-intro) provides a highly scalable, self-patching web hosting service.  This quickstart walks through how to develop and deploy a Python app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Python code to the web app.
 
 ![Sample app running in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
+
 ## Prerequisites
 
 To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
 1. [Install Python](https://www.python.org/downloads/)
-1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Download the sample
 
@@ -54,6 +54,12 @@ cd Python-docs-hello-world
 
 ## Run the app locally
 
+Install the required packages using `pip`.
+
+```bash
+pip install -r requirements.txt
+```
+
 Run the application locally by opening a terminal window and using the `Python` command to launch the built-in Python web server.
 
 ```bash
@@ -68,15 +74,15 @@ You can see the **Hello World** message from the sample app displayed in the pag
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
 
 ![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
@@ -84,17 +90,17 @@ You’ve created an empty new web app in Azure.
 
 ## Configure to use Python
 
-Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Python version `3.4`.
+Use the [az webapp config set](/cli/azure/webapp/config#set) command to configure the web app to use Python version `3.4`.
 
 ```azurecli-interactive
-az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
-Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
+Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
 
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)]
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 18, done.
@@ -179,11 +185,11 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![App Service blade in Azure portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-The left menu provides different pages for configuring your app. 
+The left menu provides different pages for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

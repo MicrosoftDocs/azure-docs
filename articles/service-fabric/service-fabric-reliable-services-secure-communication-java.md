@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
+ms.date: 06/30/2017
 ms.author: pakunapa
 
 ---
@@ -89,7 +89,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
             ...
         </Section>
         ```
-        In this case, the `CreateServiceReplicaListeners` method will look like this:
+        In this case, the `CreateServiceInstanceListeners` method will look like this:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {

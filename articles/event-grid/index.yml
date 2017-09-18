@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Event Grid Documentation
+metadata:
+  title: Azure Event Grid Documentation - Tutorials, API Reference
+  description: Use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.
+  services: event-grid
+  author: czeumault
+  manager: carolz
+  ms.service: event-grid
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/10/2017
+  ms.author: carolz
+abstract:
+  description: Azure Event Grid is a fully-managed intelligent event routing service that allows for uniform event consumption using a publish-subscribe model. Use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion. Learn how to use Azure Event Grid with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create and subscribe to custom events.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/app-service-api/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/event-grid/custom-event-quickstart
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to develop applications that react to events.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitor changes to VMs with logic apps</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p>
+    - title: REST APIs
+      html: <p><a href="/rest/api/eventgrid">REST</a></p>  
+    - title: Schemas
+      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Subscription Schema</a></p><p><a href="/azure/event-grid/event-schema">Event Schema</a></p>

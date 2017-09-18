@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy a Sails.js web app to Azure App Service | Microsoft Docs 
 description: Learn how to deploy a Node.js application Azure App Service. This tutorial shows you how to deploy a Sails.js web app.
 services: app-service\web
@@ -194,7 +194,7 @@ show you how to connect to MongoDB by using an [Azure Cosmos DB](../documentdb/d
 1. [Create a Cosmos DB account with MongoDB protocol support](../documentdb/documentdb-create-mongodb-account.md).
 2. [Create a Cosmos DB collection and database](../documentdb/documentdb-create-collection.md). The name of the collection doesn't matter,
 but you need the name of the database when you connect from Sails.js.
-3. [Find the connection information for your Cosmos DB database](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Find the connection information for your Cosmos DB database](../cosmos-db/connect-mongodb-account.md#GetCustomConnection).
 2. From your command-line terminal, install the MongoDB adapter:
 
         npm install sails-mongo --save

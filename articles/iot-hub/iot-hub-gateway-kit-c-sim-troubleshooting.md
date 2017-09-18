@@ -4,7 +4,7 @@ description: Troubleshooting page for Intel NUC gateway
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot issues, internet of things problems'
 

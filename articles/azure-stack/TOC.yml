@@ -21,11 +21,11 @@
     href: azure-stack-solution-pipeline.md
 - name: Concepts
   items:
-  - name: What's new
-    href: azure-stack-whats-new.md
+  - name: Release notes
+    href: azure-stack-asdk-release-notes.md
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: POC architecture
+  - name: Azure Stack Development Kit architecture
     href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
@@ -37,8 +37,6 @@
       href: azure-stack-deploy.md
     - name: Deploy
       href: azure-stack-run-powershell-script.md
-    - name: Activate portals
-      href: azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals
     - name: Register
       href: azure-stack-register.md
     - name: Connect to Azure Stack
@@ -55,16 +53,18 @@
       href: azure-stack-manage-portals.md
     - name: Connect to Azure Stack
       href: azure-stack-connect-azure-stack.md
+    - name: Enable CLI for users
+      href: azure-stack-cli-admin.md
     - name: Set up management environment
       items:
       - name: Install PowerShell
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure.md
-      - name: Install and configure CLI
-        href: azure-stack-connect-cli.md
+      - name: Configure PowerShell - Cloud operator
+        href: azure-stack-powershell-configure-admin.md
+      - name: Get up and running with PowerShell
+        href: azure-stack-powershell-configure-quickstart.md
     - name: Manage updates
       href: azure-stack-updates.md
     - name: Monitor health and alerts
@@ -89,10 +89,12 @@
       href: azure-stack-enable-multitenancy.md
   - name: Offer services
     items:
+    - name: Overview of offering services
+      href: azure-stack-offer-services-overview.md
     - name: Create plans, offers, and quotas
       items:
-      - name: Set quotas
-        href: azure-stack-setting-quotas.md
+      - name: Plan, offer, quota, and subscription overview
+        href: azure-stack-plan-offer-quota-overview.md
       - name: Create a plan
         href: azure-stack-create-plan.md
       - name: Create an offer
@@ -101,8 +103,12 @@
         href: azure-stack-subscribe-plan-provision-vm.md
       - name: Delegate offers in Azure Stack
         href: azure-stack-delegated-provider.md
+      - name: Quota types
+        href: azure-stack-quota-types.md
     - name: Offer SQL or MySQL as PaaS
       items:
+      - name: PaaS services overview
+        href: azure-stack-tools-paas-services.md
       - name: Deploy MySQL resource provider
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
@@ -129,10 +135,16 @@
         href: azure-stack-marketplace.md
       - name: Download marketplace items
         href: azure-stack-download-azure-marketplace-item.md
+      - name: Azure marketplace items for Azure Stack
+        href: azure-stack-marketplace-azure-items.md
       - name: Create and publish a marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
+      - name: Use the Marketplace Publishing tool
+        href: azure-stack-marketplace-publisher.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
+      - name: Add virtual machine scale sets
+        href: azure-stack-compute-add-scalesets.md
       - name: Deploy Linux virtual machines
         href: azure-stack-linux.md
     - name: Usage and billing
@@ -163,8 +175,16 @@
         href: azure-stack-storage-overview.md
       - name: Storage considerations
         href: azure-stack-acs-differences.md
+      - name: Storage development tools
+        href: azure-stack-storage-dev.md
+      - name: Data transfer tools
+        href: azure-stack-storage-transfer.md
+      - name: Connect Storage Explorer
+        href: azure-stack-storage-connect-se.md
     - name: Network
       items:
+      - name: Networking considerations
+        href: azure-stack-network-differences.md
       - name: iDNS for Azure Stack
         href: azure-stack-understanding-dns.md
       - name: DNS in Azure Stack
@@ -179,6 +199,8 @@
         href: azure-stack-kv-manage-portal.md
       - name: Manage with PowerShell
         href: azure-stack-kv-manage-powershell.md
+      - name: Create a VM with a secret
+        href: azure-stack-kv-deploy-vm-with-secret.md
       - name: Create a VM with a certificate
         href: azure-stack-kv-push-secret-into-vm.md
       - name: Key Vault sample app
@@ -193,8 +215,10 @@
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure.md
+      - name: Configure PowerShell - User
+        href: azure-stack-powershell-configure-user.md
+      - name: Get up and running with PowerShell
+        href: azure-stack-powershell-configure-quickstart.md
       - name: Install and configure CLI
         href: azure-stack-connect-cli.md
       - name: Install Visual Studio
@@ -223,15 +247,19 @@
       href: azure-stack-troubleshooting.md
     - name: Diagnostics in Azure Stack
       href: azure-stack-diagnostics.md
-    - name: Redeploy Azure Stack POC
+    - name: Redeploy Azure Stack Development Kit
       href: azure-stack-redeploy.md
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/azure/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
+  - name: Pricing information
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack

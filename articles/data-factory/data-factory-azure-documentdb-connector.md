@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 
 ---
@@ -51,6 +51,20 @@ The following table provides description for JSON elements specific to Azure Cos
 | --- | --- | --- |
 | type |The type property must be set to: **DocumentDb** |Yes |
 | connectionString |Specify information needed to connect to Azure Cosmos DB database. |Yes |
+
+Example:
+
+```JSON
+{
+  "name": "CosmosDbLinkedService",
+  "properties": {
+    "type": "DocumentDb",
+    "typeProperties": {
+      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+    }
+  }
+}
+```
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).

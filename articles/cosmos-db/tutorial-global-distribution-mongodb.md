@@ -13,7 +13,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 
@@ -54,14 +54,14 @@ Example results:
             "region": "South India"
          },
          "hosts": [
-            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10250",
-            "vishi-api-for-mongodb-westeurope.documents.azure.com:10250",
-            "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10255",
+            "vishi-api-for-mongodb-westeurope.documents.azure.com:10255",
+            "vishi-api-for-mongodb-southindia.documents.azure.com:10255"
          ],
          "setName": "globaldb",
          "setVersion": 1,
-         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10250",
-         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10255",
+         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10255"
       }
    ```
 

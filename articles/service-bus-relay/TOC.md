@@ -13,6 +13,7 @@
 # How To
 ## Plan and design
 ### [Authentication and security](relay-authentication-and-authorization.md)
+#### [Migrate from ACS to SAS](relay-migrate-acs-sas.md)
 ### [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
 ## Develop
 ### [Available APIs](relay-api-overview.md)
@@ -27,7 +28,9 @@
 ## [Port settings](relay-port-settings.md)
 
 # Resources
-## [Samples](https://github.com/azure/azure-relay/tree/master/samples)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
+## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Samples](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

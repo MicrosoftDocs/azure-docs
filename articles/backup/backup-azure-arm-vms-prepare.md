@@ -16,7 +16,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/7/2017
+ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
 
 ---
@@ -54,10 +54,10 @@ If you know these conditions already exist in your environment then proceed to t
 Before you prepare your environment, please understand the limitations.
 
 * Backing up virtual machines with more than 16 data disks is not supported.
-* Backing up virtual machines with 4TB disks is not supported. 
+* Backing up virtual machines with data disk sizes greater than 1023GB is not supported.
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backup of VMs encrypted using just BEK is not supported. Backup of Linux VMs encrypted using LUKS encryption is not supported.
-* Backup of Linux virtual machines with Docker extension is not supported.
+* Backup of VMs containing Cluster Shared Volumes(CSV) or Scale out File Server configuration is not recommended as they require involving all VMs included in the cluster configuration during snapshot task. Azure Backup doesn't support multi-VM consistency. 
 * Backup data doesn't include network mounted drives attached to VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region backup and restore are not supported.
@@ -116,7 +116,7 @@ To edit the storage replication setting:
 
     ![List of backup vaults](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
-     If you are using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you are using Azure as a non-primary backup storage endpoint, then choose locally redundant storage. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+     If you are using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you are using Azure as a non-primary backup storage endpoint, then choose locally redundant storage. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
     After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
 ## Select a backup goal, set policy and define items to protect

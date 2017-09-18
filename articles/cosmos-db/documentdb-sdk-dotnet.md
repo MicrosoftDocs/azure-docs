@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
-description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
+title: Azure Cosmos DB .NET SDK & Resources | Microsoft Docs
+description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -13,14 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB .NET SDK: Download and release notes
+# Azure Cosmos DB .NET SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -39,7 +40,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Samples**</td><td>[.NET code samples](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET SDK](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
@@ -48,11 +49,25 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="1.17.0"/>1.17.0 
+
+* Added support for PartitionKeyRangeId as a FeedOption for scoping query results to a specific partition key range value. 
+* Added support for StartTime as a ChangeFeedOption to start looking for the changes after that time.
+
+### <a name="1.16.1"/>1.16.1
+* Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
+
+### <a name="1.16.0"/>1.16.0
+*	Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in the DocumentClient constructor.
+* Marked the DocumentClient constructor obsolete that required JsonSerializerSettings as the last parameter to allow for default values of ConnectionPolicy and ConsistencyLevel parameters when passing in JsonSerializerSettings parameter.
+
+### <a name="1.15.0"/>1.15.0
+*	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
+
 ### <a name="1.14.1"/>1.14.1
-*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw SEHException when running DocumentDB queries.
+*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB DocumentDB API queries.
 
 ### <a name="1.14.0"/>1.14.0
-*	Added support for Request Unit per Minute (RU/m) feature.
 *	Added support for a new consistency level called ConsistentPrefix.
 *	Added support for query metrics for individual partitions.
 *	Added support for limiting the size of the continuation token for queries.
@@ -135,7 +150,7 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.9.2"/>1.9.2
 * Added support for parallel queries for partitioned collections.
 * Added support for cross partition ORDER BY and TOP queries for partitioned collections.
-* Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing a DocumentDB project with a reference to the DocumentDB Nuget package.
+* Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing an Azure Cosmos DB project with a reference to the Azure Cosmos DB Nuget package.
 * Fixed the ability to use parameters of different types when using user-defined functions in LINQ. 
 * Fixed a bug for globally replicated accounts where Upsert calls were being directed to read locations instead of write locations.
 * Added methods to the IDocumentClient interface that were missing: 
@@ -148,7 +163,7 @@ ms.custom: H1Hack27Feb2017
 * Added the support for multi-region database accounts.
 * Added support for retry on throttled requests.  User can customize the number of retries and the max wait time by configuring the ConnectionPolicy.RetryOptions property.
 * Added a new IDocumentClient interface that defines the signatures of all DocumenClient properties and methods.  As part of this change, also changed extension methods that create IQueryable and IOrderedQueryable to methods on the DocumentClient class itself.
-* Added configuration option to set the ServicePoint.ConnectionLimit for a given DocumentDB endpoint Uri.  Use ConnectionPolicy.MaxConnectionLimit to change the default value, which is set to 50.
+* Added configuration option to set the ServicePoint.ConnectionLimit for a given Azure Cosmos DB endpoint Uri.  Use ConnectionPolicy.MaxConnectionLimit to change the default value, which is set to 50.
 * Deprecated IPartitionResolver and its implementation.  Support for IPartitionResolver is now obsolete. It's recommended that you use Partitioned Collections for higher storage and throughput.
 
 ### <a name="1.7.1"/>1.7.1
@@ -164,14 +179,14 @@ ms.custom: H1Hack27Feb2017
 * Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md). 
 
 ### <a name="1.5.3"/>1.5.3
-* **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream'.
+* **[Fixed]** Querying Azure Cosmos DB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream'.
 
 ### <a name="1.5.2"/>1.5.2
-* Expanded LINQ support including new operators for paging, conditional expressions and range comparison.
+* Expanded LINQ support including new operators for paging, conditional expressions, and range comparison.
   * Take operator to enable SELECT TOP behavior in LINQ
   * CompareTo operator to enable string range comparisons
   * Conditional (?) and coalesce operators (??)
-* **[Fixed]** ArgumentOutOfRangeException when combining Model projection with Where-In in linq query.  [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Fixed]** ArgumentOutOfRangeException when combining Model projection with Where-In in a LINQ query. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>1.5.1
 * **[Fixed]** If Select is not the last expression the LINQ Provider assumed no projection and produced SELECT * incorrectly.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -179,66 +194,70 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.5.0"/>1.5.0
 * Implemented Upsert, Added UpsertXXXAsync methods
 * Performance improvements for all requests
-* LINQ Provider support for conditional, coalesce and CompareTo methods for strings
+* LINQ Provider support for conditional, coalesce, and CompareTo methods for strings
 * **[Fixed]** LINQ provider --> Implement Contains method on List to generate the same SQL as on IEnumerable and Array
 * **[Fixed]** BackoffRetryUtility uses the same HttpRequestMessage again instead of creating a new one on retry
 * **[Obsolete]** UriFactory.CreateCollection --> should now use UriFactory.CreateDocumentCollection
 
 ### <a name="1.4.1"/>1.4.1
-* **[Fixed]** Localization issues when using non en culture info such as nl-NL etc. 
+* **[Fixed]** Localization issues when using non en culture info such as nl-NL, etc. 
 
 ### <a name="1.4.0"/>1.4.0
-* ID Based Routing
-  * New UriFactory helper to assist with constructing ID based resource links
+* Added ID-based routing
+  * New UriFactory helper to assist with constructing ID-based resource links
   * New overloads on DocumentClient to take in URI
 * Added IsValid() and IsValidDetailed() in LINQ for geospatial
-* LINQ Provider support enhanced
+* LINQ Provider support enhanced:
   * **Math** - Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate
   * **String** - Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
   * **Array** - Concat, Contains, Count
   * **IN** operator
 
 ### <a name="1.3.0"/>1.3.0
-* Added support for modifying indexing policies
+* Added support for modifying indexing policies.
   * New ReplaceDocumentCollectionAsync method in DocumentClient
   * New IndexTransformationProgress property in ResourceResponse<T> for tracking percent progress of index policy changes
   * DocumentCollection.IndexingPolicy is now mutable
-* Added support for spatial indexing and query
+* Added support for spatial indexing and query.
   * New Microsoft.Azure.Documents.Spatial namespace for serializing/deserializing spatial types like Point and Polygon
   * New SpatialIndex class for indexing GeoJSON data stored in Cosmos DB
-* **[Fixed]** : Incorrect SQL query generated from linq expression [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
+* **[Fixed]** Incorrect SQL query generated from a LINQ expression [#38](https://github.com/Azure/azure-documentdb-net/issues/38).
 
 ### <a name="1.2.0"/>1.2.0
-* Dependency on Newtonsoft.Json v5.0.7 
-* Changes to support Order By
+* Added a dependency on Newtonsoft.Json v5.0.7.
+* Made changes to support Order By:
   
   * LINQ provider support for OrderBy() or OrderByDescending()
   * IndexingPolicy to support Order By 
     
-    **NB: Possible breaking change** 
+    **Possible breaking change** 
     
-    If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    If you have existing code that provisions collections with a custom indexing policy, then your existing code needs to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>1.1.0
-* Support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver
-* DataContract serialization
-* Guid support in LINQ provider
-* UDF support in LINQ
+* Added support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver.
+* Added DataContract serialization.
+* Added GUID support in LINQ provider.
+* Added UDF support in LINQ.
 
 ### <a name="1.0.0"/>1.0.0
 * GA SDK
 
 ## Release & Retirement dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 <br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |August 10, 2017 |--- |
+| [1.16.1](#1.16.1) |August 07, 2017 |--- |
+| [1.16.0](#1.16.0) |August 02, 2017 |--- |
+| [1.15.0](#1.15.0) |June 30, 2017 |--- |
 | [1.14.1](#1.14.1) |May 23, 2017 |--- |
 | [1.14.0](#1.14.0) |May 10, 2017 |--- |
 | [1.13.4](#1.13.4) |May 09, 2017 |--- |

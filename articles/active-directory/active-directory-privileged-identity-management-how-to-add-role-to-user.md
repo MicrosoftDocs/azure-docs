@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
-ms.custom: pim
+ms.custom: pim;oldportal;it-pro;
+
 ---
 # Azure AD Privileged Identity Management: How to add or remove a user role
 With Azure Active Directory (AD), a global administrator (or company administrator) can update which users are **permanently** assigned to roles in Azure AD. This is done with PowerShell cmdlets like `Add-MsolRoleMember` and `Remove-MsolRoleMember`. Or they can use the Azure classic portal as described in [assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).

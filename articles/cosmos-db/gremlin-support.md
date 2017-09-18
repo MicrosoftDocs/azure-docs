@@ -3,7 +3,7 @@ title: Azure Cosmos DB Gremlin support | Microsoft Docs
 description: Learn about the Gremlin language from Apache TinkerPop, which features and steps and available in Azure Cosmos DB 
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: dennyglee
 manager: jhubbard
 editor: ''
 tags: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 06/10/2017
-ms.author: arramac
+ms.author: denlee
 
 ---
 
 # Azure Cosmos DB Gremlin graph support
-Azure Cosmos DB supports [Apache Tinkerpop's](http://tinkerpop.apache.org) graph traversal language, [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) which is a Graph API for creating graph entities, and performing graph query operations. You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
+Azure Cosmos DB supports [Apache Tinkerpop's](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), which is a Graph API for creating graph entities, and performing graph query operations. You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
 
 Azure Cosmos DB brings enterprise-ready features to graph databases. This includes global distribution, independent scaling of storage and throughput, predictable single-digit millisecond latencies, automatic indexing, and 99.99% SLAs. Because Azure Cosmos DB supports TinkerPop/Gremlin, you can easily migrate applications written using another graph database without having to make code changes. Additionally, by virtue of Gremlin support, Azure Cosmos DB seamlessly integrates with TinkerPop-enabled analytics frameworks like [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -145,7 +145,7 @@ And the edge contains the following information to help with navigation to other
 | --- | --- |
 | id | The ID for the edge. Must be unique (in combination with the value of _partition if applicable) |
 | label | The label of the edge. This property is optional, and used to describe the relationship type. |
-| inV | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
+| inV | This contains a list of in vertices for an edge. Storing the adjacency information with the edge allows for fast execution of traversals. Vertices are grouped based on their labels. |
 | properties | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
 
 Each property can store multiple values within an array. 

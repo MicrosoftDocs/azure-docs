@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 08/15/2017
 ms.author: bwren
 
 ---
@@ -34,7 +34,9 @@ As you type the name of an event log, Log Analytics provides suggestions of comm
 ## Data collection
 Log Analytics collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then Log Analytics collects events from where it last left off, even if those events were created while the agent was offline.  There is a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.
 
-
+>[!NOTE]
+>Log Analytics does not collect audit events created by SQL Server from source *MSSQLSERVER* with event ID 18453 that contains keywords - *Classic* or *Audit Success* and keyword *0xa0000000000000*.
+>
 
 ## Windows event records properties
 Windows event records have a type of **Event** and have the properties in the following table:
@@ -66,9 +68,20 @@ The following table provides different examples of log searches that retrieve Wi
 | Type=Event &#124; Measure count() by Source |Count of Windows events by source. |
 | Type=Event EventLevelName=error &#124; Measure count() by Source |Count of Windows error events by source. |
 
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+>
+>| Query | Description |
+|:---|:---|
+| Event |All Windows events. |
+| Event &#124; where EventLevelName == "error" |All Windows events with severity of error. |
+| Event &#124; summarize count() by Source |Count of Windows events by source. |
+| Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Count of Windows error events by source. |
+
+
 ## Next steps
 * Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
 * Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
 * Configure [collection of performance counters](log-analytics-data-sources-performance-counters.md) from your Windows agents.
-

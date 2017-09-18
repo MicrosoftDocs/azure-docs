@@ -1,5 +1,5 @@
 ---
-title: Is your data ready for data science? Data evaluation - Azure | Microsoft Docs
+title: Is your data ready for data science? Data evaluation - Azure Machine Learning | Microsoft Docs
 description: Learn the 4 criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation.
 keywords: relevant data,evaluate data,prepare data,data criteria,data ready
 services: machine-learning
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
+ms.date: 07/13/2017
+ms.author: cgronlun
 
 ---
 # Is your data ready for data science?
@@ -23,6 +23,7 @@ ms.author: cgronlun;garye
 Learn how to evaluate your data to make sure it meets basic criteria to be ready for data science.
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
 >
@@ -40,7 +41,7 @@ To get the most out of the series, watch them all. [Go to the list of videos](#o
 ## Transcript: Is your data ready for data science?
 Welcome to "Is your data ready for data science?" the second video in the series *Data Science for Beginners*.  
 
-Before data science can give you the answers you want, you have to give it some high-quality raw materials to work with. Just like making a pizza, the better the ingredients you start with, the better the final product.
+Before data science can give you the answers you want, you have to give it some high-quality raw materials to work with. Just like making a pizza, the better the ingredients you start with, the better the final product. 
 
 ## Criteria for data
 So, in the case of data science, there are some ingredients that we need to pull together.
@@ -55,7 +56,7 @@ We need data that is:
 ## Is your data relevant?
 So the first ingredient - we need data that's relevant.
 
-![Relevant data vs. irrelevant data - evaluate data](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
+![Relevant data vs. irrelevant data - evaluate data](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
 Look at the table on the left. We met seven people outside of Boston bars, measured their blood alcohol level, the Red Sox batting average in their last game, and the price of milk in the nearest convenience store.
 
@@ -66,7 +67,7 @@ Now look at the table on the right. This time we measured each person’s body m
 ## Do you have connected data?
 The next ingredient is connected data.
 
-![Connected data vs. disconnected data - data criteria, data ready](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Connected data vs. disconnected data - data criteria, data ready](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
 
 Here is some relevant data on the quality of hamburgers: grill temperature, patty weight, and rating in the local food magazine. But notice the gaps in the table on the left.
 
@@ -79,7 +80,7 @@ The table on the right, though, is full and complete - an example of connected d
 ## Is your data accurate?
 The next ingredient we need is accuracy. Here are four targets that we’d like to hit with arrows.
 
-![Accurate data vs. inaccurate data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
+![Accurate data vs. inaccurate data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
 Look at the target in the upper right. We’ve got a tight grouping right around the bullseye. That, of course, is accurate. Oddly, in the language of data science, our performance on the target right below it is also considered accurate.
 
@@ -90,7 +91,7 @@ Now look at the upper-left target. Here our arrows hit very close together, a ti
 ## Do you have enough data to work with?
 Finally, ingredient #4 - we need to have enough data.
 
-![Do you have enough data for analysis? Data evaluation](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
+![Do you have enough data for analysis? Data evaluation](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
 Think of each data point in your table as being a brush stroke in a painting. If you have only a few of them, the painting can be pretty fuzzy - it's hard to tell what it is.
 
