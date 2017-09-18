@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/31/2017
+ms.date: 09/30/2017
 ms.author: nitinme
 
 ---
@@ -72,19 +72,19 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
 ## End-user authentication
 Use this snippet in your .NET client application with an existing Azure AD native application to authenticate your application **interactively** with Data Lake Store, which means you will be prompted to enter your Azure credentials.
 
-For ease of use, the snippet below uses default values for client ID and redirect URI that will work with any Azure subscription. In the snippet below, just provide the value for your tenant ID. You can retrieve it using the instructions provided at [Create an Active Directory Application](data-lake-store-end-user-authenticate-using-active-directory.md).
+For ease of use, the following snippet uses default values for client ID and redirect URI that will work with any Azure subscription. In the snippet, just provide the value for your tenant ID. You can retrieve it using the instructions provided at [Create an Active Directory Application](data-lake-store-end-user-authenticate-using-active-directory.md).
 
     // User login via interactive popup
     // Use the client ID of an existing AAD native application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
-    var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+    var nativeClientApp_applicationId = "1950a258-227b-4e31-a9cf-717495945fc2";
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_applicationId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
-A couple of things to know about this snippet above:
+A couple of things to know about the preceding snippet:
 
-* To help you complete the tutorial faster, this snippet uses an an Azure AD domain and client ID that is available by default for all Azure subscriptions. So, you can **use this snippet as-is in your application**.
+* To help you complete the tutorial faster, the snippet uses an an Azure AD domain and client ID that is available by default for all Azure subscriptions. So, you can **use this snippet as-is in your application**.
 * However, if you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD tenant ID, client ID, and redirect URI for the application you created. See [Create an Active Directory Application for end-user authentication with Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) for instructions.
 
   
