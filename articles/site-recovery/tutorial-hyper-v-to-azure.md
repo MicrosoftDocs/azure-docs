@@ -39,8 +39,14 @@ To complete this tutorial:
 - Make sure that you understand the [scenario architecture and components](concepts-hyper-v-to-azure-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
 - Make sure that VMs you want to replicate comply with [Azure VM requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- To figure out capacity planning:
+	- Use the [Hyper-V Capacity Planner Tool](http://aka.ms/asr-capacity-planner-excel)to figure out your churn rate.
+	- Use the [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) to analyze your source environment, estimate bandwidth, and target requirements.
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare on-premises Hyper-V hosts, and VMM servers if relevant.
+
+
+
 
 
 ### Set up an Azure account
@@ -75,7 +81,6 @@ Set up an [Azure storage account](../storage/common/storage-create-storage-accou
 - The storage account must be in the same region as the Recovery Services vault.
 - The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
 - If you set up a premium account, you need an additional standard account for log data.
-- You can't replicate to premium accounts in Central and South India.
 
 ### Prepare Hyper-V hosts
 
