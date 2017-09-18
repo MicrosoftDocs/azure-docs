@@ -68,8 +68,6 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
 
->
-
 ### Hard disk drives
 Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
 
@@ -177,11 +175,8 @@ At a high level, an import job involves the following steps:
 
 ### Inside an export job
 > [!IMPORTANT]
-79
 > The service only support export of Azure Blobs and does not support export of Azure Files..
-80
 > 
-81
 > 
 At a high level, an export job involves the following steps:
 
