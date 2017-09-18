@@ -69,8 +69,8 @@ Do the following before you start:
 
 - On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
 - Make sure the configuration server VM can access these URLs:
-        
-        [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 - Any IP address-based firewall rules should allow communication to Azure.
 - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
