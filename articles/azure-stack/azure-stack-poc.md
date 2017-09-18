@@ -20,20 +20,14 @@ ms.custom: mvc
 ---
 # What is Azure Stack?
 
-Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter.  Azure Stack is designed to help you in key scenarios, like meeting security and compliance requirements, or where you need to access Azure resources without internet connectivity.  Azure Stack is offered in two versions.
+Microsoft Azure Stack is an extension of Azure that lets you deliver Azure services from your organization’s datacenter.  Azure Stack is designed to help you in key scenarios, like meeting security and compliance requirements, or where you need to access Azure resources without internet connectivity.  Azure Stack is offered in two versions, 
 
 ## Azure Stack Integrated System
-The Azure Stack Integrated System is offered by hardware partners as a pre-built and validated hardware and software solution.  Because Azure Stack is offered as an integrated system of hardware and software, you are offered the right amount of flexibility and control, while still keeping cloud-paced innovation.  Azure Stack integrated systems are available in sizes from 4-12 nodes. Azure Stack integrated systems are fully supported, and updated at a cloud cadence.  
+The Azure Stack Integrated System is offered by hardware partners as a validated hardware and software solution.  Because Azure Stack is offered as an integrated system of hardware and software, you are offered the right amount of flexibility and control, while still keeping cloud-paced innovation.  Azure Stack integrated systems are available in sizes from 4-12 nodes. Azure Stack integrated systems are fully supported, and updated at a cloud cadence.  Use Azure Stack integrated systems for your to enable new scenarios for your production workloads.    
 
 ## Azure Stack Development Kit
-Microsoft Azure Stack Development Kit is a single-node version of Azure Stack, which you can use to evaluate and learn about Azure Stack.  You can also use Azure Stack Development Kit as a developer environment, where you can develop using consistent APIs and tooling.  
+Microsoft Azure Stack Development Kit is a single-node version of Azure Stack, which you can use to evaluate and learn about Azure Stack.  You can also use Azure Stack Development Kit as a developer environment, where you can develop using consistent APIs and tooling.  Azure Stack Development Kit is not intended to be used as a production environment, and certain limitations may limit scale and performance testing.   
 
-You should be aware of these points with Azure Stack Development Kit:
-
-* Azure Stack Development Kit must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
-* Your deployment of Azure Stack is associated with a single Azure Active Directory or Active Directory Federation Services identity provider. You can create multiple users in this directory and assign subscriptions to each user.
-* With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale or performance evaluation.
-* Networking scenarios are limited due to the single host/NIC requirement.
 
 ## Next steps
 [Key features and concepts](azure-stack-key-features.md)
