@@ -20,7 +20,7 @@ ms.author: muralikk
 # Use the Microsoft Azure Import/Export service to transfer data to Azure storage
 The Azure Import/Export service allows you to securely transfer large amounts of data to Azure storage by shipping hard disk drives to an Azure data center. You can also use this service to transfer data from Azure storage to hard disk drives and ship to your on-premises site. This service is suitable in situations where you want to transfer several terabytes (TB) of data to or from Azure, but uploading or downloading over the network is infeasible due to limited bandwidth or high network costs.
 
-The service requires that hard disk drives should be BitLocker encrypted for the security of your data. The service supports both the Classic and Azure Resource Manager storage accounts (standard and cool tier) present in all the public Azure regions. You must ship hard disk drives to one of the supported locations specified later in this article.
+The service requires that hard disk drives should be BitLocker encrypted for the security of your data. The service supports both the Classic and Azure Resource Manager storage accounts (standard and cool tier) present in all the regions of Public Azure. You must ship hard disk drives to one of the supported locations specified later in this article.
 
 In this article, you learn more about the Azure Import/Export service and how to ship drives for copying your data to and from Azure Blob storage.
 
@@ -35,7 +35,7 @@ You can use this service in scenarios such as:
 * Data recovery: Recover large amount of data stored in storage and have it delivered to your on-premises location.
 
 ## Prerequisites
-In this section, we list the prerequisites required to use this service. Review them carefully before shipping your drives.
+In this section we list the prerequisites required to use this service. Please review them carefully before shipping your drives.
 
 ### Storage account
 You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
@@ -47,7 +47,8 @@ You can use Azure Import/Export service to copy data to **Block** blobs or **Pag
 To begin the process of importing to or exporting from storage, you first create a job. A job can be an import job or an export job:
 
 * Create an import job when you want to transfer data you have on-premises to blobs in your Azure storage account.
-* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
+* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.s
+When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
 
 * For an import job, you will be shipping hard drives containing your data.
 * For an export job, you will be shipping empty hard drives.
@@ -62,10 +63,12 @@ The journal files store basic information about your job and drive such as drive
 
 The WAImportExport tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
-Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). For more information about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
+Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
+
+>
 
 ### Hard disk drives
 Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
@@ -73,7 +76,9 @@ Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for 
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS.
 
 > [!IMPORTANT]
-> Do not send external HDDs; disks with USB adaptors or disks with external cases are not supported by this service. 
+> External hard disk drives that come with a built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs.
+> 
+> 
 
 Below is a list of external USB adaptors used to copy data to internal HDDs. 
 Anker 68UPSATAA-02BU
@@ -146,7 +151,7 @@ You can use a carrier of your choice in order to forward ship the hard disk. The
 In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> If the physical media crosses international borders, you are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner. For instance, any package that will cross international borders needs a commercial invoice to be accompanied with the package (except if crossing borders within European Union). You could print out a filled copy of the commercial invoice from carrier website. Example of commercial invoices are [DHL Commercial Invoice](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) and [FedEx Commercial Invoice](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Make sure that Microsoft has not been indicated as the exporter.
+> Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner. For instance, any package that will cross international borders needs a commercial invoice to be accompanied with the package (except if crossing borders within European Union). You could print out a filled copy of the commercial invoice from carrier website. Example of commercial invoices are [DHL Commercial Invoice](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) and [FedEx Commercial Invoice](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Make sure that Microsoft has not been indicated as the exporter.
 > 
 > 
 
@@ -172,8 +177,11 @@ At a high level, an import job involves the following steps:
 
 ### Inside an export job
 > [!IMPORTANT]
+79
 > The service only support export of Azure Blobs and does not support export of Azure Files..
+80
 > 
+81
 > 
 At a high level, an export job involves the following steps:
 
@@ -252,7 +260,8 @@ In this section, we provide step-by-step instructions for creating an import and
 
 > [!IMPORTANT]
 > The service supports one standard storage account per import or export job and does not support premium storage accounts. 
-
+> 
+> 
 ## Create an import job
 Create an import job to copy data to your Azure storage account from hard drives by shipping one or more drives containing data to the specified data center. The import job conveys details about hard disk drives, data to be copied, target storage account, and shipping information to the Azure Import/Export service. Creating an import job is a three-step process. First, prepare your drives using the WAImportExport tool. Second, submit an import job using the Azure portal. Third, ship the drives to the shipping address provided during job creation and update the shipping info in your job details.   
 
@@ -305,7 +314,7 @@ The first step when importing data using the Azure Import/Export service is to p
     Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
 6.	Use the [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) to copy your data to one or more hard drives.
-7.	You can specify "Encrypt" on Encryption field in driveset CSV to enable BitLocker encryption on the hard disk drive. Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset CSV while running the tool.
+7.	You can specify "Encrypt" on Encryption field in drivset CSV to enable BitLocker encryption on the hard disk drive. Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset CSV while running the tool.
 
 8. Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
 
@@ -437,9 +446,9 @@ Please go through the FAQ section below as it covers the most common questions c
 
 ## Frequently asked questions
 
-**Can I import files into an Azure File share using the Azure Import/Export service?**
+**Can I copy Azure File storage using the Azure Import/Export service?**
 
-Yes, the Azure Import/Export service supports import to Azure Files. It does not support export of an Azure File share at this time.
+Yes, the Azure Import/Export service supports import to Azure File Storge. It does not support export of Azure Files at this time.
 
 **Is the Azure Import/Export service available for CSP subscriptions?**
 
@@ -534,7 +543,7 @@ Max Page Blob size is 1TB.
 
 **Does Disk Import/Export support AES 256 encryption?**
 
-Azure Import/Export service by default encrypts with AES 128 BitLocker encryption but this can be increased to AES 256 by manually encrypting with BitLocker before data is copied. 
+Azure Import/Export service by default encrypts with AES 128 bitlocker encryption but this can be increased to AES 256 by manually encrypting with bitlocker before data is copied. 
 
 If using [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
 ```
