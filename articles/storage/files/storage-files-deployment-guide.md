@@ -51,11 +51,11 @@ The following steps will import data from an on-premises location to your Azure 
     - To bring a disk online (if it's not already online), right-click on the disk in the lower pane of the Disk Management MMC and select "Online".
     - To initialize a disk, right-click on the disk in the lower pane (after the disk is online), and select "Initialize". Be sure to select "GPT" when asked.
 
-        ![A screenshot of the Initialize Disk menu in the Disk Management MMC](media/azure-files-deployment-guide/transferdata-importexport-1.PNG)
+        ![A screenshot of the Initialize Disk menu in the Disk Management MMC](media/storage-files-deployment-guide/transferdata-importexport-1.PNG)
 
     - To assign a drive letter to the disk, right-click on the "unallocated" space of the online and initialized disk, and click "New Simple Volume". This will allow you to assign drive letter. Note that you do not need to format the volume as this will be done later.
 
-        ![A screenshot of the New Simple Volume wizard in the Disk Management MMC](media/azure-files-deployment-guide/transferdata-importexport-2.png)
+        ![A screenshot of the New Simple Volume wizard in the Disk Management MMC](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
 4. Create the dataset CSV file. The dataset CSV file is a mapping between  the path to the data on-premises and the desired Azure File share the data should be copied to. For example, the following dataset CSV file maps an on-premises file share ("F:\shares\scratch") to an Azure File share ("MyAzureFileShare"):
     

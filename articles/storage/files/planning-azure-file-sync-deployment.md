@@ -138,5 +138,5 @@ Updates to the Azure File Sync agent will be released on a regular basis to add 
 
 ## Next steps
 * [Planning for an Azure Files deployment](planning-azure-files-deployment.md)
-* [Deploying Azure Files](azure-files-deployment-guide.md)
+* [Deploying Azure Files](storage-files-deployment-guide.md)
 * [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
