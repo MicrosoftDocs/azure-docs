@@ -1,6 +1,6 @@
 ---
-title: Copy data to/from a file system using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from file system to supported sink data stores (or) from file system to supported sink data stores using Data Factory.
+title: Copy data to or from a file system by using Azure Data Factory | Microsoft Docs
+description: Learn how to copy data from file system to supported sink data stores (or) from file system to supported sink data stores by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 
-# Copy data from or to file system by using Azure Data Factory
+# Copy data to or from a file system by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-onprem-file-system-connector.md)
 > * [Version 2 - Preview](connector-file-system.md)
@@ -89,7 +89,7 @@ The following properties are supported for file system linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by file system dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by file system dataset.
 
 To copy data from/to file system, set the type property of the dataset to **FileShare**. The following properties are supported:
 
