@@ -22,7 +22,7 @@ ms.author: v-daljep
 
 ***&#8220;Intelligent Insights lets you know what is happening with your database performance.&#8221;***
 
-Azure SQL Database built-in intelligence continuously monitors database usage through artificial intelligence and detects disruptive events that cause poor performance. Once detected, a detailed analysis is performed generating a diagnostic log with intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and recommendations for performance improvements – that is ***&#8220;intelligent insights.&#8221;*** 
+Azure SQL Database built-in intelligence continuously monitors database usage through **artificial intelligence** and detects disruptive events that cause poor performance. Once detected, a detailed analysis is performed generating a diagnostic log with intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and recommendations for performance improvements – that is ***&#8220;intelligent insights.&#8221;*** 
 
 ## What can Intelligent Insights do for you
 
@@ -31,28 +31,28 @@ Intelligent Insights is a unique capability of Azure’s built-in intelligence p
 - Proactive monitoring
 - Tailored performance insights
 - Early detection of database performance degradation
-- Root Cause Analysis of issues detected
+- Root Cause Analysis (RCA) of issues detected
 - Performance improvement recommendations
 - Scale out capability on hundreds of thousands of databases
 - Positive impact to DevOps resources and the total cost of ownership
 
 ## How does Intelligent Insights work
 
-Intelligent Insights analyzes database usage based on the previous 1-hour usage patterns and compares them with the last 7-days database performance baseline. The usage is composed of the queries from the workload determined to be the most significant to the database performance - such as, for example, most repeated and sizeable queries. Each database is unique based on its structure, data, usage, and application due to which each baseline generated is specific and unique to an individual instance. Intelligent Insights, independent of database usage baseline, also monitors absolute operational thresholds and detects issues with excessive wait times, critical exceptions, and issues with query parameterizations that might affect the performance. 
+Intelligent Insights analyzes database usage based on the previous 1-hour usage patterns and compares them with the last 7-days database performance baseline. The usage is composed of the queries from the workload determined to be the most significant to the database performance - such are, for example, most repeated and sizeable queries. Each database is unique based on its structure, data, usage, and application due to which each baseline generated is specific and unique to an individual instance. Intelligent Insights, independent of database usage baseline, also monitors absolute operational thresholds and detects issues with excessive wait times, critical exceptions, and issues with query parameterizations that might affect the performance. 
 
-Once performance degradation issue is detected from multiple observed metrics using artificial intelligence, analysis is performed outputting a diagnostic log with an intelligent insight on what is happening with your database. Intelligent Insights makes it easy to track the database performance issue from its first appearance until resolution. This is achieved through tracking and outputting in the diagnostics log states of each detected issue through its lifecycle from initial issue detection, verification of performance improvement and its completion. Updates are provided in the diagnostic log every 15 minutes. 
+Once performance degradation issue is detected from multiple observed metrics using artificial intelligence, analysis is performed outputting a diagnostic log with an intelligent insight on what is happening with your database. Intelligent Insights makes it easy to track the database performance issue from its first appearance until resolution. This is achieved through tracking states of each detected issue through its lifecycle from initial issue detection, verification of performance improvement and its completion. Updates are provided in the diagnostic log every 15 minutes. 
 
 ![Server](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
-Metrics used to measure and detect database performance issues are based on query duration, timeout requests, excessive wait times, and errored request and are further elaborated in [Detection Metrics](sql-database-intelligent-insights.md#Detection%20%Metrics) section of this document.
+Metrics used to measure and detect database performance issues are based on query duration, timeout requests, excessive wait times, and errored request and are further elaborated in [Detection Metrics](sql-database-intelligent-insights.md#Detection%20Metrics) section of this document.
 
 ## Degradations detected
 
-Identified Azure SQL Database performance degradations are recorded in the diagnostics log with intelligent insight entries consisting of the following properties:
+Identified Azure SQL Database performance degradations are recorded in the diagnostics log with intelligent entries consisting of the following properties:
 
 | Property             | Details              |
 | :------------------- | ------------------- |
-| Database information  | Meta data about a database on which an insight was detected, such as resource URI |
+| Database information  | Metadata about a database on which an insight was detected, such as resource URI |
 | Observed time range | Start and end time for the period of detected insight |
 | Impacted metrics | Particular metrics causing an insight to be generated: |
 ||- Query duration increase [sec]|
@@ -103,7 +103,7 @@ Metrics used for detection models that generate intelligent insights are based o
 - Excessive wait time 
 - Errored out requests
 
-The precedinbg metrics are continuously collected as an independent measurement. Query duration and timeout requests are used as primary models used to detect issues with database workload performance as they directly measure what is happening with the workload performance. In order to detect all cases of possible workload performance degradation, Excessive wait time and errored out requests are additional models used to indicate issue affecting the workload performance.
+The preceding metrics are continuously collected as an independent measurement. Query duration and timeout requests are used as primary models used to detect issues with database workload performance as they directly measure what is happening with the workload performance. In order to detect all cases of possible workload performance degradation, excessive wait time and errored out requests are additional models used to indicate issue affecting the workload performance.
 
 Multiple metrics collected are used in various relationships through a scientifically derived data model categorizing each performance issue detected. Information provided through an intelligent insight includes details of the performance issue detected, a root cause analysis of the issue occurrence, and recommendations on how to improve the performance of Azure SQL Database monitored in cases where possible.
 
@@ -142,9 +142,9 @@ Reaching resource limits or elastic pool resource limits denotes that consumptio
 
 Excessive database locking denotes a detection in which the count of locks on a database has reached over an absolute threshold indicating a workload performance degradation. Memory pressure detection denotes a detection through which the number of threads requesting memory grants has increased above an absolute threshold indicating a workload performance degradation.
 
-Other wait states indicate a detection of miscellaneous other wait stats measured through the Server Query Store Wait Stats that are reaching above an measured absolute threshold indicating a workload performance degradation.
+Other wait stats indicate a detection of miscellaneous other wait stats measured through the Server Query Store Wait Stats that are reaching above an measured absolute threshold indicating a workload performance degradation.
 
-Once excessive wait times are detected, the Intelligent Insights diagnostics log outputs the hashes of affecting and affected queries degraded in performance, particular details of the metrics causing queries to wait in execution and measured wait time affecting the performance.
+Once excessive wait times are detected, the Intelligent Insights diagnostics log outputs, depending on the data available, hashes of affecting and affected queries degraded in performance, particular details of the metrics causing queries to wait in execution and measured wait time affecting the performance.
 
 ## Errored requests
 
