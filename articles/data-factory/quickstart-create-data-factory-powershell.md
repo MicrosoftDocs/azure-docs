@@ -24,7 +24,7 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
-* Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## Create data factory
 
@@ -45,15 +45,10 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
     ```
-2. Run the **New-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
+2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
 
     ```powershell
-    $df = New-AzureRmDataFactoryV2 `
-        -ResourceGroupName "<your resource group to create the factory>" `
-        -Location "East US" `
-        -Name "<specify the name of data factory to create. It must be globally unique.>" `
-        -LoggingStorageAccountName "<your storage account name>" `
-        -LoggingStorageAccountKey "<your storage account key>"
+    $df = Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
     ```
 
     Note the following points:
@@ -93,10 +88,10 @@ You create linked services in a data factory to link your data stores and comput
 
 2. In **Azure PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
 
-3. Run the **New-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. This cmdlet, and other Data Factory cmdlets you use in this quickstart requires you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can pass the **DataFactory** object returned by the New-AzureRmDataFactoryV2 cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet.
+3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. This cmdlet, and other Data Factory cmdlets you use in this quickstart requires you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can pass the **DataFactory** object returned by the Set-AzureRmDataFactoryV2 cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet.
 
     ```powershell
-    New-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
     Here is the sample output:
@@ -138,10 +133,10 @@ You define a dataset that represents the data to copy from a source to a sink. I
     }
     ```
 
-2. To create the dataset: **BlobDataset**, run the **New-AzureRmDataFactoryV2Dataset** cmdlet.
+2. To create the dataset: **BlobDataset**, run the **Set-AzureRmDataFactoryV2Dataset** cmdlet.
 
     ```powershell
-    New-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "BlobDataset" -File ".\BlobDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "BlobDataset" -File ".\BlobDataset.json"
     ```
 
     Here is the sample output:
@@ -208,10 +203,10 @@ In this example, this pipeline contains one activity and takes two parameters - 
     }
     ```
 
-2. To create the pipeline: **Adfv2QuickStartPipeline**, Run the **New-AzureRmDataFactoryV2Pipeline** cmdlet.
+2. To create the pipeline: **Adfv2QuickStartPipeline**, Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
-    New-AzureRmDataFactoryV2Pipeline -DataFactory $df -Name "Adfv2QuickStartPipeline" -File ".\Adfv2QuickStartPipeline.json"
+    Set-AzureRmDataFactoryV2Pipeline -DataFactory $df -Name "Adfv2QuickStartPipeline" -File ".\Adfv2QuickStartPipeline.json"
     ```
 
     Here is the sample output:
@@ -240,10 +235,10 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     }
     ```
 
-2. Run the **New-AzureRmDataFactoryV2PipelineRun** cmdlet to create a pipeline run and pass in the parameter values. It also captures the pipeline run ID for future monitoring.
+2. Run the **Invoke-AzureRmDataFactoryV2PipelineRun** cmdlet to create a pipeline run and pass in the parameter values. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = New-AzureRmDataFactoryV2PipelineRun -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+    $runId = Invoke-AzureRmDataFactoryV2PipelineRun -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
     ```
 
 ## Monitor pipeline run
@@ -252,14 +247,15 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -DataFactory $df -RunId $runId -ErrorAction Stop
-        Write-Host  "Pipeline run status: " $run.Status -foregroundcolor "Yellow"
+        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactory $df -PipelineRunId $runId -PipelineName 'Adfv2QuickStartPipeline' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
-        if ($run.Status -eq "InProgress") {
-            Start-Sleep -Seconds 15
+        if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+            Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
+            Start-Sleep -Seconds 30
         }
         else {
-            $run
+            Write-Host "Pipeline 'Adfv2QuickStartPipeline' run finished. Result:" -foregroundcolor "Yellow"
+            $result
             break
         }
     }
@@ -268,9 +264,9 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     Here is the sample output of pipeline run:
 
     ```
-    Key                  : b9793c37-856a-49cb-8bcf-fef0a02ddcbf
+    Key                  : 00000000-0000-0000-0000-000000000000
     Timestamp            : 9/7/2017 8:31:26 AM
-    RunId                : b9793c37-856a-49cb-8bcf-fef0a02ddcbf
+    RunId                : 000000000-0000-0000-0000-000000000000
     DataFactoryName      : <dataFactoryname>
     PipelineName         : Adfv2QuickStartPipeline
     Parameters           : {inputPath: <inputBlobPath>, outputPath: <outputBlobPath>}
@@ -298,7 +294,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 
     $result
 
-    if ($run.Status -eq "Succeeded") {`
+    if ($result.Status -eq "Succeeded") {`
         $result.Output -join "`r`n"`
     }`
     else {`
@@ -313,7 +309,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     DataFactoryName   : <dataFactoryname>
     ActivityName      : CopyFromBlobToBlob
     Timestamp         : 9/7/2017 8:24:06 AM
-    PipelineRunId     : 9b362a1d-37b5-449f-918c-53a8d819d83f
+    PipelineRunId     : 000000000-0000-0000-0000-0000000000000
     PipelineName      : Adfv2QuickStartPipeline
     Input             : {source, sink}
     Output            : {dataRead, dataWritten, copyDuration, throughput...}
@@ -354,5 +350,5 @@ The pipeline in this sample copies data from one location to another location in
 Tutorial | Description
 -------- | -----------
 [Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
-[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-copy-onprem-data-to-cloud-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
-[Tutorial: transform data using Spark](tutorial-transform-data-using-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
+[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-hybrid-copy-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
+[Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure

@@ -45,7 +45,7 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
 2. In the **Package Manager Console**, run the following commands to install packages:
 
     ```
-    Install-Package Microsoft.Azure.Management.DataFactories
+    Install-Package Microsoft.Azure.Management.DataFactory 
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
@@ -111,8 +111,7 @@ Console.WriteLine("Creating data factory " + dataFactoryName + "...");
 Factory dataFactory = new Factory
 {
     Location = region,
-    LoggingStorageAccountName = storageAccount, // Storage account for logging
-    LoggingStorageAccountKey = storageKey       // Storage account key for logging
+    Identity = new FactoryIdentity()
 };
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 Console.WriteLine(SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
@@ -286,9 +285,8 @@ The console prints the progress of creating data factory, linked service, datase
 ```json
 Creating data factory SPv2Factory0907...
 {
-  "properties": {
-    "loggingStorageAccountName": "<storageAccountName>",
-    "loggingStorageAccountKey": "<storageAccountKey>"
+  "identity": {
+    "type": "SystemAssigned"
   },
   "location": "East US"
 }
@@ -402,5 +400,5 @@ The pipeline in this sample copies data from one location to another location in
 Tutorial | Description
 -------- | -----------
 [Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
-[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-copy-onprem-data-to-cloud-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
-[Tutorial: transform data using Spark](tutorial-transform-data-using-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
+[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-hybrid-copy-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
+[Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
