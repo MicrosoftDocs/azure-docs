@@ -132,6 +132,6 @@ If using partition key when create collection, once completing the creation, the
 * [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 
 ### Demo
-* Use Cosmos DB in Azure Storage Explorer (video): [Use Cosmos DB in Azure Storage Explorer](https://go.microsoft.com/fwlink/?linkid=858559)
+* Use Cosmos DB in Azure Storage Explorer (video): [Use Cosmos DB in Azure Storage Explorer](https://go.microsoft.com/fwlink/?linkid=858710)
 * Storage Explorer Overview (video): [Storage Explorer Overview](https://azure.microsoft.com/en-us/resources/videos/storage-explorer-overview/)
 
