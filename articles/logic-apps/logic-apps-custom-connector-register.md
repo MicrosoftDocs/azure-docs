@@ -292,7 +292,7 @@ follow these steps:
    see the [GitHub API reference for creating a webhook](https://developer.github.com/v3/repos/hooks/#create-a-hook).
 
    3. Under **Trigger configuration**, select a parameter to use for the 
-   webhook creation request. Logic Apps uses this parameter value for popluating 
+   webhook creation request. Logic Apps uses this parameter value for populating 
    the callback URL used by your service to communicate with the trigger.
 
    **Polling trigger**
