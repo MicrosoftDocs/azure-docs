@@ -16,10 +16,10 @@ ms.date: 09/25/2017
 
 - Max allowed project folder size: 25 MB
     >[!Note]
-    >This limit doesn't apply to `.git`, `docs` and `outputs` folder. These folder names are case-senstive.
+    >This limit doesn't apply to `.git`, `docs` and `outputs` folder. These folder names are case-sensitive.
 
 - Max allowed experiment execution time: 7 days
 - Max size of tracked file in `outputs` folder after a run: 512 MB 
 
 >[!NOTE]
->Please reference [Persisting Changes and Deal with Large Files](how-to-read-write-files.md) if you are working with large files.
+>If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).

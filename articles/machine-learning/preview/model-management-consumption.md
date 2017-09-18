@@ -50,13 +50,13 @@ az ml service keys realtime -i <web service id>
 When creating HTTP request, use the key in the authorization header: "Authorization": "Bearer <key>"
 
 ## Get the service Swagger description
-If the service API schema was supplied the service endpoint would expose a Swagger document at ```http://<ip>/api/v1/service/<service name>/swagger.json``` The Swagger document can be used to automatically generate the serivce client and explore the expected input data and other details about the service.
+If the service API schema was supplied the service endpoint would expose a Swagger document at ```http://<ip>/api/v1/service/<service name>/swagger.json```. The Swagger document can be used to automatically generate the service client and explore the expected input data and other details about the service.
 
 ## Get service logs
 To understand the service behavior and diagnose problems, there are several ways to retrieve the service logs:
 - CLI command ```az ml service logs realtime -i <service id>```. This command works in both cluster and local modes.
-- If the service logging was enabled at deployment. The service logs will also be sent to AppInsight. The CLI command ```az ml service usage realtime -i <service id>``` shows the AppInsight URL. Note that the AppInsight logs may be delayed by 2-5 mins.
-- Cluster logs can be viewed through Kuberntes console which is connected when you set the current cluster environment with ```az ml env set```
+- If the service logging was enabled at deployment, the service logs will also be sent to AppInsight. The CLI command ```az ml service usage realtime -i <service id>``` shows the AppInsight URL. Note that the AppInsight logs may be delayed by 2-5 mins.
+- Cluster logs can be viewed through Kubernetes console that is connected when you set the current cluster environment with ```az ml env set```
 - Local docker logs are available through the docker engine logs when the service is running locally.
 
 ## Call the service using C#
@@ -68,7 +68,7 @@ Use the service URL to send a request from a C# Console App.
 2. Enter _MyFirstService_ as the Name of the project, then click OK.
 3. In Project References, set references to _System.Net_, and _System.Net.Http_.
 4. Click Tools -> NuGet Package Manager -> Package Manager Console, then install the Microsoft.AspNet.WebApi.Client package.
-5. Open Program.cs file, and replace the code with the following code.
+5. Open Program.cs file, and replace the code with the following code:
 6. Update the _SERVICE_URL_ and _API_KEY_ parameters with the information from your web service.
 7. Run the project.
 
