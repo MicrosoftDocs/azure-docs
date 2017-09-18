@@ -75,7 +75,7 @@ Load the Aerial Image Classification project in Azure Machine Learning Workbench
 1. From your Azure Machine Learning Workbench project, open a Command Line Interface (CLI) by clicking File -> Open Command Prompt.
 1. From the command line interface, log in to your Azure account by running the following command:
 
-    ````
+    ```
     az login
     ```
 
