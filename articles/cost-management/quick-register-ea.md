@@ -16,19 +16,17 @@ manager: carmonm
 
 # Register an Azure Enterprise Agreement and view cost data
 
-You use your Azure Enterprise Agreement to register with Azure Cost Management by Cloudyn. This guide details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
+You use your Azure Enterprise Agreement to register with Azure Cost Management by Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
-## Access Cloudyn from Cost Management + Billing
+## Log in to Azure
 
-1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com), click **Cost Management + Billing** and then click **Cost Management by Cloudyn**.
-2. In Cost Management, click **Go to Cloudyn** to open the Cloudyn registration page in a new window.  
-    ![Go to Cloudyn](./media/quick-register-ea/go-to-cloudyn.png)
+- Log in to the Azure portal at http://portal.azure.com.
 
 ## Access Cloudyn from the Azure Marketplace
 
 1. In the Azure portal, click on **New** on the left navigation bar.
 2. Click **Monitoring + Management** in the Marketplace gallery list and then select **Cost Management by Cloudyn** from the Featured list.  
-    ![Markeplace symbol](./media/quick-register-ea/marketplace.png)
+    ![Markeplace symbol](./media/quick-register-azure-sub/marketplace.png)
 4. On the **Cost Management** details page, click **Create** to open the welcome page.  
 5. On the welcome page, click **Go to Cloudyn** to open the Cloudyn registration page in a new window.
 
@@ -39,7 +37,7 @@ You use your Azure Enterprise Agreement to register with Azure Cost Management b
   1. Sign in to the Azure Enterprise website and click **Reports**, click **API Access Key** and then copy your primary key.  
     ![EA API key](./media/quick-register-ea/ea-key.png)
   3. Go back to the registration page and paste in your API key.
-3. Validate your key and then click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
+3. Agree to the Terms of Use then validate your key. Click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
     ![key validation](./media/quick-register-ea/ea-key-validated.png)
 4. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.
 5. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Cloud Accounts Management** page, you should see your registered EA account information.

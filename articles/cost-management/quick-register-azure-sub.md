@@ -16,13 +16,11 @@ manager: carmonm
 
 # Register an individual Azure subscription and view cost data
 
-You use your Azure subscription to register with Azure Cost Management by Cloudyn. This guide details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
+You use your Azure subscription to register with Azure Cost Management by Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
-## Access Cloudyn from Cost Management + Billing
+## Log in to Azure
 
-1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com), click **Cost Management + Billing** and then click **Cost Management by Cloudyn**.
-2. In Cost Management, click **Go to Cloudyn** to open the Cloudyn registration page in a new window.  
-    ![Go to Cloudyn](./media/quick-register-azure-sub/go-to-cloudyn.png)
+- Log in to the Azure portal at http://portal.azure.com.
 
 ## Access Cloudyn from the Azure Marketplace
 
@@ -35,9 +33,13 @@ You use your Azure subscription to register with Azure Cost Management by Cloudy
 ## Create a trial registration
 1. On the Cloudyn portal trial registration page, type your company name and then select **Web Direct**. Your account name and Tenant ID is automatically added to the form.  
     ![trial registration](./media/quick-register-azure-sub/trial-reg-ind.png)
-2. Select your **Rate ID**. If you're unsure of what your Rate ID is, click **What is Rate ID & how to find it** for more information.
-3. Validate your key and then click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
-4. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Cloud Accounts Management** page, you should see your Azure subscription account information.
+2. Select your **Rate ID** associated with your subscription. If you're unsure of what your Rate ID is for your subscription , you can view your Azure bill and look for **Offer ID**, which is the same as your **Rate ID**.
+3. Agree to the Terms of Use then validate your information and then click **Next**.
+4. In the Gather additional data page, click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
+    ![gather additional data](./media/quick-register-azure-sub/gather-additional.png)
+5. Your browser takes you to the sign in page for Cloydn. Sign in with your Azure subscription credentials.
+4. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Accounts Management** page, you should see your Azure subscription account information.  
+    ![Accounts Management](./media/quick-register-azure-sub/accounts-mgt.png)
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
