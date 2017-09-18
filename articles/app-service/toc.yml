@@ -58,8 +58,14 @@
     href: app-service-how-works-readme.md
   - name: App Service plans
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+  - name: OS functionality
+    href: web-sites-available-operating-system-functionality.md
   - name: Authentication and authorization
     href: app-service-authentication-overview.md
+  - name: Hybrid connections
+    href: app-service-hybrid-connections.md
+  - name: Traffic Manager integration
+    href: web-sites-traffic-manager.md
 - name: How-To guides
   items:
   - name: Configure app
