@@ -47,7 +47,7 @@ Failover and failback has four stages:
 ## Prerequisites
 
 - You need an ExpressRoute or VPN site-to-site connection from Azure to on-premises, to replicate data back to the on-premises site. Make sure that there's enough bandwidth on the connection.
--  If on-premises VMs are managed by a vCenter server, make sure you have the [permissions needed](tutorial-vmware-to-azure.md#vmware-account-permissions) for automatic VM discovery.
+-  If on-premises VMs are managed by a vCenter server, make sure you have the [permissions needed](tutorial-prepare-on-premises-vmware.md#vmware-account-permissions) for automatic VM discovery.
 - Make sure there are no snapshots on the VM.
 -  The on-premises VM is turned off during reprotection. This helps ensure data consistency during replication. Don't turn on the VM after reprotection finishes.
 - Use the same master target server to reprotect a replication group. If you use a different master target server to reprotect a replication group, the server cannot provide a common point in time.
