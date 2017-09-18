@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
      In the **Sign-on URL** textbox, type the value as: `https://<sub-domain>.pingboard.com/sign_in`
 	 
-> [!NOTE] 
+    > [!NOTE] 
 	> Please note that these values are not real. You have to update these values with the actual Reply URL and Sign-on URL. Contact [Pingboard Client support team](https://support.pingboard.com/) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
