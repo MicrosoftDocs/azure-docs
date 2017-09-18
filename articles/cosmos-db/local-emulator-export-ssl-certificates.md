@@ -100,7 +100,7 @@ In this tutorial, you've done the following:
 > * Exported the SSL certificate
 > * Learned how to use the certificate in Java, Python and Node.js
 
-You can now proceed to the Query Azure Cosmos DB Graph API by using an Azure Function tutorial.
+You can now proceed to the Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding tutorial.
 
 > [!div class="nextstepaction"]
-> [Query Azure Cosmos DB Graph API by using an Azure Function](tutorial-functions-http-trigger.md) 
+> [Create an Azure Function with input from Azure Cosmos DB](tutorial-functions-http-trigger.md) 
