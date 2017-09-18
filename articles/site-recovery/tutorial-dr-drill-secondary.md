@@ -17,7 +17,7 @@ ms.date: 09/18/2017
 ms.author: raynew
 
 ---
-# Run a disaster recovery drill to your secondary on-premises site
+# Run a disaster recovery drill for Hyper-V VMs to your secondary on-premises site
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
