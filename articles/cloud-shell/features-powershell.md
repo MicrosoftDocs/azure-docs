@@ -77,8 +77,9 @@ To import additional cmdlets and ability to run any executable.
 |------------|-----------|
 |.NET        |4.6        |
 |Node.js     |6.10       |
+|PowerShell  |5.1 and [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
-|PowerShell  |5.1        |
+
 
 ## Next steps
 
