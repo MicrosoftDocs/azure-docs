@@ -22,13 +22,13 @@ With Azure File Sync (preview), shares can be replicated on-premises or in Azure
 
 A *Server Endpoint* represents a specific location on a *Registered Server*, such as a folder on a server volume or the root of the volume. Multiple Server Endpoints can exist on the same volume if their namespaces are not overlapping (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each Server Endpoint. If you add a server location with an existing set of files as a Server Endpoint to a Sync Group, those files will be merged with any other files already on other endpoints in the Sync Group.
 
-See [How to deploy Azure File Sync (preview)](azure-file-sync-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
+See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
 
 ## Prerequisites
 To create a Server Endpoint, you must first ensure that the following criteria are met: 
 - The server has the Azure File Sync agent installed and has been registered. Instructions for installing the Azure File Sync Agent can be found in the [Register/unregister a server with Azure File Sync (preview)](azure-file-sync-server-registration.md) article. 
-- Ensure that a Storage Sync Service has been deployed. See [How to deploy Azure File Sync (preview)](azure-file-sync-deployment-guide.md) for details on how to deploy a Storage Sync Service. 
-- Ensure that a Sync Group has been deployed. Learn how to [Create a Sync Group](azure-file-sync-deployment-guide.md#create-a-sync-group).
+- Ensure that a Storage Sync Service has been deployed. See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for details on how to deploy a Storage Sync Service. 
+- Ensure that a Sync Group has been deployed. Learn how to [Create a Sync Group](storage-sync-files-deployment-guide.md#create-a-sync-group).
 - Ensure that the server is connected to the internet and that Azure is accessible.
 
 ## Add a Server Endpoint

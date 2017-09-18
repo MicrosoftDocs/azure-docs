@@ -47,11 +47,11 @@ For every server, including server nodes in a Failover Cluster, you intend to us
 1. Disable Internet Explorer Enhanced Security Configuration. This is only required for initial server registration, and can be reenabled after the server has been registered.
     1. Open Server Manager.
     2. On the left-hand side, click "Local Server":  
-        !["Local Server" on the left-hand side of the Server Manager UI](media/azure-file-sync-deployment-guide/prepare-server-disable-IEESC-1.PNG)
+        !["Local Server" on the left-hand side of the Server Manager UI](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
     3. Select the link for "IE Enhanced Security Configuration" on the right-hand side of the Properties sub-pane:  
-        ![The "IE Enhanced Security Configuration" in the Server Manager UI](media/azure-file-sync-deployment-guide/prepare-server-disable-IEESC-2.PNG)
+        ![The "IE Enhanced Security Configuration" in the Server Manager UI](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
     4. Select "Off" for both Administrators and Users in the Internet Explorer Enhanced Security Configuration pop-up window:  
-        ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/azure-file-sync-deployment-guide/prepare-server-disable-IEESC-3.png)
+        ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
 2. Ensure that you are running at least PowerShell 5.1.* (PowerShell 5.1 is the default on Windows Server 2016). You can verify you are running PowerShell 5.1.* by looking at the value of the PSVersion property of the $PSVersionTable object:
 
@@ -80,7 +80,7 @@ Registering your Windows Server with a Storage Sync Service establishes a trust-
 
 After sign-in, you will be prompted for the following information:
 
-![A screenshot of the Server Registration UI](media/azure-file-sync-deployment-guide/register-server-scubed-1.png)
+![A screenshot of the Server Registration UI](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
 - **Azure subscription**: The subscription you deployed the Storage Sync Service in [Deploy the Storage Sync Service](#deploy-the-storage-sync-service) above. 
 - **Resource group**: The resource group you deployed the Storage Sync Service in.
@@ -91,7 +91,7 @@ Once you have selected the appropriate information from the drop downs, click "R
 ## Create a Sync Group
 A Sync Group defines the sync topology for a set of files. Endpoints within a Sync Group will be kept in sync with each other. A Sync Group must contain at least one Cloud Endpoint, which represents an Azure File share, and one Server Endpoint, which represents a path on a Windows Server. To create a Sync Group, navigate to your Storage Sync Service in the [Azure portal](https://portal.azure.com/), and click "+ Sync group":
 
-![Create new Sync Group in the Azure portal](media/azure-file-sync-deployment-guide/create-sync-group-1.png)
+![Create new Sync Group in the Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
 The resulting pane asks for the following information to create a Sync Group with a Cloud Endpoint:
 
@@ -102,7 +102,7 @@ The resulting pane asks for the following information to create a Sync Group wit
 
 To add a Server Endpoint, navigate to the newly created Sync Group, and click "Add server endpoint".
 
-![Add a new Server Endpoint in the Sync Group pane](media/azure-file-sync-deployment-guide/create-sync-group-2.png)
+![Add a new Server Endpoint in the Sync Group pane](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
 The resulting "Add server endpoint" pane requires the following information to create a Server Endpoint:
 

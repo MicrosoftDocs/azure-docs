@@ -95,4 +95,4 @@ There are many easy options to bulk transfer data from an existing file share, s
 ## Next steps
 * [Planning for an Azure File Sync Deployment](planning-azure-file-sync-deployment.md)
 * [Deploying Azure Files](azure-files-deployment-guide.md)
-* [Deploying Azure File Sync](azure-file-sync-deployment-guide.md)
+* [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
