@@ -33,31 +33,33 @@ These differ from regular metric alerts in few ways
 >
 
 ## What resources can I create near real time metric alerts for?
-These are some of the resource providers that are supported by near real time metric alerts:
-- Microsoft.AnalysisServices/Servers
-- Microsoft.APIManagement/Service
-- Microsoft.Batch/BatchAccounts
+Full list of resource types that are supported by near real time metric alerts:
+- Microsoft.ApiManagement/service
+- Microsoft.Automation/automationAccounts
+- Microsoft.Batch/batchAccounts
 - Microsoft.Cache/Redis
-- Microsoft.CognitiveServices/Accounts
-- Microsoft.Compute/VirtualMachines
-- Microsoft.Compute/VirtualMachineScaleSets
-- Microsoft.Compute/VirtualMachineScaleSets/VirtualMachines
-- Microsoft.CustomerInsights/Hubs
-- Microsoft.DBforMySQL/Servers
-- Microsoft.DBforPostgreSQL/Servers
+- Microsoft.ClassicCompute/virtualMachines
+- Microsoft.CognitiveServices/accounts
+- Microsoft.Compute/virtualMachines
+- Microsoft.Compute/virtualMachineScaleSets
+- Microsoft.DataFactory/dataFactories
+- Microsoft.DataFactory/factories
+- Microsoft.DataLakeAnalytics/accounts
+- Microsoft.DataLakeStore/accounts
+- Microsoft.DBforMySQL/servers
+- Microsoft.DBforPostgreSQL/servers
 - Microsoft.Devices/IotHubs
-- Microsoft.EventHub/Namespaces
-- Microsoft.Logic/Workflow
-- Microsoft.Network/ApplicationGateways
-- Microsoft.NotificationHubs/Namespaces/NotificationHubs
-- Microsoft.Search/SearchServices
-- Microsoft.ServiceBusNamespaces
-- Microsoft.SQL/Servers/Databases
-- Microsoft.SQL/Servers/ElasticPools
-- Microsoft.StreamAnalysis/StreamingJobs
-- Microsoft.Web/SererFarms
-- Microsoft.Web/Sites
-- Microsoft.Web/Sites/Slots
+- Microsoft.EventHub/namespaces
+- Microsoft.Logic/workflows
+- Microsoft.Network/applicationGateways
+- Microsoft.Network/publicipaddresses
+- Microsoft.Network/networkInterfaces
+- Microsoft.Network/trafficmanagerprofiles
+- Microsoft.Search/searchServices
+- Microsoft.ServiceBus/namespaces
+- Microsoft.Sql/servers/databases
+- Microsoft.StreamAnalytics/streamingjobs
+- Microsoft.Timeseriesinsights
 
 
 ## Create a Near Real Time Metric Alert
@@ -74,6 +76,7 @@ Currently, near real time metric alerts can only be created through the Azure po
 
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition**, **Time Aggregation** and **Threshold** value for the metric. Optionally select another **Metric** you want to monitor, then choose a **Condition**, **Time Aggregation** and **Threshold** value for the second metric. 
+
     ![Add Near Real Time Metrics Alert1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png)
     ![Add Near Real Time Metrics Alert2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
 6. Choose the **Period** of time that the metric rules must be satisfied before the alert triggers. So for example, if you use the period "Over the last 5 minutes" and your alert looks for CPU above 80% (and NetworkIn above 500MB), the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The alert is evaluated according to the **Evaluation Frequency**
