@@ -182,6 +182,9 @@ In this section, you create a Java console app that connects to your hub as **my
 	}
     ```
 
+    > [!NOTE]
+    > The TelemetryConfig class extends the [Device class][lnk-java-device-class] to gain access to the desired properties callbacks.
+
 1. Modify the signature of the **main** method to throw the following exceptions:
 
     ```java
@@ -384,6 +387,11 @@ In this section, you create a Java console app that updates the *desired propert
    > This application queries IoT Hub every 10 seconds for illustrative purposes until the device has been updated. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events, use [twin notifications][lnk-twin-notifications].
    > 
 
+   > [!IMPORTANT]
+   > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single device twin use the **getDeviceTwin** method in the **Registry** class.
+   > 
+   > 
+
 ## Run the apps
 
 You are now ready to run the apps.
@@ -416,8 +424,7 @@ Use the following resources to learn how to:
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/1.1.0/
+[lnk-java-device-class]: https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.device._device_twin._device
 
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
