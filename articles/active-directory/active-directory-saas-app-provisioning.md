@@ -115,7 +115,7 @@ In the application management screen, provisioning is configured in the **Provis
    * If a user's information (such as phone number, office location) has been changed in the directory, then that information will also be updated in the SaaS application.
 
 
-## Frequently Asked Questions
+## Frequently asked questions
 **How frequently does Azure AD write directory changes to the SaaS app?**
 
 After an initial full sync has completed, the Azure AD provisioning service typically checks for changes every 20 minutes. 
@@ -150,7 +150,7 @@ All failures are recorded in the Azure AD audit logs. For more information, see 
 Contact us through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
-## Related Articles
+## Related articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
