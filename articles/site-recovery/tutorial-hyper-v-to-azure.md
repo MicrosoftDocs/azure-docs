@@ -140,30 +140,29 @@ When you set up the source environment, you install the Azure Site Recovery Prov
 1. In **Prepare Infrastructure**, click **Source**. 
     - If you're not using VMM, click **+Hyper-V Site**, and specify a site name. Then click **+Hyper-V Server**, and add a host or cluster to the site.
     - If you are using VMM, in **Prepare source**, click **+ VMM** to add a VMM server. In **Add Server**, check that **System Center VMM server** appears in **Server type**.
-2. Download the Provider and agent:
-    - **Without VMM**: If you're not using VMM, download the Recovery Service Provider installation file. 
-     
+2. Download the Provider and agent components, depending on your environment.
+	- For Hyper-V only, download the Provider installation file. You run the file on each Hyper-V host to install both the Provider and the agent.
+	**Without VMM**
         ![Provider without VMM](./media/tutorial-hyper-v-to-azure/download-no-vmm.png)
-
-    - **With VMM**: If you're using VMM, download the Provider and the agent installation files separately. 
+- For Hyper-V with VMM, download the Provider and agent separately. Run the Provider installation on the VMM server. Run the agent installation on each Hyper-V host. 
+    	**With VMM**
         ![Provider and agent with VMM](./media/tutorial-hyper-v-to-azure/download-vmm.png)
-1. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
+	
+3. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 
-### Run Provider setup 
+### Install components
 
-Now installed the components on the VMM server and Hyper-V hosts. The components are installed as summarized in the table.
+Install the components as summmarized in the table. 
 
 **Component** | **Hyper-V only** | **Hyper-V with VMM**
 --- | --- | ---
-**Azure Site Recovery Provider**<br/><br/> Orchestrates replication to Azure | Installed on each Hyper-V host | Installed on VMM server
-**Recovery Services agent**<br/><br/> Handles data replication | Installed on each Hyper-V host | Installed on Hyper-V host
+**Azure Site Recovery Provider**<br/><br/> Orchestrates replication to Azure | Install on each Hyper-V host | Install on the VMM server
+**Recovery Services agent**<br/><br/> Handles data replication | Install on each Hyper-V host | Install on Hyper-V host
 
-For Hyper-V only, download the Provider installation file. Run the file on each Hyper-V host to install both the Provider and the agent on each Hyper-V host.
-For Hyper-V with VMM, download the Provider and agent separately. Run the Provider installation on the VMM server. Run the agent installation on each Hyper-V host. 
 
-#### Install the provider on Hyper-V hosts without VMM
+#### Install the Provider on Hyper-V without VMM
 
-Run the installation on each Hyper-V host you added to the Hyper-V site. If you're installing on a Hyper-V cluster, run setup on each cluster node. Installing and registering each Hyper-V cluster node ensures that VMs are protected, even if they migrate across nodes.
+Install the Provider on each Hyper-V host you added to the Hyper-V site. If you're installing on a Hyper-V cluster, run setup on each cluster node. Installing and registering each Hyper-V cluster node ensures that VMs are protected, even if they migrate across nodes.
 
 1. In **Microsoft Update**, you can opt in for updates so that Provider updates are installed in accordance with your Microsoft Update policy.
 2. In **Installation**, accept or modify the default Provider installation location and click **Install**.
@@ -174,6 +173,28 @@ Run the installation on each Hyper-V host you added to the Hyper-V site. If you'
 6. After the server is registered in the vault, click **Finish**.
 
 Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure** > **Hyper-V Hosts**.
+
+
+#### Install the Recovery Services agent on Hyper-V host without VMM
+
+If you're using VMM in your deployment, run Recovery Services agent setup on each Hyper-V host.
+
+1. In The Setup Wizard > **Prerequisites Check**, click **Next**. Any missing prerequisites will be automatically installed.
+
+    ![Prerequisites Recovery Services Agent](./media/tutorial-hyper-v-to-azure/hyperv-agent-prerequisites.png)
+3. In **Installation Settings**, accept or modify the installation location, and the cache location. The cache drive needs at least 5 GB of storage. We recommend a drive with 600 GB or more of free space. Then click **Install**.
+4. In **Installation**, when installation finishes, click **Close** to finish the wizard.
+
+##### Set up internet access via a proxy
+
+The Recovery Services agent on the Hyper-V host needs internet access to Azure for VM replication. If you're accessing the internet through a proxy, set it up as follows:
+
+1. Open the Microsoft Azure Backup MMC snap-in on the Hyper-V host. By default, a shortcut for Microsoft Azure Backup is available on the desktop, or in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+2. In the snap-in, click **Change Properties**.
+3. On the **Proxy Configuration** tab, specify proxy information.
+
+    ![Register MARS Agent](./media/tutorial-hyper-v-to-azure/mars-proxy.png)
+4. Check that the agent can reach the [required URLs](#prepare-hyper-v-hosts).
 
 #### Install the Provider on the VMM server (Hyper-V with VMM)
 
@@ -192,29 +213,10 @@ Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the se
 
 After registration finishes, metadata from the server is retrieved by Azure Site Recovery, and the VMM server is displayed in **Site Recovery Infrastructure**.
 
-#### Install components on Hyper-V with VMM
-
-## Install the agent on Hyper-V host (with VMM)
-
-If you're using VMM in your deployment, run Recovery Services agent setup on each Hyper-V host.
-
-1. In The Setup Wizard > **Prerequisites Check**, click **Next**. Any missing prerequisites will be automatically installed.
-
-    ![Prerequisites Recovery Services Agent](./media/tutorial-hyper-v-to-azure/hyperv-agent-prerequisites.png)
-3. In **Installation Settings**, accept or modify the installation location, and the cache location. The cache drive needs at least 5 GB of storage. We recommend a drive with 600 GB or more of free space. Then click **Install**.
-4. In **Installation**, when installation finishes, click **Close** to finish the wizard.
 
 
-#### Set up internet access via a proxy
 
-The Recovery Services agent on the Hyper-V host needs internet access to Azure for VM replication. If you're accessing the internet through a proxy, set it up as follows:
 
-1. Open the Microsoft Azure Backup MMC snap-in on the Hyper-V host. By default, a shortcut for Microsoft Azure Backup is available on the desktop, or in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
-2. In the snap-in, click **Change Properties**.
-3. On the **Proxy Configuration** tab, specify proxy information.
-
-    ![Register MARS Agent](./media/tutorial-hyper-v-to-azure/mars-proxy.png)
-4. Check that the agent can reach the [required URLs](#prepare-hyper-v-hosts).
 
 ## Set up the target environment
 
