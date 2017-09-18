@@ -1,6 +1,6 @@
 ---
-title: New schema version 2016-06-01 | Microsoft Docs
-description: Learn how to write the JSON definition for the latest version of Logic apps
+title: Schema updates June-1-2016 - Azure Logic Apps | Microsoft Docs
+description: Create JSON definitions for Azure Logic Apps with schema version 2016-06-01
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -13,21 +13,30 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
-# New schema version 2016-06-01
-The new schema and API version for Logic apps has a number of improvements which improve the reliability and ease-of-use of Logic apps. There are 3 key differences:
+# Schema updates for Azure Logic Apps - June 1, 2016
 
-1. Addition of scopes, which are actions that contain a collection of actions.
-2. Conditions and loops are first-class actions
-3. Execution ordering more verbose via `runAfter` property (which replaces `dependsOn`)
+This new schema and API version for Azure Logic Apps includes key improvements that make logic apps 
+more reliable and easier to use:
 
-For information on upgrading your logic apps from the 2015-08-01-preview schema to the 2016-06-01 schema, [check out the upgrade section below.](#upgrading-to-2016-06-01-schema)
+* [Scopes](#scopes) let you group or nest actions as a collection of actions.
+* [Conditions and loops](#conditions-loops) are now first-class actions.
+* More precise ordering for running actions with the `runAfter` property, replacing `dependsOn`
 
-## 1. Scopes
-One of the biggest changes in this schema is the addition of scopes and the ability to nest actions within each other.  This is helpful when grouping a set of actions together, or when needing to nest actions within each other (for example a condition can contain another condition).  More details on scope syntax can be found [here](../logic-apps/logic-apps-loops-and-scopes.md), but a simple scope example can be found below:
+To upgrade your logic apps from the August 1, 2015 preview schema to the June 1, 2016 schema, 
+[check out the upgrade section](##upgrade-your-schema).
+
+<a name="scopes"></a>
+## Scopes
+
+This schema includes scopes, which let you group actions together, 
+or nest actions inside each other. For example, a condition can contain another condition. 
+Learn more about [scope syntax](../logic-apps/logic-apps-loops-and-scopes.md), 
+or review this basic scope example:
 
 ```
 {
@@ -49,14 +58,20 @@ One of the biggest changes in this schema is the addition of scopes and the abil
 }
 ```
 
-## 2. Conditions and loops changes
-In the previous versions of the schema, conditions and loops were parameters associated to a single action.  This limitation has been lifted in this schema and now conditions and loops show up as a type of action.  More information can be found [in this article](../logic-apps/logic-apps-loops-and-scopes.md), and a simple example of a condition action is shown below:
+<a name="conditions-loops"></a>
+## Conditions and loops changes
+
+In previous schema versions, 
+conditions and loops were parameters associated with a single action. 
+This schema lifts this limitation, so conditions and loops now appear as action types. 
+Learn more about [loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md), 
+or review this basic example for a condition action:
 
 ```
 {
-    "If_trigger_is_foo": {
+    "If_trigger_is_some-trigger": {
         "type": "If",
-        "expression": "@equals(triggerBody(), 'foo')",
+        "expression": "@equals(triggerBody(), 'some-trigger')",
         "runAfter": { },
         "actions": {
             "Http_2": {
@@ -70,14 +85,27 @@ In the previous versions of the schema, conditions and loops were parameters ass
         },
         "else": 
         {
-            "if_trigger_is_bar": "..."
+            "if_trigger_is_another-trigger": "..."
         }      
     }
 }
 ```
 
-## 3. RunAfter Property
-The new `runAfter` property is replacing `dependsOn` to help allow more precision in run ordering.  `dependsOn` was synonymous with "the action ran and was successful," however many times you need to execute an action if the previous action is successful, failed, or skipped.  `runAfter` allows for that flexibility.  It is an object that specifies all of the action names it will run after, and defines an array of status' that are acceptable to trigger from.  For example if you wanted to run after step A was succeeded and step B was succeeded or failed, you would construct the following `runAfter` property:
+<a name="run-after"></a>
+## 'runAfter' property
+
+The `runAfter` property replaces `dependsOn`, 
+providing more precision when you specify the run order for actions 
+based on the status of previous actions.
+
+The `dependsOn` property was synonymous with "the action ran and was successful", 
+no matter how many times you wanted to execute an action, 
+based on whether the previous action was successful, failed, or skipped. 
+The `runAfter` property provides that flexibility as an object 
+that specifies all the action names after which the object runs. 
+This property also defines an array of statuses that are acceptable as triggers. 
+For example, if you wanted to run after step A succeeds and also after 
+step B succeeds or fails, you construct this `runAfter` property:
 
 ```
 {
@@ -89,47 +117,91 @@ The new `runAfter` property is replacing `dependsOn` to help allow more precisio
 }
 ```
 
-## Upgrading to 2016-06-01 schema
-Upgrading to the new 2016-06-01 schema only takes a few steps.  Details on the changes from the schema can be found [in this article](../logic-apps/logic-apps-schema-2016-04-01.md).  The upgrade process includes running the upgrade script, saving as a new logic app, and potentially overwriting old logic app if needed.
+## Upgrade your schema
 
-1. Open your current logic app.
-2. Click the **Update Schema** button in the toolbar
+Upgrading to the new schema only takes a few steps. 
+The upgrade process includes running the upgrade script, 
+saving as a new logic app, and if you want, 
+possibly overwriting the previous logic app.
+
+1. In the Azure portal, open your logic app.
+
+2. Go to **Overview**. On the logic app toolbar, choose **Update Schema**.
    
-    ![][1]
+    ![Choose Update Schema][1]
    
-    The upgraded definition will be returned.  You could copy and paste this into a resource definition if you need, but we **strongly recommend** you use the **Save As** button to ensure all connection references are valid in the upgraded logic app.
-3. Click the **Save As** button in the toolbar of the upgrade blade.
-4. Fill out the name and logic app status and click **Create** to deploy your upgrade logic app.
-5. Verify your upgraded logic app is working as expected.
+	The upgraded definition is returned, 
+	which you can copy and paste into a resource definition if necessary. 
+	However, we **strongly recommend** you choose **Save As** 
+	to make sure that all connection references are valid in the upgraded logic app.
+
+3. In the upgrade blade toolbar, choose **Save As**.
+
+4. Enter the logic name and status. 
+To deploy your upgraded logic app, choose **Create**.
+
+5. Confirm that your upgraded logic app works as expected.
    
    > [!NOTE]
-   > If you are using a manual or request trigger, the callback URL will have changed in your new logic app.  Use the new URL to verify it works end-to-end, and you can clone over your existing logic app to preserve previous URLs.
-   > 
-   > 
-6. *Optional* Use the **Clone** button in the toolbar (adjacent to the **Update Schema** icon in the picture above) to overwrite your previous logic app with the new schema version.  This is necessary only if you wish to keep the same resource ID or request trigger URL of your logic app.
+   > If you are using a manual or request trigger, 
+   > the callback URL changes in your new logic app. 
+   > Test the new URL to make sure the end-to-end experience works. 
+   > To preserve previous URLs, you can clone over your existing logic app.
+
+6. *Optional* To overwrite your previous logic app with the new schema version, 
+on the toolbar, choose **Clone**, next to **Update Schema**. 
+This step is necessary only if you want to keep the same resource ID 
+or request trigger URL of your logic app.
 
 ### Upgrade tool notes
-#### Condition mapping
-The tool will make a best effort to group the true and false branch actions together in a scope in the upgraded definition.  Specifically the designer pattern of `@equals(actions('a').status, 'Skipped')` should show up as an `else` action.  However if the tool detects patterns it does not recognize it will potentially create separate conditions for both the true and the false branch.  Actions can be re-mapped post upgrade if needed.
 
-#### ForEach with Condition
-The previous pattern of a foreach loop with a condition per item can be replicated in the new schema with the filter action.  This should occur automatically on upgrade.  The condition becomes a filter action before the foreach loop (to return only an array of items that match the condition), and that array is passed into the foreach action.  You can view an example of this [in this article](../logic-apps/logic-apps-loops-and-scopes.md)
+#### Mapping conditions
+
+In the upgraded definition, the tool makes a best effort at 
+grouping true and false branch actions together as a scope. 
+Specifically, the designer pattern of `@equals(actions('a').status, 'Skipped')` 
+should appear as an `else` action. However, if the tool detects unrecognizable patterns, 
+the tool might create separate conditions for both the true and the false branch. 
+You can remap actions after upgrading, if necessary.
+
+#### 'foreach' loop with condition
+
+In the new schema, you can use the filter action 
+to replicate the pattern of a `foreach` loop with a condition per item, 
+but this change should automatically happen when you upgrade. 
+The condition becomes a filter action before the foreach loop 
+for returning only an array of items that match the condition, 
+and that array is passed into the foreach action. 
+For an example, see [Loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md).
 
 #### Resource tags
-Resource tags will be removed on upgrade and you will need to set them again for the upgraded workflow.
+
+After you upgrade, resource tags are removed, so you must reset them for the upgraded workflow.
 
 ## Other changes
-### Manual trigger renamed to Request trigger
-The type `manual` has been deprecated and renamed to `request` with the kind of `http`.  This is more consistent with the type of pattern the trigger is used to build.
+
+### Renamed 'manual' trigger to 'request' trigger
+
+The `manual` trigger type was deprecated and renamed to `request` with type `http`. 
+This change creates more consistency for the kind of pattern that the trigger is used to build.
 
 ### New 'filter' action
-If you are working with a large array and need to filter it down to a smaller set of items, you can use the new 'filter' type.  It accepts an array and a condition and will evaluate the condition for each item and return an array of items that meet the condition.
 
-### ForEach and until action restrictions
-The foreach and until loop are restricted to a single action.
+To filter a large array down to a smaller set of items, 
+the new `filter` type accepts an array and a condition, 
+evaluates the condition for each item, and returns an array 
+with items meeting the condition.
 
-### TrackedProperties on Actions
-Actions can now have an additional property (sibling to `runAfter` and `type`) called `trackedProperties`.  It is an object that specifies certain action inputs or outputs to be included in the Azure Diagnostic telemetry that is emitted as part of a workflow.  For example:
+### Restrictions for 'foreach' and 'until' actions
+
+The `foreach` and `until` loop are restricted to a single action.
+
+### New 'trackedProperties' for actions
+
+Actions can now have an additional property called 
+`trackedProperties`, which is sibling to the `runAfter` and `type` properties. 
+This object specifies certain action inputs or outputs that you want to include in 
+the Azure Diagnostic telemetry, emitted as part of a workflow. For example:
 
 ```
 {                
@@ -149,8 +221,8 @@ Actions can now have an additional property (sibling to `runAfter` and `type`) c
 ```
 
 ## Next Steps
-* [Use the logic app workflow definition](../logic-apps/logic-apps-author-definitions.md)
-* [Create a logic app deployment template](../logic-apps/logic-apps-create-deploy-template.md)
+* [Create workflow definitions for logic apps](../logic-apps/logic-apps-author-definitions.md)
+* [Create deployment templates for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

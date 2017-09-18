@@ -3,7 +3,7 @@ title: Use bcp to load data into SQL Data Warehouse | Microsoft Docs
 description: Learn what bcp is and how to use it for data warehousing scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: ckarst
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,10 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
-ms.author: mausher;barbkess
+ms.author: cakarst;barbkess
+
 
 ---
 # Load data with bcp

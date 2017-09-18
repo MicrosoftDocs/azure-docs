@@ -2,8 +2,8 @@
 title: Enable offline syncing with iOS mobile apps | Microsoft Docs
 description: Learn how to use Azure App Service mobile apps to cache and sync offline data in iOS applications.
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: ggailey777
+manager: syntaxc4
 editor: ''
 services: app-service\mobile
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: yuaxu
+ms.author: glenga
 
 ---
 # Enable offline syncing with iOS mobile apps
@@ -45,6 +45,7 @@ Before any table operations can be performed, the local store must be initialize
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
 * **Swift**. In the **ToDoTableViewController.viewDidLoad** method:
+
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!

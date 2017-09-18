@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: garye;bradsev;ahgyger
 
 ---
@@ -26,80 +26,76 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## To create a workspace
-1. Sign-in to the [Microsoft Azure classic portal].
+### To create a workspace
+1. Sign in to the [Azure portal](https://portal.azure.com/)
 
-> [!NOTE]
-> To sign-in, you need to be an Azure subscription administrator. Being the owner of a Machine Learning workspace will not give you access to the [Microsoft Azure classic portal]. See [Privileges of Azure subscription administrator and workspace owner](#subscriptionvsworkspace) for more details.
-> 
-> 
+    > [!NOTE]
+    > To sign in and create a workspace, you need to be an Azure subscription administrator. 
+    >
+    > 
 
-1. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
-   
-    ![Machine Learning service][1]
-2. Click **+NEW** at the bottom of the window.
-3. Click **DATA SERVICES**, then **MACHINE LEARNING**, then **QUICK CREATE**.
-   
-    ![Quick Create of new workspace][3]
-4. Enter a **WORKSPACE NAME** for your workspace.
-5. Specify the Azure **LOCATION**, then enter an existing Azure **STORAGE ACCOUNT** or select **Create a new storage account** to create a new one.
-6. Click **CREATE AN ML WORKSPACE**.
+2. Click **+New**
 
-After your Machine Learning workspace is created, you will see it listed on the **machine learning** page.
+3. Select **Intelligence + analytics**, click **Machine Learning Workspace**, then click **Create**
+
+4. Enter your workspace information
+
+    - The *workspace name* may be up to 260 characters, not ending in a space. The name can't include these characters: `< > * % & : \ ? + /`
+    - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, is used if you deploy web services from this workspace.
+
+    ![Create a new workspace](media/machine-learning-create-workspace/create-new-workspace.png)
+
+5. Click **Create**
+
+Once the workspace is deployed, you can open it in Machine Learning Studio.
+
+1. Browse to Machine Learning Studio at [https://studio.azureml.net/](https://studio.azureml.net/).
+
+2. Select your workspace in the upper-right-hand corner.
+
+    ![Select workspace](media/machine-learning-create-workspace/open-workspace.png)
+
+3. Click **my experiments**.
+
+    ![Open experiments](media/machine-learning-create-workspace/my-experiments.png)
+
+For information about managing your workspace, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
+If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning workspace](machine-learning-troubleshooting-creating-ml-workspace.md).
+
 
 ## Sharing an Azure Machine Learning workspace
-Once a Machine Learning workspace is created, you can invite users to your workspace and share access to your workspace and all of its experiments. We support two roles of users:
+Once a Machine Learning workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, notebooks, etc. You can add users in one of two roles:
 
-* **User** - A workspace user can create, open, modify and delete datasets, experiments and web services in the workspace.
-* **Owner** - An owner can invite, remove, and list users with access to the workspace, in addition to what a user can do. He/she also have access to Notebooks.
-
-### To share a workspace
-1. Sign-in to [Machine Learning Studio]
-2. In the Machine Learning Studio panel, click **SETTINGS**
-3. Click **USERS**
-4. Click **INVITE MORE USERS**
-   
-    ![Invite more users][4]
-5. Enter one or more email address. The user just need a valid Microsoft account (e.g., name@outlook.com) or an organizational account (from Azure Active Directory).
-6. Click the check button.
-
-Each user you added will receive an email with instruction to log-in to the shared workspace.
-
-For information about managing your workspace, see [Manage an Azure Machine Learning workspace].
-If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to an Machine Learning workspace].
-
-## <a name="subscriptionvsworkspace"></a>Privileges of Azure subscription administrator and of workspace owner
-Below is a table clarifying the difference between an Azure subscription administrator and a workspace owner.
-
-| Actions | Azure subscription administrator | Workspace owner |
-| --- |:---:|:---:|
-| Access [Microsoft Azure classic portal] |Yes |No |
-| Create a new workspace |Yes |No |
-| Delete a workspace |Yes |No |
-| Add endpoint to a web service |Yes |No |
-| Delete endpoint from a web service |Yes |No |
-| Change concurrency for a web service |Yes |No |
-| Access [Machine Learning Studio] |No * |Yes |
+* **User** - A workspace user can create, open, modify, and delete experiments, datasets, etc. in the workspace.
+* **Owner** - An owner can invite and remove users in the workspace, in addition to what a user can do.
 
 > [!NOTE]
-> * An Azure subscription administrator is automatically added to the the workspace he/she creates as workspace Owner. However, simply being an Azure subscription administrator doesn't grant him/her access to any workspace under that subscription.
+> The administrator account that creates the workspace is automatically added to the workspace as workspace Owner. However, other administrators or users in that subscription are not automatically granted access to the workspace - you need to invite them explicitly.
 > 
 > 
 
-<!-- ![List of Machine Learning workspaces][2] -->
+### To share a workspace
 
-<!--Anchors-->
-[To create a workspace]: #createworkspace
+1. Sign in to Machine Learning Studio at [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
-<!--Image references-->
-[1]: media/machine-learning-create-workspace/cw1.png
-[2]: media/machine-learning-create-workspace/cw2.png
-[3]: media/machine-learning-create-workspace/cw4.png
-[4]: media/machine-learning-create-workspace/cw5.png
+2. In the left panel, click **SETTINGS**
+
+3. Click the **USERS** tab
+
+4. Click **INVITE MORE USERS** at the bottom of the page
+
+    ![Studio settings](media/machine-learning-create-workspace/settings.png)
+
+5. Enter one or more email addresses. The users need a valid Microsoft account or an organizational account (from Azure Active Directory).
+
+6. Select whether you want to add the users as Owner or User.
+
+7. Click the **OK** checkmark button.
+
+Each user you add will receive an email with instructions on how to sign in to the shared workspace.
+
+> [!NOTE]
+> For users to be able to deploy or manage web services in this workspace, they must be a contributor or administrator in the Azure subscription. 
 
 
-<!--Link references-->
-[Manage an Azure Machine Learning workspace]: machine-learning-manage-workspace.md
-[Troubleshooting guide: Create and connect to an Machine Learning workspace]: machine-learning-troubleshooting-creating-ml-workspace.md
-[Machine Learning Studio]: https://studio.azureml.net/  
-[Microsoft Azure classic portal]: https://manage.windowsazure.com/
+

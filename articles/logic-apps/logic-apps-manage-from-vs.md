@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Logic Apps from Visual Studio Cloud Explorer | Microsoft Docs
-description: Manage Azure Logic Apps from Visual Studio Cloud Explorer.
+title: Manage logic apps in Visual Studio - Azure Logic Apps | Microsoft Docs
+description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 author: klam
 manager: anneta
 editor: ''
@@ -13,58 +13,103 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
-ms.author: klam
-
+ms.author: LADocs; klam
 ---
-# Manage Logic Apps with the Visual Studio Cloud Explorer
-Although the [Azure portal](https://portal.azure.com) gives you a great way to design and manage your Logic Apps, the Visual Studio Cloud Explorer allows you to manage many of your Azure assets from within Visual Studio including Logic Apps.  With the cloud explorer you can browse published Logic Apps, perform actions like enable, disable, edit and view run histories. 
 
-## Installation steps
-Below are the steps to install and configure the Visual Studio tools for Logic Apps.
+# Manage your logic apps with Visual Studio Cloud Explorer
 
-### Prerequisites
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+Although the [Azure portal](https://portal.azure.com/) 
+offers a great way for you to design and manage Azure Logic Apps, 
+you can use Visual Studio Cloud Explorer for managing many Azure assets, 
+including logic apps. Visual Studio Cloud Explorer lets you browse, 
+manage, edit, and download published logic apps. 
+Management tasks include enable, disable, and view run history. 
+
+Before you can access and manage your logic apps in Visual Studio, 
+install and configure these Visual Studio tools for Azure Logic Apps. 
+
+## Prerequisites
+
+* [Visual Studio 2015 or Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
 * [Visual Studio Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)
 * Access to the web when using the embedded designer
 
-### Install Visual Studio tools for Logic Apps
-Once you have the prerequisites installed, 
+## Install Visual Studio tools for Logic Apps
 
-1. Open Visual Studio 2015 to the **Tools** menu and select **Extensions and Updates**
-2. Select the **Online** category to search online
-3. Search for **Logic Apps** to display the **Azure Logic Apps Tools for Visual Studio**
-4. Click the **Download** button to download and install the extension
-5. Restart Visual Studio after installation
+After you install the prerequisites, 
+download and install the Azure Logic Apps Tools 
+for Visual Studio.
+
+1. Open Visual Studio. On the **Tools** menu, 
+select **Extensions and Updates**.
+2. Expand the **Online** category so you can search online 
+in the Visual Studio Gallery.
+3. Browse or search for **Logic Apps** until 
+you find **Azure Logic Apps Tools for Visual Studio**.
+4. To download and install the extension, click **Download**.
+5. Restart Visual Studio after installation.
 
 > [!NOTE]
-> You can also download the extension directly from [this link](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9)
-> 
-> 
+> To download the Azure Logic Apps Tools 
+> for Visual Studio directly, go to the 
+> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
 
-## Browsing Logic Apps
-To browse Logic Apps in Cloud Explorer open the cloud explorer under View > Cloud Explorer and you can either browse by resource group or by resource type.  If browsing by resource type, select a subscription and then expand the Logic Apps section then select a Logic App.  You can either right-click one of your Logic Apps or use the Actions menu at the bottom of the cloud explorer to perform the desired action.
+## Browse for logic apps in Cloud Explorer
 
-![Browse](./media/logic-apps-manage-from-vs/browse.png)
+1.	To open Cloud Explorer, on the **View** menu, choose **Cloud Explorer**.
+2.	Browse for your logic app, either by resource group or by resource type. 
 
-## Edit Logic App with the designer
-To open the currently deployed Logic App in the same designer that is in the Azure portal, right-click on the Logic App and select "Open with Logic App Editor".  With the designer, you can edit the Logic App and save it back to the cloud and start a new run with "Run Trigger" button.
+	* If you browse by resource type, select your Azure subscription, 
+	expand the **Logic Apps** section, and select your logic app. 
+	* If you browse by resource group, expand the resource group 
+	that has your logic app, and select your logic app.
 
-![Designer](./media/logic-apps-manage-from-vs/designer.png)
+	To view commands for your logic app, either right-click your logic app, 
+	or at the bottom of Cloud Explorer, choose from the **Actions** menu.
 
-## Browse Logic App run history
-To list the run history for a Logic App, right-click on the Logic App and select "Open run history".  In this view you can order by any of the shown properties by selecting the column header.  
+	![Browse for your logic app](./media/logic-apps-manage-from-vs/browse.png)
 
-![Runs](media/logic-apps-manage-from-vs/runs.png)
+## Edit your logic app with Logic Apps Designer
 
-Double-clicking on one of the run instances shows the run history for that instance where you can see the results of the run including the inputs and outputs of each step.
+From Cloud Explorer, you can open a currently deployed logic app 
+in the same designer that you use in the Azure portal. 
 
-![History](./media/logic-apps-manage-from-vs/history.png)
+* To edit your logic app, in Cloud Explorer, 
+right-click your logic app, and select **Open with Logic App Editor**. 
+
+* To publish your updates to the cloud, choose **Publish**. 
+
+* To start a new run, choose **Run Trigger**.
+
+![Logic Apps Designer](./media/logic-apps-manage-from-vs/designer.png)
+
+From the designer, you can also **Download** a logic app. 
+This action automatically parameterizes the logic app definition, 
+and saves the definition as an Azure Resource Manager deployment template. 
+You can add this deployment template to your Azure Resource Group project.
+
+## Browse your logic app run history
+
+To view the run history for your logic app, 
+right-click your logic app, and select **Open run history**. 
+To reorder your run history based on any of the properties shown, 
+select the column header.
+
+![Run history](media/logic-apps-manage-from-vs/runs.png)
+
+To show the run history for an instance so you can review the run results, 
+including the inputs and outputs from each step, 
+double-click one of the run instances.
+
+![Run history results, inputs, and outputs from steps](./media/logic-apps-manage-from-vs/history.png)
 
 ## Next steps
-* To get started with Logic Apps, follow the [create a Logic App](logic-apps-create-a-logic-app.md) tutorial.  
-* [View common examples and scenarios](logic-apps-examples-and-scenarios.md)
-* [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
+* [Create your first logic app](logic-apps-create-a-logic-app.md)
+* [Design, build, and deploy logic apps in Visual Studio](logic-apps-deploy-from-vs.md)
+* [View common examples and scenarios](logic-apps-examples-and-scenarios.md)
+* [Video: Automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
+* [Video: Integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

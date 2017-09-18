@@ -3,7 +3,7 @@ The [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.o
 To reference the CloudConfigurationManager package, add the following `using` directive:
 
 ```csharp
-using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 Here's an example that shows how to retrieve a connection string from a configuration file:

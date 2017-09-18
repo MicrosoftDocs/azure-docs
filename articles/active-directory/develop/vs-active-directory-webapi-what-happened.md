@@ -3,8 +3,8 @@ title: Changes made to a WebApi project when you connect to Azure AD | Microsoft
 description: Describes what happens to your WebApi project when you connect to Azure AD by using Visual Studio
 services: active-directory
 documentationcenter: ''
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
@@ -13,8 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: tarcher
+ms.date: 03/01/2017
+ms.author: kraigb
+ms.custom: aaddev
 
 ---
 # What happened to my WebApi project (Visual Studio Azure Active Directory connected service)
@@ -104,5 +105,6 @@ The following additional configuration entries have been added.
 ### Your Azure Active Directory App was updated
 Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:Password* in the `web.config` file.
 
-[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## Next steps
+- [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 

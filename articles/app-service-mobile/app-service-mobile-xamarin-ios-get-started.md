@@ -3,8 +3,8 @@ title: Get started with Azure App Service Mobile Apps for Xamarin.iOS apps | Mic
 description: Follow this tutorial to get started with using Mobile Apps for Xamarin.iOS development.
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: dwrede
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: syntaxc4
 
 ---
 # Create a Xamarin.iOS app
@@ -37,13 +37,6 @@ To complete this tutorial, you need the following prerequisites:
   [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) and
   [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
-> [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to
-> [Try App Service](https://azure.microsoft.com/try/app-service/mobile/). You can immediately create a short-lived starter
-> mobile app in App Service—no credit card required, and no commitments.
-> 
-> 
-
 ## Create an Azure Mobile App backend
 Follow these steps to create a Mobile App backend.
 
@@ -61,26 +54,26 @@ Follow the following steps to configure the server project to use either the Nod
 1. Open the [Azure portal] in a browser window.
 2. On the settings blade for your Mobile App, click **Get Started** > **Xamarin.iOS**. Under step 3, click **Create a new app** if it's not
    already selected.  Next click the **Download** button.
-   
+
       A client application that connects to your mobile backend is downloaded. Save the compressed project file to
     your local computer, and make a note of where you save it.
 3. Extract the project that you downloaded, and then open it in Xamarin Studio (or Visual Studio).
-   
+
     ![][9]
-   
+
     ![][8]
 4. Press the F5 key to build the project and start the app in the iPhone emulator.
 5. In the app, type meaningful text, such as *Learn Xamarin*, and then click the **+** button.
-   
+
     ![][10]
-   
+
     Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the
     data is displayed in the list.
 
 > [!NOTE]
 > You can review the code that accesses your mobile app backend to query and insert data in the QSTodoService.cs C# file.
-> 
-> 
+>
+>
 
 ## Next steps
 * [Add Offline Sync to your app](app-service-mobile-xamarin-ios-get-started-offline-data.md)

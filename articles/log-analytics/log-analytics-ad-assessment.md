@@ -1,5 +1,5 @@
 ---
-title: Optimize your environment with the Active Directory Assessment solution in Log Analytics | Microsoft Docs
+title: Optimize your Active Directory environment with Azure Log Analytics | Microsoft Docs
 description: You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
@@ -12,14 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 08/15/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Optimize your environment with the Active Directory Assessment solution in Log Analytics
-You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install and use the solution so that you can take corrective actions for potential problems.
+# Optimize your Active Directory environment with the Active Directory Assessment solution in Log Analytics
 
-This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across four focus areas which help you quickly understand the risk and take action.
+![AD Assessment symbol](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
+
+You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval. This article helps you install and use the solution so that you can take corrective actions for potential problems.
+
+This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across four focus areas, which help you quickly understand the risk and take action.
 
 The recommendations are based on the knowledge and experience gained by Microsoft engineers from thousands of customer visits. Each recommendation provides guidance about why an issue might matter to you and how to implement the suggested changes.
 
@@ -36,7 +40,7 @@ Use the following information to install and configure the solutions.
 
 * Agents must be installed on domain controllers that are members of the domain to be evaluated.
 * The Active Directory Assessment solution requires a supported version of .NET Framework 4 (4.5.2 or above) installed on each computer that has an OMS agent.
-* Add the Active Directory Assessment solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
+* Add the Active Directory Assessment solution to your OMS workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
   > [!NOTE]
   > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
@@ -44,25 +48,39 @@ Use the following information to install and configure the solutions.
   >
 
 ## Active Directory Assessment data collection details
-Active Directory Assessment collects WMI data, registry data, and performance data using the agents that you have enabled.
+
+Active Directory Assessment collects data from the following sources using the agents that you have enabled:
+
+- Registry collectors
+- LDAP collectors
+- .NET Framework
+- Event log collectors
+- Active Directory Service interfaces (ADSI)
+- Windows PowerShell
+- File data collectors
+- Windows Management Instrumentation (WMI)
+- DCDIAG tool API
+- File Replication Service (NTFRS) API
+- Custom C# code
+
 
 The following table shows data collection methods for agents, whether Operations Manager (SCOM) is required, and how often data is collected by an agent.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 days |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 days |
 
 ## Understanding how recommendations are prioritized
-Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the ten most important recommendations are shown.
+Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the 10 most important recommendations are shown.
 
 ### How weights are calculated
 Weightings are aggregate values based on three key factors:
 
-* The *probability* that an issue identified will cause problems. A higher probability equates to a larger overall score for the recommendation.
+* The *probability* that an issue identified causes problems. A higher probability equates to a larger overall score for the recommendation.
 * The *impact* of the issue on your organization if it does cause a problem. A higher impact equates to a larger overall score for the recommendation.
 * The *effort* required to implement the recommendation. A higher effort equates to a smaller overall score for the recommendation.
 
-The weighting for each recommendation is expressed as a percentage of the total score available for each focus area. For example, if a recommendation in the Security and Compliance focus area has a score of 5%, implementing that recommendation will increase your overall Security and Compliance score by 5%.
+The weighting for each recommendation is expressed as a percentage of the total score available for each focus area. For example, if a recommendation in the Security and Compliance focus area has a score of 5%, implementing that recommendation increases your overall Security and Compliance score by 5%.
 
 ### Focus areas
 **Security and Compliance** - This focus area shows recommendations for potential security threats and breaches, corporate policies, and technical, legal and regulatory compliance requirements.
@@ -88,7 +106,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 2. On the **Assessment** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
 3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.  
     ![image of Assessment recommendations](./media/log-analytics-ad-assessment/ad-focus.png)
-4. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+4. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
 If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
@@ -99,6 +117,10 @@ If you have recommendations that you want to ignore, you can create a text file 
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
    Here's a screen shot showing the Log Search query:
    ![failed recommendations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
@@ -119,6 +141,11 @@ After the next scheduled assessment runs, by default every 7 days, the specified
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 2. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
 ## AD Assessment solutions FAQ
@@ -145,13 +172,6 @@ After the next scheduled assessment runs, by default every 7 days, the specified
 *How long does it take for data to be collected?*
 
 * The actual data collection on the server takes about 1 hour. It may take longer on servers that have a large number of Active Directory servers.
-
-*What type of data is collected?*
-
-* The following types of data are collected:
-  * WMI
-  * Registry
-  * Performance counters
 
 *Is there a way to configure when data is collected?*
 

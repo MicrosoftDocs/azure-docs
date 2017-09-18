@@ -13,7 +13,8 @@ ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.custom: reference
+ms.date: 03/30/2017
 ms.author: barbkess
 
 ---
@@ -155,7 +156,7 @@ This section lists articles which were updated recently, where the update was bi
 ## Miscellaneous
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
-| 83 |[Install Visual Studio 2015 and SSDT for SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse |
+| 83 |[Install Visual Studio and SSDT for SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse |
 | 84 |[Migration to Premium Storage Details](sql-data-warehouse-migrate-to-premium-storage.md) |Instructions for migrating an existing SQL Data Warehouse to premium storage |
 | 85 |[Get started with threat detection](sql-data-warehouse-security-threat-detection.md) |How to get started with Threat Detection |
 | 86 |[SQL Data Warehouse capacity limits](sql-data-warehouse-service-capacity-limits.md) |Maximum values for connections, databases, tables and queries for SQL Data Warehouse. |

@@ -1,6 +1,6 @@
 ---
-title: Log Analytics Alert REST API
-description: The Log Analytics Alert REST API allows you to create and manage alerts in Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
+title: Using OMS Log Analytics Alert REST API
+description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics which is part of Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 05/12/2017
 ms.author: bwren
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Log Analytics alert REST API
+# Create and manage alert rules in Log Analytics with REST API
 The Log Analytics Alert REST API allows you to create and manage alerts in Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
 
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document you will find examples where the API is accessed from a PowerShell command line using  [ARMClient](https://github.com/projectkudu/ARMClient), an open source command line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools you can utilize the RESTful Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
@@ -64,6 +66,9 @@ Following is a sample response for a schedule.
 ### Creating a schedule
 Use the Put method with a unique schedule ID to create a new schedule.  Note that two schedules cannot have the same ID even if they are associated with different saved searches.  When you create a schedule in the OMS console, a GUID is created for the schedule ID.
 
+> [!NOTE]
+> The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
+
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
@@ -102,6 +107,9 @@ Use the Get method with the action ID to retrieve a particular action for a sche
 
 ### Creating or editing actions
 Use the Put method with an action ID that is unique to the schedule to create a new action.  When you create an action in the OMS console, a GUID is for the action ID.
+
+> [!NOTE]
+> The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
 
 Use the Put method with an existing action ID for the same saved search to modify that schedule.  The body of the request must include the etag of the schedule.
 
@@ -239,17 +247,18 @@ Use the Put method with an existing action ID to modify a remediation action for
 Following is a complete example to create a new email alert.  This creates a new schedule along with an action containing a threshold and email.
 
     $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-    $workspaceId    = "MyWorkspace"
-    $searchId       = "51cf0bd9-5c74-6bcb-927e-d1e9080b934e"
+	$resourceGroup  = "MyResourceGroup"    
+	$workspaceName    = "MyWorkspace"
+    $searchId       = "MySearch"
+	$scheduleId     = "MySchedule"
+	$thresholdId    = "MyThreshold"
+	$actionId       = "MyEmailAction"
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule?api-version=2015-03-20 $scheduleJson
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule/actions/mythreshold?api-version=2015-03-20 $thresholdJson
-
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule/actions/myemailaction?api-version=2015-03-20 $emailJson
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 ### Webhook actions
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent.  They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks.  They also provide the additional option of providing a payload to be delivered to the remote process.

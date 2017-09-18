@@ -1,6 +1,6 @@
 ---
-title: New schema version 2015-08-01-preview
-description: Learn how to write the JSON definition for the latest version of Logic apps
+title: Schema updates August-1-2015 preview - Azure Logic Apps | Microsoft Docs
+description: Create JSON definitions for Azure Logic Apps with schema version 2015-08-01-preview
 author: stepsic-microsoft-com
 manager: anneta
 editor: ''
@@ -13,32 +13,46 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
-ms.author: stepsic
+ms.author: LADocs; stepsic
 
 ---
-# New schema version 2015-08-01-preview
-The new schema and API version for Azure Logic Apps has some improvements that improve the reliability and ease-of-use of logic apps. There are four key differences:
+# Schema updates for Azure Logic Apps - August 1, 2015 preview
 
-1. The **APIApp** action type has been updated to a new **APIConnection** action type.
-2. **Repeat** has been renamed to **Foreach**.
-3. The **HTTP Listener** API app is no longer required.
-4. Calling child workflows uses a new schema.
+This new schema and API version for Azure Logic Apps includes key improvements that make logic apps 
+more reliable and easier to use:
 
-## 1. Moving to API connections
-The biggest change is that you no longer need to deploy API apps into your Azure Subscription to use APIs. There are 2 ways you can use APIs:
+*	The **APIApp** action type is updated to a new [**APIConnection**](#api-connections) action type.
+*	**Repeat** is renamed to [**Foreach**](#foreach).
+*	The [**HTTP Listener** API App](#http-listener) is no longer required.
+*	Calling child workflows uses a [new schema](#child-workflows).
+
+<a name="api-connections"></a>
+## Move to API connections
+
+The biggest change is that you no longer have to deploy API Apps into 
+your Azure subscription so you can use APIs. Here are the ways that you can use APIs:
 
 * Managed APIs
 * Your custom Web APIs
 
-Each way is handled slightly differently because their management and hosting models are different. One advantage of this model is you're no longer constrained to resources that are deployed in your Resource Group. 
+Each way is handled slightly differently because their management and hosting models are different. 
+One advantage of this model is you're no longer constrained to resources that are deployed in your Azure resource group. 
 
 ### Managed APIs
-Microsoft manages some APIs on your behalf, such as Office 365, Salesforce, Twitter, and FTP. You can use some managed APIs as-is, such as Bing Translate, while others require configuration. This configuration is called a *connection*.
 
-For example, when you use Office 365, you need to create a connection that contains your Office 365 sign-in token. This token is securely stored and refreshed so that your Logic app can always call the Office 365 API. Alternatively, if you want to connect to your SQL or FTP server, you need to create a connection that has the connection string. 
+Microsoft manages some APIs on your behalf, such as Office 365, Salesforce, Twitter, and FTP. 
+You can use some managed APIs as-is, such as Bing Translate, while others require configuration. 
+This configuration is called a *connection*.
 
-In this definition, these actions are called `APIConnection`. Here is an example of a connection that calls Office 365 to send an email:
+For example, when you use Office 365, you must create a connection that contains your Office 365 sign-in token. 
+This token is securely stored and refreshed so that your logic app can always call the Office 365 API. 
+Alternatively, if you want to connect to your SQL or FTP server, you must create a connection that 
+has the connection string. 
+
+In this definition, these actions are called `APIConnection`. 
+Here is an example of a connection that calls Office 365 to send an email:
 
 ```
 {
@@ -67,13 +81,18 @@ In this definition, these actions are called `APIConnection`. Here is an example
 }
 ```
 
-The `host` object is portion of inputs that is unique to API connections, and contains two parts: `api` and `connection`.
+The `host` object is portion of inputs that is unique to API connections, 
+and contains tow parts: `api` and `connection`.
 
-The `api` has the runtime URL of where that managed API is hosted. You can see all the available managed APIs by calling `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+The `api` has the runtime URL of where that managed API is hosted. 
+You can see all the available managed APIs by calling 
+`GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-When you use an API, the API might or might not have any **connection parameters** defined. If the API doesn't, no **connection** is required. 
-If the API does, you have to create a connection. When you create that connection, the connection has the name that you choose. 
-You then reference the name in the `connection` object inside the `host` object. To create a connection in a resource group, call:
+When you use an API, the API might or might not have any *connection parameters* defined. 
+If the API doesn't, no *connection* is required. If the API does, you must create a connection. 
+The created connection has the name that you choose. 
+You then reference the name in the `connection` object inside the `host` object. 
+To create a connection in a resource group, call:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
@@ -95,9 +114,11 @@ With the following body:
 }
 ```
 
-### Deploying managed APIs in an Azure Resource Manager template
+### Deploy managed APIs in an Azure Resource Manager template
+
 You can create a full application in an Azure Resource Manager template as long as interactive sign-in isn't required.
-If sign-in is required, you can set up everything with the Azure Resource Manager template, but you still have to visit the portal to authorize the connections. 
+If sign-in is required, you can set up everything with the Azure Resource Manager template, 
+but you still have to visit the portal to authorize the connections. 
 
 ```
     "resources": [{
@@ -187,11 +208,13 @@ If sign-in is required, you can set up everything with the Azure Resource Manage
     }]
 ```
 
-You can see in this example that the connections are just resources that live in your resource group. They reference the managed APIs available to you in your subscription.
+You can see in this example that the connections are just resources that live in your resource group. 
+They reference the managed APIs available to you in your subscription.
 
 ### Your custom Web APIs
-If you use your own APIs (specifically, not Microsoft-managed ones), 
-then you should use the built-in **HTTP** action to call them. 
+
+If you use your own APIs, not Microsoft-managed ones, 
+use the built-in **HTTP** action to call them. 
 For an ideal experience, you should expose a Swagger endpoint for your API. 
 This endpoint enables the Logic App Designer to render the inputs and outputs for your API. 
 Without Swagger, the designer can only show the inputs and outputs as opaque JSON objects.
@@ -215,15 +238,17 @@ Here is an example showing the new `metadata.apiDefinitionUrl` property:
 }
 ```
 
-If you host your Web API on **App Service**, 
+If you host your Web API on Azure App Service, 
 your Web API automatically appears in the list of actions available in the designer. 
 If not, you have to paste in the URL directly. The Swagger endpoint must be unauthenticated 
-to be usable in the Logic App Designer (although you can secure the API itself with whatever methods supported in Swagger).
+to be usable in the Logic App Designer, although you can secure the API itself with whatever methods that Swagger supports.
 
-### Using your already deployed API apps with 2015-08-01-preview
-If you previously deployed an API app, you can call it via the **HTTP** action.
+### Call deployed API apps with 2015-08-01-preview
 
-For example, if you use Dropbox to list files, your **2014-12-01-preview** schema version definition might have something like:
+If you previously deployed an API App, you can call the app with the **HTTP** action.
+
+For example, if you use Dropbox to list files, 
+your **2014-12-01-preview** schema version definition might have something like:
 
 ```
 {
@@ -264,7 +289,8 @@ For example, if you use Dropbox to list files, your **2014-12-01-preview** schem
 }
 ```
 
-You can construct the equivalent HTTP action like below (the parameters section of the Logic app definition remains unchanged):
+You can construct the equivalent HTTP action like this example, 
+while the parameters section of the Logic app definition remains unchanged:
 
 ```
 {
@@ -299,17 +325,18 @@ Walking through these properties one-by-one:
 | `metadata.apiDefinitionUrl` |To use this action in the Logic App Designer, include the metadata endpoint, which is constructed from: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` |Constructed from: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` |Always `POST` |
-| `inputs.body` |Identical to the api app parameters |
-| `inputs.authentication` |Identical to the api app authentication |
+| `inputs.body` |Identical to the API App parameters |
+| `inputs.authentication` |Identical to the API App authentication |
 
-This approach should work for all API app actions. However, remember that these previous API apps are no longer supported, 
-and you should move to one of the two other options above (either a managed API or hosting your custom Web API).
+This approach should work for all API App actions. However, remember that these previous API Apps are no longer supported. 
+So you should move to one of the two other previous options, a managed API or hosting your custom Web API.
 
-## 2. Repeat renamed to Foreach
+<a name="foreach"></a>
+## Renamed 'repeat' to 'foreach'
 
 For the previous schema version, we received much customer feedback that **Repeat** was confusing 
 and didn't properly capture that **Repeat** was really a for-each loop. 
-As a result, we have renamed **Repeat** to **Foreach**. For example, previously you would write:
+As a result, we have renamed `repeat` to `foreach`. For example, previously you would write:
 
 ```
 {
@@ -346,9 +373,10 @@ Now you would write:
 The function `@repeatItem()` was previously used to reference the current item being iterated over. 
 This function is now simplified to `@item()`. 
 
-### Referencing the outputs of the Foreach
-To further simplify, the outputs of **Foreach** actions are not wrapped in an object called **repeatItems**. 
-While the outputs of the above repeat were:
+### Reference outputs from 'foreach'
+
+For simplification, the outputs from `foreach` actions are not wrapped in an object called `repeatItems`. 
+While the outputs from the previous `repeat` example were:
 
 ```
 {
@@ -388,7 +416,7 @@ Now these outputs are:
 ]
 ```
 
-When referencing these outputs, to get to the body of the action, you must do:
+Previously, to get to the body of the action when referencing these outputs:
 
 ```
 {
@@ -426,15 +454,26 @@ Now you can do instead:
 
 With these changes, the functions `@repeatItem()`, `@repeatBody()`, and `@repeatOutputs()` are removed.
 
-## 3. Native HTTP listener
-The HTTP Listener capabilities are now built in, so you no longer need to deploy an HTTP Listener API app. Read about [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
+<a name="http-listener"></a>
+## Native HTTP listener
 
-With these changes, the function `@accessKeys()` is removed and has been replaced with the `@listCallbackURL()` function for the purposes of getting the endpoint (when needed). In addition, you now must define at least one trigger in your Logic app now. 
-If you want to `/run` the workflow, you must have one of these triggers: `manual`, `apiConnectionWebhook`, or `httpWebhook`
+The HTTP Listener capabilities are now built in. So you no longer need to deploy an HTTP Listener API App. 
+See [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
 
-## 4. Calling child workflows
-Previously, calling child workflows required going to that workflow, getting the access token, and then pasting that in to the definition of the Logic app that you want to call that child. 
-With the new schema version, the Logic Apps engine automatically generates a SAS at runtime for the child workflow, which means that you don't have to paste any secrets into the definition.  Here is an example:
+With these changes, we removed the `@accessKeys()` function, which we replaced with the `@listCallbackURL()` 
+function for getting the endpoint when necessary. Also, you must now define at least one trigger in your logic app. 
+If you want to `/run` the workflow, you must have one of these triggers: `manual`, `apiConnectionWebhook`, 
+or `httpWebhook`.
+
+<a name="child-workflows"></a>
+## Call child workflows
+
+Previously, calling child workflows required going to the workflow, 
+getting the access token, and pasting the token in the logic app 
+definition where you want to call that child workflow. 
+With the new schema, the Logic Apps engine automatically generates 
+a SAS at runtime for the child workflow so you don't have to 
+paste any secrets into the definition. Here is an example:
 
 ```
 "mynestedwf": {
@@ -460,26 +499,32 @@ With the new schema version, the Logic Apps engine automatically generates a SAS
 }
 ```
 
-A second improvement is we are giving the child workflows full access to the incoming request. That means that you can pass parameters in the *queries* section and in the *headers* object and that you can fully define the entire body.
+A second improvement is we are giving the child workflows full access to the incoming request. 
+That means that you can pass parameters in the *queries* section and in the *headers* object 
+and that you can fully define the entire body.
 
 Finally, there are required changes to the child workflow. 
 While you could previously call a child workflow directly, 
 now you must define a trigger endpoint in the workflow for the parent to call. 
-Generally, this means you would add a trigger of type **manual**, and then use that trigger in the parent definition. 
-Note the `host` property specifically has a `triggerName` because you must always specify which trigger you are invoking.
+Generally, you would add a trigger that has `manual` type, 
+and then use that trigger in the parent definition. 
+Note the `host` property specifically has a `triggerName` 
+because you must always specify which trigger you are invoking.
 
 ## Other changes
-### New queries property
-All action types now support a new input called **queries**. 
+
+### New 'queries' property
+
+All action types now support a new input called `queries`. 
 This input can be a structured object, rather than you having to assemble the string by hand.
 
-### parse() function renamed
-We are adding more content types soon, so we renamed `parse()` function to `json()`.
+### Renamed 'parse()' function to 'json()'
+
+We are adding more content types soon, so we renamed the `parse()` function to `json()`.
 
 ## Coming soon: Enterprise Integration APIs
-We do not yet have managed versions of the Enterprise Integration APIs available (such as AS2). 
-These APIs are coming soon as covered in the 
-[roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
-Meanwhile, you can use your existing deployed BizTalk APIs via the HTTP action, 
-as covered above in "Using your already deployed API apps."
 
+We don't have managed versions yet of the Enterprise Integration APIs, like AS2. 
+Meanwhile, you can use your existing deployed BizTalk APIs through the HTTP action. 
+For details, see "Using your already deployed API apps" in the 
+[integration roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

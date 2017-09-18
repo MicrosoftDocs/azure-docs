@@ -1,10 +1,10 @@
----
-title: Exploring Metrics in Application Insights | Microsoft Docs
+﻿---
+title: Exploring Metrics in Azure Application Insights | Microsoft Docs
 description: How to interpret charts on metric explorer, and how to customize metric explorer blades.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
-ms.author: awills
+ms.date: 03/08/2017
+ms.author: bwren
 
 ---
 # Exploring Metrics in Application Insights
@@ -25,7 +25,7 @@ Here's a sample set of charts:
 
 ![](./media/app-insights-metrics-explorer/01-overview.png)
 
-You find metrics charts everywhere in the Application Insights portal. In most cases, they can be customized, and you can add more charts to the blade. From the Overview blade, click through to more detailed charts (which have titles such as "Server responses"), or click **Metrics Explorer** to open a new blade where you can create custom charts.
+You find metrics charts everywhere in the Application Insights portal. In most cases, they can be customized, and you can add more charts to the blade. From the Overview blade, click through to more detailed charts (which have titles such as "Servers"), or click **Metrics Explorer** to open a new blade where you can create custom charts.
 
 ## Time range
 You can change the Time range covered by the charts or grids on any blade.
@@ -171,16 +171,6 @@ To be notified by email of unusual values of any metric, add an alert. You can c
 
 [Learn more about alerts][alerts].
 
-## Export to Excel
-You can export metric data that is displayed in Metric Explorer to an Excel file. The exported data includes data from all charts and tables as seen in the portal.
-
-![In Metrics Explorer, choose Alert rules, Add Alert](./media/app-insights-metrics-explorer/31-export.png)
-
-The data for each chart or table is exported to a separate sheet in the Excel file.
-
-What you see is what gets exported. Change the time range or filters if you want to change the range of data exported. For tables, if the **load more** command is showing, you can click it before you click Export, to have more data exported.
-
-*Export works only for Internet Explorer and Chrome at present. We're working on adding support for other browsers.*
 
 ## Continuous Export
 If you want data continuously exported so that you can process it externally, consider using [Continuous export](app-insights-export-telemetry.md).
@@ -189,7 +179,9 @@ If you want data continuously exported so that you can process it externally, co
 If you want even richer views of your data, you can [export to Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Analytics
-[Analytics](app-insights-analytics.md) is a more versatile way to analyze your telemetry using a powerful query language. Use it if you want to combine or compute results from metrics, or perform an in-depth exploration of your app's recent performance. On the other hand, use Metrics Explorer if you want automatic refresh, charts on the dashboard, and alerts.
+[Analytics](app-insights-analytics.md) is a more versatile way to analyze your telemetry using a powerful query language. Use it if you want to combine or compute results from metrics, or perform an in-depth exploration of your app's recent performance. 
+
+From a metric chart, you can click the Analytics icon to get directly to the equivalent Analytics query.
 
 ## Troubleshooting
 *I don't see any data on my chart.*
@@ -200,8 +192,12 @@ If you want even richer views of your data, you can [export to Power BI](http://
 * If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
 * Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). It isn't available for Azure websites.
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## Next steps
-* [Monitoring usage with Application Insights](app-insights-overview-usage.md)
+* [Monitoring usage with Application Insights](app-insights-web-track-usage.md)
 * [Using Diagnostic Search](app-insights-diagnostic-search.md)
 
 <!--Link references-->

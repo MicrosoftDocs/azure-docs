@@ -20,7 +20,7 @@ ms.author: neerajkh
 ---
 # Scaling an Azure Machine Learning web service by adding additional endpoints
 > [!NOTE]
-> This topic describes techniques applicable to a Classic Machine Learning Web service. 
+> This topic describes techniques applicable to a **Classic** Machine Learning Web service. 
 > 
 > 
 

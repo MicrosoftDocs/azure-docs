@@ -1,6 +1,6 @@
 ---
-title: Add custom code to logic apps with Azure Functions | Microsoft Docs
-description: Create custom code for Azure Logic Apps with Azure Functions
+title: Custom code for Azure Logic Apps with Azure Functions | Microsoft Docs
+description: Create and run custom code for Azure Logic Apps with Azure Functions
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -13,21 +13,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
+ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: jehollan
-
+ms.author: LADocs; jehollan
 ---
-# Add custom code to Azure Logic Apps with Azure Functions
 
-You can run custom snippets of C# or node.js by using Azure Functions in logic apps. 
-[Azure Functions](../azure-functions/functions-overview.md) offers server-free computing 
-in Microsoft Azure and are useful for performing these tasks:
+# Add and run custom code for logic apps through Azure Functions
+
+To run custom snippets of C# or node.js in logic apps, 
+you can create custom functions through Azure Functions. 
+[Azure Functions](../azure-functions/functions-overview.md) 
+offers server-free computing in Microsoft Azure and are useful for performing these tasks:
 
 * Advanced formatting or compute of fields in logic apps
 * Perform calculations in a workflow.
 * Extend the logic app functionality with functions that are supported in C# or node.js
 
-## Create functions for logic apps
+## Create custom functions for your logic apps
 
 We recommend that you create a function in the Azure Functions portal, 
 from the **Generic Webhook - Node** or **Generic Webhook - C#** templates. 
@@ -41,7 +43,7 @@ your template should show that **Mode** set to **Webhook**
 and **Webhook type** is set to **Generic JSON**. 
 
 Webhook functions accept a request and pass it into the method via a `data` variable. 
-You can access the properties of your payload by using dot notation like `data.foo`. 
+You can access the properties of your payload by using dot notation like `data.function-name`. 
 For example, a simple JavaScript function that converts a DateTime value into a 
 date string looks like the following example:
 

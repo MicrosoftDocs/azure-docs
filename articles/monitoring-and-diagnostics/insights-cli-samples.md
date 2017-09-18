@@ -1,8 +1,8 @@
 ---
-title: Azure Monitor CLI quick start samples. | Microsoft Docs
-description: Sample CLI commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
+title: Azure Monitor CLI 1.0 quick start samples. | Microsoft Docs
+description: Sample CLI 1.0 commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 08/09/2017
 ms.author: ashwink
 
 ---
-# Azure Monitor  Cross-platform CLI quick start samples
+# Azure Monitor  Cross-platform CLI 1.0 quick start samples
 This article shows you sample command-line interface (CLI) commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
 > [!NOTE]
@@ -26,7 +26,7 @@ This article shows you sample command-line interface (CLI) commands to help you 
 > 
 
 ## Prerequisites
-If you haven't already installed the Azure CLI, see [Install the Azure CLI](../xplat-cli-install.md). If you're unfamiliar with Azure CLI, you can read more about it at [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+If you haven't already installed the Azure CLI, see [Install the Azure CLI](../cli-install-nodejs.md). If you're unfamiliar with Azure CLI, you can read more about it at [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 In Windows, install npm from the [Node.js website](https://nodejs.org/). After you complete the installation, using CMD.exe with Run As Administrator privileges, execute the following from the folder where npm is installed:
 
@@ -118,11 +118,6 @@ azure insights alerts rule list abhingrgtest123 --ruleName andy0323
 azure insights alerts actions email create --customEmails foo@microsoft.com
 azure insights alerts actions webhook create https://someuri.com
 azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
-```
-
-### Create a log alert rule
-```console
-azure insights alerts rule log set ruleName eastus resourceGroupName someOperationName
 ```
 
 ### Create webtest alert rule

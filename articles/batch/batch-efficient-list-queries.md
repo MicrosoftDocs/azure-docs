@@ -13,14 +13,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 08/02/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Query the Azure Batch service efficiently
+# Create queries to list Batch resources efficiently
+
 Here you'll learn how to increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, and compute nodes with the [Batch .NET][api_net] library.
 
 Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task in the job. To determine the status of nodes in your pool, you must get data on every node in the pool. This article explains how to execute such queries in the most efficient way.
+
+> [!NOTE]
+> The Batch service provides special API support for the common scenario of counting tasks in a job. Instead of using a list query for these, you can call the [Get Task Counts][rest_get_task_counts] operation. Get Task Counts indicates how many tasks are pending, running or complete, and how many tasks have succeeded or failed. Get Task Counts is more efficient than a list query. For more information, see [Count tasks for a job by state (Preview)](batch-get-task-counts.md). 
+>
+> The Get Task Counts operation is not available in Batch service versions earlier than 2017-06-01.5.1. If you are using an older version of the service, then use a list query to count tasks in a job instead.
+>
+> 
 
 ## Meet the DetailLevel
 In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. When you request information on these resources, a potentially large amount of data must "cross the wire" from the Batch service to your application on each query. By limiting the number of items and type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
@@ -286,3 +295,5 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
+
+[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job

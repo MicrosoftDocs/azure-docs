@@ -1,5 +1,5 @@
 ---
-title: Develop LOB apps for Azure AD | Microsoft Docs'
+title: Develop apps for Azure AD | Microsoft Docs'
 description: Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/07/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Azure AD and applications: Develop line-of-business apps
+# Develop line-of-business apps for Azure Active Directory
 This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.
 
 ## Overview

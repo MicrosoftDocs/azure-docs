@@ -2,7 +2,7 @@
 title: Azure Logic Apps Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to develop logic apps that automate and simplify business workflows across on-premises and the cloud. Tutorials, templates, and API references.
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:	
@@ -38,7 +38,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -48,7 +48,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>Logic Apps Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -123,6 +123,19 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp">PowerShell</a></p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Schemas</h3>
+                        <p><a href="/azure/logic-apps/logic-apps-workflow-definition-language">Workflow definition language</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-workflow-actions-triggers">Workflow actions and triggers</a></p>
+                   </div>
                 </div>
             </div>
         </div>

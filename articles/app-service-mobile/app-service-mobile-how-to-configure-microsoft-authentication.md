@@ -4,7 +4,7 @@ description: Learn how to configure Microsoft Account authentication for your Ap
 author: mattchenderson
 services: app-service
 documentationcenter: ''
-manager: erikre
+manager: syntaxc4
 editor: ''
 
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
@@ -33,11 +33,11 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
    > [!NOTE]
    > Your redirect URI is the URL of your application appended with the path, */.auth/login/microsoftaccount/callback*. For example, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
    > Make sure that you are using the HTTPS scheme.
-   > 
-   > 
+   
 7. Under "Application Secrets," click **Generate New Password**. Make note of the value that appears. Once you leave the page, it will not be displayed again.
 
-    > [AZURE.IMPORTANT] The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
+    > [!IMPORTANT]
+    > The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
 1. Back in the [Azure portal], navigate to your application, click **Settings** > **Authentication / Authorization**.

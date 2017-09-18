@@ -2,8 +2,8 @@
 title: Enable offline sync for your Azure Mobile App (Xamarin Android)
 description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin Android application
 documentationcenter: xamarin
-author: adrianhall
-manager: dwrede
+author: ggailey777
+manager: syntaxc4
 editor: ''
 services: app-service\mobile
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # Enable offline sync for your Xamarin.Android mobile app
@@ -47,9 +47,9 @@ exception handler tells you that the app is in offline mode. In this state, new 
 the mobile app backend when a push is executed in a connected state.
 
 1. Edit ToDoActivity.cs in the shared project. Change the **applicationURL** to point to an invalid URL:
-   
+
          const string applicationURL = @"https://your-service.azurewebsites.fail";
-   
+
     You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or using airplane mode.
 2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
 3. Enter new items and notice that push fails with a [CancelledByNetworkError] status each time you click **Save**. However, the new
@@ -72,7 +72,7 @@ In this section, reconnect the app to the mobile app backend. When you first run
 3. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler. Notice the data has been synchronized
    between the Azure Mobile App backend database and the local store.
 4. In the app, click the check box beside a few items to complete them in the local store.
-   
+
    `CheckItem` calls `SyncAsync` to sync each completed item with the Mobile App backend. `SyncAsync` calls both push and pull. **Whenever you
    execute a pull against a table that the client has made changes to, a push is always executed automatically**. This ensures all tables in the
    local store along with relationships remain consistent. This behavior may result in an unexpected push. For more information on this behavior,
@@ -85,25 +85,25 @@ supporting offline synchronization using a local SQLite database. Here is a brie
 * Before any table operations can be performed, the local store must be initialized. The local store database is initialized
    when `ToDoActivity.OnCreate()` executes `ToDoActivity.InitLocalStoreAsync()`. This method creates a local SQLite database using
    the `MobileServiceSQLiteStore` class provided by the Azure Mobile Apps client SDK.
-  
+
     The `DefineTable` method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this case. The type
     doesn't have to include all the columns that are in the remote database. It is possible to store just a subset of columns.
-  
+
         // ToDoActivity.cs
         private async Task InitLocalStoreAsync()
         {
             // new code to initialize the SQLite store
             string path = Path.Combine(System.Environment
                 .GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
-  
+
             if (!File.Exists(path))
             {
                 File.Create(path).Dispose();
             }
-  
+
             var store = new MobileServiceSQLiteStore(path);
             store.DefineTable<ToDoItem>();
-  
+
             // Uses the default conflict handler, which fails on conflict
             // To use a different conflict handler, pass a parameter to InitializeAsync.
             // For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
@@ -111,16 +111,16 @@ supporting offline synchronization using a local SQLite database. Here is a brie
         }
 * The `toDoTable` member of `ToDoActivity` is of the `IMobileServiceSyncTable` type instead of `IMobileServiceTable`. The IMobileServiceSyncTable
   directs all create, read, update, and delete (CRUD) table operations to the local store database.
-  
+
     You decide when changes are pushed to the Azure Mobile App backend by calling `IMobileServiceSyncContext.PushAsync()`. The sync context helps
     preserve table relationships by tracking and pushing changes in all tables a client app has modified when `PushAsync` is called.
-  
+
     The provided code calls `ToDoActivity.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The code
     syncs after every local change.
-  
+
     In the provided code, all records in the remote `TodoItem` table are queried, but it is also possible to filter records by passing a query
     id and query to `PushAsync`. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
-  
+
         // ToDoActivity.cs
         private async Task SyncAsync()
         {

@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2017
+ms.date: 08/10/2017
 ms.author: ryanwi, mikhegn
 
 ---
@@ -43,8 +43,8 @@ The following operating system versions are supported for development:
 > 
 
 ## Install the SDK and tools
-### To use Visual Studio 2017 RC
-Service Fabric Tools are part of the Azure Development and Management workload in Visual Studio 2017 RC. Enable this workload as part of your Visual Studio installation.
+### To use Visual Studio 2017
+Service Fabric Tools are part of the Azure Development and Management workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
 In addition, you need to install the Microsoft Azure Service Fabric SDK, using Web Platform Installer.
 
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
@@ -52,23 +52,18 @@ In addition, you need to install the Microsoft Azure Service Fabric SDK, using W
 ### To use Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later)
 For Visual Studio 2015, Service Fabric tools are installed together with the SDK, using the Web Platform Installer:
 
-* [Install the Microsoft Azure Service Fabric SDK and Tools)][full-bundle-vs2015]
+* [Install the Microsoft Azure Service Fabric SDK and Tools][full-bundle-vs2015]
 
 ### SDK installation only
 If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
-> [!WARNING]
-> Customers have reported errors during installation when using these launch links, or when these links were used in Chrome browser. These errors are known issues in Web Platform Installer which are being addressed.  Try the following workarounds:
->- Launch the preceding links in Internet Explorer or Edge browsers, or
->- Launch Web Platform Installer from the Start menu, search for "Service Fabric", and install the SDK
-> 
-> We apologize for the inconvenience. 
-
 The current versions are:
-* Service Fabric SDK 2.4.164
-* Service Fabric runtime 5.4.164
-* Visual Studio 2015 tools 1.4.50124
+* Service Fabric SDK 2.7.198
+* Service Fabric runtime 5.7.198
+* Service Fabric Tools for Visual Studio 2015 1.7.50721
+* Visual Studio 2017 Update 3 includes Service Fabric Tools for Visual Studio 1.7.20170817
+* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 

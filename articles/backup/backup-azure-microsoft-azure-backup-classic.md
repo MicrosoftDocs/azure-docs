@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/02/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 
 ---
@@ -49,31 +49,21 @@ The first step towards getting the Azure Backup Server up and running is to have
 >
 >
 
-If you plan to join this server to a domain at some point, it is recommended that the domain-joining activity be done before the Azure Backup Server installation. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
+If you plan to join Azure Backup Server to a domain, it is recommended that you join the physical server or virtual machine to the domain before installing the Azure Backup Server software. Moving an Azure Backup Server to a new domain, after deployment, is *not supported*.
 
 ## 2. Backup vault
 ![step2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Whether you send backup data to Azure or keep it locally, the software needs to be connected to Azure. To be more specific, the Azure Backup Server machine needs to be registered with a backup vault.
+Whether you send backup data to Azure or keep it locally, the Azure Backup Server must be registered to a vault. If you are a new Azure Backup user, and want to use Azure Backup Server, see the Azure portal version of this article - [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-To create a backup vault:
+> [!IMPORTANT]
+> Starting March 2017, you can no longer use the classic portal to create Backup vaults.
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+>- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
-1. Sign in to the [Management Portal](http://manage.windowsazure.com/).
-2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create**. If you have multiple subscriptions associated with your organizational account, choose the correct subscription to associate with the backup vault.
-3. In **Name**, enter a friendly name to identify the vault. This needs to be unique for each subscription.
-4. In **Region**, select the geographic region for the vault. Typically, the vault's region is picked based on data sovereignty or network latency constraints.
 
-    ![Create backup vault](./media/backup-azure-microsoft-azure-backup/backup_vaultcreate.png)
-5. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
-
-    ![Create vault toast notification](./media/backup-azure-microsoft-azure-backup/creating-vault.png)
-6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active.
-    ![List of backup vaults](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
-
-   > [!IMPORTANT]
-   > Make sure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) options in this [overview](../storage/storage-redundancy.md).
-   >
-   >
 
 ## 3. Software package
 ![step3](./media/backup-azure-microsoft-azure-backup/step3.png)
@@ -121,6 +111,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
    > Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local.
    >
    >
+
 4. Provide a location for the installation of Microsoft Azure Backup server files and click **Next**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)

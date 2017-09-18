@@ -3,7 +3,7 @@ title: Understand the OpenID Connect authentication code flow in Azure AD | Micr
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: priyamo
+ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Authorize access to web applications using OpenID Connect and Azure Active Directory
@@ -165,9 +166,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | post_logout_redirect_uri |recommended |The URL that the user should be redirected to after successful logout.  If not included, the user is shown a generic message. |
 
 ## Single sign-out
-Azure AD uses cookies to identify a user's session. Your web application might also set cookies to manage sessions within your application. When a user first signs in to an application, Azure AD sets a cookie in the user's browser. When the user signs in to another application later, Azure AD first checks the cookie to determine whether the user has a valid sign-on session with the Azure AD endpoint, instead of re-authenticating the user.
-
-Similarly, when the user first signs out of an application, Azure AD clears the cookie from the browser. However, the user may still be signed in to other applications that use Azure AD for authentication. To ensure that the user gets signed out of all applications, Azure AD sends an HTTP GET request to the `LogoutUrl` of all the applications that the user is currently signed in to. The applications must respond to this request by clearing any cookies that identify the user's session. You can set the `LogoutUrl` from the Azure portal.
+When you redirect the user to the `end_session_endpoint`, Azure AD clears the user's session from the browser. However, the user may still be signed in to other applications that use Azure AD for authentication. To enable those applications to sign the user out simultaneously, Azure AD sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to. Applications must respond to this request by clearing any session that identifies the user and returning a `200` response.  If you wish to support single sign out in your application, you must implement such a `LogoutUrl` in your application's code.  You can set the `LogoutUrl` from the Azure portal:
 
 1. Navigate to the [Azure Portal](https://portal.azure.com).
 2. Choose your Active Directory by clicking on your account in the top right corner of the page.

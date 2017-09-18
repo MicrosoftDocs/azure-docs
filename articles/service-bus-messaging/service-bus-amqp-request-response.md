@@ -1,5 +1,5 @@
 ---
-title: AMQP 1.0 in Service Bus request-response-based operations | Microsoft Docs
+title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microsoft Docs
 description: List of Microsoft Azure Service Bus request/response-based operations.
 services: service-bus-messaging
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 06/27/2017
 ms.author: sethm
 
 ---
@@ -32,7 +32,7 @@ An entity description refers to either a Service Bus [QueueDescription Class](/d
   
 ### Brokered message  
 
-Represents a message in Service Bus which is mapped to an AMQP message. The mapping is defined in the [Service Bus AMQP protocol guide](service-bus-amqp-protocol-guide.md) article.  
+Represents a message in Service Bus, which is mapped to an AMQP message. The mapping is defined in the [Service Bus AMQP protocol guide](service-bus-amqp-protocol-guide.md).  
   
 ## Attach to entity management node  
 
@@ -89,7 +89,7 @@ Receives the response message from the response link.
 responseMessage = responseLink.receiveTransfer()  
 ```  
   
-The response message will be of the following form.  
+The response message is in the following form:
   
 ```  
 Message(  
@@ -122,14 +122,14 @@ Extends the lock of a message by the time specified in the entity description.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
- The request message body must consist of an amqp-value section containing a map with the following entries.  
+ The request message body must consist of an amqp-value section containing a map with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -137,14 +137,14 @@ The request message must include the following application properties.
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed.|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an amqp-value section containing a map with the following entries.  
+The response message body must consist of an amqp-value section containing a map with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -156,14 +156,14 @@ Peeks messages without locking.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -172,20 +172,20 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 0xcc: No content – no more messages|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The response message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |messages|list of maps|Yes|List of messages in which every map represents a message.|  
   
-The map representing a message must contain the following entries.  
+The map representing a message must contain the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -197,20 +197,20 @@ Schedules messages.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |messages|list of maps|Yes|List of messages in which every map represents a message.|  
   
-The map representing a message must contain the following entries.  
+The map representing a message must contain the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -221,14 +221,14 @@ The map representing a message must contain the following entries.
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed.|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an **amqp-value** section containing a map with the following entries.  
+The response message body must consist of an **amqp-value** section containing a map with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -240,14 +240,14 @@ Cancels scheduled messages.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -255,14 +255,14 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed.|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an **amqp-value** section containing a map with the following entries.  
+The response message body must consist of an **amqp-value** section containing a map with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -276,14 +276,14 @@ Extends the lock of a message by the time specified in the entity description.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -291,14 +291,14 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 0xcc: No content – no more messages|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an **amqp-value** section containing a map with the following entries.  
+The response message body must consist of an **amqp-value** section containing a map with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -310,14 +310,14 @@ Peeks session messages without locking.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -327,20 +327,20 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 0xcc: No content – no more messages|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an **amqp-value** section containing a map with the following entries.  
+The response message body must consist of an **amqp-value** section containing a map with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |messages|list of maps|Yes|List of messages in which every map represents a message.|  
   
- The map representing a message must contain the following entries.  
+ The map representing a message must contain the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -352,14 +352,14 @@ Sets the state of a session.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -368,7 +368,7 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -381,14 +381,14 @@ Gets the state of a session.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -396,14 +396,14 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The response message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -415,14 +415,14 @@ Enumerates sessions on a messaging entity.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -432,14 +432,14 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – has more messages<br /><br /> 0xcc: No content – no more messages|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The response message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -452,21 +452,21 @@ The response message body must consist of an **amqp-value** section containing a
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |rule-name|string|Yes|Rule name, not including subscription and topic names.|  
 |rule-description|map|Yes|Rule description as specified in next section.|  
   
-The **rule-description** map must include the following entries, where **sql-filter** and **correlation-filter** are mutually exclusive.  
+The **rule-description** map must include the following entries, where **sql-filter** and **correlation-filter** are mutually exclusive:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -474,13 +474,13 @@ The **rule-description** map must include the following entries, where **sql-fil
 |correlation-filter|map|Yes|`correlation-filter`, as specified in the next section.|  
 |sql-rule-action|map|Yes|`sql-rule-action`, as specified in the next section.|  
   
-The sql-filter map must include the following entries.  
+The sql-filter map must include the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |expression|string|Yes|Sql filter expression.|  
   
-The **correlation-filter** map must include at least one of the following entries.  
+The **correlation-filter** map must include at least one of the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -492,9 +492,9 @@ The **correlation-filter** map must include at least one of the following entrie
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx).|  
+|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
   
-The **sql-rule-action** map must include the following entries.  
+The **sql-rule-action** map must include the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -502,7 +502,7 @@ The **sql-rule-action** map must include the following entries.
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -513,14 +513,14 @@ The response message must include the following application properties.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -528,7 +528,7 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -543,36 +543,36 @@ Receives deferred messages by sequence number.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |sequence-numbers|array of long|Yes|Sequence numbers.|  
-|receiver-settle-mode|ubyte|Yes|Receiver settle mode as specified in AMQP core v1.0.|  
+|receiver-settle-mode|ubyte|Yes|**Receiver settle** mode as specified in AMQP core v1.0.|  
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed|  
 |statusDescription|string|No|Description of the status.|  
   
-The response message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The response message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |messages|list of maps|Yes|List of messages where every map represents a message.|  
   
-The map representing a message must contain the following entries.  
+The map representing a message must contain the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -585,14 +585,14 @@ Updates the disposition status of deferred messages.
   
 #### Request  
 
-The request message must include the following application properties.  
+The request message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
   
-The request message body must consist of an **amqp-value** section containing a **map** with the following entries.  
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -604,7 +604,7 @@ The request message body must consist of an **amqp-value** section containing a 
   
 #### Response  
 
-The response message must include the following application properties.  
+The response message must include the following application properties:  
   
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
@@ -612,7 +612,8 @@ The response message must include the following application properties.
 |statusDescription|string|No|Description of the status.|
 
 ## Next steps
-to learn more about AMQP and Service bus, visit the following links:
+
+To learn more about AMQP and Service Bus, visit the following links:
 
 * [Service Bus AMQP overview]
 * [AMQP 1.0 support for Service Bus partitioned queues and topics]

@@ -14,8 +14,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Deploy and manage Apache Storm topologies on Windows-based HDInsight
@@ -25,7 +26,7 @@ The Storm Dashboard allows you to easily deploy and run Apache Storm topologies 
 The Storm Dashboard and the Storm features in the HDInsight Tools rely on the Storm REST API, which can be used to create your own monitoring and management solutions.
 
 > [!IMPORTANT]
-> The steps in this document require a Storm on HDInsight cluster that uses Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require a Storm on HDInsight cluster that uses Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > For information on deploying and managing Storm topologies with an HDInsight cluster that uses Linux, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
@@ -39,10 +40,13 @@ The Storm Dashboard and the Storm features in the HDInsight Tools rely on the St
 
     One of the following versions of Visual Studio:
 
-  * Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 with Update 4
 
-  * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * Visual Studio 2013 with Update 4 or Visual Studio 2013 Community
+
+  * Visual Studio 2015 (any edition)
+
+  * Visual Studio 2017 (any edition)
 
 ## Storm Dashboard
 

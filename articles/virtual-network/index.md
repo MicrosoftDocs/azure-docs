@@ -2,7 +2,7 @@
 title: Azure Virtual Network Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use a virtual network in the cloud. Documentation shows how to deploy a VNet, use it to launch resources, and integrate with an on-premises network.
 services: virtual-network
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -19,7 +19,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-overview">
+        <a href="/azure/virtual-network/virtual-networks-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -55,7 +55,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-pportal">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-pportal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,7 +73,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-ps">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-ps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -91,7 +91,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-cli">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -120,9 +120,9 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource manager)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (Classic)</a></p>
-                        <p><a href="/cli/azure">Azure CLI</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell (Resource manager)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell (Classic)</a></p>
+                        <p><a href="/cli/azure/network">Azure CLI</a></p>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ tags: ''
 
 ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -29,7 +29,7 @@ When firewall rules have been configured, people can connect to a SQL Database a
 >
 
 > [!TIP]
-> For a tutorial using SQL Server authentication, see [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md). For a tutorial using Azure Active Directory authentication, see [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md).
+> For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
 >
 
 
@@ -53,10 +53,8 @@ The **Server admin** and **Azure AD admin** accounts has the following character
 - These accounts can add and remove members to the `dbmanager` and `loginmanager` roles.
 - These accounts can view the `sys.sql_logins` system table.
 
-
-
 ### Configuring the firewall
-When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-configure-firewall-settings.md), using [PowerShell](sql-database-configure-firewall-settings-powershell.md) or using the [REST API](sql-database-configure-firewall-settings-rest.md). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
+When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-get-started-portal.md), using [PowerShell](sql-database-get-started-powershell.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### Administrator access path
 When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
@@ -66,7 +64,7 @@ When the server-level firewall is properly configured, the **SQL server admin** 
 When using an open port in the server-level firewall, administrators can connect to any SQL Database.
 
 ### Connecting to a database by using SQL Server Management Studio
-For a walk-through of creating a server, a database, server-level firewall rules, and using SQL Server Management Studio to query a database, see [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md).
+For a walk-through of creating a server, a database, server-level firewall rules, and using SQL Server Management Studio to query a database, see [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started-portal.md).
 
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -188,8 +186,6 @@ When managing logins and users in SQL Database, consider the following:
 
 - To learn more about firewall rules, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
 - For an overview of all the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).
-- For a tutorial, see [Get started with SQL security](sql-database-control-access-sql-authentication-get-started.md)
+- For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
 - For information about views and stored procedures, see [Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
 - For information about granting access to a database object, see [Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
-- For a tutorial using SQL Server authentication, see [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md).
-- For a tutorial using Azure Active Directory authentication, see [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md).

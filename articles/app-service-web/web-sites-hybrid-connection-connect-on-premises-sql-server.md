@@ -4,7 +4,7 @@ description: Create a web app on Microsoft Azure and connect it to an on-premise
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: 2b4e0539-1a0b-4aa1-8a69-b4b053c3b2e5
@@ -273,7 +273,7 @@ You have now created and deployed an ASP.NET web application that uses a hybrid 
 
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md)
+<!-- [Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md) -->
 
 [ASP.NET Identity Overview](http://www.asp.net/identity)
 

@@ -1,6 +1,6 @@
 ---
-title: Create a new group in Azure Active Directory preview | Microsoft Docs
-description: How to create a group in Azure Active Directory and add users (members) to the group
+title: Create a group for users in Azure Active Directory | Microsoft Docs
+description: How to create a group in Azure Active Directory and add members to the group
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 08/04/2017
 ms.author: curtand
 
+ms.custom: H1Hack27Feb2017                          
+
 ---
-# Create a new group in Azure Active Directory preview
+# Create a group and add members in Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
 > * [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
@@ -25,7 +27,7 @@ ms.author: curtand
 >
 >
 
-This article explains how to create and populate a new group in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
+This article explains how to create and populate a new group in Azure Active Directory. Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
 
 ## How do I create a group?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
@@ -46,6 +48,7 @@ This article explains how to create and populate a new group in the Azure Active
 8. When you finish adding members to the group, select **Create** on the **Group** blade.    
 
    ![Create group confirmation](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+
 
 ## Next steps
 These articles provide additional information on Azure Active Directory.

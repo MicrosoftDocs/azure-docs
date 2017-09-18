@@ -1,18 +1,20 @@
 ---
-title: Migrate from Windows-based HDInsight to Linux-based HDInsight -Azure | Microsoft Docs
-description: Learn how to migrate from a Windows-based HDInsight cluster to a Linux-based HDInsight cluster.
+title: Upgrade HDInsight cluster to a newer version -Azure | Microsoft Docs
+description: Learn how to Upgrade HDInsight cluster to a newer version.
 services: hdinsight
 documentationcenter: ''
 author: bhanupr
+manager: asadk
 editor: bhanupr
 
-ms.assetid: 
+ms.assetid: 60eb573c-e639-4815-9fc6-ea8b106d8dbc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/11/2017
+ms.date: 04/04/2017
 ms.author: bhanupr
 
 ---
@@ -21,7 +23,7 @@ To take advantage of the latest HDInsight features, we recommend that HDInsight 
 Follow the below guidelines to upgrade your HDInsight cluster versions.
 
 > [!NOTE]
-> HDInsight clusters version 3.2 and 3.3 are nearing deprecation date. For information on supported version of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+> HDInsight clusters version 3.2 and 3.3 are nearing retirement date. For information on supported version of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
 
@@ -48,7 +50,6 @@ actions:
 
 ## Next Steps
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
-* [Connect to a Linux-based cluster using SSH from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Connect to a Linux-based cluster using SSH from a Linux, Unix, or Mac client](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Connect to HDInsight using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
 

@@ -3,7 +3,7 @@ title: Manage compute power in Azure SQL Data Warehouse (PowerShell) | Microsoft
 description: PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: elbutter;barbkess
 
 ---
 # Manage compute power in Azure SQL Data Warehouse (PowerShell)
@@ -24,14 +25,14 @@ ms.author: barbkess
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
+>
+>
 
 ## Before you begin
 ### Install the latest version of Azure PowerShell
 > [!NOTE]
 > To use Azure PowerShell with SQL Data Warehouse, you need Azure PowerShell version 1.0.3 or greater.  To verify your current version run the command **Get-Module -ListAvailable -Name Azure**. You can install the latest version from [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
-> 
+>
 > 
 
 ### Get started with Azure PowerShell cmdlets
@@ -39,7 +40,7 @@ To get started:
 
 1. Open Azure PowerShell.
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
-   
+
     ```PowerShell
     Login-AzureRmAccount
     Get-AzureRmSubscription
@@ -67,7 +68,7 @@ To pause a database, use the [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlData
 
 > [!NOTE]
 > Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the PowerShell cmdlets.
-> 
+>
 > 
 
 ```Powershell
@@ -104,6 +105,44 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
 
+<a name="check-database-state-bk"></a>
+
+## Check database state
+
+As shown in the above examples, one can use [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] cmdlet to get information on a database, thereby checking the status, but also to use as an argument. 
+
+```powershell
+Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-DatabaseName] <String>]
+ [-InformationAction <ActionPreference>] [-InformationVariable <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
+```
+
+Which will result in something like 
+
+```powershell	
+ResourceGroupName             : nytrg
+ServerName                    : nytsvr
+DatabaseName                  : nytdb
+Location                      : West US
+DatabaseId                    : 86461aae-8e3d-4ded-9389-ac9d4bc69bbb
+Edition                       : DataWarehouse
+CollationName                 : SQL_Latin1General_CP1CI_AS
+CatalogCollation              :
+MaxSizeBytes                  : 32212254720
+Status                        : Online
+CreationDate                  : 10/26/2016 4:33:14 PM
+CurrentServiceObjectiveId     : 620323bf-2879-4807-b30d-c2e6d7b3b3aa
+CurrentServiceObjectiveName   : System2
+RequestedServiceObjectiveId   : 620323bf-2879-4807-b30d-c2e6d7b3b3aa
+RequestedServiceObjectiveName :
+ElasticPoolName               :
+EarliestRestoreDate           : 1/1/0001 12:00:00 AM
+```
+
+Where you can then check to see the *Status* of the database. In this case, you can see that this database is online. 
+
+When you run this command, you should receive a Status value of either Online, Pausing, Resuming, Scaling, and Paused.
+
 <a name="next-steps-bk"></a>
 
 ## Next steps
@@ -121,6 +160,7 @@ For other management tasks, see [Management overview][Management overview].
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
+[Get-AzureRmSqlDatabase]: /powershell/servicemanagement/azure.sqldatabase/v1.6.1/get-azuresqldatabase
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

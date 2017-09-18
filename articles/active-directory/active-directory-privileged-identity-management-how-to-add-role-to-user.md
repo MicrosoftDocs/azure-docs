@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 06/06/2017
 ms.author: billmath
+ms.custom: pim;oldportal;it-pro;
 
 ---
 # Azure AD Privileged Identity Management: How to add or remove a user role

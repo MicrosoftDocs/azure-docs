@@ -20,19 +20,19 @@ ms.author: mlearned
 # Deploy an ASP.NET container to a remote Docker host
 ## Overview
 Docker is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services.
-This tutorial walks you through using the [Visual Studio 2015 Tools for Docker](http://aka.ms/DockerToolsForVS) extension
+This tutorial walks you through using the [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) extension
 to deploy an ASP.NET Core app to a Docker host on Azure using PowerShell.
 
 ## Prerequisites
-The following is needed to complete this tutorial:
+The following is required to complete this tutorial:
 
-* Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Install [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
-* [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
-* Install [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)
+* Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Install the latest version of [Visual Studio](https://www.visualstudio.com/downloads/)
+* Download the [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
+* Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## 1. Create an ASP.NET Core web app
-The following steps will guide you through creating a basic ASP.NET Core app that will be used in this tutorial.
+The following steps guide you through creating a basic ASP.NET Core app that will be used in this tutorial.
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
@@ -53,19 +53,12 @@ The following steps will guide you through creating a basic ASP.NET Core app tha
    MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
    ```
    
-   > [!NOTE]
-   > If you're using the Docker Beta, your host won't be listed here.
-   > 
-   > 
 3. Build the app using the -Build parameter
    
    ```
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
    ```  
-   
-   > [!NOTE]
-   > If you're using the Docker Beta, omit the -Machine argument
-   > 
+
    > ```
    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
    > ```  
@@ -77,9 +70,6 @@ The following steps will guide you through creating a basic ASP.NET Core app tha
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
    ```
    
-   > [!NOTE]
-   > If you're using the Docker Beta, omit the -Machine argument
-   > 
    > ```
    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
    > ```

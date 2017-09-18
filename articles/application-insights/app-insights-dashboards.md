@@ -1,10 +1,10 @@
----
-title: Dashboards and navigation in the Application Insights portal | Microsoft Docs
+﻿---
+title: Dashboards and navigation in the Azure Application Insights | Microsoft Docs
 description: Create views of your key APM charts and queries.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: bwren
 
 ---
 # Navigation and Dashboards in the Application Insights portal
@@ -52,8 +52,16 @@ When you're looking at a blade or set of charts that's particularly interesting,
 
 Notice that charts are grouped into tiles: a tile can contain more than one chart. You pin the whole tile to the dashboard.
 
+The chart is automatically refreshed with a frequency that depends on the chart's time range:
+
+* Time range up to 1 hour: Refresh every 5 minutes
+* Time range 1 - 24 hours: Refresh every 15 minutes
+* Time range above 24 hours: (Time range)/60.
+
 ### Pin any query in Analytics
-You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. (There is a charge for this feature.)
+You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
+
+Results are automatically recalculated every hour. Click the Refresh icon on the chart to recalculate immediately. (Browser refresh doesn't recalculate.)
 
 ## Adjust a tile on the dashboard
 Once a tile is on the dashboard, you can adjust it.
@@ -141,11 +149,13 @@ SETTINGS
 * [**Locks**](../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
 * [**Automation script**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
-SUPPORT
 
-* **Support request** - requires a paid subscription. See also [Getting help](app-insights-get-dev-support.md).
+## Video
 
-## What's next?
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## Next steps
+
 |  |  |
 | --- | --- |
 | [Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |

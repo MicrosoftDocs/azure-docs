@@ -14,36 +14,36 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
 
 ---
 
 # Delegate invitations for Azure Active Directory B2B collaboration
 
-With Azure Active Directory (Azure AD) B2B collaboration public preview refresh, you do not have to be a global admin in order to invite users. You can control who can invite through policies and delegate invitations to users in the allowed roles to invite. An important new way to delegate guest user invitations is through the Guest Inviter role.
+With Azure Active Directory (Azure AD) business-to-business (B2B) collaboration, you do not have to be a global admin to send invitations. Instead, you can use policies and delegate invitations to users whose roles allow them to send invitations. An important new way to delegate guest user invitations is through the Guest Inviter role.
 
-## Guest Inviter Role
-We can assign the user to Guest Inviter role to send invitations. You don't have to be member of global admin to send invitations. By default, regular users can also invoke invite API unless invitations are disabled for regular users by global admin. You can do this through the Azure portal and also through PowerShell.
+## Guest Inviter role
+We can assign the user to Guest Inviter role to send invitations. You don't have to be member of the global admin role to send invitations. By default, regular users can also invoke the invite API unless a global admin disabled invitations for regular users. A user can also invoke the API using the Azure portal or PowerShell.
 
-Here's an example showing the addition of a user to the Guest Inviter role through PowerShell:
+Here's an example that shows how to use PowerShell to add a user to the Guest Inviter role:
 
 ```
-Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress >
+Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
 ```
 
-## Controlling who can invite
+## Control who can invite
 
-![control how to invite](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
+![Control how to invite](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
 
-With Azure AD B2B collaboration, we allowing the tenant admin to set the following invitation policies:
+With Azure AD B2B collaboration, a tenant admin can set the following invitation policies:
 
-1. Turn invitations off
-2. Only admins and users in Guest Inviter role can invite
-3. Admins, Guest Inviter role, and Members can invite
-4. All users, including guests, can invite
+- Turn off invitations
+- Only admins and users in the Guest Inviter role can invite
+- Admins, the Guest Inviter role, and members can invite
+- All users, including guests, can invite
 
-By defaults, tenants are set to #4 (all users, including guests can invite B2B users).
+By default, tenants are set to #4. (All users, including guests, can invite B2B users.)
 
 ## Next steps
 

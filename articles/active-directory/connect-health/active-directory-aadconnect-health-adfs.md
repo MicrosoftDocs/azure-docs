@@ -4,20 +4,19 @@ description: This is the Azure AD Connect Health page how to monitor your on-pre
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: samueld
+manager: femila
 editor: curtand
-
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/15/2017
-ms.author: vakarand
-
+ms.date: 07/18/2017
+ms.author: billmath
+ms.custom: H1Hack27Feb2017
 ---
-# Using Azure AD Connect Health with AD FS
+# Monitor AD FS using Azure AD Connect Health
 The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 
 ## Alerts for AD FS

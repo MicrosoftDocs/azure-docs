@@ -9,21 +9,20 @@ editor: ''
 
 ms.assetid: eb480459-04d0-4c57-96c6-9b0829e96d65
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 06/14/2017
 ms.author: raynew
 
 ---
 # Replicate Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery by using SAN
 
 
-Use this article if you want to deploy [Azure Site Recovery](site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site.
+Use this article if you want to deploy [Azure Site Recovery](site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site, using Azure Site Recovery in the classic portal. This scenario isn't available in the new Azure portal.
 
 
-This article includes a scenario overview, instructions for configuring SAN storage in VMM, and guidance for setting up replication in the Site Recovery portal. It finishes by testing failover to make sure everything's working as expected.
 
 Post any comments at the end of this article. Get answers to technical questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -187,7 +186,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
    * If you want to use a custom proxy, set it up before you install the Provider. When you configure custom proxy settings, a test runs to check the proxy connection.
    * If you do use a custom proxy, or if your default proxy requires authentication, you should enter the proxy details, including the address and port.
-   * These [URLs](site-recovery-best-practices.md#url-access) should be accessible from the VMM server.
+   * The required URLs should be accessible from the VMM server.
    * If you use a custom proxy, a VMM Run As account (DRAProxyAccount) is created automatically by using the specified proxy credentials. Configure the proxy server so that this account can authenticate. You can modify the Run As account settings in the VMM console (**Settings** > **Security** > **Run As Accounts** > **DRAProxyAccount**). You must restart the VMM service for the change to take effect.
 10. In **Registration Key**, select the key that you downloaded from the portal and copied to the VMM server.
 11. In **Vault name**, verify the name of the vault in which the server will be registered.
@@ -318,7 +317,7 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
     ![Select virtual machines](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. After the recovery plan is created, it appears in the list on the **Recovery Plans** tab. Select the plan and choose **Test Failover**.
-5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](site-recovery-failover.md#run-a-test-failover).
+5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](site-recovery-failover.md).
 
     ![Select test network](./media/site-recovery-vmm-san/test-fail1.png)
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
 
 ---
@@ -81,7 +81,7 @@ Outbound join has a special behavior when it tries to provision an object to a t
 The join module is only evaluated once when a new sync rule comes into scope. When an object has joined, it is not disjoining even if the join criteria is no longer satisfied. If you want to disjoin an object, the sync rule that joined the objects must go out of scope.
 
 ### Metaverse delete
-A metaverse object remains as long as there is one inbound sync rule in scope with **Link Type** set to **Provision** or **StickyJoin**. A StickyJoin is used when a Connector is not allowed to provision a new object to the metaverse, but when it has joined, it must be deleted in the source before the metaverse object is deleted.
+A metaverse object remains as long as there is one sync rule in scope with **Link Type** set to **Provision** or **StickyJoin**. A StickyJoin is used when a Connector is not allowed to provision a new object to the metaverse, but when it has joined, it must be deleted in the source before the metaverse object is deleted.
 
 When a metaverse object is deleted, all objects associated with an outbound sync rule marked for **provision** are marked for a delete.
 

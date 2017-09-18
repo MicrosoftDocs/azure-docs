@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
+
+ms.custom: H1Hack27Feb2017 
 
 ---
-# X12 tracking schemas
+# Start or enable tracking of X12 messages to monitor success, errors, and message properties
 You can use these X12 tracking schemas in your Azure integration account to help you monitor business-to-business (B2B) transactions:
 
 * X12 transaction set tracking schema

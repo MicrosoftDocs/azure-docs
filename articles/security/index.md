@@ -2,7 +2,7 @@
 title: Azure Security Documentation - Tutorials | Microsoft Docs
 description: Learn how to customize security options in Azure services to meet the requirements of your deployments of services and data in the cloud.
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -19,7 +19,7 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/security/azure-security-services-technologies">
+        <a href="/azure/security/azure-security">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

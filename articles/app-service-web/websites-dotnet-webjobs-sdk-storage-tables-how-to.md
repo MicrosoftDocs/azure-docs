@@ -3,8 +3,8 @@ title: How to use Azure table storage with the WebJobs SDK
 description: Learn how to use Azure table storage with the WebJobs SDK. Create tables, add entities to tables, and read existing tables.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: ggailey777
+manager: erikre
 editor: jimbe
 
 ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # How to use Azure table storage with the WebJobs SDK
@@ -135,7 +135,7 @@ The following code sample uses a `CloudTable` object to add a single entity to t
             tableBinding.Execute(insertOperation);
         }
 
-For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../storage/storage-dotnet-how-to-use-tables.md). 
+For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
 
 ## <a id="queues"></a>Related topics covered by the queues how-to article
 For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 

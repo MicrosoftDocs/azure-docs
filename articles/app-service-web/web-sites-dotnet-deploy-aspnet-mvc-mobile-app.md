@@ -4,7 +4,7 @@ description: A tutorial that teaches you how to deploy a web app to Azure App Se
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 0752c802-8609-4956-a755-686116913645
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2016
-ms.author: cephalin;riande
+ms.author: cephalin
 
 ---
 # Deploy an ASP.NET MVC 5 mobile web app in Azure App Service

@@ -1,6 +1,6 @@
 ---
-title: Create a web app in an App Service Environment
-description: Learn how to create web apps and app service plans in an App Service Environment
+title: Create a web app in an App Service Environment v1
+description: Learn how to create web apps and app service plans in an App Service Environment v1
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -13,16 +13,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 7/11/2017
 ms.author: ccompy
 
 ---
-# Create a web app in an App Service Environment
-## Overview
-This tutorial shows how to create web apps and App Service plans in an [App Service Environment](app-service-app-service-environment-intro.md) (ASE). 
+# Create a web app in an App Service Environment v1
 
 > [!NOTE]
-> If you want to learn how to create a web app but don't need to do it in an App Service Environment, see [Create a .NET web app](web-sites-dotnet-get-started.md) or one of the related tutorials for other languages and frameworks.
+> This article is about the App Service Environment v1.  There is a newer version of the App Service Environment that is easier  to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
+## Overview
+This tutorial shows how to create web apps and App Service plans in an [App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
+
+> [!NOTE]
+> If you want to learn how to create a web app but don't need to do it in an App Service Environment, see [Create a .NET web app](app-service-web-get-started-dotnet.md) or one of the related tutorials for other languages and frameworks.
 > 
 > 
 

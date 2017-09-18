@@ -1,6 +1,6 @@
 ---
-title: Back up a Windows server or client to Azure using the classic deployment model | Microsoft Docs
-description: Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders.
+title: Back up Windows server or workstation to Azure (classic model) | Microsoft Docs
+description: Backup Windows servers or clients to a backup vault in Azure. Go through basics for protecting files and folders to a Backup vault by using the Azure Backup agent.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,75 +14,38 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk;
 
 ---
-# Back up a Windows server or client to Azure using the classic deployment model
+# Back up a Windows server or workstation to Azure using the classic portal
 > [!div class="op_single_selector"]
 > * [Classic portal](backup-configure-vault-classic.md)
 > * [Azure portal](backup-configure-vault.md)
 >
 >
 
-This article covers the procedures that you need to follow to prepare your environment and back up a Windows server (or client) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article quickly walks you through the process.
+This article covers the procedures that you need to follow to prepare your environment and back up a Windows server (or workstation) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article quickly walks you through the process.
 
-![Create vault](./media/backup-configure-vault-classic/initial-backup-process.png)
-
-> [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
->
->
+Azure has two different deployment models for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Before you start
 To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
-## Step 1: Create a backup vault
+## Create a backup vault
 To back up files and folders from a server or client, you need to create a backup vault in the geographic region where you want to store the data.
 
-### To create a backup vault
-1. Sign in to [the classic portal](https://manage.windowsazure.com/).
-2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault**, and then choose **Quick Create**.
-3. For the **Name** parameter, enter a friendly name for the backup vault. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens. This name needs to be unique for each subscription.
-4. For the **Region** parameter, select the geographic region for the backup vault. This choice determines the geographic region where your backup data is sent. By choosing a geographic region that's close to your location, you can reduce network latency when backing up to Azure.
-5. Click **Create Vault**.
+> [!IMPORTANT]
+> Starting March 2017, you can no longer use the classic portal to create Backup vaults.
+>
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **October 15, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/> **Starting November 1, 2017**:
+>- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
-    ![Create a backup vault](./media/backup-configure-vault-classic/demo-vault-name.png)
 
-    It can take a while for the backup vault to be created. To check the status, monitor the notifications at the bottom of the classic portal.
-
-    After the backup vault has been created, you'll see a message saying that the vault has been successfully created. It also appears as **Active** in the **Recovery Services** resource list.
-
-    ![Creating vault status](./media/backup-configure-vault-classic/recovery-services-select-vault.png)
-6. Select the storage redundancy option by following the steps described here.
-
-   > [!IMPORTANT]
-   > The best time to identify your storage redundancy option is right after vault creation and before any machines are registered to the vault. After an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
-   >
-   >
-
-    If you are using Azure as a primary backup storage endpoint (for example, you are backing up to Azure from a Windows server), consider picking (the default) [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
-
-    If you are using Azure as a tertiary backup storage endpoint (for example, you are using System Center Data Protection Manager to store a local backup copy on-premises and using Azure for long-term retention needs), consider choosing [locally redundant storage](../storage/storage-redundancy.md#locally-redundant-storage). This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
-
-    **To select the storage redundancy option:**
-
-    a. Click the vault you just created.
-
-    b. On the Quick Start page, select **Configure**.
-
-    ![Configure vault status](./media/backup-configure-vault-classic/configure-vault.png)
-
-    c. Choose the appropriate storage redundancy option.
-
-    If you select **Locally Redundant**, you need to click **Save** (because **Geo-Redundant** is the default option).
-
-    d. In the left navigation pane, click **Recovery Services** to return to the list of resources for Recovery Services.
-
-## Step 2: Download the vault credential file
+## Download the vault credential file
 The on-premises machine needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved through *vault credentials*. The vault credential file is downloaded through a secure channel from the classic portal. The certificate private key does not persist in the portal or the service.
-
-Learn more about [using vault credentials to authenticate with the Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### To download the vault credential file to a local machine
 1. In the left navigation pane, click **Recovery Services**, and then select the backup vault that you created.
@@ -100,7 +63,7 @@ Learn more about [using vault credentials to authenticate with the Backup servic
    >
    >
 
-## Step 3: Download, install, and register the Backup agent
+## Download, install, and register the Backup agent
 After you create the backup vault and download the vault credential file, an agent must be installed on each of your Windows machines.
 
 ### To download, install, and register the agent
@@ -127,9 +90,10 @@ After you create the backup vault and download the vault credential file, an age
     > If you lose or forget the passphrase, Microsoft cannot help you recover the backup data. You own the encryption passphrase, and Microsoft does not have visibility into the passphrase that you use. Save the file in a secure location because it will be required during a recovery operation.
     >
     >
+
 11. After the encryption key is set, leave the **Launch Microsoft Azure Recovery Services Agent** check box selected, and then click **Close**.
 
-## Step 4: Complete the initial backup
+## Complete the initial backup
 The initial backup includes two key tasks:
 
 * Creating the backup schedule
@@ -158,6 +122,7 @@ After the backup policy completes the initial backup, it creates backup points t
    > For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
    >
    >
+
 8. On the **Select Retention Policy** page, select the **Retention Policy** for the backup copy.
 
     The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.

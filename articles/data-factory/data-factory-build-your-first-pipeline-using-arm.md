@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 
 ---
@@ -30,14 +30,16 @@ ms.author: spelluru
 
 In this article, you use an Azure Resource Manager template to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
 
+The pipeline in this tutorial has one activity: **HDInsight Hive activity**. This activity runs a hive script on an Azure HDInsight cluster that transforms input data to produce output data. The pipeline is scheduled to run once a month between the specified start and end times. 
+
 > [!NOTE]
-> The data pipeline in this tutorial transforms input data to produce output data. It does not copy data from a source data store to a destination data store. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> The data pipeline in this tutorial transforms input data to produce output data. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 
+> The pipeline in this tutorial has only one activity of type: HDInsightHive. A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## Prerequisites
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
-* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article to install latest version of Azure PowerShell on your computer.
+* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer.
 * See [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
 
 ## In this tutorial
@@ -49,7 +51,7 @@ In this article, you use an Azure Resource Manager template to create your first
 | Azure Blob output dataset |Refers to the Azure Storage linked service. The linked service refers to an Azure Storage account and the Azure Blob dataset specifies the container, folder, and file name in the storage that holds the output data. |
 | Data pipeline |The pipeline has one activity of type HDInsightHive, which consumes the input dataset and produces the output dataset. |
 
-A data factory can have one or more pipelines. A pipeline can have one or more activities in it. There are two types of activities: [data movement activities](data-factory-data-movement-activities.md) and [data transformation activities](data-factory-data-transformation-activities.md). In this tutorial, you create a pipeline with one activity (copy activity).
+A data factory can have one or more pipelines. A pipeline can have one or more activities in it. There are two types of activities: [data movement activities](data-factory-data-movement-activities.md) and [data transformation activities](data-factory-data-transformation-activities.md). In this tutorial, you create a pipeline with one activity (Hive activity).
 
 The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
 
@@ -137,11 +139,11 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
             "properties": {
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
-                    "clusterSize": 1,
-                    "version": "3.2",
-                    "timeToLive": "00:05:00",
-                    "osType": "windows",
-                    "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
+				  	"version": "3.5",
+            	  	"clusterSize": 1,
+            	  	"timeToLive": "00:05:00",
+            	  	"osType": "Linux",
+                  	"linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
                   }
             }
           },
@@ -241,8 +243,8 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
                       "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
                 }
                   ],
-                  "start": "2016-10-01T00:00:00Z",
-                  "end": "2016-10-02T00:00:00Z",
+                  "start": "2017-07-01T00:00:00Z",
+                  "end": "2017-07-02T00:00:00Z",
                   "isPaused": false
               }
           }
@@ -415,10 +417,10 @@ See [Compute linked services](data-factory-compute-linked-services.md#azure-hdin
 	"properties": {
   		"type": "HDInsightOnDemand",
   		"typeProperties": {
-    		"clusterSize": 1,
-    		"version": "3.2",
-    		"timeToLive": "00:05:00",
-    		"osType": "windows",
+            "version": "3.5",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
     		"linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
   		}
 	}
@@ -426,7 +428,7 @@ See [Compute linked services](data-factory-compute-linked-services.md#azure-hdin
 ```
 Note the following points: 
 
-* The Data Factory creates a **Windows-based** HDInsight cluster for you with the above JSON. You could also have it create a **Linux-based** HDInsight cluster. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
+* The Data Factory creates a **Linux-based** HDInsight cluster for you with the above JSON. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
 * You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
 * The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
   
@@ -435,7 +437,7 @@ Note the following points:
 See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 
 #### Azure blob input dataset
-You specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties used to define an Azure Blob dataset. 
+You specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties used to define an Azure Blob dataset. 
 
 ```json
 {
@@ -468,7 +470,7 @@ You specify the names of blob container, folder, and file that contains the inpu
 This definition uses the following parameters defined in parameter template: blobContainer, inputBlobFolder, and inputBlobName. 
 
 #### Azure Blob output dataset
-You specify the names of blob container and folder that holds the output data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties used to define an Azure Blob dataset.  
+You specify the names of blob container and folder that holds the output data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties used to define an Azure Blob dataset.  
 
 ```json
 {
@@ -549,8 +551,8 @@ You define a pipeline that transform data by running Hive script on an on-demand
       		"linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
     	}
   		],
-  		"start": "2016-10-01T00:00:00Z",
-  		"end": "2016-10-02T00:00:00Z",
+  		"start": "2017-07-01T00:00:00Z",
+  		"end": "2017-07-02T00:00:00Z",
   		"isPaused": false
 	}
 }

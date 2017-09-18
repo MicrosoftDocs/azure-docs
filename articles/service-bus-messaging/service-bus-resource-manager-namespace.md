@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus namespace using a Resource Manager template | Microsoft Docs
+title: Create Service Bus namespace using an Azure Resource Manager template | Microsoft Docs
 description: Use Azure Resource Manager template to create a Service Bus namespace
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 08/07/2017
 ms.author: sethm;shvija
 
 ---
 
 # Create a Service Bus namespace using an Azure Resource Manager template
 
-This article describes how to use an Azure Resource Manager template that creates a Service Bus namespace of type **Messaging** with a Standard/Basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
+This article describes how to use an Azure Resource Manager template that creates a Service Bus namespace of type **Messaging** with a Standard SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
@@ -39,7 +39,7 @@ For the complete template, see the [Service Bus namespace template][Service Bus 
 > 
 
 ## What will you deploy?
-With this template, you will deploy a Service Bus namespace with a [Basic, Standard, or Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
+With this template, you deploy a Service Bus namespace with a [Standard or Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 To run the deployment automatically, click the following button:
 
@@ -69,7 +69,6 @@ The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/se
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
         "Standard",
         "Premium" 
     ], 
@@ -80,7 +79,7 @@ The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/se
 
 ```
 
-The template defines the values that are permitted for this parameter (Basic, Standard, or Premium) and assigns a default value (Standard) if no value is specified.
+The template defines the values that are permitted for this parameter (Standard or Premium) and assigns a default value (Standard) if no value is specified.
 
 For more information about Service Bus pricing, see [Service Bus pricing and billing][Service Bus pricing and billing].
 
@@ -127,7 +126,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Tem
 ```
 
 ### Azure CLI
-```CLI
+```azurecli
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
@@ -136,12 +135,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## Next steps
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by reading these articles:
 
-* [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
+* [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+[Service Bus pricing and billing]: service-bus-pricing-billing.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

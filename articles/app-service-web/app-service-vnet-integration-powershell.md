@@ -4,7 +4,7 @@ description: Instructions about how to connect to and work with virtual networks
 services: app-service
 documentationcenter: ''
 author: ccompy
-manager: wpickett
+manager: erikre
 editor: cephalin
 
 ms.assetid: a5c76e77-972a-431c-b14b-3611dae1631b
@@ -335,6 +335,12 @@ Copy the following script and save it to a file. If you don’t want to use the 
 
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName -VirtualNetworkGatewayName $vnetGatewayName -ProcessorArchitecture Amd64
+        
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{
@@ -514,6 +520,12 @@ Copy the following script and save it to a file. If you don’t want to use the 
         # Now finish joining by getting the VPN package and giving it to the App
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $vnet.ResourceGroupName -VirtualNetworkGatewayName $gateway.Name -ProcessorArchitecture Amd64
+        
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{

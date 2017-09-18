@@ -4,7 +4,7 @@ description: Learn about the contents of the Windows Universal Apps SDK for Azur
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 8fa1b701-1c2b-4aec-940c-06c974ef5405

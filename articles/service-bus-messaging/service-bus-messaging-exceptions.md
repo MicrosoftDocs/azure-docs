@@ -1,5 +1,5 @@
 ---
-title: Service Bus messaging exceptions | Microsoft Docs
+title: Azure Service Bus messaging exceptions | Microsoft Docs
 description: List of Service Bus messaging exceptions and suggested actions.
 services: service-bus-messaging
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/06/2017
 ms.author: sethm
 
 ---
@@ -46,7 +46,7 @@ The following table lists messaging exception types, and their causes, and notes
 | [SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception) |Lock associated with this session is lost. |Abort the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object. |Retry will not help. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Generic messaging exception that may be thrown in the following cases:<br /> An attempt is made to create a [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) using a name or path that belongs to a different entity type (for example, a topic).<br />  An attempt is made to send a message larger than 256KB. The server or service encountered an error during processing of the request. Please see the exception message for details. This is usually a transient exception. |Check the code and ensure that only serializable objects are used for the message body (or use a custom serializer). Check the documentation for the supported value types of the properties and only use supported types. Check the [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient) property. If it is **true**, you can retry the operation. |Retry behavior is undefined and might not help. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Attempt to create an entity with a name that is already used by another entity in that service namespace. |Delete the existing entity or choose a different name for the entity to be created. |Retry will not help. |
-| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |The messaging entity has reached its maximum allowable size. |Create space in the entity by receiving messages from the entity or its sub-queues. See [QuotaExceededException](#quotaexceededexception). |Retry might help if messages have been removed in the meantime. |
+| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |The messaging entity has reached its maximum allowable size, or the maximum number of connections to a namespace has been exceeded. |Create space in the entity by receiving messages from the entity or its sub-queues. See [QuotaExceededException](#quotaexceededexception). |Retry might help if messages have been removed in the meantime. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |Service Bus returns this exception if you attempt to create an invalid rule action. Service Bus attaches this exception to a deadlettered message if an error occurs while processing the rule action for that message. |Check the rule action for correctness. |Retry will not help. |
 | [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) |Service Bus returns this exception if you attempt to create an invalid filter. Service Bus attaches this exception to a deadlettered message if an error occurred while processing the filter for that message. |Check the filter for correctness. |Retry will not help. |
 | [SessionCannotBeLockedException](/dotnet/api/microsoft.servicebus.messaging.sessioncannotbelockedexception) |Attempt to accept a session with a specific session ID, but the session is currently locked by another client. |Make sure the session is unlocked by other clients. |Retry might help if the session has been released in the interim. |
@@ -71,6 +71,17 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 ```
 
 The message states that the topic exceeded its size limit, in this case 1 GB (the default size limit). 
+
+### Namespaces
+
+For namespaces, [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) can indicate that an application has exceeded the maximum number of connections to a namespace. For example:
+
+```
+Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
+<tracking-id-guid>_G12 ---> 
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
+ConnectionsQuotaExceeded for namespace xxx.
+```
 
 #### Common causes
 There are two common causes for this error: the dead-letter queue, and non-functioning message receivers.
@@ -105,7 +116,8 @@ There are two common causes for this error: incorrect configuration, or a transi
     Sometimes the Service Bus service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
 
 ## Next steps
-For the complete Service Bus and Event Hubs .NET API reference, see the [Azure .NET API reference](/dotnet/api/).
+
+For the complete Service Bus .NET API reference, see the [Azure .NET API reference](/dotnet/api/overview/azure/servicebus).
 
 To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 

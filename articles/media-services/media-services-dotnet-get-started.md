@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of implementing an on dem
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako
 
 ---
@@ -28,8 +28,8 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* .NET Framework 4.0 or later
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+* .NET Framework 4.0 or later.
+* Visual Studio.
 
 This tutorial includes the following tasks:
 
@@ -76,43 +76,14 @@ To start the streaming endpoint, do the following:
 
 ## Create and configure a Visual Studio project
 
-1. Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
-2. Use the  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet package to install **Azure Media Services .NET SDK Extensions**.  The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services. Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
-
-	To add references by using NuGet do the following: in Solution Explorer, click the right mouse button on the project name, select **Manage NuGet packages**. Then, search for **windowsazure.mediaservices.extensions** and click **Install**.
-
-3. Add a reference to System.Configuration assembly. This assembly contains the **System.Configuration.ConfigurationManager** class that is used to access configuration files, for example, App.config.
-
-	To add a reference, do the following: in Solution Explorer, click the right mouse button on the project name, select **Add** > **Reference...** and type configuration in the search box.
-
-4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, go to the [Azure portal](https://portal.azure.com/) and select your AMS account. Then, select **Settings** > **Keys**. The Manage keys windows shows the account name and the primary and secondary keys is displayed. Copy values of the account name and the primary key.
-
-        <configuration>
-        ...
-          <appSettings>
-            <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-            <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-          </appSettings>
-
-        </configuration>
-5. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
-
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.Threading.Tasks;
-        using System.Configuration;
-        using System.Threading;
-        using System.IO;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-6. Create a new folder (folder can be anywhere on your local drive) and copy an .mp4 file that you want to encode and stream or progressively download. In this example, the "C:\VideoFiles" path is used.
+1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
+2. Create a new folder (folder can be anywhere on your local drive) and copy an .mp4 file that you want to encode and stream or progressively download. In this example, the "C:\VideoFiles" path is used.
 
 ## Connect to the Media Services account
 
 When using Media Services with .NET, you must use the **CloudMediaContext** class for most Media Services programming tasks: connecting to Media Services account; creating, updating, accessing, and deleting the following objects: assets, asset files, jobs, access policies, locators, etc.
 
-Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information about connecting to Media Services, see [Connecting to Media Services with the Media Services SDK for .NET](media-services-dotnet-connect-programmatically.md).
+Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information, see [connecting to the Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
 
 Make sure to update the file name and path to where you have your media file.
 
@@ -121,52 +92,48 @@ The **Main** function calls methods that will be defined further in this section
 > [!NOTE]
 > You will be getting compilation errors until you add definitions for all the functions.
 
-    class Program
-    {
-        // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+	class Program
+	{
+	    // Read values from the App.config file.
+	    private static readonly string _AADTenantDomain =
+	    ConfigurationManager.AppSettings["AADTenantDomain"];
+	    private static readonly string _RESTAPIEndpoint =
+	    ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-        // Field for service context.
-        private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
+	    private static CloudMediaContext _context = null;
 
-        static void Main(string[] args)
-        {
-            try
-            {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+	    static void Main(string[] args)
+	    {
+		try
+		{
+		    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+		    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Add calls to methods defined in this section.
-		// Make sure to update the file name and path to where you have your media file.
-                IAsset inputAsset =
-                    UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
+		    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                IAsset encodedAsset =
-                    EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
+		    // Add calls to methods defined in this section.
+		    // Make sure to update the file name and path to where you have your media file.
+		    IAsset inputAsset =
+			UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
-                PublishAssetGetURLs(encodedAsset);
-            }
-            catch (Exception exception)
-            {
-                // Parse the XML error message in the Media Services response and create a new
-                // exception with its content.
-                exception = MediaServicesExceptionParser.Parse(exception);
+		    IAsset encodedAsset =
+			EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
-                Console.Error.WriteLine(exception.Message);
-            }
-            finally
-            {
-                Console.ReadLine();
-            }
-        }
+		    PublishAssetGetURLs(encodedAsset);
+		}
+		catch (Exception exception)
+		{
+		    // Parse the XML error message in the Media Services response and create a new
+		    // exception with its content.
+		    exception = MediaServicesExceptionParser.Parse(exception);
+
+		    Console.Error.WriteLine(exception.Message);
+		}
+		finally
+		{
+		    Console.ReadLine();
+		}
+	    }
 	}
 
 ## Create a new asset and upload a video file
@@ -226,7 +193,7 @@ Add the following method to the Program class.
 
         IJob job = _context.Jobs.CreateWithSingleTask(
             "Media Encoder Standard",
-            "H264 Multiple Bitrate 720p",
+            "Adaptive Streaming",
             asset,
             "Adaptive Bitrate MP4",
             options);
@@ -258,7 +225,7 @@ To stream or download an asset, you first need to "publish" it by creating a loc
 
 ### Some details about URL formats
 
-After you create the locators, you can build the URLs that would be used to stream or download your files. The sample in this tutorial will output URLs that you can paste in appropriate browsers. This secion just gives short examples of what different formats look like.
+After you create the locators, you can build the URLs that would be used to stream or download your files. The sample in this tutorial will output URLs that you can paste in appropriate browsers. This section just gives short examples of what different formats look like.
 
 #### A streaming URL for MPEG DASH has the following format:
 

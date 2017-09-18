@@ -1,121 +1,232 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Cherwell | Microsoft Docs'
-description: Learn how to use Cherwell with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+description: Learn how to configure single sign-on between Azure Active Directory and Cherwell.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 
 ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 10/14/2016
+ms.date: 06/03/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Cherwell
-The objective of this tutorial is to show the integration of Azure and Cherwell. The scenario outlined in this tutorial assumes that you already have the following items:
 
-* A valid Azure subscription
-* A Cherwell single sign-on enabled subscription
+In this tutorial, you learn how to integrate Cherwell with Azure Active Directory (Azure AD).
 
-After completing this tutorial, the Azure AD users you have assigned to Cherwell will be able to single sign into the application at your Cherwell company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Integrating Cherwell with Azure AD provides you with the following benefits:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+- You can control in Azure AD who has access to Cherwell
+- You can enable your users to automatically get signed-on to Cherwell (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure portal
 
-1. Enabling the application integration for Cherwell
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Scenario](./media/active-directory-saas-cherwell-tutorial/IC798988.png "Scenario")
+## Prerequisites
 
-## Enabling the application integration for Cherwell
-The objective of this section is to outline how to enable the application integration for Cherwell.
+To configure Azure AD integration with Cherwell, you need the following items:
 
-### To enable the application integration for Cherwell, perform the following steps:
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-cherwell-tutorial/IC700993.png "Active Directory")
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
-   ![Applications](./media/active-directory-saas-cherwell-tutorial/IC700994.png "Applications")
-4. Click **Add** at the bottom of the page.
-   
-   ![Add application](./media/active-directory-saas-cherwell-tutorial/IC749321.png "Add application")
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
-   ![Add an application from gallerry](./media/active-directory-saas-cherwell-tutorial/IC749322.png "Add an application from gallerry")
-6. In the **search box**, type **Cherwell**.
-   
-   ![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798989.png "Cherwell")
-7. In the results pane, select **Cherwell**, and then click **Complete** to add the application.
-   
-   ## Configuring single sign-on
-   ![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798996.png "Cherwell")
-
-The objective of this section is to outline how to enable users to authenticate to Cherwell with their account in Azure AD using federation based on the SAML protocol.
-
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Cherwell** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
-   
-   ![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Configure Single Sign-On")
-2. On the **How would you like users to sign on to Cherwell** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
-   
-   ![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798991.png "Configure Single Sign-On")
-3. On the **Configure App URL** page, perform the following steps:
-   
-   ![Configure App URL](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configure App URL")
-   
-   a.  In the **Sign On URL** textbox, type the URL used by your users to sign into your **Cherwell** (e.g.: *https://\<company name\>.cherwellondemand.com/cherwellclient*).
-   
-   b.  Click **Next**
-4. On the **Configure single sign-on at Cherwell** page, perform the following steps:
-   
-   ![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Configure Single Sign-On")
-   
-   a.  Click **Download certificate**, and then save the certificate locally on your computer.
-   
-   b.  Copy the **Identity Provider URL**.
-   
-   c.  Copy the **Single Sign-On Service URL**.
-   
-   d.  Click **Next**.
-5. Submit the downloaded certificate, the **Identity Provider URL** and the **Single Sign-On Service URL** to your Cherwell support team.
-   
-   > [!NOTE]
-   > Your Cherwell support team has to do the actual SSO configuration.
-   > You will get a notification when SSO has been enabled for your subscription.
-   > 
-   > 
-6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
-   
-   ![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configure Single Sign-On")
-
-## Configuring user provisioning
-In order to enable Azure AD users to log into Cherwell, they must be provisioned into Cherwell.  
-In the case of Cherwell, the user accounts need to be created by your Cherwell support team.
+- An Azure AD subscription
+- A Cherwell single-sign on enabled subscription
 
 > [!NOTE]
-> You can use any other Cherwell user account creation tools or APIs provided by Cherwell to provision Azure Active Directory user accounts.
+> To test the steps in this tutorial, we do not recommend using a production environment.
+
+To test the steps in this tutorial, you should follow these recommendations:
+
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+
+## Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment. 
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding Cherwell from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+## Adding Cherwell from the gallery
+To configure the integration of Cherwell into Azure AD, you need to add Cherwell from the gallery to your list of managed SaaS apps.
+
+**To add Cherwell from the gallery, perform the following steps:**
+
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+
+	![Active Directory][1]
+
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
+
+	![Applications][2]
+	
+3. To add new application, click **New application** button on the top of dialog.
+
+	![Applications][3]
+
+4. In the search box, type **Cherwell**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_search.png)
+
+5. In the results panel, select **Cherwell**, and then click **Add** button to add the application.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_addfromgallery.png)
+
+##  Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with Cherwell based on a test user called "Britta Simon."
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Cherwell is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Cherwell needs to be established.
+
+In Cherwell, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+
+To configure and test Azure AD single sign-on with Cherwell, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a Cherwell test user](#creating-a-cherwell-test-user)** - to have a counterpart of Britta Simon in Cherwell that is linked to the Azure AD representation of user.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Cherwell application.
+
+**To configure Azure AD single sign-on with Cherwell, perform the following steps:**
+
+1. In the Azure portal, on the **Cherwell** application integration page, click **Single sign-on**.
+
+	![Configure Single Sign-On][4]
+
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_samlbase.png)
+
+3. On the **Cherwell Domain and URLs** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_url.png)
+
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.cherwellondemand.com/cherwellclient`
+
+	> [!NOTE] 
+	> This value is not real. Update this value with the actual Sign-on URL. Contact [Cherwell support team](https://csm.cherwell.com/contact) to get this value.
+ 
+4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_certificate.png) 
+
+5. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/tutorial_general_400.png)
+
+6. On the **Cherwell Configuration** section, click **Configure Cherwell** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_configure.png) 
+
+7. To configure single sign-on on **Cherwell** side, you need to send the downloaded **Certificate (Base64)**, **SAML Single Sign-On Service URL**, and **SAML Entity ID** to [Cherwell support team](https://csm.cherwell.com/contact). 
+
+	>[!NOTE]
+    >Your Cherwell support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
+    > 
+	
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
-> 
 
-## Assigning users
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+### Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-### To assign users to Cherwell, perform the following steps:
-1. In the Azure classic portal, create a test account.
-2. On the **Cherwell** application integration page, click **Assign users**.
-   
-   ![Assign Users](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Assign Users")
-3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
-   
-   ![Yes](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Yes")
+![Create Azure AD User][100]
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+**To create a test user in Azure AD, perform the following steps:**
+
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-cherwell-tutorial/create_aaduser_01.png) 
+
+2. To display the list of users, go to **Users and groups** and click **All users**.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-cherwell-tutorial/create_aaduser_02.png) 
+
+3. To open the **User** dialog, click **Add** on the top of the dialog.
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-cherwell-tutorial/create_aaduser_03.png) 
+
+4. On the **User** dialog page, perform the following steps:
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-cherwell-tutorial/create_aaduser_04.png) 
+
+    a. In the **Name** textbox, type **BrittaSimon**.
+
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+
+	c. Select **Show Password** and write down the value of the **Password**.
+
+    d. Click **Create**.
+ 
+### Creating a Cherwell test user
+
+To enable Azure AD users to log in to Cherwell, they must be provisioned into Cherwell.
+
+In the case of Cherwell, the user accounts need to be created by your [Cherwell support team](https://csm.cherwell.com/contact).
+
+>[!NOTE]
+>You can use any other Cherwell user account creation tools or APIs provided by Cherwell to provision Azure Active Directory user accounts.
+
+### Assigning the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Cherwell.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Cherwell, perform the following steps:**
+
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+
+	![Assign User][201] 
+
+2. In the applications list, select **Cherwell**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_app.png) 
+
+3. In the menu on the left, click **Users and groups**.
+
+	![Assign User][202] 
+
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
+	
+### Testing single sign-on
+
+If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_203.png
 

@@ -4,7 +4,7 @@ description: Explains how administrators can set up Azure AD Join for their end 
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: swadhwa
+manager: femila
 editor: ''
 tags: azure-classic-portal
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 05/16/2017
+ms.author: markvi
 
 ---
 # Usage scenarios and deployment considerations for Azure AD Join

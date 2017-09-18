@@ -3,7 +3,7 @@ title: Use Redgate to load data to your Azure data warehouse | Microsoft Docs
 description: Learn how to use Redgate's Data Platform Studio for data warehousing scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: ckarst
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,10 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
-ms.author: mausher;barbkess
+ms.author: cakarst;barbkess
+
 
 ---
 # Load data with Redgate Data Platform Studio
@@ -26,7 +28,7 @@ ms.author: mausher;barbkess
 > 
 > 
 
-This tutorial shows you how to use [Redgate's Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) to move data from an on-premise SQL Server to Azure SQL Data Warehouse. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with SQL Data Warehouse.
+This tutorial shows you how to use [Redgate's Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) to move data from an on-premises SQL Server to Azure SQL Data Warehouse. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with SQL Data Warehouse.
 
 > [!NOTE]
 > [Redgate](http://www.red-gate.com) is a long-time Microsoft partner that delivers various SQL Server tools. This feature in Data Platform Studio has been made available freely for both commercial and non-commercial use.
@@ -37,9 +39,9 @@ This tutorial shows you how to use [Redgate's Data Platform Studio](http://www.r
 ### Create or identify resources
 Before starting this tutorial, you need to have:
 
-* **On-premise SQL Server Database**: The data you want to import to SQL Data Warehouse needs to come from an on-premise SQL Server (version 2008R2 or above). Data Platform Studio cannot import data directly from an Azure SQL Database or from text files.
+* **on-premises SQL Server Database**: The data you want to import to SQL Data Warehouse needs to come from an on-premises SQL Server (version 2008R2 or above). Data Platform Studio cannot import data directly from an Azure SQL Database or from text files.
 * **Azure Storage Account**: Data Platform Studio stages the data in Azure Blob Storage before loading it into SQL Data Warehouse. The storage account must be using the “Resource Manager” deployment model (the default) rather than the “Classic” deployment model. If you don't have a storage account, learn how to Create a storage account. 
-* **SQL Data Warehouse**: This tutorial moves the data from on-premise SQL Server to SQL Data Warehouse, so you need to have a data warehouse online. If you do not already have a data warehouse, learn how to Create an Azure SQL Data Warehouse.
+* **SQL Data Warehouse**: This tutorial moves the data from on-premises SQL Server to SQL Data Warehouse, so you need to have a data warehouse online. If you do not already have a data warehouse, learn how to Create an Azure SQL Data Warehouse.
 
 > [!NOTE]
 > Performance is improved if the storage account and the data warehouse are created in the same region.
@@ -60,7 +62,7 @@ From the DPS main screen, select the Import to Azure SQL Data Warehouse link to 
 ![][1]
 
 ## Step 3: Install the Data Platform Studio Gateway
-To connect to your on-premise SQL Server database, you need to install the DPS Gateway. The gateway is a client agent that provides access to your on-premise environment, extracts the data, and uploads it to your storage account. Your data never passes through Redgate’s servers. To install the Gateway:
+To connect to your on-premises SQL Server database, you need to install the DPS Gateway. The gateway is a client agent that provides access to your on-premises environment, extracts the data, and uploads it to your storage account. Your data never passes through Redgate’s servers. To install the Gateway:
 
 1. Click the **Create Gateway** link
 2. Download and install the Gateway using the provided installer
@@ -106,7 +108,7 @@ DPS confirms that you would like to import the data. Simply click the Start impo
 
 ![][6]
 
-DPS displays a visualization that shows the progress of extracting and uploading the data from the on-premise SQL Server and the progress of the import into SQL Data Warehouse.
+DPS displays a visualization that shows the progress of extracting and uploading the data from the on-premises SQL Server and the progress of the import into SQL Data Warehouse.
 
 ![][7]
 

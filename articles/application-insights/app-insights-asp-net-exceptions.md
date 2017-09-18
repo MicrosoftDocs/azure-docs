@@ -1,10 +1,10 @@
----
-title: Diagnose failures & exceptions in web apps with Azure Application Insights | Microsoft Docs | Microsoft Docs
+﻿---
+title: Diagnose failures and exceptions in web apps with Azure Application Insights | Microsoft Docs
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: bwren
 
 ---
 # Diagnose exceptions in your web apps with Application Insights
@@ -24,6 +24,7 @@ Exceptions in your live web app are reported by [Application Insights](app-insig
   * Install [Application Insights SDK](app-insights-asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](app-insights-monitor-performance-live-website-now.md); or
   * Azure web apps: Add the [Application Insights Extension](app-insights-azure-web-apps.md)
+  * Java web apps: Install the [Java agent](app-insights-java-agent.md)
 * Install the [JavaScript snippet](app-insights-javascript.md) in your web pages to catch browser exceptions.
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
   * [Web forms](#web-forms)
@@ -46,31 +47,25 @@ Notice that you can filter the report to show just exceptions.
 *No exceptions showing? See [Capture exceptions](#exceptions).*
 
 Click an exception report to show its stack trace.
+Click a line reference in the stack trace, to open the relevant code file.  
 
-![Click through an exception.](./media/app-insights-asp-net-exceptions/35.png)
+In the code, notice that CodeLens shows data about the exceptions:
 
-Click a line reference in the stack trace, to open the relevant file.  
+![CodeLens notification of exceptions.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## Diagnosing failures using the Azure portal
 From the Application Insights overview of your app, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.
 
 ![Select Settings, Failures](./media/app-insights-asp-net-exceptions/012-start.png)
 
-Click through one of the failed request types in the list to get to individual occurrences of the failure. From there, click through to the exceptions or any trace data associated with it:
+Click through one of the failed exception types in the list to get to individual occurrences of the exception, where you can see the details and stack trace:
 
 ![Select an instance of a failed request, and under exception details, get to instances of the exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-**Alternatively,** you can start from the list of exceptions that you'll find further down the Failures blade. Keep clicking until you eventually get to individual exceptions.
-
-![Drill through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
+**Alternatively,** you can start from the list of requests and find exceptions related to it.
 
 *No exceptions showing? See [Capture exceptions](#exceptions).*
 
-From there you can look at the stack trace and detailed properties of each exception and find related log trace or other events.
-
-![Drill through](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
-
-[Learn more about Diagnostic Search](app-insights-diagnostic-search.md).
 
 ## Custom tracing and log data
 To get diagnostic data specific to your app, you can insert code to send your own telemetry data. This displayed in diagnostic search alongside the request, page view and other automatically-collected data.
@@ -433,6 +428,10 @@ Open a Metric Explorer blade, add a new chart, and select **Exception rate**, li
 The .NET framework calculates the rate by counting the number of exceptions in an interval and dividing by the length of the interval.
 
 Note that it will be different from the 'Exceptions' count calculated by the Application Insights portal by counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## Next steps
 * [Monitor REST, SQL and other calls to dependencies](app-insights-asp-net-dependencies.md)

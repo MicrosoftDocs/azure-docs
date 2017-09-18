@@ -1,9 +1,9 @@
 ---
-title: Updates in Azure Stack | Microsoft Docs
-description: Learn about updates in Azure Stack
+title: Manage updates in Azure Stack | Microsoft Docs
+description: Learn how to manage updates in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
+author: twooley
 manager: byronr
 editor: ''
 
@@ -13,22 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: Helaw
+ms.date: 07/10/2017
+ms.author: twooley
 
 ---
-# Updates management in Azure Stack
-Technical Preview 2 introduces a preview of the experience for managing Azure Stack updates.  In this topic, you'll navigate to the updates node.  
+# Manage updates in Azure Stack
 
-## Updates blade
-1. To access the Updates blade, click on **Browse** and then click **Updates**.
-2. Click on the **local** location.
-3. You will see a screen listing available updates and update history.  In Technical Preview 2, no updates will be available for installation.  
-   
-   ![Updates screen showing no available updates](./media/azure-stack-updates/image1.png)
+In the Azure Stack Development Kit, you can preview the experience for managing Azure Stack updates in a multi-node environment. Because virtual machines are not highly available in the development kit, you cannot apply updates through the **Updates** tile.
+
+In the Azure Stack administrator portal, you can determine the current version (or build number) of Azure Stack.
+
+## Determine the current version
+
+To determine the current version of Azure Stack, do either of the following in the administrator portal:
+
+- On the dashboard, view the current version in the **Updates** tile.
+- On the **Region management** tile, click the region name (such as **local**). View the current version in the **Updates** tile.
+
+   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.png)
 
 ## Next steps
-* [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
-* [Understand deployment prerequisites](azure-stack-deploy.md)
-* [Deploy Azure Stack](azure-stack-run-powershell-script.md)
+
+* [Region management in Azure Stack](azure-stack-region-management.md)     
+
 

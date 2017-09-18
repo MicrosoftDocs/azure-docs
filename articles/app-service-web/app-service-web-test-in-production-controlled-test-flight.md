@@ -1,10 +1,10 @@
----
+﻿---
 title: Flighting deployment (beta testing) in Azure App Service
 description: Learn how to flight new features in your app or beta test your updates in this end-to-end tutorial. It brings together App Service features like continuous publishing, slots, traffic routing, and Application Insights integration.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 17953c51-38f8-442d-bb0b-f69c1542f0e9
@@ -45,8 +45,8 @@ with Application Insights, but you can use New Relic or other technologies that 
 ## What you will do
 In this tutorial, you will learn how to bring the following scenarios together to test your App Service app in production:
 
-* [Route production traffic](app-service-web-test-in-production-get-start.md) to your beta app
-* [Instrument your app](../application-insights/app-insights-web-track-usage.md) to obtain useful metrics
+* Route production traffic to your beta app
+* Instrument your app to obtain useful metrics
 * Continuously deploy your beta app and track live app metrics
 * Compare metrics between the production app and the beta app to see how code changes translate to results
 
@@ -365,5 +365,5 @@ Azure App Service makes it easy for small- to medium-sized businesses to test th
 * [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - The JSON Validator](http://jsonlint.com/)
 * [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

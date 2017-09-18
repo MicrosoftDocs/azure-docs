@@ -3,7 +3,7 @@ title: Azure Service Fabric Standalone Cluster Deployment Preparation | Microsof
 description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload. 
 services: service-fabric
 documentationcenter: .net
-author: maburlik
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -12,39 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2016
-ms.author: dkshir;chackdan;maburlik
+ms.date: 9/12/2017
+ms.author: dekapur;maburlik;chackdan
 
 ---
 
 <a id="preparemachines"></a>
 
-## Plan and prepare your Service Fabric standalone cluster deployment
+# Plan and prepare your Service Fabric Standalone cluster deployment
 Perform the following steps before you create your cluster.
 
-### Step 1: Plan your cluster infrastructure
-You are about to create a Service Fabric cluster on machines you own, so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or Internet connections supplied to these machines? In addition, consider the physical security of these machines. Where are the machines located and who needs access to them? After you make these decisions, you can logically map the machines to the various fault domains (see Step 4). The infrastructure planning for production clusters is more involved than for test clusters.
+## Plan your cluster infrastructure
+You are about to create a Service Fabric cluster on machines you "own", so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or Internet connections supplied to these machines? In addition, consider the physical security of these machines. Where are the machines located and who needs access to them? After you make these decisions, you can logically map the machines to various fault domains (see next step). The infrastructure planning for production clusters is more involved than for test clusters.
 
-### Step 2: Prepare the machines to meet the prerequisites
-Prerequisites for each machine that you want to add to the cluster:
-
-* A minimum of 16 GB of RAM is recommended.
-* A minimum of 40 of GB available disk space is recommended.
-* A 4 core or greater CPU is recommended.
-* Connectivity to a secure network or networks for all machines.
-* Windows Server 2012 R2 or Windows Server 2016. 
-* [.NET Framework 4.5.1 or higher](https://www.microsoft.com/download/details.aspx?id=40773), full install.
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell).
-* The [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) should be running on all the machines.
-
-The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a domain controller.
-
-### Step 3: Determine the initial cluster size
-Each node in a standalone Service Fabric cluster has the Service Fabric runtime deployed and is a member of the cluster. In a typical production deployment, there is one node per OS instance (physical or virtual). The cluster size is determined by your business needs. However, you must have a minimum cluster size of three nodes (machines or virtual machines).
-For development purposes, you can have more than one node on a given machine. In a production environment, Service Fabric supports only one node per physical or virtual machine.
-
-### Step 4: Determine the number of fault domains and upgrade domains
-A *fault domain* (FD) is a physical unit of failure and is directly related to the physical infrastructure in the data centers. A fault domain consists of hardware components (computers, switches, networks, and more) that share a single point of failure. Although there is no 1:1 mapping between fault domains and racks, loosely speaking, each rack can be considered a fault domain. When considering the nodes in your cluster, we strongly recommend that the nodes be distributed among at least three fault domains.
+## Determine the number of fault domains and upgrade domains
+A [*fault domain* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) is a physical unit of failure and is directly related to the physical infrastructure in the data centers. A fault domain consists of hardware components (computers, switches, networks, and more) that share a single point of failure. Although there is no 1:1 mapping between fault domains and racks, loosely speaking, each rack can be considered a fault domain.
 
 When you specify FDs in ClusterConfig.json, you can choose the name for each FD. Service Fabric supports hierarchical FDs, so you can reflect your infrastructure topology in them.  For example, the following FDs are valid:
 
@@ -63,12 +45,35 @@ When you specify UDs in ClusterConfig.json, you can choose the name for each UD.
 * "upgradeDomain": "DomainRed"
 * "upgradeDomain": "Blue"
 
-For more detailed information on upgrade domains and fault domains, see [Describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md).
+For more detailed information on FDs and UDs, see [Describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
-### Step 5: Download the Service Fabric standalone package for Windows Server
+A cluster in production should span at least three FDs in order to be supported in a production environment, if you have full control over the maintenance and management of the nodes, i.e. you are responsible for updating and replacing machines. For clusters running in environments (i.e. Amazon Web Services VM instances) where you do not have full control over the machines, you should have a minimum of five FDs in your cluster. Each FD can have one or more nodes. This is to prevent issues caused by machine upgrades and updates which, depending on their timing, can intefere with the running of applications and services in clusters.
+
+## Determine the initial cluster size
+
+Generally, the number of nodes in your cluster is determined based on your business needs, i.e., how many services and containers will be running on the cluster and how many resources do you need to sustain your workloads. For production clusters, we recommend having at least 5 nodes in your cluster, spanning 5 FDs. However, as described above, if you have full control over your nodes and can span three FDs, then three nodes should also do the job.
+
+Test clusters running stateful workloads should have three nodes, whereas test clusters only running stateless workloads only need one node. It should also be noted that for development purposes, you can have more than one node on a given machine. In a production environment however, Service Fabric supports only one node per physical or virtual machine.
+
+## Prepare the machines that will serve as nodes
+
+Here are some recommended specs for each machine that you want to add to the cluster:
+
+* A minimum of 16 GB of RAM
+* A minimum of 40 of GB available disk space
+* A 4 core or greater CPU
+* Connectivity to a secure network or networks for all machines
+* Windows Server 2012 R2 or Windows Server 2016
+* [.NET Framework 4.5.1 or higher](https://www.microsoft.com/download/details.aspx?id=40773), full install
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* The [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) should be running on all the machines
+
+The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a domain controller.
+
+## Download the Service Fabric standalone package for Windows Server
 [Download Link - Service Fabric Standalone Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package, either to a deployment machine that is not part of the cluster, or to one of the machines that will be a part of your cluster.
 
-### Step 6: Modify cluster configuration
+## Modify cluster configuration
 To create a standalone cluster you have to create a standalone cluster configuration ClusterConfig.json file, which describes the specification of the cluster. You can base the configuration file on the templates found at the below link. <br>
 [Standalone Cluster Configurations](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
@@ -84,7 +89,7 @@ After the cluster configuration has had all settings configured to the environme
 
 <a id="environmentsetup"></a>
 
-### Step 7. Environment setup
+## Environment setup
 
 When a cluster administrator configures a Service Fabric standalone cluster, the environment is needs to be set up with the following criteria: <br>
 1. The user creating the cluster should have administrator-level security privileges to all machines that are listed as nodes in the cluster configuration file.
@@ -92,7 +97,7 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
 * Have Service Fabric SDK uninstalled
 * Have Service Fabric runtime uninstalled 
 * Have the Windows Firewall service (mpssvc) enabled
-* Have the Remove Registry Service (remoteregistry) enabled
+* Have the Remote Registry Service (remoteregistry) enabled
 * Have file sharing (SMB) enabled
 * Have necessary ports opened, based on cluster configuration ports
 * Have necessary ports opened for Windows SMB and Remote Registry service: 135, 137, 138, 139, and 445
@@ -105,7 +110,11 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
     *"enableTelemetry": false*
 * Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
     Under *properties* set
-    *"fabricClusterAutoupgradeEnabled": true*
+    *"fabricClusterAutoupgradeEnabled": false*
+* Alternatively if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
+    go.microsoft.com
+    download.microsoft.com
+
 6. Set appropriate Service Fabric antivirus exclusions:
 
 | **Antivirus Excluded directories** |
@@ -129,7 +138,7 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
 | FabricRM.exe |
 | FileStoreService.exe |
 
-### Step 8. Validate environment using TestConfiguration script
+## Validate environment using TestConfiguration script
 The TestConfiguration.ps1 script can be found in the standalone package. It is used as a Best Practices Analyzer to validate some of the criteria above and should be used as a sanity check to validate whether a cluster can be deployed on a given environment. If there is any failure, refer to the list under [Environment Setup](service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting. 
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster.

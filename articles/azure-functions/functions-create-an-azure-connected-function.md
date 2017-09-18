@@ -12,11 +12,12 @@ keywords: azure functions, functions, event processing, webhooks, dynamic comput
 ms.assetid: ab86065d-6050-46c9-a336-1bfc1fa4b5a1
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: glenga
+ms.custom: mvc
 
 ---
 # Use Azure Functions to create a function that connects to other Azure services
@@ -29,7 +30,7 @@ You can see this scenario demonstrated in a [video on Channel 9](https://channel
 
 ## Create a function that writes to the queue
 
-Before you can connect to a storage queue, you need to create a function that loads the message queue. This JavaScript function uses a timer trigger that writes a message to the queue every 10 seconds. If you don't already have an Azure account, check out the [Try Azure Functions](https://functions.azure.com/try) experience, or [create your free Azure acccount](https://azure.microsoft.com/free/).
+Before you can connect to a storage queue, you need to create a function that loads the message queue. This JavaScript function uses a timer trigger that writes a message to the queue every 10 seconds. If you don't already have an Azure account, check out the [Try Azure Functions](https://functions.azure.com/try) experience, or [create your free Azure account](https://azure.microsoft.com/free/).
 
 1. Go to the Azure portal and locate your function app.
 
@@ -122,7 +123,7 @@ Now that you have messages being added to the queue, you can create another func
 
 	![Add a binding to an Azure Storage table](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Enter `TableItem` for **Table name** and `functionbindings` for **Table parameter name**, choose a **Storage account connection** or create a new one, and then click **Save**.
+2. Enter `functionbindings` for **Table name** and `myTable` for **Table parameter name**, choose a **Storage account connection** or create a new one, and then click **Save**.
 
 	![Configure the Storage table binding](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -177,7 +178,7 @@ Now that you have messages being added to the queue, you can create another func
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## Next steps
-See these topics for more information about Azure Functions.
+For more information about Azure Functions, see the following topics:
 
 * [Azure Functions developer reference](functions-reference.md)  
   Programmer reference for coding functions and defining triggers and bindings.

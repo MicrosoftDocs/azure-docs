@@ -1,6 +1,6 @@
 ---
-title: Back up files and folders from Windows to Azure using the Resource Manager deployment model | Microsoft Docs
-description: Learn to backup Windows files and folders to Azure in a Resource Manager deployment.
+title: Back up Windows files and folders to Azure (Resource Manager) | Microsoft Docs
+description: Learn to back up Windows files and folders to Azure in a Resource Manager deployment.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 8/15/2017
 ms.author: markgal;
 
 ---
@@ -23,17 +23,6 @@ This article explains how to back up your Windows Server (or Windows computer) f
 
 If you want to know more about Azure Backup, read this [overview](backup-introduction-to-azure-backup.md).
 
-Backing up files and folders to Azure requires these activities:
-
-![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if you don't already have one).<br>
-![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a Recovery Services vault.<br>
-![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Download the necessary files.<br>
-![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Install and register the Recovery Services agent.<br>
-![Step 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Back up your files and folders.
-
-![How to back up your Windows machine with Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## Get an Azure subscription
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
 
 ## Create a recovery services vault
@@ -67,6 +56,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
+
 8. At the bottom of the Recovery Services vault blade, click **Create**.
 
     It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see your vault, click **Refresh**.
@@ -94,7 +84,7 @@ When you create a Recovery Services vault, make sure storage redundancy is confi
 
     ![storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [Storage redundancy overview](../storage/storage-redundancy.md).
+    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
 
 Now that you've created a vault, configure it for backing up files and folders.
 
@@ -169,6 +159,15 @@ Now that you've created a vault, configure it for backing up files and folders.
      >
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
+
+## Network and Connectivity Requirements
+
+If your machine/proxy has limited internet access, ensure that firewall settings on the mcahine/proxy are configured to allow the following URLs: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.net
 
 ## Back up your files and folders
 The initial backup includes two key tasks:

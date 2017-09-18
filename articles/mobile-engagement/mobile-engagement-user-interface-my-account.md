@@ -4,7 +4,7 @@ description: Learn how to manage your account profile and test devices using Azu
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1

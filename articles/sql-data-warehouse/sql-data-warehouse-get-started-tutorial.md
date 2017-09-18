@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 
@@ -124,7 +125,7 @@ In this step, you create a user account to access your data warehouse. We also s
 
 - SQL Data Warehouse uses pre-defined database roles, called resource classes, to allocate different amounts of memory, CPU resources, and concurrency slots to users. Each user can belong to a small, medium, large, or extra-large resource class. The user's resource class determines the resources the user has to run queries and load operations.
 
-- For optimize data compression, the user usually needs load with large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- For optimal data compression, the user may need to load with large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### Create an account that can control a database
 
@@ -413,7 +414,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
 ### Import the data from Azure blob storage.
 
@@ -504,7 +505,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -573,6 +574,9 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
 6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
 
 7. Run the query again! You should notice a significant difference. 
+
+    > [!NOTE]
+    > Because the query returns a lot of data, the bandwidth availability of the machine running SSMS may be a performance bottleneck. This can result in you not seeing any performance improvements!
 
 > [!NOTE]
 > Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
@@ -654,7 +658,7 @@ savings by pausing and scaling to meet your business needs.
 
 [Migrating Data to Azure SQL Data Warehouse][]
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Query Monitoring]: sql-data-warehouse-manage-monitor.md
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/

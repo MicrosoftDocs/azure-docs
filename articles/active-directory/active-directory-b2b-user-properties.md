@@ -14,75 +14,79 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/03/2017
+ms.date: 05/25/2017
 ms.author: sasubram
 
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
 
-## Defining a B2B collaboration user
-A B2B collaboration user is a user with UserType = Guest, or a guest user. This user typically represents a user from a partner organization and has limited privileges in the inviting directory by default. Depending on the inviting organization's needs, a B2B collaboration user can be in one of the following account states:
-1. Homed in an external instance of Azure Active Directory (Azure AD), represented as a guest user in the host organization. In this case, the B2B user signs in with an Azure AD account belonging to his home tenancy. If the external organization that the user belongs to doesn't use Azure AD at the time of invitation, the guest user in Azure AD  is created "just in time" when the user redeems his invitation, after verifying his email address. This is also called a just in time (JIT) tenancy, or sometimes as a viral tenancy.
-2. Homed in Microsoft Account, represented as a guest user in the host organization. In this case, the guest user signs in with a Microsoft account. In the Azure AD Public Preview Refresh of B2B collaboration, the invited user's non-MSA social identity (google.com or similar) is created as a Microsoft account just in time during offer redemption.
-3. Homed in the host organization's on-premises Active Directory, synced with the host organization's Azure AD. During this release, the UserType of such users in the cloud must be manually changed to guest using PowerShell. We will support this being done automatically as part of Azure AD Connect in future releases.
-4. Homed in host organization's AzureAD with UserType = Guest, with credentials managed by the host organization.
+An Azure Active Directory (Azure AD) business-to-business (B2B) collaboration user is a user with UserType = Guest. This guest user typically is from a partner organization and has limited privileges in the inviting directory, by default.
 
-  ![displaying the inviter's initials](media/active-directory-b2b-user-properties/redemption-diagram.png)
+Depending on the inviting organization's needs, an Azure AD B2B collaboration user can be in one of the following account states:
+
+- State 1: Homed in an external instance of Azure AD and represented as a guest user in the inviting organization. In this case, the B2B user signs in by using an Azure AD account that belongs to the invited tenant. If the partner organization doesn't use Azure AD, the guest user in Azure AD is still created. The requirements are that they redeem their invitation and Azure AD verifies their email address. This arrangement is also called a just-in-time (JIT) tenancy or a "viral" tenancy.
+
+- State 2: Homed in a Microsoft account and represented as a guest user in the host organization. In this case, the guest user signs in with a Microsoft account. The invited user's social identity (google.com or similar), which is not a Microsoft account, is created as a Microsoft account during offer redemption.
+
+- State 3: Homed in the host organization's on-premises Active Directory and synced with the host organization's Azure AD. During this release, you must use PowerShell to manually change the UserType of such users in the cloud.
+
+- State 4: Homed in host organization's Azure AD with UserType = Guest and credentials that the host organization manages.
+
+  ![Displaying the inviter's initials](media/active-directory-b2b-user-properties/redemption-diagram.png)
 
 
-Now, let's see what a B2B collaboration user in State 1 looks like in Azure AD.
+Now, let's see what an Azure AD B2B collaboration user in State 1 looks like in Azure AD.
 
 ### Before invitation redemption
 
-![before offer redemption](media/active-directory-b2b-user-properties/before-redemption.png)
+![Before offer redemption](media/active-directory-b2b-user-properties/before-redemption.png)
 
 ### After invitation redemption
 
-![after offer redemption](media/active-directory-b2b-user-properties/after-redemption.png)
+![After offer redemption](media/active-directory-b2b-user-properties/after-redemption.png)
 
-## Key properties of the B2B collaboration user.
-
+## Key properties of the Azure AD B2B collaboration user
 ### UserType
-This attribute indicates the relationship of the user with the host tenancy. This can have two values:
-- Member: An employee of the host organization, a user in the organization's payroll. For example, this is a user who is expected to be able to access internal-only sites. This user would not be considered an external collaborator.
-- Guest: This indicates a user that isn't considered internal to the company. They could be an external collaborator, partner, customer, or similar user who isn't expected to get a CEO's internal memo, for example, or get company benefits.
+This property indicates the relationship of the user to the host tenancy. This property can have two values:
+- Member: This value indicates an employee of the host organization and a user in the organization's payroll. For example, this user expects to have access to internal-only sites. This user would not be considered an external collaborator.
 
-  > ![NOTE]
-  > The UserType has no relation with how the user signs in, or which directory role the user belongs to, and so on. This attribute simply indicates the user's relationship with the host organization and allows the organization to enforce any policies that depend on this attribute.
+- Guest: This value indicates a user who isn't considered internal to the company, such as an external collaborator, partner, customer, or similar user. Such a user wouldn't be expected to receive a CEO's internal memo, or receive company benefits, for example.
+
+  > [!NOTE]
+  > The UserType has no relation to how the user signs in, the directory role of the user, and so on. This property simply indicates the user's relationship to the host organization and allows the organization to enforce policies that depend on this property.
 
 ### Source
-How the user signs in.
+This property indicates how the user signs in.
 
-- Invited User: This user has been invited but has not yet redeemed their invitation.
+- Invited User: This user has been invited but has not yet redeemed an invitation.
 
-- External Active Directory: This user is homed in an external organization and authenticates with an Azure AD account belonging to the other organization. This corresponds to State 1 above.
+- External Active Directory: This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization. This type of sign-in corresponds to State 1.
 
-- Microsoft Account": This user is homed in MSA and authenticates with a Microsoft Account. This corresponds to State 2 above.
+- Microsoft account: This user is homed in a Microsoft account and authenticates by using a Microsoft account. This type of sign-in corresponds to State 2.
 
-- Windows Server AD:  This user is synced in from on-premises Active Directory belonging to this organization. This corresponds to State 3 above.
+- Windows Server Active Directory: This user is signed in from on-premises Active Directory that belongs to this organization. This type of sign-in corresponds to State 3.
 
-- Azure Active Directory: This user authenticates with an Azure AD account belonging to this organization. This corresponds to State 4 above.
+- Azure Active Directory: This user authenticates by using an Azure AD account that belongs to this organization. This type of sign-in corresponds to State 4.
+  > [!NOTE]
+  > Source and UserType are independent properties. A value of Source does not imply a particular value for UserType.
 
-  > ![NOTE]
-  > Source and UserType are independent attributes. A value of source does not imply a particular UserType.
+## Can Azure AD B2B users be added as members instead of guests?
+Typically, an Azure AD B2B user and guest user are synonymous. Therefore, an Azure AD B2B collaboration user is added as a user with UserType = Guest by default. However, in some cases, the partner organization is a member of a larger organization to which the host organization also belongs. If so, the host organization might want to treat users in the partner organization as members instead of guests. Use the Azure AD B2B Invitation Manager APIs to add or invite a user from the partner organization to the host organization as a member.
 
-## Can B2B Users be added as Members instead of Guests?
-Typically, a B2B user and Guest user are synonymous. Therefore, B2B collaboration user is added as a user with UserType = Guest by default. However, in some cases, the partner organization is actually more a member of a larger umbrella organization to which the host organization also belongs. If so, the host organization may want to treat users in the partner organization as Members and not Guests. In this case, use the B2B Invitation Manager APIs to add or invite a user from the partner organization to the host organization as a member.
+## Filter for guest users in the directory
 
-## Filtering for Guest users in the directory
+![Filter guest users](media/active-directory-b2b-user-properties/filter-guest-users.png)
 
-![filter guest users](media/active-directory-b2b-user-properties/filter-guest-users.png)
+## Convert UserType
+Currently, it is possible for users to convert UserType from Member to Guest and vice-versa by using PowerShell. However, the UserType property is supposed to represent the user's relationship to the organization. Therefore, the value of this property should change only if the relationship of the user to the organization changes. If the relationship of the user changes, should issues, like whether the user principal name (UPN) should change, be addressed? Should the user continue to have access to the same resources? Should a mailbox be assigned? Therefore, we do not recommend changing the UserType by using PowerShell as an atomic activity. In addition, in case this property becomes immutable by using PowerShell, we do not recommend taking a dependency on this value.
 
-## Converting UserType
-Currently, in PowerShell, it is possible for users to convert UserType from Member to Guest and vice-versa. However, the UserType property is supposed to represent the user's relationship with the organization. Therefore, this property should only change this if the user relationship with the organization has changed. If the user relationship changes, other questions should be answered like, should the UPN change? Should the user continue to have access to the resources they had access to? Should a mailbox be assigned? Therefore, we do not recommend changing the UserType in PowerShell as an atomic activity. In addition, we will be making this property immutable through PowerShell in future releases, so we do not recommend taking a dependency on this value.
+## Remove guest user limitations
+There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members.
 
-## Removing guest user limitations
-There may be cases where you want to give your guest users higher privileges. For this, you can add a guest user to any role and even remove the default guest user restrictions in the directory to give them the same privileges as members. Read on to learn more.
+It is possible to turn off the default guest user limitations so that a guest user in the company directory is given the same permissions as a member user.
 
-It is possible to turn off the default guest user limitations so that guest users in the company directory are given the same directory permissions that a regular user (member) has.
-
-![remove guest user limitations](media/active-directory-b2b-user-properties/remove-guest-limitations.png)
+![Remove guest user limitations](media/active-directory-b2b-user-properties/remove-guest-limitations.png)
 
 ## Next steps
 
@@ -90,7 +94,8 @@ Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
-* [Delegate B2bB collaboration invitations](active-directory-b2b-delegate-invitations.md)
+* [Delegate B2B collaboration invitations](active-directory-b2b-delegate-invitations.md)
+* [B2B collaboration user auditing and reporting](active-directory-b2b-auditing-and-reporting.md)
 * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
 * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
 * [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)

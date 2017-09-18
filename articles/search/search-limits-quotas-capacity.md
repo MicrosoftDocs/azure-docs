@@ -14,20 +14,20 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 06/07/2017
 ms.author: heidist
 
 ---
 # Service limits in Azure Search
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you add Azure Search at a **Free**, **Basic**, or **Standard** pricing tier.
+Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at a **Free**, **Basic**, or **Standard** pricing tier.
 
 * **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources.
 * **Basic** provides dedicated computing resources for production workloads at a smaller scale.
 * **Standard** runs on dedicated machines, with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD).
 
-All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can increase the resource allocation once the service is created.
-
-A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information about tiers, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
+> [!NOTE]
+> A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
+>
 
 ## Per subscription limits
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -41,16 +41,18 @@ There is a one-to-one correspondence between limits on indexes and limits on ind
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Index: maximum fields per index |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Index: maximum scoring profiles per index |16 |16 |16 |16 |16 |16 |
+| Index: maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
 | Index: maximum functions per profile |8 |8 |8 |8 |8 |8 |
 | Indexers: maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A <sup>2</sup> |
-| Indexers: maximum running time |3 minutes |24 hours |24 hours |24 hours |24 hours |N/A <sup>2</sup> |
+| Indexers: maximum running time | 1-3 minutes <sup>3</sup> |24 hours |24 hours |24 hours |24 hours |N/A <sup>2</sup> |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A <sup>2</sup> |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A <sup>2</sup> |
 
 <sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
 
 <sup>2</sup> S3 HD doesn't currently support indexers. Contact Azure Support if you have an urgent need for this capability.
+
+<sup>3</sup> Indexer maximum execution time for the Free tier is 3 minutes for blob sources and 1 minute for all other data sources.
 
 ## Document size limits
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD |

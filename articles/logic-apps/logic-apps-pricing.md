@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: klam
+ms.author: LADocs; klam
 ---
 # Logic Apps pricing model
 Azure Logic Apps allows you to scale and execute integration workflows in the cloud.  Following are details on the billing and pricing plans for Logic Apps.
@@ -55,6 +55,7 @@ For pricing details, see [Logic Apps Pricing](https://azure.microsoft.com/pricin
 ## Next steps
 * [An overview of Logic Apps][whatis]
 * [Create your first logic app][create]
+
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [whatis]: logic-apps-what-are-logic-apps.md
 [create]: logic-apps-create-a-logic-app.md

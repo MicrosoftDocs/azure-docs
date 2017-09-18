@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps Integration Account Metadata | Microsoft Docs
-description: Overview of integration account metadata
+title: Manage integration account artifact metadata - Azure Logic Apps | Microsoft Docs
+description: Add or retrieve artifact metadata from integration accounts for Azure Logic Apps
 author: padmavc
 manager: anneta
 editor: ''
@@ -13,49 +13,67 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
-ms.author: padmavc
-
+ms.author: LADocs; padmavc
 ---
-# Azure Logic Apps Integration Account Metadata
 
-## Overview
+# Manage artifact metadata in integration accounts for logic apps
 
-Partners, agreements, schemas, maps added to an integration account, store metadata with key-value pairs. You can define custom metadata, which can be retrieved during runtime.  Right now the artifacts do not have the capability to create metadata in UI; you can use rest APIs to create them.  Partner, agreements, and schema have **EDIT as JSON** and allows for keying metadata information.  In a logic app, **Integration Account Artifact LookUp** helps in retrieving the metadata information.
+You can define custom metadata for artifacts in integration accounts and retrieve 
+that metadata during runtime for your logic app. For example, you can specify metadata 
+for artifacts like partners, agreements, schemas, and maps - all store metadata using key-value pairs. 
+Currently, artifacts can't create metadata through UI, but you can use REST APIs to create metadata. 
+To add metadata when you create or select a partner, 
+agreement, or schema in the Azure portal, choose **Edit as JSON**. To retrieve artifact 
+metadata in logic apps, you can use the Integration Account Artifact Lookup feature.
 
-## How to Store metadata
+## Add metadata to artifacts in integration accounts
 
-1. Create an [Integration Account](logic-apps-enterprise-integration-create-integration-account.md)   
+1. Create an [integration account](logic-apps-enterprise-integration-create-integration-account.md).
 
-2. Add a [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner) or an [agreement](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) or a [schema](logic-apps-enterprise-integration-schemas.md) in integration account
+2. Add an artifact to your integration account, for example, 
+a [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), 
+[agreement](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), 
+or [schema](logic-apps-enterprise-integration-schemas.md).
 
-3. Select a parter or an agreement, or a schema. select **Edit as JSON** and enter metadata details    
-![Enter metadata](media/logic-apps-enterprise-integration-metadata/image1.png)  
+3.	Select the artifact, choose **Edit as JSON**, and enter metadata details.
 
-## Call **Integration Account Artifact LookUp** from a logic app
+	![Enter metadata](media/logic-apps-enterprise-integration-metadata/image1.png)
 
-1. Create a [Logic App](logic-apps-create-a-logic-app.md)
+## Retrieve metadata from artifacts for logic apps
 
-2. [Link](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
+1. Create a [logic app](logic-apps-create-a-logic-app.md).
 
-3. Create a trigger, for example using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp**  
-![Search lookup](media/logic-apps-enterprise-integration-metadata/image2.png)
+2. Create a [link from your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
 
-3. Select **Integration Account Artifact LookUp**  
+3. In Logic App Designer, add a trigger like *Request* or *HTTP* to your logic app.
 
-4. Select **Artifact Type** and provide **Artifact Name**  
-![Search lookup](media/logic-apps-enterprise-integration-metadata/image3.png)
+4.	Choose **Next Step** > **Add an action**. Search for *integration* 
+so you can find and then select **Integration Account - Integration Account Artifact Lookup**.
 
-## An example to retrieve partner metadata
+	![Select Integration Account Artifact Lookup](media/logic-apps-enterprise-integration-metadata/image2.png)
 
-1. Partner metadata has routing url details    
-![Search lookup](media/logic-apps-enterprise-integration-metadata/image6.png)
+5. Select the **Artifact Type**, and provide the **Artifact Name**.
 
-2. In a logic app configure **Integration Account Artifact LookUp** and **HTTP**   
-![Search lookup](media/logic-apps-enterprise-integration-metadata/image4.png)
+	![Select artifact type and specify artifact name](media/logic-apps-enterprise-integration-metadata/image3.png)
 
-3. To retrieve URI, the code view should look like    
-![Search lookup](media/logic-apps-enterprise-integration-metadata/image5.png)
+## Example: Retrieve partner metadata
+
+Partner metadata has these `routingUrl` details:
+
+![Find partner "routingURL" metadata](media/logic-apps-enterprise-integration-metadata/image6.png)
+
+1. In your logic app, add your trigger, 
+an **Integration Account - Integration Account Artifact Lookup** action for your partner, 
+and an **HTTP**.
+
+	![Add trigger, artifact lookup, and "HTTP" to your logic app](media/logic-apps-enterprise-integration-metadata/image4.png)
+
+2. To retrieve the URI, go to Code View for your logic app. Your logic app definition 
+should look like this example:
+
+	![Search lookup](media/logic-apps-enterprise-integration-metadata/image5.png)
 
 
 ## Next steps

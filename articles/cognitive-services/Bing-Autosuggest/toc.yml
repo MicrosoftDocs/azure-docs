@@ -1,0 +1,29 @@
+- name: Bing AutoSuggest Documentation
+  href: ../index.md
+- name: Overview
+  items:
+  - name: Get suggested search terms
+    href: get-suggested-search-terms.md
+  - name: Upgrade from v5 to v7 Preview
+    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Get started
+    href: quick-start.md
+- name: Reference
+  items:
+  - name: REST v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
+  - name: REST v7 Preview
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Subscription key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2

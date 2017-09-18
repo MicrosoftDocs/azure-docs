@@ -3,9 +3,8 @@ title: Access reporting - Azure RBAC | Microsoft Docs
 description: Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: andredm7
 manager: femila
-editor: ''
 
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory
@@ -13,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
-ms.author: kgremban
-
+ms.date: 07/17/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.custom: H1Hack27Feb2017
 ---
-# Create an access change history report
+# Create an access report for Role-Based Access Control
 Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
 
 ## Create a report with Azure PowerShell
-To create an access change history report in PowerShell, use the `Get-AzureRMAuthorizationChangeLog` command. More details about this cmdlet are available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
+To create an access change history report in PowerShell, use the [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog) command.
 
 When you call this command, you can specify which property of the assignments you want listed, including the following:
 
@@ -29,16 +29,15 @@ When you call this command, you can specify which property of the assignments yo
 | --- | --- |
 | **Action** |Whether access was granted or revoked |
 | **Caller** |The owner responsible for the access change |
-| **Date** |The date and time that access was changed |
-| **DirectoryName** |The Azure Active Directory directory |
+| **PrincipalId** | The unique identifier of the user, group, or application that was assigned the role |
 | **PrincipalName** |The name of the user, group, or application |
 | **PrincipalType** |Whether the assignment was for a user, group, or application |
-| **RoleId** |The GUID of the role that was granted or revoked |
+| **RoleDefinitionId** |The GUID of the role that was granted or revoked |
 | **RoleName** |The role that was granted or revoked |
+| **Scope** | The unique identifier of the subscription, resource group, or resource that the assignment applies to | 
 | **ScopeName** |The name of the subscription, resource group, or resource |
 | **ScopeType** |Whether the assignment was at the subscription, resource group, or resource scope |
-| **SubscriptionId** |The GUID of the Azure subscription |
-| **SubscriptionName** |The name of the Azure subscription |
+| **Timestamp** |The date and time that access was changed |
 
 This example command lists all access changes in the subscription for the past seven days:
 

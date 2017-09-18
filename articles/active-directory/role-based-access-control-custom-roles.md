@@ -3,9 +3,8 @@ title: Create custom roles for Azure RBAC | Microsoft Docs
 description: Learn how to define custom roles with Azure Role-Based Access Control for more precise identity management in your Azure subscription.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: andredm7
 manager: femila
-editor: ''
 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -13,14 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/31/2017
-ms.author: kgremban
-
+ms.date: 07/11/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.custom: H1Hack27Feb2017
 ---
-# Custom Roles in Azure RBAC
-Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface](role-based-access-control-manage-access-azure-cli.md) (CLI), and the [REST API](role-based-access-control-manage-access-rest.md). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across all subscriptions that use that tenant as the Azure AD directory for the subscription.
+# Create custom roles for Azure Role-Based Access Control
+Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface](role-based-access-control-manage-access-azure-cli.md) (CLI), and the [REST API](role-based-access-control-manage-access-rest.md). Just like built-in roles, you can assign custom roles to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across subscriptions.
 
-The following is an example of a custom role for monitoring and restarting virtual machines:
+Each tenant can create up to 2000 custom roles. 
+
+The following example shows a custom role for monitoring and restarting virtual machines:
 
 ```
 {
@@ -81,7 +83,7 @@ azure provider operations show "Microsoft.Network/*"
 Use the **NotActions** property if the set of operations that you wish to allow is more easily defined by excluding restricted operations. The access granted by a custom role is computed by subtracting the **NotActions** operations from the **Actions** operations.
 
 > [!NOTE]
-> If a user is assigned a role that excludes an operation in **NotActions**, and is assigned a second role that grants access to the same operation, the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
+> If a user is assigned a role that excludes an operation in **NotActions**, and is assigned a second role that grants access to the same operation, the user is allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
 >
 >
 

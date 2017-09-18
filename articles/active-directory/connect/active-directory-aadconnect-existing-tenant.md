@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: When you have an existent tenant | Microsoft Docs'
+title: 'Azure AD Connect: When you already have Azure AD | Microsoft Docs'
 description: This topic describes how to use Connect when you have an existing Azure AD tenant.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ---
 
@@ -23,7 +23,7 @@ Most of the topics for how to use Azure AD Connect assumes you start with a new 
 ## The basics
 An object in Azure AD is either mastered in the cloud (Azure AD) or on-premises. For one single object, you cannot manage some attributes on-premises and some other attributes in Azure AD. Each object has a flag indicating where the object is managed.
 
-You can manage some users on-premises and other in the cloud. A common scenario for this configuration is an organization with a mix of office workers and blue color workers. The office workers have an on-premises AD account, but the blue color workers do not. You would manage some users on-premises and some in Azure AD.
+You can manage some users on-premises and other in the cloud. A common scenario for this configuration is an organization with a mix of accounting workers and sales workers. The accounting workers have an on-premises AD account, but the sales workers do not, they have an account in Azure AD. You would manage some users on-premises and some in Azure AD.
 
 If you started to manage users in Azure AD that are also in on-premises AD and later want to use Connect, then there are some additional concerns you need to consider.
 

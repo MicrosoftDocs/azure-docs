@@ -3,8 +3,7 @@ title: Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes
 description: Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes
 services: app-service\web
 documentationcenter: .net
-author: Juliako
-manager: erikre
+author: chrissfanos
 editor: ''
 
 ms.assetid: 877d070a-9bd5-49b3-8fac-6bb5f65c3554
@@ -13,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 10/17/2016
+ms.date: 02/24/2017
 ms.author: juliako
 
 ---

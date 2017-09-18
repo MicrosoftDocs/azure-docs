@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 03/06/2017
 ms.author: torsteng
 
 ---
@@ -25,13 +25,10 @@ This document shows the changes in an Entity Framework application that are need
 To download the code for this article:
 
 * Visual Studio 2012 or later is required. 
+* Download the [Elastic DB Tools for Azure SQL - Entity Framework Integration sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) from MSDN. Unzip the sample to a location of your choosing.
 * Start Visual Studio. 
-* In Visual Studio, select File -> New Project. 
-* In the ‘New Project’ dialog, navigate to the **Online Samples** for **Visual C#** and type "elastic db" into the search box in the upper right.
-  
-    ![Entity Framework and elastic database sample app][1] 
-  
-    Select the sample called **Elastic DB Tools for Azure SQL - Entity Framework Integration**. After accepting the license, the sample loads. 
+* In Visual Studio, select File -> Open Project/Solution. 
+* In the **Open Project** dialog, navigate to the sample you downloaded and select **EntityFrameworkCodeFirst.sln** to open the sample. 
 
 To run the sample, you need to create three empty databases in Azure SQL Database:
 

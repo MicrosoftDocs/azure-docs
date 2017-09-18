@@ -3,7 +3,7 @@ title: Azure AD Java web app Getting Started | Microsoft Docs
 description: Build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
-author: xerners
+author: navyasric
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: brandwe
+ms.author: nacanuma
+ms.custom: aaddev
 
 ---
 # Java web app sign-in and sign-out with Azure AD
@@ -45,8 +46,8 @@ To set up the app to authenticate users, first register it in your tenant by doi
 5. Follow the prompts to create a **Web Application and/or WebAPI**.
   * **Name** describes the app to users.
   * **Sign-On URL** is the base URL of the app. The skeleton's default URL is http://localhost:8080/adal4jsample/.
-  * **App ID URI** a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `http://localhost:8080/adal4jsample/`).
 6. After you've completed the registration, Azure AD assigns the app a unique application ID. Copy the value from the app page to use in the next sections.
+7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `http://localhost:8080/adal4jsample/`).
 
 When you are in the portal for the app, create and copy a key for the app on the **Settings** page. You'll need the key shortly.
 
@@ -180,7 +181,7 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.windows.net/</param-value>
+            <param-value>https://login.microsoftonline.com/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>

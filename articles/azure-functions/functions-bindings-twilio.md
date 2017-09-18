@@ -4,7 +4,7 @@ description: Understand how to use Twilio bindings with Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -18,8 +18,10 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: wesmc
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Azure Functions Twilio output binding
+# Send SMS messages from Azure Functions using the Twilio output binding
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and use Twilio bindings with Azure Functions. 
@@ -28,17 +30,19 @@ This article explains how to configure and use Twilio bindings with Azure Functi
 
 Azure Functions supports Twilio output bindings to enable your functions to send SMS text messages with a few lines of code and a [Twilio](https://www.twilio.com/) account. 
 
-## function.json for Azure Notification Hub output binding
+## function.json for the Twilio output binding
 The function.json file provides the following properties:
 
-* `name` : Variable name used in function code for the Twilio SMS text message.
-* `type` : must be set to *"twilioSms"*.
-* `accountSid` : This value must be set to the name of an App Setting that holds your Twilio Account Sid.
-* `authToken` : This value must be set to the name of an App Setting that holds your Twilio authentication token.
-* `to` : This value is set to the phone number that the SMS text is sent to.
-* `from` : This value is set to the phone number that the SMS text is sent from.
-* `direction` : must be set to *"out"*.
-* `body` : This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. 
+|Property  |Description  |
+|---------|---------|
+|**name**| Variable name used in function code for the Twilio SMS text message. |
+|**type**| must be set to `twilioSms`.|
+|**accountSid**| This value must be set to the name of an App Setting that holds your Twilio Account Sid.|
+|**authToken**| This value must be set to the name of an App Setting that holds your Twilio authentication token.|
+|**to**| This value is set to the phone number that the SMS text is sent to.|
+|**from**| This value is set to the phone number that the SMS text is sent from.|
+|**direction**| must be set to `out`.|
+|**body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
 Example function.json:
 

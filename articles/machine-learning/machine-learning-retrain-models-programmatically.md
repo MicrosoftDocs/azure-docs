@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/19/2017
 ms.author: raymondl;garye;v-donglo
 
 ---
@@ -54,6 +54,9 @@ Next you create a Predicative Experiment.
 2. Click **Run**. 
 3. After the experiment has finished running, click **Deploy Web Service [Classic]** or **Deploy Web Service [New]**.
 
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+
 ## Deploy the training experiment as a Training web service
 To retrain the trained model, you must deploy the training experiment that you created as a Retraining web service. This web service needs a *Web Service Output* module connected to the *[Train Model][train-model]* module, to be able to produce new trained models.
 
@@ -84,7 +87,7 @@ For this example, you are using C# to create the retraining application. You can
 
 To call the Retraining APIs:
 
-1. Create a C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).
+1. Create a C# console application in Visual Studio: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
 2. Sign in to the Machine Learning Web Service portal.
 3. If you are working with a Classic web service, click **Classic Web Services**.
    1. Click the web service you are working with.

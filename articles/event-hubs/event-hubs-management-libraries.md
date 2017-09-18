@@ -1,10 +1,10 @@
 ---
-title: Azure Event Hubs Management Libraries | Microsoft Docs
+title: Azure Event Hubs management libraries | Microsoft Docs
 description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 
 ms.assetid:
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
-ms.author: jotaub;sethm
+ms.date: 08/15/2017
+ms.author: sethm
 
 ---
 
 # Event Hubs management libraries
 
-The Event Hubs management libraries can dynamically provision Event Hubs namespaces and entities. This allows for complex deployments and messaging scenarios, enabling you to programmatically determine what entities to provision. These libraries are currently available for .NET.
+The Event Hubs management libraries can dynamically provision Event Hubs namespaces and entities. This enables complex deployments and messaging scenarios, so that you can programmatically determine what entities to provision. These libraries are currently available for .NET.
 
 ## Supported functionality
 
@@ -36,15 +36,15 @@ To get started using the Event Hubs management libraries, you must authenticate 
 * [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-These tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which are used for authentication by the management libraries. You must have 'Owner' permissions for the resource group on which you wish to run.
+These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have **Owner** permissions for the resource group on which you want to run.
 
 ## Programming pattern
 
 The pattern to manipulate any Event Hubs resource follows a common protocol:
 
-1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
+1. Obtain a token from AAD using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",
@@ -61,7 +61,7 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
     };
     ```
 
-1. Set the CreateOrUpdate parameters to your specified values.
+1. Set the `CreateOrUpdate` parameters to your specified values.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {

@@ -1,9 +1,9 @@
 ---
-title: Managing custom domain names in your Azure Active Directory preview | Microsoft Docs
+title: Managing custom domain names in your Azure Active Directory | Microsoft Docs
 description: Management concepts and how-tos for managing a domain name in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: jeffsta
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 08/10/2017
 ms.author: curtand;jeffsta
 
 ---
-# Managing custom domain names in your Azure Active Directory preview
-A domain name is an important part of the identifier for many directory resources: it is part of a user name or email address for a user, part of the address for a group, and can be part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) preview can include a domain name that is already verified to be owned by the directory that contains the resource. [What's in the preview?](active-directory-preview-explainer.md) Only a global administrator can perform domain management tasks in Azure AD.
+# Managing custom domain names in your Azure Active Directory
+A domain name is an important part of the identifier for many directory resources: it is part of a user name or email address for a user, part of the address for a group, and can be part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) can include a domain name that is already verified as owned by the directory that contains the resource. Only a global administrator can perform domain management tasks in Azure AD.
 
 ## Set the primary domain name for your Azure AD directory
-When your directory is created, the initial domain name, such as ‘contoso.onmicrosoft.com,’ is also the primary domain name. The primary domain is the default domain name for a new user when you create a new user. This streamlines the process for an administrator to create new users in the portal. To change the primary domain name:
+When your directory is created, the initial domain name, such as ‘contoso.onmicrosoft.com,’ is also the primary domain name. The primary domain is the default domain name for a new user when you create a new user. Setting a primary domain name streamlines the process for an administrator to create new users in the portal. To change the primary domain name:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
@@ -29,14 +29,14 @@ When your directory is created, the initial domain name, such as ‘contoso.onmi
    ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
 3. On the ***directory-name*** blade, select **Domain names**.
 4. On the ***directory-name* - Domain names** blade, select the domain name you would like to make the primary domain name.
-5. On the ***domainname*** blade (that is, the blade that opens that has your new domain name in the title), select the **Make primary** command. Confirm your choice when prompted.
+5. On the ***domain name*** blade (that is, the blade that opens that has your new domain name in the title), select the **Make primary** command. Confirm your choice when prompted.
    
    ![Make a domain name primary](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
 You can change the primary domain name for your directory to be any verified custom domain that is not federated. Changing the primary domain for your directory will not change the user names for any existing users.
 
 ## Add custom domain names to your Azure AD
-You can add up to 900 custom domain names to each Azure AD directory. The process to [add an additional custom domain name](active-directory-domains-add-azure-portal.md) is the same for the first custom domain name.
+You can add up to 900 custom domain names to each Azure AD directory. The process to [add an additional custom domain name](add-custom-domain.md) is the same for the first custom domain name.
 
 ## Add subdomains of a custom domain
 If you want to add a third-level domain name such as ‘europe.contoso.com’ to your directory, you should first add and verify the second-level domain, such as contoso.com. The subdomain will be automatically verified by Azure AD. To see that the subdomain that you just added has been verified, refresh the page in the browser that lists the domains.
@@ -56,11 +56,11 @@ To delete a custom domain name, you must first ensure that no resources in your 
 You must change or delete any such resource in your Azure AD directory before you can delete the custom domain name.
 
 ## Use PowerShell or Graph API to manage domain names
-Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Azure AD Graph API (in public preview).
+Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Azure AD Graph API.
 
 * [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## Next steps
-* [Add custom domain names](active-directory-domains-add-azure-portal.md)
+* [Add custom domain names](add-custom-domain.md)
 

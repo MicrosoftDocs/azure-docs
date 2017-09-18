@@ -5,7 +5,7 @@ description: Learn how to customize Swagger API definitions that are generated b
 services: app-service\api
 documentationcenter: .net
 author: bradygaster
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 6b8cbc38-d282-4a0f-b0c5-762631bae6f3

@@ -2,7 +2,7 @@
 title: Azure Data Factory Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis.
 services: data-factory
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -114,7 +114,8 @@ Learn how to use Data Factory, a cloud data integration service, to compose data
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
+                        <p><a href="/dotnet/api/index?view=azuremgmtdatafactories-4.12.1">.NET</a></p>
+                        <p><a href="/azure/data-factory/data-factory-json-scripting-reference">JSON</a></p>
                    </div>
                 </div>
             </div>

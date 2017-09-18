@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
@@ -24,11 +24,11 @@ This tutorial describes options for authoring and configuring a basic Web Server
 It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.
 
 ## Bottle, Django or Flask?
-The Azure Marketplace contains templates for the Bottle, Django and Flask frameworks. If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
+The Azure Marketplace contains templates for the Bottle, Django and Flask frameworks. If you are developing your first web app in Azure App Service, you can create one quickly from the Azure portal:
 
-* [Creating web apps with Bottle](web-sites-python-create-deploy-bottle-app.md)
-* [Creating web apps with Django](web-sites-python-create-deploy-django-app.md)
-* [Creating web apps with Flask](web-sites-python-create-deploy-flask-app.md)
+* [Creating web apps with Bottle](https://portal.azure.com/#create/PTVS.Bottle)
+* [Creating web apps with Django](https://portal.azure.com/#create/PTVS.Django)
+* [Creating web apps with Flask](https://portal.azure.com/#create/PTVS.Flask)
 
 ## Web app creation on Azure Portal
 This tutorial assumes an existing Azure subscription and access to the Azure Portal.

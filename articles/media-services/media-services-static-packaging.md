@@ -4,7 +4,7 @@ description: This topic shows various tasks that are accomplished with Azure Med
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/17/2017
 ms.author: juliako
 
 ---
@@ -530,7 +530,7 @@ The example defines the UpdatePlayReadyConfigurationXMLFile method that you can 
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -879,7 +879,7 @@ The example in this section encodes a mezzanine file (in this case MP4) into mul
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -1252,7 +1252,7 @@ Make sure to update the following code to point to the folder where your input M
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset

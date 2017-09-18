@@ -14,97 +14,93 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
 
 ---
 
 # Configure SaaS apps for B2B collaboration
 
-Azure Active Directory (Azure AD) B2B collaboration works with most applications that integrate with Azure AD. In this section, we'll walk through instructions on how to configure some popular SAS apps for use with Azure AD B2B.
-Before we look at application specific instructions, here are some rules of thumb:
+Azure Active Directory (Azure AD) B2B collaboration works with most apps that integrate with Azure AD. In this section, we walk through instructions for configuring some popular SaaS apps for use with Azure AD B2B.
 
-* Remember that for most of the applications, user provision needs to happen manually (that is, users have to be created manually in the application as well).
+Before you look at app-specific instructions, here are some rules of thumb:
 
-* For apps that support automatic provisioning (like Dropbox), there will be separate invitations created from the applications. User must be sure to accept each invitation.
+* For most of the apps, user setup needs to happen manually. That is, users must be created manually in the app as well.
 
-* In the User Attributes, always set User Identifier to user.mail (to mitigate any issues with mangled UPD in guest users)
+* For apps that support automatic setup, such as Dropbox, separate invitations are created from the apps. Users must be sure to accept each invitation.
+
+* In the user attributes, to mitigate any issues with mangled user profile disk (UPD) in guest users, always set **User Identifier** to **user.mail**.
 
 
-##DropBox for Business
+## Dropbox Business
 
-For users to be able to sign in using their organization account, Dropbox for Business must be manually configured to use Azure AD as a SAML identity provider. Dropbox for Business cannot prompt or otherwise allow users to sign in using Azure AD if it has not been configured to do so.
+To enable users to sign in using their organization account, you must manually configure Dropbox Business to use Azure AD as a Security Assertion Markup Language (SAML) identity provider. If Dropbox Business has not been configured to do so, it cannot prompt or otherwise allow users to sign in using Azure AD.
 
-1. Add DropBox for Business application into Azure AD as shown in the screenshot.
+1. To add the Dropbox Business app into Azure AD, select **Enterprise applications** in the left pane, and then click **Add**.
 
-  ![add Dropbox to Azure AD](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
+  ![The "Add" button on the Enterprise applications page](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
 
-  ![add Dropbox to Azure AD](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
+2. In the **Add an application** window, enter **dropbox** in the search box, and then select **Dropbox for Business** in the results list.
 
-2. Configure the application.
+  ![Search for "dropbox" on the Add an application page](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
 
-  ![Configure single sign-on for the app](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
+3. On the **Single sign-on** page, select **Single sign-on** in the left pane, and then enter **user.mail** in the **User Identifier** box. (It's set as UPN by default.)
 
-3. Select single sign-on configuration and change user identifier to user.mail (its UPN by default)
+  ![Configuring single sign-on for the app](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
 
-4. Download the certificate to use for DropBox configuration.
+4. To download the certificate to use for Dropbox configuration, select **Configure DropBox**, and then select **SAML Single Sign On Service URL** in the list.
 
-  ![download certificate](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
+  ![Downloading the certificate for Dropbox configuration](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
 
-5. Use the Configure DropBox option (the process is explained in detail by screenshots below)
+5. Sign in to Dropbox with the sign-on URL from the **Single sign-on** page.
 
-6. Get the SAML single sign on URL to be used in the configuration.
+  ![The Dropbox sign-in page](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
 
-7. Get the sign-on URL from the DropBox configuration page.
+6. On the menu, select **Admin Console**.
 
-  ![sign in to dropbox](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
+  ![The "Admin Console" link on the Dropbox menu](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
 
-  ![Dropbox menu](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
+7. In the **Authentication** dialog box, select **More**, upload the certificate and then, in the **Sign in URL** box, enter the SAML single sign-on URL.
 
-  ![Dropbox authentication dialog collapsed](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
+  ![The "More" link in the collapsed Authentication dialog box](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
 
-  ![Dropbox authentication dialog expanded](media/active-directory-b2b-configure-saas-apps/dropbox-auth-02.png)
+  ![The "Sign in URL" in the expanded Authentication dialog box](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
 
-8. Upload certificate & paste SAML single sign on URL here.
+8. To configure automatic user setup in the Azure portal, select **Provisioning** in the left pane, select **Automatic** in the **Provisioning Mode** box, and then select **Authorize**.
 
-  ![Paste in SAML SSO URL](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
+  ![Configuring automatic user provisioning in the Azure portal](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
 
-9. Configure automatic user provisioning in the Azure portal.
-
-  ![set up automatic user provisioning](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
-
-10. Once provisioned in the DropBox application, the guest/member user will get a separate invite from DropBox. The invitees must accept it by clicking the link, to use single sign-on into DropBox.
+After guest or member users have been set up in the Dropbox app, they receive a separate invitation from Dropbox. To use Dropbox single sign-on, invitees must accept the invitation by clicking a link in it.
 
 ## Box
-This section outlines how to enable users to authenticate a guest user to Box with their account in Azure AD using federation based on the SAML protocol. As part of this procedure, you are required to upload metadata to Box.com.
+You can enable users to authenticate Box guest users with their Azure AD account by using federation that's based on the SAML protocol. In this procedure, you upload metadata to Box.com.
 
-1. Add Box from the enterprise applications
+1. Add the Box app from the enterprise apps.
 
-2. Configure single sign-on
+2. Configure single sign-on in the following order:
 
   ![Configure Box single sign-on](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
-3. First, ensure that the Sign-on URL is set appropriately for Box in the Azure management portal. This is the URL of your Box.com tenant and should follow the format: https://.box.com.
+ a. In the **Sign on URL** box, ensure that the sign-on URL is set appropriately for Box in the Azure portal. This URL is the URL of your Box.com tenant. It should follow the naming convention *https://.box.com*.  
+ The **Identifier** does not apply to this app, but it still appears as a mandatory field.
 
-4. The Identifier is not applicable for this application but still shows as mandatory field, just be aware of that fact.
+ b. In the **User identifier** box, enter **user.mail** (for SSO for guest accounts).
 
-5. User identifier to user.mail ( to make sure SSO for guest accounts)
+ c. Under **SAML Signing Certificate**, click **Create new certificate**.
 
-6. Create new SAML certificate
+ d. To begin configuring your Box.com tenant to use Azure AD as an identity provider, download the metadata file and then save it to your local drive.
 
-7. To begin configuring your Box.com tenant to use Azure Active Directory as an identity provider, start by downloading the following metadata file, and saving it locally on your computer: Download metadata file ( make sure to make it active)
+ e. Forward the metadata file to the Box support team, which configures single sign-on for you.
 
-8. Forward that metadata file to Box support team. The support team configures single sign-on for you.
+3. For Azure AD automatic user setup, in the left pane, select **Provisioning**, and then select **Authorize**.
 
-9. Set up for Azure AD automatic user provisioning.
+  ![Authorize Azure AD to connect to Box](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
-  ![Authorize Azure AD to connect to box](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
-
-Invitees must also redeem their invitation from the Box application.
+Like Dropbox invitees, Box invitees must redeem their invitation from the Box app.
 
 ## Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
+See the following articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [B2B collaboration user properties](active-directory-b2b-user-properties.md)

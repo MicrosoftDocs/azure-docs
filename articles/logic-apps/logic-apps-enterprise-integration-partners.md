@@ -1,11 +1,11 @@
 ---
-title: Learn about partners and Enterprise Integration Pack | Microsoft Docs
-description: Learn how to use partners with the Enterprise Integration Pack and Logic apps
+title: Create partners for business-to-business (B2B) messages - Azure Logic Apps | Microsoft Docs
+description: Learn how to add partners to your integration account with the Enterprise Integration Pack and Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
-editor: cgronlun
+editor: 
 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
@@ -14,33 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
+ms.author: LADocs; padmavc
+
+ms.custom: H1Hack27Feb2017 
 
 ---
-# Partners in B2B scenarios
+# Add or update partners in business-to-business agreements in your workflow
 
-Partners are entities that participate in business-to-business (B2B) 
-transactions and exchange messages between each other. 
-Before you can create partners that represent you and 
-another organization in these transactions, 
-you must both share information that identifies 
-and validates messages sent by each other. 
-After you discuss these details and are ready 
-to start your business relationship, 
-you can create partners in your integration account 
-to represent you both.
+Partners are entities that participate in business-to-business (B2B) transactions and exchange messages between each other. Before you can create partners that represent you and another organization in these transactions, you must both share information that identifies and validates messages sent by each other. After you discuss these details and are ready to start your business relationship, you can create partners in your integration account to represent you both.
 
 ## What roles do partners have in your integration account?
 
-To define details about the messages exchanged between partners, 
-you create agreements between those partners. 
-However, before you can create an agreement, you must have added 
-at least two partners to your integration account. 
-Your organization must be part of the agreement as the **host partner**. 
-The other partner, or **guest partner** represents the organization 
-that exchanges messages with your organization. 
-The guest partner can be another company, 
-or even a department in your own organization.
+To define details about the messages exchanged between partners, you create agreements between those partners. However, before you can create an agreement, you must have added 
+at least two partners to your integration account. Your organization must be part of the agreement as the **host partner**. The other partner, or **guest partner** represents the organization that exchanges messages with your organization. The guest partner can be another company, or even a department in your own organization.
 
 After you add these partners, you can create an agreement.
 
@@ -52,8 +38,7 @@ Receive and Send settings are oriented from the point of view of the Hosted Part
 
 	![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
 
-2. In the filter search box, enter **integration**, 
-then select **Integration Accounts** in the results list.
+2. In the filter search box, enter **integration**, then select **Integration Accounts** in the results list.
 
 	![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
 
@@ -69,18 +54,15 @@ then select **Integration Accounts** in the results list.
 
 	![](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
-6. Enter a name for your partner, then select a **Qualifier**. 
-Finally, enter a **Value** to help identify documents that come into your apps.
+6. Enter a name for your partner, then select a **Qualifier**. Finally, enter a **Value** to help identify documents that come into your apps.
 
 	![](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
-7. To see the progress for your partner creation process, 
-select the *bell* notification icon.
+7. To see the progress for your partner creation process, select the *bell* notification icon.
 
 	![](./media/logic-apps-enterprise-integration-partners/partner-4.png)
 
-8. To confirm that your new partners were successfully added, 
-select the **Partners** tile.
+8. To confirm that your new partners were successfully added, select the **Partners** tile.
 
 	![](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
@@ -94,8 +76,7 @@ select the **Partners** tile.
 1. Select the **Partners** tile.
 2. After the Partners blade opens, select the partner you want to edit.
 3. On the **Update Partner** tile, make your changes.
-4. After you're done, choose **Save**, or to cancel your changes, 
-select **Discard**.
+4. After you're done, choose **Save**, or to cancel your changes, select **Discard**.
 
 	![](./media/logic-apps-enterprise-integration-partners/edit-1.png)
 

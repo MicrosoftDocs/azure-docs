@@ -1,177 +1,278 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with TeamSeer | Microsoft Docs'
-description: Learn how to use TeamSeer with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+description: Learn how to configure single sign-on between Azure Active Directory and TeamSeer.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 
 ms.assetid: 6ec4806f-fe0f-4ed7-8cfa-32d1c840433f
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 12/06/2016
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with TeamSeer
-The objective of this tutorial is to show the integration of Azure and TeamSeer.  
-The scenario outlined in this tutorial assumes that you already have the following items:
 
-* A valid Azure subscription
-* A TeamSeer tenant
+In this tutorial, you learn how to integrate TeamSeer with Azure Active Directory (Azure AD).
 
-After completing this tutorial, the Azure AD users you have assigned to TeamSeer will be able to single sign into the application at your TeamSeer company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Integrating TeamSeer with Azure AD provides you with the following benefits:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+- You can control in Azure AD who has access to TeamSeer
+- You can enable your users to automatically get signed-on to TeamSeer (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure portal
 
-1. Enabling the application integration for TeamSeer
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Scenario](./media/active-directory-saas-teamseer-tutorial/IC789618.png "Scenario")
+## Prerequisites
 
-## Enabling the application integration for TeamSeer
-The objective of this section is to outline how to enable the application integration for TeamSeer.
+To configure Azure AD integration with TeamSeer, you need the following items:
 
-### To enable the application integration for TeamSeer, perform the following steps:
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+- An Azure AD subscription
+- A TeamSeer single-sign on enabled subscription
+
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
+
+To test the steps in this tutorial, you should follow these recommendations:
+
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+
+## Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment. 
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding TeamSeer from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+## Adding TeamSeer from the gallery
+To configure the integration of TeamSeer in to Azure AD, you need to add TeamSeer from the gallery to your list of managed SaaS apps.
+
+**To add TeamSeer from the gallery, perform the following steps:**
+
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+
+	![Active Directory][1]
+
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
+
+	![Applications][2]
+	
+3. To add new application, click **New application** button on the top of dialog.
+
+	![Applications][3]
+
+4. In the search box, type **TeamSeer**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_search.png)
+
+5. In the results panel, select **TeamSeer**, and then click **Add** button to add the application.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_addfromgallery.png)
+
+##  Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with TeamSeer based on a test user called "Britta Simon."
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in TeamSeer is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in TeamSeer needs to be established.
+
+In TeamSeer, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+
+To configure and test Azure AD single sign-on with TeamSeer, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a TeamSeer test user](#creating-a-teamseer-test-user)** - to have a counterpart of Britta Simon in TeamSeer that is linked to the Azure AD representation of user.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your TeamSeer application.
+
+**To configure Azure AD single sign-on with TeamSeer, perform the following steps:**
+
+1. In the Azure portal, on the **TeamSeer** application integration page, click **Single sign-on**.
+
+	![Configure Single Sign-On][4]
+
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_samlbase.png)
+
+3. On the **TeamSeer Domain and URLs** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_url.png)
+
+     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.teamseer.com/<companyid>`
+
+	> [!NOTE] 
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [TeamSeer Client support team](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) to get the value. 
+ 
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_certificate.png) 
+
+5. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_general_400.png)
+
+6. On the **TeamSeer Configuration** section, click **Configure TeamSeer** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_configure.png)
+
+7. In a different web browser window, log in to your TeamSeer company site as an administrator.
+
+8. Go to **HR Admin**.
    
-    ![Active Directory](./media/active-directory-saas-teamseer-tutorial/IC700993.png "Active Directory")
+    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/ic789634.png "HR Admin")
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+9. Click **Setup**.
    
-    ![Applications](./media/active-directory-saas-teamseer-tutorial/IC700994.png "Applications")
+    ![Setup](./media/active-directory-saas-teamseer-tutorial/ic789635.png "Setup")
 
-4. Click **Add** at the bottom of the page.
+10. Click **Set up SAML provider details**.
    
-    ![Add application](./media/active-directory-saas-teamseer-tutorial/IC749321.png "Add application")
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/ic789636.png "SAML Settings")
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+11. In the SAML provider details section, perform the following steps:
    
-    ![Add an application from gallerry](./media/active-directory-saas-teamseer-tutorial/IC749322.png "Add an application from gallerry")
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/ic789637.png "SAML Settings")   
 
-6. In the **search box**, type **TeamSeer**.
-   
-    ![Application Gallery](./media/active-directory-saas-teamseer-tutorial/IC789619.png "Application Gallery")
+    a. Paste the **Single Sign-On Service URL** value in to the **URL** textbox.
+          
+    b. Open your base-64 encoded certificate in notepad, copy the content of it in to your clipboard, and then paste it to the **IdP Public Certificate** textbox.
 
-7. In the results pane, select **TeamSeer**, and then click **Complete** to add the application.
-   
-    ![TeamSeer](./media/active-directory-saas-teamseer-tutorial/IC789620.png "TeamSeer")
-
-## Configuring single sign-on
-The objective of this section is to outline how to enable users to authenticate to TeamSeer with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
-
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **TeamSeer** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789621.png "Configure Single Sign-On")
-
-2. On the **How would you like users to sign on to TeamSeer** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Configure Single Sign-On")
-
-3. On the **Configure App URL** page, in the **TeamSeer Sign In URL** textbox, type your URL using the following pattern "*http://www.teamseer.com/companyid*", and then click **Next**.
-   
-    ![Configure App URL](./media/active-directory-saas-teamseer-tutorial/IC789629.png "Configure App URL")
-
-4. On the **Configure single sign-on at TeamSeer** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789630.png "Configure Single Sign-On")
-
-5. In a different web browser window, log into your TeamSeer company site as an administrator.
-
-6. Go to **HR Admin**.
-   
-    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789634.png "HR Admin")
-
-7. Click **Setup**.
-   
-    ![Setup](./media/active-directory-saas-teamseer-tutorial/IC789635.png "Setup")
-
-8. Click **Set up SAML provider details**.
-   
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789636.png "SAML Settings")
-
-9. In the SAML provider details section, perform the following steps:
-   
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789637.png "SAML Settings")
-   
-    a. In the Azure classic portal, on the **Configure single sign-on at TeamSeer** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **URL** textbox.
-   
-    b. Create a **base-64 encoded** file from your downloaded certificate.  
-      
-    > [!TIP]
-    > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
-   
-    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Public Certificate** textbox.
-
-10. To complete the SAML provider configuration, perform the following steps:
+12. To complete the SAML provider configuration, perform the following steps:
     
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789638.png "SAML Settings")
-    
-    a. In the **Test Email Addresses**, type the test user’s email address.
-    
-    b. In the **Issuer** textbox, type the Issuer URL of the service provider.
-    
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/ic789638.png "SAML Settings") 
+
+    a. In the **Test Email Addresses**, type the test user’s email address. 
+  
+    b. In the **Issuer** textbox, type the Issuer URL of the service provider. 
+  
     c. Click **Save**.
 
-11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789639.png "Configure Single Sign-On")
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-## Configuring user provisioning
-In order to enable Azure AD users to log into TeamSeer, they must be provisioned into ShiftPlanning.  
-In the case of TeamSeer, provisioning is a manual task.
+### Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-### To provision a user accounts, perform the following steps:
+![Create Azure AD User][100]
+
+**To create a test user in Azure AD, perform the following steps:**
+
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-teamseer-tutorial/create_aaduser_01.png) 
+
+2. To display the list of users, go to **Users and groups** and click **All users**.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-teamseer-tutorial/create_aaduser_02.png) 
+
+3. To open the **User** dialog, click **Add** on the top of the dialog.
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-teamseer-tutorial/create_aaduser_03.png) 
+
+4. On the **User** dialog page, perform the following steps:
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-teamseer-tutorial/create_aaduser_04.png) 
+
+    a. In the **Name** textbox, type **BrittaSimon**.
+
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+
+	c. Select **Show Password** and write down the value of the **Password**.
+
+    d. Click **Create**.
+ 
+### Creating a TeamSeer test user
+
+To enable Azure AD users to log in to TeamSeer, they must be provisioned in to ShiftPlanning. In the case of TeamSeer, provisioning is a manual task.
+
+**To provision a user account, perform the following steps:**
+
 1. Log in to your **TeamSeer** company site as an administrator.
 
 2. Perform the following steps:
    
-    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789640.png "HR Admin")
-   
+    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/ic789640.png "HR Admin")  
+ 
     a. Go to **HR Admin \> Users**.
-   
+  
     b. Click **Run the New User wizard**.
 
 3. In the **User Details** section, perform the following steps:
    
-   ![User Details](./media/active-directory-saas-teamseer-tutorial/IC789641.png "User Details")
-   
-    a. Type the **First Name**, **Surname**, **User name (Email address)** of a valid AAD account you want to provision into the related textboxes.
+    ![User Details](./media/active-directory-saas-teamseer-tutorial/ic789641.png "User Details")
+
+    a. Type the **First Name**, **Surname**, **User name (Email address)** of a valid AAD account you want to provision in to the related textboxes.
   
     b. Click **Next**.
 
-4. Follow the on screen instructions for adding a new user, and click **Finish**.
+4. Follow the on-screen instructions for adding a new user, and click **Finish**.
 
-> [!NOTE]
-> You can use any other TeamSeer user account creation tools or APIs provided by TeamSeer to provision Azure AD user accounts.
-> 
-> 
+>[!NOTE]
+>You can use any other TeamSeer user account creation tools or APIs provided by TeamSeer to provision Azure AD user accounts. 
 
-## Assigning users
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+### Assigning the Azure AD test user
 
-### To assign users to TeamSeer, perform the following steps:
-1. In the Azure classic portal, create a test account.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to TeamSeer.
 
-2. On the **TeamSeer **application integration page, click **Assign users**.
-   
-    ![Assign Users](./media/active-directory-saas-teamseer-tutorial/IC789642.png "Assign Users")
+![Assign User][200] 
 
-3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
-   
-    ![Yes](./media/active-directory-saas-teamseer-tutorial/IC767830.png "Yes")
+**To assign Britta Simon to TeamSeer, perform the following steps:**
+
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+
+	![Assign User][201] 
+
+2. In the applications list, select **TeamSeer**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_app.png) 
+
+3. In the menu on the left, click **Users and groups**.
+
+	![Assign User][202] 
+
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
+	
+### Testing single sign-on
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_203.png
 

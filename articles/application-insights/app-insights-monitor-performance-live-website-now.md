@@ -1,9 +1,9 @@
----
+﻿---
 title: Monitor a live ASP.NET web app with Azure Application Insights  | Microsoft Docs
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
+ms.date: 05/05/2017
+ms.author: bwren
 
 ---
 # Instrument web apps at runtime with Application Insights
 
 
-You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
+You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
 You need a [Microsoft Azure](http://azure.com) subscription.
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
@@ -36,12 +36,12 @@ Here's a summary of what you get by each route:
 | --- | --- | --- |
 | Requests & exceptions |Yes |Yes |
 | [More detailed exceptions](app-insights-asp-net-exceptions.md) | |Yes |
-| [Dependency diagnostics](app-insights-asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP  Verb|
+| [Dependency diagnostics](app-insights-asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
 | [System performance counters](app-insights-performance-counters.md) |Yes |Yes |
-| [API for custom telemetry][api] |Yes | |
-| [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes | |
-| [Page view & user data](app-insights-javascript.md) |Yes | |
-| No need to rebuild code |No | |
+| [API for custom telemetry][api] |Yes |No |
+| [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes |No |
+| [Page view & user data](app-insights-javascript.md) |Yes |No |
+| Need to rebuild code |Yes | No |
 
 
 ## Monitor a live Azure web app
@@ -57,12 +57,26 @@ If your application is running as an Azure web service, here's how to switch on 
 
 [Monitoring Cloud and VM apps](app-insights-azure.md).
 
+### Enable client-side monitoring in Azure
+
+If you have enabled Application Insights in Azure, you can add page view and user telemetry.
+
+1. Select Settings > Application Settings
+2.  Under App Settings, add a new key value pair: 
+   
+    Key: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Value: `true`
+3. **Save** the settings and **Restart** your app.
+
+The Application Insights JavaScript SDK is now injected into each web page.
+
 ## Monitor a live IIS web app
 
 If your app is hosted on an IIS server, enable Application Insights by using Status Monitor.
 
 1. On your IIS web server, sign in with administrator credentials.
-2. If Application Insights Status Monitor is not already installed, download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. If Application Insights Status Monitor is not already installed, download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648) (or run [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) and search in it for Application Insights Status Monitor).
 3. In Status Monitor, select the installed web application or website that you want to monitor. Sign in with your Azure credentials.
 
     Configure the resource where you want to see the results in the Application Insights portal. (Normally, it's best to create a new resource. Select an existing resource if you already have [web tests][availability] or [client monitoring][client] for this app.) 
@@ -73,7 +87,7 @@ If your app is hosted on an IIS server, enable Application Insights by using Sta
 
     ![Choose Restart at the top of the dialog.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
-    Your web service will be interrupted for a short while.
+    Your web service is interrupted for a short while.
 
 ## Customize monitoring options
 
@@ -87,7 +101,7 @@ If you want to re-publish without adding Application Insights to the code, be aw
 
 1. If you edited ApplicationInsights.config, take a copy of it before you re-publish your app.
 2. Republish your app.
-3. Re-enable Application Insights monitoring. (Use the appropriate method: either  the Azure web app control panel, or the Status Monitor on an IIS host.)
+3. Re-enable Application Insights monitoring. (Use the appropriate method: either the Azure web app control panel, or the Status Monitor on an IIS host.)
 4. Reinstate any edits you performed on the .config file.
 
 
@@ -95,7 +109,7 @@ If you want to re-publish without adding Application Insights to the code, be aw
 
 ### Can't connect? No telemetry?
 
-* You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
+* Open [the necessary outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
 
 * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
 
@@ -103,7 +117,7 @@ If you want to re-publish without adding Application Insights to the code, be aw
 * On the server, if you see a message about "insufficient permissions", try the following:
   * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
   * In Computer management control panel, add this identity to the Performance Monitor Users group.
-* If you have MMA/SCOM installed on your server, some versions can conflict. Uninstall both SCOM and Status Monitor, and re-install the latest versions.
+* If you have MMA/SCOM (Systems Center Operations Manager) installed on your server, some versions can conflict. Uninstall both SCOM and Status Monitor, and re-install the latest versions.
 * See [Troubleshooting][qna].
 
 ## System Requirements
@@ -117,7 +131,7 @@ OS support for Application Insights Status Monitor on Server:
 
 with latest SP and .NET Framework 4.5
 
-On the client side Windows 7, 8, 8.1 and 10, again with .NET Framework 4.5
+On the client side: Windows 7, 8, 8.1 and 10, again with .NET Framework 4.5
 
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)
@@ -149,7 +163,7 @@ Find out which apps are being monitored:
 * `-InstrumentationKey` The ikey of the Application Insights resource where you want the results to be displayed.
 * This cmdlet only affects apps that are not already instrumented - that is, SdkState==NotInstrumented.
 
-    The cmdlet does not affect an app that is already instrumented, either at build time by adding the SDK to the code, or at run time by a previous use of this cmdlet.
+    The cmdlet does not affect an app that is already instrumented. It does not matter whether the app was instrumented at build time by adding the SDK to the code, or at run time by a previous use of this cmdlet.
 
     The SDK version used to instrument the app is the version that was most recently downloaded to this server.
 
@@ -182,6 +196,58 @@ Find out which apps are being monitored:
 
 * Downloads the latest Application Insights SDK to the server.
 
+## <a name="questions"></a>Questions about Status Monitor
+
+### What is Status Monitor?
+
+A desktop application that you install in your IIS web server. It helps you instrument and configure web apps. 
+
+### When do I use Status Monitor?
+
+* To instrument any web app that is running on your IIS server - even if it is already running.
+* To enable additional telemetry for web apps that have been [built with the Application Insights SDK](app-insights-asp-net.md) at compile time. 
+
+### Can I close it after it runs?
+
+Yes. After it has instrumented the websites you select, you can close it.
+
+It doesn't collect telemetry by itself. It just configures the web apps and sets some permissions.
+
+### What does Status Monitor do?
+
+When you select a web app for Status Monitor to instrument:
+
+* Downloads and places the Application Insights assemblies and .config file in the web app's binaries folder.
+* Modifies `web.config` to add the Application Insights HTTP tracking module.
+* Enables CLR profiling to collect dependency calls.
+
+### Do I need to run Status Monitor whenever I update the app?
+
+Not if you redeploy incrementally. 
+
+If you select the 'delete existing files' option in the publish process, you would need to re-run Status Monitor to configure Application Insights.
+
+### What telemetry is collected?
+
+For applications that you instrument only at run-time by using Status Monitor:
+
+* HTTP requests
+* Calls to dependencies
+* Exceptions
+* Performance counters
+
+For applications already instrumented at compile time:
+
+ * Process counters.
+ * Dependency calls (.NET 4.5); return values in dependency calls (.NET 4.6).
+ * Exception stack trace values.
+
+[Learn more](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next"></a>Next steps
 
 View your telemetry:
@@ -206,4 +272,4 @@ Add more telemetry:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
