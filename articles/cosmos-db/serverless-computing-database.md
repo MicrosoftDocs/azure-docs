@@ -46,6 +46,10 @@ The following use cases demonstrate a few ways you can make the most of your Azu
 
     Implementation: An **Azure Cosmos DB trigger** is used to trigger events related to car alerts, such as the check engine light coming on in a connected car. When the check engine light comes, the sensor data is sent to Azure Cosmos DB. Azure Cosmos DB creates or updates new sensor data documents, then those changes are streamed to the Azure Cosmos DB trigger. The trigger is invoked on every data-change to the sensor data collection, as all changes are streamed via the change feed. A threshold condition can be used in the function to optionally send the sensor data to the warranty department. Another function can be created to send the related owner information to a marketing task that manages mailers related to car maintenance. The output binding on one of the functions can update the car record in Azure Cosmos DB to store information about the check engine event.
 
+    The following image shows the code written in the Azure portal for this trigger.
+
+    ![Create an Azure Cosmos DB trigger in the Azure portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+
 * In financial implementations, you can invoke a function when a bank account balance falls under a certain value.
 
     Implementation: Using a [Timer trigger](../azure-functions/functions-bindings-timer.md), you can retrieve the bank account balance information stored in an Azure Cosmos DB container using the **input bindings**. The timer can be set to a daily or weekly cadence, where the user can set a threshold for what would be considered as a low balance, then follow that with an action from the Azure Function. The container can also include the email address of the account owner, which should be notified. The output binding can be a [SendGrid integration](../azure-functions/functions-bindings-sendgrid.md) that can send an email from a service account to the affected accounts.
