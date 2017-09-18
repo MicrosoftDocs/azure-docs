@@ -309,8 +309,8 @@ The following table lists the fields logged inside the properties field.
 | userAgent |A string that specifies the client user agent performing the request. The format is {user agent name}/{version}.|
 | resourceType | The type of the resource accessed. This value can be any of the following resource types: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
 | statusCode |The response status of the operation. Cosmos DB uses standard [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) (e.g. 2xx Success, 4xx Client errors, 5xx Server errors) |
-| documentResourceId | The unique resource ID (_rid) scoped to the request (e.g. the id of the document is shown for an update document request, the id of the collection is shown for issueing a query against a collection, etc).|
-| clientIpAddress |The first three octects of the client's IP address. |
+| documentResourceId | The unique resource ID (_rid) scoped to the request (e.g. the id of the document is shown for an update document request, the id of the collection is shown for issuing a query against a collection, etc).|
+| clientIpAddress |The first three octets of the client's IP address. |
 | requestCharge | The number of RUs used by the operation |
 | collectionRid | The unique resource ID (_rid) for the collection.|
 | duration | The duration of operation, in ticks. |
