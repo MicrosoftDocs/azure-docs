@@ -20,7 +20,7 @@
 ## Create a Linux container app
 ### [1- Create container images](service-fabric-tutorial-create-container-images.md)
 ### [2- Package and deploy containers](service-fabric-tutorial-package-containers.md)
-### [3- Demonstrate fail over and scaling](service-fabric-tutorial-containers-failover.md)
+### [3- Fail over and scale](service-fabric-tutorial-containers-failover.md)
 
 
 # Samples

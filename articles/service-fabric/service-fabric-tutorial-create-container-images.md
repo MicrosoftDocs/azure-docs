@@ -25,9 +25,9 @@ This tutorial is part one of a tutorial series that demonstrates how to use cont
 
 > [!div class="checklist"]
 > * Create container images
-> * Package Containers for Service Fabric using Yeoman
-> * Build and Run a Service Fabric Application with Containers
-> * How failover and scaling are handled in Service Fabric
+> * [Package Containers for Service Fabric using Yeoman](service-fabric-tutorial-package-containers.md)
+> * [Build and Run a Service Fabric Application with Containers](service-fabric-tutorial-package-containers.md)
+> * [How failover and scaling are handled in Service Fabric](service-fabric-tutorial-containers-failover.md)
 
 In this tutorial, a multi-container application is prepared for use with Service Fabric. Steps completed include: 
 

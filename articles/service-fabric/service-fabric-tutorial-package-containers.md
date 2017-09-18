@@ -110,7 +110,7 @@ The entries for adding the service used are all shown:
 
 For the remainder of this tutorial, we are working in the **TestContainer** directory.
 
-## Configure Application Manifest with credentials for Azure Container Registry
+## Configure application manifest with credentials for Azure Container Registry
 For Service Fabric to pull the container images from Azure container registry, we need to provide the credentials in the **ApplicationManifest.xml**. 
 
 
@@ -221,7 +221,7 @@ Party clusters are free, limited-time Service Fabric clusters hosted on Azure. I
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
-## Build and Deploy application to the cluster
+## Build and deploy application to the cluster
  You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it. 
 
 Connect to the Service Fabric cluster in Azure.
@@ -251,7 +251,7 @@ Use the uninstall script provided in the template to delete the application inst
 ./uninstall.sh
 ```
 
-## Examples of Completed Manifests
+## Examples of completed manifests
 
 ### ApplicationManifest.xml
 ```xml
