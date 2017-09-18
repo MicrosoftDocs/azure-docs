@@ -19,11 +19,9 @@ ms.custom: mvc
 ---
 # Manage Windows updates
 
-By using the Update management solution, you can manage updates and patches for your Azure Windows virtual machines.
-Directly from your VM, you can quickly assess the status of available updates, schedule installation of required updates,
-and review deployment results to verify updates were applied successfully to the VM.
-
-For more information about the Update management solution, see [Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md).
+Update management allows you to manage updates and patches for your Azure Windows virtual machines.
+Directly from your virtual machine, you can quickly assess the status of available updates, schedule installation of required updates,
+and review deployment results to verify updates were applied successfully to the virtual machine.
 
 If you don't already have a VM to use, you can create one using the [Windows quickstart](quick-create-portal.md). In this tutorial you learn how to:
 
@@ -32,16 +30,20 @@ If you don't already have a VM to use, you can create one using the [Windows qui
 > * View missing updates
 > * Schedule installation of updates
 
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com/).
+
 ## Enable Update management
 
-Enable the Update management solution for your VM
+Enable the Update management solution for your VM:
+ 
+1. On the left-hand side of the screen, select **Virtual machines**.
+1. From the list, select a virtual machine.
+1. On the virtual machine screen, in the **Operations** section, click **Update management**. The **Enable Update Management** screen opens.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. In the screen on the left, select **Virtual machines**.
-1. From the list, select a VM.
-1. On the VM screen, in the **Operations** section, click **Update management**. The **Enable backup** screen opens.
-
-Validation is performed to determine if the Update management solution is enabled for this VM.  The validation includes checks for Log Analytics workspace and linked Automation account, if the solution is in the workspace, and if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker.  If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
+Validation is performed to determine if Update management is enabled for this virtual machine. The validation includes checks for Log Analytics workspace and linked Automation account, if the solution is in the workspace, and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker.
+If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
 
    ![Update Management onboard configuration banner](./media/tutorial-manage-windows-updates/manageupdates-onboard-solution-banner.png)
 
@@ -49,17 +51,17 @@ Click the banner to enable the solution. The **Enable Update Management** screen
 
    ![Enable Update management solution](./media/tutorial-manage-windows-updates/manageupdates-update-enable.png)
 
-Enabling the solution can take up to 15 minutes, and during this time you should not close the browser window.  After the solution is enabled, and log data starts to flow to the workspace, it can take anywhere from 30 minutes to 6 hours for the data to be available for analysis.
+Enabling Update management can take up to 15 minutes, and during this time you should not close the browser window.
 
 ## View update assessment
 
-AFter the **Update management** solution is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
+After **Update management** is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
 
    ![View update status](./media/tutorial-manage-windows-updates/manageupdates-view-status-win.png)
 
 ## Schedule an update deployment
 
-To install updates, schedule a deployment that follows your release schedule and service window. 
+To install updates, schedule a deployment that follows your release schedule and service window.
 You can choose which update types to include in the deployment. For example you can include critical or security updates and exclude update rollups.
 
 Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. 
@@ -87,7 +89,7 @@ After you have completed configuring the schedule, click **Create** button and y
 Notice that the **Scheduled** table shows the deployment schedule you just created.
 
 > [!WARNING]
-> For updates that require a reboot, the VM will be restarted automatically.
+> For updates that require a reboot, the virtual machine will be restarted automatically.
 
 ## View results of an update deployment
 
@@ -98,16 +100,16 @@ Click the completed update deployment to see the dashboard for that update deplo
 
    ![Update Deployment status dashboard for specific deployment](./media/tutorial-manage-windows-updates/manageupdates-view-results.png)
 
-In **Update results** tile is a summarization of the total number of updates and deployment results on the VM.
+In **Update results** tile is a summary of the total number of updates and deployment results on the VM.
 In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
 
 * Not attempted - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
 * Succeeded - the update succeeded
 * Failed - the update failed
 
-Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target VM.
-
 Click **All logs** to see all log entries that the deployment created.
+
+Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target VM.
 
 Click **Errors** to see detailed information about any errors from the deployment.
 
