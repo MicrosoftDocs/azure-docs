@@ -33,7 +33,7 @@ This tutorial shows you how to migrate Amazon Web Services (AWS) virtual machine
 
 ## Overview
 
-You migrate a VM by enabling replication for it, and running a failover from AWS to Azure. Migration doesn't include ongoing replication, or failback of machines from Azure. 
+You migrate a VM by enabling replication for it, and running a failover from AWS to Azure. 
 
 
 ## Prerequisites
@@ -50,6 +50,7 @@ Here's what you need to do for this tutorial.
         - Windows Server 2012 R2
     - Linux (64-bit only)
         - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only).
+- Devices exported by paravirtualized drivers aren't supported.
 - Prepare for installation of the Mobility service on AWS instance that you want to replicate.
 - As part of the deployment you need to set up a Site Recovery configuration server on an EC2 VM. Make sure you have a VM ready, and check that the security group on EC2 instances that you want to migrate allow communication between them and the VM you'll use as the configuration server.
 - [Check](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) that your EC2 instances match Azure requirements for disk size, VM name etc.
@@ -87,7 +88,7 @@ Set up an [Azure storage account](../storage/common/storage-create-storage-accou
 - The storage account must be in the same region as the Recovery Services vault.
 - The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
 - If you set up a premium account, you will also need an additional standard account for log data.
-- You can't replicate to premium accounts in Central and South India.
+
 
 
 ### Prepare an account for Mobility service installation
@@ -129,20 +130,21 @@ Set up the configuration server, register it in the vault, and discover VMs.
 Do the following before you start: 
 
 - On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
-- Make sure TLS 1.0 is enabled on the machine.
 - Make sure the machine can access these URLs:
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 - Any IP address-based firewall rules should allow communication to Azure.
 - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
 - Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
-Run Unified Setup as a Local Administrator, to install the configuration server, the process server, and the master target server.
+Run Unified Setup as a Local Administrator, to install the configuration server.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 After registration finishes, the configuration server is displayed on the **Settings** > **Servers** page in the vault. It might take up to 15 minutes for it to appear. After it appears, check that it can communicate with the instances you want to migrate.
 
 ![Configuration server](./media/tutorial-migrate-aws-to-azure/configuration-server.png)
+
+
 
 ## Set up the target environment
 
@@ -177,20 +179,20 @@ Enable replication for each VM you want to migrate.
 7. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
 8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. 
 9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed. 
-10. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
-11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
-12. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
+    - The IP address must belong to the EC2 instance you're migrating.
+    - The EC2 instance must be acessible on this IP address from the configuration server.
+1. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
+2. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
+3. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 
-To monitor VMs you add, you can check the last discovered time for them in **Configuration Servers** > **Last Contact At**. To add machines without waiting for a scheduled discovery time, highlight the configuration server (don’t click it), and click **Refresh**.
 
-
-## Run a disaster recovery drill
+## Run a test failover
 
 Run a [test failover](tutorial-dr-drill-azure.md) to make sure everything's working as expected.
 
 
-## Fail over to Azure
+## Migrate to Azure
 
 Run a fail over for EC2 instances. 
 

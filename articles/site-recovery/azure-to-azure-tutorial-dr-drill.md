@@ -1,6 +1,6 @@
 ---
-title: How to test failover for Azure VMs with Azure Site Recovery
-description: Summarizes the steps you need for performing  a disaster recovery drill for Azure VMs using the Azure Site Recovery service.
+title: Run a disaster recovery drill for Azure VMs to a secondary Azure region with Azure Site Recovery | Microsoft Docs
+description: Learn how to run a disaster recovery drill for Azure VMs to a secondary Azure region using the Azure Site Recovery service.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -10,46 +10,31 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
 ---
 
-# Run a test failover for Azure VM replication
+# Run a disaster recovery drill for Azure VMs to a secondary Azure region
 
-This tutorial explains the steps to run a test failover from one Azure region to another using the
-[Azure Site Recovery](site-recovery-overview.md) service in the Azure portal. These steps assume
-that you have already [enabled replication for Azure virtual machines (VMs)](azure-to-azure-tutorial-enable-replication.md).
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running available during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
+
+This tutorial shows you how to run a disaster recovery drill for an Azure VM, from one Azure region to another, with a test failover. A drill validates your replication strategy without data loss or downtime, and doesn't affect your production environment. In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Check the prerequisites
+> * Run a test failover for a single VM
 
 > [!NOTE]
 >
-> Azure VM replication is currently in preview.
+> Azure VM replication to a secondary Azure region is currently in preview.
 
-## Before you start
 
-- Before you run a test failover, verify the VM properties, and make any changes you need to.
-  Access the VM properties in **Replicated items**. The **Essentials** section shows information
-  about VM settings and status.
+## Prerequisites
 
-- We recommended that you do a test failover using a different network from your production
-  recovery site network. If you must test failover in your production network, be aware of the
-  following items:
+- Before you run a test failover, we recommend that you verify the VM properties to make sure everything's as expected.  Access the VM properties in **Replicated items**. The **Essentials** blade shows information about machines settings and status.
+- We recommend you use a separate Azure VM network for the test failover, and not the default network that was set up when you enabled replication.
 
-  1. The primary virtual machine must be shut down when you are doing the test failover. Otherwise,
-     there are two VMs with the same identity running in the same network at the same time. That
-     duplication can cause to undesired consequences.
-
-  2. Any changes made in the test failover VMs are lost when you clean up the test VMs. These
-     changes are not replicated back to the primary VM.
-
-  3. Testing in your production environment requires downtime of your production application. Users
-     of the application should be asked to not use the application when the Disaster Recovery drill
-     is in progress.
-
-- If you want to access replicated VMs after failover from an on-premises site, you need to prepare
-  to connect to these VMs. Configure on-premises machines to allow outbound network
-  traffic for RDP or SSH so that you can connect to the remote VMs. The VMs must have public
-  interfaces so that your on-premises machines have something to connect to.
 
 ## Run a test failover
 
@@ -59,7 +44,7 @@ that you have already [enabled replication for Azure virtual machines (VMs)](azu
 
    - **Latest processed**: Fails the VM over to the latest recovery point that was processed by the
      Site Recovery service. The time stamp is shown. With this option, no time is spent processing
-     data, so it provides a low RTO (Recovery Time Objective).
+     data, so it provides a low RTO (Recovery Time Objective)
    - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent
      recovery point. The time stamp is shown.
    - **Custom**: Select any recovery point.
@@ -70,18 +55,13 @@ that you have already [enabled replication for Azure virtual machines (VMs)](azu
 4. To start the failover, click **OK**. To track progress, click the VM to open its properties. Or,
    you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site
    Recovery jobs**.
-
 5. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual
    Machines**. Make sure that the VM is running, sized appropriately, and connected to the
    appropriate network.
-
 6. To delete the VMs that were created during the test failover, click **Cleanup test failover** on
    the replicated item or the recovery plan. In **Notes**, record and save any observations
    associated with the test failover.
 
 ## Next steps
 
-Learn more about different types of [failovers](site-recovery-failover.md), and how to run them.
-
-Get help and ask questions in the
-[Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+[Run a production failover](azure-to-azure-tutorial-failover-failback.md)
