@@ -187,7 +187,7 @@ your requirements.
   can configure a value between 1 and 72 hours.
 
 - **App-consistent snapshot frequency**: By default, Site Recovery takes an app-consistent snapshot
-  every 4 hours. You can configure any value between 1 and 12 hours.
+  every 4 hours. You can configure any value between 1 and 12 hours. A app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken. 
 
 ### Track replication status
 
