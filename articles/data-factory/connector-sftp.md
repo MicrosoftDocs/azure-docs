@@ -154,7 +154,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by SFTP dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by SFTP dataset.
 
 To copy data from SFTP, set the type property of the dataset to **FileShare**. The following properties are supported:
 
