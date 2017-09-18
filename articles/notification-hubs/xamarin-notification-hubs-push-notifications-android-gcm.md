@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/15/2017
+ms.date: 09/18/2017
 ms.author: yuaxu
 
 ---
@@ -72,7 +72,7 @@ First, you create a new project.
 
     This creates a new Android project.
 
-1. Open the project properties by right-clicking your new project in the Solution view and choosing **Options**. Select the **Android Application** item in the **Build** section.
+3. Open the project properties by right-clicking your new project in the Solution view and choosing **Options**. Select the **Android Application** item in the **Build** section.
    
     Ensure that the first letter of your **Package name** is lowercase.
    
@@ -82,9 +82,9 @@ First, you create a new project.
    > 
    
       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
-2. Optionally, set the **Minimum Android version** to another API Level.
-3. Optionally, set the **Target Android version** to the another API version that you want to target (must be API level 8 or higher).
-4. Choose **OK** and close the Project Options dialog.
+4. Optionally, set the **Minimum Android version** to another API Level.
+5. Optionally, set the **Target Android version** to the another API version that you want to target (must be API level 8 or higher).
+6. Choose **OK** and close the Project Options dialog.
 
 ### Add the required components to your project
 The Google Cloud Messaging Client available on the Xamarin Component Store simplifies the process of supporting push notifications in Xamarin.Android.
@@ -94,7 +94,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 3. Search for the **Google Cloud Messaging Client** component and add it to the project.
 
 ### Set up notification hubs in your project
-1. Gather the following information for your Android app and notification hub:
+4. Gather the following information for your Android app and notification hub:
    
    * **GoogleProjectNumber**:  Get this Project Number value from the overview of your app on the Google Developer Portal. You made a note of this value earlier when you created the app on the portal.
    * **Listen connection string**: On the dashboard in the [Azure Classic Portal], choose **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
@@ -109,14 +109,14 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
            public const string ListenConnectionString = "<Listen connection string>";
            public const string NotificationHubName = "<hub name>";
        }
-2. Add the following using statements to **MainActivity.cs**:
+5. Add the following using statements to **MainActivity.cs**:
    
         using Android.Util;
         using Gcm.Client;
-3. Add an instance variable to the `MainActivity` class that will be used to show an alert dialog when the app is running:
+6. Add an instance variable to the `MainActivity` class that will be used to show an alert dialog when the app is running:
    
         public static MainActivity instance;
-4. Create the following method in the **MainActivity** class:
+7. Create the following method in the **MainActivity** class:
    
         private void RegisterWithGCM()
         {
@@ -128,7 +128,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
             Log.Info("MainActivity", "Registering...");
             GcmClient.Register(this, Constants.SenderID);
         }
-5. In the `OnCreate` method of **MainActivity.cs**, initialize the `instance` variable and add a call to `RegisterWithGCM`:
+8. In the `OnCreate` method of **MainActivity.cs**, initialize the `instance` variable and add a call to `RegisterWithGCM`:
    
         protected override void OnCreate (Bundle bundle)
         {
@@ -145,13 +145,13 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
    
             RegisterWithGCM();
         }
-6. Create a new class, **MyBroadcastReceiver**.
+9. Create a new class, **MyBroadcastReceiver**.
    
    > [!NOTE]
    > We will walk through creating a **BroadcastReceiver** class from scratch below. However, a quick alternative to manually creating **MyBroadcastReceiver.cs** is to refer to the **GcmService.cs** file found in the sample Xamarin.Android project included with the [NotificationHubs samples][GitHub]. Duplicating **GcmService.cs** and changing class names can be a great place to start as well.
    > 
    > 
-7. Add the following using statements to **MyBroadcastReceiver.cs** (referring to the component and assembly that you added earlier):
+10. Add the following using statements to **MyBroadcastReceiver.cs** (referring to the component and assembly that you added earlier):
    
         using System.Collections.Generic;
         using System.Text;
@@ -160,7 +160,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
         using Android.Util;
         using Gcm.Client;
         using WindowsAzure.Messaging;
-8. In **MyBroadcastReceiver.cs**, add the following permission requests between the **using** statements and the **namespace** declaration:
+11. In **MyBroadcastReceiver.cs**, add the following permission requests between the **using** statements and the **namespace** declaration:
    
         [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -170,7 +170,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
         [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
         [assembly: UsesPermission(Name = "android.permission.INTERNET")]
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-9. In **MyBroadcastReceiver.cs**, change the **MyBroadcastReceiver** class to match the following:
+12. In **MyBroadcastReceiver.cs**, change the **MyBroadcastReceiver** class to match the following:
    
         [BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },
@@ -185,7 +185,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
    
             public const string TAG = "MyBroadcastReceiver-GCM";
         }
-10. Add another class in **MyBroadcastReceiver.cs** named **PushHandlerService**, which derives from **GcmServiceBase**. Make sure to apply the **Service** attribute to the class:
+13. Add another class in **MyBroadcastReceiver.cs** named **PushHandlerService**, which derives from **GcmServiceBase**. Make sure to apply the **Service** attribute to the class:
     
          [Service] // Must use the service tag
          public class PushHandlerService : GcmServiceBase
@@ -198,8 +198,8 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
                  Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor");
              }
          }
-11. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our **PushHandlerService** implementation class must override these methods, and these methods will fire in response to interacting with the notification hub.
-12. Override the **OnRegistered()** method in **PushHandlerService** by using the following code:
+14. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our **PushHandlerService** implementation class must override these methods, and these methods will fire in response to interacting with the notification hub.
+15. Override the **OnRegistered()** method in **PushHandlerService** by using the following code:
     
          protected override void OnRegistered(Context context, string registrationId)
          {
@@ -237,7 +237,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
     > In the **OnRegistered()** code above, you should note the ability to specify tags to register for specific messaging channels.
     > 
     > 
-13. Override the **OnMessage** method in **PushHandlerService** by using the following code:
+16. Override the **OnMessage** method in **PushHandlerService** by using the following code:
     
         protected override void OnMessage(Context context, Intent intent)
         {
@@ -261,7 +261,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
                 createNotification ("Unknown message details", msg.ToString ());
             }
         }
-14. Add the following **createNotification** and **dialogNotify** methods to **PushHandlerService** for notifying users when a notification is received.
+17. Add the following **createNotification** and **dialogNotify** methods to **PushHandlerService** for notifying users when a notification is received.
     
     > [!NOTE]
     > Notification design in Android version 5.0 and later represents a significant departure from that of previous versions. If you test this on Android 5.0 or later, the app will need to be running to receive the notification. For more information, see [Android Notifications](http://go.microsoft.com/fwlink/?LinkId=615880).
@@ -306,7 +306,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
                 alert.Show();
             });
         }
-15. Override abstract members **OnUnRegistered()**, **OnRecoverableError()**, and **OnError()** so that your code compiles:
+18. Override abstract members **OnUnRegistered()**, **OnRecoverableError()**, and **OnError()** so that your code compiles:
     
         protected override void OnUnRegistered(Context context, string registrationId)
         {
