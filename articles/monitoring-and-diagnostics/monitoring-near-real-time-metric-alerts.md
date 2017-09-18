@@ -86,7 +86,7 @@ Currently, near real-time metric alerts can only be created through the Azure po
 
 7. Specify if you want to use a New or Existing **Action Group**.
 
-8. If you chose to create **New** Action Group,  give the action group a name and a short name, specify actions(SMS, Email, Webhook) and fill respective details.
+8. If you choose to create **New** Action Group,  give the action group a name and a short name, specify actions(SMS, Email, Webhook) and fill respective details.
 
 
 8. Select **OK** when done to create the alert.   
