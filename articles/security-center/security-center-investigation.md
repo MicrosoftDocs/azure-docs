@@ -17,7 +17,7 @@ ms.date: 09/18/2017
 ms.author: yurid
 
 ---
-# Investigate Incidents and Alerts in Azure Security Center
+# Investigate Incidents and Alerts in Azure Security Center (Preview)
 This document helps you use the investigation feature in Azure Security Center to investigate security incidents and alerts.
 
 ## What is investigation in Security Center?
@@ -34,7 +34,7 @@ The Investigation is composed by a graph that occupies the central area of the i
 The user can navigate from one entity to another by clicking on it in the graph. The graph automatically centralizes on the selected entity and its related entities. Entities that are not relevant anymore may be removed from the graph.
 
 ### Investigation path
-While the user is navigating to different entities the investigation path helps to keep track of the investigation context and allows quick navigation. The incident that contains the investigation results are always in the left-most incident in the investigation path.
+While the user is navigating to different entities the investigation path helps to keep track of the investigation context and allows quick navigation. The incident that contains the investigation results is always in the left-most incident in the investigation path.
 
 ![Path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
@@ -49,7 +49,7 @@ An incident is only created when a user clicks on the **Start investigation** bu
 
 ### Entities
 
-The **Entities** tabs shows all the related entities grouped by type. It is useful in two cases: when there are too many entities to present in the graph and when the entities names are too long, and it is easier to examine them in a tabular way.
+The **Entities** tab shows all the related entities grouped by type. It is useful in two cases: when there are too many entities to present in the graph and when the entities names are too long, and it is easier to examine them in a tabular way.
 
 ![Entities](./media/security-center-investigation/security-center-investigation-fig4.png)
 
@@ -73,7 +73,7 @@ Most of the data that is presented in the graph and the various tabs is relevant
 
 The following items are sensitive to the time scope:
 
-- User-computer relationship in the graph, only users that logged into the computer within this time scope are presented.
+- User-computer relationship in the graph, only users that logged in to the computer within this time scope are presented.
 - Which alerts are presented when you examine computers and users: only alerts that occur within the time scope are presented.
 - The entities tab follow the same logic as the graph.
 
