@@ -16,7 +16,8 @@ ms.workload: NA
 
 # Troubleshoot and remediate device issues
 
-This tutorial shows you how to use the **Maintenance** page in the solution to troubleshoot and remediate these device issues. To introduce these capabilities, we showcase a scenario in the Contoso IoT application: 
+This tutorial shows you how to use the **Maintenance** page in the solution to troubleshoot and remediate device issues. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
+
 Contoso is testing a new **Prototype** device in the field. As a Contoso operator, you notice during testing that the **Prototype** device is erroneously triggering a temperature alarm on the dashboard. You must now investigate the behavior of this faulty **Prototype** device.
 
 In this tutorial, you learn how to:
@@ -55,7 +56,7 @@ To display details of the alarm, choose the alarm in the **Alarms** list. The de
 
 <!-- TODO insert screenshot -->
 
-To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowledge**. This will allow other operators to see that you are have seen it and are working on it.
+To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowledge**. This action enables other operators to see that you have seen the alarm and are working on it.
 
 <!-- TODO insert screenshot -->
 

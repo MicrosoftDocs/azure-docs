@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Perform advanced monitoring using the Remote monitoring solution
+# Perform advanced monitoring using the remote monitoring solution
 
-This tutorial shows the capabilities of the Remote monitoring dashboard. To introduce these capabilities, we showcase a scenario in the Contoso IoT application: 
+This tutorial shows the capabilities of the remote monitoring dashboard. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application:
+
 In this tutorial, you use two simulated Contoso truck devices to learn how to monitor your devices from the preconfigured solution dashboard. As a Contoso operator, you need to monitor the location and behavior of your trucks in the field.
 
 In this tutorial, you learn how to:
@@ -66,7 +67,7 @@ To pause the live telemetry display, choose **Hide subchart**. To re-enable the 
 
 ## Use the map
 
-The map displays information about the trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
+The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
 
 <!-- TODO Check this is true -->
 If you hover the mouse pointer over a device on the map, you can view summary information that device:

@@ -16,8 +16,9 @@ ms.workload: NA
 
 # Explore the capabilities of the remote monitoring preconfigured solution
 
-This tutorial shows you the key capabilities of the remote monitoring solution. To introduce these capabilities, the tutorial showcases common customer scenarios using a simulated IoT application for a company called Contoso. 
-This tutorial helps you understand the typical IoT scenarios the remote monitoring solution provides out-of-the-box.
+This tutorial shows you the key capabilities of the remote monitoring solution. To introduce these capabilities, the tutorial showcases common customer scenarios using a simulated IoT application for a company called Contoso.
+
+The tutorial helps you understand the typical IoT scenarios the remote monitoring solution provides out-of-the-box.
 
 In this tutorial, you learn how to:
 
@@ -50,13 +51,13 @@ Contoso uses different types of smart devices. These devices fulfill different r
 
 The following table shows a summary of the provisioned device types:
 
-| Device type | Telemetry | Properties | Tags | Methods |
-| ----------- | --------- | ---------- | ---- |-------- |
-| Chiller            |Temperature, Humidity, Pressure            | Type, Firmware version, Model               | Location, Floor, Campus | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure                          |
-| Prototyping device | Temperature, Pressure, Geo-location       | Type, Firmware version, Model               | Location, Mode          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase |
-| Engine             | Tank fuel level, Coolant sensor, Vibration | Type, Firmware version, Model               | Location, Floor, Campus | Restart, Firmware Update, Empty tank, Fill tank                                               |
-| Truck              | Geo-location, Speed, Cargo temperature    | Type, Firmware version, Model               | Location, Load          | Lower cargo temperature, Increase cargo temperature, Firmware update                             |
-| Elevator           | Floor, Vibration, Temperature             | Type, Firmware version, Model, Geo-location | Location, Campus        | Stop elevator, Start elevator, Firmware update                                  |
+| Device type        | Telemetry                                  | Properties                                  | Tags                    | Methods                                                                                      |
+| ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
+| Chiller            | Temperature, Humidity, Pressure            | Type, Firmware version, Model               | Location, Floor, Campus | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure                          |
+| Prototyping device | Temperature, Pressure, Geo-location        | Type, Firmware version, Model               | Location, Mode          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase |
+| Engine             | Tank fuel level, Coolant sensor, Vibration | Type, Firmware version, Model               | Location, Floor, Campus | Restart, Firmware Update, Empty tank, Fill tank                                              |
+| Truck              | Geo-location, Speed, Cargo temperature     | Type, Firmware version, Model               | Location, Load          | Lower cargo temperature, Increase cargo temperature, Firmware update                         |
+| Elevator           | Floor, Vibration, Temperature              | Type, Firmware version, Model, Geo-location | Location, Campus        | Stop elevator, Start elevator, Firmware update                                               |
 
 > [!NOTE]
 > The Contoso demo sample provisions two devices per type. For each type, one functions correctly within the boundaries defined as normal by Contoso, and the one has some kind of malfunctioning. In the next section, you learn about the rules that Contoso defines for the devices. These rules define the boundaries of correct behavior.
@@ -67,10 +68,10 @@ Operators at Contoso know the thresholds that determine whether a device is work
 
 | Rule Name | Description | Threshold | Severity | Affected devices |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Too much pressure     | Alerts if chillers reach higher than normal pressure levels   |P >250 Psi        | Critical | Chillers            |
-| Too much temperature  | Alerts if prototyping devices reach higher than normal temperature levels  |T>80 F |Critical | Prototyping devices |
-| Empty tank            | Alerts if engine fuel tank goes empty                     | F<5 gal| Info     | Engines             |
-| Hot cargo temperature | Alerts if truck's cargo temperature is higher than normal                 | T<45 F |Warning  | Trucks              |
+| Too much pressure     | Alerts if chillers reach higher than normal pressure levels   |P>250 psi       | Critical | Chillers            |
+| Too much temperature  | Alerts if prototyping devices reach higher than normal temperature levels  |T>80&deg; F |Critical | Prototyping devices |
+| Empty tank            | Alerts if engine fuel tank goes empty                     | F<5 gallons | Info     | Engines             |
+| Hot cargo temperature | Alerts if truck's cargo temperature is higher than normal                 | T<45&deg; F |Warning  | Trucks              |
 | Stopped elevator      | Alerts if elevator stops completely, vibration level                     | V<0.1 mm |Warning  | Elevators           |
 
 ### Operate the Contoso sample deployment
@@ -131,7 +132,7 @@ Finally, confirm that the telemetry values from the chiller are back to normal.
 
 Contoso is testing a new type of device in the field. As part of the testing cycle, you need to ensure that device firmware updates work correctly. The following steps show you how to use the remote monitoring solution to update the firmware on multiple devices.
 
-You can use the **Devices** page to perform all the necessary device management tasks. Start by filtering for all prototyping devices:
+To perform the necessary device management tasks, use the **Devices** page. Start by filtering for all prototyping devices:
 
 1. Navigate to the **Devices** page. Choose the **Prototyping** filter in the **Filters** drop-down:
 
@@ -225,7 +226,7 @@ You can use the tag values to create filters.
 
     <!-- Insert screenshot -->
 
-Now the Contoso operator can easily query devices based on the operating team without having to change anything on the devices.
+Now the Contoso operator can query devices based on the operating team without the need to change anything on the devices.
 
 ## Next steps
 

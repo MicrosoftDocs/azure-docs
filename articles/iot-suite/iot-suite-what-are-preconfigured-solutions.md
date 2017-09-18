@@ -20,28 +20,34 @@ ms.author: dobett
 ---
 # What is Azure IoT Suite?
 
-Azure IoT Suite is a set *preconfigured solutions* that deploy in minutes and help customers get started quickly and then customize to meet their needs. Microsoft uses IoT Suite to refer to the collection because all the preconfigured solutions are designed withe same principles and goals.
+Azure IoT Suite is a set of *preconfigured solutions* that:
+
+* Deploy in minutes
+* Help you get started quickly
+* You can customize to meet your specific requirements
+
+The *IoT Suite* preconfigured solutions are all designed according to the same principles and goals.
 
 ## Preconfigured solutions overview
 
-A preconfigured solution is open source implementation of a common IoT solution patterns that you can deploy to Azure using your subscription. Each preconfigured solution combines custom code and Azure services to implement a specific IoT scenario or scenarios that can be customized to tailor different needs. These scenarios include:
+A preconfigured solution is open source implementation of a common IoT solution patterns that you can deploy to Azure using your subscription. Each preconfigured solution combines custom code and Azure services to implement a specific IoT scenario or scenarios. You can customize any of the scenarios to meet your specific requirements. These scenarios include:
 
-* Visualize data on a rich dashboard for deep insights and solution status
-* Configure rules and alarms over live IoT device telemetry 
-* Schedule device management jobs, including updates to software and configuration 
-* Provision your own custom physical or simulated devices
-* Troubleshoot and remediate issues within your IoT device groups 
+* Visualize data on a rich dashboard for deep insights and solution status.
+* Configure rules and alarms over live IoT device telemetry.
+* Schedule device management jobs, such as updates to software and configuration.
+* Provision your own custom physical or simulated devices.
+* Troubleshoot and remediate issues within your IoT device groups.
 
-Each preconfigured solution is a complete, end-to-end implementation that can use simulated of physical devices to generate telemetry. You can use the preconfigured solutions as solution accelerators to:
+Each preconfigured solution is a complete, end-to-end implementation that can use simulated or physical devices to generate telemetry. You can use the preconfigured solutions as solution accelerators to:
 
 * Provide a starting point for your own IoT solutions.
 * Learn about common patterns in IoT solution design and development.
 
-There are three preconfigured solutions available today: 
+Three preconfigured solutions  are available today:
 
-* Remote monitoring <!-- insert links to each PCS overview-->
-* Predictive maintenance
-* Connected factory
+* [Remote monitoring](iot-suite-remote-monitoring-explore.md)
+* [Predictive maintenance](iot-suite-predictive-overview.md)
+* [Connected factory](iot-suite-connected-factory-overview.md)
 
 The following table shows how the solutions map to specific IoT features:
 
@@ -59,7 +65,7 @@ The following table shows how the solutions map to specific IoT features:
 * *Predictive analytics*: The solution back end analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
 
 > [!NOTE]
-> To deploy one of the preconfigured solutions and learn more about how to customize them, visit [Microsoft Azure IoT Suite](https://www.azureiotsuite.com/).
+> To deploy a preconfigured solution and learn more about how to customize them, visit [Microsoft Azure IoT Suite](https://www.azureiotsuite.com/).
 
 ## Azure services
 
@@ -72,8 +78,8 @@ When you deploy a preconfigured solution, the provisioning process configures a 
 | Time Series Insights |                    |                        | Yes               |
 | Container Services   | Yes                |                        | Yes               |
 | Stream Analytics     |                    | Yes                    |                   |
-| Web Apps             |     Yes               | Yes                    | Yes               |
-| Cosmos DB               | Yes                | Yes                    | Yes               | <!-- Pending confirmation for PM and CF-->
+| Web Apps             | Yes                | Yes                    | Yes               |
+| Cosmos DB            | Yes                | Yes                    | Yes               |
 | Azure Tables         |                    | Yes                    | Yes               |
 
 * [Azure IoT Hub](../iot-hub/index.md). This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices](../iot-hub/iot-hub-device-management-overview.md). For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
@@ -100,7 +106,7 @@ The following sections describe what's new in the microservices-based preconfigu
 
 ### Microservices
 
-The new version of the Remote monitoring preconfigured solution uses a microservices architecture. This preconfigured solution is composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*.  Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
+The new version of the remote monitoring preconfigured solution uses a microservices architecture. This preconfigured solution is composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*. Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
 
 This microservices architecture is a proven pattern for cloud solutions that:
 
@@ -111,17 +117,19 @@ This microservices architecture is a proven pattern for cloud solutions that:
 
 When you deploy the new version of remote monitoring, you must select one of the following deployment options:
 
-* **Basic:** Reduced cost version geared for demonstration or test a deployment. All the microservices deploy to a single Azure virtual machine.
-* **Enterprise:** Expanded infrastructure deployment geared towards developing a production deployment.The Azure Container Service deploys the microservices to multiple Azure virtual machines. Kubernetes orchestrates the Docker containers that host the individual microservices.
+* **Basic:** Reduced cost version for a demonstration or to test a deployment. All the microservices deploy to a single Azure virtual machine.
+* **Enterprise:** Expanded infrastructure deployment for developing a production deployment. The Azure Container Service deploys the microservices to multiple Azure virtual machines. Kubernetes orchestrates the Docker containers that host the individual microservices.
 
-### Language choices: Java and .Net
+### Language choices: Java and .NET
 
-Implementations of each of the microservices is available in Java as well as .NET. Like the .NET code, the Java source code is open source and available for your to customize to your specific requirements.
-<!--Insert links to repos to RM Java and .Net-->
+Implementations of each of the microservices are available in both Java and .NET. Like the .NET code, the Java source code is open source and available for you to customize to your specific requirements:
+
+* [Remote monitoring .NET GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Remote monitoring Java GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 ### React user interface framework
 
-The UI is built using the [React](https://facebook.github.io/react/) javascript library. The source code is open source and available for you to download and customize. 
+The UI is built using the [React](https://facebook.github.io/react/) javascript library. The source code is open source and available for you to download and customize.
 
 ## Next steps
 

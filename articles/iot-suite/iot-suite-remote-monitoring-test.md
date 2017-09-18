@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Test your solution with simulated devices
 
-This tutorial shows you how to use customize the device simulator microservice with the Remote monitoring preconsfigured solution. To do this, we showcase a scenario in the Contoso IoT application:
+This tutorial shows you how to use customize the device simulator microservice with the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses a scenario in the Contoso IoT application:
 
 Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
 
@@ -30,7 +30,7 @@ Contoso wants to test a new smart lightbulb device. To perform the tests, you cr
 
 *Telemetry*
 
-This will be the data that the ligthbulb will report to the cloud as a data stream.
+The following table shows the data the ligthbulb reports to the cloud as a data stream:
 
 | Name   | Values      |
 | ------ | ----------- |
@@ -38,7 +38,7 @@ This will be the data that the ligthbulb will report to the cloud as a data stre
 
 *Methods*
 
-This will be the actions supported by the new device.
+The following table shows the actions the new device supports:
 
 | Name        |
 | ----------- |
@@ -47,7 +47,7 @@ This will be the actions supported by the new device.
 
 *Initial state*
 
-This defines the initial status of the device.
+The following table shows the initial status of the device:
 
 | Name                     | Values |
 | ------------------------ | -------|
@@ -276,13 +276,6 @@ You can call the **SwitchOn** and **SwitchOff** methods on your device:
 <!-- TODO Add screenshot here -->
 
 To build a Docker image with the new device type for deployment to Azure, see [Building a customized Docker image](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#building-a-customized-docker-image).
-
-## Create a physical device type
-
-<!-- This section doesn't belong here. The # is using the simulated micro service. I suggest we move this to the connect your phyisical device document, because creating a new physical device type has nothing to do with the simulator service-->
-To define a new physical device type, you upload a model definition to the **Devices** page in the solution. The device model definition is a JSON file similar to the device model files that you use with the device simulation service. You are given the opportunity to upload a device type definition whne you provision a new physical device on the **Devices** page:
-
-<!-- TODO Add screenshot here -->
 
 ## Add a new telemetry type
 

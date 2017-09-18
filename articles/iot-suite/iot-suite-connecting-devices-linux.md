@@ -22,11 +22,11 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the Remote monitoring preconfigured solution.
+This tutorial shows you how to connect a physical device to the remote monitoring preconfigured solution.
 
 ## Create a C client project on Linux
 
-As most embedded applications, the client code for the device application is written in C, which is a good fit for constrained devices. in this tutorial, we build the solution in Ubuntu (Linux). You can find the Windows verion here (insert link).
+As with most embedded applications that run on constrained devices, the client code for the device application is written in C. In this tutorial, you build the application on a machine running Ubuntu (Linux).
 
 To complete these steps, you need a device running Ubuntu version 15.04 or later. Before proceeding, install the prerequisite packages on your Ubuntu device using the following command:
 

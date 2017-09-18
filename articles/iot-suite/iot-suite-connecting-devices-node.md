@@ -22,7 +22,7 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the Remote monitoring preconfigured solution. In this case, we'll leverage Node.js, which is a good option for environments where resource constraints are not an issue.
+This tutorial shows you how to connect a physical device to the remote monitoring preconfigured solution. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
 
 ## Create a Node.js solution
 
