@@ -13,56 +13,54 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/3/2017
+ms.date: 9/25/2017
 ms.author: anwestg
 
 ---
 
 # App Service on Azure Stack overview
 
-Azure App Service on Azure Stack is the Azure offering brought to Azure Stack. The App Service on Azure Stack installer creates the following set of role instances:
+Azure App Service on Azure Stack is a platform-as-a-service (PaaS) offering of Microsoft Azure available to Azure Stack. The service lets your customers - internal or external - create web, API, and Azure Functions applications for any platform or device. They can integrate your apps with on-premises applications and automate their business processes. Azure Stack cloud operators can run customer apps on fully managed virtual machines (VMs), with their choice of shared VM resources or dedicated VMs.
 
-*  Controller
-*  Management (two instances are created)
-*  FrontEnd
-*  Publisher
-*  Worker (in Shared mode)
+Azure App Service includes capabilities for automating business processes and hosting cloud APIs. As a single integrated service, Azure App Service lets you compose various components -- websites, RESTful APIs, and business processes -- into a single solution.
 
-In addition, the App Service on Azure Stack installer creates a file server.
-	
-## What's new in the first release candidate of App Service on Azure Stack?
-![App Service in the Azure Stack portal][1]
+## Why offer Azure App Service on Azure Stack?
 
-The first release candidate of App Service on Azure Stack builds on top of the third preview and brings new capabilities and improvements:
+Here are some key features and capabilities of App Service:
+- **Multiple languages and frameworks**: App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run Windows PowerShell and other scripts or executables on App Service VMs.
+- **DevOps optimization**: Set up continuous integration and deployment with GitHub, local Git, or BitBucket. Promote updates through test and staging environments. Manage your apps in App Service by using Azure PowerShell or the cross-platform command-line interface (CLI).
+- **Visual Studio integration**: Dedicated tools in Visual Studio streamline the work of creating and deploying applications.
 
-* Azure Functions in Azure Stack environments based on Active Directory Federation Services 
-* Single sign-on support for the Functions portal and the advanced developer tools (Kudu)
-* Java support for web, mobile, and API applications
-* Management of worker tiers by virtual machine scale sets to improve scale-out capabilities for service administrators
-* Localization of the admin experience
-* Increased stability of the service
-* Tenant portal experience updates and installation process updates
+## App types in App Service
 
-## Limitations of the technical preview
+App Service offers several app types, each of which is intended to host a specific workload:
 
-There is no support for the App Service on Azure Stack preview releases, although we do monitor the Azure Stack MSDN Forum. Do not put production workloads on this preview release. There is also no upgrade between App Service on Azure Stack preview releases. The primary purposes of these preview releases are to show what we're providing and to obtain feedback. 
+- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) for hosting websites and web applications.
+- [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) for hosting RESTful APIs.
 
+The word app here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a web app is the compute resources that Azure Stack provides for hosting your application code.
+
+Your application can be composed of multiple App Service apps of different kinds. For example, if your application is composed of a web front end and a RESTful API back end, you can:
+- Deploy both (front end and api) to a single web app
+- Deploy your front-end code to a web app and your back-end code to an API app.
+
+   ![](media/azure-stack-app-service-overview/image01.png)
+   
 ## What is an App Service plan?
 
-The App Service resource provider uses the same code that Azure App Service uses. As a result, some common concepts are worth describing. In App Service, the pricing container for applications is called the App Service plan. It represents the set of dedicated virtual machines used to hold your apps. Within a given subscription, you can have multiple App Service plans. 
+The App Service resource provider uses the same code that Azure App Service uses. As a result, some common concepts are worth describing. In App Service, the pricing container for applications is called the App Service plan. It represents the set of dedicated virtual machines used to hold your apps. Within a given subscription, you can have multiple App Service plans.
 
-In Azure, there are shared and dedicated workers. A shared worker supports high-density multitenant app hosting, and there is only one set of shared workers. Dedicated servers are used by only one tenant and come in three sizes: small, medium, and large. The needs of on-premises customers can't always be described by using those terms. In App Service on Azure Stack, resource provider administrators can define the worker tiers they want to make available. Administrators can define multiple sets of shared workers or different sets of dedicated workers based on their unique hosting needs. By using those worker-tier definitions, they can then define their own pricing SKUs.
+In Azure, there are shared and dedicated workers. A shared worker supports high-density multitenant app hosting, and there is only one set of shared workers. Dedicated servers are used by only one tenant and come in three sizes: small, medium, and large. The needs of on-premises customers can't always be described by using those terms. In App Service on Azure Stack, resource provider administrators can define the worker tiers they want to make available. Based on your unique hosting needs, you can define multiple sets of shared workers or different sets of dedicated workers. By using those worker-tier definitions, they can then define their own pricing SKUs.
 
 ## Portal features
 
-App Service on Azure Stack uses the same UI that Azure App Service uses, as is true with the back end. Some features are disabled and aren't functional in Azure Stack. The Azure-specific expectations or services that those features require aren't yet available in Azure Stack. 
+App Service on Azure Stack uses the same UI that Azure App Service uses, as is true with the back end. Some features are disabled and aren't functional in Azure Stack. The Azure-specific expectations or services that those features require aren't yet available in Azure Stack.
 
 ## Next steps
+
 
 - [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md)
 - [Install the App Service resource provider](azure-stack-app-service-deploy.md)
 
 You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) and the [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md).
 
-<!--Image references-->
-[1]: ./media/azure-stack-app-service-overview/AppService_Portal.png

@@ -19,53 +19,15 @@ ms.author: anwestg
 ---
 # Add an App Service resource provider to Azure Stack
 
-As an Azure Stack cloud operator, you can give your users the ability to create web, mobile, and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
+As an Azure Stack cloud operator, you can give your users the ability to create web and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
 To add the App Service resource provider to your Azure Stack deployment, you must complete three top-level tasks:
 
-1.	Download and extract the installation and helper files.
-2.	Create the required certificates.
-3.	Run the appservice.exe installer file.
-
-## Download and extract the installation and helper files
-
-1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
-
-2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
-
-3. Extract the files from the helper scripts zip file:
-
-   - Create-AppServiceCerts.ps1
+1.	[Download and extract the installation and helper files](azure-stack-app-service-before-you-get-started.md).
+2.	[Create the required certificates](azure-stack-app-service-before-you-get-started.md#certificates-required-for-the-azure-stack-development-kit).
+3.	Run the App Service resource provider installer.
    
-## Create the required certificates
-
-This first script works with the Azure Stack certificate authority to create these three certificates that are needed by App Service. 
-
-| Certificate | Certificate file name example |
-| --- | --- |
-| Default SSL certificate | \_.appservice.local.AzureStack.external.pfx |
-| API SSL certificate | api.appservice.local.AzureStack.external.pfx |
-| Publisher SSL certificate | ftp.appservice.local.AzureStack.external.pfx |
-
-If you use a different domain suffix, your certificate files don't use *local.AzureStack.external*. Instead, your custom domain information is used.
-
-To create the certificates, follow these steps:
-
-1. On the Azure Stack host, open a PowerShell session as azurestack\AzureStackAdmin.
-
-2.	Run the **Create-AppServiceCerts.ps1** script from the folder where you extracted the helper scripts. The script creates three certificates that App Service needs.
-
-3.	To secure the .pfx files, enter a password. Make a note of the password. It is needed for the App Service on Azure Stack installer process.
-
-### Create-AppServiceCerts.ps1 parameters
-
-| Parameter | Required/optional | Default value | Description |
-| --- | --- | --- | --- |
-| pfxPassword | Required | Null | Password used to protect the certificate private key |
-| DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix |
-| CertificateAuthority | Required | AzS-CA01.azurestack.local | Certificate authority endpoint |
-
-## Install the App Service resource provider
+## Run the App Service resource provider installer
 
 Installing the App Service resource provider into your Azure Stack environment can take up to an hour. During this process, the installer will:
 
@@ -82,7 +44,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image01.png)
 
-3. Review and accept the Microsoft Software Prerelease License Terms and then click **Next**.
+3. Review and accept the Microsoft Software License Terms and then click **Next**.
 
 4. Review and accept the third-party license terms and then click **Next**.
 
@@ -92,11 +54,11 @@ To deploy App Service resource provider, follow these steps:
 
 6. On the next page:
     1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
-        - If you're using Azure Active Directory (Azure AD), enter your Azure AD admin account and password. Click **Sign In**. You *must* enter the Azure AD account that you provided when you deployed Azure Stack.
+        - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Click **Sign In**.
         - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select your subscription.
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
+    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE\<REGION\>**.
     5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
     6. Click **Next**.
 
@@ -139,7 +101,7 @@ To deploy App Service resource provider, follow these steps:
     | Management | 1 | Standard_A2 - (2 Cores, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
     | Publisher | 1 | Standard_A1 - (1 Core, 1792 MB) | Publishes content via FTP and web deployment. |
     | FrontEnd | 1 | Standard_A1 - (1 Core, 1792 MB) | Routes requests to App Service applications. |
-    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web, mobile, or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
+    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image08.png)    
 
@@ -188,14 +150,14 @@ To deploy App Service resource provider, follow these steps:
 
 ## Test drive App Service on Azure Stack
 
-After you deploy and register the App Service resource provider, test it to make sure that users can deploy web, mobile, and API apps.
+After you deploy and register the App Service resource provider, test it to make sure that users can deploy web and API apps.
 
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
 >
 You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
 >
-As of the third technical preview, to create web, mobile, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription. 
+As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription. 
 
 1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
 

@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/3/2017
+ms.date: 9/25/2017
 ms.author: anwestg
 
 ---
@@ -23,23 +23,12 @@ By following the instructions in this article, you can install the [App Service 
 - not connected to the internet
 - secured by Active Directory Federation Services (AD FS). 
 
-To add the App Service resource provider to your offline Azure Stack deployment, you must complete three top-level tasks:
+To add the App Service resource provider to your offline Azure Stack deployment, you must complete these top-level tasks:
 
 1. Complete the [prerequisite steps](azure-stack-app-service-before-you-get-started.md) (like purchasing certificates, which can take a few days to receive).
-2. Download and extract the installation and helper files to a machine connected to the internet.
-3. Create an offline installation package and copy it to your offline environment.
+2. [Download and extract the installation and helper files](azure-stack-app-service-before-you-get-started.md) to a machine connected to the internet.
+3. Create an offline installation package.
 4. Run the appservice.exe installer file.
-
-
-## Download the required components
-
-Before getting started on the offline Azure Stack environment, you must download the installation and helper files from the internet.
-
-1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
-
-2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
-
-3. Extract the Create-AppServiceCerts.ps1 file from the helper script zip file. 
 
 ## Create an offline installation package
 
@@ -69,7 +58,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer](media/azure-stack-app-service-deploy-offline/image04.png)   
 
-4. Review and accept the Microsoft Software Prerelease License Terms and then click **Next**.
+4. Review and accept the Microsoft Software License Terms and then click **Next**.
 
 5. Review and accept the third-party license terms and then click **Next**.
 
@@ -79,11 +68,11 @@ To deploy App Service in a disconnected environment, you must first create an of
 
 7. On the next page:
     1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
-        - If you're using Azure Active Directory (Azure AD), enter your Azure AD admin account and password. Click **Sign In**. You *must* enter the Azure AD account that you provided when you deployed Azure Stack.
+        - If you're using Azure Active Directory (Azure AD), enter your Azure AD admin account and password that you provided when you deployed Azure Stack. Click **Sign In**.
         - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select your subscription.
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
+    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE\<MOBILE\>**.
     5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
     6. Click **Next**.
 
@@ -102,7 +91,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image05.png)
 
-10. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must also provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-the-required-certificates). Click **Next** after entering all the information.
+10. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file and type a password. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
@@ -126,7 +115,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     | Management | 1 | Standard_A2 - (2 Cores, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
     | Publisher | 1 | Standard_A1 - (1 Core, 1792 MB) | Publishes content via FTP and web deployment. |
     | FrontEnd | 1 | Standard_A1 - (1 Core, 1792 MB) | Routes requests to App Service applications. |
-    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web, mobile, or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
+    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image08.png)    
 
@@ -175,14 +164,14 @@ To deploy App Service in a disconnected environment, you must first create an of
 
 ## Test drive App Service on Azure Stack
 
-After you deploy and register the App Service resource provider, test it to make sure that users can deploy web, mobile, and API apps.
+After you deploy and register the App Service resource provider, test it to make sure that users can deploy web and API apps.
 
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
 >
 You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
 >
-As of the third technical preview, to create web, mobile, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription. 
+As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription. 
 
 1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
 
