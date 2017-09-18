@@ -51,8 +51,6 @@
     href: concepts-datasets-linked-services.md
   - name: Triggers
     href: concepts-triggers.md 
-  - name: Runtime control
-    href: concepts-runtime-control.md
   - name: Control flow
     href: concepts-control-flow.md
   - name: Integration runtime

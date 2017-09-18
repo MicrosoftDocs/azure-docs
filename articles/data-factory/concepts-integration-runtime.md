@@ -66,7 +66,7 @@ Azure integration runtime provides the native compute to move data between cloud
 
 Activity dispatch is a lightweight operation to route the activity to the target compute service, so there isn’t need to scale up the compute size for this scenario.
 
-For information about creating and configuring an Azure IR, see [How to create and configure Azure IR](create-azure-integration-runtime.md).
+For information about creating and configuring an Azure IR, see How to create and configure Azure IR under how to guides. 
 
 ## Self-hosted integration runtime
 A self-hosted IR is capable of:
@@ -83,7 +83,7 @@ If you want to perform data integration securely in a private network environmen
 ### Compute resource and scaling
 Self-hosted IR needs to be installed on an on-premises machine or a virtual machine inside a private network. Currently, we only support running the self-hosted IR on a Windows operating system.  
 
-For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see [how to create and configure self-hosted IR](create-self-hosted-integration-runtime.md) for details.
+For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see how to create and configure self-hosted IR topic under how to guides for details.
 
 ## Azure-SSIS Integration Runtime
 To lift and shift existing SSIS workload, you can create an Azure-SSIS IR to natively execute SSIS packages.
@@ -94,7 +94,7 @@ Azure-SSIS IR can be provisioned in either public network or private network.  O
 ### Compute resource and scaling
 Azure-SSIS IR is a fully managed cluster of Azure VMs dedicated to run your SSIS packages. You can bring your own Azure SQL Database or Managed Instance server to host the catalog of SSIS projects/packages (SSISDB) that is going to be attached to it. You can scale up the power of the compute by specifying node size and scale it out by specifying the number of nodes in the cluster.  Do note that while each VM can run multiple packages concurrently (by configuring # of parallel executions per-node), each package cannot be distributed to multiple VMs. You can minimize the cost by starting and stopping the Azure-SSIS Integration Runtime immediately before/after the package execution.
 
-For more information, see [Create and configure Azure-SSIS IR](create-azure-ssis-integration-runtime.md).  Once created, you can deploy and manage your existing SSIS packages with little to no change using familiar tools such as SQL Server Data Tools (SSDT) and SQL Server Management Studio (SSMS), just like using SSIS on premises.
+For more information, see how to create and configure Azure-SSIS IR topic under how to guides.  Once created, you can deploy and manage your existing SSIS packages with little to no change using familiar tools such as SQL Server Data Tools (SSDT) and SQL Server Management Studio (SSMS), just like using SSIS on premises.
 
 ## Determining which IR to use
 Each transformation activity has a target compute Linked Service, which points to an integration runtime. This integration runtime instance is where the transformation activity is dispatched from.
