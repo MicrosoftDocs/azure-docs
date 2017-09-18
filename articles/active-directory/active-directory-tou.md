@@ -26,6 +26,15 @@ Azure AD Terms of Use uses the pdf format to present this to your end-users.
 
 This remainder of this document describes how to get going with Azure AD Terms of Use.  
 
+## Why use Azure AD Terms of Use
+Finding it difficult to get employee’s or guests to agree to your terms of use before getting access? Need help figuring out who has or hasn’t agreed to your company terms of use?  With Azure AD Terms of use you now have a simple method that your organization can use to ensure that end users see relevant disclaimers or other information needed for legal or compliance requirements prior to getting access. 
+
+Azure AD Terms of Use can be used in the following scenarios:
+-	General terms of use for all users in your organization
+-	Specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees) (using dynamic groups)
+-	Specific terms of use based on accessing high business impact apps, like Salesforce
+
+
 ## Azure AD Terms of Use Prerequisites
 Use the following steps to configure Azure AD Terms of Use:
 
@@ -44,11 +53,10 @@ On the blade you will notice buttons for Adding, Publishing and Unpublishing ter
 You can have multipe terms of use that target different user groups.  Currently Azure AD Terms of Use supports X number of individual terms of use.  The following table describes the states in more detail.
 
 |Status|Description|
-| ----- | ----- |	
+|-----|-----|
 |Published|A terms of use that is currently live and users need to actively accept it.|
 |Not yet Published|A terms of use that has never been published.|
 |Unpublished|A terms of use that was once published but is no longer published.|
-
 
 ## Adding a Terms of Use
 Once you have finalized your Terms of Use and you are ready to use it with Azure services you can use the following procedure to add it
@@ -86,3 +94,34 @@ When you are ready to unpublish the terms of use so that update it or change it,
 2. Click **Yes** to confirm.
 3. You should now see the status set to unpublish.</br>
 ![Unpublish TOU](media/active-directory-tou/tou6.png)
+
+## Auditing a Terms of Use
+Azure AD Terms of Use provides easy to use auditing so that you can see who has accepted and when they accepted your terms of use.  To get started with auding use the following procedure:
+
+### To audit terms of use
+1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
+2. Click Audit Event.  This will open another blade.</br>
+![Audit Event](media/active-directory-tou/tou8.png)
+3. This will navigate to the Azure AD audit logs blade filtered to the activity of the specific terms of use that was selected. 
+![Audit Event](media/active-directory-tou/tou9.png)
+4.  You can filter the information using the provided drops downs to target sepcific audit log information.
+5.  You can also download the information in a .csv file for use locally.
+
+## End user Preview
+Once a terms of use is created an enforced this is what an end user will see if they are in scope.
+-	Best practice is to have the font within the PDF at size 24.
+![Audit Event](media/active-directory-tou/tou10.png)
+-	Will be shown on mobiles as well
+![Audit Event](media/active-directory-tou/tou11.png)
+
+## Troubleshooting
+The following is some general inforamtion that you need to be aware of and can assit with troubleshooting any terms of use issues.
+
+-	Global administrator, security administrator, or conditional access administrator need read/write access.
+-	After creating a TOU using the “access to cloud apps” template the admin will start to see “sad clouds” when access other areas of the portal. If they refresh the browser they will start to see “AAD token issues”
+    - This behavior is expected and the reason for this is that the user created a new conditional access policy that they are in scope of. The new policy is not satisfied so they are unable to access any cloud apps until that policy in satisfied.
+    - Resolution: in order to resolve the user must sign out and sign back in. This will allow them to satisfy any remaining controls that they may now fall in scope of.
+-	If a tenant already has a CA policy enforced with a TOU, the next time a TOU is created the admin (and all active sessions) will start to see “sad clouds” when access other areas of the portal. If they refresh the browser they will start to see “AAD token issues.”
+    - This behavior is expected and due to limitation in the CA extensibility framework.
+    - Resolution: in order to resolve the user must sign out and sign back in. This will allow them to get a fresh token. 
+-	If  TOU is enforced using a custom CA policy, and the admin wants to delete a TOU, they need to make sure that TOU is not enforced with any policies.
