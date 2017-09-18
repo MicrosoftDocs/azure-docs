@@ -5,6 +5,8 @@
   items:
   - name: What is the Data Science VM?
     href: overview.md
+  - name: What is the Deep Learning VM?
+    href: deep-learning-dsvm-overview.md
 - name: Get started
   items:
   - name: Windows Data Science VM
@@ -19,6 +21,8 @@
     href: vm-do-ten-things.md
   - name: Use Linux Data Science VM
     href: linux-dsvm-walkthrough.md
+  - name: Use Deep Learning DSVM
+    href: use-deep-learning-dsvm.md
 - name: Reference
   items:
   - name: Deep Learning and AI frameworks
