@@ -60,7 +60,7 @@ Here are the instructions you need to provide users, so they can change their pa
 
     ![Click on "Change password"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-   > [!NOTE]
+   > [!TIP]
    > If the **Change password** option is not displayed in the Access Panel window, ensure that your organization has configured [password management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
    >
    >
