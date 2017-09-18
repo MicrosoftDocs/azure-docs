@@ -20,7 +20,7 @@ ms.author: wgries
 # How to deploy Azure File Sync (preview)
 With Azure File Sync (preview), shares can be replicated on-premises or in Azure and accessed through SMB or NFS shares on Windows Server. Azure File Sync is useful for scenarios in which data needs to be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices.
 
-We strongly recommend reading the [Planning for an Azure Files deployment](planning-azure-files-deployment.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before following the steps in this guide.
+We strongly recommend reading the [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before following the steps in this guide.
 
 ## Prerequisites
 * A Storage Account and an Azure File share in the same region that you want to deploy Azure File Sync. For more information, see:

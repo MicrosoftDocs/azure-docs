@@ -20,7 +20,7 @@ ms.author: wgries
 # How to deploy Azure Files
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. This article will show you how to practically deploy Azure Files within your organization.
 
-We strongly recommend reading [Planning for an Azure Files deployment](planning-azure-files-deployment.md) prior to following the steps in this article.
+We strongly recommend reading [Planning for an Azure Files deployment](storage-files-planning.md) prior to following the steps in this article.
 
 ## Prerequisites
 This article assumes that you have already:
@@ -29,7 +29,7 @@ This article assumes that you have already:
 - Created an Azure File share with your desired quota in your Storage Account. See [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
 
 ## Transfer data into Azure Files
-You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure File share. This section will show you how to move data into an Azure File share via several popular methods detailed from the [planning guide](planning-azure-files-deployment.md#data-transfer-method)
+You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure File share. This section will show you how to move data into an Azure File share via several popular methods detailed from the [planning guide](storage-files-planning.md#data-transfer-method)
 
 ### Azure File Sync (preview)
 Azure File Sync (preview) maybe used to migrate data into an Azure File share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync ingress data into Azure File share can be found in the [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and the [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) guides.

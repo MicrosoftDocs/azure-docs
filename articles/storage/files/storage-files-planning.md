@@ -82,7 +82,7 @@ Azure Files supports two data redundancy options: locally redundant storage (LRS
 ## Data growth pattern
 Today, the maximum size for an Azure File share is 5 TiB, inclusive of share snapshots. Because of this current limitation, you must consider the expected data growth when deploying an Azure File share. Note that an Azure Storage account, can store multiple shares with a total of 500 TiB stored across all shares.
 
-It is possible to sync multiple Azure File shares to a single Windows File Server with Azure File Sync. This allows you to ensure that older, very large file shares that you may have on-premises can be brought into Azure File Sync. Please see [Planning for an Azure File Sync Deployment](planning-azure-files-deployment.md) for more information.
+It is possible to sync multiple Azure File shares to a single Windows File Server with Azure File Sync. This allows you to ensure that older, very large file shares that you may have on-premises can be brought into Azure File Sync. Please see [Planning for an Azure File Sync Deployment](storage-files-planning.md) for more information.
 
 ## Data transfer method
 There are many easy options to bulk transfer data from an existing file share, such as an on-premises file share, into Azure Files. A few popular ones include (non-exhaustive list):
