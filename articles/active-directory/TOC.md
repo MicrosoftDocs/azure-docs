@@ -274,6 +274,17 @@
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
+## Azure AD Controls
+### [Azure AD Contorls Overview](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [Complete an access review](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [Create an access review](active-directory-azure-ad-controls-create-an-access-review.md)
+### [How to perform an access review](active-directory-azure-ad-controls-perform-an-access-review.md)
+### [How to review your access](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-and-controls.md)
+
+
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Controls](active-directory-conditional-access-controls.md)
