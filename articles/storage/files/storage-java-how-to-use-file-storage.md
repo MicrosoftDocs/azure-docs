@@ -36,7 +36,7 @@ This tutorial will demonstrate the basics of using Java to develop applications 
 ## Create a Java application
 To build the samples, you will need the Java Development Kit (JDK) and the [Azure Storage SDK for Java][]. You should also have created an Azure storage account.
 
-## Setup your application to use Azure Files
+## Set up your application to use Azure Files
 To use the Azure storage APIs, add the following statement to the top of the Java file where you intend to access the storage service from.
 
 ```java
@@ -45,8 +45,8 @@ import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.file.*;
 ```
 
-## Setup an Azure storage connection string
-To use Azure Files, you need to connect to your Azure storage account. The first step would be to configure a connection string which we'll use to connect to your storage account. Let's define a static variable to do that.
+## Set up an Azure storage connection string
+To use Azure Files, you need to connect to your Azure storage account. The first step would be to configure a connection string, which we'll use to connect to your storage account. Let's define a static variable to do that.
 
 ```java
 // Configure the connection-string with your values
@@ -76,7 +76,7 @@ try {
 **CloudStorageAccount.parse** throws an InvalidKeyException so you'll need to put it inside a try/catch block.
 
 ## Create an Azure File share
-All files and directories in Azure Files reside in a container called a **Share**. Your storage account can have as much shares as your account capacity allows. To obtain access to a share and its contents, you need to use a Azure Files client.
+All files and directories in Azure Files reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use an Azure Files client.
 
 ```java
 // Create the Azure Files client.
@@ -124,7 +124,7 @@ try
 ```
 
 ## Create a directory
-You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. Azure Files allows you to create as much directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
+You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. Azure Files allows you to create as many directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
 
 ```java
 //Get a reference to the root directory for the share.

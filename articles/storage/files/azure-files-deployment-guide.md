@@ -18,7 +18,7 @@ ms.author: wgries
 ---
 
 # How to deploy Azure Files
-[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. This article addresses will show you how to practically deploy Azure Files within your organization.
+[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. This article will show you how to practically deploy Azure Files within your organization.
 
 We strongly recommend reading [Planning for an Azure Files deployment](planning-azure-files-deployment.md) prior to following the steps in this article.
 
@@ -46,14 +46,14 @@ The following steps will import data from an on-premises location to your Azure 
 
 2. Connect and mount each disk on the server/PC doing the data transfer. For optimal performance, we recommend running the on-premises export job locally on the server that contains the data. In some cases, such as when the file server that serves the data is a NAS device, this may not be possible. In that case, it is perfectly acceptable to mount each disk on a PC.
 
-3. Ensure each drive is online, initialized, and is assigned a drive letter. To do this, open the Disk Management MMC snap-in (diskmgmt.msc).
+3. Ensure each drive is online, initialized, and is assigned a drive letter. To do bring a drive online, initialize, and assign a drive letter, open the Disk Management MMC snap-in (diskmgmt.msc).
 
-    - To bring a disk online (if it's not already online), right click on the disk in the lower pane of the Disk Management MMC and select "Online".
-    - To initialize a disk, right click on the disk in the lower pane (after the disk is online), and select "Initialize". Be sure to select "GPT" when asked.
+    - To bring a disk online (if it's not already online), right-click on the disk in the lower pane of the Disk Management MMC and select "Online".
+    - To initialize a disk, right-click on the disk in the lower pane (after the disk is online), and select "Initialize". Be sure to select "GPT" when asked.
 
         ![A screenshot of the Initialize Disk menu in the Disk Management MMC](media/azure-files-deployment-guide/transferdata-importexport-1.PNG)
 
-    - To assign a drive letter to the disk, right click on the "unallocated" space of the online and initialized disk, and click "New Simple Volume". This will allow you to assign drive letter. Note that you do not need to format the volume as this will be done later.
+    - To assign a drive letter to the disk, right-click on the "unallocated" space of the online and initialized disk, and click "New Simple Volume". This will allow you to assign drive letter. Note that you do not need to format the volume as this will be done later.
 
         ![A screenshot of the New Simple Volume wizard in the Disk Management MMC](media/azure-files-deployment-guide/transferdata-importexport-2.png)
 
@@ -66,7 +66,7 @@ The following steps will import data from an on-premises location to your Azure 
 
     Multiple shares with a Storage Account may be specified. See [Prepare the dataset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) for more information.
 
-5. Create the driveset CSV file. The driveset CSV file lists the disks available to the on-premises export agent. For example, the following driveset CSV file lists X:, Y:, and Z: drives to be used in the on-premises export job:
+5. Create the driveset CSV file. The driveset CSV file lists the disks available to the on-premises export agent. For example, the following driveset CSV file lists `X:`, `Y:`, and `Z:` drives to be used in the on-premises export job:
 
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -91,7 +91,7 @@ The following steps will import data from an on-premises location to your Azure 
 ### Robocopy
 Robocopy is a well known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command. Using Robocopy is quite simple:
 
-1. [Mount your Azure File share](storage-how-to-use-files-windows.md). For optimal performance, we recommend mounting the Azure File share locally on the server that contains the data. In some cases, such as when the file server that serves the data is a NAS device, this may not be possible. In that case, it is perfectly acceptable to mount the Azure File share on a PC. In this example, `net use` is used at the cmdline to mount the file share:
+1. [Mount your Azure File share](storage-how-to-use-files-windows.md). For optimal performance, we recommend mounting the Azure File share locally on the server that contains the data. In some cases, such as when the file server that serves the data is a NAS device, this may not be possible. In that case, it is perfectly acceptable to mount the Azure File share on a PC. In this example, `net use` is used at the command line to mount the file share:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -106,7 +106,7 @@ Robocopy is a well known copy tool that ships with Windows and Windows Server. R
     Robocopy has a significant number of options to modify the copy behavior as desired. For more information, view the [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) manual page.
 
 ### AzCopy
-AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance. Using AzCopy is extremely simple:
+AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance. Using AzCopy is easy:
 
 1. Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy) or [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
 2. Use `azcopy` at the command line to move data to the Azure File share. The syntax on Windows is as follows: 
@@ -130,7 +130,7 @@ To replace an on-premises file share, it is helpful to pre-mount the shares on t
 > Mounting an Azure File share requires using the Storage Account Key as the password, therefore we only recommend mounting in trusted environments. 
 
 ### Windows
-PowerShell can be used run the mount command on multiple PCs. In the below example, `$computers` is left to be populated by the user (one possibility is to populate this variable with results from Active Directory):
+PowerShell can be used run the mount command on multiple PCs. In the following example, `$computers` is manually populated, but you can generate the list of computers to mount automatically. For example, one possibility is to populate this variable with results from Active Directory.
 
 ```PowerShell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
@@ -138,7 +138,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ```
 
 ### Linux
-A simple bash script combined with SSH can yield the same result in the below example. The `$computer` variable is similarily left to be populated by the user:
+A simple bash script combined with SSH can yield the same result in the following example. The `$computer` variable is similarly left to be populated by the user:
 
 ```PowerShell
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
