@@ -79,7 +79,6 @@
 ### [Send to Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
 
-
 # Reference
 ## [CLI 2.0](/cli/azure/monitor?view=azure-cli-latest)
 ## [PowerShell](/powershell/module/azurerm.insights)
@@ -88,7 +87,6 @@
 ## [Diagnostic logs services, categories, and schemas](monitoring-diagnostic-logs-schema.md)
 ## [Activity log event schema](monitoring-activity-log-schema.md)
 ## [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
-
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
