@@ -39,10 +39,10 @@ This tutorial is part two in a series. In this tutorial, a template generator to
 ## Install Yeoman
 Service fabric provides scaffolding tools to help create applications from terminal using Yeoman template generator. Follow the steps below to ensure you have the Yeoman template generator. 
 
-1. Install nodejs and NPM on your machine. 
-  ```bash
-  sudo apt-get install npm && sudo apt install nodejs-legacy
-  ```
+1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew.  
+```bash
+sudo apt-get install npm && sudo apt install nodejs-legacy
+```
 2. Install Yeoman template generator on your machine from NPM 
 
 ```bash
@@ -57,17 +57,17 @@ sudo npm install -g generator-azuresfcontainer
 
 ## Package a Docker image container with Yeoman
 
-1. To create a Service Fabric container application, in the 'container-tutorial' directory of the cloned repository, run the following command
-```
-yo azuresfcontainer
-```
-2. Name your application "TestContainer" and name the application service "azurevotefront."
+1. To create a Service Fabric container application, in the 'container-tutorial' directory of the cloned repository, run the following command:
+    ```bash
+    yo azuresfcontainer
+    ```
+2. Name your application "TestContainer" and name the application service "azurevotefront".
 3. Provide the container image path in ACR for the frontend repo - for example 'test.azurecr.io/azure-vote-front:v1'. 
 
 4. Press Enter to leave the Commands section empty.
 5. Specify an instance count of 1.
 
-The entries for this container app used are all shown:
+The following shows the input and output of running the yo command:
 
 ```bash
 ? Name your application TestContainer
@@ -86,16 +86,14 @@ The entries for this container app used are all shown:
 To add another container service to an application already created using yeoman, perform the following steps:
 
 1. Change directory to the root of the existing application.
-```bash
-cd TestContainer
-```
+    ```bash
+    cd TestContainer
+    ```
 2. Run `yo azuresfcontainer:AddService` 
 3. Name the service 'azurevoteback'
-4. Provide the container image path in ACR for the backend repo - for example 
-'test.azurecr.io/azure-vote-back:v1'. 
-
-5. Press Enter to leave the Commands section empty.
-6. Specify an instance count of "1". 
+4. Provide the container image path in ACR for the backend repo - for example 'test.azurecr.io/azure-vote-back:v1'
+5. Press Enter to leave the Commands section empty
+6. Specify an instance count of "1".
 
 The entries for adding the service used are all shown:
 
@@ -109,27 +107,27 @@ The entries for adding the service used are all shown:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-For the remainder of this tutorial, we are working in the `TestContainer` directory.
+For the remainder of this tutorial, we are working in the **TestContainer** directory.
 
 ## Configure Application Manifest with credentials for Azure Container Registry
-For Service Fabric to pull the container images from Azure container registry, we need to provide the credentials in the `ApplicationManifest.xml`. 
+For Service Fabric to pull the container images from Azure container registry, we need to provide the credentials in the **ApplicationManifest.xml**. 
 
 
 Log in to your ACR instance. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to complete the operation. Provide the unique name given to the container registry when it was created.
 
-```azurecli
+```bash
 az acr login --name <acrName>
 ```
 
-The command returns a 'Login Succeeded’ message once completed.
+The command returns a **Login Succeeded** message once completed.
 
-Next, run the following command to get the password of your container registry. 
+Next, run the following command to get the password of your container registry. This password is used by Service Fabric to authenticate with ACR to pull the container images.
 
-```azurecli
+```bash
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-In the `ApplicationManifest.xml`, add the code snippet under the `ServiceManifestImport` tag for each of the services. A full `ApplicationManifest.xml` is provided at the end of this document. 
+In the **ApplicationManifest.xml**, add the code snippet under the **ServiceManifestImport** element for each of the services. Insert your **acrName** for the **AccountName** field and the password returned from the previous command is used for the **Password** field. A full **ApplicationManifest.xml** is provided at the end of this document. 
 
 ```xml
 <Policies>
@@ -140,81 +138,80 @@ In the `ApplicationManifest.xml`, add the code snippet under the `ServiceManifes
 ```
 ## Configure communication and container port-to-host port mapping
 
-1. Configure communication port 
+### Configure communication port
 
 Configure an HTTP endpoint so clients can communicate with your service.  Open the *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* file and declare an endpoint resource in the **ServiceManifest** element.  Add the protocol, port, and name. For this tutorial, the service listens on port 80. 
   
-  ```xml
-  <Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-              listen. Please note that if your service is partitioned, this port is shared with 
-              replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
-  
-  ```
+```xml
+<Resources>
+  <Endpoints>
+    <!-- This endpoint is used by the communication listener to obtain the port on which to 
+            listen. Please note that if your service is partitioned, this port is shared with 
+            replicas of different partitions that are placed in your code. -->
+    <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+  </Endpoints>
+</Resources>
+
+```
   
 Similarly, modify the Service Manifest for the backend service. For this tutorial, the redis default of 6379 is maintained.
-  ```xml
-  <Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-              listen. Please note that if your service is partitioned, this port is shared with 
-              replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
-    </Endpoints>
-  </Resources>
-  
-  ```
-  Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file for the backend service is provided at the end of this article as an example. 
+```xml
+<Resources>
+  <Endpoints>
+    <!-- This endpoint is used by the communication listener to obtain the port on which to 
+            listen. Please note that if your service is partitioned, this port is shared with 
+            replicas of different partitions that are placed in your code. -->
+    <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+  </Endpoints>
+</Resources>
+```
+Providing the **UriScheme**automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file for the backend service is provided at the end of this article as an example. 
 
-2. Map container ports to a service
+### Map container ports to a service
     
-In order to expose the containers in the cluster, we also need to create a port binding in the 'ApplicationManifest.xml'. The `PortBinding` policy references the `Endpoints` we defined in the 'ServiceManifest.xml' files. Incoming requests to these endpoints get mapped to the container ports that are opened and bounded here. In the 'ApplicationManifest.xml' file, add the following code to bind port 80 and 6379 to the endpoints. A full `ApplicationManifest.xml` is available at the end of this document. 
+In order to expose the containers in the cluster, we also need to create a port binding in the 'ApplicationManifest.xml'. The **PortBinding** policy references the **Endpoints** we defined in the **ServiceManifest.xml** files. Incoming requests to these endpoints get mapped to the container ports that are opened and bounded here. In the **ApplicationManifest.xml** file, add the following code to bind port 80 and 6379 to the endpoints. A full **ApplicationManifest.xml** is available at the end of this document. 
   
-  ```xml
-  <ContainerHostPolicies CodePackageRef="Code">
-      <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
-  </ContainerHostPolicies>
-  ```
-  
-  ```xml
-  <ContainerHostPolicies CodePackageRef="Code">
-      <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
-  </ContainerHostPolicies>
-  ```
+```xml
+<ContainerHostPolicies CodePackageRef="Code">
+    <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
+</ContainerHostPolicies>
+```
 
-3. Add DNS name to backend service
+```xml
+<ContainerHostPolicies CodePackageRef="Code">
+    <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
+</ContainerHostPolicies>
+```
+
+### Add DNS name to backend service
+  
+For Service Fabric to assign this DNS name to the backend service, the name needs to be specified in the **ApplicationManifest.xml**. Add the **ServiceDnsName** attribute to the **Service** element as shown: 
+  
+```xml
+<Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
+  <StatelessService ServiceTypeName="azurevotebackType" InstanceCount="1">
+    <SingletonPartition/>
+  </StatelessService>
+</Service>
+```
 
 The frontend service reads an environment variable to know the DNS name of the Redis instance. The environment variable is defined in the Dockerfile as shown:
   
-  ```Dockerfile
-  ENV REDIS redisbackend.testapp
-  ```
+```Dockerfile
+ENV REDIS redisbackend.testapp
+```
   
-For Service Fabric to assign this DNS name to the backend service, the name needs to be specified in the `ApplicationManifest.xml`. Add the 'ServiceDnsName' field to the 'Service' field as shown: 
-  
-  ```xml
-  <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
-    <StatelessService ServiceTypeName="azurevotebackType" InstanceCount="1">
-      <SingletonPartition/>
-    </StatelessService>
-  </Service>
-  ```
-  
-  The python script that renders the front end uses this DNS name to resolve and connect to the backend redis store as shown:
-  
-  ```python
-  # Get DNS Name
-  redis_server = os.environ['REDIS'] 
-  
-  # Connect to the Redis store
-  r = redis.StrictRedis(host=redis_server, port=6379, db=0)
-  ```
+The python script that renders the front end uses this DNS name to resolve and connect to the backend redis store as shown:
 
-  At this point in the tutorial, the template for a Service Package application is available for deployment to a cluster. In the subsequent tutorial, this application is deployed and ran in a Service Fabric cluster.
+```python
+# Get DNS Name
+redis_server = os.environ['REDIS'] 
+
+# Connect to the Redis store
+r = redis.StrictRedis(host=redis_server, port=6379, db=0)
+```
+
+At this point in the tutorial, the template for a Service Package application is available for deployment to a cluster. In the subsequent tutorial, this application is deployed and ran in a Service Fabric cluster.
 
 ## Creating a Service Fabric cluster
 To deploy the application to a cluster in Azure, use your own cluster, or use a Party Cluster.
@@ -232,7 +229,7 @@ Connect to the Service Fabric cluster in Azure.
 sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:19080
 ```
 
-Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+Use the install script provided in the **TestContainer** directory to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
 ```bash
 ./install.sh

@@ -38,16 +38,13 @@ In this tutorial, a multi-container application is prepared for use with Service
 > * Tagging a container image for ACR
 > * Uploading the image to ACR
 
-In subsequent tutorials, these images are pushed to the Azure Container Registry and used by a Service Fabric application.
+In subsequent tutorials, these images are used as part of a Service Fabric application.
 
 ## Prerequisites
 
 - Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment. 
 - This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
 - Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/en-us/free/).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Get application code
 
@@ -55,24 +52,30 @@ The sample application used in this tutorial is a voting app. The application co
 
 Use git to download a copy of the application to your development environment.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
 ```
 
-Inside the cloned directory, is the 'azure-vote' directory. The directory contains the front-end source code and the 'redis' directory that contains a Dockerfile to  build the redis image. These directories contain the necessary assets for this tutorial set. 
+From the cloned directory, use the following command to enter the working directory. 
+
+```bash 
+cd Linux/container-tutorial/
+```
+
+Inside this working directory is the 'azure-vote' directory. The directory contains the front-end source code and the 'redis' directory that contains a Dockerfile to  build the redis image. These directories contain the necessary assets for this tutorial set. 
 
 ## Create container images
 
 Inside the 'azure-vote' directory, run the following command to build the image for the front-end web component. This command uses the Dockerfile in this directory to build the image. 
 
-```
+```bash
 docker build -t azure-vote-front .
 ```
 
 Inside, the 'redis' directory, run the following command to build the image for the redis backend. This command uses the Dockerfile in the directory to build the image. 
 
-```
+```bash
 docker build -t azure-vote-back .
 ```
 
@@ -99,21 +102,21 @@ First run the [az login](/cli/azure/login) command to log in to your Azure accou
 
 Next, use the [az account](/cli/azure/account#set) command to choose your subscription to create the Azure Container registry. 
 
-```azurecli
+```bash
 az account set --subscription <subscription_id>
 ```
 
 When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *westus* region.
+Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *westus* region. Please choose the resource group in a region near you. 
 
-```azurecli
+```bash
 az group create --name myResourceGroup --location westus
 ```
 
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**.
 
-```azurecli
+```bash
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
@@ -123,7 +126,7 @@ Throughout the rest of this tutorial, we use "acrname" as a placeholder for the 
 
 Log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to complete the operation. Provide the unique name given to the container registry when it was created.
 
-```azurecli
+```bash
 az acr login --name <acrName>
 ```
 
@@ -151,7 +154,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 To get the loginServer name, run the following command:
 
-```azurecli
+```bash
 az acr show --name <acrName> --query loginServer --output table
 ```
 
@@ -207,13 +210,13 @@ The docker push commands take a couple of minutes to complete.
 
 To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the ACR instance name.
 
-```azurecli
+```bash
 az acr repository list --name <acrName> --output table
 ```
 
 Output:
 
-```azurecli
+```bash
 Result
 ----------------
 azure-vote-back
