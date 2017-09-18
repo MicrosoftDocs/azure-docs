@@ -63,10 +63,6 @@ sections:
       title: Deploy a DC/OS cluster
       image:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
-- title: Get Started with Node.js on Azure
-  items:
-  - type: markdown
-    text: <iframe src="https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Welcome-to-the-Azure-for-Nodejs-Developer-Center/player" width="640" height="360" allowFullScreen="true" frameBorder="0"></iframe>
 - title: Free Containers and Azure Video Training on Pluralsight
   items:
   - type: list
