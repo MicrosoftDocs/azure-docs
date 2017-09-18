@@ -516,9 +516,3 @@ The pipeline in this sample copies data from one location to another location in
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
-Go through the following tutorials to learn about using Data Factory in slightly complex scenarios: 
-
-Tutorial | Description
--------- | -----------
-[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-hybrid-copy-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
-[Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
