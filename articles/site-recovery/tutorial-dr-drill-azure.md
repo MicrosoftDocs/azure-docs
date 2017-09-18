@@ -33,14 +33,14 @@ This tutorial shows you how to run a disaster recovery drill for on-premises mac
 
 To complete this tutorial:
 
-- We recommend that you create a separate Azure network to use for test failover. **The network should be isolated from your production Azure network**.
+- We recommend that you create a separate Azure network to use for test failover. The network should be isolated from your production Azure network.
 - Optionally prepare to connect to Azure VMs after test failover.
 - Verify the VM properties before you run the test failover.
 
 
 ### Create a network for test failover
 
-Create a test network that's **isolated from your production network** (the network specified in the **Compute and Network** settings for a VM). By default, an Azure virtual network is isolated when it's created.
+Create a test network that's isolated from your production network (the network specified in the **Compute and Network** settings for a VM). By default, an Azure virtual network is isolated when it's created.
 
 1. When running a test failover, Site Recovery tries to create test VMs in a subnet with the same name and address as the VM's production network, so we recommend that you create a test network with the following: 
     - The same number of subnets as your production network, and the same subnet names.
