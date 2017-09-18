@@ -192,7 +192,7 @@ choose the fields that you want included in the mail.
    |||| 
 
    > [!NOTE] 
-   > If you select a field that represents an array, 
+   > If you select a field that stores an array, 
    > the designer automatically adds a "For each" loop 
    > around the action that references the array. 
    > That way, your logic app performs that action on each array item.
