@@ -1,7 +1,6 @@
 - name: Data Science Virtual Machine documentation
   items:
 - name: Overview
-  expanded: true
   items:
   - name: What is the Data Science VM?
     href: overview.md
