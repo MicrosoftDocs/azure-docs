@@ -219,7 +219,7 @@ RSS feed based on the schedule that you set up.
    ![Email sent for new RSS feed item](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
 
    If no new items are found, your logic app 
-   skips the action that sends email.  
+   skips the action that sends email. 
    So, nothing else happens.
 
 2. To review your logic app's runs and trigger history, 
