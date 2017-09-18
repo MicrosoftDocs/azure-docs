@@ -23,15 +23,15 @@ ms.author: t-jiajl
 
 Cosmos DB is Microsoft’s globally distributed database service designed to enable developer to build planet scale applications. Cosmos DB allows you to quickly create and query document, key/value, and graph databases. 
 
-Cosmos DB on Azure Storage Explorer allows users to manage Cosmos DB entities, manipulate data, update stored procedure/trigger along with other Azure entities like blob and queue. Now users can use the same tool to manage their different Azure entities in one place. In this release, Document DB and MongoDB are supported. We will enable graph / table support in the coming release. 
+Cosmos DB on Azure Storage Explorer allows users to manage Cosmos DB entities, manipulate data, update stored procedure/trigger along with other Azure entities like blob and queue. Now users can use the same tool to manage their different Azure entities in one place. In this release, Document DB and MongoDB are supported.
 
-In this article, you'll learn how to use Storage Explorer (Preview) to work with Cosmos DB (Document DB API and Mongo API).
+In this article, you can learn how to use Storage Explorer (Preview) to work with Cosmos DB (Document DB API and MongoDB API).
 
 
 ## Prerequisites
 
 - Azure subscription. If you don't have, create a  [free Azure account](https://azure.microsoft.com/en-us/free/) first.
-- Create your own Cosmos DB account on Azure portal, remember to choose “SQL (Document DB)” API or “Mongo” API, refer to this: [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-documentdb-dotnet).
+- Create your own Cosmos DB account on Azure portal, remember to choose “SQL (Document DB)” API or “Mongo” API, refer to this link: [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-documentdb-dotnet).
 - Install the newest Azure Storage Explorer bits. You can install it by the following links: [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
 
 
@@ -74,10 +74,10 @@ You can manage Cosmos DB account by doing following operations:
 * Open in Portal, Add to Quick Access, Search, Refresh
 * Database: create, delete
 * Collection: create, delete
-* Document: create, edit, delete and filter
-* Stored Procedure: create, edit and delete
-* Trigger: create, edit and delete
-* User-Defined Functions: create, edit and delete
+* Document: create, edit, delete, and filter
+* Stored Procedure: create, edit, and delete
+* Trigger: create, edit, and delete
+* User-Defined Functions: create, edit, and delete
 * Another scenario when user use partition key
 
 ### Open in Portal, Add to Quick Access, Search,  Refresh
@@ -92,19 +92,19 @@ You can manage Cosmos DB account by doing following operations:
 
 ### Database and Collection management
 
-1. **Create Database**: Right-click the Cosmos DB account, choose **Create Database**, then appear a node to input the database name, **Enter** to complete.
+1. **Create Database**: Right-click the Cosmos DB account, choose **Create Database**, input the database name, **Enter** to complete.
 
     ![create database](./media/cosmosdb-in-storage-explorer-get-started/create-database.png) 
-2. **Delete Database**: Right-click the database, click **Delete Database**, Click **Yes** on the pop-up window, the database node will be deleted and the Cosmos DB account refresh automatically.
+2. **Delete Database**: Right-click the database, click **Delete Database**, Click **Yes** on the pop-up window, the database node can be deleted and the Cosmos DB account refresh automatically.
 
-    ![detele database1](./media/cosmosdb-in-storage-explorer-get-started/delete-database1.png)  
+    ![delete database1](./media/cosmosdb-in-storage-explorer-get-started/delete-database1.png)  
     ![delete database2](./media/cosmosdb-in-storage-explorer-get-started/delete-database2.png) 
 
-3. **Create Collection**: Right-click your database, choose **Create Collection**, and then provide the following information like Collection ID, Storage capacity, etc. Click **OK** to finish. For partition key setting. refer this:  [Design for partitioning](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data#designing-for-partitioning).
+3. **Create Collection**: Right-click your database, choose **Create Collection**, and then provide the following information like Collection ID, Storage capacity, etc. Click **OK** to finish. For partition key setting. refer to this link:  [Design for partitioning](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data#designing-for-partitioning).
 If using partition key when create collection, once completing the creation, the partition key value can't be changed in documents, the Stored Procedure, Trigger, and UDF can't be changed once saved.
     ![create collection1](./media/cosmosdb-in-storage-explorer-get-started/create-collection.png)
     ![create collection2](./media/cosmosdb-in-storage-explorer-get-started/create-collection2.png) 
-4. **Delete Collection**: Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node will be deleted and the database refresh automatically.
+4. **Delete Collection**: Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node can be deleted and the database refresh automatically.
 
     ![delete collection](./media/cosmosdb-in-storage-explorer-get-started/delete-collection.png) 
 
@@ -122,11 +122,11 @@ If using partition key when create collection, once completing the creation, the
 ### Stored Procedure, Trigger, and UDF
 1. **Stored Procedure**: In the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter name in the left, type the stored procedure scripts in the right window, click **Create** button to complete. 
 
-    You can also edit existing stored procedure through double-click, click **Update** to save or **Discard** to cancel the change.
+    You can also edit existing stored procedure through double-click, click **Update** to save, or click **Discard** to cancel the change.
 
     ![stored procedure](./media/cosmosdb-in-storage-explorer-get-started/stored-procedure.png)
 
-2. The operations for **Triggers** and **UDF** are very similar to **Stored Procedure**.
+2. The operations for **Triggers** and **UDF** are similar to **Stored Procedure**.
 
 ## <a name="seealso"></a>See also
 * [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)
