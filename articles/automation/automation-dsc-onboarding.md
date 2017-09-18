@@ -38,6 +38,8 @@ The following sections outline how you can onboard each type of machine to Azure
 
 With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the [**Troubleshooting Azure virtual machine onboarding**](#troubleshooting-azure-virtual-machine-onboarding) section below.
 
+Managing Azure VMs with DSC is included at no extra charge. Please refer to the [**Automation pricing page**](https://azure.microsoft.com/en-us/pricing/details/automation/) for more details.
+
 ### Azure portal
 
 In the [Azure portal](http://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine's dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) required for your use case, your Automation account's registration key and registration URL, and optionally a node configuration to assign to the VM.
@@ -118,13 +120,13 @@ Azure Automation DSC lets you easily onboard Azure virtual machines for configur
 
 In the [Azure portal](https://portal.azure.com/), navigate to the Azure Automation account where you want to onboard virtual machines. On the Automation account dashboard, click **DSC Nodes** -> **Add Azure VM**.
 
-Under **Select virtual machines to onboard**, select one or more Azure virtual machines to onboard.
+Select an Azure virtual machine to onboard.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
+If the machine does not have the PowerShell desired state extension installed and the power state is running, click **Connect**.
 
-Under **Configure registration data**, enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) required for your use case, and optionally a node configuration to assign to the VM.
+Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/powershell/dsc/metaconfig4) required for your use case, and optionally a node configuration to assign to the VM.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
+![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### Azure Resource Manager templates
 
