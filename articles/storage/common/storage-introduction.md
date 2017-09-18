@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: robinsh
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # Introduction to Microsoft Azure Storage
 
 Microsoft Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Microsoft takes care of maintenance and handles critical problems for you. 
 
-Azure Storage consists of three data services: Blob storage, File storage, and Queue storage. Blob storage supports both standard and premium storage, with premium storage using only SSDs for the fastest performance possible. Another feature is cool storage, allowing you to storage large amounts of rarely accessed data for a lower cost.
+Azure Storage consists of three data services: Blob storage, File storage, and Queue storage. Blob storage supports both standard and premium storage, with premium storage using only SSDs for the fastest performance possible. Another feature is cool storage, allowing you to store large amounts of rarely accessed data for a lower cost.
 
 In this article, you learn about the following:
 * the Azure Storage services
@@ -32,13 +32,9 @@ In this article, you learn about the following:
 * transferring data into or out of storage
 * the many storage client libraries available. 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
 To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
 * [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
 * [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
 
 ## Introducing the Azure Storage services
 
@@ -50,7 +46,7 @@ Blobs are basically files like those that you store on your computer (or tablet,
 
 After storing files in Blob storage, you can access them from anywhere in the world using URLs, the REST interface, or one of the Azure SDK storage client libraries. Storage client libraries are available for multiple languages, including Node.js, Java, PHP, Ruby, Python, and .NET. 
 
-There are three types of blobs -- block blobs, append blobs, and page blobs (used for VHD files).
+There are three types of blobs -- block blobs, page blobs (used for VHD files), and append blobs.
 
 * Block blobs are used to hold ordinary files up to about 4.7 TB. 
 * Page blobs are used to hold random access files up to 8 TB in size. These are used for the VHD files that back VMs.
@@ -80,10 +76,9 @@ The Azure Queue service is used to store and retrieve messages. Queue messages c
 
 For example, say you want your customers to be able to upload pictures, and you want to create thumbnails for each picture. You could have your customer wait for you to create the thumbnails while uploading the pictures. An alternative would be to use a queue. When the customer finishes his upload, write a message to the queue. Then have an Azure Function retrieve the message from the queue and create the thumbnails. Each of the parts of this processing can be scaled separately, giving you more control when tuning it for your usage.
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## Table storage
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-Standard Azure Table Storage is now part of Cosmos DB. Also available is Premium Tables for Azure Table storage, offering throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB: Table API](https://aka.ms/premiumtables).
+
+Standard Azure Table Storage is now part of Cosmos DB. To see that documentation, see the [Azure Table Storage Overview](../cosmos-db/table-storage-overview.md). Also available is Premium Tables for Azure Table storage, offering throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB: Table API](https://aka.ms/premiumtables).
 
 ## Disk storage
 
@@ -120,7 +115,7 @@ The hot access tier is used for files that are accessed frequently -- you pay a 
 
 Each storage account has two authentication keys, either of which can be used for any operation. There are two keys so you can roll over the keys occasionally to enhance security. It is critical that these keys be kept secure because their possession, along with the account name, allows unlimited access to all data in the storage account. 
 
-This section looks two ways to secure the storage account and its data. For detailed information about securing your storage account and your data, see the [Azure Storage security guide](storage-security-guide.md).
+This section looks at two ways to secure the storage account and its data. For detailed information about securing your storage account and your data, see the [Azure Storage security guide](storage-security-guide.md).
 
 ### Securing access to storage accounts using Azure AD
 
@@ -140,7 +135,7 @@ There are a couple of basic kinds of encryption available for the Storage servic
 
 ### Encryption at rest 
 
-You can enable Storage Service Encryption (SSE) on either the Files service (preview) or the Blob service for an Azure storage account. If enabled, all data written to the specific service is encrypted before written. When you read the data, it is decrypted before returned. 
+You can enable Storage Service Encryption (SSE) on either the Files service (preview) or the Blob service for an Azure storage account. If enabled, all data written to the specific service is encrypted before it is written. When you read the data, it is decrypted before it is returned. 
 
 ### Client-side encryption
 
@@ -150,11 +145,11 @@ The storage client libraries have methods you can call to programmatically encry
 
 See [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
-For more details about securing your storage account and encryption, see the [Azure Storage security guide](storage-security-guide.md).
+For more information about securing your storage account and encryption, see the [Azure Storage security guide](storage-security-guide.md).
 
 ## Replication
 
-In order to ensure that your data is durable, Azure Storage has the ability to keep (and manage) multiple copies of your data. This is called replication, or sometimes redundancy. When you set up your storage account, you select replication type. In most cases, this setting can be modified after the storage account is set up. 
+In order to ensure that your data is durable, Azure Storage has the ability to keep (and manage) multiple copies of your data. This is called replication, or sometimes redundancy. When you set up your storage account, you select a replication type. In most cases, this setting can be modified after the storage account is set up. 
 
 All storage accounts have **locally redundant storage (LRS)**. This means three copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed to one copy, the other two copies are updated before returning success. This means the three replicas are always in sync. Also, the three copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated. 
 
@@ -222,11 +217,9 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Learn more about File storage](../storage-files-introduction.md)
 * [Learn more about Queue storage](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
 To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
 * [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
 * [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -268,9 +261,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### For administrators
