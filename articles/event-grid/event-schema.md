@@ -32,7 +32,7 @@ All events will contain the same following top-level data:
 
 ## Available event sources
 
-The following event sources publish events for consumption via the Event Grid:
+The following event sources publish events for consumption via Event Grid:
 
 * Resource groups (management operations)
 * Azure subscriptions (management operations)
@@ -47,10 +47,10 @@ Azure subscriptions can now emit management events from Azure Resource Manager, 
 
 - **Microsoft.Resources.ResourceWriteSuccess**: Raised when a resource create or update operation succeeds.  
 - **Microsoft.Resources.ResourceWriteFailure**: Raised when a resource create or update operation fails.  
-- **Microsoft.Resources.ResourceWriteCancel**: Raised when a resource create or update operation is cancelled.  
+- **Microsoft.Resources.ResourceWriteCancel**: Raised when a resource create or update operation is canceled.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: Raised when a resource delete operation succeeds.  
 - **Microsoft.Resources.ResourceDeleteFailure**: Raised when a resource delete operation fails.  
-- **Microsoft.Resources.ResourceDeleteCancel**: Raised when a resource delete operation is cancelled. This happens when a template deployment is cancelled.
+- **Microsoft.Resources.ResourceDeleteCancel**: Raised when a resource delete operation is canceled. This happens when a template deployment is canceled.
 
 ### Example event schema
 
@@ -88,10 +88,10 @@ Resource groups can now emit management events from Azure Resource Manager, such
 
 - **Microsoft.Resources.ResourceWriteSuccess**: Raised when a resource create or update operation succeeds.  
 - **Microsoft.Resources.ResourceWriteFailure**: Raised when a resource create or update operation fails.  
-- **Microsoft.Resources.ResourceWriteCancel**: Raised when a resource create or update operation is cancelled.  
+- **Microsoft.Resources.ResourceWriteCancel**: Raised when a resource create or update operation is canceled.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: Raised when a resource delete operation succeeds.  
 - **Microsoft.Resources.ResourceDeleteFailure**: Raised when a resource delete operation fails.  
-- **Microsoft.Resources.ResourceDeleteCancel**: Raised when a resource delete operation is cancelled. This happens when a template deployment is cancelled.
+- **Microsoft.Resources.ResourceDeleteCancel**: Raised when a resource delete operation is canceled. This happens when a template deployment is canceled.
 
 ### Example event
 
@@ -123,7 +123,7 @@ Resource groups can now emit management events from Azure Resource Manager, such
 
 ## Event Hubs
 
-Event Hubs events are currently only emitted when a file is automatically sent to storage using the Capture feature.
+Event Hubs events are currently emitted only when a file is automatically sent to storage via the Capture feature.
 
 ### Available event types
 
