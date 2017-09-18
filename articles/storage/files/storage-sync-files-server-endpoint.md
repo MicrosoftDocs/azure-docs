@@ -34,7 +34,7 @@ To create a Server Endpoint, you must first ensure that the following criteria a
 ## Add a Server Endpoint
 To add a Server Endpoint, navigate to the desired Sync Group, and click "Add server endpoint".
 
-![Add a new Server Endpoint in the Sync Group pane](media/azure-file-sync-server-endpoint/add-server-endpoint-1.png)
+![Add a new Server Endpoint in the Sync Group pane](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
 The resulting "Add server endpoint" pane requires the following information to create a Server Endpoint:
 
@@ -66,7 +66,7 @@ Before unregistering the server on the Storage Sync Service, all Server Endpoint
 2. Navigate to the desired Sync Group.
 3. Remove the Server Endpoint you desire in the Sync Group in the Storage Sync Service. This can be accomplished by right-clicking the relevant Server Endpoint in the Sync Group pane.
 
-    ![Removing a Server Endpoint from a Sync Group](media/azure-file-sync-server-endpoint/remove-server-endpoint-1.png)
+    ![Removing a Server Endpoint from a Sync Group](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## Next steps
 - [Register/unregister a server with Azure File Sync (preview)](azure-file-sync-server-registration.md)
