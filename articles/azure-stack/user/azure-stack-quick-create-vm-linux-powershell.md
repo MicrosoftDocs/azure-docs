@@ -13,26 +13,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/25/2017
 ms.author: sngun
 
 ---
 
 # Create a Linux virtual machine by using PowerShell in Azure Stack 
 
-This guide details using the PowerShell to create a virtual machine running Ubuntu server in Azure Stack. When you use Virtual Machines, understand that there are some differences between the features that are available in Azure and Azure Stack, refer to the [Considerations for virtual machin2es in Azure Stack](azure-stack-vm-considerations.md) topic to learn about these differences.
+*Applies to: Azure Stack integrated systems*
 
-You can run the steps described in this article either from the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
+Azure PowerShell is used to create and manage resource in Azure Stack from a commandline or in scripts.  This guide details using the PowerShell to create a virtual machine running Ubuntu server in Azure Stack.
 
-## Prerequisites
+Before you begin, make sure that your Azure Stack operator has added the “Ubuntu Server 16.04 LTS” image to the Azure Stack marketplace.  
 
-1. The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, make sure that the Azure Stack operator download the “Ubuntu Server 16.04 LTS” image.  
+Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install and configure PowerShell](azure-stack-powershell-install.md).    
 
-2. Azure Stack requires specific version of Azure PowerShell module to create and manage the resources. Use the steps described in [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) topic to install the required version.  
+Finally, a public SSH key with the name id_rsa.pub needs to be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md).  
 
-3. [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) and sign in to it.  
-
-4. A public SSH key with the name id_rsa.pub needs to be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Linux/macOs](../../virtual-machines/linux/mac-create-ssh-keys.md) or [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md).  
 
 ## Create resource group
 
@@ -183,8 +180,10 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 
-# Get-Content "C:\Users\AzureStackAdmin\Desktop\VMWithPS\SSH_Public.pub"
-Add-AzureRmVMSshPublicKey -VM $VirtualMachine -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+# Adds the SSH Key to the virtual machine
+Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
+ -KeyData $sshPublicKey `
+ -Path "/home/azureuser/.ssh/authorized_keys"
 
 #Create the virtual machine.
 New-AzureRmVM `
@@ -203,7 +202,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 
 From a system with SSH installed, use the following command to connect to the virtual machine. If you are working on Windows, you can use [Putty](http://www.putty.org/) to create the connection.
 
-```powershell
+```
 ssh <Public IP Address>
 ```
 

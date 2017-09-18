@@ -13,22 +13,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: sngun
 
 ---
 
 # Create a Windows virtual machine by using PowerShell in Azure Stack
 
-Virtual machines in Azure Stack give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. When you use Virtual Machines, understand that there are some differences between the features that are available in Azure and Azure Stack, refer to the [Considerations for virtual machines in Azure Stack](azure-stack-vm-considerations.md) topic to learn about these differences. 
+*Applies to: Azure Stack integrated systems*
 
 This guide details using PowerShell to create a Windows Server 2016 virtual machine in Azure Stack. You can run the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN. 
 
-## Prerequisites
+Before you begin, make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
 
-1. The Azure Stack marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack operator adds the Windows Server 2016 image to the Azure Stack marketplace. 
-2. Azure Stack requires specific version of Azure PowerShell module to create and manage the resources. Use the steps described in [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) topic to install the required version.
-3. [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) 
+Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install and configure PowerShell](azure-stack-powershell-install.md).    
+
 
 ## Create a resource group
 
@@ -203,7 +202,7 @@ New-AzureRmVM `
 
 ## Connect to the virtual machine
 
-After the virtual machine is successfully created, open a Remote Desktop connection to the virtual machine from the development kit, or from a Windows-based external client if you are connected through VPN. To remote into the virtual machine that you created in the previous step, you need its public IP address. Run the following command to get the public IP address of the virtual machine: 
+To remote into the virtual machine that you created in the previous step, you need its public IP address. Run the following command to get the public IP address of the virtual machine: 
 
 ```powershell
 Get-AzureRmPublicIpAddress `
@@ -213,8 +212,24 @@ Get-AzureRmPublicIpAddress `
 Use the following command to create a Remote Desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the username and password that you used when creating the virtual machine.
 
 ```powershell
-mstsc /v:<publicIpAddress>
+mstsc /v <publicIpAddress>
 ```
+
+## Install IIS via PowerShell
+
+Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+## View the IIS welcome page
+
+With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the *publicIpAddress* you documented above to visit the default page. 
+
+![IIS default site](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png) 
+
+
 ## Delete the virtual machine
 
 When no longer needed, use the following command to remove the resource group that contains the virtual machine and its related resources:
