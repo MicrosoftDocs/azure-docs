@@ -1,6 +1,6 @@
 ---
-title: Overview of SQL Server on Azure Virtual Machines | Microsoft Docs
-description: Learn about how to run full SQL Server editions on Azure Virtual machines. Get direct links to all SQL Server VM images and related content.
+title: Overview of SQL Server on Azure Windows Virtual Machines | Microsoft Docs
+description: Learn about how to run full SQL Server editions on Azure Windows Virtual machines. Get direct links to all SQL Server VM images and related content.
 services: virtual-machines-windows
 documentationcenter: ''
 author: rothja
@@ -16,11 +16,15 @@ ms.workload: iaas-sql-server
 ms.date: 09/12/2017
 ms.author: jroth
 ---
-# Overview of SQL Server on Azure Virtual Machines
-This topic describes your options for running SQL Server on Azure virtual machines (VMs), along with [links to portal images](#option-1-create-a-sql-vm-with-per-minute-licensing) and an overview of [common tasks](#manage-your-sql-vm).
+# Overview of SQL Server on Azure Virtual Machines (Windows)
+> [!div class="op_single_selector"]
+> * [Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+> * [Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+
+This topic describes your options for running SQL Server on Azure Windows virtual machines (VMs), along with [links to portal images](#option-1-create-a-sql-vm-with-per-minute-licensing) and an overview of [common tasks](#manage-your-sql-vm).
 
 > [!NOTE]
-> If you're already familiar with SQL Server and just want to see how to deploy a SQL Server VM, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+> If you're already familiar with SQL Server and just want to see how to deploy a SQL Server Windows VM, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 If you are a database administrator or a developer, Azure VMs provide a way to move your on-premises SQL Server workloads and applications to the Cloud.
 
