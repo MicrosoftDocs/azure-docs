@@ -97,12 +97,12 @@ The following information is something to be aware of and can assist with using 
     - **Reason**: the user created a new conditional access policy that they are in scope of. The new policy is not satisfied so they are unable to access any cloud apps until that policy in satisfied.
     - **Resolution**: in order to resolve the user must sign out and sign back in. 
 
-- If a tenant already has a conditional access policy enforced be aware of the following:
+- If a tenant already has a conditional access policy enforced be aware of the following conditions:
     - The next time a Terms of Use is created the admin will see “sad clouds” when accessing other areas of the portal. 
     - If they refresh the browser, they start to see Azure AD token issues.
     - This behavior is expected.
     - **Reason**: due to limitations in the conditional access extensibility framework.
     - **Resolution**: in order to resolve the user must sign out and sign back in. Users will get a fresh token. 
 
--	If a Terms of Use is enforced using a custom conditional access policy be aware of the following:
+-	If a Terms of Use is enforced using a custom conditional access policy be aware of the following conditions:
     - if the admin wants to delete a Terms of Use, the admin needs to make sure that it is not enforced with any policies.
