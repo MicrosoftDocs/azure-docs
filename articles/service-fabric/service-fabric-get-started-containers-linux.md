@@ -162,7 +162,7 @@ To create a Service Fabric container application, open a terminal window and run
 
 Name your application (for example, "mycontainer"). 
 
-Provide the URL for the container image in a container registry (for example, ""). 
+Provide the URL for the container image in a container registry (for example, "myregistry.azurecr.io/samples/helloworldapp"). 
 
 This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
 
@@ -174,17 +174,17 @@ Specify an instance count of "1".
 Your containerized service needs an endpoint for communication.  Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file. For this article, the containerized service listens on port 4000: 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+<Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
 ```
 Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
 
-Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. 
+Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myServiceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. 
 
 ```xml
 <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
     </ContainerHostPolicies>
 </Policies>
 ```
@@ -274,7 +274,7 @@ Here are the complete service and application manifests used in this article.
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -296,7 +296,7 @@ Here are the complete service and application manifests used in this article.
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>

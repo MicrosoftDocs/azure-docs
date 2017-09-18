@@ -133,7 +133,7 @@ Please follow the instructions at [Service Fabric CLI](service-fabric-cli.md) to
 
 
 ## Install and set up the generators for containers and guest-executables
-Service Fabric provides scaffolding tools which will help you create a Service Fabric applications from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for working on your machine.
+Service Fabric provides scaffolding tools which will help you create Service Fabric applications from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
 
 1. Install nodejs and NPM on your machine
 

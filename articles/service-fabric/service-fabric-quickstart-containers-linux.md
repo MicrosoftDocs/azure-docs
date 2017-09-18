@@ -59,25 +59,25 @@ Configure an HTTP endpoint so clients can communicate with your service.  Open t
     <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+    <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
   </Endpoints>
 </Resources>
 
 ```
 Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
 
-Map a container port to a service `Endpoint` using a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this quickstart, `ContainerPort` is 80 (the container exposes port 80) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint previously defined in the service manifest).  Incoming requests to the service on port 80 are mapped to port 80 on the container.  
+Map a container port to a service `Endpoint` using a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this quickstart, `ContainerPort` is 80 (the container exposes port 80) and `EndpointRef` is "myServiceTypeEndpoint" (the endpoint previously defined in the service manifest).  Incoming requests to the service on port 80 are mapped to port 80 on the container.  
 
 ```xml
 <Policies>
   <ContainerHostPolicies CodePackageRef="Code">
-    <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+    <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
   </ContainerHostPolicies>
 </Policies>
 ```
 
 ## Build and package the Service Fabric application
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. Save all your changes.  To build and package the application, run the following:
+The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. Save all your changes. To build and package the application, run the following:
 
 ```bash
 cd MyFirstContainer
@@ -111,12 +111,12 @@ Open a browser and navigate to Service Fabric Explorer at http://lnxt10vkfz6.wes
 
 ![Service Fabric Explorer][sfx]
 
-Connect to the running container.  Open a web browser pointing to the IP address returned on port 80, for example "lnxt10vkfz6.westus.cloudapp.azure.com:80". You should see the nginx welcome page display in the browser.
+Connect to the running container.  Open a web browser pointing to the IP address returned on port 80, for example "lnxt10vkfz6.westus.cloudapp.azure.com:80". You should see the nginx welcome page displayed in the browser.
 
 ![Nginx][nginx]
 
 ## Clean up
-Use the uninstall script provided in the template to delete the application instance from the cluster and unregister the application type.
+Use the uninstall script provided in the template to delete the application instance from the cluster, unregister the application type and delete the application package from the cluster image store.
 
 ```bash
 ./uninstall.sh
@@ -151,7 +151,7 @@ Here are the complete service and application manifests used in this quickstart.
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
     </Endpoints>
   </Resources>
  </ServiceManifest>
@@ -167,7 +167,7 @@ Here are the complete service and application manifests used in this quickstart.
       <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
    <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
@@ -189,7 +189,7 @@ Here are the complete service and application manifests used in this quickstart.
 ```
 
 ## Next steps
-In this quickstart, you learn how to:
+In this quickstart, you learned how to:
 > [!div class="checklist"]
 > * Package a Docker image container
 > * Configure communication
