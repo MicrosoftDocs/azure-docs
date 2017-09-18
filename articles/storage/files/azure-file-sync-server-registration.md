@@ -22,9 +22,12 @@ With Azure File Sync (preview), shares can be replicated to Windows Servers on-p
 
 Before a Windows Server can be used as a *Server Endpoint* in an Azure File Sync *Sync Group*, it must be registered with a *Storage Sync Service*. Note that a server can only be registered with one *Storage Sync Service* at a time.
 
+Please see [How to deploy Azure File Sync (preview)](azure-file-sync-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
+
 ## Prerequisites
 To register a Windows Server with a Storage Sync Service, you must first prepare a Windows Server with the necessary prerequisites:
 
+* Ensure that a Storage Sync Service has been deployed. Please see [How to deploy Azure File Sync (preview)](azure-file-sync-deployment-guide.md) for details on how to deploy a Storage Sync Service.
 * Ensure that the server is connected to the internet and that Azure is accessible.
 * Disable the IE Enhanced Security Configuration for administrators with the Server Manager UI.
     
