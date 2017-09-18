@@ -33,10 +33,10 @@ The structure shown here is a sample representation of a management group hierar
 
 ![Hierarchy Tree](media/billing-enterprise-mgmt-groups/tree.png)
 
-## Azure Active Directory's relation to management groups
+## Management group administrator must belong to the same directory as management group 
 Like subscriptions, management groups also have a trust relationship with Azure AD. A management group hierarchy trusts a single directory to authenticate users. All admins associated with a management group hierarchy must belong to the same directory.
 
-## Azure Enterprise Enrollment's relation to management groups
+## Structure your enterprise using management groups in the [Azure portal](https://portal.azure.com) 
 The introduction of management groups is the first step in unifying the Enterprise portal (https://ea.azure.com) and the Azure portal.
 
 The [Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/) enrollment defines the shape and use of Azure services within a company and is the core governance structure. Within the enrollment, customers can subdivide the environment into departments, accounts, and finally, subscriptions. 
@@ -83,7 +83,7 @@ For management groups with the type of enrollment, the costs section shows you t
 ### Enabling access to costs
 If you are not seeing costs, see our [Troubleshooting Cost View](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md) document for help.  
 
-### Delays between the Enterprise portal and Azure portal: 
+### Delays between the Enterprise portal and Azure portal 
 * During the preview, amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal. This issue is temporary and is being worked on.
 * A delay of several minutes is expected in the Azure portal when making changes to settings in the Enterprise portal. 
 
