@@ -65,6 +65,15 @@ The prerequisites to run this example are as follows:
 
 * This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
 
+## Create a new Workbench project
+
+Create a new project using this example as a template:
+1.	Open Azure Machine Learning Workbench
+2.	On the **Projects** page, click the **+** sign and select **New Project**
+3.	In the **Create New Project** pane, fill in the information for your new project
+4.	In the **Search Project Templates** search box, type "Document Collection Analysis" and select the template
+5.	Click **Create**
+
 ## Data description
 
 The dataset used in this scenario contains text summaries and associated meta data for each legislative action taking by the US Congress. The data is collected from [GovTrack.us](https://www.govtrack.us/), which tracks the activities of United States Congress and helps Americans participate in their national legislative process. The bulk data can be downloaded via [this link](https://www.govtrack.us/data/congress/) using a manual script, which is not included in this scenario. The details of how to download the data could be found in the [GovTrack API documentation](https://www.govtrack.us/developers/api).

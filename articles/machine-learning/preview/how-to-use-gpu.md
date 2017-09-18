@@ -83,7 +83,7 @@ Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:
  
 ```yaml
 ...
-baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.9
+baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.91
 nvidiaDocker: true
 ```
  

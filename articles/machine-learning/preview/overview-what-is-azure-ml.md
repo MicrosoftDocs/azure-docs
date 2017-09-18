@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: haining
 
 ---
@@ -27,11 +27,11 @@ The main components of Azure Machine Learning are:
 - Azure Machine Learning Experimentation Service
 - Azure Machine Learning Model Management Service
 - Microsoft Machine Learning Libraries for Apache Spark (MMLSpark Library)
-- Visual Studio Code Tools for Machine Learning
+- Visual Studio Code Tools for AI
 
 Together, these applications and services help significantly accelerate your data science project development and deployment. 
 
-![Azure Machine Learning Concepts](media/overview-what-is-azure-ml/aml-concepts.png)
+![img](media/overview-what-is-azure-ml/app.png)
 
 ## Open and Powerful
 So much innovation in the data science and machine learning world is happening in the open-source community. Azure Machine Learning fully embraces open-source technologies. You can leverage tens of thousands of open-source Python packages, including popular machine learning frameworks including [scikit-learn](http://scikit-learn.org/), [TensorFlow](https://www.tensorflow.org/), [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [Spark ML](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) and many more. You can execute your experiments in managed environments such as Docker containers and Spark clusters. And you can use advanced hardware such as [GPU-enabled virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) to accelerate your execution.
@@ -54,7 +54,7 @@ Azure ML Workbench is a desktop application plus command-line tools, supported o
 For more information, reference the following articles:
 - [Data Preparation User Guide](data-prep-user-guide.md)
 - [Using Git with Azure ML](using-git-ml-project.md)
-- Using Jupyter Notebook in Azure ML
+- [Using Jupyter Notebook in Azure ML](how-to-use-jupyter-notebooks.md)
 - Roaming and Sharing
 - [Run History Guide](how-to-use-run-history-model-metrics.md)
 - [IDE Integration](how-to-configure-your-IDE.md)
@@ -89,32 +89,34 @@ For more information on Model Management Service, reference [Model Management Ov
  For more information, reference [Using MMLSpark in Azure ML](how-to-use-mmlspark.md).
 
 
-## Visual Studio Code Tools for Machine Learning
-Visual Studio Code Tools for Machine Learning is an extension in VS Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
+## Visual Studio Code Tools for AI
+Visual Studio Code Tools for AI is an extension in VS Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
 - A run history view displaying the performance of training runs and logged metrics.
 - A gallery view allowing users to browse and bootstrap new projects with the Microsoft Cognitive Toolkit, TensorFlow, and many other deep-learning framework. 
 - An explorer view for selecting compute targets for your scripts to execute.
  
 
-## What are the machine learning options in Azure?
+## What are the machine learning options from Microsoft?
 Besides Azure Machine Learning, there are also a wide variety of options in Azure to build, deploy, and manage machine learning models. 
 <!--* Azure Machine Learning-->
 * Microsoft Machine Learning Services in SQL
+* Microsoft Machine Learning Server
 * Data Science Virtual Machine
 * Spark MLLib in HDInsight
 * Batch AI Training Service
 * Microsoft Cognitive Toolkit
 * Microsoft Cognitive Services
-<!--
-### Azure Machine Learning
-[Azure Machine Learning](../index.md) manages the end to end development of machine learning and AI models in Azure.  [Machine Learning Studio](../studio/what-is-ml-studio.md) is a fully managed service enabling graphical construction of machine learning experiments with serverless training and deployment.  Azure Machine Learning Experimentation Service and Azure Machine Learning Model Management are preview services that manage the creation, deployment, and management of models built using Python and any machine learning framework available for Python. You can use the Azure Machine Learning Workbench to build data preparation jobs, author models using notebooks, and manage the history of your training jobs. 
 
-Use Azure Machine Learning when you want to manage the end to end development.  Azure Machine Learning enables you to use the other services mentioned on this page to scale in the cloud, while providing you with management of the end to end lifecycle from data preparation, model creation, through deployment and monitoring. 
--->
+
 ### Microsoft Machine Learning Services in SQL 
 [Microsoft Machine Learning Services](https://docs.microsoft.com/en-us/sql/advanced-analytics/r/r-services) enables you to run train and deploy machine learning models using R or Python, on data located on-premises and in SQL Server databases. 
 
-Use Microsoft Machine Learning Services when you need to train or deploy models on-premises, or when you need to train inside of Microsoft SQL Server.  Models built with Machine Learning Services can be deployed using Azure Machine Learning Model Management. 
+Use Microsoft Machine Learning Services when you need to train or deploy models on-premises, or when you need to train or deploy inside of Microsoft SQL Server.  Models built with Machine Learning Services can be deployed using Azure Machine Learning Model Management. 
+
+### Microsoft Machine Learning Server 
+[Microsoft Machine Learning Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/r/r-server-standalone) is an enterprise server for hosting and managing parallel and distributed workloads of R and Python processes on servers (Linux and Windows) and clusters (Hadoop and Apache Spark including [HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/r-server/)). It provides an execution engine for solutions built using [Microsoft ML packages](https://docs.microsoft.com/en-us/r-server/r/concept-what-is-the-microsoftml-package), extending open source R and Python with support for high performance analytics, statistical analysis, machine learning scenarios, and massively large datasets. Value-added functionality is provided through proprietary packages that install with the server.  You can install ML Server on a supported server or cluster, and use an IDEs like [R Tools for Visual Studio](https://www.visualstudio.com/vs/rtvs/), [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python/)  to adapt or create solutions to use additional capabilities.
+
+Use Microsoft Machine Learning Server when you need to build and deploy models built with R and Python in a server, or when you want to distribute R and Python training at scale on a Hadoop or Spark cluster. 
 
 ### Data Science Virtual Machine
 The [Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. It is available on Windows Server and on Linux. We offer Windows edition of DSVM on Server 2016 and Server 2012. We offer Linux edition of the DSVM on Ubuntu 16.04 LTS and on OpenLogic 7.2 CentOS-based Linux distributions. 

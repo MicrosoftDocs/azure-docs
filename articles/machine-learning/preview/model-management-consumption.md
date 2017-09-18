@@ -12,20 +12,30 @@ ms.topic: article
 ms.date: 09/06/2017
 ---
 # Consuming web services
-Once you deploy a model as a realtime Web service, you can send it data and get predictions from a variety of platforms and applications. You can send the data to the web service in single or multiple rows.
+Once you deploy a model as a realtime web service, you can send it data and get predictions from a variety of platforms and applications. THe realtime web service exposes a REST API for getting predictions. You can send data to the web service in the single or multi-row format to get one or more predictions at at time.
 
-With the Azure Machine Learning Web service, an external application communicates with a predictive model in real time. A web service call returns prediction results to the external application. To make a Web service call, you pass an API key that is created when you deploy a prediction. 
+With the Azure Machine Learning Web service, an external application communicates with a predictive model synchronously by making HTTP POST call to the service URL. To make a web service call, the client application needs to specify the API key that is created when you deploy a prediction, and put the request data into the POST request body.
 
-Note that API keys are only available in Cluster deployment mode. Local web services do not have keys.
+Note that API keys are only available in the cluster deployment mode. Local web services do not have keys.
+
+## Service deployment options
+Azure Machine Learning Web services can be deployed to the cloud based clusters for both production and test scenarios, and to local workstations using docker engine. The functionality of the predictive model in both cases remains the same. Cluster based deployment provides scalable and performant solution based on Azure Container Services, while the local deployment can be used for debugging. 
+
+The Azure Machine Learning CLI and API provides convenient commands for creating and managing compute environments for service deployments using the ```az ml env``` option. 
+
+## List deployed services and images
+You can list the currently deployed services and Docker images using CLI command ```az ml service list realtime -o table```. Note that this command always works in the context of the current compute environment, and would not show services that are deployed in an environment that is not set to be the current. To set the environment use ```az ml env set```. 
 
 ## Get service information
-After the web service has been successfully deployed, use the following command to get the service URL. 
+After the web service has been successfully deployed, use the following command to get the service URL and other details for calling the service endpoint. 
 
 ```
 az ml service usage realtime -i <service name>
 ```
 
-Test the service from the CLI, by entering the sample CLI command with the input data:
+This command will print out the service URL, required request headers, swagger URL, and sample data for calling the service if the service API schema was provided at the deployment time.
+
+You can test the service directly from the CLI without composing an HTTP requst, by entering the sample CLI command with the input data:
 
 ```
 az ml service run realtime -i <service name> -d "Your input data"
@@ -37,6 +47,17 @@ To get the web service key, use the following command:
 ```
 az ml service keys realtime -i <web service id>
 ```
+When creating HTTP request, use the key in the authorization header: "Authorization": "Bearer <key>"
+
+## Get the service Swagger description
+If the service API schema was supplied the service endpoint would expose a Swagger document at ```http://<ip>/api/v1/service/<service name>/swagger.json``` The Swagger document can be used to automatically generate the serivce client and explore the expected input data and other details about the service.
+
+## Get service logs
+To understand the service behavior and diagnose problems, there are several ways to retrieve the service logs:
+- CLI command ```az ml service logs realtime -i <service id>```. This command works in both cluster and local modes.
+- If the service logging was enabled at deployment. The service logs will also be sent to AppInsight. The CLI command ```az ml service usage realtime -i <service id>``` shows the AppInsight URL. Note that the AppInsight logs may be delayed by 2-5 mins.
+- Cluster logs can be viewed through Kuberntes console which is connected when you set the current cluster environment with ```az ml env set```
+- Local docker logs are available through the docker engine logs when the service is running locally.
 
 ## Call the service using C#
 Use the service URL to send a request from a C# Console App. 

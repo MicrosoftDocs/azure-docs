@@ -1,29 +1,19 @@
+---
+title: Azure Machine Learning Model Management command-line interface reference | Microsoft Docs
+description: Azure Machine Learning Model Management command-line interface reference.
+services: machine-learning
+author: raymondl
+ms.author: raymondl, aashishb
+manager: neerajkh
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.custom: mvc
+ms.topic: article
+ms.date: 09/17/2017
+---
+
 # Model management command-line interface reference
-
-You can update your Azure Machine Learning command line interface (CLI) installation using pip. To perform the update, you must have sufficient permissions.
-
-**Linux**: On Linux you must be running under sudo:
-
-```
-$ sudo -i
-```
-
-Then issue the following commands:
-```
-pip uninstall azure-cli-ml
-pip install azure-cli-ml
-```
-
-**Windows**: On Windows, you must run the command as administrator.
-
-First, open a command prompt with administrator privileges. Press the Window key and type `cmd`. Right-click on the **Command Prompt** icon and select **Run as administrator** from the context menu.
-
-Then type the following command:
-
-```
-pip uninstall azure-cli-ml
-pip install azure-cli-ml
-```
 
 ## Base CLI concepts:
 
@@ -108,46 +98,34 @@ Global Arguments
     --query                        : JMESPath query string. See http://jmespath.org/ for more information and examples.
     --verbose                      : Increase logging verbosity. Use --debug for full debug logs.
 ```
+## Model commands
 
-## Image commands
-
-    create: Creates a docker image with the model and its dependencies. This command has two different sets of
-            required arguments, depending on if you want to use a previously created manifest.
     list
+    register
     show
-    usage
 
-**Create image**
+**Register a model**
 
-You can create an image with the option of having created its manifest before. 
+Command to register the model.
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
-
-Or you can create the manifest and image with a single command. 
-
-`az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
+`az ml model register --model [path to model file] --name [model name]`
 
 Command details:
 
-    --image-name -n [Required]: The name of the image being created.
-    --image-description       : Description of the image.
-    --image-type              : The image type to create. Defaults to "Docker".
-    -v                        : Verbosity flag.
+    --model -m [Required]: Model to register.
+    --name -n  [Required]: Name of model to register.
+    --description -d     : Description of the model.
+    --tag -t             : Tags for the model. Multiple tags can be specified with additional -t arguments.
+    -v                   : Verbosity flag.
 
-Registered Manifest Arguments
+Global Arguments
 
-    --manifest-id             : [Required] Id of previously registered manifest to use in image creation.
-
-Unregistered Manifest Arguments
-
-    --conda-file -c           : Path to Conda Environment file.
-    --dependency -d           : Files and directories required by the service. Multiple dependencies can
-                                be specified with additional -d arguments.
-    --model-file -m           : [Required] Model file to register.
-    --schema-file -s          : Schema file to add to the manifest.
-    -f                        : [Required] The code file to be deployed.
-    -p                        : A pip requirements.txt file needed by the code file.
-    -r                        : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
+    --debug              : Increase logging verbosity to show all debug logs.
+    --help -h            : Show this help message and exit.
+    --output -o          : Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
+    --query              : JMESPath query string. See http://jmespath.org/ for more information and
+                           examples.
+    --verbose            : Increase logging verbosity. Use --debug for full debug logs.
 
 ## Manifest commands
 
@@ -196,34 +174,47 @@ Global Arguments
                                    information and examples.
     --verbose                    : Increase logging verbosity. Use --debug for full debug logs.
 
-## Model commands
 
+## Image commands
+
+    create: Creates a docker image with the model and its dependencies. This command has two different sets of
+            required arguments, depending on if you want to use a previously created manifest.
     list
-    register
     show
+    usage
 
-**Register a model**
+**Create image**
 
-Command to register the model.
+You can create an image with the option of having created its manifest before. 
 
-`az ml model register --model [path to model file] --name [model name]`
+`az ml image create -n [image name] -manifest-id [the manifest ID]`
+
+Or you can create the manifest and image with a single command. 
+
+`az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
 
 Command details:
 
-    --model -m [Required]: Model to register.
-    --name -n  [Required]: Name of model to register.
-    --description -d     : Description of the model.
-    --tag -t             : Tags for the model. Multiple tags can be specified with additional -t arguments.
-    -v                   : Verbosity flag.
+    --image-name -n [Required]: The name of the image being created.
+    --image-description       : Description of the image.
+    --image-type              : The image type to create. Defaults to "Docker".
+    -v                        : Verbosity flag.
 
-Global Arguments
+Registered Manifest Arguments
 
-    --debug              : Increase logging verbosity to show all debug logs.
-    --help -h            : Show this help message and exit.
-    --output -o          : Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
-    --query              : JMESPath query string. See http://jmespath.org/ for more information and
-                           examples.
-    --verbose            : Increase logging verbosity. Use --debug for full debug logs.
+    --manifest-id             : [Required] Id of previously registered manifest to use in image creation.
+
+Unregistered Manifest Arguments
+
+    --conda-file -c           : Path to Conda Environment file.
+    --dependency -d           : Files and directories required by the service. Multiple dependencies can
+                                be specified with additional -d arguments.
+    --model-file -m           : [Required] Model file to register.
+    --schema-file -s          : Schema file to add to the manifest.
+    -f                        : [Required] The code file to be deployed.
+    -p                        : A pip requirements.txt file needed by the code file.
+    -r                        : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
+
 
 ## Service commands
 
