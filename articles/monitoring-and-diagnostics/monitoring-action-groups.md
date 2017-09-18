@@ -1,4 +1,4 @@
----
+-,--
 title: Create and manage action groups in the Azure portal | Microsoft Docs
 description: Learn how to create and manage action groups in the Azure portal.
 author: anirudhcavale
@@ -26,8 +26,8 @@ You can configure a list of actions with action groups. These groups then can be
 An action group can have up to 10 of each action type. Each action is made up of the following properties:
 
 * **Name**: A unique identifier within the action group.  
-* **Action type**: Send an SMS, send an email, call a webhook or send data to an ITSM tool.
-* **Details**: The corresponding phone number, email address, webhook URI or ITSM Connection Details.
+* **Action type**: Send an SMS, send an email, call a webhook, or send data to an ITSM tool.
+* **Details**: The corresponding phone number, email address, webhook URI, or ITSM Connection Details.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -55,10 +55,10 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     b. **Action Type**: Select SMS, email, webhook, or ITSM.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, or ITSM Connection details. For ITSM Action, additionally specify **Work Item** that should be created and other fields based on what your ITSM tool requires. 
+    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, or ITSM Connection details. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires. 
 
 > [!NOTE]
-> ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action currently works only for Activity Log Alerts. For other alert types, this action will currently be a no-op.
+> ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action currently works only for Activity Log Alerts. For other alert types, this action currently is a no-op.
 >
 >
 
