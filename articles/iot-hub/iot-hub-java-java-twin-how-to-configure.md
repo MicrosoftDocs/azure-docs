@@ -388,7 +388,7 @@ In this section, you create a Java console app that updates the *desired propert
    > 
 
    > [!IMPORTANT]
-   > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale.
+   > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale.  To retrieve consistent views of a single device twin use the **getDeviceTwin** method in the **DeviceTwin** class.
    > 
    > 
 
