@@ -95,9 +95,9 @@ First, see [Managing and connecting to your subscription in Azure Government](.\
 
 There are a few important points that set the foundation of this section:
 
-- 1) Azure subscriptions only trust one directory, therefore subscription administration must be performed by an identity from that directory.
-- 2) Azure commercial subscriptions trust directories in AAD commercial and Azure Government subscriptions trust directories in AAD Government.
-- 3) If you have both Azure commercial and Azure Government subscriptions, separate identities for both are required.
+ -  Azure subscriptions only trust one directory, therefore subscription administration must be performed by an identity from that directory.
+ -  Azure commercial subscriptions trust directories in AAD commercial and Azure Government subscriptions trust directories in AAD Government.
+ -  If you have both Azure commercial and Azure Government subscriptions, separate identities for both are required.
 
 The currently supported identity scenarios to simultaneously manage Azure commercial and Azure Government subscriptions are:
 
@@ -160,15 +160,15 @@ In this scenario, hybrid identities are used to administrator subscriptions in b
 **How do I identify an Azure Government tenant?**  
 Here’s a way to find out using your browser of choice:
 
-   - a.	Obtain your tenant name (**for example**, contoso.onmicrosoft.com) or a domain name registered to your Azure AD tenant (**for example**, contoso.gov).  
-   - b.	Navigate to https://login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
+   - Obtain your tenant name (**for example**, contoso.onmicrosoft.com) or a domain name registered to your Azure AD tenant (**for example**, contoso.gov).  
+   - Navigate to https://login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
      - \<domainname\> can either be the tenant name or domain name you gathered in step 1.
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-   - c.	The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
+   - The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
 
      `  {"authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize","tenant_region_scope":"USG"}
 `
-   - d. If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
+   - If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
      - The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
      - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Commercial in North America, the value would be **NA**.
 
