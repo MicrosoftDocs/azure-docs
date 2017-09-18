@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2017
+ms.date: 09/18/2017
 ms.author: LADocs; deli
 ---
 
@@ -30,12 +30,15 @@ then send an email.
 * Download the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127).
 
 * Install and set up the latest on-premises data gateway, version 1.15.6150.1 or above. 
-For the steps, see [Connect to data sources on premises](http://aka.ms/logicapps-gateway). You must install the gateway on an on-premises machine 
+For the steps, see [Connect to data sources on premises](http://aka.ms/logicapps-gateway). 
+You must install the gateway on an on-premises machine 
 before you can continue with these steps.
+
+* Basic knowledge about [how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md)
 
 ## Add trigger and actions for connecting to your file system
 
-1. Create a logic app, and add this Dropbox trigger: **Dropbox - When a file is created** 
+1. Create a blank logic app. Add this trigger as the first step: **Dropbox - When a file is created** 
 
 2. Under the trigger, choose **+ Next step** > **Add an action**. 
 
@@ -112,10 +115,11 @@ See the [swagger details](/connectors/fileconnector/).
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the 
+[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps User Voice site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 
