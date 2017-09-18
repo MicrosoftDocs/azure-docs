@@ -142,11 +142,11 @@ When you set up the source environment, you install the Azure Site Recovery Prov
     - If you are using VMM, in **Prepare source**, click **+ VMM** to add a VMM server. In **Add Server**, check that **System Center VMM server** appears in **Server type**.
 2. Download the Provider and agent components, depending on your environment.
 	- For Hyper-V only, download the Provider installation file. You run the file on each Hyper-V host to install both the Provider and the agent.
-	**Without VMM**
-        ![Provider without VMM](./media/tutorial-hyper-v-to-azure/download-no-vmm.png)
-- For Hyper-V with VMM, download the Provider and agent separately. Run the Provider installation on the VMM server. Run the agent installation on each Hyper-V host. 
-    	**With VMM**
-        ![Provider and agent with VMM](./media/tutorial-hyper-v-to-azure/download-vmm.png)
+		![Provider without VMM](./media/tutorial-hyper-v-to-azure/download-no-vmm.png)
+	
+	- For Hyper-V with VMM, download the Provider and agent separately. Run the Provider installation on the VMM server. Run the agent installation on each Hyper-V host.
+	
+		![Provider and agent with VMM](./media/tutorial-hyper-v-to-azure/download-vmm.png)
 	
 3. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 
@@ -154,10 +154,10 @@ When you set up the source environment, you install the Azure Site Recovery Prov
 
 Install the components as summmarized in the table. 
 
-**Component** | **Hyper-V only** | **Hyper-V with VMM**
+**Component** | **Details** | **Hyper-V only** | **Hyper-V with VMM**
 --- | --- | ---
-**Azure Site Recovery Provider**<br/><br/> Orchestrates replication to Azure | Install on each Hyper-V host | Install on the VMM server
-**Recovery Services agent**<br/><br/> Handles data replication | Install on each Hyper-V host | Install on Hyper-V host
+**Azure Site Recovery Provider** | Orchestrates replication to Azure | Install on each Hyper-V host | Install on the VMM server
+**Recovery Services agent** | Handles data replication | Install on each Hyper-V host | Install on Hyper-V host
 
 
 #### Install the Provider on Hyper-V without VMM
