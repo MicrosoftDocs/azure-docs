@@ -72,7 +72,8 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If you have firewalls on your Intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, then see [Azure AD Connect Ports](active-directory-aadconnect-ports.md) for more information.
 * If your proxy or firewall limit which URLs can be accessed, then the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened.
   * If you are using the Microsoft Cloud in Germany or the Microsoft Azure Government cloud, then see [Azure AD Connect sync service instances considerations](active-directory-aadconnect-instances.md) for URLs.
-* Azure AD Connect is by default using TLS 1.0 to communicate with Azure AD. You can change this to TLS 1.2 by following the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
+* Azure AD Connect (version 1.1.614.0 and after) by default uses TLS 1.2 for encrypting communication between the sync engine and Azure AD. If TLS 1.2 isn't available on the underlying operating system, Azure AD Connect incrementally falls back to older protocols (TLS 1.1 and TLS 1.0). For example, Azure AD Connect running on Windows Server 2008 uses TLS 1.0 because Windows Server 2008 neither supports TLS 1.1 nor TLS 1.2.
+* Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting communication between the sync engine and Azure AD. To change to TLS 1.2, follow the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
 * If you are using an outbound proxy for connecting to the Internet, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added for the installation wizard and Azure AD Connect sync to be able to connect to the Internet and Azure AD. This text must be entered at the bottom of the file. In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.
 
 ```
@@ -124,7 +125,7 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You n
   * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
 
 ### Enable TLS 1.2 for Azure AD Connect
-Azure AD Connect is using TLS 1.0 by default for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .Net applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .Net applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
 1. TLS 1.2 cannot be enabled on Windows Server 2008. You need Windows Server 2008R2 or later. Make sure you have the .Net 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). You might have this hotfix or a later release installed on your server already.
 2. If you use Windows Server 2008R2, then make sure TLS 1.2 is enabled. On Windows Server 2012 server and later versions, TLS 1.2 should already be enabled.
