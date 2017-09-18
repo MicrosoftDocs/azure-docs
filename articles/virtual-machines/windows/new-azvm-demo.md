@@ -52,7 +52,7 @@ After the deployment has completed, create a remote desktop connection with the 
 
 Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
 
-```powershell
+```powershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName myVM | Select IpAddress
 ```
 
@@ -66,13 +66,13 @@ mstsc /v:<publicIpAddress>
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 
-```powershell
+```powershell-interactive
 Remove-AzureRmResourceGroup -Name myVM
 ```
 
 ## Next steps
 
-In this quick start, you’ve deployed a simple virtual machine using New-AzVM and then connected to it over RDP. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
+In this topic, you’ve deployed a simple virtual machine using New-AzVM and then connected to it over RDP. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
