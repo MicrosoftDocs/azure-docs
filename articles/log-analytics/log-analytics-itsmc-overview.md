@@ -20,29 +20,23 @@ ms.author: v-jysur
 
 ![IT Service Management Connector symbol](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-You can use the IT Service Management Connector (ITSMC) in OMS Log Analytics to centrally monitor and manage work items across your ITSM products/services.
-
-The IT Service Management Connector integrates your existing IT Service Management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it provides the OMS users an option to create incidents, alerts, or events in ITSM solution. The connector also  imports data such as incidents, and change requests from ITSM solution into OMS Log Analytics.
+The IT Service Management Connector provides a bi-directional integration between a supported IT Service Management (ITSM) product/service and OMS Log Analytics.  Through this connection, users can create incidents, alerts, or events in ITSM product based on OMS Alerts or Log records. The connector also imports data such as incidents, and change requests from ITSM product into OMS Log Analytics.
 
 With IT Service Management Connector, you can:
 
   - Centrally monitor and manage work items for ITSM products/services used across your organization.
-  - Create ITSM work items (like alert, event, incident) in ITSM from OMS alerts and through log search.
+  - Create ITSM work items (like alert, event, incident) in ITSM from OMS alerts and through log search. 
   - Read incidents and change requests from your ITSM solution and correlate with relevant log data in Log Analytics workspace.
   - Find any unexpected and unusual events and resolve them, even before the end users call and report them to the helpdesk.
   - Import work items data into Log Analytics and create key performance indicator (KPI) reports.  Using these reports, you can identify, assess and act on several important items such as malware assessment.
   - View curated dashboards for deeper insights on incidents, change requests and impacted systems.
   - Troubleshoot faster by correlating with other management solutions in the Log Analytics workspace.
-
-
-## Prerequisites
-
-To import the ITSM work items into OMS Log Analytics, the solution requires a connection between the IT Service Management Connector in the OMS and the IT SM product/service from which you import the work items.
+  - [New] Through ITSM Action in Action Groups, create work items based on your Azure Activity Log alerts.
 
 
 ## Configuration
 
-Add the IT Service Management Connector solution to your OMS work space, using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+Add the IT Service Management Connector solution to your Log Analytics work space, using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 IT Service Management Connector tile as you see in the Solutions gallery:
 
@@ -75,11 +69,11 @@ The following ITSM products/services are supported by the IT Service Management 
 
 ## Using the solution
 
-Once you connect the OMS IT Service Management Connector with your ITSM service, the Log Analytics services starts gathering the data from the connected ITSM products/service.
+Once you configure the IT Service Management Connector with your ITSM service details, the Connector starts gathering the data from the connected ITSM product/service.
 
 > [!NOTE]
-> - Data imported by IT Service Management Connector solution appears in Log Analytics as events named **ServiceDesk_CL**.
-- Event contains a field named **ServiceDeskWorkItemType_s**. which can take its value as incident, or change request, depending on the work item data contained in the **ServiceDesk_CL** event.
+> - Data imported from ITSM product by IT Service Management Connector solution appears in Log Analytics as log records of Type **ServiceDesk_CL**.
+> - Log record contains a field named **ServiceDeskWorkItemType_s** which is either incident or change request, the two kinds of data imported from the ITSM product
 
 ## Input data
 Work items imported from the ITSM products/services.
@@ -181,7 +175,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Assigned to  |
 | Title_s|  Short description |
 | Type_s|  Type |
-| Category_s|  Catgory |
+| Category_s|  Category |
 | CRState_s|  State|
 | Urgency_s|  Urgency |
 | Priority_s| Priority|
@@ -202,7 +196,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## IT Service Management connector – integration with other OMS solutions
 
-IT Service Management Connector, currently supports integration with the Service Map solution.
+IT Service Management Connector currently supports integration with the Service Map solution.
 
 Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent. More information: [Service Map](../operations-management-suite/operations-management-suite-service-map.md).
 
@@ -211,7 +205,7 @@ With this integration, you can view the service desk items created in the ITSM s
 ![Integrated solution ](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
 ## Create ITSM work items for OMS alerts
 
-For the OMS alerts, you can create associated work items in the connected ITSM sources.  To do this, use the following procedure:
+With ITSM Connector solution in place, you can configure OMS Alerts to trigger the creation of work items in your connected ITSM tool as follows:
 
 1. From **Log Search** window, run a log search query to view data. Query results are the source for work items.
 2. In **Log Search**, click **Alert** to open the **Add Alert Rule** page.
@@ -230,7 +224,7 @@ For the OMS alerts, you can create associated work items in the connected ITSM s
 
 7. Click **Save**.
 
-The OMS alert will be created under **Alerts**. The corresponding ITSM connection's work items are created when the specified alert's condition is met.
+The OMS alert you have created can be seen under **Settings**>**Alerts**. The corresponding ITSM connection's work items are created when the specified alert's condition is met.
 
 ## Create ITSM work items from OMS logs
 
@@ -259,6 +253,32 @@ You can create work items in the connected ITSM sources by using OMS Log Search.
 4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 
 The work item will be created in the ITSM, which you can also view in OMS.
+
+## Create ITSM work items from Azure Alerts
+ITSM Connector is now integrated with Action Groups. [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md) provide a modular and reusable way of triggering actions for your Azure Alerts. The ITSM Action in Action Groups creates work items in your ITSM product using an existing ITSM Connector Solution.
+
+1. In Azure Portal, click on **Monitor**
+2. In the left pane, click on **Action Groups**
+
+    ![Action Groups](media/log-analytics-itsmc/ActionGroups.png)
+
+3. Provide **Name** and **ShortName** for your action group. Select which **Resource Group** and **Subscription** your action group will get created in.
+
+    ![Action Groups Detail](media/log-analytics-itsmc/ActionGroupsDetail.png)
+
+4. In the Actions list, select **ITSM** from the drop-down for **Action Type**. Provide a **Name** for the action and click on **Edit details**.
+
+
+5. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** i.e your ITSM Connector name followed by your Workspace name. For e.g.   "MyITSMMConnector(MyWorkspace)".
+
+    ![ITSM Action details](./media/log-analytics-itsmc/ITSMActionDetails.png)
+
+6. Select the **Work Item** from the drop down.
+7. Choose to use an existing template or fill the fields required by your ITSM product.
+8. Click **OK**
+
+By using this Action Group from Azure Alerts, work item is created when the alert is triggered. However, currently only Activity Log Alerts support the ITSM Action. For other Azure alerts, this action is a no-op.
+
 
 ## Troubleshoot ITSM connections in OMS
 1.	If connection fails from connected source's UI and you get the **Error in saving connection** message, do the following:
