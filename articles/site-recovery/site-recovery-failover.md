@@ -24,7 +24,7 @@ This article describes how to failover virtual machines and physical servers pro
 1. Before you do a failover, do a [test failover](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected.
 1. [Prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
 
-Use the below table to know about the types of failover options provided by Azure Site Recovery for different failover scenarios .
+Use the below table to know about the failover options provided by Azure Site Recovery for different failover scenarios.
 
 | Scenario | Application recovery requirement | Workflow for Hyper-V | Workflow for VMware
 |---|--|--|--|
