@@ -1,6 +1,6 @@
 ---
-title: Monitoring and Diagnostics for ASP.NET Core services in Service Fabric | Microsoft Docs
-description: Learn how to set up monitoring and diagnostics for a Service Fabric ASP.NET Core application.
+title: Monitoring and Diagnostics for ASP.NET Core services in Azure Service Fabric | Microsoft Docs
+description: Learn how to set up monitoring and diagnostics for a Azure Service Fabric ASP.NET Core application.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Monitor and Diagnose an ASP.NET Core application on Service Fabric
+# Monitor and diagnose an ASP.NET Core application on Service Fabric
 This tutorial is part four of a series. It goes through the steps to set up monitoring and diagnostics for an ASP.NET Core application running on a Service Fabric cluster using Application Insights. We will collect telemetry from the application developed in the first part of the tutorial, [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md). 
 
 In part four of the tutorial series, you learn how to:
@@ -178,6 +178,7 @@ Let's add some custom events to *VoteDataController.cs* (under *VotingData* > *C
      `telemetry.TrackEvent($"Deleted votes for {name}");`
     2. Add an event to show that the deletion did not take place in the *else* statement, before the return statement:
     `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
+
 Here's an example of what your *Put()* and *Delete()* functions may look like after adding the events:
 
 ```csharp
