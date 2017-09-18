@@ -1,3 +1,4 @@
+
 ---
 title: Azure Government Security + Identity | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
@@ -37,15 +38,17 @@ For details on this service and how to use it, see the [Azure Active Directory D
 
 ### Variations
 
-**B2B Collaboration** is currently not available.
+Following Azure Active Directory Premium features are currently not available in Azure Government:
 
-**Group-Based Licensing** is currently not available.
+*B2B Collaboration [Vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government)
 
-**Azure Active Directory App Gallery** is currently not available.
+*Group-Based Licensing
 
-**Azure Active Directory Domain Services** is currently not available.
+*Azure Active Directory App Gallery
 
-Support for Intune enabled **Conditional Access** scenarios is coming soon.
+*Azure Active Directory Domain Services
+
+*Intune enabled Conditional Access scenarios
 
 ## Next Steps
 For supplemental information and updates, subscribe to the
