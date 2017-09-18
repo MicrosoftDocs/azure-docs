@@ -1,5 +1,5 @@
 ---
-title: Query Azure Cosmos DB Graph API by using an Azure Function | Microsoft Docs
+title: Create an HTTP Trigger with an Azure Cosmos DB input binding | Microsoft Docs
 description: Learn how to use Azure Functions with HTTP Triggers to query Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.author: mimig
 
 ---
 
-# Query Azure Cosmos DB Graph API by using an Azure Function
+# Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding
 
 Azure Cosmos DB is a globally distributed, multi-model database that is both schemaless and serverless. Azure Function is a serverless compute service that enables you to run code on-demand. Pair up these two Azure services and you have the foundation for a serverless architecture that enables you to focus on building great apps and not worry about provisioning and maintaining servers for your compute and database needs.
 
-This tutorial builds on the code created in the [Graph API Quickstart for .NET](create-graph-dotnet.md). This tutorial adds an Azure Function that contains an HTTP trigger. The HTTP trigger uses an Azure Cosmos DB input binding to retrieve data from the graph database created in the quickstart.  
+This tutorial builds on the code created in the [Graph API Quickstart for .NET](create-graph-dotnet.md). This tutorial adds an Azure Function that contains an [HTTP trigger](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). The HTTP trigger uses an Azure Cosmos DB [input binding](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) to retrieve data from the graph database created in the quickstart. This particular HTTP trigger queries Azure Cosmos DB for data, but input bindings from Azure Cosmos DB can be used to retrieve data input values for whatever your function requires.
 
 This tutorial covers the following tasks:
 
@@ -41,6 +41,7 @@ This tutorial covers the following tasks:
     >After you install or upgrade to Visual Studio 2017 version 15.3, you must manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
 
 - Complete the [Build a .NET application using the Graph API](tutorial-develop-graph-dotnet.md) tutorial, or get the example code from the [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) GitHub repo and build the project.
+ 
 ## Building a Function using Visual Studio
 
 1. Add an **Azure Functions** project to your solution by right-clicking on the project node in **Solution Explorer**, the choose **Add** > **New Item**. Choose **Azure Functions** from the dialog box, and name it **PeopleDataFunctions**.
