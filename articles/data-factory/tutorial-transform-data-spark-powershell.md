@@ -17,10 +17,10 @@ ms.author: shengc
 
 ---
 
-# Tutorial: Transform data in cloud using Spark Activity in Azure Data Factory
+# Tutorial: Transform data in the cloud by using Spark activity in Azure Data Factory
 Using Azure Data Factory, you can easily operationalize your data transformation or advanced analytics tasks using Spark, Hive, Pig, or MapReduce, etc. on your HDInsight cluster. In addition to that, Data Factory can help you dynamically create HDInsight clusters only when you have tasks to execute and stop and delete the cluster when tasks are done, so you can more effectively manage the powerful and valuable HDInsight computing resource. 
 
-In this tutorial, you create a Data Factory pipeline that performs data transformation using Spark Activity and an on-demand HDInsight linked service. 
+In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Spark Activity and an on-demand HDInsight linked service. You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
 > * Author linked services.
@@ -72,27 +72,9 @@ In this tutorial, you create a Data Factory pipeline that performs data transfor
 
 
 ### Upload the input file
-1. Create a file named **minecraftstory.txt** with the following content: 
-
-    ```
-    Earlier this spring, 45 schoolgirls in matching uniforms crowded into the computer room at the custard-colored North Thanglong Economic & Technical college on the outskirts of Hanoi, Vietnam. Beyond intermittent ripples of laughter and excitement, the 15- and 16-year-olds stayed focused throughout the day on the hard work at hand: playing Minecraft.
-    Together they built 3D models that reimagined the darker corners of their neighborhood as a safer, more functional and more beautiful place for them and their families to inhabit. But this wasn¡¯t just an exercise in imagination. The girls were taking part in the newest project from Block by Block, a program from the United Nations and Mojang, the makers of Minecraft, that uses the power of Minecraft and designs sourced from local residents to improve public spaces around the world.
-    Thoughtful, inclusive approaches to urban development like this are becoming more critical as the world¡¯s population increasingly moves to cities. Through a combination of birth rate and rural immigration, Hanoi has nearly doubled its population since the year 2000. And it¡¯s not alone. Cities around the globe are swelling by a total of some 200,000 people per day.
-    For the first time in history, the majority of the planet¡¯s population now lives in urban areas. Within a generation, that number will balloon to more than two-thirds of all people. Public space ¡ª from parks to markets and even streets themselves ¡ª is a key indicator of the health and sustainability of cities.
-    ```
+1. Create a file named **minecraftstory.txt** with some text. The spark program counts the number of words in this text. 
 2. Create a subfolder named `inputfiles` in the `spark` folder. 
 3. Upload the `minecraftstory.txt` to the `inputfiles` subfolder. 
-
-## End-to-end workflow
-At a high level, this sample involves following steps: 
-
-1. Author linked services.
-2. Author a pipeline that contains a Spark activity.
-3. Create a data factory. 
-4. Deploy linked services.
-5. Deploy the pipeline. 
-6. Start a pipeline run.
-7. Monitor the pipeline run.
 
 ## Author linked services
 You author two Linked Services in this section: 
@@ -207,8 +189,6 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
     $dataFactoryName = "MyDataFactory09102017" # Globally unique name of the data factory
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
-    $loggingStorageAccountName = "<storageAccountName>" # Name of your Azure Storage account
-    $loggingStorageAccountKey = "<storageAccountKey>" # Key of your Azure Storage account     
     ```
 2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
 
@@ -227,7 +207,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. Create the resource group: ADFTutorialResourceGroup, and the data factory named `$dataFactoryName`. The name of the data factory must be globally unique. 
+3. Create the resource group: ADFTutorialResourceGroup. 
 
     ```powershell
     New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
@@ -235,7 +215,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 4. Create the data factory. 
 
     ```powershell
-     $df = New-AzureRmDataFactoryV2 -Location EastUS -LoggingStorageAccountName $loggingStorageAccountName -LoggingStorageAccountKey $loggingStorageAccountKey -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+     $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
 
     Execute the following command to see the output: 
@@ -246,17 +226,17 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 5. Switch to the folder where you created JSON files, and run the following command to deploy an Azure Storage linked service: 
        
     ```powershell
-    New-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
     ```
 6. Run the following command to deploy an on-demand Spark linked service: 
        
     ```powershell
-    New-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
     ```
 7. Run the following command to deploy a pipeline: 
        
     ```powershell
-    New-AzureRmDataFactoryV2Pipeline -dataFactory $df -Name $pipelineName -File "MySparkOnDemandPipeline.json"
+    Set-AzureRmDataFactoryV2Pipeline -dataFactory $df -Name $pipelineName -File "MySparkOnDemandPipeline.json"
     ```
     
 ## Start and monitor pipeline run  
@@ -264,20 +244,21 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 1. Start a pipeline run. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = New-AzureRmDataFactoryV2PipelineRun -dataFactory $df -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
+    $runId = Inovke-AzureRmDataFactoryV2PipelineRun -dataFactory $df -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
     ```
 2. Run the following script to continuously check the pipeline run status until it finishes copying the data.
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -DataFactory $df -RunId $runId -ErrorAction Stop
-        Write-Host  "Pipeline run status: " $run.Status -foregroundcolor "Yellow"
+        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactory $df -PipelineRunId $runId -PipelineName $pipelineName -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
-        if ($run.Status -eq "InProgress") {
-            Start-Sleep -Seconds 300
+        if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+            Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
+            Start-Sleep -Seconds 30
         }
         else {
-            $run
+            Write-Host "Pipeline run finished. Result:" -foregroundcolor "Yellow"
+            $result
             break
         }
     }
@@ -334,3 +315,24 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     ```
 
 4. Confirm that a folder named `outputfiles` is created in the `spark` folder of adftutorial container with the output from the spark program. 
+
+
+## Next steps
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to: 
+
+> [!div class="checklist"]
+> * Author linked services.
+> * Author a pipeline that contains a Spark activity.
+> * Create a data factory. 
+> * Deploy linked services.
+> * Deploy the pipeline. 
+> * Start a pipeline run.
+> * Monitor the pipeline run.
+
+Go through the following tutorials to learn about using Data Factory in more scenarios: 
+
+Tutorial | Description
+-------- | -----------
+[Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
+[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-hybrid-copy-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
+[Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
