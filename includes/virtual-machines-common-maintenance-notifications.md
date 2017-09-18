@@ -1,7 +1,7 @@
 
 ## View VMs scheduled for maintenance in the portal
 
-Once a planned maintenance wave is scheduled, and notifications are sent, you can observe the list of virtual machines which will be impacted by the upcoming maintenance wave. 
+Once a planned maintenance wave is scheduled, and notifications are sent, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
 
 You can use the Azure portal and look for VMs scheduled for maintenance.
 
