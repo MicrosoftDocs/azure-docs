@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Cosmos DB bindings | Microsoft Docs
-description: Understand how to use Azure Cosmos DB bindings in Azure Functions.
+description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
+ms.date: 09/15/2017
 ms.author: glenga
 
 ---
@@ -23,12 +23,84 @@ ms.author: glenga
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Cosmos DB bindings in Azure Functions. 
-Azure Functions supports input and output bindings for Cosmos DB.
+Azure Functions supports trigger, input, and output bindings for Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 For more information on Cosmos DB, see [Introduction to Cosmos DB](../documentdb/documentdb-introduction.md) 
 and [Build a Cosmos DB console application](../documentdb/documentdb-get-started.md).
+
+<a id="trigger"></a>
+<a id="cosmosdbtrigger"></a>
+
+## Cosmos DB trigger
+
+The Cosmos DB Trigger uses the [Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The trigger requires a second collection that it uses to store _leases_ over the partitions.
+
+Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
+
+The Azure Cosmos DB trigger supports the following properties:
+
+|Property  |Description  |
+|---------|---------|
+|**type** | Must be set to `cosmosDBTrigger`. |
+|**name** | The variable name used in function code that represents the list of documents with changes. | 
+|**direction** | Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
+|**connectionStringSetting** | The name of an app setting that contains the connection string used to connect to the Cosmos DB account being monitored. |
+|**databaseName** | The name of the Cosmos DB database with the collection being monitored. |
+|**collectionName** | The name of the collection being monitored. |
+| **leaseConnectionStringSetting** | (Optional) The name of an app setting that contains the connection string to the service which holds the lease collection. When not set, the `connectionStringSetting` value is used. This parameter is automatically set when the binding is created in the portal. |
+| **leaseDatabaseName** | (Optional) The name of the database that holds the collection used to store leases. When not set, the value of the `databaseName` setting is used. This parameter is automatically set when the binding is created in the portal. |
+| **leaseCollectionName** | (Optional) The name of the collection used to store leases. When not set, the value `leases` is used. |
+| **createLeaseCollectionIfNotExists** | (Optional) When set to `true`, the leases collection is automatically created when it doesn't already exist. The default value is `false`. |
+| **leaseCollectionThroughput** | (Optional) Defines the amount of Request Units to assign when the leases collection is created. This setting is only used When `createLeaseCollectionIfNotExists` is set to `true`. This parameter is  automatically set when the binding is created using the portal.
+
+>[!NOTE] 
+>The connection string used to connect to the leases collection must have write permissions.
+
+These properties can be set in the Integrate tab for the function in the Azure portal or by editing the `function.json` project file.
+
+## Using an Azure Cosmos DB trigger
+
+This section contains examples of how to use the Cosmos DB trigger. The examples assume a trigger metadata that looks like the following:
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "<connection-app-setting>",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+ 
+For an example of how to create a Cosmos DB trigger from a function app in the portal, see [Create a function triggered by Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md). 
+
+### Trigger sample in C# #
+```cs 
+	#r "Microsoft.Azure.Documents.Client"
+	using Microsoft.Azure.Documents;
+	using System.Collections.Generic;
+	using System;
+	public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+	{
+		log.Verbose("Documents modified " + documents.Count);
+		log.Verbose("First document Id " + documents[0].Id);
+	}
+```
+
+
+### Trigger sample in JavaScript
+```javascript
+	module.exports = function (context, documents) {
+		context.log('First document Id modified : ', documents[0].id);
+
+		context.done();
+	}
+```
 
 <a id="docdbinput"></a>
 

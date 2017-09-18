@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: glenga, mimig
 ms.custom: 
 ---
@@ -46,11 +46,11 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Select the **CosmosDBTrigger** template for your desired language.
+2. Locate and choose the **CosmosDBTrigger** template for your desired language.
 
     ![Create the Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
-3. Configure the new trigger with the settings as specified in the table below the image:
+3. Configure the new trigger with the settings as specified in the table below the image.
 
     ![Create the Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
     
@@ -65,7 +65,7 @@ Next, you create a function in the new function app.
  
     ![Configure Cosmos DB connection](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-6. Use the **New account** settings as specified in the table:
+6. Use the **New account** settings as specified in the table.
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -81,11 +81,13 @@ Next, you create a function in the new function app.
 
     ![Cosmos DB function template in C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
 
-Note that this function template writes the number of documents and the first document ID to the logs. Next, you connect to your Cosmos DB account and create the **Tasks** collection in the database. 
+    This function template writes the number of documents and the first document ID to the logs. 
+
+Next, you connect to your Cosmos DB account and create the **Tasks** collection in the database. 
 
 ## Create the collection
 
-1. Open the [Azure portal](https://portal.azure.com) again in a new tab in the browser. 
+1. Open a second instance of the [Azure portal](https://portal.azure.com) in a new tab in the browser. 
 
 2. On the left side of the portal, expand the icon bar, type `cosmos` in the search field, and select **Azure Cosmos DB**.
 
@@ -93,7 +95,7 @@ Note that this function template writes the number of documents and the first do
 
 2. Choose your Cosmos DB account, then select the **Data Explorer**. 
  
-3. In **Collections**, right-click **taskDatabase**, and select **New Collection**.
+3. In **Collections**, choose **taskDatabase** and select **New Collection**.
 
     ![Create a collection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
 
@@ -103,8 +105,8 @@ Note that this function template writes the number of documents and the first do
  
     | Setting|Suggested value|Description |
     | ---|---|--- |
-    | **Database id** | Tasks |The name for your new database. This must match the name defined in your function binding. |
-    | **Collection id** | Items | The name for the new collection. This must match the name defined in your function binding.  |
+    | **Database ID** | Tasks |The name for your new database. This must match the name defined in your function binding. |
+    | **Collection ID** | Items | The name for the new collection. This must match the name defined in your function binding.  |
     | **Storage capacity** | Fixed (10 GB)|Use the default value. This value is the storage capacity of the database. |
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |
     | **[Partition key](../cosmos-db/partition-data.md#design-for-partitioning)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
@@ -127,7 +129,7 @@ After the collection specified in the function binding exists, you can test the 
             "description": "some task"
         }
 
-1. Switch to the first browser tab that contains your function in the portal. Expand the function logs, verify that the new document has triggered the function, and check for the `task1` document ID value written to the logs. 
+1. Switch to the first browser tab that contains your function in the portal. Expand the function logs and verify that the new document has triggered the function. See that the `task1` document ID value is written to the logs. 
 
     ![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-view-logs.png)
 
@@ -139,7 +141,7 @@ After the collection specified in the function binding exists, you can test the 
 
 ## Next steps
 
-You have created a function that runs when a document is added or modified in Cosmos DB.
+You have created a function that runs when a document is added or modified in your Cosmos DB.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
