@@ -26,13 +26,13 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 - If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
 
-- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll be given a time window where you can start the maintenance yourself, when it works for you.
 
 
 Planned maintenance which requires a reboot, is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can set activity log alerts to add more recipients and channels such as email, SMS, and Webhook to the maintenance notification. 
-- Soon after the notification, a self-service window is set during which you can discover which of your virtual machines is included in this wave and start the maintenance on your own schedule using proactive redeploy. 
+- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications.  
+- Soon after the notification, a self-service window is set. During this window, you can find which of your virtual machines is included in this wave and start maintenance using proactive redeploy. 
 - Following the self-service window, a scheduled maintenance window begins. Azure will schedule and apply the required maintenance to your virtual machine. 
 
 The goal in having two windows is to give you enough time to start maintenance and reboot your virtual machine while knowing when Azure will automatically proceed with the maintenance.
