@@ -48,7 +48,7 @@ Before you can test-drive the API from the online console, you will need the **O
 
 6.	Use the key-value pair placeholders to assign more descriptive metadata to your list. For example, you could enter something on these lines:
 
-         {
+        {
            "Name": "MyExclusionList",
            "Description": "MyListDescription",
            "Metadata": 
