@@ -74,7 +74,7 @@ The information that you see might vary according to the solution. Some informat
 - **Company icon for the partner**. If Security Center doesn't have the company icon, the first characters of the partner name are displayed.
 - **Solution type**. The type of solution is displayed.
 - **Computer name**. The computer name is displayed.
-- **Health status**. If a health indicator isn't sent, Security Center shows the date and time of the last received event to indicate whether the appliance is reporting or not. If Security Center doesn't receive the health indicator from a particular solution, the solution's tile won't appear in this section.
+- **Health status**. If a health indicator isn't sent, Security Center shows the date and time of the last received event to indicate whether the appliance is reporting or not. If Security Center doesn't receive the health indicator from a particular solution, the solution's tile doesn't appear in this section.
 
 > [!NOTE]
 > Security Center shows the date and time of the last received event to indicate whether the appliance is reporting or not. Solutions that aren't sending health indicators are displayed as connected if they're alert or if events were sent in the last 14 days.

@@ -35,11 +35,11 @@ One of the steps of a [security incident response process](https://docs.microsof
 
 - Determine the nature of the attack.
 - Determine the attack point of origin.
-- Determine the intent of the attack. Was the attack specifically directed at your organization to acquire specific information, or was it random?
+- Determine the intent of the attack. Was the attack directed at your organization to acquire specific information, or was it random?
 - Identify the systems that were compromised.
 - Identify the files that were accessed and determine the sensitivity of those files.
 
-You can leverage threat intelligence information in Security Center to help with these tasks. 
+You can use threat intelligence information in Security Center to help with these tasks. 
 
 ## Access the threat intelligence
 To visualize the current threat intelligence for your environment, you must first select the workspace where your information resides. If you don't have multiple workspaces, you bypass the workspace selector and go directly to the **Threat intelligence** dashboard. To access the dashboard:
@@ -51,7 +51,7 @@ To visualize the current threat intelligence for your environment, you must firs
 	![Threat intelligence dashboard](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
 	> [!NOTE]
-	> If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. You need to upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, you need to update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing. 
+	> If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing. 
 	> 
 3. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
 
@@ -63,7 +63,7 @@ To visualize the current threat intelligence for your environment, you must firs
 
 	b.  **Origin country**. Aggregates the amount of traffic according to its source location.
 
-	c.  **Threat location**. Helps you to identify the current locations around the globe that communicate with your environment. In the map shown, orange (incoming) and red (outgoing) arrows  identify the traffic directions. If you select one of these arrows, the type of threat and the traffic direction appears.
+	c.  **Threat location**. Helps you to identify the current locations around the globe that communicate with your environment. In the map shown, orange (incoming) and red (outgoing) arrows identify the traffic directions. If you select one of these arrows, the type of threat and the traffic direction appears.
 
 	d.  **Threat details**. Shows more details about the threat that you selected in the map.
 
@@ -88,7 +88,7 @@ For Azure VMs, only the network data that flows through the agent appears in the
 
 
 ## See also
-In this article, you learned how to use threat intelligence in Security Center to assist you in identifying suspicious activity. To learn more about Security Center, see the following:
+In this article, you learned how to use threat intelligence in Security Center to assist you in identifying suspicious activity. To learn more about Security Center, see the following articles:
 
 * [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.

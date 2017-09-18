@@ -41,7 +41,7 @@ To see current activities related to identity and access, you need to access the
 	![Workspace selection](./media/security-center-identity-access\security-center-identity-access-fig1.png)
 
 	> [!NOTE]
-	> If the column on the far right shows **UPGRADE PLAN**, this workspace is using the free subscription. You need to upgrade to the Standard subscription to use this feature. If the  column on the far right shows **REQUIRES UPDATE**, you need to update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Security Center pricing. 
+	> If the column on the far right shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to the Standard subscription to use this feature. If the column on the far right shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Security Center pricing. 
 	> 
 3. If you have more than one workspace to investigate, you can prioritize the investigation according to the **FAILED LOGONS** column. It shows the current number of unsuccessful logon attempts in this workspace. Select the workspace that you want to use, and the **Identity & Access** dashboard appears.
 
@@ -53,12 +53,12 @@ To see current activities related to identity and access, you need to access the
 
 	b. **Failed logons**. Helps you to quickly identify the main cause for failed logon attempts. Shows a list of the top 10 accounts that failed the most attempts to log on.
 
-	c. **Logons over time**. Helps you to quickly identify the amount of logons over time. It shows a list of the top computer account logon attempts.
+	c. **Logons over time**. Helps you to quickly identify the number of logons over time. It shows a list of the top computer account logon attempts.
 	
 Regardless of which tile you select, the dashboard that appears is based on the [Log Search](https://docs.microsoft.com/azure/security-center/security-center-search) query. The only difference is the type of query and the result. You can still select an item, for example, a computer, and see relevant data. 
 
 ## See also
-In this article, you learned how to monitor identity and access in Security Center. To learn more about Security Center, see the following:
+In this article, you learned how to monitor identity and access in Security Center. To learn more about Security Center, see the following articles:
 
 * [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
