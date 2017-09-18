@@ -95,7 +95,7 @@ The following properties are supported for DB2 linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by DB2 dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by DB2 dataset.
 
 To copy data from DB2, set the type property of the dataset to **RelationalTable**. The following properties are supported:
 

@@ -148,7 +148,7 @@ If you use "certThumbprint" for authentication and the certificate is installed 
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by HTTP dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by HTTP dataset.
 
 To copy data from HTTP, set the type property of the dataset to **HttpFile**. The following properties are supported:
 

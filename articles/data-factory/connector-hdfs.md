@@ -108,7 +108,7 @@ The following properties are supported for HDFS linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by HDFS dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by HDFS dataset.
 
 To copy data from HDFS, set the type property of the dataset to **FileShare**. The following properties are supported:
 
