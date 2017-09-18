@@ -1,6 +1,6 @@
 ---
-title: Set up disaster recovery to Azure for on-premises Hyper-V VMs with Azure Site Recovery  | Microsoft Docs
-description: Provides an overview for replicating on-premises Hyper-V VMs to Azure with the Azure Site Recovery service.
+title: Set up disaster recovery for on-premises Hyper-V VMs to Azure with Azure Site Recovery  | Microsoft Docs
+description: Learn how to set up disaster recovery of on-premises Hyper-V VMs to Azure with the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 09/18/2017
 ms.author: raynew
 
 ---
-# Set up disaster recovery to Azure for on-premises Hyper-V VMs
+# Set up disaster recovery of on-premises Hyper-V VMs to Azure
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -119,7 +119,6 @@ Prepare VMM for network mapping as follows:
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
 
-
 ## Select a protection goal
 
 Select what to replicate, and where to replicate it to.
@@ -131,18 +130,25 @@ Select what to replicate, and where to replicate it to.
 
 ## Set up the source environment
 
-Install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register on-premises servers in the vault.
+When you set up the source environment, you install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register on-premises servers in the vault. The Provider and agent are installed as summarized in the table.
+
+**Component** | **Hyper-V only** | **Hyper-V with VMM**
+--- | --- | ---
+**Azure Site Recovery Provider**<br/><br/> Orchestrates replication to Azure | Installed on each Hyper-V host | Installed on VMM server
+**Recovery Services agent**<br/><br/> Handles data replication | Installed on each Hyper-V host | Installed on Hyper-V host
+
+For Hyper-V only, download the Provider installation file. Run the file on each Hyper-V host to install both the Provider and the agent on each Hyper-V host.
+For Hyper-V with VMM, download the Provider and agent separately. Run the Provider installation on the VMM server. Run the agent installation on each Hyper-V host. 
 
 1. In **Prepare Infrastructure**, click **Source**. 
     - If you're not using VMM, click **+Hyper-V Site**, and specify a site name. Then click **+Hyper-V Server**, and add a host or cluster to the site.
     - If you are using VMM, in **Prepare source**, click **+ VMM** to add a VMM server. In **Add Server**, check that **System Center VMM server** appears in **Server type**.
 2. Download the Provider and agent:
-    - **Without VMM**: If you're not using VMM, download the Recovery Service Provider installation file. You run this file to install the Provider and agent on each Hyper-V host.
+    - **Without VMM**: If you're not using VMM, download the Recovery Service Provider installation file. 
      
         ![Provider without VMM](./media/tutorial-hyper-v-to-azure/download-no-vmm.png)
 
-    - **With VMM**: If you're using VMM, download the Provider and the agent installation files separately. You install the Provider on the VMM server. The agent is installed on each Hyper-V host.
-
+    - **With VMM**: If you're using VMM, download the Provider and the agent installation files separately. 
         ![Povider and agent with VMM](./media/tutorial-hyper-v-to-azure/download-vmm.png)
 1. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 
