@@ -38,7 +38,7 @@ To complete this tutorial:
 ## Analyze failures
 Application Insights collects any failures in your application and lets you view their frequency across different operations to help you focus your efforts on those with the highest impact.  You can then drill down on details of these failures to identify root cause.   
 
-1. Log in to the Azure portal, select **Application Insights**, and then select your subscription.  
+1. Sign in to the Azure portal, select **Application Insights**, and then select your subscription.  
 1. To open the **Failures** blade either select **Failures** under the **Investigate** menu or click the **Failed requests** graph.
 
 	![Failed requests](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
@@ -55,7 +55,7 @@ Application Insights collects any failures in your application and lets you view
 
 	![Failed requests details](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
-5. The operations detail also shows a FormatException which appears to have caused the failure.  Click on the exception or on the **Top 3 exception types** count to view its details.  You can see that it's due to an invalid zip code.
+5. The operations detail also shows a FormatException which appears to have caused the failure.  Click the exception or on the **Top 3 exception types** count to view its details.  You can see that it's due to an invalid zip code.
 
 	![Exception details](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
@@ -64,8 +64,8 @@ Application Insights collects any failures in your application and lets you view
 ## Identify failing code
 The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production.  You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. You can then debug the source code by downloading the snapshot and opening it in Visual Studio 2017.
 
-1. In the properties of the exception, click on **Open debug snapshot**.
-2. The **Debug Snapshot** blade opens with the call stack for the request.  Click on any method to view the values of all local variables at the time of the request.  Starting from the top method in this example, we can see local variables that have no value.
+1. In the properties of the exception, click **Open debug snapshot**.
+2. The **Debug Snapshot** blade opens with the call stack for the request.  Click any method to view the values of all local variables at the time of the request.  Starting from the top method in this example, we can see local variables that have no value.
 
 	![Debug snapshot](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
@@ -83,7 +83,7 @@ The Snapshot Debugger collects snapshots of the most frequent exceptions in your
 ## Use analytics data
 All data collected by Application Insights is stored in Azure Log Analytics, which provides a rich query language that allows you to analyze the data in a variety of ways.  We can use this data to analyze the requests that generated the exception we're researching. 
 
-8. Click on the CodeLens information above the code to view telemetry provided by Application Insights.
+8. Click the CodeLens information above the code to view telemetry provided by Application Insights.
 
 	![Code](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
@@ -93,7 +93,7 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 If you connect Application Insights to a tracking system such as Visual Studio Team Services or GitHub, you can create a work item directly from Application Insights.
 
 1. Return to the **Exception Properties** blade in Application Insights.
-2. Click **+ New Work Item**.
+2. Click **New Work Item**.
 3. The **New Work Item** blade opens with details about the exception already populated.  You can add any additional information before saving it.
 
 	![New Work Item](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
