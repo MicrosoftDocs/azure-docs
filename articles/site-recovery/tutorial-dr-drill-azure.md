@@ -1,6 +1,6 @@
 ---
-title: Run a disaster recovery drill to Azure with Azure Site Recovery | Microsoft Docs
-description: Learn about running disaster recovery drill from on-premises to Azure
+title: Run a disaster recovery drill for on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
+description: Learn about running disaster recovery drill from on-premises to Azure, with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/14/2017
+ms.date: 09/18/2017
 ms.author: raynew
 
 ---
 # Run a disaster recovery drill to Azure
 
-The [Azure Site Recovery](site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
-This tutorial shows you how to run a disaster recovery drill to Azure, with a test failover. A drill validates your replication strategy without data loss or downtime, and without affecting your production environment. In this tutorial, you learn how to:
+This tutorial shows you how to run a disaster recovery drill for on-premises machines to Azure, with a test failover. A drill validates your replication strategy without data loss or downtime, and doesn't affect your production environment. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up an isolated network for test failover
@@ -33,21 +33,22 @@ This tutorial shows you how to run a disaster recovery drill to Azure, with a te
 
 To complete this tutorial:
 
-- We recommend that you create a separate Azure network that can be used for test failover. The network should be isolated from your production Azure network.
+- We recommend that you create a separate Azure network to use for test failover. The network should be isolated from your production Azure network.
 - Optionally prepare to connect to Azure VMs after test failover.
 - Verify the VM properties before you run the test failover.
 
 
 ### Create a network for test failover
 
-Create a test network that's isolated from your production network (the network specified in the **Compute and Network** settings for a VM). By default, when you create an Azure virtual network, it's isolated from other networks.
+Create a test network that's isolated from your production network (the network specified in the **Compute and Network** settings for a VM). By default, an Azure virtual network is isolated when it's created.
 
-1. Site Recovery will attempt to create test VMs in a subnet with the same name and address as the production network for the VM, so we recommend that you create a test network with the following: 
-    - The same numbers of subnets as your production network, and the same subnet names.
+1. When running a test failover, Site Recovery tries to create test VMs in a subnet with the same name and address as the VM's production network, so we recommend that you create a test network with the following: 
+    - The same number of subnets as your production network, and the same subnet names.
     - The same IP address range as the production network.
-
-    If a subnet with the same name isn't available in the Azure virtual network, then the test VM is created in the first subnet in alphabetical order. If the target IP address is in the selected subnet, Site Recovery tries to create the VM using that address. If it isn't in the selected subnet, the VM is created using any available IP address.
-1. Set the DNS entry for the test network to the IP address you provided for the target IP address for the DNS VM in **Compute and Network** settings. [Learn more](site-recovery-active-directory.md#test-failover-considerations).
+    - If a subnet with the same name isn't available in the Azure virtual network during test failover, the test VM is created in the first subnet, by alphabetical order.
+    - If the target IP address is in the selected subnet, Site Recovery tries to create the VM with that address.
+    - If the target IP address isn't in the selected subnet, the VM is created using any available IP address.
+2. Set the DNS entry for the test network to the IP address used as the target IP address for the DNS VM in **Compute and Network** settings. [Learn more](site-recovery-active-directory.md#test-failover-considerations).
 
 ### Prepare to connect to Azure VMs after failover
 
@@ -68,11 +69,11 @@ If you want to connect to Azure VMs using RDP after failover, do the following:
 
 ### Verify VM properties
 
-Verify the VM properties, and make sure that the VM complies with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Before you run a test failover, verify the VM properties, and make sure that the VM complies with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. In **Protected Items**, click **Replicated Items** > VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
-3. In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and [managed disk settings](#managed-disk-considerations)
+3. In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
 4. You can view and modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 5. In **Disks**, you can see information about the operating system and data disks on the VM.
 
@@ -89,9 +90,9 @@ When you run a test failover, the following happens:
 Run the test failover as follows:
 
 
-1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
+1. In **Settings** > **Replicated Items**, click the VM > **+Test Failover**.
 2. Select a recovery point to use for the failover:
-    - **Latest processed** : Fails the VM over to the latest recovery point that was processed by Site Recovery. The time stamp is shown. With this option, no time is spent processing data, so it provides a low RTO (Recovery Time Objective).
+    - **Latest processed** : Fails the VM over to the latest recovery point that was processed by Site Recovery. The time stamp is shown. With this option, no time is spent processing data, so it provides a low RTO (recovery time objective).
     - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent recovery point. The time stamp is shown.
     - **Custom**: Select any recovery point.
 
@@ -101,10 +102,14 @@ Run the test failover as follows:
 6. If you prepared to connect after failover, you should now be able to connect to the Azure VM.
 7. To delete Azure VMs created during the test failover, click **Cleanup test failover** on the recovery plan. In **Notes**, record and save any observations associated with the test failover. 
 
->[!NOTE]
-> In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. You might notice longer test failover times for physical servers, VMware Linux machines, VMware VMs that don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
+In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. You might notice longer test failover times for physical servers, VMware Linux machines, VMware VMs that don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
+
+
+## Connect to VMs in Azure
+
+If you [prepared to connect to Azure after failover](#prepare-to-connect-to-azure-vms-after-failover), you can connect to the [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/quick-create-portal.md#connect-to-virtual-machine) machine.
 
 
 
 ## Next steps
-[Learn](site-recovery-failover.md) about running production failovers.
+Run a failover and failback for on-premises [VMware VMs](tutorial-vmware-to-azure-failover-failback.md), [Hyper-V VMs(tutorial-hyper-v-to-azure-failover-failback.md), and [physical servers](tutorial-vmware-to-azure-failover-failback.md).

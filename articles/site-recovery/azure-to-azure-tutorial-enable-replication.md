@@ -1,6 +1,6 @@
 ---
-title: Enable replication of Azure VMs in Site Recovery (Preview)  | Microsoft Docs
-description: This tutorial provides the steps required to configure replication of Azure virtual machines (VMs) to a different region.
+title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (preview)  | Microsoft Docs
+description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
 author: rajani-janaki-ram
 manager: carmonm
@@ -10,19 +10,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/12/2017
+ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
 ---
-# Enable replication of Azure VMs for disaster recovery
+# Set up disaster recovery for Azure VMs to a secondary Azure region
 
-This tutorial provides the steps required to configure replication of existing Azure virtual
-machines (VMs) to a different region.
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
+
+This tutorial shows you how to set up disaster recovery to a secondary Azure region for Azure VMs. In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a Recovery Services vault
+> * Verify target resource settings
+> * Set up outbound access for VMs
+> * Enable replication for a VM
+
+>[!NOTE]
+>
+> Azure VM replication to a secondary region is currently in preview.
+
+## Prerequisites
+
+To complete this tutorial:
+
+- Make sure that you understand the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
+- Review the [support requirements](site-recovery-support-matrix-azure-to-azure.md) for all components.
 
 ## Create a vault
 
-The Recovery Services vault should be created in the location where you want your VMs to replicate.
-For example, if your target location is the central US, create the vault in **Central US**.
+Create the vault in any region, except the source region. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
 2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
@@ -31,13 +48,12 @@ For example, if your target location is the central US, create the vault in **Ce
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported
    regions, see geographic availability in
    [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
-5. If you want to quickly access the vault from the dashboard, click **Pin to dashboard** and then
+5. To quickly access the vault from the dashboard, click **Pin to dashboard** and then
    click **Create**.
 
    ![New vault](./media/azure-to-azure-tutorial-enable-replication/new-vault-settings.png)
 
-   The new vault is added to the **Dashboard** under **All resources** and on the main **Recovery
-   Services vaults** page.
+   The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
 
 ## Verify target resources
 
@@ -47,18 +63,17 @@ For example, if your target location is the central US, create the vault in **Ce
 2. Make sure your subscription has enough resources to support VMs with sizes that match your source
    VMs. Site Recovery picks the same size or the closest possible size for the target VM.
 
-3. Storage accounts must be in the same region as the vault. You can't replicate to premium
-   accounts in Central and South India.
+## Configure outbound network connectivity
 
-## Plan your networking
+For Site Recovery to work as expected, you need to make some changes in outbound network connectivity,
+from VMs that you want to replicate.
 
-For Site Recovery to work expected, you need to make some changes in outbound network connectivity,
-from VMs that you want to replicate. Site Recovery doesn't support use of an authentication proxy
-to control network connectivity. If you have an authentication proxy, replication can't be enabled.
+- Site Recovery doesn't support use of an authentication proxy to control network connectivity.
+- If you have an authentication proxy, replication can't be enabled.
 
 ### Outbound connectivity for URLs
 
-If you are using a URL-based firewall proxy to control outbound connectivity, you must allow access
+If you're using a URL-based firewall proxy to control outbound connectivity, allow access
 to the following URLs used by Site Recovery.
 
 | **URL** | **Details** |
@@ -71,7 +86,7 @@ to the following URLs used by Site Recovery.
 ### Outbound connectivity for IP address ranges
 
 When using any IP-based firewall, proxy, or NSG rules to control outbound connectivity, the
-following IP ranges need to be whitelisted. Download a list of IP Ranges from the following links:
+following IP address ranges need to be whitelisted. Download a list of ranges from the following links:
 
   - [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -81,19 +96,19 @@ following IP ranges need to be whitelisted. Download a list of IP Ranges from th
 
 Use these lists to configure the network access controls in your network. You can use this
 [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create
-required rules on Network Security.
+required NSG rules.
 
 ## Verify Azure VM certificates
 
 Check that all the latest root certificates are present on the Windows or Linux VMs you want to
-replicate. If the latest root certificates are not present, the VM cannot be registered to Site
-Recovery due to security constraints.
+replicate. If the latest root certificates aren't, the VM can't registered to Site
+Recovery, due to security constraints.
 
-- For Windows VMs, install all the latest Windows updates on the VM so that all the trusted root
+- For Windows VMs, install all the latest Windows updates on the VM, so that all the trusted root
   certificates are on the machine. In a disconnected environment, follow the standard Windows
   Update and certificate update processes for your organization.
 
-- For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted
+- For Linux VMs, follow the guidance provided by your Linux distributor, to get the latest trusted
   root certificates and certificate revocation list on the VM.
 
 ## Set permissions on the account
@@ -139,9 +154,9 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 1. In **Virtual Machines**, select the VMs you want to replicate.
 2. Click **OK**.
 
-### Configure settings
+### Configure replication settings
 
-Review Site Recovery default settings for the target region. You can change these settings based on
+Site Recovery creates default settings and replication policy for the target region. You can change the settings based on
 your requirements.
 
 ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
@@ -172,7 +187,7 @@ your requirements.
   can configure a value between 1 and 72 hours.
 
 - **App-consistent snapshot frequency**: By default, Site Recovery takes an app-consistent snapshot
-  every 4 hours. You can configure any value between 1 and 12 hours.
+  every 4 hours. You can configure any value between 1 and 12 hours. A app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken. 
 
 ### Track replication status
 
@@ -184,10 +199,7 @@ your requirements.
 3. In **Settings** > **Replicated Items**, you can view the status of VMs and the initial
    replication progress. Click the VM to drill down into its settings.
 
-## Next Steps
+## Next steps
 
-Once your VMs have completed initial replication, verify your disaster recovery
-configuration by [performing a Disaster Recovery drill](azure-to-azure-tutorial-dr-drill.md).
+Run a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to test your configuration.
 
-Ask questions and get help in the
-[Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
