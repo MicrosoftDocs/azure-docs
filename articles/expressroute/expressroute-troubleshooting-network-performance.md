@@ -21,7 +21,7 @@ ms.author: jonor
 ## Overview
 Azure provides stable and fast ways to connect from your on-premise network to Azure. Methods like Site-to-Site VPN and ExpressRoute are successfully used by customers large and small to run their businesses in Azure. But what happens when performance doesn't meet your expectation or previous experience? This document can help standardize the way you test and baseline your specific environment.
 
-This document shows how you can easily and consistently test network latency and bandwidth between two hosts. This document also provides some advice on ways to look at the Azure network and help to isolate problem points. The PowerShell script and tools discussed require two hosts on the network (at either end of the link being tested). One host must be a Windows Server or Desktop, the other can be either Windows or Linux.
+This document shows how you can easily and consistently test network latency and bandwidth between two hosts. This document also provides some advice on ways to look at the Azure network and help to isolate problem points. The PowerShell script and tools discussed require two hosts on the network (at either end of the link being tested). One host must be a Windows Server or Desktop, the other can be either Windows or Linux. 
 
 >[!NOTE]
 >The approach to troubleshooting, the tools, and methods used are personal preferences. This document describes the approach and tools I often take. Your approach will probably differ and there's nothing wrong with different approaches to problem solving. However, if you don't have an established approach, this document can get you started on the path to building your own methods, tools, and preferences to troubleshooting network issues.
