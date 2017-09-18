@@ -18,9 +18,9 @@ ms.author: billmath
 ---
 
 # Azure Active Directory Terms of Use (Preview)
-Azure AD Terms of Use provides a simple method for an organization to ensure that end users see relevant disclaimers or other information needed for legal or compliance requirements. 
+Azure AD Terms of Use provides a simple method organizations can use to present information to end users.  This ensures that they see relevant disclaimers for legal or compliance requirements.
 
-Azure AD Terms of Use uses the pdf format to allow organizations to present content to end users.   This pdf can be any content, such as existing contract documents, allowing you to collect end user agreements during user sign-in.  You can use the terms of use for applications, groups of users, or if you have multiple terms of use for different purposes.
+Azure AD Terms of Use uses the pdf format to present content.   This pdf can be any content, such as existing contract documents, allowing you to collect end user agreements during user sign-in.  You can use the terms of use for applications, groups of users, or if you have multiple terms of use for different purposes.
 
 This remainder of this document describes how to get going with Azure AD Terms of Use.  
 
