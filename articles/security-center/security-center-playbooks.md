@@ -47,16 +47,16 @@ Follow these steps to create a new security playbook from Security Center:
 	![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 
 6. In the **Search all connectors and triggers** field, type *Azure Security Center*, and select **When a response to an Azure Security Center alert is triggered**.
+
+	![Trigger](./media/security-center-playbooks/security-center-playbooks-fig12.png)
+
 7. Now you can define what happens when you trigger the playbook. You can add an action, logical condition, switch case conditions or loops.
 
 	![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig5.png)
 	 
-
-Regardless of which option tile you select, the dashboard that will appear is based on the [Log Search](https://docs.microsoft.com/azure/security-center/security-center-search) query, the only difference is the type of query and the result.
-
 ## How to run a security playbook in Security Center?
 
-You can run a security playbook in Security Center when you are obtaining more information about security alert, or when you are investigating a security issue. To access the playbooks follow these steps:
+You can run a security playbook in Security Center when you would like to orchestrate, obtain more information from other services, or when you would like to remediate. To access the playbooks follow these steps:
 
 1.	Open **Security Center** dashboard.
 2.	In the left pane, under **Threat Detection** click **Security incidents & alerts**.
@@ -70,23 +70,23 @@ You can run a security playbook in Security Center when you are obtaining more i
 
 5. In the Playbooks page, select the playbook that you want to run, and click **Run** button. If you wish to see the playbook before triggering, you can click on it, and the designer will open.
 
-	![Playbooks](./media/security-center-playbooks/security-center-playbooks-fig8.png)
+	![Playbooks](./media/security-center-playbooks/security-center-playbooks-fig13.png)
 
 ### History
 
 After running the playbook, you can also access previous executions, and steps that contains more information about the status of previously executed playbooks. The history is contextualized per alert, which means that the playbook history that you see in this page is correlated to the alert that triggered this playbook. 
 
-![History](./media/security-center-playbooks/security-center-playbooks-fig9.png)
+![History](./media/security-center-playbooks/security-center-playbooks-fig15.png)
 
 To see more details about the execution of a particular playbook, click on the playbook itself, and the Logic App run page appears with the entire workflow.
 
-![Details](./media/security-center-playbooks/security-center-playbooks-fig11.png)
+![Details](./media/security-center-playbooks/security-center-playbooks-fig14.png)
 
 In this workflow you can see the time that each task took it to be executed, and you can expand each task to see the result. 
 
 ### Changing an existing playbook
 
-You can change an existing playbook in Security Center to add an action, or conditions. To do that you just need to click on the name of the playbook that you want to change, in the Playbooks tab, and Log App Designer dashboard opens up.
+You can change an existing playbook in Security Center to add an action, or conditions. To do that you just need to click on the name of the playbook that you want to change, in the Playbooks tab, and Logic App Designer opens up.
 
 > [!NOTE]
 > For more information on how to create your own playbook using Azure Logic App, read [Create your first logic app workflow to automate processes between cloud apps and cloud services](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
