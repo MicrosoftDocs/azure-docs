@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2017
 ms.author: jeedes
 
 ---
@@ -118,8 +118,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute.png)
 
 	> [!NOTE]
-	> There are two supported roles, one is **teacher** and another one is **student** which you need to configure for the user in Azure AD accordingly. For more details please [refer this link](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to configure Role in Azure AD.
-
+	> Shmoop for School supports two roles for users - **Teacher** and **Student**. These roles need to be set up in Azure AD so that users can be assigned the appropriate roles. Please refer the [link](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to understand how to configure roles in Azure AD.
+	
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
 	| Attribute Name | Attribute Value |
@@ -158,7 +158,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     ![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
      
-    d. Now go to the property page of **Shmoop For Schools** and copy the **Application Id** using **Copy** button and paste it into notepad.
+    d. Now go to the property page of **Shmoop For Schools** and copy the **Application ID** using **Copy** button and paste it into notepad.
  
     ![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
 
@@ -207,7 +207,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in Shmoop For Schools. Shmoop For Schools supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Shmoop For Schools if it doesn't exist yet.
 
 >[!Note]
->If you need to create a user manually, Contact [Shmoop For Schools support team](mailto:support@shmoop.com).
+>If you need to create a user manually, contact [Shmoop For Schools support team](mailto:support@shmoop.com).
 
 ### Assign the Azure AD test user
 
