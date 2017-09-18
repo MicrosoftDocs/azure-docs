@@ -8,7 +8,7 @@ manager: JuliaNik
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2017
 ms.author: v-royhar
 ---
 
@@ -31,17 +31,17 @@ Explore a Java Swing application that uses the Computer Vision REST API to perfo
 
 The Java Swing form application has already been written, but has no functionality. In this tutorial, you add the code specific to the Computer Vision REST API to complete the application's functionality.
 
-### <a name="Prerequisites">Prerequisites</a>
+## <a name="Prerequisites">Prerequisites</a>
 
-#### Platform requirements
+### Platform requirements
 
 This tutorial has been developed using the NetBeans IDE. Specifically, the **Java SE** version of NetBeans, which you can [download here](https://netbeans.org/downloads/index.html).
 
-#### Subscribe to Computer Vision API and get a subscription key 
+### Subscribe to Computer Vision API and get a subscription key 
 
-Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
+Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
 
-### <a name="DownloadExample">Download the tutorial project</a>
+## <a name="DownloadExample">Download the tutorial project</a>
 
 1. Go to the [Cognitive Services Java Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) repository.
 1. Click the **Clone or download** button.
@@ -49,7 +49,7 @@ Before creating the example, you must subscribe to Computer Vision API which is 
 
 There is no need to extract the contents of the .zip file because NetBeans imports the project from the .zip file.
 
-### <a name="ImportExample">Import the tutorial project</a>
+## <a name="ImportExample">Import the tutorial project</a>
 
 Import the **cognitive-services-java-computer-vision-tutorial-master.zip** file into NetBeans.
 
@@ -61,13 +61,13 @@ Import the **cognitive-services-java-computer-vision-tutorial-master.zip** file 
 1. Double-click **MainFrame.java** to load the file into the NetBeans editor. The **Design** tab of the **MainFrame.java** file appears.
 1. Click the **Source** tab to view the Java source code.
 
-### <a name="BuildAndRun">Build and run the tutorial project</a>
+## <a name="BuildAndRun">Build and run the tutorial project</a>
 
 1. Press **F6** to build and run the tutorial application.
 
     In the tutorial application, click a tab to bring up the pane for that feature. The buttons have empty methods, so they do nothing.
 
-    At the bottom of the window are the fields **Subscription Key** and **Subscription Region**. These fields must be filled with a valid subscription key and the correct region for that subscription key. To obtain a subscription key, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). If you obtained your subscription key from the free trial at that link, then the default **westcentralus** is the correct region for your subscription keys.
+    At the bottom of the window are the fields **Subscription Key** and **Subscription Region**. These fields must be filled with a valid subscription key and the correct region for that subscription key. To obtain a subscription key, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). If you obtained your subscription key from the free trial at that link, then the default **westcentralus** is the correct region for your subscription keys.
 
 1. Exit the tutorial application.
 
@@ -77,19 +77,19 @@ The Java Swing application is set up with six tabs. Each tab demonstrates a diff
 
 Let's get started.
 
-### <a name="Analyze">Analyze an image</a>
+## <a name="Analyze">Analyze an image</a>
 
 The Analyze feature of Computer Vision analyzes an image for more than 2,000 recognizable objects, living beings, scenery, and actions. Once the analysis is complete, Analyze returns a JSON object that describes the image with descriptive tags, color analysis, captions, and more.
 
 To complete the Analyze feature of the tutorial application, perform the following steps:
 
-#### Analyze step 1: Add the event handler code for the form button
+### Analyze step 1: Add the event handler code for the form button
 
 The **analyzeImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **AnalyzeImage** method to analyze the image. When **AnalyzeImage** returns, the method displays the formatted JSON response in the **Response** text area, extracts the first caption from the **JSONObject**, and displays the caption and the confidence level that the caption is correct.
 
 Copy and paste the following code into the **analyzeImageButtonActionPerformed** method.
 
-> ![NOTE]
+> [!NOTE]
 > NetBeans won't let you paste to the method definition line (```private void```) or to the closing curly brace of that method. To copy the code, copy the lines between the method definition and the closing curly brace, and paste them over the contents of the method.
 
 ```java
@@ -136,7 +136,7 @@ Copy and paste the following code into the **analyzeImageButtonActionPerformed**
     }
 ```
 
-#### Analyze step 2: Add the wrapper for the REST API call.
+### Analyze step 2: Add the wrapper for the REST API call.
 
 The **AnalyzeImage** method wraps the REST API call to analyze an image. The method returns a **JSONObject** describing the image, or **null** if there was an error.
 
@@ -197,23 +197,23 @@ Copy and paste the **AnalyzeImage** method to just underneath the **analyzeImage
     }
  ```
 
-#### Analyze step 3: Run the application
+### Analyze step 3: Run the application
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Analyze Image** button to analyze an image and see the result.
 
-### <a name="Landmark">Recognize a landmark</a>
+## <a name="Landmark">Recognize a landmark</a>
 
 The Landmark feature of Computer Vision analyzes an image for natural and artificial landmarks, such as mountains or famous buildings. Once the analysis is complete, Landmark returns a JSON object that identifies the landmarks found in the image.
 
 To complete the Landmark feature of the tutorial application, perform the following steps:
 
-#### Landmark step 1: Add the event handler code for the form button
+### Landmark step 1: Add the event handler code for the form button
 
 The **landmarkImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **LandmarkImage** method to analyze the image. When **LandmarkImage** returns, the method displays the formatted JSON response in the **Response** text area, then extracts the first landmark name from the **JSONObject** and displays it on the window along with the confidence level that the landmark was identified correctly.
 
 Copy and paste the following code into the **landmarkImageButtonActionPerformed** method.
 
-> ![NOTE]
+> [!NOTE]
 > NetBeans won't let you paste to the method definition line (```private void```) or to the closing curly brace of that method. To copy the code, copy the lines between the method definition and the closing curly brace, and paste them over the contents of the method.
 
 ```java
@@ -260,7 +260,7 @@ Copy and paste the following code into the **landmarkImageButtonActionPerformed*
     }
 ```
 
-#### Landmark step 2: Add the wrapper for the REST API call.
+### Landmark step 2: Add the wrapper for the REST API call.
 
 The **LandmarkImage** method wraps the REST API call to analyze an image. The method returns a **JSONObject** describing the landmarks found in the image, or **null** if there was an error.
 
@@ -321,23 +321,23 @@ Copy and paste the **LandmarkImage** method to just underneath the **landmarkIma
     }
 ```
 
-#### Landmark step 3: Run the application
+### Landmark step 3: Run the application
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Landmark** tab, enter a URL to an image of a landmark, then click the **Analyze Image** button to analyze an image and see the result.
 
-### <a name="Celebrities">Recognize celebrities</a>
+## <a name="Celebrities">Recognize celebrities</a>
 
 The Celebrities feature of Computer Vision analyzes an image for famous people. Once the analysis is complete, Celebrities returns a JSON object that identifies the Celebrities found in the image.
 
 To complete the Celebrities feature of the tutorial application, perform the following steps:
 
-#### Celebrities step 1: Add the event handler code for the form button
+### Celebrities step 1: Add the event handler code for the form button
 
 The **celebritiesImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **CelebritiesImage** method to analyze the image. When **CelebritiesImage** returns, the method displays the formatted JSON response in the **Response** text area, then extracts the first celebrity name from the **JSONObject** and displays the name on the window along with the confidence level that the celebrity was identified correctly.
 
 Copy and paste the following code into the **celebritiesImageButtonActionPerformed** method.
 
-> ![NOTE]
+> [!NOTE]
 > NetBeans won't let you paste to the method definition line (```private void```) or to the closing curly brace of that method. To copy the code, copy the lines between the method definition and the closing curly brace, and paste them over the contents of the method.
 
 ```java
@@ -384,7 +384,7 @@ Copy and paste the following code into the **celebritiesImageButtonActionPerform
     }
 ```
 
-#### Celebrities step 2: Add the wrapper for the REST API call.
+### Celebrities step 2: Add the wrapper for the REST API call.
 
 The **CelebritiesImage** method wraps the REST API call to analyze an image. The method returns a **JSONObject** describing the celebrities found in the image, or **null** if there was an error.
 
@@ -445,23 +445,23 @@ Copy and paste the **CelebritiesImage** method to just underneath the **celebrit
     }
 ```
 
-#### Celebrities step 3: Run the application
+### Celebrities step 3: Run the application
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Celebrities** tab, enter a URL to an image of a celebrity, then click the **Analyze Image** button to analyze an image and see the result.
 
-### <a name="Thumbnail">Intelligently generate a thumbnail</a>
+## <a name="Thumbnail">Intelligently generate a thumbnail</a>
 
 The Thumbnail feature of Computer Vision generates a thumnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumnail on this area, to generate more aesthetically pleasing thumbnail images.
 
 To complete the Thumbnail feature of the tutorial application, perform the following steps:
 
-#### Thumbnail step 1: Add the event handler code for the form button
+### Thumbnail step 1: Add the event handler code for the form button
 
 The **thumbnailImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **getThumbnailImage** method to create the thumbnail. When **getThumbnailImage** returns, the method displays the generated thumbnail.
 
 Copy and paste the following code into the **thumbnailImageButtonActionPerformed** method.
 
-> ![NOTE]
+> [!NOTE]
 > NetBeans won't let you paste to the method definition line (```private void```) or to the closing curly brace of that method. To copy the code, copy the lines between the method definition and the closing curly brace, and paste them over the contents of the method.
 
 ```java
@@ -501,7 +501,7 @@ Copy and paste the following code into the **thumbnailImageButtonActionPerformed
     }
 ```
 
-#### Thumbnail step 2: Add the wrapper for the REST API call.
+### Thumbnail step 2: Add the wrapper for the REST API call.
 
 The **getThumbnailImage** method wraps the REST API call to analyze an image. The method returns a **BufferedImage** that contains the thumbnail, or **null** if there was an error. The error message will be returned in the first element of the **jsonError** string array.
 
@@ -568,23 +568,23 @@ Copy and paste the following **getThumbnailImage** method to just underneath the
     }
 ```
 
-#### Thumbnail step 3: Run the application
+### Thumbnail step 3: Run the application
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Thumbnail** tab, enter a URL to an image, then click the **Generate Thumbnail** button to analyze an image and see the result.
 
-### <a name="OCR">Read printed text (OCR)</a>
+## <a name="OCR">Read printed text (OCR)</a>
 
 The Optical Character Recognition (OCR) feature of Computer Vision analyzes an image of printed text. After the analysis is complete, OCR returns a JSON object that contains the text and the location of the text in the image.
 
 To complete the OCR feature of the tutorial application, perform the following steps:
 
-#### OCR step 1: Add the event handler code for the form button
+### OCR step 1: Add the event handler code for the form button
 
 The **ocrImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **OcrImage** method to analyze the image. When **OcrImage** returns, the method displays the detected text as formatted JSON in the **Response** text area.
 
 Copy and paste the following code into the **ocrImageButtonActionPerformed** method.
 
-> ![NOTE]
+> [!NOTE]
 > NetBeans won't let you paste to the method definition line (```private void```) or to the closing curly brace of that method. To copy the code, copy the lines between the method definition and the closing curly brace, and paste them over the contents of the method.
 
 ```java
@@ -618,7 +618,7 @@ Copy and paste the following code into the **ocrImageButtonActionPerformed** met
     }
 ```
 
-#### OCR step 2: Add the wrapper for the REST API call.
+### OCR step 2: Add the wrapper for the REST API call.
 
 The **OcrImage** method wraps the REST API call to analyze an image. The method returns a **JSONObject** of the JSON data returned from the call, or **null** if there was an error.
 
@@ -679,23 +679,23 @@ Copy and paste the following **OcrImage** method to just underneath the **ocrIma
     }
 ```
 
-#### OCR step 3: Run the application
+### OCR step 3: Run the application
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **OCR** tab, enter a URL to an image of printed text, then click the **Read Image** button to analyze an image and see the result.
 
-### <a name="Handwriting">Read handwritten text (handwriting recognition)</a>
+## <a name="Handwriting">Read handwritten text (handwriting recognition)</a>
 
 The Handwriting Recognition feature of Computer Vision analyzes an image of handwritten text. After the analysis is complete, Handwriting Recognition returns a JSON object that contains the text and the location of the text in the image.
 
 To complete the Handwriting Recognition feature of the tutorial application, perform the following steps:
 
-#### Handwriting Recognition step 1: Add the event handler code for the form button
+### Handwriting Recognition step 1: Add the event handler code for the form button
 
 The **handwritingImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **HandwritingImage** method to analyze the image. When **HandwritingImage** returns, the method displays the detected text as formatted JSON in the **Response** text area.
 
 Copy and paste the following code into the **handwritingImageButtonActionPerformed** method.
 
-> ![NOTE]
+> [!NOTE]
 > NetBeans won't let you paste to the method definition line (```private void```) or to the closing curly brace of that method. To copy the code, copy the lines between the method definition and the closing curly brace, and paste them over the contents of the method.
 
 ```java
@@ -729,7 +729,7 @@ Copy and paste the following code into the **handwritingImageButtonActionPerform
     }
 ```
 
-#### Handwriting Recognition step 2: Add the wrapper for the REST API call.
+### Handwriting Recognition step 2: Add the wrapper for the REST API call.
 
 The **HandwritingImage** method wraps the two REST API calls needed to analyze an image. Because handwriting recognition is a time consuming process, a two step process is used. The first call submits the image for processing; the second call retrieves the detected text when the processing is complete.
 
@@ -837,11 +837,11 @@ Copy and paste the following **HandwritingImage** method to just underneath the 
     }
 ```
 
-#### Handwriting Recognition step 3: Run the application
+### Handwriting Recognition step 3: Run the application
 
 To run the application, press **F6**. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Read Handwritten Text** tab, enter a URL to an image of handwritten text, then click the **Read Image** button to analyze an image and see the result.
 
-## <a name="NextSteps">Next Steps</a>
+## <a name="NextSteps">Next steps</a>
 
 - [Computer Vision API C&#35; Tutorial](CSharpTutorial.md)
 - [Computer Vision API Python Tutorial](PythonTutorial.md)
