@@ -1,6 +1,7 @@
 > [!div class="op_single_selector"]
 > * [Device: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
 > * [Device: Node.js Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
+> * [Device: C# Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Device: Java Service: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 
 Back-end apps can use Azure IoT Hub primitives, such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod], to remotely start and monitor device management actions on devices. This tutorial shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub.
