@@ -160,7 +160,6 @@ Set up the configuration server, register it in the vault, and discover VMs.
 Befre you start:
 
 - On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's more than 15 minutes in front or behind, setup might fail.
-- Make sure TLS 1.0 is enabled on the VM.
 - Make sure the VM can access these URLs:
         
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
