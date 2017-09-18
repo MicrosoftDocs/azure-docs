@@ -23,7 +23,7 @@ You can limit network traffic to resources in a virtual network using a network 
 
 ## Network security groups
 
-Each network interface has zero, or one, associated network security group. Each network interface exists in a [virtual network](virtual-networks-overview) subnet. A subnet can also have zero, or one, associated network security group. 
+Each network interface has zero, or one, associated network security group. Each network interface exists in a [virtual network](virtual-networks-overview.md) subnet. A subnet can also have zero, or one, associated network security group. 
 
 When applied to a subnet, security rules are applied to all resources in the subnet. In addition to network interfaces, you may have instances of other Azure services such as HDInsight, Virtual Machine Scale Sets, and Application Service Environments deployed in the subnet.
 
@@ -41,7 +41,7 @@ The same network security group can be applied to as many individual network int
 
 ## Security rules
 
-A network security group contains zero, or as many rules as desired, within Azure subscription [limits](azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
+A network security group contains zero, or as many rules as desired, within Azure subscription [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
 
 |Property  |Explanation  |
 |---------|---------|
