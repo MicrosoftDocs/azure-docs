@@ -264,22 +264,21 @@ To have a secure communication channel, you should always use HTTPS when calling
 You can enforce the use of HTTPS when calling the REST APIs to access objects in storage accounts by enabling [Secure transfer required](../storage-require-secure-transfer.md) for the storage account. Connections using HTTP will be refused once this is enabled.
 
 ### Using encryption during transit with Azure File shares
-Azure File storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop.
+Azure Files supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop.
 
 Note that while Azure File shares can be used with Unix, the Linux SMB client does not yet support encryption, so access is only allowed within an Azure region. Encryption support for Linux is on the roadmap of Linux developers responsible for SMB functionality. When they add encryption, you will have the same ability for accessing an Azure File share on Linux as you do for Windows.
 
 You can enforce the use of encryption with the Azure Files service by enabling [Secure transfer required](../storage-require-secure-transfer.md) for the storage account. If using the REST APIs, HTTPs is required. For SMB, only SMB connections that support encryption will connect successfully.
 
 #### Resources
-* [How to use Azure File storage with Linux](../storage-how-to-use-files-linux.md)
+* [Azure Files Introduction](../files/storage-files-introduction.md)
+* [Get started with Azure Files on Windows](../storage-how-to-use-files-windows.md)
+
+  This article gives an overview of Azure File shares and how to mount and use them on Windows.
+
+* [How to use Azure Files with Linux](../storage-how-to-use-files-linux.md)
 
   This article shows how to mount an Azure File share on a Linux system and upload/download files.
-* [Get started with Azure File storage on Windows](../storage-dotnet-how-to-use-files.md)
-
-  This article gives an overview of Azure File shares and how to mount and use them using PowerShell and .NET.
-* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-
-  This article announces the general availability of Azure File storage and provides technical details about the SMB 3.0 encryption.
 
 ### Using Client-side encryption to secure data that you send to storage
 Another option that helps you ensure that your data is secure while being transferred between a client application and Storage is Client-side Encryption. The data is encrypted before being transferred into Azure Storage. When retrieving the data from Azure Storage, the data is decrypted after it is received on the client side. Even though the data is encrypted going across the wire, we recommend that you also use HTTPS, as it has data integrity checks built in which help mitigate network errors affecting the integrity of the data.
@@ -346,7 +345,7 @@ The solution does not support the following scenarios, features, and technology 
 * Disabling encryption on an OS drive for Linux IaaS VMs
 * IaaS VMs that are created by using the classic VM creation method
 * Integration with your on-premises Key Management Service
-* Azure File storage (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
+* Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
 
 
 > [!NOTE]

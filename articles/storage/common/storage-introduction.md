@@ -58,11 +58,10 @@ There are three types of blobs -- block blobs, append blobs, and page blobs (use
 
 For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. See [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../storage-import-export-service.md).
 
-## File storage
+## Azure Files
+[Azure Files](../files/storage-files-introduction) enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries. 
 
-The Azure Files service enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries. 
-
-One thing that distinguishes Azure File storage from files on a corporate file share is that you can access the files from anywhere in the world using a URL that points to the file and includes a shared access signature (SAS) token. You can generate SAS tokens; they allow specific access to a private asset for a specific amount of time. 
+One thing that distinguishes Azure Files from files on a corporate file share is that you can access the files from anywhere in the world using a URL that points to the file and includes a shared access signature (SAS) token. You can generate SAS tokens; they allow specific access to a private asset for a specific amount of time. 
 
 File shares can be used for many common scenarios: 
 
@@ -146,7 +145,7 @@ You can enable Storage Service Encryption (SSE) on either the Files service (pre
 
 The storage client libraries have methods you can call to programmatically encrypt data before sending it across the wire from the client to Azure. It is stored encrypted, which means it also is encrypted at rest. When reading the data back, you decrypt the information after receiving it. 
 
-### Encryption in transit with Azure File Shares
+### Encryption in transit with Azure File shares
 
 See [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
@@ -279,15 +278,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For .NET developers
 * [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Develop for Azure Files with .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Get started with Azure Queue storage using .NET](../storage-dotnet-how-to-use-queues.md)
-* [Get started with Azure File storage on Windows](../storage-dotnet-how-to-use-files.md)
 
 ### For Java/Android developers
 * [How to use Blob storage from Java](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Develop for Azure Files with Java](../files/storage-java-how-to-use-files.md)
 * [How to use Table storage from Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [How to use Queue storage from Java](../storage-java-how-to-use-queue-storage.md)
-* [How to use File storage from Java](../storage-java-how-to-use-file-storage.md)
 
 ### For Node.js developers
 * [How to use Blob storage from Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -306,7 +305,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For Python developers
 * [How to use Blob storage from Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Develop for Azure Files with Python](../files/storage-python-how-to-use-files.md)
 * [How to use Table storage from Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [How to use Queue storage from Python](../storage-python-how-to-use-queue-storage.md)   
-* [How to use File storage from Python](../storage-python-how-to-use-file-storage.md) 
--->
+* [How to use Queue storage from Python](../storage-python-how-to-use-queue-storage.md)
