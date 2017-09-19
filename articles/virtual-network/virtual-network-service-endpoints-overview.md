@@ -108,16 +108,15 @@ If you want to inspect or filter the traffic destined to an Azure service from t
 
 Various Azure services can be directly deployed into specific subnets in your VNets. You can secure Azure service resources to [managed service](virtual-network-for-azure-services.md) subnets, by setting up a service endpoint on the managed service subnet.
 
-
 ### Logging and troubleshooting
 
-Once service endpoints are configured to a specific service:
+Once service endpoints are configured to a specific service, validate that the service endpoint route is in effect by: 
+
+- __Monitoring Azure service diagnostics__: You can confirm request access is coming from your private network, i.e. your VNet, by validating the "source IP" of any service request in the service diagnostics. All new requests with service endpoints show the "source IP" for the request as the VNet private address, assigned to the client making the requet from your VNet. Without the endpoint, this address will be an Azure public IP.
 
 - __Effective routes__ on any NIC in subnet show a more specific “default” route to address prefix range of that service. The route has a nextHopType as "VirtualNetworkServiceEndpoint". This route indicates that a more direct connection to the service is in effect, compared to any forced-tunneling routes.
 
 [!NOTE] Service endpoint route overrides BGP or UDR routes for the address prefix match, as the Azure service. Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
-
-- Azure service diagnostics show the “SourceIP” of any request from the VNet, as VNet’s private IP address. This entry indicates that the service access from VNet is coming through the endpoint.
 
 ### Provisioning
 
