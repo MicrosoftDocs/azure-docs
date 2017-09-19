@@ -45,7 +45,7 @@ You are now ready to begin to set up your Azure environment to route monitoring 
 
    ![Pick a storage account](media/monitor-tutorial-archive-monitoring-data/activity-log-storage.png)
 
-5. Optionally, set a number of days to retain the monitoring data in the storage account by using the **Retention (days)** sliders. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
+5. Set the **Retention (days)** slider to 30. This slider sets a number of days to retain the monitoring data in the storage account. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
 
 6. Click **Save** and close this section.
 
@@ -77,7 +77,7 @@ Now we configure resource-level data (resource metrics and diagnostic logs) to b
 
    ![Diagnostic settings categories](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
    
-6. Optionally, set a number of days to retain the monitoring data in the storage account by using the **Retention (days)** sliders. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
+6. Set the **Retention (days)** slider to 30. This slider sets a number of days to retain the monitoring data in the storage account. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
 
 7. Click **Save**.
 
