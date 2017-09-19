@@ -77,10 +77,10 @@
 ### [Adaptive application controls](security-center-adaptive-application.md)
 
 ## Automation and Orchestration
-### [Just in time access](security-center-playbooks.md)
+### [Playbooks](security-center-playbooks.md)
 
 ## Troubleshoot
-### [Playbooks](security-center-troubleshooting-guide.md)
+### [Troubleshooting guide](security-center-troubleshooting-guide.md)
 
 # Reference
 ## [REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)

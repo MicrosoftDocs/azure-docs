@@ -76,7 +76,7 @@ You can run a security playbook in Security Center when you would like to orches
 
 After running the playbook, you can also access previous executions, and steps that contains more information about the status of previously executed playbooks. The history is contextualized per alert, which means that the playbook history that you see in this page is correlated to the alert that triggered this playbook. 
 
-![History](./media/security-center-playbooks/security-center-playbooks-fig15.png)
+![History](./media/security-center-playbooks/security-center-playbooks-fig16.png)
 
 To see more details about the execution of a particular playbook, click on the playbook itself, and the Logic App run page appears with the entire workflow.
 
