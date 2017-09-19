@@ -37,12 +37,17 @@ To obtain the RUM Key using Azure Portal using the following procedure:
    2. In the portal’s search bar, search for the Traffic Manager profile name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
    3. In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
    4. Click **Generate Key** to create a new RUM Key.
+        
+       ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+
  
-      Figure 1: Real User Measurements key generation
+      **Figure 1: Real User Measurements key generation**
 
    5.	The blade will now show the RUM Key generated and a JavaScript code snippet that needs to be embedded into your HTML page.
  
-      Figure 2: Real User Measurements Key and Measurement JavaScript
+          ![Javascript code for Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/rum-javascript-code.png)
+
+      **Figure 2: Real User Measurements Key and Measurement JavaScript**
  
    6. Click the **Copy** button to copy the RUM Key. 
 
