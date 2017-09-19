@@ -138,7 +138,7 @@ ROC curve of **Random Forest model** on test data is shown below. This was the m
 
 <img src="./media/scenario-tdsp-classifying-us-incomes/rf-auc.png" width="400" height="350">
 
-Feature importance (top 20) of Random Forest model is shown below. It shows features capital gain amount, eduction, marital status, have highest feature importance
+Feature importance (top 20) of Random Forest model is shown below. It shows features capital gain amount, eduction, marital status, have highest feature importance.
 
 <img src="./media/scenario-tdsp-classifying-us-incomes/featImportance.png" width="600" height="350">
 
