@@ -119,7 +119,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     2. Import these two files:
         1. [Postman Collection](samples-fbPageModeration/Facebook Permanant Page Access Token.postman_collection.json)
         2. [Postman Environment](samples-fbPageModeration/FB Page Access Token Environment.postman_environment.json)       
-    3. Update these Environment Variables:
+    3. Update these environment variables:
     
     | Key | Value   | 
     | -------------------- |-------------|
