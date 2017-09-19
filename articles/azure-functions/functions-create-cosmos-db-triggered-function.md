@@ -1,5 +1,5 @@
 ---
-title: Create a function in Azure triggered by Cosmos DB | Microsoft Docs
+title: Create a function triggered by Azure Cosmos DB | Microsoft Docs
 description: Use Azure Functions to create a serverless function that is invoked when data is added to a database in Azure Cosmos DB.
 services: azure-functions
 documentationcenter: na
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: 
 ---
 # Create a function triggered by Azure Cosmos DB
 
-Learn how to create a function triggered when data is added to a database in Azure Cosmos DB.
+Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](..\cosmos-db\serverless-computing-database.md).
 
 ![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -46,7 +46,7 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Locate and choose the **CosmosDBTrigger** template for your desired language.
+2. Locate and choose the **Azure CosmosDBTrigger** template for your desired language.
 
     ![Create the Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
@@ -61,7 +61,7 @@ Next, you create a function in the new function app.
     | **Collection name** | Items | Name of collection to be monitored. |
     | **Create lease collection if it doesn't exist** | Checked | The collection doesn't already exist, so create it. |
 
-4. Select **New** next to the **Cosmos DB account connection** label, and select **+ Create new**. 
+4. Select **New** next to the **Azure Cosmos DB account connection** label, and select **+ Create new**. 
  
     ![Configure Cosmos DB connection](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
@@ -75,7 +75,7 @@ Next, you create a function in the new function app.
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
 
-6. Click **OK** to create the database. It may take a few minutes to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Cosmos DB account connection**. 
+6. Click **OK** to create the database. It may take a few minutes to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Azure Cosmos DB account connection**. 
 
 7. Click **Create** to create your Cosmos DB triggered function. After the function is created, the template-based function code is displayed.  
 

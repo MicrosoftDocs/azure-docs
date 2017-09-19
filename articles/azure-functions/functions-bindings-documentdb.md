@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 09/19/2017
 ms.author: glenga
 
 ---
@@ -26,8 +26,7 @@ This article explains how to configure and code Azure Cosmos DB bindings in Azur
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-For more information on Azure Cosmos DB, see [Introduction to Azure Cosmos DB](../documentdb/documentdb-introduction.md) 
-and [Build an Azure Cosmos DB console application](../documentdb/documentdb-get-started.md).
+For more information on serverless computing with Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](..\cosmos-db\serverless-computing-database.md).
 
 <a id="trigger"></a>
 <a id="cosmosdbtrigger"></a>

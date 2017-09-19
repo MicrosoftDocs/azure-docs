@@ -1,9 +1,9 @@
 ---
-title: Store unstructured data using Azure Functions and Cosmos DB
+title: Store unstructured data using Azure Cosmos DB and Functions | Microsoft Docs
 description: Store unstructured data using Azure Functions and Cosmos DB
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,11 +15,11 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
 ---
-# Store unstructured data using Azure Functions and Cosmos DB
+# Store unstructured data using Azure Functions and Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a great way to store unstructured and JSON data. Combined with Azure Functions, Cosmos DB makes storing data quick and easy with much less code than required for storing data in a relational database.
 
@@ -52,7 +52,7 @@ To complete this tutorial:
     | **Collection name** | TaskCollection | Name of the database collection. |
     | **If true, creates the Cosmos DB database and collection** | Checked | The collection doesn't already exist, so create it. |
 
-4. Select **New** next to the **Cosmos DB document connection** label, and select **+ Create new**. 
+4. Select **New** next to the **Azure Cosmos DB document connection** label, and select **+ Create new**. 
 
 5. Use the **New account** settings as specified in the table: 
 
@@ -60,13 +60,13 @@ To complete this tutorial:
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **ID** | Name of database | Unique ID for the Cosmos DB database  |
+    | **ID** | Name of database | Unique ID for the Azure Cosmos DB database  |
     | **API** | SQL (DocumentDB) | Select the document database API.  |
     | **Subscription** | Azure Subscription | Azure Subscription  |
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
 
-6. Click **OK** to create the database. It may take a few minutes to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Cosmos DB account connection**. 
+6. Click **OK** to create the database. It may take a few minutes to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Azure Cosmos DB account connection**. 
  
 8. After the connection string is set, select **Save** to create the binding.
 
@@ -124,13 +124,13 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
     ![Search for the Cosmos DB service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Choose your Cosmos DB account, then select the **Data Explorer**. 
+2. Choose your Azure Cosmos DB account, then select the **Data Explorer**. 
 
 3. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata. 
 
     ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-You have successfully added a binding to your HTTP trigger that stores unstructured data in a Cosmos DB database.
+You have successfully added a binding to your HTTP trigger that stores unstructured data in a Azure Cosmos DB.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
