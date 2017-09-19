@@ -1,5 +1,4 @@
 ---
-
 title: Elastic Query Concepts with SQL Data Warehouse | Microsoft Docs
 description: 'Elastic Query concepts with SQL Data Warehouse '
 services: sql-data-warehouse
@@ -17,7 +16,6 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-
 ---
 
 
@@ -56,6 +54,7 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 - When using remote query execution, ensure you're only selecting necessary columns and applying the right filters. Not only does this increase the compute necessary, but it also increases the size of the result set and therefore the amount of data that need to be moved between the two instances.
 - Maintain data for analytical purposes in both SQL Data Warehouse and SQL Database in clustered columnstore for analytical performance.
 - Ensure that source tables are partitioned for query and data movement
+- Ideally use PremiumRS databases because they provide the analytical benefits of clustered columnstore indexing with a focus on IO-intensive workloads at a discount from Premium databases.
 
 ### Elastic Querying
 
@@ -64,7 +63,7 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
   Imagine we would like to keep the most recent year of data in a SQL database instance. We have two tables **ext.Orders** which references the data warehouse orders tables and **dbo.Orders** which represents the most recent years worth of data within the SQL database instance. Instead of asking users to decide whether to query one table or another, we create a view over the top of both tables on the partition point of the most recent year.
 
   ```sql
-  CREATE VIEW dbo.orders_elastic AS
+  CREATE VIEW dbo.Orders_Elastic AS
   SELECT 
   	[col_a]		
   ,	[col_b]			
@@ -98,23 +97,32 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 - If possible, keep data management easier with append-only source tables such that updates are easily maintainable between the data warehouse and database instances.
 - Move data on the partition level with flush and fill semantics to minimize the query cost on the data warehouse level and the amount of data moved to keep the database instance up to date. 
 
+### When to choose Azure Analysis Services vs SQL Database
+
+#### Azure Analysis Services
+
+- You plan on using your cache with a BI tool that submits large numbers of small queries
+- You need very minimal latency
+
+
+
 ## FAQ
 
 Q: Can I use databases within an Elastic Database pool withelastic query?
 
-A: Yes. SQL Databases within an elastic pool can use elasticquery. 
+A: Yes. SQL Databases within an elastic pool can use elastic query. 
 
-Q: Is there a cap for how many databases I can use forelastic query?
+Q: Is there a cap for how many databases I can use for elastic query?
 
-A: Logical servers have DTU limits in place to preventcustomers from accidental overspending. If you are enabling several databasesfor elastic query alongside a SQL Data Warehouse instance, you may hit the capunexpectedly. If this occurs, submit a request to increase DTU limit on yourlogical server. You can increase yourquota by [creating a support ticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and selecting *Quota* as the requesttype
+A: Logical servers have DTU limits in place to prevent customers from accidental overspending. If you are enabling several databases for elastic query alongside a SQL Data Warehouse instance, you may hit the cap unexpectedly. If this occurs, submit a request to increase DTU limit on your logical server. You can increase your quota by [creating a support ticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and selecting *Quota* as the request type
 
-Q: Can I use row level security/Dynamic Data Masking withElastic Query?
+Q: Can I use row level security/Dynamic Data Masking with Elastic Query?
 
-A: Customers who wish to use more advanced security featureswith SQL Database can do so by first moving and storing the data in the SQLDatabase. You cannot currently apply row level security or DDM on data queriedthrough external tables. 
+A: Customers who wish to use more advanced security features with SQL Database can do so by first moving and storing the data in the SQL Database. You cannot currently apply row level security or DDM on data queried through external tables. 
 
 Q: Can I use spatial types like geometry/geography?
 
-A: You can store spatial types in SQL Data Warehouse asvarbinary(max) values. When you query these columns using elastic query, youcan convert them to the appropriate types at runtime.
+A: You can store spatial types in SQL Data Warehouse as varbinary(max) values. When you query these columns using elastic query, you can convert them to the appropriate types at runtime.
 
 ![spatial types](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 
