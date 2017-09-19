@@ -102,20 +102,20 @@ PersonID | Name | LastModifytime
 
 ### Create a stored procedure in Azure SQL database 
 
-1. Run the following command to create a stored procedure in your Azure SQL database.
+Run the following command to create a stored procedure in your Azure SQL database.
 
-    ```sql
-    CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
-    AS
+```sql
+CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+AS
+
+BEGIN
     
-    BEGIN
-        
-    	UPDATE watermarktable
-    	SET [WatermarkValue] = @LastModifiedtime 
-    WHERE [TableName] = @TableName
-    	
-    END
-    ```
+	UPDATE watermarktable
+	SET [WatermarkValue] = @LastModifiedtime 
+WHERE [TableName] = @TableName
+	
+END
+```
 
 ## Create a data factory
 
