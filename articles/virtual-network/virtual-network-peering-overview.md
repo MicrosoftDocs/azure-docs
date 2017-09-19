@@ -114,7 +114,7 @@ You can monitor the status of your peering connection. The peering status can be
 
 To troubleshoot traffic flowing across your peering connection, you can [check your effective routes.](virtual-network-routes-troubleshoot-portal.md)
 
-You can also troubleshoot your connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](..network-watcher/network-watcher-connectivity-portal.md). Connectivity check lets see how is routed directly from your source VM's network interface to your destination VM's network interface.
+You can also troubleshoot your connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](../network-watcher/network-watcher-connectivity-portal.md). Connectivity check lets see how is routed directly from your source VM's network interface to your destination VM's network interface.
 
 ## Limits
 
