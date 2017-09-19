@@ -41,9 +41,9 @@ Site Recovery needs access to VMware servers to:
 
 Create the account as follows:
 
-1. To use a dedicated account, create a role at the vCenter level, or host level if you don't have a vCenter server. Give the role a name such as **Azure__Site_Recovery**.
+1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as **Azure__Site_Recovery**.
 2. Assign the role the permissions summarized in the table below. 
-3. Create a user on the host or vCenter server, and assign the role to the user. 
+3. Create a user on the vCenter server. or vSphere host. Assign the role to the user. 
 
 ### VMware account permissions
 
