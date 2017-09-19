@@ -53,7 +53,8 @@ The following properties are supported for FTP linked service:
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
 | authenticationType | Specify the authentication type.<br/>Allowed values are: **Basic**, **Anonymous** | Yes |
 | userName | Specify the user who has access to the FTP server. | No |
-| password | Specify the password for the user (userName). | No |
+| password | Specify the password for the user (userName). Mark this field as SecureString. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example 1: using Anonymous authentication**
 
@@ -68,6 +69,10 @@ The following properties are supported for FTP linked service:
             "enableSsl": true,
             "enableServerCertificateValidation": true,
             "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -91,8 +96,12 @@ The following properties are supported for FTP linked service:
                 "type": "SecureString",
                 "value": "<password>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
-      }
+    }
 }
 ```
 

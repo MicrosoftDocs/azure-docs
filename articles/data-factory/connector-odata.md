@@ -50,7 +50,8 @@ The following properties are supported for OData linked service:
 | url | Root URL of the OData service. |Yes |
 | authenticationType | Type of authentication used to connect to the OData source.<br/>Allowed values are: **Anonymous**, **Basic**, and **Windows**. Note OAuth is not supported. | Yes |
 | userName | Specify user name if you are using Basic or Windows authentication. | No |
-| password | Specify password for the user account you specified for the userName. | No |
+| password | Specify password for the user account you specified for the userName. Mark this field as SecureString. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example 1: using Anonymous authentication**
 
@@ -64,6 +65,10 @@ The following properties are supported for OData linked service:
         {
             "url": "http://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -77,7 +82,7 @@ The following properties are supported for OData linked service:
     "properties":
     {
         "type": "OData",
-            "typeProperties":
+        "typeProperties":
         {
             "url": "<endpoint of OData source>",
             "authenticationType": "Basic",
@@ -86,6 +91,10 @@ The following properties are supported for OData linked service:
                 "type": "SecureString",
                 "value": "<password>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
