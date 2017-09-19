@@ -53,8 +53,10 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 
 - When using remote query execution, ensure you're only selecting necessary columns and applying the right filters. Not only does this increase the compute necessary, but it also increases the size of the result set and therefore the amount of data that need to be moved between the two instances.
 - Maintain data for analytical purposes in both SQL Data Warehouse and SQL Database in clustered columnstore for analytical performance.
-- Ensure that source tables are partitioned for query and data movement
+- Ensure that source tables are partitioned for query and data movement.
+- Ensure SQL database instances used as a cache are partitioned to enable more granular updates and easier management. 
 - Ideally use PremiumRS databases because they provide the analytical benefits of clustered columnstore indexing with a focus on IO-intensive workloads at a discount from Premium databases.
+- After loads, utilize load or effective date identification columns for upserts in the SQL Database instances to maintain cache-source integrity. 
 
 ### Elastic Querying
 
@@ -109,7 +111,7 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 
 - You want to query your cache data with SQL
 - You need remote execution for certain queries
-- You have large cache requirements
+- You have larger cache requirements
 
 
 
