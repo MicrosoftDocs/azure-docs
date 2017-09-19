@@ -470,6 +470,9 @@ Select __OK__ to apply the filter.
 
    ![Image of the halo effect](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
 
+    > [!NOTE]
+    > Notice that the blue histogram appears shorter compared to the previous one. This is due to automatic re-bucketing of data in the new range.
+
 2. To remove the halo, select __Edit__ and uncheck __Show halo__.
 
     ![Options for the histogram](media/tutorial-bikeshare-dataprep/uncheckhalo.png)
