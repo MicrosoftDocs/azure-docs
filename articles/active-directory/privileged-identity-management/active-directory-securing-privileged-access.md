@@ -3,8 +3,8 @@ title: Securing Privileged Access in Azure AD | Microsoft Docs
 description: A topic that explains the approaches for securing privileged access across Azure, Azure Active Directory and Microsoft Online Services.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: barclayn
+manager: mbaldwin
 editor: mwahl
 
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
 
@@ -47,7 +47,7 @@ For more information, see [MFA for Office 365 and MFA for Azure](https://blogs.t
 ## Time-bound privileges
 Some organizations may find that they have too many users in highly privileged roles. A user might have been added to the role for a particular activity, like to sign up for a service, but didn't use those privileges frequently afterward.
 
-To lower the exposure time of privileges and increase your visibility into their use, limit users to only taking on their privileges "just in time" (JIT), when they need to perform a task. For Azure Active Directory and Microsoft Online Services, you can use [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
+To lower the exposure time of privileges and increase your visibility into their use, limit users to only taking on their privileges "just in time" (JIT), or assign these roles for a shortened duration with confidence the privileges will be revoked automatically. For Azure Active Directory, Azure Resources (Preview) and Microsoft Online Services, you can use [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
 
 ![PIM dashboard][2]
 
