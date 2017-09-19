@@ -173,7 +173,6 @@ The 2017-08-01 API version for Microsoft.Network/loadBalancers introduces SKUs t
             {
                 "name": "Standard"
             },
-            [..]
 ```
 
 ### Public IP
@@ -193,7 +192,6 @@ The 2017-08-01 API version for Microsoft.Network/publicIPAddresses resources int
             {
                 "name": "Standard"
             },
-            [..]
 ```
 
 Unlike Public IP Basic which offers multiple allocation methods, Public IP Standard is always Static allocation.
