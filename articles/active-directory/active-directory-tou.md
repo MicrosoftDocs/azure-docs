@@ -29,7 +29,7 @@ Finding it difficult to get employee’s or guests to agree to your terms of use
 
 Azure AD Terms of Use can be used in the following scenarios:
 -	General terms of use for all users in your organization.
--	Specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees) (using dynamic groups).
+-	Specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, done by [dynamic groups](https://azure.microsoft.com/updates/azure-active-directory-dynamic-membership-for-groups)).
 -	Specific terms of use based on accessing high business impact apps, like Salesforce.
 
 
@@ -52,7 +52,7 @@ Once you have finalized your Terms of Use, use the following procedure to add it
 3. Enter the **Name** for the Terms of Use
 4. Enter **Display Name**.  This is the header that users see when they sign in.
 5. **Browse** to your finalized terms of use pdf and select it.
-6. You can **Enforce** the terms of use by using a template or a custom conditional access policy.
+6. You can **Enforce** the terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enable allow granular terms of use, down to a specific cloud application or group of users.  From more information see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
 7. Click **Create**.
 8. If you selected a custom conditional access template, then a new screen appears which allows you to customize the CA policy.
 7. You should now see your new Terms of Use.</br>
@@ -80,7 +80,7 @@ Azure AD Terms of Use provides easy to use auditing so that you can see who has 
 ![Audit Event](media/active-directory-tou/tou9.png)
 4.  You can also download the information in a .csv file for use locally.
 
-## Preview for end users
+## What users see
 Users, who are in scope, will see the following once a terms of use is created and enforced.
 -	Best practice is to have the font within the PDF at size 24.
 ![Audit Event](media/active-directory-tou/tou10.png)
