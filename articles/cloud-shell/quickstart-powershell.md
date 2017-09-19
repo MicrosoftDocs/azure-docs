@@ -192,8 +192,8 @@ TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datace
 TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
 
 ```
-
-> Note: You may notice that the second time when you type `dir`, the cloud shell is able to display the items much faster.
+> [!NOTE]
+> You may notice that the second time when you type `dir`, the cloud shell is able to display the items much faster.
 
 This is because the child items are cached in memory for a better user experience.
 However, you can always use `dir -force` to get fresh data.
@@ -248,7 +248,7 @@ However, you can always use `dir -force` to get fresh data.
      Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
      ```
 
-#### Interactively log onto a remote VM
+#### Interactively log on to a remote VM
 
 You can use `Enter-AzureRmVM` to interactively log into a VM running in Azure.
 
