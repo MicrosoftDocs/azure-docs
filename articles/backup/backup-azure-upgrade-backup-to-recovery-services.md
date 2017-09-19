@@ -38,7 +38,7 @@ Consult the PowerShell cmdlets references for the [Service Manager deployment mo
 
 Check the following issues before you upgrade your Backup vaults to Recovery Service vaults.
 
-- **Minimum agent version**: To upgrade your vault, make sure the Microsoft Azure Recovery Services (MARS) agent is at least version 2.0.9070.0. If the MARS agent is older than 2.0.9070.0, update the agent before starting the upgrade process.
+- **Minimum agent version**: To upgrade your vault, make sure the Microsoft Azure Recovery Services (MARS) agent is at least version 2.0.9083.0. If the MARS agent is older than 2.0.9083.0, update the agent before starting the upgrade process.
 - **Instance-based billing model**: Recovery Service vaults only support the Instance-based billing model. If you have a backup vault that is using the older Storage-based billing model, convert the billing model during upgrade.
 - **No on-going backup configuration operations**: During upgrade, access to the management plane is restricted. Complete all management plane actions and then start the upgrade.
 
@@ -64,8 +64,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 
 >[!NOTE]
 > Resource Group names have constraints. Be sure to follow the guidance; failure to do so could cause vault upgrades to fail.
->
->
+>Azure US Government customers need to set the environment to “AzureUSGovernment” while running the script.
 
 The following code snippet is an example of what your PowerShell command should look like:
 
@@ -80,7 +79,7 @@ The PowerShell script prompts you to enter your credentials. Enter your credenti
 ### Pre-requisites checking
 Once you have entered your Azure credentials, Azure checks that your environment meets the following prerequisites:
 
-- **Minimum agent version** - Upgrading Backup vaults to Recovery Services vaults requires the MARS agent to be at least version 2.0.9070. If you have items registered to a Backup vault with an agent earlier than 2.0.9070, the prerequisite check fails. If the prerequisite check fails, update the agent and try to upgrade the vault again. You can download the latest version of the agent from [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Minimum agent version** - Upgrading Backup vaults to Recovery Services vaults requires the MARS agent to be at least version 2.0.9083.0. If you have items registered to a Backup vault with an agent earlier than 2.0.9083.0, the prerequisite check fails. If the prerequisite check fails, update the agent and try to upgrade the vault again. You can download the latest version of the agent from [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **On-going configuration jobs**: If someone is configuring job for a Backup vault set to be upgraded, or registering an item, the prerequisite check fails. Complete the configuration, or finish registering the item, and then start the vault upgrade process.
 - **Storage-based billing model**: Recovery Services vaults support the Instance-based billing model. If you run the vault upgrade on a Backup vault that uses the Storage-based billing model, you are prompted to upgrade your billing model along with the vault. Otherwise, you can update your billing model first, and then run the vault upgrade.
 - Identify a Resource Group for the Recovery Services vault. To take advantage of the Resource Manager deployment features, you must put a Recovery Services vault in a Resource Group. If you don't know which Resource Group to use, provide a name and the upgrade process creates the Resource Group for you. The upgrade process also associates the vault with the new Resource Group.
@@ -143,8 +142,8 @@ No. You cannot view or manage your classic vault post upgrade. You will only be 
 If you need to use the store, the backups of this machine for long-term retention, then you will not be able to upgrade the vault. In future releases we will add support for upgrading such a vault.
 If you do not need to store the backups of this machine anymore, then please unregister this machine from the vault and retry the upgrade.
 
-**Why can't I see the jobs information for my on-premises resources after upgrade**</br>
-Monitoring for on-premises backups (MARS agent, DPM and Azure Backup Server) is a new feature that you get when you upgrade your Backup vault to Recovery Services vault. The monitoring information takes up to 12 hours to sync with the service.
+**Why can't I see the jobs information for my resources after upgrade?**</br>
+Monitoring for backups (MARS agent and IaaS) is a new feature that you get when you upgrade your Backup vault to Recovery Services vault. The monitoring information takes up to 12 hours to sync with the service.
 
 **How do I report an issue?**</br>
 If any portion of the vault upgrade fails, note the OperationId listed in the error. Microsoft Support will proactively work to resolve the issue. You can reach out to Support or email us at rsvaultupgrade@service.microsoft.com with your Subscription ID, vault name and OperationId. We will attempt to resolve the issue as quickly as possible. Do not retry the operation unless explicitly instructed to do so by Microsoft.

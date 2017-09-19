@@ -33,6 +33,21 @@ The following operating system versions are supported for development:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
 
+## Runtime and common SDK Installation Methods
+
+### 1. Script installation
+The following command automatically installs the Service Fabric runtime and common SDK. It also sets-up the Azure Service Fabric CLI 'sfctl'.
+After the script is executed successfully, you can directly skip to [Set up a local cluster](#set-up-a-local-cluster).
+
+```bash
+sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+```
+
+
+### 2. Manual Installation
+For manual installation of Service Fabric runtime and common SDK, follow the steps mentioned below.
+
+
 ## Update your APT sources
 To install the SDK and the associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
 
@@ -79,9 +94,9 @@ To install the SDK and the associated runtime package via the apt-get command-li
 
 After you have updated your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
 
-    ```bash
-    sudo apt-get install servicefabricsdkcommon
-    ```
+```bash
+sudo apt-get install servicefabricsdkcommon
+```
 
 >   [!TIP]
 >   The following commands automate accepting the license for Service Fabric packages:
@@ -110,6 +125,13 @@ After you have updated your sources, you can install the SDK. Install the Servic
   > Standalone clusters aren't supported in Linux. The preview supports only one-box and Azure Linux multi-machine clusters.
   >
 
+## Set up the Service Fabric CLI
+
+The [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities,
+including clusters and applications.
+Please follow the instructions at [Service Fabric CLI](service-fabric-cli.md) to install the CLI.
+
+
 ## Install and set up the generators for containers and guest-executables
 Service Fabric provides scaffolding tools which will help you create a Service Fabric applications from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for working on your machine.
 
@@ -132,13 +154,6 @@ Service Fabric provides scaffolding tools which will help you create a Service F
   ```
 
 After you have installed the above generators, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer` respectively.
-
-### Set up Azure Service Fabric CLI
-
-[Azure Service Fabric CLI](https://github.com/Azure/service-fabric-cli) includes commands for interacting with Service Fabric entities, including clusters, applications and services. It is based on python, so ensure you have ``python`` and python package-manager ``pip`` installed.
-
-For more information about installing Azure CLI 2.0 and using the Service Fabric commands, see [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md).
-
 
 ## Install the necessary Java artifacts (optional, if you want to use the Java programming models)
 
@@ -192,16 +207,23 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 > [!NOTE]
 > Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions on this page.
 
+## Remove the SDK
+To remove the Service Fabric SDKs, run the following:
+
+```bash
+sudo apt-get remove servicefabric servicefabicsdkcommon servicefabricsdkcsharp servicefabricsdkjava
+sudo apt-get install -f
+```
+
 ## Next steps
+
 * [Create and deploy your first Service Fabric Java application on Linux by using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+* [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
-
-## Related articles
-
-* [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Get started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->
 

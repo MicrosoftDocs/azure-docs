@@ -20,7 +20,7 @@ ms.author: magoedte;bwren
 # Upgrade your Azure Log Analytics workspace to new log search
 
 > [!NOTE]
-> Upgrade to the new Log Analytics query language is currently optional giving you time to [ramp up on the new language](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).  
+> Upgrade to the new Log Analytics query language is currently optional giving you time to [ramp up on the new language](https://go.microsoft.com/fwlink/?linkid=856078).  
 
 The new Log Analytics query language is here, and you need to upgrade your workspace to take advantage of it.  This article describes the advantages of the new language and how to convert your workspace.  If you don't choose to upgrade now, then your workspace will continue to operate just like it always did, but it will be automatically converted at a later date.  You will receive significant time and notification when that date is set.
 
@@ -67,7 +67,7 @@ You can upgrade your workspace when you see the purple banner at the top of the 
 If you encounter an issue that causes the upgrade to fail, you can go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your question or [create a support request](../azure-supportability/how-to-create-azure-support-request.md) from the Azure portal.
 
 ## How do I learn the new language?
-Since it's used by multiple services we've created an [external site to host the documentation](https://docs.loganalytics.io/) for the new language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) and access the language reference at [Log Analytics query langauge](https://docs.loganalytics.io/docs/Language-Reference).  
+Since it's used by multiple services we've created an [external site to host the documentation](https://docs.loganalytics.io/) for the new language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://go.microsoft.com/fwlink/?linkid=856078) and access the language reference at [Log Analytics query langauge](https://go.microsoft.com/fwlink/?linkid=856079).  
 
 If you're already familiar with the legacy Log Analytics query language though, then you can use the language converter which is added to your workspace as part of the upgrade.
 
@@ -77,6 +77,6 @@ Just type in your legacy query and then click **Convert** to see the translated 
 
 
 ## Next steps
-- Check out a [tutorial on the new language](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).
+- Check out a [tutorial on the new language](https://go.microsoft.com/fwlink/?linkid=856078).
 - Walk through a [tutorial on using the Log Search portal](log-analytics-log-search-log-search-portal.md) with the new query language.
-- Get an introduction to the new [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal).
+- Get an introduction to the new [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587).

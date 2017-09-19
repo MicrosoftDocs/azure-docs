@@ -49,56 +49,33 @@
     href: cli-samples.md
 - name: Concepts
   items:
+  - name: Azure Resource Manager
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Regions and availability
     href: regions-and-availability.md
+  - name: VM types and sizes
+    href: sizes.md
+  - name: Maintenance and updates
+    href: maintenance-and-updates.md
   - name: Storage
     href: about-disks-and-vhds.md
   - name: Networking
     href: network-overview.md
-  - name: VM Scale Sets
-    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Containers
-    href: containers.md
-  - name: Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    items:
-    - name: Deployment models
-      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Templates for VMs
-      href: template-description.md
-  - name: Azure Windows agent
-    href: agent-user-guide.md
-  - name: Azure Security Center
-    href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Disaster recovery
-    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Planned maintenance
-    href: planned-maintenance.md
-  - name: VM sizes
-    href: sizes.md
-    items:
-    - name: General purpose
-      href: sizes-general.md
-    - name: Compute optimized
-      href: sizes-compute.md
-    - name: Memory optimized
-      href: sizes-memory.md
-    - name: Storage optimized
-      href: sizes-storage.md
-    - name: GPU optimized
-      href: sizes-gpu.md
-      items:
-      - name: GPU drivers
-        href: n-series-driver-setup.md
-    - name: High performance compute
-      href: sizes-hpc.md
-    - name: Azure compute units (ACU)
-      href: acu.md
-    - name: Compute benchmark scores
-      href: compute-benchmark-scores.md
+  - name: Auto-scale applications
+    href: autoscale.md
+  - name: Infrastructure automation
+    href: infrastructure-automation.md
+  - name: Security and policy
+    href: security-policy.md
+  - name: Monitoring
+    href: monitor.md
+  - name: Backup and recovery
+    href: backup-recovery.md
+  - name: High performance computing
+    href: high-performance-computing.md
   - name: Deployment considerations
     items:
-    - name: Example basic deployment
+    - name: Infrastructure guidelines
       href: infrastructure-example.md
 - name: How-to guides
   items:
@@ -108,6 +85,10 @@
       href: csharp.md
     - name: Use a template with C#
       href: csharp-template.md
+    - name: Create VM with Chef
+      href: chef-automation.md
+    - name: Use Java
+      href: java.md
     - name: Use Python
       href: python.md
     - name: Use a template
@@ -116,6 +97,8 @@
       href: connect-logon.md
     - name: Use AHUB licensing
       href: hybrid-use-benefit-licensing.md
+    - name: Use Multitenant Hosting Rights for Windows 10
+      href: windows-desktop-multitenant-hosting-deployment.md
   - name: Secure VMs
     items:
     - name: Encrypt

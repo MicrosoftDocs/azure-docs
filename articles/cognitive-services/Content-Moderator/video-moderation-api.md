@@ -12,20 +12,23 @@ ms.date: 02/09/2017
 ms.author: sajagtap
 ---
 
-# Video Moderation API overview #
+# Video Moderation API
 
-Today, online viewers are generating billions of video views across popular and regional social media web sites and increasing. With proactive detection of adult content in your video files, you can significantly lower the cost of your moderation efforts. Furthermore, gaining this type of early insight can enable you to make better decisions and create safer experiences for your customers.
+Today, online viewers are generating billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you can significantly lower the cost of your moderation efforts.
 
 ## How it works
 
-The Content Moderator video moderation capability is powered by the adult content classifier running within the **Azure Media Services**. The capability is currently in private preview and available at no charge. Here are the steps you need to follow to try the service:
+The Content Moderator video capability is powered by the adult classifier (media processor) in the **Azure Media Services (AMS)**. The capability is currently in private preview and available at no charge. Here are the steps you need to follow to try the service:
 
-1. [Create a **Media Services** account](https://ms.portal.azure.com/#create/Microsoft.MediaService) on the Azure portal.
-1. [Contact us](https://cognitive.uservoice.com/ "Contact Us") with your Azure Subscription ID for enabling the Content Moderator in your region.
+1. [Create an **Azure Media Services** account](https://ms.portal.azure.com/#create/Microsoft.MediaService) in your Azure subscription.
+1. [Contact us](https://cognitive.uservoice.com/ "Contact Us") with this information for enabling the Content Moderator in your region.
+   1. Your Azure subscription ID
+   1. Your Azure Media Services account name
+   1. Your region
 
 ## Code Sample
 
-The following is a sample C# program set that will get you started with your first Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
+The sample C# program listed below demonstrates the use of the AMS ADK to run a Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
 
 
 	using System;

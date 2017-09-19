@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
 
 
@@ -22,7 +22,7 @@ ms.author: cakarst;barbkess
 # Load data from Azure Data Lake Store into SQL Data Warehouse
 This document gives you all steps you  need to load your own data from Azure Data Lake Store (ADLS) into SQL Data Warehouse using PolyBase.
 While you are able to run adhoc queries over the data stored in ADLS using the External Tables, as a best practice we suggest importing the data into the SQL Data Warehouse.
-Time Estimate: 10 minutes assuming you have the prerequisites need to complete.
+
 In this tutorial you will learn how to:
 
 1. Create External Database objects to load from Azure Data Lake Store.
@@ -86,8 +86,7 @@ WITH
 
 
 ### Create the external data source
-Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data.
-You can find the ADL URI in the Azure portal and www.portal.azure.com.
+Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data. To find the ADL URI in the Azure portal, navigate to your Azure Data Lake Store, and then look at the Essentials panel.
 
 ```sql
 -- C: Create an external data source
@@ -168,7 +167,7 @@ During load, if the reject value is reached, the load fails. The most common cau
 For example, if a column is incorrectly given the schema of int when the data in the file is a string, every row will fail to load.
 
 The Location specifies the topmost directory that you want to read data from.
-In this case, if there were subdirectories under /DimProduct/ PolyBase would import all the data within the subdirectories.
+In this case, if there were subdirectories under /DimProduct/ PolyBase would import all the data within the subdirectories. Azure Data Lake store uses Role Based Access Control (RBAC) to control access to the data. This means that the Service Principal must have read permissions to the directories defined in the location parameter and to the children of the final directory and files. This enables PolyBase to authenticate and load read that data. 
 
 ## Load the data
 To load data from Azure Data Lake Store use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS uses the strongly typed external table you have created.
@@ -211,7 +210,7 @@ The following example is a good starting point for creating statistics. It creat
 ## Achievement unlocked!
 You have successfully loaded data into Azure SQL Data Warehouse. Great job!
 
-##Next Steps
+## Next Steps
 Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 
