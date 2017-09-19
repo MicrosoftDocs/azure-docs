@@ -40,10 +40,10 @@ You can transfer your subscriptions or your management groups into the directory
 
 
 ### Transfer your subscriptions 
-If you're an enterprise portal administrator, [transfer ownership of the subscription](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) to move the subscription to the directory with your management groups.
+You can move a subscription to the directory associated with your management groups. This move can be achieved by having your enrollment administrator transfer your subscription to an account in the target directory. To learn more, sign in at the [Enterprise portal](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription).
 
 ### Transfer your management groups
- The ability to move management groups is not available within the Azure portal and is coming soon.  
+We are working on providing the ability to associate a management group hierarchy with a different directory. This will be enabled soon. 
  
 
 
