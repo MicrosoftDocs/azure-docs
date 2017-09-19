@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ---
 
@@ -27,7 +27,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 ![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO is currently in preview. This feature is _not_ applicable to Active Directory Federation Services (ADFS).
+>Seamless SSO is _not_ applicable to Active Directory Federation Services (ADFS).
 
 ## Key benefits
 
@@ -59,11 +59,13 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 
 \*Requires [additional configuration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
->[!IMPORTANT]
->We recently rolled back support for Edge to investigate customer-reported issues.
-
 >[!NOTE]
 >For Windows 10, the recommendation is to use [Azure AD Join](../active-directory-azureadjoin-overview.md) for the optimal single sign-on experience with Azure AD.
+
+## Known limitations
+
+- Edge browser support.
+- License activation on Office clients, especially in shared computer scenarios, causes additional sign-in prompts for users.
 
 ## Next steps
 
