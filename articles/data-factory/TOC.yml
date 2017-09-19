@@ -29,9 +29,11 @@
     href: tutorial-copy-onprem-data-to-cloud-powershell.md
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
-  - name: 5 - Transform data in cloud
+  - name: 5 - Copy data incrementally
+    href: tutorial-incremental-copy-powershell.md      
+  - name: 6 - Transform data in cloud
     href: tutorial-transform-data-using-spark-powershell.md
-  - name: 6 - Control flow
+  - name: 7 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
   items:
