@@ -23,11 +23,9 @@ Using Azure Data Factory, you can easily operationalize your data transformation
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Spark Activity and an on-demand HDInsight linked service. You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
-> * Author linked services.
-> * Author a pipeline that contains a Spark activity.
 > * Create a data factory. 
-> * Deploy linked services.
-> * Deploy the pipeline. 
+> * Author and deploy linked services.
+> * Author and deploy a pipeline. 
 > * Start a pipeline run.
 > * Monitor the pipeline run.
 
@@ -179,7 +177,7 @@ Note the following points:
 - entryFilePath points to the WordCount_Spark.py file in the script sub folder of the spark folder. 
 
 
-## Create data factory 
+## Create a data factory 
 You have authored linked service and pipeline definitions in JSON files. Now, let’s create a data factory, and deploy the linked Service and pipeline JSON files by using PowerShell cmdlets. Run the following PowerShell commands one by one: 
 
 1. Set variables one by one.
@@ -226,31 +224,31 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 5. Switch to the folder where you created JSON files, and run the following command to deploy an Azure Storage linked service: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
     ```
 6. Run the following command to deploy an on-demand Spark linked service: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
     ```
 7. Run the following command to deploy a pipeline: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -dataFactory $df -Name $pipelineName -File "MySparkOnDemandPipeline.json"
+    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MySparkOnDemandPipeline.json"
     ```
     
-## Start and monitor pipeline run  
+## Start and monitor a pipeline run  
 
 1. Start a pipeline run. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = Inovke-AzureRmDataFactoryV2PipelineRun -dataFactory $df -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
+    $runId = Inovke-AzureRmDataFactoryV2PipelineRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
     ```
 2. Run the following script to continuously check the pipeline run status until it finishes copying the data.
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactory $df -PipelineRunId $runId -PipelineName $pipelineName -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName $pipelineName -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
             Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
@@ -292,7 +290,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 3. Run the following command: 
 
     ```powershell
-    Get-AzureRmDataFactoryV2ActivityRun -dataFactory $df -PipelineName $pipelineName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(10)
+    Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(10)
     ```
     
     Here is the sample output: 
@@ -321,17 +319,9 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to: 
 
 > [!div class="checklist"]
-> * Author linked services.
-> * Author a pipeline that contains a Spark activity.
 > * Create a data factory. 
-> * Deploy linked services.
-> * Deploy the pipeline. 
+> * Author and deploy linked services.
+> * Author and deploy a pipeline. 
 > * Start a pipeline run.
 > * Monitor the pipeline run.
 
-Go through the following tutorials to learn about using Data Factory in more scenarios: 
-
-Tutorial | Description
--------- | -----------
-[Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
-[Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
