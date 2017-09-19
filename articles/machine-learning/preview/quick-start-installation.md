@@ -43,7 +43,7 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 
    ![Azure Machine Learning Search](media/quick-start-installation/ibiza-search-ml.png)
 
-5. Click **Create** to open the form to configure a new Machine Learning Experimentation account. 
+5. Click **Add** to open the form to configure a new Machine Learning Experimentation account. 
 
    ![Machine Learning Experimentation Account](media/quick-start-installation/ibiza-experimentation-account-screen.png)
 
