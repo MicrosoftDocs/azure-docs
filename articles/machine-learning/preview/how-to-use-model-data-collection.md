@@ -15,11 +15,11 @@ ms.date: 09/12/2017
 
 # How to collect model data using data collection
 
-Model data collection feature allows you to log model inputs and predictions from a machine learning web service. This document talks about the following aspects of model data collection:
+The model data collection feature allows you to archive model inputs and predictions from a machine learning web service. This document talks about the following aspects of model data collection:
 
 - How to install data collection package
 - How to use data collection
-- How to view and consume the logged data
+- How to view and consume the collected data
 
 ## How to install the data collection package
 The data collection library can be installed natively on Linux and Windows.
@@ -63,9 +63,9 @@ In order to use model data collection, you need to make the following changes to
     prediction_dc.collect(pred)
     ```
 
-    Make sure that variables `input_df` and `pred` (prediction value from `model.predict()`) are populated before you call `collect()` function on them.
+    Make sure that variables `input_df` and `pred` (prediction value from `model.predict()`) are initialized before you call `collect()` function on them.
 
-4. Use `az ml service create realtime` command with the `--collect-model-data true` switch to create a realtime web service. This makes sure that the model data gets logged when the service is being run.
+4. Use `az ml service create realtime` command with the `--collect-model-data true` switch to create a realtime web service. This makes sure that the model data gets collected when the service is being run.
 
      ```batch
     c:\temp\myIris> az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
@@ -77,7 +77,7 @@ In order to use model data collection, you need to make the following changes to
     C:\Temp\myIris> az ml service run realtime -i irisapp -d "ADD YOUR INPUT DATA HERE!!" 
     ``` 
     
-## How to view and consume the logged data
+## How to view and consume the collected data
 To view the collected data in blob storage:
 
 1. Sign into the [Azure portal](https://portal.azure.com).
