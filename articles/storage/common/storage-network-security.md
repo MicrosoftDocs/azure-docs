@@ -39,9 +39,9 @@ Network rules are enforced on all network protocols to Azure storage, including 
 
 Network rules can be applied to existing Storage accounts, or can be applied during the creation of new Storage accounts.
 
-Once network rules are applied, they are enforced for all requests.  SAS tokens that grant access to a specific IP Address service to **limit** the access of the token holder, but do not grant new access beyond configured network rules. 
+Once network rules are applied, they are enforced for all requests.  SAS tokens that grant access to a specific IP Address service serve to **limit** the access of the token holder, but do not grant new access beyond configured network rules. 
 
-Virtual Machine Disk traffic (including mount and unmount operations, disk IO) is **not** affected b​y network rules.  Backup of unmanaged disks is not supported for protected storage accounts during the preview.  REST access to page blobs (used for Virtual Machine disks) is protected by network rules.
+Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected b​y network rules.  Backup of unmanaged disks is not supported for protected storage accounts during the preview.  REST access to page blobs (used for Virtual Machine disks) is protected by network rules.
 
 Classic Storage accounts **do not** support Firewalls and Virtual Networks.
 
