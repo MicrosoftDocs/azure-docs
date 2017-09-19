@@ -6,14 +6,14 @@
       expanded: true
       items:
         - name: Kubernetes
-          href: http://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-nodejs
+          href: https://docs.microsoft.com/azure/container-service/kubernetes/ 
           items:
             - name: Overview - Introduction to Azure Container Service for Kubernetes
               href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-intro-kubernetes
             - name: Quickstart - Deploy Kubernetes cluster for Linux containers
               href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough
         - name: Docker Swarm & DC/OS
-          href: http://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
+          href: https://docs.microsoft.com/azure/container-service/dcos-swarm/ 
           items:
             - name: Quickstart - Deploy Docker Swarm cluster
               href: https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough
@@ -42,8 +42,6 @@
       items:
         - name: Create a registry - CLI
           href: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli
-        - name: Create a managed registry - CLI
-          href: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-managed-get-started-azure-cli
         - name: How To
           items:
             - name: Push and pull an image
@@ -56,10 +54,10 @@
               href: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication
             - name: Use ACR webhooks
               href: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook
-    - name: App Service (Linux)
+    - name: Web Apps for Containers
       href: https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro
       items:
-        - name: Using a custom Docker image for Azure Web App on Linux
+        - name: Using a custom Docker image for Azure Web App for Containers
           href: https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image
     - name: Service Fabric
       href: https://docs.microsoft.com/en-us/azure/service-fabric/
@@ -104,7 +102,7 @@
           href: https://docs.microsoft.com/en-us/cli/azure/acs
         - name: Azure Container Registry (az acr)
           href: https://docs.microsoft.com/en-us/cli/azure/acr      
-        - name: Azure App Service (az appservice)
+        - name: Azure Web Apps for Containers(az appservice)
           href: https://docs.microsoft.com/en-us/cli/azure/appservice
         - name: Azure App Service Web App (az webapp)
           href: https://docs.microsoft.com/en-us/cli/azure/webapp
