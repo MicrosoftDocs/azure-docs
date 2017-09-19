@@ -113,9 +113,37 @@ Here are a few tips for finding and diagnosing performance issues:
 * Monitor your Web app in operation with [Live Metrics Stream][livestream].
 * Capture the state of your .Net application with [Snapshot Debugger][snapshot].
 
-## Find and fix performance bottlenecks with an interactive performance investigation
+NOTE: We are in the process of transitioning Application Insights performance investigation to an interactive full-screen experience. Following documentation covers the new experience first, and then reviews the previous experience, in case you still need to access it, while it remains available throughout the transition.
 
-You can use the new Application Insights interactive performance investigation to locate areas of your Web app that are slowing down overall performance. You can quickly find specific pages that are slowing down, and use the [Profiling tool](app-insights-profiler.md) to see if there is a correlation between these pages.
+## Find and fix performance bottlenecks with an interactive full-screen performance investigation
+
+You can use the new Application Insights interactive performance investigation to review slow performing operations in your Web app. You can quickly select a specific slow operation and use [Profiler](app-insights-profiler.md) to root cause the slow operations down to code. Using the new duration distribution shown for the selected operation you can quickly at a glance assess just how bad the experience is for your customers. In fact, for each slow operation you can see how many of your user interactions were impacted. In the following example, we've decided to take a closer look at the experence for GET Customers/Details operation. In the duration distributionp we can see that there are three spikes. Leftmost spike is around 400ms and represent great responsive experience. Middle spike is around 1.2s and represents a mediocre experience. Finally at the 3.6s we have another small spike that represents the 99th percentile experience, which is likely to cause our customers to leave dissatisfied. That experience is ten times slower than the great experience for the same operation. 
+
+![GET Customers/Details three duration spikes](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
+
+To get a better sense of the user experiences for this operation, we can select a larger time range. We can then also narrow down in time on a specific time window where the operation was particularly slow. In the following example we've switched from the default 24 hours time range to the 7 days time range and then zoomed into the 9:47 to 12:47 time window between Tue the 12th and Wed the 13th. Note that both the duration distribution and the number of sample and profiler traces have been updated on the right.
+
+![GET Customers/Details three duration spikes in 7 days range with a time window](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+
+To narrow in on the slow experiences, we next zoom into the durations that fall between 95th and the 99th percentile. These represent the 4% of user interactions that were particularly slow.
+
+![GET Customers/Details three duration spikes in 7 days range with a time window](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+
+We can now either look at the representative samples, by clicking on the Samples button, or at the representative profiler traces, by clicking on the Profiler traces button. In this example there are four traces that have been collected for GET Customers/Details in the time window and range duration of interest.
+
+Sometimes the issue will not be in your code, but rather in a dependency you code calls. You can switch to the Dependencies tab in the performance triage view to investigate such slow dependencies. Note that by default the performance view is trending averages, but what you really want to look at is the 95th percentile (or the 99th, in case you are monitoring a very mature service). In the following example we have focused on the slow Azure BLOB dependency, where we call PUT fabrikamaccount. The good experiences cluster around 40ms, while the slow calls to the same dependency are three times slower, clustering around 120ms. It doesn't take many of these calls to add up to cause the respective operation to noticably slow down. You can drill into the representative samples and profiler traces, just like you can with the Operations tab.
+
+![GET Customers/Details three duration spikes in 7 days range with a time window](./media/app-insights-web-monitor-performance/SlowDependencies95thTrend.png)
+
+Another really powerful feature that is new to the interactive full-screen performance investigation is the integration with insights. Application Insights can detect and surface as insights responsiveness regressions as well as help you identify common properties in the sample set you decided to focus on. The best way to look at all of the available insights is to switch to a 30 days time range and then select Overall to see insights across all operations for the past month.
+
+![GET Customers/Details three duration spikes in 7 days range with a time window](./media/app-insights-web-monitor-performance/Performance30DayOveralllnsights.png)
+
+Application Insights in the new performance triage view can literally help you find the needles in the haystack that result in poor experiences for your Web app users.
+
+## Deprecated: Find and fix performance bottlenecks with a narrow bladed legacy performance investigation
+
+You can use the legacy Application Insights bladed performance investigation to locate areas of your Web app that are slowing down overall performance. You can find specific pages that are slowing down, and use the [Profiler](app-insights-profiler.md) to root cause these issues down to code. 
 
 ### Create a list of slow performing pages 
 
