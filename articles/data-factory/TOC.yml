@@ -17,8 +17,6 @@
       href: quickstart-create-data-factory-python.md      
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
-    - name: Azure Portal
-      href: quickstart-create-data-factory-portal.md     
 - name: Tutorials
   items:
   - name: 1. Move SSIS packages to Azure
