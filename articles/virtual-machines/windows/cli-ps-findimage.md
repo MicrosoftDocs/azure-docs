@@ -61,21 +61,21 @@ If you need to determine these values, you can run the [Get-AzureRMVMImagePublis
 
 First, list the publishers with the following commands:
 
-```powershell
+```powershell-interactive
 $locName="<Azure location, such as West US>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
 Fill in your chosen publisher name and run the following commands:
 
-```powershell
+```powershell-interactive
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
 Fill in your chosen offer name and run the following commands:
 
-```powershell
+```powershell-interactive
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
@@ -84,7 +84,7 @@ From the output of the `Get-AzureRMVMImageSku` command, you have all the informa
 
 The following shows a full example:
 
-```powershell
+```powershell-interactive
 $locName="West US"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
@@ -110,7 +110,7 @@ Canonical
 
 For the "MicrosoftWindowsServer" publisher:
 
-```powershell
+```powershell-interactive
 $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
@@ -127,7 +127,7 @@ WindowsServer-HUB
 
 For the "WindowsServer" offer:
 
-```powershell
+```powershell-interactive
 $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```

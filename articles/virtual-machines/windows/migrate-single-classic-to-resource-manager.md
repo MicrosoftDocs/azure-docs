@@ -93,7 +93,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 1.  First, set the common parameters:
 
-    ```powershell
+    ```powershell-interactive
 	$resourceGroupName = 'yourResourceGroupName'
 	
 	$location = 'your location' 
@@ -121,7 +121,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
     Ensure that you have provided the complete URI of the OS VHD to the $osVhdUri parameter. Also, enter **-AccountType** as **PremiumLRS** or **StandardLRS** based on type of disks (Premium or Standard) you are migrating to.
 
-    ```powershell
+    ```powershell-interactive
 	$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
 	-AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
 	-ResourceGroupName $resourceGroupName
@@ -129,7 +129,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 3.  Attach the OS disk to the new VM.
 
-    ```powershell
+    ```powershell-interactive
 	$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
 	$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
 	-StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
@@ -137,7 +137,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 4.  Create a managed data disk from the data VHD file and add it to the new VM.
 
-    ```powershell
+    ```powershell-interactive
 	$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
 	-AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
 	-SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
@@ -148,7 +148,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 5.  Create the new VM by setting public IP, Virtual Network and NIC.
 
-    ```powershell
+    ```powershell-interactive
 	$publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
 	-ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
 	

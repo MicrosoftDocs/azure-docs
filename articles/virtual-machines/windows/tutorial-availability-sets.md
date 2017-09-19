@@ -46,12 +46,12 @@ You can create an availability set using [New-AzureRmAvailabilitySet](/powershel
 
 Create a resource group.
 
-```powershell
+```powershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
 
-```powershell
+```powershell-interactive
 New-AzureRmAvailabilitySet `
    -Location EastUS `
    -Name myAvailabilitySet `
@@ -71,7 +71,7 @@ When you create a VM using configuration using [New-AzureRMVMConfig](/powershell
 
 Create 2 VMs with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) in the availability set.
 
-```powershell
+```powershell-interactive
 $availabilitySet = Get-AzureRmAvailabilitySet `
     -ResourceGroupName myResourceGroupAvailability `
     -Name myAvailabilitySet
@@ -161,7 +161,7 @@ It takes a few minutes to create and configure both VMs. When finished, you will
 
 You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) to list all the available sizes on the hardware cluster for the availability set.
 
-```powershell
+```powershell-interactive
 Get-AzureRmVMSize `
    -AvailabilitySetName myAvailabilitySet `
    -ResourceGroupName myResourceGroupAvailability  

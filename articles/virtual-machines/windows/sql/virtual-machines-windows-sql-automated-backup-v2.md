@@ -161,7 +161,7 @@ You can use PowerShell to configure Automated Backup v2. Before you begin, you m
 ### Install the SQL IaaS Extension
 If you provisioned a SQL Server virtual machine from the Azure portal, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.
 
-```powershell
+```powershell-interactive
 $vmname = "vmname"
 $resourcegroupname = "resourcegroupname"
 
@@ -172,7 +172,7 @@ If the SQL Server IaaS Agent extension is installed, you should see it listed as
 
 If it is not installed or failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in.
 
-```powershell
+```powershell-interactive
 $region = “EASTUS2”
 Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
@@ -182,7 +182,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
 ### <a id="verifysettings"></a> Verify current settings
 If you enabled automated backup during provisioning, you can use PowerShell to check your current configuration. Run the **Get-AzureRmVMSqlServerExtension** command and examine the **AutoBackupSettings** property:
 
-```powershell
+```powershell-interactive
 (Get-AzureRmVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
 ```
 
@@ -213,7 +213,7 @@ You can use PowerShell to enable Automated Backup as well as to modify its confi
 
 First, select or create a storage account for the backup files. The following script selects a storage account or creates it if it does not exist.
 
-```powershell
+```powershell-interactive
 $storage_accountname = “yourstorageaccount”
 $storage_resourcegroupname = $resourcegroupname
 
@@ -229,7 +229,7 @@ If (-Not $storage)
 
 Then use the **New-AzureRmVMSqlServerAutoBackupConfig** command to enable and configure the Automated Backup v2 settings to store backups in the Azure storage account. In this example, the backups are set to be retained for 10 days. System database backups are enabled. Full backups are scheduled for weekly with a time window starting at 20:00 for two hours. Log backups are scheduled for every 30 minutes. The second command, **Set-AzureRmVMSqlServerExtension**, updates the specified Azure VM with these settings.
 
-```powershell
+```powershell-interactive
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
     -RetentionPeriodInDays 10 -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
@@ -245,7 +245,7 @@ It could take several minutes to install and configure the SQL Server IaaS Agent
 
 To enable encryption, modify the previous script to pass the **EnableEncryption** parameter along with a password (secure string) for the **CertificatePassword** parameter. The following script enables the Automated Backup settings in the previous example and adds encryption.
 
-```powershell
+```powershell-interactive
 $password = "P@ssw0rd"
 $encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force  
 
@@ -266,7 +266,7 @@ To confirm your settings are applied, [verify the Automated Backup configuration
 ### Disable Automated Backup
 To disable Automated Backup, run the same script without the **-Enable** parameter to the **New-AzureRmVMSqlServerAutoBackupConfig** command. The absence of the **-Enable** parameter signals the command to disable the feature. As with installation, it can take several minutes to disable Automated Backup.
 
-```powershell
+```powershell-interactive
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
 
 Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
@@ -276,7 +276,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ### Example script
 The following script provides a set of variables that you can customize to enable and configure Automated Backup for your VM. In your case, you might need to customize the script based on your requirements. For example, you would have to make changes if you wanted to disable the backup of system databases or enable encryption.
 
-```powershell
+```powershell-interactive
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
 $region = “Azure region name such as EASTUS2”

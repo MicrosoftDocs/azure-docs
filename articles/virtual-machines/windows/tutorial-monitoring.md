@@ -42,7 +42,7 @@ As Windows virtual machines boot up, the boot diagnostic agent captures screen o
 
 You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive. 
 
-```powershell
+```powershell-interactive
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
 ```
 
@@ -93,7 +93,7 @@ You can do more advanced monitoring of your VM by using [Operations Management S
 
 When you have access to the OMS portal, you can find the workspace key and workspace identifier on the Settings blade. Use the [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) cmmand to to add the OMS extension to the VM. Update the variable values in the below sample to reflect you OMS workspace key and workspace Id.  
 
-```powershell
+```powershell-interactive
 $omsId = "<Replace with your OMS Id>"
 $omsKey = "<Replace with your OMS key>"
 

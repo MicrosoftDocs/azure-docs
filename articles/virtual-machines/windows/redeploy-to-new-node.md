@@ -29,7 +29,7 @@ Make sure you have the latest Azure PowerShell 1.x installed on your machine. Fo
 
 The following example deploys the VM named `myVM` in the resource group named `myResourceGroup`:
 
-```powershell
+```powershell-interactive
 Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 

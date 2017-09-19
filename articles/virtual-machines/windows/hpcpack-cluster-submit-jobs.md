@@ -67,12 +67,12 @@ Components](http://technet.microsoft.com/library/hh314627.aspx).
 1. On the head node, start HPC PowerShell as an administrator.
 2. To change directory to the location of the configuration script, type the following command:
    
-    ```powershell
+    ```powershell-interactive
     cd $env:CCP_HOME\bin
     ```
 3. To configure the REST interface and start the HPC Web Service, type the following command:
    
-    ```powershell
+    ```powershell-interactive
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
 4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you deploy the head node VM using the classic deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. If you use the Resource Manager deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com.
@@ -83,12 +83,12 @@ Components](http://technet.microsoft.com/library/hh314627.aspx).
    > 
 5. To configure the web portal for job submission, type the following command:
    
-    ```powershell
+    ```powershell-interactive
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
 6. After the script completes, stop and restart the HPC Job Scheduler Service by typing the following commands:
    
-    ```powershell
+    ```powershell-interactive
     net stop hpcscheduler
     net start hpcscheduler
     ```

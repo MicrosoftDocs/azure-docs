@@ -94,7 +94,7 @@ Now you can shut down your VM.
 ## Prepare the VHD
 The VHDX format is not supported in Azure, only **fixed VHD**. You can convert the disk to fixed VHD format using Hyper-V Manager or the Powershell [convert-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet. An example is as following.
 
-```powershell
+```powershell-interactive
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 

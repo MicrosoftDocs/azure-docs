@@ -49,7 +49,7 @@ For information on supported operating systems and installation instructions, se
 ## Discover VM extensions
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure Resource Manager PowerShell module. Make sure to specify the desired location when you're running this command.
 
-```powershell
+```powershell-interactive
 Get-AzureRmVmImagePublisher -Location WestUS | `
 Get-AzureRmVMExtensionImageType | `
 Get-AzureRmVMExtensionImage | Select Type, Version
@@ -65,13 +65,13 @@ The following methods can be used to run an extension against an existing virtua
 
 Several PowerShell commands exist for running individual extensions. To see a list, run the following PowerShell commands.
 
-```powershell
+```powershell-interactive
 get-command Set-AzureRM*Extension* -Module AzureRM.Compute
 ```
 
 This provides output similar to the following:
 
-```powershell
+```powershell-interactive
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Cmdlet          Set-AzureRmVMAccessExtension                       2.2.0      AzureRM.Compute
@@ -90,7 +90,7 @@ Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      Az
 
 The following example uses the Custom Script extension to download a script from a GitHub repository onto the target virtual machine and then run the script. For more information on the Custom Script extension, see [Custom Script extension overview](extensions-customscript.md).
 
-```powershell
+```powershell-interactive
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
@@ -99,7 +99,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
 
 In this example, the VM Access extension is used to reset the administrative password of a Windows virtual machine. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](reset-rdp.md).
 
-```powershell
+```powershell-interactive
 $cred=Get-Credential
 
 Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
@@ -264,7 +264,7 @@ Extension execution status can also be found in the Azure portal. To view the st
 
 There may be cases in which a virtual machine extension needs to be rerun. You can do this by removing the extension and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure PowerShell module. Replace example parameter names with your own values.
 
-```powershell
+```powershell-interactive
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 

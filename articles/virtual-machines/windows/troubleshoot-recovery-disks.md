@@ -33,7 +33,7 @@ The troubleshooting process is as follows:
 
 Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview) installed and logged in to your subscription:
 
-```powershell
+```powershell-interactive
 Login-AzureRMAccount
 ```
 
@@ -43,7 +43,7 @@ In the following examples, replace parameter names with your own values. Example
 ## Determine boot issues
 You can view a screenshot of your VM in Azure to help troubleshoot boot issues. This screenshot can help identify why a VM fails to boot. The following example gets the screenshot from the Windows VM named `myVM` in the resource group named `myResourceGroup`:
 
-```powershell
+```powershell-interactive
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
     -Name myVM -Windows -LocalPath C:\Users\ops\
 ```
@@ -56,13 +56,13 @@ Before you can attach your virtual hard disk to another VM, you need to identify
 
 The following example gets information for the VM named `myVM` in the resource group named `myResourceGroup`:
 
-```powershell
+```powershell-interactive
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
 Look for `Vhd URI` within the `StorageProfile` section from the output of the preceding command. The following truncated example output shows the `Vhd URI` towards the end of the code block:
 
-```powershell
+```powershell-interactive
 RequestId                     : 8a134642-2f01-4e08-bb12-d89b5b81a0a0
 StatusCode                    : OK
 ResourceGroupName             : myResourceGroup
@@ -93,7 +93,7 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 
 The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
 
-```powershell
+```powershell-interactive
 Remove-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
@@ -105,7 +105,7 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 When you attach the existing virtual hard disk, specify the URL to the disk obtained in the preceding `Get-AzureRmVM` command. The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
-```powershell
+```powershell-interactive
 $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMRecovery"
 Add-AzureRmVMDataDisk -VM $myVM -CreateOption "Attach" -Name "DataDisk" -DiskSizeInGB $null `
     -VhdUri "https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd"
@@ -120,20 +120,20 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 
 1. RDP to your troubleshooting VM using the appropriate credentials. The following example downloads the RDP connection file for the VM named `myVMRecovery` in the resource group named `myResourceGroup`, and downloads it to `C:\Users\ops\Documents`"
 
-    ```powershell
+    ```powershell-interactive
     Get-AzureRMRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "myVMRecovery" `
         -LocalPath "C:\Users\ops\Documents\myVMRecovery.rdp"
     ```
 
 2. The data disk is automatically detected and attached. View the list of attached volumes to determine the drive letter as follows:
 
-    ```powershell
+    ```powershell-interactive
     Get-Disk
     ```
 
     The following example output shows the virtual hard disk connected a disk **2**. (You can also use `Get-Volume` to view the drive letter):
 
-    ```powershell
+    ```powershell-interactive
     Number   Friendly Name   Serial Number   HealthStatus   OperationalStatus   Total Size   Partition
                                                                                              Style
     ------   -------------   -------------   ------------   -----------------   ----------   ----------
@@ -151,13 +151,13 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 
 1. From within your RDP session, unmount the data disk on your recovery VM. You need the disk number from the previous `Get-Disk` cmdlet. Then, use `Set-Disk` to set the disk as offline:
 
-    ```powershell
+    ```powershell-interactive
     Set-Disk -Number 2 -IsOffline $True
     ```
 
     Confirm the disk is now set as offline using `Get-Disk` again. The following example output shows the disk is now set as offline:
 
-    ```powershell
+    ```powershell-interactive
     Number   Friendly Name   Serial Number   HealthStatus   OperationalStatus   Total Size   Partition
                                                                                              Style
     ------   -------------   -------------   ------------   -----------------   ----------   ----------
@@ -168,7 +168,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 
 2. Exit your RDP session. From your Azure PowerShell session, remove the virtual hard disk from the troubleshooting VM.
 
-    ```powershell
+    ```powershell-interactive
     $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMRecovery"
     Remove-AzureRmVMDataDisk -VM $myVM -Name "DataDisk"
     Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
@@ -182,7 +182,7 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
 
-```powershell
+```powershell-interactive
 New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
 ```
@@ -194,7 +194,7 @@ Answer the prompts for the template such as VM name, OS type, and VM size. The `
 
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. The following example enables the diagnostic extension on the VM named `myVMDeployed` in the resource group named `myResourceGroup`:
 
-```powershell
+```powershell-interactive
 $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM

@@ -133,12 +133,12 @@ Modify the file as needed for your environment and desired cluster configuration
 1. Open Windows PowerShell on the client computer as an administrator.
 2. Change directory to the folder where the script is installed (E:\IaaSClusterScript in this example).
    
-    ```powershell
+    ```powershell-interactive
     cd E:\IaaSClusterScript
     ```
 3. Run the following command to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml
    
-    ```powershell
+    ```powershell-interactive
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
     ```
    
@@ -198,7 +198,7 @@ To mount the Azure File share on Linux nodes, run a **clusrun** command on the h
 
 Open a Windows PowerShell window and enter the following commands:
 
-```powershell
+```powershell-interactive
 clusrun /nodegroup:LinuxNodes mkdir -p /rdma
 
 clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rdma /rdma -o vers=2.1`,username=allvhdsje`,password=<storageaccountkey>'`,dir_mode=0777`,file_mode=0777
@@ -221,7 +221,7 @@ Alternatively, mount a shared folder of the head node on Linux nodes. A share pr
     ![File sharing][filesharing]
 2. Open a Windows PowerShell window and run the following commands:
    
-    ```powershell
+    ```powershell-interactive
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
    
     clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
@@ -250,7 +250,7 @@ The NFS service enables you to share and migrate files between computers running
     ![NFS management properties][nfsmanage]
 2. Open a Windows PowerShell window and run the following commands:
    
-    ```powershell
+    ```powershell-interactive
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
    
     clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared

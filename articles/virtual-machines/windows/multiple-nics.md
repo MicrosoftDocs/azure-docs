@@ -31,7 +31,7 @@ In the following examples, replace example parameter names with your own values.
 ## Create a VM with multiple NICs
 First, create a resource group. The following example creates a resource group named *myResourceGroup* in the *EastUs* location:
 
-```powershell
+```powershell-interactive
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
@@ -40,7 +40,7 @@ A common scenario is for a virtual network to have two or more subnets. One subn
 
 1. Define two virtual network subnets with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). The following example defines the subnets for *mySubnetFrontEnd* and *mySubnetBackEnd*:
 
-    ```powershell
+    ```powershell-interactive
     $mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
         -AddressPrefix "192.168.1.0/24"
     $mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
@@ -49,7 +49,7 @@ A common scenario is for a virtual network to have two or more subnets. One subn
 
 2. Create your virtual network and subnets with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). The following example creates a virtual network named *myVnet*:
 
-    ```powershell
+    ```powershell-interactive
     $myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
         -Location "EastUs" `
         -Name "myVnet" `
@@ -61,7 +61,7 @@ A common scenario is for a virtual network to have two or more subnets. One subn
 ### Create multiple NICs
 Create two NICs with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Attach one NIC to the front-end subnet and one NIC to the back-end subnet. The following example creates NICs named *myNic1* and *myNic2*:
 
-```powershell
+```powershell-interactive
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
 $myNic1 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic1" `
@@ -82,19 +82,19 @@ Now start to build your VM configuration. Each VM size has a limit for the total
 
 1. Set your VM credentials to the `$cred` variable as follows:
 
-    ```powershell
+    ```powershell-interactive
     $cred = Get-Credential
     ```
 
 2. Define your VM with [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). The following example defines a VM named *myVM* and uses a VM size that supports more than two NICs (*Standard_DS3_v2*):
 
-    ```powershell
+    ```powershell-interactive
     $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
     ```
 
 3. Create the rest of your VM configuration with [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) and [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). The following example creates a Windows Server 2016 VM:
 
-    ```powershell
+    ```powershell-interactive
     $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig `
         -Windows `
         -ComputerName "myVM" `
@@ -110,14 +110,14 @@ Now start to build your VM configuration. Each VM size has a limit for the total
 
 4. Attach the two NICs that you previously created with [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
-    ```powershell
+    ```powershell-interactive
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
 5. Finally, create your VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
-    ```powershell
+    ```powershell-interactive
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
 
@@ -126,19 +126,19 @@ To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual N
 
 1. Deallocate the VM with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 
-    ```powershell
+    ```powershell-interactive
     Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
 2. Get the existing configuration of the VM with [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). The following example gets information for the VM named *myVM* in *myResourceGroup*:
 
-    ```powershell
+    ```powershell-interactive
     $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
 3. The following example creates a virtual NIC with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) named *myNic3* that is attached to *mySubnetBackEnd*. The virtual NIC is then attached to the VM named *myVM* in *myResourceGroup* with [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
-    ```powershell
+    ```powershell-interactive
     # Get info for the back end subnet
     $myVnet = Get-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
     $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
@@ -157,7 +157,7 @@ To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual N
     ### Primary virtual NICs
     One of the NICs on a multi-NIC VM needs to be primary. If one of the existing virtual NICs on the VM is already set as primary, you can skip this step. The following example assumes that two virtual NICs are now present on a VM and you wish to add the first NIC (`[0]`) as the primary:
         
-    ```powershell
+    ```powershell-interactive
     # List existing NICs on the VM and find which one is primary
     $vm.NetworkProfile.NetworkInterfaces
     
@@ -171,7 +171,7 @@ To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual N
 
 4. Start the VM with [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
 
-    ```powershell
+    ```powershell-interactive
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
@@ -180,19 +180,19 @@ To remove a virtual NIC from an existing VM, you deallocate the VM, remove the v
 
 1. Deallocate the VM with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 
-    ```powershell
+    ```powershell-interactive
     Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
 2. Get the existing configuration of the VM with [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). The following example gets information for the VM named *myVM* in *myResourceGroup*:
 
-    ```powershell
+    ```powershell-interactive
     $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
 3. Get information about the NIC remove with [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). The following example gets information about *myNic3*:
 
-    ```powershell
+    ```powershell-interactive
     # List existing NICs on the VM if you need to determine NIC name
     $vm.NetworkProfile.NetworkInterfaces
 
@@ -201,14 +201,14 @@ To remove a virtual NIC from an existing VM, you deallocate the VM, remove the v
 
 4. Remove the NIC with [Remove-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface) and then update the VM with [Update-AzureRmVm](/powershell/module/azurerm.compute/update-azurermvm). The following example removes *myNic3* as obtained by `$nicId` in the preceding step:
 
-    ```powershell
+    ```powershell-interactive
     Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
         Update-AzureRmVm -ResourceGroupName "myResourceGroup"
     ```   
 
 5. Start the VM with [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
 
-    ```powershell
+    ```powershell-interactive
     Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```   
 

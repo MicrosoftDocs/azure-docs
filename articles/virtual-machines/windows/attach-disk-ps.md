@@ -30,7 +30,7 @@ Before you do this, review these tips:
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
 
-```powershell
+```powershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
@@ -42,7 +42,7 @@ This example shows how to add an empty data disk to an existing virtual machine.
 
 ### Using managed disks
 
-```powershell
+```powershell-interactive
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'West Central US' 
@@ -62,7 +62,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### Using unmanaged disks in a storage account
 
-```powershell
+```powershell-interactive
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
@@ -73,7 +73,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 After you add an empty disk, you need to initialize it. To initialize the disk, you can log in to a VM and use disk management. If you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
 
-```powershell
+```powershell-interactive
     $location = "location-name"
     $scriptName = "script-name"
     $fileName = "script-file-name"
@@ -82,7 +82,7 @@ After you add an empty disk, you need to initialize it. To initialize the disk, 
 		
 The script file can contain something like this code to initialize the disks:
 
-```powershell
+```powershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
 
     $letters = 70..89 | ForEach-Object { [char]$_ }
@@ -106,7 +106,7 @@ You can also attach an existing VHD as a managed data disk to a virtual machine.
 
 ### Using managed disks
 
-```powershell
+```powershell-interactive
 $rgName = 'myRG'
 $vmName = 'ContosoMdPir3'
 $location = 'West Central US' 

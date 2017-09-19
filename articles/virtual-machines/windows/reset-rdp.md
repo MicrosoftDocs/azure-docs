@@ -55,7 +55,7 @@ Make sure that you have the [latest PowerShell module installed and configured](
 ### **Reset the local administrator account password**
 Reset the administrator password or user name with the [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet. Create your account credentials as follows:
 
-```powershell
+```powershell-interactive
 $cred=Get-Credential
 ```
 
@@ -64,7 +64,7 @@ $cred=Get-Credential
 
 The following example updates the VM named `myVM` in the resource group named `myResourceGroup` to the credentials specified.
 
-```powershell
+```powershell-interactive
 Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" `
     -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
@@ -73,7 +73,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ### **Reset the Remote Desktop service configuration**
 Reset remote access to your VM with the [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet. The following example resets the access extension named `myVMAccess` on the VM named `myVM` in the `myResourceGroup` resource group:
 
-```powershell
+```powershell-interactive
 Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" `
     -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
 ```

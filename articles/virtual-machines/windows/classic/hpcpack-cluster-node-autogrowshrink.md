@@ -49,7 +49,7 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
 
   3. Start Azure PowerShell as an administrator and run the following commands on one head node:
 
-    ```powershell
+    ```powershell-interactive
         cd $env:CCP_HOME\bin
 
         Login-AzureRmAccount
@@ -57,19 +57,19 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
         
     If your account is in more than one Azure Active Directory tenant or Azure subscription, you can run the following command to select the correct tenant and subscription:
   
-    ```powershell
+    ```powershell-interactive
         Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Run the following command to view the currently selected tenant and subscription:
     
-    ```powershell
+    ```powershell-interactive
         Get-AzureRMContext
     ```
 
   4. Run the following script
 
-    ```powershell
+    ```powershell-interactive
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
     ```
 
@@ -103,37 +103,37 @@ To run these commands, start HPC PowerShell on the cluster head node as an admin
 
 **To enable the AutoGrowShrink property**
 
-```powershell
+```powershell-interactive
 Set-HpcClusterProperty –EnableGrowShrink 1
 ```
 
 **To disable the AutoGrowShrink property**
 
-```powershell
+```powershell-interactive
 Set-HpcClusterProperty –EnableGrowShrink 0
 ```
 
 **To change the grow interval in minutes**
 
-```powershell
+```powershell-interactive
 Set-HpcClusterProperty –GrowInterval <interval>
 ```
 
 **To change the shrink interval in minutes**
 
-```powershell
+```powershell-interactive
 Set-HpcClusterProperty –ShrinkInterval <interval>
 ```
 
 **To view the current configuration of AutoGrowShrink**
 
-```powershell
+```powershell-interactive
 Get-HpcClusterProperty –AutoGrowShrink
 ```
 
 **To exclude node groups from AutoGrowShrink**
 
-```powershell
+```powershell-interactive
 Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
 ```
 
@@ -190,7 +190,7 @@ By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** i
 * **For a cluster with Azure burst nodes** - Run the script on a client computer where HPC Pack is installed, or on the head node. If running on a client computer, ensure that you set the variable $env:CCP_SCHEDULER to point to the head node. The Azure “burst” nodes must be added to the cluster, but they may be in the Not-Deployed state.
 * **For a cluster deployed in Azure VMs (Resource Manager deployment model)** - For a cluster of Azure VMs deployed in the Resource Manager deployment model, the script supports two methods for Azure authentication: sign in to your Azure account to run the script every time (by running `Login-AzureRmAccount`, or configure a service principal to authenticate with a certificate. HPC Pack provides the script **ConfigARMAutoGrowShrinkCert.ps** to create a service principal with certificate. The script creates an Azure Active Directory (Azure AD) application and a service principal, and assigns the Contributor role to the service principal. To run the script, start Azure PowerShell  as administrator and run the following commands:
 
-    ```powershell
+    ```powershell-interactive
     cd $env:CCP_HOME\bin
 
     Login-AzureRmAccount
@@ -205,7 +205,7 @@ By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** i
 
 
 ### Syntax
-```powershell
+```powershell-interactive
 AzureAutoGrowShrink.ps1 [-NodeTemplates <String[]>] [-JobTemplates <String[]>] [-NodeType <String>]
     -NumOfActiveQueuedTasksPerNodeToGrow <Single> [-NumOfActiveQueuedTasksToGrowThreshold <Int32>]
     [-NumOfInitialNodesToGrow <Int32>] [-GrowCheckIntervalMins <Int32>] [-ShrinkCheckIntervalMins <Int32>]
@@ -248,7 +248,7 @@ until their number exceeds the ratio of queued jobs to
 **NumOfQueuedJobsPerNodeToGrow**. If a node is found to be idle in 3
 consecutive idle times, it is stopped.
 
-```powershell
+```powershell-interactive
 .\AzureAutoGrowShrink.ps1 -NodeTemplates @('Default AzureNode
  Template') -NodeType AzureNodes -NumOfQueuedJobsPerNodeToGrow 5
  -NumOfQueuedJobsToGrowThreshold 8 -NumOfInitialNodesToGrow 3
@@ -265,6 +265,6 @@ least 5 nodes are started. If the number of active queued tasks exceeds
 active queued tasks to **NumOfActiveQueuedTasksPerNodeToGrow**. If a
 node is found to be idle in 10 consecutive idle times, it is stopped.
 
-```powershell
+```powershell-interactive
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```

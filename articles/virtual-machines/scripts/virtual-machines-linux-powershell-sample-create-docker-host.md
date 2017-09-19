@@ -35,7 +35,7 @@ This script creates a virtual machine with Docker enabled and starts a container
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```powershell
+```powershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 

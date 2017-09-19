@@ -531,7 +531,7 @@ To create more than one SAP ASCS/SCS instance in the same WSFC cluster, use Powe
 
 The following script adds a new IP address to an existing load balancer. Update the PowerShell variables for your environment. The script will create all needed load-balancing rules for all SAP ASCS/SCS ports.
 
-```powershell
+```powershell-interactive
 
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 Clear-Host

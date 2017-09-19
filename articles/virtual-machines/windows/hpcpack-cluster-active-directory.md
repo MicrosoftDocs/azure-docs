@@ -132,7 +132,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
 
 3. Run the following command:
 
-    ```powershell
+    ```powershell-interactive
 
     Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
@@ -145,7 +145,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
 
     In a cluster with multiple head nodes, you can run the following PowerShell commands on the head node to switch the primary replica for the HpcSchedulerStateful service:
 
-    ```powershell
+    ```powershell-interactive
     Connect-ServiceFabricCluster
 
     Move-ServiceFabricPrimaryReplica –ServiceName “fabric:/HpcApplication/SchedulerStatefulService”
@@ -168,7 +168,7 @@ You can now run the HPC Pack commands or use the HPC Pack Job manager GUI to sub
   
 For example, after completing the previous steps, you can query for jobs from an on-premises client as follows:
 
-```powershell 
+```powershell-interactive 
 Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Owner <Azure AD account>
 ```
 
@@ -178,7 +178,7 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 HPC Pack 2016 provides two new HPC PowerShell cmdlets to manage the local token cache. These cmdlets are useful for submitting jobs non-interactively. See the following example:
 
-```powershell
+```powershell-interactive
 Remove-HpcTokenCache
 
 $SecurePassword = "<password>" | ConvertTo-SecureString -AsPlainText -Force
@@ -192,7 +192,7 @@ Sometimes, you may want to run the job under the HPC cluster user (for a domain-
 
 1. Use the following commands to set the credentials:
 
-    ```powershell
+    ```powershell-interactive
     $localUser = “<username>”
 
     $localUserPassword=”<password>”
@@ -206,7 +206,7 @@ Sometimes, you may want to run the job under the HPC cluster user (for a domain-
 
 2. Then submit the job as follows. The job/task runs under $localUser on the compute nodes.
 
-    ```powershell
+    ```powershell-interactive
     $emptycreds = New-Object System.Management.Automation.PSCredential ($localUser, (new-object System.Security.SecureString))
     ...
     $job = New-HpcJob –Scheduler https://<Azure load balancer DNS name>
@@ -222,13 +222,13 @@ Sometimes, you may want to run the job under the HPC cluster user (for a domain-
 
    * Set extended data for the Azure AD account itself
 
-      ```powershell
+      ```powershell-interactive
       Set-HpcJobCredential -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data> -AadUser
       ```
       
    * Set extended data and run as HPC cluster user
    
-      ```powershell
+      ```powershell-interactive
       Set-HpcJobCredential -Credential $mycreds -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data>
       ```
 

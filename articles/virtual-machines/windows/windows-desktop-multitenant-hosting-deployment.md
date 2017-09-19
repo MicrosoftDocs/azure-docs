@@ -35,12 +35,12 @@ For Powershell, CLI and Azure Resource Manager template deployments, the Windows
 ## Uploading Windows 10 VHD to Azure
 if you are uploading a generalized Windows 10 VHD, please note Windows 10 does not have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
 
-```powershell
+```powershell-interactive
 Net user <username> /active:yes
 ```
 
 The following powershell snippet is to mark all administrator accounts as active, including the built-in administrator. This example is useful if the built-in administrator username is unknown.
-```powershell
+```powershell-interactive
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)
 {
@@ -56,7 +56,7 @@ For more information:
 ## Deploying Windows 10 with Multitenant Hosting Rights
 Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/overview). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
-```powershell
+```powershell-interactive
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
     -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd"
 ```
@@ -74,19 +74,19 @@ Within your Resource Manager templates, an additional parameter for `licenseType
 
 **Deploy via PowerShell**
 When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you create a VM using `New-AzureRmVM` and specify the licensing type as follows:
-```powershell
+```powershell-interactive
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## Verify your VM is utilizing the licensing benefit
 Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzureRmVM` as follows:
-```powershell
+```powershell-interactive
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 The output is similar to the following example for Windows 10 with correct license type:
 
-```powershell
+```powershell-interactive
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
 LicenseType              : Windows_Client
@@ -94,7 +94,7 @@ LicenseType              : Windows_Client
 
 This output contrasts with the following VM deployed without Azure Hybrid Use Benefit licensing, such as a VM deployed straight from the Azure Gallery:
 
-```powershell
+```powershell-interactive
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
 LicenseType              :

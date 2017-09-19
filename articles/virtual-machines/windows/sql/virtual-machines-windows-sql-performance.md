@@ -97,7 +97,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
     For example, the following PowerShell creates a new storage pool with the interleave size to 64 KB and the number of columns to 2:
 
-    ```powershell
+    ```powershell-interactive
     $PoolCount = Get-PhysicalDisk -CanPool $True
     $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

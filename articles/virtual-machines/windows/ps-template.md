@@ -38,13 +38,13 @@ All resources must be deployed in a [resource group](../../azure-resource-manage
 
 1. Get a list of available locations where resources can be created.
    
-    ```powershell   
+    ```powershell-interactive   
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
 2. Create the resource group in the location that you select. This example shows the creation of a resource group named **myResourceGroup** in the **West US** location:
 
-    ```powershell   
+    ```powershell-interactive   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
@@ -172,7 +172,7 @@ In this step, you create a template file that deploys the resources and a parame
 
 3. Create a new storage account and container:
 
-    ```powershell
+    ```powershell-interactive
     $storageName = "st" + (Get-Random)
     New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "West US" -SkuName "Standard_LRS" -Kind Storage
     $accountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
@@ -182,7 +182,7 @@ In this step, you create a template file that deploys the resources and a parame
 
 4. Upload the files to the storage account:
 
-    ```powershell
+    ```powershell-interactive
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
     Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
     ```
@@ -193,7 +193,7 @@ In this step, you create a template file that deploys the resources and a parame
 
 Deploy the template using the parameters:
 
-```powershell
+```powershell-interactive
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
 $parametersPath = "https://" + $storageName + ".blob.core.windows.net/templates/Parameters.json"
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parametersPath 

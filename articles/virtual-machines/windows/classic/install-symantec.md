@@ -38,7 +38,7 @@ First, verify that the VM Agent is already installed on the virtual machine. Fil
 > [!TIP]
 > If you don't know the cloud service and virtual machine names, run **Get-AzureVM** to list the names for all virtual machines in your current subscription.
 
-```powershell
+```powershell-interactive
 $CSName = "<cloud service name>"
 $VMName = "<virtual machine name>"
 $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
@@ -49,7 +49,7 @@ If the **write-host** command displays **True**, the VM Agent is installed. If i
 
 If the VM Agent is installed, run these commands to install the Symantec Endpoint Protection agent.
 
-```powershell
+```powershell-interactive
 $Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
 
 Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionName SymantecEndpointProtection \

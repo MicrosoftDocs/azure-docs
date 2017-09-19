@@ -88,7 +88,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 The `Set-AzureVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension
 ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 
-```powershell
+```powershell-interactive
 # create vm object
 $vm = Get-AzureVM -Name 2016clas -ServiceName 2016clas1313
 
@@ -105,7 +105,7 @@ $vm | Update-AzureVM
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command.
 
-```powershell
+```powershell-interactive
 Get-AzureVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 

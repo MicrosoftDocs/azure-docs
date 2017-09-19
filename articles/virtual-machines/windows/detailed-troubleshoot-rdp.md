@@ -134,7 +134,7 @@ Next, open an Azure PowerShell command prompt and change the current folder to t
 
 Next, fill in your Azure subscription name, the cloud service name, and your virtual machine name (removing the < and > characters), and then run these commands.
 
-```powershell
+```powershell-interactive
 $subscr="<Name of your Azure subscription>"
 $serviceName="<Name of the cloud service that contains the target virtual machine>"
 $vmName="<Name of the target virtual machine>"
@@ -147,7 +147,7 @@ Check if you have the new certificate. Open a Certificates snap-in for the curre
 
 Next, initiate a remote Azure PowerShell session by using these commands.
 
-```powershell
+```powershell-interactive
 $uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
 $creds = Get-Credential
 Enter-PSSession -ConnectionUri $uri -Credential $creds
@@ -155,7 +155,7 @@ Enter-PSSession -ConnectionUri $uri -Credential $creds
 
 After entering valid administrator credentials, you should see something similar to the following Azure PowerShell prompt:
 
-```powershell
+```powershell-interactive
 [cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
 ```
 
@@ -164,25 +164,25 @@ The first part of this prompt is your cloud service name that contains the targe
 ### To manually correct the Remote Desktop Services listening TCP port
 At the remote Azure PowerShell session prompt, run this command.
 
-```powershell
+```powershell-interactive
 Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 ```
 
 The PortNumber property shows the current port number. If needed, change the Remote Desktop port number back to its default value (3389) by using this command.
 
-```powershell
+```powershell-interactive
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
 ```
 
 Verify that the port has been changed to 3389 by using this command.
 
-```powershell
+```powershell-interactive
 Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 ```
 
 Exit the remote Azure PowerShell session by using this command.
 
-```powershell
+```powershell-interactive
 Exit-PSSession
 ```
 

@@ -43,13 +43,13 @@ Scale sets support up to 1,000 VMs when you use an Azure platform image. For wor
 ## Create an app to scale
 Before you can create a scale set, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupAutomate* in the *EastUS* location:
 
-```powershell
+```powershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location EastUS
 ```
 
 In an earlier tutorial, you learned how to [Automate VM configuration](tutorial-automate-vm-deployment.md) using the Custom Script Extension. Create a scale set configuration then apply a Custom Script Extension to install and configure IIS:
 
-```powershell
+```powershell-interactive
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig `
     -Location EastUS `
@@ -77,7 +77,7 @@ An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high 
 
 Create a load balancer that has a public IP address and distributes web traffic on port 80:
 
-```powershell
+```powershell-interactive
 # Create a public IP address
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupScaleSet `
@@ -124,7 +124,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ## Create a scale set
 Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named *myScaleSet*:
 
-```powershell
+```powershell-interactive
 # Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
@@ -173,7 +173,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 ## Test your app
 To see your IIS website in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created as part of the scale set:
 
-```powershell
+```powershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupScaleSet -Name myPublicIP | select IpAddress
 ```
 
@@ -190,7 +190,7 @@ Throughout the lifecycle of the scale set, you may need to run one or more manag
 ### View VMs in a scale set
 To view a list of VMs running in your scale set, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) as follows:
 
-```powershell
+```powershell-interactive
 # Get current scale set
 $scaleset = Get-AzureRmVmss `
   -ResourceGroupName myResourceGroupScaleSet `
@@ -208,7 +208,7 @@ for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
 ### Increase or decrease VM instances
 To see the number of instances you currently have in a scale set, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) and query on *sku.capacity*:
 
-```powershell
+```powershell-interactive
 Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -VMScaleSetName myScaleSet | `
     Select -ExpandProperty Sku
@@ -216,7 +216,7 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
 
 You can then manually increase or decrease the number of virtual machines in the scale set with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). The following example sets the number of VMs in your scale set to *5*:
 
-```powershell
+```powershell-interactive
 # Get current scale set
 $scaleset = Get-AzureRmVmss `
   -ResourceGroupName myResourceGroupScaleSet `
@@ -235,7 +235,7 @@ If takes a few minutes to update the specified number of instances in your scale
 ### Configure autoscale rules
 Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5 minute period. If the average CPU load then drops below 30% over a 5 minute period, the instances are scaled in by one instance:
 
-```powershell
+```powershell-interactive
 # Define your scale set information
 $mySubscriptionId = (Get-AzureRmSubscription).Id
 $myResourceGroup = "myResourceGroupScaleSet"

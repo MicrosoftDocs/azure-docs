@@ -48,7 +48,7 @@ After you enter the new user name and password, click **Save**.
 ## VMAccess extension and PowerShell
 Make sure the VM Agent is installed on the virtual machine. The VMAccess extension doesn't need to be installed before you can use it, as long as the VM Agent is available. Verify that the VM Agent is already installed by using the following command. (Replace "myCloudService" and "myVM" by the names of your cloud service and your VM, respectively. You can learn these names by running `Get-AzureVM` without any parameters.)
 
-```powershell
+```powershell-interactive
 $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
@@ -57,7 +57,7 @@ If the **write-host** command displays **True**, the VM Agent is installed. If i
 
 If you created the virtual machine by using the portal, check whether `$vm.GetInstance().ProvisionGuestAgent` returns **True**. If not, you can set it by using this command:
 
-```powershell
+```powershell-interactive
 $vm.GetInstance().ProvisionGuestAgent = $true
 ```
 
@@ -66,7 +66,7 @@ This command prevents the following error when you're running the **Set-AzureVME
 ### **Reset the local administrator account password**
 Create a sign-in credential with the current local administrator account name and a new password, and then run the `Set-AzureVMAccessExtension` as follows.
 
-```powershell
+```powershell-interactive
 $cred=Get-Credential
 Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
@@ -79,19 +79,19 @@ These commands also reset the Remote Desktop service configuration.
 ### **Reset the Remote Desktop service configuration**
 To reset the Remote Desktop service configuration, run the following command:
 
-```powershell
+```powershell-interactive
 Set-AzureVMAccessExtension –vm $vm | Update-AzureVM
 ```
 
 The VMAccess extension runs two commands on the virtual machine:
 
-```powershell
+```powershell-interactive
 netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes
 ```
 
 This command enables the built-in Windows Firewall group that allows incoming Remote Desktop traffic, which uses TCP port 3389.
 
-```powershell
+```powershell-interactive
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
 ```
 

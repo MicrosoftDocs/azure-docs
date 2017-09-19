@@ -26,7 +26,7 @@ During the build process, Packer creates temporary Azure resources as it builds 
 
 Create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
-```powershell
+```powershell-interactive
 $rgName = "myResourceGroup"
 $location = "East US"
 New-AzureRmResourceGroup -Name $rgName -Location $location
@@ -37,7 +37,7 @@ Packer authenticates with Azure using a service principal. An Azure service prin
 
 Create a service principal with [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) and assign permissions for the service principal to create and manage resources with [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
-```powershell
+```powershell-interactive
 $sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer IKF" -Password "P@ssw0rd!"
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
@@ -45,7 +45,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 To authenticate to Azure, you also need to obtain your Azure tenant and subscription IDs with [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
 
-```powershell
+```powershell-interactive
 $sub = Get-AzureRmSubscription
 $sub.TenantId
 $sub.SubscriptionId
@@ -205,13 +205,13 @@ It takes a few minutes for Packer to build the VM, run the provisioners, and cle
 ## Create VM from Azure Image
 Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
 
-```powershell
+```powershell-interactive
 $cred = Get-Credential
 ```
 
 You can now create a VM from your Image with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* from *myPackerImage*.
 
-```powershell
+```powershell-interactive
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
@@ -279,7 +279,7 @@ It takes a few minutes to create the VM.
 ## Test VM and IIS
 Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
 
-```powershell
+```powershell-interactive
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName $rgName `
     -Name "myPublicIP" | select "IpAddress"

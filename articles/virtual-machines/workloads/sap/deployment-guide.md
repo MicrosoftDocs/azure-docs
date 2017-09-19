@@ -747,7 +747,7 @@ This section has detailed steps for doing specific tasks in the configuration an
 Check frequently for updates to the PowerShell cmdlets, which usually are updated monthly. The easiest way to check for updates is to do the preceding installation steps, up to the installation page shown in step 5. The release date and release number of the cmdlets are included on the page shown in step 5. Unless stated otherwise in SAP Note [1928533] or SAP Note [2015553], we recommend that you work with the latest version of Azure PowerShell cmdlets.
 
 To check the version of the Azure PowerShell cmdlets that are installed on your computer, run this PowerShell command:
-```powershell
+```powershell-interactive
 (Get-Module AzureRm.Compute).Version
 ```
 The result looks like this:
@@ -891,7 +891,7 @@ To install the Azure Enhanced Monitoring Extension for SAP by using PowerShell:
 2. Run the following PowerShell cmdlet.
     For a list of available environments, run `commandlet Get-AzureRmEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure in China, select **AzureChinaCloud**.
 
-    ```powershell
+    ```powershell-interactive
     $env = Get-AzureRmEnvironment -Name <name of the environment>
     Login-AzureRmAccount -Environment $env
     Set-AzureRmContext -SubscriptionName <subscription name>
@@ -1055,7 +1055,7 @@ If some of the monitoring data is not delivered correctly as indicated by the te
 
 1.  Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
 2.  Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzureRmEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure in China, select **AzureChinaCloud**.
-  ```powershell
+  ```powershell-interactive
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Login-AzureRmAccount -Environment $env
   Set-AzureRmContext -SubscriptionName <subscription name>

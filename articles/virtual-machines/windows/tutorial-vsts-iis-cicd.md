@@ -93,7 +93,7 @@ To provide a platform to run your ASP.NET web app, you need a Windows virtual ma
 
 Create a Windows Server 2016 VM using [this script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). It takes a few minutes for the script to run and create the VM. Once the VM has been created, open port 80 for web traffic with [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) as follows:
 
-```powershell
+```powershell-interactive
 Get-AzureRmNetworkSecurityGroup `
   -ResourceGroupName $resourceGroup `
   -Name "myNetworkSecurityGroup" | `
@@ -112,7 +112,7 @@ Set-AzureRmNetworkSecurityGroup
 
 To connect to your VM, obtain the public IP address with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) as follows:
 
-```powershell
+```powershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
 ```
 
@@ -124,7 +124,7 @@ mstsc /v:<publicIpAddress>
 
 On the VM, open an **Administrator PowerShell** command prompt. Install IIS and required .NET features as follows:
 
-```powershell
+```powershell-interactive
 Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 ```
 

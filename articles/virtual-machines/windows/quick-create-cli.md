@@ -87,7 +87,7 @@ mstsc /v:Public IP Address
 
 Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
 
-```powershell
+```powershell-interactive
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 

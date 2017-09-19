@@ -108,7 +108,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
    
     The follow example resets the RDP connection on a VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
    
-    ```powershell
+    ```powershell-interactive
     Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
@@ -116,20 +116,20 @@ After each troubleshooting step, try connecting to your VM again. If you still c
    
     First, assign all the configuration data for your Network Security Group to the `$rules` variable. The following example obtains information about the Network Security Group named `myNetworkSecurityGroup` in the resource group named `myResourceGroup`:
    
-    ```powershell
+    ```powershell-interactive
     $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
         -Name "myNetworkSecurityGroup"
     ```
    
     Now, view the rules that are configured for this Network Security Group. Verify that a rule exists to allow TCP port 3389 for inbound connections as follows:
    
-    ```powershell
+    ```powershell-interactive
     $rules.SecurityRules
     ```
    
     The following example shows a valid security rule that permits RDP traffic. You can see `Protocol`, `DestinationPortRange`, `Access`, and `Direction` are configured correctly:
    
-    ```powershell
+    ```powershell-interactive
     Name                     : default-allow-rdp
     Id                       : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/securityRules/default-allow-rdp
     Etag                     : 
@@ -150,13 +150,13 @@ After each troubleshooting step, try connecting to your VM again. If you still c
    
     First, specify the username and a new password by assigning credentials to the `$cred` variable as follows:
    
-    ```powershell
+    ```powershell-interactive
     $cred=Get-Credential
     ```
    
     Now, update the credentials on your VM. The following example updates the credentials on a VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
    
-    ```powershell
+    ```powershell-interactive
     Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location WestUS -Name "myVMAccessExtension" `
         -UserName $cred.GetNetworkCredential().Username `
@@ -166,14 +166,14 @@ After each troubleshooting step, try connecting to your VM again. If you still c
    
     The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`:
    
-    ```powershell
+    ```powershell-interactive
     Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **Redeploy your VM**. This troubleshooting step redeploys your VM to another host within Azure to correct any underlying platform or networking issues.
    
     The following example redeploys the VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
    
-    ```powershell
+    ```powershell-interactive
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 

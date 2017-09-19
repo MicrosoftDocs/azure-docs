@@ -50,7 +50,7 @@ The following steps show you how to get the VHD disk to be copied, create the sn
 
 1. Set some parameters. 
 
- ```powershell
+ ```powershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'southeastasia' 
 $dataDiskName = 'ContosoMD_datadisk1' 
@@ -64,17 +64,17 @@ $snapshotName = 'ContosoMD_datadisk1_snapshot1'
 
 2. Get the VHD disk to be copied.
 
- ```powershell
+ ```powershell-interactive
 $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
 ```
 3. Create the snapshot configurations. 
 
- ```powershell
+ ```powershell-interactive
 $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
 ```
 4. Take the snapshot.
 
- ```powershell
+ ```powershell-interactive
 New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
 ```
 If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshot command. The parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.

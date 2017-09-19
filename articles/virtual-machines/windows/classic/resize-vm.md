@@ -39,12 +39,12 @@ To resize a VM to a size available in the hardware cluster hosting the VM, perfo
 
 1. Run the following PowerShell command to list the VM sizes available in the hardware cluster hosting the cloud service which contains the VM.
    
-    ```powershell
+    ```powershell-interactive
     Get-AzureService | where {$_.ServiceName -eq "<cloudServiceName>"}
     ```
 2. Run the following commands to resize the VM.
    
-    ```powershell
+    ```powershell-interactive
     Get-AzureVM -ServiceName <cloudServiceName> -Name <vmName> | Set-AzureVMSize -InstanceSize <newVMSize> | Update-AzureVM
     ```
 
@@ -53,7 +53,7 @@ To resize a VM to a size not available in the hardware cluster hosting the VM, t
 
 1. Run the following PowerShell command to list the VM sizes available in the region. 
    
-    ```powershell
+    ```powershell-interactive
     Get-AzureLocation | where {$_.Name -eq "<locationName>"}
     ```
 2. Make note of all configuration settings for each VM in the cloud service which contains the VM to be resized. 

@@ -25,7 +25,7 @@ To create a Network Security Group and ACL rules you need [the latest version of
 
 Log in to your Azure account:
 
-```powershell
+```powershell-interactive
 Login-AzureRmAccount
 ```
 
@@ -33,7 +33,7 @@ In the following examples, replace example parameter names with your own values.
 
 Create a rule with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). The following example creates a rule named *myNetworkSecurityGroupRule* to allow *tcp* traffic on port *80*:
 
-```powershell
+```powershell-interactive
 $httprule = New-AzureRmNetworkSecurityRuleConfig `
     -Name "myNetworkSecurityGroupRule" `
     -Description "Allow HTTP" `
@@ -49,7 +49,7 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig `
 
 Next, create your Network Security group with [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) and assign the HTTP rule you just created as follows. The following example creates a Network Security Group named *myNetworkSecurityGroup*:
 
-```powershell
+```powershell-interactive
 $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName "myResourceGroup" `
     -Location "EastUS" `
@@ -59,7 +59,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 
 Now let's assign your Network Security Group to a subnet. The following example assigns an existing virtual network named *myVnet* to the variable *$vnet* with [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
 
-```powershell
+```powershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVnet"
@@ -67,7 +67,7 @@ $vnet = Get-AzureRmVirtualNetwork `
 
 Associate your Network Security Group with your subnet with [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). The following example associates the subnet named *mySubnet* with your Network Security Group:
 
-```powershell
+```powershell-interactive
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
 
 Set-AzureRmVirtualNetworkSubnetConfig `
@@ -79,7 +79,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 Finally, update your virtual network with [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) in order for your changes to take effect:
 
-```powershell
+```powershell-interactive
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 

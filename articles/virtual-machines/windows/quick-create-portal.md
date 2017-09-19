@@ -69,7 +69,7 @@ Create a remote desktop connection to the virtual machine.
 
 On the virtual machine, start a PowerShell session and run the following command to install IIS.
 
-```powershell
+```powershell-interactive
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 

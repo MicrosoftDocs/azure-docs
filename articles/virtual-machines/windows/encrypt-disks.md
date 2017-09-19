@@ -67,7 +67,7 @@ The first step is to create an Azure Key Vault to store your cryptographic keys.
 
 Enable the Azure Key Vault provider within your Azure subscription with [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider), then create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group name *myResourceGroup* in the *East US* location:
 
-```powershell
+```powershell-interactive
 $rgName = "myResourceGroup"
 $location = "East US"
 
@@ -77,7 +77,7 @@ New-AzureRmResourceGroup -Location $location -Name $rgName
 
 The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault with [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) and enable the Key Vault for use with disk encryption. Specify a unique Key Vault name for *keyVaultName* as follows:
 
-```powershell
+```powershell-interactive
 $keyVaultName = "myUniqueKeyVaultName"
 New-AzureRmKeyVault -Location $location `
     -ResourceGroupName $rgName `
@@ -89,7 +89,7 @@ You can store cryptographic keys using software or Hardware Security Model (HSM)
 
 For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey). The following example creates a key named *myKey*:
 
-```powershell
+```powershell-interactive
 Add-AzureKeyVaultKey -VaultName $keyVaultName `
     -Name "myKey" `
     -Destination "Software"
@@ -101,7 +101,7 @@ When virtual disks are encrypted or decrypted, you specify an account to handle 
 
 Create a service principal in Azure Active Directory with [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). To specify a secure password, follow the [Password policies and restrictions in Azure Active Directory](../../active-directory/active-directory-passwords-policy.md):
 
-```powershell
+```powershell-interactive
 $appName = "My App"
 $securePassword = "P@ssword!"
 $app = New-AzureRmADApplication -DisplayName $appName `
@@ -113,7 +113,7 @@ New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
 To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory service principal to read the keys. Set permissions on your Key Vault with [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy):
 
-```powershell
+```powershell-interactive
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
     -ServicePrincipalName $app.ApplicationId `
     -PermissionsToKeys "WrapKey" `
@@ -124,7 +124,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
 ## Create virtual machine
 To test the encryption process, let's create a VM. The following example creates a VM named *myVM* using a *Windows Server 2016 Datacenter* image:
 
-```powershell
+```powershell-interactive
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName `
@@ -184,7 +184,7 @@ To encrypt the virtual disks, you bring together all the previous components:
 
 Encrypt your VM with [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) using the Azure Key Vault key and Azure Active Directory service principal credentials. The following example retrieves all the key information then encrypts the VM named *myVM*:
 
-```powershell
+```powershell-interactive
 $keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
@@ -202,13 +202,13 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
 
 Accept the prompt to continue with the VM encryption. The VM restarts during the process. Once the encryption process completes and the VM has rebooted, review the encryption status with [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
 
-```powershell
+```powershell-interactive
 Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
 ```
 
 The output is similar to the following example:
 
-```powershell
+```powershell-interactive
 OsVolumeEncrypted          : Encrypted
 DataVolumesEncrypted       : Encrypted
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings

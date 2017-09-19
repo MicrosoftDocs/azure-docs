@@ -26,9 +26,11 @@ This script creates a virtual machine by attaching an existing managed disk as O
 * Create a VM from an existing managed disk that was created from a specialized VHD file 
 * Create a VM from an existing managed OS disk that was created from a snapshot 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to install and use the PowerShell locally, this tutorial requires that you are Azure PowerShell module version 4.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 ## Sample script
 
@@ -38,7 +40,7 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```powershell
+```powershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 

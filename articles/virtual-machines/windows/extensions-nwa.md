@@ -76,7 +76,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 
 The `Set-AzureRmVMExtension` command can be used to deploy the Network Watcher Agent virtual machine extension to an existing virtual machine.
 
-```powershell
+```powershell-interactive
 Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
                        -Location "WestUS" `
                        -VMName "myVM1" `
@@ -92,7 +92,7 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell module.
 
-```powershell
+```powershell-interactive
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 

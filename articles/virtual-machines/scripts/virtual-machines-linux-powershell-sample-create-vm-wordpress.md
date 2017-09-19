@@ -23,9 +23,13 @@ ms.custom: mvc
 
 This script creates a virtual machine and uses the Azure Virtual Machine custom script extension to install WordPress. After running the script, you can access the WordPress configuration site at  `http://<public IP of VM>/wordpress`. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+You need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to use PowerShell locally, install the Azure PowerShell module using the instructions found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 
@@ -35,7 +39,7 @@ This script creates a virtual machine and uses the Azure Virtual Machine custom 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```powershell
+```powershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 

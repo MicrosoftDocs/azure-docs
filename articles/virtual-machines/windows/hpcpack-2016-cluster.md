@@ -56,7 +56,7 @@ Before deploying the HPC cluster, upload the certificate to an [Azure key vault]
 
 A sample PowerShell script to upload the certificate follows. For more information about uploading a certificate to an Azure key vault, see [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md).
 
-```powershell
+```powershell-interactive
 #Give the following values
 $VaultName = "mytestvault"
 $SecretName = "hpcpfxcert"
