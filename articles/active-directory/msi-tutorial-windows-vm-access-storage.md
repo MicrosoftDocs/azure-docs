@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ---
 
@@ -25,8 +25,8 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Windo
 
 > [!div class="checklist"]
 > * Enable MSI on a Windows Virtual Machine 
-> * Grant your VM access to Storage 
-> * Get an access token for your Storage Account using the VM identity 
+> * Grant your VM access to storage keys in Resource Manager 
+> * Get an access token using VM identity and use it to retrieve storage keys from Resource Manager 
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -107,7 +107,7 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
 4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -148,7 +148,7 @@ echo "This is a test text file." > test.txt
 > [!NOTE]
 > First remember to install Azure storage commandlets “Install-Module Azure.Storage”. 
 
-PowerShell request:
+You can upload the blob you just created, using the `Set-AzureStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
 PS C:\> $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
@@ -169,7 +169,7 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-PowerShell request:
+You can also download the blob you just uploaded, using the `Get-AzureStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
 PS C:\> Get-AzureStorageBlobContent -Blob <blob name> -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
