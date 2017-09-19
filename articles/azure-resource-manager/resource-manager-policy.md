@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
 
 ---
@@ -28,11 +28,6 @@ There are two concepts to understand about policies:
 This topic focuses on policy definition. For information about policy assignment, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) or [Assign and manage policies through script](resource-manager-policy-create-assign.md).
 
 Policies are evaluated when creating and updating resources (PUT and PATCH operations).
-
-> [!NOTE]
-> Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types is applied for all types. In that case, a template deployment may fail if there is a nested resource that doesn't support tags, and the deployment resource type has been added to policy evaluation. 
-> 
-> 
 
 ## How is it different from RBAC?
 There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on **user** actions at different scopes. For example, you are added to the contributor role for a resource group at the desired scope, so you can make changes to that resource group. Policy focuses on **resource** properties during deployment. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system. 
@@ -63,6 +58,7 @@ You can assign any of these policies through the [portal](resource-manager-polic
 ## Policy definition structure
 You use JSON to create a policy definition. The policy definition contains elements for:
 
+* mode
 * parameters
 * display name
 * description
@@ -75,6 +71,7 @@ The following example shows a policy that limits where resources are deployed:
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -101,6 +98,12 @@ The following example shows a policy that limits where resources are deployed:
   }
 }
 ```
+
+## Mode
+
+Set `mode` to `all` to make resource groups and all resource types eligible for the policy. The resources that are actually affected by the policy depend on the properties you use and the scope you assign. We recommend that you use `all`. 
+
+Set `mode` to `indexed` only when you need to specifically exclude resource types that do not support tags, kind, and location. The resource types that do not support these values are a small subset of utility resources. For example, [management locks](resource-group-lock-resources.md) and [nested deployments](resource-group-linked-templates.md) do not support these values. 
 
 ## Parameters
 Using parameters helps simplify your policy management by reducing the number of policy definitions. You define a policy for a resource property (such as limiting the locations where resources can be deployed), and include parameters in the definition. Then, you reuse that policy definition for different scenarios by passing in different values (such as specifying one set of locations for a subscription) when assigning the policy.
@@ -206,11 +209,13 @@ The following fields are supported:
 * property aliases - for a list, see [Aliases](#aliases).
 
 ### Effect
-Policy supports three types of effect - `deny`, `audit`, and `append`. 
+Policy supports three types of effect - `deny`, `audit`, `append`, `AuditIfNotExists`, and `DeployIfNotExists`. 
 
 * **Deny** generates an event in the audit log and fails the request
 * **Audit** generates a warning event in audit log but does not fail the request
 * **Append** adds the defined set of fields to the request 
+* **AuditIfNotExists** - enable auditing if a resource does not exist
+* **DeployIfNotExists** - deploy a resource if it does not already exist
 
 For **append**, you must provide the following details:
 
@@ -225,6 +230,12 @@ For **append**, you must provide the following details:
 ```
 
 The value can be either a string or a JSON format object. 
+
+With **AuditIfNotExists** and **DeployIfNotExists**, you can evaluate the existence of a child resource, and apply a rule when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
+
+For an example of auditing when a virtual machine extension is not deployed, see [Audit VM extensions](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json).
+
+For an example of deploying a network watcher when it is not deployed, see [Enforce Network Watcher in virtual network regions](https://github.com/Azure/azure-policy-samples/blob/master/samples/Network/network-watcher-in-vnet-regions/azurepolicy.rules.json). 
 
 ## Aliases
 
@@ -343,19 +354,84 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
 
+## Policy sets
 
-## Policy examples
+Policy sets enable you to group several related policy definitions. The policy set simplifies assignment and management because you work with group as a single item. For example, you can group all related tagging policies in a single policy set. Rather than assigning each policy individually, you apply the policy set.
+ 
+The following example illustrates how to create a policy set for handling two tags (costCenter and productName). It uses two built-in policies for applying the default tag value, and enforcing the tag value. The policy set declares two parameters, costCenterValue and productNameValue for reusability. It references the two built-in policy definitions multiple times with different parameters. For each parameter, you can either provide a fixed value, as shown for tagName, or a parameter from the policy set, as shown for tagValue.
 
-The following topics contain policy examples:
-
-* For examples of tag polices, see [Apply resource policies for tags](resource-manager-policy-tags.md).
-* For examples of naming and text patterns, see [Apply resource policies for names and text](resource-manager-policy-naming-convention.md).
-* For examples of storage policies, see [Apply resource policies to storage accounts](resource-manager-policy-storage.md).
-* For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "string",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "string",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    }
+}
+```
 
 ## Next steps
 * After defining a policy rule, assign it to a scope. To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md). To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](resource-manager-policy-create-assign.md).
+* For example policies, see [Azure resource policy GitHub repository](https://github.com/Azure/azure-policy-samples).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 * The policy schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 

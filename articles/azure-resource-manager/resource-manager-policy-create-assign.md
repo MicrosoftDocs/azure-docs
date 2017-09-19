@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
 
 ---
@@ -27,6 +27,21 @@ To implement a policy, you must perform these steps:
 4. For either case, assign the policy to a scope (such as a subscription or resource group). The rules of the policy are now enforced.
 
 This article focuses on the steps to create a policy definition and assign that definition to a scope through REST API, PowerShell, or Azure CLI. If you prefer to use the portal to assign policies, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md). This article does not focus on the syntax for creating the policy definition. For information about policy syntax, see [Resource policy overview](resource-manager-policy.md).
+
+## Exclusion scopes
+
+You can exclude a scope when assigning a policy. This ability simplifies policy assignments because you can assign a policy at the subscription level but specify where the policy is not applied. For example, in your subscription, you have a resource group that is intended for network infrastructure. Application teams deploy their resources to other resource groups. You don't want those teams to create network resources that may lead to security issues. However, in the network resource group, you want to allow network resources. You assign the policy at the subscription level but exclude the network resource group. You can specify multiple sub scopes.
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
 
 ## REST API
 
@@ -164,8 +179,28 @@ Before proceeding to create a policy definition, look at the built-in policies. 
 ### Create policy definition
 You can create a policy definition using the `New-AzureRmPolicyDefinition` cmdlet.
 
+To create a policy definition from a file, pass the path to the file. For an external file, use:
+
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+For a local file, use:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+To create a policy definition with an inline rule, use:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -191,12 +226,6 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 ```            
 
 The output is stored in a `$definition` object, which is used during policy assignment. 
-
-Rather than specifying the JSON as a parameter, you can provide the path to a .json file containing the policy rule.
-
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
-```
 
 The following example creates a policy definition that includes parameters:
 
@@ -315,8 +344,16 @@ Before proceeding to create a policy definition, look at the built-in policies. 
 
 You can create a policy definition using Azure CLI with the policy definition command.
 
+To create a policy definition from a file, pass the path to the file. For an external file, use:
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" -–policyUri 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+To create a policy definition with an inline rule, use:
+
+```azurecli
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {
