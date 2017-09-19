@@ -12,7 +12,7 @@ ms.date: 09/18/2017
 ms.author: sajagtap
 ---
 
-# Moderate user posts on your Facebook page
+# Moderate Facebook posts
 
 In this tutorial, we will learn how to use Content Moderator with a sample Facebook page to either take down or allow publishing of images and text by users browsing the Facebook page.
 
@@ -134,7 +134,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 That's it!
 
-The solution will send all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier will be invoked. The content that does not pass your criteria in the workflows will be taken down, and the rest will get published.
+The solution will send all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier will be invoked. The content that does not pass your criteria defined in the workflows will result in reviews within the review tool. The rest of the content will get published.
 
 ## 6. References
 
