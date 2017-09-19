@@ -85,7 +85,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 Power BI Workspace Collections use embed tokens, which are HMAC signed JSON Web Tokens. The tokens are signed with the access key from your Power BI Workspace Collection. Embed tokens, by default, are used to provide read only access to a report to embed into an application. Embed tokens are issued for a specific report and should be associated with an embed URL.
 
-Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Workspace Collections](power-bi-embedded-app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) method. Here is an example of what this would look like using the .NET SDK for Power BI.
+Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) method. Here is an example of what this would look like using the .NET SDK for Power BI.
 
 You will use the report id that you retrieved earlier. Once the embed token is created, you will then use the access key to generate the token which you can use from the javascript perspective. The *PowerBIToken class* requires that you install the [Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
@@ -108,7 +108,7 @@ var token = embedToken.Generate("{access key}");
 
 ### Adding permission scopes to embed tokens
 
-When using Embed tokens, you may want to restrict usage of the resources you give access to. For this reason, you can generate a token with scoped permissions. For more information, see [Scopes](power-bi-embedded-app-token-flow.md#scopes)
+When using Embed tokens, you may want to restrict usage of the resources you give access to. For this reason, you can generate a token with scoped permissions. For more information, see [Scopes](app-token-flow.md#scopes)
 
 ## Embed using JavaScript
 

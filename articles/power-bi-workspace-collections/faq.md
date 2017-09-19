@@ -87,7 +87,7 @@ You can get started for free now! If you have an Azure subscription, you can now
 
 [What is Microsoft Power BI Workspace Collections](what-are-power-bi-workspace-collections.md)
 [Get started with Microsoft Power BI Workspace Collections](get-started.md)
-[Get started with sample](power-bi-embedded-get-started-sample.md)   
+[Get started with sample](get-started-sample.md)   
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
 More questions? [Try the Power BI Community](http://community.powerbi.com/)

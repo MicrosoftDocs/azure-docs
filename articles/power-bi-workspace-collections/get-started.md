@@ -111,11 +111,11 @@ You can create a report from a dataset directly in your application using the Ja
 
 ## See Also
 
-[Get started with sample](power-bi-embedded-get-started-sample.md)  
+[Get started with sample](get-started-sample.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md)  
-[Embed a report](power-bi-embedded-embed-report.md)  
+[Embed a report](embed-report.md)  
 [Create a new report from a dataset in Power BI Workspace Collections](create-report-from-dataset.md)
-[Save reports](power-bi-embedded-save-reports.md)  
+[Save reports](save-reports.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 

@@ -58,7 +58,7 @@ Updates to **Power BI Workspace Collections** are released on a regular basis. H
 ## August 31st, 2016
 Included in this release:
 
-* All new JavaScript SDK that supports [advanced filtering and page navigation](power-bi-embedded-interact-with-reports.md).
+* All new JavaScript SDK that supports [advanced filtering and page navigation](interact-with-reports.md).
 * Power BI Workspace Collections are now supported in the Canada Central datacenter. Check [datacenter status](https://azure.microsoft.com/status/).
 
 ## July 11th, 2016
