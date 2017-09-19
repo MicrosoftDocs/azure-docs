@@ -221,4 +221,4 @@ In part one of the series, you learned about configuring a web app interacting w
 Advance to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.  
 
 > [!div class="nextstepaction"]
-> [Use Event Grid to trigger an Azure Function to resize an uploaded image](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Use Event Grid to trigger an Azure Function to resize an uploaded image](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
