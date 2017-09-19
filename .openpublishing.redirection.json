@@ -5366,6 +5366,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-sim-troubleshooting.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md",
             "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
             "redirect_document_id": false
@@ -10836,6 +10841,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/sql-databasesql-database-cloud-migrate-restore-single-table-azure-backup.md",
+            "redirect_url": "/azure/sql-database/sql-database-recovery-using-backups",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
             "redirect_url": "/azure/cosmos-db/table-storage-cloud-service-nodejs",
             "redirect_document_id": true
@@ -11858,6 +11868,10 @@
         {
             "source_path": "articles/app-service-api/index.md",
             "redirect_url": "azure/app-service",
+            "redirect_document_id": false
+        }
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal",
             "redirect_document_id": false
         }
     ]
