@@ -526,7 +526,7 @@ To summarize bike demand for a 2-hour period, use derived columns.
 
 ## Join Dataflows
 
-To join the weather data with the Hubway trip data, use the following steps:
+To join the weather data with the trip data, use the following steps:
 
 1. Select __Join__ from the __Transforms__ menu.
 
@@ -583,7 +583,7 @@ For this tutorial, the name of the file is `BikeShare Data Prep.py`. This file i
 
 ## Save test data as a CSV file
 
-To save the **Join Result** Dataflow to a .CSV file, you must change the `BikeShare Data Prep.py` script. Update the Python script to the following:
+To save the **Join Result** Dataflow to a .CSV file, you must change the `BikeShare Data Prep.py` script. Update the Python script using the following code:
 
 ```python
 from azureml.dataprep.package import run
@@ -599,16 +599,16 @@ Select **Run** from the top of the screen. The script is submitted as a **Job** 
 
 ## Substitute Data Sources
 
-In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeather.csv` data sources to prepare the Test data. To use the package with the other Hubway data files, use the following steps:
+In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeather.csv` data sources to prepare the Test data. To use the package with the other trip data files, use the following steps:
 
 1. Create a new **Data Source** using the steps given earlier, with the following changes to the process:
 
-    * __File Selection__: When selecting a file, multi-select the six remaining Hubway tripdata .CSV files.
+    * __File Selection__: When selecting a file, multi-select the six remaining trip tripdata .CSV files.
 
-        ![Load the 6 remaining files](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![Load the six remaining files](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
 
         > [!NOTE]
-        > The __+5__ entry indicates that there are 5 additional files beyond the one that is listed.
+        > The __+5__ entry indicates that there are five additional files beyond the one that is listed.
 
     * __File Details__: Set __Promote Headers Mode__ to **All Files Have The Same Headers**. This value indicates that each of the files contains the same header.
 
@@ -627,7 +627,7 @@ In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeat
       201701-hubway-tripdata.dsource: 201501-hubway-tripdata.dsource
     ```
 
-    This change replaces the original data source with the one that contains the 6 Hubway files.
+    This change replaces the original data source with the one that contains the six trip data files.
 
 ## Save training data as a CSV file
 
