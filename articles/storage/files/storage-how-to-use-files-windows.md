@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/25/2017
 ms.author: renash
 ---
 
@@ -34,7 +34,7 @@ You can mount Azure File shares on a Windows installation that is running either
 | Windows 7              | SMB 2.1     | Yes                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows 10 versions 1507, 1511, 1607, and 1703
+<sup>1</sup>Windows 10 versions 1507, 1511, 1607, 1703, and 1709.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.

@@ -12,7 +12,7 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/19/2017
+ms.date: 09/25/2017
 ms.author: renash
 ---
 # Frequently Asked Questions about Azure Files
