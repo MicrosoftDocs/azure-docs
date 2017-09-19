@@ -33,7 +33,7 @@ The [Get started with IoT Hub](iot-hub-java-java-getstarted.md) and [Send Cloud-
 * Vibration data sampled at high frequency
 * Some form of preprocessed data.
 
-These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/index.md) or the [Hadoop](../hdinsight/index.md) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.md) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
 At the end of this tutorial you run two Java console apps:
 

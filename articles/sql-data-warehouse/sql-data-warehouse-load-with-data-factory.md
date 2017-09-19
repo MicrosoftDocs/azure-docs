@@ -23,7 +23,7 @@ ms.author: cakarst;barbkess
 
 # Load data into SQL Data Warehouse with Data Factory
 
-You can use Azure Data Factory to load data into Azure SQL Data Warehouse from any of the [supported source data stores](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). For example, you can load data from an Azure SQL database or an Oracle database into a SQL data warehouse by using Data Factory. Tutorial in this article shows you how to load data from an on-premises SQL Server database into a SQL data warehouse.
+You can use Azure Data Factory to load data into Azure SQL Data Warehouse from any of the [supported source data stores](../data-factory/copy-activity-overview.md). For example, you can load data from an Azure SQL database or an Oracle database into a SQL data warehouse by using Data Factory. Tutorial in this article shows you how to load data from an on-premises SQL Server database into a SQL data warehouse.
 
 **Time estimate**: This tutorial takes about 10-15 minutes to complete once the prerequisites are met.
 
@@ -70,7 +70,7 @@ Now you tell Data Factory about the on-premises SQL Server database from which y
 	> [!NOTE]
 	> If the source data store is on-premises or in an Azure IaaS virtual machine, a Data Management Gateway is required. A gateway has a 1-1 relationship with a data factory. It cannot be used from another data factory, but it can be used by multiple data loading tasks with in the same data factory. A gateway can be used to connect to multiple data stores when running data loading tasks.
 	>
-	> For detailed information about the gateway, see [Data Management Gateway](../data-factory/data-factory-data-management-gateway.md) article.
+	> For detailed information about the gateway, see [Data Management Gateway](../data-factory/v1/data-factory-data-management-gateway.md) article.
 
 3. A **Create Gateway** dialog box appears. For Name, enter **GatewayForDWLoading**, and click **Create**.
 
@@ -152,9 +152,9 @@ To migrate your database to SQL Data Warehouse, see [Migration overview](sql-dat
 
 To learn more about Azure Data Factory and its data movement capabilities, see the following articles:
 
-- [Introduction to Azure Data Factory](../data-factory/data-factory-introduction.md)
-- [Move data by using Copy Activity](../data-factory/data-factory-data-movement-activities.md)
-- [Move data to and from Azure SQL Data Warehouse using Azure Data Factory](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Introduction to Azure Data Factory](../data-factory/introduction.md)
+- [Move data by using Copy Activity](../data-factory/copy-activity-overview.md)
+- [Move data to and from Azure SQL Data Warehouse using Azure Data Factory](../data-factory/connector-azure-sql-data-warehouse.md)
 
 To explore your data in SQL Data Warehouse, see the following articles:
 

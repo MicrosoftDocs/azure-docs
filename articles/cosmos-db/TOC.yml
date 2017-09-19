@@ -309,7 +309,7 @@
     - name: Integrate with Azure Search
       href: ../search/search-howto-index-documentdb.md
     - name: Move data with Azure Data Factory
-      href: ../data-factory/data-factory-azure-documentdb-connector.md
+      href: ../data-factory/connector-azure-cosmos-db.md
     - name: Analyze real-time data with Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
     - name: Get changed HL7 FHIR record using Logic Apps
