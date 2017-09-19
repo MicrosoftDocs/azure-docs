@@ -20,21 +20,20 @@ ms.author: v-jysur
 
 ![IT Service Management Connector symbol](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-The IT Service Management Connector provides a bi-directional integration between a supported IT Service Management (ITSM) product/service and OMS Log Analytics.  Through this connection, users can create incidents, alerts, or events in ITSM product based on OMS Alerts or Log records. The connector also imports data such as incidents, and change requests from ITSM product into OMS Log Analytics.
+The IT Service Management Connector provides a bi-directional integration between a supported IT Service Management (ITSM) product/service and Log Analytics.  Through this connection, you can create incidents, alerts, or events in ITSM product based on Log Analytics Alerts or Log records. The connector also imports data such as incidents, and change requests from ITSM product into OMS Log Analytics.
 
 With IT Service Management Connector, you can:
 
-  - Centrally monitor and manage work items for ITSM products/services used across your organization.
-  - Create ITSM work items (like alert, event, incident) in ITSM from OMS alerts and through log search. 
-  - Read incidents and change requests from your ITSM solution and correlate with relevant log data in Log Analytics workspace.
-  - Find any unexpected and unusual events and resolve them, even before the end users call and report them to the helpdesk.
-  - Import work items data into Log Analytics and create key performance indicator (KPI) reports.  Using these reports, you can identify, assess, and act on several important items such as malware assessment.
-  - View curated dashboards for deeper insights on incidents, change requests, and impacted systems.
-  - Troubleshoot faster by correlating with other management solutions in the Log Analytics workspace.
-  - [New] Through ITSM Action in Action Groups, create work items based on your Azure Activity Log alerts.
-
-
-## Configuration
+  - Integrate operational alerting with your incident management practices in the ITSM tool of your choice.
+    - Create work items (like alert, event, incident) in ITSM from OMS alerts and through log search.
+    - Create work items based on your Azure Activity Log alerts through ITSM Action in Action Groups. 
+  
+  - Unify the monitoring, log and service management data used across your organization.
+    - Correlate incident and change request data from your ITSM tooling with relevant log data in Log Analytics workspace.   
+    - View top-level dashboards for an overview on incidents, change requests, and impacted systems.
+    - Write Log Analytics queries to gain insights into Service Management data.
+      
+## Adding the IT Service Management Connector Solution
 
 Add the IT Service Management Connector solution to your Log Analytics work space, using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
@@ -52,12 +51,10 @@ After successful addition, you will see the IT Service Management Connector unde
 
  ![ITSMC refresh](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
-## Management packs
-This solution does not require any management packs.
 
-## Connected sources
+## Configuring the connection with your ITSM software
 
-The following ITSM products/services are supported by the IT Service Management Connector:
+IT Service Management Connector Solution supports connections to **System Center Service Manager**, **ServiceNow**, **Provance** and **Cherwell**. Follow the respective links to configure your solution:
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -69,15 +66,14 @@ The following ITSM products/services are supported by the IT Service Management 
 
 ## Using the solution
 
-Once you configure the IT Service Management Connector with your ITSM service details, the Connector starts gathering the data from the connected ITSM product/service.
+Once you have configured the IT Service Management Connector with your ITSM software details, the Connector starts gathering data from the connected ITSM product/service. Depending on the number of incidents, and change requests in the ITSM product/service, intial sync should be completed in few minutes. 
 
 > [!NOTE]
 > - Data imported from ITSM product by IT Service Management Connector solution appears in Log Analytics as log records of Type **ServiceDesk_CL**.
 > - Log record contains a field named **ServiceDeskWorkItemType_s**, which is either incident or change request, the two kinds of data imported from the ITSM product
 
-## Input data
-Work items imported from the ITSM products/services.
-
+## Data synced from ITSM product
+Incidents and change requests are synced from your ITSM product to your Log Analytics workspace. 
 The following information shows examples of data gathered by the IT Service Management connector:
 
 > [!NOTE]
@@ -200,9 +196,9 @@ IT Service Management Connector currently supports integration with the Service 
 
 Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent. More information: [Service Map](../operations-management-suite/operations-management-suite-service-map.md).
 
-With this integration, you can view the service desk items created in the ITSM solutions as shown in the following example:
+If you also use the Service Map solution, you can view the service desk items created in the ITSM solutions as shown in the following example:
 
-![Integrated solution ](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
+![ServiceMap Integration](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
 ## Create ITSM work items for OMS alerts
 
 With ITSM Connector solution in place, you can configure OMS Alerts to trigger the creation of work items in your connected ITSM tool as follows:
@@ -252,12 +248,10 @@ You can also create work items in the connected ITSM sources directly from a log
 
 4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 
-The work item will be created in the ITSM, which you can also view in OMS.
-
 ## Create ITSM work items from Azure Alerts
 ITSM Connector is now integrated with Action Groups. [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md) provide a modular and reusable way of triggering actions for your Azure Alerts. The ITSM Action in Action Groups creates work items in your ITSM product using an existing ITSM Connector Solution.
 
-1. In Azure Portal, click on **Monitor**
+1. In Azure portal, click on **Monitor**
 2. In the left pane, click on **Action Groups**
 
     ![Action Groups](media/log-analytics-itsmc/ActionGroups.png)
@@ -277,29 +271,33 @@ ITSM Connector is now integrated with Action Groups. [Action Groups](../monitori
 7. Choose to use an existing template or fill the fields required by your ITSM product.
 8. Click **OK**
 
-By using this Action Group from Azure Alerts, work item is created when the alert is triggered. However, currently only Activity Log Alerts support the ITSM Action. For other Azure alerts, this action is a no-op.
+When creating/editing an Azure alert rule, use an Action Group which has an ITSM Action. When the alert triggers, work item is created in the ITSM tool. 
+
+>[!NOTE]
+>Currently only Activity Log Alerts support the ITSM Action. For other Azure alerts, this action is a no-op.
+>
 
 
 ## Troubleshoot ITSM connections in OMS
 1.	If connection fails from connected source's UI with an **Error in saving connection** message, take the following steps:
  - For ServiceNow, Cherwell and Provance connections,
-    - ensure you correctly entered  the username,password, client ID and client secret  for each of the connections.
-    - check if you have sufficient privileges  in the corresponding ITSM product to make the connection.
+    - ensure you correctly entered  the username, password, client ID, and client secret  for each of the connections.
+    - check if you have sufficient privileges in the corresponding ITSM product to make the connection.
  - For Service Manager connections,
      - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-
+     
 2.	If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
 3.	If OMS Alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
- -  **IT Service Management Connector solution**: The solution shows a summary of connections/work items/computers etc. Click on the tile showing **Connector Status**, this takes you to **Log Search**  with the relevant query. Look at the log records with LogType_S as ERROR for more information.
+ -  **IT Service Management Connector solution**: The solution shows a summary of connections/work items/computers etc. Click on the tile showing **Connector Status**, which takes you to **Log Search**  with the relevant query. Look at the log records with LogType_S as ERROR for more information.
  - Or view the errors/related information directly in the **Log Search** page using the query *Type=ServiceDeskLog_CL*.
 
 ## Troubleshoot Service Manager Web App deployment
-1.	In case of any trouble with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.
-2.	If you get an **Object reference not set to instance of an object** error when you run the [script](log-analytics-itsmc-service-manager-script.md), ensure that you entered valid values  under **User Configuration** section.
+1.	If you face issues with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.
+2.	If you get an **"Object reference not set to instance of an object"** error when you run the [script](log-analytics-itsmc-service-manager-script.md), ensure that you entered valid values  under **User Configuration** section.
 3.	If you fail to create service bus relay namespace, ensure that the required resource provider is registered in the subscription. If not registered, manually create service bus relay namespace from the Azure portal. You can also create it while [creating the hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) from the Azure portal.
 
 
-## Contact us
+## Contact Us
 
 For any queries or feedback on the IT Service Management Connector, contact us at [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
