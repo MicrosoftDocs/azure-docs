@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/19/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -95,6 +95,22 @@ Tip 9: Query Azure #CosmosDB using the MongoDB API in Node.js. Learn more on doc
 ![Query with MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908737218759376896)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314500690261655552)
+
+## Tip 10: Copy MongoDB data using Studio 3T
+
+Tip 10: Learn how to copy your MongoDB data to Azure Cosmos DB using Studio 3T (MongoChef). Docs at [https://aka.ms/apzhww](https://aka.ms/apzhww)
+
+> [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/909794178489507840)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315565289329164288)
+
+## Tip 11: Use React, Node.js, and Azure #CosmosDB
+
+Tip 11: Build a hero tracking app using React, Node.js and Azure Cosmos DB.
+
+Article: [Create a MongoDB app with React and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
 ## Next steps
 
