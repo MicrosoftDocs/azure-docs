@@ -27,14 +27,14 @@ App Service plans define:
 - Region (West US, East US, etc.)
 - Scale count (one, two, three instances, etc.)
 - Instance size (Small, Medium, Large)
-- SKU (Free, Shared, Basic, Standard, Premium)
+- SKU (Free, Shared, Basic, Standard, Premium, PremiumV2, Isolated)
 
 Web Apps, Mobile Apps, API Apps, Function Apps (or Functions), in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 
 all run in an App Service plan.  Apps in the same subscription, and region can share an App Service plan. 
 
 All applications assigned to an **App Service plan** share the resources defined by it. This sharing saves money when hosting multiple apps in a single App Service plan.
 
-Your **App Service plan** can scale from **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way.
+Your **App Service plan** can scale from **Free** and **Shared** SKUs to **Basic**, **Standard**, **Premium**, and **Isolated** SKUs giving you access to more resources and features along the way.
 
 If your App Service plan is set to **Basic** SKU or higher, then you can control the **size** and scale count of the VMs.
 
@@ -44,6 +44,20 @@ For example, if your plan is configured to use two "small" instances in the stan
 > The **SKU** and **Scale** of the App Service plan determines the cost and not the number of apps hosted in it.
 
 This article explores the key characteristics, such as tier and scale, of an App Service plan and how they come into play while managing your apps.
+
+## New pricing tier: PremiumV2
+
+The new **PremiumV2** pricing tier is currently in Preview. This tier features [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
+
+Similar to other dedicated tiers, three VM sizes are available for this tier:
+
+- Small (1 CPU core, 3.5 GiB memory) 
+- Medium (2 CPU cores, 7 GiB memory) 
+- Large (4 CPU core, 14 GiB memory)  
+
+During the Preview timeframe, the pricing for **PremiumV2** is the same **Premium**. For more information, see [App Service Pricing](/pricing/details/app-service/).
+
+To get started with the new **PremiumV2** pricing tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
 
 ## Apps and App Service plans
 

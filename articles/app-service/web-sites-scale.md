@@ -18,6 +18,11 @@ ms.author: cephalin
 
 ---
 # Scale up an app in Azure
+
+> [!NOTE]
+> The new **PremiumV2** tier, which is currently in Preview, gives you faster CPUs, SSD storage, and double the memory-to-core ratio than the existing pricing tiers. To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier (Preview) for App Service](app-service-configure-premium-tier.md).
+>
+
 This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
 
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features
@@ -25,7 +30,7 @@ This article shows you how to scale your app in Azure App Service. There are two
   App Service plan that your app belongs to.
 * [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of VM instances that run your app.
   You can scale out to as many as 20 instances, depending on your pricing tier. [App Service Environments](environment/intro.md)
-  in **Premium** tier will further increase your scale-out count to 50 instances. For more information about scaling out, see
+  in **Isolated** tier will further increase your scale-out count to 100 instances. For more information about scaling out, see
   [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md). There you will find out how
   to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
 
@@ -74,23 +79,12 @@ based on your needs. These resources are not scaled with the App Service plan an
    
     ![Scale up the Azure Storage account used by your Azure app](./media/web-sites-scale/ScaleStorage.png)
 
+<a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
 
-## Learn about developer features
-Depending on the pricing tier, the following developer-oriented features are available:
-
-### Bitness
-* The **Basic**, **Standard**, and **Premium** tiers support 64-bit and 32-bit applications.
-* The **Free** and **Shared** plan tiers support 32-bit applications only.
-
-### Debugger support
-* Debugger support is available for the **Free**, **Shared**, and **Basic** modes at one connection per App Service plan.
-* Debugger support is available for the **Standard** and **Premium** modes at five concurrent connections per App Service plan.
-
-<a name="OtherFeatures"></a>
-
-## Learn about other features
-* For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).
+## Compare pricing tiers
+For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).
+For an exhaustive table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](azure-subscription-service-limits#app-service-limits.md).
 
 > [!NOTE]
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/) where you can immediately create a short-lived starter web app in App Service. No credit cards are required and there are no commitments.
@@ -100,7 +94,6 @@ Depending on the pricing tier, the following developer-oriented features are ava
 <a name="Next Steps"></a>
 
 ## Next steps
-* To get started with Azure, see [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * For information about pricing, support, and SLA, visit the following links.
   
     [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/)
@@ -113,9 +106,6 @@ Depending on the pricing tier, the following developer-oriented features are ava
   
     [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
   
-    [App Service Pricing Details](https://azure.microsoft.com/pricing/details/app-service/)
-  
-    [App Service Pricing Details - SSL Connections](https://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 * For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 * For videos about scaling App Service apps, see the following resources:
   
