@@ -82,7 +82,7 @@ Standard Azure Table Storage is now part of Cosmos DB. To see that documentation
 
 ## Disk storage
 
-The Azure Storage team also owns Disks, which includes all of the managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## Types of storage accounts 
 
