@@ -90,7 +90,7 @@ You can confirm that the service endpoints are configured using below steps:
 
 ### __Effective routes to validate endpoint configuration__
 
-To view effective route on a network interface (NIC) in the subnet, click on any NIC in that subnet. Under "Suppoert + Troubleshooting", click "Effective routes". If endpoint is configured, you will see a new "default" route with address prefixes of the service as destination, and nextHopType as "VirtualNetworkServiceEndpoint".
+To view effective route on a network interface (NIC) in the subnet, click on any NIC in that subnet. Under "Support + Troubleshooting", click "Effective routes". If endpoint is configured, you will see a new "default" route with address prefixes of the service as destination, and nextHopType as "VirtualNetworkServiceEndpoint".
 
 ![Effective routes for service endpoints](media/virtual-network-service-endpoints-portal/effective-routes.png)
 
