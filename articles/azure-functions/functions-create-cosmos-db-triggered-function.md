@@ -69,7 +69,7 @@ Next, you create a function in the new function app.
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **ID** | Name of database | Unique ID for the Cosmos DB database  |
+    | **ID** | Name of database | Unique ID for the Azure Cosmos DB database  |
     | **API** | SQL (DocumentDB) | This topic uses the document database API.  |
     | **Subscription** | Azure Subscription | Azure Subscription  |
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
