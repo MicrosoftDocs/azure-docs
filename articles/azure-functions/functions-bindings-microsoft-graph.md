@@ -49,6 +49,9 @@ To install an extension from the Azure portal, you need to navigate to either a 
 
 In both cases, a warning will appear which specifies the extension to be installed. Click **Install** to obtain the extension.
 
+> [!Note] 
+> Each extension only needs to be installed once per function app. The in-portal installation process can take up to 10 minutes on a consumption plan.
+
 If you are using Visual Studio, you can get the extensions by installing these NuGet packages:
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
 - [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
@@ -458,12 +461,12 @@ The following C# sample gets text from the query string and writes it to a text 
 using System.Net;
 using System.Text;
 
-public static async Task Run(HttpRequest req, TraceWriter log, IAsyncCollector<byte[]> myOneDriveFile)
+public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDriveFile)
 {
     string data = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
         .Value;
-    await myOneDriveFile.AddAsync(Encoding.UTF8.GetBytes(data));
+    await myOneDriveFile.WriteAsync(Encoding.UTF8.GetBytes(data), 0, data.Length);
     return;
 }
 ```
