@@ -12,14 +12,12 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: artic
 ms.date: 09/18/2017
 ms.author: raynew
 
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs
-
-The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running available during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
 This tutorial shows you how to set up disaster recovery to Azure for on-premises VMware VM running Windows. In this tutorial, you learn how to:
 
@@ -30,6 +28,10 @@ This tutorial shows you how to set up disaster recovery to Azure for on-premises
 > * Enable replication for a VM
 
 Before you start, it's helpful to [review the architecture](concepts-vmware-to-azure-architecture.md) for disaster recovery scenario.
+
+## Overview
+
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running and available. You can use Site Recoveryto orchestrate and manage disaster recovery for your on-premises VMware VMs. You replicate the VMware VMs to Azure storage. When a planned or unplanned outage occurs, fail over to Azure and keep working there. When your on-premises site is available again, you can fail back to your primary location.
 
 
 ## Prerequisites
@@ -42,7 +44,7 @@ Before you start, it's helpful to [review the architecture](concepts-vmware-to-a
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
-## Select a protection goal
+## Specify what you want to replicate
 
 Select what you want to replicate, and where you want to replicate to.
 
@@ -64,6 +66,12 @@ Set up the configuration server, register it in the vault, and discover VMs.
 
 
 ### Set up the configuration server
+
+You deploy a single on-premises VMware VM to host all of the Site Recovery components. he VM runs the configuration server, process server, and master target server.
+
+- The configuration server coordinates communications between on-premises and Azure, and manages data replication.
+- The process server acts as a replication gateway. Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage. You can add additional,standalone process servers as your replication traffic increases. The process server also installs the Mobility service on VMs you want to replicate, and performs automatic discovery of VMs on on-premises VMware servers.
+- The master target server	Installed by default together with the configuration server.	Handles replication data during failback from Azure.
 
 Before you start:
 
