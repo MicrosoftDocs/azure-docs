@@ -1,6 +1,6 @@
 ---
-title: Service Fabric tutorial - Failover & Scale Containers | Microsoft Docs
-description: Service Fabric tutorial - Failover & Scale Containers
+title: Failover and scale an Azure Service Fabric containers app | Microsoft Docs
+description: Learn how failover is handled in an Azure Service Fabric containers application.  Also learn how to scale the containers and services running in a cluster.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -19,20 +19,19 @@ ms.author: suhuruli
 ms.custom: mvc
 ---
 
-# Demonstrating failover and scaling of container services with Service Fabric
+# Demonstrate fail over and scaling of container services with Service Fabric
 
-This tutorial is part three of a series. In this tutorial, you learn how failover is handled in Service Fabric container applications. Additionally, you learn how to scale containers. Steps included in this tutorial are:
+This tutorial is part three of a series. In this tutorial, you learn how failover is handled in Service Fabric container applications. Additionally, you learn how to scale containers. In this tutorial, you:
 
 > [!div class="checklist"]
-> * Learn about failover in a Service Fabric cluster  
-> * Scale containers in a cluster
+> * Learn about container failover in a Service Fabric cluster  
+> * Scale the web front-end containers in an appliction
 
 ## Prerequisites
-
- - Application from [Part 2](service-fabric-tutorial-package-containers.md) is running in an active Service Fabric cluster.
+The application from [Part 2](service-fabric-tutorial-package-containers.md) is running in an active Service Fabric cluster.
 
 ## Fail over a container in a cluster
-Service Fabric makes sure your container instances automatically moves to other nodes in the cluster, should a failure occur. You can also manually drain a node for containers and move then gracefully to other nodes in the cluster. You have multiple ways of scaling your services, in this example, we are using Service Fabric Explorer.
+Service Fabric makes sure your container instances automatically moves to other nodes in the cluster, should a failure occur. You can also manually drain a node of containers and move them gracefully to other nodes in the cluster. You have multiple ways of scaling your services, in this example, we are using Service Fabric Explorer.
 
 To fail over the front-end container, do the following steps:
 
@@ -42,7 +41,6 @@ To fail over the front-end container, do the following steps:
 1. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.
 
 ![noderestart][noderestart]
-
 
 Notice how the node name indicating where the front-end containers runs, now changes to another node in the cluster. After a few moments, you should be able to browse to the application again and see the application now running on a different node.
 
@@ -72,8 +70,8 @@ By this simple management task, we doubled the resources available for our front
 In this tutorial, container failover was demonstrated as well as scaling of an application. The following steps were completed:
 
 > [!div class="checklist"]
-> * Learn about failover in a Service Fabric cluster  
-> * Scale containers in a cluster
+> * Learn about container failover in a Service Fabric cluster  
+> * Scale the web front-end containers in an appliction
 
 In this tutorial series, you learned how to: 
 > [!div class="checklist"]
