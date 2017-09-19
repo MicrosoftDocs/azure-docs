@@ -14,7 +14,8 @@ ms.topic: article
 ms.date: 09/12/2017
 ---
 
-# Supported Data Sources for this release 
+# Supported data sources for this release 
+The following document outlines the currently supported list of Data Sources in Data Prep.
 
 ## Types 
 ### Directory vs File

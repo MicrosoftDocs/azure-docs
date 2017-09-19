@@ -13,7 +13,8 @@ ms.devlang:
 ms.topic: article
 ms.date: 09/07/2017
 ---
-# Supported Transforms for this release 
+# Supported Transforms for this release
+The following list's and summaries the available Transforms for this release. 
 
 ## Column selection 
 Many of the following listed transforms work on a single column or many. To select multiple columns, use Control Click on each column or use Shift Click on a range of columns.

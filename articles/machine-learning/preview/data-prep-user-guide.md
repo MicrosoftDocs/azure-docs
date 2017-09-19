@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: article
 ms.date: 09/07/2017
 ---
-# Data Preparation user guide 
+# Data preparation user guide 
 The Data Prep experience provides a lot of rich functionality, the following documents the deepest parts of the experience.
 
 ### Step execution, history, and caching 
@@ -67,7 +67,7 @@ For samples of remote files, additional parameters need to be provided.
 - Sample Storage 
   - Provide an intermediate storage location to store the remote sample. This path must be a different directory from the input file location.
 
-#### Full File 
+#### Full file 
 This strategy can only be applied to local files, taking the full file into the Data Source. If the file is too large, this option may slow down future operations in the app, and you may find it more appropriate to use a different sampling strategy.
 
 
@@ -84,7 +84,8 @@ This practice is often to separate out a set of data that requires additional pr
 - *Append Rows*. Merge two or more dataflows vertically (row-wise). 
 - *Append Columns*. Merge two or more dataflows horizontally (column-wise).
 
-**Note**: AppendColumns fails if a column collision occurs.
+>[!NOTE]
+>AppendColumns fails if a column collision occurs.
 
 After a merge operation, one or more dataflows will be referenced by a source dataflow. DataPrep notifies you with a notification in the bottom right corner of the app, beneath the list of steps.
 

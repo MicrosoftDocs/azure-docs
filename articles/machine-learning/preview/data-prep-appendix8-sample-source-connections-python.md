@@ -16,7 +16,7 @@ ms.date: 09/11/2017
 # Sample of custom source connections (Python) 
 Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)
 
-## Loading Data from data.world
+## Loading data from data.world
 
 ### Prerequisites
 
@@ -38,7 +38,7 @@ API token (obtained at: https://data.world/settings/advanced): <enter API token 
 ```
 Now you should be able to import data.world libraries.
 
-#### Load data into Data Preparation
+#### Load data into data preparation
 
 Create a new script-based data flow and use the following script to load the data from data.world
 
@@ -55,7 +55,7 @@ df = lds.dataframes['simpsons_episodes']
 
 ```
 
-## Load Cosmos DB Data into Data Preparation
+## Load CosmosDB data into data preparation
 
 Create a new script-based data flow and use the following script to load the data from CosmosDB (the libraries will first need to be installed see the reference document linked above)
 

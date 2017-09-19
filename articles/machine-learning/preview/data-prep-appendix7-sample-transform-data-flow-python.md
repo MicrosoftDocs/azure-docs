@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/11/2017
 ---
 
-# Sample of custom Data Flow Transforms (Python) 
+# Sample of custom data flow transforms (Python) 
 The name of this transform in the menu is 'Transform Dataflow (Script)'
 Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)
 
-## Transform Frame
+## Transform frame
 ### Create a new column dynamically 
 Creates a column dynamically(city2) and reconciles multiple different versions of San Francisco to one from the existing city column.
 ```python
@@ -37,7 +37,7 @@ Reformulates the data to meet a formula for reducing the outliers in a column
     df['Last Order'] = stats.mstats.winsorize(df['Last Order'].values, limits=0.4)
 ```
 
-## Transform Data Flow
+## Transform data flow
 ### Fill down 
 Fill down requires two transforms.
 Assuming data that looks like the following;

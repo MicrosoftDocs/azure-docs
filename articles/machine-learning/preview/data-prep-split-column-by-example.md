@@ -13,10 +13,7 @@ ms.topic: article
 ms.date: 09/14/2017
 ---
 
-# Split Column by Example Transformation
-
-## Overview
-
+# Split column by example transformation
 This transform predictively splits the content of a column on meaningful boundaries without requiring user input. The Split algorithm selects the boundaries after analyzing the content of the column. These boundaries could be defined by
 * A fixed delimiter,
 * Multiple, arbitrary delimiters appearing in particular contexts, or,
@@ -35,7 +32,7 @@ In theory, Split operations can also be performed in the Workbench using a serie
 
 The transform aims to produce the same number of resultant columns for all the rows. If any row cannot be split on the determined boundaries, it produces *null* for all the columns by default. This behavior can be changed in the **Advanced Mode**.
 
-### Transform Editor: Advanced Mode
+### Transform editor: advanced mode
 **Advanced Mode** provides a richer experience for Splitting columns. 
 
 Selecting **Keep Delimiter Columns** includes the Delimiters in the final result. Delimiters are excluded by default.
