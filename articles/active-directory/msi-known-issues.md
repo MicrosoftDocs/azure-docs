@@ -1,5 +1,5 @@
 ---
-title: Known issues with Managed Service Identity (MSI) for Azure Active Directory
+title: FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
 documentationcenter: 
@@ -16,19 +16,36 @@ ms.date: 09/14/2017
 ms.author: skwan
 ---
 
-# Known issues with Managed Service Identity (MSI) for Azure Active Directory
+# FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-## Configuration blade does not appear in the Azure portal
+## Frequently Asked Questions (FAQs)
+
+### Does MSI work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
+
+No, MSI is not yet integrated with ADAL or MSAL.
+
+### What are the supported Linux distributions?
+
+The following Linux distributions support MSI: 
+
+- CoreOS Stable
+- CentOS 7.1
+- RedHat 7.2
+- Ubuntu 15.04
+
+## Known issues
+
+### Configuration blade does not appear in the Azure portal
 
 If the VM Configuration blade does not appear on your VM, then MSI has not been enabled in the portal in your region yet.  Check again later.  You can also enable MSI for your VM using [PowerShell](msi-qs-configure-powershell-windows-vm.md) or the [Azure CLI](msi-qs-configure-cli-windows-vm.md).
 
-## Cannot assign access to virtual machines in the Access Control (IAM) blade
+### Cannot assign access to virtual machines in the Access Control (IAM) blade
 
 If **Virtual Machine** does not appear in the Azure portal as a choice for **Assign access to** in **Access Control (IAM)** > **Add permissions**, then Managed Service Identity has not been enabled in the portal in your region yet. Check again later.  You can still select the Managed Service Identity for the role assignment by searching for the MSI’s Service Principal.  Enter the name of the VM in the **Select** field, and the Service Principal appears in the search result.
 
-## VM fails to start after being moved from resource group or subscription
+### VM fails to start after being moved from resource group or subscription
 
 If you move a VM in the running state, it continues to run during the move. However, after the move, if the VM is stopped and restarted, it will fail to start. This issue happens because the VM is not updating the reference to the MSI identity and continues to point to it in the old resource group.
 
@@ -49,7 +66,3 @@ Once the VM is started, the tag can be removed by using following command:
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-
-## Does MSI work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
-
-No, MSI is not yet integrated with ADAL or MSAL.

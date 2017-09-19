@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/16/2017
 ms.author: maheshu
 
 ---
@@ -79,3 +79,14 @@ With Azure AD Domain Services, you can enjoy the following benefits:
 * **Integrated** – Azure AD Domain Services is deeply integrated with your Azure AD tenant. You can now use Azure AD as an integrated cloud-based enterprise directory that caters to the needs of both your modern applications and traditional directory-aware applications.
 * **Compatible** – Azure AD Domain Services is built on the proven enterprise grade infrastructure of Windows Server Active Directory. Therefore, your applications can rely on a greater degree of compatibility with Windows Server Active Directory features. Not all features available in Windows Server AD are currently available in Azure AD Domain Services. However, available features are compatible with the corresponding Windows Server AD features you rely on in your on-premises infrastructure. The LDAP, Kerberos, NTLM, Group Policy, and domain join capabilities constitute a mature offering that has been tested and refined over various Windows Server releases.
 * **Cost-effective** – With Azure AD Domain Services, you can avoid the infrastructure and management burden that is associated with managing identity infrastructure to support traditional directory-aware applications. You can move these applications to Azure Infrastructure Services and benefit from greater savings on operational expenses.
+
+
+## Next steps
+### Learn more about Azure AD Domain Services
+* [Features](active-directory-ds-features.md)
+* [Deployment scenarios](active-directory-ds-scenarios.md)
+* [Find out if Azure AD Domain Services suits your use-cases](active-directory-ds-comparison.md)
+* [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](active-directory-ds-synchronization.md)
+
+### Get started with Azure AD Domain Services
+* [Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started.md)
