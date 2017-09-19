@@ -9,8 +9,8 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/23/2017
-ms.author: gauravbh; tomfitz
+ms.date: 09/19/2017
+ms.author: gauravbh
 ---
 # Publish a managed application for internal consumption
 
@@ -18,15 +18,15 @@ You can create and publish Azure [managed applications](managed-application-over
 
 To publish a managed application for the service catalog, you must:
 
-* Create a .zip package that contains the three required template files.
+* Create a .zip package that contains the two required template files.
 * Decide which user, group, or application needs access to the resource group in the user's subscription.
 * Create the managed application definition that points to the .zip package and requests access for the identity.
 
 ## Create a managed application package
 
-The first step is to create the three required template files. Package all three files into a .zip file, and upload it to an accessible location, such as a storage account. You pass a link to this .zip file when creating the managed application definition.
+The first step is to create the two required template files. Package the two files into a .zip file, and upload it to an accessible location, such as a storage account. You pass a link to this .zip file when creating the managed application definition.
 
-* **applianceMainTemplate.json**: This file defines the Azure resources that are provisioned as part of the managed application. The template is no different than a regular Resource Manager template. For example, to create a storage account through a managed application, applianceMainTemplate.json contains:
+* **mainTemplate.json**: This file defines the Azure resources that are provisioned as part of the managed application. The template is no different than a regular Resource Manager template. For example, to create a storage account through a managed application, mainTemplate.json contains:
 
   ```json
   {
@@ -54,55 +54,9 @@ The first step is to create the three required template files. Package all three
   }
   ```
 
-* **mainTemplate.json**: Users deploy this template when creating the managed application. It defines the managed application resource, which is a Microsoft.Solutions/appliances resource type. This file contains all the parameters you need for the resources in applianceMainTemplate.json.
+* **createUiDefinition.json**: The Azure portal uses this file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
 
-  You set two important properties in this template. First, the **applianceDefinitionId** property is the ID of the managed application definition. You create the definition later in this topic. When setting this value, you must decide which subscription and resource group to use for storing the managed application definitions. And, you must decide on a name for the definition. The ID is in the format:
-
-  `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Solutions/applianceDefinitions/<definition-name>`
-
-  Second, the **managedResourceGroupId** property is the ID of the resource group where the Azure resources are created. You can assign a value for this resource group name or let the user provide a name. The format of the ID is:
-
-  `/subscriptions/<subscription-id>/resourceGroups/<resoure-group-name>`.
-
-  The following example shows a mainTemplate.json file. It specifies a resource group for the deployed resources. The definition ID is set to use a definition named **storageApp** in a resource group named **managedApplicationGroup**. You can change these values to use different names. Provide your own subscription ID in the definition ID.
-
-  ```json
-  {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountNamePrefix": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "managedRGId": "[concat(resourceGroup().id,'-application-resources')]",
-        "managedAppName": "[concat('managedStorage', uniqueString(resourceGroup().id))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Solutions/appliances",
-            "name": "[variables('managedAppName')]",
-            "apiVersion": "2016-09-01-preview",
-            "location": "[resourceGroup().location]",
-            "kind": "ServiceCatalog",
-            "properties": {
-                "managedResourceGroupId": "[variables('managedRGId')]",
-                "applianceDefinitionId": "/subscriptions/<subscription-id>/resourceGroups/managedApplicationGroup/providers/Microsoft.Solutions/applianceDefinitions/storageApp",
-                "parameters": {
-                    "storageAccountNamePrefix": {
-                        "value": "[parameters('storageAccountNamePrefix')]"
-                    }
-                }
-            }
-        }
-    ]
-  }
-  ```
-
-* **applianceCreateUiDefinition.json**: The Azure portal uses this file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
-
-  The following example shows an applianceCreateUiDefinition.json file that enables users to specify the storage account name prefix through a textbox.
+  The following example shows an createUiDefinition.json file that enables users to specify the storage account name prefix through a textbox.
 
   ```json
   {
@@ -133,11 +87,15 @@ The first step is to create the three required template files. Package all three
   }
   ```
 
-After all the needed files are ready, package them as a .zip file. The three files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files are not present. Upload the package to an accessible location from where it can be consumed. The remainder of this article assumes the .zip file exists in a publicly accessible storage blob container.
+After all the needed files are ready, package them as a .zip file. The two files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files are not present. Upload the package to an accessible location from where it can be consumed. The remainder of this article assumes the .zip file exists in a publicly accessible storage blob container.
 
-## Create an Azure Active Directory user group or application
+You can use either Azure CLI or the portal to create a managed application for the service catalog. Both approaches are shown in this article.
 
-The second step is to select a user group or application for managing the resources on behalf of the customer. This user group or application has permissions on the managed resource group according to the role that is assigned. The role can be any built-in Role-Based Access Control (RBAC) role like Owner or Contributor. You also can give an individual user permission to manage the resources, but typically you assign this permission to a user group. To create a new Active Directory user group, see [Create a group and add members in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+## Create managed application with Azure CLI
+
+### Create an Azure Active Directory user group or application
+
+The next step is to select a user group or application for managing the resources on behalf of the customer. This user group or application has permissions on the managed resource group according to the role that is assigned. The role can be any built-in Role-Based Access Control (RBAC) role like Owner or Contributor. You also can give an individual user permission to manage the resources, but typically you assign this permission to a user group. To create a new Active Directory user group, see [Create a group and add members in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 You need the object ID of the user group to use for managing the resources. The following example shows how to get the object ID from the group's display name:
 
@@ -163,10 +121,9 @@ To retrieve just the object ID, use:
 groupid=$(az ad group show --group exampleGroupName --query objectId --output tsv)
 ```
 
-## Get the role definition ID
+### Get the role definition ID
 
 Next, you need the role definition ID of the RBAC built-in role you want to grant access to the user, user group, or application. Typically, you use the Owner or Contributor or Reader role. The following command shows how to get the role definition ID for the Owner role:
-
 
 ```azurecli-interactive
 az role definition list --name owner
@@ -204,7 +161,7 @@ You need the value of the "name" property from the preceding example. You can re
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
 ```
 
-## Create the managed application definition
+### Create the managed application definition
 
 If you do not already have a resource group for storing your managed application definition, create one now:
 
@@ -232,6 +189,37 @@ The parameters used in the preceding example are:
 * **lock-level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, ReadOnly is the only supported lock level. When ReadOnly is specified, the customer can only read the resources present in the managed resource group.
 * **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group. It's specified in the format of `<principalId>:<roleDefinitionId>`. Multiple values also can be specified for this property. If multiple values are needed, they should be specified in the form `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Multiple values are separated by a space.
 * **package-file-uri**: The location of the managed application package that contains the template files, which can be an Azure Storage blob.
+
+## Create managed application with portal
+
+1. If needed, create an Azure Active Directory user group to manage the resources. For more information, see [Create a group and add members in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal).
+1. In the lower left corner, select **More services**.
+
+   ![More services](./media/managed-application-publishing/more-services.png)
+
+1. Search for **managed applications**, and select **Managed application definitions**.
+
+   ![Search for managed application definitions](./media/managed-application-publishing/search-managed-apps.png)
+
+1. Select **Add**.
+
+   ![Add definition](./media/managed-application-publishing/add-managed-application.png)
+
+1. Provide values for name, display name, description, location, subscription, and resource group. For package file URI, provide the path to the zip file you created.
+
+   ![Provide values](./media/managed-application-publishing/fill-application-values.png)
+
+1. When you get to the Authentication and Lock Level section, select **Add Authorization**.
+
+   ![Add authorization](./media/managed-application-publishing/add-authorization.png)
+
+1. Select an Azure Active Directory group to manage the resources, and select **OK**.
+
+   ![Add authorization group](./media/managed-application-publishing/add-auth-group.png)
+
+1. When you have provided all the values, select **Create**.
+
+   ![Create managed application](./media/managed-application-publishing/create-app.png)
 
 ## Next steps
 
