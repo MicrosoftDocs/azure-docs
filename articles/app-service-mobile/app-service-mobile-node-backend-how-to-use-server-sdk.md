@@ -149,7 +149,7 @@ can add or modify tables and APIs, then republish the project. For more informat
 project code.
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. See [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) for operating system-specific distributions and installation guidance.
-2. Follow the steps in [Enable the App Service app repository](../app-service-web/app-service-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
+2. Follow the steps in [Enable the App Service app repository](../app-service/app-service-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
 3. In the blade for your Mobile App backend, make a note of the **Git clone URL** setting.
 4. Execute the `git clone` command using the Git clone URL, entering your password when required, as in the
    following example:
@@ -966,17 +966,16 @@ download the project to your local computer. To edit script files in the online 
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms Client QuickStart]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [offline data sync]: app-service-mobile-offline-data-sync.md
-[How to configure Azure Active Directory Authentication]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[How to configure Facebook Authentication]: app-service-mobile-how-to-configure-facebook-authentication.md
-[How to configure Google Authentication]: app-service-mobile-how-to-configure-google-authentication.md
-[How to configure Microsoft Authentication]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure Twitter Authentication]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
-[Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
-[Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Troubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[How to configure Azure Active Directory Authentication]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure Facebook Authentication]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[How to configure Google Authentication]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[How to configure Microsoft Authentication]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure Twitter Authentication]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Azure App Service Deployment Guide]: ../app-service/app-service-deploy-local-git.md
+[Monitoring an Azure App Service]: ../app-service/web-sites-monitor.md
+[Enable Diagnostic Logging in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
+[Troubleshoot an Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/

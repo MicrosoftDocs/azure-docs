@@ -94,7 +94,7 @@ The [Python Package Index][Python Package Index] (PyPI) has a rich selection of 
 
 Using PTVS is optional, but is recommended as it gives you Python and Web Project/Solution support, debugging, profiling, interactive window, Template editing, and Intellisense.
 
-PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services](cloud-services/cloud-services-python-ptvs.md) and [Websites](app-service-web/app-service-web-overview.md).
+PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services](cloud-services/cloud-services-python-ptvs.md) and [Websites](app-service/app-service-web-overview.md).
 
 PTVS works with your existing Visual Studio 2013, 2015, or 2017 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
 
@@ -113,7 +113,7 @@ For information on how to set up a Linux VM, see the [Create a Virtual Machine R
 
 Using Git deployment, you can develop a Python web application and publish it to an Azure Website from any operating system.  When you push your repository to Azure, it automatically creates a virtual environment and pip installs your required packages.
 
-For more information on using any WSGI-compliant framework, see [Configuring Python with Azure Websites](app-service-web/web-sites-python-configure.md).
+For more information on using any WSGI-compliant framework, see [Configuring Python with Azure Websites](app-service/web-sites-python-configure.md).
 
 ## Additional Software and Resources:
 * [Azure SDK for Python ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
