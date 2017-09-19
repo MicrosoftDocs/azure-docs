@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: ''
 
+ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
 ms.devlang: NA

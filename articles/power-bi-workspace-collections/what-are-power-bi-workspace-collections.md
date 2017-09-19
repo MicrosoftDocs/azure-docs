@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: ''
 
+ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -16,7 +17,6 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/19/2017
 ms.author: asaxton
-
 ---
 # What are Power BI Workspace Collections?
 

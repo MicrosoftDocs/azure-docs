@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: ''
 
+ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
