@@ -71,10 +71,15 @@
 ### [Azure log integration](security-center-integrating-alerts-with-log-integration.md)
 ### [Threat intelligence map](security-center-threat-intel.md)
 ### [Threat intelligence report](security-center-threat-report.md)
+### [Custom alerts](security-center-custom-alert.md)
+### [Investigation](security-center-investigation.md)
 
 ## Cloud defenses
 ### [Just in time access](security-center-just-in-time.md)
 ### [Adaptive application controls](security-center-adaptive-application.md)
+
+## Automation and Orchestration
+### [Playbooks](security-center-playbooks.md)
 
 ## Troubleshoot
 ### [Troubleshooting guide](security-center-troubleshooting-guide.md)
