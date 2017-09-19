@@ -21,8 +21,12 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 
 | |  |
 |---|---|
-|**Create a data factory pipeline**||
-|[Create a data factory](scripts/create-data-factory-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure data factory. |
+|**Copy data**||
+|[Copy blobs from a folder to another folder in an Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script copies blobs from a folder in Azure Blob Storage to another folder in the same Blob Storage. |
+|**Transform data**||
+|[Transform data using a Spark cluster](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script transforms data by running a program on a Spark cluster. |
+|**Lift and shift SSIS packages to Azure**||
+|[Create Azure-SSIS integration runtime](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell scripts provisions an Azure-SSIS integration runtime that runs SQL Server Integration Services (SSIS) packages in Azure. |
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the following tutorials to learn about using Data Factory in slightly complex scenarios. 

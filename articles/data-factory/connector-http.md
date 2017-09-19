@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -53,6 +53,7 @@ The following properties are supported for HTTP linked service:
 | url | Base URL to the Web Server | Yes |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when connecting to HTTP endpoint. | No, default is true |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 ### Using Basic, Digest, or Windows authentication
 
@@ -60,8 +61,8 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| username | Username to access the HTTP endpoint. | Yes |
-| password | Password for the user (username). | Yes |
+| userName | User name to access the HTTP endpoint. | Yes |
+| password | Password for the user (userName). Mark this field as SecureString. | Yes |
 
 **Example**
 
@@ -80,6 +81,10 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
                 "type": "SecureString",
                 "value": "<password>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -93,7 +98,7 @@ To use ClientCertificate authentication, set "authenticationType" property to **
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 encoded certificate data. | Specify either the `embeddedCertData` or `certThumbprint`. |
 | certThumbprint | The thumbprint of the certificate that is installed on your Self-hosted Integration Runtime machine's cert store. Applies only when Self-hosted type of Integration Runtime is specified in connectVia. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| password | Password associated with the certificate. | No |
+| password | Password associated with the certificate. Mark this field as SecureString. | No |
 
 If you use "certThumbprint" for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the Self-hosted Integration Runtime:
 
@@ -141,6 +146,10 @@ If you use "certThumbprint" for authentication and the certificate is installed 
                 "type": "SecureString",
                 "value": "password of cert"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
