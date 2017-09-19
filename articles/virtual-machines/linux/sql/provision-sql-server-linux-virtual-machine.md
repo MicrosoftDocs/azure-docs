@@ -114,19 +114,38 @@ If you are running on Windows and do not have a BASH shell, you can install an S
 
 For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm).
 
-## Configure SQL Server
+## Change the SA password
+
+The new virtual machine installs SQL Server with a random SA password. You must reset this password before you can connect to SQL Server with the SA login.
 
 1. After connecting to your Linux VM, open a new command terminal.
 
-1. Set up SQL Server with the following command.
+1. Change the SA password with the following commands.
 
    ```bash
-   sudo /opt/mssql/bin/mssql-conf setup
+   sudo systemctl stop mssql-server
+   sudo /opt/mssql/bin/mssql-conf set-sa-password
    ```
 
-   Accept the License and enter a password for the system administrator account. You can start the server when prompted.
+   Enter a new SA password and password confirmation when prompted.
 
-1. Optionally, [install the SQL Server Tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools).
+1. Restart the SQL Server service.
+
+   ```bash
+   sudo systemctl stop mssql-server
+   ```
+
+## Add the tools to your path (optional)
+
+Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#packages) are installed by default, including the SQL Server command-line Tools package. This contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
+
+1. Run the following commands to modify the **PATH** for both login sessions and interactive/non-login sessions:
+
+   ```bash
+   echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+   echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+   source ~/.bashrc
+   ```
 
 ## Next steps
 

@@ -15,6 +15,7 @@ ms.date: 10/02/2017
 ms.author: jroth
 ---
 # Overview of SQL Server on Azure Virtual Machines (Linux)
+
 > [!div class="op_single_selector"]
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
@@ -43,9 +44,19 @@ The following table provides a matrix of the latest SQL Server images in the vir
 
 | Version | Operating System | Edition |
 | --- | --- | --- |
-| **SQL Server 2017** | Red Hat Enterprise Linux 7.3 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73) |
-| **SQL Server 2017** | SUSE Linux Enterprise Server v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73) |
-| **SQL Server 2017** | Ubuntu 16.04 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73) |
+| **SQL Server 2017** | Red Hat Enterprise Linux (RHEL) 7.4 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73) |
+| **SQL Server 2017** | SUSE Linux Enterprise Server (SLES) v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73) |
+| **SQL Server 2017** | Ubuntu 16.04 LTS |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2017CTP20onRedHatEnterpriseLinux73) |
+
+## <a id="packages"></a> Installed packages
+
+When you configure SQL Server on Linux, you install the database engine package and then several optional packages depending on your requirements. The Linux virtual machine images for SQL Server automatically install most packages for you. The following table shows which packages are installed for each distribution.
+
+| Distribution | [Database Engine](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Full-Text Search](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [HA add-on](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+|---|---|---|---|---|---|---|
+| RHEL | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
+| SLES | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
+| Ubuntu | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![yes](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
 ## Next steps
 
