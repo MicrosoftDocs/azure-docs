@@ -36,7 +36,7 @@ The privileged endpoint logs every action (and its corresponding output) that yo
 
 ## Access the privileged endpoint
 
-You access the privileged endpoint through a remote PowerShell session on the virtual machine that hosts the privileged endpoint. In the ASDK, this virtual machine is named AzS-ERCS01. If you’re using an integrated system, there are three instances of the privileged endpoint, each running inside a virtual machine (*Prefix*-ERCS01, *Prefix-ERCS02*, or *Prefix*-ERCS03) on different hosts for resiliency. 
+You access the privileged endpoint through a remote PowerShell session on the virtual machine that hosts the privileged endpoint. In the ASDK, this virtual machine is named AzS-ERCS01. If you’re using an integrated system, there are three instances of the privileged endpoint, each running inside a virtual machine (*Prefix*-ERCS01, *Prefix*-ERCS02, or *Prefix*-ERCS03) on different hosts for resiliency. 
 
 Before you begin this procedure for an integrated system, make sure you can access a privileged endpoint either by IP address, or through DNS. After initial deployment of Azure Stack, you can access the privileged endpoint only by IP address because DNS integration is not yet set up. Your OEM hardware vendor will provide you with a JSON file named "AzureStackStampDeploymentInfo" that contains the privileged endpoint IP addresses.
 
@@ -49,7 +49,7 @@ We recommend that you connect to the privileged endpoint only from the hardware 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-     - If you’re running the ADSK, sign in to the development kit host.
+    - If you’re running the ADSK, sign in to the development kit host.
 
 2. On your hardware lifecycle host or Privileged Access Workstation, open an elevated Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the privileged endpoint:
  
@@ -66,13 +66,13 @@ We recommend that you connect to the privileged endpoint only from the hardware 
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <azs-ercs01>`
+        Enter-PSSession -ComputerName azs-ercs01`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    When prompted, use the following credentials:
 
-    - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
-    - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
+   - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
+   - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
@@ -101,10 +101,9 @@ We recommend that you connect to the privileged endpoint only from the hardware 
 4.	Because scripting is not allowed, you can’t use tab completion for parameter values. To get the list of parameters for a given cmdlet, run the following command:
 
     ````PowerShell
-    Get-Command <command_name> -Syntax
+    Get-Command <cmdlet_name> -Syntax
     ```` 
-> [!NOTE]
-> Any type of script operation will fail with the error **ScriptsNotAllowed**. This behavior is expected.
+    If you try any type of script operation, the operation fails with the error **ScriptsNotAllowed**. This is expected behavior.
 
 ## Close the privileged endpoint session
 
