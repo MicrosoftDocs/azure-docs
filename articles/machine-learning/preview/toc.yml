@@ -10,7 +10,7 @@
 - name: Quickstarts
   items:
   - name: Create and Install
-    href: quick-start-installation.md
+    href: quickstart-installation.md
 - name: Tutorials
   items:
   - name: 1 - Prepare data
@@ -21,7 +21,7 @@
     href: tutorial-classifying-iris-part-3.md
   - name: Prepare bike share data
     href: tutorial-bikeshare-dataprep.md   
-- name: Concepts   
+- name: Concepts
   items: 
   - name: Key concepts
     href: overview-general-concepts.md
