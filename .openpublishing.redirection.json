@@ -11869,7 +11869,8 @@
             "source_path": "articles/app-service-api/index.md",
             "redirect_url": "azure/app-service",
             "redirect_document_id": false
-        }
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal",
             "redirect_document_id": false
