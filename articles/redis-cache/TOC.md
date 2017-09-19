@@ -12,7 +12,6 @@
 # Get started
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
