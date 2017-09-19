@@ -19,7 +19,8 @@ ms.author: kumud
 ms.custom: 
 ---
 
-# How to send Real User Measurements with Visual Studio Mobile Center
+# How to send Real User Measurements with Visual Studio Mobile Center to Traffic Manager
+
 You can set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager by following the steps below:
 
 [!NOTE]
@@ -82,5 +83,5 @@ Look for onCreate callback in the same file and add the following command:
 - Learn more about [Mobile Center](https://docs.microsoft.com/en-us/mobile-center/)
 - [Sign up](https://mobile.azure.com) for Mobile Center
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
-- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile)
+- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
 
