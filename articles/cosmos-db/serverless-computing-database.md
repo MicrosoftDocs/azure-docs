@@ -28,12 +28,17 @@ With the native integration between [Azure Cosmos DB](https://azure.microsoft.co
 Azure Cosmos DB and Azure Functions enable you to integrate your databases and serverless apps in the following ways:
 
 * Create an event-driven **Azure Cosmos DB trigger** in an Azure Function. This trigger relies on [change feed](change-feed.md) streams to monitor your Azure Cosmos DB container for changes. When any changes are made to a container, the change feed stream is sent to the trigger, which invokes the Azure Function.
-* Alternatively, bind a function to an Azure Cosmos DB collection using an **input binding**. Input bindings read data from a container when a function executes. An input binding to an Azure Cosmos DB container can be used in the same function as an Azure Cosmos DB trigger.
+* Alternatively, bind an Azure Function to an Azure Cosmos DB collection using an **input binding**. Input bindings read data from a container when a function executes.
 * Bind a function to an Azure Cosmos DB collection using an **output binding**. Output bindings write data to a container when a function completes. Output bindings can be used in the same function as an Azure Cosmos DB trigger or an input binding.
 
 The following diagram illustrates each of these three integrations: 
 
 ![How Azure Cosmos DB and Azure Functions integrate](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+
+The Azure Cosmos DB trigger, input binding, and output binding can be used in the following combinations:
+* An Azure Cosmos DB trigger can be used with an output binding to a different Azure Cosmos DB container. One way to migrate a database is to set an Azure Cosmos DB trigger on one collection, and use an output binding to write the changes to another collection. This would effectively migrate all the data that changed after the function was invoked. 
+* Input bindings and output bindings for Azure Cosmos DB can be used in the same Azure Function. This works well in cases when you want to find certain data with the input binding, modify it in the Azure Function, and then save it to the same collection or a different collection, after the modification.
+* An input binding to an Azure Cosmos DB container can be used in the same function as an Azure Cosmos DB trigger, and can be used with or without an output binding as well. You could use this combination to apply up-to-date currency exchange information (pulled in with an input binding to an exchange container) to the change feed of new orders in your shopping cart service. The updated shopping cart total, with the current currency conversion applied, can be written to a third container using an output binding.
 
 > [!NOTE]
 > At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with DocumentDB, Table, and Graph API accounts only.
@@ -42,41 +47,74 @@ The following diagram illustrates each of these three integrations:
 
 The following use cases demonstrate a few ways you can make the most of your Azure Cosmos DB data - by connecting your data to event-driven Azure Functions.
 
-* In IoT implementations, you can invoke a function when the check engine light is displayed in a connected car.
+### IoT use case
 
-    Implementation: An **Azure Cosmos DB trigger** is used to trigger events related to car alerts, such as the check engine light coming on in a connected car. When the check engine light comes, the sensor data is sent to Azure Cosmos DB. Azure Cosmos DB creates or updates new sensor data documents, then those changes are streamed to the Azure Cosmos DB trigger. The trigger is invoked on every data-change to the sensor data collection, as all changes are streamed via the change feed. A threshold condition can be used in the function to optionally send the sensor data to the warranty department. Another function can be created to send the related owner information to a marketing task that manages mailers related to car maintenance. The output binding on one of the functions can update the car record in Azure Cosmos DB to store information about the check engine event.
+In IoT implementations, you can invoke a function when the check engine light is displayed in a connected car.
 
-    The following image shows the code written in the Azure portal for this trigger.
+**Implementation:** Use an Azure Cosmos DB trigger and an output binding
 
-    ![Create an Azure Cosmos DB trigger in the Azure portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+1. An **Azure Cosmos DB trigger** is used to trigger events related to car alerts, such as the check engine light coming on in a connected car.
+2. When the check engine light comes, the sensor data is sent to Azure Cosmos DB.
+3. Azure Cosmos DB creates or updates new sensor data documents, then those changes are streamed to the Azure Cosmos DB trigger.
+4. The trigger is invoked on every data-change to the sensor data collection, as all changes are streamed via the change feed.
+5. A threshold condition is used in the function to send the sensor data to the warranty department.
+6. If the temperature is also over a certain value, an alert is also sent to the owner.
+7. The **output binding** on the function updates the car record in another Azure Cosmos DB collection to store information about the check engine event.
 
-* In financial implementations, you can invoke a function when a bank account balance falls under a certain value.
+The following image shows the code written in the Azure portal for this trigger.
 
-    Implementation: Using a [Timer trigger](../azure-functions/functions-bindings-timer.md), you can retrieve the bank account balance information stored in an Azure Cosmos DB container using the **input bindings**. The timer can be set to a daily or weekly cadence, where the user can set a threshold for what would be considered as a low balance, then follow that with an action from the Azure Function. The container can also include the email address of the account owner, which should be notified. The output binding can be a [SendGrid integration](../azure-functions/functions-bindings-sendgrid.md) that can send an email from a service account to the affected accounts.
+![Create an Azure Cosmos DB trigger in the Azure portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
 
-    The following images show the code in the Azure portal for this scenario.
+### Financial use case
 
-    ![Index.js file for a Timer trigger for a financial scenario](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+In financial implementations, you can invoke a function when a bank account balance falls under a certain amount.
 
-    ![Run.csx file for a Timer trigger for a financial scenario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+**Implementation:** A timer trigger with an Azure Cosmos DB input binding
 
-* In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Graph API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB Table database](table-introduction.md) for easy retrieval.
+1. Using a [timer trigger](../azure-functions/functions-bindings-timer.md), you can retrieve the bank account balance information stored in an Azure Cosmos DB container at timed intervals using an **input binding**.
+2. If the balance is below the low balance threshold set by the user, then follow up with an action from the Azure Function.
+3. The output binding can be a [SendGrid integration](../azure-functions/functions-bindings-sendgrid.md) that sends an email from a service account to the email addresses identified for each of the low balance accounts.
 
-    Implementation: Using an Azure Cosmos DB graph database to store all users, you can create a new function with an Azure Cosmos DB trigger. Whenever a new user is inserted, the function is invoked, and then the result is stored using an **output binding**. The function can query the graph database to search for all the users that are directly related to the new user and return that dataset to the function. This can then be stored in an Azure Cosmos DB Table database as a key-value set of pairs, which can then be easily retrieved by any front-end application that shows the new user their connected friends.
+The following images show the code in the Azure portal for this scenario.
 
-* In retail implementations, when a user adds an item to their basket you now have the flexibility to create and invoke functions for optional business pipeline components. For example, you can trigger the creation of promotional mailers because the app flow no longer needs to be linear. Any department can create an Azure Cosmos DB trigger by listening to the change feed, and be sure they won't delay critical order processing events in the process.
+![Index.js file for a Timer trigger for a financial scenario](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
 
-In all of these cases, because the function has decoupled the app itself, you don’t need to spin up new app instances all the time. Instead, Azure Functions spins up individual functions to complete discrete processes as needed.
+![Run.csx file for a Timer trigger for a financial scenario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+
+### Gaming use case
+
+In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Graph API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB Table database](table-introduction.md) for easy retrieval.
+
+**Implementation:** Use an Azure Cosmos DB trigger and an output binding
+
+1. Using an Azure Cosmos DB [graph database](graph-introduction.md) to store all users, you can create a new function with an Azure Cosmos DB trigger. 
+2. Whenever a new user is inserted, the function is invoked, and then the result is stored using an **output binding**.
+3. The function queries the graph database to search for all the users that are directly related to the new user and returns that dataset to the function.
+4. This data is then stored in an Azure Cosmos DB [table database](table-introduction.md) as a key-value set of pairs, which can then be easily retrieved by any front-end application that shows the new user their connected friends.
+
+### Retail use case
+
+In retail implementations, when a user adds an item to their basket you now have the flexibility to create and invoke functions for optional business pipeline components.
+
+**Implementation:** Multiple Azure Cosmos DB triggers listening to one collection
+
+1. You can create up multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. 
+2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
+    * One function may use the contents of the current basket to change the display of other items the user might be interested in.
+    * Another function may update inventory totals.
+    * Another function may send customer information for certain products to the marketing department, who sends them a promotional mailer. 
+
+    Any department can create an Azure Cosmos DB trigger by listening to the change feed, and be sure they won't delay critical order processing events in the process.
+
+In all of these use cases, because the function has decoupled the app itself, you don’t need to spin up new app instances all the time. Instead, Azure Functions spins up individual functions to complete discrete processes as needed.
 
 ## Tooling
 
-Native integration between Azure Cosmos DB and Azure Functions is available in the portal and Visual Studio 2017.
-* Create Azure Cosmos DB triggers from the Azure Cosmos DB portal, the Azure Functions portal, or in Visual Studio 2017 by clicking Add > New Item >Azure Function. 
-* Create HTTP request and timer triggers that have an input binding and/or output binding to Azure Cosmos DB in the Functions portal.
-
-The following image shows how to add an Azure Cosmos DB trigger to a function in the Azure Functions portal.
-
-![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
+Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal.
+* You can create an Azure Cosmos DB trigger from the Azure Functions portal, as shown in the following image: For quickstart instructions, see [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
+    ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
+* You can also add an Azure Cosmos DB trigger to an existing Azure Function from the Azure Cosmos DB portal.
+* You can add Azure Cosmos DB input bindings and output bindings to other types of triggers in the Azure Functions portal.
 
 ## Why choose Azure Functions integration for serverless computing?
 
@@ -109,7 +147,7 @@ If you're not sure whether Flow, Logic Apps, Azure Functions, or WebJobs are bes
 Now let's connect Azure Cosmos DB and Azure Functions for real: 
 
 * [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Create an Azure Cosmos DB trigger in Visual Studio 2017](https://aka.ms/cosmosdbtriggervs)
+* [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind)
 * [Store unstructured data using Azure Functions and Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
 * [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-documentdb.md)
 
