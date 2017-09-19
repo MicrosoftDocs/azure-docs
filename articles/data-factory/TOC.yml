@@ -26,7 +26,7 @@
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-prem data to cloud
-    href: tutorial-copy-onprem-data-to-cloud-powershell.md
+    href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
   - name: 5 - Transform data in cloud
