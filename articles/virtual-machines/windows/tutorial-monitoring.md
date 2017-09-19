@@ -122,9 +122,9 @@ If these prerequisites are not met, a banner appears that gives you the option t
 Click the banner to enable the solution. If any of the following prerequisites were found to be missing after the validation,
 they will be automatically added:
 
-* [Log Analytics](../log-analytics/log-analytics-overview.md) workspace
-* [Automation](../automation/automation-offering-get-started.md)
-* A [Hybrid runbook worker](../automation/automation-hybrid-runbook-worker.md) is enabled on the virtual machine
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace
+* [Automation](../../automation/automation-offering-get-started.md)
+* A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the virtual machine
 
 The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
 
