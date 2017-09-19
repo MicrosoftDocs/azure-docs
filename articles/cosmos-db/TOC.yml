@@ -99,8 +99,6 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
-  - name: Azure Storage Explorer
-    href: cosmosdb-in-storage-explorer-get-started.md
 - name: Concepts
   items:
   - name: Global distribution
@@ -324,6 +322,8 @@
       href: odbc-driver.md
     - name: Use Spring Boot Starter with DocumentDB APIs
       href: documentdb-java-spring-boot-starter-with-cosmos-db.md
+    - name: Use Azure Storage Explorer
+      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md 
 - name: Reference
   items:
   - name: Code samples
