@@ -73,7 +73,7 @@ The following procedure assumes that the **New Subscription** dialog box is open
    d. Select your Azure subscription, paste the full path of the .cer file that you just created, and select **Upload**.
 
 ## Next steps
-* [General overview of Web Apps](https://docs.microsoft.com/azure/app-service-web/)
-* [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
-* [Deploy WebJobs using Visual Studio](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [General overview of Web Apps](https://docs.microsoft.com/azure/app-service/)
+* [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [Deploy WebJobs using Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
 * [Create and deploy a cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)
