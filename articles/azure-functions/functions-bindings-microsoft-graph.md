@@ -140,7 +140,36 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 }
 ```
 
+The following JS sample uses the token to make an HTTP call to the Microsoft Graph and returns the result. In the `function.json` above, change `$return` to `res` first:
+```js
+const rp = require('request-promise');
 
+module.exports = function (context, req) {
+    let token = "Bearer " + context.bindings.graphToken;
+
+    let options = {
+        uri: 'https://graph.microsoft.com/v1.0/me/',
+        headers: {
+            'Authorization': token
+        }
+    };
+    
+    rp(options)
+        .then(function(profile) {
+            context.res = {
+                body: profile
+            };
+            context.done();
+        })
+        .catch(function(err) {
+            context.res = {
+                status: 500,
+                body: err
+            };
+            context.done();
+        });
+};
+```
 
 
 
@@ -523,7 +552,8 @@ Suppose you have the following function.json that defines an HTTP trigger with a
     {
       "name": "message",
       "type": "outlook",
-      "direction": "out"
+      "direction": "out",
+      "identity": "userFromRequest"
     }
   ],
   "disabled": false
@@ -559,8 +589,20 @@ public class Recipient {
 }
 ```
 
+The following JS sample sends a mail from the caller to a recipient specified in the query string:
 
-
+```js
+module.exports = function (context, req) {
+    context.bindings.message = {
+        subject: "Greetings",
+        body: "Sent from Azure Functions with JavaScript",
+        recipient: {
+            address: req.query.to 
+        } 
+    };
+    context.done();
+};
+```
 
 
 
