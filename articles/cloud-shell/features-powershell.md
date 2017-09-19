@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: damaerte
 ---
 
-# Features and tools for PowerShell in Azure Cloud Shell
+# Features & tools for PowerShell in Azure Cloud Shell
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
@@ -42,7 +42,7 @@ Since, each request for Cloud Shell is allocating a temporary machine, files out
 
 ### Azure drive (Azure:)
 
-PowerShell in Cloud Shell starts you in Azure drive (`Azure:`). 
+PowerShell in Cloud Shell starts you in Azure drive (`Azure:`).
 Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
 You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure) to manage these resources.
 Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are instantly reflected in the Azure drive.
@@ -59,13 +59,24 @@ Any changes made to the Azure resources, either made directly in Azure portal or
 
     ![](media/features-powershell/get-azurermcommand.png)
 
-### Interaction with VMs
+### Rich PowerShell script editing
 
-To enable seamless management into the guest VMs.
+When you use VIM to edit PowerShell files (`.ps1,.psm1,.psd1`), you automatically get syntax highlighting and IntelliSense support.
+IntelliSense support is implemented via a vim-plugin that interacts with a local instance of [PowerShell Editor Services](https://github.com/PowerShell/PowerShellEditorServices).
+
+> [!TIP]
+> Use `TAB` to get completion (IntelliSense) on command names, parameter names, and parameter values (where applicable).
 
 ### Extensible model
 
-To import additional cmdlets and ability to run any executable.
+Using [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget), you can easily install (and update) custom modules and scripts from the [PowerShell Gallery](https://www.powershellgallery.com). After installation, your modules are automatically persists across Cloud Shell sessions.
+
+> [!TIP]
+> Modules installed by the users are saved in `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in user's document folder (`$home\Document\WindowsPowerShell`).
+
+### Interaction with VMs
+
+Enables interactions with VMs using PowerShell remoting to enable management of guest VMs.
 
 ## Tools
 
@@ -85,7 +96,6 @@ To import additional cmdlets and ability to run any executable.
 |Node.js     |6.10       |
 |PowerShell  |5.1 and [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
-
 
 ## Next steps
 
