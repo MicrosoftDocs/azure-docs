@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -49,8 +49,8 @@ The following properties are supported for OData linked service:
 | type | The type property must be set to: **OData** |Yes |
 | url | Root URL of the OData service. |Yes |
 | authenticationType | Type of authentication used to connect to the OData source.<br/>Allowed values are: **Anonymous**, **Basic**, and **Windows**. Note OAuth is not supported. | Yes |
-| username | Specify user name if you are using Basic or Windows authentication. | No |
-| password | Specify password for the user account you specified for the username. | No |
+| userName | Specify user name if you are using Basic or Windows authentication. | No |
+| password | Specify password for the user account you specified for the userName. | No |
 
 **Example 1: using Anonymous authentication**
 
@@ -81,7 +81,7 @@ The following properties are supported for OData linked service:
         {
             "url": "<endpoint of OData source>",
             "authenticationType": "Basic",
-            "username": "<username>",
+            "userName": "<username>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
@@ -103,7 +103,7 @@ The following properties are supported for OData linked service:
         {
             "url": "<endpoint of on-premises OData source>",
             "authenticationType": "Windows",
-            "username": "<domain>\\<user>",
+            "userName": "<domain>\\<user>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"

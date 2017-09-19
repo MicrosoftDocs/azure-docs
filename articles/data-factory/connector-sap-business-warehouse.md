@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -61,7 +61,7 @@ The following properties are supported for SAP Business Warehouse (BW) linked se
 | server | Name of the server on which the SAP BW instance resides. | string | Yes |
 | systemNumber | System number of the SAP BW system. | Two-digit decimal number represented as a string. | Yes |
 | clientId | Client ID of the client in the SAP W system. | Three-digit decimal number represented as a string. | Yes |
-| username | Name of the user who has access to the SAP server | string | Yes |
+| userName | Name of the user who has access to the SAP server | string | Yes |
 | password | Password for the user. | string | Yes |
 
 **Example:**
@@ -77,7 +77,7 @@ The following properties are supported for SAP Business Warehouse (BW) linked se
             "server": "<server name>",
             "systemNumber": "<system number>",
             "clientId": "<client id>",
-            "username": "<SAP user>",
+            "userName": "<SAP user>",
             "password": {
                 "type": "SecureString",
                 "value": "<Password for SAP user>"
