@@ -265,9 +265,7 @@
       href: sql-database-long-term-backup-retention-configure.md
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
-    - name: Recover single table
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: Load & move data
+    - name: Load & move data
     items:
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
