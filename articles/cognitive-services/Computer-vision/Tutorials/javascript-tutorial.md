@@ -8,29 +8,19 @@ manager: JuliaNik
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 09/19/2017
 ms.author: v-royhar
 ---
 
-# Computer Vision API JavaScript Tutorial
+# Computer Vision API JavaScript tutorial
 
-This tutorial shows the features of the Microsoft Cognitive Services Computer Vision REST API: 
-* [Prerequisites](#Prerequisites) 
-* [Download the tutorial project](#DownloadExample)
-* [Add the tutorial code](#AddTutorialCode)
-* [Analyze an image](#Analyze)
-* [Recognize a landmark](#Landmark)
-* [Recognize celebrities](#Celebrities)
-* [Intelligently generate a thumbnail](#Thumbnail)
-* [Read printed text (OCR)](#OCR) 
-* [Read handwritten text (handwriting recognition)](#Handwriting)
-* [Next steps](#NextSteps)
+This tutorial shows the features of the Microsoft Cognitive Services Computer Vision REST API.
 
 Explore a JavaScript application that uses the Computer Vision REST API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag, and describe visual features, including faces, in an image. This example lets you submit an image URL for analysis or processing. You can use this open source example as a template for building your own app in JavaScript to use the Computer Vision REST API.
 
 The JavaScript form application has already been written, but has no Computer Vision functionality. In this tutorial, you add the code specific to the Computer Vision REST API to complete the application's functionality.
 
-## <a name="Prerequisites">Prerequisites</a>
+## Prerequisites
 
 ### Platform requirements
 
@@ -40,19 +30,19 @@ This tutorial has been developed using a simple text editor.
 
 Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
 
-## <a name="DownloadExample">Download the tutorial project</a>
+## Download the tutorial project
 
 Clone the [Cognitive Services JavaScript Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial), or download the .zip file and extract it to an empty directory.
 
 If you would prefer to use the finished tutorial with all tutorial code added, you can use the files in the **Completed** folder.
 
-## <a name="AddTutorialCode">Add the tutorial code</a>
+## Add the tutorial code
 
 The JavaScript application is set up with six .html files, one for each feature. Each file demonstrates a different function of Computer Vision (analyze, OCR, etc). The six tutorial sections do not have interdependencies, so you can add the tutorial code to one file, all six files, or only a couple of files. And you can add the tutorial code to the files in any order.
 
 Let's get started.
 
-## <a name="Analyze">Analyze an image</a>
+## Analyze an image
 
 The Analyze feature of Computer Vision analyzes an image for more than 2,000 recognizable objects, living beings, scenery, and actions. Once the analysis is complete, Analyze returns a JSON object that describes the image with descriptive tags, color analysis, captions, and more.
 
@@ -82,7 +72,7 @@ function analyzeButtonClick() {
 }
 ```
 
-### Analyze step 2: Add the wrapper for the REST API call.
+### Analyze step 2: Add the wrapper for the REST API call
 
 The **AnalyzeImage** function wraps the REST API call to analyze an image. Upon a successful return, the formatted JSON analysis will be displayed in the specified textarea, and the caption will be displayed in the specified span.
 
@@ -160,7 +150,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 
 Save the **analyze.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Analyze Image** button to analyze an image and see the result.
 
-## <a name="Landmark">Recognize a landmark</a>
+## Recognize a landmark
 
 The Landmark feature of Computer Vision analyzes an image for natural and artificial landmarks, such as mountains or famous buildings. Once the analysis is complete, Landmark returns a JSON object that identifies the landmarks found in the image.
 
@@ -190,7 +180,7 @@ function landmarkButtonClick() {
 }
 ```
 
-### Landmark step 2: Add the wrapper for the REST API call.
+### Landmark step 2: Add the wrapper for the REST API call
 
 The **IdentifyLandmarks** function wraps the REST API call to analyze an image. Upon a successful return, the formatted JSON analysis will be displayed in the specified textarea, and the caption will be displayed in the specified span.
 
@@ -267,7 +257,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 
 Save the **landmark.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Analyze Image** button to analyze an image and see the result.
 
-## <a name="Celebrities">Recognize celebrities</a>
+## Recognize celebrities
 
 The Celebrities feature of Computer Vision analyzes an image for famous people. Once the analysis is complete, Celebrities returns a JSON object that identifies the Celebrities found in the image.
 
@@ -280,6 +270,24 @@ Open the **celebrities.html** file in a text editor and locate the **celebrities
 The **celebritiesButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **IdentifyCelebrities** function to analyze the image.
 
 Copy and paste the following code into the **celebritiesButtonClick** function.
+
+```javascript
+function celebritiesButtonClick() {
+
+    // Clear the display fields.
+    $("#sourceImage").attr("src", "#");
+    $("#responseTextArea").val("");
+    $("#captionSpan").text("");
+    
+    // Display the image.
+    var sourceImageUrl = $("#inputImage").val();
+    $("#sourceImage").attr("src", sourceImageUrl);
+    
+    IdentifyCelebrities(sourceImageUrl, $("#responseTextArea"), $("#captionSpan"));
+}
+```
+
+### Celebrities step 2: Add the wrapper for the REST API call
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -352,7 +360,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 
 Save the **celebrities.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Analyze Image** button to analyze an image and see the result.
 
-## <a name="Thumbnail">Intelligently generate a thumbnail</a>
+## Intelligently generate a thumbnail
 
 The Thumbnail feature of Computer Vision generates a thumbnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumbnail on this area, to generate more aesthetically pleasing thumbnail images.
 
@@ -390,7 +398,7 @@ function thumbnailButtonClick() {
 }
 ```
 
-### Thumbnail step 2: Add the wrapper for the REST API call.
+### Thumbnail step 2: Add the wrapper for the REST API call
 
 The **getThumbnail** function wraps the REST API call to analyze an image. Upon a successful return, the thumbnail will be displayed in the specified img element.
 
@@ -473,7 +481,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 
 Save the **thumbnail.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Generate Thumbnails** button to analyze an image and see the result.
 
-## <a name="OCR">Read printed text (OCR)</a>
+## Read printed text (OCR)
 
 The Optical Character Recognition (OCR) feature of Computer Vision analyzes an image of printed text. After the analysis is complete, OCR returns a JSON object that contains the text and the location of the text in the image.
 
@@ -503,7 +511,7 @@ function ocrButtonClick() {
 }
 ```
 
-### OCR step 2: Add the wrapper for the REST API call.
+### OCR step 2: Add the wrapper for the REST API call
 
 The **ReadOcrImage** function wraps the REST API call to analyze an image. Upon a successful return, the formatted JSON describing the text and the location of the text will be displayed in the specified textarea.
 
@@ -568,7 +576,7 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 
 Save the **ocr.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image of text to read, then click the **Read Image** button to analyze an image and see the result.
 
-## <a name="Handwriting">Read handwritten text (handwriting recognition)</a>
+## Read handwritten text (Handwriting Recognition)
 
 The Handwriting Recognition feature of Computer Vision analyzes an image of handwritten text. After the analysis is complete, Handwriting Recognition returns a JSON object that contains the text and the location of the text in the image.
 
@@ -597,9 +605,9 @@ function handwritingButtonClick() {
 }
 ```
 
-### Handwriting Recognition step 2: Add the wrapper for the REST API call.
+### Handwriting Recognition step 2: Add the wrapper for the REST API call
 
-The **ReadHandwrittenImage** function wraps the two REST API calls needed to analyze an image. Because handwriting recognition is a time consuming process, a two step process is used. The first call submits the image for processing; the second call retrieves the detected text when the processing is complete.
+The **ReadHandwrittenImage** function wraps the two REST API calls needed to analyze an image. Because Handwriting Recognition is a time consuming process, a two step process is used. The first call submits the image for processing; the second call retrieves the detected text when the processing is complete.
 
 After the text is retrieved, the formatted JSON describing the text and the location of the text will be displayed in the specified textarea.
 
@@ -648,7 +656,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
         // Show progress.
         responseTextArea.val("Handwritten image submitted.");
         
-        // Note: The response may not be immediately available. Handwriting recognition is an
+        // Note: The response may not be immediately available. Handwriting Recognition is an
         // async operation that can take a variable amount of time depending on the length
         // of the text you want to recognize. You may need to wait or retry this GET operation.
         //
@@ -727,7 +735,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 Save the **handwriting.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image of text to read, then click the **Read Image** button to analyze an image and see the result.
 
-## <a name="NextSteps">Next steps</a>
+## Next steps
 
 - [Computer Vision API C&#35; Tutorial](CSharpTutorial.md)
 - [Computer Vision API Python Tutorial](PythonTutorial.md)
