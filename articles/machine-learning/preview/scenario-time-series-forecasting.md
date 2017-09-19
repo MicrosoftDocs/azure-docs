@@ -56,8 +56,10 @@ This scenario details the construction of a machine learning energy demand forec
 - This sample assumes that you are running Azure ML Workbench on Windows 10 with [Docker engine](https://www.docker.com/) locally installed. If you are using macOS, the instructions are largely the same.
 - Azure Machine Learning Operationalization installed with a local deployment environment set up and a model management account created as described in this  [guide](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
 - This sample requires that you update the Pandas installation to version 0.20.3 or higher and install matplotlib. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:
+
     ```
     conda install "pandas>=0.20.3"
+
     conda install matplotlib
     ```
     
@@ -70,14 +72,6 @@ Create a new project using this example as a template:
 4.	In the **Search Project Templates** search box, type "Energy Demand Time Series Forecasting" and select the template
 5.	Click **Create**
 
-## Create a new Workbench project
-
-Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Energy Demand Time Series Forecasting" and select the template
-5.	Click **Create**
 
 ## Data description
 
