@@ -12,7 +12,7 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: artic
+ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
 
