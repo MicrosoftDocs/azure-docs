@@ -24,7 +24,7 @@
 
 
 # Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
 # Concepts
