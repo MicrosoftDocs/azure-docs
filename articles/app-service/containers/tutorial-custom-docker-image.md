@@ -367,7 +367,7 @@ Before testing, you must restart the web app using the [az webapp restart](https
 az webapp restart --name <web-app-name> --resource-group myResourceGroup
 ```
 
-The restart command quietly restarts the web app, so you see no feedback in the terminal. Once the web app is running, test the web app by browsing its URL at `http://<username>.azurewebsites.net`. Verify that the app displays the new welcome message.
+The restart command quietly restarts the web app, so you see no feedback in the terminal. Once the web app is running, test the web app by browsing its URL at `http://<web-app-name>.azurewebsites.net`. Verify that the app displays the new welcome message.
 
 ![Test web app in Azure](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
