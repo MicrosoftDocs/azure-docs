@@ -179,25 +179,6 @@ In this scenario:
 
 
 
-
-
-
-
-
-
-
-
-## Common scenarios
-
-### Requiring multi-factor authentication for apps
-
-Many environments have apps requiring a higher level of protection than the others.
-This is, for example, the case for apps that have access to sensitive data.
-If you want to add another layer of protection to these apps, you can configure a conditional access policy that requires multi-factor authentication when users are accessing these apps.
-
-
-
-
 ## Next steps
 
 If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
