@@ -26,7 +26,7 @@ Cost Management by Cloudy shows you usage and costs so that you can track trends
 
 ## Open the Cloudyn portal
 
-You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal from the Azure portal or navigate to [app.cloudyn.com](app.cloudyn.com).
+You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal from the Azure portal or navigate to [https://app.cloudyn.com](https://app.cloudyn.com).
 
 ## Track usage and cost trends
 
