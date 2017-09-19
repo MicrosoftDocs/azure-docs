@@ -26,16 +26,12 @@
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-prem data to cloud
-    href: tutorial-hybrid-copy-powershell.md
+    href: tutorial-copy-onprem-data-to-cloud-powershell.md
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
-  - name: 5 - Copy data incrementally
-    href: tutorial-incremental-copy-powershell.md
-  - name: 6 - Transform data in cloud
-    href: tutorial-transform-data-spark-powershell.md
-  - name: 7 - Transform data in virtual network
-    href: tutorial-transform-data-hive-virtual-network.md   
-  - name: 8 - Control flow
+  - name: 5 - Transform data in cloud
+    href: tutorial-transform-data-using-spark-powershell.md
+  - name: 6 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
   items:
@@ -185,7 +181,7 @@
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md   
     - name: Azure SSIS integration runtime
-      href: quickstart-lift-shift-ssis-packages-powershell.md     
+      href: tutorial-deploy-ssis-packages.md    
     - name: Self hosted integration runtime
       href: create-self-hosted-integration-runtime.md
 - name: Reference
