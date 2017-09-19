@@ -1,5 +1,5 @@
 ---
-title: Transform data using Stored Procedure Activity in Azure Data Factory | Microsoft Docs
+title: Transform data by using the Stored Procedure activity in Azure Data Factory | Microsoft Docs
 description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/19/2017
 ms.author: shengc
 
 ---
 
 
-# Transform data using SQL Server Stored Procedure Activity in Azure Data Factory
+# Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-stored-proc-activity.md)
 > * [Version 2 - Preview](transform-data-using-stored-procedure.md)
@@ -74,7 +74,7 @@ The following table describes these JSON properties:
 | name                      | Name of the activity                     | Yes      |
 | description               | Text describing what the activity is used for | No       |
 | type                      | For Stored Procedure Activity, the activity type is SqlServerStoredProcedure | Yes      |
-| linkedServiceName         | Reference to the Azure SQL Database or Azure SQL Data Warehouse or SQL Server registered as a linked service in Data Factory | Yes      |
+| linkedServiceName         | Reference to the Azure SQL Database or Azure SQL Data Warehouse or SQL Server registered as a linked service in Data Factory. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | storedProcedureName       | Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse or SQL Server database that is represented by the linked service that the output table uses. | Yes      |
 | storedProcedureParameters | Specify values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` for to pass parameter values and their native type supported by the data source. If you need to pass null for a parameter, use *"param1": { "value": null }* (all lower case). | No       |
 

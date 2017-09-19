@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -57,7 +57,8 @@ The following properties are supported for Amazon Redshift linked service:
 | port |The number of the TCP port that the Amazon Redshift server uses to listen for client connections. |No, default is 5439 |
 | database |Name of the Amazon Redshift database. |Yes |
 | username |Name of user who has access to the database. |Yes |
-| password |Password for the user account. |Yes |
+| password |Password for the user account. Mark this field as a SecureString. |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -76,6 +77,10 @@ The following properties are supported for Amazon Redshift linked service:
                 "type": "SecureString",
                 "value": "<password>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }

@@ -1,5 +1,5 @@
 ---
-title: Transform data using MapReduce Activity in Azure Data Factory | Microsoft Docs
+title: Transform data using Hadoop MapReduce activity in Azure Data Factory | Microsoft Docs
 description: Learn how to process data by running Hadoop MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 services: data-factory
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/19/2017
 ms.author: shengc
 
 ---
-# Transform data using MapReduce Activity in Azure Data Factory
+# Transform data using Hadoop MapReduce activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-map-reduce.md)
 > * [Version 2 - Preview](transform-data-using-hadoop-map-reduce.md)
@@ -69,7 +69,7 @@ See [Pig](transform-data-using-hadoop-pig.md) and [Hive](transform-data-using-ha
 | name              | Name of the activity                     | Yes      |
 | description       | Text describing what the activity is used for | No       |
 | type              | For MapReduce Activity, the activity type is HDinsightMapReduce | Yes      |
-| linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes      |
+| linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | className         | Name of the Class to be executed         | Yes      |
 | jarLinkedService  | Reference to an Azure Storage Linked Service used to store the Jar files. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
 | jarFilePath       | Provide the path to the Jar files stored in the Azure Storage referred by jarLinkedService. The file name is case-sensitive. | Yes      |
@@ -119,11 +119,11 @@ You can specify any arguments for the MapReduce program in the **arguments** sec
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
-* [Hive Activity](transform-data-using-hadoop-hive.md)
-* [Pig Activity](transform-data-using-hadoop-pig.md)
-* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
-* [Spark Activity](transform-data-using-spark.md)
+* [U-SQL activity](transform-data-using-data-lake-analytics.md)
+* [Hive activity](transform-data-using-hadoop-hive.md)
+* [Pig activity](transform-data-using-hadoop-pig.md)
+* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

@@ -1,5 +1,5 @@
 ---
-title: Fault tolerance of copy activity in Azure Dat Factory | Microsoft Docs
+title: Fault tolerance of copy activity in Azure Data Factory | Microsoft Docs
 description: 'Learn about how to add fault tolerance to copy activity in Azure Data Factory by skipping the incompatible rows.'
 services: data-factory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 09/05/2017
 ms.author: jingwang
 
 ---
-# Copy Activity fault tolerance - skip incompatible rows
+#  Fault tolerance of copy activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Version 2 - Preview](copy-activity-fault-tolerance.md)
@@ -37,7 +37,7 @@ Copy Activity supports three scenarios for detecting, skipping, and logging inco
 - **Mismatch in the number of columns between the source and the sink**. <br/><br/> For example: Copy data from a CSV file in Blob storage to a SQL database with a schema definition that contains six columns. The CSV file rows that contain six columns are copied successfully to the sink store. The CSV file rows that contain more or fewer than six columns are detected as incompatible and are skipped.
 - **Primary key violation when writing to a relational database**.<br/><br/> For example: Copy data from a SQL server to a SQL database. A primary key is defined in the sink SQL database, but no such primary key is defined in the source SQL server. The duplicated rows that exist in the source cannot be copied to the sink. Copy Activity copies only the first row of the source data into the sink. The subsequent source rows that contain the duplicated primary key value are detected as incompatible and are skipped.
 
- ## Configuration
+## Configuration
 The following example provides a JSON definition to configure skipping the incompatible rows in Copy Activity:
 
 ```json
@@ -81,7 +81,9 @@ After the copy activity run completes, you can see the number of skipped rows in
         },
 
 ```
-If you configure to log the incompatible rows, you can find the log file at this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` In the log file, you can see the rows that were skipped and the root cause of the incompatibility.
+If you configure to log the incompatible rows, you can find the log file at this path: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
+
+In the log file, you can see the rows that were skipped and the root cause of the incompatibility.
 
 Both the original data and the corresponding error are logged in the file. An example of the log file content is as follows:
 
@@ -95,6 +97,5 @@ See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Copy activity performance](copy-activity-performance.md)
-- [Copy activity security considerations](copy-activity-security-considerations.md)
 
 

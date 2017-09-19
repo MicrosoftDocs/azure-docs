@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -47,6 +47,7 @@ The following properties are supported for Web table linked service:
 | type | The type property must be set to: **Web** |Yes |
 | url | URL to the Web source |Yes |
 | authenticationType | Allowed value is: **Anonymous**. |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
