@@ -20,12 +20,13 @@ ms.custom:
 
 # Virtual Network Service Endpoints (Preview)
 
- Virtual Network (VNet) service endpoints provide direct connection from your virtual network to an Azure service, allowing you to use your VNet’s private address space to access the Azure services. By extending VNet's private address space and identity of the VNet to the Azure service, service endpoints allow Azure service resources to be secured to virtual networks.  Traffic destined to Azure services through service endpoints always stays on the Microsoft Azure backbone network.
+Virtual Network(VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
 
 This feature is available in __preview__ for following Azure services and regions:
 
 __Azure Storage__: WestCentralUS, WestUS2, EastUS, WestUS, AustraliaEast, AustraliaSouthEast.
-__Azure SQL Database__: WestCentralUS, WestUS2 and EastUS.
+
+__Azure SQL Database__: WestCentralUS, WestUS2, EastUS.
 
 For most up-to-date notifications for the preview, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -60,11 +61,6 @@ Service endpoints provide following benefits:
 
 - VNet service endpoint provides identity of your VNet to the Azure service. Once service endpoints are enabled in your VNet, you can secure Azure service resources to your VNet by adding a Virtual network rule to the resources.
 - Today, Azure service traffic from your VNet uses public IPs as source IPs. With service endpoints, service traffic switches to use VNet private addresses as the source IPs when accessing the Azure service from your VNet. This switch allows you to access the services without the need for reserved, public IP addresses used in IP firewalls.
-- By sharing identity of your virtual network with the service, endpoints allow Azure service resources to be secured to your VNet and subnet by name.
-
-    > [!IMPORTANT]
-    > VNet private address space cannot be directly used for the Azure service virtual network rules or IP firewall rules.
-
 - __Securing Azure service access from on-premises__:
  
    By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow NAT IP addresses from your on-premises or ExpressRoute circuits. NAT IP addresses can be added through IP firewall configuration for Azure service resources.
@@ -112,7 +108,7 @@ Various Azure services can be directly deployed into specific subnets in your VN
 
 Once service endpoints are configured to a specific service, validate that the service endpoint route is in effect by: 
 
-- __Monitoring Azure service diagnostics__: You can confirm request access is coming from your private network, i.e. your VNet, by validating the "source IP" of any service request in the service diagnostics. All new requests with service endpoints show the "source IP" for the request as the VNet private address, assigned to the client making the requet from your VNet. Without the endpoint, this address will be an Azure public IP.
+- __Monitoring Azure service diagnostics__: You can confirm request access is coming from your private network, i.e. your VNet, by validating the "source IP" of any service request in the service diagnostics. All new requests with service endpoints show the "source IP" for the request as the VNet private address, assigned to the client making the request from your VNet. Without the endpoint, this address will be an Azure public IP.
 
 - __Effective routes__ on any NIC in subnet show a more specific “default” route to address prefix range of that service. The route has a nextHopType as "VirtualNetworkServiceEndpoint". This route indicates that a more direct connection to the service is in effect, compared to any forced-tunneling routes.
 
@@ -120,7 +116,7 @@ Once service endpoints are configured to a specific service, validate that the s
 
 ### Provisioning
 
-Service endpoints can be configured on virtual networks independently, by network administrators. A user with read-write access to virtual network automatically inherits these rights.
+Service endpoints can be configured on virtual networks independently, by a user with write access to virtual network.
 
 To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/JoinServicetoaSubnet" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
 
@@ -130,11 +126,9 @@ VNets and Azure service resources can be in the same or different subscriptions.
 
 ## Pricing and Limits
 
-There is no additional charge for using service endpoints. Current pricing model for Azure services (Azure Storage, Azure SQL) is as is today.
+There is no additional charge for using service endpoints. Current pricing model for Azure services (Azure Storage, Azure SQL Database) applies as is today.
 
 No limit on the total number of service endpoints in a VNet.
-
-No limit to the number of Azure service resources secured to the same VNet.
 
 For an Azure service resource (such as, Storage account), services may enforce limits on number of subnets used for securing the resource. Refer to the documentation for various services in ["Next steps"](#next%20steps) for details.
 
@@ -142,6 +136,6 @@ For an Azure service resource (such as, Storage account), services may enforce l
 
 - Learn [how to configure VNet service endpoints](virtual-network-service-endpoints-configure.md)
 - Learn more about [Securing Azure Storage accounts to Virtual Networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)
-- Learn more about [Securing Azure SQL to Virtual networks](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+- Learn more about [Securing Azure SQL Database to Virtual networks](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 - [Azure service integration overview for virtual networks](virtual-network-for-azure-services.md)
 
