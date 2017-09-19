@@ -60,7 +60,7 @@ We recommend that you connect to the privileged endpoint only from the hardware 
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
-      The `ComputerName` parameter can either be the IP address or the DNS name of one of the virtual machines that hosts a privileged endpoint. 
+      The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts a privileged endpoint. 
     - If you’re running the ADSK:
      
       ````PowerShell
@@ -71,8 +71,8 @@ We recommend that you connect to the privileged endpoint only from the hardware 
       ```` 
    When prompted, use the following credentials:
 
-   - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
-   - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
+      - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
