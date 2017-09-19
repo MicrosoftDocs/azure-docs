@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -52,8 +52,8 @@ The following properties are supported for FTP linked service:
 | enableSsl | Specify whether to use FTP over an SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
 | authenticationType | Specify the authentication type.<br/>Allowed values are: **Basic**, **Anonymous** | Yes |
-| username | Specify the user who has access to the FTP server. | No |
-| password | Specify the password for the user (username). | No |
+| userName | Specify the user who has access to the FTP server. | No |
+| password | Specify the password for the user (userName). | No |
 
 **Example 1: using Anonymous authentication**
 
@@ -86,7 +86,7 @@ The following properties are supported for FTP linked service:
             "enableSsl": true,
             "enableServerCertificateValidation": true,
             "authenticationType": "Basic",
-            "username": "<username>",
+            "userName": "<username>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"

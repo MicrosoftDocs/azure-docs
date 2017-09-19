@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -59,8 +59,8 @@ To use basic authentication, set "authenticationType" property to **Basic**, and
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| username | User who has access to the SFTP server. |Yes |
-| password | Password for the user (username). | Yes |
+| userName | User who has access to the SFTP server. |Yes |
+| password | Password for the user (userName). | Yes |
 
 **Example:**
 
@@ -75,7 +75,7 @@ To use basic authentication, set "authenticationType" property to **Basic**, and
             "skipHostKeyValidation": false,
             "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
             "authenticationType": "Basic",
-            "username": "<username>",
+            "userName": "<username>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
@@ -91,7 +91,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| username | User who has access to the SFTP server |Yes |
+| userName | User who has access to the SFTP server |Yes |
 | privateKeyPath | Specify absolute path to the private key file that Integration Runtime can access. Applies only when Self-hosted type of Integration Runtime is specified in "connectVia". | Specify either the `privateKeyPath` or `privateKeyContent`.  |
 | privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. | Specify either the `privateKeyPath` or `privateKeyContent`. |
 | passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. | Yes if the private key file is protected by a pass phrase. |
@@ -111,7 +111,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
             "port": 22,
             "skipHostKeyValidation": true,
             "authenticationType": "SshPublicKey",
-            "username": "xxx",
+            "userName": "xxx",
             "privateKeyPath": "D:\\privatekey_openssh",
             "passPhrase": {
                 "type": "SecureString",
@@ -138,7 +138,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
             "port": 22,
             "skipHostKeyValidation": true,
             "authenticationType": "SshPublicKey",
-            "username": "<username>",
+            "userName": "<username>",
             "privateKeyContent": {
                 "type": "SecureString",
                 "value": "<base64 string of the private key content>"

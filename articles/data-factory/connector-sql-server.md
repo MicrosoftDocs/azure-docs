@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -54,8 +54,8 @@ The following properties are supported for SQL Server linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SqlServer** | Yes |
 | connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
-| password |Specify password for the user account you specified for the username. |No |
+| userName |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
+| password |Specify password for the user account you specified for the userName. |No |
 
 **Example 1: using SQL authentication**
 
@@ -67,7 +67,7 @@ The following properties are supported for SQL Server linked service:
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;"          
+                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -88,9 +88,9 @@ The following properties are supported for SQL Server linked service:
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;"
+                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
             },
-             "username": "<domain\\username>",
+             "userName": "<domain\\username>",
              "password": "<password>"
         },
         "connectVia": {

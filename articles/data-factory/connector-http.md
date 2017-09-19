@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -60,8 +60,8 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| username | Username to access the HTTP endpoint. | Yes |
-| password | Password for the user (username). | Yes |
+| userName | User name to access the HTTP endpoint. | Yes |
+| password | Password for the user (userName). | Yes |
 
 **Example**
 
