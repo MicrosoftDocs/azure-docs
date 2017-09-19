@@ -15,7 +15,7 @@ ms.date: 09/06/2017
 
 This article defines and describes the concepts you need to know to use Azure Machine Learning. 
 
-![Hierarchy of concepts](media/overview-general-concepts/1-hierarchy.png)
+![Hierarchy of concepts](media/overview-general-concepts/hierarchy.png)
 
 - **Subscription:** An Azure subscription grants you access to resources in Azure. Because Azure Machine Learning is deeply integrated with compute, storage, and many other Azure resources and services, Workbench requires that each user has access to a valid Azure subscription. Users must also have sufficient permissions within that subscription to create resources.
 
@@ -46,12 +46,9 @@ This article defines and describes the concepts you need to know to use Azure Ma
 
 - **Managed model:** Model Management enables you to deploy models as web services, manage various versions of your models, and monitor their performance and metrics. Managed models are registered with an Azure Machine Learning Model Management account.
 
-
-- **Deployment:** Model Management allows you to deploy models as web service packaged in Docker images in Azure. Each web service is counted as a single deployment.
-
-
 - **Manifests:** When the Model Management system deploys a model into production, it includes a manifest that can encompass model, dependencies, scoring script, sample data, and schema. The manifest is the recipe used to create a Docker container image. Using Model Management, you can auto-generate the manifests, create different versions, and manage these manifests. 
 
 
 - **Images:** You can use manifests to generate (and regenerate) Docker images. Containerized Docker images create flexibility to run them in the cloud, on local machines, or on IoT device. Images are self-contained, and include all dependencies required for scoring new data with models. 
 
+- **Services:** Model Management allows you to deploy models as web services. The webservice logic and dependencies are encapsulated into an image. Each webservice is a set of containers based on the image ready to service requests to a given URL. A web service is counted as a single deployment.

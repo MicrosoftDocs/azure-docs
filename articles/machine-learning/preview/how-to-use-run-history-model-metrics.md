@@ -22,6 +22,7 @@ This article describes how to make effective use of these features to increase t
 ## Prerequisites
 To step through this how-to guide, you need to:
 - [Install AML Workbench](doc-template-how-to.md)
+- [Create a Project](quick-start-iris.md)
 
 
 ## Azure ML Logging API Overview
@@ -52,14 +53,7 @@ logger.log("dataframe", df)
 It is easy to use the logger within your Azure ML Workbench projects, and this article shows you how to do so.
 
 ## Create a Project in Azure ML Workbench
-Effective use of the Azure ML Workbench **Run History** feature begins with a solid project, and a project based on the **Classifying Iris** template provides a great foundation for exploration.
-You can create such a project by completing the **Create New Project dialogue**.
-For a detailed walkthrough of creating a project using the Classifying Iris template, see the Iris Tutorial for Machine Learning Server.
-Once the project creation is complete, the *Project Dashboard* (which serves as the home page of your project) appears and is now available for your use (as shown.)
-
-![project dashboard](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01a.png)
-
-This template provides nice examples of Azure ML's *data preparation*, *experimentation*, and *operationalization* capabilities (for further discussion of its features, see the [Iris Quickstart for Machine Learning Server](quick-start-iris.md).)
+If you don't already have a project, you can create one from the [Classifying Iris template.](quick-start-iris.md)
 From the **Project Dashboard**, you can open the **iris_sklearn.py** script (as shown.)
 
 ![accessing a script from the files tab](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
@@ -67,37 +61,41 @@ From the **Project Dashboard**, you can open the **iris_sklearn.py** script (as 
 You can use this script as a guide for expected implementation of model metric logging in Azure ML.
 
 ## Parameterize and Log Model Metrics from Script
-In the **iris_sklearn.py** script, **Lines 12 through 18** show the expected pattern to import and construct the logger in Python.
-
-![constructing the logger](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-03.png)
-
-The creation pattern can be reduced to the following lines of code.
+In the **iris_sklearn.py** script, the expected pattern to import and construct the logger in Python can be reduced to the following lines of code.
 
 ```Python
 from azureml.logging import get_azureml_logger
 run_logger = get_azureml_logger()
 ```
 
-Once created, you can invoke the **log** method with a name/value pair as shown in **lines 52 and 63**.
-When script development is complete, it is often useful to parameterize scripts so that values can be passed in via the command line.
-**Lines 46 and 47** show how to accept command-line parameters (when present) using standard Python libraries.
+Once created, you can invoke the **log** method with any name/value pair.
+
+When development is complete, it is often useful to parameterize scripts so that values can be passed in via the command line.
+The sample below shows how to accept command-line parameters (when present) using standard Python libraries.
 This script takes a single parameter for the Regularization Rate (*reg*) used to fit a classification model in an effort to increase *accuracy* without overfitting.
 These variables are then logged as *Regularization Rate* and *Accuracy* so that the model with optimal results can be easily identified.
 
-![reading parameters and logging values](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-04.png)
-
-The parsing and logging actions can be captured in the following lines of code.
-
 ```Python
-#presuming reg and run_logger have been initialized before these statements
-import sys
+# change regularization rate and you will likely get a different accuracy.
+reg = 0.01
+# load regularization rate from argument if present
 if len(sys.argv) > 1:
     reg = float(sys.argv[1])
 
+print("Regularization rate is {}".format(reg))
+
+# log the regularization rate
 run_logger.log("Regularization Rate", reg)
 
-# compute accuracy value, then...
+# train a logistic regression model on the training set
+clf1 = LogisticRegression(C=1/reg).fit(X_train, Y_train)
+print (clf1)
 
+# evaluate the test set
+accuracy = clf1.score(X_test, Y_test)
+print ("Accuracy is {}".format(accuracy))
+
+# log accuracy
 run_logger.log("Accuracy", accuracy)
 ```
 

@@ -27,7 +27,7 @@ The public GitHub repository for this real world scenario contains all materials
 
 In this scenario, we train deep neural networks (DNNs) to classify the type of land shown in aerial images of 224-meter x 224-meter plots. Land use classification models can be used to track urbanization, deforestation, loss of wetlands, and other major environmental trends using periodically collected aerial imagery. We have prepared training and validation image sets based on imagery from the U.S. National Agriculture Imagery Program and land use labels published by the U.S. National Land Cover Database. Example images in each land use class are shown below:
 
-![Example regions for each land use label](media/real-world-scenario-aerial-image-classification/example-labels.png)
+![Example regions for each land use label](media/scenario-aerial-image-classification/example-labels.png)
 
 After training and validating the classifier model, we will apply it to aerial images spanning Middlesex County, MA -- home of Microsoft's New England Research & Development (NERD) Center -- to demonstrate how these models can be used to study trends in urban development.
 
@@ -37,7 +37,7 @@ To produce an image classifier using transfer learning, data scientists often co
 
 In this example, image data and pretrained models are housed in an Azure storage account. An Azure HDInsight Spark cluster reads these files and constructs an image classification model using MMLSpark. The trained model and its predictions are then written to the storage account, where they can be analyzed and visualized by a Jupyter notebook running locally. Azure Machine Learning Workbench coordinates remote execution of scripts on the Spark cluster. It also tracks accuracy metrics for multiple models trained using different methods, allowing the user to select the most performant model.
 
-![Schematic for the aerial image classification real world scenario](media/real-world-scenario-aerial-image-classification/scenario-schematic.png)
+![Schematic for the aerial image classification real world scenario](media/scenario-aerial-image-classification/scenario-schematic.png)
 
 The [step-by-step instructions](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) begin by guiding you through the creation and preparation of an Azure storage account and Spark cluster, including data transfer and dependency installation. They then describe how to launch training jobs and compare the performance of the resulting models. Finally, they illustrate how to apply a chosen model to a large image set on the Spark cluster and analyze the prediction results locally.
 
@@ -60,22 +60,21 @@ This example was tested on a Windows 10 PC; you should be able to run it from an
 
 This example requires an HDInsight Spark cluster and an Azure storage account to host relevant files. Follow these instructions to create these resources in a new Azure resource group:
 
+#### Create a new Workbench project
+
+Create a new project using this example as a template:
+1.	Open Azure Machine Learning Workbench
+2.	On the **Projects** page, click the **+** sign and select **New Project**
+3.	In the **Create New Project** pane, fill in the information for your new project
+4.	In the **Search Project Templates** search box, type "Aerial Image Classification" and select the template
+5.	Click **Create**
+ 
 #### Create the resource group
-
-Load the Aerial Image Classification project in Azure Machine Learning Workbench as follows:
-
-1. Open Azure Machine Learning Workbench.
-1. Create a new project by clicking File -> New Project.
-1. Select a project name, local directory for storing project files, and workspace.
-1. In the list of project templates, select "Aerial Image Classification."
-1. Click "Create."
-
-    Your screen should update as the new project is loaded in Workbench.
 
 1. From your Azure Machine Learning Workbench project, open a Command Line Interface (CLI) by clicking File -> Open Command Prompt.
 1. From the command line interface, log in to your Azure account by running the following command:
 
-    ```
+    ````
     az login
     ```
 
@@ -180,11 +179,11 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn
 
 This scenario uses publicly available aerial imagery data from the [National Agriculture Imagery Program](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) at 1-meter resolution. We have generated sets of 224 pixel x 224 pixel PNG files cropped from the original NAIP data and sorted according to land use labels from the [National Land Cover Database](https://www.mrlc.gov/nlcd2011.php). A sample image with label "Developed" is shown at full size:
 
-![A sample tile of developed land](media/real-world-scenario-aerial-image-classification/sample-tile-developed.png)
+![A sample tile of developed land](media/scenario-aerial-image-classification/sample-tile-developed.png)
 
 Class-balanced sets of ~44k and 11k images are used for model training and validation, respectively. We demonstrate model deployment on a ~67k image set tiling Middlesex County, MA -- home of Microsoft's New England Research and Development (NERD) center. For more information on how these image sets were constructed, see the [Embarrassingly Parallel Image Classification git repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
-![Location of Middlesex County, Massachusetts](media/real-world-scenario-aerial-image-classification/middlesex-ma.png)
+![Location of Middlesex County, Massachusetts](media/scenario-aerial-image-classification/middlesex-ma.png)
 
 During setup, the aerial image sets used in this example were transferred to the storage account that you created. The training, validation, and operationalization images are all 224 pixel x 224 pixel PNG files at a resolution of one pixel per square meter. The training and validation images have been organized into subfolders based on their land use label. (The land use labels of the operationalization images are unknown and in many cases ambiguous; some of these images contain multiple land types.) For more information on how these image sets were constructed, see the [Embarrassingly Parallel Image Classification git repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
@@ -244,7 +243,7 @@ Azure Machine Learning Workbench helps data scientists easily deploy their code 
 
 ## Next steps
 To dive deeper into this example:
-- In Azure Machine Learning Workbench's Run History feature, click the gear symbols to select which graphs and metrics are displayed.
+- In Vienna's Run History feature, click the gear symbols to select which graphs and metrics are displayed.
 - Examine the sample scripts for statements calling the `run_logger`. Check that you understand how each metric is being recorded.
 - Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
 - Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.

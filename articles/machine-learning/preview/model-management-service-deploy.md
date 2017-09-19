@@ -2,8 +2,8 @@
 title: Azure Machine Learning Model Management Web Service Deployment | Microsoft Docs
 description: This document describes the steps involved in deploying a machine learning model using Azure Machine Learning model Management.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: raymondl
+ms.author: raymondl, aashishb
 manager: neerajkh
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -79,16 +79,27 @@ You provide a score.py file, which loads your model and returns the prediction r
 
 The file must include two functions: init and run.
 
+Add following code at the top of the score.py file to enable data collection functionality that helps collect model input and prediction data
+
+    ```
+    from azureml.datacollector import ModelDataCollector
+    ```
+
+Check [model data collection](how-to-use-model-data-collection.md) section for more details on how to use this feature.
+
 #### Init function
 Use the init function to load the saved model.
 
 Example of a simple init function loading the model:
 
 ```python
-def init():   
+def init():  
     from sklearn.externals import joblib
-    global model
+    global model, inputs_dc, prediction_dc
     model = joblib.load('model.pkl')
+
+    inputs_dc = ModelDataCollector('model.pkl',identifier="inputs")
+    prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")
 ```
 
 #### Run function
@@ -98,25 +109,49 @@ Example of a simple run function processing the input and returning the predicti
 
 ```python
 def run(input_df):
+    global clf2, inputs_dc, prediction_dc
     try:
         prediction = model.predict(input_df)
+        inputs_dc.collect(input_df)
+        prediction_dc.collect(prediction)
         return prediction
     except Exception as e:
         return (str(e))
 ```
 
-### 4. Create an image 
-Create an image using the model. Also include schema, conda python [dependencies file](https://github.com/conda/conda-env), and the score and schema files.
+### 4. Register a model
+Following command is used to register a model created in step 1 above,
 
 ```
-az ml image create -n <image name> -m <model file> -f <score.py file> -s <schema file> -r <run-time e.g. python> -c <conda dependencies file>
+az ml model register --model [path to model file] --name [model name]
+```
+
+### 5. Create manifest
+Following command helps create a manifest for the model,
+
+```
+az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]
+```
+You can add a previously registered model to the manifest by using argument `--model-id` or `-i` in the command shown above. Multiple models can be specified with additional -i arguments.
+
+### 6. Create an image 
+You can create an image with the option of having created its manifest before. 
+
+```
+az ml image create -n [image name] -manifest-id [the manifest ID]
+```
+
+Or you can create the manifest and image with a single command. 
+
+```
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
 >For more details on the command parameters, type -h at the end of the command for example, az ml image create -h.
 
 
-### 5. Create and deploy the web service
+### 7. Create and deploy the web service
 Deploy the service using the following command:
 
 ```
@@ -126,7 +161,7 @@ az ml service create realtime --image-id <image id> -n <service name>
 >[!NOTE] 
 >You can also use a single command to perform both actions. Use -h with the service create command for more details.
 
-### 6. Test the service
+### 8. Test the service
 Use the following command to get information on how to call the service:
 
 ```

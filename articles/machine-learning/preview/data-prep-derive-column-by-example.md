@@ -375,3 +375,5 @@ These Datetimes to period mappings were done using different by-example transfor
 ### Conditional Transformations
 In some cases, a single transformation cannot be found that satisfies the given examples. In such cases, Derive Column by Example Transform attempts to group the inputs based on some pattern and learn separate transformation for each group. We call this **Conditional Transformation**. **Conditional Transformation** is attempted only for transformations with a single input column. 
 
+### Reference
+More information about the String Trasformation by Examlple technology can be found in [this publication](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

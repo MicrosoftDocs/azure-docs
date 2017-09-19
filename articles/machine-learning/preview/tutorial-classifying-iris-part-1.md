@@ -1,5 +1,5 @@
 ---
-title: Iris Tutorial for Machine Learning services (preview) | Microsoft Docs
+title: Prepare Data for classifying Iris tutorial in Machine Learning services (preview) | Microsoft Docs
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end-to-end. This is part 1 on data preparation.
 services: machine-learning
 author: hning86
@@ -8,15 +8,15 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/15/2017
 ---
 
 # Classifying Iris part 1: Prepare data
-Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
+Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
-This tutorial is part one of a three part series. In this tutorial, let's walk through the basics of Azure Machine Learning services (preview). In part one, you use the Azure Machine Learning Workbench to learn how to:
+This tutorial is part one of a three part series. In this tutorial, let's walk through the basics of Azure Machine Learning services (preview). In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a project in the Azure Machine Learning Workbench
 > * Create a data preparation package
@@ -24,24 +24,24 @@ This tutorial is part one of a three part series. In this tutorial, let's walk t
 
 This tutorial uses the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The screenshots are Windows-specific, but the macOS experience is almost identical.
 
-## Step 1. Launch Azure Machine Learning Workbench
-Follow the [installation guide](quick-start-installation.md) to install the Azure ML Workbench application, which also includes the command-line interface (CLI). Launch the Azure ML Workbench app, and log in if needed.
+## Launch Azure Machine Learning Workbench
+Follow the [create and install Quickstart](quick-start-installation.md) to install the Azure Machine Learning Workbench application, which also includes the command-line interface (CLI). Launch the Azure Machine Learning Workbench app, and log in if needed.
 
-## Step 2. Create a new project
+## Create a new project
 Click on **File** --> **New Project** (or click on the **+** icon in the **PROJECTS** pane). You can also create a new Workspace first from this drop down menu.
 
 ![new workspace](media/tutorial-classifying-iris/new_ws.png)
 
-Fill in the project name (this tutorial assumes you use `myIris`). Choose the directory in which the project is created (this tutorial assumes you've chosen `C:\Temp`). Enter the optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the **Classifying Iris** template from the project template list. 
+Fill in the **Project name** field with a name for the project. For example, use the value `myIris`. Choose the directory in which the project is created. For example, use the value `C:\Temp`. Enter the optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the **Classifying Iris** template from the project template list. 
 
 ![New Project](media/tutorial-classifying-iris/new_project.png)
+
 >[!TIP]
 >Optionally, you can also fill in the Git repo field with an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article. 
 
-
 Click on the **Create** button to create the project. The project is now created and opened for you.
 
-## Step 3. Create a data preparation package
+## Create a data preparation package
 Open the `iris.csv` file from the **File View**. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
 
 ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
@@ -68,7 +68,11 @@ Now click on the **Metrics** button. Observe the histograms and a complete set o
 
 ![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-Click on the **Prepare** button next to the **Metrics** button. Choose **Iris.dprep** file. The file opens in data preparation editor with a new dataflow named **Iris**. 
+Click on the **Prepare** button next to the **Metrics** button (or the **Data** button if you are on the metrics view). The **Prepare** dialog pops up. The sample project already comes with a `iris.dprep` file, so by default it asks you to create a new data flow in that existing **iris.dprep** data prep package. Change the dropdown value to **+New Data Preparation Package**, and enter a new value "iris-1", then click on **OK**.
+
+![iris data view](media/tutorial-classifying-iris/new_dprep.png)
+
+A new data prep package named `iris-1.dprep` is created and opened in data preparation editor.
 
 Now let's do some simple data preparation. Rename the column names by clicking on each column header and make the header text editable. Enter `Sepal Length`, `Sepal Width`, `Petal Length`, `Petal Width`, and `Species` for the five columns respectively.
 
@@ -86,7 +90,7 @@ As you are working on column renaming and filtering out the null value row, each
 
 ![steps](media/tutorial-classifying-iris/steps.png)
 
-## Step 4. Generate Python/PySpark code to invoke data prep package
+## Generate Python/PySpark code to invoke data prep package
 
 Now close the DataPrep editor. (Don't worry, it is auto-saved.) Right-click on the **iris.dprep** file to bring up context menu, and choose **Generate Data Access Code File**. 
 
@@ -104,9 +108,10 @@ df = run('iris.dprep', dataflow_idx=0)
 ```
 This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` can be a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) if executed in Python runtime, or a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) if executed in a Spark context. For more information on how to prepare data in Azure Machine Learning Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
 
+## Summary
 In this part one of the three part tutorial series, you have used the Azure Machine Learning Workbench to:
 > [!div class="checklist"]
-> * Create a project in the Azure Machine Learning Workbench
+> * Create a new project 
 > * Create a data preparation package
 > * Generate Python/PySpark code to invoke data prep package
 
