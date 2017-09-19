@@ -43,10 +43,10 @@ Azure Monitor is the platform service that provides a single source for monitori
     ![Click pin for activity log](./media/monitoring-get-started/monitor-act-log-pin.png)
 
     Most of the views in this walkthrough can be pinned to a dashboard. This helps you create a single source of information for operational data on your services.
-6. Return to your dashboard. You can now see that the query (and number of results) is displayed in your dashboard. This is useful if you want to quickly see any high-profile actions that have occurred recently in your subscription, eg. a new role was assigned or a VM was deleted.
+6. Return to your dashboard. You can now see that the query (and number of results) is displayed in your dashboard. This is useful if you want to quickly see any high-profile actions that have occurred recently in your subscription, for example a new role was assigned or a VM was deleted.
 
-    ![Activity log pinned to dashboard](./media/monitoring-get-started/monitor-act-log-db.png)
-7. Return to the **Monitor** tile and click the **Metrics** section. You first need to select a resource by filtering and selecting using the drop down options at the top of the blade.
+    ![Activity logs pinned to dashboard](./media/monitoring-get-started/monitor-act-log-db.png)
+7. Return to the **Monitor** tile and click the **Metrics** section. You first need to select a resource by filtering and selecting using the drop-down options at the top of the blade.
 
     ![Filter resource for metrics](./media/monitoring-get-started/monitor-met-filter.png)
 
@@ -87,7 +87,7 @@ Azure Monitor is the platform service that provides a single source for monitori
 
     You can then pin an alert to your dashboard to easily see its state at any time.
 
-    Azure Monitor now also has [**near real time metric alerts**](https://aka.ms/azuremonitor/near-real-time-alerts)(preview) that can be evaluated at a frequency as low as every minute!
+    Azure Monitor now also has [**near-real-time metric alerts**](https://aka.ms/azuremonitor/near-real-time-alerts)(preview) that can be evaluated at a frequency as low as every minute!
     
 14. The Monitor section also includes links to [Application Insights](../application-insights/app-insights-overview.md) applications and [Log Analytics](../log-analytics/log-analytics-overview.md) management solutions. These other Microsoft products have deep integration with Azure Monitor.
 15. If you are not using Application Insights or Log Analytics, chances are that Azure Monitor has a partnership with your current monitoring, logging, and alerting products. See our [partners page](monitoring-partners.md) for a full list and instructions for how to integrate.
