@@ -18,7 +18,10 @@ ms.author: erikje
 
 ---
 # Deploy the Azure Stack Development Kit
-To deploy the development kit, you must complete the following steps:
+
+*Applies to: Azure Stack Development Kit*
+
+To deploy the [Azure Stack Development Kit](azure-stack-poc.md), you must complete the following steps:
 
 1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
 2. [Prepare the cloudbuilder.vhdx](#prepare-the-development-kit-host) by running the asdk-installer.ps1 script to configure the computer (the development kit host) on which you want to install development kit. After this step, the development kit host will boot to the Cloudbuilder.vhdx.
