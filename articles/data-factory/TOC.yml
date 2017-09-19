@@ -30,7 +30,7 @@
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
   - name: 5 - Transform data in cloud
-    href: tutorial-transform-data-using-spark-powershell.md
+    href: tutorial-transform-data-spark-powershell.md
   - name: 6 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
