@@ -78,7 +78,20 @@ We would love to hear from you!
 
 ## Try Managed Service Identity
 
-To get started quickly with the basics of enabling MSI on an Azure resource :
+Try a Managed Service Identity tutorial to learn end-to-end scenarios for accessing different Azure resources:
+
+| From MSI-enabled resource | Learn how to |
+| ------- | -------- |
+| Azure VM (Windows) | [Access Azure Resource Manager with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Access Azure Storage with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
+| Azure VM (Linux)   | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Access Azure Storage with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-nonaad.md) |
+| Azure App Service  | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Function     | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+
+If you just want to learn the basics of enabling MSI on an Azure resource :
 
 | For Azure resource | Enable/remove MSI using |
 | ------------------ | ------------------------------------ |
@@ -95,17 +108,6 @@ Then learn how to use Role Based Access Control (RBAC) to give an MSI permission
 |                    | [PowerShell](msi-howto-assign-access-powershell.md) |
 |                    | [Azure CLI](msi-howto-assign-access-CLI.md) |
 
-Now that you understand the basics, try a Managed Service Identity tutorial to see how to access different Azure resources.
 
-| From MSI-enabled resource | Learn how to |
-| ------- | -------- |
-| Azure VM (Windows) | [Access Azure Resource Manager with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-arm.md) |
-|                    | [Access Azure Storage with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage.md) |
-|                    | [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
-| Azure VM (Linux)   | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |
-|                    | [Access Azure Storage with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage.md) |
-|                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-nonaad.md) |
-| Azure App Service  | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Azure Function     | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
 
