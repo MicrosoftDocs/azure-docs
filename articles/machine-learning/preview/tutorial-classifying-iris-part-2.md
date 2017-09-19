@@ -145,7 +145,7 @@ In Azure Machine Learning Workbench, every script execution is captured as a run
 
 ![img](media/tutorial-classifying-iris/run_view.png)
 
-2. The **Run Dasboard** tab opens. 
+2. The **Run Dashboard** tab opens. 
 Review the statistics captured across multiple runs. Graphs are rendered in the top of the tab, and each numbered run with details is listed in the table at the bottom of the page.
 
 ![img](media/tutorial-classifying-iris/run_dashboard.png)
