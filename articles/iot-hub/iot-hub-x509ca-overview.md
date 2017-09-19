@@ -60,7 +60,7 @@ Learn here how to register your CA certificate.  <<todo: link to tutorial on upl
 
 The owner of an X.509 CA certificate can cryptographically sign an intermediate CA who can in turn sign another intermediate CA and so on until the last intermediate CA terminates this process by signing a device. The result is a cascaded chain of certificates known as a certificate chain of trust. In real life this plays out as delegation of trust towards signing devices. This delegation is important because it establishes a cryptographically veriable chain of custody and avoids sharing of signing keys.
 
-![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png){: .center-image }
+![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png){: .center }
 
 Learn here how to create a certificate chain as done when signing devices.  <<todo:  link to tutorial on signing devices>>
 
