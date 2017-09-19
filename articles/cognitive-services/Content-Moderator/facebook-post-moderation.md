@@ -62,7 +62,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     | fb:VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
     | fb:PageAccessToken | This is a facebook graph api access token that does not expire and allows the function Hide/Delete posts on your behalf. |
 
-5. Create a new HttpTrigger-CSharp function named FBListener. This function receives events from Facebook. Follow these steps to create this function.
+5. Create a new HttpTrigger-CSharp function named **FBListener**. This function receives events from Facebook. Follow these steps to create this function.
 
     1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
     2. Click the **"+"** add to create new function.
@@ -72,7 +72,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
 
-6. Create a new HttpTrigger-CSharp function named CMListener. This function receives events from Facebook. Follow these steps to create this function.
+6. Create a new HttpTrigger-CSharp function named **CMListener**. This function receives events from Facebook. Follow these steps to create this function.
 
     1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
     2. Click the **"+"** add to create new function.
