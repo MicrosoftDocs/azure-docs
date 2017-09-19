@@ -31,8 +31,8 @@
     href: tutorial-control-flow.md    
   - name: 5 - Bulk and incremental copy
     href: tutorial-bulk-incremental-copy.md
-  - name: 6 - Deploy SSIS packages
-    href: tutorial-deploy-ssis-packages.md    
+  - name: 6 - Deploy SSIS packages to Azure
+    href: tutorial-deploy-ssis-packages-azure.md    
 - name: Samples
   items:
   - name: PowerShell
