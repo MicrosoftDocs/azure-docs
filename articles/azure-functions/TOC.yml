@@ -4,7 +4,7 @@
   items:
   - name: About Functions
     href: functions-overview.md
-  - name: Choose between Flow, Logic Apps, Functions, and WebJobs
+  - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
   expanded: true
@@ -19,7 +19,7 @@
     items:
     - name: Blob storage
       href: functions-create-storage-blob-triggered-function.md
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: functions-create-cosmos-db-triggered-function.md
     - name: Timer
       href: functions-create-scheduled-function.md
@@ -33,7 +33,7 @@
     items:
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Tutorials
   items:
