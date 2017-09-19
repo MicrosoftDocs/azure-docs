@@ -141,15 +141,15 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 4. [Download](https://www.microsoft.com/download/details.aspx?id=39717) the Self-hosted integration runtime on a local windows machine, and use the Authentication Key obtained in the previous step to manually register the self-hosted integration runtime. 
 
-   ![Register integration runtime](media/tutorial-copy-onprem-data-to-cloud-powershell/register-integration-runtime.png)
+   ![Register integration runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
    You see the following message when the self-hosted integration runtime is registered successfully: 
 
-   ![Registered successfully](media/tutorial-copy-onprem-data-to-cloud-powershell/registered-successfully.png)
+   ![Registered successfully](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
    You see the following page when the node is connected to the cloud service: 
     
-   ![Node is connected](media/tutorial-copy-onprem-data-to-cloud-powershell/node-is-connected.png)
+   ![Node is connected](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
 ## Create linked services 
 
@@ -200,26 +200,24 @@ In this section, you can create a Self-hosted integration runtime and associate 
    > Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your SQL Server before saving the file.
    > Replace &lt;integration runtime name&gt; with the name of your integration runtime. 
 
-
-   ```json
-   {
-      "properties": {
-   		"type": "SqlServer",
-   		"typeProperties": {
-   			"connectionString": {
-   				"type": "SecureString",
-   				"value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-   			}
-   		},
-   		"connectVia": {
-   		  "type": "integrationRuntimeReference",
-   		  "referenceName": "<integration runtime name>"
-   		}
-   	},
-   	"name": "SqlServerLinkedService"
-   }
+	```json
+	{
+		"properties": {
+			"type": "SqlServer",
+			"typeProperties": {
+				"connectionString": {
+					"type": "SecureString",
+					"value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
+				}
+			},
+			"connectVia": {
+				"type": "integrationRuntimeReference",
+				"referenceName": "<integration runtime name>"
+			}
+		},
+		"name": "SqlServerLinkedService"
+	}
    ```
-
 2. To encrypt the sensitive data from the JSON payload on the on-premise self-hosted integration runtime, we can run **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** and pass on the above JSON payload. This encryption ensures the credentials are encrypted using Data Protection Application Programming Interface (DPAPI) and stored on the self-hosted integration runtime node locally. The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials. 
 
     Replace &lt;integration runtime name&gt; with the name of your integration runtime before running the command.
@@ -233,6 +231,8 @@ In this section, you can create a Self-hosted integration runtime and associate 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
    ```
+
+
 ## Create datasets
 
 ### Prepare on-premises SQL Server for the tutorial
