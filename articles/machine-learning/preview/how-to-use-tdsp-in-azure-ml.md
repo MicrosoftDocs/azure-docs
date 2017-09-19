@@ -85,7 +85,7 @@ The TDSP project template contains following top-level folders:
 
 
 ## Using The TDSP Structure and Templates
-The structure and templates need to be populated with project specific information. You are expected to populate these with code and information necessary for executing and delivering your project. The [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) file is a template that should be directly modified with information relevant to your project. It comes with a set of questions that help you fill out the information for each of the four stages of the [Team Data Science Process lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md).
+The structure and templates need to be populated with project-specific information. You are expected to populate these with code and information necessary for executing and delivering your project. The [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) file is a template that should be directly modified with information relevant to your project. It comes with a set of questions that help you fill out the information for each of the four stages of the [Team Data Science Process lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md).
 
 For an example of how a project structure can look like during execution or after completion is given below (left panel in figure below). This is from the [Team Data Science Process Sample Project: Classify incomes from US Census data in Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).
 
@@ -97,7 +97,7 @@ Refer to [TDSP documentation templates](https://github.com/Azure/Azure-TDSP-Proj
 We also provide another [ProjectLearnings](https://aka.ms/tdspamlgithubrepoprojectlearnings) template to include any information not be included in the primary project document, but that is still useful to document. 
 
 ### Example Project Report
-An example project report can be found [here](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliveralbe_docs/ProjectReport.md). This is the projet report for the [US Income Classification sample project](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), which shows how the TDSP template can be instantiated and used for a data sciene project.
+An example project report can be found [here](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliveralbe_docs/ProjectReport.md). This is the projet report for the [US Income Classification sample project](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), which shows how the TDSP template can be instantiated and used for a data science project.
 
 ## Next Steps
 To facilitate your understanding on how the TDSP structure and templates can be used in Azure Machine Learning projects, we provide several worked-out project examples in the documentation for Azure Machine Learning.
