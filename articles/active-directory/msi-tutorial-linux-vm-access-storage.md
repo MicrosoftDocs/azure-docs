@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ---
 
@@ -26,8 +26,8 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 
 > [!div class="checklist"]
 > * Enable MSI on a Linux Virtual Machine 
-> * Grant your VM access to Storage
-> * Get an access token for your Storage Account using the VM identity to access Storage Keys 
+> * Grant your VM access to storage keys in Resource Manager
+> * Get an access token using VM identity and use it to retrieve storage keys from Resource Manager 
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -112,7 +112,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     The CURL request for the access token is below:
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true    
+    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true    
     ```
     
     > [!NOTE]
@@ -140,14 +140,13 @@ The CURL response gives you the list of Keys:
 ```
 
 
-Create a file to be uploaded this will be a sample blob file that you can upload with your Storage Keys on your storage account within the container you created. 
-
-On a Linux VM you can do this with the following command. 
+Create a sample blob file to upload to your blob storage container. On a Linux VM you can do this with the following command. 
 
 ```bash
 echo "This is a test file." > test.txt
 ```
- Next, you can upload the file using the Azure CLI and authenticate with the Storage Key.
+
+Next, upload the file using Azure CLI and authenticate with the Storage Key.
  
 
 ```azurecli-interactive
