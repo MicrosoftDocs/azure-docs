@@ -52,9 +52,9 @@ ms.author: renash
     
 ## Scale Targets/Limits
 
-* **Q. How many clients can I mount the fileshares on simultaneously?**
+* **Q. How many clients can access the same file simultaneously?**
 
-    There is a 2000 open handles quota on a fileshare. Once you have 2000 open handles, you will get an error that quota is reached.
+    There is a 2000 open handles quota on a single file. Once you have 2000 open handles, you will get an error that quota is reached.
 
 ## Security, Authentication and Access Control
 
