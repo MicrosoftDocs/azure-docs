@@ -61,6 +61,7 @@ The dataset for this sample is from the UCI ML Repository [[link]](https://archi
 * [FAQ - How to get started](faq.md)
 * [Overview](overview-what-is-azure-ml.md)
 * [Installation](quick-start-installation.md)
+* [Execution](experiment-execution-configuration.md)
 * [Using TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Read and write files](how-to-read-write-files.md)
 * [Deploying an ML model as a web service](model-management-service-deploy.md)
@@ -102,7 +103,7 @@ Project is created based on instructions provided [here](https://aka.ms/how-to-u
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
 
 ### Execution
-In this example, we execute code in **local compute environment** only. Refer to Azure Machine Learning documents for execution details and further options.
+In this example, we execute code in **local compute environment**. Refer to Azure Machine Learning documents for further details on [execution options](experiment-execution-configuration.md).
 
 Executing a Python script in a local Python runtime is easy:
 
