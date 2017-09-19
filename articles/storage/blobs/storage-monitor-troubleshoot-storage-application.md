@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/22/2017
+ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
 ---
