@@ -103,7 +103,7 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 
 - You plan on using your cache with a BI tool that submits large numbers of small queries
 - You need sub-second query latency
-- You are experienced in managing an Analysis Services cache
+- You are experienced in managing/developing models for Analysis Services 
 
 #### SQL Database
 
@@ -115,7 +115,7 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 
 ## FAQ
 
-Q: Can I use databases within an Elastic Database pool withelastic query?
+Q: Can I use databases within an Elastic Database pool with elastic query?
 
 A: Yes. SQL Databases within an elastic pool can use elastic query. 
 
@@ -126,6 +126,10 @@ A: Logical servers have DTU limits in place to prevent customers from accidental
 Q: Can I use row level security/Dynamic Data Masking with Elastic Query?
 
 A: Customers who wish to use more advanced security features with SQL Database can do so by first moving and storing the data in the SQL Database. You cannot currently apply row level security or DDM on data queried through external tables. 
+
+Q: Can I write from my SQL database instance to data warehouse instance?
+
+A: Currently this feature is not supported. If this is something you want, visit our [Feedback page][Feedback page] page to create/vote for this functionality. 
 
 Q: Can I use spatial types like geometry/geography?
 
@@ -151,6 +155,7 @@ A: You can store spatial types in SQL Data Warehouse as varbinary(max) values. W
 
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
 [Elastic Query tutorial]: ./sql-data-warehouse-elastic-query-with-sql-database.md
+[Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 
 <!--MSDN references-->
 
