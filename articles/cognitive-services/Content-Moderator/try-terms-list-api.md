@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Try term lists with the Text Moderation API
+# Term lists with the Text Moderation API
 
 The default global list of terms is usually sufficient, but you may need to screen against terms that are specific to your business. For example, you may want to tag competitors’ names for further review. The [Terms List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) allows you to create custom lists of terms for use with the Text Moderation API. The **Text - Screen** operation scans your text for profanity, comparing it against custom and/or shared blacklists.
 
@@ -27,7 +27,7 @@ The Terms List management API include these operations:
 - Edit list information.
 - Refresh the index so that changes are found during a scan.
 
-## Try with the API console
+## Use the API console
 Before you can test-drive the API from the online console, you will need the **Ocp-Apim-Subscription-Key**. This is found under the **Settings** tab, as shown in the [Overview](overview.md) article.
 
 ## Creating a term list
@@ -45,14 +45,16 @@ Before you can test-drive the API from the online console, you will need the **O
   ![Try Term List API - Create Step 1](images/try-terms-list-create-1.png)
 
 6.	Use the key-value pair placeholders to assign more descriptive metadata to your list. For example, you could enter something on these lines:
-    {
-      "Name": "MyExclusionList",
-      "Description": "MyListDescription",
-      "Metadata": {
-      "Category": "Competitors",
-      "Type": "Exclude"
-      }
-    }
+
+        {
+           "Name": "MyExclusionList",
+           "Description": "MyListDescription",
+           "Metadata": 
+           {
+              "Category": "Competitors",
+              "Type": "Exclude"
+           }
+        }
 
   Note that we are adding list metadata as key value pairs, not the actual terms.
  
