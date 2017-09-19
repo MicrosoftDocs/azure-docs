@@ -32,25 +32,33 @@ An Interactive Query cluster is different from a Hadoop cluster. It contains onl
 > 
 
 ## Create an Interactive Query cluster
-You can use Interactive Query clusters only on Linux-based clusters. For information about how to create an HDInsight cluster, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+For information about creating a HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Choose the Interactive Query cluster type.
 
 ## Execute Hive queries from Interactive Query
 To execute Hive queries, you have the following options:
 
+* Use Power BI
+
+    See [Visualize big data with Power BI in Azure HDInsight](,/hdinsight-connect-hive-power-bi.md).
+
+* Use Zeppelin
+
+    See [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
+
 * Use Visual Studio
 
-    For more information, see [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+    See [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
 * Run Hive by using Ambari Hive View.
   
-    For information about using Hive View, see [Use Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+    See [Use Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Run Hive by using Beeline.
   
-    For information about using Beeline in HDInsight, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
+    See [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
   
     You can use Beeline from either the head node or from an empty edge node. We recommend using Beeline from an empty edge node. For information about creating an HDInsight cluster by using an empty edge node, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 * Run Hive by using Hive ODBC.
   
-    For information about using Hive ODBC, see [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
+    See [Connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 To find the Java Database Connectivity (JDBC) connection string:
 

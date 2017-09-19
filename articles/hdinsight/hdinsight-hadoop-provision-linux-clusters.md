@@ -24,7 +24,7 @@ ms.author: jgao
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Hive, HBase, R Server, or Storm. Also, learn how to customize clusters and add security by joining them to a domain.
+Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. Also, learn how to customize clusters and add security by joining them to a domain.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. 
 
@@ -79,7 +79,7 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | [Spark](hdinsight-apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Kafka (Preview)](hdinsight-apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
 | [R Server](hdinsight-hadoop-r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
-| [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
+| [Interactive Query](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
 
 ### Number of nodes for each cluster type
 Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.

@@ -27,8 +27,6 @@ HDInsight Interactive Query clusters include Zeppelin notebooks that you can use
 Before going through this article, you must have the following items:
 
 * **HDInsight Interactive Query cluster**. See [Create cluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster) to create a HDInsight cluster.  Make sure to choose the Interactive Query type. 
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. You can download a copy from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
-
 
 ## Create a Zeppelin Note
 

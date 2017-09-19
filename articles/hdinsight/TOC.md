@@ -22,7 +22,7 @@
 ## [Start with R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Start with Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md)
+## [Start with Interactive Query)](hdinsight-hadoop-use-interactive-hive.md)
 ## [Start with Kafka (Preview)](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
@@ -103,7 +103,7 @@
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
-## Use domain-joined HDInsight (Preview)
+## Use Domain-joined HDInsight (Preview)
 ### [Configure](hdinsight-domain-joined-configure.md)
 ### [Manage](hdinsight-domain-joined-manage.md)
 ### [Configure Hive policies](hdinsight-domain-joined-run-hive.md)
@@ -115,6 +115,8 @@
 ### [Use with Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Use with Spark (DStream)](hdinsight-apache-spark-with-kafka.md)
 ### [Use with Storm](hdinsight-apache-storm-with-kafka.md)
+## Use Interactive Query
+### [Use Zeppelin to run Hive queries](hdinsight-connect-hive-zeppelin.md)
 ## Develop
 ### [Develop C# streaming MapReduce programs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
@@ -130,6 +132,7 @@
 ### [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 ## Analyze big data
 ### [Analyze using Power Query](hdinsight-connect-excel-power-query.md)
+### [Connect Power BI to Hadoop](hdinsight-connect-hive-power-bi.md)
 ### [Connect Excel to Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)
 ### [Connect using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md)
 ### [Analyze stored sensor data](hdinsight-hive-analyze-sensor-data.md)
