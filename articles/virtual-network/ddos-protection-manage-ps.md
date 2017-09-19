@@ -79,8 +79,6 @@ $vnetProps
 
 ## Use DDoS Protection telemetry
 
-Learn how to use the Azure DDoS Protection service telemetry while under an attack using the Azure Monitor. 
-
 Telemetry for an attack is provided through Azure Monitor in real time. The telemetry is available only for the duration that a public IP address is under mitigation. You will not see telemetry before or after an attack is mitigated.
 
 ### Configure alerts on DDoS Protection metrics
