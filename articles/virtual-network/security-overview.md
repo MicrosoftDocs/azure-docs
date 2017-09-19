@@ -47,10 +47,10 @@ A network security group contains zero, or as many rules as desired, within Azur
 |---------|---------|
 |Name|A unique name within the network security group.|
 |Priority | A number between 100 and 4096. Rules are processed in priority order, with lower numbers processed before higher numbers, because lower numbers have higher priority. Once traffic matches a rule, processing stops. As a result, any rules that exist with lower priorities (higher numbers) that have the same attributes as rules with higher priorities are not processed.|
-|Source (for inbound rules) or destination (for outbound rules)| Any, or an individual IP address, CIDR block (example 10.0.0.0/24, for example), service tag, or application security group. Learn more about [service tags](#service-tags) and [application security groups](#application-security-groups). Specifying a range, a service tag, or application security group, enables you to create fewer security rules. The ability to specify multiple individual IP addresses and ranges (you cannot specify multiple service tags or application groups) in a rule is in preview release and is referred to as augmented security rules. Before using augmented security rules, you must first register for the preview by completing the steps in [Register for preview features](#register-for-preview-features). While in preview release, you can use this feature only in the regions listed in [Augmented security rules](#augmented-security-rules). Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple IP addresses and IP address ranges in network security groups created through the classic deployment model.|
+|Source (for inbound rules) or destination (for outbound rules)| Any, or an individual IP address, CIDR block (example 10.0.0.0/24, for example), service tag, or application security group. Learn more about [service tags](#service-tags) and [application security groups](#application-security-groups). Specifying a range, a service tag, or application security group, enables you to create fewer security rules. The ability to specify multiple individual IP addresses and ranges (you cannot specify multiple service tags or application groups) in a rule is in preview release and is referred to as augmented security rules. While in preview release, you can use this feature only in the regions listed in [Augmented security rules](#augmented-security-rules). Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple IP addresses and IP address ranges in network security groups created through the classic deployment model.|
 |Protocol     | TCP, UDP, or Any, which includes TCP, UDP, and ICMP. You cannot specify ICMP alone, so if you require ICMP, you must use Any. |
 |Direction| Whether the rule applies to inbound, or outbound traffic.|
-|Port range     |You can specify an individual or range of ports. For example, you could specify 80 or 10000-10005. Specifying ranges enables you to create fewer security rules. The ability to specify multiple individual ports and port ranges in a rule is in preview release and is referred to as augmented security rules. Before using augmented security rules, you must first register for the preview by completing the steps in [Register for preview features](#register-for-preview-features). While in preview release, you can use this feature only in the regions listed in [Augmented security rules](#augmented-security-rules). Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple ports or port ranges in the same security rule in network security groups created through the classic deployment model.   |
+|Port range     |You can specify an individual or range of ports. For example, you could specify 80 or 10000-10005. Specifying ranges enables you to create fewer security rules. The ability to specify multiple individual ports and port ranges in a rule is in preview release and is referred to as augmented security rules. While in preview release, you can use this feature only in the regions listed in [Augmented security rules](#augmented-security-rules). Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple ports or port ranges in the same security rule in network security groups created through the classic deployment model.   |
 |Action     | Allow or deny        |
 
 **Considerations**
@@ -66,7 +66,7 @@ Security rules are stateful. If you specify an outbound security rule to any add
 
 Augmented rules simplify security definition for virtual networks, allowing you to define larger and complex network security policies, with fewer rules. Multiple ports, multiple explicit IP addresses, Service tags and Application security groups can all be combined into a single easily understood security rule. Use augmented rules in the source, destination and port fields of a rule. When creating a rule, you can specify multiple explicit IP addresses, CIDR ranges, and ports. Combine with Service tags or Application security groups to simplify maintenance of your security rule definition. 
 
-Augmented security rules are available in preview release. Before using augmented security rules, you must first register for the preview by completing the steps in [Register for preview features](#register-for-preview-features). While in preview release, you can use this feature only in the following Azure regions: West Central US, East US, West US, West US 2, Australia East, Australia Southeast, and UK South. To learn about limits when creating augmented security rules, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Augmented security rules are available in preview release. While in preview release, you can use this feature only in the following Azure regions: West Central US, East US, West US, West US 2, Australia East, Australia Southeast, and UK South. To learn about limits when creating augmented security rules, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Default security rules
 
@@ -105,7 +105,7 @@ You cannot remove the default rules, but you can override them by creating rules
 * **Sql** (Resource Manager only): This tag denotes the address prefixes of Azure SQL Database. You can only specify specific regions for this service tag. For example, if you want to allow access only to Azure SQL Database in the East US region, you could specify *Sql.EastUS* as a service tag. You cannot specify Sql only for all Azure regions, you must specify regions individually. Other available regional tags are: Sql.WestCentralUS, Sql.EastUS, Sql.WestUS, Sql.WestUS2, Sql.AustraliaEast, and Sql.UKSouth.
 
 > [!WARNING]
-> The AzureTrafficManager, Storage, and Sql service tags are available in preview release. Before using these service tags, you must first register for the preview by completing the steps in [Register for preview features](#register-for-preview-features). While in preview release, you can use the service tags only in the following Azure regions: West Central US, East US, West US, West US 2, Australia East, Australia Southeast, and UK South.
+> The AzureTrafficManager, Storage, and Sql service tags are available in preview release. While in preview release, you can use the service tags only in the following Azure regions: West Central US, East US, West US, West US 2, Australia East, Australia Southeast, and UK South.
 
 > [!NOTE]
 > If you implement a virtual network [service endpoint](service-endpoint-overview.md) for a service such as Azure Storage or Azure SQL Database, Azure adds a route to a virtual network subnet for the service. The address prefixes for the route are the same address prefixes, or CIDR ranges, as the corresponding service tag.
@@ -127,7 +127,7 @@ To learn about limits when creating application security groups and specifying t
 
 Application security groups are available in preview release. Before using application security groups, you must first register to use them. Complete the steps in R[Register for preview features](#register-for-preview-features). During preview, application security groups are limited to the scope of the virtual network. Virtual networks peered with cross references to application security groups on a network security group are not applied.
 
-## Register for preview features
+## Register for application security groups
 
 > [!NOTE]
 > Features in preview release may not have the same level of availability and reliability as features that are in general availability release. Preview features are not supported, may have constrained capabilities, and may not be available in all Azure locations. 
@@ -137,30 +137,18 @@ Complete the following steps to register for the preview:
 1. Install and configure Azure [PowerShell](/powershell/azure/install-azurerm-ps).
 2. Run the `Get-Module -ListAvailable AzureRM` command to see what version of the AzureRM module you have installed. You must have a version greater than 4.3.1 installed. If you do not, you can install the latest version from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
 3. Login to Azure with the `login-azurermaccount` command.
-4. Enter the following commands to register for the preview features you want to use:
+4. Enter the following commands to register for the preview:
 
-    - Application security groups
        ```powershell
        Register-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
-        ```
+       Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
-    - Augmented security rules
-       ```powershell
-       Register-AzureRmProviderFeature -FeatureName AllowAccessRuleExtendedProperties -ProviderNamespace Microsoft.Network
         ```
-
 5. Confirm that you are registered for the preview by entering the following command:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
-
-    Or
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowAccessRuleExtendedProperties -ProviderNamespace Microsoft.Network
-    ```
-
 ## Next steps
 
 * Complete the [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) tutorial
