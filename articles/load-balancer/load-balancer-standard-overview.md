@@ -266,9 +266,9 @@ Customers continue to enjoy Load Balancer Basic SKU at no charge.
 
 ## Limitations
 
-- VNet Peering is not supported at this time.
-- You can use either Basic SKU or Standard SKU with a standalone VM or any VM instance Availability Set, not both.
-- Using an internal Standard Load Balancer with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set make outbound connections by simultaneously assigning a public Standard Load Balancer or Standard Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
+- Load Balancer backend instances cannot be in peered VNets at this time.
+- You can use either Basic SKU or Standard SKU with a standalone VM, all VM instances in an Availability Set or VMSS. A standalone VM, all VM instances in an Availability Set or VMSS may not be used with both simultaneously.
+- Using an internal Standard Load Balancer with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set or VMSS and make outbound connections by simultaneously assigning a public Standard Load Balancer or Standard Public IP as Instance-Level Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
 
 ## Next steps
 
