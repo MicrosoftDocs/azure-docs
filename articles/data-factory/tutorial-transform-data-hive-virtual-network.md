@@ -33,14 +33,14 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 
 ## Prerequisites
 - **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
-- **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account.
-- **Azure Virtual Network.** In this sample, the HDInsight is in an Azure Virtual Network. Follow instructions on [Create your first virtual network](../virtual-network/virtual-network-get-started-vnet-subnet.md) for details.
-- **HDInsight cluster.** You need to have an existing HDInsight cluster created in Azure Virtual Network, follow instructions on [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) for details.
+- **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account. In this sample, HDInsight cluster uses this Azure Storage account as the primary storage. 
+- **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/virtual-network-get-started-vnet-subnet.md). In this sample, the HDInsight is in an Azure Virtual Network.
+- **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md).
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-### Upload python script to your Blob Storage account
+### Upload Hive script to your Blob Storage account
 
-1. Create a Hive SQL file named **hivescript.hsql** with the following content:
+1. Create a Hive SQL file named **hivescript.hql** with the following content:
 
    ```sql
    DROP TABLE IF EXISTS HiveSampleOut; 
@@ -58,7 +58,7 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
    ```
 2. In your Azure Blob Storage, create a container named **adftutorial** if it does not exist.
 3. Create a folder named `hivescripts`.
-4. Upload the `hivescript.hsql` file to the `hivescripts` subfolder.
+4. Upload the `hivescript.hql` file to the `hivescripts` subfolder.
 
  ​
 
@@ -116,8 +116,8 @@ In this section, you create a self-hosted integration runtime and associate it w
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
    ```
-
-2. We would use PowerShell to retrieve Authentication Keys to register the self-hosted integration runtime. Copy one of the keys for registering the self-hosted integration runtime.
+    This command creates a logical registration of the self-hosted integration runtime. 
+2. Use PowerShell to retrieve authentication keys to register the self-hosted integration runtime. Copy one of the keys for registering the self-hosted integration runtime.
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
@@ -127,13 +127,13 @@ In this section, you create a self-hosted integration runtime and associate it w
 
    ```powershell
    {
-       "AuthKey1":  "IR@8437c862-d6a9-4fb3-87dd-7d4865a9e845@ab1@eu@VDnzgySwUfaj3pfSUxpvfskt6kwRx4GHiyF4wboad0Y=",
-       "AuthKey2":  "IR@8437c862-d6a9-4fb3-85dd-7d4865a9e845@ab1@eu@sh+k/QNJGBltXL46vcRDJEp/eOf/M1Gne5aVqPtbweI="
+       "AuthKey1":  "IR@0000000000000000000000000000000000000=",
+       "AuthKey2":  "IR@0000000000000000000000000000000000000="
    }
    ```
-
+    Note down the value of **AuthKey1** without quotation mark. 
 3. Create an Azure VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). Join them into an Azure Virtual Network. 
-4. On the Azure VM, download [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717) (previously called Data Management Gateway). Use the Authentication Key obtained in the previous step to manually register the self-hosted integration runtime. 
+4. On the Azure VM, download [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). Use the Authentication Key obtained in the previous step to manually register the self-hosted integration runtime. 
 
    ![Register integration runtime](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
 
@@ -163,13 +163,16 @@ Create a JSON file using your preferred editor, copy the following JSON definiti
           "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
           "type": "SecureString"
         }
-      }
+      },
+      "connectVia": {
+        "referenceName": "MySelfhostedIR",
+        "type": "IntegrationRuntimeReference"
+      }  
     }
 }
 ```
 
-> [!IMPORTANT]
-> Replace &lt;accountname&gt; and &lt;accountkey&gt; with the name and key of your Azure Storage account.
+Replace **&lt;accountname&gt; and &lt;accountkey&gt;** with the name and key of your Azure Storage account.
 
 ### HDInsight linked service
 
@@ -191,6 +194,10 @@ Create a JSON file using your preferred editor, copy the following JSON definiti
             "referenceName": "MyStorageLinkedService",
             "type": "LinkedServiceReference"
           }
+      },
+      "connectVia": {
+        "referenceName": "MySelfhostedIR",
+        "type": "IntegrationRuntimeReference"
       }
   }
 }
@@ -198,22 +205,12 @@ Create a JSON file using your preferred editor, copy the following JSON definiti
 
 Update values for the following properties in the linked service definition:
 
-- **clusterUri**. Specify the URL of your HDInsight cluster in format of  https://<clustername>.azurehdinsight.net. The URL might not be public accessible for HDInsight in Azure Virtual Network, 
+- **userName**. Name of the cluster login user that you specified when creating the cluster. 
+- **password**. The password for the user.
+- **clusterUri**. Specify the URL of your HDInsight cluster in format of  https://<clustername>.azurehdinsight.net.  This article assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at `https://<clustername>.azurehdinsight.net`. This address uses the public gateway, which is not available if you have used network security groups (NSGs) or user-defined routes (UDRs) to restrict access from the internet. For Data Factory to be able to submit jobs to HDInsight cluster in Azure Virtual Network, you need to configure your Azure Virtual Network such a way that the URL can be resolved to the private IP address of gateway used by HDInsight.
 
   1. From Azure portal, open the Virtual Network the HDInsight is in. Open the network interface with name starting with `nic-gateway-0`. Note down its private IP address. For example, 10.6.0.15. 
-
-  2. Log on to the Azure VM that has self-hosted integration runtime installed. Open the **hosts** file with Notepad using administrative privileges from the following path: 
-
-        ```
-        C:\Windows\System32\drivers\etc 
-        ```
-  3. Update the **hosts** file by adding the following entry, save, and close the file. 
-        ```
-        10.6.0.15	myHDIClusterName.azurehdinsight.net
-        ```    
-- **userName**. Name of the cluster login user that you specified when creating the cluster. 
-
-- **password**. The password for the user.
+  2. If your Azure Virtual Network has DNS server, update the DNS record so the HDInsight cluster URL `https://<clustername>.azurehdinsight.net` can be resolved to `10.6.0.15`. This is the recommended approach. If you don’t have a DNS server in your Azure Virtual Network, you can temporarily workaround this by editing the hosts file (C:\Windows\System32\drivers\etc) of all VMs that registered as self-hosted integration runtime nodes by adding an entry like this: `10.6.0.15 myHDIClusterName.azurehdinsight.net'
 
 Switch to the folder where you created JSON files, and run the following command to deploy the linked services: 
 
@@ -225,7 +222,7 @@ Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -Resourc
 ```
 
 ## Author a pipeline
-In this step, you create a new pipeline with a Hive activity. The activity executes Hive script to return data from a sample table and save it to a path you defined. Create a JSON file in your preferred editor, copy the following JSON definition of a pipeline definition, and save it as **MySparkOnDemandPipeline.json**.
+In this step, you create a new pipeline with a Hive activity. The activity executes Hive script to return data from a sample table and save it to a path you defined. Create a JSON file in your preferred editor, copy the following JSON definition of a pipeline definition, and save it as **MyHiveOnDemandPipeline.json**.
 
 
 ```json
@@ -260,8 +257,8 @@ In this step, you create a new pipeline with a Hive activity. The activity execu
 
 Note the following points:
 
-- **scriptPath** points to path to Hive script on the Azure Storage Account you used for MyStorageLinkedService.
-- **Output** is an argument used in the Hive script. Use the format of `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` to point it to an existing folder on your Azure Storage. 
+- **scriptPath** points to path to Hive script on the Azure Storage Account you used for MyStorageLinkedService. The path is case-sensitive.
+- **Output** is an argument used in the Hive script. Use the format of `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` to point it to an existing folder on your Azure Storage. The path is case sensitive. 
 
 Switch to the folder where you created JSON files, and run the following command to deploy the pipeline: 
 
@@ -282,64 +279,76 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
     ```powershell
     while ($True) {
         $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName $pipelineName -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    
-        if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+
+        if(!$result) {
+            Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
+        }
+        elseif (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
             Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
-            Start-Sleep -Seconds 30
         }
         else {
-            Write-Host "Pipeline run finished. Result:" -foregroundcolor "Yellow"
+            Write-Host "Pipeline '"$pipelineName"' run finished. Result:" -foregroundcolor "Yellow"
             $result
             break
         }
+        ($result | Format-List | Out-String)
+        Start-Sleep -Seconds 15
     }
+    
+    Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
+    $result.Output -join "`r`n"
+
+    Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
+    $result.Error -join "`r`n"
     ```
 
    Here is the output of the sample run:
 
     ```json
-    Pipeline run status:  InProgress
-    Pipeline run status:  InProgress
-    Pipeline run status:  Succeeded
+    Pipeline run status: In Progress
     
     ResourceGroupName : ADFV2SampleRG2
     DataFactoryName   : SampleV2DataFactory2
     ActivityName      : MyHiveActivity
-    PipelineRunId     : 3f832bc4-478d-4ba5-a6a2-afb39c074536
+    PipelineRunId     : 000000000-0000-0000-000000000000000000
     PipelineName      : MyHivePipeline
     Input             : {getDebugInfo, scriptPath, scriptLinkedService, defines}
-    Output            : {logLocation, clusterInUse, jobId, ExecutionProgress}
+    Output            :
     LinkedServiceName :
-    ActivityRunStart  : 9/14/2017 12:49:35 PM
-    ActivityRunEnd    : 9/14/2017 12:50:52 PM
-    DurationInMs      : 76848
+    ActivityRunStart  : 9/18/2017 6:58:13 AM
+    ActivityRunEnd    :
+    DurationInMs      :
+    Status            : InProgress
+    Error             :
+    
+    Pipeline ' MyHivePipeline' run finished. Result:
+    
+    ResourceGroupName : ADFV2SampleRG2
+    DataFactoryName   : SampleV2DataFactory2
+    ActivityName      : MyHiveActivity
+    PipelineRunId     : 0000000-0000-0000-0000-000000000000
+    PipelineName      : MyHivePipeline
+    Input             : {getDebugInfo, scriptPath, scriptLinkedService, defines}
+    Output            : {logLocation, clusterInUse, jobId, ExecutionProgress...}
+    LinkedServiceName :
+    ActivityRunStart  : 9/18/2017 6:58:13 AM
+    ActivityRunEnd    : 9/18/2017 6:59:16 AM
+    DurationInMs      : 63636
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
+    
+    Activity Output section:
+    "logLocation": "wasbs://adfjobs@adfv2samplestor.blob.core.windows.net/HiveQueryJobs/000000000-0000-47c3-9b28-1cdc7f3f2ba2/18_09_2017_06_58_18_023/Status"
+    "clusterInUse": "https://adfv2HivePrivate.azurehdinsight.net"
+    "jobId": "job_1505387997356_0024"
+    "ExecutionProgress": "Succeeded"
+    "effectiveIntegrationRuntime": "MySelfhostedIR"
+    Activity Error section:
+    "errorCode": ""
+    "message": ""
+    "failureType": ""
+    "target": "MyHiveActivity"
     ```
-3. Run the following command:
-
-   ```powershell
-   Get-AzureRmDataFactoryV2ActivityRun -dataFactory $df -PipelineName $pipelineName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(10)
-   ```
-
-   Here is the sample output:
-
-   ```json
-   ResourceGroupName : ADFV2SampleRG2
-   DataFactoryName   : SampleV2DataFactory2
-   ActivityName      : MyHiveActivity
-   PipelineRunId     : 3f832bc4-478d-4ba5-a6a2-afb39c074536
-   PipelineName      : MyHivePipeline
-   Input             : {getDebugInfo, scriptPath, scriptLinkedService, defines}
-   Output            : {logLocation, clusterInUse, jobId, ExecutionProgress}
-   LinkedServiceName :
-   ActivityRunStart  : 9/14/2017 12:49:35 PM
-   ActivityRunEnd    : 9/14/2017 12:50:52 PM
-   DurationInMs      : 76848
-   Status            : Succeeded
-   Error             : {errorCode, message, failureType, target}
-   ```
-
 4. Check the `outputfolder` folder for new file created as the Hive query result, it should look like the following sample output: 
 
    ```
@@ -365,17 +374,11 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 In this tutorial, you learned how to: 
 
 > [!div class="checklist"]
-> * Author linked services.
-> * Author a pipeline that contains a Hive activity.
 > * Create a data factory. 
-> * Deploy linked services.
-> * Deploy the pipeline. 
+> * Author and setup self-hosted integration runtime
+> * Author and deploy linked services.
+> * Author and deploy a pipeline that contains a Hive activity.
 > * Start a pipeline run.
-> * Monitor the pipeline run.
+> * Monitor the pipeline run 
+> * verify the output. 
 
-Go through the following tutorials to learn about using Data Factory in more scenarios: 
-
-Tutorial | Description
--------- | -----------
-[Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
-[Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
