@@ -39,6 +39,7 @@
 ### [PowerShell samples](insights-powershell-samples.md)
 
 ## Use alerts
+### [Configure Near Real-time alerts in Azure portal](monitoring-near-real-time-metric-alerts.md) 
 ### [Configure alerts in Azure portal](insights-alerts-portal.md)
 ### [Configure alerts with CLI](insights-alerts-command-line-interface.md)
 ### [Configure alerts with PowerShell](insights-alerts-powershell.md)
