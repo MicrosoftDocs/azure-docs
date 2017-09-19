@@ -13,6 +13,7 @@
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
 ## [Permissions](security-center-permissions.md)
 ## [Supported platforms](security-center-os-coverage.md)
+## [Partner integration](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
 # How to
@@ -28,12 +29,23 @@
 ## [Search](security-center-search.md)
 
 ## Prevent
-### [Monitor security health](security-center-monitoring.md)
-### [Manage recommendations](security-center-recommendations.md)
-### [Integrate partner solutions](security-center-partner-integration.md)
-### [Monitor partner solutions](security-center-partner-solutions.md)
+### [Implement security recommendations](security-center-recommendations.md)
+### [Application recommendations](security-center-application-recommendations.md)
+#### [Add a web application firewall](security-center-add-web-application-firewall.md)
+#### [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)
 
-### [Compute](security-center-virtual-machine-recommendations.md)
+### [Network recommendations](security-center-network-recommendations.md)
+#### [Add a next generation firewall](security-center-add-next-generation-firewall.md)
+#### [Enable Network Security Groups](security-center-enable-network-security-groups.md)
+#### [Restrict access through Internet-facing endpoints](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
+
+### [SQL service recommendations](security-center-sql-service-recommendations.md)
+#### [Enable auditing and threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md)
+#### [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md)
+#### [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
+
+### [Virtual machine recommendations](security-center-virtual-machine-recommendations.md)
 #### [Apply disk encryption](security-center-apply-disk-encryption.md)
 #### [Apply system updates](security-center-apply-system-updates.md)
 #### [Enable encryption for storage account](security-center-enable-encryption-for-storage-account.md)
@@ -44,22 +56,8 @@
 #### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Update OS version](security-center-update-os-version.md)
 #### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
-
-### [Networking](security-center-network-recommendations.md)
-#### [Add a next generation firewall](security-center-add-next-generation-firewall.md)
-#### [Enable Network Security Groups](security-center-enable-network-security-groups.md)
-#### [Restrict access through Internet-facing endpoints](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
-
-### [Storage and data](security-center-sql-service-recommendations.md)
-#### [Enable auditing and threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md)
-#### [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md)
-#### [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
-
-### [Applications](security-center-application-recommendations.md)
-#### [Add a web application firewall](security-center-add-web-application-firewall.md)
-#### [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)
-
+### [Monitor security health](security-center-monitoring.md)
+### [Monitor partner solutions](security-center-partner-solutions.md)
 ### [Identity and Access](security-center-identity-access.md)
 
 ## Detect and Respond
@@ -74,7 +72,6 @@
 
 ## Cloud defenses
 ### [Just in time access](security-center-just-in-time.md)
-### [Adaptive application controls](security-center-adaptive-application.md)
 
 ## Automation and Orchestration
 ### [Playbooks](security-center-playbooks.md)
