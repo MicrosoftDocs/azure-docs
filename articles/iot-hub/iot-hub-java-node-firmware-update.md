@@ -118,7 +118,7 @@ In this section, you create a Java console app that initiates a remote firmware 
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-1. To implement a thread that reads the reported properties from the device twin, add the following nested class to the **App** class:
+1. To implement a method that reads the reported properties from the device twin, add the following to the **App** class:
 
     ```java
     public static void ShowReportedProperties() 
