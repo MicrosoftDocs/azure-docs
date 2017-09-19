@@ -124,9 +124,9 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     string subscriptionId = "<your subscription ID to create the factory>";
     string resourceGroup = "<your resource group to create the factory>";
 
-    // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by a data factory can be in other regions.
     string region = "East US";
-    string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
+    string dataFactoryName = "<specify the name of a data factory to create. It must be globally unique.>";
 
     // Specify the source Azure Blob information
     string storageAccount = "<your storage account name to copy data>";
@@ -145,7 +145,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     string pipelineName = "Adfv2TutorialBlobToSqlCopy";
     ```
 
-3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details.
+3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create a data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details.
 
     ```csharp
     // Authenticate and create a data factory management client
@@ -156,13 +156,13 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## Create data factory
+## Create a data factory
 
 Add the following code to the **Main** method that creates a **data factory**.
 
 ```csharp
-// Create data factory
-Console.WriteLine("Creating data factory " + dataFactoryName + "...");
+// Create a data factory
+Console.WriteLine("Creating a data factory " + dataFactoryName + "...");
 Factory dataFactory = new Factory
 {
     Location = region,
@@ -377,12 +377,12 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Build and start the application, then verify the pipeline execution.
 
-The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as SSMS (SQL Server Management Studio) or Visual Studio to connect to your destination Azure SQL Database and check if the data is copied into the table you specified.
+The console prints the progress of creating a data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as SSMS (SQL Server Management Studio) or Visual Studio to connect to your destination Azure SQL Database and check if the data is copied into the table you specified.
 
 ### Sample output
 
 ```json
-Creating data factory AdfV2Tutorial...
+Creating a data factory AdfV2Tutorial...
 {
   "identity": {
     "type": "SystemAssigned"
