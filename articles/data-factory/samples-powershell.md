@@ -17,7 +17,7 @@ ms.author: spelluru
 
 # Azure PowerShell samples for Azure Data Factory
 
-The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB.
+The following table includes links to sample Azure PowerShell scripts for Azure Data Factory.
 
 | |  |
 |---|---|
