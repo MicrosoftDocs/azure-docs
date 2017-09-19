@@ -46,9 +46,7 @@
   - name: Datasets and linked services
     href: concepts-datasets-linked-services.md
   - name: Triggers
-    href: concepts-triggers.md 
-  - name: Control flow
-    href: concepts-control-flow.md
+    href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
 - name: How-to guides
