@@ -1,5 +1,5 @@
 ﻿---
-title: Overview of PIM Resource RBAC| Microsoft Docs
+title: Overview of Azure PIM Resource RBAC | Microsoft Docs
 description: Get an overview of the RBAC feature in PIM including Terminology and notifications
 services: active-directory
 documentationcenter: ''
@@ -96,7 +96,7 @@ Administrators can manage role assignments by selecting either Roles or Members 
 >[!NOTE]
 If you have a role pending activation, a notification banner is displayed at the top of the page when viewing membership.
 
-## Asign roles
+## Assign roles
 
 To assign a user or group to a role, select the role (if viewing Roles), or click Add from the action bar (if on the Members view).
 
@@ -113,16 +113,16 @@ Choose a user or group from the directory.
 
 Choose the appropriate assignment type from the dropdown menu. 
 
-**Just In Time Assignment:** provides the user or group members with eligible but not persistent access to the role for a specified period of time or indefinitely (if configured in role settings). 
+**Just In Time Assignment:** It provides the user or group members with eligible but not persistent access to the role for a specified period of time or indefinitely (if configured in role settings). 
 
-**Direct Assignment:** does not require the user or group members to activate the role assignment (known as persistent access). Microsoft recommends using direct assignment for short-term use such as on-call shifts, or time sensitive activities, where access won’t be required when the task is complete.
+**Direct Assignment:** It does not require the user or group members to activate the role assignment (known as persistent access). Microsoft recommends using direct assignment for short-term use such as on-call shifts, or time sensitive activities, where access won’t be required when the task is complete.
 
 ![](media/azure-pim-resource-rbac/membership-settings.png)
 
-A checkbox below the assignment type dropdown allows you to specify if the assignment should be permanent (permanently eligible to activate Just in Time Assignment/permanently active for Direct Assignment). To specify a specific assignment duration, unselect the checkbox and modify the start and/or end date and time fields.
+A check box below the assignment type dropdown allows you to specify if the assignment should be permanent (permanently eligible to activate Just in Time Assignment/permanently active for Direct Assignment). To specify a specific assignment duration, unselect the check box and modify the start and/or end date and time fields.
 
 >[!NOTE]
-The checkbox may be unmodifiable if another administrator has specified the maximum assignment duration for each assignment type in the role settings.
+The check box may be unmodifiable if another administrator has specified the maximum assignment duration for each assignment type in the role settings.
 
 ![](media/azure-pim-resource-rbac/calendar.png)
 
