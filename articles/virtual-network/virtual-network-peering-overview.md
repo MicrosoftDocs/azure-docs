@@ -24,7 +24,9 @@ ms.author: narayan;anavin
 virtual network peering enables you to seemlessly connect virtual networks. Once peered, the virtual networks appear as one for connectivity purposes. The virtual machines in the peered virtual networks can communicate with each other directly.
 The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network through *private* IP addresses only.
 
->[!IMPORTANT] You can peer virtual networks in different Azure regions. This feature is currently in preview. You can [register your subscription for the preview.](virtual-network-create-peering.md). Peering virtual networks in the same regions is generally available.
+>[!IMPORTANT] 
+> You can peer virtual networks in different Azure regions. This feature is currently in preview. You can [register your subscription for the preview.](virtual-network-create-peering.md). Peering virtual networks in the same regions is generally available.
+>
 
 The benefits of using virtual network peering include:
 
