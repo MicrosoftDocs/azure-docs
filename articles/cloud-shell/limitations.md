@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell (Preview) limitations | Microsoft Docs
 description: Overview of limitations of Azure Cloud Shell
-services: 
+services: azure
 documentationcenter: ''
 author: jluk
 manager: timlt
@@ -30,9 +30,7 @@ The machine that provides your Cloud Shell session is temporary, and it is recyc
 ## Browser support
 Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode is not supported.
 
-## Copy and paste
-Ctrl+C and Ctrl+V do not function as copy/paste shortcuts in Cloud Shell on Windows machines, use Ctrl+Insert and Shift+Insert to copy and paste respectively. <br>
-Right-click copy-and-paste options are also available, but right-click function is subject to browser-specific clipboard access. 
+[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## For a given user, only one shell can be active
 Users can only launch one type of shell at a time, either **Bash** or **PowerShell**. However you may have multiple instances of Bash or PowerShell running at one time.
