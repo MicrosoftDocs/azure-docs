@@ -27,6 +27,9 @@ This script creates an Azure Virtual Machine running Windows Server 2016. After 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-powershell.md)]
+
+
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "Create VM detailed")]

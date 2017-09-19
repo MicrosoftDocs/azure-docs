@@ -27,6 +27,8 @@ This script creates an Azure Virtual Machine, installs the Operations Management
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-powershell.md)]
+
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM OMS")]
