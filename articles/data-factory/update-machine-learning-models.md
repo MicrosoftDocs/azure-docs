@@ -16,7 +16,7 @@ ms.date: 08/10/2017
 ms.author: shlo
 
 ---
-# Updating Azure Machine Learning models by using Update Resource activity
+# Update Azure Machine Learning models by using Update Resource activity
 This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article. 
 
 ## Overview
@@ -30,7 +30,7 @@ The following picture depicts the relationship between training and predictive W
 
 ![Web services](./media/update-machine-learning-models/web-services.png)
 
-## Azure machine learning update resource activity 
+## Azure Machine Learning update resource activity 
 
 The following JSON snippet defines an Azure Machine Learning Batch Execution activity.
 
@@ -62,7 +62,7 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 | name                          | Name of the activity in the pipeline     | Yes      |
 | description                   | Text describing what the activity does.  | No       |
 | type                          | For Azure Machine Learning Update Resource activity, the activity type is  **AzureMLUpdateResource**. | Yes      |
-| linkedServiceName             | Linked Services to the Azure Machine Learning Linked Service that contains updateResourceEndpoint property | Yes      |
+| linkedServiceName             | Azure Machine Learning linked service that contains updateResourceEndpoint property. | Yes      |
 | trainedModelName              | Name of the Trained Model module in the Web Service experiment to be updated | Yes      |
 | trainedModelLinkedServiceName | Name of Azure Storage linked service holding the ilearner file that is uploaded by the update operation | Yes      |
 | trainedModelFilePath          | The relative file path in trainedModelLinkedService to represent the ilearner file that is uploaded by the update operation | Yes      |
@@ -70,14 +70,14 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 
 ## End-to-end workflow
 
-The entire process of operationalizing retraining a model and update the predictive Web Services involves following steps: 
+The entire process of operationalizing retraining a model and update the predictive Web Services involves the following steps: 
 
 - Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is a iLearner file that you can use to update the predictive Web Service. 
 - Invoke the **update resource endpoint** of the **predictive Web Service** by using the **Update Resource activity** to update the Web Service with the newly trained model. 
 
 ## Azure Machine Learning linked service
 
-For the above mentioned end-to-end workflow to work, you need to create two Azure Machine Learning Linked Services: 
+For the above mentioned end-to-end workflow to work, you need to create two Azure Machine Learning linked services: 
 
 1. An Azure Machine Learning linked service to the training web service, this linked service is used by Batch Execution activity in the same way as what's mentioned in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). Difference is the output of the training web service is an iLearner file which is then used by Update Resource activity to update the predictive web service. 
 2. An Azure Machine Learning linked service to the update resource endpoint of the predictive web service. This linked service is used by Update Resource activity to update the predictive web service using the iLearner file returned from above step. 
@@ -92,7 +92,7 @@ If the predict web service is a **classic web service**, create the second **non
 
 ![updatable endpoint](./media/update-machine-learning-models/updatable-endpoint.png)
 
-After that, using the following Linked Service sample to create a new Azure Machine Learning Linked Service. The linked service uses the apiKey for authentication.  
+After that, using the following linked service sample to create a new Azure Machine Learning linked service. The linked service uses the apiKey for authentication.  
 
 ```json
 {
@@ -204,7 +204,7 @@ In **Azure ML Studio**, do the following to get values for **mlEndpoint** and **
 4. In the **Azure ML studio**, click **BATCH EXECUTION** link.
 5. Copy the **Request URI** from the **Request** section and paste it into the Data Factory JSON editor.   
 
-### Linked Service for Azure ML updatable scoring endpoint:
+### Linked service for Azure ML updatable scoring endpoint:
 The following JSON snippet defines an Azure Machine Learning linked service that points to updatable endpoint of the scoring web service.  
 
 ```JSON
