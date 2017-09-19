@@ -26,7 +26,7 @@ The HDInsight Streaming Activity in a Data Factory [pipeline](concepts-pipelines
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Hadoop Streaming Activity in V1](v1/data-factory-hadoop-streaming-activity.md).
 
-If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
+If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorials before reading this article. 
 
 ## JSON sample
 ```json
