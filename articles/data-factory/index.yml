@@ -52,7 +52,7 @@ sections:
     items:
     - html: Copy data in cloud &#58; <a href="/azure/data-factory/tutorial-copy-data-dot-net.md">.NET</a>
     - html: Copy on-prem data to cloud&#58; <a href="../data-factory/tutorial-copy-onprem-data-to-cloud-powershell.md">PowerShell</a>
-    - html: Transform data in cloud&#58; <a href="../data-factory/tutorial-transform-data-using-spark-powershell.md">PowerShell</a>    
+    - html: Transform data in cloud&#58; <a href="../data-factory/tutorial-transform-data-spark-powershell.md">PowerShell</a>    
     - html: Control flow&#58; <a href="../data-factory/tutorial-control-flow.md">.NET</a>   
     - html: Bulk and incremental copy&#58; <a href="../data-factory/tutorial-bulk-incremental-copy.md">.NET</a>            
 - title: Reference

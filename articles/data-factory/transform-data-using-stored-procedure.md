@@ -29,7 +29,7 @@ You use data transformation activities in a Data Factory [pipeline](concepts-pip
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Stored Procedure Activity in V1](v1/data-factory-stored-proc-activity.md).
 > 
-> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-powershell.md) before reading this article. 
+> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 
 You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
 
