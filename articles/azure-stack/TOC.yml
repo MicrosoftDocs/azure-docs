@@ -71,6 +71,8 @@
         href: azure-stack-powershell-configure-admin.md
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
+    - name: Access privileged endpoint
+      href: azure-stack-privileged-endpoint.md    
     - name: Manage updates
       items:
       - name: Manage updates overview
