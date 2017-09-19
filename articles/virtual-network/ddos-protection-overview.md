@@ -32,7 +32,7 @@ DDoS Protection on the virtual network has two main benefits:
 - It simplifies the provisioning of protected resources in a single bulk operation and automatically protects additional resource types as they are supported.
 - Protecting all the public IP resources on a virtual network ensures that an attack against one public IP in a virtual network cannot impact another public IP in a virtual network since all public IPs are protected.
 
-For development and test scenarios, you are welcome to try DDoS Protection and provide feedback on your experiences at [Azure DDoS Protection](https://feedback.azure.com/forums/905032-azure-ddos-protection). For support issues, you can [open an Azure support ticket](azure-supportability/how-to-create-azure-support-request.md).
+For development and test scenarios, you are welcome to try DDoS Protection and provide feedback on your experiences at [Azure DDoS Protection](https://feedback.azure.com/forums/905032-azure-ddos-protection). For support issues, you can [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md).
 
 ## Types of DDoS attacks
 
