@@ -272,11 +272,11 @@ You can enforce the use of encryption with the Azure Files service by enabling [
 
 #### Resources
 * [Azure Files Introduction](../files/storage-files-introduction.md)
-* [Get started with Azure Files on Windows](../storage-how-to-use-files-windows.md)
+* [Get started with Azure Files on Windows](../files/storage-how-to-use-files-windows.md)
 
   This article gives an overview of Azure File shares and how to mount and use them on Windows.
 
-* [How to use Azure Files with Linux](../storage-how-to-use-files-linux.md)
+* [How to use Azure Files with Linux](../files/storage-how-to-use-files-linux.md)
 
   This article shows how to mount an Azure File share on a Linux system and upload/download files.
 

@@ -59,7 +59,7 @@ There are three types of blobs -- block blobs, append blobs, and page blobs (use
 For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. See [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../storage-import-export-service.md).
 
 ## Azure Files
-[Azure Files](../files/storage-files-introduction) enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries. 
+[Azure Files](../files/storage-files-introduction.md) enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries. 
 
 One thing that distinguishes Azure Files from files on a corporate file share is that you can access the files from anywhere in the world using a URL that points to the file and includes a shared access signature (SAS) token. You can generate SAS tokens; they allow specific access to a private asset for a specific amount of time. 
 
@@ -284,7 +284,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For Java/Android developers
 * [How to use Blob storage from Java](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Develop for Azure Files with Java](../files/storage-java-how-to-use-files.md)
+* [Develop for Azure Files with Java](../files/storage-java-how-to-use-file-storage.md)
 * [How to use Table storage from Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [How to use Queue storage from Java](../storage-java-how-to-use-queue-storage.md)
 
@@ -305,6 +305,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For Python developers
 * [How to use Blob storage from Python](../blobs/storage-python-how-to-use-blob-storage.md)
-* [Develop for Azure Files with Python](../files/storage-python-how-to-use-files.md)
+* [Develop for Azure Files with Python](../files/storage-python-how-to-use-file-storage.md)
 * [How to use Table storage from Python](../../cosmos-db/table-storage-how-to-use-python.md)
 * [How to use Queue storage from Python](../storage-python-how-to-use-queue-storage.md)
