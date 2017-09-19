@@ -13,11 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/2/2017
+ms.date: 09/25/2017
 ms.author: twooley
 
 ---
 # Key considerations: Using services or building apps for Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 When you use services or build apps for Azure Stack, you must understand that there are differences between Azure Stack and Azure. This article provides an overview of the key considerations when you target Azure Stack as your hybrid cloud development environment.
 
@@ -25,12 +27,12 @@ When you use services or build apps for Azure Stack, you must understand that th
 
 Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps that run on Azure Stack. You can then deploy these apps to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure.
 
-Your Azure Stack cloud administrator or service provider will let you know which services are available for you to use, and how to get support. They will offer these services through their customized plans and offers.
+Your Azure Stack operator will let you know which services are available for you to use, and how to get support. They will offer these services through their customized plans and offers.
 
 The Azure technical content assumes that apps are being developed for an Azure service instead of Azure Stack. When you build and deploy apps to Azure Stack, you must understand some key differences, such as:
 
 * Azure Stack delivers a subset of the services and features that are available in Azure.
-* Your company or service provider can choose which services they want to offer. This includes customized services or applications.
+* Your company or service provider can choose which services they want to offer. This includes customized services or applications. They may offer their own customized documentation.
 * You must use the correct Azure Stack-specific endpoints (for example, the URLs for the portal address and the Azure Resource Manager endpoint).
 * You must use PowerShell and API versions that are supported by Azure Stack. Doing this ensures that your apps will work in both Azure Stack and Azure.
 
@@ -40,9 +42,9 @@ The following table describes the high-level differences between Azure Stack and
 
 | Area | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
-| Who operates it? | Microsoft | Your company or service provider.|
-| Who do you contact for support? | Microsoft | For Azure Stack Development Kit support, visit the [Microsoft forums](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
-| Available services | See the list of [Azure products](https://azure.microsoft.com/services/?b=17.04b). Available services vary by Azure region. | Azure Stack supports a subset of Azure services. <br><br>Actual services will vary based on what your company or service provider chooses to offer.
+| Who operates it? | Microsoft | Your organization or service provider.|
+| Who do you contact for support? | Microsoft | For an integrated system, contact your Azure Stack operator (at your organization or service provider) for support.<br><br>For Azure Stack Development Kit support, visit the [Microsoft forums](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
+| Available services | See the list of [Azure products](https://azure.microsoft.com/services/?b=17.04b). Available services vary by Azure region. | Azure Stack supports a subset of Azure services. Actual services will vary based on what your organization or service provider chooses to offer.
 | Azure Resource Manager endpoint* | https://management.azure.com | For the development kit: https://management.local.azurestack.external
 | Portal URL* | [https://portal.azure.com](https://portal.azure.com) | For the development kit: https://portal.local.azurestack.external
 | Region | You can select which region you want to deploy to. | For the development kit, region will always be **local**. <br><br>The development kit supports only one region.
@@ -89,4 +91,3 @@ For more detailed information about differences at a service level, see:
 * [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
 * [Considerations for Storage in Azure Stack](azure-stack-acs-differences.md)
 * [Considerations for Azure Stack networking](azure-stack-network-differences.md)
-
