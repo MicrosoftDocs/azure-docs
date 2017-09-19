@@ -34,15 +34,11 @@ This quickstart assumes you already have a virtual machine running in Azure. If 
 
 1. In the menu on the left, select **Virtual machines**. The Virtual machines menu opens.
 
- ![select virtual machines in left menu](./media/quick-backup-vm-portal/left-hub-virtual-machine.png)
-
 2. From the Virtual machines menu, select **myVM**. The menu for **myVM** opens.
 
- ![select your virtual machines from list](./media/quick-backup-vm-portal/virtual-machine-in-list.png)
+3. In the **myVM** menu, in the *Settings* section, click **Backup** to open the **Enable backup** menu. It may be necessary to scroll down the menu to see Backup. </br>
 
-3. In the **myVM** menu, in the **Operations** section, click **Backup** to open the **Enable backup** menu. It may be necessary to scroll down the menu to see Backup. </br>
-
-  ![choose Backup option from menu](./media/quick-backup-vm-portal/choose-backup-from-menu.png)
+  ![the icons you click to open the Enable backup menu](./media/quick-backup-vm-portal/first-screen.png)
 
 4. In the **Enable backup** menu, make the following selections to create a new vault in the same resource group and location as the virtual machine:
   - For Recovery Services vault select **Create new** and enter **myBackupVault** as the name of the vault. 
