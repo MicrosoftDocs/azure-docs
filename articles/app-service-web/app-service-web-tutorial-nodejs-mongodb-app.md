@@ -317,6 +317,30 @@ When the web app has been created, the Azure CLI shows information similar to th
 }
 ```
 
+### Change the NodeJs version, as of this article still defaults to 0.10.0
+
+Per this article, which was very helpful, https://blogs.msdn.microsoft.com/azureossds/2016/04/20/nodejs-and-npm-versions-on-azure-app-services/ , shows you a couple ways to changes a webapp nodejs version.  
+
+** You must upgrade your version of node to something higher than v6+  I would recommend version v7.9.0 or in the least v6.9.0.
+
+This has several necesscities that are required by your npm packages in the example.  For starters, flat packaging that was introduced in node v4+  This will install all npm packages in a flat directory structure and allow for easy deletion of the node_modules folder.  Moreover, the updated node versions will ensure that packages will be installed to their most optimal version as there are several packages that won't install correctly with the default version of v0.10.0.  
+
+The easier method of changing the node version, which will automatically adjust the npm version (so no need to update this), is to go the Azure portal and head to application settings. 
+
+How to find the NodeJs version’s that azure web app supports:
+
+* Navigate to kudu console (http://<sitename>.scm.azurewebsites.net) and click cmd in Debug Console
+* Click on disk image and navigate to D:\Program Files (x86)\nodejs
+* You would see all the available versions... Again choose in the least v6.9.0
+
+1. Once in the portal and selecting the applicatioin you've created go to: App Settings in settings blade.
+2. You can include WEBSITE_NODE_DEFAULT_VERSION as key and  version of nodejs you want as value in app settings.
+3. So for example, in the key copy and paste WEBSITE_NODE_DEFAULT_VERSION and then in the value use your nodevs version of yoru choice... Again, v6.9.0 or above.  
+4. Save your changes
+5. Run node -v and your new node version should register the node verion you choose previously.
+
+This should now run the application when pushing the git deployment via the upcomming steps.
+
 ### Configure an environment variable
 
 Earlier in the tutorial, you hardcoded the database connection string in _config/env/production.js_. In keeping with security best practice, you want to keep this sensitive data out of your Git repository. For your app running in Azure, you'll use an environment variable instead.
