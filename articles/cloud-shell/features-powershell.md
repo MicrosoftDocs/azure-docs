@@ -51,7 +51,7 @@ Any changes made to the Azure resources, either made directly in Azure portal or
 
 #### Contextual awareness
 
-- **Resource group name**: When under a resource group in the Azure drive (`Azure:`), the resource group name is automatically passed to the Azure PowerShell cmdlets.
+- **Resource group scoping**: When within the context of a resource group path in the Azure drive (`Azure:`), the resource group name is automatically passed to the Azure PowerShell cmdlets.
 
     ![](media/features-powershell/resource-group-autocomplete.png)
 
@@ -67,16 +67,22 @@ IntelliSense support is implemented via a vim-plugin that interacts with a local
 > [!TIP]
 > Use `TAB` to get completion (IntelliSense) on command names, parameter names, and parameter values (where applicable).
 
+![](media/features-powershell/powershell-editing-vim.png)
+
 ### Extensible model
 
-Using [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget), you can easily install (and update) custom modules and scripts from the [PowerShell Gallery](https://www.powershellgallery.com). After installation, your modules are automatically persists across Cloud Shell sessions.
+Using [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget), you can easily install (and update) custom modules and scripts from the [PowerShell Gallery](https://www.powershellgallery.com).
+After installation, your modules are automatically persists across Cloud Shell sessions.
 
 > [!TIP]
 > Modules installed by the users are saved in `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in user's document folder (`$home\Document\WindowsPowerShell`).
 
-### Interaction with VMs
+![](media/features-powershell/powershellget-module.png)
 
-Enables interactions with VMs using PowerShell remoting to enable management of guest VMs.
+### Management of Guest VMs
+
+Using the two built-in commands - `Enter-AzureRmVM` and `Invoke-AzureRmVMCommand`, you can remotely manage your Azure VMs.
+These commands are built on top of PowerShell remoting and require PowerShell connectivity to the Azure VMs.
 
 ## Tools
 
