@@ -19,8 +19,6 @@
       href: quickstart-create-data-factory-python.md
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
-    - name: Resource Manager template
-      href: quickstart-create-data-factory-resource-manager-template.md
     - name: Azure Portal
       href: quickstart-create-data-factory-portal.md     
 - name: Tutorials
@@ -33,8 +31,6 @@
     href: tutorial-transform-data-using-spark-powershell.md
   - name: 4 - Control flow
     href: tutorial-control-flow.md    
-  - name: 5 - Bulk and incremental copy
-    href: tutorial-bulk-incremental-copy.md
   - name: 6 - Deploy SSIS packages
     href: tutorial-deploy-ssis-packages.md    
 - name: Samples
@@ -51,8 +47,6 @@
     href: concepts-datasets-linked-services.md
   - name: Triggers
     href: concepts-triggers.md 
-  - name: Runtime control
-    href: concepts-runtime-control.md
   - name: Control flow
     href: concepts-control-flow.md
   - name: Integration runtime
