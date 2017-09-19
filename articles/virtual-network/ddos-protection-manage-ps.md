@@ -20,17 +20,22 @@ ms.author: kumud
 ---
 # Manage DDoS Protection using Azure PowerShell
 
-This article shows you how to use Azure PowerShell to enable DDoS Protection, disable DDoS Protection, and use telemetry to mitigate an attack. 
+This article shows you how to use Azure PowerShell to enable DDoS Protection, disable DDoS Protection, and use telemetry to mitigate an attack.
 
-Before running any of the commands in this article, log in to Azure.
+>[!IMPORTANT]
+>DDoS Protection is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to register for the service during the limited preview to get the DDoS Protection service enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. Azure DDoS Protection service is available in US East, US West, and US Central regions. During preview, you are not charged for using the service. 
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you need to install or upgrade Azure PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+
+## Log in to Azure
+
+Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
 ## Enable DDoS Protection
-
-This section details steps to enable DDoS Protection on supported protected resource types. Before following the steps below, make sure you have completed the steps in the [FAQ](ddos-protection-faq.md).
 
 ### Create a new virtual network and enable DDoS Protection
 
@@ -101,11 +106,11 @@ Leveraging the Azure Monitor alert configuration, you can select any of the avai
 3. To create a rule, you need to have several important pieces of information first. 
 
     - The Resource ID for the resource you want to set an alert for.
-	- The metric definitions available for that resource. One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the Azure portal. Then in the next page, select *Properties* under the *Settings* section. The **RESOURCE ID** is a field in the next page. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/). An example Resource ID for a public IP is: `/subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Network/ publicIPAddresses/mypublicip`
+	- The metric definitions available for that resource. One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the Azure portal. Then in the next page, select *Properties* under the *Settings* section. The **RESOURCE ID** is a field in the next page. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/). An example Resource ID for a public IP is: `/subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Network/publicIPAddresses/mypublicip`
 
     The following example sets up an alert on a Public IP associated to a virtual network. The metric to create an alert on is **Under DDoS attack or not**. This is a boolean value 1 or 0. A **1** means you are under attack. A **0** means you are not under attack. The alert is created when you are under the attack within last 5 minutes.
 
-	To create a webhook or send email when an alert is created, first create the email and/or webhooks. Then immediately create the rule afterwards with the -Actions tag and as shown in the following example. You cannot associate webhook or emails with already created rules via PowerShell.
+	To create a webhook or send email when an alert is created, first create the email and/or webhooks. Then immediately create the rule afterwards with the -Actions tag and as shown in the following example. You cannot associate webhook or emails with already created rules using PowerShell.
 
 	```powershell
 	$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
@@ -123,15 +128,7 @@ You can also learn more about [configuring webhooks](../monitoring-and-diagnosti
 
 ## Configure logging on DDoS Protection metrics
 
-To set up a logging alert, navigate to **Monitor -> Diagnostic Settings** page and then filter by Resource Group and Resource Type of Public IP Addresses.  If you don’t see the Public IP resource available in the list. Select the Public IP Resource you want to receive logs for in the drop-down list and then click **Turn on diagnostics to collect the following data**.
-
-There are three options available for logging:
-
-- **Archive to a storage account** – writes logs to a storage account.
-- **Stream to an event hub** –  Allows a log receiver to pick up logs via an event hub. This enables integration with Splunk or other SIEM systems.
-- **Send to Log Analytics** – Writes logs to Azure OMS Log Analytics service.
-
-Refer to the [PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md) to help you access & configure Azure diagnostic logging via PowerShell.
+Refer to the [PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md) to help you access and configure Azure diagnostic logging via PowerShell.
 
 ## Next steps
 

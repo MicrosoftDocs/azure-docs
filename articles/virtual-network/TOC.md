@@ -6,7 +6,6 @@
 ## [FAQ](virtual-networks-faq.md)
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS Protection](ddos-protection-overview.md)
-## [DDoS Protection FAQ](ddos-protection-faq.md)
 ## Classic
 ### [IP addressing](virtual-network-ip-addresses-overview-classic.md)
 ### [Access control lists](virtual-networks-acl.md)
