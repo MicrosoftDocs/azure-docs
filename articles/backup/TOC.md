@@ -12,6 +12,7 @@
 # Tutorials
 
 ## [Back up Azure VMs at scale](tutorial-backup-azure-vm.md)
+## [Back up Windows Server to Azure](tutorial-backup-windows-server-to-azure.md)
 
 # Samples
 
