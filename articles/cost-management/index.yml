@@ -30,10 +30,10 @@ sections:
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
       text: Register with the CSP Partner program and view cost data
-      href: Register an Azure Enterprise Agreement and view cost data
+      href: quick-register-ea
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
-      text: Quick Register - EA
+      text: Register an Azure Enterprise Agreement and view cost data
       href: quick-register-ea
 - title: Step-by-step Tutorials
   items:
