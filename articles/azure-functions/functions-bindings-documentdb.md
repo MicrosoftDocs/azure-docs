@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Cosmos DB bindings | Microsoft Docs
+title: Azure Cosmos DB bindings for Functions | Microsoft Docs
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
@@ -10,7 +10,7 @@ tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
-ms.service: functions
+ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
@@ -19,23 +19,22 @@ ms.date: 09/15/2017
 ms.author: glenga
 
 ---
-# Azure Functions Cosmos DB bindings
+# Azure Cosmos DB bindings for Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Cosmos DB bindings in Azure Functions. 
-Azure Functions supports trigger, input, and output bindings for Cosmos DB.
+This article explains how to configure and code Azure Cosmos DB bindings in Azure Functions. Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-For more information on Cosmos DB, see [Introduction to Cosmos DB](../documentdb/documentdb-introduction.md) 
-and [Build a Cosmos DB console application](../documentdb/documentdb-get-started.md).
+For more information on Azure Cosmos DB, see [Introduction to Azure Cosmos DB](../documentdb/documentdb-introduction.md) 
+and [Build an Azure Cosmos DB console application](../documentdb/documentdb-get-started.md).
 
 <a id="trigger"></a>
 <a id="cosmosdbtrigger"></a>
 
-## Cosmos DB trigger
+## Azure Cosmos DB trigger
 
-The Cosmos DB Trigger uses the [Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The trigger requires a second collection that it uses to store _leases_ over the partitions.
+The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The trigger requires a second collection that it uses to store _leases_ over the partitions.
 
 Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
 
@@ -46,8 +45,8 @@ The Azure Cosmos DB trigger supports the following properties:
 |**type** | Must be set to `cosmosDBTrigger`. |
 |**name** | The variable name used in function code that represents the list of documents with changes. | 
 |**direction** | Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
-|**connectionStringSetting** | The name of an app setting that contains the connection string used to connect to the Cosmos DB account being monitored. |
-|**databaseName** | The name of the Cosmos DB database with the collection being monitored. |
+|**connectionStringSetting** | The name of an app setting that contains the connection string used to connect to the Azure Cosmos DB account being monitored. |
+|**databaseName** | The name of the Azure Cosmos DB database with the collection being monitored. |
 |**collectionName** | The name of the collection being monitored. |
 | **leaseConnectionStringSetting** | (Optional) The name of an app setting that contains the connection string to the service which holds the lease collection. When not set, the `connectionStringSetting` value is used. This parameter is automatically set when the binding is created in the portal. |
 | **leaseDatabaseName** | (Optional) The name of the database that holds the collection used to store leases. When not set, the value of the `databaseName` setting is used. This parameter is automatically set when the binding is created in the portal. |
@@ -62,7 +61,7 @@ These properties can be set in the Integrate tab for the function in the Azure p
 
 ## Using an Azure Cosmos DB trigger
 
-This section contains examples of how to use the Cosmos DB trigger. The examples assume a trigger metadata that looks like the following:
+This section contains examples of how to use the Azure Cosmos DB trigger. The examples assume a trigger metadata that looks like the following:
 
 ```json
 {
@@ -77,7 +76,7 @@ This section contains examples of how to use the Cosmos DB trigger. The examples
 }
 ```
  
-For an example of how to create a Cosmos DB trigger from a function app in the portal, see [Create a function triggered by Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md). 
+For an example of how to create a Azure Cosmos DB trigger from a function app in the portal, see [Create a function triggered by Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md). 
 
 ### Trigger sample in C# #
 ```cs 
@@ -105,7 +104,7 @@ For an example of how to create a Cosmos DB trigger from a function app in the p
 <a id="docdbinput"></a>
 
 ## DocumentDB API input binding
-The DocumentDB API input binding retrieves a Cosmos DB document and passes it to the named input parameter of the function. The document ID can be determined based on the trigger that invokes the function. 
+The DocumentDB API input binding retrieves an Azure Cosmos DB document and passes it to the named input parameter of the function. The document ID can be determined based on the trigger that invokes the function. 
 
 The DocumentDB API input binding has the following properties in *function.json*:
 
@@ -116,8 +115,8 @@ The DocumentDB API input binding has the following properties in *function.json*
 |**databaseName** | The database containing the document.        |
 |**collectionName**  | The name of the collection that contains the document. |
 |**id**     | The ID of the document to retrieve. This property supports bindings parameters. To learn more, see [Bind to custom input properties in a binding expression](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
-|**sqlQuery**     | A Cosmos DB SQL query used for retrieving multiple documents. The query supports runtime bindings, such in the example: `SELECT * FROM c where c.departmentId = {departmentId}`.        |
-|**connection**     |The name of the app setting containing your Cosmos DB connection string.        |
+|**sqlQuery**     | An Azure Cosmos DB SQL query used for retrieving multiple documents. The query supports runtime bindings, such in the example: `SELECT * FROM c where c.departmentId = {departmentId}`.        |
+|**connection**     |The name of the app setting containing your Azure Cosmos DB connection string.        |
 |**direction**     | Must be set to `in`.         |
 
 You cannot set both the **id** and **sqlQuery** properties. If neither are set, the entire collection is retrieved.
@@ -261,7 +260,7 @@ It has the following properties in *function.json*:
 |**databaseName** | The database containing the collection where the document is created.     |
 |**collectionName**  | The name of the collection where the document is created. |
 |**createIfNotExists**     | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false*. This is because new collections are created with reserved throughput, which has cost implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**connection**     |The name of the app setting containing your Cosmos DB connection string.        |
+|**connection**     |The name of the app setting containing your Azure Cosmos DB connection string.        |
 |**direction**     | Must be set to `out`.         |
 
 ## Using a DocumentDB API output binding
@@ -301,7 +300,7 @@ And you have a queue input binding for a queue that receives JSON in the followi
 }
 ```
 
-And you want to create Cosmos DB documents in the following format for each record:
+And you want to create Azure Cosmos DB documents in the following format for each record:
 
 ```json
 {
