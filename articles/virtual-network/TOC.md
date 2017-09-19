@@ -2,9 +2,12 @@
 ## [Virtual networks](virtual-networks-overview.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
 ## [Virtual network peering](virtual-network-peering-overview.md)
+## [Virtual network for Azure services](virtual-network-for-azure-services.md)
+## [Virtual network service endpoints](virtual-network-service-endpoints-overview.md)
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
-## [FAQ](virtual-networks-faq.md)
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
+## [Security](security-overview.md)
+## [FAQ](virtual-networks-faq.md)
 ## Classic
 ### [IP addressing](virtual-network-ip-addresses-overview-classic.md)
 ### [Access control lists](virtual-networks-acl.md)
@@ -45,6 +48,13 @@
 #### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
+
+### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
+
+### Public IP address in an availability zone
+#### [Azure portal](create-portal-availability-zone-public-ip.md)
+#### [PowerShell](create-availability-zone-public-ip-powershell.md)
+#### [Azure CLI](create-availability-zone-public-ip-cli.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address
