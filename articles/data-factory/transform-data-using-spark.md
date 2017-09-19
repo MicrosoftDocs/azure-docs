@@ -1,5 +1,5 @@
 ---
-title: Transform data using Spark Activity in Azure Data Factory | Microsoft Docs
+title: Transform data using Spark activity in Azure Data Factory | Microsoft Docs
 description: Learn how to transform data by running Spark programs from an Azure data factory pipeline using the Spark Activity. 
 services: data-factory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 08/10/2017
 ms.author: shengc
 
 ---
-# Transform data using Spark Activity in Azure Data Factory
+# Transform data using Spark activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-spark.md)
 > * [Version 2 - Preview](transform-data-using-spark.md)
@@ -28,7 +28,7 @@ Spark Activity is one of the [data transformation activities](transform-data.md)
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Spark Activity in V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
-> - Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
+> Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
 
 ## Spark activity properties
 Here is the sample JSON definition of a Spark Activity:    
@@ -68,7 +68,7 @@ The following table describes the JSON properties used in the JSON definition:
 | name                  | Name of the activity in the pipeline.    | Yes      |
 | description           | Text describing what the activity does.  | No       |
 | type                  | For Spark Activity, the activity type is HDInsightSpark. | Yes      |
-| linkedServiceName     | Name of the HDInsight Spark Linked Service on which the Spark program runs. | Yes      |
+| linkedServiceName     | Name of the HDInsight Spark Linked Service on which the Spark program runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No       |
 | rootPath              | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. Refer to folder structure section (next section) for details about the structure of this folder. | Yes      |
 | entryFilePath         | Relative path to the root folder of the Spark code/package. | Yes      |
@@ -85,7 +85,7 @@ Create the following folder structure in the Azure Blob storage referenced by th
 
 | Path                  | Description                              | Required | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| .                     | The root path of the Spark job in the storage linked service | Yes      | Folder |
+| `.` (root)            | The root path of the Spark job in the storage linked service | Yes      | Folder |
 | &lt;user defined &gt; | The path pointing to the entry file of the Spark job | Yes      | File   |
 | ./jars                | All files under this folder are uploaded and placed on the java classpath of the cluster | No       | Folder |
 | ./pyFiles             | All files under this folder are uploaded and placed on the PYTHONPATH of the cluster | No       | Folder |
@@ -116,12 +116,12 @@ SparkJob2
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
-* [Hive Activity](transform-data-using-hadoop-hive.md)
-* [Pig Activity](transform-data-using-hadoop-pig.md)
-* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
-* [Spark Activity](transform-data-using-spark.md)
+* [U-SQL activity](transform-data-using-data-lake-analytics.md)
+* [Hive activity](transform-data-using-hadoop-hive.md)
+* [Pig activity](transform-data-using-hadoop-pig.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)
