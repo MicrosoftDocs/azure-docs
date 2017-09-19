@@ -259,7 +259,8 @@ Diagnostics log outputs the query hashes, good plan ID, bad plan ID, and query I
 
 You might want to analyze which plan is better performing for your specific queries that you can identify with the query hashes provided. Once you determine which plan works better for your queries, you can manually force a particular plan setting “FORCE_LAST_GOOD_PLAN=ON”. For more information, see [How SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
-> [!TIP] **Did you know that Azure built-in intelligence can automatically manage the best performing query execution plans for your databases?**
+> [!TIP]
+> **Did you know that Azure built-in intelligence can automatically manage the best performing query execution plans for your databases?**
 >
 > ***For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates best-performing query execution plans for your databases.***
 >
