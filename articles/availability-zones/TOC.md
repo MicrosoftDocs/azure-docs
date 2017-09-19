@@ -18,8 +18,8 @@
 
 ## Virtual Machines Scale Sets
 
-### [Deploy your application on virtual machine scale sets](../virtual-machines-scale-sets/virtual-machine-scale-sets-deploy-app.md)
-### [What are virtual machine scale sets in Azure?](../virtual-machines-scale-sets/virtual-machine-scale-sets-overview.md)
+### [Deploy your application on virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md)
+### [What are virtual machine scale sets in Azure?](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
 ### [How to create a virtual machine scale set with Azure portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
 
 # Resources
