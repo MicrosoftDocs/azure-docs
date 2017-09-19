@@ -23,7 +23,7 @@ Service Fabric provides a mechanism for services inside a container to access a 
 
 ## Certificate management for containers
 
-You can secure your container services by specifying a certificate. The certificate must be installed on the nodes of the cluster. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
+You can secure your container services by specifying a certificate. The certificate must be installed in LocalMachine on all nodes of the cluster. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,16 +31,28 @@ You can secure your container services by specifying a certificate. The certific
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-When starting the application, the runtime reads the certificates and generates a PFX file and password for each certificate. This PFX file and password are accessible inside the container using the following environment variables: 
+For windows clusters, when starting the application, the runtime reads the certificates and generates a PFX file and password for each certificate. This PFX file and password are accessible inside the container using the following environment variables: 
 
-* **Certificate_[CodePackageName]_[CertName]_PFX**
-* **Certificate_[CodePackageName]_[CertName]_Password**
+* **Certificate_[ServicePackageName]_[CodePackageName]_[CertName]_PFX**
+* **Certificate_[ServicePackageName]_[CodePackageName]_[CertName]_Password**
 
-The container service or process is responsible for importing the PFX file into the container. To import the certificate, you can use `setupentrypoint.sh` scripts or executed custom code within the container process. Sample code in C# for importing the PFX file follows:
+For Linux clusters, the certificates(PEM) are simply copied over from the store specified by X509StoreName onto the container. The corresponding environment variables on linux are:
+
+* **Certificate_[ServicePackageName]_[CodePackageName]_[CertName]_PEM**
+* **Certificate_[ServicePackageName]_[CodePackageName]_[CertName]_PrivateKey**
+
+Alternatively, if you already have the certificates in the required form and would simply want to access it inside the container, you can create a data package inside your app package and specify the following inside your application manifest:
+
+```xml
+  <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
+   <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
+ ```
+
+The container service or process is responsible for importing the certificate files into the container. To import the certificate, you can use `setupentrypoint.sh` scripts or execute custom code within the container process. Sample code in C# for importing the PFX file follows:
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);
@@ -49,7 +61,7 @@ The container service or process is responsible for importing the PFX file into 
     store.Add(cert);
     store.Close();
 ```
-This PFX certificate can be used for authenticate the application or service or secure commmunication with other services.
+This PFX certificate can be used for authenticating the application or service or secure commmunication with other services. By default, the files are ACLed only to SYSTEM. You can ACL it to other accounts as required by the service.
 
 
 ## Set up gMSA for Windows containers

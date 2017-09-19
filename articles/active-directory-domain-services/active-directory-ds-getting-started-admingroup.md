@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 09/16/2017
 ms.author: maheshu
 
 ---
@@ -53,11 +53,11 @@ The process of provisioning your managed domain can take up to an hour.
 
     ![Find managed domain being provisioned](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Click the name of the managed domain (for example, 'contoso100.com') to see more details about the domain.
+2. Click the name of the managed domain (for example, 'contoso100.com') to see more details about the managed domain.
 
     ![Domain Services - provisioning state](./media/getting-started/domain-services-provisioning-state.png)
 
-3. The **Overview** tab shows that the domain is currently being provisioned. You cannot configure the managed domain until it is fully provisioned. It may take up to an hour for your managed domain to be fully provisioned.
+3. The **Overview** tab shows that the managed domain is currently being provisioned. You cannot configure the managed domain until it is fully provisioned. It may take up to an hour for your managed domain to be fully provisioned.
 
     ![Domain Services - Overview tab during the provisioning state ](./media/getting-started/domain-services-provisioning-state-details.png)
 
@@ -68,6 +68,10 @@ The process of provisioning your managed domain can take up to an hour.
 5. On the **Properties** tab, you see two IP addresses at which domain controllers are available for the virtual network.
 
     ![Domain Services - Properties tab after fully provisioned](./media/getting-started/domain-services-provisioned-properties.png)
+
+
+## Need help?
+It may take an hour or two for both domain controllers for your managed domain to be provisioned. If your deployment failed or is stuck in the 'Pending' state for more than a couple of hours, feel free to [contact the product team for help](active-directory-ds-contact-us.md).
 
 
 ## Next step

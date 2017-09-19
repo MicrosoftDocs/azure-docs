@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
@@ -66,7 +66,6 @@ Install the Service Fabric command line (sfctl) in your CLI environment
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
-
 Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint is the management endpoint of your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
@@ -109,7 +108,7 @@ To scale the web front-end service, do the following steps:
 
     ![containersquickstartscale][containersquickstartscale]
 
-    You can now choose to scale the number of instances of the web front-end service.
+  You can now choose to scale the number of instances of the web front-end service.
 
 3. Change the number to **2** and click **Scale Service**.
 4. Click on the **fabric:/Voting/azurevotefront** node in the tree-view and expand the partition node (represented by a GUID).
