@@ -3,8 +3,8 @@ title: Get started with blob storage and Visual Studio connected services (ASP.N
 description: How to get started using Azure Blob storage in a Visual Studio ASP.NET Core project after you have created a storage account using Visual Studio connected services
 services: storage
 documentationcenter: ''
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Get started with Azure Blob storage and Visual Studio connected services (ASP.NET Core)

@@ -34,7 +34,7 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 | Targets | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device by **deviceId**. |
 | Size | Up to 8KB requests and 8KB responses. | Maximum desired properties size is 8KB. | Up to 64KB messages. |
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
-| Protocol | Currently available only when using MQTT. | Currently available only when using MQTT. | Available on all protocols. Device must poll when using HTTP. |
+| Protocol | Available using MQTT or AMQP. | Available using MQTT or AMQP. | Available on all protocols. Device must poll when using HTTP. |
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 

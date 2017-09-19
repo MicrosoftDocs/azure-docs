@@ -29,6 +29,7 @@ Running an existing application in a Linux container on a Service Fabric cluster
 * A development computer running:
   * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
+  * [Service Fabric CLI](service-fabric-cli.md)
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
@@ -197,12 +198,12 @@ gradle
 ```
 
 ## Deploy the application
-Once the application is built, you can deploy it to the local cluster using the Azure CLI.
+Once the application is built, you can deploy it to the local cluster using the Service Fabric CLI.
 
 Connect to the local Service Fabric cluster.
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://localhost:19080
 ```
 
 Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.

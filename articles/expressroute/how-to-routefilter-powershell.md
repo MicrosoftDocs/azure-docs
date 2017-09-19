@@ -190,3 +190,7 @@ You can only delete a route filter if it is not attached to any circuit. Ensure 
 ```powershell
 Remove-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
+
+## Next steps
+
+For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

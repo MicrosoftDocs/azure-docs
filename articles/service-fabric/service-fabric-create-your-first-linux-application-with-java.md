@@ -1,5 +1,5 @@
 ---
-title: Create a Azure Service Fabric reliable actors Java application on Linux | Microsoft Docs
+title: Create an Azure Service Fabric reliable actors Java application on Linux | Microsoft Docs
 description: Learn how to create and deploy a Java Service Fabric reliable actors application in five minutes.
 services: service-fabric
 documentationcenter: java
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 08/23/2017
 ms.author: ryanwi
 
 ---
@@ -28,9 +28,9 @@ ms.author: ryanwi
 This quick-start helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service application running on the local development cluster.  
 
 ## Prerequisites
-Before you get started, install the Service Fabric SDK, the Azure CLI, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
+Before you get started, install the Service Fabric SDK, the Service Fabric CLI, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
-You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) for deploying your application.
+You will also want to install the [Service Fabric CLI](service-fabric-cli.md).
 
 ### Install and set up the generators for Java
 Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for Java working on your machine.
@@ -78,29 +78,28 @@ To build and package the application, run the following:
 ## Deploy the application
 Once the application is built, you can deploy it to the local cluster.
 
-### Using Azure Service Fabric CLI
-
-1. Connect to the local Service Fabric cluster using Azure Service Fabric CLI. See [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md) for more details.
+1. Connect to the local Service Fabric cluster.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
 
-2. Run the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+2. Run the install script provided in the template to copy the application package to the cluster's image store,
+register the application type, and create an instance of the application.
 
     ```bash
     ./install.sh
     ```
 
-### More on Azure CLI 2.0
-
 Deploying the built application is the same as any other Service Fabric application. See the documentation on
-[managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md) for
+[managing a Service Fabric application with the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) for
 detailed instructions.
 
 Parameters to these commands can be found in the generated manifests inside the application package.
 
-Once the application has been deployed, open a browser and navigate to [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Once the application has been deployed, open a browser and navigate to
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
+[http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 Then, expand the **Applications** node and note that there is now an entry for your application type and another for
 the first instance of that type.
 
@@ -129,19 +128,104 @@ Use the uninstall script provided in the template to delete the application inst
 
 In Service Fabric explorer you see that the application and application type no longer appear in the **Applications** node.
 
+## Service Fabric Java libraries on Maven
+Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**.
+
+### Actors
+
+Service Fabric Reliable Actor support for your application.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-actors-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+  }
+  ```
+
+### Services
+
+Service Fabric Stateless Service support for your application.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-services-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+  }
+  ```
+
+### Others
+#### Transport
+
+Transport layer support for Service Fabric Java application. You do not need to explicitly add this dependency to your Reliable Actor or Service applications, unless you program at the transport layer.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-transport-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+  }
+  ```
+
+#### Fabric support
+
+System level support for Service Fabric, which talks to native Service Fabric runtime. You do not need to explicitly add this dependency to your Reliable Actor or Service applications. This gets fetched automatically from Maven, when you include the other dependencies above.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+  }
+  ```
+
 ## Migrating old Service Fabric Java applications to be used with Maven
 We have recently moved Service Fabric Java libraries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Yeoman or Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned [here](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
 
 ## Next steps
+
 * [Create your first Service Fabric Java application on Linux using Eclipse](service-fabric-get-started-eclipse.md)
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interact with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli-2-0.md)
-* [Troubleshooting deployment](service-fabric-azure-cli.md#troubleshooting)
+* [Interact with Service Fabric clusters using the Service Fabric CLI](service-fabric-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
-
-## Related articles
-
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

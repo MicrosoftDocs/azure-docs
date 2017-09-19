@@ -36,4 +36,4 @@ With this capability, customers specify the options in the HTTP settings and cus
 
 ## Next steps
 
-Learn how to set up an application gateway with a web app as a back end pool member by visiting: [Configure App web apps with Application Gateway](application-gateway-web-app-powershell.md)
+Learn how to set up an application gateway with a web app as a back end pool member by visiting: [Configure App Service web apps with Application Gateway](application-gateway-web-app-powershell.md)

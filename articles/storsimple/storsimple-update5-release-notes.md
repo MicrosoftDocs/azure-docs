@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2017
+ms.date: 08/28/2017
 ms.author: alkohli
 
 ---
@@ -35,11 +35,11 @@ Review the information contained in the release notes before you deploy the upda
 
 The following key improvements and bug fixes have been made in Update 5.
 
-* **Azure Active Directory (AAD) integration with StorSimple Device Manager service** – From Update 5 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to [authentication URLs listed in the networking requirements for your StorSimple device](storsimple-8000-system-requirements.md#url-patterns-for-azure-portal).
+* **Use of Azure Active Directory (AAD) to authenticate with StorSimple Device Manager service** – From Update 5 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to [authentication URLs listed in the networking requirements for your StorSimple device](storsimple-8000-system-requirements.md#url-patterns-for-azure-portal).
 
-If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-8000-manage-alerts.md#networking-alerts).
+    If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-8000-manage-alerts.md#networking-alerts).
 
-* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5. We recommend that you update to this version. This version is compatible with all the StorSimple devices that are running Update 3 or later. For more information, go to [deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5 and is compatible with all the StorSimple devices that are running Update 4 or later. We recommend that you update to this version. The previous version of StorSimple Snapshot Manager is used for StorSimple devices that are running Update 3 or earlier. [Download the appropriate version of StorSimple Snapshot Manager](https://www.microsoft.com/en-us/download/details.aspx?id=44220) and refer to [deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 
 ## Issues fixed in Update 5
