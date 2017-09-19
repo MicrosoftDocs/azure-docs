@@ -15,13 +15,12 @@ ms.service: backup
 # ms.suite: 
 # ms.tgt_pltfrm:
 # ms.reviewer:
-manager: carmonm
 ---
 
 # Use Azure portal to back up multiple virtual machines
 
-When you back up data in Azure, you store that data in an Azure resource called a Recovery Services vault. The Recovery Services vault resource is available from the Settings menu of most Azure services. Having the Recovery Services vault integrated into the Settings menu makes it easy to create a new Recovery Services vault, or back up data into an existing Recovery Services vault. This tutorial shows you how to use the Recovery Services vault menu to back up multiple virtual machines at once. 
-The steps in this tutorial differ from the quickstart, Back up a virtual machine using the Azure portal, because here you use the Recovery Services vault menu to configure your resources.
+When you back up data in Azure, you store that data in an Azure resource called a Recovery Services vault. The Recovery Services vault resource is available from the Settings menu of most Azure services. The Recovery Services vault is integrated into the Settings menu which makes it easy to create a new Recovery Services vault, or back up data into an existing Recovery Services vault. This tutorial shows you how to use the Recovery Services vault menu to back up multiple virtual machines at once. 
+The steps in this tutorial differ from the Back up a virtual machine using the Azure portal quickstart. In this tutorial you configure your resources with the Recovery Services vault menu.
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin. If you want to create virtual machines, see the tutorial to [create a Windows virtual machine in Azure](../virtual-machines/windows/tutorial-manage-vm.md).
 
@@ -44,13 +43,12 @@ To create a Recovery Services vault:
     ![Create Recovery Services Vault step 2](./media/tutorial-backup-vm-at-scale/list-of-rs-vault.png)
 2. On the **Recovery Services vaults** menu, click **Add**.
 
-    The Recovery Services vault menu opens, prompting you for a .
+    The Recovery Services vault menu opens.
 
     ![Create Recovery Services Vault step 3](./media/tutorial-backup-vm-at-scale/rs-vault-step-3.png)
 
 3. Enter or choose a **Name**, **Subscription**, **Resource group**, and **Location** for the vault. 
 
-- For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 - The Recovery Services vault must be in the same location as the virtual machines being protected. If you are unsure of the virtual machine location, close the vault creation dialog, and go to the list of virtual machines in the Azure portal. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. Create the vault in the first location before going to the next location.
 
 4. Once you fill in the information for the Recovery Services vault, at the bottom of the Recovery Services vault menu, click **Create**.
@@ -59,11 +57,11 @@ To create a Recovery Services vault:
 
     ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
-When you create a Recovery Services vault, by default the vault has geo-redundant storage. For the purposes of this tutorial, leave the vault's storage replication option set to geo-redundant storage. If you want you can read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
+When you create a Recovery Services vault, by default the vault has geo-redundant storage. To provide data resiliency, geo-redundant storage replicates the data multiple times across two Azure regions. 
 
 ## Select a backup goal, set policy and define items to protect
 
-Before registering a virtual machine with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
+In the Azure portal, scenario refers to what you are going to put into the Recovery Services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
 
 1. If you already have a Recovery Services vault open, proceed to step 2. Otherwise, on the left-hand menu, click **More services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
 
@@ -77,17 +75,17 @@ Before registering a virtual machine with a vault, run the discovery process to 
 
 2. On the vault dashboard menu, click **Backup** to open the Backup menu.
 
-    ![Open Backup blade](./media/tutorial-backup-vm-at-scale/backup-button.png)
+    ![Open Backup menu](./media/tutorial-backup-vm-at-scale/backup-button.png)
 
     The Backup and Backup Goal menus open.
 
-    ![Open Scenario blade](./media/tutorial-backup-vm-at-scale/select-backup-goal-1.png)
+    ![Open Scenario menu](./media/tutorial-backup-vm-at-scale/select-backup-goal-1.png)
 
 3. On the Backup Goal menu, from the **Where is your workload running** drop-down menu, choose Azure. From the **What do you want to backup** drop-down, choose Virtual machine, then click **OK**.
 
     These actions register the Virtual Machine extension with the Recovery Services vault. The Backup Goal menu closes and the **Backup policy** menu opens.
 
-    ![Open Scenario blade](./media/tutorial-backup-vm-at-scale/select-backup-goal-2.png)
+    ![Open Scenario menu](./media/tutorial-backup-vm-at-scale/select-backup-goal-2.png)
 
 4. On the Backup policy menu, click **OK** to accept the chosen backup policy.
 
@@ -111,7 +109,7 @@ To run the initial backup job:
 1. On the vault dashboard, click the number under **Backup Items**, or click the **Backup Items** tile. <br/>
   ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-  The **Backup Items** blade opens.
+  The **Backup Items** menu opens.
 
   ![Back up items](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
@@ -137,7 +135,7 @@ To run the initial backup job:
 
   The Backup Now menu opens.
 
-  ![shows the Backup Now blade](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![shows the Backup Now menu](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
 5. On the Backup Now menu, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
 
