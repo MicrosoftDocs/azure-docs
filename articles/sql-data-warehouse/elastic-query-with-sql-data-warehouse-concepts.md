@@ -102,7 +102,14 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 #### Azure Analysis Services
 
 - You plan on using your cache with a BI tool that submits large numbers of small queries
-- You need very minimal latency
+- You need sub-second query latency
+- You are experienced in managing an Analysis Services cache
+
+#### SQL Database
+
+- You want to query your cache data with SQL
+- You need remote execution for certain queries
+- You have large cache requirements
 
 
 

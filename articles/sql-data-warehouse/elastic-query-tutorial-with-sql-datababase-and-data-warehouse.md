@@ -100,8 +100,8 @@ In the next few steps we will create a table in our data warehouse instance with
    ```sql
    CREATE TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL, 
-       [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL 
+   ,   [CustomerID] [int] NOT NULL 
    ) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
@@ -117,8 +117,8 @@ In the next few steps we will create a table in our data warehouse instance with
    ```sql
    CREATE EXTERNAL TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL, 
-       [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL
+   ,   [CustomerID] [int] NOT NULL 
    ) 
    WITH 
    (DATA_SOURCE = EnterpriseDwSrc)
