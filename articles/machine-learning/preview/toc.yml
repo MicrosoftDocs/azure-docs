@@ -9,10 +9,8 @@
     href: model-management-overview.md
 - name: Quickstarts
   items:
-  - name: Provisioning and installation
+  - name: Create and Install
     href: quick-start-installation.md
-  - name: Create a classification project
-    href: quick-start-iris.md  
 - name: Tutorials
   items:
   - name: 1 - Prepare data
