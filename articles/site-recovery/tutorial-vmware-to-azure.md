@@ -90,9 +90,9 @@ Disk free space (retention disk) | 600 GB
 **Software** | **Details**
 --- | ---
 Operating system version | Windows Server 2012 R2
-Operating system locale English (en-us)
+Operating system locale | English (en-us)
 VMware vSphere PowerCLI version | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")
-Windows Server roles | Do not enable these roles: Active Directory Domain Services, Internet Information Services, Hyper-V 
+Windows Server roles | Don't enable these roles: Active Directory Domain Services, Internet Information Services, Hyper-V 
 
 
 **Network** | **Details**
