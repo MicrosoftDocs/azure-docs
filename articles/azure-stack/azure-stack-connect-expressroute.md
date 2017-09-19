@@ -24,7 +24,7 @@ ms.author: victorh
 There are two supported methods to connect virtual networks in Azure Stack to virtual networks in Azure:
    * **Site-to-Site**
 
-     A VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information about VPN gateways in Azure, see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+     A VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Connect Azure Stack to Azure using VPN](azure-stack-connect-vpn.md).
    * **ExpressRoute**
 
      A direct connection to Azure from your Azure Stack deployment. ExpressRoute is **not** a VPN connection over the public Internet. For more information about Azure ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).
@@ -44,7 +44,6 @@ The following diagram shows a conceptual networking view after you complete the 
 ![Conceptual diagram](media/azure-stack-connect-expressroute/Conceptual.png)
 
 **Diagram 1**
-
 
 The following architecture diagram shows how multiple tenants connect from the Azure Stack infrastructure through the ExpressRoute router to Azure at the Microsoft edge:
 
@@ -339,12 +338,12 @@ ip vrf Tenant 2
 crypto ikev2 proposal V2-PROPOSAL2 
 description IKEv2 proposal for Tenant 1 
 encryption aes-cbc-256
- integrity sha384
+ integrity sha256
  group 2
 crypto ikev2 proposal V4-PROPOSAL2 
 description IKEv2 proposal for Tenant 2 
 encryption aes-cbc-256
- integrity sha384
+ integrity sha256
  group 2
 !
 crypto ikev2 policy V2-POLICY2 
@@ -376,9 +375,9 @@ description IKEv2 profile for Tenant 2
  authentication local pre-share key abc123
  ivrf Tenant 2
 !
-crypto ipsec transform-set V2-TRANSFORM2 esp-aes esp-sha-hmac 
+crypto ipsec transform-set V2-TRANSFORM2 esp-gcm 256 
  mode tunnel
-crypto ipsec transform-set V4-TRANSFORM2 esp-aes esp-sha-hmac 
+crypto ipsec transform-set V4-TRANSFORM2 esp-gcm 256 
  mode tunnel
 !
 crypto ipsec profile V2-PROFILE
