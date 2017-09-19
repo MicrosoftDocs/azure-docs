@@ -76,9 +76,9 @@ If a message matches multiple routes that all point to the same endpoint, IoT Hu
 
 For the limits on the number of endpoints you can add, see [Quotas and throttling][lnk-devguide-quotas].
 
-### A note on using Azure Storage containers
+### When using Azure Storage containers
 
-IoT Hub only supports writing data to Azure Storage containers as blobs in the [Apache Avro][http://avro.apache.org/] format. IoT Hub batches messages and writes data to a blob when it reaches either a certain size or after a certain amount of time has elapsed, whichever happens first. IoT Hub will not write an empty blob if there is no data to write.
+IoT Hub only supports writing data to Azure Storage containers as blobs in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob when it reaches either a certain size or after a certain amount of time has elapsed, whichever happens first. IoT Hub will not write an empty blob if there is no data to write.
 
 IoT Hub defaults to the following file naming convention:
 
@@ -86,9 +86,9 @@ IoT Hub defaults to the following file naming convention:
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
-You may use whatever file naming convention you wish, but you must use all listed tokens.
+You may use whatever file naming convention you wish, however you must use all listed tokens.
 
-### A note on using Service Bus queues and topics
+### When using Service Bus queues and topics
 
 Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
