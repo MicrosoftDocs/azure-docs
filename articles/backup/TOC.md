@@ -5,9 +5,9 @@
 
 # Quickstarts
 
-## [Back up VMs - Portal](quick-backup-vm-portal.md)
-## [Back up VMs - PowerShell](quick-backup-vm-powershell.md)
-## [Back up VMs - CLI](quick-backup-vm-cli.md)
+## [Back up a VM - Portal](quick-backup-vm-portal.md)
+## [Back up a VM - PowerShell](quick-backup-vm-powershell.md)
+## [Back up a VM - CLI](quick-backup-vm-cli.md)
 
 # Tutorials
 
