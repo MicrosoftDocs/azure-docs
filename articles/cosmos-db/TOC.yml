@@ -95,8 +95,6 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
-  - name: CosmosDB ConnectedService in VisualStudio
-    href: connected-service.md
 - name: Concepts
   items:
   - name: Global distribution
@@ -233,6 +231,8 @@
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
+    - name: Azure Cosmos DB ConnectedService in VisualStudio 
+      href: connected-service.md
   - name: Manage
     items:
     - name: Cost-effective reads and writes
