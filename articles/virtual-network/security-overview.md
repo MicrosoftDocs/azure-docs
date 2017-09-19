@@ -125,30 +125,9 @@ If you create other rules, specifying other application security groups as the d
  
 To learn about limits when creating application security groups and specifying them in security rules, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Application security groups are available in preview release. Before using application security groups, you must first register to use them. Complete the steps in R[Register for preview features](#register-for-preview-features). During preview, application security groups are limited to the scope of the virtual network. Virtual networks peered with cross references to application security groups on a network security group are not applied.
+Application security groups are available in preview release. Before using application security groups, you must first register to use them. To register for the preview, complete steps 1-5 in [Create a network security group with application security groups](create-network-security-group-preview.md#powershell) During preview, application security groups are limited to the scope of the virtual network. Virtual networks peered with cross references to application security groups on a network security group are not applied.
 
-## Register for application security groups
-
-> [!NOTE]
-> Features in preview release may not have the same level of availability and reliability as features that are in general availability release. Preview features are not supported, may have constrained capabilities, and may not be available in all Azure locations. 
-
-Complete the following steps to register for the preview:
-
-1. Install and configure Azure [PowerShell](/powershell/azure/install-azurerm-ps).
-2. Run the `Get-Module -ListAvailable AzureRM` command to see what version of the AzureRM module you have installed. You must have a version greater than 4.3.1 installed. If you do not, you can install the latest version from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
-3. Login to Azure with the `login-azurermaccount` command.
-4. Enter the following commands to register for the preview:
-
-       ```powershell
-       Register-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
-       Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-
-        ```
-5. Confirm that you are registered for the preview by entering the following command:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
-    ```
 ## Next steps
 
 * Complete the [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) tutorial
+* Complete the [Create a network security group with application security groups](create-network-security-group-preview.md) tutorial
