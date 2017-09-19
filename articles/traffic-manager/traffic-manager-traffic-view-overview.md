@@ -42,5 +42,5 @@ When you use Traffic View, you are billed based on the number of data points use
 
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
-- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile)
+- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
 

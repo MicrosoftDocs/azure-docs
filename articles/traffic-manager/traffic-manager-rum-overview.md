@@ -40,5 +40,5 @@ When you use Real User Measurements, you are billed based on the number of measu
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
 - Learn more about [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
-- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile)
+- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
 

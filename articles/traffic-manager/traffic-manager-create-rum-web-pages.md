@@ -28,21 +28,21 @@ You can configure your web pages to send Real User Measurements to Traffic Manag
 The measurements you take and send to Traffic Manager from your client application are identified by the service using a unique string, called the **Real User Measurements (RUM) Key**. You can get a RUM key using the Azure portal, a REST API, or by using the PowerShell or Azure CLI.
 
 To obtain the RUM Key using Azure portal:
-a.	From a browser, sign in to the Azure portal. If you don’t already have an account, you can sign up for a free one-month trial.
-b.	In the portal’s search bar, search for the Traffic Manager profile name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
-c.	In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
-d.	Click **Generate Key** to create a new RUM Key.
+1. From a browser, sign in to the Azure portal. If you don’t already have an account, you can sign up for a free one-month trial.
+2. In the portal’s search bar, search for the Traffic Manager profile name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
+3. In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
+4. Click **Generate Key** to create a new RUM Key.
  
-Figure 1: Real User Measurements Key Generation
+    Figure 1: Real User Measurements Key Generation
 
-e.	The blade now displays the RUM Key generated and a JavaScript code snippet that needs to be embedded into your HTML page.
+5. The blade now displays the RUM Key generated and a JavaScript code snippet that needs to be embedded into your HTML page.
  
-Figure 2: Real User Measurements Key and Measurement JavaScript
+    Figure 2: Real User Measurements Key and Measurement JavaScript
  
-f.	Click the **Copy** button to copy the JavaScript code. 
+6.	Click the **Copy** button to copy the JavaScript code. 
 
 [!IMPORTANT]
->Use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.
+> Use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.
 
 ## Embed the code to an HTML web page
 
