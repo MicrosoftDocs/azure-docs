@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Restore files to a virtual machine in Azure
-Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article explains how to restore a single file. You can also learn how to [restore a VM](tutorial-restore-disks.md). In this tutorial you learn how to:
+Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article details how to restore individual files. You can also [restore a complete VM](tutorial-restore-disks.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * List and select recovery points
@@ -45,7 +45,7 @@ This tutorial requires a Linux VM that has been protected with Azure Backup. To 
 
 
 ## Delete a file from a VM
-If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery generates a script that you run on a VM to mount the recovery point as local drive. You can then copy files from the recovery point and restore them to the VM.  
+If you accidentally delete or make changes to a file, you can restore invididual files from a recovery point. This process allows you to browse all the file backed up in a recovery point and restore only the files you need. In this example, we delete a file from a web server to demonstrate the file-level recovery process.
 
 1. To connect to your VM, obtain the IP address of your VM with [az vm show]():
 
@@ -55,7 +55,7 @@ If you accidentally delete or make changes to a file, you can use File Recovery 
 
 2. To confirm that your web site currently works, open a web browser to the public IP address of your VM. Leave the web browser window open.
 
-    [Default NGINX web page](./media/tutorial-restore-files/nginx-working.png)
+    ![Default NGINX web page](./media/tutorial-restore-files/nginx-working.png)
 
 3. Connect to your VM with SSH. Replace *publicIpAddress* with the public IP address that you obtained in a previous command:
 
@@ -95,7 +95,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
         --output tsv
     ```
 
-2. To obtain the script that connects, or mounts, the recovery point to your VM, use [az backup restore files mount-rp](). The following example obtains the script for the VM named *myVM* that is protected in *myRecoveryServicesVault*. Replace *rpName* with the name of your recovery point that you obtained in the preceding command:
+2. To obtain the script that connects, or mounts, the recovery point to your VM, use [az backup restore files mount-rp](). The following example obtains the script for the VM named *myVM* that is protected in *myRecoveryServicesVault*. Replace *myRecoveryPointName* with the name of your recovery point that you obtained in the preceding command:
 
     ```azurecli-interactive
     az backup restore files mount-rp \
@@ -103,7 +103,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
         --vault-name myRecoveryServicesVault \
         --container-name myVM \
         --item-name myVM \
-        --rp-name rpName
+        --rp-name myRecoveryPointName
     ```
 
 3. The script is downloaded and a password is displayed, as in the following example:
@@ -137,7 +137,7 @@ With the recovery script copied to your VM, you can now connect the recovery poi
 3. To mount the recovery point, run the script. Again, enter the name of your own script as follows:
 
     ```azurecli-interactive
-    ./myVM_we_1571974050985163527_{snip}.sh
+    ./myVM_we_1571974050985163527.sh
     ```
 
     As the script runs, you are prompted to enter a password to access the recovery point. Enter the password that was output from the [az backup restore files mount-rp]() command that generated the recovery script.
@@ -162,12 +162,6 @@ With the recovery script copied to your VM, you can now connect the recovery poi
     1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170919213536/Volume1
     
     ************ Open File Explorer to browse for files. ************
-    
-    After recovery, to remove the disks and close the connection to the recovery point, please click 'Unmount Disks' in step 3 of the portal.
-    
-    After clicking 'Unmount disks' from the portal, run the script with the parameter '-clean' to remove the mount paths of the recovery point from this machine.
-    
-    Please enter 'q/Q' to exit...
     ```
 
 5. Use **cp** to copy the NGINX default web page from the mounted recovery point back to the original file location. Replace the */home/azureuser/myVM-20170919213536/Volume1* mount point with your own location as follows:
@@ -186,7 +180,7 @@ With the recovery script copied to your VM, you can now connect the recovery poi
     exit
     ```
 
-    Unmount the recovery point from your VM with [az backup restore files unmount-rp](). The following example unmounts the recovery point from the VM named *myVM* in *myRecoveryServicesVault*. Replace *rpName* with the name of your recovery point that you obtained in the previous commands:
+    Unmount the recovery point from your VM with [az backup restore files unmount-rp](). The following example unmounts the recovery point from the VM named *myVM* in *myRecoveryServicesVault*. Replace *myRecoveryPointName* with the name of your recovery point that you obtained in the previous commands:
     
     ```azurecli-interactive
     az backup restore files unmount-rp \
@@ -194,12 +188,13 @@ With the recovery script copied to your VM, you can now connect the recovery poi
         --vault-name myRecoveryServicesVault \
         --container-name myVM \
         --item-name myVM \
-        --rp-name rpName
+        --rp-name myRecoveryPointName
     ```
 
 ## Next steps
 In this tutorial, you connected a recovery point to a VM and restored files for a web server. You learned how to:
 
+> [!div class="checklist"]
 > * List and select recovery points
 > * Connect a recovery point to a VM
 > * Restore files from a recovery point
