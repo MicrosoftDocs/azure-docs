@@ -240,22 +240,20 @@ An ASP.NET Core stateless service named `fabric:/ApiApplication/WebApiService` s
 
 Now we're ready to create an operation in API Management that external clients use to communicate with the ASP.NET Core stateless service running in the Service Fabric cluster.
 
- 1. Log in to the Azure portal and navigate to your API Management service deployment.
- 2. In the API Management service blade, select **APIs**
- 3. Add a new API by clicking **+API**, then **Blank API** box, and filling out the dialog box:
+1. Log in to the Azure portal and navigate to your API Management service deployment.
+2. In the API Management service blade, select **APIs**
+3. Add a new API by clicking **+API**, then **Blank API** box, and filling out the dialog box:
 
-     - **Web service URL**: For Service Fabric backends, this URL value is not used. You can put any value here. For this tutorial, use: "http://servicefabric".
-     - **Display Name**: Provide any name for your API. For this tutorial, use "Service Fabric App".
-     - **Name**: Enter "service-fabric-app".
-     - **URL scheme**: Select either **HTTP**, **HTTPS**, or **both**. For this tutorial, use **both**.
-     - **API URL Suffix**: Provide a suffix for our API. For this tutorial, use "myapp".
+    - **Web service URL**: For Service Fabric backends, this URL value is not used. You can put any value here. For this tutorial, use: "http://servicefabric".
+    - **Display Name**: Provide any name for your API. For this tutorial, use "Service Fabric App".
+    - **Name**: Enter "service-fabric-app".
+    - **URL scheme**: Select either **HTTP**, **HTTPS**, or **both**. For this tutorial, use **both**.
+    - **API URL Suffix**: Provide a suffix for our API. For this tutorial, use "myapp".
  
- 4. Select **Service Fabric App** from the list of APIs and click **+ Add operation** to add a front-end API operation. Fill out the values:
+4. Select **Service Fabric App** from the list of APIs and click **+ Add operation** to add a front-end API operation. Fill out the values:
     
-     - **URL**: Select **GET** and provide a URL path for the API. For this tutorial, use "/api/values".
-     
-       By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, in this case "/api/values", then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you will also need to specify a path rewrite in your operation policy later.
-     - **Display name**: Provide any name for the API. For this tutorial, use "Values".
+    - **URL**: Select **GET** and provide a URL path for the API. For this tutorial, use "/api/values".  By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, in this case "/api/values", then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you will also need to specify a path rewrite in your operation policy later.
+    - **Display name**: Provide any name for the API. For this tutorial, use "Values".
 
 5. Click **Save**.
 
@@ -292,7 +290,7 @@ For this tutorial, create a backend policy that routes requests directly to the 
 
 For a full set of Service Fabric back-end policy attributes, refer to the [API Management back-end documentation](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
 
-### Add the API to a product. 
+### Add the API to a product 
 
 Before you can call the API, it must be added to a product where you can grant access to users. 
 
