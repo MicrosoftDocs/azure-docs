@@ -13,14 +13,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/13/2017
+ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
 
 ---
 
-# Create a secure cluster on Azure using PowerShell
-This tutorial shows you how to create a Service Fabric cluster (Windows or Linux) running in Azure. When you're finished, you have a cluster running in the cloud that you can deploy applications to.
+# Create a Windows cluster in Azure using PowerShell
+This tutorial shows you how to create a Windows Service Fabric cluster running in Azure. When you're finished, you have a cluster running in the cloud that you can deploy applications to.
 
 In this tutorial, you learn how to:
 
@@ -52,7 +52,7 @@ For more information on creating Service Fabric clusters, see [Create a Service 
    | clusterName     | Name of the cluster you want to create. | *for example, bobs-sfpreviewcluster* |
    | adminUserName   | The local admin account on the cluster virtual machines. | *Any valid Windows Server username* |
    | adminPassword   | Password of the local admin account on the cluster virtual machines. | *Any valid Windows Server password* |
-   | clusterCodeVersion | The Service Fabric version to run. (255.255.X.255 are preview versions). | **255.255.5718.255** |
+   | clusterCodeVersion | The Service Fabric version to run. (255.255.X.255 are preview versions). | **5.7.198.9494** |
    | vmInstanceCount | The number of virtual machines in your cluster (can be 1 or 3-99). | **1** | *For a preview cluster specify only one virtual machine* |
 
 3. Open a PowerShell console, login to Azure, and select the subscription you want to deploy the cluster in:

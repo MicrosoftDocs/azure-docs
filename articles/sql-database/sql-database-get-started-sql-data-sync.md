@@ -59,7 +59,7 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
     2.  In the **Sync Metadata Database** section, choose whether to create a new database (recommended) or to use an existing database.
 
         > [!NOTE]
-        > Microsoft recommends that you create a new, empty database to use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload. This database is automatically shared as the Sync Metadata Database for all of your Sync groups in the selected region. You can't change the Sync Metadata Database, its name, or its service level without dropping it.
+        > Microsoft recommends that you create a new, empty database to use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload. This database is automatically shared as the Sync Metadata Database for all of your Sync groups in the selected region. You can't change the Sync Metadata Database or its name without dropping it.
 
         If you chose **New database**, select **Create new database.** The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
 
