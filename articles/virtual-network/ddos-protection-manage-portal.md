@@ -24,7 +24,7 @@ ms.author: kumud
 This article shows you how to use the Azure portal to enable DDoS Protection, disable DDoS Protection, and use telemetry to mitigate an attack. 
 
 >[!IMPORTANT]
->DDoS Protection is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to register for the service during the limited preview to get the DDoS Protection service enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. Azure DDoS Protection service is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
+>DDoS Protection is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get the DDoS Protection service enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. Azure DDoS Protection service is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,7 +40,7 @@ Enable DDoS Protection on a new or existing virtual network.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Networking**, and then select **Virtual Network**.
-3. Enter the virtual network information. Under *DDoS protection*, click **Enabled**, and then click **Save**.
+3. Enter the virtual network information. Under *DDoS protection*, click **Enabled**, and then click **Create**.
 
     ![Create virtual network](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
