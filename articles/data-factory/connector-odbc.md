@@ -277,7 +277,7 @@ Read the article from the beginning for a detailed overview of using ODBC data s
 ## SAP HANA sink
 
 >[!NOTE]
->To copy data from SAP HANA data store, refer to native [SAP HANA connector](connector-sap-hana). To copy data to SAP HANA, please follow this instruction to use ODBC connector. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
+>To copy data from SAP HANA data store, refer to native [SAP HANA connector](connector-sap-hana.md). To copy data to SAP HANA, please follow this instruction to use ODBC connector. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
 >
 
 You create an ODBC linked service to link a SAP HANA data store to an Azure data factory as shown in the following example:
