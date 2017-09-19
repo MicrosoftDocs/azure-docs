@@ -86,7 +86,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
 3. View your all Azure resources under the current subscription
  
-    Type `dir` under AllResources directory to view your Azure resources.
+    Type `dir` under your subscription to get multiple views of your Azure resources.
  
     ``` PowerShell
     
@@ -101,145 +101,106 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     +    StorageAccounts
     +    VirtualMachines
     +    WebApps
-    
+     ```
+
+### AllResources view 
+Type `dir` under AllResources directory to view your Azure resources.
     
     PS Azure:\MySubscriptionName> dir AllResources
      
-     
-    ```
-  
-  
- 4. View your storage account information
+### Navigate storage resources
     
-    Let's take Azure File storage share as an example. 
+By entering into the `StorageAccounts` folder you can easily navigate your storage resources
     
-    ``` PowerShell 
-    
-    PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
+``` PowerShell 
 
-        Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
+PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
+
+    Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
 
 
-    Name          ConnectionString
-    ----          ----------------
-    MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
-    MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
-    MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
+Name          ConnectionString
+----          ----------------
+MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
+MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
+MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
 
 
-    ```
-    
-    With the connection string, you can use the following command to mount the Azure File share.
-            
-    ``` PowerShell
-    
-    net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
-    
-    
-    ```
-    
-    For details, see [Mount an Azure File share and access the share in Windows][azmount].
+```
 
-    You can also navigate the directories under the Azure File share as follows:
-    
-                
-    ``` PowerShell
-    
-    PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
-    PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
-
-    Mode  Name
-    ----  ----
-    +     TestFolder
-    .     hello.ps1
-    
+With the connection string, you can use the following command to mount the Azure File share.
         
-    ```
-    
- 5. View your WebApps
- 
-    ``` PowerShell
-    
-    PS Azure:\MySubscriptionName> dir .\WebApps\
+``` PowerShell
 
-        Directory: Azure:\MySubscriptionName\WebApps
+net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 
 
-    Name            State    ResourceGroup      EnabledHostNames                  Location
-    ----            -----    -------------      ----------------                  --------
-    mywebapp1       Stopped  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
-    mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
-    mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
+```
 
-    
- 
-    # You can use Azure cmdlets to Start/Stop your web apps for example,
-    PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
+For details, see [Mount an Azure File share and access the share in Windows][azmount].
 
-    Name           State    ResourceGroup        EnabledHostNames                   Location
-    ----           -----    -------------        ----------------                   --------
-    mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
+You can also navigate the directories under the Azure File share as follows:
 
-    # Refresh the current state with -force
-    PS Azure:\MySubscriptionName\WebApps> dir -force
+            
+``` PowerShell
 
-        Directory: Azure:\MySubscriptionName\WebApps
+PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
+PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
 
-
-    Name            State    ResourceGroup      EnabledHostNames                  Location
-    ----            -----    -------------      ----------------                  --------
-    mywebapp1       Running  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
-    mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
-    mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
-    
-    ```
-    
- 6. View your VirtualMachines
-
-    You can find all your virtual machines under the current subscription via `VirtualMachines` directory.
-    
-    ``` PowerShell
-    
-    PS Azure:\MySubscriptionName\VirtualMachines> dir
-    
-        Directory: Azure:\MySubscriptionName\VirtualMachines
-
-
-    Name       ResourceGroupName  Location  VmSize          OsType              NIC ProvisioningState  PowerState
-    ----       -----------------  --------  ------          ------              --- -----------------  ----------
-    TestVm1    MyResourceGroup1   westus    Standard_DS2_v2 Windows       my2008r213         Succeeded     stopped
-    TestVm2    MyResourceGroup1   westus    Standard_DS1_v2 Windows          jpstest         Succeeded deallocated
-    TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest         Succeeded     running
+Mode  Name
+----  ----
++     TestFolder
+.     hello.ps1
 
     
-    ```
+```
+
+### Interact with VMs
+
+You can find all your virtual machines under the current subscription via `VirtualMachines` directory.
     
-    Or you can go to the `ResourceGroups` directory to find the virtual machines under the current resource group.
-    
- 
-    ``` PowerShell
-    
-    PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
+``` PowerShell
+
+PS Azure:\MySubscriptionName\VirtualMachines> dir
+
+    Directory: Azure:\MySubscriptionName\VirtualMachines
 
 
-        Directory: Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
+Name       ResourceGroupName  Location  VmSize          OsType              NIC ProvisioningState  PowerState
+----       -----------------  --------  ------          ------              --- -----------------  ----------
+TestVm1    MyResourceGroup1   westus    Standard_DS2_v2 Windows       my2008r213         Succeeded     stopped
+TestVm2    MyResourceGroup1   westus    Standard_DS1_v2 Windows          jpstest         Succeeded deallocated
+TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest         Succeeded     running
 
 
-    VMName    Location   ProvisioningState VMSize          OS            SKU             OSVersion AdminUserName  NetworkInterfaceName
-    ------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
-    TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
-    TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
+```
 
-    ```
+Or you can go to the `ResourceGroups` directory to find the virtual machines under the current resource group.
+
+
+``` PowerShell
+
+PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
+
+
+    Directory: Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
+
+
+VMName    Location   ProvisioningState VMSize          OS            SKU             OSVersion AdminUserName  NetworkInterfaceName
+------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
+TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
+TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
+
+```
 
 > Note: You may notice that the second time when you type `dir`, the cloud shell is able to display the items much faster.
 
 This is because the child items are cached in memory for a better user experience.
 However, you can always use `dir -force` to get fresh data.
 
-## Interact with VMs
 
-### Invoke PowerShell script across remote VMs
+
+#### Invoke PowerShell script across remote VMs
 
   Assuming you have a VM, MyVM1, let's use `Invoke-AzureRmVMCommand` to invoke a PowerShell scriptblock on the remote machine.
 
@@ -287,7 +248,7 @@ However, you can always use `dir -force` to get fresh data.
      Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
      ```
 
-### Interactively log onto a remote VM
+#### Interactively log onto a remote VM
 
 You can use `Enter-AzureRmVM` to interactively log into a VM running in Azure.
 
@@ -300,6 +261,44 @@ You can also navigate to the `virtualMachines` directory first and run `Enter-Az
   ``` Powershell
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
+
+### WebApps
+
+``` PowerShell
+
+PS Azure:\MySubscriptionName> dir .\WebApps\
+
+    Directory: Azure:\MySubscriptionName\WebApps
+
+
+Name            State    ResourceGroup      EnabledHostNames                  Location
+----            -----    -------------      ----------------                  --------
+mywebapp1       Stopped  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
+mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
+mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
+
+
+
+# You can use Azure cmdlets to Start/Stop your web apps for example,
+PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
+
+Name           State    ResourceGroup        EnabledHostNames                   Location
+----           -----    -------------        ----------------                   --------
+mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
+
+# Refresh the current state with -force
+PS Azure:\MySubscriptionName\WebApps> dir -force
+
+    Directory: Azure:\MySubscriptionName\WebApps
+
+
+Name            State    ResourceGroup      EnabledHostNames                  Location
+----            -----    -------------      ----------------                  --------
+mywebapp1       Running  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
+mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
+mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
+
+```
 
 ## List available commands
 
