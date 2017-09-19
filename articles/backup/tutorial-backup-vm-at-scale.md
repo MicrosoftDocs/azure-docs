@@ -162,11 +162,11 @@ Other tutorials in this collection build upon this tutorial. If you plan to cont
 
 1. On the myVM menu, click **Backup** to open the Backup dashboard.
 
-  ![choose Backup option from menu](./media/quick-backup-vm-portal/choose-backup-from-menu.png)
+  ![choose Backup option from menu](./media/tutorial-backup-vm-at-scale/choose-backup-from-menu.png)
 
 2. In the Backup dashboard, click **...More** to show additional options, then click **Stop backup** to open the Stop Backup menu.
 
-  ![choose additional Backup options from menu](./media/quick-backup-vm-portal/stop-backup-menu-item-in-dashboard.png)
+  ![choose additional Backup options from menu](./media/tutorial-backup-vm-at-scale/stop-backup-menu-item-in-dashboard.png)
 
 3. In the Stop Backup menu, select the upper drop-down menu and choose **Delete Backup Data**.
 
@@ -174,7 +174,7 @@ Other tutorials in this collection build upon this tutorial. If you plan to cont
  
 5. Once the backup item is verified, the Stop backup button is enabled. Click **Stop Backup** to delete the restore point and the Recovery Services vault.</br> 
 
-  ![click Stop backup to delete vault](./media/quick-backup-vm-portal/provide-reason-for-delete.png).
+  ![click Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
 
 6. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
 
