@@ -3,7 +3,7 @@ title: Create an application gateway - Azure CLI 2.0 | Microsoft Docs
 description: Learn how to create an application gateway by using the Azure CLI 2.0 in Resource Manager.
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Create an application gateway by using the Azure CLI 2.0
