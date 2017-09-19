@@ -27,7 +27,7 @@ Metrics can be reviewed on the Account blade, the new Metrics blade, or in Azure
 2. When the new page loads, in the resource menu, under **Monitoring**, click **Metrics**.
 3. When the Metrics page opens, select the collection to review from the **Collection(s)** drop down.
 
-    The Azure portal displays the suite of collection metrics available. Note that throughput, storage, availability, latency, and consistency metrics are provided on separate tabs. To get additional detail on the metrics provided, click on the double-arrow in the top right of the metrics pane.
+   The Azure portal displays the suite of collection metrics available. Note that throughput, storage, availability, latency, and consistency metrics are provided on separate tabs. To get additional detail on the metrics provided, click on the double-arrow in the top right of each metrics pane.
 
    ![Screen shot of the Monitoring lens which shows the metrics suite](./media/monitor-accounts/metrics-suite.png)
 
