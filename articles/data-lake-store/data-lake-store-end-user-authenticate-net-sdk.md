@@ -43,6 +43,7 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
    | Category |Templates/Visual C#/Windows |
    | Template |Console Application |
    | Name |CreateADLApplication |
+
 4. Click **OK** to create the project.
 
 5. Add the Nuget packages to your project.
@@ -74,13 +75,17 @@ Use this snippet in your .NET client application with an existing Azure AD nativ
 
 For ease of use, the following snippet uses default values for client ID and redirect URI that will work with any Azure subscription. In the snippet, just provide the value for your tenant ID. You can retrieve it using the instructions provided at [Create an Active Directory Application](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-    // User login via interactive popup
-    // Use the client ID of an existing AAD native application.
-    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
-    var nativeClientApp_applicationId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_applicationId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
+    
+    private static void Main(string[] args)
+    {
+        // User login via interactive popup
+        // Use the client ID of an existing AAD native application.
+        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+        var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
+        var nativeClientApp_applicationId = "1950a258-227b-4e31-a9cf-717495945fc2";
+        var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_applicationId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+        var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
+    }
 
 A couple of things to know about the preceding snippet:
 
