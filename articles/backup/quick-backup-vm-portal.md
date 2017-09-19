@@ -38,7 +38,7 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. These recovery points are used to then restore data to a given point in time as needed.
 
 1. Select **Create new** and provide a name for the new vault, such as **myRecoveryServicesVault**.
-2. If not already selected, choose 'Use existing', then select the resource group of your VM from the drop-down menu.
+2. If not already selected, choose **Use existing**, then select the resource group of your VM from the drop-down menu.
 
 ![Enable VM backup in the Azure portal](./media/quick-backup-vm-portal/enable-backup.png)
 
