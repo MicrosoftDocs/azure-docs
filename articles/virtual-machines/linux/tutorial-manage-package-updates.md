@@ -104,16 +104,16 @@ Click the completed update deployment to see the dashboard for that update deplo
 
    ![Update Deployment status dashboard for specific deployment](./media/tutorial-manage-linux-updates/manageupdates-view-results.png)
 
-In **Update results** tile is a summarization of the total number of updates and deployment results on the virtual machine.
+In **Update results** tile is a summary of the total number of updates and deployment results on the virtual machine.
 In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
 
 * Not attempted - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
 * Succeeded - the update was successfully downloaded and installed on the virtual machine
 * Failed - the update failed to download or install on the virtual machine.
 
-Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target virtual machine.
-
 Click **All logs** to see all log entries that the deployment created.
+
+Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target virtual machine.
 
 Click **Errors** to see detailed information about any errors from the deployment.
 
