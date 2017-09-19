@@ -20,6 +20,7 @@ ms.author: johnkem
 # Get started with Azure Monitor
 Azure Monitor is the platform service that provides a single source for monitoring Azure resources. With Azure Monitor, you can visualize, query, route, archive, and take action on the metrics and logs coming from resources in Azure. You can work with this data using the Monitor portal blade, [Monitor PowerShell Cmdlets](insights-powershell-samples.md), [Cross-Platform CLI](insights-cli-samples.md), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/dn931943.aspx). In this article, we walk through a few of the key components of Azure Monitor, using the portal for demonstration.
 
+## Walkthrough
 1. In the portal, navigate to **More services** and find the **Monitor** option. Click the star icon to add this option to your favorites list so that it is always easily accessible from the left-hand navigation bar.
 
     ![Monitor in the services list](./media/monitoring-get-started/monitor-more-services.png)
@@ -96,5 +97,5 @@ By following these steps and pinning all relevant tiles to a dashboard, you can 
 
 ![Azure Monitor dashboard](./media/monitoring-get-started/monitor-final-dash.png)
 
-## Next Steps
+## Next steps
 * Read the [Overview of Azure Monitor](monitoring-overview.md)
