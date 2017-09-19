@@ -1,4 +1,4 @@
----
+﻿---
 title: Overview of PIM Resource RBAC| Microsoft Docs
 description: Get an overview of the RBAC feature in PIM including Terminology and notifications
 services: active-directory
@@ -190,4 +190,6 @@ Select My roles from the left navigation menu and choose the appropriate role to
 
 ## Next steps
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Built-in roles for Azure resources](../role-based-access-built-in-roles.md)
+- Learn about [activating Azure AD roles here](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- [PIM approval workflows](azure-ad-pim-approval-workflow.md)
