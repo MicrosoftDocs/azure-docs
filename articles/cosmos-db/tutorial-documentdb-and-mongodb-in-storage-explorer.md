@@ -56,7 +56,7 @@ In this article, you can learn how to use Storage Explorer (Preview) to work wit
 
 ## Connect to Azure Cosmos DB by Connection String
 
-Instead of connecting to subscription, you can also choose to connect to Azure Cosmos DB by Connection String, following steps below:
+Instead of connecting to subscription, you can also choose to connect to Azure Cosmos DB by Connection String, follow steps:
 
 1. Find **Local and Attached** in the left tree, right-click **Azure Cosmos DB Accounts**, choose **Connect to Azure Cosmos DB...**
 
@@ -80,7 +80,7 @@ You can manage Azure Cosmos DB account by doing following operations:
 
 ### Open in Portal, Add to Quick Access, Search, Refresh
 
-1. Right-click a Azure Cosmos DB account or a database, you can choose **Open in Portal** and manage the resource in browser on Azure portal.
+1. Right-click an Azure Cosmos DB account or a database, you can choose **Open in Portal** and manage the resource in browser on Azure portal.
 
      ![open in portal](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/open-in-portal.png)
 
@@ -109,12 +109,12 @@ If using partition key when create collection, once completing the creation, the
 
 ### Documents management
 
-1. Open **Documents** in the right window, click **New Document** to new a document, edit in the right pane, **Save** or **Discard** the document. You can also update the existing document, **Save** or **Discard** the change.
+1. Open **Documents** in the right window, click **New Document** to new a document, edit in the right pane, **Save**, or **Discard** the document. You can also update the existing document, **Save** or **Discard** the change.
 
     ![document](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/document.png)
 
 2. Click the **Delete** button to delete the selected document.
-3. Edit Document **Filter**, **Apply** the filter to choose the document you need like this:
+3. Edit Document **Filter**, **Apply** the filter to choose the document you need.
 
     ![filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
