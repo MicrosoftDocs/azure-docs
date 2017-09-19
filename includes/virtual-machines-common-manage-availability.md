@@ -70,6 +70,8 @@ If the load balancer is not configured to balance traffic across multiple virtua
 
 ![Availability zones](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
+[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
+
 Learn more about deploying a [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) or [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM in an Availability Zone.
 
 
