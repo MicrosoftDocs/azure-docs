@@ -1,6 +1,6 @@
 ---
-title: Service Fabric tutorial - Package App | Microsoft Docs
-description: Service Fabric tutorial - Package App 
+title: Package and deploy a Service Fabric containers application | Microsoft Docs
+description: Learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -21,12 +21,12 @@ ms.custom: mvc
 
 # Package and deploy containers as a Service Fabric application
 
-This tutorial is part two in a series. In this tutorial, a template generator tool (Yeoman) is used to generate a Service Fabric application definition. This application can then be used to deploy containers to Service Fabric. Steps completed include: 
+This tutorial is part two in a series. In this tutorial, a template generator tool (Yeoman) is used to generate a Service Fabric application definition. This application can then be used to deploy containers to Service Fabric. In this tutorial you learn how to: 
 
 > [!div class="checklist"]
 > * Install Yeoman  
-> * Use Yeoman to Create an Application Package
-> * Configure settings in the Application Package for use with containers
+> * Create an application package using Yeoman
+> * Configure settings in the application package for use with containers
 > * Build the application  
 > * Deploy and run the application 
 > * Clean up the application
@@ -106,11 +106,11 @@ The entries for adding the service used are all shown:
 
 For the remainder of this tutorial, we are working in the **TestContainer** directory.
 
-## Configure application manifest with credentials for Azure Container Registry
-For Service Fabric to pull the container images from Azure container registry, we need to provide the credentials in the **ApplicationManifest.xml**. 
+## Configure the application manifest with credentials for Azure Container Registry
+For Service Fabric to pull the container images from Azure Container Registry, we need to provide the credentials in the **ApplicationManifest.xml**. 
 
 
-Log in to your ACR instance. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to complete the operation. Provide the unique name given to the container registry when it was created.
+Log in to your ACR instance. Use the [az acr login](/cli/azure/acr#az_acr_login) command to complete the operation. Provide the unique name given to the container registry when it was created.
 
 ```bash
 az acr login --name <acrName>
@@ -180,7 +180,7 @@ In order to expose the containers in the cluster, we also need to create a port 
 </ContainerHostPolicies>
 ```
 
-### Add DNS name to backend service
+### Add a DNS name to the backend service
   
 For Service Fabric to assign this DNS name to the backend service, the name needs to be specified in the **ApplicationManifest.xml**. Add the **ServiceDnsName** attribute to the **Service** element as shown: 
   
@@ -210,15 +210,15 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 At this point in the tutorial, the template for a Service Package application is available for deployment to a cluster. In the subsequent tutorial, this application is deployed and ran in a Service Fabric cluster.
 
-## Creating a Service Fabric cluster
+## Create a Service Fabric cluster
 To deploy the application to a cluster in Azure, use your own cluster, or use a Party Cluster.
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure. It is maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
-## Build and deploy application to the cluster
- You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it. 
+## Build and deploy the application to the cluster
+You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it. 
 
 Connect to the Service Fabric cluster in Azure.
 
@@ -353,13 +353,12 @@ Use the uninstall script provided in the template to delete the application inst
 ```
 ## Next steps
 
-In this tutorial, multiple containers were prepared into a Service Fabric application using Yeoman. This application was then deployed and run on a Service Fabric cluster. The following steps were completed:
+In this tutorial, multiple containers were packaged into a Service Fabric application using Yeoman. This application was then deployed and run on a Service Fabric cluster. The following steps were completed:
 
 > [!div class="checklist"]
-> [!div class="checklist"]
 > * Install Yeoman  
-> * Use Yeoman to Create an Application Package
-> * Configure settings in the Application Package for use with containers
+> * Create an application package using Yeoman
+> * Configure settings in the application package for use with containers
 > * Build the application  
 > * Deploy and run the application 
 > * Clean up the application
