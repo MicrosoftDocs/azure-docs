@@ -19,9 +19,7 @@ ms.author: raynew
 ---
 # Migrate Amazon Web Services (AWS) VMs to Azure
 
-The [Azure Site Recovery](site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
-
-This tutorial shows you how to migrate Amazon Web Services (AWS) virtual machines (VMs), to Azure with Site Recovery. In this tutorial, you learn how to:
+This tutorial shows you how to migrate Amazon Web Services (AWS) virtual machines (VMs), to Azure using Site Recovery. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare Azure resources
@@ -40,58 +38,96 @@ You migrate a VM by enabling replication for it, and running a failover from AWS
 
 Here's what you need to do for this tutorial.
 
-- [Prepare Azure](tutorial-prepare-azure.md), including an Azure subscription, an Azure virtual network, and a storage account.
-- Prepare for installation of the Mobility service on each server you want to replicate.
-- Make sure your account has permissions to create VMs.
-- Make sure the EC2 instances you want to migrate are running one of these operating systems:
-    - Windows (64-bit only)
-        - Windows Server 2008 R2 from SP1 onwards. (The server must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers aren't supported)
-        - Windows Server 2012
-        - Windows Server 2012 R2
-    - Linux (64-bit only)
-        - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only).
-- Devices exported by paravirtualized drivers aren't supported.
-- Prepare for installation of the Mobility service on AWS instance that you want to replicate.
-- As part of the deployment you need to set up a Site Recovery configuration server on an EC2 VM. Make sure you have a VM ready, and check that the security group on EC2 instances that you want to migrate allow communication between them and the VM you'll use as the configuration server.
-- [Check](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) that your EC2 instances match Azure requirements for disk size, VM name etc.
+- You need to have completed the [Prepare Azure](tutorial-prepare-azure.md) before starting this tutorial. You need to make sure you have a subscription, virtual network, and storage account prepared..
+- You need one or more VMs that you want to migrate. These EC2 instance should be running the 64-bit version of Windows Server 2008 R2 SP1 or later, Windows Server 2012, Windows Server 2012 R2 or Red Hat Enterprise Linux 6.7 (HVM virtualized instances only). The server must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers aren't supported.
+- Check the [Site Recovery support matrix](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) to make sure that your EC2 instances meet Azure requirements for disk size, VM name etc.
+- You need a separate EC2 instance that you can use as the Site Recovery configuration server. This instance must be running Windows Server 2012 R2.    
 
 
 
-## Prepare an account for Mobility service installation
+## Prepare the Ec2 instances for migration
 
-The Mobility service must be installed on each AWS instance that you want to replicate. Site Recovery installs this service automatically when you enable replication for the VM. To install automatically, you need to prepare an account that Site Recovery will use to access the VM.
+The Mobility service must be installed on each AWS instance that you want to replicate. Site Recovery installs this service automatically when you enable replication for the VM. To install automatically, you need an account that Site Recovery can use to access the VM.
 
 - You can use a domain or local account.
-- For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine. To do this, in the register under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
-- To add the registry entry to disable the setting from a CLI, type:
-        ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- For Windows VMs, if you're using a local account, disable Remote User Access control. To do this, open a cmd prompt on the VM and type:
+	```
+	REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.
+	```
 - For Linux, the account should be root on the source Linux server.
 
 ## Create a Recovery Services vault
 
+1. Sign in to the [Azure portal](https://portal.azure.com) 
+2. In the left navigation, click **More services** and search for and select **Recovery Services vaults**.
+2. In the Recovery Services vaults page, click **+ Add** in the upper left of the page.
+3. In **Name**, type *myVault*. 
+4. In subscription, select the appropriate one.
+4. In Resource Group, select **New** and type *myVaultRG*. 
+5. In Location, select *West US*. 
+5. To quickly access the vault from the dashboard, select **Pin to dashboard**.
+7. When you are done, click **Create**.
 
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
+## Create the configuration server
 
-## Select a protection goal
+Use one of the EC2 instances to create a configuration server and register it with your recovery vault.
 
-Select what you want to replicate, and where you want to replicate to.
+1. Configure the proxy on the VM so that it can access the [Service URLs](site-recovery-support-matrix-to-azure.md#service-urls).
 
-1. Click **Recovery Services vaults** > vault.
-2. In the Resource Menu, click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
-3. In **Protection goal**, select **To Azure** > **Not virtualized/Other**.
+2. Download the [Microsoft Azure Site Recovery Unified Setup](http://aka.ms/unifiedinstaller_wus) to the virtual machine.
+
+3. Download the vault registration key
+
+4. Run the **Microsoft Azure Site Recovery Unified Setup** installer to set up the Configuration Server and Process Server and use the vault registration key to register it with the vault.
+    
+5. On the VM, run **cspsconfigtool.exe** to create one or more management accounts on the configuration server. Make sure the management accounts have administrator permissions on the Ec2 instances that you want to migrate.
 
 
+
+
+## Prepare the infrastructure
+
+1. On the page for your vault, select **Site Recovery** from the **Getting Started** section.
+2. Click **Prepare Infrastructure**.
+
+### 1 Protection goal
+
+Select the following values on the **Protection Goal** page:
+
+- **Where are your machines located?** = **On-premises**.
+- **Where do you want to replicate your machines?** = select **To Azure**.
+- **Are your machines virtualized?** = select "Not virtualized / Other**.
+
+When you are done, click **OK** to move to the next section.
+
+### 2 Source Prepare
+
+On the **Prepare source** page, click **+ Configuration Server**. Follow the steps on the **Add Server** page to configure one of your EC2 instances as a configuration server. 
+
+Once you are done creating your configuration server and registering it with the vault, go back to the **2 Source Prepare** page and select your server from the list.
+
+### 3 Target Prepare 
+
+### 4 Replication settings Prepare
+
+### 5 Deployment planning Select
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## Set up the source environment
 
-Set up the configuration server, register it in the vault, and discover VMs.
+Once the vault has been created, you need to set up the configuration server.
 
+1. On the page for your vault, select **Site Recovery** from the **Getting Started** section.
+2. In the Resource Menu, click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
+3. In **Protection goal**, select **To Azure** > **Not virtualized/Other**.
 1. Click **Site Recovery** > **Prepare Infrastructure** > **Source**.
 2. If you don’t have a configuration server, click **+Configuration server**.
 3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file to the EC2 VM you want to use.
 5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
 
-### Register the configuration server in the vault
+## Register the configuration server in the vault
 
 Do the following before you start: 
 
