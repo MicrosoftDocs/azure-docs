@@ -43,7 +43,6 @@ After the script is executed successfully, you can directly skip to [Set up a lo
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
 ```
 
-
 ### 2. Manual Installation
 For manual installation of Service Fabric runtime and common SDK, follow the steps mentioned below.
 
@@ -122,7 +121,7 @@ sudo apt-get install servicefabricsdkcommon
 
 
   > [!NOTE]
-  > Standalone clusters aren't supported in Linux. The preview supports only one-box and Azure Linux multi-machine clusters.
+  > Standalone clusters aren't supported in Linux.
   >
 
 ## Set up the Service Fabric CLI

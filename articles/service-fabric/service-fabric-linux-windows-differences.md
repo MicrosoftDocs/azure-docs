@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric differences between Linux and Windows | Microsoft Docs
-description: Differences between the Azure Service Fabric Preview on Linux and Azure Service Fabric on Windows.
+description: Differences between the Azure Service Fabric on Linux and Azure Service Fabric on Windows.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 
 ---
-# Differences between Service Fabric on Linux (preview) and Windows (generally available)
+# Differences between Service Fabric on Linux and Windows
 
-Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not yet on Linux. Eventually, the feature sets will be at parity when Service Fabric on Linux becomes generally available. With upcoming releases, this feature gap will shrink. The following differences exist between the latest available releases (that is, between version 5.6 on Windows and version 5.5 on Linux): 
+There are some features that are supported on Windows, but not yet on Linux. Eventually, the feature sets will be at parity and with each release this feature gap will shrink. The following differences exist between the latest available releases (that is, between version 5.6 on Windows and version 5.5 on Linux): 
 
 * Reliable Collections (and Reliable Stateful Services) 
 * ReverseProxy 
@@ -37,7 +37,7 @@ Since Service Fabric on Linux is a preview, there are some features that are sup
 >[!NOTE]
 >Console redirection is not supported in production clusters, even on Windows.
 
-Development tooling is also different between Windows and Linux. VisualStudio, Powershell, VSTS, and ETW are used on Windows while Yeoman, Eclipse, Jenkins, and LTTng are used on Linux.
+Development tooling is also different between Windows and Linux. Visual Studio, Powershell, VSTS, and ETW are used on Windows while Yeoman, Eclipse, Jenkins, and LTTng are used on Linux.
 
 ## Powershell cmdlets that do not work against a Linux Service Fabric cluster
 
