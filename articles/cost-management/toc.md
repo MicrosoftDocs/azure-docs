@@ -9,8 +9,8 @@
 
 # Tutorials
 ## [Assign access to cost management data](tutorial-user-access.md)
-<!--
 ## [Review usage and costs ](tutorial-review-usage.md)
+<!--
 ## [Manage costs](tutorial-manage-costs.md)
 ## [Forecast spending and optimize costs](tutorial-forecast-spending.md)
 -->

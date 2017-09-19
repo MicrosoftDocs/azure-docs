@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/16/2017
+ms.date: 09/19/2017
 ms.topic: article
 ms.service: cost-management
 ms.custom: mvc
@@ -74,9 +74,7 @@ In this tutorial, you learned how to:
 > * Create a user with user access
 > * Create entities
 
-<!--
-Advance to the next tutorial to learn about [summarized title of next article].
+Advance to the next tutorial to learn about reviewing usage and costs to track trends, detect inefficiencies, and create alerts.
 
 > [!div class="nextstepaction"]
-> [Article title](file-name.md)
--->
+> [Review usage and costs](tutorial-review-usage.md)
