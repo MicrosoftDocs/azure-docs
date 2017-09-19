@@ -26,8 +26,8 @@ You can configure a list of actions with action groups. These groups then can be
 An action group can have up to 10 of each action type. Each action is made up of the following properties:
 
 * **Name**: A unique identifier within the action group.  
-* **Action type**: Send an SMS, send an email, or call a webhook.  
-* **Details**: The corresponding phone number, email address, or webhook URI.
+* **Action type**: Send an SMS, send an email, call a webhook, or send data to an ITSM tool.
+* **Details**: The corresponding phone number, email address, webhook URI, or ITSM Connection Details.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -53,9 +53,14 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     a. **Name**: Enter a unique identifier for this action.
 
-    b. **Action Type**: Select SMS, email, or webhook.
+    b. **Action Type**: Select SMS, email, webhook, or ITSM.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, or webhook URI.
+    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, or ITSM Connection details. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires. 
+
+> [!NOTE]
+> ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action currently works only for Activity Log Alerts. For other alert types, this action currently is a no-op.
+>
+>
 
 8. Select **OK** to create the action group.
 
@@ -68,6 +73,7 @@ After you create an action group, it's visible in the **Action groups** section 
 ## Next steps ##
 * Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).  
+* Learn more about [ITSM Connector](../log-analytics/log-analytics-itsmc-overview.md)
 * Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts. 
 * Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).

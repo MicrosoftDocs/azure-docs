@@ -3,7 +3,7 @@ title: High availability and disaster recovery of SAP HANA on Azure (Large Insta
 description: Establish high availability and plan for disaster recovery of SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
-author: RicksterCDN
+author: saghorpa
 manager: timlt
 editor:
 
@@ -12,8 +12,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
-ms.author: rclaus
+ms.date: 09/15/2016
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -217,7 +217,15 @@ In this step, you authorize the SAP HANA user account that you created, so that 
 
 Enter the `hdbuserstore` command as follows:
 
-![Enter the hdbuserstore command](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**For non MDC HANA setup**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**For MDC HANA setup**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 In the following example, the user is **SCADMIN01**, the hostname is **lhanad01**, and the instance number is **01**:
 ```
@@ -227,8 +235,8 @@ If you have an SAP HANA scale-out configuration, you should manage all scripting
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### Step 6: Get the snapshot scripts, configure the snapshots, and test the configuration and connectivity
@@ -282,7 +290,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -387,14 +395,14 @@ For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
 The following parameters need to be specified:
 
 - The first parameter characterizes the type of the snapshot backup. The values allowed are **hana**, **logs**, and **boot**. 
-- The second value is the HANA SID (like HM3). This parameter is not needed to perform a backup of the boot volume.
+- The second parameter is **HANA SID** (like HM3) or **none**. If the first parameters value provided is **hana** or **logs**, then the value of this parameter is **HANA SID** (like HM3), else for boot volume backup, the value is **none**. 
 - The third parameter is a snapshot or backup label for the type of snapshot. It has two purposes. The one purpose for you is to give it a name, so that you know what these snapshots are about. The second purpose is for the script azure\_hana\_backup.pl to determine the number of storage snapshots that are retained under that specific label. If you schedule two storage snapshot backups of the same type (like **hana**), with two different labels, and define that 30 snapshots should be kept for each, you are going to end up with 60 storage snapshots of the volumes affected. 
 - The fourth parameter defines the retention of the snapshots indirectly, by defining the number of snapshots of with the same snapshot prefix (label) to be kept. This parameter is important for a scheduled execution through cron. 
 
