@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Terms of Use. | Microsoft Docs'
+title: 'Azure Active Directory Terms of Use| Microsoft Docs'
 description: Azure AD Terms of Use will allow you and your company the ability to provide terms of use to users of Azure AD servcies.
 services: active-directory
 documentationcenter: ''
@@ -33,7 +33,7 @@ Azure AD Terms of Use can be used in the following scenarios:
 -	Specific terms of use based on accessing high business impact apps, like Salesforce.
 
 
-## Azure AD Terms of Use Prerequisites
+## Prerequisites
 Use the following steps to configure Azure AD Terms of Use:
 
 1. Sign in to Azure AD using a global administrator, security administrator, or a conditional access administrator for the directory you want to configure Azure AD Terms of Use.
@@ -42,10 +42,10 @@ Use the following steps to configure Azure AD Terms of Use:
 
 
 
-## Adding a Terms of Use
+## Add Terms of Use
 Once you have finalized your Terms of Use, use the following procedure to add it.
 
-### To add a terms of use
+### To add Terms of Use
 1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
 2. Click Add.</br>
 ![Add TOU](media/active-directory-tou/tou2.png)
@@ -59,20 +59,20 @@ Once you have finalized your Terms of Use, use the following procedure to add it
 
 ![Add TOU](media/active-directory-tou/tou3.png)
 
-## Deleting a Terms of Use
+## Delete Terms of Use
 You can remove or delete old terms of use using the following procedure:
 
-### To delete a terms of use
+### To delete Terms of Use
 1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
 2. Select the terms of use you want to remove.
 3. Click **Delete**.
 4. You should no longer see your new terms of use.
 
 
-## Auditing a Terms of Use
+## Audit Terms of Use
 Azure AD Terms of Use provides easy to use auditing so that you can see who has accepted and when they accepted your terms of use.  To get started with auditing use the following procedure:
 
-### To audit terms of use
+### To audit Terms of Use
 1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
 2. Click Audit Event.</br>
 ![Audit Event](media/active-directory-tou/tou8.png)
@@ -80,14 +80,14 @@ Azure AD Terms of Use provides easy to use auditing so that you can see who has 
 ![Audit Event](media/active-directory-tou/tou9.png)
 4.  You can also download the information in a .csv file for use locally.
 
-## End user Preview
+## Preview for end users
 Users, who are in scope, will see the following once a terms of use is created and enforced.
 -	Best practice is to have the font within the PDF at size 24.
 ![Audit Event](media/active-directory-tou/tou10.png)
 -	This screen is how it appears on mobiles
 ![Audit Event](media/active-directory-tou/tou11.png)
 
-## Additional Information
+## Additional information
 The following information is something to be aware of and can assist with using terms of use.
 
 -	Global administrator, security administrator, or conditional access administrator need read/write access.
