@@ -12,7 +12,7 @@ ms.date: 09/18/2017
 ms.author: sajagtap
 ---
 
-# Moderate images and text on a Facebook page
+# Moderate user posts on your Facebook page
 
 In this tutorial, we will learn how to use Content Moderator with a sample Facebook page to either take down or allow publishing of images and text by users browsing the Facebook page.
 
