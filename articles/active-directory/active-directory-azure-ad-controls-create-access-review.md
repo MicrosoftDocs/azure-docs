@@ -34,18 +34,18 @@ Access assignments become "stale" when users have access they don't need any mor
 
 ## Managing the access review
 
-By default, Azure AD sends an email to the reviewers shortly after the review starts.  If you choose not to have Azure AD send the email, be sure to let  the reviewers know that there's an access review waiting for them to complete.  You can show them the instructions for [how to review access](active-directory-azure-ad-controls-perform-an-access-review.md), or if your review is for guests to review their own access, the instructions for [how to review your own access](active-directory-azure-ad-controls-perform-an-access-review.md).
+By default, Azure AD sends an email to the reviewers shortly after the review starts.  If you choose not to have Azure AD send the email, be sure to let  the reviewers know that there's an access review waiting for them to complete.  You can show them the instructions for [how to review access](active-directory-azure-ad-controls-perform-access-review.md), or if your review is for guests to review their own access, the instructions for [how to review your own access](active-directory-azure-ad-controls-perform-access-review.md).
 
 Note that if some of the reviewers are guests, guests will only be notified via email if they have already accepted their invite.
 
 
-You can track the progress as the reviewers complete their reviews in the Azure AD  dashboard, in the access reviews section. No access rights will be changed in the directory until [the review completes](active-directory-azure-ad-controls-complete-an-access-review.md).
+You can track the progress as the reviewers complete their reviews in the Azure AD  dashboard, in the access reviews section. No access rights will be changed in the directory until [the review completes](active-directory-azure-ad-controls-complete-access-review.md).
 
 ## Next steps
 
 When an access review has started, Azure AD will automatically send the reviewers an email prompting them to review access. If a user did not get an email, you can send them the instructions
-in [how to review access](active-directory-azure-ad-controls-perform-an-access-review.md).  
+in [how to review access](active-directory-azure-ad-controls-perform-access-review.md).  
 
-After the access review period is over, or the administrator has stopped the access review, follow the steps in [completing an access review](active-directory-azure-ad-controls-complete-an-access-review.md) to see and apply the results.
+After the access review period is over, or the administrator has stopped the access review, follow the steps in [completing an access review](active-directory-azure-ad-controls-complete-access-review.md) to see and apply the results.
 
 

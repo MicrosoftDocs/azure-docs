@@ -30,5 +30,5 @@ If you no longer need a program, and it does not have any controls linked to it,
 
 ## Next steps
 
-- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-an-access-review.md)
+- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
 

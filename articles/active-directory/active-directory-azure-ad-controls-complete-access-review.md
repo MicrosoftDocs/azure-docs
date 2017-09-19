@@ -17,8 +17,8 @@ ms.author: billmath
 
 # Complete an access review of members of a group or users access to an application in Azure AD
 
-Administrators can ask for a review of group members or users assigned to an application by [creating an access review](active-directory-azure-ad-controls-create-an-access-review.md). Azure AD automatically sends the reviewers an email prompting them to review  access. If a user did not get an email, you can send them the instructions
-in [how to review access](active-directory-azure-ad-controls-perform-an-access-review.md).  After the access review period is over, or the administrator has stopped the access review, follow the steps in this article to see and apply the results.
+Administrators can ask for a review of group members or users assigned to an application by [creating an access review](active-directory-azure-ad-controls-create-access-review.md). Azure AD automatically sends the reviewers an email prompting them to review  access. If a user did not get an email, you can send them the instructions
+in [how to review access](active-directory-azure-ad-controls-perform-access-review.md).  After the access review period is over, or the administrator has stopped the access review, follow the steps in this article to see and apply the results.
 
 ## Viewing an access review in the Azure portal
 

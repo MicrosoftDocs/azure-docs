@@ -36,15 +36,15 @@ You can have one or more users as reviewers in an access review.
 1. Select a group in Azure Active Directory that has one or more members, or an application connected to Azure Active Directory that has one or more users assigned to it. 
 2. Decide whether to have each user review their own access, or one or more users review everyone's access.
 3. Enable access reviews to appear on reviewer's access panels.  As a global administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
-4. Start the access review. Read more at [how to create an access review](active-directory-azure-ad-controls-create-an-access-review.md).
-5. Ask the reviewers to give input. By default, they will each receive an email from Azure AD with a link to the access panel, where they will [perform their access review](active-directory-azure-ad-controls-perform-an-access-review.md).
+4. Start the access review. Read more at [how to create an access review](active-directory-azure-ad-controls-create-access-review.md).
+5. Ask the reviewers to give input. By default, they will each receive an email from Azure AD with a link to the access panel, where they will [perform their access review](active-directory-azure-ad-controls-perform-access-review.md).
 6. If the reviewers have not given input, then you can ask Azure AD to send them a reminder.  By default, Azure AD will automatically send a reminder halfway to the end date to reviewers who have not yet responded.
-7. Once the reviewers have given input, stop the access review and apply the changes. Read more at [how to complete an access review](active-directory-azure-ad-controls-complete-an-access-review.md).
+7. Once the reviewers have given input, stop the access review and apply the changes. Read more at [how to complete an access review](active-directory-azure-ad-controls-complete-access-review.md).
 
 
 ## Next steps
 
-- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-an-access-review.md)
+- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
 
 
 
