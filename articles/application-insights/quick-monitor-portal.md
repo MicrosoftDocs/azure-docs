@@ -79,7 +79,7 @@ You can now open Application Insights in the Azure portal to view various detail
 	![Live Stream](media/quick-monitor-portal/live-stream.png)
 
 If you are ready to host your application in Azure, you can publish it now. Follow the steps described
-in [Create an ASP.NET Web App Quickstart](../app-service-web/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
+in [Create an ASP.NET Web App Quickstart](../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
 
 ## Next steps
 In this quick start, you’ve enabled your application for monitoring by Azure Application Insights.  Continue to the tutorials to learn how to use it to monitor statistics and detect issues in your application.
