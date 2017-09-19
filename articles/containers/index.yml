@@ -67,7 +67,7 @@ sections:
       title: Run a custom Docker Hub image in Azure Web Apps for Containers 
       image:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
-- title: Free Pluralsight vide training for Azure and containers
+- title: Free Pluralsight video training for Azure and containers
   items:
   - type: list
     style: cards
