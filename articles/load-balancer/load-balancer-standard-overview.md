@@ -38,7 +38,7 @@ For these scenarios, the following capabilities are supported. Click the capabil
 
 **[Diagnostic insights](#diagnosticinsights)**: Load Balancer and Public IPs are now exposing new multi-dimensional metrics, integrated with Azure Monitor. Your virtual data center now has continuous data plane health measurements, per endpoint health probe statistics, counters for inbound connection attempts, outbound connections, packets, and bytes.
 
-**[Mandatory Network Security Groups](#mandatorynsg)**: Load Balancer Standard fully onboards to the VNet and NSG are now mandatory. NSG needs to be placed on subnets or NICs on the backend pool and explicitly whitelist traffic.
+**[Network Security Groups](#mandatorynsg)**: Load Balancer Standard fully onboards to the VNet and NSG are now mandatory. NSG needs to be placed on subnets or NICs on the backend pool and explicitly whitelist traffic.
 
 **[Outbound Connections](#outboundconnections)**: When a public Load Balancer resource is associated with VM instances, the [outbound connections](load-balancer-outbound-connections.md) from the private IP address space of the VNet are translated to the public IP address of the Load Balancer frontend.  Load Balancer Standard features a new port masquerading Source Network Address Translation (SNAT) algorithm for increased robustness and scale.
 
@@ -104,7 +104,7 @@ Load Balancer Standard provides new multi-dimensional diagnostic capabilities fo
 | Byte counters | Azure Load Balancer reports the data processed per frontend and per backend instance.|
 | Packet counters | Azure Load Balancer reports the packets processed per frontend and per backend instance. |
 
-## <a name = "mandatorynsg"></a>Mandatory Network Security Groups
+## <a name = "mandatorynsg"></a>Network Security Groups
 
 Load Balancer Standard fully onboards to the VNet and use of Network Security Groups is now mandatory.  Explicitly whitelist the traffic you wish to permit inside the NSG.
 
