@@ -190,18 +190,18 @@ Validation is performed to determine if the Update management solution is enable
 
 The validation includes checks for Log Analytics workspace and linked Automation account and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker. If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
 
-   ![Update Management onboard configuration banner](./media/tutorial-manage-package-updates/manageupdates-onboard-solution-banner.png)
+   ![Update Management onboard configuration banner](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
 
 Click the banner to enable the solution. If any of the following prerequisites were found to be missing after the validation,
 they will be automatically added:
 
-* [Log Analytics](../log-analytics/log-analytics-overview.md) workspace
-* [Automation](../automation/automation-offering-get-started.md)
-* A [Hybrid runbook worker](../automation/automation-hybrid-runbook-worker.md) is enabled on the virtual machine
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace
+* [Automation](../../automation/automation-offering-get-started.md)
+* A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the virtual machine
 
 The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
 
-   ![Enable Update management solution](./media/tutorial-manage-package-updates/manageupdates-update-enable.png)
+   ![Enable Update management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
 Enabling the solution can take up to 15 minutes, and during this time you should not close the browser window. After the solution is enabled,
 information about missing updates from the package manager on the virtual machine flows to Log Analytics.
@@ -211,7 +211,7 @@ It can take between 30 minutes and 6 hours for the data to be available for anal
 
 AFter the **Update management** solution is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
 
-   ![View update status](./media/tutorial-manage-package-updates/manageupdates-view-status-linux.png)
+   ![View update status](./media/tutorial-monitoring/manageupdates-view-status-linux.png)
 
 ### Schedule an update deployment
 
