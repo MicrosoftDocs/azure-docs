@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 09/19/2017
 ms.author: carlrab
 
 ---
@@ -89,7 +89,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No |
 | [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No |
 | [Predicates](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Most - see individual predicates |
-| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | No |
+| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Preview release; see [What's new in machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
 | [Resource governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No |
 | [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | 
 | [Restore database from backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | From built-in backups only - see [SQL Database recovery](sql-database-recovery-using-backups.md) |
