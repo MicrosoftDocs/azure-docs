@@ -28,11 +28,11 @@ After we are done, Facebook will send the content posted by the visitors to Cont
 
 Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator and create a team.
 
-## 2. Configure image thresholds (workflow)
+## 2. Configure image moderation workflow (threshold)
 
-Refer to the [Workflows](review-tool-user-guide/workflows) page to configure a custom image threshold and workflow. Note the workflow name.
+Refer to the [Workflows](review-tool-user-guide/workflows) page to configure a custom image workflow (threshold). Note the workflow name.
 
-## 3. Configure text thresholds (workflow)
+## 3. Configure text moderation workflow (threshold)
 
 Use steps similar to the [Workflows](review-tool-user-guide/workflows) page to configure a custom text threshold and workflow. Note the workflow name.
 
@@ -68,7 +68,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     2. Click the **"+"** add to create new function.
     3. Instead of the built-in templates, choose the **"Get started on your own/custom function"** option.
     4. Click on the tile that says **"HttpTrigger-CSharp"**
-    5. Enter a name "FBListener", the **Authorization Level** field should be set to **"Function"**.
+    5. Enter the name "FBListener". The **Authorization Level** field should be set to **"Function"**.
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
 
@@ -78,6 +78,30 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     2. Click the **"+"** add to create new function.
     3. Instead of the built-in templates, choose the **"Get started on your own/custom function"** option.
     4. Click on the tile that says **"HttpTrigger-CSharp"**
-    5. Enter a name "CMListener", the **Authorization Level** field should be set to **"Function"**.
+    5. Enter the name "CMListener". The **Authorization Level** field should be set to **"Function"**.
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
+
+
+## 5. Configure the Facebook Page and App
+
+1. Create a Facebook App.
+
+    1. Navigate to the [Facebook developer site](https://developers.facebook.com/)
+    2. Click on **My Apps**.
+    3. Add a New App.
+    4. Select **Webhooks -> Get Started**
+    5. Select **Page -> Subscribe to this topic**
+    6. Provide the **FBListener Url** as the Callback URL and the **Verify Token** you configured under the **Function App Settings**
+    7. Once subscribed, scroll down to feed and select **subscribe**.
+
+2. Create a Facebook Page.
+
+    1. Navigate to https://www.facebook.com/bookmarks/pages and create a new Facebook Page
+    2. Giving the Facebook App access to this page: 
+    3. Navigate to Graph API Explorer
+    4. Select Application
+    5. Select Page Access Token, Send Get
+    6. Click on the Id in response (this is the Page Id)
+    7. Now append /subscribed_apps to URL and Send Get (empty response)
+    8. Send Post -> the response shall say "success": true
