@@ -41,7 +41,7 @@ You can configure an existing Azure IR to change its location using the Set-Azur
 
 ## Use Azure IR
 
-Once an Azure IR is created, you can reference it in your Linked Service definition. Below is a sample of how you can use 
+Once an Azure IR is created, you can reference it in your Linked Service definition. Below is a sample of how you can reference the Azure Integration Runtime created above from an Azure Storage Linked Service:  
 
 ```json
 {
