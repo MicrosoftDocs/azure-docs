@@ -39,7 +39,7 @@ You can easily [create a new Azure Container Registry](../../container-registry/
 
 2. Create an ACR image registry using [az acr create](/cli/azure/acr#create) and ensure that the `--admin-enabled` option is set to `true`.
       ```azurecli
-      az acr create -g draft -n draftacs --sku Basic --admin-enabled true -l eastus
+      az acr create --resource-group draft --name draftacs --sku Basic --admin-enabled true 
       ```
 
 
@@ -47,7 +47,7 @@ You can easily [create a new Azure Container Registry](../../container-registry/
 
 Now you're ready to use [az acs create](/cli/azure/acs#create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
 ```azurecli
-az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
+az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
 
 > [!NOTE]
