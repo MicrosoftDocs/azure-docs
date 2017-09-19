@@ -32,7 +32,7 @@ At a high level, this tutorial involves following steps:
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
-This tutorial uses Azure PowerShell. To learn about using other tools/SDKs to create data factory, see [Quickstarts](quickstart-create-data-factory-dot-net.md). 
+This tutorial uses Azure PowerShell. To learn about using other tools/SDKs to create a data factory, see [Quickstarts](quickstart-create-data-factory-dot-net.md). 
 
 ## End-to-end workflow
 In this scenario, we have a number of tables in Azure SQL Database that we want to copy to SQL Data Warehouse. Here is the logical sequence of steps in the workflow that happens in pipelines:
@@ -71,7 +71,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 2. Select your server, and click **Firewall** under **SETTINGS**.
 3. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
 
-## Create data factory
+## Create a data factory
 
 1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
 
@@ -113,7 +113,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 
 In this tutorial, you create three linked services for source, sink, and staging blob respectively, which includes connections to your data stores:
 
-### Create source Azure SQL Database linked service
+### Create the source Azure SQL Database linked service
 
 1. Create a JSON file named **AzureSqlDatabaseLinkedService.json** in **C:\ADFv2TutorialBulkCopy** folder with the following content: (Create the folder ADFv2TutorialBulkCopy if it does not already exist.)
 
@@ -152,7 +152,7 @@ In this tutorial, you create three linked services for source, sink, and staging
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlDatabaseLinkedService
     ```
 
-### Create sink Azure SQL Data Warehouse linked service
+### Create the sink Azure SQL Data Warehouse linked service
 
 1. Create a JSON file named **AzureSqlDWLinkedService.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content:
 
@@ -189,7 +189,7 @@ In this tutorial, you create three linked services for source, sink, and staging
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlDWLinkedService
     ```
 
-### Create staging Azure Storage linked service
+### Create the staging Azure Storage linked service
 
 In this tutorial, you use Azure Blob storage as an interim staging area to enable PolyBase for a better copy performance.
 
@@ -232,7 +232,7 @@ In this tutorial, you use Azure Blob storage as an interim staging area to enabl
 
 In this tutorial, you create source and sink datasets, which specify the location where the data is stored:
 
-### Create dataset for source SQL Database
+### Create a dataset for source SQL Database
 
 1. Create a JSON file named **AzureSqlDatabaseDataset.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content. The "tableName" is a dummy one as later you use the SQL query in copy activity to retrieve data.
 
@@ -268,7 +268,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### Create dataset for sink SQL Data Warehouse
+### Create a dataset for sink SQL Data Warehouse
 
 1. Create a JSON file named **AzureSqlDWDataset.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content: The "tableName" is set as a parameter, later the copy activity that references this dataset passes the actual value into the dataset.
 
@@ -316,7 +316,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 
 In this tutorial, you create two pipelines:
 
-### Create pipeline "IterateAndCopySQLTables"
+### Create the pipeline "IterateAndCopySQLTables"
 
 This pipeline takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
 
@@ -404,7 +404,7 @@ This pipeline takes a list of tables as a parameter. For each table in the list,
     Parameters        : {[tableList, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
     ```
 
-### Create pipeline "GetTableListAndTriggerCopyData"
+### Create the pipeline "GetTableListAndTriggerCopyData"
 
 This pipeline performs two steps:
 
