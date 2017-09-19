@@ -1,6 +1,6 @@
 ---
-title: Perform a failover in Site Recovery
-description: How to failover Azure VMs from the primary region to a secondary region
+title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery | Microsoft Docs
+description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery 
 services: site-recovery
 author: rajani-janaki-ram
 manager: carmonm
@@ -10,26 +10,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/04/2017
+ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
 ---
-# Perform a failover in Site Recovery
+# Fail over and fail back Azure VMs between Azure region
 
-This tutorial describes how to fail over a single virtual machine from **Replicated items** in the
-Azure portal. This tutorial assumes that you have practiced a
-[Disaster Recovery drill](azure-to-azure-tutorial-dr-drill.md) and everything is working as
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
+
+This tutorial describes how to fail over a single Azure VM to a secondary Azure region. After you've failed over, you fail back to the primary region when it's available. In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Fail over the Azure VM
+> * Reprotect the secondary Azure VM, so that it replicates to the primary region
+> * Fail back the secondary VM
+> * Reprotect the primary VM back to the secondary region
+
+## Prerequisites
+
+- Make that you've completed a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to check everything is working as
 expected.
+- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-## Run a failover
 
-1. Go to the **Replicated items** page
+
+## Run a failover to the secondary region
+
+1. In **Replicated items**, select the VM that you want to fail over > **Failover**
 
    ![Failover](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
-2. Select the virtual machine that you want to fail over. Click **Failover**
-
-3. Under **Failover**, select a **Recovery Point** to fail over to. You can use one of the
+2. In **Failover**, select a **Recovery Point** to fail over to. You can use one of the
    following options:
 
    * **Latest** (default): This option processes all the data in the Site Recovery service and
@@ -39,43 +50,33 @@ expected.
    * **Custom**: Use this option to fail over to a particular recovery point. This option is useful
      for performing a test failover.
 
-4. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to
+3. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to
    do a shutdown of source virtual machines before triggering the failover. Failover continues even
    if shutdown fails.
 
-5. Follow the failover progress on the **Jobs** page.
+4. Follow the failover progress on the **Jobs** page.
 
-6. After the failover, validate the virtual machine by logging in to it. If you want to go another
+5. After the failover, validate the virtual machine by logging in to it. If you want to go another
    recovery point for the virtual machine, then you can use **Change recovery point** option.
 
-7. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover.
+6. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover.
    Committing deletes all the recovery points available with the service. The **Change recovery
    point** option is no longer available.
 
-## Reprotect post failover
+## Reprotect the secondary VM
 
-After failover of your virtual machines, you should **Reprotect** machines back to the primary
-region. Before reprotecting, ensure that the VMs are in the Failover committed state. The target
-site (primary region) must be available and have the ability to create and access new resources.
+After failover of the VM, you need to reprotect it so that it replicates back to the primary region.
 
-Following the steps can be used to reprotect a virtual machine using the default settings:
-
-1. In **Vault** > **Replicated items**, right-click the virtual machine that's been failed over,
-   and then select **Re-Protect**. You can also click the machine and select **Re-Protect** from
-   the command buttons.
+1. Make sure that the VM is in the **Failover committed** state, and check that the primary region is available, and you're able to create and access new resources in it.
+2. In **Vault** > **Replicated items**, right-click the VM that's been failed over, and then select **Re-Protect**. 
 
    ![Right-click to reprotect](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Notice that the direction of protection, secondary to primary region, is already selected.
-
 3. Review the **Resource group, Network, Storage, and Availability sets** information. Any
    resources marked (new) are created as part of the reprotect operation.
+4. Click **OK** to trigger a reprotect job. This job seeds the target site with the latest data. Then, it replicates the deltas to the primary region. The VM is now in a protected state.
 
-4. Click OK to trigger a reprotect job. This job seeds the target site with the latest data. Next,
-   the job replicates the deltas to the primary region. The virtual machine is now in a protected
-   state.
+## Fail back to the primary region 
 
-## Failback to the primary region in Site Recovery
-
-Once your virtual machines are reprotected, you may fail back to the primary region. Follow the same
-steps mentioned in previous [failover](#run-a-failover) section.
+After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, follow the [failover](#run-a-failover) instructions. 
