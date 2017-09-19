@@ -30,12 +30,10 @@ SQL Database shares its code base with the [Microsoft SQL Server database engine
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
 
 > [!NOTE]
-
 > See [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
 >
 
 ## Scalable performance and pools
-
 
 With SQL Database, each database is isolated from each other and portable, each with its own [service tier](sql-database-service-tiers.md) with a guaranteed performance level. SQL Database provides different performance levels for different needs, and enables databases to be pooled to maximize the use of resources and save money.
 
