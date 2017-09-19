@@ -35,7 +35,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription with [az provider register]().
 
 ```azurecli-interactive
-az provider register –namespace Microsoft.RecoveryServices
+az provider register –-namespace Microsoft.RecoveryServices
 ```
 
 
@@ -57,24 +57,26 @@ By default, the vault is set for Geo-Redundant storage. To further protect your 
 You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day at midnight and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use [az backup protection enable—for-vm](). Specify the policy to use, then the resource group and VM to protect:
 
 ```azurecli-interactive 
-az backup protection enable—for-vm \
+az backup protection enable-for-vm \
     --resource-group myResourceGroup \
-    --name myRecoveryServicesVault \
-    --vm-rg VMResourceGroup \
-    --vm-name myVM \
-    --policy DefaultPolicy
+    --vault-name myRecoveryServicesVault \
+    --vm myVM \
+    --policy-name DefaultPolicy
 ```
 
 
 ## Start a backup job
 To start a backup now rather than wait for the default policy to run the job at midnight, use [az backup protection backup-now](). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
+The `--container-name` and `--item-name` parameters are the name of your VM. The `--retain-until` value should be set to the last available date, in UTC time format (**dd-mm-yyy**), that you wish the recovery point to be available. The following example backs up the VM named *myVM* and sets the expiration of the recovery point to October 18, 2017:
+
 ```azurecli-interactive 
 az backup protection backup-now \
     --resource-group myResourceGroup \
-    --name myRecoveryServicesVault \
-    -c myVM \
-    -i myVM
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --retain-until 18-10-2017
 ```
 
 As this first backup job creates a full recovery point, the process can take up to 20 minutes.
@@ -86,9 +88,20 @@ To monitor the status of backup jobs, use [az backup job list]():
 ```azurecli-interactive 
 az backup job list \
     --resource-group myResourceGroup \
-    --name myRecoveryServicesVault \
+    --vault-name myRecoveryServicesVault \
     --output table
 ```
+
+The output is similar to the following example, which shows the backup job is **InProgress**:
+
+```azurecli
+Name             Operation        Status      Item Name    Start Time UTC       Duration
+---------------  ---------------  ----------  -----------  -------------------  --------------
+a0a8e5e6-{snip}  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48.718366
+fe5d0414-{snip}  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
+```
+
+When the *Status* of the backup job reports *Completed*, your VM is protected with Recovery Services and has a full recovery point stored.
 
 
 ## Clean up deployment
@@ -97,9 +110,9 @@ When no longer needed, you can disable protection on the VM, remove the restore 
 ```azurecli-interactive 
 az backup protection disable \
     --resource-group myResourceGroup \
-    --name myRecoveryServicesVault \
-    -c myVM \
-    -i myVM \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
     --delete-backup-data true
 az backup vault delete \
     --resource-group myResourceGroup \

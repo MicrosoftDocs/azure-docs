@@ -49,7 +49,10 @@ A Recovery Services vault is a logical container that stores the backup data for
 Create a Recovery Services vault with [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Specify the same resource group and location as the VM you wish to protect. If you used the sample script, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *WestEurope* location.
 
 ```powershell
-New-AzureRmRecoveryServicesVault -Name myRecoveryServicesVault -ResourceGroupName myResourceGroup -Location WestEurope
+New-AzureRmRecoveryServicesVault `
+    -Name myRecoveryServicesVault `
+    -ResourceGroupName myResourceGroup `
+    -Location WestEurope
 ```
 
 By default, the vault is set for Geo-Redundant storage. To further protect your data, this storage redundancy level ensures that your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region.
@@ -57,7 +60,8 @@ By default, the vault is set for Geo-Redundant storage. To further protect your 
 To use this vault with the remaining steps, set the vault context with [Set-AzureRmRecoveryServicesVaultContext](/powershell/module/AzureRM.RecoveryServices/Set-AzureRmRecoveryServicesVaultContext)
 
 ```powershell
-Get-AzureRmRecoveryServicesVault -Name myRecoveryServicesVault | Set-AzureRmRecoveryServicesVaultContext
+Get-AzureRmRecoveryServicesVault `
+    -Name myRecoveryServicesVault | Set-AzureRmRecoveryServicesVaultContext
 ```
 
 
@@ -71,7 +75,10 @@ $policy = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "DefaultPolicy
 To enable backup protection for a VM, use [Enable-AzureRmRecoveryServicesBackupProtection](/powershell/module/AzureRM.RecoveryServices.Backup/Enable-AzureRmRecoveryServicesBackupProtection). Specify the policy to use, then the resource group and VM to protect:
 
 ```powershell
-Enable-AzureRmRecoveryServicesBackupProtection -Policy $policy -ResourceGroupName myResourceGroup -Name myVM
+Enable-AzureRmRecoveryServicesBackupProtection `
+    -ResourceGroupName myResourceGroup `
+    -Name myVM `
+    -Policy $policy
 ```
 
 
@@ -79,8 +86,12 @@ Enable-AzureRmRecoveryServicesBackupProtection -Policy $policy -ResourceGroupNam
 To start a backup now rather than wait for the default policy to run the job at midnight, use [Backup-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
 ```powershell
-$backupcontainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -FriendlyName myVM
-$item = Get-AzureRmRecoveryServicesBackupItem -Container $backupcontainer -WorkloadType "AzureVM"
+$backupcontainer = Get-AzureRmRecoveryServicesBackupContainer `
+    -ContainerType "AzureVM" `
+    -FriendlyName myVM
+$item = Get-AzureRmRecoveryServicesBackupItem `
+    -Container $backupcontainer `
+    -WorkloadType "AzureVM"
 $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
 ```
 
@@ -97,10 +108,10 @@ Get-AzureRmRecoveryservicesBackupJob
 The output is similar to the following example, which shows the backup job is **InProgress**:
 
 ```powershell
-WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   -----
-myvm             Backup               InProgress           9/18/2017 9:38:02 PM                                9f9e8f14-{snip}
-myvm             ConfigureBackup      Completed            9/18/2017 9:33:18 PM      9/18/2017 9:33:51 PM      fe79c739-{snip}
+WorkloadName   Operation         Status       StartTime              EndTime               JobID
+------------   ---------         ------       ---------              -------               -----
+myvm           Backup            InProgress   9/18/2017 9:38:02 PM                         9f9e8f14-{snip}
+myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739-{snip}
 ```
 
 When the *Status* of the backup job reports *Completed*, your VM is protected with Recovery Services and has a full recovery point stored.
