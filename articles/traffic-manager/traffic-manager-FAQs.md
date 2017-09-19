@@ -180,6 +180,47 @@ No, you don’t need to host any server side component on Azure for real User Me
 ### Will my Azure bandwidth usage increase when I use Real User Measurements?
 As mentioned in the previous answer, the server-side components of Real User Measurements are owned and managed by Azure. This means your Azure bandwidth usage will not increase because you use Real User Measurements. Please note that, this does not include any bandwidth usage outside of what Azure charges. We minimize the bandwidth used by downloading only a single pixel image to measurement the latency to an Azure region. 
 
+## Traffic View
+
+## What does Traffic View do?
+Traffic View is a feature of Traffic Manager that helps you understand more about your users and how their experience is. It uses the queries received by Traffic Manager and the network latency intelligence tables that the service maintains to provide you with the following:
+- The regions from where your users are connecting to your endpoints in Azure.
+- The volume of users connecting from these regions.
+- The Azure regions  to which they are getting routed to.
+- Their latency experience to these Azure regions.
+
+This information is available for you to consume through a tabular view in the portal in addition to being available as raw data for you to download.
+
+# How can I benefit from using Traffic View?
+
+Traffic View gives you the overall view of the traffic your Traffic Manager profiles receive. In particular, it can be used to understand where your user base connects from and equally importantly what their average latency experience is. You can then use this information to find areas in which you need to focus, for example, by expanding your Azure footprint to a region that can serve those users with lower latency. Another insight you can derive from using Traffic View is to see the patterns of traffic to different regions which in turn can help you make decisions on increasing or decreasing invent in those regions.
+
+#How is Traffic View different from the Traffic Manager metrics available through Azure monitor?
+
+Azure Monitor can be used to understand at an aggregate level the traffic received by your profile and its endpoints. It also enables you to track the health status of the endpoints by exposing the health check results. When you need to go beyond these and understand your end user’s experience connecting to Azure at a regional level, Traffic View can be used to achieve that.
+
+# Does Traffic View use EDNS Client Subnet information?
+
+Traffic View does not consider the EDNS Client Subnet information when creating its output. It uses the IP address of your users’ local DNS resolver to group them.
+
+#How many days of data does Traffic View use?
+
+Traffic View creates its output by processing the data from the seven days preceding the day before when it is viewed by you. This is a moving window and the latest data will be used each time you visit.
+
+#How does Traffic View handle external endpoints?
+
+When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If its has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
+
+# Do I need to enable Traffic View for each profile in my subscription?
+During the preview period, Traffic View is enabled at a subscription level and is available for all Traffic Manager profiles under that subscription.
+
+# How can I turn off Traffic View?
+During the preview period, we request that you create a support ticket to disable Traffic View for your subscription.
+
+# How does Traffic View billing work?
+
+Traffic View pricing is based on the number of data points used to create the output. Currently, the only data type supported is the queries your profile receives. In addition, you are only billed for the processing that was done when you have Traffic View enabled. This means that, if you enable Traffic View for some time period in a month and turn it off during other times, only the data points processed while you had the feature enabled count towards your bill.
+During the preview period, you are not charged for using Traffic View.
 
 ## Traffic Manager endpoints
 

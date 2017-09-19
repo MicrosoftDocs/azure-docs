@@ -5,6 +5,8 @@
 ## [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
+## [Real User Measurements](traffic-manager-rum-overview].md)
+## [Traffic View](traffic-manager-traffic-view-overview.md)
 ## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
@@ -16,6 +18,9 @@
 ## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
 ## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
 ## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+## Send Real User Measurements to Traffic Manager 
+### [Using Visual Studio SDK](traffic-manager-create-rum-visual-studio.md)
+### [Using web pages](traffic-manager-create-rum-web-pages.md)
 ## [Manage endpoints](traffic-manager-manage-endpoints.md)
 ## [Manage profiles](traffic-manager-manage-profiles.md)
 ## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
