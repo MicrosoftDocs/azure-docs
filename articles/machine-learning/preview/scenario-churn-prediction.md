@@ -20,7 +20,7 @@ ms.author: miprasad
 # Customer Churn Prediction using Azure Machine Learning
 
 ## Link of the Gallery GitHub repository
-Following is the link to the public GitHub repository where all the codes are hosted:
+Following is the link to the public GitHub repository where all the code is hosted:
 
 [https://github.com/Azure/MachineLearningSamples-ChurnPrediction](https://github.com/Azure/MachineLearningSamples-ChurnPrediction)
 
@@ -36,7 +36,7 @@ The aim of this solution is to demonstrate predictive churn analytics using Azur
 
 3. Integrate third-party libraries (such as `scikit-learn` and `azureml`) to develop Bayesian and Tree-based classifiers for predicting churn.
 
-4. Perform operationalization.
+4. Deploy.
 
 ## Use case overview
 Companies need an effective strategy for managing customer churn. Customer churn includes customers stopping the use of a service, switching to a competitor service, switching to a lower-tier experience in the service or reducing engagement with the service.
@@ -74,7 +74,7 @@ Create a new project using this example as a template:
 
 ## Data description
 
-The dataset used to ingest is from the SIDKDD 2009 competition. It is called `CATelcoCustomerChurnTrainingSample.csv` and is located in the [`Data`](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data) folder. The dataset consists of heterogeneous noisy data (numerical/categorical variables) from French Telecom company Orange and is anonymized.
+The data set used in the solution is from the SIDKDD 2009 competition. It is called `CATelcoCustomerChurnTrainingSample.csv` and is located in the [`Data`](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data) folder. The dataset consists of heterogeneous noisy data (numerical/categorical variables) from French Telecom company Orange and is anonymized.
 
 The variables capture customer demographic information, call statistics (such as average call duration, call failure rate, etc.), contract information, complaint statistics. Churn variable is binary (0 - did not churn, 1 - did churn).
 
@@ -82,8 +82,10 @@ The variables capture customer demographic information, call statistics (such as
 
 The folder structure is arranged as follows:
 
-__Code__: Contains all the code related to churn prediction using Azure Machine Learning Workbench  
-__Data__: Contains the dataset used in the solution  
+__Code__: Contains all the code related to churn prediction using Azure Machine Learning Workbench
+
+__Data__: Contains the dataset used in the solution  
+
 __Labs__: Contains all the hands-on labs
 
 The order of Hands-on Labs to carry out the solution is as follows:
@@ -94,7 +96,7 @@ The main file related to modeling and evaluation in the code folder is `CATelcoC
 3. Modeling and Evaluation in Docker:
 The main file for this task in the code folder is `CATelcoCustomerChurnModelingDocker.py`
 4. Operationalization:
-The main files for performing operationalization are the model (`model.pkl`) and `churn_schema_gen.py`
+The main files for deloyment are the model (`model.pkl`) and `churn_schema_gen.py`
 
 | Order| File Name | Realted Files |
 |--|-----------|------|
@@ -106,4 +108,4 @@ The main files for performing operationalization are the model (`model.pkl`) and
 Follow the Labs in the sequential manner described above.
 
 ## Conclusion
-This scenario gives an overview of how to perform churn prediction using Azure Machine Learning Workbench's Data Preparation tools, perform feature engineering to handle noisy heterogeneous data and operationalize.
+This hands on scenario demonstrated how to perform churn prediction using Azure Machine Learning Workbench. We first performed data cleaning to handle noisy and heterogeneous data, followed by feature engineering using Data Preparation tools. We then used open source machine learning tools to create and evaluate a classification model, then used local docker container to deploy the model making it ready for production.
