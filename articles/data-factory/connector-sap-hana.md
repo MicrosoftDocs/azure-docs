@@ -59,7 +59,8 @@ The following properties are supported for SAP HANA linked service:
 | server | Name of the server on which the SAP HANA instance resides. If your server is using a customized port, specify `server:port`. | Yes |
 | authenticationType | Type of authentication used to connect to the SAP HANA database.<br/>Allowed values are: **Basic**, and **Windows** | Yes |
 | userName | Name of the user who has access to the SAP server. | Yes |
-| password | Password for the user. | Yes |
+| password | Password for the user. Mark this field as a SecureString. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**
 

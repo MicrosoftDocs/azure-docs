@@ -53,9 +53,10 @@ The following properties are supported for SQL Server linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SqlServer** | Yes |
-| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. Mark this field as a SecureString. |Yes |
 | userName |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
-| password |Specify password for the user account you specified for the userName. |No |
+| password |Specify password for the user account you specified for the userName. Mark this field as a SecureString. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example 1: using SQL authentication**
 

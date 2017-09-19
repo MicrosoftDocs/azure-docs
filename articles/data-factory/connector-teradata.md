@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -57,7 +57,8 @@ The following properties are supported for Teradata linked service:
 | server | Name of the Teradata server. | Yes |
 | authenticationType | Type of authentication used to connect to the Teradata database.<br/>Allowed values are: **Basic**, and **Windows**. | Yes |
 | username | Specify user name to connect to the Teradata database. | Yes |
-| password | Specify password for the user account you specified for the username. | Yes |
+| password | Specify password for the user account you specified for the username. Mark this field as a SecureString. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**
 
