@@ -3,7 +3,7 @@ title: Maintenance and updates for Linux VMs in Azure | Microsoft Docs
 description: Overview of maintenance and updates for Linux virtual machines running in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zivr
+author: cynthn
 manager: timlt
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
-ms.author: zivr
+ms.date: 09/15/2017
+ms.author: cynthn
 
 ---
 
-# Planned maintenance for virtual machines in Azure
+# Planned maintenance for Linux virtual machines 
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
 ## Next steps
 
-The [Azure Metadata Service](instance-metadata-service.md) enables you to discover information about your Virtual Machine hosted in Azure. 
+For information on managing planned maintence, see [Handling planned maintenance notifications](maintenance-notifications.md).
+
 
