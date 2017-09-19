@@ -35,15 +35,15 @@ Metrics are a valuable source of telemetry and enable you to do the following ta
 ## What are the characteristics of metrics?
 Metrics have the following characteristics:
 
-* All metrics have **one-minute frequency**. You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
+* All metrics have **one-minute frequency**. You receive a metric value every minute from your resource. This gives you near real-time visibility into the state and health of your resource.
 * Metrics are **available immediately**. You don't need to opt in or set up additional diagnostics.
 * You can access **30 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
 
 You can also:
 
-* Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Autoscale is a special automated action that enables you to scale out your resource to meet incoming requests or loads on your website or computing resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
+* Configure a metric **alert rule** that sends a notification, or takes automated action when the metric crosses a set threshold. *Autoscale** is a special automated action that enables you to scale out your resource to meet incoming requests or loads on your website or computing resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
 
-* **Route** all metrics Application Insights or Log Analytics (OMS) to enable instant analytics, search, and custom alerting on metrics data from your resources. You can also stream metrics to an Event Hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up Event Hub streaming using diagnostic settings.
+* **Route** all metrics Application Insights or Log Analytics (OMS) to enable instant analytics, search, and custom alerting on metrics data from your resources. You can also stream metrics to an Event Hub. This enables you to route metrics to Azure Stream Analytics or to custom apps for near-real time analysis. You set up Event Hub streaming using diagnostic settings.
 
 * **Archive metrics to storage** for longer retention or use them for offline reporting. You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
 
@@ -61,7 +61,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 ### To view metrics after creating a resource
 1. Open the Azure portal.
 2. Create an Azure App Service website.
-3. After you create a website, go to the **Overview** blade of the website.
+3. After you create a website, go to the **Overview** section of the website.
 4. You can view new metrics as a **Monitoring** tile. You can then edit the tile and select more metrics.
 
    ![Metrics on a resource in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
@@ -94,7 +94,7 @@ Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs tha
 For a more detailed walkthrough using the Azure Monitor REST APIs, see [Azure Monitor REST API walkthrough](monitoring-rest-api-walkthrough.md).
 
 ## Export metrics
-You can go to the **Diagnostics settings** blade under the **Monitor** tab and view the export options for metrics. You can select metrics (and diagnostic logs) to be routed to Blob storage, to Azure Event Hubs, or to OMS for use-cases that were mentioned previously in this article.
+You can go to the **Diagnostics settings** section under the **Monitor** tab and view the export options for metrics. You can select metrics (and diagnostic logs) to be routed to Blob storage, to Azure Event Hubs, or to OMS for use-cases that were mentioned previously in this article.
 
  ![Export options for metrics in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
@@ -104,12 +104,12 @@ You can configure this via Resource Manager templates, [PowerShell](insights-pow
 To receive notifications or take automated actions on metric data, you can configure alert rules or Autoscale settings.
 
 ### Configure alert rules
-You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold. They can then notify you via email or fire a webhook that can be used to run any custom script. You can also use the webhook to configure third-party product integrations.
+You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold. This can then notify you via email or fire a webhook to run any custom script. You can also use the webhook to configure third-party product integrations.
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
 ### Autoscale your Azure resources
-Some Azure resources support the scaling out or in of multiple instances to handle your workloads. Autoscale applies to App Service (Web Apps), virtual machine scale sets, and classic Azure Cloud Services. You can configure Autoscale rules to scale out or in when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
+Some Azure resources support the scaling out or in of multiple instances to handle your workloads. Autoscale applies to App Service (Web Apps), virtual machine scale sets, and classic Azure Cloud Services. You can configure Autoscale rules to scale out when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
 
  ![Metrics and Autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
