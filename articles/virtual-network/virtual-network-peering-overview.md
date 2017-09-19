@@ -72,7 +72,7 @@ You can also effectively build hub-and-spoke type environments, where the hub ca
 
 ## Gateways and on-premises connectivity
 
-Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to an on-premises network. You can also configure [virtual network-to-virtual network connections](../vpn-gateway/vpn-gateway-virtual network-virtual network-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) by using gateways, even though the virtual networks are peered.
+Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to an on-premises network. You can also configure [virtual network-to-virtual network connections](../vpn-gateway/vpn-gateway-virtual network-virtual network-rm-ps.md) by using gateways, even though the virtual networks are peered.
 
 When both options for virtual network interconnectivity are configured, the traffic between the virtual networks flows through the peering configuration (that is, through the Azure backbone).
 
