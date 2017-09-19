@@ -140,7 +140,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 }
 ```
 
-The following JS sample uses the token to make an HTTP call to the Microsoft Graph and returns the result. In the `function.json` above, change `$return` to `res` first:
+The following JS sample uses the token to make an HTTP call to the Microsoft Graph and returns the result. In the `function.json` above, change `$return` to `res` first.
+
 ```js
 const rp = require('request-promise');
 
@@ -253,6 +254,17 @@ public static IActionResult Run(HttpRequest req, string[][] excelTableData, Trac
 }
 ```
 
+The following JS sample adds reads the contents of the specified table and returns them to the user. In the `function.json` above, change `$return` to `res` first.
+
+```js
+module.exports = function (context, req) {
+    context.res = {
+        body: context.bindings.excelTableData
+    };
+    context.done();
+};
+```
+
 <a name="excel-output"></a>
 ## Excel table output binding
 
@@ -341,6 +353,17 @@ public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRo
 }
 ```
 
+The following JS sample adds a new row to the table (assumed to be single-column) based on input from the query string. In the `function.json` above, change `$return` to `res` first.
+
+```js
+module.exports = function (context, req) {
+    context.bindings.newExcelRow = {
+        text: req.query.text
+        // Add other properties for additional columns here
+    }
+    context.done();
+};
+```
 
 
 
@@ -408,7 +431,7 @@ Suppose you have the following function.json that defines an HTTP trigger with a
 }
 ```
 
-The following C# sample reads the file specified in the query string and logs it's length:
+The following C# sample reads the file specified in the query string and logs its length:
 
 ```csharp
 using System.Net;
@@ -419,6 +442,16 @@ public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWrite
 }
 ```
 
+The following JS sample reads the file specified in the query string and returns its length. In the `function.json` above, change `$return` to `res` first.
+
+```js
+module.exports = function (context, req) {
+    context.res = {
+        body: context.bindings.myOneDriveFile.length
+    };
+    context.done();
+};
+```
 
 
 <a name="onedrive-output"></a>
@@ -499,9 +532,14 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
     return;
 }
 ```
+The following JS sample gets text from the query string and writes it to a text file (FunctionsTest.txt as defined in the config above) at the root of the caller's OneDrive. In the `function.json` above, change `$return` to `res` first.
 
-
-
+```js
+module.exports = function (context, req) {
+    context.bindings.myOneDriveFile = req.query.text;
+    context.done();
+};
+```
 
 
 
