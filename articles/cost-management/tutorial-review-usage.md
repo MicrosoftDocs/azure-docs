@@ -85,9 +85,11 @@ You can also choose the Cost Percentage vs. Budget threshold metric to create al
 
 In this tutorial, you learned how to:
 
+> [!div class="checklist"]
 > * Track usage and cost trends
 > * Detect usage inefficiencies
 > * Create alerts for unusual spending or overspending
+
 
 <!--
 Advance to the next tutorial to learn about [summarized title of next article].
