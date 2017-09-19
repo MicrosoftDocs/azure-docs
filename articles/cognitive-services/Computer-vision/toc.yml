@@ -32,7 +32,7 @@
   - name: C#
     href: Tutorials/CSharpTutorial.md
   - name: Java
-    href: Tutorials/JavaTutorial.md
+    href: Tutorials/java-tutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
 - name: Reference
