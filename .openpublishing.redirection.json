@@ -9970,6 +9970,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/sql-databasesql-database-cloud-migrate-restore-single-table-azure-backup.md",
+            "redirect_url": "/azure/sql-database/sql-database-recovery-using-backups",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
             "redirect_url": "/azure/cosmos-db/table-storage-cloud-service-nodejs",
             "redirect_document_id": true
@@ -10982,6 +10987,11 @@
         {
             "source_path": "articles/azure-toolkit-for-intellij-whats-new.md",
             "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal",
             "redirect_document_id": false
         }
     ]
