@@ -19,11 +19,11 @@ ms.author: billmath
 # Azure Active Directory Pass-through Authentication: Current limitations
 
 >[!IMPORTANT]
->Azure AD Pass-through Authentication is currently in preview. It is a free feature, and you don't need any paid editions of Azure AD to use it. Pass-through Authentication is only available in the world-wide instance of Azure AD, and not on [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) and [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/).
+>Azure AD Pass-through Authentication is a free feature, and you don't need any paid editions of Azure AD to use it. Pass-through Authentication is only available in the world-wide instance of Azure AD, and not on [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) and [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/).
 
 ## Supported scenarios
 
-The following scenarios are fully supported during preview:
+The following scenarios are fully supported:
 
 - User sign-ins into all web browser-based applications.
 - User sign-ins into Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga).
@@ -32,7 +32,7 @@ The following scenarios are fully supported during preview:
 
 ## Unsupported scenarios
 
-The following scenarios are _not_ supported during preview:
+The following scenarios are _not_ supported:
 
 - User sign-ins into legacy Office client applications (Office 2013 or earlier). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your user accounts using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication (MFA).
 - User sign-ins into Skype for Business client applications, including Skype for Business 2016.
