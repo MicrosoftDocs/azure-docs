@@ -19,7 +19,7 @@ ms.author: helaw
 ---
 # Microsoft Azure Stack troubleshooting
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Applies to: Azure Stack Development Kit*
 
 This document provides common troubleshooting information for Azure Stack. 
 
