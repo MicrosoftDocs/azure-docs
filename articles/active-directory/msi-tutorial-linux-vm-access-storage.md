@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ---
 
@@ -26,8 +26,8 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 
 > [!div class="checklist"]
 > * Enable MSI on a Linux Virtual Machine 
-> * Grant your VM access to Storage
-> * Get an access token for your Storage Account using the VM identity to access Storage Keys 
+> * Grant your VM access to storage keys in Resource Manager
+> * Get an access token using VM identity and use it to retrieve storage keys from Resource Manager 
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -101,29 +101,30 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
 ## Get an access token using the VM Identity and use it to call Azure Resource Manager
 
-You will need to use the Bash terminal, pick and then download your Linux distribution [here](https://msdn.microsoft.com/commandline/wsl/install_guide).
-
+To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
 1. In the portal, navigate to your Linux virtual machine and in the **Overview**, click **Connect**. You will be prompted to use Bash, make note of your SSH and VM IP in the alert. 
 2. Open and connect to Bash.  
 3. In the terminal, enter in your **SSH** and **VM**you wish to connect to for example, “ssh admin@12.61.219.35 ”.  
 4. Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
-5. Then, you can make a request using CURL to get the authorization token for the Linux VM you are logged into. The **Azure Resource Manager** endpoint is https://management.azure.com.  
+5. Use CURL to get an access token for Azure Resource Manager.  
 
     The CURL request for the access token is below:
     
     ```bash
-    curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50432/oauth2/token   
+    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true    
     ```
     
     > [!NOTE]
-    > Ensure that the URL for the resource you are trying to request access for contains the proper formatting with a slash at the end such as  'https:<RESOURCE>/'
+    > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     
-    ```powershell
+    ```bash
     {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEP"}
      ```
     
-## The CURL request to get Storage Keys from Azure Resource Manager  
+## Use CURL to get storage keys from Azure Resource Manager  
+
+Now we will use CURL to make a call to Resource Manager using the access token we retrieved in the previous section, to retrieve the storage access key. Once we have the storage access key, we can call storage upload/download operations.
 
 > [!NOTE]
 > The text in the URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
@@ -139,14 +140,13 @@ The CURL response gives you the list of Keys:
 ```
 
 
-Create a file to be uploaded this will be a sample blob file that you can upload with your Storage Keys on your storage account within the container you created. 
-
-On a Linux VM you can do this with the following command. 
+Create a sample blob file to upload to your blob storage container. On a Linux VM you can do this with the following command. 
 
 ```bash
 echo "This is a test file." > test.txt
 ```
- Next, you can upload the file using the Azure CLI and authenticate with the Storage Key.
+
+Next, upload the file using Azure CLI and authenticate with the Storage Key.
  
 
 ```azurecli-interactive

@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 09/18/2017
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -24,7 +24,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
 
-1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
+1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
 
 2. Download and install the [CMake build system](https://cmake.org/download/).
 
