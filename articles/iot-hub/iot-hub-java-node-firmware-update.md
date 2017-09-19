@@ -3,7 +3,7 @@ title: Device firmware update with Azure IoT Hub (Java/Node) | Microsoft Docs
 description: How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT device SDK for Node.js to implement a simulated device app and the Azure IoT service SDK for Java to implement a service app that triggers the firmware update.
 services: iot-hub
 documentationcenter: java
-author: v-masebo
+author: msebolt
 manager: timlt
 editor: ''
 
@@ -46,11 +46,6 @@ Follow the [Get started with device management](iot-hub-csharp-node-device-manag
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
-
-> [!NOTE]
-> To utilize payload parameters recieved by the simulated Node device, in the above code replace `var fwPackageUri = request.payload.fwPackageUri;` with `var fwPackageUri = JSON.parse(request.payload).fwPackageUri;`, else `fwPackageUri` will be undefined.
-> 
-> 
 
 ## Trigger a remote firmware update on the device using a direct method
 In this section, you create a Java console app that initiates a remote firmware update on a device. The app uses a direct method to initiate the update and uses device twin queries to periodically get the status of the active firmware update.
@@ -220,6 +215,11 @@ In this section, you create a Java console app that initiates a remote firmware 
     `mvn clean package -DskipTests`
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
+
+> [!NOTE]
+> To utilize payload parameters recieved by the simulated Node device, in the above code replace `var fwPackageUri = request.payload.fwPackageUri;` with `var fwPackageUri = JSON.parse(request.payload).fwPackageUri;`, else `fwPackageUri` will be undefined.
+> 
+> 
 
 ## Run the apps
 You are now ready to run the apps.
