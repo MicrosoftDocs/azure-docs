@@ -180,7 +180,7 @@ Diagnostics log outputs query hashes for the queries that have been identified t
 > [!TIP]
 > Did you know that Azure built-in intelligence can automatically manage the best performing indexes for your databases?
 >
-> For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning](sql-database/sql-database-automatic-tuning.md) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates indexes for your databases.
+> For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning](sql-database-automatic-tuning.md) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates indexes for your databases.
 >
 
 ## New query
