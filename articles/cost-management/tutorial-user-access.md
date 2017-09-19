@@ -15,9 +15,9 @@ manager: carmonm
 
 # Assign access to cost management data
 
-Access to cost management data is provided by user and entity management. Cloudyn user accounts determine access levels to *entities* and administrative functions. There two types of access: admin and user. Unless modified per user, admin access allows a user unrestricted use of all functions in the Cloudyn portal, including: allow user management, allow Recipient lists Management and root access to all entity data. User access is intended for end users to view reports and create reports using the access they have to entity data.
+Access to cost management data is provided by user or entity management. Cloudyn user accounts determine access to *entities* and administrative functions. There two types of access: admin and user. Unless modified per user, admin access allows a user unrestricted use of all functions in the Cloudyn portal, including: user management, recipient lists management and root entity access to all entity data. User access is intended for end users to view reports and create reports using the access they have to entity data.
 
-Entities define your business organization in a hierarchical structure and identify departments, divisions, and teams in your organization. The entity hierarchy helps you accurately track spending by the entities.
+Entities are used to reflect your business organization's hierarchical structure. They identify departments, divisions, and teams in your organization in Cloudyn. The entity hierarchy helps you accurately track spending by the entities.
 
 When you registered your Azure agreement or account, an account with admin permission was created in Cloudyn, so you can perform all the steps in this tutorial. This tutorial covers access to cost management data including  user management and entity management. You learn how to:
 
@@ -32,9 +32,9 @@ When you registered your Azure agreement or account, an account with admin permi
 
 Although you already have admin access, coworkers in your organization might also need to have admin access. In the Cloudyn portal, click **Settings** in the upper right and select **User Management**. Click **Add New User** to add a new user.
 
-Enter required information about the user. You can leave the password field empty so that the user can set a new password when the sign in. A link with sign in information gets sent to by e-mail from Cloudyn when you select **Notify user by email**. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management to allow the user to edit recipient lists.
+Enter required information about the user. You can leave the password field empty so that the user can set a new password on first sign in. A link with sign in information gets sent to the user by e-mail from Cloudyn when you select **Notify user by email**. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management to allow the user to edit recipient lists.
 
-Under **User has admin access**, the root entity of your organization is selected. Leave root selected and then save the user information.
+Under **User has admin access**, the root entity of your organization is selected. Leave root selected and then save the user information. Selecting the root entity allows the user to have admin permission not only to the root entity in the tree, but also to all the entities that reside below it.  
   ![add new user with admin access](.\media\tutorial-user-access\new-admin-access.png)
 
 ## Create a user with user access
@@ -48,15 +48,17 @@ Typical users that need access to cost management data like dashboards and repor
 
 ## Create entities
 
-When you define your cost entity hierarchy, it identifies the structure of your organization. How you build and organize the structure is up to you. Individual subscriptions for your cloud accounts are linked to specific entities. So, entities are multi-tenant. You can assign specific users access to only their segment of your business using entities. Doing so keeps data isolated, even across large portions of a business like subsidiaries. And, data isolation helps with governance.  
+When you define your cost entity hierarchy, a best practice is to identify the structure of your organization.
 
-When you registered your Azure agreement or account with Cloudyn, your Azure resource data including usage, performance, billing, and tag data from your subscriptions was copied to your Cloudyn account. That data was used to create entities in Cloudyn.
+As you build the tree, consider how you want or need to see their costs segregated by business units, cost centers, environments, and sales departments. The entity tree in Cloudyn is flexible due to entity inheritance. Individual subscriptions for your cloud accounts are linked to specific entities. So, entities are multi-tenant. You can assign specific users access to only their segment of your business using entities. Doing so keeps data isolated, even across large portions of a business like subsidiaries. And, data isolation helps with governance.  
 
-In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**. Review the entity tree to see how the structure looks. Here's an example of an entity hierarchy that might resemble many IT organizations:
+When you registered your Azure agreement or account with Cloudyn, your Azure resource data including usage, performance, billing, and tag data from your subscriptions was copied to your Cloudyn account. However, you must manually create your entity tree. If you skipped the ARM registration, then only billing data and a few asset reports are available in the Cloudyn portal.
+
+In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**. You start with a single entity (root) and build your entity tree under the root. Here's an example of an entity hierarchy that might resemble many IT organizations after the tree is complete:
 
 ![entity tree](.\media\tutorial-user-access\entity-tree.png)
 
-Next to **Entities**, click **Add Entity**. Enter information about the person or department that you want to add. If you want to view a list of access levels, search in help for *Adding an entity*.
+Next to **Entities**, click **Add Entity**. Enter information about the person or department that you want to add. The **Full Name** and **Email** fields to do not have to match existing users. If you want to view a list of access levels, search in help for *Adding an entity*.
 
 ![add entity](.\media\tutorial-user-access\add-entity.png)
 

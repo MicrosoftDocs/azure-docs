@@ -26,9 +26,9 @@ Reports help you monitor spending to analyze and track cloud usage, costs, and t
 
 ## Manage costs
 
-Historical data can help manage costs when you analyze usage and costs over time to identify trends. Trends are then used to forecast future spending. Cost Management also includes many projected cost reports.
+Historical data can help manage costs when you analyze usage and costs over time to identify trends. Trends are then used to forecast future spending. Cost Management also includes useful projected cost reports.
 
-Cost allocation manages costs by analyze your costs based on your tagging policy. You can use tags on your custom accounts, resources, and entities to refine cost allocation. Category Manager organizes your tags to help provide additional governance. And, you use cost allocation for showback/chargeback to show resource utilization and associated costs to influence consumption behaviors or charge tenant customers.
+Cost allocation manages costs by analyzing your costs based on your tagging policy. You can use tags on your custom accounts, resources, and entities to refine cost allocation. Category Manager organizes your tags to help provide additional governance. And, you use cost allocation for showback/chargeback to show resource utilization and associated costs to influence consumption behaviors or charge tenant customers.
 
 Access control helps manage costs by ensuring that users and teams access only the cost management data that they needed. You use entity structure, user management, and scheduled reports with recipient lists to assign access.
 
@@ -36,7 +36,7 @@ Alerting helps manage costs by notifying you automatically when unusual spending
 
 ## Improve efficiency
 
-You can determine optimal VM usage and identify idle VMs with Cost Management. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs.
+You can determine optimal VM usage and identify idle VMs or remove idle VMs and unattached disks with Cost Management. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs.
 
 ![sizing recommendations](.\media\overview\sizing.png)
 

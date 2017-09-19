@@ -25,7 +25,7 @@ You use your Azure subscription to register with Azure Cost Management by Cloudy
 ## Access Cloudyn from the Azure Marketplace
 
 1. In the Azure portal, click on **New** on the left navigation bar.
-2. Click **Monitoring + Management** in the Marketplace gallery list and then select **Cost Management by Cloudyn** from the Featured list.  
+2. Click **Monitoring + Management** in the Marketplace gallery list and then select **Cost Management by Cloudyn** from the featured list.  
     ![Marketplace symbol](./media/quick-register-azure-sub/marketplace.png)
 4. On the **Cost Management** details page, click **Create** to open the welcome page.  
 5. On the welcome page, click **Go to Cloudyn** to open the Cloudyn registration page in a new window.
@@ -35,9 +35,9 @@ You use your Azure subscription to register with Azure Cost Management by Cloudy
     ![trial registration](./media/quick-register-azure-sub/trial-reg-ind.png)
 2. Select your **Rate ID** associated with your subscription. If you're unsure of what your Rate ID is for your subscription, you can view your Azure bill and look for **Offer ID**. The Offer ID is the same as your **Rate ID**.
 3. Agree to the Terms of Use then validate your information and then click **Next**.
-4. In the Gather additional data page, click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
+4. In the **Gather additional data** page, click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
     ![gather additional data](./media/quick-register-azure-sub/gather-additional.png)
-5. Your browser takes you to the sign in page for Cloudy. Sign in with your Azure subscription credentials.
+5. Your browser takes you to the sign in page for Cloudyn. Sign in with your Azure subscription credentials.
 4. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Accounts Management** page, you should see your Azure subscription account information.  
     ![Accounts Management](./media/quick-register-azure-sub/accounts-mgt.png)
 
