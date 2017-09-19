@@ -20,10 +20,10 @@ ms.author: v-daljep
 ---
 # Troubleshoot Azure SQL Database performance issues with Intelligent Insights
 
-This page provides information on Azure SQL Database performance issues detected through [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. This diagnostics log can be sent to [Azure Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql), [Azure Event Hub](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs), [Azure Storage](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
+This page provides information on Azure SQL Database performance issues detected through [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. This diagnostics log can be sent to [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
-> ***For a quick Azure SQL Database performance troubleshooting guide through Intelligent Insights, see [Recommended flow of troubleshooting](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-flow-of-troubleshooting) flowchart in this document.***
+> For a quick Azure SQL Database performance troubleshooting guide through Intelligent Insights, see [Recommended flow of troubleshooting](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-flow-of-troubleshooting) flowchart in this document.
 >
 
 ## Detectable Database Performance Patterns
@@ -49,7 +49,7 @@ Intelligent Insights automatically detects performance issues with Azure SQL Dat
 | [Pricing tier downgrade](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Pricing tier reduction resulted in decrease of the resources available to Azure SQL Database affecting its performance. |
 
 > [!TIP]
-> ***For continuous performance optimization of Azure SQL Database you might want to consider enabling [Azure SQL Database Automatic Tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes indexes and query execution plans for your databases.***
+> For continuous performance optimization of Azure SQL Database you might want to consider enabling [Azure SQL Database Automatic Tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes indexes and query execution plans for your databases.
 >
 
 The following section describes the previously listed database performance detection patterns in more detail.
@@ -178,9 +178,9 @@ Specific queries that have caused a statistically significant performance degrad
 Diagnostics log outputs query hashes for the queries that have been identified to impact the workload performance. You might want to consider building indexes for these queries. You might also want to consider also optimizing or removing these queries if they are not required. It is a good performance practice to avoid querying data that you do not use.
 
 > [!TIP]
-> ***Did you know that Azure built-in intelligence can automatically manage the best performing indexes for your databases?
+> Did you know that Azure built-in intelligence can automatically manage the best performing indexes for your databases?
 >
-> For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates indexes for your databases.***
+> For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning](sql-database/sql-database-automatic-tuning.md) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates indexes for your databases.
 >
 
 ## New query
@@ -195,7 +195,7 @@ Writing a good performing query sometimes can be a challenging task. For more in
 
 Diagnostics log outputs information on the new query with the poor performance, including the query hashes. As the detected query is impacting the workload performance, you might want to consider optimizing your query. Good practice is not to retrieve data you do not use. Using queries with WHERE clause is also advisable. Simplifying complex queries and breaking up into smaller queries is also recommended. Breaking down large batch queries into smaller batch queries is also a good practice to consider. Introducing indexes for new queries is typically a good practice to mitigate this performance issue.
 
-You might want to consider using the Azure SQL query optimizer that is similar to the traditional SQL server query optimizer. See [Azure SQL Database Query Performance Insight](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-query-performance).
+You might want to consider using the Azure SQL query optimizer that is similar to the traditional SQL server query optimizer. See [Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
 ## Unusual wait statistic
 
@@ -203,7 +203,7 @@ You might want to consider using the Azure SQL query optimizer that is similar t
 
 This detectable performance pattern indicates a workload performance degradation in which poor performing queries are identified compared to the past 7-days workload baseline.
 
-In this case the system could not classify the poor performing queries under any other standard detectable performance categories and is therefore considering them as queries with ***&#8220;unusual wait statistics&#8221;***. You might think of this condition as if the system has detected poor performing queries doe to some miscellaneous reasons. In this case it was not possible to automate detection of the root cause of the query poor performance. 
+In this case the system could not classify the poor performing queries under any other standard detectable performance categories and is therefore considering them as queries with &#8220;*unusual wait statistics*&#8221;. You might think of this condition as if the system has detected poor performing queries doe to some miscellaneous reasons. In this case it was not possible to automate detection of the root cause of the query poor performance. 
 
 ### Troubleshooting
 
@@ -229,7 +229,7 @@ You might want to stop using the temporary tables. You might consider enabling t
 
 This detectable performance pattern indicates a degradation in the current database workload performance compared to the last 7-day baseline due to the shortage of available DTUs in the elastic pool of your subscription. 
 
-Resources on Azure SQL Database are typically referred as [DTU resources](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu) consisting of a blended measure of CPU and I/O (data and transaction log I/O) resources. [Azure elastic pool resources](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-pool) are used as a pool of available eDTU resources shared between multiple databases for scaling purposes. In the case when available eDTU resources in your elastic pool are not sufficiently large to support all of your database workloads, Elastic Pool DTU Shortage performance issue is detected by the system. 
+Resources on Azure SQL Database are typically referred as [DTU resources](sql-database-what-is-a-dtu.md) consisting of a blended measure of CPU and I/O (data and transaction log I/O) resources. [Azure elastic pool resources](sql-database-elastic-pool.md) are used as a pool of available eDTU resources shared between multiple databases for scaling purposes. In the case when available eDTU resources in your elastic pool are not sufficiently large to support all of your database workloads, Elastic Pool DTU Shortage performance issue is detected by the system. 
 
 ### Troubleshooting
 
@@ -247,7 +247,7 @@ This detectable performance pattern denotes a condition in which Azure SQL Datab
 
 A query execution plan is an ordered set of steps used to access data in SQL database. The SQL engine determines the query execution plan type with the least cost to a query execution. However, as the type of queries and workloads change, sometimes the existing plans are no longer efficient, or perhaps the SQL engine did not make a good assessment. As a matter of correction, query execution plans can be manually forced. 
 
-This detectable performance pattern combines three different cases of plan regression: new plan regression, old plan regression and existing plans changed workload. The type of which particular plan regression has occurred are provided in the &#8220;***details***&#8221; property in the diagnostics log.
+This detectable performance pattern combines three different cases of plan regression: new plan regression, old plan regression and existing plans changed workload. The type of which particular plan regression has occurred are provided in the &#8220;*details*&#8221; property in the diagnostics log.
 
 The new plan regression condition refers to a state in which SQL engine starts executing a new query execution plan that is not as efficient as the old plan. The old plan regression condition refers to the state when SQL engine switches from using a new, more efficient plan, to the old plan which is not as efficient as the new plan. The existing plans changed workload regression condition refers to the state in which two plans, old plan and the new plan are continuously being alternated, with the balance going more towards the poor performing plan.
 
@@ -260,12 +260,12 @@ Diagnostics log outputs the query hashes, good plan ID, bad plan ID, and query I
 You might want to analyze which plan is better performing for your specific queries that you can identify with the query hashes provided. Once you determine which plan works better for your queries, you can manually force a particular plan setting “FORCE_LAST_GOOD_PLAN=ON”. For more information, see [How SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
 > [!TIP]
-> **Did you know that Azure built-in intelligence can automatically manage the best performing query execution plans for your databases?**
+> Did you know that Azure built-in intelligence can automatically manage the best performing query execution plans for your databases?
 >
-> ***For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates best-performing query execution plans for your databases.***
+> For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning](sql-database-automatic-tuning.md) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates best-performing query execution plans for your databases.
 >
 
-## Database-scoped configuration value change
+## Database scoped configuration value change
 
 ### What is happening
 
@@ -321,4 +321,4 @@ Intelligent Insights usually needs 1hr of time to perform the root cause analysi
 - [Intelligent Insights Concept](sql-database-intelligent-insights.md)
 - [Use Intelligent Insights Azure SQL Database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [Monitor Azure SQL Database using Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
-- [Collect and consume log data from your Azure resources](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+- [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)

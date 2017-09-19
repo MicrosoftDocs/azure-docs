@@ -22,7 +22,7 @@ ms.author: v-daljep
 
 ***&#8220;Intelligent Insights lets you know what is happening with your database performance.&#8221;***
 
-Azure SQL Database built-in intelligence continuously monitors database usage through ***artificial intelligence*** and detects disruptive events that cause poor performance. Once detected, a detailed analysis is performed generating a diagnostic log with intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and where possible recommendations for performance improvements – that is ***&#8220;intelligent insights.&#8221;*** 
+Azure SQL Database built-in intelligence continuously monitors database usage through artificial intelligence and detects disruptive events that cause poor performance. Once detected, a detailed analysis is performed generating a diagnostic log with intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and where possible recommendations for performance improvements – that is ***&#8220;intelligent insights.&#8221;*** 
 
 ## What can Intelligent Insights do for you
 
@@ -71,7 +71,8 @@ Performance issues recorded in the diagnostic log are flagged with one of the th
 
 ## Using Intelligent Insights
 
-Intelligent Insights diagnostics log can be sent to Azure Log Analytics, Azure Event Hub, and Azure Storage as described at [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md). Once the log is sent to one of these targets, the log can be used for custom alerting and monitoring development using Microsoft or third-party tools.
+Intelligent Insights diagnostics log can be sent to Azure Log Analytics, Azure Event Hub, and Azure Storage as described at [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md). Once the log is sent to one of these targets, the log can be used for custom alerting and monitoring development using Microsoft or third-party tools. For Azure SQL Database performance troubleshooting how-to using Intelligent Insights, see
+[Troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
 ## Built-in Intelligent Insights analytics with Azure Log Analytics 
 
@@ -83,7 +84,7 @@ Once Intelligent Insights diagnostics log has been configured to stream data to 
 
 ## Custom integrations of Intelligent Insights Log
 
-For custom alerting and monitoring development, using Microsoft or third-party tools, see [Use Intelligent Insights database performance diagnostics log document](sql-database-intelligent-insights-use-diagnostics-log.md)
+For custom alerting and monitoring development, using Microsoft or third-party tools, see [Use Intelligent Insights database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## How to set up Intelligent Insights with Azure Event Hub
 
