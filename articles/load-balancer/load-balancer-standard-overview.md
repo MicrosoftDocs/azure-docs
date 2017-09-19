@@ -97,7 +97,7 @@ Load Balancer Standard provides new multi-dimensional diagnostic capabilities fo
 
 | Metric | Description |
 | --- | --- |
-| VIP Availability | Azure Load Balancer continuously exercises the data path from within a region to the Load Balancer frontend and finally the SDN stack supporting your VM.  As long as healthy instances remain, the measurement follows the same path as your applications load balanced traffic. The measurement is invisible to your application and does not interfere. |
+| VIP Availability | Azure Load Balancer continuously exercises the data path from within a region to the Load Balancer frontend and finally to the SDN stack supporting your VM.  As long as healthy instances remain, the measurement follows the same path as your applications load balanced traffic. The measurement is invisible to your application and does not interfere. |
 | DIP Availability | Azure Load Balancer uses a distributed health probing service that monitors your application endpoint's health according to what you have configured.  This metric provides an aggregate or per endpoint filtered view of each individual endpoint in the Load Balancer pool |
 | SYN packets | Azure Load Balancer does not terminate TCP connections or interact with TCP or UDP packet flows.  To troubleshoot your scenario, it can be useful to understand how many TCP connection attempts are made.  This metric reports the number of TCP SYN packets, which were received and may reflect clients attempting to establish connections to your service. |
 | SNAT connections | Azure Load Balancer reports the number of outbound connections masqueraded to the public IP address frontend. |
