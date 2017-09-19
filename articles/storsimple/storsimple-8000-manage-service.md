@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 09/19/2017
 ms.author: alkohli
 
 ---
@@ -64,9 +64,13 @@ The option to migrate to the Azure portal is available in phases. If you do not 
 
 Review the impact of migrating to the new Azure portal before you move the service.
 
+
+> [!NOTE]
+> The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager (ARM) SDK. For scripts using ARM SDK, refer the [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools). The new Azure portal supports devices running Update 3.0 or later. If your device is not up to date, we strongly recommend that you apply Update 5 as soon as possible.
+
 #### Before you transition
 
-* Your device is running Update 3.0 or later. If your device is running an older version, install the latest updates. For more information, go to [Install Update 4](storsimple-8000-install-update-4.md). If using a StorSimple Cloud Appliance (8010/8020), create a new cloud appliance with Update 4.0. 
+* Your device is running Update 3.0 or later. If your device is running an older version, install the latest updates. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If using a StorSimple Cloud Appliance (8010/8020), create a new cloud appliance with Update 5.0.
 
 * Once you are transitioned to the new Azure portal, you cannot use the Azure classic portal to manage your StorSimple device.
 
@@ -92,7 +96,9 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 Perform the following steps to transition your service to the Azure portal.
 
-1. Go to your existing StorSimple Manager service in the classic portal.
+1. Go to your existing StorSimple Manager service in the new Azure portal.
+    ![More services](service-browse01.png)
+    ![Select device manager](service-browse02.png)
 
 2. You see a notification that informs you that the StorSimple Device Manager service is now available in the Azure portal. Note that in the Azure portal, the service is referred to as StorSimple Device Manager service.
 
@@ -243,13 +249,18 @@ These steps must be performed in the Windows PowerShell interface of your StorSi
 
 Perform the following steps to update the service data encryption on your device.
 
-#### To update the service data encryption key
+#### To update the service data encryption key on physical devices
 1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1 to log on with full access.
 2. At the command prompt, type:
-   
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](#to-initiate-the-service-data-encryption-key-change).
 
+#### To update the service data encryption key on all the 8010/8020 cloud appliances
+1. Download and setup [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell script. 
+2. Open PowerShell and at the command prompt, type: 
+    `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+
+This script will ensure that service data encryption key is set on all the 8010/8020 cloud appliances under the device manager.
 
 ## Next steps
 * Learn more about the [StorSimple deployment process](storsimple-8000-deployment-walkthrough-u2.md).
