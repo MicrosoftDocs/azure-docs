@@ -78,7 +78,7 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
    - Use the **Blank Project** template.
    - Name your project **BikeShare**. 
 
-## Create a new Data Source
+## <a id="newdatasource"></a>Create a new Data Source
 
 1. Create a new data source. Click the **Data** button (cylinder icon) on the left toolbar. This displays the **Data View**.
 
@@ -88,8 +88,9 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
 
    ![Image of the Add Data Source entry](media/tutorial-bikeshare-dataprep/newdatasource.png)
 
-## Complete the Add Data Source Steps
-1. **Data Store**: Select the data store that contains the data. Since we are using files, select **File(s)/Directory**. Select **Next** to continue.
+## Add weather data
+
+1. **Data Store**: Select the data store that contains the data. Since you are using files, select **File(s)/Directory**. Select **Next** to continue.
 
    ![Image of the File(s)/Directory entry](media/tutorial-bikeshare-dataprep/datasources.png)
 
@@ -97,9 +98,7 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
 
    ![Image of the file selection with BostonWeater.csv selected](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
 
-3. **File Details**: Verify the file schema that is detected
-
-   The __File Details__ section displays the file ingestion parameters. Azure Machine Learning Workbench analyzes the data in the file and infers the schema to use. 
+3. **File Details**: Verify the file schema that is detected. Azure Machine Learning Workbench analyzes the data in the file and infers the schema to use. 
 
    ![Image of the File Details](media/tutorial-bikeshare-dataprep/fileparameters.png)
 
@@ -122,9 +121,7 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
 
    To continue, select **Next**.
 
-4. **Data Types**: Review the data types that are detected automatically.
-
-   The __Data Types__ section displays the data types for the columns. Azure Machine Learning Workbench analyzes the data in the file and infers the data types to use.
+4. **Data Types**: Review the data types that are detected automatically. Azure Machine Learning Workbench analyzes the data in the file and infers the data types to use.
 
    For this data, change the `DATA TYPE` of all columns to `String`.
 
@@ -135,13 +132,7 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
 
    To continue, select __Next__. 
 
-5. **Sampling**: Create the data sampling amount.
-
-   The __Data sampling__ section allows you to set the sampling scheme. The default scheme is __Top 10000__.
-
-   ![Image of the data sampling with default of top 10000](media/tutorial-bikeshare-dataprep/newsample.png)
-
-   To create a new sampling scheme, select the **+ New** button. Select the new __Top 10000__ row that is added, and then select __Edit__. Set __Sample Strategy__ to **Full File**, and then select **Apply**.
+5. **Sampling**: To create a sampling scheme, select the **+ New** button. Select the new __Top 10000__ row that is added, and then select __Edit__. Set __Sample Strategy__ to **Full File**, and then select **Apply**.
 
    ![Image of adding a new sampling strategy](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
 
@@ -166,19 +157,20 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
 
    ![Image displaying the data source, sample, and steps](media/tutorial-bikeshare-dataprep/weatherdataloaded.png)
 
-## View Data Source metrics
+### View data source metrics
 
-1.  Select the __Metrics__ button at the top left of the tab's grid view. This view displays the distribution and other aggregated statistics of the sampled data.
+Select the __Metrics__ button at the top left of the tab's grid view. This view displays the distribution and other aggregated statistics of the sampled data.
 
-2. To configure the visibility of the statistics, use the **Choose Metric** dropdown. Check and uncheck metrics there to change the grid view.
+![Image of the Metrics displays](media/tutorial-bikeshare-dataprep/weathermetrics.png)
 
-   ![Image of the Metrics displays](media/tutorial-bikeshare-dataprep/weathermetrics.png)
+> [!NOTE]
+> To configure the visibility of the statistics, use the **Choose Metric** dropdown. Check and uncheck metrics there to change the grid view.
 
-3. Return to the __Data View__. Select __Data__ button on the upper left.
+To return the __Data View__, select __Data__ from the upper left of the page.
 
 ## Add Data Source to Data Preparation package
 
-1. Select the  __Prepare__ button to begin preparing the data. 
+1. Select __Prepare__ to begin preparing the data. 
 
 2. When prompted, enter a name for the Data Preparation package, such as `BikeShare Data Prep`. 
 
@@ -204,17 +196,17 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
 
    ![Image of the filter dialog](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
-   > [!TIP]
-   > You can also perform the same filter operation by right-clicking on the __REPORTTYPE__ column header, and then select __Filter Column__. Select **Keep Rows If this Column Equals** `FM-15`. Any rows that do not match are removed.
+   > [!NOTE]
+   > FM-15 is a type of Meteorological Terminal Aviation Routine Weather Report (METAR). The FM-15 reports are empirically observed to be the most complete, with listtle missing data.
 
 ## Remove a column
 
-We no longer need the __REPORTTYPE__ column. Right-click on the column header and select **Remove Column**.
+You no longer need the __REPORTTYPE__ column. Right-click on the column header and select **Remove Column**.
 
    ![Image of the remove column option](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## Change datatypes and remove errors
-1. Select multiple columns in the data grid. Press __Ctrl__ and **click** on the column headers. Select the following columns:
+1. Pressing __Ctrl__ while selecting column headers allows you to select multiple columns at once. Use this to select the following column headers:
    * **HOURLYDRYBULBTEMPF**
    * **HOURLYRelativeHumidity**
    * **HOURLYWindSpeed**
@@ -272,304 +264,324 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
    ![Image of review row](media/tutorial-bikeshare-dataprep/weatherreviewnextsuggested.png)
 
-5. Select __OK__ to accept the transformation.
-
-   ![Select OK to continue](media/tutorial-bikeshare-dataprep/weathernavigatetosuggested.png)
+    Select __OK__ to accept the transformation.
  
-6. You are returned to the grid view of data for __BostonWeather__. The grid now contains the three columns added previously.
+5. You are returned to the grid view of data for __BostonWeather__. The grid now contains the three columns added previously.
 
    ![Image of grid view with added rows](media/tutorial-bikeshare-dataprep/timerangecomputed.png)
 
    > [!TIP]
-   >  All the changes you have made are preserved on the **Steps** pane. Go to the step that we created now in the **Steps** pane, click on the down arrow and select **Edit**. The advanced window for **Derive Column by Example** is displayed. All your examples are preserved here. You can also add examples manually by double-clicking on a row in the grid below. Select **Cancel** to return to the main grid without applying changes. You can also access this view by selecting **Advanced Mode** while performing a **Derive Column by Example** transform.
+   >  All the changes you have made are preserved on the **Steps** pane. Go to the step that you created in the **Steps** pane, click on the down arrow and select **Edit**. The advanced window for **Derive Column by Example** is displayed. All your examples are preserved here. You can also add examples manually by double-clicking on a row in the grid below. Select **Cancel** to return to the main grid without applying changes. You can also access this view by selecting **Advanced Mode** while performing a **Derive Column by Example** transform.
 
-7. Rename the newly created column to *Hour Range* by double-clicking the column name, renaming it, and pressing **Enter** after renaming.
+6. To rename the column, double-click the column header and type **Hour Range**. Press **Enter** to save the change.
 
    ![Renaming column](media/tutorial-bikeshare-dataprep/weatherhourrangecolumnrename.png)
 
-8. Now let's use the *DATE_1* column and the *Hour Range* columns as inputs to create *Date Hour Range* column by example.
+7. To derive the date and hour range, multi-select the **Date\_1** and **Hour Range** columns, right-click, and then select **Derive column by example**.
 
-Follow similar steps for deriving the column. This time, multi-select *DATE_1* and  *Hour Range* columns by holding **Ctrl** key while selecting the two columns. Right-click, and select **Derive column by example**.
+   ![Deriving column by example](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
 
-![](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
+   Type `Jan 01, 2015 12AM-2AM` as the example against the first row and press **Enter**.
 
-Type "Jan 01, 2015 12AM-2AM" as the example against the first row and click **Enter**.
+   The Workbench performs two transformations based on this example. First, it converts the date format, then it concatenates the date with the two-hour window.
 
-Notice that Workbench does two transformations in single go just using examples. First, it converts the data format, and second, it concatenates the data with values from the other column.
+   ![Image of the example `Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-![](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
+8. Wait for the status to change from **Analyzing Data** to **Review next suggested row**. This may take several seconds. Select the status link to navigate to the suggested row. 
 
-Wait for the status to change from **Analyzing Data** to **Review next suggested row**. This may take several seconds. Click on the status link to navigate to the suggested row. 
+   ![Image of the suggested row to review](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguate.png)
 
-![](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguate.png)
+   The row has a null value because the source date value could be for either dd/mm/yyyy or mm/dd/yyyy. Type the correct value of `Jan 13, 2015 2AM-4AM` and press **Enter**. The workbench uses the two examples to improve the derivation for the remaining rows.
 
-Notice that row has null value. This is because it is trying to interpret the date in *dd/mm/yyyy* format. Type in the correct expected value "Jan 13, 2015 2AM-4AM" here and press **Enter**. Workbench then uses the two examples given so far and learns a revised program.
+   ![Image of correctly formatted data](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguated.png)
 
-![](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguated.png)
+9. Select **OK** to accept the transform.
 
-Press **OK** to accept the transform. 
+   ![Image of the completed transformation grid](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
 
-Scroll to the top of the grid.
+   > [!TIP]
+   > You can use the advanced mode of **Derive column by example** for this step by clicking the down arrow in the **Steps** pane. In the data grid, there are checkboxes next to the column names **DATE\_1** and **Hour Range** columns. Uncheck the checkbox next to the **Hour Range** column to see how this changes the output. In the absence of the **Hour Range** column as input, **12AM-2AM** is treated as a constant and is appended to the derived values. Select **Cancel** to return to the main grid without applying your changes.
 
-You should see the following screen:
+10. To rename the column, double-click the header. Change the name to **Date Hour Range** and then press **Enter**.
 
-![](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
-
-> **Try This:** Go to the advanced mode of **Derive column by example** for the step we created now by clicking the down arrow in the **Steps** pane. In the data grid, notice the checkboxes next to the column names *DATE_1* and *Hour Range* columns. Uncheck the checkbox next to the *Hour Range* column. Notice how the output changes. In the absence of the *Hour Range* column as input, *12AM-2AM* is treated as a constant and appends it to all the derived values. Press Cancel in this dialog to return to the main grid without applying your changes.
-
-Rename the newly created column named *Column* to "Date Hour Range" by double-clicking the column name, renaming it, and pressing enter after renaming.
-
-Multi-select *DATE, DATE_1, DATE_2, and Hour Range* columns, Right-click, and select **Remove column**.
+11. Multi-select the **DATE**, **DATE\_1**, **DATE\_2**, and **Hour Range** columns. Right-click, and then select **Remove column**.
 
 ## Summarize data (Mean)
 
-We want to summarize the weather conditions by taking the mean of the values, grouped by the Hour Ranges. Select the *Date Hour Range* column and click on the **Summarize** option from the **Transform menu**.
+The next step is to summarize the weather conditions by taking the mean of the values, grouped by hour range.
 
-![](media/tutorial-bikeshare-dataprep/weathersummarizemenu.png)
+1. Select the **Date Hour Range** column, and then select **Summarize** from the **Transforms** menu.
 
-You should see the following screen: Drag and Drop *Hour Range* column from the bottom grid to the left pane that says **Drag columns here to group data**. Similarly, drag and drop *HOURLYDRYBULBTEMPF*, *HOURLYRelativeHumidity*, and *HOURLYWindSpeed* from the grid to the right pane that says **Drag columns here to summarize data**. Select **Mean** as the *Aggregate* measure from the dropdowns. Click **OK** to complete the summarization.
+    ![Transforms menu](media/tutorial-bikeshare-dataprep/weathersummarizemenu.png)
 
-![](media/tutorial-bikeshare-dataprep/weathersummarize.png)
+2. To summarize the data, you drag columns from the grid at the bottom of the page to the left and right panes at the top. The left pane contains the text **Drag columns here to group data**. The right pane contains the text **Drag columns here to summarize data**. 
 
-> **Try This:** Notice what other aggregate functions are available. Try selecting those. Send us feedback on what other aggregates you would like to see there.
+    Drag the **Date Hour Range** column from the grid at the bottom to the left pane. Drag **HOURLYDRYBULBTEMPF**, **HOURLYRelativeHumidity**, and **HOURLYWindSpeed** to the right pane. 
+
+    In the right pane, select **Mean** as the **Aggregate** measure for each column. Click **OK** to complete the summarization.
+
+   ![Image of summarized data screen](media/tutorial-bikeshare-dataprep/weathersummarize.png)
 
 ## Transform Dataflow using script
 
-We want to scale the values in the three numeric columns to a 0 to 1 range so that our model converges quickly. This is also often known as *normalization*. At present, there is no out-of-the-box transform for this. So, we use custom python code to achieve this.
+Changing the data in the numeric columns to a range of 0-1 allows a model to converge quickly. This is known as *normalization*. Currently there is no built-in transformation for normalization, but a Python script can be used to perform this operation.
 
-From the transform menu, select **Transform Dataflow**.
+1. From the **Transform** menu, select **Transform Dataflow**.
 
-![](media/tutorial-bikeshare-dataprep/weathertransformdataflow.png)
+2. Enter the following code in the textbox that appears. If you have used the column names, the code should work without modification. You are writing a simple min-max normalization logic in Python.
 
-Copy and paste the following code snippet into the textbox that appears. If you have not modified any column names, the code should work without modification. We are writing a simple min-max normalization logic in Python.
+    > [!WARNING]
+    > The script expects the column names used previously in this tutorial. If you have different column names, you must change the names in the script.
 
-```python
-maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
-maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
-minVal = min(df["HOURLYDRYBULBTEMPF_Mean"])
-df["HOURLYDRYBULBTEMPF_Mean"] = (df["HOURLYDRYBULBTEMPF_Mean"]-minVal)/(maxVal-minVal)
-df.rename(columns={"HOURLYDRYBULBTEMPF_Mean":"N_DryBulbTemp"},inplace=True)
+   ```python
+   maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
+   maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
+   minVal = min(df["HOURLYDRYBULBTEMPF_Mean"])
+   df["HOURLYDRYBULBTEMPF_Mean"] = (df["HOURLYDRYBULBTEMPF_Mean"]-minVal)/(maxVal-minVal)
+   df.rename(columns={"HOURLYDRYBULBTEMPF_Mean":"N_DryBulbTemp"},inplace=True)
 
-maxVal = max(df["HOURLYRelativeHumidity_Mean"])
-minVal = min(df["HOURLYRelativeHumidity_Mean"])
-df["HOURLYRelativeHumidity_Mean"] = (df["HOURLYRelativeHumidity_Mean"]-minVal)/(maxVal-minVal)
-df.rename(columns={"HOURLYRelativeHumidity_Mean":"N_RelativeHumidity"},inplace=True)
+   maxVal = max(df["HOURLYRelativeHumidity_Mean"])
+   minVal = min(df["HOURLYRelativeHumidity_Mean"])
+   df["HOURLYRelativeHumidity_Mean"] = (df["HOURLYRelativeHumidity_Mean"]-minVal)/(maxVal-minVal)
+   df.rename(columns={"HOURLYRelativeHumidity_Mean":"N_RelativeHumidity"},inplace=True)
 
-maxVal = max(df["HOURLYWindSpeed_Mean"])
-minVal = min(df["HOURLYWindSpeed_Mean"])
-df["HOURLYWindSpeed_Mean"] = (df["HOURLYWindSpeed_Mean"]-minVal)/(maxVal-minVal)
-df.rename(columns={"HOURLYWindSpeed_Mean":"N_WindSpeed"},inplace=True)
+   maxVal = max(df["HOURLYWindSpeed_Mean"])
+   minVal = min(df["HOURLYWindSpeed_Mean"])
+   df["HOURLYWindSpeed_Mean"] = (df["HOURLYWindSpeed_Mean"]-minVal)/(maxVal-minVal)
+   df.rename(columns={"HOURLYWindSpeed_Mean":"N_WindSpeed"},inplace=True)
 
-df
-```
+   df
+   ```
 
-> **Try This:** You can write whatever Python code you like here. At the end, return **df** and it loads the grid. Make sure to remove any additional code you wrote before proceeding. We are planning to provide few code templates as starters for users. What kind of operations you would like to see in the Templates? Send us feedback.
+    > [!TIP]
+    > The Python script must return `df` at the end. This value is used to populate the grid.
+    
+    ![Transform data flow script dialog](media/tutorial-bikeshare-dataprep/transformdataflowscript.png)
 
-With this, we are done with preparing the weather data.
+3. Select __OK__ to use the script. The numeric columns in the grid now contain values in the range of 0-1.
 
-Now, let's work on the trip data files that you downloaded from the Hubway website and unzipped into a folder. We first use `201701-hubway-tripdata.csv` trip data file as source to prepare our test data. Subsequently, we use `201501-hubway-tripdata.csv`, `201504-hubway-tripdata.csv`, `201510-hubway-tripdata.csv`, `201601-hubway-tripdata.csv`, `201604-hubway-tripdata.csv`, and `201610-hubway-tripdata.csv` files appended together as the source for our training data.
+    ![Grid containing values between 0 and 1](media/tutorial-bikeshare-dataprep/datagridwithdecimals.png)
 
-First we work with the `201701-hubway-tripdata.csv` data file to generate the data prep steps, and then we can run the same steps on the remaining files.
+You have finished preparing the weather data. Next, prepare the Hubway data.
 
-## Load new data file
+## Load trip data
 
-Follow the steps similar to D1 to create a **Data Source** for the `201701-hubway-tripdata.csv` file. Use **Full File** sampling scheme, make the sample active, and accept the default *Data Type* detection. This time, however, select *BikeShare Data Prep.dprep* from the dropdown in the Prepare step. By doing so, we are adding a new **Dataflow** to an existing **Data Preparation** file rather than creating a new one.
+1. To import the  `201701-hubway-tripdata.csv` file, use the steps in the [Create a new Data Source](#newdatasource) section. Use the following options during the import process:
 
-![](media/tutorial-bikeshare-dataprep/addjandatatodprep.png)
+    * __Sampling scheme__: **Full File** sampling scheme, make the sample active, and 
+    * __Data Type__: Accept the defaults.
 
-Wait until data is loaded in the grid.
+2. After importing the data, select the  __Prepare__ button to begin preparing the data. Select the existing **BikeShare Data Prep.dprep** package, and then select __OK__.
 
-Now you should see two **Dataflows** in the **DATAFLOWS** pane: *BostonWeather* and *201701-hubway-tripdata*. Click on the *201701-hubway-tripdata* if that is not already selected.
+    This process adds a **Dataflow** to the existing **Data Preparation** file rather than creating a new one.
 
-![](media/tutorial-bikeshare-dataprep/twodfsindprep.png)
+    ![Image of selecting the existing package](media/tutorial-bikeshare-dataprep/addjandatatodprep.png)
 
-For data preparation, there are a number of useful visualizations called **Inspectors** for String, Numeric, and Geographical data that help in understanding the data better and in identifying outliers. Let's use a few of those Inspectors.
+3. Once the grid has loaded, expand __DATAFLOWS__. There are now two dataflows: **BostonWeather** and **201701-hubway-tripdata**. Select the **201701-hubway-tripdata** entry.
+
+    ![Image of the 201701-hubway-tripdata entry](media/tutorial-bikeshare-dataprep/twodfsindprep.png)
 
 ## Use Map Inspector
 
-Let's visualize the lat, long columns using Map inspector. Multi-select the *start station latitude* and *start station longitude* columns using **CTRL key**, Right-click, and select **Map**.
+For data preparation, there are a number of useful visualizations called **Inspectors** for String, Numeric, and Geographical data that help in understanding the data better and in identifying outliers. Use the following steps to use the Map inspector:
 
-![](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
+1. Multi-select the **start station latitude** and **start station longitude** columns. Right-click one of the columns and then select **Map**.
 
-Notice a Map Inspector showing the plot of latitude and longitude of the start stations. Also notice the buttons highlighted by a red rectangle in the following image: 
+    > [!TIP]
+    > To enable multi-select, hold down __Ctrl__ and select the header for each column.
 
-**Hover over those buttons to find out their purpose.**
+    ![Image of the map visualization](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
-![](media/tutorial-bikeshare-dataprep/MapInspectorInWell.png)
+    > [!TIP]
+    > Notice the icons in the upper right corner of the map visualization. These icons are used in the next step to zoom in on the map.
+    >
+    > ![Map inspector visualization controls](media/tutorial-bikeshare-dataprep/MapInspectorInWell.png)
 
-Click on the **Maximize** button of the inspector. It maximizes the map. Then, click on **E** icon on the left-top side of the maximized map inspector to fit the map to the window.
+2. To maximize the map visualization, select the **Maximize** icon. To fit the map to the window, select the **E** icon on the left-top side of the visualization.
 
-![](media/tutorial-bikeshare-dataprep/maximizedmap.png)
+    ![Maximized image](media/tutorial-bikeshare-dataprep/maximizedmap.png)
 
-> **Try This:**  We can filter the data using the map inspector. Let's try to exclude the two bike stations that are to the immediate north of the *Logan International Airport*. Draw a rectangle around the two stations on the map by holding the **CTRL** key while moving the mouse. Notice the color of the selected data points change to blue. Click on the **Filter Out** button of the map inspector. You notice that the points disappear from the map and a new, **Advanced filter**, step is added to the **Dataflow**. Go to the Edit view of the newly created **Advanced filter** step to see the code that got generated for this filter operation. Delete this step  before proceeding.
-
-Click on the **Minimize** button, which is at the same location as the **Maximize** button, of the inspector and you should see your data back in the grid.
+3. Click on the **Minimize** button to return to the grid view.
 
 ## Use Column Statistics Inspector
 
-Next, let's inspect the summary statistics of the *trip duration* column.
+To use the column statistics inspector, right-click on the __tripduration__ column and select __Column Statistics__.
 
-Right-click on the _tripduration_ column and select **Column Statistics**.
+![Column statistics entry](media/tutorial-bikeshare-dataprep/tripdurationcolstats.png)
 
-![](media/tutorial-bikeshare-dataprep/tripdurationcolstats.png)
+This process adds a new visualization titled __tripduration Statistics__ in the __INSPECTORS__ pane.
 
-Notice a statistics inspector in the Inspectors pane.
+![Image of the tripduration Statistics inspector](media/tutorial-bikeshare-dataprep/tripdurationcolstatsinwell.png)
 
-![](media/tutorial-bikeshare-dataprep/tripdurationcolstatsinwell.png)
-
-Interestingly, the maximum value of the trip duration is *961,814 minutes*, which is about two years. It seems there are some outliers in the dataset.
+> [!IMPORTANT]
+> The maximum value of the trip duration is **961,814 minutes**, which is about two years. It seems there are some outliers in the dataset.
 
 ## Use Histogram Inspector
 
-Let's try to draw a Histogram of the tripduration column to see if we can identify the outliers. Right-click on the *tripduration* column and select **Histogram**. You should see the following histogram in the Inspectors pane.
+To attempt to identify the outliers, right-click the __tripduration__ column and select __Histogram__.
 
-![](media/tutorial-bikeshare-dataprep/tripdurationhistogram.png)
+![Histogram inspector](media/tutorial-bikeshare-dataprep/tripdurationhistogram.png)
 
-It is not helpful as the outliers are skewing the graph. How about we take a log of the trip duration? 
-
+The histogram is not helpful, as the outliers are skewing the graph.
 
 ## Add column using script
 
-Right-click on the *tripduration* column and select **Add Column (Script)**.
+1. Right-click on the **tripduration** column and select **Add Column (Script)**.
 
-![](media/tutorial-bikeshare-dataprep/computecolscript.png)
+    ![Image of the add column (script) menu](media/tutorial-bikeshare-dataprep/computecolscript.png)
 
-It opens a dialog where we can write Python script to compute a new column. Fill the dialog as shown and click **OK**.
+2. In the __Add Column (Script)__ dialog, use the following values:
 
-![](media/tutorial-bikeshare-dataprep/computecolscriptdialog.png)
+    * __New Column Name__: logtripduration
+    * __Insert this New Column After__: tripduration
+    * __New Column Code__: `math.log(row.tripduration)`
+    * __Code Block Type__: Expression
 
-A new column, *logtripduration*, gets added. Right-click on the column and select **Histogram**. You should see the following Histogram:
+   ![The Add Column (Script) dialog](media/tutorial-bikeshare-dataprep/computecolscriptdialog.png)
 
-![](media/tutorial-bikeshare-dataprep/logtriphistogram.png)
+3. Select __OK__ to add the **logtripduration** column.
 
-Visually, it seems like a Normal Distribution with an abnormal tail. Let's use visual inspection and decide that we want to drop all the rows where the log of *tripduration* is greater than *9*.
+4. Right-click on the column and select **Histogram**.
+
+    ![Histogram of the logtripduration column](media/tutorial-bikeshare-dataprep/logtriphistogram.png)
+
+  Visually, this histogram seems like a Normal Distribution with an abnormal tail.
 
 ## Use Advanced Filter
 
-Right-click on the *logtripduration* column and select **Filter Column**. You should see the following dialog:
+Using a filter on the data updates the inspectors with the new distribution. Right-click on the **logtripduration** column and select **Filter Column**. In the __Edit__ dialog, use the following values:
 
-Change the filter condition as shown in the dialog and click **OK**.
+* __Filter this Number Column__: logtripduration
+* __I Want To__: Keep Rows
+* __When__: Any of the Conditions below are True (logical OR)
+* __If this Column__: less than
+* __The Value__: 9
 
-![](media/tutorial-bikeshare-dataprep/loftripfilter.png)
+![Filter options](media/tutorial-bikeshare-dataprep/loftripfilter.png)
 
-You notice that the data is filtered and at the same time, inspectors are updated with the new distribution. Your inspector pane should look like this:
+Select __OK__ to apply the filter.
 
-![](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
+![Updated histograms after filter is applied](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
 
-## Review the Halo Effect
+### Review the Halo Effect
 
-Maximize the Histogram corresponding to the *logtripduration* column. You notice that we have a blue histogram overlaid over a gray histogram. We call this **Halo effect**. The gray histogram represents the distribution before the operation (in this case, operation is *filtering*) and the blue one represents the histogram after the operation. This helps us see the effect of operation on the data.
+1. Maximize the **logtripduration** histogram. There is a blue histogram overlaid on a gray histogram. This graphic style is the **Halo effect**:
 
-![](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
+    * The **gray histogram** represents the distribution before the operation (in this case, the filtering operation).
+    * The **blue histogram** represents the histogram after the operation. 
 
+   The halo effect helps with visualizing the effect of an operation on the data.
 
-You can get rid of the *Halo* by clicking on the **Edit** button of the inspector and unchecking **Show halo**. You can also change other aspects of the histogram from this dialog.
+   ![Image of the halo effect](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
 
-![](media/tutorial-bikeshare-dataprep/uncheckhalo.png)
+2. To remove the halo, select __Edit__ and uncheck __Show halo__.
 
-Click **OK**, and you should see the histogram without the **Halo effect**.
+    ![Options for the histogram](media/tutorial-bikeshare-dataprep/uncheckhalo.png)
 
-Minimize the inspector to proceed with the next steps.
+3. Select **OK** to disable the halo effect, and then minimize the histogram.
 
-In this data file, each row represents a bike pickup event. We are only interested in *starttime* and *start station* columns. Remove the other columns by selecting these two columns (by holding **Ctrl** key while clicking on the column headers) and then choosing **Keep Column**. Other columns are removed.
+### Remove columns
 
-![](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
+in the Hubway data, each row represents a bike pickup event. For this tutorial, you only need the **starttime** and **start station** columns. Remove the other columns by multi-selecting these two columns, right-click the column header, and then select **Keep Column**. Other columns are removed.
 
-## Summarize data (Count)
+![Image of the keep column option](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 
-We want to summarize bike demand at a particular station for a given hour range.
+### Summarize data (Count)
 
-Let’s begin by creating a derived column that has the 2-hour periods. We use a different approach to create the derived column than what we used while working with the *weather* data. Previously we split the *starttime* field into *date* and *time* fields, and derived an *hour-range* from the *time* field. Then derived a *Date Hour Range* column from the *date* and *hour-range* fields. This time, we directly derive the *Date Hour Range* column from the *starttime* column.
+To summarize bike demand for a 2-hour period, use derived columns.
 
-Right-click on the *starttime* column and select **Derive Column by Example**
+1. Right-click on the **starttime** column and select **Derive Column by Example**
 
-![](media/tutorial-bikeshare-dataprep/tripdataderivebyexample.png)
+    ![Image of derive by example option](media/tutorial-bikeshare-dataprep/tripdataderivebyexample.png)
 
-Provide an example of the output against the first row as shown below and press *Enter*.
+2. For the example, enter a value of `Jan 01, 2017 12AM-2AM` for the first row.
 
-> You can give example against any of the rows. However, for the purpose of consistency in this tutorial, let's give an example against the first row.
+    > [!NOTE]
+    > You can give an example against any of the rows. For this example, the value of `Jan 01, 2017 12AM-2AM` is valid for the first row of data.
 
-![](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
+    ![Image of the example data](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
 
-Wait until the application computes the values against all the rows, and finishes **Analyzing Data**. It may take several seconds. After analyzing is complete, you should see the following screen:
+3. Wait until the application computes the values against all the rows. It may take several seconds. After analyzing is complete, use the __Review next suggested row__ link to review data.
 
-![](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
+   ![Image of the completed analysis with review link](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
 
-Click on the **Review next suggested row**. Ensure that the computed value is correct. If not so, update the value with the expected value and press enter. Again, wait for the application to complete its analysis. It may take several seconds. Complete the **Review next suggested row** loop until you see **No suggestions**. Once you see **No suggestions**, the application has looked at the edge cases and is satisfied with the synthesized program. In general, even after the Workbench says **No suggestions**, it is a good idea to do a visual inspection of data before accepting the transformation. 
+    Ensure that the computed values are correct. If not, update the value with the expected value and press enter. Then wait for the analysis to complete. Complete the **Review next suggested row** process until you see **No suggestions**. Once you see **No suggestions**, the application has looked at the edge cases and is satisfied with the synthesized program. It is a best practice to perform a visual inspection of the transformed data before accepting the transformation. 
 
-Click **OK** to accept the transform. Rename the newly created column to *Date Hour Range*.
+4. Select **OK** to accept the transform. Rename the newly created column to **Date Hour Range**.
 
-Once you are done with the transform, your screen should look like this:
+    ![Image of the renamed column](media/tutorial-bikeshare-dataprep/tripdatasummarize.png)
 
-![](media/tutorial-bikeshare-dataprep/tripdatasummarize.png)
+5. Right-click on the **starttime** column header and select **Remove column**.
 
-Next, remove the *starttime* column. Right-click on the column header and select **Remove column**. Rename the newly created column to "Hour Range."
+6. To summarize the data, select __Summarize__ from the __Transform__ menu. To create the transformation, perform the following actions:
 
-We want to count rows grouped by *Hour Range* and *start station id*. Trigger the **Summarize** transform from the **Transform** menu and make selections as shown below to achieve the count result. This count result is our target variable –- something we want to predict.
+    * Drag __Date Hour Range__ and __start station id__ to the left (group by) pane.
+    * Drag __start station id__ to the right (summarize data) pane.
 
-![](media/tutorial-bikeshare-dataprep/tripdatacount.png)
+   ![An image of the summarization options](media/tutorial-bikeshare-dataprep/tripdatacount.png)
 
-Click **OK** to accept the summary result.
+7. Select **OK** to accept the summary result.
 
 ## Join Dataflows
 
-Now we want to join the *Weather Data* and *Trip data* to get the final prepared data. Select **Join** from the **Transforms** menu.
+To join the weather data with the Hubway trip data, use the following steps:
 
-![](media/tutorial-bikeshare-dataprep/joinmenu.png)
+1. Select __Join__ from the __Transforms__ menu.
 
-Select *BostonWeather* as the left dataflow and *201701-hubway-tripdata* as the right dataflow. Then, click **Next**.
+2. __Tables__: Select **BostonWeather** as the left dataflow and **201701-hubway-tripdata** as the right dataflow. To continue, select **Next**.
 
-![](media/tutorial-bikeshare-dataprep/jointableselection.png)
+    ![Image of the Tables selections](media/tutorial-bikeshare-dataprep/jointableselection.png)
 
-Click on the *Hour Range* column in both the tables in the next screen to select those as the join key.
+3. __Key Columns__: Select the **Date Hour Range** column in both the tables, and then select __Next__.
 
-![](media/tutorial-bikeshare-dataprep/joinkeyselection.png)
+    ![Image of the join on key columns](media/tutorial-bikeshare-dataprep/joinkeyselection.png)
 
-Here one can visualize the joins. Play with the options to see how results change. Finally, select **Matching rows** checkbox on the top-right side and click **Finish**.
+4. __Join Type__: Select  __Matching rows__ as the join type, and then select __Finish__.
 
-![](media/tutorial-bikeshare-dataprep/joinscreen.png)
+    ![Matching rows join type](media/tutorial-bikeshare-dataprep/joinscreen.png)
 
-Notice a new **Dataflow** named *Join Results* get created. You may rename the *Dataflow* by right-clicking on its name. 
+    This process creates a new dataflow named __Join Result__.
 
 ## Create additional features
 
-Now we quickly create a few new features using the **By example** approach. Right-click on the *Date Hour Range* column, select **Derive column by Example**, and provide "Sun" as the example against a row containing *Jan 01, 2017 12AM-2AM*, which was a *Sunday*. Press **Enter** and click **OK**. Rename the column to "Weekday." This is one of our new features. Notice how we are able to extract weekday information even from a column of a String type.
+1. To create a column that contains the day of the week, right-click on the **Date Hour Range** column and select **Derive column by Example**. Use a value of __Sun__ for a date that occurred on a Sunday. For example, **Jan 01, 2017 12AM-2AM**. Press **Enter** and then select **OK**. Rename this column to __Weekday__.
 
-![](media/tutorial-bikeshare-dataprep/featureweekday.png)
+    ![Image of creating a new column that contains the day of the week](media/tutorial-bikeshare-dataprep/featureweekday.png)
 
-Right click on the *Hour Range* column, select **Derive column by example**, and provide "12AM-2AM" as an example against a row containing *Jan 01, 2017 12AM-2AM*. We want to use the time-period as one of the features. Rename this column to "Period." Notice how we are able to perform substring operation by example.
+2. To create a column containing the time period for a row, right-click on the **Date Hour Range** column and select **Derive column by example**. Use a value of **12AM-2AM** for the row containing **Jan 01, 2017 12AM-2AM**. Press **Enter** and then select **OK**. Rename this column to **Period**.
 
-![](media/tutorial-bikeshare-dataprep/featurehourrange.png)
+    ![Image of the period column](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-Remove the columns *Date Hour Range* and *rDate Hour Range* by selecting the column headers, right-clicking, and then selecting **Remove Column**. We do not use these columns as features.
-
-Now, you have prepared the Test Data and also the *Data Preparation Steps*. Our eventual goal is to save this data that we want to use as the Test Data, and also run the same data preparation steps on another set of input files in order to generate the Training Data.
+3. To remove the **Date Hour Range** and **rDate Hour Range** columns, press **Ctrl** and select each column header. Right-click and then select **Remove Column**.
 
 ## Read data from Python
 
-Azure Machine Learning enables users to **run** the *Data Preparation Package* from Python/PySpark and obtain the resultant data in a *Data Frame*. 
+You can run a data preparation package from Python or PySpark and retrieve the result as a **Data Frame**.
 
-Here is the *Python* code for running a *Data Preparation Package* and obtaining the first **Dataflow** into a *Data Frame*. **dataflow_idx** takes the ordinal index of the **Dataflow** in the *Data Preparation Package*, starting with zero.
+To generate an example Python script, right-click on __BikeShare Data Prep__ and select __Generate Data Access Code File__. The example Python file is created in your **Project Folder**, and is also loaded in a tab within the workbench. The following Python script is an example of the code that is generated:
 
 ```python
-from azureml.dataprep.package import run
+# Use the Azure Machine Learning data preparation package
+from azureml.dataprep import package
 
-df = run('BikeShare Data Prep.dprep', dataflow_idx=0)
+# Use the Azure Machine Learning data collector to log various metrics
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+
+# This call will load the referenced package and return a DataFrame.
+# If run in a PySpark environment, this call returns a
+# Spark DataFrame. If not, it will return a Pandas DataFrame.
+df = package.run('BikeShare Data Prep.dprep', dataflow_idx=0)
+
+# Remove this line and add code that uses the DataFrame
+df.head(10)
 ```
 
-You can generate a python file containing above code by right-clicking on the **Data Preparation Package** name. Then select **Generate Data Access Code File**. This new file is created in your *Project Folder*, and is also loaded in a tab within the workbench. 
-
-![](media/tutorial-bikeshare-dataprep/generateCode.png)
-
-Note the name of the generated file as we need this later. It should be `BikeShare Data Prep.py`. 
-
-Notice the UI elements in the header of this tab that allows us to run different Python script in different **Execution environments**. We run the Python script on the **Local Environment** for this tutorial. 
-
-![](media/tutorial-bikeshare-dataprep/generateCodeLoaded.png)
+For this tutorial, the name of the file is `BikeShare Data Prep.py`. This file is used later in the tutorial.
 
 ## Save test data as a CSV file
 
-Update the Python code as shown below to save the *Join Result* **Dataflow** to a csv file. Save the file.
+Update the following Python code to save the *Join Result* **Dataflow** to a csv file. Save the file.
 
 ```python
 from azureml.dataprep.package import run
@@ -580,39 +592,44 @@ df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
 df.to_csv('Your Test Data File Path here')
 ```
 
-Then, click on **Run** button in the header of the **Code Viewer**. A new **Job** is submitted on local machine to execute the python script. After some time, the status of the job should change to **Completed**, and you should see your data file at the location you specified.
+Select **Run** from the top of the screen. The script is submitted as a **Job** on the local machine. Once the job status changes to __Completed__, the file has been written to the specified location.
 
 ## Substitute Data Sources
 
-We used the `201701-hubway-tripdata.csv` and `BostonWeather.csv` as the source to prepare our Test data. We reuse the same weather file source as it contains complete data for the time period of our interest. However, we want to replace the **Data Source** corresponding to  `201701-hubway-tripdata.csv` with another **Data Source** that corresponds to the remaining six tripdata files concatenated together.
+In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeather.csv` data sources to prepare the Test data. To use the package with the other Hubway data files, use the following steps:
 
-Create a new **Data Source** using the steps given earlier. However, this time, the following two steps need to be performed differently:
+1. Create a new **Data Source** using the steps given earlier, with the following changes to the process:
 
-* While browsing for files, multi-select the remaining six *tripdata files* from your data folder. After selecting, you should notice the following screen with **+5** with a file name indicating additional five files in the Data Source.
+    * __File Selection__: When selecting a file, multi-select the six remaining Hubway tripdata .CSV files.
 
-![](media/tutorial-bikeshare-dataprep/selectsixfiles.png) 
+        ![Load the 6 remaining files](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
 
-* In the **Choose file parameters** screen, select **All Files Have The Same Headers** because each of our tripdata files contains the same header.
+        > [!NOTE]
+        > The __+5__ entry indicates that there are 5 additional files beyond the one that is listed.
 
-![](media/tutorial-bikeshare-dataprep/headerfromeachfile.png) 
+    * __File Details__: Set __Promote Headers Mode__ to **All Files Have The Same Headers**. This value indicates that each of the files contains the same header.
 
-Note the name of the newly created **Data Source** as we need this for substituting the Data Sources later on. Despite the name, the new **Data Source** points to the six files we selected. 
+        ![File details selection](media/tutorial-bikeshare-dataprep/headerfromeachfile.png) 
 
-Open the `local.runconfig` file located under the *aml_config* subfolder of your project folder. You can access it from the **Project Explorer** as shown in the following screenshot:
+   Save the name of this data source, as it is used in later steps.
 
-![](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
+2. Select the folder icon to view the files in your project. Expand the __aml\_config__ directory, and then select the `local.runconfig` file.
 
-Add the following lines at the end of the `local.runconfig` file and save it. Here, we are substituting the earlier **Data Source** named *201701-hubway-tripdata.dsource* with the newly created **Data Source** *201501-hubway-tripdata.dsource*.
+    ![Image of the location of local.runconfig](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
 
-```yaml
-UseSampling: true
-DataSourceSubstitutions:
-  201701-hubway-tripdata.dsource: 201501-hubway-tripdata.dsource
-```
+3. Add the following lines at the end of the `local.runconfig` file and then select the disk icon to save the file.
+
+    ```yaml
+    UseSampling: true
+    DataSourceSubstitutions:
+      201701-hubway-tripdata.dsource: 201501-hubway-tripdata.dsource
+    ```
+
+    This change replaces the original data source with the one that contains the 6 Hubway files.
 
 ## Save training data as a CSV file
 
-Navigate to the Python file `BikeShare Data Prep.py` that we edited earlier and provide a different File Path to save the Training Data.
+Navigate to the Python file `BikeShare Data Prep.py` that you edited earlier and provide a different File Path to save the Training Data.
 
 ```python
 from azureml.dataprep.package import run
@@ -623,7 +640,7 @@ df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
 df.to_csv('Your Training Data File Path here')
 ```
 
-Click on the **Run** button in the header of the **Code Viewer**. A new **Job** is submitted with the new run configuration to create your Training Data using the same Data Preparation steps that we created earlier. It may take few minutes to complete the job.
+To submit a new job, use the **Run** icon at the top of the page. A **Job** is submitted with the new configuration. The output of this job is the Training Data. This data is created using the same Data Preparation steps that you created earlier. It may take few minutes to complete the job.
 
 ## Summary
 You have completed the Bike-share Data Preparation tutorial. In this tutorial, you used Azure Machine Learning services (preview) to learn how to:
