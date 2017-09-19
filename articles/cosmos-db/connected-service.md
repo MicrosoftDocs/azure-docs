@@ -21,11 +21,9 @@ ms.author: jejiang
 ---
 # Azure Cosmos DB: Visual Studio Connected Service
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases through Visual Studio Connected Service. 
-
 The Connected Service for Azure Cosmos DB in Visual Studio allows developers to connect to Azure Cosmos DB account easily and manage resources.
 
-You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data.
+You can also use Data Explorer in Connected Service to create stored procedures, UDFs, and triggers to perform server-side business logic. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data.
 
 ## Prerequisites
 
@@ -34,13 +32,13 @@ Make sure you have the following items:
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
     * if you want to use a local environment for development purposes, you can use the [Azure Cosmos DB Emulator](local-emulator.md). The environment emulates the Azure Cosmos DB service.
 * [Visual Studio](http://www.visualstudio.com/).
-* Install the latest Azure Cosmos DB ConnectedService bits. You can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858709). Or We can download the bits from Visual Studio. Open **Visual Studio** in your computer. On the **Tools** menu, select **Extensions and update...**, and then choose **Online** / **Visual Studio Marketplace**. Enter **Connected Service for Azure Cosmos DB** to search the bits.
+* Install the latest Azure Cosmos DB ConnectedService bits. You can download Azure Cosmos DB connected service from VisaulStudio marketplace as shown below. Or you can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858709). Open **Visual Studio** in your computer. On the **Tools** menu, select **Extensions and update...**, and then choose **Online** / **Visual Studio Marketplace**. Enter **cosmosdb** to search the bits.
 
  ![Screen shot of Connected Service download bits.png](./media/connected-service/connected-service-downloadbits.png)
 
 ## Create an Azure Cosmos DB account
 
-Let's start by [creating an Azure Cosmos DB account](create-documentdb-dotnet.md) in the Azure portal or our connected service tool.
+Assume you already have an Azure Cosmos DB account. If not, follow the steps at [creating an Azure Cosmos DB account](create-documentdb-dotnet.md) to create one in Azure portal or in Connected Service tool.
 
 > [!TIP]
 > * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
@@ -121,7 +119,6 @@ In this document, you've learned following items:
 
 * Develop with the DocumentDB API in .NET [Develop with the DocumentDB API in .NET](tutorial-develop-documentdb-dotnet.md).
 * DocumentDB API getting started tutorial [Azure Cosmos DB: DocumentDB API getting started tutorial](documentdb-get-started.md).
-* Want to use documentdb and mongodb in storage explorer?See [Use documentdb and mongodb in storage explorer](tutorial-documentdb-and-mongodb-in-storage-explorer.md).
 * Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md).
 * Learn how to [Monitor an Azure Cosmos DB account](monitor-accounts.md).
 * To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](introduction.md).
