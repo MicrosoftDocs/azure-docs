@@ -20,12 +20,6 @@ ms.author: anta
 
 # Energy Demand Time Series Forecasting
 
-## Link of the Gallery GitHub repository
-The public GitHub repository for this real world scenario contains all materials, including code samples, needed for this example:
-
-[https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting](https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting)
-
-## Introduction
 
 Time series forecasting is the task of predicting future values in a time-ordered sequence of observations. It is a common problem and has applications in many industries. For example, retail companies need to forecast future product sales so they can effectively organize their supply chains to meet demand. Similarly, package delivery companies need to estimate the demand for their services so they can plan workforce requirements and delivery routes ahead of time. In many cases, the financial risks of inaccurate forecasts can be significant. Therefore, forecasting is often a business critical activity.
 
@@ -42,6 +36,12 @@ Azure Machine Learning Workbench aids the modeling process at every step:
 - Metrics can be logged while executing a Python script, enabling the data scientist to keep a record of model performance scores.
 - The workbench produces customizable tables of logged metrics allowing the data scientist to easily compare model performance metrics. Charts are automatically displayed so the best performing model can be readily identified.
 - Finally, the sample shows how a trained model can be operationalized by deploying it in a realtime web service.
+
+## Link to the Gallery GitHub repository
+The public GitHub repository for this real world scenario contains all materials, including code samples, needed for this example:
+
+[https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting](https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting)
+
 
 ## Use case overview
 
