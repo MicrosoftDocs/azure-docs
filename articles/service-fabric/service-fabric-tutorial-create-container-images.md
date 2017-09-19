@@ -1,6 +1,6 @@
 ---
-title: Service Fabric tutorial - Create Container Images | Microsoft Docs
-description: Service Fabric tutorial - Create Container Images
+title: Create container images for Azure Service Fabric | Microsoft Docs
+description: Learn how to create container images for a multi-container Service Fabric application.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -19,32 +19,29 @@ ms.author: suhuruli
 ms.custom: mvc
 ---
 
-# Create container images
+# Create container images for Service Fabric
 
-This tutorial is part one of a tutorial series that demonstrates how to use containers in a Linux Service Fabric cluster. In this tutorial series, you learn how to: 
+This tutorial is part one of a tutorial series that demonstrates how to use containers in a Linux Service Fabric cluster. In this tutorial, a multi-container application is prepared for use with Service Fabric. In subsequent tutorials, these images are used as part of a Service Fabric application. In this tutorial you learn how to: 
 
 > [!div class="checklist"]
-> * Create container images
-> * [Package Containers for Service Fabric using Yeoman](service-fabric-tutorial-package-containers.md)
+> * Clone application source from GitHub  
+> * Create a container image from the application source
+> * Deploy an Azure Container Registry (ACR) instance
+> * Tag a container image for ACR
+> * Upload the image to ACR
+
+In this tutorial series, you learn how to: 
+
+> [!div class="checklist"]
+> * Create container images for Service Fabric
 > * [Build and Run a Service Fabric Application with Containers](service-fabric-tutorial-package-containers.md)
 > * [How failover and scaling are handled in Service Fabric](service-fabric-tutorial-containers-failover.md)
-
-In this tutorial, a multi-container application is prepared for use with Service Fabric. Steps completed include: 
-
-> [!div class="checklist"]
-> * Cloning application source from GitHub  
-> * Creating a container image from the application source
-> * Deploying an Azure Container Registry (ACR) instance
-> * Tagging a container image for ACR
-> * Uploading the image to ACR
-
-In subsequent tutorials, these images are used as part of a Service Fabric application.
 
 ## Prerequisites
 
 - Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment. 
 - This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-- Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/en-us/free/).
+- Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/free/).
 
 ## Get application code
 
@@ -122,9 +119,9 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --ad
 
 Throughout the rest of this tutorial, we use "acrname" as a placeholder for the container registry name that you chose.
 
-## Container registry login
+## Log in to your container registry
 
-Log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to complete the operation. Provide the unique name given to the container registry when it was created.
+Log in to your ACR instance before pushing images to it. Use the [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) command to complete the operation. Provide the unique name given to the container registry when it was created.
 
 ```bash
 az acr login --name <acrName>
@@ -230,11 +227,11 @@ At tutorial completion, the container image has been stored in a private Azure C
 In this tutorial, an application was pulled from Github and container images were created and pushed to a registry. The following steps were completed:
 
 > [!div class="checklist"]
-> * Cloning application source from GitHub  
-> * Creating a container image from the application source
-> * Deploying an Azure Container Registry (ACR) instance
-> * Tagging a container image for ACR
-> * Uploading the image to ACR
+> * Clone application source from GitHub  
+> * Create a container image from the application source
+> * Deploy an Azure Container Registry (ACR) instance
+> * Tag a container image for ACR
+> * Upload the image to ACR
 
 Advance to the next tutorial to learn about packaging containers into a Service Fabric application using Yeoman. 
 
