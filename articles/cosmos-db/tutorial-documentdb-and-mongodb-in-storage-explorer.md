@@ -90,7 +90,7 @@ You can manage Azure Cosmos DB account by doing following operations:
 1. **Create Database**: Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, **Enter** to complete.
 
     ![create database](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-database.png) 
-2. **Delete Database**: Right-click the database, click **Delete Database**, Click **Yes** on the pop-up window, the database node can be deleted and the Azure Cosmos DB account can refresh automatically.
+2. **Delete Database**: Right-click the database, click **Delete Database**, Click **Yes** on the pop-up window, the database node can be deleted, and the Azure Cosmos DB account can refresh automatically.
 
     ![delete database1](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/delete-database1.png)  
     ![delete database2](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/delete-database2.png) 
@@ -99,7 +99,7 @@ You can manage Azure Cosmos DB account by doing following operations:
 If partition key is used when creating collection, once creation is completed, the partition key value can't be changed in documents, the Stored Procedure, Trigger, and UDF can't be changed once saved.
     ![create collection1](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-collection.png)
     ![create collection2](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-collection2.png) 
-4. **Delete Collection**: Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node can be deleted and the database can refresh automatically.
+4. **Delete Collection**: Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node can be deleted, and the database can refresh automatically.
 
     ![delete collection](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/delete-collection.png) 
 
