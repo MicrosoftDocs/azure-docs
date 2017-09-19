@@ -19,7 +19,7 @@ ms.author: billmath
 
 Access reviews enable organizations to efficiently manage group memberships and access to enterprise applications. 
 
-What can you do with access reviews?
+## What can you do with access reviews?
    
 - You can recertify guest user access, using access reviews of their access to applications and memberships of groups, with insights that enable reviewers to efficiently decide whether guests should have continued access.
       
@@ -32,6 +32,6 @@ What can you do with access reviews?
 
 - [Manage user access with Azure AD access reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 - [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-- [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-and-controls.md)
-- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-an-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md), surfaced in Azure AD PIM
+- [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md)
+- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
+- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md)
