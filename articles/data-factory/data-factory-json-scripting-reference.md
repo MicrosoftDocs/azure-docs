@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 
 ---
@@ -45,7 +45,7 @@ Following table describes the properties within the pipeline JSON definition:
 | start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
 | end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41 <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
 | isPaused |If set to true the pipeline does not run. Default value = false. You can use this property to enable or disable. |No |
-| pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details about onetime setting. |No |
+| pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) for details about onetime setting. |No |
 | expirationTime |Duration of time after creation for which the pipeline is valid and should remain provisioned. If it does not have any active, failed, or pending runs, the pipeline is deleted automatically once it reaches the expiration time. |No |
 
 
@@ -79,13 +79,13 @@ Following table describe the properties within the activity JSON definition:
 | --- | --- | --- |
 | name |Name of the activity. Specify a name that represents the action that the activity is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
 | description |Text describing what the activity is used for. |Yes |
-| type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [TRANSFORMATION ACTIVITIES](#transformation-activities) articles for different types of activities. |Yes |
+| type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) sections for different types of activities. |Yes |
 | inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Yes |
 | outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Yes |
 | linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, Azure Machine Learning activities, and Stored Procedure Activity. <br/><br/>No for all others |
 | typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
 | policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
-| scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#Availability). |No |
+| scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#dataset-availability). |No |
 
 ### Policies
 Policies affect the run-time behavior of an activity, specifically when the slice of a table is processed. The following table provides the details.
@@ -367,7 +367,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 |:--- |:--- |
 | **Azure** |[Azure Blob storage](#azure-blob-storage) |
 | &nbsp; |[Azure Data Lake Store](#azure-datalake-store) |
-| &nbsp; |[Azure DocumentDB](#azure-documentdb) |
+| &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
 | &nbsp; |[Azure Search](#azure-search) |
@@ -771,20 +771,20 @@ If you are copying data to an Azure Data Lake Store, set the **sink type** of th
 
 For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#copy-activity-properties) article. 
 
-## Azure DocumentDB
+## Azure Cosmos DB  
 
 ### Linked service
-To define an Azure DocumentDB linked service, set the **type** of the linked service to **DocumentDb**, and specify following properties in the **typeProperties** section:  
+To define an Azure Cosmos DB linked service, set the **type** of the linked service to **DocumentDb**, and specify following properties in the **typeProperties** section:  
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
-| connectionString |Specify information needed to connect to Azure DocumentDB database. |Yes |
+| connectionString |Specify information needed to connect to Azure Cosmos DB database. |Yes |
 
 #### Example
 
 ```json
 {
-    "name": "DocumentDbLinkedService",
+    "name": "CosmosDBLinkedService",
     "properties": {
         "type": "DocumentDb",
         "typeProperties": {
@@ -793,23 +793,23 @@ To define an Azure DocumentDB linked service, set the **type** of the linked ser
     }
 }
 ```
-For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#linked-service-properties) article.
+For more information, see [Azure Cosmos DB connector](data-factory-azure-documentdb-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure DocumentDB dataset, set the **type** of the dataset to **DocumentDbCollection**, and specify the following properties in the **typeProperties** section: 
+To define an Azure Cosmos DB dataset, set the **type** of the dataset to **DocumentDbCollection**, and specify the following properties in the **typeProperties** section: 
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
-| collectionName |Name of the DocumentDB document collection. |Yes |
+| collectionName |Name of the Azure Cosmos DB collection. |Yes |
 
 #### Example
 
 ```json
 {
-    "name": "PersonDocumentDbTable",
+    "name": "PersonCosmosDBTable",
     "properties": {
         "type": "DocumentDbCollection",
-        "linkedServiceName": "DocumentDbLinkedService",
+        "linkedServiceName": "CosmosDBLinkedService",
         "typeProperties": {
             "collectionName": "Person"
         },
@@ -821,16 +821,16 @@ To define an Azure DocumentDB dataset, set the **type** of the dataset to **Docu
     }
 }
 ```
-For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#dataset-properties) article.
+For more information, see [Azure Cosmos DB connector](data-factory-azure-documentdb-connector.md#dataset-properties) article.
 
-### DocumentDB Collection Source in Copy Activity
-If you are copying data from an Azure DocumentDB, set the **source type** of the copy activity to **DocumentDbCollectionSource**, and specify following properties in the **source** section:
+### Azure Cosmos DB Collection Source in Copy Activity
+If you are copying data from an Azure Cosmos DB, set the **source type** of the copy activity to **DocumentDbCollectionSource**, and specify following properties in the **source** section:
 
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
-| query |Specify the query to read data. |Query string supported by DocumentDB. <br/><br/>Example: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>If not specified, the SQL statement that is executed: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Special character to indicate that the document is nested |Any character. <br/><br/>DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via nestingSeparator, which is “.” in the above examples. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition. |No |
+| query |Specify the query to read data. |Query string supported by Azure Cosmos DB. <br/><br/>Example: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>If not specified, the SQL statement that is executed: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |Special character to indicate that the document is nested |Any character. <br/><br/>Azure Cosmos DB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via nestingSeparator, which is “.” in the above examples. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition. |No |
 
 #### Example
 
@@ -854,7 +854,7 @@ If you are copying data from an Azure DocumentDB, set the **source type** of the
                 }
             },
             "inputs": [{
-                "name": "PersonDocumentDbTable"
+                "name": "PersonCosmosDBTable"
             }],
             "outputs": [{
                 "name": "PersonBlobTableOut"
@@ -862,7 +862,7 @@ If you are copying data from an Azure DocumentDB, set the **source type** of the
             "policy": {
                 "concurrency": 1
             },
-            "name": "CopyFromDocDbToBlob"
+            "name": "CopyFromCosmosDbToBlob"
         }],
         "start": "2016-04-01T00:00:00",
         "end": "2016-04-02T00:00:00"
@@ -870,13 +870,13 @@ If you are copying data from an Azure DocumentDB, set the **source type** of the
 }
 ```
 
-### DocumentDB Collection Sink in Copy Activity
-If you are copying data to Azure DocumentDB, set the **sink type** of the copy activity to **DocumentDbCollectionSink**, and specify following properties in the **sink** section:
+### Azure Cosmos DB Collection Sink in Copy Activity
+If you are copying data to Azure Cosmos DB, set the **sink type** of the copy activity to **DocumentDbCollectionSink**, and specify following properties in the **sink** section:
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
-| nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the DocumentDB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
-| writeBatchSize |Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (for example, S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
+| nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the Cosmos DB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
+| writeBatchSize |Number of parallel requests to Azure Cosmos DB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from Azure Cosmos DB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to Azure Cosmos DB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (for example, S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
 | writeBatchTimeout |Wait time for the operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
 
 #### Example
@@ -906,12 +906,12 @@ If you are copying data to Azure DocumentDB, set the **sink type** of the copy a
                 "name": "PersonBlobTableIn"
             }],
             "outputs": [{
-                "name": "PersonDocumentDbTableOut"
+                "name": "PersonCosmosDbTableOut"
             }],
             "policy": {
                 "concurrency": 1
             },
-            "name": "CopyFromBlobToDocDb"
+            "name": "CopyFromBlobToCosmosDb"
         }],
         "start": "2016-04-14T00:00:00",
         "end": "2016-04-15T00:00:00"
@@ -919,7 +919,7 @@ If you are copying data to Azure DocumentDB, set the **sink type** of the copy a
 }
 ```
 
-For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#copy-activity-properties) article.
+For more information, see [Azure Cosmos DB connector](data-factory-azure-documentdb-connector.md#copy-activity-properties) article.
 
 ## Azure SQL Database
 
@@ -4830,7 +4830,7 @@ The following table provides descriptions for the properties used in the Azure J
 | type |The type property should be set to **HDInsightOnDemand**. |Yes |
 | clusterSize |Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Create Linux-based Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details about the Standard_D3 tier. |Yes |
 | timetolive |The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set |Yes |
-| version |Version of the HDInsight cluster. The default value is 3.1 for Windows cluster and 3.2 for Linux cluster. |No |
+| version |Version of the HDInsight cluster. For details, see [supported HDInsight versions in Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |No |
 | linkedServiceName |Azure Storage linked service to be used by the on-demand cluster for storing and processing data. <p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store.</p>  | Yes |
 | additionalLinkedServiceNames |Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. |No |
 | osType |Type of operating system. Allowed values are: Windows (default) and Linux |No |
@@ -4845,9 +4845,10 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "clusterSize": 4,
+            "version": "3.5",
+            "clusterSize": 1,
             "timeToLive": "00:05:00",
-            "osType": "linux",
+            "osType": "Linux",
             "linkedServiceName": "StorageLinkedService"
         }
     }
@@ -4869,6 +4870,8 @@ The following table provides descriptions for the properties used in the Azure J
 | username |Specify the name of the user to be used to connect to an existing HDInsight cluster. |Yes |
 | password |Specify password for the user account. |Yes |
 | linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Store linked service for this property. You may access data in the Azure Data Lake Store from Hive/Pig scripts if the HDInsight cluster has access to the Data Lake Store. </p>  |Yes |
+
+For versions of HDInsight clusters supported, see [supported HDInsight versions](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
 
 #### JSON example
 
@@ -5094,7 +5097,7 @@ If username and password are specified, gateway uses them to impersonate the spe
 
 For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties) article.
 
-## TRANSFORMATION ACTIVITES
+## DATA TRANSFORMATION ACTIVITIES
 
 Activity | Description
 -------- | -----------
@@ -5591,7 +5594,7 @@ The following properties are supported in the **typeProperties** section when yo
 
 If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity. 
 
-Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.  
+Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.  
 
 ### JSON example
 

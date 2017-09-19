@@ -1,6 +1,6 @@
 ---
-title: Sign-in activity reports in the Azure Active Directory portal - preview | Microsoft Docs
-description: Introduction to sign-in activity reports in the Azure Active Directory portal - preview
+title: Sign-in activity reports in the Azure Active Directory portal | Microsoft Docs
+description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 07/19/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
-# Sign-in activity reports in the Azure Active Directory portal - preview
+# Sign-in activity reports in the Azure Active Directory portal
 
-With reporting in the Azure Active Directory [preview](active-directory-preview-explainer.md), you get all the information you need to determine how your environment is doing.
+With Azure Active Directory (Azure AD) reporting in the [Azure portal](https://portal.azure.com), you can get the information you need to determine how your environment is doing.
 
 The reporting architecture in Azure Active Directory consists of the following components:
 
@@ -32,6 +33,17 @@ The reporting architecture in Azure Active Directory consists of the following c
 
 This topic gives you an overview of the sign-in activities.
 
+## Pre-requisite
+
+### Who can access the data?
+* Users in the Security Admin or Security Reader role
+* Global Admins
+* Any user (non-admins) can access their own sign-ins 
+
+### What Azure AD license do you need to access sign-in activity?
+* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report
+
+
 ## Signs-in activities
 
 With the information provided by the user sign-in report, you find answers to questions such as:
@@ -40,7 +52,7 @@ With the information provided by the user sign-in report, you find answers to qu
 * How many users have users signed in over a week?
 * What’s the status of these sign-ins?
 
-Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active**. Directory.
+Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active**.
 
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/61.png "Sign-in activity")
@@ -182,5 +194,6 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 
 ## Next steps
-See the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+
+If you want to know more about sign-in activity error codes, see the [Sign-in activity report error codes in the Azure Active Directory portal](active-directory-reporting-activity-sign-ins-errors.md).
 

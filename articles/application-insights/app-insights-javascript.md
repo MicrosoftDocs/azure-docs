@@ -1,9 +1,9 @@
----
+﻿---
 title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: awills
+ms.author: bwren
 
 ---
 # Application Insights for web pages
@@ -192,7 +192,7 @@ Select any event to see more detail. In the details page, click "..." to see eve
 > 
 > 
 
-You can also use the powerful [Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
+You can also use the powerful [Log Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
 
 ### Page view properties
 * **Page view duration** 

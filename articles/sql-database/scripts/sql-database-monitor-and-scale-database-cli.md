@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Monitor & scale a single SQL Database | Microsoft Docs
-description: Azure CLI Script Sample - Monitor and scale a single SQL database using the Azure CLI
+title: CLI example-monitor-scale-single Azure SQL database | Microsoft Docs
+description: Azure CLI example script to monitor and scale a single Azure SQL database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -10,30 +10,34 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/04/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Monitor and scale a single SQL database using the Azure CLI
+# Use CLI to monitor and scale a single SQL database
 
-This sample CLI script scales a single Azure SQL database to a different performance level after querying the size information of the database. 
+This Azure CLI script example scales a single Azure SQL database to a different performance level after querying the size information of the database. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
@@ -43,11 +47,11 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Creates a logical server that hosts a database. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#show-usage) | Shows the size usage information for a database. |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | Updates database properties (such as the service tier or performance level) or moves a database into, out of, or between elastic pools. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Creates a logical server that hosts a database. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | Shows the size usage information for a database. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Updates database properties (such as the service tier or performance level) or moves a database into, out of, or between elastic pools. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps

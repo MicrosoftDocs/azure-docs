@@ -100,7 +100,7 @@ There are two methods to migrate an existing WordPress site to Azure App Service
 ## Step-by-step instructions
 ### Create a WordPress site
 1. Use the [Azure Marketplace][cdbnstore] to create a MySQL database of the size that you identified in the [Architecture and planning](#planning) section in the region or regions where you will host your site.
-2. Follow the steps in [Create a WordPress web app in Azure App Service][createwordpress] to create a WordPress web app. When you create the web app, select **Use an existing MySQL Database**, and then select the database that you created in step 1.
+2. <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">Create a WordPress web app</a>. When you create the web app, select **Use an existing MySQL Database**, and then select the database that you created in step 1.
 
 If you are migrating an existing WordPress site, see [Migrate an existing WordPress site to Azure](#Migrate-an-existing-WordPress-site-to-Azure) after you create a new web app.
 
@@ -158,8 +158,8 @@ After the WordPress site has been created or migrated, use the following informa
 | --- | --- |
 | **Set App Service plan mode, size, and enable scaling** |[Scale a web app in Azure App Service][websitescale]. |
 | **Enable persistent database connections** |By default, WordPress does not use persistent database connections, which might cause your connection to the database to become throttled after multiple connections. To enable persistent connections, install the [persistent connections adapter plugin](https://wordpress.org/plugins/persistent-database-connection-updater/installation/). |
-| **Improve performance** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Disable the ARR cookie</a>, which can improve performance when WordPress runs on multiple Web Apps instances.</p></li><li><p>Enable caching. You can use <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Redis cache</a> (preview) with the <a href="https://wordpress.org/plugins/redis-object-cache/">Redis object cache WordPress plugin</a>, or you can use one of the other caching offerings from the <a href="/gallery/store/">Azure Store</a>.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Make WordPress faster with Wincache</a>. Wincache is enabled by default for web apps.</p></li><li><p>[Scale a web app in Azure App Service][websitescale] and use <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB High Availability Routing</a> or <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
-| **Use blobs for storage** |<ol><li><p>[Create an Azure storage account](../storage/storage-create-storage-account.md).</p></li><li><p>Learn how to [Use the Content Distribution Network](../cdn/cdn-create-new-endpoint.md) to geo-distribute data stored in blobs.</p></li><li><p>Install and configure the <a href="https://wordpress.org/plugins/windows-azure-storage/">Azure Storage for WordPress plugin</a>.</p><p>For detailed setup and configuration information for the plugin, see the <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">user guide</a>.</p> </li></ol> |
+| **Improve performance** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Disable the ARR cookie</a>, which can improve performance when WordPress runs on multiple Web Apps instances.</p></li><li><p>Enable caching. You can use <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Redis cache</a> (preview) with the <a href="https://wordpress.org/plugins/redis-object-cache/">Redis object cache WordPress plugin</a>, or you can use one of the other caching offerings from the <a href="/gallery/store/">Azure Store</a>.</p></li><li><p>[Make WordPress faster with Wincache](https://wordpress.org/plugins/w3-total-cache/). Wincache is enabled by default for web apps. When using WinCache and Dynamic Cache together, turn off WinCache's file cache, but leave the user and session cache enabled. To turn off file cache, in a system-level .ini file, set the following value:<br/><code>wincache.fcenabled = 0</code></p></li><li><p>[Scale a web app in Azure App Service][websitescale] and use <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB High Availability Routing</a> or <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
+| **Use blobs for storage** |<ol><li><p>[Create an Azure storage account](../storage/common/storage-create-storage-account.md).</p></li><li><p>Learn how to [Use the Content Distribution Network](../cdn/cdn-create-new-endpoint.md) to geo-distribute data stored in blobs.</p></li><li><p>Install and configure the <a href="https://wordpress.org/plugins/windows-azure-storage/">Azure Storage for WordPress plugin</a>.</p><p>For detailed setup and configuration information for the plugin, see the <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">user guide</a>.</p> </li></ol> |
 | **Enable email** |Enable <a href="https://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/">SendGrid</a> by using the Azure Store. Install the <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">SendGrid plugin</a> for WordPress. |
 | **Configure a custom domain name** |[Configure a custom domain name in Azure App Service][customdomain]. |
 | **Enable HTTPS for a custom domain name** |[Enable HTTPS for a web app in Azure App Service][httpscustomdomain]. |
@@ -169,7 +169,7 @@ After the WordPress site has been created or migrated, use the following informa
 
 ## Next steps
 * [WordPress optimization](http://codex.wordpress.org/WordPress_Optimization)
-* [Convert WordPress to multisite in Azure App Service](web-sites-php-convert-wordpress-multisite.md)
+<!-- * [Convert WordPress to multisite in Azure App Service](web-sites-php-convert-wordpress-multisite.md) -->
 * [ClearDB upgrade wizard for Azure](http://www.cleardb.com/store/azure/upgrade)
 * [Hosting WordPress in a subfolder of your web app in Azure App Service](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
 * [Step-by-step: Create a WordPress site using Azure](http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx)
@@ -207,7 +207,7 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [storageplugin]: https://wordpress.org/plugins/windows-azure-storage/
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
-[customdomain]: web-sites-custom-domain-name.md
+[customdomain]: app-service-web-tutorial-custom-domain.md
 [trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
@@ -219,7 +219,7 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [staging]: web-sites-staged-publishing.md
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
-[httpscustomdomain]: web-sites-configure-ssl-certificate.md
+[httpscustomdomain]: app-service-web-tutorial-custom-ssl.md
 [mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
 [mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
@@ -228,7 +228,7 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [import]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressbackup]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressdbbackup]: http://codex.wordpress.org/Backing_Up_Your_Database
-[createwordpress]: web-sites-php-web-site-gallery.md
+[createwordpress]: https://portal.azure.com/#create/WordPress.WordPress
 [velvet]: https://wordpress.org/plugins/velvet-blues-update-urls/
 [mgmtportal]: https://portal.azure.com/
 [wordpressbackup]: http://codex.wordpress.org/WordPress_Backups

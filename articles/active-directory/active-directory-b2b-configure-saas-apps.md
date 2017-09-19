@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
 
 ---
@@ -77,7 +77,7 @@ You can enable users to authenticate Box guest users with their Azure AD account
 
 1. Add the Box app from the enterprise apps.
 
-2. Configure single sign-on by doing the following:
+2. Configure single sign-on in the following order:
 
   ![Configure Box single sign-on](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
@@ -90,7 +90,7 @@ You can enable users to authenticate Box guest users with their Azure AD account
 
  d. To begin configuring your Box.com tenant to use Azure AD as an identity provider, download the metadata file and then save it to your local drive.
 
- e. Forward the metadata file to the Box support team, which will configure single sign-on for you.
+ e. Forward the metadata file to the Box support team, which configures single sign-on for you.
 
 3. For Azure AD automatic user setup, in the left pane, select **Provisioning**, and then select **Authorize**.
 

@@ -1,6 +1,6 @@
 ---
-title: Run Sqoop jobs using PowerShell and Azure HDInsight | Microsoft Docs
-description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database.
+title: Run Sqoop jobs by using PowerShell and Azure HDInsight | Microsoft Docs
+description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -15,30 +15,28 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 09/06/2017
 ms.author: jgao
 
 ---
-# Run Sqoop jobs using Azure PowerShell for Hadoop in HDInsight
+# Run Sqoop jobs by using Azure PowerShell for Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Azure PowerShell to run Sqoop jobs in HDInsight to import and export between HDInsight cluster and Azure SQL database or SQL Server database.
+Learn how to use Azure PowerShell to run Sqoop jobs in Azure HDInsight to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 
 > [!NOTE]
-> The steps in this article can be used with either a Windows-based or Linux-based HDInsight cluster; however, these steps will only work from a Windows client. For other job submission methods, click the tab selector on the top of the article.
+> Although you can use the procedures in this article with either a Windows-based or Linux-based HDInsight cluster, they work only from a Windows client. To choose other methods, use the tab selector at the top of this article. 
 > 
 > 
 
 ### Prerequisites
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following items:
 
-* **A workstation with Azure PowerShell**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-* **A Hadoop cluster in HDInsight**. See [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* A workstation with Azure PowerShell.
+* A Hadoop cluster in HDInsight. For more information, see [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## Run Sqoop using PowerShell
-The following PowerShell script pre-processes the source file, and exports it to an Azure SQL database:
+## Run Sqoop by using PowerShell
+The following PowerShell script pre-processes the source file and then exports it to an Azure SQL database:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -163,14 +161,17 @@ The following PowerShell script pre-processes the source file, and exports it to
     #endregion
 
 ## Limitations
-* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
-* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching the insert operations.
+Linux-based HDInsight presents the following limitations:
+
+* Bulk export: The Sqoop connector that's used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
+
+* Batching: By using the `-batch` switch when it performs inserts, Sqoop performs multiple inserts instead of batching the insert operations. 
 
 ## Next steps
 Now you have learned how to use Sqoop. To learn more, see:
 
 * [Use Oozie with HDInsight](hdinsight-use-oozie.md): Use Sqoop action in an Oozie workflow.
-* [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data.md): Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
-* [Upload data to HDInsight](hdinsight-upload-data.md): Find other methods for uploading data to HDInsight/Azure Blob storage.
+* [Analyze flight delay data by using HDInsight](hdinsight-analyze-flight-delay-data.md): Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
+* [Upload data to HDInsight](hdinsight-upload-data.md): Find other methods for uploading data to HDInsight or Azure Blob storage.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

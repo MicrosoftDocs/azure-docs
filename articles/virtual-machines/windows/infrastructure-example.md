@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
@@ -114,7 +114,3 @@ This configuration incorporates:
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 * An internal load balanced set for unencrypted web traffic from the web servers to the application servers
 * A single resource group
-
-## Next steps
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-

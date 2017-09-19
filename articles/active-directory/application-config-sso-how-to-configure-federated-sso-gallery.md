@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 
 ---
@@ -202,6 +202,10 @@ To assign one or more users to an application directly, follow the steps below:
 15. Click the **Assign** button to assign the application to the selected users.
 
 After a short period of time, the users you have selected be able to launch these applications using the methods described in the solution description section.
+
+## Customizing the SAML claims sent to an application
+
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
 
 ## Next steps
 [Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)

@@ -110,7 +110,7 @@ The Azure CLI doesn't provide verbose errors during the encryption process. For 
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
+  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \
   --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
   --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
   --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
@@ -138,11 +138,11 @@ The process for encrypting a VM is as follows:
 ## Supporting services and encryption process
 Disk encryption relies on the following additional components:
 
-* **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process. 
+* **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process.
   * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
   * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
-* **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions. 
-  * You can typically use an existing Azure Active Directory instance for housing your application. 
+* **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions.
+  * You can typically use an existing Azure Active Directory instance for housing your application.
   * The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
 
 ## Requirements and limitations
@@ -168,7 +168,7 @@ azure config mode arm
 
 Throughout the command examples, replace all example parameters with your own names, location, and key values. The following examples use a convention of `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
 
-The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you use Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks. 
+The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you use Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks.
 
 Enable the Azure Key Vault provider in your Azure subscription, then create a resource group. The following example creates a resource group named `myResourceGroup` in the `WestUS` location:
 
@@ -184,7 +184,7 @@ azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
   --location WestUS
 ```
 
-You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault. 
+You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault.
 
 For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create an encryption key within your Key Vault, then enable it for use with virtual disk encryption. The following example creates a key named `myKey` and then enables it for disk encryption:
 
@@ -199,7 +199,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
 ## Create the Azure Active Directory application
 When virtual disks are encrypted or decrypted, you use an endpoint to handle the authentication and exchanging of cryptographic keys from Key Vault. This endpoint, an Azure Active Directory application, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
 
-As you are not creating a full Azure Active Directory application, the `--home-page` and `--identifier-uris` parameters in the following example do not need to be actual routable address. The following example also specifies a password-based secret rather than generating keys from within the Azure portal. As this time, generating keys cannot be done from the Azure CLI. 
+As you are not creating a full Azure Active Directory application, the `--home-page` and `--identifier-uris` parameters in the following example do not need to be actual routable address. The following example also specifies a password-based secret rather than generating keys from within the Azure portal. As this time, generating keys cannot be done from the Azure CLI.
 
 Create your Azure Active Directory application. The following example creates an application named `myAADApp` and uses a password of `myPassword`. Specify your own password as follows:
 
@@ -210,7 +210,7 @@ azure ad app create --name myAADApp \
   --password myPassword
 ```
 
-Make a note of the `applicationId` that is returned in the output from the preceding command. This application ID is used in some of the remaining steps. Next, create a service principal name (SPN) so that the application is accessible within your environment. To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory application to read the keys. 
+Make a note of the `applicationId` that is returned in the output from the preceding command. This application ID is used in some of the remaining steps. Next, create a service principal name (SPN) so that the application is accessible within your environment. To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory application to read the keys.
 
 Create the SPN and set the appropriate permissions as follows:
 
@@ -269,7 +269,7 @@ As the preceding command has many variables, the following example is the comple
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
+  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \
   --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
   --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
   --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
@@ -310,6 +310,5 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 
 
 ## Next steps
-* For more information about managing Azure Key Vault, including deleting cryptographic keys and vaults, see [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli.md).
+* For more information about managing Azure Key Vault, including deleting cryptographic keys and vaults, see [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md).
 * For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
-

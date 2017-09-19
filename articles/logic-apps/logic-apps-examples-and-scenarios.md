@@ -1,20 +1,20 @@
 ---
-title: Examples & scenarios - Azure Logic Apps | Microsoft Docs
-description: Review logic apps examples for common scenarios
+title: Examples & common scenarios - Azure Logic Apps | Microsoft Docs
+description: Learn more about logic apps with examples, scenarios, and tutorials
 services: logic-apps
 author: jeffhollan
 manager: anneta
 editor: ''
-documentationcenter: .net,nodejs,java
+documentationcenter:
 
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 03/14/2017
-ms.author: jehollan
+ms.date: 08/9/2017
+ms.author: LADocs; jehollan
 
 ---
 # Examples and common scenarios for Azure Logic Apps
@@ -38,16 +38,16 @@ your workflow can start with a schedule event,
 a manual invocation, or an event from an external system, 
 such as the "when a file is added to an FTP server" trigger. 
 Azure Logic Apps currently supports over 100 ready-to-use connectors, 
-ranging from on-premises SAP to Azure Cognitive Services. 
+ranging from on-premises SAP to Microsoft Cognitive Services. 
 For systems and services that might not have published connectors, 
 you can also extend logic apps.
 
-* [Tutorial: Build an AI-powered social dashboard in minutes with Logic Apps and Power BI](http://aka.ms/logicappsdemo)
 * [Create custom triggers or actions](../logic-apps/logic-apps-create-api-app.md)
 * [Set up long-running actions for workflow runs](../logic-apps/logic-apps-create-api-app.md)
 * [Respond to external events and actions with webhooks](../logic-apps/logic-apps-create-api-app.md)
-* [Call, trigger, or nest workflows with synchronous responses to HTTP requests](logic-apps-http-endpoint.md)
+* [Call, trigger, or nest workflows with synchronous responses to HTTP requests](../logic-apps/logic-apps-http-endpoint.md)
 * [Tutorial: Respond to Twilio SMS webhooks and send a text response](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Tutorial: Build an AI-powered social dashboard in minutes with Logic Apps and Power BI](http://aka.ms/logicappsdemo)
 
 ## Error handling, logging, and control flow capabilities
 
@@ -58,11 +58,12 @@ error and exception handling in your workflows.
 For notification and diagnostic logs for workflow run status, 
 Azure Logic Apps also provides monitoring and alerts.
 
-* [Perform different actions with switch statements](logic-apps-switch-case.md)
-* [Process items in arrays and collections with loops and batches in logic apps](logic-apps-loops-and-scopes.md)
-* [Author error and exception handling in a workflow](logic-apps-exception-handling.md)
-* [Configure Azure Alerts and diagnostics](logic-apps-monitor-your-logic-apps.md)
-* [Use case: How a healthcare company uses logic app exception handling for HL7 FHIR workflows](logic-apps-scenario-error-and-exception-handling.md)
+* [Perform different actions with switch statements](../logic-apps/logic-apps-switch-case.md)
+* [Process items in arrays and collections with loops and batches in logic apps](../logic-apps/logic-apps-loops-and-scopes.md)
+* [Author error and exception handling in a workflow](../logic-apps/logic-apps-exception-handling.md)
+* [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Turn on monitoring and diagnostics logging when creating logic apps](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
+* [Use case: How a healthcare company uses logic app exception handling for HL7 FHIR workflows](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 
 ## Deploy and manage logic apps
 
@@ -74,8 +75,8 @@ Visual Studio tools automatically generate these templates,
 which you can check in to source control for versioning.
 
 * [Create an automated deployment template](../logic-apps/logic-apps-create-deploy-template.md)
-* [Build and deploy logic apps from Visual Studio](logic-apps-deploy-from-vs.md)
-* [Monitor the health of your logic apps](logic-apps-monitor-your-logic-apps.md)
+* [Build and deploy logic apps from Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Monitor the health of your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 ## Content types, conversions, and transformations within a run
 
@@ -98,13 +99,17 @@ like Azure Functions, Azure API Management,
 Azure App Services, and custom HTTP endpoints, 
 for example, REST and SOAP.
 
-* [Create a real-time social dashboard with Azure Serverless](logic-apps-scenario-social-serverless.md)
+* [Create a real-time social dashboard with Azure Serverless](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Call Azure Functions from logic apps](../logic-apps/logic-apps-azure-functions.md)
-* [Scenario: Trigger logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
+* [Scenario: Trigger logic apps with Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
-## Next Steps
+## End-to-end scenarios
 
-- [Handle errors and exceptions in logic apps](logic-apps-exception-handling.md)
-- [Author workflow definitions with the workflow definition language](logic-apps-author-definitions.md)
+* [Whitepaper: Enterprise integration end-to-end case management with Azure services, like Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
+## Next steps
+
+- [Handle errors and exceptions in logic apps](../logic-apps/logic-apps-exception-handling.md)
+- [Author workflow definitions with the workflow definition language](../logic-apps/logic-apps-author-definitions.md)
 - [Submit your comments, questions, feedback, or suggestions for how can we improve Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 
 ---
 # Accessing diagnostic logs for Azure Data Lake Store
-Learn about how to enable diagnostic logging for your Data Lake Store account and how to view the logs collected for your account.
+Learn to enable diagnostic logging for your Data Lake Store account and how to view the logs collected for your account.
 
 Organizations can enable diagnostic logging for their Azure Data Lake Store account to collect data access audit trails that provides information such as list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc.
 
@@ -27,7 +27,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Store acco
 * **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 
 ## Enable diagnostic logging for your Data Lake Store account
-1. Sign on to the new [Azure Portal](https://portal.azure.com).
+1. Sign on to the new [Azure portal](https://portal.azure.com).
 2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Settings**, and then click **Diagnostic logs**.
 3. In the **Diagnostics logs** blade, click **Turn on diagnostics**.
 
@@ -37,7 +37,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Store acco
    
     ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
    
-   * Set **Status** to **On** to enable diagnostic logging.
+   * For **Name**, enter a value for the diagnostic log configuration.
    * You can choose to store/process the data in different ways.
      
 		* Select the option to **Archive to a storage account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
@@ -66,7 +66,7 @@ There are two ways to view the log data for your Data Lake Store account.
    
    * Request logs capture every API request made on the Data Lake Store account.
    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Store account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
-3. Click the **Download** link against each log entry to download the logs.
+3. To download the logs, click the **Download** link against each log entry.
 
 ### From the Azure Storage account that contains log data
 1. Open the Azure Storage account blade associated with Data Lake Store for logging, and then click Blobs. The **Blob service** blade lists two containers.
@@ -81,7 +81,7 @@ There are two ways to view the log data for your Data Lake Store account.
    
     As an example, the complete path to an audit log could be `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    Similary, the complete path to a request log could be `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    Similarly, the complete path to a request log could be `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Understand the structure of the log data
 The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.

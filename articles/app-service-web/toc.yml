@@ -1,12 +1,14 @@
 - name: Web Apps Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Web Apps
     href: app-service-web-overview.md
+  - name: About Web Apps for Containers
+    href: ../app-service/containers/app-service-linux-intro.md
   - name: Compare hosting options
     href: choose-web-site-cloud-service-vm.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create .NET app
@@ -23,10 +25,22 @@
     href: app-service-web-get-started-html.md
 - name: Tutorials
   items:
-  - name: .NET with SQL Database
+  - name: 1 - .NET with SQL DB
     href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: Node.js with MongoDB
+  - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: 1 - PHP with MySQL
+    href: app-service-web-tutorial-php-mysql.md 
+  - name: 1 - Java with MySQL
+    href: app-service-web-tutorial-java-mysql.md
+  - name: 2 - Map Custom Domain
+    href: app-service-web-tutorial-custom-domain.md
+  - name: 3 - Bind SSL Certificate
+    href: app-service-web-tutorial-custom-ssl.md
+  - name: 4 - Add CDN
+    href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -39,8 +53,8 @@
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: App Service plans
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: App Service Environments
-    href: app-service-app-service-environment-intro.md
+  - name: App Service Environment
+    href: ../app-service/app-service-environment/intro.md
   - name: Authentication and authorization
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Authentication with on-premises AD
@@ -61,14 +75,8 @@
         href: app-service-web-php-get-started.md
       - name: Set up your PHP project
         href: web-sites-php-configure.md
-      - name: Set up your WordPress Multisite
-        href: web-sites-php-convert-wordpress-multisite.md
     - name: Node.js
       items:
-      - name: Sails.js app with NOSQL DB
-        href: app-service-web-nodejs-sails.md
-      - name: Use io.js
-        href: web-sites-nodejs-iojs.md
       - name: Debug Node.js app
         href: web-sites-nodejs-debug.md
     - name: Java
@@ -77,18 +85,8 @@
         href: app-service-web-eclipse-create-hello-world-web-app.md
       - name: Java app with IntelliJ
         href: app-service-web-intellij-create-hello-world-web-app.md
-      - name: Use Azure SDK for Java
-        href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
         href: web-sites-java-add-app.md
-      - name: Remote debug Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Remote debug IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
-    - name: Python
-      items:
-      - name: Django app with MySQL
-        href: web-sites-python-ptvs-django-mysql.md
     - name: Send emails with SendGrid
       href: sendgrid-dotnet-how-to-send-email.md
     - name: Configure runtime
@@ -97,8 +95,6 @@
         href: web-sites-php-configure.md
       - name: Java
         href: web-sites-java-add-app.md
-      - name: Node.js on Linux
-        href: app-service-linux-using-nodejs-pm2.md
       - name: Python
         href: web-sites-python-configure.md
     - name: Configure application
@@ -109,9 +105,9 @@
     href: web-sites-deploy.md
     items:
     - name: Deploy via FTP
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: Deploy via cloud sync
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: Deploy continuously
       href: app-service-continuous-deployment.md
     - name: Deploy to staging
@@ -130,24 +126,20 @@
       items:
       - name: Buy domain
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Map 3rd-party domain
-        href: web-sites-custom-domain-name.md
       - name: Map domains with Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
-      - name: Map GoDaddy domains
-        href: web-sites-godaddy-custom-domain-name.md
       - name: Migrate an active domain
         href: app-service-custom-domain-name-migrate.md
-    - name: Migrate from IIS
-      href: web-sites-migration-from-iis-server.md
-    - name: Test in production
-      href: app-service-web-test-in-production-get-start.md
-    - name: Add functionality to web app
-      href: app-service-web-get-started-2.md
+    - name: Deploy a Spring Boot app to Azure Web Apps using the Maven Plugin
+      href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
+    - name: Deploy a containerized Spring Boot app using the Maven Plugin
+      href: app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md
+    - name: Deploy a Spring Boot app in Azure Container Registry to Azure App Service
+      href: app-service-web-deploy-spring-boot-app-from-container-registry-using-maven-plugin.md
+    - name: Run a Hello World web app in a Linux container by using the Azure Toolkit for IntelliJ
+      href: ../azure-toolkit-for-intellij-hello-world-web-app-linux.md
   - name: Connect to DB/resources
     items:
-    - name: Connect to on-premises data
-      href: web-sites-hybrid-connection-get-started.md
     - name: Connect to Azure VNet
       href: web-sites-integrate-with-vnet.md
     - name: Connect to Azure VNet with PowerShell
@@ -172,12 +164,6 @@
         href: web-sites-authentication-authorization.md
       - name: App with a multi-tenant database
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Assign custom SSL
-      items:
-      - name: Buy SSL cert
-        href: web-sites-purchase-ssl-web-site.md
-      - name: Configure 3rd-party SSL cert
-        href: web-sites-configure-ssl-certificate.md
     - name: Enforce HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Configure TLS mutual authentication
@@ -188,8 +174,6 @@
       href: web-sites-scale.md
     - name: Scale out
       href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Load-balance with Traffic Manager
-      href: web-sites-traffic-manager.md
     - name: High-scale with App Service Environments
       href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Use Azure CDN for global reach
@@ -198,8 +182,6 @@
       href: web-sites-connect-to-redis-using-memcache-protocol.md
     - name: Create a Redis Cache
       href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Manage session state with Azure Redis cache
-      href: web-sites-dotnet-session-state-caching.md
   - name: Monitor
     items:
     - name: Monitor apps
@@ -214,8 +196,6 @@
       href: web-sites-backup.md
     - name: Restore your app from backup
       href: web-sites-restore.md
-    - name: Backup with REST API
-      href: websites-csm-backup.md
   - name: Manage app resources
     items:
     - name: Clone app with PowerShell
@@ -224,10 +204,33 @@
       href: app-service-web-app-cloning-portal.md
     - name: Move resources
       href: app-service-move-resources.md
-    - name: Use Azure Resource Manager with PowerShell
-      href: app-service-web-app-azure-resource-manager-powershell.md
-    - name: Manage apps using Azure Automation
-      href: automation-manage-web-app.md
+  - name: Integrate
+    items:
+    - name: Export to PowerApps and Microsoft Flow
+      href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Use Managed Service Identity
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+  - name: App Service Environment
+    items:
+    - name: Use an App Service Environment
+      href: ../app-service/app-service-environment/using-an-ase.md
+    - name: Create an external App Service Environment
+      href: ../app-service/app-service-environment/create-external-ase.md
+    - name: Create using Azure Resource Manager
+      href: ../app-service/app-service-environment/create-from-template.md
+    - name: Create with an Internal Load Balancer
+      href: ../app-service/app-service-environment/create-ilb-ase.md
+    - name: Networking considerations
+      href: ../app-service/app-service-environment/network-info.md
+    - name: Configure custom settings
+      href: ./app-service-app-service-environment-custom-settings.md
+    - name: Integrate with a Web Application Firewall
+      href: ./app-service-app-service-environment-web-application-firewall.md
+    - name: Geographically distributed scale
+      href: ./app-service-app-service-environment-geo-distributed-scale.md
+    - name: Management address list
+      href: ../app-service/app-service-environment/management-addresses.md
+
 - name: Reference
   items:
   - name: CLI 2.0
@@ -236,8 +239,12 @@
     href: /powershell
   - name: REST API
     href: /rest/api/appservice/
+  - name: App Service Environment
+    href: ../app-service/app-service-environment/readme.md
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio
@@ -248,6 +255,42 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: FAQ
+      items:
+      - name: Availability, performance, and application FAQ
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Deployment FAQ
+        href: app-service-web-deployment-faq.md
+      - name: Open source technologies FAQ
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Configuration and management FAQ
+        href: app-service-web-configuration-and-management-faq.md
+  - name: App Service Environment v1
+    items:
+    - name: Overview
+      href: app-service-app-service-environment-intro.md
+    - name: How to Create an App Service Environment
+      href: app-service-web-how-to-create-an-app-service-environment.md
+    - name: Create a web app in an App Service Environment
+      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+    - name: Using an Internal Load Balancer
+      href: app-service-environment-with-internal-load-balancer.md
+    - name: Configure an App Service Environment
+      href: app-service-web-configure-an-app-service-environment.md
+    - name: Scaling apps in an App Service Environment
+      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: Network Architecture Overview
+      href: app-service-app-service-environment-network-architecture-overview.md
+    - name: Implementing a Layered Security Architecture
+      href: app-service-app-service-environment-layered-security.md
+    - name: How To Control Inbound Traffic
+      href: app-service-app-service-environment-control-inbound-traffic.md
+    - name: Securely Connecting to Backend Resources
+      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+    - name: Network configuration details with Express​Route
+      href: app-service-app-service-environment-network-configuration-expressroute.md
+    - name: Autoscale in App Service Environment
+      href: ../app-service/app-service-environment-auto-scale.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information

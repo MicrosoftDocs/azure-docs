@@ -1,6 +1,6 @@
 ---
-title: An introduction to Apache Kafka on HDInsight | Microsoft Docs
-description: 'Learn about Apache Kafka on HDInsight. What it is, what it does, and where to find examples and getting started information.'
+title: An introduction to Apache Kafka on HDInsight - Azure | Microsoft Docs
+description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, and where to find examples and getting started information.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ---
 # Introducing Apache Kafka on HDInsight (preview)
@@ -35,6 +35,12 @@ Kafka provides the following features:
 
 * Fault-tolerant: Partitions can be replicated between nodes to provide fault tolerance.
 
+* Integration with Azure Managed Disks: Managed disks provide higher scale and throughput for the disks used by the virtual machines in the HDInsight cluster.
+
+    Managed disks are enabled by default for Kafka on HDInsight. The number of disks used per node can be configured during HDInsight creation. For more information on managed disks, see [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+
+    For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
+
 ## Use cases
 
 * **Messaging**: Since it supports the publish-subscribe message pattern, Kafka is often used as a message broker.
@@ -45,9 +51,14 @@ Kafka provides the following features:
 
 * **Transformation**: Using stream processing, you can combine and enrich data from multiple input topics into one or more output topics.
 
-## Where do I start?
+## Architecture
 
-See [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md) for steps on creating a Kafka cluster and using Kafka, including Java-based examples of using the producer, consumer, and streaming API
+![Kafka cluster configuration](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+This diagram shows a typical Kafka configuration that uses consumer groups, partitioning, and replication to offer parallel reading of events with fault tolerance. Apache ZooKeeper is built for concurrent, resilient, and low-latency transactions, as it manages the state of the Kafka cluster. Kafka stores records in *topics*. Records are produced by *producers*, and consumed by *consumers*. Producers retrieve records from Kafka *brokers*. Each worker node in your HDInsight cluster is a Kafka broker. One partition is created for each consumer, allowing parallel processing of the streaming data. Replication is employed to spread the partitions across nodes, protecting against node (broker) outages. A partition denoted with an *(L)* is the leader for the given partition. Producer traffic is routed to the leader of each node, using the state managed by ZooKeeper.
+
+> [!IMPORTANT]
+> Kafka is not aware of the underlying hardware (rack) in the Azure data center. To ensure that partitions are correctly balanced across the underlying hardware, see [configure high availability of data (Kafka)](hdinsight-apache-kafka-high-availability.md).
 
 ## Next steps
 

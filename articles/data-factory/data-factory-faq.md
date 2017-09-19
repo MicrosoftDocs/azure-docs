@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Data Factory - Frequently Asked Questions
 description: Frequently asked questions about Azure Data Factory.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/24/2017
+ms.date: 08/14/2017
 ms.author: shlo
 
 ---
@@ -126,8 +126,10 @@ If you are using an on-demand cluster that is created by the Data Factory servic
     {
         "type": "HDInsightOnDemandLinkedService",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
-            "timeToLive": "00:01:00",
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "linkedServiceName": "LinkedService-SampleData",
             "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
         }
@@ -154,7 +156,7 @@ Pipeline 1: dataset4->activity4->dataset5
 If the external property is properly set, verify whether the input data exists in the location specified in the input dataset definition.
 
 ### How to run a slice at another time than midnight when the slice is being produced daily?
-Use the **offset** property to specify the time at which you want the slice to be produced. See [Dataset availability](data-factory-create-datasets.md#Availability) section for details about this property. Here is a quick example:
+Use the **offset** property to specify the time at which you want the slice to be produced. See [Dataset availability](data-factory-create-datasets.md#dataset-availability) section for details about this property. Here is a quick example:
 
 ```json
 "availability":
@@ -191,7 +193,7 @@ You can also do the following in the Azure portal:
 6. You should see the **DURATION** field with a value. This value is the time taken to process the slice.   
 
 ### How to stop a running slice?
-If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
+If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
 
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline.
 

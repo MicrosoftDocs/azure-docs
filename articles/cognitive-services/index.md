@@ -2,10 +2,10 @@
 title: Azure Cognitive Services Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to add intelligent capabilities to your applications, such as vision, speech, and language analytics. Get quick start guides and API references.
 services: cognitive-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid:
 ms.service: cognitive-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.author: carolz
 ---
 # Cognitive Services Documentation
 
-Learn how to enable natural and contextual interaction within your applications with Cognitive Services. Quick start tutorials and API references help you incorporate artificial intelligence capabilities for text, speech, vision, and search. 
+Learn how to enable natural and contextual interaction within your applications with Cognitive Services. Quick start tutorials and API references help you incorporate artificial intelligence capabilities for text, speech, vision, and search.
 
 <ul class="panelContent cardsFTitle">
-     
+
 <li>
         <a href="/azure/cognitive-services/Welcome">
         <div class="cardSize">
@@ -76,7 +76,7 @@ Learn how to enable natural and contextual interaction within your applications 
     </li>
 
 <li>
-        <a href="/azure/cognitive-services/bing-web-search/overview">
+        <a href="/azure/cognitive-services/bing-web-search/search-the-web">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -94,7 +94,7 @@ Learn how to enable natural and contextual interaction within your applications 
         </a>
     </li>
     <li>
-        <a href="/azure/cognitive-services/custom-speech-service/home">
+        <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

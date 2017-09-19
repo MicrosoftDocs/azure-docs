@@ -1,5 +1,5 @@
 ---
-title: Analyze real-time Twitter sentiment with HBase | Microsoft Docs
+title: Analyze real-time Twitter sentiment with HBase - Azure | Microsoft Docs
 description: Learn how to do real-time sentiment analysis of big data from Twitter using HBase in an HDInsight (Hadoop) cluster.
 services: hdinsight
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 07/24/2017
 ms.author: jgao
 
 ---
 # Analyze real-time Twitter sentiment with HBase in HDInsight
 Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data from Twitter by using a HBase cluster in HDInsight.
 
-Social websites are one of the major driving forces for big data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will develop a console streaming service application and an ASP.NET web application to perform the following:
+Social websites are one of the major driving forces for big data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you develop a console streaming service application and an ASP.NET web application to perform the following:
 
 ![HDInsight HBase Analyze Twitter sentiment][img-app-arch]
 
@@ -32,25 +32,18 @@ Social websites are one of the major driving forces for big data adoption. Publi
   * store the sentiment information in HBase by using the Microsoft HBase SDK
 * The Azure Websites application
 
-  * plot the real-time statistical results on Bing maps by using an ASP.NET web application. A visualization of the tweets will look something like this:
+  * plot the real-time statistical results on Bing maps by using an ASP.NET web application. A visualization of the tweets is similar to the following screenshot:
 
     ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 
-    You will be able to query tweets with certain keywords to get a sense of if the expressed opinion in the tweets is positive, negative, or neutral.
+    You are able to query tweets with certain keywords to get a sense of if the expressed opinion in the tweets is positive, negative, or neutral.
 
 A complete Visual Studio solution sample can be found on GitHub: [Realtime social sentiment analysis app](https://github.com/maxluk/tweet-sentiment).
 
 ### Prerequisites
 Before you begin this tutorial, you must have the following:
 
-* **An HBase cluster in HDInsight**. For instructions about creating clusters, see  [Get started using HBase with Hadoop in HDInsight][hbase-get-started]. You will need the following data to go through the tutorial:
-
-    <table border="1">
-    <tr><th>Cluster property</th><th>Description</th></tr>
-    <tr><td>HBase cluster name</td><td>Your HDInsight HBase cluster name. For example: https://myhbase.azurehdinsight.net/</td></tr>
-    <tr><td>Cluster user name</td><td>The Hadoop user account name. The default Hadoop user name is <strong>admin</strong>.</td></tr>
-    <tr><td>Cluster user password</td><td>The Hadoop cluster user password.</td></tr>
-    </table>
+* **An HBase cluster in HDInsight**. For instructions about creating clusters, see  [Get started using HBase with Hadoop in HDInsight][hbase-get-started]. 
 
 * **A workstation** with Visual Studio 2013/2015/2017 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -63,13 +56,13 @@ The Twitter streaming APIs use [OAuth](http://oauth.net/) to authorize requests.
 2. Click **Create New App**.
 3. Enter a **Name**, **Description**, and **Website**. The Twitter application name must be a unique name. The Website field is not really used. It doesn't have to be a valid URL.
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
-5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial.
+5. Click the **Permissions** tab, and then click **Read only**. The read-only permission is sufficient for this tutorial.
 6. Click the **Keys and Access Tokens** tab.
-7. Click **Create my access token**.
-8. Click **Test OAuth** in the upper-right corner of the page.
-9. Copy the **Consumer key**, **Consumer secret**, **Access token**, and **Access token secret** values. You will need these values later in the tutorial.
+7. Click **Create my access token** on the bottom of the page.
+9. Copy the **Consumer Key (API Key)**, **Consumer Secret (API Secret)**, **Access token**, and **Access token secret** values. You need these values later in the tutorial.
 
-    ![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
+    > ![NOTE]
+    > The Test OAuth button does not work anymore.
 
 ## Create Twitter streaming service
 You need to create an application to get tweets, calculate tweet sentiment score, and send the processed tweet words to HBase.
@@ -381,7 +374,7 @@ You need to create an application to get tweets, calculate tweet sentiment score
                         {
                             HBaseWriter hbase = new HBaseWriter();
                             var stream = Stream.CreateFilteredStream();
-                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90));
+                            stream.AddLocation(new Coordinates(90, -180), new Coordinates(-90,180));
 
                             var tweetCount = 0;
                             var timer = Stopwatch.StartNew();
@@ -430,7 +423,7 @@ To run the streaming service, press **F5**. The following is a screenshot of the
 Keep the streaming console application running while you develop the web application, so you have more data to use. To examine the data inserted into the table, you can use HBase Shell. See [Get started with HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md#create-tables-and-insert-data).
 
 ## Visualize real-time sentiment
-In this section, you will create an ASP.NET MVC web application to read the real-time sentiment data from HBase and plot the data on Bing maps.
+In this section, you create an ASP.NET MVC web application to read the real-time sentiment data from HBase and plot the data on Bing maps.
 
 **To create an ASP.NET MVC Web application**
 
@@ -446,7 +439,7 @@ In this section, you will create an ASP.NET MVC web application to read the real
 5. In **Select a template**, click **MVC**.
 6. In **Microsoft Azure**, click **Manage Subscriptions**.
 7. From **Manage Microsoft Azure Subscriptions**, click **Sign in**.
-8. Enter your Azure credentials. Your Azure subscription information will be shown on the **Accounts** tab.
+8. Enter your Azure credentials. Your Azure subscription information is shown on the **Accounts** tab.
 9. Click **Close** to close the **Manage Microsoft Azure Subscriptions** window.
 10. From **New ASP.NET Project - TweetSentimentWeb**, click **OK**.
 11. From **Configure Microsoft Azure Site Settings**, select the **Region** that is closest to you. You don't need to specify a database server.
@@ -1231,7 +1224,7 @@ In this tutorial, you learned how to get tweets, analyze the sentiment of tweets
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

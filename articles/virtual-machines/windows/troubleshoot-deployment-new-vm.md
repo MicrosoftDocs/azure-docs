@@ -4,7 +4,7 @@ description: Troubleshoot Resource Manager deployment issues when you create a n
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
-manager: felixwu
+manager: willchen
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 06/26/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 
@@ -23,6 +23,11 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
+
+## Top issues
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
+
+For other VM deployment issues and questions, see [Troubleshoot deploying Windows virtual machine issues in Azure](troubleshoot-deploy-vm.md).
 
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
@@ -55,7 +60,7 @@ To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](ht
 
 **Resolution**
 
-To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/gallery/marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.

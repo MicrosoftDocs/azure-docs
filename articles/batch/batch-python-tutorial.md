@@ -23,10 +23,11 @@ ms.custom: H1Hack27Feb2017
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
+> * [Node.js](batch-nodejs-get-started.md)
 >
 >
 
-Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
+Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](../storage/common/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
 ![Batch solution workflow (basic)][11]<br/>
 
@@ -36,7 +37,7 @@ This article assumes that you have a working knowledge of Python and familiarity
 ### Accounts
 * **Azure account**: If you don't already have an Azure subscription, [create a free Azure account][azure_free_account].
 * **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](batch-account-create-portal.md).
-* **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* **Storage account**: See [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
 ### Code sample
 The Python tutorial [code sample][github_article_samples] is one of the many Batch code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download all the samples by clicking **Clone or download > Download ZIP** on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, the two scripts for this tutorial are found in the `article_samples` directory:
@@ -55,7 +56,7 @@ You must install the dependencies for the [cryptography][crypto] library, requir
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
 
-    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+    `yum update && yum install -y gcc openssl-devel libffi-devel python-devel`
 * SLES/OpenSUSE
 
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
@@ -121,13 +122,13 @@ Before you run the sample, add your Batch and Storage account credentials to *py
 # for the Batch and Storage client objects.
 
 # Batch account credentials
-batch_account_name = "";
-batch_account_key  = "";
-batch_account_url  = "";
+BATCH_ACCOUNT_NAME = ""
+BATCH_ACCOUNT_KEY = ""
+BATCH_ACCOUNT_URL = ""
 
 # Storage account credentials
-storage_account_name = "";
-storage_account_key  = "";
+STORAGE_ACCOUNT_NAME = ""
+STORAGE_ACCOUNT_KEY = ""
 ```
 
 You can find your Batch and Storage account credentials within the account blade of each service in the [Azure portal][azure_portal]:
@@ -147,7 +148,7 @@ if __name__ == '__main__':
 ![Create containers in Azure Storage][1]
 <br/>
 
-Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
+Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage):
 
 * **application**: This container will store the Python script run by the tasks, *python_tutorial_task.py*.
 * **input**: Tasks will download the data files to process from the *input* container.
@@ -156,26 +157,28 @@ Batch includes built-in support for interacting with Azure Storage. Containers i
 In order to interact with a Storage account and create containers, we use the [azure-storage][pypi_storage] package to create a [BlockBlobService][py_blockblobservice] object--the "blob client." We then create three containers in the Storage account using the blob client.
 
 ```python
- # Create the blob client, for use in obtaining references to
- # blob storage containers and uploading files to containers.
- blob_client = azureblob.BlockBlobService(
-     account_name=_STORAGE_ACCOUNT_NAME,
-     account_key=_STORAGE_ACCOUNT_KEY)
+import azure.storage.blob as azureblob
 
- # Use the blob client to create the containers in Azure Storage if they
- # don't yet exist.
- app_container_name = 'application'
- input_container_name = 'input'
- output_container_name = 'output'
- blob_client.create_container(app_container_name, fail_on_exist=False)
- blob_client.create_container(input_container_name, fail_on_exist=False)
- blob_client.create_container(output_container_name, fail_on_exist=False)
+# Create the blob client, for use in obtaining references to
+# blob storage containers and uploading files to containers.
+blob_client = azureblob.BlockBlobService(
+    account_name=STORAGE_ACCOUNT_NAME,
+    account_key=STORAGE_ACCOUNT_KEY)
+
+# Use the blob client to create the containers in Azure Storage if they
+# don't yet exist.
+APP_CONTAINER_NAME = 'application'
+INPUT_CONTAINER_NAME = 'input'
+OUTPUT_CONTAINER_NAME = 'output'
+blob_client.create_container(APP_CONTAINER_NAME, fail_on_exist=False)
+blob_client.create_container(INPUT_CONTAINER_NAME, fail_on_exist=False)
+blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 ```
 
 Once the containers have been created, the application can now upload the files that will be used by the tasks.
 
 > [!TIP]
-> [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
+> [How to use Azure Blob storage from Python](../storage/blobs/storage-python-how-to-use-blob-storage.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
 >
 >
 
@@ -186,33 +189,33 @@ Once the containers have been created, the application can now upload the files 
 In the file upload operation, *python_tutorial_client.py* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
 
 ```python
- # Paths to the task script. This script will be executed by the tasks that
- # run on the compute nodes.
- application_file_paths = [os.path.realpath('python_tutorial_task.py')]
+# Paths to the task script. This script will be executed by the tasks that
+# run on the compute nodes.
+application_file_paths = [os.path.realpath('python_tutorial_task.py')]
 
- # The collection of data files that are to be processed by the tasks.
- input_file_paths = [os.path.realpath('./data/taskdata1.txt'),
-                     os.path.realpath('./data/taskdata2.txt'),
-                     os.path.realpath('./data/taskdata3.txt')]
+# The collection of data files that are to be processed by the tasks.
+input_file_paths = [os.path.realpath('./data/taskdata1.txt'),
+                    os.path.realpath('./data/taskdata2.txt'),
+                    os.path.realpath('./data/taskdata3.txt')]
 
- # Upload the application script to Azure Storage. This is the script that
- # will process the data files, and is executed by each of the tasks on the
- # compute nodes.
- application_files = [
-     upload_file_to_container(blob_client, app_container_name, file_path)
-     for file_path in application_file_paths]
+# Upload the application script to Azure Storage. This is the script that
+# will process the data files, and is executed by each of the tasks on the
+# compute nodes.
+application_files = [
+    upload_file_to_container(blob_client, APP_CONTAINER_NAME, file_path)
+    for file_path in application_file_paths]
 
- # Upload the data files. This is the data that will be processed by each of
- # the tasks executed on the compute nodes in the pool.
- input_files = [
-     upload_file_to_container(blob_client, input_container_name, file_path)
-     for file_path in input_file_paths]
+# Upload the data files. This is the data that will be processed by each of
+# the tasks executed on the compute nodes in the pool.
+input_files = [
+    upload_file_to_container(blob_client, INPUT_CONTAINER_NAME, file_path)
+    for file_path in input_file_paths]
 ```
 
 Using list comprehension, the `upload_file_to_container` function is called for each file in the collections, and two [ResourceFile][py_resource_file] collections are populated. The `upload_file_to_container` function appears below:
 
 ```python
-def upload_file_to_container(block_blob_client, container_name, file_path):
+def upload_file_to_container(block_blob_client, container_name, path):
     """
     Uploads a local file to an Azure Blob storage container.
 
@@ -224,9 +227,14 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
     :return: A ResourceFile initialized with a SAS URL appropriate for Batch
     tasks.
     """
-    blob_name = os.path.basename(file_path)
 
-    print('Uploading file {} to container [{}]...'.format(file_path,
+    import datetime
+    import azure.storage.blob as azureblob
+    import azure.batch.models as batchmodels
+
+    blob_name = os.path.basename(path)
+
+    print('Uploading file {} to container [{}]...'.format(path,
                                                           container_name))
 
     block_blob_client.create_blob_from_path(container_name,
@@ -264,7 +272,7 @@ Shared access signatures are strings that provide secure access to containers an
 * **Container shared access signature**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, *python_tutorial_task.py* uses a container shared access signature that provides write access to the container. The `get_container_sas_token` function in *python_tutorial_client.py* obtains the container's shared access signature, which is then passed as a command-line argument to the tasks. Step #5, [Add tasks to a job](#step-5-add-tasks-to-job), discusses the usage of the container SAS.
 
 > [!TIP]
-> Check out the two-part series on shared access signatures, [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
+> Check out the two-part series on shared access signatures, [Part 1: Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a SAS with the Blob service](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 >
 >
 
@@ -277,14 +285,14 @@ A Batch **pool** is a collection of compute nodes (virtual machines) on which Ba
 After it uploads the task script and data files to the Storage account, *python_tutorial_client.py* starts its interaction with the Batch service by using the Batch Python module. To do so, a [BatchServiceClient][py_batchserviceclient] is created:
 
 ```python
- # Create a Batch service client. We'll now be interacting with the Batch
- # service in addition to Storage.
- credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-                                              _BATCH_ACCOUNT_KEY)
+# Create a Batch service client. We'll now be interacting with the Batch
+# service in addition to Storage.
+credentials = batchauth.SharedKeyCredentials(BATCH_ACCOUNT_NAME,
+                                             BATCH_ACCOUNT_KEY)
 
- batch_client = batch.BatchServiceClient(
-     credentials,
-     base_url=_BATCH_ACCOUNT_URL)
+batch_client = batch.BatchServiceClient(
+    credentials,
+    base_url=BATCH_ACCOUNT_URL)
 ```
 
 Next, a pool of compute nodes is created in the Batch account with a call to `create_pool`.

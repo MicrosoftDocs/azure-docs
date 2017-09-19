@@ -1,119 +1,230 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Chromeriver | Microsoft Docs'
-description: Learn how to use Chromeriver with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+description: Learn how to configure single sign-on between Azure Active Directory and Chromeriver.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 
 ms.assetid: 445c5600-e340-4724-a9cb-3cfaf5770b70
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 05/26/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Chromeriver
-The objective of this tutorial is to show the integration of Azure and Chromeriver.  
 
-The scenario outlined in this tutorial assumes that you already have the following items:
+In this tutorial, you learn how to integrate Chromeriver with Azure Active Directory (Azure AD).
 
-* A valid Azure subscription
-* A Chromeriver single sign-on enabled subscription
+Integrating Chromeriver with Azure AD provides you with the following benefits:
 
-After completing this tutorial, the Azure AD users you have assigned to Chromeriver will be able to single sign into the application at your Chromeriver company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+- You can control in Azure AD who has access to Chromeriver
+- You can enable your users to automatically get signed-on to Chromeriver (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure portal
 
-The scenario outlined in this tutorial consists of the following building blocks:
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-* Enabling the application integration for Chromeriver
-* Configuring single sign-on (SSO)
-* Configuring user provisioning
-* Assigning users
+## Prerequisites
 
-![Scenario](./media/active-directory-saas-chromeriver-tutorial/IC802755.png "Scenario")
+To configure Azure AD integration with Chromeriver, you need the following items:
 
-## Enable the application integration for Chromeriver
-The objective of this section is to outline how to enable the application integration for Chromeriver.
+- An Azure AD subscription
+- A Chromeriver single-sign on enabled subscription
 
-**To enable the application integration for Chromeriver, perform the following steps:**
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-chromeriver-tutorial/IC700993.png "Active Directory")
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
-   ![Applications](./media/active-directory-saas-chromeriver-tutorial/IC700994.png "Applications")
-4. Click **Add** at the bottom of the page.
-   
-   ![Add application](./media/active-directory-saas-chromeriver-tutorial/IC749321.png "Add application")
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-      ![Add an application from gallerry](./media/active-directory-saas-chromeriver-tutorial/IC749322.png "Add an application from gallerry")
-6. In the **search box**, type **Chromeriver**.
-   
-   ![Application Gallery](./media/active-directory-saas-chromeriver-tutorial/IC802756.png "Application Gallery")
-7. In the results pane, select **Chromeriver**, and then click **Complete** to add the application.
-   
-## Configure single sign-on
+To test the steps in this tutorial, you should follow these recommendations:
 
-The objective of this section is to outline how to enable users to authenticate to Chromeriver with their account in Azure AD using federation based on the SAML protocol.
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-**To configure single sign-on, perform the following steps:**
+## Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment. 
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1. In the Azure classic portal, on the **Chromeriver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
-   
-   ![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/IC802757.png "Configure Single Sign-On")
-2. On the **How would you like users to sign on to Chromeriver** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
-   
-   ![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/IC802758.png "Configure Single Sign-On")
-3. On the **Configure App Settings** page, perform the following steps:
-   
-   ![Configure App Settings](./media/active-directory-saas-chromeriver-tutorial/IC802759.png "Configure App Settings")
-   
-   1. In the **Reply URL** textbox, type your Chromeriver **AssertionConsumerService URL** (e.g.: *https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911*).  
-   
-     >[!NOTE]
-     >You can get this value from your Chromeriver support team.
-     >  
-   2. Click **Next**
-4. On the **Configure single sign-on at Chromeriver** page, to download your metadata, click **Download metadata**, and then save the metadata file on your computer.
-   
-   ![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/IC802760.png "Configure Single Sign-On")
-5. Send the downloaded metadata file to your Chromeriver support team.
-   
- >[!NOTE]
- >Your Chromeriver support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
- >
+1. Adding Chromeriver from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
-   
-   ![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/IC802761.png "Configure Single Sign-On")
-   
-## Configure user provisioning
+## Adding Chromeriver from the gallery
+To configure the integration of Chromeriver into Azure AD, you need to add Chromeriver from the gallery to your list of managed SaaS apps.
 
-In order to enable Azure AD users to log into Chromeriver, they must be provisioned into Chromeriver.  
+**To add Chromeriver from the gallery, perform the following steps:**
 
-* In the case of Chromeriver, the user accounts need to be created by your Chromeriver support team.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
->[!NOTE]
->You can use any other Chromeriver user account creation tools or APIs provided by Chromeriver to provision Azure Active Directory user accounts. 
+	![Active Directory][1]
+
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
+
+	![Applications][2]
+	
+3. To add new application, click **New application** button on the top of dialog.
+
+	![Applications][3]
+
+4. In the search box, type **Chromeriver**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-chromeriver-tutorial/tutorial_chromeriver_search.png)
+
+5. In the results panel, select **Chromeriver**, and then click **Add** button to add the application.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-chromeriver-tutorial/tutorial_chromeriver_addfromgallery.png)
+
+##  Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with Chromeriver based on a test user called "Britta Simon."
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Chromeriver is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Chromeriver needs to be established.
+
+In Chromeriver, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+
+To configure and test Azure AD single sign-on with Chromeriver, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a Chromeriver test user](#creating-a-chromeriver-test-user)** - to have a counterpart of Britta Simon in Chromeriver that is linked to the Azure AD representation of user.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Chromeriver application.
+
+**To configure Azure AD single sign-on with Chromeriver, perform the following steps:**
+
+1. In the Azure portal, on the **Chromeriver** application integration page, click **Single sign-on**.
+
+	![Configure Single Sign-On][4]
+
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/tutorial_chromeriver_samlbase.png)
+
+3. On the **Chromeriver Domain and URLs** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/tutorial_chromeriver_url.png)
+
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.chromeriver.com`
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.chromeriver.com/login/sso/saml/consume?customerId=<uniqueid>`
+
+	> [!NOTE] 
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Chromeriver support team](https://www.chromeriver.com/services/support) to get these values.
+ 
+
+
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/tutorial_chromeriver_certificate.png) 
+
+5. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/tutorial_general_400.png)
+
+6. To configure single sign-on on **Chromeriver** side, you need to send the downloaded **Metadata XML** to [Chromeriver support team](https://www.chromeriver.com/services/support). You will get a notification when SSO has been enabled for your subscription.
+
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-## Assign users
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+### Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-**To assign users to Chromeriver, perform the following steps:**
+![Create Azure AD User][100]
 
-1. In the Azure classic portal, create a test account.
-2. On the **Chromeriver** application integration page, click **Assign users**.
-   
-   ![Assign Users](./media/active-directory-saas-chromeriver-tutorial/IC802762.png "Assign Users")
-3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
-   
-   ![Yes](./media/active-directory-saas-chromeriver-tutorial/IC767830.png "Yes")
+**To create a test user in Azure AD, perform the following steps:**
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-chromeriver-tutorial/create_aaduser_01.png) 
+
+2. To display the list of users, go to **Users and groups** and click **All users**.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-chromeriver-tutorial/create_aaduser_02.png) 
+
+3. To open the **User** dialog, click **Add** on the top of the dialog.
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-chromeriver-tutorial/create_aaduser_03.png) 
+
+4. On the **User** dialog page, perform the following steps:
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-chromeriver-tutorial/create_aaduser_04.png) 
+
+    a. In the **Name** textbox, type **BrittaSimon**.
+
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+
+	c. Select **Show Password** and write down the value of the **Password**.
+
+    d. Click **Create**.
+ 
+### Creating a Chromeriver test user
+
+To enable Azure AD users to log in to Chromeriver, they must be provisioned into Chromeriver.  
+
+In the case of Chromeriver, the user accounts need to be created by your [Chromeriver support team](https://www.chromeriver.com/services/support).
+
+>[!NOTE]
+>You can use any other Chromeriver user account creation tools or APIs provided by Chromeriver to provision Azure Active Directory user accounts.
+
+### Assigning the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Chromeriver.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Chromeriver, perform the following steps:**
+
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+
+	![Assign User][201] 
+
+2. In the applications list, select **Chromeriver**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/tutorial_chromeriver_app.png) 
+
+3. In the menu on the left, click **Users and groups**.
+
+	![Assign User][202] 
+
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
+	
+### Testing single sign-on
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Chromeriver tile in the Access Panel, you should get automatically signed-on to your Chromeriver application. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-chromeriver-tutorial/tutorial_general_203.png
 

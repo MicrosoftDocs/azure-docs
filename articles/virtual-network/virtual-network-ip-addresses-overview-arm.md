@@ -31,7 +31,7 @@ You can assign IP addresses to Azure resources to communicate with other Azure r
 If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
 ## Public IP addresses
-Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
+Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/common/storage-introduction.md).
 
 In Azure Resource Manager, a [public IP](resource-groups-networking.md#public-ip-address) address is a resource that has its own properties. You can associate a public IP address resource with any of the following resources:
 
@@ -68,7 +68,7 @@ You can specify a DNS domain name label for a public IP resource, which creates 
 >
 
 ### Virtual machines
-You can associate a public IP address with a [Windows](../virtual-machines/windows/about.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM by assigning it to its **network interface**. In the case of a VM with multiple network interfaces, you can assign it to the *primary* network interface only. You can assign either a dynamic or a static public IP address to a VM.
+You can associate a public IP address with a [Windows](../virtual-machines/windows/overview.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM by assigning it to its **network interface**. In the case of a VM with multiple network interfaces, you can assign it to the *primary* network interface only. You can assign either a dynamic or a static public IP address to a VM.
 
 ### Internet-facing load balancers
 You can associate a public IP address with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. This public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front-end. You can also assign multiple public IP addresses to a load balancer front-end, which enables [multi-VIP](../load-balancer/load-balancer-multivip.md) scenarios like a multi-tenant environment with SSL-based websites.
@@ -112,7 +112,7 @@ Static private IP addresses are commonly used for:
 * Resources accessed by other apps/resources through an IP address.
 
 ### Virtual machines
-A private IP address is assigned to the **network interface** of a [Windows](../virtual-machines/windows/about.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM. In case of a multi-network interface VM, each interface gets a private IP address assigned. You can specify the allocation method as either dynamic or static for a network interface.
+A private IP address is assigned to the **network interface** of a [Windows](../virtual-machines/windows/overview.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM. In case of a multi-network interface VM, each interface gets a private IP address assigned. You can specify the allocation method as either dynamic or static for a network interface.
 
 #### Internal DNS hostname resolution (for VMs)
 All Azure VMs are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs that reside within the same VNet.

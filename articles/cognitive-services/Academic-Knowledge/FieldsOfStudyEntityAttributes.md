@@ -15,7 +15,7 @@ ms.author: alch
 # Field Of Study Entity
 
 <sub>
-*Below attributes are specific to field of study entity. (Ty = '6')
+*Following attributes are specific to field of study entity. (Ty = '6')
 </sub>
 
 Name	|Description							|Type       | Operations
@@ -28,4 +28,5 @@ ECC		|Field of total estimated citation count|Int32		|none
 FL		|Level in fields of study hierarchy 	|Int32		|Equals, <br/>IsBetween
 FP.FN	|Parent field of study name 			|String		|Equals
 FP.FId 	|Parent field of study ID 				|Int64 		|Equals
-SSD		|Satori data 							|String		|none
+FC.FN	|Child field of study name 		    	|String		|Equals
+FC.FId 	|Child field of study ID 				|Int64 		|Equals

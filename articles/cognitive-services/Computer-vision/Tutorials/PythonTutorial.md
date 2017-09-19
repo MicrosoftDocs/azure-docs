@@ -26,12 +26,12 @@ This tutorial shows you how to use the Computer Vision API in Python and how to 
 
 ### Running the Tutorial
 
-To use this notebook, you will need a subscription key for the Computer Vision API. Visit the [Subscription page](https://www.microsoft.com/cognitive-services/en-us/sign-up) to sign up. On the “Sign in” page, use your Microsoft account to sign in and you will be able to subscribe and get free keys. After completing the sign-up process, paste your key into the variables section of the notebook (reproduced below). Either the primary or the secondary key works. Make sure to enclose the key in quotes to make it a string.
+To use this notebook, you will need a subscription key for the Computer Vision API. Visit the [Subscription page](https://azure.microsoft.com/en-us/try/cognitive-services/) to sign up. On the “Sign in” page, use your Microsoft account to sign in and you will be able to subscribe and get free keys. After completing the sign-up process, paste your key into the variables section of the notebook (reproduced below). Either the primary or the secondary key works. Make sure to enclose the key in quotes to make it a string.
 
 ```python
 # Variables
 
-_url = 'https://westus.api.cognitive.microsoft.com/vision/v1/analyses'
+_url = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1/analyses'
 _key = None #Here you have to paste your primary key
 _maxNumRetries = 10
 ```

@@ -12,10 +12,10 @@ keywords: ''
 ms.assetid: 64fbe43f-fdde-4c17-a39a-d04f2d6d90a1
 ms.service: container-registry
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---

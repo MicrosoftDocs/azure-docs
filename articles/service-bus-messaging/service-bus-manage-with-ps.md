@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/28/2017
 ms.author: sethm
 
 ---
 # Use PowerShell to manage Service Bus resources
 
-Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Service Bus Resource Manager PowerShell module](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) to provision and manage Service Bus entities (namespaces, queues, topics, and subscriptions) using a local Azure PowerShell console or script.
+Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Service Bus Resource Manager PowerShell module](/powershell/module/azurerm.servicebus) to provision and manage Service Bus entities (namespaces, queues, topics, and subscriptions) using a local Azure PowerShell console or script.
 
 You can also manage Service Bus entities using Azure Resource Manager templates. For more information, see the article [Create Service Bus resources using Azure Resource Manager templates](service-bus-resource-manager-overview.md).
 
 ## Prerequisites
 
-Before you begin, you'll need the following:
+Before you begin, you'll need the following prerequisites:
 
 * An Azure subscription. For more
   information about obtaining a subscription, see [purchase options][purchase options], [member offers][member offers], or [free account][free account].
@@ -43,7 +43,7 @@ When working with Service Bus namespaces, you can use the [Get-AzureRmServiceBus
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
 * `$Namespace` is the name of the Service Bus namespace with which we want to work.
-* `$Location` identifies the data center in which will we provision the namespace.
+* `$Location` identifies the data center in which we provision the namespace.
 * `$CurrentNamespace` stores the reference namespace that we retrieve (or create).
 
 In an actual script, `$Namespace` and `$Location` can be passed as parameters.
@@ -155,11 +155,11 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## Provisioning other Service Bus entities
 
-You can use the [Service Bus PowerShell module](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) to provision other entities, such as topics and subscriptions. These cmdlets are syntactically similar to the queue creation cmdlets demonstrated in the previous section.
+You can use the [Service Bus PowerShell module](/powershell/module/azurerm.servicebus) to provision other entities, such as topics and subscriptions. These cmdlets are syntactically similar to the queue creation cmdlets demonstrated in the previous section.
 
 ## Next steps
 
-- See the complete Service Bus Resource Manager PowerShell module documentation [here](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus). This page lists all available cmdlets.
+- See the complete Service Bus Resource Manager PowerShell module documentation [here](/powershell/module/azurerm.servicebus). This page lists all available cmdlets.
 - For information about using Azure Resource Manager templates, see the article [Create Service Bus resources using Azure Resource Manager templates](service-bus-resource-manager-overview.md).
 - Information about [Service Bus .NET management libraries](service-bus-management-libraries.md).
 

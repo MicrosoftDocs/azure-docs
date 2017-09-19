@@ -20,13 +20,13 @@ ms.author: ganesr;cherylmc
 ---
 # Create and modify peering for an ExpressRoute circuit (classic)
 > [!div class="op_single_selector"]
-> * [Resource Manager- Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
-> * [Classic- PowerShell](expressroute-howto-routing-classic.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-routing-arm.md)
+> * [Azure CLI](howto-routing-cli.md)
 > * [Video - Private peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - Public peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Video - Microsoft peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> 
+> * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit.
@@ -37,8 +37,9 @@ This article walks you through the steps to create and manage routing configurat
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+
 ## Configuration prerequisites
-* You will need the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs).  
+* You will need the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview).  
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
 * You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 

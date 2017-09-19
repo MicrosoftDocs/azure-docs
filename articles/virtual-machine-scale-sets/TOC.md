@@ -12,7 +12,9 @@
 
 ## Create a template
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
-### [Add a virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Use an existing virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Use a custom image](virtual-machine-scale-sets-mvss-custom-image.md)
+### [Use guest-based autoscaling with a Linux scale set template](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Deploy
 ### [Create with the portal](virtual-machine-scale-sets-portal-create.md)
@@ -31,10 +33,11 @@
 ## Manage
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
+### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
+### [Networking for scale sets](virtual-machine-scale-sets-networking.md)
 ### [Convert a template to managed disks](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Troubleshoot
@@ -44,12 +47,14 @@
 ### [Scale Set FAQ](virtual-machine-scale-sets-faq.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## Pricing 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

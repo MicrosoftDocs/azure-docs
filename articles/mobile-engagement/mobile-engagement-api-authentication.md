@@ -1,4 +1,4 @@
----
+﻿---
 title: Authenticate with Mobile Engagement REST APIs
 description: Describes how to authenticate with Azure Mobile Engagement REST APIs
 services: mobile-engagement
@@ -40,7 +40,7 @@ There are several ways to get a token. Since the APIs are generally called from 
 ### One-time setup (using script)
 You should follow the set of instructions below to perform the setup using a PowerShell script which takes the minimum time for setup but uses the most permissible defaults. Optionally, you can also follow the instructions in the [manual setup](mobile-engagement-api-authentication-manual.md) for doing this from the Azure portal directly and do finer configuration. 
 
-1. Get the latest version of Azure PowerShell from [here](http://aka.ms/webpi-azps). For more information on the download instructions, you can see this [link](/powershell/azureps-cmdlets-docs).  
+1. Get the latest version of Azure PowerShell from [here](http://aka.ms/webpi-azps). For more information on the download instructions, you can see this [link](/powershell/azure/overview).  
 2. Once Azure PowerShell is installed, use the following commands to ensure that you have the **Azure module** installed:
    
     a. Make sure the Azure PowerShell module is available in the list of available modules. 

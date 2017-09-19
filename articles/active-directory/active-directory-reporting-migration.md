@@ -1,9 +1,10 @@
 ---
+
 title: Find activity reports in the Azure portal | Microsoft Docs
 description: Learn how to find Azure Active Directory activity reports in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk 
 
 ---
 # Find activity reports in the Azure portal
@@ -121,8 +123,8 @@ In the Azure portal, you can access reports about detected risk events on the **
 
 For more information about security reports, see:
 
-- [Users at Risk security report in the Azure Active Directory portal - preview](active-directory-reporting-security-user-at-risk.md)
-- [Risky Sign-ins report in the Azure Active Directory portal - preview](active-directory-reporting-security-risky-sign-ins.md)
+- [Users at Risk security report in the Azure Active Directory portal](active-directory-reporting-security-user-at-risk.md)
+- [Risky Sign-ins report in the Azure Active Directory portal](active-directory-reporting-security-risky-sign-ins.md)
 
 
 ## Activity reports in the Azure classic portal vs. the Azure portal
@@ -148,3 +150,7 @@ To view the **Application Usage** report, on the **Azure Active Directory** blad
 
 
 ![Enterprise Applications Sign-Ins report](./media/active-directory-reporting-migration/199.png "Enterprise Applications Sign-Ins report")
+
+## Next steps
+
+For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).

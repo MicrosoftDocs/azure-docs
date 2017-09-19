@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 
 ---
@@ -100,6 +100,10 @@ To download the application metadata or certificate from Azure AD, follow the st
 8.  Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
 
 Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as a XML file.
+
+## Don't know how to customize SAML claims sent to an application
+
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
 
 ## Next steps
 [Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)

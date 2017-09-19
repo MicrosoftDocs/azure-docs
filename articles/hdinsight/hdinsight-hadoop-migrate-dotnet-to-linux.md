@@ -15,7 +15,7 @@ ms.devlang: 'dotnet'
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 
 ---
@@ -25,7 +25,7 @@ Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mon
 
 ## Mono compatibility with .NET
 
-Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md).
+Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To install a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
 
 For detailed information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 
@@ -67,7 +67,6 @@ Once you have modified your solution using the recommendations from the .NET Por
 
 For more information on accessing logs, see the following documents:
 
-* [Analyze HDInsight logs](hdinsight-debug-jobs.md)
 * [Access YARN application logs on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## Next steps

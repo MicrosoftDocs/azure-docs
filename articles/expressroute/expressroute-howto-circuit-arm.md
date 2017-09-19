@@ -20,16 +20,17 @@ ms.author: ganesr;cherylmc
 ---
 # Create and modify an ExpressRoute circuit using PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> 
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Azure CLI](howto-circuit-cli.md)
+> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
 This article describes how to create an Azure ExpressRoute circuit by using PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the circuit, update it, or delete and deprovision it.
 
 ## Before you begin
-* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Overview of Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Overview of Azure PowerShell](/powershell/azure/overview).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 

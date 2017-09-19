@@ -3,7 +3,7 @@ title: Azure Active Directory reporting audit API samples | Microsoft Docs
 description: How to get started with the Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory reporting audit API samples
@@ -24,7 +25,7 @@ The scope of this topic is to provide you with sample code for the **audit API**
 
 See:
 
-* [Audit logs](active-directory-reporting-azure-portal.md#audit-logs) for more conceptual information
+* [Audit logs](active-directory-reporting-azure-portal.md#activity-reports) for more conceptual information
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
 For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
@@ -95,7 +96,7 @@ The script returns output from the audit report in JSON format. It also creates 
 
     CLIENT_ID="your-application-client-id-here"         # Should be a ~35 character string insert your info here
     CLIENT_SECRET="your-application-client-secret-here" # Should be a ~44 character string insert your info here
-    LOGIN_URL="https://login.windows.net"
+    LOGIN_URL="https://login.microsoftonline.com"
     TENANT_DOMAIN="your-directory-name-here.onmicrosoft.com"    # For example, contoso.onmicrosoft.com
 
     TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
@@ -125,7 +126,7 @@ The script returns output from the audit report in JSON format. It also creates 
 
     client_id = 'your-application-client-id-here'
     client_secret = 'your-application-client-secret-here'
-    login_url = 'https://login.windows.net/'
+    login_url = 'https://login.microsoftonline.com/'
     tenant_domain = 'your-directory-name-here.onmicrosoft.com'
 
     # Get an OAuth access token

@@ -1,4 +1,4 @@
----
+﻿---
 title: Automated Patching for SQL Server VMs (Resource Manager) | Microsoft Docs
 description: Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using Resource Manager.
 services: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/31/2017
+ms.date: 07/05/2017
 ms.author: jroth
 
 ---
@@ -38,6 +38,7 @@ To use Automated Patching, consider the following prerequisites:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server version**:
 
@@ -47,7 +48,7 @@ To use Automated Patching, consider the following prerequisites:
 
 **Azure PowerShell**:
 
-* [Install the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs) if you plan to configure Automated Patching with PowerShell.
+* [Install the latest Azure PowerShell commands](/powershell/azure/overview) if you plan to configure Automated Patching with PowerShell.
 
 > [!NOTE]
 > Automated Patching relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).

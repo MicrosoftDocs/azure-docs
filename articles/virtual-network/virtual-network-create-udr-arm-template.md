@@ -1,4 +1,4 @@
----
+﻿---
 title: Control routing and virtual appliances in Azure - template | Microsoft Docs
 description: Learn how to control routing and virtual appliances using an Azure Resource Manager template.
 services: virtual-network
@@ -111,7 +111,7 @@ You also need to ensure that the **FW1** VM has the IP forwarding property enabl
 ## Deploy the template by using click to deploy
 The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the following command to create a resource group:
 
 	```powershell

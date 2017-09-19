@@ -1,6 +1,6 @@
 ---
 title: Enable multi-tenancy in Azure Stack | Microsoft Docs
-description: Learn how to support multiple Azure AD directories in Azure Stack
+description: Learn how to support multiple Azure Active Directory directories in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: HeathL17
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/13/2017
+ms.date: 07/26/2017
 ms.author: helaw
 
 ---
@@ -31,38 +31,23 @@ This guide provides the steps required, in the context of this scenario, to conf
 There are a few pre-requisites to account for before you configure multi-tenancy in Azure Stack:
   
  - You and Mary must coordinate administrative steps across both the directory Azure Stack is installed in (Contoso), and the guest directory (Fabrikam).  
- - Make sure you've [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure.md) PowerShell for Azure Stack.
+ - Make sure you've [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure-admin.md) PowerShell for Azure Stack.
  - [Download the Azure Stack Tools](azure-stack-powershell-download.md), and import the Connect and Identity modules:
 
     ````PowerShell
         Import-Module .\Connect\AzureStack.Connect.psm1
         Import-Module .\Identity\AzureStack.Identity.psm1
     ```` 
- - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) access to Azure Stack. 
+ - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) access to Azure Stack. 
 
 ## Configure Azure Stack directory
 In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure AD directory tenants.
-
-### Create Azure AD applications
-First, you must publish Azure AD applications to Azure Resource Manager to allow access to Azure Stack.  This step only needs to be completed once, regardless of additional guest tenants in the future.  Run this PowerShell as the Azure Stack Service Administrator from the Azure Stack host or MAS-CON01.
-
-````PowerShell 
-$adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
-    
-# Replace the value below with the Azure Stack directory.
-$azureStackDirectoryTenant = "contoso.onmicrosoft.com"
-
-Publish-AzureStackApplicationsToARM` 
- -AdminResourceManagerEndpoint $adminARMEndpoint`
- -DirectoryTenantName $azureStackDirectoryTenant 
-````
-
 
 ### Onboard guest directory tenant
 Next, onboard the Guest Directory Tenant (Fabrikam) to Azure Stack.  This step configures Azure Resource Manager to accept users and service principals from the guest directory tenant.
 
 ````PowerShell
-$adminARMEndpoint = https://adminmanagement.local.azurestack.external
+$adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack directory
 $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
@@ -70,20 +55,16 @@ $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 ## Replace the value below with the guest tenant directory. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
-Register-GuestDirectoryTenantToAzureStack -AdminResourceManagerEndpoint $adminARMEndpoint `
- -DirectoryTenantName $azureStackDirectoryTenant`
- -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded 
+Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
+ -DirectoryTenantName $azureStackDirectoryTenant `
+ -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
+ -Location "local"
 ````
 
 
 
 ## Configure guest directory
 After you complete steps in the Azure Stack directory, Mary must provide consent to Azure Stack accessing the guest directory and register Azure Stack with the guest directory. 
-
-### Providing consent to Azure Stack
-The guest directory administrator must provide consent in order for Azure Stack to read information from the guest directory. The guest administrator opens up a web browser and visits the following URL:  https://portal.local.azurestack.external/guest/signup/< guestDirectoryName >.  This URL takes the guest directory administrator to an AAD sign-in page where they enter their credentials and click **Accept** on the consent screen.
-
-In our example, Mary visits https://portal.azurestack.local/guest/signup/fabrikam.onmicrosoft.com with a web browser.  
 
 ### Registering Azure Stack with the guest directory
 Once the guest directory administrator has provided consent for Azure Stack to access Fabrikam's directory, they must register Azure Stack with Fabrikam's directory tenant.
@@ -94,9 +75,10 @@ $tenantARMEndpoint = "https://management.local.azurestack.external"
 ## Replace the value below with the guest tenant directory. 
 $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
-Register-AzureStackWithMyDirectoryTenant `
+Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
- -DirectoryTenantName $guestDirectoryTenantName -Verbose 
+ -DirectoryTenantName $guestDirectoryTenantName ` 
+ -Verbose 
 ````
 ## Direct users to sign in
 Now that you and Mary have completed the steps to onboard Mary's directory, Mary can direct Fabrikam users to sign in.  Fabrikam users (that is, users with the fabrikam.onmicrosoft.com suffix) sign in by visiting https://portal.local.azurestack.external.  

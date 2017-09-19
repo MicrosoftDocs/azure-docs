@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -238,7 +238,7 @@ Once you make these changes, restart your web app running Liferay, Then, open ht
 ## Next steps
 For more information about Liferay, see [http://www.liferay.com](http://www.liferay.com).
 
-For more information about Java, see the [Java Developer Center](/develop/java/).
+For more information about Java, visit [Azure for Java developers](/java/azure).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

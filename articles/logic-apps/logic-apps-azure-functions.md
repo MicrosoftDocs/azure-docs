@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 ---
 
 # Add and run custom code for logic apps through Azure Functions

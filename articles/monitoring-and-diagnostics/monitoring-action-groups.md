@@ -1,8 +1,8 @@
 ---
-title: Create and Manager Action Groups in Azure Portal | Microsoft Docs
-description:
+title: Create and manage action groups in the Azure portal | Microsoft Docs
+description: Learn how to create and manage action groups in the Azure portal.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,61 +13,61 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/15/2017
 ms.author: ancav
 
 ---
-# Create and Manage Action Groups in Azure Portal
+# Create and manage action groups in the Azure portal
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 
-Action groups enable you to configure a list of receivers. These groups can then be leveraged when defining activity log alerts; ensuring that a particular action group is notified when the activity log alert is triggered.
+You can configure a list of actions with action groups. These groups then can be used when you define activity log alerts. These groups can then be reused by each activity log alert you define, ensuring that the same actions are taken each time the activity log alert is triggered.
 
-An action group can have up to 10 of each action type. An action is defined by the combination of:
+An action group can have up to 10 of each action type. Each action is made up of the following properties:
 
-**Name:** A unique identifier within the action group.  
-**Action Type:** This defines the action that will be performed. Options are send SMS, send Email, or call a Webhook.  
-**Details:** Based on the action type, the corresponding phone number, email address or webhook URI needs to be provided.
+* **Name**: A unique identifier within the action group.  
+* **Action type**: Send an SMS, send an email, or call a webhook.  
+* **Details**: The corresponding phone number, email address, or webhook URI.
 
-You can configure and get information about service health notification alerts using:
-* [Azure Portal](monitoring-action-groups.md)
-- [Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)
+For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md).
 
-## Creating an action group for the Azure portal ##
-1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
+## Create an action group by using the Azure portal ##
+1. In the [portal](https://portal.azure.com), select **Monitor**. The **Monitor** blade consolidates all your monitoring settings and data in one view.
 
-    ![Monitor](./media/monitoring-action-groups/home-monitor.png)
-2.	Click the **Monitor** option to open up the Monitor blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
+    ![The "Monitor" service](./media/monitoring-action-groups/home-monitor.png)
+2. In the **Activity log** section, select **Action groups**.
 
-3.	Now click on **Action groups** section
+    ![The "Action groups" tab](./media/monitoring-action-groups/action-groups-blade.png)
+3. Select **Add action group**, and fill in the fields.
 
-    ![Action-Group](./media/monitoring-action-groups/action-groups-blade.png)
-4.	Click on the **Add** action group command and fill in the fields
+    ![The "Add action group" command](./media/monitoring-action-groups/add-action-group.png)
+4. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent using this group.
 
-    ![Add-Action-Group](./media/monitoring-action-groups/add-action-group.png)
-5.	Provide a **Name** and **Short Name** for the action group; The Short Name will be referenced in notifications sent to this group
+      ![The Add action group" dialog box](./media/monitoring-action-groups/action-group-define.png)
 
-      ![Action-Group-Define](./media/monitoring-action-groups/action-group-define.png)
+5. The **Subscription** box autofills with your current subscription. This subscription is the one in which the action group is saved.
 
-6.	The **Subscription** is the one the Action group will be saved in. It will be auto filled to the subscription you are currently operating under.
+6. Select the **Resource group** in which the action group is saved.
 
-7.	Choose the **Resource Group** for this action group.
+7. Define a list of actions by providing each action's:
 
-8.	Then, define a list of actions through a combination of:
-  1. **Name:** A unique identifier within the action group.
-  2. **Action Type:** This defines the action that will be performed. Options are send SMS, send Email, or call a Webhook.
-  3. **Details:** Based on the action type, the corresponding phone number, email address or webhook URI needs to be provided.
+    a. **Name**: Enter a unique identifier for this action.
 
-9.	Select **OK** when done to create the action group.
+    b. **Action Type**: Select SMS, email, or webhook.
 
-## Managing your action groups ##
-Once you have created an action group, it will be visible in the Action groups section of the Monitor service. Select the action group you wish to manage, you will be able to:
-* Add, edit, or remove receivers.
--	Delete the action group.
+    c. **Details**: Based on the action type, enter a phone number, email address, or webhook URI.
 
-## Next Steps: ##
-Learn more on [SMS alert behavior](monitoring-sms-alert-behavior.md)  
-Get an [understanding of the activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)  
-Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts  
-Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
-How to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md)
+8. Select **OK** to create the action group.
+
+## Manage your action groups ##
+After you create an action group, it's visible in the **Action groups** section of the **Monitor** blade. Select the action group you want to manage to:
+
+* Add, edit, or remove actions.
+* Delete the action group.
+
+## Next steps ##
+* Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).  
+* Gain an [understanding of the activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).  
+* Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts. 
+* Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
+* Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).

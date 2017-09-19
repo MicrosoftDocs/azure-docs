@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2017
+ms.date: 04/26/2017
 ms.author: nepeters
-
 ---
+
 # Virtual machine extensions and features for Linux
 
 Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
@@ -29,13 +29,12 @@ This document provides an overview of VM extensions, prerequisites for using Azu
 Several different Azure VM extensions are available, each with a specific use case. Some examples are:
 
 - Apply PowerShell Desired State configurations to a virtual machine using the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](vm-monitoring.md).
+- Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [How to monitor a Linux VM](tutorial-monitoring.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure a Docker host on an Azure virtual machine using the Docker VM extension. For more information, see [Docker VM extension](dockerextension.md).
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](../windows/dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -52,7 +51,7 @@ For information on supported operating systems and installation instructions, se
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure CLI, replacing the example location with the location of your choice.
 
 ```azurecli
-azure vm extension-image list westus
+az vm extension image list --location westus -o table
 ```
 
 ## Run VM extensions
@@ -63,12 +62,15 @@ The following methods can be used to run an extension against an existing virtua
 
 ### Azure CLI
 
-Azure virtual machine extensions can be run against an existing virtual machine by using the `azure vm extension set` command. This example runs the custom script extension against a virtual machine.
+Azure virtual machine extensions can be run against an existing virtual machine by using the `az vm extension set` command. This example runs the custom script extension against a virtual machine.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set `
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 The script produces output similar to the following text:
@@ -123,7 +125,7 @@ For more information, see the full [Resource Manager template](https://github.co
 }
 ```
 
-For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](../windows/extensions-authoring-templates.md).
+For more information, see [Authoring Azure Resource Manager templates](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions).
 
 ## Secure VM extension data
 
@@ -201,18 +203,15 @@ The following troubleshooting steps apply to all virtual machine extensions.
 After a virtual machine extension has been run against a virtual machine, use the following Azure CLI command to return extension status. Replace example parameter names with your own values.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 The output looks like the following text:
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "myVM"
-data:    Publisher                   Name             Version  State
-data:    --------------------------  ---------------  -------  ---------
-data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
-info:    vm extension get command OK         :
+AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publisher                   ResourceGroup      TypeHandlerVersion  VirtualMachineExtensionType
+-------------------------  ----------  ------------  -------------------  --------------------------  ---------------  --------------------  -----------------------------
+True                       westus      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
 Extension execution status can also be found in the Azure portal. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
@@ -222,7 +221,7 @@ Extension execution status can also be found in the Azure portal. To view the st
 There may be cases in which a virtual machine extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
 You can remove an extension by using the following steps in the Azure portal:

@@ -2,17 +2,18 @@
 title: Troubleshoot Data Management Gateway issues | Microsoft Docs
 description: Provides tips to troubleshoot issues related to Data Management Gateway.
 services: data-factory
-author: linda33wj
+author: nabhishek
 manager: jhubbard
 editor: monicar
+
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
-ms.author: jingwang
+ms.date: 07/27/2017
+ms.author: abnarain
 published: true
 ---
 # Troubleshoot issues with using Data Management Gateway

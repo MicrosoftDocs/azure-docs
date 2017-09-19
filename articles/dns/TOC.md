@@ -1,7 +1,10 @@
 # Overview
+
 ## [What is Azure DNS?](dns-overview.md)
 ## [DNS zones and records](dns-zones-records.md)
 ## [DNS delegation with Azure DNS](dns-domain-delegation.md)
+## [DNS FAQ](dns-faq.md)
+
 # Get Started
 
 ## Create a DNS zone and record
@@ -16,28 +19,34 @@
 # How to
 
 ## Manage DNS zones
+### [Portal](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Azure CLI](dns-operations-dnszones-cli.md)
+### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
-
-## [Manage DNS records](dns-operations-recordsets-portal.md)
+## Manage DNS records
+### [Portal](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Azure CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 
-## [Manage reverse DNS records](dns-reverse-dns-record-operations-ps.md)
-### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## Manage reverse DNS
+### [Overview](dns-reverse-dns-overview.md)
+### [Host reverse lookup zones in Azure DNS](dns-reverse-dns-hosting.md)
+### [Manage reverse DNS records for Azure services](dns-reverse-dns-for-azure-services.md)
 
 ## [Import and export a DNS zone file](dns-import-export.md)
 ## [Integrate with other Azure services](dns-for-azure-services.md)
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
+## [Custom domains for Azure resources](dns-custom-domain.md)
 ## Troubleshoot
 ### [Troubleshooting guide](dns-troubleshoot.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
+## [PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
@@ -55,7 +64,10 @@
 ## [Web apps](/azure/app-service-web/)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=dns)
-## [Pricing](https://azure.microsoft.com/pricing/details/dns/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
+## [Feature requests](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
+## [Pricing](https://azure.microsoft.com/pricing/details/dns/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=dns)

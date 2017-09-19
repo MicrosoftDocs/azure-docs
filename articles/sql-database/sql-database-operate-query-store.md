@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
@@ -34,7 +34,7 @@ This section describes optimal configuration defaults that are designed to ensur
 
 | Configuration | Description | Default | Comment |
 | --- | --- | --- | --- |
-| MAX_STORAGE_SIZE_MB |Specifies the limit for the data space that Query Store can take inside z customer database |100 |Enforced for new databases |
+| MAX_STORAGE_SIZE_MB |Specifies the limit for the data space that Query Store can take inside the customer database |100 |Enforced for new databases |
 | INTERVAL_LENGTH_MINUTES |Defines size of time window during which collected runtime statistics for query plans are aggregated and persisted. Every active query plan has at most one row for a period of time defined with this configuration |60 |Enforced for new databases |
 | STALE_QUERY_THRESHOLD_DAYS |Time-based cleanup policy that controls the retention period of persisted runtime statistics and inactive queries |30 |Enforced for new databases and databases with previous default (367) |
 | SIZE_BASED_CLEANUP_MODE |Specifies whether automatic data cleanup takes place when Query Store data size approaches the limit |AUTO |Enforced for all databases |

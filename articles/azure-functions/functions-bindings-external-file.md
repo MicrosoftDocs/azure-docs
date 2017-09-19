@@ -4,7 +4,7 @@ description: Using External File bindings in Azure Functions
 services: functions
 documentationcenter: ''
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid:
@@ -18,9 +18,9 @@ ms.author: alkarche
 
 ---
 # Azure Functions External File bindings (Preview)
-This article explains how to configure and use external file bindings in Azure functions. Azure functions supports trigger, input, and output bindings for external file.
+This article shows how to manipulate files from different SaaS providers (e.g. OneDrive, Dropbox) within your function utilizing built-in bindings. Azure functions supports trigger, input, and output bindings for external file.
 
-External file bindings allow functions to access files hosted outside of Azure. This binding creates new API connections, or uses existing API connections from your Function App's resource group.
+This binding creates API connections to SaaS providers, or uses existing API connections from your Function App's resource group.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -30,12 +30,10 @@ External file bindings allow functions to access files hosted outside of Azure. 
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[File System](https://docs.microsoft.com/azure/logic-apps/logic-apps-using-file-connector)|x|x|x
 |[FTP](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
-|[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)||x|x|
 |[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
@@ -67,13 +65,14 @@ See one of the following subheadings for more information:
 <a name="pattern"></a>
 
 ### Name patterns
-You can specify a file name pattern in the `path` property. For example:
+You can specify a file name pattern in the `path` property. The folder referenced must exist in the SaaS provider.
+Examples:
 
 ```json
 "path": "input/original-{name}",
 ```
 
-This path would find a file named *original-File1.txt* in the *input* folder, and the value of the `name` variable in function code would be `File1`.
+This path would find a file named *original-File1.txt* in the *input* folder, and the value of the `name` variable in function code would be `File1.txt`.
 
 Another example:
 
@@ -150,17 +149,11 @@ The file can be deserialized into any of the following types:
 In C# functions, you can also bind to any of the following types, and the Functions runtime attempts to
 deserialize the file data using that type:
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
-
+* `StreamReader`
+* `TextReader`
 
 ## Trigger sample
 Suppose you have the following function.json, that defines an external file trigger:
@@ -255,83 +248,12 @@ The file can be deserialized into any of the following types:
 In C# functions, you can also bind to any of the following types, and the Functions runtime attempts to
 deserialize the file data using that type:
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
+* `StreamReader`
+* `TextReader`
 
-<a name="inputsample"></a>
-
-## Input sample
-Suppose you have the following function.json, that defines a [Storage queue trigger](functions-bindings-storage-queue.md),
-n external file input, and an external file output:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputFile",
-      "type": "apiHubFile",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "<name of external file connection>",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputFile",
-      "type": "apiHubFile",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "<name of external file connection>",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
-<a name="incsharp"></a>
-
-### Input usage in C# #
-
-```cs
-public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    myOutputFile = myInputFile;
-}
-```
-
-<!--
-<a name="infsharp"></a>
-### Input usage in F# ##
-```fsharp
-
-```
--->
-
-<a name="innodejs"></a>
-
-### Input usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
 
 <a name="output"></a>
 
@@ -383,8 +305,77 @@ In C# functions you can also output to any of the following types:
 
 <a name="outputsample"></a>
 
-## Output sample
-See [input sample](#inputsample).
+<a name="sample"></a>
+
+## Input + Output sample
+Suppose you have the following function.json, that defines a [Storage queue trigger](functions-bindings-storage-queue.md),
+an external file input, and an external file output:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "<name of external file connection>",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "<name of external file connection>",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+See the language-specific sample that copies the input file to the output file.
+
+* [C#](#incsharp)
+* [Node.js](#innodejs)
+
+<a name="incsharp"></a>
+
+### Usage in C# #
+
+```cs
+public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputFile = myInputFile;
+}
+```
+
+<!--
+<a name="infsharp"></a>
+### Input usage in F# ##
+```fsharp
+
+```
+-->
+
+<a name="innodejs"></a>
+
+### Usage in Node.js
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputFile = context.bindings.myInputFile;
+    context.done();
+};
+```
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

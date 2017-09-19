@@ -11,11 +11,12 @@ tags: azure-service-management
 ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Restart VMs
@@ -55,27 +56,27 @@ The third script restarts all the VMs that were provisioned, and then just the t
 This script creates a resource group and then it creates three VMs to restart.
 Two of them are tagged.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### Wait
 
 This script checks on the provisioning status every 20 seconds until all three VMs are provisioned,
 or one of them fails to provision.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
 ### Restart the VMs
 
 This script restarts all the VMs in the resource group,
 and then it restarts just the tagged VMs.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
@@ -85,12 +86,12 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Creates the virtual machines.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | Used with `--query` to ensure the VMs are provisioned before restarting them, and then to get the IDs of the VMs to restart them. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm#list) | Used with `--query` to get the IDs of the VMs using the tag. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm#list) | Restarts the VMs. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Creates the virtual machines.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Used with `--query` to ensure the VMs are provisioned before restarting them, and then to get the IDs of the VMs to restart them. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Used with `--query` to get the IDs of the VMs using the tag. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Restarts the VMs. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

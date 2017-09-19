@@ -59,7 +59,7 @@ var videoServiceClient = new VideoServiceClient("Your subscription key");
 
 ```
  
-To obtain a subscription key, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
+To obtain a subscription key, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
 ## <a name="step2"></a>Step 2: Upload a video to the service and check the status
 

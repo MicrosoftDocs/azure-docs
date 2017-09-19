@@ -37,8 +37,7 @@ When using a client library, the subscription key is passed in through the const
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-To obtain a subscription key, see [Subscriptions]
-(https://www.microsoft.com/cognitive-services/en-us/sign-up). 
+To obtain a subscription key, see [Subscriptions] (https://azure.microsoft.com/en-us/try/cognitive-services/). 
 
 ### <a name="Step2">Step 2: Upload a video to the service and check the status</a>
 The most basic way to perform any of the Emotion API for Video calls is by uploading a video directly. This is done by sending a "POST" request with application/octet-stream content type together with the data read from a video file. The maximum size of the video is 100MB.

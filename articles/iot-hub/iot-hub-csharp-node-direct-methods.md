@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 08/30/2017
 ms.author: nberdy
 
 ---
@@ -76,7 +76,7 @@ In this section, you create a Node.js console app that responds to a method call
    
         response.send(200, 'Input was written to log.', function(err) {
             if(err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }

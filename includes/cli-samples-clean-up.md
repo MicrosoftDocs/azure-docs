@@ -1,7 +1,7 @@
 ## Clean up resources
 
-To remove all the resources created by this QuickStart, run the following command:
+To clean up your resources, run the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```

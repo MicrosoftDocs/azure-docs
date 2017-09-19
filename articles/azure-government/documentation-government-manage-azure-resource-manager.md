@@ -44,7 +44,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 ## Data & Storage
 | Service | Resource Manager Enabled |
 | --- | --- |
-| DocumentDB |No |
+| Azure Cosmos DB |No |
 | Redis Cache |Yes |
 | Search |No |
 | Storage |Yes |

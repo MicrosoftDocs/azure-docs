@@ -25,7 +25,7 @@
      * [Self Service Password Reset](../articles/active-directory/active-directory-playbook-implementation.md#self-service-password-reset)
      * [Self Service Access to Applications](../articles/active-directory/active-directory-playbook-implementation.md#self-service-access-to-applications)
 4. [Building Blocks](../articles/active-directory/active-directory-playbook-building-blocks.md)
-   * [Catalog of Actors](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-actors)
+   * [Catalog of Actors](../articles/active-directory/active-directory-playbook-building-blocks.md)
    * [Common Prerequisites for all building blocks](../articles/active-directory/active-directory-playbook-building-blocks.md#common-prerequisites-for-all-building-blocks)
    * [Directory Synchronization - Password Hash Sync (PHS) - New Installation](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation)
    * [Branding](../articles/active-directory/active-directory-playbook-building-blocks.md#branding)

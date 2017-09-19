@@ -50,6 +50,4 @@
 
     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. After the updates are successfully installed, you see a message to this effect in the **Device updates** blade. The software version also changes to **10.0.10289.0**.
-
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
+9. After the updates are successfully installed, you see a message to this effect in the **Device updates** blade. 

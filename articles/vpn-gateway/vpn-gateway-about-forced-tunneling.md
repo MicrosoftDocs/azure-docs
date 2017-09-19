@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 08/01/2017
 ms.author: cherylmc
 
 ---
 # Configure forced tunneling using the classic deployment model
 
-Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches
+Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -33,14 +33,14 @@ This article walks you through configuring forced tunneling for virtual networks
 > 
 
 ## Requirements and considerations
-Forced tunneling in Azure is configured via virtual network user defined routes (UDR). Redirecting traffic to an on-premises site is expressed as a Default Route to the Azure VPN gateway. The following section lists the current limitation of the routing table and routes for an Azure Virtual Network:
+Forced tunneling in Azure is configured via virtual network user-defined routes (UDR). Redirecting traffic to an on-premises site is expressed as a Default Route to the Azure VPN gateway. The following section lists the current limitation of the routing table and routes for an Azure Virtual Network:
 
 * Each virtual network subnet has a built-in, system routing table. The system routing table has the following three groups of routes:
-  
-  * **Local VNet routes:** Directly to the destination VMs in the same virtual network
-  * **On premises routes:** To the Azure VPN gateway
+
+  * **Local VNet routes:** Directly to the destination VMs in the same virtual network.
+  * **On-premises routes:** To the Azure VPN gateway.
   * **Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes will be dropped.
-* With the release of user defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet(s) to enable forced tunneling on those subnets.
+* With the release of user-defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet(s) to enable forced tunneling on those subnets.
 * You need to set a "default site" among the cross-premises local sites connected to the virtual network.
 * Forced tunneling must be associated with a VNet that has a dynamic routing VPN gateway (not a static gateway).
 * ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. Please see the [ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/) for more information.
@@ -57,7 +57,7 @@ Verify that you have the following items before beginning configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * A configured virtual network. 
-* The latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
+* The latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
 ## Configure forced tunneling
 The following procedure will help you specify forced tunneling for a virtual network. The configuration steps correspond to the VNet network configuration file.
@@ -100,9 +100,9 @@ The following procedure will help you specify forced tunneling for a virtual net
     </VirtualNetworkSite>
 ```
 
-In this example, the virtual network "MultiTier-VNet" has three subnets: *Frontend*, *Midtier*, and *Backend* subnets, with four cross premises connections: *DefaultSiteHQ*, and three *Branches*. 
+In this example, the virtual network 'MultiTier-VNet' has three subnets: 'Frontend', 'Midtier', and 'Backend' subnets, with four cross premises connections: 'DefaultSiteHQ', and three Branches. 
 
-The steps will set the *DefaultSiteHQ* as the default site connection for forced tunneling, and configure the Midtier and Backend subnets to use forced tunneling.
+The steps will set the 'DefaultSiteHQ' as the default site connection for forced tunneling, and configure the Midtier and Backend subnets to use forced tunneling.
 
 1. Create a routing table. Use the following cmdlet to create your route table.
 
@@ -110,23 +110,23 @@ The steps will set the *DefaultSiteHQ* as the default site connection for forced
   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
   ```
 2. Add a default route to the routing table. 
-   
-    The following example adds a default route to the routing table created in Step 1. Note that the only route supported is the destination prefix of "0.0.0.0/0" to the "VPNGateway" NextHop.
+
+  The following example adds a default route to the routing table created in Step 1. Note that the only route supported is the destination prefix of "0.0.0.0/0" to the "VPNGateway" NextHop.
 
   ```powershell
   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
   ```
 3. Associate the routing table to the subnets. 
-   
-    After a routing table is created and a route added, use the following example to add or associate the route table to a VNet subnet. The example adds the route table "MyRouteTable" to the Midtier and Backend subnets of VNet MultiTier-VNet.
+
+  After a routing table is created and a route added, use the following example to add or associate the route table to a VNet subnet. The example adds the route table "MyRouteTable" to the Midtier and Backend subnets of VNet MultiTier-VNet.
 
   ```powershell
   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
   ```
 4. Assign a default site for forced tunneling. 
-   
-    In the preceding step, the sample cmdlet scripts created the routing table and associated the route table to two of the VNet subnets. The remaining step is to select a local site among the multi-site connections of the virtual network as the default site or tunnel.
+
+  In the preceding step, the sample cmdlet scripts created the routing table and associated the route table to two of the VNet subnets. The remaining step is to select a local site among the multi-site connections of the virtual network as the default site or tunnel.
 
   ```powershell
   $DefaultSite = @("DefaultSiteHQ")
@@ -169,9 +169,3 @@ Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <
 ```powershell
 Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 ```
-
-
-
-
-
-

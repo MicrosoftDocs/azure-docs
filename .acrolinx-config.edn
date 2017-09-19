@@ -5,7 +5,9 @@
    "
 ## Acrolinx Scorecards
 
-Click the scorecard links for each article to review the Acrolinx feedback on grammar, spelling, punctuation, writing style, and terminology:
+**Starting Wednesday, 7/26, a minimum Acrolinx score of 80 will be required for merging PRs that require human review.** 
+ 
+ Click the scorecard links for each article to review the Acrolinx feedback on grammar, spelling, punctuation, writing style, and terminology:
 
 | Article | Score | Issues | Scorecard |
 | ------- | ----- | ------ | --------- |
@@ -21,7 +23,7 @@ Click the scorecard links for each article to review the Acrolinx feedback on gr
 "
 **More info about Acrolinx**
 
-- [Install Acrolinx locally for VSCode](https://review.docs.microsoft.com/en-us/help/contribute/contribute-acrolinx-vscode?branch=master)
+- [Install Acrolinx locally for VSCode](https://review.docs.microsoft.com/en-us/help/contribute/contribute-acrolinx-vscode)
 - The scorecard links are good for one hour. If you're prompted to authenticate, you can close and reopen the PR to get new links. Or, use these credentials:
   Account: report-viewer
   Password: kermit$

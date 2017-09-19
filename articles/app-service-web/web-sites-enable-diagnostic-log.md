@@ -67,7 +67,7 @@ The [classic portal](https://manage.windowsazure.com) Web app **Configure** tab 
 * **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
 
 > [!NOTE]
-> If you [regenerate your storage account's access keys](../storage/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
+> If you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob or table again. Save your setting.
@@ -271,7 +271,7 @@ The web server logs are formatted using the [W3C extended log file format](http:
 >
 
 ## <a name="nextsteps"></a> Next steps
-* [How to Monitor Web Apps](/manage/services/web-sites/how-to-monitor-websites/)
+* [How to Monitor Web Apps](http://docs.microsoft.com/en-us/azure/app-service-web/web-sites-monitor)
 * [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

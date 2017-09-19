@@ -10,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -42,7 +42,7 @@ For this tutorial, you'll need:
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs), version  1.0 or later. Type **(Get-Module azure -ListAvailable).Version** to see what version of PowerShell you are running.
+* [Azure PowerShell](/powershell/azure/overview), version  1.0 or later. Type **(Get-Module azure -ListAvailable).Version** to see what version of PowerShell you are running.
 
 ## Enable your client application to access the SQL Database service
 You must enable your client application to access the SQL Database service by setting up the required authentication and acquiring the *ClientId* and *Secret* that you will need to authenticate your application in the following code.
@@ -75,7 +75,7 @@ You can quickly create a key vault by running the following script. For a detail
 
 
     Login-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
+    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location

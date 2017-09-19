@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Configure long-term backup retention - Azure SQL database | Microsoft Docs' 
 description: "Learn how to store automated backups in the Azure Recovery Services vault and to restore from the Azure Recovery Services vault"
 services: sql-database
@@ -29,10 +29,6 @@ The following sections show you how to use the Azure portal to configure the Azu
 ### Configure the vault, register the server, and select databases
 
 You [configure an Azure Recovery Services vault to retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
-
-> [!TIP]
-> To delete backups in long-term backup retention, see [Configure and use long-term backup retention](sql-database-long-term-backup-retention-configure.md).
->
 
 1. Open the **SQL Server** page for your server.
 
@@ -150,7 +146,7 @@ The following sections show you how to use PowerShell to configure the Azure Rec
 
 ### Create a recovery services vault
 
-Use the [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault?view=azurermps-3.7.0) to create a recovery services vault.
+Use the [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) to create a recovery services vault.
 
 > [!IMPORTANT]
 > The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
@@ -169,7 +165,7 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 
 ### Set your server to use the recovery vault for its long-term retention backups
 
-Use the [Set-AzureRmSqlServerBackupLongTermRetentionVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverbackuplongtermretentionvault) cmdlet to associate a previously created recovery services vault with a specific Azure SQL server.
+Use the [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) cmdlet to associate a previously created recovery services vault with a specific Azure SQL server.
 
 ```PowerShell
 # Set your server to use the vault to for long-term backup retention 
@@ -179,10 +175,10 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### Create a retention policy
 
-A retention policy is where you set how long to keep a database backup. Use the [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet to get the default retention policy to use as the template for creating policies. In this template, the retention period is set for 2 years. Next, run the [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/new-azurermrecoveryservicesbackupprotectionpolicy) to finally create the policy. 
+A retention policy is where you set how long to keep a database backup. Use the [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet to get the default retention policy to use as the template for creating policies. In this template, the retention period is set for 2 years. Next, run the [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) to finally create the policy. 
 
 > [!NOTE]
-> Some cmdlets require that you set the vault context before running ([Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesvaultcontext)) so you see this cmdlet in a few related snippets. You set the context because the policy is part of the vault. You can create multiple retention policies for each vault and then apply the desired policy to specific databases. 
+> Some cmdlets require that you set the vault context before running ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) so you see this cmdlet in a few related snippets. You set the context because the policy is part of the vault. You can create multiple retention policies for each vault and then apply the desired policy to specific databases. 
 
 
 ```PowerShell
@@ -204,7 +200,7 @@ $policy
 
 ### Configure a database to use the previously defined retention policy
 
-Use the [Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqldatabasebackuplongtermretentionpolicy) cmdlet to apply the new policy to a specific database.
+Use the [Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasebackuplongtermretentionpolicy) cmdlet to apply the new policy to a specific database.
 
 ```PowerShell
 # Enable long-term retention for a specific SQL database
@@ -212,18 +208,15 @@ $policyState = "enabled"
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
-> [!IMPORTANT]
-> Once configured, backups show up in the vault within next seven days. Continue this tutorial after backups show up in the vault.
-
 ### View backup info, and backups in long-term retention
 
 View information about your database backups in [long-term backup retention](sql-database-long-term-retention.md). 
 
 Use the following cmdlets to view backup information:
 
-- [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupcontainer)
-- [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupitem)
-- [Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackuprecoverypoint)
+- [Get-AzureRmRecoveryServicesBackupContainer](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)
+- [Get-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)
+- [Get-AzureRmRecoveryServicesBackupRecoveryPoint](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)
 
 ```PowerShell
 #$resourceGroupName = "{resource-group-name}"
@@ -248,7 +241,7 @@ $availableBackups
 
 ### Restore a database from a backup in long-term backup retention
 
-Restoring from long-term backup retention uses the [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/restore-azurermsqldatabase) cmdlet.
+Restoring from long-term backup retention uses the [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
 
 ```PowerShell
 # Restore the most recent backup: $availableBackups[0]
@@ -265,7 +258,7 @@ $restoredDb
 
 
 > [!NOTE]
-> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](sql-database-recovery-using-backups.md#point-in-time-restore).
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## Next steps
 

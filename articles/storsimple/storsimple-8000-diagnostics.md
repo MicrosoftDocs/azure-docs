@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2017
+ms.date: 03/27/2017
 ms.author: alkohli
 
 ---
@@ -384,7 +384,7 @@ To use this tool, perform the following steps:
 
     If the read-write latencies reported by the diagnostics tool are high:
 
-    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](../storage/storage-enable-and-view-metrics-classic-portal.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
+    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](../storage/common/storage-enable-and-view-metrics.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
 
     2. If the storage account latencies are low, contact your network administrator to investigate any latency issues in your network.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate Hyper-V VMs in VMM to a secondary site with PowerShell (Azure Resource Manager) | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds to a secondary VMM site using PowerShell (Resource Manager)
 services: site-recovery
@@ -9,11 +9,11 @@ editor: raynew
 
 ms.assetid: 9d38e9c3-217c-4e44-830c-575e9a4141f2
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/05/2017
 ms.author: sutalasi
 
 ---
@@ -74,9 +74,9 @@ Learn more about configuring VMM networks in the below articles
 [Learn more](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) about how network mapping works.
 
 ### PowerShell prerequisites
-Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/library/dn850420.aspx).
+Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](/powershell/azure/overview).
 
-To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see the [Guide to get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see the [Guide to get Started with Azure Cmdlets](/powershell/azure/get-started-azureps).
 
 ## Step 1: Set the subscription
 1. From Azure powershell, login to your Azure account: using the following cmdlets
@@ -315,4 +315,4 @@ Use the following commands to monitor the activity. Note that you have to wait i
 
 
 ## Next steps
-[Read more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
+[Read more](/powershell/module/azurerm.recoveryservices.backup/#recovery) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.

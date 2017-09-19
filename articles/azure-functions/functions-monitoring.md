@@ -1,10 +1,10 @@
----
+﻿---
 title: Monitoring Azure Functions | Microsoft Docs
 description: Learn how to monitor your Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
@@ -30,14 +30,12 @@ The **Monitor** tab for each function allows you to review each execution of a f
 
 Clicking an execution allows you to review the duration, input data, errors, and associated log files. This is useful debugging and performance tuning your functions.
 
-
 > [!IMPORTANT]
-> When using the [Consumption hosting plan](functions-overview.md#pricing) for Azure Functions, the **Monitoring** tile in the Function App overview blade will not show any data. This is because the platform dynamically scales and manages compute instances for you, so these metrics are not meaningful on a Consumption plan. To monitor the usage of your Function Apps, you should instead use the guidance in this article.
+> When using the [Consumption hosting plan](functions-overview.md#pricing) for Azure Functions, the **Monitoring** tile in the Function App does not show any data. This is because the platform dynamically scales and manages compute instances for you. These metrics are not meaningful on a Consumption plan. To monitor the usage of your Function Apps, you should instead use the guidance in this article.
 > 
 > The following screen-shot shows an example:
 > 
-> ![Monitoring on the main resource blade](./media/functions-monitoring/app-service-overview-monitoring.png)
-
+> ![Monitoring the function](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
 ## Real-time monitoring
@@ -46,7 +44,7 @@ Real-time monitoring is available by clicking **live event stream** as shown bel
 
 ![Live event stream option for the monitor tab](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
-The live event stream will be graphed in a new browser tab as shown below. 
+The live event stream is displayed in a graph in a new tab in the browser, as in the following example: 
 
 ![Live event stream example](./media/functions-monitoring/live-event-stream.png)
 
@@ -64,24 +62,19 @@ The live event stream will graph the following statistics for your function:
 These statistics are real-time but the actual graphing of the execution data may have around 10 seconds of latency.
 
 
-
-
-
-
 ## Monitoring log files from a command line
 
+You can stream log files to a command line session on a local workstation using the Azure Command Line Interface (CLI) 1.0 or PowerShell.
 
-You can stream log files to a command line session on a local workstation using the Azure Command Line Interface (CLI) or PowerShell.
+### Monitoring function app log files with the Azure CLI 1.0
 
-### Monitoring function app log files with the Azure CLI
+To get started, [install the Azure CLI 1.0](../cli-install-nodejs.md)
 
-To get started, [install the Azure CLI](../cli-install-nodejs.md)
-
-Log into your Azure account using the following command, or any of the other options covered in, [Log in to Azure from the Azure CLI](../xplat-cli-connect.md).
+Sign in to your Azure account using the following command, or any of the other options covered in, [Log in to Azure from the Azure CLI 1.0](../xplat-cli-connect.md).
 
 	azure login
 
-Use the following command to enable Azure CLI Service Management (ASM) mode:.
+Use the following command to enable Azure CLI 1.0 in classic Service Management mode:
 
 	azure config mode asm
 
@@ -90,13 +83,13 @@ If you have multiple subscriptions, use the following commands to list your subs
 	azure account list
 	azure account set <subscriptionNameOrId>
 
-The following command will stream the log files of your function app to the command line:
+The following command streams the log files of your function app to the command line:
 
 	azure site log tail -v <function app name>
 
 ### Monitoring function app log files with PowerShell
 
-To get started, [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+To get started, [install and configure Azure PowerShell](/powershell/azure/overview).
 
 Add your Azure account by running the following command:
 
@@ -114,7 +107,7 @@ Stream the logs to your PowerShell session with the following command:
 
 	PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-For more information refer to [How to: Stream logs for web apps](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
+For more information, see [How to: Stream logs for web apps](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## Next steps
 For more information, see the following resources:

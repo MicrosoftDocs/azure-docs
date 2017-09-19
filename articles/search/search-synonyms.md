@@ -1,21 +1,20 @@
-<properties
-   pageTitle="Synonyms in Azure Search (preview) | Microsoft Docs"
-   description="Preliminary documentation for the Synonyms (preview) feature, exposed in the Azure Search REST API."
-   services="search"
-   documentationCenter=""
-   authors="mhko"
-   manager="pablocas"
-   editor=""/>
+---
+pageTitle: "Synonyms in Azure Search (preview) | Microsoft Docs"
+description: "Preliminary documentation for the Synonyms (preview) feature, exposed in the Azure Search REST API."
+services: "search"
+documentationCenter: ""
+authors: "mhko"
+manager: "pablocas"
+editor: ""
 
-<tags
-   ms.service="search"
-   ms.devlang="rest-api"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/07/2016"
-   ms.author="nateko"/>
-
+ms.service: "search"
+ms.devlang: "rest-api"
+ms.workload: "search"
+ms.topic: "article"
+ms.tgt_pltfrm: "na"
+ms.date: "07/07/2016"
+ms.author: "nateko"
+---
 # Synonyms in Azure Search (preview)
 
 Synonyms in search engines associate equivalent terms that implicitly expand the scope of a query, without the user having to actually provide the term. For example, given the term "dog" and synonym associations of "canine" and "puppy", any documents containing "dog", "canine" or "puppy" will fall within the scope of the query.

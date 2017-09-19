@@ -1,5 +1,5 @@
 ---
-title: 'Reference a virtual network in an Azure scale set template | Microsoft Docs'
+title: 'Reference an existing virtual network in an Azure scale set template | Microsoft Docs'
 description: Learn how to add a virtual network to an existing Azure Virtual Machine Scale Set template
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/06/2017
+ms.date: 06/27/2017
 ms.author: negat
 ---
 
-# Add reference to a virtual network to an Azure scale set template
+# Add reference to an existing virtual network in an Azure scale set template
 
 This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to deploy into an existing virtual network instead of creating a new one.
 
 ## Change the template definition
 
-Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set into an existing virtual network can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Let's examine the diff used to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
+Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set into an existing virtual network can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set existing-vnet`) piece by piece:
 
 First, we add a `subnetId` parameter. This string will be passed into the scale set configuration, allowing the scale set to identify the pre-created subnet to deploy virtual machines into. This string must be of the form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. For instance, to deploy the scale set into an existing virtual network with name `myvnet`, subnet `mysubnet`, resource group `myrg`, and subscription `00000000-0000-0000-0000-000000000000`, the subnetId would be: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
@@ -99,6 +99,6 @@ Finally, we pass in the `subnetId` parameter set by the user (instead of using `
 
 
 
-## Next Steps
+## Next steps
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

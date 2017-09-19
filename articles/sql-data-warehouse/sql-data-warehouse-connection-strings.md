@@ -3,7 +3,7 @@ title: Drivers for SQL Data Warehouse | Microsoft Docs
 description: Connection strings and drivers for SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: anvang;barbkess
 
 ---
 # Drivers for Azure SQL Data Warehouse

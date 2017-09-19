@@ -118,9 +118,9 @@ Documentation on the Powershell [Azure Resource Manager Traffic Manager support]
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[AzureTrafficManagerProfile]:  https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
-[ARMTrafficManager]:  https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]:  https://azure.microsoft.com/en-us/documentation/articles/web-sites-custom-domain-name/
+[AzureTrafficManagerProfile]: ../traffic-manager/traffic-manager-manage-profiles.md
+[ARMTrafficManager]: ../traffic-manager/traffic-manager-powershell-arm.md
+[RegisterCustomDomain]: app-service-web-tutorial-custom-domain.md
 
 
 <!-- IMAGES -->

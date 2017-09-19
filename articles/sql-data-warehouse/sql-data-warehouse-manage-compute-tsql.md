@@ -3,7 +3,7 @@ title: Pause, resume, scale with T-SQL in Azure SQL Data Warehouse | Microsoft D
 description: Transact-SQL (T-SQL) tasks to scale-out performance by adjusting DWUs. Save costs by scaling back during non-peak times.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/30/2017
-ms.author: barbkess
+ms.author: elbutter;barbkess
 
 ---
 # Manage compute power in Azure SQL Data Warehouse (T-SQL)

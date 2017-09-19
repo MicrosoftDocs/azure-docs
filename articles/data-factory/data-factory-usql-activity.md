@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 08/10/2017
 ms.author: spelluru
 
 ---
@@ -36,43 +36,87 @@ A pipeline in an Azure data factory processes data in linked storage services by
 > Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 > 
 > Review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create Data Factory entities.
-> 
-> 
+
+## Supported authentication types
+U-SQL activity supports below authentication types against Data Lake Analytics:
+* Service principal authentication
+* User credential (OAuth) authentication 
+
+We recommend that you use service principal authentication, especially for a scheduled U-SQL execution. Token expiration behavior can occur with user credential authentication. For configuration details, see the [Linked service properties](#azure-data-lake-analytics-linked-service) section.
 
 ## Azure Data Lake Analytics Linked Service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
 
-The following example provides JSON definition for an Azure Data Lake Analytics linked service. 
+The following table provides descriptions for the generic properties used in the JSON definition. You can further choose between service principal and user credential authentication.
 
-```JSON
+| Property | Description | Required |
+| --- | --- | --- |
+| **type** |The type property should be set to: **AzureDataLakeAnalytics**. |Yes |
+| **accountName** |Azure Data Lake Analytics Account Name. |Yes |
+| **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |No |
+| **subscriptionId** |Azure subscription id |No (If not specified, subscription of the data factory is used). |
+| **resourceGroupName** |Azure resource group name |No (If not specified, resource group of the data factory is used). |
+
+### Service principal authentication (recommended)
+To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+* Application ID
+* Application key 
+* Tenant ID
+
+Use service principal authentication by specifying the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| **servicePrincipalId** | Specify the application's client ID. | Yes |
+| **servicePrincipalKey** | Specify the application's key. | Yes |
+| **tenant** | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
+
+**Example: Service principal authentication**
+```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
             "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
-            "authorization": "<authcode>",
-            "sessionId": "<session ID>", 
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
         }
     }
 }
 ```
 
-The following table provides descriptions for the properties used in the JSON definition. 
+### User credential authentication
+Alternatively, you can use user credential authentication for Data Lake Analytics by specifying the following properties:
 
 | Property | Description | Required |
-| --- | --- | --- |
-| Type |The type property should be set to: **AzureDataLakeAnalytics**. |Yes |
-| accountName |Azure Data Lake Analytics Account Name. |Yes |
-| dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |No |
-| authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
-| subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
-| resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. The session Id is auto-generated in the Data Factory Editor. |Yes |
+|:--- |:--- |:--- |
+| **authorization** | Click the **Authorize** button in the Data Factory Editor and enter your credential that assigns the autogenerated authorization URL to this property. | Yes |
+| **sessionId** | OAuth session ID from the OAuth authorization session. Each session ID is unique and can be used only once. This setting is automatically generated when you use the Data Factory Editor. | Yes |
 
+**Example: User credential authentication**
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
+            "authorization": "<authcode>",
+            "sessionId": "<session ID>", 
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
+        }
+    }
+}
+```
+
+#### Token expiration
 The authorization code you generated by using the **Authorize** button expires after sometime. See the following table for the expiration times for different types of user accounts. You may see the following error message when the authentication **token expires**: Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
 
 | User type | Expires after |
@@ -80,9 +124,7 @@ The authorization code you generated by using the **Authorize** button expires a
 | User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.) |12 hours |
 | Users accounts managed by Azure Active Directory (AAD) |14 days after the last slice run. <br/><br/>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days. |
 
-To avoid/resolve this error, reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for **sessionId** and **authorization** properties programmatically using code in the following section. 
-
-### To programmatically generate sessionId and authorization values
+To avoid/resolve this error, reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for **sessionId** and **authorization** properties programmatically using code as follows:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -114,7 +156,7 @@ See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/m
 ## Data Lake Analytics U-SQL Activity
 The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL Activity. The activity definition has a reference to the Azure Data Lake Analytics linked service you created earlier.   
 
-```JSON
+```json
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
@@ -172,18 +214,20 @@ The following table describes names and descriptions of properties that are spec
 | type |The type property must be set to **DataLakeAnalyticsU-SQL**. |Yes |
 | scriptPath |Path to folder that contains the U-SQL script. Name of the file is case-sensitive. |No (if you use script) |
 | scriptLinkedService |Linked service that links the storage that contains the script to the data factory |No (if you use script) |
-| script |Specify inline script instead of specifying scriptPath and scriptLinkedService. For example: "script": "CREATE DATABASE test". |No (if you use scriptPath and scriptLinkedService) |
+| script |Specify inline script instead of specifying scriptPath and scriptLinkedService. For example: `"script": "CREATE DATABASE test"`. |No (if you use scriptPath and scriptLinkedService) |
 | degreeOfParallelism |The maximum number of nodes simultaneously used to run the job. |No |
 | priority |Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. |No |
 | parameters |Parameters for the U-SQL script |No |
+| runtimeVersion | Runtime version of the U-SQL engine to use | No | 
+| compilationMode | <p>Compilation mode of U-SQL. Must be one of these values:</p> <ul><li>**Semantic:** Only perform semantic checks and necessary sanity checks.</li><li>**Full:** Perform the full compilation, including syntax check, optimization, code generation, etc.</li><li>**SingleBox:** Perform the full compilation, with TargetType setting to SingleBox.</li></ul><p>If you don't specify a value for this property, the server determines the optimal compilation mode. </p>| No | 
 
-See [SearchLogProcessing.txt Script Definition](#script-definition) for the script definition. 
+See [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) for the script definition. 
 
 ## Sample input and output datasets
 ### Input dataset
 In this example, the input data resides in an Azure Data Lake Store (SearchLog.tsv file in the datalake/input folder). 
 
-```JSON
+```json
 {
     "name": "DataLakeTable",
     "properties": {
@@ -209,7 +253,7 @@ In this example, the input data resides in an Azure Data Lake Store (SearchLog.t
 ### Output dataset
 In this example, the output data produced by the U-SQL script is stored in an Azure Data Lake Store (datalake/output folder). 
 
-```JSON
+```json
 {
     "name": "EventsByRegionTable",
     "properties": {
@@ -229,15 +273,16 @@ In this example, the output data produced by the U-SQL script is stored in an Az
 ### Sample Data Lake Store Linked Service
 Here is the definition of the sample Azure Data Lake Store linked service used by the input/output datasets. 
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreLinkedService",
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "sessionId": "<session ID>",
-            "authorization": "<authorization URL>"
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
         }
     }
 }
@@ -281,7 +326,7 @@ You can specify other properties such as degreeOfParallelism and priority as wel
 ## Dynamic parameters
 In the sample pipeline definition, in and out parameters are assigned with hard-coded values. 
 
-```JSON
+```json
 "parameters": {
     "in": "/datalake/input/SearchLog.tsv",
     "out": "/datalake/output/Result.tsv"
@@ -290,7 +335,7 @@ In the sample pipeline definition, in and out parameters are assigned with hard-
 
 It is possible to use dynamic parameters instead. For example: 
 
-```JSON
+```json
 "parameters": {
     "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
     "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"

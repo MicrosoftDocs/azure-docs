@@ -13,12 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: mandia
-
 ms.custom: H1Hack27Feb2017 
-
+ms.date: 02/27/2017
+ms.author: LADocs; mandia
 ---
+
 # Validate and transform XML, encode and decode flat files, and enrich messages features in logic apps
 
 Using logic apps, you have the ability to process XML messages that you send and receive. This feature is included with the Enterprise Integration Pack. For those users with a BizTalk Server background, the Enterprise Integration Pack gives you similar abilities to transform and validate messages, work with flat files, and even use XPath to enrich or extract specific properties from a message. 

@@ -10,7 +10,6 @@
 ## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Using REST API](data-lake-store-get-started-rest-api.md)
-## [Using Azure CLI](data-lake-store-get-started-cli.md)
 ## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Using Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Using Python](data-lake-store-get-started-python.md)
@@ -30,6 +29,7 @@
 ### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 ### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+### [Encryption](data-lake-store-encryption.md)
 
 ## Performance
 ### [Performance tuning guidance for Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
@@ -39,12 +39,14 @@
 ### [Performance tuning guidance for Storm on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
 
 ## Integrate with Azure Services
+### With HDInsight
+#### [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Using PowerShell (default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Using PowerShell (additonal storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Using Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [HDInsight with Data Lake Store - Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [HDInsight with Data Lake Store as default storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [HDInsight with Data Lake Store as additional storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [HDInsight with Data Lake Store - Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Use with Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
 ### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Use with Power BI](data-lake-store-power-bi.md)
@@ -55,11 +57,12 @@
 
 ## Manage
 ### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
-### [Plan for high availability](data-lake-store-troubleshooting-guidance.md)
+### [Plan for high availability](data-lake-store-disaster-recovery-guidance.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
-## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
+## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (Account Mgmt.)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
@@ -68,10 +71,12 @@
 ## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-store)
-## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Data Lake Store Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

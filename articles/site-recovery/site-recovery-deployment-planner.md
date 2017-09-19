@@ -9,16 +9,16 @@ editor:
 
 ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
 
 ---
 # Azure Site Recovery deployment planner
-This article is the Azure Site Recovery user guide for VMware-to-Azure production deployments.
+This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
 
 ## Overview
 
@@ -32,7 +32,7 @@ The tool provides the following details:
 
 **Compatibility assessment**
 
-* A VM eligibility assessment, based on number of disks, disk size, IOPS, and churn
+* A VM eligibility assessment, based on number of disks, disk size, IOPS, churn and boot type(EFI/BIOS)
 * The estimated network bandwidth that's required for delta replication
 
 **Network bandwidth need versus RPO assessment**
@@ -63,7 +63,7 @@ The tool has two main phases: profiling and report generation. There is also a t
 
 | Server requirement | Description|
 |---|---|
-|Profiling and throughput measurement| <ul><li>Operating system: Microsoft Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings should be set to 2 or high level</li></ul>|
+|Profiling and throughput measurement| <ul><li>Operating system: Microsoft Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings should be set to 2 or high level</li><li>Allow 443 port: ASR Deployment Planner uses this port to connect to vCenter server/ESXi host</ul></ul>|
 | Report generation | A Windows PC or Windows Server with Microsoft Excel 2013 or later |
 | User permissions | Read-only permission for the user account that's used to access the VMware vCenter server/VMware vSphere ESXi host during profiling |
 
@@ -114,14 +114,18 @@ First, you need a list of the VMs to be profiled. You can get all the names of V
 
 			Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. To get all the names of VMs on a vCenter server/vSphere ESXi host and store the list in a .txt file, run the two commands listed here.
+4. You may optionly need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
+ 
+			Add-PSSnapin VMware.VimAutomation.Core 
+
+5. To get all the names of VMs on a vCenter server/vSphere ESXi host and store the list in a .txt file, run the two commands listed here.
 Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo;, &lsaquo;outputfile.txt&rsaquo;; with your inputs.
 
 			Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
 			Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. Open the output file in Notepad, and then copy the names of all VMs that you want to profile to another file (for example, ProfileVMList.txt), one VM name per line. This file is used as input to the *-VMListFile* parameter of the command-line tool.
+6. Open the output file in Notepad, and then copy the names of all VMs that you want to profile to another file (for example, ProfileVMList.txt), one VM name per line. This file is used as input to the *-VMListFile* parameter of the command-line tool.
 
 	![VM name list in the deployment planner](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
@@ -200,6 +204,7 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour format). *StartDate* must be specified along with *EndDate*. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
+| -UseManagedDisks | (Optional) UseManagedDisks - Yes/No. Default is Yes. The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk. |
 
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
@@ -450,7 +455,9 @@ The Input worksheet provides an overview of the profiled VMware environment.
 **VM Compatibility**: Values are **Yes** and **Yes**\*. **Yes**\* is for instances in which the VM is a fit for [Azure Premium Storage](https://aka.ms/premium-storage-workload). Here, the profiled high-churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
 * <128 GB is a P10.
 * 128 GB to 512 GB is a P20.
-* 512 GB to 1023 GB is a P30.
+* 512 GB to 1024 GB is a P30.
+* 1025 GB to 2048 GB is a P40.
+* 2049 GB to 4095 GB is a P50.
 
 If the workload characteristics of a disk put it in the P20 or P30 category, but the size maps it down to a lower premium storage disk type, the tool marks that VM as **Yes**\*. The tool also recommends that you either change the source disk size to fit into the recommended premium storage disk type or change the target disk type post-failover.
 
@@ -476,7 +483,7 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 
 **NICs**: The number of NICs on the VM.
 
-**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet. 
+**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet.
 
 **OS Type**: The is OS type of the VM. It can be either Windows or Linux or other.
 
@@ -488,7 +495,8 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 
 **VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
 
-* Disk size is >1023 GB. Azure Storage currently does not support disk sizes greater than 1 TB.
+* Disk size is >4095 GB. Azure Storage currently does not support data disk sizes greater than 4095 GB.
+* OS disk is >2048 GB. Azure Storage currently does not support OS disk size greater than 2048 GB.
 * Boot type is EFI. Azure Site Recovery currently supports only BIOS boot type virtual machine.
 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
@@ -513,7 +521,7 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 
 **NICs**: The number of NICs on the VM.
 
-**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet. 
+**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet.
 
 **OS Type**: The is OS type of the VM. It can be either Windows or Linux or other.
 
@@ -554,6 +562,24 @@ To update the deployment planner, do the following:
 
 
 ## Version history
+
+### 1.3.1
+Updated: July 19, 2017
+
+Following new feature is added:
+
+* Added support for large disks (> 1TB) in report generation. Now you can use deployment planner to plan replication for virtual machines that have disk sizes greater than 1 TB (upto 4095 GB).
+Read more about [Large disk support in Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
+
+
+### 1.3
+Updated: May 9, 2017
+
+Following new feature is added:
+
+* Added Managed Disk support in report generation. The number of virtual machines can be placed to a single storage account is calcuated based on if managed disk is selected for Failover/Test failover.        
+
+
 ### 1.2
 Updated: April 7, 2017
 

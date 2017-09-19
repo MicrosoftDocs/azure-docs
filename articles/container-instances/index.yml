@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Container Instances Documentation
+metadata:
+  title: Azure Container Instances Documentation - Tutorials | Microsoft Docs
+  description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
+  services: container-instances
+  author: czeumault
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service. If you require a complete container orchestration solution, see the <a href="/azure/container-service/kubernetes/">Kubernetes on Azure Container Service documentation</a>. Learn how to create and manage container instances with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy container images with Azure Container Instances.'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/container-instances/media/container-instances.svg
+      text: Create container instance
+      href: /azure/container-instances/container-instances-quickstart
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to package code into a container image and run it in an Azure Container Instance.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Package an application into a container image</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Create an Azure Container Registry and upload the container image</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Deploy the container image to an Azure Container Instance</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/container">Azure CLI 2.0</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/container-instances">REST API Reference</a></p>

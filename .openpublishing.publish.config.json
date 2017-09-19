@@ -6,7 +6,9 @@
 	"enable_pull_request_aggregation": true,	
 	"branch_target_mapping": {
 		"live": ["Publish", "PDF"],
-		"master": ["Publish", "PDF"]
+		"master": ["Publish", "PDF"],
+		"release-event-grid": ["Publish", "PDF"],
+		"hd-insight-pdf": ["Publish", "PDF"]
 		},
 	"docsets_to_publish": [{
 		"docset_name": "azure-documents",
@@ -18,6 +20,7 @@
 		"type_mapping": {
 			"Conceptual": "Content",
 			"ManagedReference": "Content",
+      "LandingData": "Content",
 			"RestApi": "Content"
 		},
 		"build_entry_point": "docs",
@@ -50,13 +53,65 @@
 	},
 	{
 		"path_to_root": "cli_scripts",
-		"url": "https://github.com/Azure/azure-docs-cli-python-samples.git",
-		"branch": "master"
+		"url": "https://github.com/Azure/azure-docs-cli-python-samples",
+		"branch": "master",
+		"branch_mapping":
+		{
+			"release-build-mysql": "release-build",
+			"release-build-postgresql": "release-build",
+			"release-build-stellar": "release-build" 
+		}
 	},
 	{
 		"path_to_root": "powershell_scripts",
-		"url": "https://github.com/Azure/azure-docs-powershell-samples.git",
+		"url": "https://github.com/Azure/azure-docs-powershell-samples",
+		"branch": "master",
+		"branch_mapping":
+		{
+			"release-build-mysql": "release-build",
+			"release-build-postgresql": "release-build",
+			"release-build-stellar": "release-build" 
+		}
+	},
+    {
+		"path_to_root": "samples-mediaservices-integration",
+		"url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
 		"branch": "master"
-	}
+    },
+    {
+		"path_to_root": "samples-mediaservices-encryptiondrm",
+		"url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm",
+		"branch": "master"
+    },
+    {
+		"path_to_root": "samples-mediaservices-encryptionfairplay",
+		"url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-fairplay",
+		"branch": "master"
+    },
+    {
+		"path_to_root": "samples-mediaservices-encryptionaes",
+		"url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes",
+		"branch": "master"
+    },
+    {
+		"path_to_root": "samples-mediaservices-copyblob",
+		"url": "https://github.com/Azure-Samples/media-services-dotnet-copy-blob-into-asset",
+		"branch": "master"
+    },
+    {
+		"path_to_root": "samples-mediaservices-deliverplayready",
+		"url": "https://github.com/Azure-Samples/media-services-dotnet-deliver-playready-widevine-licenses",
+		"branch": "master"
+    },
+    {
+		"path_to_root": "samples-mediaservices-livestream",
+		"url": "https://github.com/Azure-Samples/media-services-dotnet-encode-live-stream-with-ams-clear",
+		"branch": "master"
+    },
+    {
+        "path_to_root": "samples-mediaservices-encoderstandard",
+        "url": "https://github.com/Azure-Samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard",
+        "branch":"master"
+    }
 	]
 }

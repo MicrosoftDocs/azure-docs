@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a virtual network - Azure PowerShell | Microsoft Docs
 description: Learn how to create a virtual network using PowerShell.
 services: virtual-network
@@ -42,7 +42,7 @@ This article explains how to create a VNet through the Resource Manager deployme
 
 To create a virtual network using PowerShell, complete the following steps:
 
-1. Install and configure Azure PowerShell, by following the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
+1. Install and configure Azure PowerShell, by following the steps in the [How to Install and Configure Azure PowerShell](/powershell/azure/overview) article.
 
 2. If necessary, create a new resource group, as shown below. For this scenario, create a resource group named *TestRG*. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
 

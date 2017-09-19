@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/27/2017
 ms.author: sdanie
 
 ---
@@ -66,13 +66,12 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 * [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Important details about ThreadPool growth](#important-details-about-threadpool-growth)
 * [Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Performance considerations around connections](#performance-considerations-around-connections)
 
 ## Monitoring and troubleshooting FAQs
 The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md).
 
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [Why are diagnostics enabled for some new caches but not others?](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 * [Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -101,7 +100,7 @@ Each Azure Redis Cache offering provides different levels of **size**, **bandwid
 
 The following are considerations for choosing a Cache offering.
 
-* **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 530 GB with more available [on request](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
+* **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 530 GB. For more information, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
 * **Network Performance**: If you have a workload that requires high throughput, the Premium tier offers more bandwidth compared to Standard or Basic. Also within each tier, larger size caches have more bandwidth because of the underlying VM that hosts the cache. See the [following table](#cache-performance) for more information.
 * **Throughput**: The Premium tier offers the maximum available throughput. If the cache server or client reaches the bandwidth limits, you may receive timeouts on the client side. For more information, see the following table.
 * **High Availability/SLA**: Azure Redis Cache guarantees that a Standard/Premium cache is available at least 99.9% of the time. To learn more about our SLA, see [Azure Redis Cache Pricing](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
@@ -126,25 +125,25 @@ The following table shows the maximum bandwidth values observed while testing va
 
 From this table, we can draw the following conclusions:
 
-* Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 140K RPS as compared to 49K for C3.
-* With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS.
+* Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 180,000 RPS as compared to 49,000 for C3.
+* With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 400,000 *10 = 4 Million RPS.
 * Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
 
 | Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size |
 | --- | --- | --- | --- | --- |
 | **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS)** |
 | C0 |250 MB |Shared |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12200 |
-| C2 |2.5 GB |2 |200 / 25 |24000 |
-| C3 |6 GB |4 |400 / 50 |49000 |
-| C4 |13 GB |2 |500 / 62.5 |61000 |
-| C5 |26 GB |4 |1000 / 125 |115000 |
-| C6 |53 GB |8 |2000 / 250 |150000 |
-| **Premium cache sizes** | |**CPU cores per shard** | |**Requests per second (RPS), per shard** |
-| P1 |6 GB |2 |1000 / 125 |140000 |
-| P2 |13 GB |4 |2000 / 250 |220000 |
-| P3 |26 GB |4 |2000 / 250 |220000 |
-| P4 |53 GB |8 |4000 / 500 |250000 |
+| C1 |1 GB |1 |100 / 12.5 |12,200 |
+| C2 |2.5 GB |2 |200 / 25 |24,000 |
+| C3 |6 GB |4 |400 / 50 |49,000 |
+| C4 |13 GB |2 |500 / 62.5 |61,000 |
+| C5 |26 GB |4 |1,000 / 125 |115,000 |
+| C6 |53 GB |8 |2,000 / 250 |150,000 |
+| **Premium cache sizes** | |**CPU cores per shard** | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS), per shard** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
+| P2 |13 GB |4 |3,000 / 375 |360,000 |
+| P3 |26 GB |4 |3,000 / 375 |360,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
@@ -402,6 +401,13 @@ Enabling server GC can optimize the client and provide better performance and th
 * [Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
 * [Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
 
+
+### Performance considerations around connections
+
+Each pricing tier has different limits for client connections, memory, and bandwidth. While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
+
+For more information about the different connections limits for each tier, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/). For more information about connections and other default configurations, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
+
 <a name="cache-monitor"></a>
 
 ### How do I monitor the health and performance of my cache?
@@ -414,12 +420,6 @@ The Redis Cache **Resource menu** also contains several tools for monitoring and
 * **New support request** provides options to open a support request for your cache.
 
 These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
-
-### My cache diagnostics storage account settings changed, what happened?
-Caches in the same region and subscription share diagnostics storage settings, and if the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region. If the diagnostics settings for your cache have changed, check to see if the diagnostic settings for another cache in the same subscription and region have changed. One way to check is to view the audit logs for your cache for a `Write DiagnosticSettings` event. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
-
-### Why are diagnostics enabled for some new caches but not others?
-Caches in the same region and subscription share the same diagnostics storage settings. If you create a new cache in the same region and subscription as another cache that has diagnostics enabled, diagnostics is enabled on the new cache using the same settings.
 
 <a name="cache-timeouts"></a>
 
@@ -462,9 +462,13 @@ Another key aspect to Redis success is the healthy, vibrant open source ecosyste
 For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](index.md).
 
 ### Managed Cache service
-[Managed Cache service has been retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+To view archived documentation, see [Archived Managed Cache Service Documentation](https://msdn.microsoft.com/library/azure/dn386094.aspx).
 
 ### In-Role Cache
-[In-Role Cache has been retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+To view archived documentation, see [Archived In-Role Cache Documentation](https://msdn.microsoft.com/library/azure/dn386103.aspx).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

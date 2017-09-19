@@ -16,29 +16,42 @@
 ### [Custom settings](active-directory-aadconnect-get-started-custom.md)
 ### [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade from a previous version](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Install using an existing ADSync database](active-directory-aadconnect-existing-database.md)
 
 # How to
 ## Plan and design
 ### [Design concepts](active-directory-aadconnect-design-concepts.md)
 ### [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)
-### [Single Sign On](active-directory-aadconnect-sso.md)
 ### [Active Directory Federation Services in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Special considerations for instances](active-directory-aadconnect-instances.md)
 ### [When you already have Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Manage Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renew certs for O365 and Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Update the SSL certificate for an Active Directory Federation Services (AD FS) farm](active-directory-aadconnectfed-ssl-update.md)
 ### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
 ### [User sign-on options](active-directory-aadconnect-user-signin.md)
+#### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
+##### [Quick start](active-directory-aadconnect-sso-quick-start.md)
+##### [How does it work?](active-directory-aadconnect-sso-how-it-works.md)
+##### [Frequently asked questions](active-directory-aadconnect-sso-faq.md)
+##### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
+#### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
+##### [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
+##### [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
+##### [How does it work?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Upgrade preview agents](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
+##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
+##### [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md)
+##### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Use a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)
 
 
 
 ## Manage Azure AD Connect Sync
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
-### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installation wizard](active-directory-aadconnectsync-installation-wizard.md)
 ### [Change the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
@@ -67,9 +80,11 @@
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [LargeObject error caused by userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Hybrid Identity Required Ports and Protocols](active-directory-aadconnect-ports.md)
 ## [Features in preview](active-directory-aadconnect-feature-preview.md)
@@ -94,5 +109,8 @@
 
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync Deprecation](active-directory-aadconnect-dirsync-deprecated.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+

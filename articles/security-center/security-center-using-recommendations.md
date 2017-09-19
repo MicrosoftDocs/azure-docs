@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
 
 ---
@@ -50,7 +50,7 @@ This scenario shows you how to use Security Center to help reduce the chances of
 
 ![Scenario roles][2]
 
-Contoso recently migrated some of their on-premise resources to Azure. Contoso wants to implement and maintain protections that reduce their vulnerability to a security attack of their resources in the cloud.
+Contoso recently migrated some of their on-premises resources to Azure. Contoso wants to implement and maintain protections that reduce their vulnerability to a security attack of their resources in the cloud.
 
 ## Recommended solution
 A solution is to use Security Center to prevent and detect security vulnerabilities. Contoso has access to Security Center via their Azure subscription. The [Free tier](security-center-pricing.md) of Security Center is automatically enabled on all Azure subscriptions and data collection is enabled on all VMs in their subscription.
@@ -72,7 +72,7 @@ Jeff signs in to [Azure portal](https://azure.microsoft.com/features/azure-porta
 
 1. Jeff selects the **Recommendations** tile to open the **Recommendations** blade.
    ![Select the recommendations tile][3]
-2. Jeff reviews the list of recommendations. He sees that Security Center has provided the list of recommendations in priority order, from highest priority to lowest priority. He decides to address the first High priority recommendation on the list. He selects **Install Endpoint Protection** on the **Recommendations** blade.
+2. Jeff reviews the list of recommendations. He sees that Security Center has provided the list of recommendations in priority order, from highest priority to lowest priority. He decides to address a High priority recommendation on the list. He selects **Install Endpoint Protection** on the **Recommendations** blade.
 3. The **Install Endpoint Protection** blade opens displaying a list of VMs without antimalware enabled. Jeff reviews the list of VMs, selects all VMs, and then selects **Install on 3 VMs**.
    ![Install endpoint protection][4]
 4. The **Select Endpoint Protection** blade opens providing Jeff with two antimalware solutions. Jeff selects the **Microsoft Antimalware** solution.

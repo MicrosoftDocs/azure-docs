@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
 # Learn about certificates and Enterprise Integration Pack

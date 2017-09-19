@@ -1,4 +1,4 @@
----
+﻿---
 title: Automated Backup for SQL Server Virtual Machines (Classic) | Microsoft Docs
 description: 'Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines using Resource Manager. '
 services: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/18/2017
+ms.date: 07/05/2017
 ms.author: jroth
 
 ---
@@ -37,6 +37,7 @@ To use Automated Backup, consider the following prerequisites:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server version/edition**:
 
@@ -54,7 +55,7 @@ To use Automated Backup, consider the following prerequisites:
 
 **Azure PowerShell**:
 
-* [Install the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs).
+* [Install the latest Azure PowerShell commands](/powershell/azure/overview).
 
 **SQL Server IaaS Extension**:
 

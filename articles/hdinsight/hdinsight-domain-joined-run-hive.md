@@ -1,5 +1,5 @@
 ---
-title: Configure Hive policies in Domain-joined HDInsight | Microsoft Docs
+title: Configure Hive policies in Domain-joined HDInsight - Azure | Microsoft Docs
 description: Learn ....
 services: hdinsight
 documentationcenter: ''

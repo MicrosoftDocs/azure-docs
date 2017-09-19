@@ -3,7 +3,7 @@ title: Create and publish a Marketplace item in Azure Stack | Microsoft Docs
 description: Create and publish a Marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: rupisure
+author: ErikjeMS
 manager: byronr
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
-ms.author: rupisure
+ms.date: 08/21/2017
+ms.author: erikje
 
 ---
 # Create and publish a Marketplace item
@@ -29,7 +29,7 @@ ms.author: rupisure
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
 3. [Create an Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
-4. Test the template with the Microsoft Azure Stack APIs to make sure that the resource can be deployed successfully.
+4. To make sure that the resource can be deployed successfully, test the template with the Microsoft Azure Stack APIs.
 5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
 7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder, and add text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [Marketplace item UI reference](#reference-marketplace-item-ui) for a detailed description.
@@ -38,8 +38,8 @@ ms.author: rupisure
    > All four icon sizes (small, medium, large, wide) are required for building the Marketplace item correctly.
    > 
    > 
-8. In the **manifest.json** file, change the information for **name** to the name of your Marketplace item and the information for **publisher** to your name or company.
-9. Under **artifacts**, change the information for **name** and **path** to the correct information for the Azure Resource Manager template that you included.
+8. In the **manifest.json** file, change **name** to the name of your Marketplace item. Also change **publisher** to your name or company.
+9. Under **artifacts**, change **name** and **path** to the correct information for the Azure Resource Manager template that you included.
    
          "artifacts": [
             {
@@ -54,7 +54,7 @@ ms.author: rupisure
                  "My Marketplace Items"
               ],
 11. For any further edits to manifest.json, refer to [Reference: Marketplace item manifest.json](#reference-marketplace-item-manifestjson).
-12. Open a command prompt and run the following command to package the folders into an .azpkg file:
+12. To package the folders into an .azpkg file, open a command prompt and run the following command:
     
         AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
     
@@ -65,14 +65,15 @@ ms.author: rupisure
 
 ## Publish a Marketplace item
 1. Use PowerShell or Azure Storage Explorer to upload your Marketplace item (.azpkg) to Azure Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible.
-2. On the client virtual machine in the Microsoft Azure Stack environment, ensure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](azure-stack-deploy-template-powershell.md).
+2. On the client virtual machine in the Microsoft Azure Stack environment, make sure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](azure-stack-deploy-template-powershell.md).
 3. Use the **Add-AzureRMGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. For example:
    
-       Add-AzureRMGalleryItem -SubscriptionId (Get-AzureRmSubscription -SubscriptionName 'Default Provider Subscription').SubscriptionId -GalleryItemUri https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg  -Apiversion "2015-04-01" –Verbose
+       Add-AzureRMGalleryItem -GalleryItemUri `
+       https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
    | Parameter | Description |
    | --- | --- |
-   | SubscriptionID |Admin subscription ID. You can retrieve it by using PowerShell or, in the Azure Stack portal, by going to the provider subscription and copying the subscription ID. |
+   | SubscriptionID |Admin subscription ID. You can retrieve it by using PowerShell. If you'd prefer to get it in the portal, go to the provider subscription and copy the subscription ID. |
    | GalleryItemUri |Blob URI for your gallery package that has already been uploaded to storage. |
    | Apiversion |Set as **2015-04-01**. |
 4. Go to the portal. You can now see the Marketplace item in the portal--as an admin or as a tenant.
@@ -84,10 +85,10 @@ ms.author: rupisure
 5. Your Marketplace item has now been saved to the Azure Stack Marketplace. You can choose to delete it from your Blob storage location.
 6. You can remove a Marketplace item by using the **Remove-AzureRMGalleryItem** cmdlet. Example:
    
-        Remove-AzureRMGalleryItem -SubscriptionId (Get-AzureRmSubscription -SubscriptionName 'Default Provider Subscription').SubscriptionId -Name Microsoft.SimpleTemplate.1.0.0 -Apiversion "2015-04-01" –Verbose
+        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
-   > The Marketplace UI may show an error after you remove an item. To fix this, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.
+   > The Marketplace UI may show an error after you remove an item. To fix the error, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.
    > 
    > 
 
@@ -102,15 +103,15 @@ ms.author: rupisure
 ### Metadata
 | Name | Required | Type | Constraints | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Recommendation of 80 characters |If longer than 80, the portal might not display your item name gracefully. |
-| PublisherDisplayName |X |String |Recommendation of 30 characters |If longer than 30, the portal might not display your publisher name gracefully. |
+| DisplayName |X |String |Recommendation of 80 characters |The portal might not display your item name gracefully if it is longer than 80 characters. |
+| PublisherDisplayName |X |String |Recommendation of 30 characters |The portal might not display your publisher name gracefully if it is longer than 30 characters. |
 | PublisherLegalName |X |String |Maximum of 256 characters | |
 | Summary |X |String |60 to 100 characters | |
 | LongSummary |X |String |140 to 256 characters |Not yet applicable in Azure Stack. |
 | Description |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 to 5,000 characters | |
 
 ### Images
-The Marketplace uses the following icons.
+The Marketplace uses the following icons:
 
 | Name | Width | Height | Notes |
 | --- | --- | --- | --- |
@@ -121,7 +122,7 @@ The Marketplace uses the following icons.
 | Screenshot |533 px |32 px |Optional |
 
 ### Categories
-Each Marketplace item should be tagged with a category. This dictates the category where the item appears on the portal UI. You can choose one of the existing categories in Azure Stack (Compute, Data + Storage, etc.) or choose a new one.
+Each Marketplace item should be tagged with a category that identifies where the item appears on the portal UI. You can choose one of the existing categories in Azure Stack (Compute, Data + Storage, etc.) or choose a new one.
 
 ### Links
 Each Marketplace item can include various links to additional content. The links are specified as a list of names and URIs.
@@ -132,7 +133,7 @@ Each Marketplace item can include various links to additional content. The links
 | Uri |X |URI | | |
 
 ### Additional properties
-In addition to the preceding metadata, Marketplace authors can provide custom key/value pair data in the following form.
+In addition to the preceding metadata, Marketplace authors can provide custom key/value pair data in the following form:
 
 | Name | Required | Type | Constraints | Description |
 | --- | --- | --- | --- | --- |

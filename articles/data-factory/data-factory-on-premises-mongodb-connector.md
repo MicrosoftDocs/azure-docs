@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 07/27/2017
 ms.author: jingwang
 
 ---
@@ -192,7 +192,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%M"
+                        "format": "MM"
                     }
                 },
                 {
@@ -200,7 +200,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%d"
+                        "format": "dd"
                     }
                 },
                 {
@@ -208,7 +208,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%H"
+                        "format": "HH"
                     }
                 }
             ]

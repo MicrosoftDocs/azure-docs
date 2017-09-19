@@ -32,6 +32,13 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 These instructions assume you have already installed and signed in to Azure CLI 1.0. For help, see [How to manage DNS zones using Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md).
 
+## Create the resource group
+
+Before creating the DNS zone, a resource group is created to contain the DNS Zone. The following shows the command.
+
+```azurecli
+azure group create --name MyResourceGroup --location "West US"
+```
 
 ## Create a DNS zone
 
@@ -94,6 +101,13 @@ info:    network dns zone show command OK
 
 These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
 
+## Delete all resources
+ 
+To delete all resources created in this article, take the following step:
+
+```azurecli
+azure group delete --name MyResourceGroup
+```
 
 ## Next steps
 

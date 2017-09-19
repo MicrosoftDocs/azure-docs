@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 05/15/2017
 ms.author: jingwang
 
 ---
@@ -31,7 +31,10 @@ Gateway is required even if the MySQL database is hosted in an Azure IaaS virtua
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) or above on the same system as the Data Management Gateway. MySQL version 5.1 and above is supported.
+For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version 6.6.5 or above) on the same system as the Data Management Gateway. MySQL version 5.1 and above is supported.
+
+> [!TIP]
+> If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/Net to higher version.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 

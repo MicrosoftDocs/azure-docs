@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 3/13/2017
-ms.author: ryansoc
+ms.date: 4/25/2017
+ms.author: magoedte; ryansoc
 
 ---
 # Azure Government Monitoring + Management
@@ -22,12 +22,6 @@ This article outlines the monitoring and management services variations and cons
 
 ## Automation
 Automation is generally available in Azure Government.
-
-### Variations
-The following Automation features are not currently available in Azure Government.
-
-* Creation of a Service Principal credential for authentication
-
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
 ## Backup
@@ -46,42 +40,81 @@ For more information, see [Site Recovery commercial documentation](../site-recov
 
 ### Variations
 The following Site Recovery features are not currently available in Azure Government:
-
-* Azure Resource Manager Site Recovery vaults
 * Email notification
 
 | Site Recovery | Classic | Resource Manager |
 | --- | --- | --- |
-| VMWare/Physical  | GA | GA |
+| VMWare/Physical  | GA | GA |
 | Hyper-V | GA | GA |
 | Site to Site | GA | GA |
-
->[!NOTE]
->Table applies to US Gov Virginia and US Gov Iowa.
 
 The following URLs for Site Recovery are different in Azure Government:
 
 | Azure Public | Azure Government | Notes |
 | --- | --- | --- |
 | \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
-| \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
+| \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
 | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
-
 ## Monitor
-Azure Monitor is in public preview in Azure Government.
+Azure Monitor is generally available in Azure Government.
 
-For more information, see [Monitor commercial documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview).
+For more information, see [Monitor commercial documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview).
 
 ### Variations
-The following Monitor features are not currently available in Azure Government:
+The following sections detail differences and workarounds for features of Azure Monitor in Azure Government:
 
-* Metrics and Alerts
-* Diagnostic Logs
-* Autoscale
-* Action Groups
+#### Action Groups 
+Action Groups do not support SMS at this time but will in a coming update.    
 
+#### Activity Log Alerts
+Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
+
+#### Autoscale
+<aside class="warning">
+Autoscale via the portal is not currently available. This feature is coming soon.  
+</aside>
+
+In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia or USGov Iowa. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
+
+```PowerShell
+$rule1 = New-AzureRmAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1" 
+$rule2 = New-AzureRmAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "2"
+$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1, $rule2 -Name "MyProfile"
+$webhook_scale = New-AzureRmAutoscaleWebhook -ServiceUri https://example.com?mytoken=mytokenvalue
+$notification1= New-AzureRmAutoscaleNotification -CustomEmails myname@company.com -SendEmailToSubscriptionAdministrator -SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
+Add-AzureRmAutoscaleSetting -Location "USGov Virginia" -Name "MyScaleVMSSSetting" -ResourceGroup sdubeys-usgv -TargetResourceId /subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Web/serverFarms/ServerFarm1 -AutoscaleProfiles $profile1 -Notifications $notification1
+```
+
+If you are interested in implementing autoscale on your resources, please use PowerShell/ARM/Rest calls to specify the settings. 
+
+For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
+
+#### Diagnostic Logs
+Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
+
+#### Metrics
+Metrics are supported in all regions, but only for services which are available in Azure Government; a few exceptions are below:
+
+* Coming Soon: Azure IoT Hub
+
+The same methods for viewing the metrics that are used in commercial Azure are used in Azure Government. 
+
+#### Metric Alerts 
+<aside class="warning">
+Creating Metric Alerts for resources outside of USGov Virginia and USGov Iowa in the portal will fail. A fix for this issue is in progress. 
+</aside>
+
+In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. The resource targetted by the alert can exist in any region. An example of the setting is below:
+
+```PowerShell
+$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
+$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken 
+Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%" 
+```
+
+For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-alert-rules).
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
@@ -90,12 +123,10 @@ Log Analytics is generally available in Azure Government.
 The following Log Analytics features and solutions are not currently available in Azure Government.
 
 * Solutions that are in preview in Microsoft Azure, including:
-  * Network Monitoring solution
   * Service Map
-  * Office 365 solution
   * Windows 10 Upgrade Analytics solution
   * Application Insights solution
-  * Azure Networking Analytics solution
+  * Azure Networking Security Group Analytics solution
   * Azure Automation Analytics solution
   * Key Vault Analytics solution
 * Solutions and features that require updates to on-premises software, including:
@@ -103,7 +134,7 @@ The following Log Analytics features and solutions are not currently available i
 * Features that are in preview in public Azure, including:
   * Export of data to Power BI
 * Azure metrics and Azure diagnostics
-* Operations Management Suite mobile applications
+* Operations Management Suite mobile application
 
 The URLs for Log Analytics are different in Azure Government:
 
@@ -139,5 +170,6 @@ The following Log Analytics features behave differently in Azure Government:
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
 
 ## Next steps
-For supplemental information and updates, subscribe to the
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
+* Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)
+* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 

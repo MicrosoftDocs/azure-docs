@@ -7,37 +7,32 @@ author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.assetid: 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/18/2017
+ms.date: 09/03/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ---
 
-# Create your first Azure Resource Manager template
+# Create and deploy your first Azure Resource Manager template
 This topic walks you through the steps of creating your first Azure Resource Manager template. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md). If you have existing resources and want to get a template for those resources, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
-To create and revise templates, you need a JSON editor. [Visual Studio Code](https://code.visualstudio.com/) is a lightweight, open-source, cross-platform code editor. It supports creating and editing Resource Manager templates through an extension. This topic assumes you are using VS Code; however, if you have another JSON editor (like Visual Studio), you can use that editor.
+To create and revise templates, you need a JSON editor. [Visual Studio Code](https://code.visualstudio.com/) is a lightweight, open-source, cross-platform code editor. We strongly recommend using Visual Studio Code for creating Resource Manager templates. This article assumes you are using VS Code. If you have another JSON editor (like Visual Studio), you can use that editor.
 
-## Get VS Code and extension
-1. If needed, install VS Code from [https://code.visualstudio.com/](https://code.visualstudio.com/).
+## Prerequisites
 
-2. Install the [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) extension by accessing Quick Open (Ctrl+P) and running: 
+* Visual Studio Code. If needed, install it from [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-   ```
-   ext install msazurermtools.azurerm-vscode-tools
-   ```
+## Create template
 
-3. Restart VS Code when prompted to enable the extension.
+Let's start with a simple template that deploys a storage account to your subscription.
 
-## Create blank template
+1. Select **File** > **New File**. 
 
-Let's start with a blank template that includes only the basic sections of a template.
-
-1. Create a file. 
+   ![New file](./media/resource-manager-create-first-template/new-file.png)
 
 2. Copy and paste the following JSON syntax into your file:
 
@@ -45,262 +40,184 @@ Let's start with a blank template that includes only the basic sections of a tem
    {
      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
      "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
-     "resources": [  ],
-     "outputs": {  }
-   }
-   ```
-
-3. Save this file as **azuredeploy.json**. 
-
-## Add storage account
-1. To define a storage account for deployment, you add that storage account to the **resources** section of your template. To find the values that are available for the storage account, look at the [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts). Copy the JSON that is shown for the storage account. 
-
-3. Paste that JSON into the **resources** section of your template, as shown in the following example: 
-
-   ```json
-   {
-     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
+     "parameters": {
+     },
+     "variables": {
+     },
      "resources": [
        {
-         "name": "string",
+         "name": "[concat('storage', uniqueString(resourceGroup().id))]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-01-01",
          "sku": {
-           "name": "string"
+           "name": "Standard_LRS"
          },
-         "kind": "string",
-         "location": "string",
+         "kind": "Storage",
+         "location": "South Central US",
          "tags": {},
-         "properties": {
-           "customDomain": {
-             "name": "string",
-             "useSubDomain": boolean
-           },
-           "encryption": {
-             "services": {
-               "blob": {
-                 "enabled": boolean
-               }
-             },
-             "keySource": "Microsoft.Storage"
-           },
-           "accessTier": "string"
-         }
+         "properties": {}
        }
      ],
      "outputs": {  }
    }
    ```
 
-  The preceding example includes many placeholder values and some properties that you might not need in your storage account.
+   Storage account names have several restrictions that make them difficult to set. The name must be between 3 and 24 characters in length, use only numbers and lower-case letters, and be unique. The preceding template uses the [uniqueString](resource-group-template-functions-string.md#uniquestring) function to generate a hash value. To give this hash value more meaning, it adds the prefix *storage*. 
 
-## Set values for storage account
+3. Save this file as **azuredeploy.json** to a local folder.
 
-Now, you are ready to set values for your storage account. 
+   ![Save template](./media/resource-manager-create-first-template/save-template.png)
 
-1. Look again at the [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts) where you copied the JSON. There are several tables that describe the properties and provide available values. 
+## Deploy template
 
-2. Notice that within the **properties** element, **customDomain**, **encryption**, and **accessTier** are all listed as not required. These values may be important for your scenarios, but to keep this example simple, let's remove them.
+You are ready to deploy this template. You use either PowerShell or Azure CLI to create a resource group. Then, you deploy a storage account to that resource group.
 
-   ```json
-   "resources": [
-     {
-       "name": "string",
-       "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
-       "sku": {
-         "name": "string"
-       },
-       "kind": "string",
-       "location": "string",
-       "tags": {},
-       "properties": {
-       }
-     }
-   ],
+* For PowerShell, use the following commands from the folder containing the template:
+
+   ```powershell
+   Login-AzureRmAccount
+   
+   New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+   New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
-3. Currently, the **kind** element is set to a placeholder value ("string"). VS Code includes many features that help you understand the values to use in your template. Notice that VS Code indicates this value is not valid. If you hover over "string", VS Code suggests that the valid values for **kind** are `Storage` or `BlobStorage`. 
+* For a local installation of Azure CLI, use the following commands from the folder containing the template:
 
-   ![show VS Code suggested values](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ```azurecli
+   az login
 
-   To see the available values, delete the characters between the double-quotes and select **Ctrl+Space**. Select **Storage** from the available options.
-  
-   ![show intellisense](./media/resource-manager-create-first-template/intellisense.png)
-
-   If you are not using VS Code, look at the storage accounts template reference page. Notice that the description lists the same valid values. Set the element to **Storage**.
-
-   ```json
-   "kind": "Storage",
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
+
+When deployment finishes, your storage account exists in the resource group.
+
+## Deploy template from Cloud Shell
+
+You can use [Cloud Shell](../cloud-shell/overview.md) to run the Azure CLI commands for deploying your template. However, you must first load your template into the file share for your Cloud Shell. If you have not used Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for information about setting it up.
+
+1. Log in to the [Azure portal](https://portal.azure.com).   
+
+2. Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
+
+   ![Select resource group](./media/resource-manager-create-first-template/select-cs-resource-group.png)
+
+3. Select the storage account for your Cloud Shell.
+
+   ![Select storage account](./media/resource-manager-create-first-template/select-storage.png)
+
+4. Select **Files**.
+
+   ![Select files](./media/resource-manager-create-first-template/select-files.png)
+
+5. Select the file share for Cloud Shell. The name pattern is `cs-<user>-<domain>-com-<uniqueGuid>`.
+
+   ![Select file share](./media/resource-manager-create-first-template/select-file-share.png)
+
+6. Select **Add directory**.
+
+   ![Add directory](./media/resource-manager-create-first-template/select-add-directory.png)
+
+7. Name it **templates**, and select **Okay**.
+
+   ![Name directory](./media/resource-manager-create-first-template/name-templates.png)
+
+8. Select your new directory.
+
+   ![Select directory](./media/resource-manager-create-first-template/select-templates.png)
+
+9. Select **Upload**.
+
+   ![Select upload](./media/resource-manager-create-first-template/select-upload.png)
+
+10. Find and upload your template.
+
+   ![Upload file](./media/resource-manager-create-first-template/upload-files.png)
+
+11. Open the prompt.
+
+   ![Open Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
+
+12. Enter the following commands in the Cloud Shell:
+
+   ```azurecli
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+   ```
+
+When deployment finishes, your storage account exists in the resource group.
+
+## Customize the template
+
+The template works fine, but it is not flexible. It always deploys a locally redundant storage to South Central US. The name is always *storage* followed by a hash value. To enable using the template for different scenarios, add parameters to the template.
+
+The following example shows the parameters section with two parameters. The first parameter `storageSKU` enables you to specify the type of redundancy. It limits the values you can pass in to values that are valid for a storage account. It also specifies a default value. The second parameter `storageNamePrefix` is set to allow a maximum of 11 characters. It specifies a default value.
+
+```json
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
+    }
+  },
+  "storageNamePrefix": {
+    "type": "string",
+    "maxLength": 11,
+    "defaultValue": "storage",
+    "metadata": {
+      "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+    }
+  }
+},
+```
+
+In the variables section, add a variable named `storageName`. It combines the prefix value from the parameters and a hash value from the [uniqueString](resource-group-template-functions-string.md#uniquestring) function. It uses the [toLower](resource-group-template-functions-string.md#tolower) function to convert all characters to lowercase.
+
+```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
+```
+
+To use these new values for your storage account, change the resource definition:
+
+```json
+"resources": [
+  {
+    "name": "[variables('storageName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    "kind": "Storage",
+    "location": "[resourceGroup().location]",
+    "tags": {},
+    "properties": {}
+  }
+],
+```
+
+Notice that the name of the storage account is now set to the variable that you added. The SKU name is set to the value of the parameter. The location is set the same location as the resource group.
+
+Save your file. 
 
 Your template now looks like:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {  }
-}
-```
-
-## Add template function
-
-You use functions within your template to simplify the syntax of the template, and to retrieve values that are only available when the template is being deployed. For the full set of template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
-
-To specify that the storage account is deployed to the same location as the resource group, set the **location** property to:
-
-```json
-"location": "[resourceGroup().location]",
-```
-
-Again, VS Code helps you by suggesting available functions. 
-
-![show functions](./media/resource-manager-create-first-template/show-functions.png)
-
-Notice that the function is surrounded by square brackets. The [resourceGroup](resource-group-template-functions.md#resourcegroup) function returns an object with a property called `location`. The resource group holds all related resources for your solution. You could hardcode the location property to a value like "Central US" but you would have to manually change the template to redeploy to a different location. Using the `resourceGroup` function, makes it easy to redeploy this template to a different resource group in a different location.
-
-Your template now looks like:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {  }
-}
-```
-
-## Add parameters and variables
-There are only two values left to set in your template - **name** and **sku.name**. For these properties, you add parameters that enable you to customize these values during deployment. 
-
-Storage account names have several restrictions that make them difficult to set. The name must be between 3 and 24 characters in length, use only numbers and lower-case letters, and be unique. Rather than trying to guess a unique value that matches the restrictions, use the [uniqueString](resource-group-template-functions.md#uniquestring) function to generate a hash value. To give this hash value more meaning, add a prefix that helps you identify it as a storage account after deployment. 
-
-1. To pass in a prefix for the name that matches your naming conventions, go to the **parameters** section of your template. Add a parameter to the template that accepts a prefix for the storage account name:
-
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     }
-   },
-   ```
-
-  The prefix is limited to a maximum of 11 characters because `uniqueString` returns 13 characters, and the name cannot exceed 24 characters. If you do not pass in a value for the parameter during deployment, the default value is used.
-
-2. Go to the **variables** section of the template. To construct the name from the prefix and unique string, add the following variable:
-
-   ```json
-   "variables": {
-     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-   },
-   ```
-
-3. In the **resources** section, set the storage account name to that variable.
-
-   ```json
-   "name": "[variables('storageName')]",
-   ```
-
-3. To enable passing in different SKUs for the storage account, go to the **parameters** section. After the parameter for storage name prefix, add a parameter that specifies the allowed SKU values and a default value. You can find the allowed values from either the template reference page or VS Code. In the following example, you include all valid values for SKU. However, you could limit the allowed values to only those types of SKUs that you want to deploy through this template.
-
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     },
-     "storageSKU": {
-       "type": "string",
-       "allowedValues": [
-         "Standard_LRS",
-         "Standard_ZRS",
-         "Standard_GRS",
-         "Standard_RAGRS",
-         "Premium_LRS"
-       ],
-       "defaultValue": "Standard_LRS",
-       "metadata": {
-         "description": "The type of replication to use for the storage account."
-       }
-     }
-   },
-   ```
-
-3. Change the SKU property to use the value from the parameter:
-
-   ```json
-   "sku": {
-     "name": "[parameters('storageSKU')]"
-   },
-   ```    
-
-4. Save your file.
-
-## Final template
-
-After completing the steps in this article, your template now looks like:
 
 ```json
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
     "storageSKU": {
       "type": "string",
       "allowedValues": [
@@ -314,16 +231,150 @@ After completing the steps in this article, your template now looks like:
       "metadata": {
         "description": "The type of replication to use for the storage account."
       }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
     }
   },
   "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {}
+    }
+  ],
+  "outputs": {  }
+}
+```
+
+## Redeploy template
+
+Redeploy the template with different values.
+
+For PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix newstore -storageSKU Standard_RAGRS
+```
+
+For Azure CLI, use:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+For the Cloud Shell, upload your changed template to the file share. Overwrite the existing file. Then, use the following command:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+## Use autocomplete
+
+So far, your work on the template has consisted of only copying and pasting JSON from this article. However, when developing your own templates, you want to find and specify properties and values that are available for the resource type. VS Code reads the schema for the resource type, and suggests properties and values. To see the autocomplete feature, go the properties element of your template and add a new line. Type a quotation mark, and notice that VS Code immediately suggests names that available within the properties element.
+
+![Show available properties](./media/resource-manager-create-first-template/show-properties.png)
+
+Select **encryption**. Type a colon (:), and VS Code suggests adding a new object.
+
+![Add object](./media/resource-manager-create-first-template/add-object.png)
+
+Press tab or enter to add the object.
+
+Again, type a quotation mark, and see that VS Code now suggests properties that are available for encryption.
+
+![Show encryption properties](./media/resource-manager-create-first-template/show-encryption-properties.png)
+
+Select **services** and continue adding values based on VS Code extensions until you have:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        }
+    }
+}
+```
+
+You have enabled blob encryption for the storage account. However, VS Code has identified a problem. Notice that encryption has a warning.
+
+![Encryption warning](./media/resource-manager-create-first-template/encryption-warning.png)
+
+To see the warning, hover over the green line.
+
+![Missing property](./media/resource-manager-create-first-template/missing-property.png)
+
+You see that the encryption element requires a keySource property. Add a comma after the services object, and add the keySource property. VS Code suggests **"Microsoft.Storage"** as a valid value. When finished, the properties element is:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        },
+        "keySource":"Microsoft.Storage"
+    }
+}
+```
+
+The final template is:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },
@@ -331,14 +382,61 @@ After completing the steps in this article, your template now looks like:
       "location": "[resourceGroup().location]",
       "tags": {},
       "properties": {
+        "encryption":{
+          "services":{
+            "blob":{
+              "enabled":true
+            }
+          },
+          "keySource":"Microsoft.Storage"
+        }
       }
     }
   ],
-  "outputs": {  }
+  "outputs": {}
 }
 ```
 
+## Deploy encrypted storage
+
+Again, deploy the template and provide a new storage account name.
+
+For PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix storesecure
+```
+
+For Azure CLI, use:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+For the Cloud Shell, upload your changed template to the file share. Overwrite the existing file. Then, use the following command:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+## Clean up resources
+
+When no longer needed, clean up the resources you deployed by deleting the resource group.
+
+For PowerShell, use:
+
+```powershell
+Remove-AzureRmResourceGroup -Name examplegroup
+```
+
+For Azure CLI, use:
+
+```azurecli
+az group delete --name examplegroup
+```
+
 ## Next steps
-* Your template is complete, and you are ready to deploy it to your subscription. To deploy, see [Deploy resources to Azure](resource-manager-quickstart-deploy.md).
+* To gain greater assistance with developing templates, you can install a VS Code extension. For more information, see [Use Visual Studio Code extension to create Azure Resource Manager template](resource-manager-vscode-extension.md)
 * To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+* To learn about the properties for a storage account, see [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts).
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).

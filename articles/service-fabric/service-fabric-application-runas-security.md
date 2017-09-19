@@ -13,16 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 06/30/2017
 ms.author: mfussell
 
 ---
 # Configure security policies for your application
-By using Azure Service Fabric, you can help secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
+By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
 
 By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
 
- When you're running Service Fabric on Windows Server in your datacenter by using the standalone installer, you can use Active Directory domain accounts.
+ When you're running Service Fabric on Windows Server in your datacenter by using the standalone installer, you can use Active Directory domain accounts, including group managed service accounts.
 
 You can define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
@@ -198,7 +198,7 @@ Echo "Test console redirection which writes to the application log folder on the
 In the preceding steps, you saw how to apply a RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
 
 ### Create local user groups
-You can define and create user groups that allow one or more users to be added to a group. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following example shows a local group called **LocalAdminGroup** that has administrator privileges. Two users, Customer1 and Customer2, are made members of this local group.
+You can define and create user groups that allow one or more users to be added to a group. This is useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following example shows a local group called **LocalAdminGroup** that has administrator privileges. Two users, Customer1 and Customer2, are made members of this local group.
 
 ```xml
 <Principals>
@@ -235,7 +235,7 @@ You can create a local user that can be used to help secure a service within the
 </Principals>
 ```
 
-If an application requires that the user account and password be same on all machines (for example, to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true. The cluster manifest must also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
+If an application requires that the user account and password be same on all machines (for example, to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true. The cluster manifest must also specify an NTLMAuthenticationPasswordSecret that is used to generate the same password across all machines.
 
 ```xml
 <Section Name="Hosting">
@@ -266,7 +266,7 @@ You use the **DefaultRunAsPolicy** section to specify a default user account for
 </Policies>
 ```
 ### Use an Active Directory domain group or user
-For an instance of Service Fabric that was installed on Windows Server by using the standalone installer, you can run the service under the credentials for an Active Directory user or group account. Note that this is Active Directory on-premises within your domain and is not with Azure Active Directory (Azure AD). By using a domain user or group, you can then access other resources in the domain (for example, file shares) that have been granted permissions.
+For an instance of Service Fabric that was installed on Windows Server by using the standalone installer, you can run the service under the credentials for an Active Directory user or group account. This is Active Directory on-premises within your domain and is not with Azure Active Directory (Azure AD). By using a domain user or group, you can then access other resources in the domain (for example, file shares) that have been granted permissions.
 
 The following example shows an Active Directory user called *TestUser* with their domain password encrypted by using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` PowerShell command to create the secret cipher text. See [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details.
 
@@ -286,10 +286,47 @@ You must deploy the private key of the certificate to decrypt the password to th
 </Policies>
 <Certificates>
 ```
+### Use a Group Managed Service Account.
+For an instance of Service Fabric that was installed on Windows Server by using the standalone installer, you can run the service as a group Managed Service Account (gMSA). Note that this is Active Directory on-premises within your domain and is not with Azure Active Directory (Azure AD). By using a gMSA there is no password or encrypted password stored in the `Application Manifest`.
 
+The following example shows how to create a gMSA account called *svc-Test$*; how to deploy that managed service account to the cluster nodes; and how to configure the user principal.
+
+##### Prerequisites.
+- The domain needs a KDS root key.
+- The domain needs to be at a Windows Server 2012 or later functional level.
+
+##### Example
+1. Have an active directory domain administrator create a group managed service account using the `New-ADServiceAccount` commandlet and ensure that the `PrincipalsAllowedToRetrieveManagedPassword` includes all of the service fabric cluster nodes. Note that `AccountName`, `DnsHostName`, and `ServicePrincipalName` must be unique.
+```
+New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
+```
+2. On each of the service fabric cluster nodes (for example, `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), install and test the gMSA.
+```
+Add-WindowsFeature RSAT-AD-PowerShell
+Install-AdServiceAccount svc-Test$
+Test-AdServiceAccount svc-Test$
+```
+3. Configure the User principal, and configure the RunAsPolicy to reference the user.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
+      </Policies>
+   </ServiceManifestImport>
+  <Principals>
+    <Users>
+      <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
 
 ## Assign a security access policy for HTTP and HTTPS endpoints
-If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer3 account to an endpoint called **ServiceEndpointName**, which gives it full access rights.
+If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer1 account to an endpoint called **EndpointName**, which gives it full access rights.
 
 ```xml
 <Policies>
@@ -310,7 +347,12 @@ For the HTTPS endpoint, you also have to indicate the name of the certificate to
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## Upgrading multiple applications with https endpoints
+You need to be careful not to use the **same port** for different instances of the same application when using http**s**. The reason is that Service Fabric won't be able to upgrade the cert for one of the application instances. For example, if application 1 or application 2 both want to upgrade their cert 1 to cert 2. When the upgrade happens, Service Fabric might have cleaned up the cert 1 registration with http.sys even though the other application is still using it. To prevent this, Service Fabric detects that there is already another application instance registered on the port with the certificate (due to http.sys) and fails the operation.
 
+Hence Service Fabric does not support upgrading two different services using **the same port** in different application instances. In other words, you cannot use the same certificate on different services on the same port. If you need to have a shared certificate on the same port, you need to ensure that the services are placed on different machines with placement constraints. Or consider using Service Fabric dynamic ports if possible for each service in each application instance. 
+
+If you see an upgrade fail with https, an error warning saying "The Windows HTTP Server API does not support multiple certificates for applications that share a port.”
 
 ## A complete application manifest example
 The following application manifest shows many of the different settings:

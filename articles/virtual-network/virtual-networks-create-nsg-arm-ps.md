@@ -1,4 +1,4 @@
----
+﻿---
 title: Create network security groups - Azure PowerShell | Microsoft Docs
 description: Learn how to create and deploy network security groups using PowerShell.
 services: virtual-network
@@ -34,7 +34,7 @@ The sample PowerShell commands below expect a simple environment already created
 ## How to create the NSG for the front end subnet
 To create an NSG named *NSG-FrontEnd* based on the scenario, complete the following steps:
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Create a security rule allowing access from the Internet to port 3389.
 
 	```powershell

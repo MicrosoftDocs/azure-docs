@@ -30,7 +30,7 @@ A common traffic routing method pattern is to provide a set of identical endpoin
 2. In the portal’s search bar, search for the **Traffic Manager profiles** and then click the profile name that you want to configure the routing method for.
 3. In the **Traffic Manager profile** blade, verify that both the cloud services and websites that you want to include in your configuration are present.
 4. In the **Settings** section, click **Configuration**, and in the **Configuration** blade, complete as follows:
-    1. For **traffic routing method settings**, verify that the traffic routing method is **Failover**. If it is not, click **Failover** from the dropdown list.
+    1. For **traffic routing method settings**, verify that the traffic routing method is **Weighted**. If it is not, click **Weighted** from the dropdown list.
     2. Set the **Endpoint monitor settings** identical for all every endpoint within this profile as follows:
         1. Select the appropriate **Protocol**, and specify the **Port** number. 
         2. For **Path** type a forward slash */*. To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).

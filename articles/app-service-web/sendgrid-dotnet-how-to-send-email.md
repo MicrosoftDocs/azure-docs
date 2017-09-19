@@ -1,7 +1,7 @@
 ---
 title: How to use the SendGrid email service (.NET) | Microsoft Docs
 description: Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.
-services: app-service\web
+services: app-service-web
 documentationcenter: .net
 author: thinkingserious
 manager: erikre
@@ -76,7 +76,7 @@ SendGrid's .NET class library is called **SendGrid**. It contains the following 
 Add the following code namespace declarations to the top of any C# file in which you want to programmatically access the SendGrid email service.
 
     using SendGrid;
-    using SendGrid.Helpers.Mail
+    using SendGrid.Helpers.Mail;
 
 ## How to: Create an Email
 Use the **SendGridMessage** object to create an email message. Once the message object is created, you can set properties and methods, including the email sender, the email recipient, and the subject and body of the email.

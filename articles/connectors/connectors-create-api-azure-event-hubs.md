@@ -162,19 +162,9 @@ Enter any other optional details about the event, such as content for that event
 
     You've now set up an action to send events from your logic app. 
 
-## Technical details
+## Connector-specific details
 
-### Triggers
-
-| Trigger | Description |
-| --- | --- |
-| When events are available in Event Hub | Trigger a workflow when events are available in the specified Event Hub. |
-
-### Actions
-
-| Action | Description |
-| --- | --- |
-| Send an event | Send an event to the specified Event Hub. |
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/eventhubs/). 
 
 ## Get help
 

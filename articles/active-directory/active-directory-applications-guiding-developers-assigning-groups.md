@@ -13,10 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/07/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
+robots: noindex 
 ---
 # Assign Azure Active Directory groups to an application
 Before you can assign users and groups to an application, you must require user assignment. To learn how to require user assignment, see the [Requiring User Assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md) article.

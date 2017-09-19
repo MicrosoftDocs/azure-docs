@@ -14,28 +14,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/7/2017
+ms.date: 05/22/2017
 ms.author: cynthn
 
 ---
-# Create a VM from a generalized managed VM image
+# Create a VM from a managed image
 
 You can create multiple VMs from a managed VM image in Azure. A managed VM image contains the information necessary to create a VM, including the OS and data disks. The VHDs that make up the image, including both the OS disks and any data disks, are stored as managed disks. 
-
-A generalized VM has had all of your personal account information removed using [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VM by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM, and then [capturing an image of the VM](capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 
 
 ## Prerequisites
 
 You need to have already [created a managed VM image](capture-image-resource.md) to use for creating the new VM. 
 
-Make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+Make sure that you have the latest versions of the AzureRM.Compute and AzureRM.Network PowerShell modules. Open a PowerShell prompt as an Administrator and run the following command to install them.
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute,AzureRM.Network
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
 
@@ -181,5 +178,5 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 ```
 
 ## Next steps
-To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To manage your new virtual machine with Azure PowerShell, see [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

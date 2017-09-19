@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
 
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
@@ -13,70 +12,86 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/31/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro
 ---
-# How to enable native client apps to interact with proxy Applications
-Azure Active Directory Application Proxy is widely used to publish browser applications such as SharePoint, Outlook Web Access and custom line of business applications. It can also be used to publish native client apps, which differ from web apps because they get installed on a device. This is done by supporting Azure AD issued tokens that are sent in standard Authorize HTTP headers.
+
+# How to enable native client apps to interact with proxy applications
+
+In addition to web applications, Azure Active Directory Application Proxy can also be used to publish native client apps that are configured with the Azure AD Authentication Library (ADAL). Native client apps differ from web apps because they are installed on a device, while web apps are accessed through a browser. 
+
+Application Proxy supports native client apps by accepting Azure AD issued tokens sent in the header. The Application Proxy service performs authentication on behalf of the users. This solution does not use application tokens for authentication. 
 
 ![Relationship between end users, Azure Active Directory, and published applications](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-The recommended method to publish such applications is to use the Azure AD Authentication Library, which takes care of all the authentication hassle and supports many different client environments. Application Proxy fits into the [Native Application to Web API scenario](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). The process for accomplishing this is as follows:
+Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+
+This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library. 
 
 ## Step 1: Publish your application
-Publish your proxy application as you would any other application, assign users and give them premium or basic licenses. For more information see  [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
+Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 
 ## Step 2: Configure your application
 Configure your native application as follows:
 
-1. Sign in to the Azure classic portal.
-2. Select the Active Directory icon on the left menu, and then select your directory.
-3. On the top menu, click **Applications**. If no apps have been added to your directory, this page will only show the **Add an App** link. Click on the link, or alternatively you can click on the **Add** button on the command bar.
-4. On the **What do you want to do** page, click on the link to **Add an application my organization is developing**.
-5. On the **Tell us about your application** page, specify a name for your application and choose **Native client application**. Click the arrow icon to continue.
-6. On the **Application information** page, provide the **Redirect URI** for the native client application, then click the checkmark to finish.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to **Azure Active Directory** > **App registrations**.
+3. Select **New application registration**.
+4. Specify a name for your application, select **Native** as the application type, and provide the Redirect URI for your application. 
 
-Your application has been added, and you will be taken to the Quick Start page for your application.
+   ![Create a new app registration](./media/active-directory-application-proxy-native-client/create.png)
+5. Select **Create**.
+
+For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](.//develop/active-directory-integrating-applications.md).
+
 
 ## Step 3: Grant access to other applications
 Enable the native application to be exposed to other applications in your directory:
 
-1. On the top menu, click **Applications**, select the new native application, and then click **Configure**.
-2. Scroll down to the **permissions to other applications** section. Click on the **Add application** button and select the proxy application that you want to grant the native application access to, and click the check mark in the bottom right corner. From the **Delegated Permissions** drop-down menu, select the new permission.
+1. Still in **App registrations**, select the new native application that you just created.
+2. Select **Required permissions**.
+3. Select **Add**.
+4. Open the first step, **Select an API**.
+5. Use the search bar to find the Application Proxy app that you published in the first section. Choose that app, then click **Select**. 
 
-![Permissions to other applications screenshot - add application](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
+   ![Search for the proxy app](./media/active-directory-application-proxy-native-client/select_api.png)
+6. Open the second step, **Select permissions**.
+7. Use the checkbox to grant your native application access to your proxy application, then click **Select**.
+
+   ![Grant access to proxy app](./media/active-directory-application-proxy-native-client/select_perms.png)
+8. Select **Done**.
+
 
 ## Step 4: Edit the Active Directory Authentication Library
-Edit the native application code in the authentication context of the Active Directory Authentication Library (ADAL) to include the following:
+Edit the native application code in the authentication context of the Active Directory Authentication Library (ADAL) to include the following text:
 
-        // Acquire Access Token from AAD for Proxy Application
-        AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
-        AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >",
-                                                        "< Client Id of the Native app>",
-                                                        new Uri("< Redirect Uri of the Native App>"),
-                                                        PromptBehavior.Never);
+```
+// Acquire Access Token from AAD for Proxy Application
+AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
+AuthenticationResult result = authContext.AcquireToken("< External Url of Proxy App >",
+        "<App ID of the Native app>",
+        new Uri("<Redirect Uri of the Native App>"),
+        PromptBehavior.Never);
 
-        //Use the Access Token to access the Proxy Application
-        HttpClient httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-        HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+//Use the Access Token to access the Proxy Application
+HttpClient httpClient = new HttpClient();
+httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+```
 
-The variables should be replaced as follows:
+The variables in the sample code should be replaced as follows:
 
-* **TenantId** can be found in the GUID in the URL of the application's **Configuration** page, right after “/Directory/”.
-* **Frontend URL** is the front end URL you entered in the Proxy Application and can be found on the **Configuration** page of the proxy app.
-* **Client Id** of the native app can be found on the **Configure** page of the native application.
-* **Redirect URI of the native app** can be found on the **Configure** page of the native application.
+* **Tenant ID** can be found in the Azure portal. Navigate to **Azure Active Directory** > **Properties** and copy the Directory ID. 
+* **External URL** is the front-end URL you entered in the Proxy Application. To find this value, navigate to the **Application proxy** section of the proxy app.
+* **App ID** of the native app can be found on the **Properties** page of the native application.
+* **Redirect URI of the native app** can be found on the **Redirect URIs** page of the native application.
 
-![New native application configure page screenshot](./media/active-directory-application-proxy-native-client/new_native_app.png)
+Once the ADAL is edited with these parameters, your users should be able to authenticate to native client apps even when they're outside of the corporate network. 
 
-For more information about the native application flow, see [Native application to web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
+## Next steps
 
-## See also
-* [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md)
-* [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
-* [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+For more information about the native application flow, see [Native application to web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+Learn about setting up [Single sign-on for Application Proxy](application-proxy-sso-overview.md)
