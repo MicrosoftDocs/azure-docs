@@ -33,7 +33,7 @@ The following sections provide details about how to connect your System Center S
 Ensure you have the following prerequisites met:
 
 - IT Service Management Connector installed.
-More information:  [Configuration](log-analytics-itsmc-overview.md#configuration).
+More information:  [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
@@ -170,7 +170,7 @@ The following sections provide details about how to connect your ServiceNow prod
 
 Ensure you have the following prerequisites met:
 
-- IT Service Management Connector installed. More information: [Configuration.](log-analytics-itsmc-overview.md#configuration)
+- IT Service Management Connector installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow supported versions – Fuji, Geneva, Helsinki.
 
 ServiceNow Admins must do the following in their ServiceNow instance:
@@ -263,7 +263,7 @@ The following sections provide details about how to connect your Provance produc
 
 Ensure you have the following prerequisites met:
 
-- IT Service Management Connector installed. More information: [Configuration](log-analytics-itsmc-overview.md#configuration).
+- IT Service Management Connector installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 - User role:  Administrator.
 
@@ -307,7 +307,7 @@ The following sections provide details about how to connect your Cherwell produc
 
 Ensure you have the following prerequisites met:
 
-- IT Service Management Connector installed. More information: [Configuration](log-analytics-itsmc-overview.md#configuration).
+- IT Service Management Connector installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 
