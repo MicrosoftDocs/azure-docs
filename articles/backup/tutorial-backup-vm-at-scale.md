@@ -41,15 +41,13 @@ To create a Recovery Services vault:
     The Recovery Services vaults menu appears. If there are Recovery Services vaults in the subscription, the vaults are listed.
 
     ![Create Recovery Services Vault step 2](./media/tutorial-backup-vm-at-scale/list-of-rs-vault.png)
-2. On the **Recovery Services vaults** menu, click **Add**.
-
-    The Recovery Services vault menu opens.
+2. On the **Recovery Services vaults** menu, click **Add** to open the Recovery Services vault menu.
 
     ![Create Recovery Services Vault step 3](./media/tutorial-backup-vm-at-scale/rs-vault-step-3.png)
 
 3. Enter or choose a **Name**, **Subscription**, **Resource group**, and **Location** for the vault. 
 
-- The Recovery Services vault must be in the same location as the virtual machines being protected. If you are unsure of the virtual machine location, close the vault creation dialog, and go to the list of virtual machines in the Azure portal. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. Create the vault in the first location before going to the next location.
+  The Recovery Services vault must be in the same location as the virtual machines being protected. If you are unsure of the virtual machine location, close the vault creation dialog, and go to the list of virtual machines in the Azure portal. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. Create the vault in the first location before going to the next location.
 
 4. Once you fill in the information for the Recovery Services vault, at the bottom of the Recovery Services vault menu, click **Create**.
 
