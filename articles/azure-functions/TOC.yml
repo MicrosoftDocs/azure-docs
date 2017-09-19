@@ -121,6 +121,8 @@
       href: functions-bindings-external-table.md
     - name: HTTP and webhooks
       href: functions-bindings-http-webhook.md
+    - name: Microsoft Graph
+      href: functions-bindings-microsoft-graph.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs
