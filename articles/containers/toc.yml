@@ -89,7 +89,7 @@
       href: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview
       items:
         - name: Quickstart - Windows Containers on Windows Server
-          href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/containers
+          href: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server
         - name: Virtual machines and containers in Azure
           href: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/containers
         - name: About Windows Containers
