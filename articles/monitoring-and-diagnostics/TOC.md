@@ -16,6 +16,7 @@
 ## [Roles permissions and security](monitoring-roles-permissions-security.md)
 ## [Partner integrations](monitoring-partners.md)
 
+
 ## Additional Overviews
 ### [Monitoring tools across Azure](monitoring-overview.md)
 ### [Metrics](monitoring-overview-metrics.md)
@@ -25,6 +26,8 @@
 ### [Action groups](monitoring-action-groups.md)
 ### [Diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
 ### [Azure Diagnostics Extension](azure-diagnostics.md)
+
+
 ## Schemas
 ### [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
 #### [1.0](azure-diagnostics-schema-1dot0.md)
@@ -35,6 +38,7 @@
 ## Walkthroughs
 ### [Walkthrough of Azure Monitor](monitoring-get-started.md)
 ### [Walkthrough of autoscale](monitoring-autoscale-get-started.md)
+### [Multi-dimensional metrics explorer](monitoring-metric-charts)
 ### [Azure CLI 1.0 samples](insights-cli-samples.md)
 ### [PowerShell samples](insights-powershell-samples.md)
 
