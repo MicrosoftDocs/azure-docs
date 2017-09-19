@@ -32,7 +32,7 @@ If you are new to Data Factory, see [Introduction to Azure Data Factory](introdu
 ## Overview
 A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.
 
-Now, a **dataset** is a named view of data which simply points or references the data you want to use in your **activities** as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the activity should read the data.
+Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the activity should read the data.
 
 Before you create a dataset, you must create a **linked service** to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way; the dataset represents the structure of the data within the linked data stores, and the linked service defines the connection to the data source. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder within that Azure storage account that contains the input blobs to be processed.
 
@@ -187,8 +187,8 @@ You can create datasets by using one of these tools or SDKs: [.NET API](quicksta
 
 Here are some differences between Data Factory v1 and v2 datasets: 
 
-- The external property is not supported in v2. It's replaced by a [trigger](concepts-triggers.md).
-- The policy and availability properties are not supported in V2. The start time for a pipeline depends on [triggers](concepts-triggers.md).
+- The external property is not supported in v2. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
+- The policy and availability properties are not supported in V2. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
 - Scoped datasets (datasets defined in a pipeline) are not supported in V2. 
 
 ## Next steps
