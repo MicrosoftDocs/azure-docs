@@ -5,7 +5,7 @@
 ## [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
-## [Real User Measurements](traffic-manager-rum-overview].md)
+## [Real User Measurements](traffic-manager-rum-overview.md)
 ## [Traffic View](traffic-manager-traffic-view-overview.md)
 ## [FAQs](traffic-manager-FAQs.md)
 
