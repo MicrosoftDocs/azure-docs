@@ -100,7 +100,7 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
-> [Manage Windows updates](tutorial-manage-windows-updates.md)
+> [Monitor virtual machines](tutorial-monitoring.md)
 
 
 
