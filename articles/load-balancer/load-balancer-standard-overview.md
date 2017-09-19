@@ -106,7 +106,7 @@ Load Balancer Standard provides new multi-dimensional diagnostic capabilities fo
 
 ## <a name = "mandatorynsg"></a>Network Security Groups
 
-Load Balancer Standard fully onboards to the VNet and use of Network Security Groups is now mandatory.  Explicitly whitelist the traffic you wish to permit inside the NSG.
+Load Balancer Standard fully onboards to the VNet and use of Network Security Groups is now mandatory.  You must explicitly whitelist which traffic you want to permit with the NSG. Until this whitelisting has been performed, traffic will not flow.
 
 Review this article for more background on [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
