@@ -38,7 +38,7 @@ Use steps similar to the [Workflows](review-tool-user-guide/workflows) page to c
 
 ![Configure Text Workflow](images/text-workflow-configure.PNG)
 
-You test the workflow by using the "Execute Workflow" button.
+Test your workflow by using the "Execute Workflow" button.
 
 ![Test Text Workflow](images/text-workflow-test.PNG)
 
@@ -51,7 +51,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 3. Within the App, navigate to **Platform features -> Application Settings**
 4. Define the following [application settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
 
-| Auto-detected | Profanity   | OCR    |
-| -------------------- |-------------|--------|
-| Arabic (Romanized)   | Afrikaans   | Arabic
-| Balinese | Albanian | Chinese (Simplified)
+| App Setting | Description   | 
+| -------------------- |-------------|
+| cm:TeamId   | Your Content Moderator TeamId  | 
+| cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials) | 
