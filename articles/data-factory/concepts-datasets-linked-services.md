@@ -32,7 +32,7 @@ If you are new to Data Factory, see [Introduction to Azure Data Factory](introdu
 ## Overview
 A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.
 
-Now, a **dataset** is a named view of data which simply points or references the data you want to use in your **activities** as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the activity should read the data.
+Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the activity should read the data.
 
 Before you create a dataset, you must create a **linked service** to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way; the dataset represents the structure of the data within the linked data stores, and the linked service defines the connection to the data source. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder within that Azure storage account that contains the input blobs to be processed.
 
@@ -140,7 +140,7 @@ In the example in the previous section, the type of the dataset is set to **Azur
         "linkedServiceName": {
                 "referenceName": "MyAzureStorageLinkedService",
                  "type": "LinkedServiceReference",
-        }, copy-data-from-http-end-point.md
+        }, 
  
         "typeProperties": {
             "fileName": "input.log",
@@ -175,10 +175,10 @@ format | Format string to be used when the type is a .NET type: `Datetime` or `D
 
 The following guidelines help you determine when to include structure information, and what to include in the **structure** section.
 
-- **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure table.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
-- **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink.<br/><br/> Data Factory supports the following values for providing type information in structure: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. These values are Common Language Specification (CLS)-compliant, .NET-based type values.
+- **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure SQL Database.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
+- **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink.<br/><br/> Data Factory supports the following values for providing type information in structure: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
 
-Data Factory automatically performs type conversions when moving data from a source data store to a sink data store.
+Learn more on how data factory maps source data to sink from [Schema and type mapping]( copy-activity-schema-and-type-mapping.md) and when to specify structure information.
 
 ## Create datasets
 You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell]((quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and [Azure portal](quickstart-create-data-factory-portal.md).
@@ -187,8 +187,8 @@ You can create datasets by using one of these tools or SDKs: [.NET API](quicksta
 
 Here are some differences between Data Factory v1 and v2 datasets: 
 
-- The external property is not supported in v2. It's replaced by a [trigger](concepts-triggers.md).
-- The policy and availability properties are not supported in V2. The start time for a pipeline depends on [triggers](concepts-triggers.md).
+- The external property is not supported in v2. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
+- The policy and availability properties are not supported in V2. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
 - Scoped datasets (datasets defined in a pipeline) are not supported in V2. 
 
 ## Next steps
@@ -197,5 +197,4 @@ See the following tutorial for step-by-step instructions for creating pipelines 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
 - [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md)
-- [Quickstart: create a data factory using Python](quickstart-create-data-factory-python.md)
 - [Quickstart: create a data factory using Azure portal](quickstart-create-data-factory-portal.md)

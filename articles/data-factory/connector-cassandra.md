@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -56,7 +56,8 @@ The following properties are supported for Cassandra linked service:
 | port |The TCP port that the Cassandra server uses to listen for client connections. |No (default is 9042) |
 | authenticationType | Type of authentication used to connect to the Cassandra database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
 | username |Specify user name for the user account. |Yes, if authenticationType is set to Basic. |
-| password |Specify password for the user account. |Yes, if authenticationType is set to Basic. |
+| password |Specify password for the user account. Mark this field as SecureString. |Yes, if authenticationType is set to Basic. |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -52,6 +52,7 @@ The following properties are supported for SFTP linked service:
 | skipHostKeyValidation | Specify whether to skip host key validation.<br/>Allowed values are: **true**, **false** (default).  | No |
 | hostKeyFingerprint | Specify the finger print of the host key. | Yes if the "skipHostKeyValidation" is set to false.  |
 | authenticationType | Specify authentication type.<br/>Allowed values are: **Basic**, **SshPublicKey**. Refer to [Using basic authentication](#using-basic-authentication) and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 ### Using basic authentication
 
@@ -59,8 +60,8 @@ To use basic authentication, set "authenticationType" property to **Basic**, and
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| username | User who has access to the SFTP server. |Yes |
-| password | Password for the user (username). | Yes |
+| userName | User who has access to the SFTP server. |Yes |
+| password | Password for the user (userName). Mark this field as a SecureString. | Yes |
 
 **Example:**
 
@@ -75,11 +76,15 @@ To use basic authentication, set "authenticationType" property to **Basic**, and
             "skipHostKeyValidation": false,
             "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
             "authenticationType": "Basic",
-            "username": "<username>",
+            "userName": "<username>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -91,10 +96,10 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| username | User who has access to the SFTP server |Yes |
+| userName | User who has access to the SFTP server |Yes |
 | privateKeyPath | Specify absolute path to the private key file that Integration Runtime can access. Applies only when Self-hosted type of Integration Runtime is specified in "connectVia". | Specify either the `privateKeyPath` or `privateKeyContent`.  |
-| privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. | Specify either the `privateKeyPath` or `privateKeyContent`. |
-| passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. | Yes if the private key file is protected by a pass phrase. |
+| privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. Mark this field as a SecureString. | Specify either the `privateKeyPath` or `privateKeyContent`. |
+| passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. Mark this field as a SecureString. | Yes if the private key file is protected by a pass phrase. |
 
 > [!NOTE]
 > SFTP connector supports only OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
@@ -111,7 +116,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
             "port": 22,
             "skipHostKeyValidation": true,
             "authenticationType": "SshPublicKey",
-            "username": "xxx",
+            "userName": "xxx",
             "privateKeyPath": "D:\\privatekey_openssh",
             "passPhrase": {
                 "type": "SecureString",
@@ -138,7 +143,7 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
             "port": 22,
             "skipHostKeyValidation": true,
             "authenticationType": "SshPublicKey",
-            "username": "<username>",
+            "userName": "<username>",
             "privateKeyContent": {
                 "type": "SecureString",
                 "value": "<base64 string of the private key content>"
@@ -147,6 +152,10 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
                 "type": "SecureString",
                 "value": "<pass phrase>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }

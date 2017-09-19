@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -53,9 +53,10 @@ The following properties are supported for SQL Server linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SqlServer** | Yes |
-| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
-| password |Specify password for the user account you specified for the username. |No |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. Mark this field as a SecureString. |Yes |
+| userName |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
+| password |Specify password for the user account you specified for the userName. Mark this field as a SecureString. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example 1: using SQL authentication**
 
@@ -67,7 +68,7 @@ The following properties are supported for SQL Server linked service:
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;"          
+                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -88,9 +89,9 @@ The following properties are supported for SQL Server linked service:
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;"
+                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
             },
-             "username": "<domain\\username>",
+             "userName": "<domain\\username>",
              "password": "<password>"
         },
         "connectVia": {

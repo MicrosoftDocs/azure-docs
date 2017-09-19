@@ -9,7 +9,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -51,7 +51,8 @@ The following properties are supported for Amazon S3 linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to **AmazonS3**. | Yes |
 | accessKeyID | ID of the secret access key. |Yes |
-| secretAccessKey | The secret access key itself. |Yes |
+| secretAccessKey | The secret access key itself. Mark this field as a SecureString. |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 Here is an example:
 
@@ -66,6 +67,10 @@ Here is an example:
                     "type": "SecureString",
                     "value": "<secret access key>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }

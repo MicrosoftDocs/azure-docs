@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 09/08/2017
+ms.date: 09/18/2017
 ms.author: shlo
 
 ---
@@ -33,7 +33,7 @@ In Azure Data Factory, you can use Copy Activity to copy data among data stores 
 
 Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, you can choose different flavor of Integration Runtime:
 
-* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md).
+* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
@@ -141,15 +141,11 @@ See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md)
 
 ## Fault tolerance
 
-By default, copy activity stops copying data and return failure when encounter incompatible data between source and sink; while you can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](copy-activity-fault-tolerance.md) on more details.
+By default, copy activity stops copying data and returns failure when it encounters incompatible data between source and sink. You can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](copy-activity-fault-tolerance.md) on more details.
 
 ## Performance and tuning
 
 See the [Copy Activity performance and tuning guide](copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
-
-## Security considerations
-
-See the [Security considerations](copy-activity-security-considerations.md) article, which describes security infrastructure that data movement services in Azure Data Factory use to secure your data.
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:
