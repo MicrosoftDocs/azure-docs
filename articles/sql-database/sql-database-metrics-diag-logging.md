@@ -435,7 +435,7 @@ See [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/s
 |duration_d|Duration of the lock in milliseconds.|
 
 ### Intelligent Insights dataset
-[Click here to learn more about Intelligent Insights log format](sql-database-intelligent-insights-troubleshoot-detections.md)
+[Click here to learn more about Intelligent Insights log format](sql-database-intelligent-insights-troubleshoot-performance.md)
 
 ## Next steps
 
