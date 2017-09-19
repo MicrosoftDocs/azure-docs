@@ -21,7 +21,7 @@
       href: quickstart-create-data-factory-portal.md     
 - name: Tutorials
   items:
-  - name: 1. Move SSIS packages to Azure
+  - name: 1. Deploy SSIS packages to Azure
     href: tutorial-deploy-ssis-packages.md    
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
@@ -29,9 +29,13 @@
     href: tutorial-copy-onprem-data-to-cloud-powershell.md
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
-  - name: 5 - Transform data in cloud
+  - name: 5 - Copy data incrementally
+    href: tutorial-incremental-copy-powershell.md
+  - name: 6 - Transform data in cloud
     href: tutorial-transform-data-spark-powershell.md
-  - name: 6 - Control flow
+  - name: 7 - Transform data in virtual network
+    href: tutorial-transform-data-hive-virtual-network.md       
+  - name: 8 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
   items:
