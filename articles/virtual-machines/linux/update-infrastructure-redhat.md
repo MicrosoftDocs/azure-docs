@@ -82,19 +82,19 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 ### Manual update procedure to use the Azure RHUI servers
 This procedure is provided for reference only. RHEL PAYG images already have the correct configuration to connect to Azure RHUI. To manually update the configuration to use the Azure RHUI servers, complete the following steps:
 
-   1. Download the public key signature via cURL.
+1. Download the public key signature via cURL.
 
    ```bash
    curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
    ```
 
-   2. Verify that the key downloaded.
+2. Verify that the key downloaded.
 
    ```bash
    gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
    ```
 
-   3. Check the output, and then verify the `keyid` and the `user ID packet`.
+3. Check the output, and then verify the `keyid` and the `user ID packet`.
 
    ```bash
    Version: GnuPG v1.4.7 (GNU/Linux)
@@ -118,36 +118,38 @@ This procedure is provided for reference only. RHEL PAYG images already have the
            data: [2047 bits]
    ```
 
-   4. Install the public key.
+4. Install the public key.
 
    ```bash
    sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
    ```
 
-   5. Download, verify, and install a client RPM Package Manager (RPM).
+5. Download, verify, and install a client RPM Package Manager (RPM).
     
-        Note that package versions change. If you manually connect to Azure RHUI, you can find the latest version of the client package for each RHEL family by provisioning the latest image from the gallery.
+    [!NOTE] 
+    Package versions change. If you manually connect to Azure RHUI, you can find the latest version of the client package for each RHEL family by provisioning the latest image from the gallery.
   
-   a. Download for RHEL 6:
-
+   a. Download. 
+   
+    - For RHEL 6:
 
             ```bash
             curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.1-32.noarch.rpm 
         ```
-   b. Download for RHEL 7:
+    - For RHEL 7:
 
             ```bash
             curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm  
             ```
 
-   c. Verify.
+   b. Verify.
 
    ```bash
    rpm -Kv azureclient.rpm
    ```
 
-   d. Check the output to ensure that the signature of the package is OK.
+   c. Check the output to ensure that the signature of the package is OK.
 
    ```bash
    azureclient.rpm:
@@ -157,13 +159,13 @@ This procedure is provided for reference only. RHEL PAYG images already have the
        MD5 digest: OK (c04ff605f82f4be8c96020bf5c23b86c)
    ```
 
-   e. Install the RPM.
+   d. Install the RPM.
 
-   ```bash
-  sudo rpm -U azureclient.rpm
-   ```
+    ```bash
+    sudo rpm -U azureclient.rpm
+    ```
 
-After you finish, verify that you can access Azure RHUI from the VM.
+6. After you finish, verify that you can access Azure RHUI from the VM.
 
 ## Next steps
 To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 
