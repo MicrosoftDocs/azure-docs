@@ -13,8 +13,7 @@ ms.date: 08/28/2017
 ---
 # Azure Machine Learning model management 
 
-Azure Machine Learning model management enables enterprises and users to manage and deploy machine-learning workflows and models. 
-
+Azure Machine Learning model management enables you to manage and deploy machine-learning workflows and models. 
 
 Model management provides capabilities for:
 - Model versioning
@@ -23,45 +22,72 @@ Model management provides capabilities for:
 - Creating Docker containers with the models and testing them locally
 - Automated model retraining
 - Capturing model telemetry for actionable insights. 
- 
 
-Azure Machine Learning Model Management provides a registry of model versions and automated workflows for packaging and deployng the ML containers as REST APIs. The models and their runtime dependencies are packaged in Linux-based Docker container with prediction API. 
+Azure Machine Learning Model Management provides a registry of model versions. It also provides automated workflows for packaging and deploying Machine Learning containers as REST APIs. The models and their runtime dependencies are packaged in Linux-based Docker container with prediction API. 
 
-Azure Machine Learning Compute Environments help to setup and manage scalable clusters for hosting the models. The compute environment is based on Azure Container Services and provide automatic exposure of ML APIs as REST API endpoint with necessary authentication, load balancing, automatic scale out, and encryption.
+Azure Machine Learning Compute Environments help to set up and manage scalable clusters for hosting the models. The compute environment is based on Azure Container Services. Azure Container Services provides automatic exposure of Machine Learning APIs as REST API endpoints with the following features:
 
-The Azure Machine Learning model management provides these capabilities through the CLI, API, and the Azure portal. 
+- Authentication
+- Load balancing
+- Automatic scale-out
+- Encryption
 
-The Azure Machine Learning model management uses the following information for registering a given model, creating a manifest that is required for building a container, building a Docker container image, and deploying the container to Azure Container Service.
+Azure Machine Learning model management provides these capabilities through the CLI, API, and the Azure portal. 
+
+Azure Machine Learning model management uses the following information:
 
  - Model file or a directory with the model files
- - User created Python file implplementing a model scoring function
+ - User created Python file implementing a model scoring function
  - Conda dependency file listing runtime dependencies
  - Runtime environment choice, and 
  - Schema file for API parameters 
+
+This information is used when performing the following actions:
+
+- Registering a model
+- Creating a manifest that is used when building a container
+- Building a Docker container image
+- Deploying a container to Azure Container Service
  
- The following figure shows an overview of how models are registered and deployed into the cluster. 
+The following figure shows an overview of how models are registered and deployed into the cluster. 
 
 ![](media/model-management-overview/modelmanagement.png)
 
 ## Create and manage models 
-Users can register models with Azure Machine Learning Model Management for tracking model versions in production. For ease of reproducibility and governance, the service captures all dependencies and associated information. For deeper insights into performance, users can capture model telemetry using the  provided SDK. Model telemetry is archived in a user-provided storage, and can be used later for analyzing model performance, retraining, and gaining insights for the business users.
+You can register models with Azure Machine Learning Model Management for tracking model versions in production. For ease of reproducibility and governance, the service captures all dependencies and associated information. For deeper insights into performance, you can capture model telemetry using the provided SDK. Model telemetry is archived in user-provided storage. The model telemetry can be used later for analyzing model performance, retraining, and gaining insights for your business.
 
 ## Create and manage manifests 
 Models require additional artifacts to deploy into  production. The system provides the capability to create a manifest that encompasses model, dependencies, inference script (aka scoring script), sample data, schema etc. This manifest acts as a recipe to create a Docker container image. Enterprises can auto-generate manifest, create different versions, and manage their manifests. 
 
 ## Create and manage Docker container images 
-The users can use the manifest from the previous step to build Docker-based container images in their respective environments. The containerized Docker-based images provide enterprises with the flexibility to run these images on scalable ML Compute Environments running on [Kubernetes based Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), or pull these images into their environment to run on-prem, on the local machine, or on IoT device. These Docker-based containerized images are self-contained with all necessary dependencies required for generating predictions. 
+You can use the manifest from the previous step to build Docker-based container images in their respective environments. The containerized, Docker-based images provide enterprises with the flexibility to run these images on the following compute environments:
+
+- [Kubernetes based Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+- On-premises container services
+- Development environments
+- IoT devices
+
+These Docker-based containerized images are self-contained with all necessary dependencies required for generating predictions. 
 
 ## Deploy Docker container images 
-With the Azure Machine Learning model management, users can deploy Docker-based container images with a single command to Azure Container Service managed by ML Compute Environment. These deployments are created with a front-end server that provides low latency predictions at scale, load balancing, automatic scaling of ML endpoints, API key authorization, and API swagger document. Users can control the deployment scale and telemetry: 
-- Users can enable/disable system logging and model telemetry for each web service level. If enabled, all stdout logs are streamed to [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) and model telemetry is archived in users provided storage. 
-- Users can control auto-scale and concurrency limits that automatically increases the number of deployed containers based on the load within the existing cluster size, and control the throughput and consistency of prediction latency
+With the Azure Machine Learning model management, you can deploy Docker-based container images with a single command to Azure Container Service managed by ML Compute Environment. These deployments are created with a front-end server that provides the following features:
+
+- Low latency predictions at scale
+- Load balancing
+- Automatic scaling of ML endpoints
+- API key authorization
+- API swagger document
+
+You can control the deployment scale and telemetry through the following configuration settings:
+
+- System logging and model telemetry for each web service level. If enabled, all stdout logs are streamed to [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Model telemetry is archived in storage that you provide. 
+- Auto-scale and concurrency limits. These settings automatically increase the number of deployed containers based on the load within the existing cluster. They also control the throughput and consistency of prediction latency.
 
 ## Consumption 
-Azure Machine Learning model management creates REST API for the deployed model along with the swagger document. Users can consume deployed models by calling the REST APIs with API key and model inputs to get the predictions as part of the line-of-business applications. The sample code is available in GitHub for languages Java, [Python](https://github.com/CortanaAnalyticsGallery-Int/digit-recognition-cnn-tf/blob/master/client.py), and C# for calling REST APIs. The Azure Machine Learning model management CLI provides an easy way to consume these REST APIs using a single CLI command, within a swagger-enabled applications, or a using curl. 
+Azure Machine Learning model management creates REST API for the deployed model along with the swagger document. You can consume deployed models by calling the REST APIs with API key and model inputs to get the predictions as part of the line-of-business applications. The sample code is available in GitHub for languages Java, [Python](https://github.com/CortanaAnalyticsGallery-Int/digit-recognition-cnn-tf/blob/master/client.py), and C# for calling REST APIs. The Azure Machine Learning model management CLI provides an easy way to work with these REST APIs. You can consume the APIs using a single CLI command, a swagger-enabled applications, or using curl. 
 
 ## Retraining 
-Azure Machine Learning model management provides APIs for the users to retrain their models, and to update existing deployment with new versions of the model. As part of the data science workflow, the user recreates a new model in their experimentation environment, registers this new model with model management, and updates  existing deployment  with this new model using a single UPDATE CLI command. The UPDATE method updates existing deployment without changing API URL and the key. The business applications consuming the model continues to work without any code change and starts getting better predictions using new model.
+Azure Machine Learning model management provides APIs that you can use to retrain your models. You can also use the APIs to update existing deployments with updated versions of the model. As part of the data science workflow, you recreate the model in your experimentation environment. Then, you register the model with model management, and update existing deployments. Updates are performed using a single UPDATE CLI command. The UPDATE command updates existing deployments without changing the API URL or the key. The applications consuming the model continue to work without any code change, and start getting better predictions using new model.
 
 The complete workflow describing these concepts is captured in the following figure:
 

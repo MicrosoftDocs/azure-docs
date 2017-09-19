@@ -1,6 +1,6 @@
 ---
-title: Installation Quickstart for Azure Machine Learning server | Microsoft Docs
-description: This Quickstart shows how to provision Azure Machine Learning resources, and how to install Azure Machine Learning Workbench.
+title: Installation Quickstart for Azure Machine Learning services | Microsoft Docs
+description: This Quickstart shows how to create Azure Machine Learning resources, and how to install Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib
@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 09/16/2017
+ms.date: 09/19/2017
 ---
 
 # Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench
@@ -48,7 +48,7 @@ Use the Azure portal to provision Azure Machine Learning accounts.
    Location | _The region closest to your users_ | Choose the location that's closest to your users and the data resources.
    Number of seats | 2 | Type the number of seats. This selection impacts the [pricing](https://azure.microsoft.com/pricing/details/machine-learning/). The first two seats are free. Use two seats for the purposes of this Quickstart. You can update the number of seats later as needed in the Azure portal.
    Storage Account | _Unique name_ | Choose **Create new** and provide a name  to create a new Azure storage account, or choose **Use existing** and select your existing storage account from the drop-down. The storage account is required and is used to hold project artifacts and run history data. 
-   Workspace for Experimentation account | _Unique name_ | Provide a name for the new workspace.
+   Workspace for Experimentation account | _Unique name_ | Provide a name for the new workspace. The name should be between 2 and 32 characters, including only alphanumeric characters and the '-' dash character.
    Assign owner for the workspace | _Your account_ | Select your own account as the workspace owner.
    Create Model Management Account | *check* | As part of the Experimentation account creation experience, you have the option of also creating the Machine Learning Model Management account. This resource is used once you are ready to deploy and manage your models as real-time web services. We recommend creating the Model Management account at the same time as the Experimentation account.
    Account Name | _Unique name_ | Choose a unique name that identifies your Model Management account. You could use your own name, or a departmental or project name that best identifies the experiment. The name should be between 2 and 32 characters, including only alphanumeric characters and the '-' dash character. 
@@ -133,4 +133,3 @@ For a more in-depth experience of this workflow, including how to deploy your Ir
 
 > [!div class="nextstepaction"]
 > [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md)
-

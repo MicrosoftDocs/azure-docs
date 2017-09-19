@@ -92,7 +92,7 @@ As you are working on column renaming and filtering out the null value row, each
 
 ## Generate Python/PySpark code to invoke data prep package
 
-Now close the DataPrep editor. (Don't worry, it is auto-saved.) Right-click on the **iris.dprep** file to bring up context menu, and choose **Generate Data Access Code File**. 
+Now close the DataPrep editor. (Don't worry, it is auto-saved.) Right-click on the **iris-1.dprep** file to bring up context menu, and choose **Generate Data Access Code File**. 
 
 ![generate code](media/tutorial-classifying-iris/generate_code.png)
 
