@@ -108,8 +108,43 @@ Once you are done creating your configuration server and registering it with the
 
 ### 3 Target Prepare 
 
+<!--
+1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
+2. Specify the target deployment model.
+3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+
+-->
+
 ### 4 Replication settings Prepare
 
+<!--
+You need to create a replication policy, before you can enable replication
+
+1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
+2. In **Create replication policy**, specify a policy name.
+3. Leave the default settings, and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
+
+
+Enable replication for each VM you want to migrate.
+
+- Site Recovery will install the Mobility service when replication is enabled.
+- When you enable replication for a VM, it can take 15 minutes or longer for changes to take effect and appear in the portal.
+
+1. Click **Replicate application** > **Source**.
+2. In **Source**, select the configuration server.
+3. In **Machine type**, select **Physical machines**.
+4. Select the process server (the configuration server). Then click **OK**.
+5. In **Target**, select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management).
+6. Select the Azure storage account you want to use for replicating data. 
+7. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
+8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. 
+9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed. 
+    - The IP address must belong to the EC2 instance you're migrating.
+    - The EC2 instance must be acessible on this IP address from the configuration server.
+1. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
+2. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
+3. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
+-->
 ### 5 Deployment planning Select
 
 
@@ -148,44 +183,9 @@ After registration finishes, the configuration server is displayed on the **Sett
 
 
 
-## Set up the target environment
-
-Select and verify target resources.
-
-1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
-2. Specify the target deployment model.
-3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
 
-## Create a replication policy
 
-You need to create a replication policy, before you can enable replication
-
-1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
-2. In **Create replication policy**, specify a policy name.
-3. Leave the default settings, and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
-
-## Enable replication
-
-Enable replication for each VM you want to migrate.
-
-- Site Recovery will install the Mobility service when replication is enabled.
-- When you enable replication for a VM, it can take 15 minutes or longer for changes to take effect and appear in the portal.
-
-1. Click **Replicate application** > **Source**.
-2. In **Source**, select the configuration server.
-3. In **Machine type**, select **Physical machines**.
-4. Select the process server (the configuration server). Then click **OK**.
-5. In **Target**, select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management).
-6. Select the Azure storage account you want to use for replicating data. 
-7. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
-8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. 
-9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed. 
-    - The IP address must belong to the EC2 instance you're migrating.
-    - The EC2 instance must be acessible on this IP address from the configuration server.
-1. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
-2. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
-3. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 
 
