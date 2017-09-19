@@ -39,7 +39,7 @@ sections:
   items:
   - type: paragraph
     text: Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with Cost Management.
-    - type: list
+  - type: list
     style: ordered
     items:
     - html: <a href="tutorial-user-access">Learn to assign access to cost management data</a>
