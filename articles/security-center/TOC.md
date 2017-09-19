@@ -76,6 +76,9 @@
 ### [Just in time access](security-center-just-in-time.md)
 ### [Adaptive application controls](security-center-adaptive-application.md)
 
+## Automation and Orchestration
+### [Playbooks](security-center-playbooks.md)
+
 ## Troubleshoot
 ### [Troubleshooting guide](security-center-troubleshooting-guide.md)
 
