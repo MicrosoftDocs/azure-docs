@@ -32,7 +32,7 @@ Make sure you have the following items:
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
     * if you want to use a local environment for development purposes, you can use the [Azure Cosmos DB Emulator](local-emulator.md). The environment emulates the Azure Cosmos DB service.
 * [Visual Studio](http://www.visualstudio.com/).
-* Install the latest Azure Cosmos DB ConnectedService bits. You can download Azure Cosmos DB connected service from VisaulStudio marketplace as shown below. Or you can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858709). Open **Visual Studio** in your computer. On the **Tools** menu, select **Extensions and update...**, and then choose **Online** / **Visual Studio Marketplace**. Enter **cosmosdb** to search the bits.
+* Install the latest Azure Cosmos DB ConnectedService bits. You can download Azure Cosmos DB connected service from VisaulStudio marketplace according to below screen shot. Or you can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858709). Open **Visual Studio** in your computer. On the **Tools** menu, select **Extensions and update...**, and then choose **Online** / **Visual Studio Marketplace**. Enter **cosmosdb** to search the bits.
 
  ![Screen shot of Connected Service download bits.png](./media/connected-service/connected-service-downloadbits.png)
 
