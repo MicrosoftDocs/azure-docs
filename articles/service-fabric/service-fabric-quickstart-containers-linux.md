@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 
-# Deploy a Service Fabric Linux container application on Azure
+# Deploy an Azure Service Fabric Linux container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a python web front-end and a Redis back-end running in a Service Fabric cluster. 
