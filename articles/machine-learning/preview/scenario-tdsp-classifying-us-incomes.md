@@ -72,7 +72,7 @@ Create a new project using this example as a template:
 1.	Open Azure Machine Learning Workbench
 2.	On the **Projects** page, click the **+** sign and select **New Project**
 3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "TDSP Classifying US Incomes" and select the template
+4.	In the **Search Project Templates** search box, type "Classify US incomes - TDSP project" and select the template
 5.	Click **Create**
 
 If you provide an empty Git repository location during creating the project (in the appropriate box), then that repository will be populated with the project structure and contents after creation of the project.
