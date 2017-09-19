@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ---
 
@@ -37,6 +37,8 @@ The following scenarios are _not_ supported during preview:
 - User sign-ins into legacy Office client applications (Office 2013 or earlier). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your user accounts using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication (MFA).
 - User sign-ins into Skype for Business client applications, including Skype for Business 2016.
 - User sign-ins into PowerShell v1.0. It is recommended that you use PowerShell v2.0 instead.
+- App passwords for MFA.
+- Detection of users with [leaked credentials](../../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
 >As a workaround for unsupported scenarios, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. Password Hash Synchronization acts as a fallback for the preceding scenarios _only_ (and _not_ as a generic fallback to Pass-through Authentication). If you don't need these scenarios, turn off Password Hash Synchronization.
