@@ -50,9 +50,9 @@ Create a Recovery Services vault with [New-AzureRmRecoveryServicesVault](/powers
 
 ```powershell
 New-AzureRmRecoveryServicesVault `
-    -Name myRecoveryServicesVault `
-    -ResourceGroupName myResourceGroup `
-    -Location WestEurope
+    -Name "myRecoveryServicesVault" `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "WestEurope"
 ```
 
 By default, the vault is set for Geo-Redundant storage. To further protect your data, this storage redundancy level ensures that your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region.
@@ -61,7 +61,7 @@ To use this vault with the remaining steps, set the vault context with [Set-Azur
 
 ```powershell
 Get-AzureRmRecoveryServicesVault `
-    -Name myRecoveryServicesVault | Set-AzureRmRecoveryServicesVaultContext
+    -Name "myRecoveryServicesVault" | Set-AzureRmRecoveryServicesVaultContext
 ```
 
 
@@ -76,8 +76,8 @@ To enable backup protection for a VM, use [Enable-AzureRmRecoveryServicesBackupP
 
 ```powershell
 Enable-AzureRmRecoveryServicesBackupProtection `
-    -ResourceGroupName myResourceGroup `
-    -Name myVM `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myVM" `
     -Policy $policy
 ```
 
@@ -88,7 +88,7 @@ To start a backup now rather than wait for the default policy to run the job at 
 ```powershell
 $backupcontainer = Get-AzureRmRecoveryServicesBackupContainer `
     -ContainerType "AzureVM" `
-    -FriendlyName myVM
+    -FriendlyName "myVM"
 $item = Get-AzureRmRecoveryServicesBackupItem `
     -Container $backupcontainer `
     -WorkloadType "AzureVM"
@@ -108,9 +108,9 @@ Get-AzureRmRecoveryservicesBackupJob
 The output is similar to the following example, which shows the backup job is **InProgress**:
 
 ```powershell
-WorkloadName   Operation         Status       StartTime              EndTime               JobID
-------------   ---------         ------       ---------              -------               -----
-myvm           Backup            InProgress   9/18/2017 9:38:02 PM                         9f9e8f14-{snip}
+WorkloadName   Operation         Status       StartTime              EndTime                JobID
+------------   ---------         ------       ---------              -------                -----
+myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14-{snip}
 myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739-{snip}
 ```
 
@@ -121,10 +121,10 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources:
 
 ```powershell
-Disable-AzureRmRecoveryServicesBackupProtection -Item $item  -RemoveRecoveryPoints
-$vault = Get-AzureRmRecoveryServicesVault -Name myRecoveryServicesVault
+Disable-AzureRmRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints
+$vault = Get-AzureRmRecoveryServicesVault -Name "myRecoveryServicesVault"
 Remove-AzureRmRecoveryServicesVault -Vault $vault
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ```
 
 

@@ -68,7 +68,13 @@ az backup protection enable-for-vm \
 ## Start a backup job
 To start a backup now rather than wait for the default policy to run the job at midnight, use [az backup protection backup-now](). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
-The `--container-name` and `--item-name` parameters are the name of your VM. The `--retain-until` value should be set to the last available date, in UTC time format (**dd-mm-yyy**), that you wish the recovery point to be available. The following example backs up the VM named *myVM* and sets the expiration of the recovery point to October 18, 2017:
+The following parameters are used to back up the VM:
+
+- `--container-name` is the name of your VM
+- `--item-name` is the name of your VM
+- `--retain-until` value should be set to the last available date, in UTC time format (**dd-mm-yyy**), that you wish the recovery point to be available
+
+The following example backs up the VM named *myVM* and sets the expiration of the recovery point to October 18, 2017:
 
 ```azurecli-interactive 
 az backup protection backup-now \
