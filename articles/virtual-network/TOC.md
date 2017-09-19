@@ -52,9 +52,9 @@
 ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
 
 ### Public IP address in an availability zone
-#### [Azure portal](create-portal-availability-zone-public-ip.md)
-#### [PowerShell](create-availability-zone-public-ip-powershell.md)
-#### [Azure CLI](create-availability-zone-public-ip-cli.md)
+#### [Azure portal](create-public-ip-availability-zone-portal.md)
+#### [PowerShell](create-public-ip-availability-zone-powershell.md)
+#### [Azure CLI](create-public-ip-availability-zone-cli.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address
