@@ -25,9 +25,9 @@ You can configure your web pages to send Real User Measurements to Traffic Manag
 
 ## Obtain a Real User Measurements key
 
-The measurements you take and send to Traffic Manager from your client application are identified by the service using a unique string, called the **Real User Measurements (RUM) Key**. You can get a RUM key using the Azure Portal, a REST API, or by using the PowerShell or Azure CLI.
+The measurements you take and send to Traffic Manager from your client application are identified by the service using a unique string, called the **Real User Measurements (RUM) Key**. You can get a RUM key using the Azure portal, a REST API, or by using the PowerShell or Azure CLI.
 
-To obtain the RUM Key using Azure Portal:
+To obtain the RUM Key using Azure portal:
 a.	From a browser, sign in to the Azure portal. If you don’t already have an account, you can sign up for a free one-month trial.
 b.	In the portal’s search bar, search for the Traffic Manager profile name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
 c.	In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
@@ -42,19 +42,19 @@ Figure 2: Real User Measurements Key and Measurement JavaScript
 f.	Click the **Copy** button to copy the JavaScript code. 
 
 [!IMPORTANT]
->You must use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.
+>Use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.
 
-## Embed the code to a HTML web page
+## Embed the code to an HTML web page
 
-After you have obtained the RUM key, the next step is to embed this copied JavaScript into an HTML page that your end users visit. Editing HTML can be done in many ways and using different tools and workflows. This example shows how to update a very simple HTML page to add this script. You can use this guidance to adapt it to your HTML source management workflow.
+After you have obtained the RUM key, the next step is to embed this copied JavaScript into an HTML page that your end users visit. Editing HTML can be done in many ways and using different tools and workflows. This example shows how to update an HTML page to add this script. You can use this guidance to adapt it to your HTML source management workflow.
 
 1.	Open the HTML page in a text editor
-2.	Paste the JavaScript code you had copied in the earlier step to the BODY section of the HTML (the copied code is on line 8 & 9 below)
+2.	Paste the JavaScript code you had copied in the earlier step to the BODY section of the HTML (the copied code is on line 8 & 9, see figure 3).
  
 Figure 3: Simple HTML with embedded Real User Measurements JavaScript
 
 3.	Save the HTML file
-4. Next time this page is rendered on a web browser, the JavaScript referenced will be downloaded and the script will execute the measurement and reporting operations.
+4. Next time this page is rendered on a web browser, the JavaScript referenced is downloaded and the script will execute the measurement and reporting operations.
 
 
 ## Next steps
