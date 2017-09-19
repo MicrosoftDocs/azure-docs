@@ -49,7 +49,7 @@ You use this terminal window to run all the commands in this quickstart.
 Change to the directory that contains the sample code.
 
 ```bash
-cd Python-docs-hello-world
+cd python-docs-hello-world
 ```
 
 ## Run the app locally
