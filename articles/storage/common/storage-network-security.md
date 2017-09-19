@@ -49,7 +49,7 @@ Classic Storage accounts **do not** support Firewalls and Virtual Networks.
 By default, storage accounts accept connections from clients on any network.  To limit access to selected networks, you must first change the default action.
 
 > [!WARNING]
-> Making changes to network rules can impact your applications' ability to connect to Azure Storage.  Setting the default network rule to deny access blocks all access to the data unless specific network rules granting access are also applied.  Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+> Making changes to network rules can impact your applications' ability to connect to Azure Storage.  Setting the default network rule to **deny** blocks all access to the data unless specific network rules *granting* access are also applied.  Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
 >
 
 #### Azure portal
