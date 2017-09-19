@@ -113,7 +113,7 @@
     items:
     - name: Blob storage
       href: functions-bindings-storage-blob.md
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: functions-bindings-documentdb.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
