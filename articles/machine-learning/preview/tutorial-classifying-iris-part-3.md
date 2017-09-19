@@ -182,6 +182,40 @@ Use the following command to create a real-time web service:
    docker ps
    ```
 
+As an alternate to `az ml service create realtime` command shown above, follow these steps to create a real-time web service:
+
+1. Register the model by providing the pickle file name.
+
+   This azure CLI command registers the model:
+
+   ```azurecli
+   az ml model register --model model.pkl --name model.pkl
+   ```
+
+2. Create manifest
+
+   In order to create a manifest, use this command and provide the model ID output from the previous step:
+
+   ```azurecli
+   az ml manifest create --manifest-name irismanifest -f iris_score.py -r python -i <modelid> -s service_schema.json
+   ```
+
+3. Create an image
+
+   In order to create an image, use this command and provide the manifest ID value output from the previous step:
+
+   ```azurecli
+   az ml image create -n irisimage --manifest-id <manifestid>
+   ```
+   
+4. Create the service
+
+   In order to create a service, use the command listed and provide the image ID output from the previous step:
+
+   ```azurecli
+   az ml service create realtime --image-id <imageid> -n irisapp --collect-model-data true
+   ```
+
 You are now ready to run the web service.
 
 ## Run the real-time web service
