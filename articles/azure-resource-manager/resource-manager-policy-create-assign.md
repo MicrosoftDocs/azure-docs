@@ -43,6 +43,8 @@ You can exclude a scope when assigning a policy. This ability simplifies policy 
 }
 ```
 
+If you specify an exclusion scope in your assignment, use the **2017-06-01-preview** API version.
+
 ## REST API
 
 ### Create policy definition
@@ -343,12 +345,6 @@ Before proceeding to create a policy definition, look at the built-in policies. 
 ### Create policy definition
 
 You can create a policy definition using Azure CLI with the policy definition command.
-
-To create a policy definition from a file, pass the path to the file. For an external file, use:
-
-```azurecli
-az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" -–policyUri 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
-```
 
 To create a policy definition with an inline rule, use:
 

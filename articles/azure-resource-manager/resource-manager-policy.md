@@ -101,9 +101,9 @@ The following example shows a policy that limits where resources are deployed:
 
 ## Mode
 
-Set `mode` to `all` to make resource groups and all resource types eligible for the policy. The resources that are actually affected by the policy depend on the properties you use and the scope you assign. We recommend that you use `all`. 
+We recommend that you set `mode` to `all`. When set to `all`, resource groups and all resource types are eligible for the policy. The resources that are actually affected by the policy depend on the properties you use and the scope you assign. 
 
-Set `mode` to `indexed` only when you need to specifically exclude resource types that do not support tags, kind, and location. The resource types that do not support these values are a small subset of utility resources. For example, [management locks](resource-group-lock-resources.md) and [nested deployments](resource-group-linked-templates.md) do not support these values. 
+Set `mode` to `indexed` only when you need to preserve backward compatibility. Previously, resource groups and virtual network subnets did not support policies. They are now supported. If you must explicitly preserve that earlier behavior, use `indexed`. 
 
 ## Parameters
 Using parameters helps simplify your policy management by reducing the number of policy definitions. You define a policy for a resource property (such as limiting the locations where resources can be deployed), and include parameters in the definition. Then, you reuse that policy definition for different scenarios by passing in different values (such as specifying one set of locations for a subscription) when assigning the policy.
@@ -215,7 +215,7 @@ Policy supports three types of effect - `deny`, `audit`, `append`, `AuditIfNotEx
 * **Audit** generates a warning event in audit log but does not fail the request
 * **Append** adds the defined set of fields to the request 
 * **AuditIfNotExists** - enable auditing if a resource does not exist
-* **DeployIfNotExists** - deploy a resource if it does not already exist
+* **DeployIfNotExists** - deploy a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
 
 For **append**, you must provide the following details:
 
@@ -234,8 +234,6 @@ The value can be either a string or a JSON format object.
 With **AuditIfNotExists** and **DeployIfNotExists**, you can evaluate the existence of a child resource, and apply a rule when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
 
 For an example of auditing when a virtual machine extension is not deployed, see [Audit VM extensions](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json).
-
-For an example of deploying a network watcher when it is not deployed, see [Enforce Network Watcher in virtual network regions](https://github.com/Azure/azure-policy-samples/blob/master/samples/Network/network-watcher-in-vnet-regions/azurepolicy.rules.json). 
 
 ## Aliases
 
@@ -427,6 +425,14 @@ The following example illustrates how to create a policy set for handling two ta
         ]
     }
 }
+```
+
+You add a policy set with the **New-AzureRMPolicySetDefinition** PowerShell command.
+
+For REST operations, use the **2017-06-01-preview** API version, as shown in the following example:
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
 ```
 
 ## Next steps
