@@ -12,7 +12,7 @@ ms.date: 02/09/2017
 ms.author: sajagtap
 ---
 
-# Video Moderation API overview #
+# Video Moderation API
 
 Today, online viewers are generating billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you can significantly lower the cost of your moderation efforts.
 
