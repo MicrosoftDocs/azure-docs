@@ -229,8 +229,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                 </ul>
             </li>
             <li>
-                <a href="#services">Services</a>
-                <ul id="services">
+                <a href="#Products">Products</a>
+                <ul id="Products">
                     <li>
                         <a href="#all">All</a>
                         <ul id="all" class="directory">
@@ -3226,9 +3226,52 @@ description: Learn how to build and manage powerful applications using Microsoft
                             </li>
                         </ul>
                     </li>
+					<li>
+                        <a href="#msstack">Microsoft Azure Stack</a>
+                        <ul id="msstack" class="cardsA">
+                            <li>
+                                <a href="/azure/azure-stack/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack Operator</h3>
+                                                    <p>Operate Azure Stack and deliver Azure services from your own datacenter with this hybrid cloud platform</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/user/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack User</h3>
+                                                    <p>Use services and build applications for Azure Stack</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                          </ul>
+                    </li>
                     <li>
-                        <a href="#other">Other Clouds</a>
-                        <ul id="other" class="cardsA">
+                        <a href="#sovereign">Sovereign Clouds</a>
+                        <ul id="sovereign" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
                                     <div class="cardSize">
@@ -3261,25 +3304,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germany</h3>
                                                     <p>Build and host applications in compliance with German regulations as well as key international standards, with additional control by a data trustee</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/azure-stack/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-stack.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Microsoft Azure Stack</h3>
-                                                    <p>Deliver Azure services from your own datacenter with this new hybrid cloud platform</p>
                                                 </div>
                                             </div>
                                         </div>
