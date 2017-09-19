@@ -30,6 +30,19 @@ The following information identifies the Azure Government boundary for Azure Key
 | --- | --- |
 | All data encrypted with an Azure Key Vault key may contain Regulated/controlled data. |Azure Key Vault metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Key Vault.  Do not enter Regulated/controlled data into the following fields: **Resource group names, Key Vault names, Subscription name** |
 
+## Azure Active Directory Premium
+Azure Active Directory Premium is in Limited Preview in Azure Government.
+
+For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md). For details on how to sign up for Preview, see the [announcement blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/07/azure-active-directory-premium-is-now-in-limited-preview-in-us-government-cloud/).
+
+### Variations
+
+**B2B Collaboration** is currently not available.
+
+**Group-Based Licensing** is currently not available.
+
+Support for Intune enabled **Conditional Access** scenarios is coming soon.
+
 ## Next Steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
