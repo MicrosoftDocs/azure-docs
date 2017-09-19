@@ -19,20 +19,16 @@ ms.author: subramar
 ---
 # Differences between Service Fabric on Linux and Windows
 
-There are some features that are supported on Windows, but not yet on Linux. Eventually, the feature sets will be at parity and with each release this feature gap will shrink. The following differences exist between the latest available releases (that is, between version 5.6 on Windows and version 5.5 on Linux): 
+There are some features that are supported on Windows, but not yet on Linux. Eventually, the feature sets will be at parity and with each release this feature gap will shrink. The following differences exist between the latest available releases (that is, between version 5.8 on Windows and version 5.8 on Linux): 
 
-* Reliable Collections (and Reliable Stateful Services) 
-* ReverseProxy 
-* Standalone installer 
-* XML schema validation for manifest files 
-* Console redirection 
-* The Fault Analysis Service (FAS)
-* Docker compose and volume and logging drivers for containers 
-* Resource governance for containers and services 
-* DNS service
-* Azure Active Directory support
-* CLI command equivalents of certain Powershell commands 
-* Only a subset of Powershell commands can be run against a Linux cluster (as expanded in the next section).
+* All programming models are in preview (Java/C# Reliable Actors, Reliable Stateless Services and Reliable Stateful Services)
+* Envoy (ReverseProxy) is in preview on Linux
+* Standalone installer for Linux is not yet available on Linux
+* Console redirection (this is also deprecated for Windows)
+* The Fault Analysis Service (FAS) on Linux
+* DNS service for Service Fabric services (DNS service is supported for containers on Linux)
+* CLI command equivalents of certain Powershell commands (list below, most of which apply only to standalone clusters)
+
 
 >[!NOTE]
 >Console redirection is not supported in production clusters, even on Windows.
