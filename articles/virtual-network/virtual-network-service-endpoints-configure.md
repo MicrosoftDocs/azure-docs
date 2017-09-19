@@ -370,8 +370,8 @@ To secure Azure resources to a subnet:
 
 ### Deleting service endpoints with resources secured to the subnet
 
->[!NOTE] If Azure service resources are secured to the subnet and the service endpoint is deleted, you 
-cannot access the resource from the subnet anymore. Re-enabling the endpoint alone won't restore access to the resources previously secured to the subnet.
+If Azure service resources are secured to the subnet and the service endpoint is deleted, you cannot access the resource from the subnet anymore.
+Re-enabling the endpoint alone won't restore access to the resources previously secured to the subnet.
 
 To secure the service resource to this subnet again, you need to:
 
