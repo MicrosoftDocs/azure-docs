@@ -1,4 +1,4 @@
---
+---
 title: Elastic Query Tutorial with SQL Data Warehouse | Microsoft Docs
 description: 'Learn how to use Elastic Query with SQL Data Warehouse '
 services: sql-data-warehouse
@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
+---
 
---
 
 
 # Elastic Query with SQL Data Warehouse
@@ -77,14 +77,14 @@ Before you begin the tutorial, you must have the following prerequisites:
 
 10. Create an external data source which points to the data warehouse instance.
 
-    ```sql
-    CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-        (TYPE = RDBMS, 
-        LOCATION = '<SERVER NAME>.database.windows.net', 
-        DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-        CREDENTIAL = SalesDBElasticCredential, 
-    ) ;
-    ```
+  ```sql
+  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+      (TYPE = RDBMS, 
+      LOCATION = '<SERVER NAME>.database.windows.net', 
+      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+      CREDENTIAL = SalesDBElasticCredential, 
+  ) ;
+  ```
 
 11. Now you can create external tables that reference this external data source. Queries using those tables will be sent to the data warehouse instance to be processed and sent back to the database instance.
 

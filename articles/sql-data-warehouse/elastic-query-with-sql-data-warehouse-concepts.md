@@ -1,4 +1,5 @@
---
+---
+
 title: Elastic Query Concepts with SQL Data Warehouse | Microsoft Docs
 description: 'Elastic Query concepts with SQL Data Warehouse '
 services: sql-data-warehouse
@@ -17,7 +18,9 @@ ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
 
---
+---
+
+
 
 # Elastic Query Concepts with SQL Data Warehouse
 
