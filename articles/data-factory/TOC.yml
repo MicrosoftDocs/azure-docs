@@ -15,12 +15,8 @@
       href: quickstart-create-data-factory-dot-net.md
     - name: PowerShell
       href: quickstart-create-data-factory-powershell.md
-    - name: Python
-      href: quickstart-create-data-factory-python.md
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
-    - name: Resource Manager template
-      href: quickstart-create-data-factory-resource-manager-template.md
     - name: Azure Portal
       href: quickstart-create-data-factory-portal.md     
 - name: Tutorials
