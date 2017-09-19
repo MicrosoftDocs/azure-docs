@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 
 ---
@@ -45,7 +45,7 @@ Follow the steps below to visualize the current activities related identity and 
 	* **Failed logons**: helps you to quickly identify the main cause for failed logon attempt, and shows a list of the top ten accounts that most failed attempting to logon.
 	* **Logons overtime**: helps you to quick identify the amount of logon overtime, and shows a list of the top computer accounts logon attempts.
 	
-Regardless of which tile you select, the dashboard that will appear is based on the [Log Search  query,](https://docs.microsoft.com/azure/security-center/security-center-search) the only difference is the type of query, and the result. You can still select an item, for example a computer, click on it and see relevant data. 
+Regardless of which tile you select, the dashboard that will appear is based on the Log Search  query, the only difference is the type of query, and the result. You can still select an item, for example a computer, click on it and see relevant data. 
 
 ## See also
 In this document, you learned how to monitor identity and access in Azure Security Center. To learn more about Azure Security Center, see the following:
