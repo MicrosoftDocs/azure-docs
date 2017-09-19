@@ -459,9 +459,9 @@ Select __OK__ to apply the filter.
 
 ![Updated histograms after filter is applied](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
 
-### Review the Halo Effect
+### The Halo Effect
 
-1. Maximize the **logtripduration** histogram. There is a blue histogram overlaid on a gray histogram. This display is called the **Halo effect**:
+1. Maximize the **logtripduration** histogram. There is a blue histogram overlaid on a gray histogram. This display is called the **Halo Effect**:
 
     * The **gray histogram** represents the distribution before the operation (in this case, the filtering operation).
     * The **blue histogram** represents the histogram after the operation. 
@@ -469,6 +469,9 @@ Select __OK__ to apply the filter.
    The halo effect helps with visualizing the effect of an operation on the data.
 
    ![Image of the halo effect](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
+
+    > [!NOTE]
+    > Notice that the blue buckets are shorter than the grey buckets. This reflects the change that occurred when you dropped rows with a logtripduration less than 9. After the filter operation, the buckets for the histogram are recalculated and are slightly shorter.
 
 2. To remove the halo, select __Edit__ and uncheck __Show halo__.
 
