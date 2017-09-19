@@ -21,7 +21,7 @@ ms.author: kraigb
 To take advantage of the hosting services and scalability of Azure, you might want to migrate and publish your web application to an Azure cloud service. You can run a web application in Azure with minimal changes to your existing application.
 
 > [!NOTE]
-> This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [Deploy a web app in Azure App Service](app-service-web/web-sites-deploy.md).
+> This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [Deploy a web app in Azure App Service](app-service/app-service-deploy-local-git.md).
 >
 >
 

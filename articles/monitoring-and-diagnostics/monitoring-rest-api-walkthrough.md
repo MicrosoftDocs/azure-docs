@@ -1,6 +1,6 @@
 ---
-title: Azure Monitoring REST API Walkthrough | Microsoft Docs
-description: How to authenticate requests and use the Azure Monitor REST API to retrieve availble metric definitions and metric values.
+title: Azure Monitoring REST API walkthrough | Microsoft Docs
+description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
 author: mcollier
 manager: 
 editor: 
@@ -17,18 +17,18 @@ ms.search.scope:
 ms.search.validFrom:
 ms.dyn365.ops.version:
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 09/18/2017
 ms.author: mcollier
 
 ---
-# Azure Monitoring REST API Walkthrough
+# Azure Monitoring REST API walkthrough
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
 The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions, granularity, and metric values. The data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there additional analysis can be performed as needed.
 
 Besides working with various metric data points, the Monitor API also makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
-## Authenticating Azure Monitor Requests
+## Authenticating Azure Monitor requests
 The first step is to authenticate the request.
 
 All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). It is also possible to [create a service principal via the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
@@ -88,7 +88,7 @@ After authenticating, queries can then be executed against the Azure Monitor RES
 1. List the metric definitions for a resource
 2. Retrieve the metric values
 
-## Retrieve Metric Definitions
+## Retrieve metric definitions
 Use the [Azure Monitor Metric definitions REST API](https://msdn.microsoft.com/library/mt743621.aspx) to access the list of metrics that are available for a service.
 
 **Method**: GET
@@ -152,7 +152,7 @@ The resulting JSON response body would be similar to the following example:
 
 For more information, see the [List the metric definitions for a resource in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/mt743621.aspx) documentation.
 
-## Retrieve Metric Values
+## Retrieve metric values
 Once the available metric definitions are known, it is then possible to retrieve the related metric values. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests (for example, retrieve the ‘CpuTime’ and ‘Requests’ metric data points). If no filters are specified, the default metric is returned.
 
 > [!NOTE]
@@ -288,7 +288,7 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 ```
 
 
-## Retrieve the Resource ID
+## Retrieve the resource ID
 Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information is helpful when using the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
 For the preceding code, the resource ID to use is the full path to the desired Azure resource. For example, to query against an Azure Web App, the resource ID would be:
@@ -393,7 +393,7 @@ The result should be similar to the following example:
 >
 >
 
-## Retrieve Activity Log Data
+## Retrieve activity log data
 In addition to metric definitions and related values, it is also possible to use the Azure Monitor REST API to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription:
 
 ```PowerShell
