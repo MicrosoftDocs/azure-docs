@@ -19,32 +19,39 @@ ms.author: jdial
 
 ---
 
-# Deploy Azure resources into virtual networks
+# Virtual network integration for Azure services
 
-You can communicate with most Azure resources over the Internet through public IP addresses. When you deploy resources in a [virtual network](virtual-networks-overview.md), you can communicate with the resources privately, through private IP addresses. Consider the following picture:
+Integrating Azure services to an Azure virtual network(VNet) allows the  services to be privately accessible to instances deployed in that VNet.
 
-![Resources in a virtual network](./media/virtual-network-for-azure-services/resources-in-a-virtual-network.png)
+You can integrate Azure services with your virtual network with following options:
+- By directly deploying dedicated instances of the service into a VNet. The dedicated instances of these services can be privately accessed within the virtual network and on-premises.
+- By extending a virtual network to the service, through service endpoints. This allows the individual service resources to be secured to the virtual network.
+ 
+## Deploy Azure services into virtual networks
 
-Deploying resources within a virtual network provides the following capabilities:
+You can communicate with most Azure resources over the Internet through public IP addresses. When you deploy Azure services in a [virtual network](virtual-networks-overview.md), you can communicate with the service resources privately, through private IP addresses.
 
-- Resources within the virtual network can communicate with each other privately, through private IP addresses.
-- Resources within the virtual network can communicate over the Azure infrastructure network to the public IP addresses of Azure services not in a virtual network. Communication between any Azure resources does not traverse the Internet.
-- If resources within a virtual network are assigned a public IP address, the resource can be accessed from the Internet.
-- On-premises resources can access resources in a virtual network using private IP addresses over a secure [IPSec tunnel (VPN Gateway)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) or [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- You can assign [network security groups](virtual-networks-nsg.md) to subnets or individual resources within virtual networks that control the type of network traffic that can flow in and out of resources.
-- You can control how outbound traffic is [routed](virtual-networks-udr-overview.md) from each subnet within a virtual network.
+
+![Services deployed in a virtual network](./media/virtual-network-for-azure-services/deploy-service-into-vnet.png)
+
+Deploying services within a virtual network provides the following capabilities:
+
+- Resources within the virtual network can communicate with each other privately, through private IP addresses. Example, directly transferring data between HDInsight and SQL Server running on a virtual machine, in the VNet.
+- On-premises resources can access resources in a virtual network using private IP addresses over [Site-to-Site VPN (VPN Gateway)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) or [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Virtual networks can be [peered](virtual-network-peering-overview.md) to enable resources in the virtual networks to communicate with each other, using private IP addresses.
+- Service instances in a VNet are fully managed by the Azure service, to monitor health of the instances and provide required scale based on load.
+- Service instances are deployed into a dedicated subnet in a customer’s VNet. Inbound and outbound access should be opened through Network Security Groups (NSGs) for the subnet, per guidance provided by the services.
 
-## Resources that can be deployed into a virtual network
 
-The resources in the list that follows can be deployed to a virtual network. Because Microsoft manages aspects of many of the services listed, each service has specific requirements for routing and the types of traffic that must be allowed into and out of subnets. Familiarize yourself with the requirements for each resource by clicking any resource in the following list:
+### List of services that can be deployed into a virtual network
+
+Each service directly deployed into virtual network has specific requirements for routing and the types of traffic that must be allowed into and out of subnets. Refer to following links for more details: 
  
 - Virtual machines: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Service fabric](../service-fabric/service-fabric-patterns-networking.md?toc=%2fazure%2fvirtual-network%2ftoc.json#existingvnet)
 - [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [App Service Environment](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [RemoteApp](../remoteapp/remoteapp-planvnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [RedisCache](../redis-cache/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -55,4 +62,24 @@ The resources in the list that follows can be deployed to a virtual network. Bec
 - [Cloud services](https://msdn.microsoft.com/library/azure/jj156091): Virtual network (classic) only
 
 You can deploy an [internal Azure Load balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to load balance many of the resources in the previous list. In some cases, the service automatically creates and deploys a load balancer when you create a resource.
+
+## Service endpoints for Azure services
+
+Some Azure services can't be deployed in virtual networks. You can restrict access to some of the service resources to only specific virtual network subnets, if you choose, by enabling a virtual network service endpoint. Learn more about [virtual network service endpoints](virtual-network-service-endpoints.md).
+
+Currently, service endpoints are supported for below services: 
+- Azure Storage:
+[Securing Azure Storage accounts to Virtual Networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+
+- Azure SQL Database: [Securing Azure SQL Database to Virtual networks](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+
+## Virtual network integration across multiple Azure services
+
+You can deploy an Azure service into a subnet in a virtual network and secure critical service resources to that subnet. 
+
+For example, you can deploy HDInsight into your virtual network and secure a storage account to the HDInsight subnet.
+
+
+
+
 
