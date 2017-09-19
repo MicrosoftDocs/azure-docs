@@ -34,7 +34,12 @@ DDoS Protection on the virtual network has two main benefits:
 - It simplifies the provisioning of protected resources in a single bulk operation and automatically protects additional resource types as they are supported.
 - Protecting all the public IP resources on a virtual network ensures that an attack against one public IP in a virtual network cannot impact another public IP in a virtual network since all public IPs are protected.
 
-For development and test scenarios, you are welcome to try DDoS Protection and provide feedback on your experiences at [Azure DDoS Protection](https://feedback.azure.com/forums/905032-azure-ddos-protection). For support issues, you can [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md).
+For development and test scenarios, you are welcome to try DDoS Protection and use these resources to provide feedback on your experiences:
+- [Azure DDoS Protection on the Microsoft Azure Forum](https://feedback.azure.com/forums/905032-azure-ddos-protection). 
+- [Azure DDoS Protection on the MSDN Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection)
+- [Azure DDos Protection on Stack Overflow](https://stackoverflow.com/tags/azure-ddos/info)
+
+For support issues, you can [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md).
 
 ## Types of DDoS attacks
 
@@ -74,7 +79,9 @@ During mitigation, traffic towards the protected resource is redirected through 
 - Interact with the client to determine if it is potentially a spoofed packet (e.g: SYN Auth or SYN Cookie or by dropping a packet for the source to retransmit it).
 - Rate-limit packets if no other enforcement method can be performed.
 
-The DDoS SDN blocks attack traffic and forward remaining traffic to intended destination. Within a few minutes of attack detection, you are notified using Azure Monitor metrics. By configuring logging on DDoS Protection telemetry, you can write the logs to available options for future analysis.
+The DDoS SDN blocks attack traffic and forward remaining traffic to intended destination. Within a few minutes of attack detection, you are notified using Azure Monitor metrics. By configuring logging on DDoS Protection telemetry, you can write the logs to available options for future analysis. Metric data in Azure Monitor for DDoS Protection is currently retained for 30 days.
+
+We do not advise customers to simulate their own DDoS attacks during preview. Instead, customers can use the support channel to request a DDoS attack simulation executed by Azure Networking. An Engineer will contact you to arrange the details of the DDoS attack (ports, protocols, target IPs) and arrange a time to schedule the test.
 
 ## Protected resources
 
