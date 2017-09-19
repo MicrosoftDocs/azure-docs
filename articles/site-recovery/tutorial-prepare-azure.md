@@ -1,6 +1,6 @@
 ---
-title: Prepare Azure for disaster recovery of on-premises machines with Azure Site Recovery | Microsoft Docs
-description: Learn how to prepare Azure for disaster recovery of on-premises machines with the Azure Site Recovery service.
+title: Prepare Azure resources for replication of on-premises machines using Azure Site Recovery | Microsoft Docs
+description: Learn how to prepare Azure for replication of on-premises machines using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -17,7 +17,7 @@ ms.date: 09/18/2017
 ms.author: raynew
 
 ---
-# Prepare Azure for disaster recovery of on-premises machines 
+# Prepare Azure resources for replication of on-premises machines
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running available during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
