@@ -82,7 +82,6 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
 
-
 ## 5. Configure the Facebook Page and App
 
 1. Create a Facebook App.
@@ -97,11 +96,42 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 2. Create a Facebook Page.
 
-    1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a new Facebook Page.
+    1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a **new Facebook Page**.
     2. Allow the Facebook App to access this page by following these steps:
         1. Navigate to the **Graph API Explorer**.
         2. Select **Application**.
         3. Select **Page Access Token**, Send a **Get** request.
-        4. Click the ID in the response (this is the Page ID).
+        4. Click the ID in the response (this is the **Page ID**).
         5. Now append the **"/subscribed_apps"** to the URL and Send a **Get** (empty response) request.
         6. Submit a **Post** request. You will get the response as **"success": true**.
+
+3. Create a non-expiring Graph API access token.
+
+    1. Navigate to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
+    2. Select the **Application** option.
+    3. Select the **Get User Access Token** option.
+    4. Under the **Select Permissions**, select **manage_pages** and **publish_pages** options.
+    5. We will use the **access token** (Short Lived Token) in the next step.
+
+4. We will use Postman for the next few steps.
+
+    1. Open the [**Postman**](https://www.getpostman.com/) tool. (or get it [here](https://www.getpostman.com/))
+    2. Import these two files:
+        1. [Postman Collection](samples-fbPageModeration/Facebook Permanant Page Access Token.postman_collection.json)
+        2. [Postman Environment](samples-fbPageModeration/FB Page Access Token Environment.postman_environment.json)
+    3. Update these Environment Variables:
+    4. Now run the 3 APIs listed in the collection: 
+        1. Select **Generate Long-Lived Access Token** and click **Send**.
+        2. Select **Get User ID** and click **Send**.
+        3. Select **Get Permanent Page Access Token** and click **Send**.
+    5. Copy the **access_token** value from the response and assign it to the App setting, **fb:PageAccessToken**.
+
+That's it!
+
+The solution will send all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier will be invoked. The content that does not pass your criteria in the workflows will be taken down, and the rest will get published.
+
+## 6. References
+
+1. https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-github-webhook-triggered-function
+2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
+3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
