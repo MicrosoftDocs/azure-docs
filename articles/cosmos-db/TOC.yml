@@ -95,7 +95,7 @@
       href: local-emulator-export-ssl-certificates.md
   - name: 6 - Integrate with Functions
     items:
-    - name: HTTP Trigger
+    - name: HTTP trigger
       href: tutorial-functions-http-trigger.md
 - name: Samples
   items:
