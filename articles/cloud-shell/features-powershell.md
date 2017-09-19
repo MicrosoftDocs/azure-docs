@@ -47,13 +47,7 @@ Azure drive enables easy discovery and navigation of Azure resources such as Com
 You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure) to manage these resources.
 Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are instantly reflected in the Azure drive.
 
-<<<<<<< HEAD
-> [!NOTE]
-> [TODO: replace old gif]
-> [TODO: note limitations of file writing etc. in Azure drive]
-=======
 ![](media/features-powershell/azure-drive.png)
->>>>>>> 1d09d55b353358e00e459f9b261973ab6c2fd34b
 
 #### Contextual awareness
 
