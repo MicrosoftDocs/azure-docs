@@ -56,7 +56,8 @@ The following properties are supported for HDFS linked service:
 | url |URL to the HDFS |Yes |
 | authenticationType | Allowed values are: **Anonymous**, or **Windows**. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
 | userName |Username for Windows authentication. |Yes (for Windows Authentication) |
-| password |Password for Windows authentication. |Yes (for Windows Authentication) |
+| password |Password for Windows authentication. Mark this field as SecureString. |Yes (for Windows Authentication) |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example: using Anonymous authentication**
 
