@@ -64,11 +64,11 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 5. Create a new HttpTrigger-CSharp function named FBListener. This function receives events from Facebook. Follow these steps to create this function.
 
-  1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
-  2. Click the **"+"** add to create new function.
-  2. Instead of the built-in templates, choose the **"Get started on your own/custom function"** option.
-  3. Click on the tile that says **"HttpTrigger-CSharp"**
-  4. Enter a name "FBListener", the **Authorization Level** field should be set to **"Function"**.
-  5. Click **Create**.
-  6. Replace the contents of the **run.csx** with the contents from [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
+    1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
+    2. Click the **"+"** add to create new function.
+    3. Instead of the built-in templates, choose the **"Get started on your own/custom function"** option.
+    4. Click on the tile that says **"HttpTrigger-CSharp"**
+    5. Enter a name "FBListener", the **Authorization Level** field should be set to **"Function"**.
+    6. Click **Create**.
+    7. Replace the contents of the **run.csx** with the contents from [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
 
