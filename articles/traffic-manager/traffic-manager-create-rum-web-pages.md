@@ -35,14 +35,13 @@ To obtain the RUM Key using Azure portal:
  
   ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-    **Figure 1: Real User Measurements Key Generation**
+   **Figure 1: Real User Measurements Key Generation**
 
 5. The blade now displays the RUM Key generated and a JavaScript code snippet that needs to be embedded into your HTML page.
  
- 
- ![Javascript code for Real User Measurements key](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
+    ![Javascript code for Real User Measurements key](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
- **Figure 2: Real User Measurements Key and Measurement JavaScript**
+    **Figure 2: Real User Measurements Key and Measurement JavaScript**
  
 6.	Click the **Copy** button to copy the JavaScript code. 
 
