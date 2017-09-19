@@ -24,16 +24,17 @@ experimental_id: "a2b2579c-cd2e-41"
 
 # Organize your resources with Azure Management Groups 
 
-Manage multiple accesses, policy, costs, and compliance across your subscriptions by organizing them into containers called “management groups.” As an example, you can apply policies to a management group that limit which resource types can be created.
+If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, costs, and compliance across your subscriptions. As an example, you can apply policies to a management group that limit which resource types can be created.
  
 A few items to note: 
 * Management groups are currently available to Azure Enterprise Agreement customers. 
 * Support for the following customers will be enabled in future releases. 
-    * [Pay-As-You-Go](https://azure.microsoft.com/en-us/offers/ms-azr-0003p/) 
+    * [Pay-As-You-Go](https://azure.microsoft.com/en-us/offers/ms-azr-0003p/)
     * [Cloud Solution Provider](https://partner.microsoft.com/en-us/cloud-solution-provider) 
-    * Enterprise Indirect Enrollment 
+    * [Enterprise Indirect Partners](https://www.microsoftpartnerserverandcloud.com/Pages/home.aspx)  
     * [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/) 
-    * Azure Germany and China 
+    * [Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)
+    * [Azure China](https://www.azure.cn/)
 
 Management groups can be organized into a hierarchy. The structure shown is a sample representation of a management group hierarchy that you can create:
 
@@ -47,7 +48,7 @@ The introduction of management groups is the first step in unifying the [Enterpr
 
 The [Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/https:/azure.microsoft.com/en-us/pricing/enterprise-agreement/) enrollment defines the shape and use of Azure services within a company and is the core governance structure. Within the enrollment, customers can subdivide the environment into departments, accounts, and finally, subscriptions. 
 
-The management group structure is created in the environment that you have defined in the Enterprise portal. The entire hierarchy consisting of Enrollment, Departments, and Accounts are mapped to corresponding management groups – all associated with the same directory. Where possible, an existing directory associated with the enrollment user accounts is selected. In some cases, a new directory is created and all existing Enrollment users are invited into that directory. This new directory does not impact the directories associated with the subscriptions in the enrollment. Therefore, the hierarchy might get created in a directory different from the subscriptions. [Learn more](billing-enterprise-mgmt-grp-find.md) about how this process impacts the experience of navigating between the hierarchy and its subscriptions.
+The management group structure is created in the environment that you have defined in the Enterprise portal. The entire hierarchy consisting of Enrollment, Departments, and Accounts are mapped to corresponding management groups – all associated with the same directory. Where possible, an existing directory associated with the enrollment user accounts is selected. In some cases, a new directory is created and all existing enrollment users are invited into that directory. This new directory does not impact the directories associated with the subscriptions in the enrollment. Therefore, the hierarchy might get created in a directory different from the subscriptions. [Learn more](billing-enterprise-mgmt-grp-find.md) about how this process impacts the experience of navigating between the hierarchy and its subscriptions.
 
 Here is how the current EA structure maps to management group hierarchy. The initial management group hierarchy is seeded with the hierarchy defined in your enterprise enrollment. 
 
@@ -68,7 +69,7 @@ The users from the Enterprise portal are added with a role to manage the mapped 
 
 
 
-## View management groups in the [Azure portal](https://portal.azzure.com)
+## View management groups in the Azure portal
 
 To view an enrollment, department, or an account within the preview, sign in to the Azure portal with the link in the welcome email.   
 
@@ -77,10 +78,10 @@ On the detail screens of management groups, you see the current month to date co
 
 For management groups with the type of enrollment, the costs section shows you the commitment remaining.  This displayed cost is based on your current costs against commitment vs your total annual commitment.  
 
-“Costs billed separately” are the monthly accumulation of separate changes like marketplace, overages, and other costs that do not go against your enrollment’s commitment.  For more information about the cost breakout, see the [Enterprise portal](https://ea.portal.com). 
+“Costs billed separately” are the monthly accumulation of separate changes like marketplace, overages, and other costs that do not go against your enrollment’s commitment.  For more information about the cost breakout, see the [Enterprise portal](https://ea.azure.com). 
 
 ### Enabling access to costs
-If you are not seeing costs, see our [Troubleshoot enterprise cost views](https://azure.com) document for help.  
+If you are not seeing costs, see our [Troubleshoot enterprise cost views](https://aka.ms/enableazurecosts) document for help.  
 
 ### Delays between the Enterprise portal and Azure portal 
 * During the preview, amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal. This issue is temporary and is being worked on.
