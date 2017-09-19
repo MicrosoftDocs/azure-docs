@@ -60,6 +60,15 @@ This scenario details the construction of a machine learning energy demand forec
     conda install pandas>=0.20.3
     ```
 
+## Create a new Workbench project
+
+Create a new project using this example as a template:
+1.	Open Azure Machine Learning Workbench
+2.	On the **Projects** page, click the **+** sign and select **New Project**
+3.	In the **Create New Project** pane, fill in the information for your new project
+4.	In the **Search Project Templates** search box, type "Energy Demand Time Series Forecasting" and select the template
+5.	Click **Create**
+
 ## Data description
 
 There are two datasets: `nyc_demand.csv` and `nyc_weather.csv`:

@@ -80,7 +80,7 @@ See Method and Parameter details:
 ### Method
 | Name | Description |
 |--------------------|--------------------|
-| Collect | Used to collect the data for a model input or prediction|
+| collect | Used to collect the data for a model input or prediction|
 
 
 ### Parameters

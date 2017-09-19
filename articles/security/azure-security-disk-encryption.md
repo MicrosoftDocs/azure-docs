@@ -234,6 +234,8 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 
 * Azure Disk Encryption is only supported on Azure gallery supported images that meet the aforementioned prerequisites. Customer custom images are not supported due to custom partition schemes and process behaviors that may exist on these images. Further, even gallery image based VM's that initially met prerequisites but have been modified after creation may be incompatible.  For that reason, the suggested procedure for encrypting a Linux VM is to start from a clean gallery image, encrypt the VM, and then add custom software or data to the VM as needed.  
 
+* Azure Disk Encryption a local data volume - Bek Volume for Windows and /mnt/azure_bek_disk for Linux IaaS VMs to securely hold the encryption key. Do not delete or edit any contents in this disk. Do not unmount the disk since the encryption key presence is needed for any encryption operations on the IaaS VM. README file included in the volume contains additional details.
+
 > [!NOTE]
 > Backup and restore of encrypted VMs is supported only for VMs that are encrypted with the KEK configuration. It is not supported on VMs that are encrypted without KEK. KEK is an optional parameter that enables VM.
 
