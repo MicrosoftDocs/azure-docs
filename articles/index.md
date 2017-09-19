@@ -1083,7 +1083,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cost-management/">
-                                                <img src="media/index/genericAzure.svg.svg" alt="" />
+                                                <img src="media/index/genericAzure.svg" alt="" />
                                                 <p>Cost Management</p>
                                             </a>
                                         </li>
