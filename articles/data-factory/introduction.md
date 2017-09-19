@@ -21,7 +21,7 @@ ms.author: shlo
 > * [Version 1 - GA](v1/data-factory-introduction.md)
 > * [Version 2 - Preview](introduction.md)
 
-In the world of big data, raw, unorganized data are often stored in relational, non-relational, and other storage systems. However, on their own, raw data do not have the proper context or meaning to provide meaningful insights to analysts, data scientists, and business decision makers. What is needed is a service that can enable orchestrating and operationalizing processes to refine these enormous stores of raw data into actionable business insights. Azure Data Factory is a managed cloud service built for these complex hybrid extract-transform-load (ETL), extract-load-transform(ELT), and data integration projects.
+In the world of big data, raw, unorganized data are often stored in relational, non-relational, and other storage systems. However, on their own, raw data do not have the proper context or meaning to provide meaningful insights to analysts, data scientists, and business decision makers. What is needed is a service that can enable orchestrating and operationalizing processes to refine these enormous stores of raw data into actionable business insights. Azure Data Factory is a managed cloud service built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
 For example, imagine a gaming company that collects petabytes of game logs produced by games in the cloud. It wants to analyze these logs to gain insights into customer preferences, demographics, and usage behavior  to identify up-sell and cross-sell opportunities, develop new compelling features, drive business growth, and provide a better experience to its customers.
 
@@ -44,9 +44,6 @@ The pipelines (data-driven workflows) in Azure Data Factory typically perform th
 Enterprises have data of various types located in disparate sources on-premises, in the cloud, structured, unstructured, and semi-structured, all arriving at different intervals and speeds. The first step in building an information production system is to connect to all the required sources of data and processing, such as software-as-a-service (SaaS) services, databases, file shares, FTP web services, and move the data as-needed to a centralized location for subsequent processing.
 
 Without Data Factory, enterprises must build custom data movement components or write custom services to integrate these data sources and processing. It is expensive and hard to integrate and maintain such systems, and it often lacks the enterprise grade monitoring and alerting, and the controls that a fully managed service can offer.
-
-With Data Factory, you can use the[Copy Activity](copy-activity-overview.md) in a data pipeline to move data from both on-premises and cloud source data stores to a centralization data store in the cloud for further analysis. For example, you can collect data in an Azure Data Lake Store and transform the data later by using an Azure Data Lake Analytics compute service. Or, collect data in an Azure Blob Storage and transform data later by using an Azure HDInsight Hadoop cluster.
-
 
 With Data Factory, you can use the [Copy Activity](copy-activity-overview.md) in a data pipeline to move data from both on-premises and cloud source data stores to a centralization data store in the cloud for further analysis. For example, you can collect data in an Azure Data Lake Store and transform the data later by using an Azure Data Lake Analytics compute service. Or, collect data in an Azure Blob Storage and transform data later by using an Azure HDInsight Hadoop cluster.
 
@@ -154,4 +151,4 @@ For more information about Data Factory concepts, see the following articles:
 - [Integration runtime](concepts-integration-runtime.md)
 
 ## Next steps
-Learn how to create a data factory by following step-by-step instructions in the **Quickstart: create a data factory using**: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md), and [Azure portal](quickstart-create-data-factory-portal.md). 
+Learn how to create a data factory by following step-by-step instructions in the following Quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md), and [Azure portal](quickstart-create-data-factory-portal.md). 
