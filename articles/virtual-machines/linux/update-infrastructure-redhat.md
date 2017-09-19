@@ -125,33 +125,29 @@ This procedure is provided for reference only. RHEL PAYG images already have the
    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
    ```
 
-   5. Download, verify, and install a client RPM Package Manager (RPM). 
+   5. Download, verify, and install a client RPM Package Manager (RPM).
+    
+        Note that package versions change. If you manually connect to Azure RHUI, you can find the latest version of the client package for each RHEL family by provisioning the latest image from the gallery.
+  
+   a. Download for RHEL 6:
 
-        > [!NOTE]
-        > Package versions change. If you manually connect to Azure RHUI, you can find the latest version of the client package for each RHEL family by provisioning the latest image from the gallery.
-   > 
 
-a. Download.
-
-      - For RHEL 6:
-
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.1-32.noarch.rpm 
-       ```
-
-      - For RHEL 7:
-
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm  
+            ```bash
+            curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.1-32.noarch.rpm 
         ```
+   b. Download for RHEL 7:
 
-   b. Verify.
+            ```bash
+            curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm  
+            ```
+
+   c. Verify.
 
    ```bash
    rpm -Kv azureclient.rpm
    ```
 
-   c. Check the output to ensure that the signature of the package is OK.
+   d. Check the output to ensure that the signature of the package is OK.
 
    ```bash
    azureclient.rpm:
@@ -161,13 +157,13 @@ a. Download.
        MD5 digest: OK (c04ff605f82f4be8c96020bf5c23b86c)
    ```
 
-   d. Install the RPM.
+   e. Install the RPM.
 
    ```bash
   sudo rpm -U azureclient.rpm
    ```
 
-   6. Upon completion, verify that you can access Azure RHUI from the VM.
+After you finish, verify that you can access Azure RHUI from the VM.
 
 ## Next steps
 To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 
