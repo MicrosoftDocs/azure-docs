@@ -27,12 +27,12 @@ This article applies to StorSimple 8000 series devices running Update 3.0 or lat
 
 RBAC can be assigned based on the roles. There are two types of roles that StorSimple users can choose from: built-in or custom.
 
-* **Built-in roles** - The built-in roles ensure certain permission levels based on the available resources in the environment. The following built-in roles are available in Azure:
+* **Built-in roles** - The built-in roles ensure certain permission levels based on the available resources in the environment. The following built-in roles are included (but not limited to) in Azure:
 
-    * Owner
-    * Contributor
-    * Reader
-    * User Access Administrator
+    * Owner  - They can manage everything, including access.
+    * Contributor - They can do anything the owner can do except assign access. Someone with this role can view and regenerate the service registration keys. With the serivce registration keys, they can register new devices with a StorSimple Device Manager service.
+    * Reader - They can view information about everything. For instance the device network, general, and security settings. But they can't make any changes to those settings. 
+    * User Access Administrator  - They can manage user access to the storage account. For example, they can grant Reader access to a specific user.
     * Log Analytics Contributor
     * Log Analytics Reader
     * Monitoring Contributor
