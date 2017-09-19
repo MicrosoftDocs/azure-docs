@@ -31,7 +31,9 @@ In the following tables, services that are specified as Azure Resource Manager e
 >
 >
 
-## [Compute](documentation-government-compute.md)
+## Compute
+
+[Azure Government Compute Documentation](documentation-government-compute.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -41,7 +43,9 @@ In the following tables, services that are specified as Azure Resource Manager e
 | Service Fabric | Yes | Yes |
 | Virtual Machine Scale Sets | Yes | Yes |
 
-## [Networking](documentation-government-networking.md)
+## Networking
+
+[Azure Government Networking Documentation](documentation-government-networking.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -52,7 +56,9 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | Yes | Yes |
 | Application Gateway | Yes | Yes |
 
-## [Storage](documentation-government-services-storage.md)
+## Storage
+
+[Azure Government Storage Documentation](documentation-government-services-storage.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -64,7 +70,9 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
 | [Import/Export](documentation-government-services-storage.md#azure-importexport) | Yes | Yes |
 
-## [Web + Mobile](documentation-government-services-webandmobile.md)
+## Web + Mobile
+
+[Azure Government Web and Mobile Documentation](documentation-government-services-webandmobile.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -74,7 +82,9 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Media Services](documentation-government-services-media.md) | Yes | Yes |
 | API Management | Yes | Yes |
 
-## [Databases](documentation-government-services-database.md)
+## Databases
+
+[Azure Government Databases Documentation](documentation-government-services-database.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -83,20 +93,27 @@ In the following tables, services that are specified as Azure Resource Manager e
 | SQL Server Stretch Database | Yes | Yes |
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
-## [Data + Analytics](documentation-government-services-dataandanalytics.md)
+
+## Data + Analytics
+
+[Azure Government Data and Analytics Documentation](documentation-government-services-dataandanalytics.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | [HDInsight](documentation-government-services-intelligenceandanalytics.md) | Yes | Yes |
 | [Power BI Pro](documentation-government-services-intelligenceandanalytics.md) | No | No (Office 365 admin portal) |
 
-## [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md)  
+## AI + Cognitive Services 
+
+[Azure Government AI and Cognitive Services Documentation](documentation-government-services-aiandcognitiveservices.md) 
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) | Yes | No |
 
-## [Internet of Things](documentation-government-services-iot-hub.md)
+## Internet of Things
+
+[Azure Government IoT Documentation](documentation-government-services-iot-hub.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -112,7 +129,9 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
 
-## [Security + Identity](documentation-government-services-securityandidentity.md)
+## Security + Identity
+
+[Azure Government Security and Identity Documentation](documentation-government-services-securityandidentity.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
@@ -120,7 +139,9 @@ In the following tables, services that are specified as Azure Resource Manager e
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | Yes |
 | Multi-Factory Authentication | Yes | Yes |
 
-## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+## Monitoring + Management
+
+[Azure Government Monitoring and Management Documentation](documentation-government-services-monitoringandmanagement.md)
 
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
