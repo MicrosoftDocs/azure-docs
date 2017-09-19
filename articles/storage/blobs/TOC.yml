@@ -10,24 +10,13 @@
     href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Create a storage account - CLI
     href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Work with blobs - .NET 
+    href: storage-quickstart-blobs-dotnet.md
   - name: Work with blobs - PowerShell
     href: storage-quickstart-blobs-powershell.md
   - name: Work with blobs - CLI
     href: storage-quickstart-blobs-cli.md
-  - name: Work with blobs - .NET 
-    href: storage-quickstart-blobs-dotnet.md
 - name: Tutorials
-  items:
-  - name: Upload and process an image
-    items:
-    - name: 1 - Upload and retrieve image data in the cloud
-      href: storage-upload-process-images.md
-    - name: 2 - Trigger Azure Functions to process blobs
-      href: storage-resize-image-event-grid-function.md
-    - name: 3 - Secure application data
-      href: storage-secure-access-application.md
-    - name: 4 - Monitor and troubleshoot storage
-      href: storage-monitor-troubleshoot-storage-application.md
 - name: Samples
   items:
   - name: Azure PowerShell
