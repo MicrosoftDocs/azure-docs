@@ -37,12 +37,11 @@ This tutorial covers the following tasks:
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/tutorial-functions-http-trigger/functions-vs-workloads.png)
     
-    >[!NOTE]  
-    >After you install or upgrade to Visual Studio 2017 version 15.3, you must manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+- After you install or upgrade to Visual Studio 2017 version 15.3, you must manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**.
 
 - Complete the [Build a .NET application using the Graph API](tutorial-develop-graph-dotnet.md) tutorial, or get the example code from the [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) GitHub repo and build the project.
  
-## Build a Function in Visual Studio
+## Build a function in Visual Studio
 
 1. Add an **Azure Functions** project to your solution by right-clicking on the project node in **Solution Explorer**, the choose **Add** > **New Item**. Choose **Azure Functions** from the dialog box, and name it **PeopleDataFunctions**.
 
@@ -160,7 +159,7 @@ This tutorial covers the following tasks:
 
    The code is basically the same connection logic as in the original console application that seeded the database, with a simple query to retrieve the matching records.
 
-## Debug the Azure Function Locally
+## Debug the Azure function locally
 
 Now that the code is complete, you can use the Azure Function's local debugging tools and emulator to run the code locally to test it.
 
@@ -188,7 +187,7 @@ Now that the code is complete, you can use the Azure Function's local debugging 
 
 After the Azure Function is validated and seems to be working properly, the last step is to publish it to Azure App Service and configure it to run in the cloud.
 
-## Publish the Azure Function
+## Publish the Azure function
 
 1. In **Solution Explorer**, right-click the project, then select **Publish**.
 
