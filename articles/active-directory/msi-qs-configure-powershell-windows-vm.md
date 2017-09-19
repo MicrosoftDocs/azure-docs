@@ -142,7 +142,10 @@ If you have a Virtual Machine that no longer needs an MSI, you can use the `Remo
 ## Related content
 
 - [Managed Service Identity overview](msi-overview.md)
-- This article is adapted from the [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md) QuickStart, modified to include MSI-specific instructions. 
+- This article is adapted from the following articles, modified to include MSI-specific instructions:
+  
+  - [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md) 
+  - [Create a Linux virtual machine with PowerShell](../virtual-machines/linux/quick-create-powershell.md) 
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
