@@ -38,11 +38,11 @@ This quickstart describes how to use Python to create an Azure data factory. The
     ```
 2.	Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the input.txt file to the container. 
 
-## Install .whl Package
+## Install python package
 
 1.	Download the Azure Data Factory Python file into a directory where you’ll run your project.
-2.	Open a terminal or command prompt with administrator priveleges. 
-3.	Run the following commands to install the package
+2.	Open a terminal or command prompt with administrator privileges. 
+3.	To install the package, run the following command:
 
     ```
     pip install azure_mgmt_datafactory-0.1.0-py2.py3-none-any.whl
@@ -67,7 +67,7 @@ This quickstart describes how to use Python to create an Azure data factory. The
     import json
     import time    
     ```
-2. Add the following functions to print information. 
+2. Add the following functions that print information. 
 
     ```python
     def print_item(group):
@@ -145,7 +145,7 @@ print_item(ls)
 In this section, you create two datasets: one for the source and the other for the sink.
 
 ### Create a dataset for source Azure Blob
-Add the following code to the Main method that creates an Azure blob dataset. For inofrmaiton about properties of Azure Blob dataset, see [Azure blob connector](connector-azure-blob-storage.md#dataset-properties) article. 
+Add the following code to the Main method that creates an Azure blob dataset. For information about properties of Azure Blob dataset, see [Azure blob connector](connector-azure-blob-storage.md#dataset-properties) article. 
 
 You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step.
 
@@ -161,7 +161,7 @@ print_item(ds)
 ```
 
 ### Create a dataset for sink Azure Blob
-Add the following code to the Main method that creates an Azure blob dataset. For inofrmaiton about properties of Azure Blob dataset, see [Azure blob connector](connector-azure-blob-storage.md#dataset-properties) article. 
+Add the following code to the Main method that creates an Azure blob dataset. For information about properties of Azure Blob dataset, see [Azure blob connector](connector-azure-blob-storage.md#dataset-properties) article. 
 
 You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step.
 
@@ -222,5 +222,5 @@ adf_client.data_factories.delete(rg_name, df_name)
 ```
 
 ## Next steps
-You used Python to create a data factory and a pipeilne in this tutorial. The pipeline in this sample copies data from one location to another location in an Azure blob storage. To learn more, review other Quickstarts and tutorials.
+You used Python to create a data factory and a pipeline in this tutorial. The pipeline in this sample copies data from one location to another location in an Azure blob storage. To learn more, review other Quickstarts and tutorials.
 
