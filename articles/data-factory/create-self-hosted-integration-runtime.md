@@ -98,6 +98,17 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 	2. Optionally, click **Show authentication key** to see the key text.
 	3. Click **Register**.
 
+
+## High Availability and Scalability
+A Self-hosted Integration Runtime can be associateed to multiple on-premise machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are: 
+1. Higher availability of Data Management Gateway (DMG) – DMG will no longer be the single point of failure in your Big Data 	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
+2. Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on performance comparisons.
+
+We can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtainined from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](https://review.docs.microsoft.com/en-us/azure/data-factory/tutorial-copy-onprem-data-to-cloud-powershell?branch=pr-en-us-22250#create-self-hosted-ir) 
+
+> [!NOTE]
+> You do not need to create new Self-hosted Integration Runtime for associating each node. 
+
 ## System tray icons/ notifications
 If you move cursor over the system tray icon/notification message, you can find details about the state of the self-hosted integration runtime.
 
