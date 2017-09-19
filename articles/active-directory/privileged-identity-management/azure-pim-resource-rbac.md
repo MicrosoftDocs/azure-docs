@@ -13,614 +13,181 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2017
+ms.date: 09/19/2017
 ms.author: barclayn
 
 ---
-
-
-# Azure PIM for Resource RBAC – Private Preview 2
-
-
-Greetings, and thank you for electing to participate in an exclusive first look
-at PIM for RBAC! We are thankful to have customers like you, eager to test early
-versions of products we hope will bring immense value to all our customers soon.
-
->[!Important]
-Please keep in mind the product is in early stages of development, and you may
-encounter bugs. The functionality, including text and naming conventions are
-subject to change, and should not be considered final. Additionally,
-participation in this program is covered under your NDA, and the experiences are
-not to be shared with other customers without prior approval.
-
-
-In the event you have an urgent issue, or have feedback to share, please <mailto:pimrbacjit@service.microsoft.com>
-
-## Terminology
-
-
-**Role –** A grouping of permissions.
-
-*Role Assignment (v.)* – The act of assigning a user or group to a role.
-
-*Role Assignment (n.)* – The role(s) assigned to a specific user or group.
-
-*Eligible* – A type of role assignment that indicates a user or group member may
-activate a role assignment.
-
-*Active* – The state of role assignment as it pertains to a user or group
-member. A permanent role assignment is equivalent to “Always Active”, while
-eligible role assignment may be inactive, active, or expired.
-
-*Resource Owner* – A user or group assigned to the Owner or User Access
-Administrator role of a specific resource in the Azure Resource Management
-portal.
-
-*Resource User* – A user or group with operational role assignment(s) to a
-resource. Not expected to manage role assignment or privileged access.
-
-*Just-In-Time (JIT)* – Activating an eligible role assignment to perform tasks
-upon that resource. Also known as “Role Activation” or “Role Elevation”.
-
-*Activation Window* – The duration of time an eligible role assignment is
-active.
-
-## Scenarios
-
-
-The current build covers the following scenarios:
-
-1.  As a **Resource User**, I can:
-
-    1.  [Access the PIM for RBAC
-        environment](#accessing-the-pim-for-azure-rbac-portal)
-
-    2.  [View my eligible role assignments](#activation)
-
-    3.  [Activate an eligible role](#activation)
-
-        1.  [Specify an activation window (less than or equal to the
-            maximum)](#specify-activation-duration)
-
-        2.  [Enter a justification](#specify-justification)
-
-        3.  [Succeed Multi-Factor Authentication (if
-            required)](#activation-with-mfa)
-
-    4.  use the [PIMAzureRbac_v1.0.ps1 PowerShell script](#powershell-script)
-        to: - **NEW!**
-
-        1.  [List my eligible role assignments](#powershell-documentation)
-
-        2.  [Activate an eligible role assignment](#powershell-documentation)
-
-        3.  [Deactivate an active role assignment](#powershell-documentation)
-
-2.  As a **Resource Owner**, I can do all the above scenarios, as well as:
-
-    1.  [View resource roles and role assignments](#user-table)
-
-    2.  [Manage resource role assignments including](#user-table)
-
-        1.  [Assign (add) a user or group to a role as
-            eligible](#add-assign-a-user)
-
-        2.  [Specify a role assignment expiration date](#add-assign-a-user)
-
-        3.  [Remove role assignments](#user-settings)
-
-    3.  [Manage default role settings including](#role-settings)
-
-        1.  [Require MFA to activate](#role-settings)
-
-        2.  [Maximum activation duration](#role-settings)
-
-    4.  [Review subscription owner role assignment access](#access-reviews) –
-        **NEW!**
-
-    5.  [View eligible user activation history
-        including](#activation-history-audit) – **NEW!**
-
-        1.  [Resource specific events (activities) within activation
-            windows](#activation-history-audit) – **NEW!**
-
-    6.  [View and manage role assignment notifications](#notifications-alerts) –
-        **NEW!**
-
-        1.  [Fix notifications](#fix-a-notification) – **NEW!**
-
-## Items of note & Known issues
-
-
--   Members of the Subscription Admins in the classic Azure portal cannot be
-    explicitly added to the Owner role of a resource. These users are already
-    considered “Owner” of the resource.
-
--   Subscription Admins and Co-administrators are represented as a group in the
-    PIM for Azure RBAC environment. This group cannot be expanded to see current
-    membership.
-
--   Co-administrators must be removed from the classic portal interface before
-    adding them to the Owner role.
-
--   Users or group members with an Owner role assignment subordinate to a
-    Subscription resource must modify the Resource Filter to access the
-    resource.
-
--   Filters are not persistent and must be set each time you return to the All
-    Resources view.
-
-## Environment/Walkthrough
-
-
-### Primary Left Navigation (Nav)
-
-For the scenarios covered in this preview, you will have access to the “Azure
-Resources” tab under Manage, and the “Activate” tab under My Actions. The
-“Directory Roles” tab will open a blade with a link-out to Azure AD PIM in the
-event you need access to that environment.
-
-![](media/azure-pim-resource-rbac/image001.png)
-
-### Subscription Filter
-
-If you have access to multiple subscriptions, you may multi-select only the
-subscriptions relative to your needs.
-
-![](media/azure-pim-resource-rbac/image003.png)
-
-### Resource Filter
-
-Allows you to modify what resources are visible for management. Subscription is
-set as the default filter.
-
-![](media/azure-pim-resource-rbac/image005.png)
-
-### Search bar
-
-Allows you to search for resources. The search bar is constrained by the filters
-applied above it.
-
-![](media/azure-pim-resource-rbac/image007.png)
-
-### Resource Table
-
-This table displays the resource by Resource Name, the type of resource, number
-of roles, and members in all roles of the resource.
-
-![](media/azure-pim-resource-rbac/image009.png)
-
-### Resource selection & Access
-
-In the image below, the user has selected the Subscription resource. This
-particular user only has read permissions to the subscription, and is unable to
-see role information at this level.
-
-![](media/azure-pim-resource-rbac/image011.png)
-
-When the user modifies the resource filter for Resource Group, they can see the
-will then see the Resource Groups associated with the Subscription.
-
-![](media/azure-pim-resource-rbac/image013.png)
-
-Upon selecting the Resource Group, note that the user can see details about the
-resource.
-
-![](media/azure-pim-resource-rbac/image015.png)
-
-### User Table
-
-Selecting the “Users” tab in the Secondary Left Nav will display the user table.
-Column header and other details to note in this view are as follows:
-
-**MSPIM User Account** – This account is used by the PIM service to perform
-just-in-time (JIT) activation on-behalf of a user. Please do not remove this
-account.
-
-**Subscription Admins** – This account is a representation of the Subscription
-Admins group from the classic portal (this includes Co-Administrators). This
-group cannot be managed.
-
--   **Role** – Indicates the specific role for that user
-
--   **Email** – Email address of the User or Group
-
--   **JIT Required** – Indication a User or Group Member must activate their
-    role to perform any operations that role permits
-
--   **Activated** – Indicates a user has activated their role. Users with
-    permanent access (JIT Required = No), will always show Yes in this column.
-
--   **Assignment Type** – Indicates if membership in the role is directly
-    assigned, or inherited by a parent resource role. For more information on
-    role inheritance, [please see this
-    article](../role-based-access-control-configure.md).
-
--   **Active Through** – Shows the date/time role activation (JIT) will expire.
-    Permanent users will always show as Permanent.
-
--   **Eligible Through** – Shows the date/time the user or group will be removed
-    from the role. Users or groups showing “Direct” as their “Assignment Type”
-    may be modified by users or group members in the Owner role of this
-    resource, or a parent resource. Once updated, the user or group will show a
-    date/time in this column.
-
-![](media/azure-pim-resource-rbac/image017.png)
-
-### Role Settings
-
-Selecting role settings at the top of the User Table opens the role selector to
-the right of the User Table. Selecting a role from the list allows you to modify
-the settings for that role.
+# PIM for Azure resources (Preview)
+
+With Azure Active Directory Privileged Identity Management (PIM), you can now manage, control, and monitor access to Azure Resources (Preview) within your organization. This includes Subscriptions, Resource Groups, and even Virtual Machines. Any resource within the Azure portal that leverages the Azure Role Based Access Control (RBAC) functionality can take advantage of all the great security and lifecycle management capabilities Azure AD PIM has to offer, and some great new features we plan to bring to Azure AD roles soon. 
+
+## PIM for Azure Resources (Preview) helps resource administrators
+
+- See which users and groups are assigned roles for the Azure resources you administer
+- Enable on-demand, "just in time" access to manage resources such as Subscriptions, Resource Groups, and more
+- Expire assigned users/groups resource access automatically with new time-bound assignment settings
+- Assign temporary resource access for quick tasks or on-call schedules
+- Enforce Multi-Factor Authentication for resource access on any built-in or custom role 
+- Get reports about resource access correlated resource activity during a user’s active session
+- Get alerts when new users or groups are assigned resource access, and when they activate eligible assignments
+
+Azure AD PIM can manage the built-in Azure Resource roles, as well as custom (RBAC) roles, including (but not limited to):
+
+- Owner
+- User Access Administrator
+- Contributor
+- Security Admin
+- Security Manager, and more
 
 >[!NOTE]
-Settings only apply to users, or members of groups, with JIT Required =
-Yes, and Assignment Type = Direct in the Role you are modifying.*
+Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../role-based-access-built-in-roles.md)
 
-The settings for Private Preview 2 are as follows:
+## Tasks
 
-**Maximum Allowed Role Activation Duration** – Specify the number of days,
-hours, minutes and seconds a user can activate their role.
+PIM provides convenient access to activate roles, view pending activations/requests, pending approvals (for [Azure AD directory roles](azure-ad-pim-approval-workflow.md)), and reviews pending your response from the Tasks section of the left navigation menu.
+When accessing any of the Tasks menu items from the Overview entry point, the resulting view contains results for both Azure AD directory roles and Azure Resource roles (Preview). 
 
-**Require MFA for Activation** – Enable this setting to require MFA during role
-activation. This does not apply to Permanent users.
+![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-![](media/azure-pim-resource-rbac/image019.png)
+My roles contain a list of your active and eligible role assignments for Azure AD directory roles, and Azure Resource roles (Preview).
 
-### User Settings
+## Activate roles
 
-To view specific details about a user, remove the user, or to modify settings;
-select the role of the user in the table. To remove the user, click “Remove” in
-the User Details blade.
+Activating roles for Azure Resources (Preview) introduces a new experience that allows eligible role members to schedule activation for a future date/time and select a specific activation duration within the maximum (configured by administrators). Learn about [activating Azure AD roles here](../active-directory-privileged-identity-management-how-to-activate-role.md)
 
-![](media/azure-pim-resource-rbac/image021.png)
+![](media/azure-pim-resource-rbac/contributor.png)
 
-Select “Change Settings” to make changes for this user.
+From the Activations menu, input the desired start date and time to activate the role. Optionally decrease the activation duration (the length of time the role is active) and enter a justification if required; click activate.
 
->[!NOTE]
-You are only able to modify settings of users with Assignment Type =
-Direct in the resource role for which you are Owner.*
+If the start date and time is not modified, the role will be activated within seconds. You will see a role queued for activation banner message on the My Roles page. Click the refresh button to clear this message.
 
--   Select “Yes” for “Does the selected user require activation for access?” to
-    require JIT.
+![](media/azure-pim-resource-rbac/my-roles.png)
 
--   Select “No” for “Do you want to grant permanent access to the selected
-    user?” to specify a date the user or group will be removed from the role.
-    Specify a date/time, and click “Update” at the bottom of the window.
+If the activation is scheduled for a future date time, the pending request will appear in the Pending Requests tab of the left navigation menu. In the event the role activation is no longer required, the user may cancel the request by clicking the Cancel button on the right side of the page.
 
-![](media/azure-pim-resource-rbac/image023.png)
+![](media/azure-pim-resource-rbac/pending-requests.png)
 
-### Add (Assign) a user
+## Discover and manage Azure resources
 
-To add (assign) a user to a role, select the “+Add User” button at the top of
-the user table window. This will open the add user window to the right.
+To find and manage roles for an Azure Resource, select Azure Resources (Preview) under the Manage tab in the left navigation menu. Use the filters or search bar at the top of the page to find a resource.
 
-![](media/azure-pim-resource-rbac/image025.png)
+![](media/azure-pim-resource-rbac/azure-resources.png)
 
-Select a role from the list:
+## Resource dashboards
 
-![](media/azure-pim-resource-rbac/image027.png)
+The Admin View dashboard has four primary components. A graphical representation of resource role activations over the past seven days. This data is scoped to the selected resource and displays activations for the most common roles (Owner, Contributor, User Access Administrator), and all roles combined.
 
-Next, select a user or group:
+To the right of the activations graph, are two charts that display the distribution of role assignments by assignment type, for both users and groups. Selecting a slice of the chart changes the value to a percentage (or vice versa).
 
-![](media/azure-pim-resource-rbac/image029.png)
+![](media/azure-pim-resource-rbac/admin-view.png)
 
-Add User to role - Settings
+Below the charts, you see the number of users and groups with new role assignments over the last 30 days (left), and a list of roles sorted by total assignments (descending).
 
--   JIT Required = **Yes (default)**/No
+![](media/azure-pim-resource-rbac/role-settings.png)
 
--   Grant Permanent Access = Yes/**No (default)**
+## Manage role assignments
 
--   Eligible Through = Today (Current date/time) + 1 year
+Administrators can manage role assignments by selecting either Roles or Members from the left navigation. Selecting roles allows admins to scope their management tasks to a specific role, while Members displays all user and group role assignments for the resource.
+
+![](media/azure-pim-resource-rbac/roles.png)
+
+![](media/azure-pim-resource-rbac/members.png)
 
 >[!NOTE]
-If you do not modify these settings, you can simply close the Membership
-settings window by clicking the x at the top*.
+If you have a role pending activation, a notification banner is displayed at the top of the page when viewing membership.
 
-![](media/azure-pim-resource-rbac/image031.png)
+## Asign roles
 
-Click Add at the bottom of the window:
+To assign a user or group to a role, select the role (if viewing Roles), or click Add from the action bar (if on the Members view).
 
-![](media/azure-pim-resource-rbac/image033.png)
-
-A “Success” notification will appear when the user is added to the role:
-
-![](media/azure-pim-resource-rbac/image035.png)
-
-### Role View
-
-In the Role View, each role appears with a list of memberships. You’ll notice
-the user we added in the above scenario shows in the Contributor role, with JIT
-Required = Yes, and an Eligible Through of one year from today’s date and time.
-
-![](media/azure-pim-resource-rbac/image037.png)
-
->[!Note]
- All user and role configuration options available in the User Table view
-are also available in the Role View.*
-
-## Activation
-
-To activate a role, an eligible user navigates to the Azure PIM for RBAC
-environment. Depending on their existing role memberships within various
-subscriptions, they may or may not see any information upon accessing the
-portal. In the example below, Dave Thomas is eligible to activate roles in a
-single subscription. Since his roles are not active, he sees no resources in the
-list.
-
-![](media/azure-pim-resource-rbac/image039.png)
-
-Selecting the “Activate” tab from the primary left nav will display his eligible
-roles for activation:
-
-![](media/azure-pim-resource-rbac/image041.png)
-
-Selecting the role for activation opens the activation window below:
-
-![](media/azure-pim-resource-rbac/image043.png)
-
-### Activation with MFA
-
-If the role requires MFA for activation, an orange banner will appear at the top
-of the window. Selecting this banner informs the user they must succeed MFA
-before proceeding, and allows them to do so.
-
-![](media/azure-pim-resource-rbac/image045.png)
-
-If required, click “Verify my identity”:
-
-![](media/azure-pim-resource-rbac/image047.png)
-
-You will then be taken through the MFA experience
-
-![](media/azure-pim-resource-rbac/image049.png)
-
-After succeeding MFA, you’ll be returned to the list of roles for activation.
-Click Activate.
-
-![](media/azure-pim-resource-rbac/image051.png)
-
-### Specify Activation Duration
-
-In the “Activations” window, the default (maximum) duration is already
-displayed. Enter a justification.
-
-![](media/azure-pim-resource-rbac/image053.png)
-
->[!Note]
-You can activate a role for any duration between 1 second and the maximum
-specified in the role settings.*
-
-### Specify Justification
-
-![](media/azure-pim-resource-rbac/image055.png)
-
-Once activation is complete, you may navigate to the resource from the left most
-Azure navigation (the vertical black icon bar) in the image below.
-
-![](media/azure-pim-resource-rbac/image057.png)
-
-### Deactivate a role
-
-If a user completes their work before the activation expires, they may
-deactivate their role by returning to the PIM for Azure RBAC environment,
-selecting “Activate” under “My Actions” to view the list of active roles.
-
-![](media/azure-pim-resource-rbac/image059.png)
-
-Selecting the role opens the Activations window. Click Deactivate.
-
-![](media/azure-pim-resource-rbac/image061.png)
-
-A confirmation notification will appear at the top of the screen.
-
-![](media/azure-pim-resource-rbac/image063.png)
-
-At this point the user no longer has access to the resources in the portal.
-
-![](media/azure-pim-resource-rbac/image065.png)
-
-## Accessing the PIM for Azure RBAC portal
-
-To access the portal, enter the below short-link in your web browser.
-
-Aka.ms/PIMazureRBAC
-
->[!Note]
-There are known issues with IE. Please use Edge, Chrome, or Firefox.*
-
-**As a reminder, please submit feedback, suggestions, comments, or ideas to:**
-<PIMRBACJIT@service.microsoft.com>
-
-## Activation History (Audit)
-
-After logging into the environment (and activating your role, if required),
-navigate to a specific resource (i.e. Subscription).
-
-![](media/azure-pim-resource-rbac/image067.png)
-
-Selecting the resource will open the “Overview” blade. Select “Users” and find a
-user with activity.
-
-![](media/azure-pim-resource-rbac/image069.png)
-
-Selecting the user will open the “User Details” blade. This blade has two
-important sections. The bar chart called “Resource Activity Summary”, which
-shows the number of activities the user performed in the Azure Resource
-management portal on a given date. The date range is configurable after the page
-loads. Below the bar chart is the Role Activations section, which shows the
-activation (and deactivation) history for the specific user. Each row within
-this table represents an activation window, and is selectable.
-
-![](media/azure-pim-resource-rbac/image071.png)
-
-Selecting an activation window will open a new blade to the right, that displays
-the user’s role activity at the top, and the associated Azure resource activity
-below. Role activity may include such activities as assigning another user to a
-role, modifying role settings, requesting activation of another role, or
-deactivating their role.
-
-![](media/azure-pim-resource-rbac/image073.png)
-
-## Access Reviews
-
-In Private Preview 2, the service supports reviewing access of Subscription
-resource, owners. To begin a review, as an owner of a subscription, select the
-“Review Access Assignments” navigation option.
-
-![](media/azure-pim-resource-rbac/image075.png)
-
-Input the required information such as title, start/end date, and reviewers.
-
-![](media/azure-pim-resource-rbac/image077.png)
-
-When selecting “Review role membership” option (required), be sure to select
-Owner. Other roles are not yet supported.
+![](media/azure-pim-resource-rbac/members2.png)
 
 >[!NOTE]
-The required “Review role membership” section will take approximately
-20 seconds to load.
+If adding a user or group from the Members tab, you’ll need to select a role from the Add menu before you can select a user or group.
 
-![](media/azure-pim-resource-rbac/image079.png)
+![](media/azure-pim-resource-rbac/select-role.png)
 
-If an existing review is in-progress, a notification will appear but does not
-prevent the creation of a new access review.
+Choose a user or group from the directory.
 
-![](media/azure-pim-resource-rbac/image081.png)
+![](media/azure-pim-resource-rbac/choose.png)
 
-When selecting reviewers, there are three options. Me, meaning you (the person
-initiating the review) will review the memberships. Members review themselves;
-each member of the owner role will receive an email asking to review their own
-access. Select reviewer, opens a user picker, to search for and select specific
-reviewers.
+Choose the appropriate assignment type from the dropdown menu. 
 
-![](media/azure-pim-resource-rbac/image083.png)
+**Just In Time Assignment:** provides the user or group members with eligible but not persistent access to the role for a specified period of time or indefinitely (if configured in role settings). 
 
-Once all the required information is complete, select “Start” at the bottom of
-the blade.
+**Direct Assignment:** does not require the user or group members to activate the role assignment (known as persistent access). Microsoft recommends using direct assignment for short-term use such as on-call shifts, or time sensitive activities, where access won’t be required when the task is complete.
 
-Once the review is underway, a list of active reviews is displayed in the main
-blade.
+![](media/azure-pim-resource-rbac/membership-settings.png)
 
-![](media/azure-pim-resource-rbac/image084.png)
+A checkbox below the assignment type dropdown allows you to specify if the assignment should be permanent (permanently eligible to activate Just in Time Assignment/permanently active for Direct Assignment). To specify a specific assignment duration, unselect the checkbox and modify the start and/or end date and time fields.
 
-Selecting one of the reviews opens the access review. If you’ve been designated
-as a reviewer, you may select one, multiple, or all the users listed. Enter a
-justification (if required) and click approve, or deny. The reset button clears
-the selections. After responding, the status is displayed in the list of active
-reviews.
+>[!NOTE]
+The checkbox may be unmodifiable if another administrator has specified the maximum assignment duration for each assignment type in the role settings.
 
-![](media/azure-pim-resource-rbac/image087.png)
+![](media/azure-pim-resource-rbac/calendar.png)
 
-Reviews are active until the designated end date. If all reviewers have
-completed the review, it may be ended early, and results may be applied.
+## View activation and Azure Resource activity
 
-To end a review, send a reminder to reviewers, modify settings, and more, select
-the “Current access reviews for Azure RBAC roles” from the overview blade:
+In the event you need to see what actions a specific user took on various resources, you can review the Azure Resource activity associated with a given activation period (for eligible users). Start by selecting a user from the Members view or from the list of members in a specific role. The result displays a graphical view of the user’s actions on Azure Resources by date, and the recent role activations over that same time period.
 
-![](media/azure-pim-resource-rbac/image088.png)
+![](media/azure-pim-resource-rbac/user-details.png)
 
-This will open the list of all active, and completed reviews.
+Selecting a specific role activation will show the role activation details, and corresponding Azure Resource activity that occurred while that user was active.
 
-![](media/azure-pim-resource-rbac/image090.png)
+![](media/azure-pim-resource-rbac/audits.png)
 
-From this view, selecting an active review allows you to view status, reset the
-current responses, or delete the review.
+## Modify existing assignments
 
-![](media/azure-pim-resource-rbac/image092.png)
+To modify existing assignments from the user/group detail view, select Change Settings from the action bar at the top of the page. Change the assignment type to Just In Time Assignment or Direct Assignment.
 
-When a completed review has ended, you may apply the results provided by the
-reviewers.
+![](media/azure-pim-resource-rbac/change-settings.png)
 
-![](media/azure-pim-resource-rbac/image094.png)
+## Review who has access in a subscription
 
-Selecting “Apply” will display a prompt communicating the memberships that will
-be removed.
+To review role assignments in your Subscription, select the Members tab from the left navigation, or select roles, and choose a specific role to review members. 
 
-![](media/azure-pim-resource-rbac/image096.png)
+Select Review from the action bar to view existing access reviews and select Add to create a new review.
 
-Selecting yes will trigger the membership removal. To view the details, select
-“Approvals” from the left navigation.
+![](media/azure-pim-resource-rbac/owner.png)
 
-![](media/azure-pim-resource-rbac/image098.png)
+[Learn more about access reviews](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
-Selecting a user from this list will display the user’s activity details.
+>[!NOTE]
+Reviews are only supported for Subscription resource types at this time.
 
-In the access reviews list, default review options such as duration,
-notifications, reminders, and require reason on approval are accessible here.
+## Configure role settings
 
-![](media/azure-pim-resource-rbac/image100.png)
+Configuring role settings define the defaults applied to assignments in the PIM environment. To define these for your resource, select the Role Settings tab from the left navigation, or the role settings button from the action bar in any role to view the current options.
 
-## Notifications (Alerts)
+Clicking Edit from the action bar at the top of the page allows you to modify each setting.
 
-Notifications may be accessed from the left navigation of a subscription
-resource
+![](media/azure-pim-resource-rbac/owner.png)
 
-![](media/azure-pim-resource-rbac/image102.png)
+![](media/azure-pim-resource-rbac/owner02.png)
 
-To adjust notification thresholds, select the “Settings” option at the top of
-the blade.
+Changes to settings are logged on the role settings page including the last updated date time, and the administrator that changed the settings.
 
-![](media/azure-pim-resource-rbac/image104.png)
+![](media/azure-pim-resource-rbac/role-settings-02.png)
 
-Select a notification to configure
+## Resource audit
 
-![](media/azure-pim-resource-rbac/image106.png)
+Resource audit gives you a view of all role activity for the resource. You can filter the information using a predefined date or custom range.
+![](media/azure-pim-resource-rbac/last-day.png)
+Resource audit also provides quick access to view a user’s activity detail. In the view, all “Activate role” Actions are links to the specific requestor’s resource activity.
+![](media/azure-pim-resource-rbac/resource-audit.png)
 
-In the settings blade, two options appear for configuration. The first, “Minimum
-number of resource Owners to trigger computation of percentage (see next setting
-below)”. This value determines when the service will calculate the threshold
-value “Minimum percentage of resource Owners out of total Owners to trigger an
-alert”.
+## Just enough administration
 
-### Too many owners assigned to a resource
+Using just enough administration (JEA) best practices with your resource role assignments is simple with PIM for Azure Resources. Users and group members with assignments in Azure Subscriptions or Resource Groups can activate their existing role assignment at a reduced scope. 
 
-This notification is useful to determine the number of users assigned to the
-resource as owner, in comparison to all users with any role assignment.
+From the search page, find the subordinate resource you need to manage.
 
-**Consider the following example:** There are 50 users with various role
-assignments in your subscription. There are currently 10 users assigned to the
-owner role. You set the minimum threshold to 10, and the percentage of owners to
-21%. The effect of this configuration is, adding a user to the resource as owner
-will trigger the notification.
+![](media/azure-pim-resource-rbac/azure-resources-02.png)
 
-### Too many permanent owners assigned to a resource
+Select My roles from the left navigation menu and choose the appropriate role to activate. Notice the assignment type is Inherited, since the role was assigned at the subscription, rather than the resource group, as shown below.
 
-This notification is useful to identify permanent owner role assignment.
-
-**Consider the following example:** There are 10 users assigned to owner role of
-a subscription resource. Three of the assigned users are eligible (require
-activation), the remaining seven are permanent. I’ve conferred with my security
-team, and identified no more than 10% of owners should be permitted to have
-permanent access at all times. This notification will continue to trigger until
-nine of the ten users are made eligible (required to activate).
-
-![](media/azure-pim-resource-rbac/image108.png)
-
-### Duplicate role created – Coming Soon!
-
-This alert will display a notification when a custom role (created in PowerShell
-or Azure CLI) is created with similar permissions and/or role assignments as an
-existing custom role, or built-in role.
-
-### Fix a notification
-
-To fix a notification, select it from the list of notifications and review the
-information.
-
-![](media/azure-pim-resource-rbac/image110.png)
-
-Select a group or user that should be removed from the role members, and click
-submit.
-
-![](media/azure-pim-resource-rbac/image112.png)
-
-When the status updates, the user or group is no longer a member of the role.
-
-![](media/azure-pim-resource-rbac/image114.png)
-
-You may have to remove additional assignments to resolve the notification.
+![](media/azure-pim-resource-rbac/my-roles-02.png)
 
 ## Next steps
 
-???
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
