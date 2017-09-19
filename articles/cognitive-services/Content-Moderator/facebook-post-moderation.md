@@ -97,11 +97,11 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 2. Create a Facebook Page.
 
-    1. Navigate to https://www.facebook.com/bookmarks/pages and create a new Facebook Page
-    2. Giving the Facebook App access to this page: 
-    3. Navigate to Graph API Explorer
-    4. Select Application
-    5. Select Page Access Token, Send Get
-    6. Click on the Id in response (this is the Page Id)
-    7. Now append /subscribed_apps to URL and Send Get (empty response)
-    8. Send Post -> the response shall say "success": true
+    1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a new Facebook Page.
+    2. Allow the Facebook App to access this page by following these steps:
+        1. Navigate to the **Graph API Explorer**.
+        2. Select **Application**.
+        3. Select **Page Access Token**, Send a **Get** request.
+        4. Click the ID in the response (this is the Page ID).
+        5. Now append the **"/subscribed_apps"** to the URL and Send a **Get** (empty response) request.
+        6. Submit a **Post** request. You will get the response as **"success": true**.
