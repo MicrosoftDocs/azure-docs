@@ -13,10 +13,11 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 08/01/2017
-ms.author: ruturajd@microsoft.com
 
+ms.date: 08/11/2017
+ms.author: ruturajd
 ---
+
 # Add Azure automation runbooks to recovery plans in the classic portal
 This tutorial describes how Azure Site Recovery integrates with Azure
 Automation to provide extensibility to recovery plans. Recovery plans

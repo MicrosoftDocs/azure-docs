@@ -71,7 +71,7 @@ Before setting up the job in Jenkins, you need an Azure App Service plan and a W
 
 
 1. Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.
-2. Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:
+2. Create a Web App. You can either use the [Azure portal](/azure/app-service/web-sites-configure) or use the following Az CLI command:
 ```azurecli-interactive	
 az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```
@@ -137,7 +137,7 @@ Web App on Linux also supports traditional ways like Git and FTP, but only for b
 
 Before setting up the job in Jenkins, you need an Azure app service on Linux. A container registry is also needed to store and manage your private Docker container images. You can use DockerHub; we are using Azure Container Registry for this example.
 
-* You can follow the steps [here](/azure/app-service-web/app-service-linux-how-to-create-web-app) to create a Web App on Linux 
+* You can follow the steps [here](../app-service/containers/quickstart-nodejs.md) to create a Web App on Linux 
 * Azure Container Registry is a managed [Docker registry] (https://docs.docker.com/registry/) service based on the open-source Docker Registry 2.0. Follow the steps [here] (/azure/container-registry/container-registry-get-started-azure-cli) for more guidance on how to do so. You can also use DockerHub.
 
 ### To deploy using docker:

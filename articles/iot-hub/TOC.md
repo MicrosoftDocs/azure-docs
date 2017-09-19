@@ -15,9 +15,11 @@
 ### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [Use a physical device](iot-hub-get-started-physical.md)
+#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
-#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
+
+#### [MXChip IoT DevKit with Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -30,6 +32,7 @@
 ##### [Set up Intel NUC as a gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Extended IoT scenarios
 ### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -80,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Upload files from devices](iot-hub-csharp-csharp-file-upload.md)
+### [Upload files from devices]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Get started with device twins
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
@@ -94,6 +99,7 @@
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java back end/Java device](iot-hub-java-java-device-management-getstarted.md)
 ### How to use twin properties
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)

@@ -34,15 +34,18 @@
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
     items:
+    - name: Web App for Containers
+      tocHref: /azure/app-service/containers/
+      topicHref: /azure/app-service/containers/
+    - name: App Service Environments
+      tocHref: /azure/app-service/environment/
+      topicHref: /azure/app-service/environment/
     - name: Web Apps
-      tocHref: /azure/app-service-web/
-      topicHref: /azure/app-service-web/
+      tocHref: /azure/app-service/
+      topicHref: /azure/app-service/
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
-    - name: API Apps
-      tocHref: /azure/app-service-api/
-      topicHref: /azure/app-service-api/
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/
@@ -125,6 +128,9 @@
     - name: Language Understanding Intelligent Service (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
+    - name: Text Analytics
+      tocHref: /azure/cognitive-services/text-analytics/
+      topicHref: /azure/cognitive-services/text-analytics/overview
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
@@ -165,6 +171,9 @@
   - name: DNS
     tocHref: /azure/dns/
     topicHref: /azure/dns/
+  - name: Event Grid
+    tocHref: /azure/event-grid/
+    topicHref: /azure/event-grid
   - name: Event Hubs
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/
@@ -295,6 +304,16 @@
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
+    items:
+      - name: Blobs
+        tocHref: /azure/storage/blobs/
+        topicHref: /azure/storage/blobs/storage-blobs-introduction
+      - name: Files
+        tocHref: /azure/storage/files/
+        topicHref: /azure/storage/files/storage-files-introduction 
+      - name: Queues
+        tocHref: /azure/storage/queues/
+        topicHref: /azure/storage/queues/storage-queues-introduction
   - name: StorSimple
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/

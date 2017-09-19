@@ -1,5 +1,5 @@
 ---
-title: Analyze user navigation patterns with Flows in Azure Application Insights | Microsoft docs
+title: Analyze user navigation patterns with User Flows in Azure Application Insights | Microsoft docs
 description: Analyze how users navigate between the pages and features of your web app.
 services: application-insights
 documentationcenter: ''
@@ -15,37 +15,37 @@ ms.date: 08/02/2017
 ms.author: cfreeman
 ---
 
-# Analyze user navigation patterns with Flows in Application Insights
+# Analyze user navigation patterns with User Flows in Application Insights
 
-![Application Insights Flows tool](./media/app-insights-usage-flows/flows.png)
+![Application Insights User Flows tool](./media/app-insights-usage-flows/flows.png)
 
-The Flows tool visualizes how users navigate between the pages and features of your site. It's great for answering questions like:
+The User Flows tool visualizes how users navigate between the pages and features of your site. It's great for answering questions like:
 * How do users navigate away from a page on your site?
 * What do users click on a page on your site?
 * Where are the places that users churn most from your site?
 * Are there places where users repeat the same action over and over?
 
-The Flows tool starts from an initial page view or event that you specify. Given this page view or custom event, Flows shows the page views and custom events that users sent immediately afterwards during a session, two steps afterwards, and so forth. Lines of varying thickness show how many times each path was followed by users. Special "Session Ended" nodes show how many users sent no page views or custom events after the preceding node, highlighting where users probably left your site.
+The User Flows tool starts from an initial page view or event that you specify. Given this page view or custom event, User Flows shows the page views and custom events that users sent immediately afterwards during a session, two steps afterwards, and so forth. Lines of varying thickness show how many times each path was followed by users. Special "Session Ended" nodes show how many users sent no page views or custom events after the preceding node, highlighting where users probably left your site.
 
 
 
 > [!NOTE]
-> Your Application Insights resource must contain page views or custom events to use the Flows tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](app-insights-javascript.md).
+> Your Application Insights resource must contain page views or custom events to use the User Flows tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](app-insights-javascript.md).
 > 
 > 
 
 ## Start by choosing an initial page view or custom event
 
-![Choose an initial event for Flows](./media/app-insights-usage-flows/flows-initial-event.png)
+![Choose an initial event for User Flows](./media/app-insights-usage-flows/flows-initial-event.png)
 
-To get started answering questions with the Flows tool, choose an initial page view or custom event to serve as the starting point for the visualization:
+To get started answering questions with the User Flows tool, choose an initial page view or custom event to serve as the starting point for the visualization:
 1. Click the link in the "What do users do after...?" title, or click the Edit button. 
 2. Select a page view or custom event from the "Initial event" dropdown.
 3. Click "Create graph".
 
 The "Step 1" column of the visualization shows what users did most frequently just after the initial event, ordered top-to-bottom from most- to least-frequent. The "Step 2" and subsequent columns show what users did thereafter, creating a picture of all the ways users have navigated through your site.
 
-By default, the Flows tool randomly samples only the last 24 hours of page views and custom event from your site. You can increase the time range and change the balance of performance and accuracy for random sampling in the Edit menu.
+By default, the User Flows tool randomly samples only the last 24 hours of page views and custom event from your site. You can increase the time range and change the balance of performance and accuracy for random sampling in the Edit menu.
 
 If some of the page views and custom events aren't relevant to you, click the "X" on the nodes you want to hide. Once you've selected the nodes you want to hide, click the "Create graph" button below the visualization. To see all of the nodes you've hidden, click the Edit button, then look at the "Excluded events" section.
 
@@ -59,9 +59,9 @@ If you want to see more steps in the visualization, use the "Number of steps" sl
 
 ## After visiting a page or feature, where do users go and what do they click?
 
-![Use Flows to understand where users click](./media/app-insights-usage-flows/flows-one-step.png)
+![Use User Flows to understand where users click](./media/app-insights-usage-flows/flows-one-step.png)
 
-If your initial event is a page view, the first column ("Step 1") of the visualization is a quick way to understand what users did immediately after visiting the page. Try opening your site in a window next to the Flows visualization. Compare your expectations of how users interact with the page to the list of events in the "Step 1" column. Often, a UI element on the page that seems insignificant to your team can be among the most-used on the page. It can be a great starting point for design improvements to your site.
+If your initial event is a page view, the first column ("Step 1") of the visualization is a quick way to understand what users did immediately after visiting the page. Try opening your site in a window next to the User Flows visualization. Compare your expectations of how users interact with the page to the list of events in the "Step 1" column. Often, a UI element on the page that seems insignificant to your team can be among the most-used on the page. It can be a great starting point for design improvements to your site.
 
 If your initial event is a custom event, the first column shows what users did just after performing that action. As with page views, consider if the observed behavior of your users matches your team's goals and expectations. If your selected initial event is "Added Item to Shopping Cart", for example, look to see if "Go to Checkout" and "Completed Purchase" appear in the visualization shortly thereafter. If user behavior is much different from your expectations, use the visualization to understand how users are getting "trapped" by your site's current design.
 
@@ -69,7 +69,7 @@ If your initial event is a custom event, the first column shows what users did j
 
 Watch for "Session Ended" nodes that appear high-up in a column in the visualization, especially early in a flow. This means many users probably churned from your site after following the preceding path of pages and UI interactions. Sometimes churn is expected - after completing a purchase on an eCommerce site, for example - but usually churn is a sign of design problems, poor performance, or other issues with your site that can be improved.
 
-Keep in mind that "Session Ended" nodes are based only on telemetry collected by this Application Insights resource. If Application Insights doesn't receive telemetry for certain user interactions, users could still have interacted with your site in those ways after the Flows tool says the session ended.
+Keep in mind that "Session Ended" nodes are based only on telemetry collected by this Application Insights resource. If Application Insights doesn't receive telemetry for certain user interactions, users could still have interacted with your site in those ways after the User Flows tool says the session ended.
 
 ## Are there places where users repeat the same action over and over?
 
@@ -79,9 +79,9 @@ Look for a page view or custom event that is repeated by many users across subse
 
 ### Why do steps appear disconnected?
 
-![Flows with disconnected steps](./media/app-insights-usage-flows/flows-disconnected.png)
+![User Flows with disconnected steps](./media/app-insights-usage-flows/flows-disconnected.png)
 
-If steps (columns) in a Flows visualization are disconnected, it means none of the paths taken by users between the steps were frequent enough to be shown. To show less frequent events on the visualization so the steps appear connected, adjust the "Detail level" slider in the Edit menu.
+If steps (columns) in a User Flows visualization are disconnected, it means none of the paths taken by users between the steps were frequent enough to be shown. To show less frequent events on the visualization so the steps appear connected, adjust the "Detail level" slider in the Edit menu.
 
 ### Does the initial event represent the first time the event appears in a session, or any time it appears in a session?
 

@@ -78,7 +78,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 ## Build cloud capabilities file
 The downloaded files include a default *AzureStackCloudCapabilities_with_AddOns_20170627.json* file, which describes the service versions available in Azure Stack Development Kit with PaaS services installed.  If you install additional Resource Providers, you can use the AzureRM.CloudCapabilities PowerShell module to build a JSON file including the new services.  
 
-1.  Make sure you have connectivity to Azure Stack.  These steps can be performed from the Azure Stack development kit host, or you can use [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) to connect from your workstation. 
+1.  Make sure you have connectivity to Azure Stack.  These steps can be performed from the Azure Stack development kit host, or you can use [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) to connect from your workstation. 
 2.  Import the AzureRM.CloudCapabilities PowerShell module:
 
     ```PowerShell

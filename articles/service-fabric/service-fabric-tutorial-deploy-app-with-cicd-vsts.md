@@ -10,11 +10,12 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
+ms.custom: mvc
 
 ---
 
@@ -34,6 +35,7 @@ In this tutorial series you learn how to:
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Configure CI/CD using Visual Studio Team Services
+> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -43,6 +45,13 @@ Before you begin this tutorial:
 - Create a Service Fabric application, for example by [following this tutorial](service-fabric-tutorial-create-dotnet-app.md). 
 - Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-cluster-azure-ps.md)
 - Create a [Team Services account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+
+## Download the Voting sample application
+If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
+
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
 
 ## Prepare a publish profile
 Now that you've [created an application](service-fabric-tutorial-create-dotnet-app.md) and have [deployed the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), you're ready to set up continuous integration.  First, prepare a publish profile within your application for use by the deployment process that executes within Team Services.  The publish profile should be configured to target the cluster that you've previously created.  Start Visual Studio and open an existing Service Fabric application project.  In **Solution Explorer**, right-click the application and select **Publish...**.
@@ -67,47 +76,44 @@ Verify your email and select your account in the **Team Services Domain** drop-d
 Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository** name and select a team project. You can view your code on the web by selecting **See it on the web**.
 
 ## Configure Continuous Delivery with VSTS
-Use the built in wizard in Visual Studio to configure continuous delivery with VSTS.
+A Team Services build definition describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build definition that that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create). 
 
-1. Right-click the **MyApplication** application project in **Solution Explorer**, then select **Add** -> **Continuous Delivery with VSTS**. A dialog box pops up for you to input the required configuration.
+A Team Services release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files to ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
-    ![Continuous Delivery with VSTS][continuous-delivery-with-VSTS]
+### Create a build definition
+Open a web browser and navigate to your new team project at: https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting . 
 
-    **Account**, **Project**, and **Git Repository** values are automatically entered.
+Select the **Build & Release** tab, then **Builds**, then **+ New definition**.  In **Select a template**, select the **Azure Service Fabric Application** template and click **Apply**. 
 
-2. Choose **Hosted VS2017** as the agent queue.
+![Choose build template][select-build-template] 
 
-3. Choose **Create Connection** in the **Cluster Connection** drop-down, which opens a web site to configure a Service Endpoint in VSTS. 
+The voting application contains a .NET Core project, so add a task that restores the dependencies. In the **Tasks** view, select **+ Add Task** in the bottom left. Search on "Command Line" to find the command-line task, then click **Add**. 
 
-4. Set focus on the browser window and choose **New Service Endpoint** -> **Service Fabric**.
+![Add task][add-task] 
 
-    ![New Service Endpoint][new-service-endpoint]
+In the new task, enter "Run dotnet.exe" in **Display name**, "dotnet.exe" in **Tool**, and "restore" in **Arguments**. 
 
-    A dialog pops up to add a new Service Fabric connection.
-    
-5. Select **Certificate Based** and complete the dialog:
+![New task][new-task] 
 
-    ![New Service Endpoint Dialog][new-service-endpoint-dialog]
+In the **Triggers** view, click the **Enable this trigger** switch under **Continuous Integration**. 
 
-    1. Enter a **Connection Name**.
-    2. Enter the cluster's management endpoint in the **Cluster Endpoint** field (for example, "tcp://mycluster.eastus.cloudapp.azure.com:19000"). Specify "tcp://" as the protocol.  The default anagement endpoint port is 19000.
-    3. Input the **Server Certificate Thumbprint**.  The thumbprint can be obtained by opening Service Fabric Explorer for your cluster (https://mycluster.eastus.cloudapp.azure.com:19080).
-        - Choose the **Cluster** node in the tree view and the **Manifest** tab in the right hand pane.
-        - Look for the **<ServerCertificate>** element in the XML file and copy the content of the **X509FindValue** attribute.
-    4. In the **Client Certificate** field, input the client certificate as a Base64 encoded string, required to get the certificate installed on the build agent:
-        - Make sure you have the certificate as a PFX file available.
-        - Run the following PowerShell command to output the PFX file as a Base64Encoded string to the clipboard: `[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(C:\path\to\certificate.pfx)) | clip`
-        - Paste (ctrl+v) the value form the clipboard in to the field in the dialog.
-    5. Type the **Certificate Password** in the **Password** field and click **OK**.
+Select **Save & queue** and enter "Hosted VS2017" as the **Agent queue**. Select **Queue** to manually start a build.  Builds also triggers upon push or check-in.
 
-6. In Visual Studio, choose **<Refresh>** in the **Cluster Connection** field of the **Continuous Delivery with VSTS** dialog. The cluster endpoint you just created should now show up in the drop-down.
+To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster. 
 
-7. Either choose the default build and release definition name, or change the proposed names in the dialog. Click **OK** once you're done.
+### Create a release definition  
 
-After a while a dialog pops-up in Visual Studio, asking if you want to open the build and release definition in you browser. You can choose to do so to inspect how they are configured, but this is not required in order to complete this tutorial.
+Select the **Build & Release** tab, then **Releases**, then **+ New definition**.  In **Create release definition**, select the **Azure Service Fabric Deployment** template from the list and click **Next**.  Select the **Build** source, check the **Continuous deployment** box, and click **Create**. 
 
-- A Team Services build definition describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build definition that that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create).
-- A Team Services release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files to ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+In the **Environments** view, click **Add** to the right of **Cluster Connection**.  Specify a connection name of "mysftestcluster", a cluster endpoint of "tcp://mysftestcluster.westus.cloudapp.azure.com:19000", and the Azure Active Directory or certificate credentials for the cluster. For Azure Active Directory credentials, define the credentials you want to use to connect to the cluster in the **Username** and **Password** fields. For certificate-based authentication, define the Base64 encoding of the client certificate file in the **Client Certificate** field.  See the help pop-up on that field for info on how to get that value.  If your certificate is password-protected, define the password in the **Password** field.  Click **Save** to save the release definition.
+
+![Add cluster connection][add-cluster-connection] 
+
+Click **Run on agent**, then select **Hosted VS2017** for **Deployment queue**. Click **Save** to save the release definition.
+
+![Run on agent][run-on-agent]
+
+Select **+Release** -> **Create Release** -> **Create** to manually create a release.  Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3". 
 
 ## Commit and push changes, trigger a release
 To verify that the continuous integration pipeline is functioning by checking in some code changes to Team Services.    
@@ -126,7 +132,7 @@ Pushing the changes to Team Services automatically triggers a build.  When the b
 
 To check your build progress, switch to the **Builds** tab in **Team Explorer** in Visual Studio.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 
@@ -137,7 +143,7 @@ Once the upgrade of the application begins, you can watch the upgrade progress i
 
 ![Service Fabric Explorer][sfx2]
 
-The application upgrade may take several minutes. When the upgrade is complete, the application will be running the next version.  In this example "1.0.0.20170616.4".
+The application upgrade may take several minutes. When the upgrade is complete, the application will be running the next version.  In this example "1.0.0.20170815.4".
 
 ![Service Fabric Explorer][sfx3]
 
@@ -151,9 +157,9 @@ In this tutorial, you learned how to:
 > * Automatically deploy and upgrade an application
 
 Now that you have deployed an application and configured continuous integration, try the following:
+- [Monitor and diagnose the Voting app](service-fabric-tutorial-monitoring-aspnet.md)
 - [Upgrade an app](service-fabric-application-upgrade.md)
 - [Test an app](service-fabric-testability-overview.md) 
-- [Monitor and diagnose](service-fabric-diagnostics-overview.md)
 
 
 <!-- Image References -->
@@ -175,3 +181,4 @@ Now that you have deployed an application and configured continuous integration,
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
+[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

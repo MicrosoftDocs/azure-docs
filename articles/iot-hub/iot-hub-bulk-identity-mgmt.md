@@ -67,7 +67,7 @@ while(true)
 
 ## Export devices
 
-Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure Storage](../storage/index.md) blob container using a [Shared Access Signature](../storage/storage-security-guide.md#data-plane-security).
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure Storage](../storage/index.md) blob container using a [Shared Access Signature](../storage/common/storage-security-guide.md#data-plane-security).
 
 This method enables you to create reliable backups of your device information in a blob container that you control.
 
@@ -367,7 +367,7 @@ while(true)
 
 ## Get the container SAS URI
 
-The following code sample shows you how to generate a [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md) with read, write, and delete permissions for a blob container:
+The following code sample shows you how to generate a [SAS URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) with read, write, and delete permissions for a blob container:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)

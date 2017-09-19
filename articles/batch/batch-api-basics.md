@@ -42,7 +42,7 @@ The following high-level workflow is typical of nearly all applications and serv
 The following sections discuss these and the other resources of Batch that enable your distributed computational scenario.
 
 > [!NOTE]
-> You need a [Batch account](#account) to use the Batch service. Most Batch solutions also use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **general-purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+> You need a [Batch account](#account) to use the Batch service. Most Batch solutions also use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **general-purpose** storage account type, as described in step 5 of [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -110,7 +110,7 @@ The following table compares the Batch Service and User Subscription pool alloca
 
 Most Batch solutions use Azure Storage for storing resource files and output files.  
 
-Batch currently supports only the general-purpose storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) must specify resource files that reside in general-purpose storage accounts.
+Batch currently supports only the general-purpose storage account type, as described in step 5 of [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) must specify resource files that reside in general-purpose storage accounts.
 
 
 ## Compute node

@@ -1,4 +1,4 @@
----
+﻿---
 title:  What is Azure Application Insights? | Microsoft Docs
 description: Application Performance Management and usage tracking of your live web application.  Detect, triage and diagnose problems, understand how people use your app.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/14/2017
-ms.author: sewhee
+ms.author: bwren
 ---
 # What is Application Insights?
 Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It  integrates with your devOps process, and has connection points to a variety of development tools.

@@ -13,7 +13,7 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
 
@@ -29,6 +29,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## Create a database account
 
@@ -103,7 +104,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 4. Open the Xamarin project, and navigate to TodoItemManager.cs. Fill in the values for accountURL, collectionId, databaseId, as well as resourceTokenBrokerURL as the base https url for the resource token broker website.
 
-5. Complete the [How to configure your App Service application to use Facebook login](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) tutorial to setup Facebook authentication and configure the ResourceTokenBroker website.
+5. Complete the [How to configure your App Service application to use Facebook login](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md) tutorial to setup Facebook authentication and configure the ResourceTokenBroker website.
 
     Run the Xamarin app.
 

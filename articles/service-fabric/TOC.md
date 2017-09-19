@@ -4,21 +4,24 @@
 
 # Quickstarts
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
+## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
+## [Deploy a Linux container application](service-fabric-quickstart-containers-linux.md)
 
 # Tutorials
 ## Deploy a .NET app
 ### [1- Build a .NET application](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- Deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- Configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- Monitor and Diagnose](service-fabric-tutorial-monitoring-aspnet.md)
 
-## Lift and shift an app
+## Containerize an existing .NET app
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Azure CLI](samples-cli.md)
+## [Service Fabric CLI](samples-cli.md)
 # Concepts
 ## [Understand microservices](service-fabric-overview-microservices.md)
 ## [Big picture](service-fabric-content-roadmap.md)
@@ -113,19 +116,23 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Integrate with API Management](service-fabric-api-management-overview.md)
+
 ## Monitor and diagnose
 ### [Overview](service-fabric-diagnostics-overview.md)
 ### [Health model](service-fabric-health-introduction.md)
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Performance counters for Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md)
 
-# How To Guides
+# How-to guides
 ## Set up your development environment
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Build an application
+### [Create your first C# app in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Build a guest executable service
 #### [Host a Node.js application on Windows](quickstart-guest-app.md)
 #### [Deploy a guest executable](service-fabric-deploy-existing-app.md)
@@ -133,10 +140,12 @@
 ### Build a container service
 #### [Create a Windows container application](service-fabric-get-started-containers.md)
 #### [Create a Linux container application](service-fabric-get-started-containers-linux.md)
-#### [Deploy Linux container](service-fabric-deploy-container-linux.md)
+#### [Container security](service-fabric-securing-containers.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
 #### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
+#### [Services inside containers](service-fabric-services-inside-containers.md)
+#### [Container networking modes](service-fabric-networking-modes.md)
 
 ### Build a Reliable Services service
 #### [Overview](service-fabric-reliable-services-introduction.md)
@@ -174,11 +183,14 @@
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Send notifications](service-fabric-reliable-actors-events.md) 
+##### [Java Actor on Linux](service-fabric-create-your-first-linux-application-with-java.md)
+#### [Send notifications](service-fabric-reliable-actors-events.md)
 #### [Set timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Migrate old Java Application to support Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Configure reverse proxy for secure communication](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -201,9 +213,7 @@
 ### [Debug a Java service in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Integrate with API Management
-### [Overview](service-fabric-api-management-overview.md)
-### [Quick start](service-fabric-api-management-quick-start.md)
+## [Deploy API Management and Service Fabric to Azure](service-fabric-api-management-quick-start.md)
 
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -216,7 +226,7 @@
 ### Deploy or remove applications
 #### [Deploy applications on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -241,17 +251,18 @@
 
 ## Create and manage clusters
 ### Clusters on Azure
-#### Create 
+#### Create
 ##### [Create your first cluster on Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### Scale 
+#### Scale
 ##### [Manually](service-fabric-cluster-scale-up-down.md)
 ##### [Programmatically](service-fabric-cluster-programmatic-scaling.md)
 #### [Upgrade](service-fabric-cluster-upgrade.md)
 #### [Set access control](service-fabric-cluster-security-roles.md)
 #### [Configure](service-fabric-cluster-fabric-settings.md)
-#### [Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Open a port in the load balancer](create-load-balancer-rule.md)
+#### [Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
 #### [Delete](service-fabric-cluster-delete.md)
 
 ### Standalone clusters
@@ -265,13 +276,12 @@
 #### [Scale](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Set access control](service-fabric-cluster-security-roles.md)
 #### [Configure](service-fabric-cluster-manifest.md)
-#### [Upgrade](service-fabric-cluster-upgrade-windows-server.md) 
+#### [Upgrade](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Manage a cluster using XPlat CLI](service-fabric-azure-cli.md)
-### [Manage a cluster using Azure CLI 2.0 commands](service-fabric-azure-cli-2-0.md)
+### [Getting started with Service Fabric CLI](service-fabric-cli.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
@@ -334,4 +344,3 @@
 ## [Support options](service-fabric-support.md)
 ## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-

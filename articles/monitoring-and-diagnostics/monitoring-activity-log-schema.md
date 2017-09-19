@@ -22,7 +22,7 @@ The **Azure Activity Log** is a log that provides insight into any subscription-
 This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
 
 ### Sample event
-```
+```json
 {
   "authorization": {
     "action": "microsoft.support/supporttickets/write",
@@ -124,7 +124,7 @@ This category contains the record of all create, update, delete, and action oper
 This category contains the record of any service health incidents that have occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Assisted Recovery, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
 
 ### Sample event
-```
+```json
 {
   "channels": "Admin",
   "correlationId": "c550176b-8f52-4380-bdc5-36c1b59d3a44",
@@ -213,7 +213,7 @@ This category contains the record of all activations of Azure alerts. An example
 
 ### Sample event
 
-```
+```json
 {
   "caller": "Microsoft.Insights/alertRules",
   "channels": "Admin, Operation",
@@ -325,7 +325,7 @@ The properties field will contain different values depending on the source of th
 This category contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of the type of event you would see in this category is "Autoscale scale up action failed." Using autoscale, you can automatically scale out or scale in the number of instances in a supported resource type based on time of day and/or load (metric) data using an autoscale setting. When the conditions are met to scale up or down, the start and succeeded or failed events will be recorded in this category.
 
 ### Sample event
-```
+```json
 {
   "caller": "Microsoft.Insights/autoscaleSettings",
   "channels": "Admin, Operation",

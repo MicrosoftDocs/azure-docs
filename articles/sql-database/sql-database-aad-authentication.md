@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/10/2017
+ms.date: 09/12/2017
 ms.author: rickbyh
 
 ---
@@ -65,7 +65,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 ## Permissions
 To create new users, you must have the `ALTER ANY USER` permission in the database. The `ALTER ANY USER` permission can be granted to any database user. The `ALTER ANY USER` permission is also held by the server administrator accounts, and database users with the `CONTROL ON DATABASE` or `ALTER ON DATABASE` permission for that database, and by members of the `db_owner` database role.
 
-To create a contained database user in Azure SQL Database or SQL Data Warehouse, you must connect to the database using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). This is demonstrated in steps 4 and 5 below. Any Azure AD authentication is only possible if the Azure AD admin was created for Azure SQL Database or SQL Data Warehouse server. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside SQL Server can no longer connect to the database using their Azure Active Directory credentials.
+To create a contained database user in Azure SQL Database or SQL Data Warehouse, you must connect to the database using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). This is demonstrated in [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md). Any Azure AD authentication is only possible if the Azure AD admin was created for Azure SQL Database or SQL Data Warehouse server. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside SQL Server can no longer connect to the database using their Azure Active Directory credentials.
 
 ## Azure AD features and limitations
 The following members of Azure AD can be provisioned in Azure SQL server or SQL Data Warehouse:
@@ -75,7 +75,6 @@ The following members of Azure AD can be provisioned in Azure SQL server or SQL 
 * Imported members from other Azure AD's who are native or federated domain members.
 * Active Directory groups created as security groups.
 
-Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other guest accounts (for example gmail.com, yahoo.com) are not supported. If you can log in to [https://login.live.com](https://login.live.com) using the account and password, then you are using a Microsoft account, which is not supported for Azure AD authentication for Azure SQL Database or Azure SQL Data Warehouse.
 
 ## Connecting using Azure AD identities
 
@@ -98,10 +97,10 @@ Azure Active Directory authentication supports the following methods of connecti
 * [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Azure AD authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase cannot authenticate by using Azure AD authentication.   
 * Azure AD authentication is supported for SQL Database by the Azure portal **Import Database** and **Export Database** blades. Import and export using Azure AD authentication is also supported from the PowerShell command.   
-* Azure AD authentication is supported for SQL Database and SQL Data Warehouse by use CLI. For more information, see , [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md) and [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
+* Azure AD authentication is supported for SQL Database and SQL Data Warehouse by use CLI. For more information, see [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md) and [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
 
 ## Next steps
-- To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, see [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md).
+- To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database or Azure SQL Data Warehouse, see [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 - For an overview of access and control in SQL Database, see [SQL Database access and control](sql-database-control-access.md).
 - For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](sql-database-manage-logins.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).

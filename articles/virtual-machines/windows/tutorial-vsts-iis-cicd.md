@@ -227,7 +227,7 @@ In this tutorial, you created an ASP.NET web application in Team Services and co
 > * Create a release definition to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
 
-Follow this link to see pre-built virtual machine script samples.
+Advance to the next tutorial to learn how to secure a web server with SSL certificates.
 
 > [!div class="nextstepaction"]
-> [Windows virtual machine script samples](./powershell-samples.md)
+> [Secure web server with SSL](tutorial-secure-web-server.md)

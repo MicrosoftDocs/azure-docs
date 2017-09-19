@@ -12,11 +12,12 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 09/11/2017
 ms.author: seanmck
+ms.custom: mvc
 ---
 
 # Deploy a container to Azure Container Instances
@@ -24,9 +25,9 @@ ms.author: seanmck
 This is the last of a three-part tutorial. In previous sections, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This section completes the tutorial by deploying the container to Azure Container Instances. Steps completed include:
 
 > [!div class="checklist"]
-> * Defining a container group using an Azure Resource Manager template
-> * Deploying the container group using the Azure CLI
-> * Viewing container logs
+> * Deploying the container from the Azure Container Registry using the Azure CLI
+> * Viewing the application in the browser
+> * Viewing the container logs
 
 ## Deploy the container using the Azure CLI
 

@@ -3,7 +3,7 @@ title: Diagnose On-Premises connectivity via VPN gateway with Azure Network Watc
 description: This article describes how to diagnose on-premises connectivity via VPN gateway with Azure Network Watcher resource troubleshooting.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Diagnose on-premises connectivity via VPN gateways
@@ -29,7 +29,7 @@ You want to configure a site-to-site connection between Azure and on-premises us
 
 1. Virtual Network Gateway - The VPN Gateway on Azure
 1. Local Network Gateway - The [on-premises (FortiGate) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation in Azure cloud
-1. Site-to-site connection (policy based) - [Connection between the VPN Gateway and the on-premises router](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
+1. Site-to-site connection (route based) - [Connection between the VPN Gateway and the on-premises router](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [Configuring FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Detailed step by step guidance for configuring a Site-to-Site configuration can be found by visiting: [Create a VNet with a Site-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

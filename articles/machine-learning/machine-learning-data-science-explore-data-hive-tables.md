@@ -27,7 +27,7 @@ The following **menu** links to topics that describe how to use tools to explore
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](machine-learning-data-science-customize-hadoop-cluster.md).
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow the instructions in [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode).

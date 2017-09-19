@@ -13,6 +13,7 @@
 ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
@@ -26,7 +27,7 @@
 ### [Create outputs](stream-analytics-define-outputs.md)
 ### [Output to Azure Functions](stream-analytics-functions-redis.md)
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
-### [Output to DocumentDB](stream-analytics-documentdb-output.md)
+### [Output to Cosmos DB](stream-analytics-documentdb-output.md)
 
 ## Monitor & optimize
 ### [Add alerts](stream-analytics-set-up-alerts.md)
@@ -66,7 +67,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
 ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [Pricing](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](stream-analytics-release-notes.md)

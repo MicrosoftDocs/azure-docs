@@ -6,8 +6,8 @@
 ## [Managed Applications](managed-application-overview.md)
 
 # Get started
-## [Export template](resource-manager-export-template.md)
 ## [Create and deploy template](resource-manager-create-first-template.md)
+## [VS Code extension for templates](resource-manager-vscode-extension.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
@@ -20,8 +20,8 @@
 
 # How to
 ## Create templates
-### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md)
+### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 
+
 ## Deploy
 ### PowerShell
 #### [Deploy template](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [Deploy template](resource-group-template-deploy-cli.md)
 #### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
 #### [Export template and redeploy](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
+### Portal
+#### [Deploy resources](resource-group-template-deploy-portal.md)
+#### [Export template](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -92,10 +95,24 @@
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
 ### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
-### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Resolve errors
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+#### [NotFound](resource-manager-not-found-errors.md)
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Virtual Machine deployment errors
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [Deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [Provisioning and allocation issues](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [Common error messages](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [Deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [Provisioning and allocation issues](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [Common error messages](../virtual-machines/windows/error-messages.md)
 
 # Reference
 ## [Template format](/azure/templates/)

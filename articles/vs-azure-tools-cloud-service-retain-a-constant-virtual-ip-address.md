@@ -3,8 +3,8 @@ title: How to retain a constant virtual IP address for an Azure cloud service | 
 description: Learn how to ensure that the virtual IP address (VIP) of your Azure cloud service doesn't change.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 4a58e2c6-7a79-4051-8a2c-99182ff8b881
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Retain a constant virtual IP address for an Azure cloud service
