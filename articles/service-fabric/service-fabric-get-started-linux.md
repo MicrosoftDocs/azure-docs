@@ -207,6 +207,14 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 > [!NOTE]
 > Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions on this page.
 
+## Remove the SDK
+To remove the Service Fabric SDKs, run the following:
+
+```bash
+sudo apt-get remove servicefabric servicefabicsdkcommon servicefabricsdkcsharp servicefabricsdkjava
+sudo apt-get install -f
+```
+
 ## Next steps
 
 * [Create and deploy your first Service Fabric Java application on Linux by using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)

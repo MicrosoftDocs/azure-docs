@@ -68,7 +68,7 @@ The following are some of the key pieces that comprise the Logic Apps experience
 * [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: logic-apps-enterprise-integration-accounts.md
-[appservice]: ../app-service/app-service-value-prop-what-is.md
+[appservice]: ../app-service/app-service-web-overview.md
 [create]: logic-apps-create-a-logic-app.md
 [managedapis]: ../connectors/apis-list.md
 [tpm]: logic-apps-enterprise-integration-accounts.md

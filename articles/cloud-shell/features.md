@@ -1,7 +1,7 @@
 ---
 title: Bash in Azure Cloud Shell (Preview) features | Microsoft Docs
 description: Overview of features of Bash in Azure Cloud Shell
-services: 
+services: Azure
 documentationcenter: ''
 author: jluk
 manager: timlt
@@ -19,7 +19,7 @@ ms.author: juluk
 
 # Features & tools for Bash in Azure Cloud Shell
 
-[!include [features-introblock](features-introblock.md)]
+[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > [PowerShell in Azure Cloud Shell](features-powershell.md) is also available.
@@ -36,7 +36,7 @@ Bash in Cloud Shell securely and automatically authenticates account access for 
 
 Creating a Linux VM from Azure CLI 2.0 can create a default SSH key and place it in your `$Home` directory. Placing SSH keys in `$Home`  enables direct SSH connections to Azure Linux VMs directly from Cloud Shell. Keys are held in acc_<user>.img in your file share, use best practices when using or sharing access to your file share or keys.
 
-### $Home persistence
+### $Home persistence across sessions
 
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
 Once completed, Cloud Shell will automatically attach your storage (mounted as `$Home\clouddrive`) for all future sessions.
@@ -66,6 +66,7 @@ Files outside of `$Home` and machine state are not persisted across sessions.
 |Go         |1.7        |
 |Java       |1.8        |
 |Node.js    |6.9.4      |
+|PowerShell  |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps
