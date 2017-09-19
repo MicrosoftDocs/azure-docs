@@ -48,9 +48,9 @@ Consider the following tradeoffs when deciding which approach you use with multi
 
 You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass may have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 
 
-Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities. LUIS is limited to 10 parent entities with up to 10 children for each parent entity (composite or hierarchical). 
+Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities. 
 
-LUIS also provides the list entity type that is not machine learned but allows users to specify a fixed set entities with a given set of values. 
+LUIS also provides the list entity type that is not machine-learned but allows your LUIS app to specify a fixed list of values. 
 
 ## What are the limits on the number and size of phrase lists?
 The maximum length of a [phrase list](./luis-concept-feature.md) is 5000 items. You may use a maximum of 10 phrase lists per LUIS app.
