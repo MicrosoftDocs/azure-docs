@@ -95,9 +95,9 @@ Though the portal provides the option to create two public IP address resources 
 
 Before you can create a Standard SKU public IP address, you must first register for the preview. Complete the following steps to register for the preview:
 
-1. Open the Azure [portal](https://portal.azure.com) and log in with your Azure account.
-2. Open the Azure Cloud Shell by clicking the >_ button from the toolbar at the top-right side of the portal.
-3. In the top left corner of the Cloud shell that opens in your portal, click the down arrow to the right of **Bash**, then click **PowerShell**, unless PowerShell already is shown.  The Azure Cloud Shell automatically logs you in to Azure PowerShell. The Cloud Shell has the latest version of PowerShell installed. You can only register for the preview using PowerShell.
+1. Install and configure Azure [PowerShell](/powershell/azure/install-azurerm-ps).
+2. Run the `Get-Module -ListAvailable AzureRM` command to see what version of the AzureRM module you have installed. You must have a version greater than 4.3.1 installed. If you do not, you can install the latest version from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
+3. Login to Azure with the `login-azurermaccount` command.
 4. Enter the following command to register for the preview:
    
     ```powershell
