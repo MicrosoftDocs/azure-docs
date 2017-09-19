@@ -75,6 +75,8 @@ Create a new project using this example as a template:
 4.	In the **Search Project Templates** search box, type "TDSP Classifying US Incomes" and select the template
 5.	Click **Create**
 
+If you provide an empty Git repository location during creating the project (in the appropriate box), then that repository will be populated with the project structure and contents after creation of the project.
+
 ## Use Case Overview
 The problem is to understand how socio-economic data captured in US Census can help predict annual income of individuals in US. Based on such Census features, the machine learning task is to predict if the income of an individual is above $50,000 or not (binary classification task).
 
