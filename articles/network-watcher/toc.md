@@ -63,6 +63,7 @@
 ## [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 ## [Visualize flow logs using Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ## [Visualize flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+## [Visualize flow logs in Azure using Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
 ## [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
 ## [Perform compliance and audit on your network using PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md)
