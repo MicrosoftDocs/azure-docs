@@ -39,7 +39,7 @@ To execute Hive queries, you have the following options:
 
 * Use Power BI
 
-    See [Visualize big data with Power BI in Azure HDInsight](,/hdinsight-connect-hive-power-bi.md).
+    See [Visualize big data with Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
 
 * Use Zeppelin
 
