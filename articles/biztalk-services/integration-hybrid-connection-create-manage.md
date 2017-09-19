@@ -141,8 +141,6 @@ To manage your Hybrid Connections, you can:
 Once copied, you can use Group Policy Editor to change the policy.
 
 ## Next
-<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)    -->
 [Hybrid Connections Overview](integration-hybrid-connection-overview.md)
 
 ## See Also

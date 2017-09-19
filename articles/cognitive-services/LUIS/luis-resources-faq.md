@@ -18,7 +18,17 @@ This article contains answers to some frequently asked questions about LUIS.
 ## How do I interpret LUIS scores? 
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 does not necessarily mean LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
-## I want to build a LUIS app with more than 80 intents. What should I do?
+## What is the maximum number of intents and entities that a LUIS app can support?
+A LUIS app can support up to **80** intents.
+
+Limits on entities depend on the entity type and are listed in the following table:
+| Type          | Limit | 
+| ------------- | ----- |
+| [Prebuilt entities](./Pre-builtEntities.md)   | No limit. | 
+| [List entities](./luis-concept-entity-types.md)     | 50 list entities. Each list can contain up to 20000 items | 
+| [Simple, Hierarchical, and Composite entities](./luis-concept-entity-types.md) | You can define up to 30 entities of these types. A hierarchical entity can consist of up to 10 child entities. A composite entity can consist of up to 20 child entities. |
+
+## I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel may be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar, and if your system needs to distinguish them, use entities or other logic rather than intents.
 
@@ -38,9 +48,15 @@ Consider the following tradeoffs when deciding which approach you use with multi
 
 You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass may have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 
 
-Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities. LUIS is limited to 10 parent entities with up to 10 children for each parent entity (composite or hierarchical). 
+Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities. 
 
-LUIS also provides the list entity type that is not machine learned but allows users to specify a fixed set entities with a given set of values. 
+LUIS also provides the list entity type that is not machine-learned but allows your LUIS app to specify a fixed list of values. 
+
+## What are the limits on the number and size of phrase lists?
+The maximum length of a [phrase list](./luis-concept-feature.md) is 5000 items. You may use a maximum of 10 phrase lists per LUIS app.
+
+## What is the limit on the length of an utterance?
+The maximum length of an utterance is 500 characters.
 
 ## What is the best way to start on building my app in LUIS?
 
