@@ -41,7 +41,7 @@ Over time, the predictive models in the Azure ML scoring experiments need to be 
 
 After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **Azure ML Update Resource Activity**. See [Updating models using Update Resource Activity](update-machine-learning-models.md) article for details.
 
-##Azure Machine Learning Linked Service
+## Azure Machine Learning linked service
 
 You create an **Azure Machine Learning** linked service to link an Azure Machine Learning Web Service to an Azure data factory. The Linked Service is used by Azure Machine Learning Batch Execution Activity and  [Update Resource Activity](update-machine-learning-models.md). 
 
@@ -50,32 +50,29 @@ You create an **Azure Machine Learning** linked service to link an Azure Machine
 {
     "name": "AzureMLLinkedService",
     "properties": {
-      "type": "AzureML",
-      "typeProperties": {
-        "mlEndpoint": "URL to Azure ML Predictive Web Service",
-        "apiKey": {
-            "type": "SecureString",
-            "value": "api key"
+        "type": "AzureML",
+        "typeProperties": {
+            "mlEndpoint": "URL to Azure ML Predictive Web Service",
+            "apiKey": {
+                "type": "SecureString",
+                "value": "api key"
+            }
         }
-      }
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
     }
 }
 ```
-The following table provides descriptions for the generic properties used in the JSON definition. 
 
-| Property                                 | Description                              | Required |
-| ---------------------------------------- | ---------------------------------------- | -------- |
-| **type**                                 | The type property should be set to: **AzureML**. | Yes      |
-| **mlEndpoint**                           | URL to the Azure Machine Learning Web Service of your predictive experiment | Yes      |
-| **apiKey**                               | The key used to access the web service   | Yes      |
-| **updateResourceEndpoint**               | URL to the Azure Machine Learning Web Service of your training experiment | No       |
-| Service Principal details pending update |                                          |          |
+See [Compute linked services](compute-linked-services.md) article for descriptions about properties in the JSON definition. 
 
 Azure Machine Learning support both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from Data Factory. To get the information required to create the Azure Machine Learning Linked Service, go to https://services.azureml.net, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property. 
 
 ![Azure Machine Learning Web Services](./media/transform-data-using-machine-learning/web-services.png)
 
-##Azure Machine Learning Batch Execution Activity
+##Azure Machine Learning Batch Execution activity
 
 The following JSON snippet defines an Azure Machine Learning Batch Execution activity. The activity definition has a reference to the Azure Machine Learning linked service you created earlier. 
 
@@ -136,7 +133,7 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 | name              | Name of the activity in the pipeline     | Yes      |
 | description       | Text describing what the activity does.  | No       |
 | type              | For Data Lake Analytics U-SQL activity, the activity type is  **AzureMLBatchExecution**. | Yes      |
-| linkedServiceName | Linked Services to the Azure Machine Learning Linked Service | Yes      |
+| linkedServiceName | Linked Services to the Azure Machine Learning Linked Service. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | webServiceInputs  | Key, Value pairs, mapping the names of Azure Machine Learning Web Service Inputs. Key must match the input parameters defined in the published Azure Machine Learning Web Service. Value is an Azure Storage Linked Services and FilePath properties pair specifying the input Blob locations. | No       |
 | webServiceOutputs | Key, Value pairs, mapping the names of Azure Machine Learning Web Service Outputs. Key must match the output parameters defined in the published Azure Machine Learning Web Service. Value is an Azure Storage Linked Services and FilePath properties pair specifying the output Blob locations. | No       |
 | globalParameters  | Key, Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values are passed in the GlobalParameters property of the Azure ML batch execution request | No       |
@@ -230,11 +227,11 @@ After you are done with retraining, update the scoring web service (predictive e
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
-* [Hive Activity](transform-data-using-hadoop-hive.md)
-* [Pig Activity](transform-data-using-hadoop-pig.md)
-* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
-* [Spark Activity](transform-data-using-spark.md)
+* [U-SQL activity](transform-data-using-data-lake-analytics.md)
+* [Hive activity](transform-data-using-hadoop-hive.md)
+* [Pig activity](transform-data-using-hadoop-pig.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

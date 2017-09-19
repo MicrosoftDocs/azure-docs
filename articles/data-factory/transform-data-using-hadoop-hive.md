@@ -1,5 +1,5 @@
 ---
-title: Transform data using Hive Activity in Azure Data Factory | Microsoft Docs
+title: Transform data using Hadoop Hive activity in Azure Data Factory | Microsoft Docs
 description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 08/10/2017
 ms.author: shengc
 
 ---
-# Transform data using Hive Activity in Azure Data Factory 
+# Transform data using Hadoop Hive activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-hive-activity.md)
 > * [Version 2 - Preview](transform-data-using-hadoop-hive.md)
@@ -26,7 +26,7 @@ The HDInsight Hive activity in a Data Factory [pipeline](concepts-pipelines-acti
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Hive Activity in V1](v1/data-factory-hive-activity.md).
 
-If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-powershell.md) before reading this article. 
+If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 
 ## Syntax
 
@@ -61,7 +61,7 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 | name                | Name of the activity                     | Yes      |
 | description         | Text describing what the activity is used for | No       |
 | type                | For Hive Activity, the activity type is HDinsightHive | Yes      |
-| linkedServiceName   | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes      |
+| linkedServiceName   | Reference to the HDInsight cluster registered as a linked service in Data Factory. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | scriptLinkedService | Reference to an Azure Storage Linked Service used to store the Hive script to be executed. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
 | scriptPath          | Provide the path to the script file stored in the Azure Storage referred by scriptLinkedService. The file name is case-sensitive. | Yes      |
 | getDebugInfo        | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by scriptLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
@@ -71,12 +71,12 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
-* [Pig Activity](transform-data-using-hadoop-pig.md)
-* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
-* [Spark Activity](transform-data-using-spark.md)
+* [U-SQL activity](transform-data-using-data-lake-analytics.md)
+* [Pig activity](transform-data-using-hadoop-pig.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)
 
