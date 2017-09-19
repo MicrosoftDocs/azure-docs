@@ -470,9 +470,6 @@ Select __OK__ to apply the filter.
 
    ![Image of the halo effect](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
 
-    > [!NOTE]
-    > Notice that the blue buckets are shorter than the grey buckets. This reflects the change that occurred when you dropped rows with a logtripduration less than 9. After the filter operation, the buckets for the histogram are recalculated and are slightly shorter.
-
 2. To remove the halo, select __Edit__ and uncheck __Show halo__.
 
     ![Options for the histogram](media/tutorial-bikeshare-dataprep/uncheckhalo.png)
