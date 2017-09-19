@@ -108,7 +108,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ### Enable Update management
 
-Enable the Update management solution for your virtual machine:
+Enable Update management for your virtual machine:
  
 1. On the left-hand side of the screen, select **Virtual machines**.
 1. From the list, select a virtual machine.
