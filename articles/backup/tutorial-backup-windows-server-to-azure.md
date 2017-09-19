@@ -50,10 +50,10 @@ Once your vault is created, it appears in the list of Recovery Services vaults.
 1.	Click on the newly created Recovery services Vault from the **Recovery Services vaults** menu.
 2.	On the **Recovery Services vault** blade (for the vault you just created), in the **Getting Started** section, click **Back up**. 
 3.	On the blade that opens, select:
-    - **On-premises**, for **Where is your workload running?**.
-    - **Files and Folders**, and **System State** for **What do you want to backup?**.
+    - **On-premises**, for **Where is your workload running?**
+    - **Files and Folders**, and **System State** for **What do you want to backup?**
 4.	Click on **Prepare Infrastructure** on the same blade.
-5.	On the **Prepare infrastructure** blade, click **Download Agent for Windows Server or Windows Client**. This downloads the **MARSAgentInstaller.exe**.
+5.	On the **Prepare infrastructure** blade, click **Download Agent for Windows Server or Windows Client**. This step downloads the **MARSAgentInstaller.exe**.
  
 6.	Before you run the installer, click the **Download** button on the Prepare infrastructure blade to download and save the **Vault Credentials** file. This file is required for connecting the MARS Agent with the Recovery Services Vault.
  
@@ -70,19 +70,19 @@ Once your vault is created, it appears in the list of Recovery Services vaults.
 
 ## Configure Backup and Retention 
 1.	Open the Microsoft Azure Recovery Services agent. You can find it by searching your machine for **Microsoft Azure Backup**.
-2.	In the Recovery Services agent console, click **Schedule Back up** under the **Actions Pane**.
+2.	In the Recovery Services agent console, click **Schedule Backup** under the **Actions Pane**.
 3.	Click **Next** to navigate to the **Select Items to Back up** page.
 4.	Click **Add Items** and from the dialog box that opens select **System State** and files or folders that you want to back up. Then click **OK**.
 5.	Click **Next**.
-6.	On the **Specify Backup Schedule** page, specify the times of the day or week when backups need to be triggered for files and folders. System State back up schedule is automatically configured.  
-7.	On the **Select Retention Policy** page, select the Retention Policy for the back up copy for files and folders. The retention period of System State backups is automatically set to 60 days.
+6.	On the **Specify Backup Schedule** page, specify the times of the day, or week when backups need to be triggered for files and folders. System State backup schedule is automatically configured.  
+7.	On the **Select Retention Policy** page, select the Retention Policy for the backup copy for files and folders. The retention period of System State backups is automatically set to 60 days.
 8.	On the **Choose Initial Back up Type** page, leave the option **Automatically over the network** selected, and then click **Next**.
 9.	On the **Confirmation** page, review the information, and then click **Finish**.
-10.	After the wizard finishes creating the back up schedule, click **Close**.
+10.	After the wizard finishes creating the backup schedule, click **Close**.
 
 ## Perform an ad-hoc back up
 1.	In the Recovery Services agent console, click **Back Up Now**.
-2.	On the **Confirmation** page, review the settings that the **Back Up Now** wizard will use to back up your server. Then click **Back Up**.
+2.	On the **Confirmation** page, review the settings that the **Back Up Now** wizard uses to back up your server. Then click **Back Up**.
 3.	Click **Close** to close the wizard. If you close the wizard before the back up process finishes, the wizard continues to run in the background.
 4.	After the initial backup is completed, **Job completed** status appears in **Jobs** pane of the MARS Agent console.
 
