@@ -1,6 +1,6 @@
 ---
-title: Microsoft Power BI Embedded Preview troubleshooting
-description: Microsoft Power BI Embedded Preview troubleshooting
+title: Microsoft Power BI Workspace Collection troubleshooting
+description: This article provides answers for how  to troubleshoot **Power BI Workspace Collections**. 
 services: power-bi-embedded
 documentationcenter: ''
 author: guyinacube
@@ -8,18 +8,21 @@ manager: erikre
 editor: ''
 tags: ''
 
-ms.assetid: c8aee652-ed8b-4c66-9c63-f798b7a655b4
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 09/19/2017
 ms.author: asaxton
 
 ---
-# Microsoft Power BI Embedded Preview troubleshooting
-This article provides answers for how  to troubleshoot **Power BI Embedded**.
+# Microsoft Power BI Workspace Collection troubleshooting
+
+This article provides answers for how  to troubleshoot **Power BI Workspace Collections**.
+
+> [!IMPORTANT]
+> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 <a name="connection-string"/>
 
@@ -41,6 +44,6 @@ To learn more about SQL Server connection strings, see the following articles:
 In the case where you have credentials for a development or staging environment, such as user name and password, you might need to update credentials that match a production solution.
 
 ## See Also
-* [Get started with sample](power-bi-embedded-get-started-sample.md)
-* [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 
+* [Get started with sample](get-started-sample.md)
+* [What is Power BI Embedded](what-are-power-bi-workspace-collections.md)

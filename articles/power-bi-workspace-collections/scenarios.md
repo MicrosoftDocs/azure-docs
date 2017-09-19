@@ -1,5 +1,5 @@
 ---
-title: Common Microsoft Power BI Embedded scenarios
+title: Common Microsoft Power BI Workspace Collection scenarios
 description: Common Microsoft Power BI Embedded scenarios
 services: power-bi-embedded
 documentationcenter: ''
@@ -14,20 +14,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 09/19/2017
 ms.author: asaxton
 
 ---
-# Common Power BI Embedded scenarios
-**Microsoft Power BI Embedded** is focused on exposing the majority of existing Power BI API functionality as part of an Azure service for you to develop your applications with.  Additionally, you will be able to programmatically provision, develop and deploy the necessary resources and Power BI content. To learn more, see [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+# Common Power BI Workspace Collection scenarios
 
-Here are some scenarios for using **Power BI Embedded** in your applications.
+**Microsoft Power BI Embedded** is focused on exposing the majority of existing Power BI API functionality as part of an Azure service for you to develop your applications with.  Additionally, you will be able to programmatically provision, develop and deploy the necessary resources and Power BI content. To learn more, see [Get started with Microsoft Power BI Embedded](get-started.md).
+
+> [!IMPORTANT]
+> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+
+Here are some scenarios for using **Power BI Workspace Collections** in your applications.
 
 * Fully interactive reports that were authored in the Power BI Desktop can be embedded within your own application using a new application token authentication model.
-* Independent software vendors and customers building customer facing applications can use the **Power BI Embedded** service, and the Power BI SDK, to embed interactive reports. To learn how, see [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+* Independent software vendors and customers building customer facing applications can use the **Power BI Workspace Collection** service, and the Power BI SDK, to embed interactive reports. To learn how, see [Get started with Microsoft Power BI Workspace Collections](get-started.md).
 * As a developer, you can use the Power BI visualization framework to create custom visualizations that can be used in your own app. See [Extend Power BI with custom visuals](https://powerbi.microsoft.com/custom-visuals/).
 
 ### See Also
-* [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
-* [Get started sample](power-bi-embedded-get-started.md)
 
+* [Get started with Microsoft Power BI Workspace Collections](get-started.md)
+* [Get started sample](get-started-sample.md)

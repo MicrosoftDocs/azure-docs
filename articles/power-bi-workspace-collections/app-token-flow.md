@@ -14,19 +14,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+ms.date: 09/19/2017
 ms.author: asaxton
 
 ---
-# Authenticating and authorizing with Power BI Embedded
+# Authenticating and authorizing with Power BI Workspace Collections
 
-The Power BI Embedded service uses **Keys** and **App Tokens** for authentication and authorization, instead of explicit end-user authentication. In this model, your application manages authentication and authorization for your end-users. When necessary, your app creates and sends the App Tokens that tells our service to render the requested report. This design doesn't require your app to use Azure Active Directory for user authentication and authorization, although you still can.
+Power BI Workspace Collections uses **Keys** and **App Tokens** for authentication and authorization, instead of explicit end-user authentication. In this model, your application manages authentication and authorization for your end-users. When necessary, your app creates and sends the App Tokens that tells our service to render the requested report. This design doesn't require your app to use Azure Active Directory for user authentication and authorization, although you still can.
+
+> [!IMPORTANT]
+> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## Two ways to authenticate
 
-**Key** -  You can use keys for all Power BI Embedded REST API calls. The keys can be found in the **Azure portal** by clicking on **All settings** and then **Access keys**. Always treat your key as if it were a password. These keys have permissions to make any REST API call on a particular workspace collection.
+**Key** -  You can use keys for all Power BI Workspace Collections REST API calls. The keys can be found in the **Azure portal** by clicking on **All settings** and then **Access keys**. Always treat your key as if it were a password. These keys have permissions to make any REST API call on a particular workspace collection.
 
-To use a key on a REST call, add the following authorization header:            
+To use a key on a REST call, add the following authorization header:
 
     Authorization: AppKey {your key}
 
@@ -39,7 +42,7 @@ Your app token can contain the following claims:
 | Claim | Description |
 | --- | --- |
 | **ver** |The version of the app token. 0.2.0 is the current version. |
-| **aud** |The intended recipient of the token. For Power BI Embedded use: “https://analysis.windows.net/powerbi/api”. |
+| **aud** |The intended recipient of the token. For Power BI Workspace Collections use: “https://analysis.windows.net/powerbi/api”. |
 | **iss** |A string indicating the application which issued the token. |
 | **type** |The type of app token which is being created. Current the only supported type is **embed**. |
 | **wcn** |Workspace collection name the token is being issued for. |
@@ -90,7 +93,7 @@ For the .NET SDK, you can refer to [Scopes](https://docs.microsoft.com/dotnet/ap
 
 When using Embed tokens, you may want to restrict usage of the resources you give access to. For this reason, you can generate a token with scoped permissions.
 
-The following are the available scopes for Power BI Embedded.
+The following are the available scopes for Power BI Workspace Collections.
 
 |Scope|Description|
 |---|---|
@@ -151,33 +154,33 @@ Body
 ## Here's how the flow works
 1. Copy the API keys to your application. You can get the keys in **Azure Portal**.
    
-    ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
-2. Token asserts a claim and has an expiration time.
+    ![Where to find the API keys in the Azure portal](media/get-started-sample/azure-portal.png)
+1. Token asserts a claim and has an expiration time.
    
-    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-2.png)
-3. Token gets signed with an API access keys.
+    ![App token flow - token asserts claim](media/get-started-sample/token-2.png)
+1. Token gets signed with an API access keys.
    
-    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-3.png)
-4. User requests to view a report.
+    ![App token flow - token gets signed](media/get-started-sample/token-3.png)
+1. User requests to view a report.
    
-    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-4.png)
-5. Token is validated with an API access keys.
+    ![App token flow - user requests to view a report](media/get-started-sample/token-4.png)
+1. Token is validated with an API access keys.
    
-   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-5.png)
-6. Power BI Embedded sends a report to user.
+   ![App token flow - token is validated](media/get-started-sample/token-5.png)
+1. Power BI Workspace Collections sends a report to user.
    
-   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-6.png)
+   ![App token flow - service send report to user](media/get-started-sample/token-6.png)
 
-After **Power BI Embedded** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like this:
+After **Power BI Workspace Collections** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like this:
 
-![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
+![Sample of report embedded in application](media/get-started-sample/sample-web-app.png)
 
 ## See Also
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
-[Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md)  
-[Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)  
-[Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)  
-[PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+[Get started with Microsoft Power BI Workspace Collections sample](get-started-sample.md)  
+[Common Microsoft Power BI Workspace Collections scenarios](scenarios.md)  
+[Get started with Microsoft Power BI Workspace Collections](get-started.md)  
+[PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)
 
+More questions? [Try the Power BI Community](http://community.powerbi.com/)

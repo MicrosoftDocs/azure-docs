@@ -1,6 +1,6 @@
 ---
-title: Get started with Microsoft Power BI Embedded
-description: Power BI Embedded, add interactive Power BI reports into your business intelligence application
+title: Get started with Microsoft Power BI Workspace Collections
+description: Power BI Workspace Collections are an Azure service that enables application developers to add interactive Power BI reports into their own applications.
 services: power-bi-embedded
 documentationcenter: ''
 author: guyinacube
@@ -14,16 +14,19 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+ms.date: 09/19/2017
 ms.author: asaxton
 ---
-# Get started with Microsoft Power BI Embedded
+# Get started with Microsoft Power BI Workspace Collections
 
-**Power BI Embedded** is an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Embedded** works with existing applications without needing redesign or changing the way users sign in.
+**Power BI Workspace Collections** are an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Workspace Collections** work with existing applications without needing redesign or changing the way users sign in.
 
-Resources for **Microsoft Power BI Embedded** are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource you provision is a **Power BI Workspace Collection**.
+> [!IMPORTANT]
+> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-![](media/power-bi-embedded-get-started/introduction.png)
+Resources for **Microsoft Power BI Workspace Collections** are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource you provision is a **Power BI Workspace Collection**.
+
+![General flow of Power BI Workspace Collections](media/get-started/introduction.png)
 
 ## Create a workspace collection
 
@@ -35,18 +38,20 @@ A **Workspace Collection** is the top-level Azure resource and a container for t
 Let's walk through the steps to build a **Workspace Collection** using the Azure Portal.
 
 1. Open and sign into **Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
-2. Click **+ New** on the top panel.
+2. Select **+ New** on the top panel.
    
-   ![](media/power-bi-embedded-get-started/create-workspace-1.png)
-3. Under **Data + Analytics** click **Power BI Embedded**.
-4. On the **Workspace Collection Blade**, enter the required information. For **Pricing**, see [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527).
+   ![+ New within Azure Portal](media/get-started/create-workspace-1.png)
+3. Under **Data + Analytics** select **Power BI Workspace Collection**.
+4. Within the get started message, if you already have an existing Power BI Workspace Collection subscription, select **Create a workspace collection** at the bottom.
+
+5. On the **Workspace Collection Blade**, enter the required information.
    
-   ![](media/power-bi-embedded-get-started/create-workspace-2.png)
-5. Click **Create**.
+   ![Workspace collection creation blade](media/get-started/create-workspace-2.png)
+6. Select **Create**.
 
 The **Workspace Collection** will take a few moments to provision. When completed, you'll be taken to the **Workspace Collection Blade**.
 
-   ![](media/power-bi-embedded-get-started/create-workspace-3.png)
+   ![Workspace collection blade in the Azure portal](media/get-started/create-workspace-3.png)
 
 The **Creation Blade** contains the information you need to call the APIs that create workspaces and deploy content to them.
 
@@ -54,13 +59,13 @@ The **Creation Blade** contains the information you need to call the APIs that c
 
 ## View Power BI API access keys
 
-One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md).
+One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md).
 
-   ![](media/power-bi-embedded-get-started/access-keys.png)
+   ![Access keys within Workspace Collection settings blade in Azure portal](media/get-started/access-keys.png)
 
-You'll'notice that you have two keys.
+You'll notice that you have two keys.
 
-   ![](media/power-bi-embedded-get-started/access-keys-2.png)
+   ![Two keys within Access keys blade](media/get-started/access-keys-2.png)
 
 Copy these keys and store them securely in your application. It's very important that you treat these keys as you would a password, because they'll provide access to all the content in your **Workspace Collection**.
 
@@ -87,31 +92,32 @@ Here are the differences between using **Import** and **DirectQuery**.
 | --- | --- |
 | Tables, columns, *and data* are imported or copied into **Power BI Desktop**. As you work with visualizations, **Power BI Desktop** queries a copy of the data. To see any changes that occurred to the underlying data, you must refresh, or import, a complete, current dataset again. |Only *tables and columns* are imported or copied into **Power BI Desktop**. As you work with visualizations, **Power BI Desktop** queries the underlying data source, which means you're always viewing current data. |
 
-For more about connecting to a data source, see [Connect to a data source](power-bi-embedded-connect-datasource.md).
+For more about connecting to a data source, see [Connect to a data source](connect-datasource.md).
 
 After you save your work in **Power BI Desktop**, a PBIX file is created. This file contains your report. In addition, if you import data the PBIX contains the complete dataset, or if you use **DirectQuery**, the PBIX contains just a dataset schema. You programmatically deploy the PBIX into your workspace using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx).
 
 > [!NOTE]
-> **Power BI Embedded** has additional APIs to change the server and database that your dataset is pointing to and set a service account credential that the dataset will use to connect to your database. See [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) and [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
+> **Power BI Workspace Collections** have additional APIs to change the server and database that your dataset is pointing to and set a service account credential that the dataset will use to connect to your database. See [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) and [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
 
 ## Create Power BI datasets and reports using APIs
 
 ### Datsets
 
-You can create datasets within Power BI Embedded using the REST API. You can then push data into your dataset. This allows you to work with data without the need of Power BI Desktop. For more information, see [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx).
+You can create datasets within Power BI Workspace Collections using the REST API. You can then push data into your dataset. This allows you to work with data without the need of Power BI Desktop. For more information, see [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx).
 
 ### Reports
 
-You can create a report from a dataset directly in your application using the JavaScript API. For more information, see [Create a new report from a dataset in Power BI Embedded](power-bi-embedded-create-report-from-dataset.md).
+You can create a report from a dataset directly in your application using the JavaScript API. For more information, see [Create a new report from a dataset in Power BI Workspace Collections](create-report-from-dataset.md).
 
 ## See Also
 
 [Get started with sample](power-bi-embedded-get-started-sample.md)  
-[Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md)  
 [Embed a report](power-bi-embedded-embed-report.md)  
-[Create a new report from a dataset in Power BI Embedded](power-bi-embedded-create-report-from-dataset.md)
+[Create a new report from a dataset in Power BI Workspace Collections](create-report-from-dataset.md)
 [Save reports](power-bi-embedded-save-reports.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+
 More questions? [Try the Power BI Community](http://community.powerbi.com/)
 

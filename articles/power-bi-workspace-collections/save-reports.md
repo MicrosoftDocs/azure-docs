@@ -1,6 +1,6 @@
 ---
-title: Save reports in Azure Power BI Embedded | Microsoft Docs
-description: Learn how to save reports within Power BI embedded. This requires proper permissions in order to work successfully.
+title: Save reports in Power BI Workspace Collections | Microsoft Docs
+description: Learn how to save reports within Power BI Workspace Collections. This requires proper permissions in order to work successfully.
 services: power-bi-embedded
 documentationcenter: ''
 author: guyinacube
@@ -14,14 +14,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+ms.date: 09/19/2017
 ms.author: asaxton
 ---
-# Save reports in Power BI Embedded
+# Save reports in Power BI Workspace Collections
 
-Learn how to save reports within Power BI embedded. This requires proper permissions in order to work successfully.
+Learn how to save reports within Power BI Workspace Collections. This requires proper permissions in order to work successfully.
 
-Within Power BI Embedded, you can edit existing reports and save them. You can also create a new report and save as a new report to create one.
+> [!IMPORTANT]
+> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+
+Within Power BI Workspace Collections, you can edit existing reports and save them. You can also create a new report and save as a new report to create one.
 
 In order to save a report you first need to create a token for the specific report with the right scopes:
 
@@ -36,7 +39,7 @@ Respectively in order to enable the right save/save as buttons in file menu you 
 * models.Permissions.All
 
 > [!NOTE]
-> Your access token also needs the appropriate scopes. For more information, see [Scopes](power-bi-embedded-app-token-flow.md#scopes).
+> Your access token also needs the appropriate scopes. For more information, see [Scopes](app-token-flow.md#scopes).
 
 ## Embed report in edit mode
 
@@ -125,11 +128,12 @@ var embedConfiguration = {
 
 ## See also
 
-[Get started with sample](power-bi-embedded-get-started-sample.md)  
-[Embed a report](power-bi-embedded-embed-report.md)  
-[Create a new report from a dataset](power-bi-embedded-create-report-from-dataset.md)  
-[Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Get started with sample](get-started-sample.md)  
+[Embed a report](embed-report.md)  
+[Create a new report from a dataset](create-report-from-dataset.md)  
+[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+
 More questions? [Try the Power BI Community](http://community.powerbi.com/)
 
