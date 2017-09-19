@@ -47,8 +47,7 @@ In the sample, this module:
 1. Adds a property with a fake MAC address to the message.
 1. Makes the message available to the next module in the chain.
 
-> [!NOTE]
-> The protocol ingestion module is called **Simulated device** in the source code.
+The protocol ingestion module is **simulated_device.c** in the source code.
 
 ### MAC &lt;-&gt; IoT Hub ID module
 
@@ -62,6 +61,8 @@ In the sample, this module:
 
 The developer sets up a mapping between MAC addresses and IoT Hub identities to associate the simulated devices with IoT Hub device identities. The developer adds the mapping manually as part of the module configuration.
 
+The MAC &lt;-&gt; IoT Hub ID module is **identitymap.c** in the source code. 
+
 ### IoT Hub communication module
 
 The IoT Hub communication module opens a single HTTP connection from the gateway to the IoT Hub. HTTP is one of the three protocols understood by IoT Hub. This module keeps you from having to open a connection for each device by multiplexing connections from all the devices over the one connection. This approach enables a single gateway to connect many devices. 
@@ -71,6 +72,7 @@ In the sample, this module:
 1. Takes messages with an IoT Hub device key property that was assigned by the previous module. 
 1. Sends the message content to IoT Hub using the HTTP protocol. 
 
+The IoT Hub communication module is **iothub.c** in the source code.
 
 ## Before you get started
 
