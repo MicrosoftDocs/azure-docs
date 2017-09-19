@@ -346,7 +346,7 @@ Note the following points:
 
 The **typeProperties** section is different for each transformation activity. To learn about type properties supported for a transformation activity, click the transformation activity in the [Data transformation activities](#data-transformation-activities).
 
-For a complete walkthrough of creating this pipeline, see [Tutorial: transform data using Spark](tutorial-transform-data-using-spark-powershell.md). 
+For a complete walkthrough of creating this pipeline, see [Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md). 
 
 ## Multiple activities in a pipeline
 The previous two sample pipelines have only one activity in them. You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and subsequent activities are not dependent on previous activities, the activities may run in parallel. 
@@ -390,4 +390,4 @@ For example, say you have a scheduler trigger, “Trigger A” that I wish to ki
 See the following tutorials for step-by-step instructions for creating pipelines with activities: 
 
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)
-- [Build a pipeline with a data transformation activity](tutorial-transform-data-using-spark-powershell.md)
+- [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)
