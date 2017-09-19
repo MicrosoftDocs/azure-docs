@@ -33,7 +33,7 @@ Planned maintenance that requires a reboot, is scheduled in waves. Each wave has
 
 - A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications.  
 - Soon after the notification, a self-service window is set. During this window, you can find which of your virtual machines is included in this wave and start maintenance using proactive redeploy. 
-- Following the self-service window, a scheduled maintenance window begins. Azure will schedule and apply the required maintenance to your virtual machine. 
+- Following the self-service window, a scheduled maintenance window begins. At this time, Azure schedules and applies the required maintenance to your virtual machine. 
 
 The goal in having two windows is to give you enough time to start maintenance and reboot your virtual machine while knowing when Azure will automatically start maintenance.
 
@@ -41,7 +41,7 @@ The goal in having two windows is to give you enough time to start maintenance a
 You can use the Azure portal, PowerShell, REST API, and CLI to query for the maintenance windows for your VMs and start self-service maintenance.
 
  > [!NOTE]
- > If you try to start maintenance and fail, Azure marks your VM as **skipped** and will not reboot it during the scheduled maintenance window. Instead, you will be contacted in a later time with a new schedule. 
+ > If you try to start maintenance and fail, Azure marks your VM as **skipped** and does not reboot it during the scheduled maintenance window. Instead, you are contacted in a later time with a new schedule. 
 
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
@@ -68,7 +68,7 @@ The following properties are returned under MaintenanceRedeployStatus:
 
 
 
-You can also get the maintenance status for all Vms in a resource group by using [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) and not specifying a VM.
+You can also get the maintenance status for all VMs in a resource group by using [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) and not specifying a VM.
  
 ```powershell
 Get-AzureRmVM -ResourceGroupName rgName --Status
