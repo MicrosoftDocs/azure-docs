@@ -231,8 +231,6 @@
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
-    - name: Azure Cosmos DB ConnectedService in VisualStudio 
-      href: connected-service.md
   - name: Manage
     items:
     - name: Cost-effective reads and writes
@@ -249,6 +247,8 @@
       href: monitor-accounts.md
     - name: Manage keys and consistency
       href: manage-account.md
+    - name: Azure Cosmos DB ConnectedService in VisualStudio 
+      href: connected-service.md
     - name: Security
       items:
       - name: Encryption at rest

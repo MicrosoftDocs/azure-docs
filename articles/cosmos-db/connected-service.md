@@ -34,7 +34,9 @@ Make sure you have the following items:
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
     * if you want to use a local environment for development purposes, you can use the [Azure Cosmos DB Emulator](local-emulator.md). The environment emulates the Azure Cosmos DB service.
 * [Visual Studio](http://www.visualstudio.com/).
-* Install the latest Azure Cosmos DB ConnectedService bits. You can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858709)
+* Install the latest Azure Cosmos DB ConnectedService bits. You can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858709). Or We can download the bits from Visual Studio. Open **Visual Studio** in your computer. On the **Tools** menu, select **Extensions and update...**, and then choose **Online** / **Visual Studio Marketplace**. Enter **Connected Service for Azure Cosmos DB** to search the bits.
+
+ ![Screen shot of Connected Service download bits.png](./media/connected-service/connected-service-downloadbits.png)
 
 ## Create an Azure Cosmos DB account
 
@@ -116,9 +118,12 @@ In this document, you've learned following items:
 > * Open Azure Cosmos DB Explorer
 > * Use Data Explorer
 
-You can now develop with the DocumentDB API in .NET.
 
-> [!div class="nextstepaction"]
-> [develop with the DocumentDB API in .NET.](tutorial-develop-documentdb-dotnet.md)
+* Develop with the DocumentDB API in .NET [Develop with the DocumentDB API in .NET](tutorial-develop-documentdb-dotnet.md).
+* DocumentDB API getting started tutorial [Azure Cosmos DB: DocumentDB API getting started tutorial](documentdb-get-started.md).
+* Want to use documentdb and mongodb in storage explorer?See [Use documentdb and mongodb in storage explorer](tutorial-documentdb-and-mongodb-in-storage-explorer.md).
+* Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md).
+* Learn how to [Monitor an Azure Cosmos DB account](monitor-accounts.md).
+* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](introduction.md).
 
 
