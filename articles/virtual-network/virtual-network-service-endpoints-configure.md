@@ -25,7 +25,8 @@ This article provides steps to enable and disable service endpoints. Once endpoi
 
 Service endpoints can be configured using [Azure portal](#Azure%20portal), [Azure PowerShell](#Azure%20Powershell), [Azure command-line interface](#cli), or an Azure Resource Manager [template](#template).
 
->[!NOTE] During preview, Vnet service endpoints feature is supported for specific regions. For the list of supported regions, refer to  the [Azure Virtual Network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) page.
+>[!NOTE]
+During preview, Vnet service endpoints feature is supported for specific regions. For the list of supported regions, refer to  the [Azure Virtual Network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) page.
 
 ## Service endpoint configuration overview
 
@@ -39,7 +40,8 @@ Service endpoints can be configured using [Azure portal](#Azure%20portal), [Azur
 
 - Location is configured automatically for an endpoint. By default, service endpoints are configured to the VNet's region. For Azure Storage, to support regional failover scenarios, endpoints are automatically configured to [Azure paired regions.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)
 
-  >[!NOTE] Depending on the size of VNet/subnet, enabling service endpoint may take some time to finish. Ensure no critical tasks are in progress when enabling service endpoints. Service endpoints switch routes on every NIC in your subnet and may terminate any open TCP connections. 
+  >[!NOTE]
+  Depending on the size of VNet/subnet, enabling service endpoint may take some time to finish. Ensure no critical tasks are in progress when enabling service endpoints. Service endpoints switch routes on every NIC in your subnet and may terminate any open TCP connections. 
 
 - Service endpoint call returns “succeeded” after traffic flows to the service on all NICs in the subnet have been switched to Vnet private IP addresses.
 
@@ -47,7 +49,8 @@ Service endpoints can be configured using [Azure portal](#Azure%20portal), [Azur
 
    To validate if service endpoint is configured correctly, "effective routes" on any NIC in the subnet shows a new "default" route with nextHopType: VirtualNetworkServiceEndpoint, per service, per region. Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
 
-   >[!NOTE] Effective routes can only be viewed if you have one or more network interfaces (NICs) configured and associated with a running virtual machine in the subnet.
+   >[!NOTE]
+   Effective routes can only be viewed if you have one or more network interfaces (NICs) configured and associated with a running virtual machine in the subnet.
 
 ## Azure Portal
 

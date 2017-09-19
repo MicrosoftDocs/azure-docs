@@ -65,7 +65,7 @@ You can deploy an [internal Azure Load balancer](../load-balancer/load-balancer-
 
 ## Service endpoints for Azure services
 
-Some Azure services can't be deployed in virtual networks. You can restrict access to some of the service resources to only specific virtual network subnets, if you choose, by enabling a virtual network service endpoint. Learn more about [virtual network service endpoints](virtual-network-service-endpoints.md).
+Some Azure services can't be deployed in virtual networks. You can restrict access to some of the service resources to only specific virtual network subnets, if you choose, by enabling a virtual network service endpoint. Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md).
 
 Currently, service endpoints are supported for below services: 
 - Azure Storage:

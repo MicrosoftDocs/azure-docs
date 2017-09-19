@@ -30,7 +30,8 @@ __Azure SQL Database__: WestCentralUS, WestUS2, EastUS.
 
 For most up-to-date notifications for the preview, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
->[!NOTE] During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!NOTE]
+During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Key Benefits
 
@@ -53,7 +54,7 @@ Service endpoints provide following benefits:
 ## Limitations
 
 - The feature is available only to VNets deployed using Azure Resource Manager deployment model.
-- Endpoints are enabled on subnets configured in Azure VNets. Endpoints cannot be used for traffic from your on-premises to Azure services. For more details, see ["Securing Azure service access from on-premises"](#Securing%20Azure%20services%20to%20Virtual-Networks)
+- Endpoints are enabled on subnets configured in Azure VNets. Endpoints cannot be used for traffic from your on-premises to Azure services. For more details, see ["Securing Azure service access from on-premises"](#Securing%20Azure%20services%20to%20Virtual%20Networks)
 - Service endpoint applies only to Azure service traffic within VNet’s region. For Azure Storage, to support RA-GRS and GRS traffic, this also extends to include paired region where the VNet is deployed to. Learn more about [Azure paired regions.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)
 
 ## Securing Azure services to Virtual Networks
@@ -82,7 +83,7 @@ Service endpoints provide following benefits:
 
 - On enabling a service endpoint, the source IP addresses of virtual machines in the subnet switch from using public IPv4 addresses to using their private IPv4 address, when communicating with the service from that subnet.
   - Any existing open TCP connections to the service will be closed during this switch. Ensure that no critical tasks are running when enabling or disabling a service endpoint to a service for a subnet. Also, ensure that your applications can automatically connect to Azure services after this IP address switch.
-  - IP address switch only impacts service traffic from your VNet. There is no impact to any other traffic addressed to/from public IPV4 addresses assigned to your VMs. 
+  - IP address switch only impacts service traffic from your VNet. There is no impact to any other traffic addressed to/from public IPV4 addresses assigned to your VMs.
   - For Azure services, if you have existing firewall rules using Azure public IPs, these rules stop working with the switch to VNet private addresses.
 - With service endpoints, DNS entries for Azure services remain as is today and continue to resolve to IP addresses assigned to the Azure service.
 - Network security groups (NSGs) with service endpoints:
@@ -111,7 +112,8 @@ Once service endpoints are configured to a specific service, validate that the s
 
 - __Effective routes__ on any NIC in subnet show a more specific “default” route to address prefix range of that service. The route has a nextHopType as "VirtualNetworkServiceEndpoint". This route indicates that a more direct connection to the service is in effect, compared to any forced-tunneling routes.
 
-[!NOTE] Service endpoint route overrides BGP or UDR routes for the address prefix match, as the Azure service. Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+>[!NOTE]
+Service endpoint route overrides BGP or UDR routes for the address prefix match, as the Azure service. Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
 
 ### Provisioning
 
