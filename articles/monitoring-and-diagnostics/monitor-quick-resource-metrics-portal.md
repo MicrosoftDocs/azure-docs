@@ -77,7 +77,7 @@ Other quick starts in this collection build upon this quick start. If you plan t
 In this quick start, you’ve learned how to plot and visualize metrics for your resources. For more information on metrics click through to our overview on metrics.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor metrics overview](./monitor-overview-metrics.md)
+> [Azure Monitor metrics overview](./monitoring-overview-metrics.md)
 
 To learn how to create an alert on resource metrics, continue to our quickstart for metric alerts.
 
