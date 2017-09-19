@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 09/25/2017
 ms.author: johnkem
 ---
 
@@ -38,6 +38,7 @@ Metrics have the following characteristics:
 * All metrics have **one-minute frequency**. You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
 * Metrics are **available immediately**. You don't need to opt in or set up additional diagnostics.
 * You can access **30 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
+* Some metrics can have name-value pair attributes called **dimensions**. These enable you to further segment and explore a metric in a more meaningful way.
 
 You can also:
 
@@ -80,14 +81,16 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 >
 >
 
+Azure Monitor also has a new metrics charting experience available in preview. This experience enables users to overlay metrics from multiple resources on one chart. Users can also plot, segment, and filter multi-dimensional metrics using this new metric charting experience. To learn more [click here](monitoring-metric-charts.md)
+
 ## Access metrics via the REST API
 Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs that help you discover and access metrics:
 
-* Use the [Azure Monitor Metric definitions REST API](https://msdn.microsoft.com/library/mt743621.aspx) to access the list of metrics that are available for a service.
-* Use the [Azure Monitor Metrics REST API](https://msdn.microsoft.com/library/mt743622.aspx) to access the actual metrics data.
+* Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) to access the list of metrics, and any dimensions, that are available for a service.
+* Use the [Azure Monitor Metrics REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) to segment, filter, and access the actual metrics data.
 
 > [!NOTE]
-> This article covers the metrics via the [new API for metrics](https://msdn.microsoft.com/library/dn931930.aspx) for Azure resources. The API version for the new metric definitions API is 2016-03-01 and the version for metrics API is 2016-09-01. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
+> This article covers the metrics via the [new API for metrics](https://docs.microsoft.com/en-us/rest/api/monitor/) for Azure resources. The API version for the new metric definitions and metrics APIs is 2017-05-01-preview. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
 >
 >
 
@@ -104,9 +107,16 @@ You can configure this via Resource Manager templates, [PowerShell](insights-pow
 To receive notifications or take automated actions on metric data, you can configure alert rules or Autoscale settings.
 
 ### Configure alert rules
-You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold. They can then notify you via email or fire a webhook that can be used to run any custom script. You can also use the webhook to configure third-party product integrations.
+You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold. There are two metric alerting capabilities offered by Azure Monitor.
+
+Metric alerts: They can then notify you via email or fire a webhook that can be used to run any custom script. You can also use the webhook to configure third-party product integrations.
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
+
+Near real time alerts (preview): These have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md).
+
+ ![Near real time metric alerts in Azure Monitor](https://aka.ms/azuremonitor/near-real-time-alerts)
+
 
 ### Autoscale your Azure resources
 Some Azure resources support the scaling out or in of multiple instances to handle your workloads. Autoscale applies to App Service (Web Apps), virtual machine scale sets, and classic Azure Cloud Services. You can configure Autoscale rules to scale out or in when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
