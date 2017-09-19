@@ -472,11 +472,11 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
    Here is the sample output: 
 
    ```json
-   PipelineName      : IncrementalCopyPipeline
-   ResourceGroupName : ADF
-   DataFactoryName   : incrementalloadingADF
-   Properties        :
-   ProvisioningState :
+    PipelineName      : IncrementalCopyPipeline
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    Activities        : {LookupWaterMarkActivity, LookupMaxValuefromSourceActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
+    Parameters        :
    ```
  
 ## Run the pipeline

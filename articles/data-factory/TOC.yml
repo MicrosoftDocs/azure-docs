@@ -33,9 +33,11 @@
     href: tutorial-transform-data-using-spark-powershell.md
   - name: 4 - Control flow
     href: tutorial-control-flow.md    
-  - name: 5 - Bulk and incremental copy
+  - name: 5 - Bulk copy
     href: tutorial-bulk-incremental-copy.md
-  - name: 6 - Deploy SSIS packages
+  - name: 6 - Copy data incrementally
+    href: tutorial-incremental-copy-powershell.md   
+  - name: 7 - Deploy SSIS packages
     href: tutorial-deploy-ssis-packages.md    
 - name: Samples
   items:
